@@ -43,21 +43,21 @@ install the toolchain and test changes locally before submitting.
 
 1. Files 
 
-  * Put new files in an appropriate sub-folder
-  * Use descriptive names. In particular, images should describe what the contain.
-  * User lower case and separate words using underscores "_"
+    * Put new files in an appropriate sub-folder
+    * Use descriptive names. In particular, images should describe what the contain.
+    * User lower case and separate words using underscores "_"
   
 2. Images
 
-  * Use the smallest size and lowest resolution that makes the image still useful.
+    * Use the smallest size and lowest resolution that makes the image still useful.
   
 3. Content:
 
-  * Use "style" (bold, emphasis, etc) consistently. Bold for button presses and menu definitions. 
+    * Use "style" (bold, emphasis, etc) consistently. Bold for button presses and menu definitions. 
     Emphasis for tool names. Otherwise use as little as possible.
-  * Headings and page titles should use "First Letter Capitalisation"
-  * The page title should be a first level heading (#). All other headings should be h2 (##) or lower.
-  * Don't add any style to headings.
+    * Headings and page titles should use "First Letter Capitalisation"
+    * The page title should be a first level heading (#). All other headings should be h2 (##) or lower.
+    * Don't add any style to headings.
   
 
 ### Translation & Localisation
