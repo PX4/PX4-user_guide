@@ -1,0 +1,33 @@
+{   
+    "gitbook": ">= 3.2.2",
+    "title": "PX4 User Guide",
+    "plugins": [
+        "youtube",
+        "richquotes",
+        "language-picker",
+        "collapsible-menu",
+        "page-toc-button",
+        "page-footer-ex",
+        "github"
+    ],
+    "pluginsConfig": {       
+        "page-footer-ex":{
+            "copyright":"© PX4 Dev Team. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>",
+            "update_label":"Updated: ",
+            "update_format":"YYYY-MM-DD HH:mm:ss"
+        },
+        "github": {
+            "url": "https://github.com/hamishwillee/px4_user_guide"
+        },
+        "richquotes":
+        {
+            "tip": {
+                "alert": "success",
+                "picto": "fa-thumbs-o-up"
+            }
+        }
+    } 
+    
+    
+}
+
