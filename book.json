@@ -10,14 +10,15 @@
         "page-footer-ex",
         "github"
     ],
-    "pluginsConfig": {       
+    "pluginsConfig": {
+
         "page-footer-ex":{
             "copyright":"© PX4 Dev Team. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>",
             "update_label":"Updated: ",
             "update_format":"YYYY-MM-DD HH:mm:ss"
         },
         "github": {
-            "url": "https://github.com/hamishwillee/px4_user_guide"
+            "url": "https://github.com/PX4/px4_user_guide"
         },
         "richquotes":
         {
