@@ -112,7 +112,7 @@ AUX  5   | Throttle
   tab, last item in the left menu)
   
 For further instructions on wiring and configurations please see: 
-[Standard VTOL Wiring and Configuration](../config/standard_configuration_vtol_quad.md)
+[Standard VTOL Wiring and Configuration](../config/vtol_quad_configuration.md)
 
 
 ## Configuration
