@@ -58,7 +58,7 @@ AUX 4  | Rudder
 AUX 5  | Throttle
 
 For further instructions on wiring and configurations please see: 
-[Standard VTOL Wiring and Configuration](../config/standard_configuration_vtol_quad.md). <!-- replace with Pixhawk Wiring Quickstart -->
+[Standard VTOL Wiring and Configuration](../config/vtol_quad_configuration.md). <!-- replace with Pixhawk Wiring Quickstart -->
 
 ## Airframe Configuration
 

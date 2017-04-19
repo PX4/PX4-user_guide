@@ -1,6 +1,6 @@
 # Pixhawk Mini Wiring Quick Start
 
-This quick start guide shows how power the [Pixhawk Mini](pixhawk_mini.md) and connect its most important peripherals
+This quick start guide shows how power the [Pixhawk Mini](../flight_controller/pixhawk_mini.md) and connect its most important peripherals
 (including output connections for copter, plane, and VTOL vehicles).
 
 > **Warning** Under construction.

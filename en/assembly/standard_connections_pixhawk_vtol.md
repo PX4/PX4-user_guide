@@ -12,7 +12,7 @@ For airframe-specific documentation and build instructions see [VTOL Framebuilds
 
 ## QuadPlane
 
-The connections for a QuadPlane VTOL are listed below. For airframe specific documentation and build instructions see [VTOL Framebuilds](./framebuild_vtol/README.md).
+The connections for a QuadPlane VTOL are listed below. For airframe specific documentation and build instructions see [VTOL Framebuilds](../framebuild_vtol/README.md).
 
 Output | Connection
 --- | ---

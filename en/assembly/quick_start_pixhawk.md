@@ -13,7 +13,7 @@ The image below shows standard Pixhawk connections (excepting the motor and serv
 
 ![Pixhawk Wiring Overview](../../images/pixhawk_wiring_overview.jpg)
  
-> **Note** More detailed wiring information is shown in this [QuadCopter Pixhawk Wiring Infographic](../../images/../../images/pixhawk_infographic2.jpg).
+> **Note** More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
 
 
 ## Mount and Orient Controller
@@ -176,6 +176,9 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
+## Detailed Wiring Infographic (Copter)
+
+![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg)
 
 ## Further information
 

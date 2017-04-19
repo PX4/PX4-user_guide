@@ -18,7 +18,7 @@ optimized for the PX4 flight stack.
 ![Pixhawk Mini](../../images/pixhawk_mini_hero.jpg)
 
 The flight controller (autopilot) can be purchased from the [3DR
-Store](https://store.3dr.com/products/3dr-pixhawk). Wiring information is available in the [Quick Start](pixhawk_mini_wiring_quick_start.md).
+Store](https://store.3dr.com/products/3dr-pixhawk). Wiring information is available in the [Quick Start](../assembly/quick_start_pixhawk_mini.md).
 
 ## Specifications
 
@@ -185,5 +185,5 @@ The following links include additional information:
 - [Pixhawk Mini Quick Start Guide (3DR)](https://3drobotics.zendesk.com/hc/en-us/article_attachments/115000349564/PixhawkMiniQuickStartGuide.pdf)
 - [Pixhawk Mini Announcement Blog (Diydrones)](http://diydrones.com/profiles/blogs/new-3dr-autopilot-pixhawk-mini-2)
 - [Buy here (3DR Store)](https://store.3dr.com/products/3dr-pixhawk)
-- [Wiring Quick Start](pixhawk_mini_wiring_quick_start.md)
+- [Wiring Quick Start](../assembly/quick_start_pixhawk_mini.md)
 
