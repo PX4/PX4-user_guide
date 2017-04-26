@@ -5,11 +5,11 @@ The RTL flight mode causes the vehicle to return to its home position where it m
 The specific behaviour for each vehicle type is described below.
 
 > **Note** 
-  * This mode requires GPS.
-  * This mode is automatic (RC control disabled except to change mode).
+>  * This mode requires GPS.
+>  * This mode is automatic (RC control disabled except to change mode).
 
 
-## Multi-copter (MC)
+## Multi-Copter (MC)
 
 A copter/multi-rotor will first ascend to the `RTL_RETURN_ALT` altitude and then fly to the home position in a straight line. When it arrives it will rapidly descend to the `RTL_DESCEND_ALT` altitude. It will then hover for the period defined in `RTL_LAND_DELAY` before landing (by default this period is short that the vehicle will simply slow and then land immediately).
 
