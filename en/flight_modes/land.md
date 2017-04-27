@@ -5,20 +5,25 @@ The LAND flight mode causes the vehicle to land at the position where the mode w
 The specific behaviour for each vehicle type is described below.
 
 > **Note** 
->  * This mode is automatic (RC control disabled except to change mode).
+>  * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes).
 
 ## Multi-Copter (MC)
 
-The vehicle will land at the current location when LAND mode is engaged.
+The vehicle will land at the location at which the mode was engaged. The vehicle descends at the rate specified in `MPC_LAND_SPEED` until it hits the ground.
 
-The vehicle descends at the rate specified in [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED) until it hits the ground. The rate should be kept fairly low as the actual ground condition is not known.
+Landing is affected by the following parameters:
 
+Parameter | Description
+--- | ---
+[MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED) | The rate of descent during landing. This should be kept fairly low as the ground conditions are not known.
 
 ## Fixed Wing (FW)
 
-The vehicle turns and lands at the location at which the mode was engaged. The vehicle tries to land at the home altitude and will spiral down if too high.
+The vehicle turns and lands at the location at which the mode was engaged. 
 
-FW landing is affected by the following parameters:
+> **Note** The vehicle doesn't necessarily know where the ground is.
+
+Landing is affected by the following parameters:
 
 Parameter | Description
 --- | ---
