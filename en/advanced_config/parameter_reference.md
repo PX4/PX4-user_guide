@@ -380,14 +380,16 @@ The module where these parameters are defined is: *src/drivers/camera_trigger*.
  <td style="vertical-align: top;"><p>Camera trigger Interface</p><p><strong>Comment:</strong> Selects the trigger interface</p> <strong>Values:</strong><ul>
 <li><strong>1:</strong> GPIO</li> 
 
-<li><strong>2:</strong> Seagull MAP2 (PWM)</li> 
+<li><strong>2:</strong> Seagull MAP2 (over PWM)</li> 
 
 <li><strong>3:</strong> MAVLink (forward via MAV_CMD_IMAGE_START_CAPTURE)</li> 
+
+<li><strong>4:</strong> Generic PWM (IR trigger, servo)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
  </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">2 </td>
+ <td style="vertical-align: top;">4 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -413,7 +415,7 @@ The module where these parameters are defined is: *src/drivers/camera_trigger*.
  <td style="vertical-align: top;"><strong id="TRIG_ACT_TIME">TRIG_ACT_TIME</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Camera trigger activation time</p><p><strong>Comment:</strong> This parameter sets the time the trigger needs to pulled high or low.</p>    </td>
  <td style="vertical-align: top;">0.1 > 3000 </td>
- <td style="vertical-align: top;">0.5 </td>
+ <td style="vertical-align: top;">40.0 </td>
  <td style="vertical-align: top;">ms</td>
 </tr>
 <tr>
@@ -605,13 +607,6 @@ The module where these parameters are defined is: *src/modules/commander*.
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="COM_AUTOS_PAR">COM_AUTOS_PAR</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Autosaving of params</p><p><strong>Comment:</strong> If not equal to zero the commander will automatically save parameters to persistent storage once changed. Default is on, as the interoperability with currently deployed GCS solutions depends on parameters being sticky. Developers can default it to off.</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="COM_RC_IN_MODE">COM_RC_IN_MODE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>RC control input mode</p><p><strong>Comment:</strong> The default value of 0 requires a valid RC transmitter setup. Setting this to 1 allows joystick control and disables RC input handling and the associated checks. A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> RC Transmitter</li> 
@@ -641,13 +636,8 @@ The module where these parameters are defined is: *src/modules/commander*.
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_WO_GPS">COM_ARM_WO_GPS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Allow arming without GPS</p><p><strong>Comment:</strong> The default allows to arm the vehicle without GPS signal.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Don't allow arming without GPS</li> 
-
-<li><strong>1:</strong> Allow arming without GPS</li> 
-</ul>
-   </td>
- <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;"><p>Allow arming without GPS</p><p><strong>Comment:</strong> The default allows to arm the vehicle without GPS signal.</p>    </td>
+ <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -743,6 +733,20 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>    </td>
  <td style="vertical-align: top;">0.15 </td>
  <td style="vertical-align: top;">rad/s</td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_RC_OVERRIDE">COM_RC_OVERRIDE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable RC stick override of auto modes</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_ARM_MIS_REQ">COM_ARM_MIS_REQ</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Require valid mission to arm</p><p><strong>Comment:</strong> The default allows to arm the vehicle without a valid mission.</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
 </tbody></table>
 
 ## Data Link Loss
@@ -756,6 +760,27 @@ The module where these parameters are defined is: *src/modules/navigator*.
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_AH_LAT">NAV_AH_LAT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airfield home Lat</p><p><strong>Comment:</strong> Latitude of airfield home waypoint</p>    </td>
+ <td style="vertical-align: top;">-900000000 > 900000000 </td>
+ <td style="vertical-align: top;">-265847810 </td>
+ <td style="vertical-align: top;">deg * 1e7</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_AH_LON">NAV_AH_LON</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airfield home Lon</p><p><strong>Comment:</strong> Longitude of airfield home waypoint</p>    </td>
+ <td style="vertical-align: top;">-1800000000 > 1800000000 </td>
+ <td style="vertical-align: top;">1518423250 </td>
+ <td style="vertical-align: top;">deg * 1e7</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_AH_ALT">NAV_AH_ALT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airfield home alt</p><p><strong>Comment:</strong> Altitude of airfield home waypoint</p>    </td>
+ <td style="vertical-align: top;">-50 > ? (0.5)</td>
+ <td style="vertical-align: top;">600.0 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_DLL_CH_T">NAV_DLL_CH_T</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Comms hold wait time</p><p><strong>Comment:</strong> The amount of time in seconds the system should wait at the comms hold waypoint</p>    </td>
@@ -804,27 +829,6 @@ The module where these parameters are defined is: *src/modules/navigator*.
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_AH_LAT">NAV_AH_LAT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airfield home Lat</p><p><strong>Comment:</strong> Latitude of airfield home waypoint</p>    </td>
- <td style="vertical-align: top;">-900000000 > 900000000 </td>
- <td style="vertical-align: top;">-265847810 </td>
- <td style="vertical-align: top;">deg * 1e7</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_AH_LON">NAV_AH_LON</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airfield home Lon</p><p><strong>Comment:</strong> Longitude of airfield home waypoint</p>    </td>
- <td style="vertical-align: top;">-1800000000 > 1800000000 </td>
- <td style="vertical-align: top;">1518423250 </td>
- <td style="vertical-align: top;">deg * 1e7</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_AH_ALT">NAV_AH_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airfield home alt</p><p><strong>Comment:</strong> Altitude of airfield home waypoint</p>    </td>
- <td style="vertical-align: top;">-50 > ? (0.5)</td>
- <td style="vertical-align: top;">600.0 </td>
- <td style="vertical-align: top;">m</td>
 </tr>
 </tbody></table>
 
@@ -1921,6 +1925,54 @@ The module where these parameters are defined is: *src/modules/fw_pos_control_l1
 </tr>
 </tbody></table>
 
+## FW Launch detection
+
+
+The module where these parameters are defined is: *src/lib/launchdetection*.
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="LAUN_ALL_ON">LAUN_ALL_ON</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Launch detection</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LAUN_CAT_A">LAUN_CAT_A</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Catapult accelerometer threshold</p><p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>    </td>
+ <td style="vertical-align: top;">0 > ? (0.5)</td>
+ <td style="vertical-align: top;">30.0 </td>
+ <td style="vertical-align: top;">m/s/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LAUN_CAT_T">LAUN_CAT_T</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Catapult time threshold</p><p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 5.0 (0.05)</td>
+ <td style="vertical-align: top;">0.05 </td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LAUN_CAT_MDEL">LAUN_CAT_MDEL</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Motor delay</p><p><strong>Comment:</strong> Delay between starting attitude control and powering up the throttle (giving throttle control to the controller) Before this timespan is up the throttle will be set to FW_THR_IDLE, set to 0 to deactivate</p>    </td>
+ <td style="vertical-align: top;">0.0 > 10.0 (0.5)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LAUN_CAT_PMAX">LAUN_CAT_PMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum pitch before the throttle is powered up (during motor delay phase)</p><p><strong>Comment:</strong> This is an extra limit for the maximum pitch which is imposed in the phase before the throttle turns on. This allows to limit the maximum pitch angle during a bungee launch (make the launch less steep).</p>    </td>
+ <td style="vertical-align: top;">0.0 > 45.0 (0.5)</td>
+ <td style="vertical-align: top;">30.0 </td>
+ <td style="vertical-align: top;">deg</td>
+</tr>
+</tbody></table>
+
 ## FW TECS
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -2303,7 +2355,7 @@ The module where these parameters are defined is: *src/modules/land_detector*.
  <td style="vertical-align: top;"><strong id="LNDMC_Z_VEL_MAX">LNDMC_Z_VEL_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Multicopter max climb rate</p><p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state (m/s up and down)</p>    </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.70 </td>
+ <td style="vertical-align: top;">0.50 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
@@ -2406,54 +2458,6 @@ The module where these parameters are defined is: *src/modules/land_detector*.
 </tr>
 </tbody></table>
 
-## Launch detection
-
-
-The module where these parameters are defined is: *src/lib/launchdetection*.
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="LAUN_ALL_ON">LAUN_ALL_ON</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Launch detection</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="LAUN_CAT_A">LAUN_CAT_A</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Catapult accelerometer threshold</p><p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>    </td>
- <td style="vertical-align: top;">0 > ? (0.5)</td>
- <td style="vertical-align: top;">30.0 </td>
- <td style="vertical-align: top;">m/s/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="LAUN_CAT_T">LAUN_CAT_T</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Catapult time threshold</p><p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>    </td>
- <td style="vertical-align: top;">0.0 > 5.0 (0.05)</td>
- <td style="vertical-align: top;">0.05 </td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="LAUN_CAT_MDEL">LAUN_CAT_MDEL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Motor delay</p><p><strong>Comment:</strong> Delay between starting attitude control and powering up the throttle (giving throttle control to the controller) Before this timespan is up the throttle will be set to FW_THR_IDLE, set to 0 to deactivate</p>    </td>
- <td style="vertical-align: top;">0.0 > 10.0 (0.5)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="LAUN_CAT_PMAX">LAUN_CAT_PMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum pitch before the throttle is powered up (during motor delay phase)</p><p><strong>Comment:</strong> This is an extra limit for the maximum pitch which is imposed in the phase before the throttle turns on. This allows to limit the maximum pitch angle during a bungee launch (make the launch less steep).</p>    </td>
- <td style="vertical-align: top;">0.0 > 45.0 (0.5)</td>
- <td style="vertical-align: top;">30.0 </td>
- <td style="vertical-align: top;">deg</td>
-</tr>
-</tbody></table>
-
 ## Local Position Estimator
 
 
@@ -2533,14 +2537,14 @@ The module where these parameters are defined is: *src/modules/local_position_es
  <td style="vertical-align: top;"><p>Accelerometer xy noise density</p><p><strong>Comment:</strong> Data sheet noise density = 150ug/sqrt(Hz) = 0.0015 m/s^2/sqrt(Hz) Larger than data sheet to account for tilt error.</p>    </td>
  <td style="vertical-align: top;">0.00001 > 2 </td>
  <td style="vertical-align: top;">0.012 </td>
- <td style="vertical-align: top;">m/s^2/srqt(Hz)</td>
+ <td style="vertical-align: top;">m/s^2/sqrt(Hz)</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_ACC_Z">LPE_ACC_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Accelerometer z noise density</p><p><strong>Comment:</strong> Data sheet noise density = 150ug/sqrt(Hz) = 0.0015 m/s^2/sqrt(Hz)</p>    </td>
  <td style="vertical-align: top;">0.00001 > 2 </td>
  <td style="vertical-align: top;">0.02 </td>
- <td style="vertical-align: top;">m/s^2/srqt(Hz)</td>
+ <td style="vertical-align: top;">m/s^2/sqrt(Hz)</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_BAR_Z">LPE_BAR_Z</strong> (FLOAT)</td>
@@ -2973,6 +2977,92 @@ The module where these parameters are defined is: *src/platforms/qurt/fc_addon/m
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Loiter radius (FW only)</p><p><strong>Comment:</strong> Default value of loiter radius for missions, loiter, RTL, etc. (fixedwing only).</p>    <p><b>Module:</b> src/modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">25 > 1000 (0.5)</td>
+ <td style="vertical-align: top;">50.0 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_ACC_RAD">NAV_ACC_RAD</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Acceptance Radius</p><p><strong>Comment:</strong> Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the L1 turning distance is used for horizontal acceptance.</p>    <p><b>Module:</b> src/modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
+ <td style="vertical-align: top;">10.0 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_FW_ALT_RAD">NAV_FW_ALT_RAD</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>FW Altitude Acceptance Radius</p><p><strong>Comment:</strong> Acceptance radius for fixedwing altitude.</p>    <p><b>Module:</b> src/modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
+ <td style="vertical-align: top;">10.0 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_MC_ALT_RAD">NAV_MC_ALT_RAD</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>MC Altitude Acceptance Radius</p><p><strong>Comment:</strong> Acceptance radius for multicopter altitude.</p>    <p><b>Module:</b> src/modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
+ <td style="vertical-align: top;">0.8 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set data link loss failsafe mode</p><p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Loiter</li> 
+
+<li><strong>2:</strong> Return to Land</li> 
+
+<li><strong>3:</strong> Land at current position</li> 
+
+<li><strong>4:</strong> Data Link Auto Recovery (CASA Outback Challenge rules)</li> 
+
+<li><strong>5:</strong> Terminate</li> 
+
+<li><strong>6:</strong> Lockdown</li> 
+</ul>
+   <p><b>Module:</b> src/modules/navigator</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_RCL_ACT">NAV_RCL_ACT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set RC loss failsafe mode</p><p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Loiter</li> 
+
+<li><strong>2:</strong> Return to Land</li> 
+
+<li><strong>3:</strong> Land at current position</li> 
+
+<li><strong>4:</strong> RC Auto Recovery (CASA Outback Challenge rules)</li> 
+
+<li><strong>5:</strong> Terminate</li> 
+
+<li><strong>6:</strong> Lockdown</li> 
+</ul>
+   <p><b>Module:</b> src/modules/navigator</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">2 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_FORCE_VT">NAV_FORCE_VT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Force VTOL mode takeoff and land</p>    <p><b>Module:</b> src/modules/navigator</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Take-off altitude</p><p><strong>Comment:</strong> This is the minimum altitude the system will take off to.</p>    <p><b>Module:</b> src/modules/navigator</p>
 </td>
@@ -2998,7 +3088,7 @@ The module where these parameters are defined is: *src/platforms/qurt/fc_addon/m
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximal horizontal distance from home to first waypoint</p><p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIS_1WP from the current position.</p>    <p><b>Module:</b> src/modules/navigator</p>
+ <td style="vertical-align: top;"><p>Maximal horizontal distance from home to first waypoint</p><p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIS_1WP from the home position.</p>    <p><b>Module:</b> src/modules/navigator</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 (0.5)</td>
  <td style="vertical-align: top;">900 </td>
@@ -3074,92 +3164,6 @@ The module where these parameters are defined is: *src/platforms/qurt/fc_addon/m
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Loiter radius (FW only)</p><p><strong>Comment:</strong> Default value of loiter radius for missions, loiter, RTL, etc. (fixedwing only).</p>    <p><b>Module:</b> src/modules/navigator</p>
-</td>
- <td style="vertical-align: top;">25 > 1000 (0.5)</td>
- <td style="vertical-align: top;">50.0 </td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_ACC_RAD">NAV_ACC_RAD</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Acceptance Radius</p><p><strong>Comment:</strong> Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the L1 turning distance is used for horizontal acceptance.</p>    <p><b>Module:</b> src/modules/navigator</p>
-</td>
- <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
- <td style="vertical-align: top;">10.0 </td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_FW_ALT_RAD">NAV_FW_ALT_RAD</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>FW Altitude Acceptance Radius</p><p><strong>Comment:</strong> Acceptance radius for fixedwing altitude.</p>    <p><b>Module:</b> src/modules/navigator</p>
-</td>
- <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
- <td style="vertical-align: top;">10.0 </td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_MC_ALT_RAD">NAV_MC_ALT_RAD</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>MC Altitude Acceptance Radius</p><p><strong>Comment:</strong> Acceptance radius for multicopter altitude.</p>    <p><b>Module:</b> src/modules/navigator</p>
-</td>
- <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
- <td style="vertical-align: top;">3.0 </td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set data link loss failsafe mode</p><p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>1:</strong> Loiter</li> 
-
-<li><strong>2:</strong> Return to Land</li> 
-
-<li><strong>3:</strong> Land at current position</li> 
-
-<li><strong>4:</strong> Data Link Auto Recovery (CASA Outback Challenge rules)</li> 
-
-<li><strong>5:</strong> Terminate</li> 
-
-<li><strong>6:</strong> Lockdown</li> 
-</ul>
-   <p><b>Module:</b> src/modules/navigator</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_RCL_ACT">NAV_RCL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set RC loss failsafe mode</p><p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>1:</strong> Loiter</li> 
-
-<li><strong>2:</strong> Return to Land</li> 
-
-<li><strong>3:</strong> Land at current position</li> 
-
-<li><strong>4:</strong> RC Auto Recovery (CASA Outback Challenge rules)</li> 
-
-<li><strong>5:</strong> Terminate</li> 
-
-<li><strong>6:</strong> Lockdown</li> 
-</ul>
-   <p><b>Module:</b> src/modules/navigator</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">2 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_FORCE_VT">NAV_FORCE_VT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Force VTOL mode takeoff and land</p>    <p><b>Module:</b> src/modules/navigator</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 </tbody></table>
 
 ## Mount
@@ -3179,7 +3183,9 @@ The module where these parameters are defined is: *src/drivers/vmount*.
 RC uses the AUX input channels (see MNT_MAN_* parameters),
 MAVLINK_ROI uses the MAV_CMD_DO_SET_ROI Mavlink message, and MAVLINK_DO_MOUNT the
 MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL messages to control a mount</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> DISABLE</li> 
+<li><strong>-1:</strong> DISABLED</li> 
+
+<li><strong>0:</strong> AUTO</li> 
 
 <li><strong>1:</strong> RC</li> 
 
@@ -3187,9 +3193,10 @@ MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL messages to control a mo
 
 <li><strong>3:</strong> MAVLINK_DO_MOUNT</li> 
 </ul>
-   </td>
- <td style="vertical-align: top;">0 > 3 </td>
- <td style="vertical-align: top;">0 </td>
+  <p><b>Reboot required:</b> true</p>
+ </td>
+ <td style="vertical-align: top;">-1 > 3 </td>
+ <td style="vertical-align: top;">-1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -3235,13 +3242,6 @@ if required by the gimbal (only in AUX output mode)</p>    </td>
 if required for the gimbal (only in AUX output mode)</p>    </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MNT_MAN_CONTROL">MNT_MAN_CONTROL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>This enables the mount to be manually controlled when no ROI is set</p><p><strong>Comment:</strong> If set to 1, the mount will be controlled by the AUX channels below when no ROI is set.</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -4038,10 +4038,18 @@ if required for the gimbal (only in AUX output mode)</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Nominal horizontal velocity</p><p><strong>Comment:</strong> Normal horizontal velocity in AUTO modes (includes also RTL / hold / etc.) and endpoint for position stabilized mode (POSCTRL).</p>    <p><b>Module:</b> src/modules/mc_pos_control</p>
+ <td style="vertical-align: top;"><p>Nominal horizontal velocity in mission</p><p><strong>Comment:</strong> Normal horizontal velocity in AUTO modes (includes also RTL / hold / etc.) and endpoint for position stabilized mode (POSCTRL).</p>    <p><b>Module:</b> src/modules/mc_pos_control</p>
 </td>
  <td style="vertical-align: top;">3.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;">m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPC_VEL_MAN_MAX">MPC_VEL_MAN_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Nominal horizontal velocity for manual controlled mode</p>    <p><b>Module:</b> src/modules/mc_pos_control</p>
+</td>
+ <td style="vertical-align: top;">3.0 > 20.0 (1)</td>
+ <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
@@ -4101,16 +4109,8 @@ if required for the gimbal (only in AUX output mode)</p>    </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_MAN_R_MAX">MPC_MAN_R_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual roll</p>    <p><b>Module:</b> src/modules/mc_pos_control</p>
-</td>
- <td style="vertical-align: top;">0.0 > 90.0 </td>
- <td style="vertical-align: top;">35.0 </td>
- <td style="vertical-align: top;">deg</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPC_MAN_P_MAX">MPC_MAN_P_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual pitch</p>    <p><b>Module:</b> src/modules/mc_pos_control</p>
+ <td style="vertical-align: top;"><strong id="MPC_MAN_TILT_MAX">MPC_MAN_TILT_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximal tilt angle in manual or altitude mode</p>    <p><b>Module:</b> src/modules/mc_pos_control</p>
 </td>
  <td style="vertical-align: top;">0.0 > 90.0 </td>
  <td style="vertical-align: top;">35.0 </td>
@@ -4244,106 +4244,83 @@ if required for the gimbal (only in AUX output mode)</p>    </td>
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/drivers/px4fmu</p>
+ <td style="vertical-align: top;"><strong id="PWM_RATE">PWM_RATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the PWM output frequency for the main outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/modules/sensors</p>
 </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">-1 > 2000 </td>
+ <td style="vertical-align: top;">400 </td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MIN">PWM_MIN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the minimum PWM for the main outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. Set to 1000 for industry default or 900 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">800 > 1400 </td>
+ <td style="vertical-align: top;">1000 </td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAX">PWM_MAX</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the maximum PWM for the main outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. Set to 2000 for industry default or 2100 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">1600 > 2200 </td>
+ <td style="vertical-align: top;">2000 </td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_DISARMED">PWM_DISARMED</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the main outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">0 > 2200 </td>
+ <td style="vertical-align: top;">900 </td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_MIN">PWM_AUX_MIN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the minimum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. Set to 1000 for default or 900 to increase servo travel</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">800 > 1400 </td>
+ <td style="vertical-align: top;">1000 </td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_MAX">PWM_AUX_MAX</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the maximum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. Set to 2000 for default or 2100 to increase servo travel</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">1600 > 2200 </td>
+ <td style="vertical-align: top;">2000 </td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_DISARMED">PWM_AUX_DISARMED</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for auxiliary outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">0 > 2200 </td>
+ <td style="vertical-align: top;">1500 </td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="THR_MDL_FAC">THR_MDL_FAC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust to PWM model parameter</p><p><strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2</p>    <p><b>Module:</b> src/modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">0.0 > 1.0 </td>
+ <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 2</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/drivers/px4fmu</p>
+ <td style="vertical-align: top;"><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>    <p><b>Module:</b> src/modules/sensors</p>
 </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 3</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 4</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 5</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 6</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM1">PWM_AUX_TRIM1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM2">PWM_AUX_TRIM2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM3">PWM_AUX_TRIM3</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM4">PWM_AUX_TRIM4</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM5">PWM_AUX_TRIM5</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM6">PWM_AUX_TRIM6</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 > ? </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">s/(1000*PWM)</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV1">PWM_MAIN_REV1</strong> (INT32)</td>
@@ -4490,83 +4467,106 @@ if required for the gimbal (only in AUX output mode)</p>    </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="PWM_RATE">PWM_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the PWM output frequency for the main outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. Set to 400 for industry default or 1000 for high frequency ESCs.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/modules/sensors</p>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/drivers/px4fmu</p>
 </td>
- <td style="vertical-align: top;">-1 > 2000 </td>
- <td style="vertical-align: top;">400 </td>
- <td style="vertical-align: top;">Hz</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MIN">PWM_MIN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the minimum PWM for the main outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. Set to 1000 for industry default or 900 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/modules/sensors</p>
-</td>
- <td style="vertical-align: top;">800 > 1400 </td>
- <td style="vertical-align: top;">1000 </td>
- <td style="vertical-align: top;">us</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAX">PWM_MAX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the maximum PWM for the main outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. Set to 2000 for industry default or 2100 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/modules/sensors</p>
-</td>
- <td style="vertical-align: top;">1600 > 2200 </td>
- <td style="vertical-align: top;">2000 </td>
- <td style="vertical-align: top;">us</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_DISARMED">PWM_DISARMED</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the main outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/modules/sensors</p>
-</td>
- <td style="vertical-align: top;">0 > 2200 </td>
- <td style="vertical-align: top;">900 </td>
- <td style="vertical-align: top;">us</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_MIN">PWM_AUX_MIN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the minimum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. Set to 1000 for default or 900 to increase servo travel</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/modules/sensors</p>
-</td>
- <td style="vertical-align: top;">800 > 1400 </td>
- <td style="vertical-align: top;">1000 </td>
- <td style="vertical-align: top;">us</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_MAX">PWM_AUX_MAX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the maximum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. Set to 2000 for default or 2100 to increase servo travel</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/modules/sensors</p>
-</td>
- <td style="vertical-align: top;">1600 > 2200 </td>
- <td style="vertical-align: top;">2000 </td>
- <td style="vertical-align: top;">us</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_DISARMED">PWM_AUX_DISARMED</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for auxiliary outputs</p><p><strong>Comment:</strong> IMPORTANT: CHANGING THIS PARAMETER REQUIRES A COMPLETE SYSTEM REBOOT IN ORDER TO APPLY THE CHANGES. This is the PWM pulse the autopilot is outputting if not armed. The main use of this parameter is to silence ESCs when they are disarmed.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/modules/sensors</p>
-</td>
- <td style="vertical-align: top;">0 > 2200 </td>
- <td style="vertical-align: top;">1500 </td>
- <td style="vertical-align: top;">us</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="THR_MDL_FAC">THR_MDL_FAC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Thrust to PWM model parameter</p><p><strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2</p>    <p><b>Module:</b> src/modules/sensors</p>
-</td>
- <td style="vertical-align: top;">0.0 > 1.0 </td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>    <p><b>Module:</b> src/modules/sensors</p>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 2</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/drivers/px4fmu</p>
 </td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;">s/(1000*PWM)</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 3</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 4</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 5</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 6</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM1">PWM_AUX_TRIM1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM2">PWM_AUX_TRIM2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM3">PWM_AUX_TRIM3</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM4">PWM_AUX_TRIM4</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM5">PWM_AUX_TRIM5</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM6">PWM_AUX_TRIM6</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> src/drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
 
@@ -5028,30 +5028,6 @@ The module where these parameters are defined is: *src/platforms/qurt/fc_addon/r
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> src/modules/commander</p>
-</td>
- <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> src/modules/commander</p>
-</td>
- <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> src/modules/commander</p>
-</td>
- <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC1_MIN">RC1_MIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>RC Channel 1 Minimum</p><p><strong>Comment:</strong> Minimum value for RC channel 1</p>    <p><b>Module:</b> src/modules/sensors</p>
@@ -6467,6 +6443,30 @@ The module where these parameters are defined is: *src/platforms/qurt/fc_addon/r
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Roll trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> src/modules/commander</p>
+</td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Pitch trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> src/modules/commander</p>
+</td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Yaw trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> src/modules/commander</p>
+</td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
 </tbody></table>
 
 ## Radio Signal Loss
@@ -7427,40 +7427,6 @@ FW_AIRSPD_MIN * RWTO_AIRSPD_SCL</p>    </td>
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="SDLOG_UTC_OFFSET">SDLOG_UTC_OFFSET</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UTC offset (unit: min)</p><p><strong>Comment:</strong> the difference in hours and minutes from Coordinated Universal Time (UTC) for a your place and date. for example, In case of South Korea(UTC+09:00), UTC offset is 540 min (9*60) refer to https://en.wikipedia.org/wiki/List_of_UTC_time_offsets</p>    <p><b>Module:</b> src/modules/logger</p>
-</td>
- <td style="vertical-align: top;">-1000 > 1000 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;">min</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SDLOG_MODE">SDLOG_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Logging Mode</p><p><strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming. This parameter is only for the new logger (SYS_LOGGER=1).</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> when armed until disarm (default)</li> 
-
-<li><strong>1:</strong> from boot until disarm</li> 
-
-<li><strong>2:</strong> from boot until shutdown</li> 
-
-<li><strong>3:</strong> from boot until shutdown - IMU and Baro data only (used for thermal calibration)</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> src/modules/logger</p>
-</td>
- <td style="vertical-align: top;">0 > 3 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SDLOG_UUID">SDLOG_UUID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Log UUID</p><p><strong>Comment:</strong> If set to 1, add an ID to the log, which uniquely identifies the vehicle</p>    <p><b>Module:</b> src/modules/logger</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="SDLOG_RATE">SDLOG_RATE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Logging rate</p><p><strong>Comment:</strong> A value of -1 indicates the commandline argument should be obeyed. A value of 0 sets the minimum rate, any other value is interpreted as rate in Hertz. This parameter is only read out before logging starts (which commonly is before arming).</p>    <p><b>Module:</b> src/modules/sdlog2</p>
 </td>
@@ -7507,6 +7473,49 @@ This is used for gathering replay logs for the ekf2 module</p><p><strong>Comment
 </td>
  <td style="vertical-align: top;">0 > 3 </td>
  <td style="vertical-align: top;">2 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SDLOG_UTC_OFFSET">SDLOG_UTC_OFFSET</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UTC offset (unit: min)</p><p><strong>Comment:</strong> the difference in hours and minutes from Coordinated Universal Time (UTC) for a your place and date. for example, In case of South Korea(UTC+09:00), UTC offset is 540 min (9*60) refer to https://en.wikipedia.org/wiki/List_of_UTC_time_offsets</p>    <p><b>Module:</b> src/modules/logger</p>
+</td>
+ <td style="vertical-align: top;">-1000 > 1000 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">min</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SDLOG_MODE">SDLOG_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Logging Mode</p><p><strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming. This parameter is only for the new logger (SYS_LOGGER=1).</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> when armed until disarm (default)</li> 
+
+<li><strong>1:</strong> from boot until disarm</li> 
+
+<li><strong>2:</strong> from boot until shutdown</li> 
+
+<li><strong>3:</strong> from boot until shutdown - IMU and Baro data only (used for thermal calibration)</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/modules/logger</p>
+</td>
+ <td style="vertical-align: top;">0 > 3 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SDLOG_DIRS_MAX">SDLOG_DIRS_MAX</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Maximum number of log directories to keep</p><p><strong>Comment:</strong> If there are more log directories than this value, the system will delete the oldest directories during startup. In addition, the system will delete old logs if there is not enough free space left. The minimum amount is 300 MB. If this is set to 0, old directories will only be removed if the free space falls below the minimum.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> src/modules/logger</p>
+</td>
+ <td style="vertical-align: top;">0 > 1000 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SDLOG_UUID">SDLOG_UUID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Log UUID</p><p><strong>Comment:</strong> If set to 1, add an ID to the log, which uniquely identifies the vehicle</p>    <p><b>Module:</b> src/modules/logger</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
@@ -8157,6 +8166,117 @@ The module where these parameters are defined is: *src/modules/sensors*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_ID">CAL_MAG3_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Magnetometer the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal mag</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+</ul>
+   </td>
+ <td style="vertical-align: top;">-1 > 30 </td>
+ <td style="vertical-align: top;">-1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_XOFF">CAL_MAG3_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>    </td>
+ <td style="vertical-align: top;">-500.0 > 500.0 </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_YOFF">CAL_MAG3_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Y-axis offset</p>    </td>
+ <td style="vertical-align: top;">-500.0 > 500.0 </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_ZOFF">CAL_MAG3_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>    </td>
+ <td style="vertical-align: top;">-500.0 > 500.0 </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_XSCALE">CAL_MAG3_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer X-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_YSCALE">CAL_MAG3_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Y-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_ZSCALE">CAL_MAG3_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Z-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC_PRIME">CAL_ACC_PRIME</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Primary accel ID</p>    </td>
  <td style="vertical-align: top;"></td>
@@ -8421,9 +8541,16 @@ The module where these parameters are defined is: *src/modules/sensors*.
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_LL40LS">SENS_EN_LL40LS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Lidar-Lite (LL40LS) PWM</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Lidar-Lite (LL40LS)</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> PWM</li> 
+
+<li><strong>2:</strong> I2C</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
  </td>
- <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -9699,14 +9826,6 @@ The module where these parameters are defined is: *src/modules/syslink*.
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="LED_RGB_MAXBRT">LED_RGB_MAXBRT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RGB Led brightness limit</p><p><strong>Comment:</strong> Set to 0 to disable, 1 for minimum brightness up to 15 (max)</p>    <p><b>Module:</b> src/drivers/rgbled</p>
-</td>
- <td style="vertical-align: top;">0 > 15 </td>
- <td style="vertical-align: top;">15 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="SYS_AUTOSTART">SYS_AUTOSTART</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Auto-start script index</p><p><strong>Comment:</strong> CHANGING THIS VALUE REQUIRES A RESTART. Defines the auto-start script used to bootstrap the system.</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> src/modules/systemlib</p>
@@ -9812,15 +9931,15 @@ The module where these parameters are defined is: *src/modules/syslink*.
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_LOGGER">SYS_LOGGER</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>SD logger</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> sdlog2 (default)</li> 
+<li><strong>0:</strong> sdlog2 (legacy)</li> 
 
-<li><strong>1:</strong> new logger</li> 
+<li><strong>1:</strong> logger (default)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> src/modules/systemlib</p>
 </td>
  <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -9878,6 +9997,14 @@ The module where these parameters are defined is: *src/modules/syslink*.
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">10 </td>
  <td style="vertical-align: top;">deg C</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LED_RGB_MAXBRT">LED_RGB_MAXBRT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>RGB Led brightness limit</p><p><strong>Comment:</strong> Set to 0 to disable, 1 for minimum brightness up to 15 (max)</p>    <p><b>Module:</b> src/drivers/rgbled</p>
+</td>
+ <td style="vertical-align: top;">0 > 15 </td>
+ <td style="vertical-align: top;">15 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
 
@@ -10004,6 +10131,38 @@ The module where these parameters are defined is: *src/modules/syslink*.
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="ESC_NODE_ID">ESC_NODE_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>    <p><b>Module:</b> src/modules/uavcanesc</p>
+</td>
+ <td style="vertical-align: top;">1 > 125 </td>
+ <td style="vertical-align: top;">120 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ESC_BITRATE">ESC_BITRATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>    <p><b>Module:</b> src/modules/uavcanesc</p>
+</td>
+ <td style="vertical-align: top;">20000 > 1000000 </td>
+ <td style="vertical-align: top;">1000000 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>    <p><b>Module:</b> src/modules/uavcannode</p>
+</td>
+ <td style="vertical-align: top;">1 > 125 </td>
+ <td style="vertical-align: top;">120 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CANNODE_BITRATE">CANNODE_BITRATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>    <p><b>Module:</b> src/modules/uavcannode</p>
+</td>
+ <td style="vertical-align: top;">20000 > 1000000 </td>
+ <td style="vertical-align: top;">1000000 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>UAVCAN mode</p><p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Basic support for UAVCAN actuators and sensors. 2 - Full support for dynamic node ID allocation and firmware update. 3 - Sets the motor control outputs to UAVCAN and enables support for dynamic node ID allocation and firmware update.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -10043,38 +10202,6 @@ The module where these parameters are defined is: *src/modules/syslink*.
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="ESC_NODE_ID">ESC_NODE_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>    <p><b>Module:</b> src/modules/uavcanesc</p>
-</td>
- <td style="vertical-align: top;">1 > 125 </td>
- <td style="vertical-align: top;">120 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="ESC_BITRATE">ESC_BITRATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>    <p><b>Module:</b> src/modules/uavcanesc</p>
-</td>
- <td style="vertical-align: top;">20000 > 1000000 </td>
- <td style="vertical-align: top;">1000000 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>    <p><b>Module:</b> src/modules/uavcannode</p>
-</td>
- <td style="vertical-align: top;">1 > 125 </td>
- <td style="vertical-align: top;">120 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CANNODE_BITRATE">CANNODE_BITRATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>    <p><b>Module:</b> src/modules/uavcannode</p>
-</td>
- <td style="vertical-align: top;">20000 > 1000000 </td>
- <td style="vertical-align: top;">1000000 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 </tbody></table>
 
 ## VTOL Attitude Control
@@ -10109,55 +10236,6 @@ to accelerate forward if necessary</p>    </td>
  <td style="vertical-align: top;"><p>Fixed wing thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to fixed wing thrust being used as source for forward acceleration in multirotor mode. This technique can be used to avoid the plane having to pitch down a lot in order to move forward. Setting this value to 0 (default) will disable this strategy.</p>    </td>
  <td style="vertical-align: top;">0.0 > 2.0 </td>
  <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in mc mode</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_TILT_TRANS">VT_TILT_TRANS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in transition mode</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.3 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in fw mode</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Duration of front transition phase 2</p><p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>    </td>
- <td style="vertical-align: top;">0.1 > 5.0 (0.01)</td>
- <td style="vertical-align: top;">0.5 </td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_FW_MOT_OFFID">VT_FW_MOT_OFFID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>The channel number of motors that must be turned off in fixed wing mode</p>    </td>
- <td style="vertical-align: top;">0 > 12345678 (1)</td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Differential thrust in forwards flight</p><p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>    </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_SC">VT_FW_DIFTHR_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential thrust scaling factor</p><p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
- <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10334,6 +10412,55 @@ to accelerate forward if necessary</p>    </td>
  <td style="vertical-align: top;">1.0 > 30.0 </td>
  <td style="vertical-align: top;">6.0 </td>
  <td style="vertical-align: top;">seconds</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in mc mode</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_TILT_TRANS">VT_TILT_TRANS</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in transition mode</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">0.3 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in fw mode</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Duration of front transition phase 2</p><p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>    </td>
+ <td style="vertical-align: top;">0.1 > 5.0 (0.01)</td>
+ <td style="vertical-align: top;">0.5 </td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_FW_MOT_OFFID">VT_FW_MOT_OFFID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>The channel number of motors that must be turned off in fixed wing mode</p>    </td>
+ <td style="vertical-align: top;">0 > 12345678 (1)</td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Differential thrust in forwards flight</p><p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>    </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_SC">VT_FW_DIFTHR_SC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Differential thrust scaling factor</p><p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
+ <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
 
@@ -10720,6 +10847,53 @@ Maps the change of airspeed error to the acceleration setpoint</p>    </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="RC_MAP_FAILSAFE">RC_MAP_FAILSAFE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Failsafe channel mapping</p><p><strong>Comment:</strong> The RC mapping index indicates which channel is used for failsafe If 0, whichever channel is mapped to throttle is used otherwise the value indicates the specific rc channel to use</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unassigned</li> 
+
+<li><strong>1:</strong> Channel 1</li> 
+
+<li><strong>2:</strong> Channel 2</li> 
+
+<li><strong>3:</strong> Channel 3</li> 
+
+<li><strong>4:</strong> Channel 4</li> 
+
+<li><strong>5:</strong> Channel 5</li> 
+
+<li><strong>6:</strong> Channel 6</li> 
+
+<li><strong>7:</strong> Channel 7</li> 
+
+<li><strong>8:</strong> Channel 8</li> 
+
+<li><strong>9:</strong> Channel 9</li> 
+
+<li><strong>10:</strong> Channel 10</li> 
+
+<li><strong>11:</strong> Channel 11</li> 
+
+<li><strong>12:</strong> Channel 12</li> 
+
+<li><strong>13:</strong> Channel 13</li> 
+
+<li><strong>14:</strong> Channel 14</li> 
+
+<li><strong>15:</strong> Channel 15</li> 
+
+<li><strong>16:</strong> Channel 16</li> 
+
+<li><strong>17:</strong> Channel 17</li> 
+
+<li><strong>18:</strong> Channel 18</li> 
+</ul>
+   <p><b>Module:</b> src/modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">0 > 18 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_RC_STICK_OV">COM_RC_STICK_OV</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> src/modules/commander</p>
 </td>
@@ -10947,53 +11121,6 @@ Maps the change of airspeed error to the acceleration setpoint</p>    </td>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">-1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RC_MAP_FAILSAFE">RC_MAP_FAILSAFE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Failsafe channel mapping</p><p><strong>Comment:</strong> The RC mapping index indicates which channel is used for failsafe If 0, whichever channel is mapped to throttle is used otherwise the value indicates the specific rc channel to use</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unassigned</li> 
-
-<li><strong>1:</strong> Channel 1</li> 
-
-<li><strong>2:</strong> Channel 2</li> 
-
-<li><strong>3:</strong> Channel 3</li> 
-
-<li><strong>4:</strong> Channel 4</li> 
-
-<li><strong>5:</strong> Channel 5</li> 
-
-<li><strong>6:</strong> Channel 6</li> 
-
-<li><strong>7:</strong> Channel 7</li> 
-
-<li><strong>8:</strong> Channel 8</li> 
-
-<li><strong>9:</strong> Channel 9</li> 
-
-<li><strong>10:</strong> Channel 10</li> 
-
-<li><strong>11:</strong> Channel 11</li> 
-
-<li><strong>12:</strong> Channel 12</li> 
-
-<li><strong>13:</strong> Channel 13</li> 
-
-<li><strong>14:</strong> Channel 14</li> 
-
-<li><strong>15:</strong> Channel 15</li> 
-
-<li><strong>16:</strong> Channel 16</li> 
-
-<li><strong>17:</strong> Channel 17</li> 
-
-<li><strong>18:</strong> Channel 18</li> 
-</ul>
-   <p><b>Module:</b> src/modules/sensors</p>
-</td>
- <td style="vertical-align: top;">0 > 18 </td>
- <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
