@@ -21,7 +21,7 @@ Parameter | Description
 
 The vehicle turns and lands at the location at which the mode was engaged. 
 
-> **Note** The vehicle doesn't necessarily know where the ground is.
+> **Note** The vehicle doesn't necessarily know where the ground is, and will therefore follow a fixed trajectory for the whole landing approach (no flare).
 
 Landing is affected by the following parameters:
 
