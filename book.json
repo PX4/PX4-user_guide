@@ -8,8 +8,8 @@
         "collapsible-menu",
         "page-toc-button",
         "page-footer-ex",
-        "github",
-        "custom-favicon"
+        "custom-favicon",
+        "toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git"
     ],
     "pluginsConfig": {
 
@@ -18,9 +18,6 @@
             "update_label":"Updated: ",
             "update_format":"YYYY-MM-DD HH:mm:ss"
         },
-        "github": {
-            "url": "https://github.com/PX4/px4_user_guide"
-        },
         "richquotes":
         {
             "tip": {
@@ -28,7 +25,31 @@
                 "picto": "fa-thumbs-o-up"
             }
         },
-        "favicon": "favicon.ico"
+        "favicon": "favicon.ico",
+        "toolbar": {
+            "buttons":
+            [
+                {
+                    "label": "Bug tracker",
+                    "icon": "fa fa-bug",
+                    "position" : "left",
+                    "url": "https://github.com/PX4/px4_user_guide/issues/new?title=Doc+Bug:+{{title}}&body=DESCRIBE+PROBLEM+WITH+DOCS+HERE%0A%0ABug+Page:+[{{title}}]({{url}})"
+                    
+                },
+                {
+                    "label": "GitHub",
+                    "icon": "fa fa-github",
+                    "url": "https://github.com/PX4/px4_user_guide"
+                },
+                {
+                    "label": "Edit page on github",
+                    "icon": "fa fa-pencil-square-o",
+                    "position" : "left",
+                    "url": "https://github.com/PX4/px4_user_guide/edit/master/{{filepath_lang}}"
+                }
+            ]
+        }
+        
     } 
     
     
