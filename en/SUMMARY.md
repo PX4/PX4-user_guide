@@ -46,7 +46,7 @@
     * [RETURN TO LAUNCH (RTL)](flight_modes/rtl.md)
     * [HOLD](flight_modes/hold.md)
     * [FOLLOW ME](flight_modes/follow_me.md)
-  * [Missions](flight_modes/missions.md)
+  * [Missions](flying/missions.md)
 * [Advanced Features](advanced_features/README.md)
   * [RTK GPS](advanced_features/rtk-gps.md)
 * [Advanced Configuration](advanced_config/README.md)
