@@ -60,7 +60,9 @@ The following three modes are highly recommended for new users:
 
 ### Multicopter
 
+> **Caution** Content required.
 
+<!-- CONTENT BELOW TO BE INTEGRATED WHEN MODE DOCS DONE
 
 Take off MC:
 Once activated it spins and takes off at what altitude it weights for your commands?
@@ -74,7 +76,7 @@ Go to position mode, arm, as soon as you raise your manual throttle stick above 
 Best to be in hold mode first, arm, switch to takeoff mode and it will fly up pretty fast to MIS_TAKEOFF_ALT and wait for further input. Switching out by moving the sticks is currently possible (but will be disabled by default as it looks now here: #7025). 
 
 The automatic modes are easy to access through the QGC buttons on the bottom of the main flight screen. If you could improve the guide that would really help a lot.
-
+-->
 
 ### Plane
 
@@ -88,6 +90,10 @@ The automatic modes are easy to access through the QGC buttons on the bottom of 
 ## Landing
 
 ### Multicopter
+
+> **Caution** Content required.
+
+<!-- CONTENT BELOW TO BE INTEGRATED WHEN MODE DOCS DONE
 
 #### Manual
 
@@ -106,6 +112,7 @@ Landing MC:
 How is it activated?
 Does it disarm the moment it feels it is in the air? or should I disarm it with a command?
 
+-->
 
 ### Plane
 
