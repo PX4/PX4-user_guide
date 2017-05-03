@@ -15,7 +15,7 @@ The specific behaviour for each vehicle type is described below.
 
 A multicopter hovers at the current position and altitude.
 
-The RTL behaviour can be configured using the parameters below.
+The behaviour can be configured using the parameters below.
 
 Parameter | Description
 --- | ---
@@ -27,7 +27,7 @@ Parameter | Description
 
 The aircraft circles around the GPS hold position at the current altitude. The vehicle will first ascend to `MIS_LTRMIN_ALT` if the mode is engaged below this altitude.
 
-The RTL behaviour can be configured using the parameters below.
+The behaviour can be configured using the parameters below.
 
 Parameter | Description
 --- | ---
