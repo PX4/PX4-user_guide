@@ -383,7 +383,7 @@ follow the instructions below, or see 
 
 **Step 5:** Select flight modes.
 
-[Flight Mode](../flying/flight_mode_selection.md)s provide
+[Flight Modes](../flight_modes/README.md) provide
 autopilot assisted or fully controlled flight. New users should
 configure their receiver to support the following three modes (these
 make the vehicle much easier to fly):
@@ -402,7 +402,7 @@ we have a three-way switch on the receiver that we map to a single channel (5).
 For more information see:
 
 - [Flight Mode Configuration](../config/flight_mode_configuration.md)
-- [Flight Mode Selection](../flying/flight_mode_selection.md)
+- [Flight Modes](../flight_modes/README.md)
 - [Flight Modes](https://donlakeflyer.gitbooks.io/qgroundcontrol-user-guide/content/SetupView/FlightModes.html)
   (QGroundControl)
 

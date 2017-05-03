@@ -59,40 +59,20 @@ Throttle Command is mapped direct to Motor Speed.
   as in MANUAL mode. Throttle controls climb/descent rate as in ALTCTL
   mode. **WARNING**: Do not Land in POSCTL Mode, use Manual Mode to
   Land.
+  
 
 
 ## AUTO
 
-- **HOLD**
-  - **Fixed wing aircraft:** The aircraft hovers at the current
-    position at the current altitude (or possibly slightly above the
-    current altitude).
-  - **Multirotors:** The multirotor hovers at the current position
-    and altitude. If below specified minimal Altitude, the
-    multirotor will first ascent to minimal Altitude.
-- **RETURN TO LAUNCH (RTL)**
-  - **Fixed wing aircraft:** The aircraft returns to the home
-      position and hovers in a circle above the home position.
-  - **Multirotors:** The multirotor returns in a straight line at
-    the current altitude (if higher than the home position +
-    hovering altitude) or on the hovering altitude (if higher than
-    the current altitude), then lands automatically.
+- [HOLD](../flight_modes/hold.md): Holds at the current position (hovers for copter, circles for fixed-wing)
+- [RETURN TO LAUNCH (RTL)](../flight_modes/rtl.md): Return to the home position and land (copter) or circle (fixed-wing).
+- [TAKEOFF](../flight_modes/takeoff.md): Take off and wait for further input.
+- [LAND](../flight_modes/land.md): Land at the location where the mode was engaged. 
 - **MISSION**
   - **All system types:** All system types: The aircraft obeys the
     programmed mission sent by the ground control station (GCS). If
     no mission is received, aircraft will HOVER at current position
     instead.
-- **TAKEOFF**
-  - **Fixed wing aircraft:** The aircraft takes off with maximum
-    climb power into the current direction
-  - **Multirotors:** The multi rotor takes off to the takeoff
-    altitude (1.2m by default) and holds position
-- **LAND**
-  - **Fixed wing aircraft:** The aircraft turns and lands at the
-    location it was when the mode was engaged. It tries to land at
-    the home altitude and will spiral down if too high.
-  - **Multirotors:** The multi rotor will land at the location it
-    current is when engaged.
 
 ## OFFBOARD
 

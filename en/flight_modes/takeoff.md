@@ -33,6 +33,21 @@ Parameter | Description
 [RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF) | Runway takeoff with landing gear.
 -->
 
+> **Warning** FW takeoff is still being clarified. The available information is listed below.
+>
+>  FW takeoff splits into two types
+>
+>  1. Runway takeoff has the following phases
+>      - "throttle ramp"
+>      - "clamped to runway" until min airspeed ([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) * [RWTO_AIRSPD_SCL](../advanced_config/parameter_reference.md#RWTO_AIRSPD_SCL))
+>      - "takeoff" until alt > navigation altitude ([RWTO_NAV_ALT](../advanced_config/parameter_reference.md#RWTO_NAV_ALT)) 
+>      - "climbout" until alt agl > [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF)
+>    There's a bit more detail for roll limitation until climbout, and some heading specifics. 
+>
+>  1. Normal/non runway takeoff
+>     - full throttle climbout until altitude error < [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF) then regular navigation
+>      - optionally blocked by the launch detector (FW Launch detection)
+
 
 ## VTOL
 

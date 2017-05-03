@@ -9,7 +9,8 @@
         "page-toc-button",
         "page-footer-ex",
         "custom-favicon",
-        "toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git"
+        "toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git",
+        "-validate-links"
     ],
     "pluginsConfig": {
 
