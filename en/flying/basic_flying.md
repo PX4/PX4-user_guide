@@ -34,14 +34,14 @@ Forward-flying aircraft \(planes, VTOL in forward flight\) respond to the moveme
 * Yaw =&gt; Left/right tail rotation and turn.
 * Throttle =&gt; Changed forward speed.
 
-> **Note** The best turn for airplanes is called a coordinated turn,   
->   and is performed using roll and little yaw at the same time.   
+> **Note** The best turn for airplanes is called a coordinated turn,  
+>   and is performed using roll and little yaw at the same time.  
 >   This maneuver requires experience!
 
 ## Assisted Flight
 
-Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving.   
-New users should [configure their transmitter](../config/flight_mode_configuration.md) to use flight modes where   
+Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving.  
+New users should [configure their transmitter](../config/flight_mode_configuration.md) to use flight modes where  
 the autopilot automatically compensates for erratic user input or environmental factors.
 
 The following three modes are highly recommended for new users:
@@ -49,10 +49,6 @@ The following three modes are highly recommended for new users:
 * Stabilized - Vehicle hard to flip, and will level-out if the sticks are released \(but not hold position\)
 * Altitude - Climb and drop are controlled to have a maximum rate.
 * Position - When sticks are released the vehicle will stop \(and hold position against wind drift\)
-
-## Limits
-
-By default PX4 limits the altitude for multicopter flights to a maximum of 100 meters above ground \(328 feet\). It is the responsibility of the pilot to obey the local limits. This limit can be adjusted by setting the parameter `LNDMC_ALT_MAX`.
 
 ## Takeoff
 
