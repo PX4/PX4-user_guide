@@ -62,21 +62,6 @@ The following three modes are highly recommended for new users:
 
 > **Caution** Content required.
 
-<!-- CONTENT BELOW TO BE INTEGRATED WHEN MODE DOCS DONE
-
-Take off MC:
-Once activated it spins and takes off at what altitude it weights for your commands?
-How is it activated? Is it DJI style with the throttle or with a switch?
-
-
-#### Manually
-Go to position mode, arm, as soon as you raise your manual throttle stick above LNDMC_POS_UPTHR (default 65%) it enables all controllers and goes to hover throttle MPC_THR_HOVER (should be set reasonably to not have a jump). For landing just press the stick down until it is completely landed (goes through multiple steps) and disarm or best set COM_DISARM_LAND > 0 and it will diasrm automatically.
-
-#### Automatically
-Best to be in hold mode first, arm, switch to takeoff mode and it will fly up pretty fast to MIS_TAKEOFF_ALT and wait for further input. Switching out by moving the sticks is currently possible (but will be disabled by default as it looks now here: #7025). 
-
-The automatic modes are easy to access through the QGC buttons on the bottom of the main flight screen. If you could improve the guide that would really help a lot.
--->
 
 ### Plane
 
@@ -93,26 +78,6 @@ The automatic modes are easy to access through the QGC buttons on the bottom of 
 
 > **Caution** Content required.
 
-<!-- CONTENT BELOW TO BE INTEGRATED WHEN MODE DOCS DONE
-
-#### Manual
-
-For landing just press the stick down until it is completely landed (goes through multiple steps) and disarm or best set COM_DISARM_LAND > 0 and it will disarm automatically.
-
-> **Tip** We recommend you set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) > 0 so that the vehicle will automatically disarm after landing.
-
-#### Automatic
-
-To Land again automatically you either switch to RTL or Land mode. Land mode just descends in place with MPC_LAND_SPEED (pretty slowly as we don't know whats under there) until it hits the ground and you can auto disarm again as above. In RTL it flies first up to RTL_RETURN_ALT, in a straight line back to the home position, descends first fast and then with the slow land speed because we know how high the ground should be.
-
-The automatic modes are easy to access through the QGC buttons on the bottom of the main flight screen. If you could improve the guide that would really help a lot.
-
-
-Landing MC:
-How is it activated?
-Does it disarm the moment it feels it is in the air? or should I disarm it with a command?
-
--->
 
 ### Plane
 
