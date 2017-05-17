@@ -22,31 +22,34 @@ Parameter | Description
 
 ## Fixed Wing (FW)
 
-The aircraft takes off with maximum climb power into the current direction.
+The aircraft takes off in the current direction using either normal (default) or runway takeoff mode. The takeoff mode is set using `RWTO_TKOFF`, and defaults to "normal" (non-runway-takeoff).
 
-<!-- What about MT_TKF_THR_MIN and friends? Also RWTO_TKOFF and friends? https://docs.px4.io/en/advanced_config/parameter_reference.html#runway-takeoff 
+In **normal/non-runway mode** the vehicle will perform a full throttle climbout (ramp up to `RWTO_MAX_THR` in about 2 seconds). Once the altitude error < [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF), regular navigation will proceed. 
+
+<!-- WHAT DOES THIS MEAN 
+>      - optionally blocked by the launch detector (FW Launch detection)
+- what comes next - ie what is "regular navigation"
+-->
+
+**Runway takeoff** has the following phases:
+
+1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](../advanced_config/parameter_reference.md#RWTO_AIRSPD_SCL)) 
+1. **Takeoff**: Increase pitch and continue until vehicle altitude > navigation altitude ([RWTO_NAV_ALT](../advanced_config/parameter_reference.md#RWTO_NAV_ALT)).
+1. **Climbout**: Climb until altitude above ground level > [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF). In this phase roll and heading restrictions are removed.
 
 Takeoff is affected by the following parameters:
 
 Parameter | Description
 --- | ---
-[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF) | Runway takeoff with landing gear.
--->
+[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF) | Runway takeoff with landing gear. Default: disabled.
+[RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR) | Max throttle during runway takeoff.
+[FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF) | Climbout Altitude difference. This compensates for a large altitude error during takeoff.
+[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) | Minimum Airspeed, below which the TECS controller will try to increase airspeed more aggressively.
+[RWTO_AIRSPD_SCL](../advanced_config/parameter_reference.md#RWTO_AIRSPD_SCL) | Min. airspeed scaling factor for takeoff. Pitch is increased when the airspeed reaches: `FW_AIRSPD_MIN` * `RWTO_AIRSPD_SCL`
+[RWTO_NAV_ALT](../advanced_config/parameter_reference.md#RWTO_NAV_ALT) | Altitude above ground level (AGL) at which we have enough ground clearance to allow some roll. Until `RWTO_NAV_ALT` is reached the plane is held level and only rudder is used to keep the heading (see [RWTO_HDG](../advanced_config/parameter_reference.md#RWTO_HDG)). This should be below `FW_CLMBOUT_DIFF` if `FW_CLMBOUT_DIFF` > 0.
 
-> **Warning** FW takeoff is still being clarified. The available information is listed below.
->
->  FW takeoff splits into two types
->
->  1. Runway takeoff has the following phases
->      - "throttle ramp"
->      - "clamped to runway" until min airspeed ([FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) * [RWTO_AIRSPD_SCL](../advanced_config/parameter_reference.md#RWTO_AIRSPD_SCL))
->      - "takeoff" until alt > navigation altitude ([RWTO_NAV_ALT](../advanced_config/parameter_reference.md#RWTO_NAV_ALT)) 
->      - "climbout" until alt agl > [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF)
->    There's a bit more detail for roll limitation until climbout, and some heading specifics. 
->
->  1. Normal/non runway takeoff
->     - full throttle climbout until altitude error < [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF) then regular navigation
->      - optionally blocked by the launch detector (FW Launch detection)
+
+> **Note** The vehicle always respects normal FW max/min throttle settings during takeoff ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN]), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX])).
 
 
 ## VTOL
