@@ -47,7 +47,7 @@ Attach a GPS (required) to the GPS port using the 6-wire cable supplied in the k
 
 ## Power
 
-Connect the output of a *Power module* (PM) to the **POWER** port using a 6-wire cable as shown. The PM input will be connected to your LiPo batter, while the main output will supply vehicle ESCs/motors (possibly via a power distribution board).
+Connect the output of a *Power module* (PM) to the **POWER** port using a 6-wire cable as shown. The PM input will be connected to your LiPo battery, while the main output will supply vehicle ESCs/motors (possibly via a power distribution board).
 
 The power module supplies the flight controller with power from the battery and also sends information about the analog current and voltage supplied via the module (including both power to the flight controller and to motors etc). 
 
