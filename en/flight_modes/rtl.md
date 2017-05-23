@@ -12,7 +12,7 @@ The specific behaviour for each vehicle type is described below.
 
 A copter/multi-rotor will first ascend to the `RTL_RETURN_ALT` altitude and then fly to the home position in a straight line (if already above `RTL_RETURN_ALT` it will return at its current altitude).
 
-When it arrives at the home/launch position it will rapidly descend to the `RTL_DESCEND_ALT` altitude. It will then hover for the period defined in `RTL_LAND_DELAY` before landing.
+When it arrives at the home/launch position it will rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude. It will then hover for the period defined in [RTL_LAND_DELAY](#RTL_LAND_DELAY) before landing.
 
 > **Note** The `RTL_LAND_DELAY` is provided to allow time for landing gear to be deployed (this is triggered automatically). By default this period is short so that the vehicle will simply slow and then land immediately. The parameter can also be set so that the vehicle will hover indefinitely.
 
@@ -21,23 +21,21 @@ The RTL behaviour can be configured using the parameters below.
 
 Parameter | Description
 --- | ---
-[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) | Minimum RTL return altitude in meters (default: 60m). The vehicle will ascend to this altitude before returning. If already above this value the vehicle will return at its current altitude.
-[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | Altitude at which the vehicle will slow or stop its initial descent (default: 30m)
-[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) | Time to hover at `RTL_DESCEND_ALT` before landing (default: 0.5s). If set to -1 the system will loiter at `RTL_DESCEND_ALT` rather than landing.
-[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST) | Minimum distance to trigger rising to a safe altitude. If the system is horizontally closer than this distance to home it will land straight on home instead of raising to the return altitude first.
+<span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) | Minimum RTL return altitude in meters (default: 60m). The vehicle will ascend to this altitude before returning. If already above this value the vehicle will return at its current altitude.
+<span id="RTL_DESCEND_ALT"></span>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | Altitude at which the vehicle will slow or stop its initial descent (default: 30m)
+<span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) | Time to hover at `RTL_DESCEND_ALT` before landing (default: 0.5s). If set to -1 the system will loiter at `RTL_DESCEND_ALT` rather than landing.
+<span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST) | Minimum distance to trigger rising to a safe altitude. If the system is horizontally closer than this distance to home it will land straight on home instead of raising to the return altitude first.
 
 
 ## Fixed Wing (FW)
 
-A fixed-wing aircraft will first ascend to the `RTL_RETURN_ALT` altitude and fly to the home position in a straight line. When it arrives it will rapidly descend to the `RTL_DESCEND_ALT` altitude. It will then circle above the home position.
+A fixed-wing aircraft behaves the same as a multicopter on the return trip (respecting the same parameters). The only difference is that on arrival the vehicle will, by default, circle above the home position rather than hover/land. If [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1 the vehicle will land as described in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
 
-The RTL behaviour can be configured using the parameters below.
+The following additional parameters affect RTL on fixed wing:
 
 Parameter | Description
 --- | ---
-[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) | RTL return altitude in meters (default: 60m).
-[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | Altitude at which the vehicle will stop its initial descent and circle (default: 30m).
-[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The radius of the loiter circle.
+<span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The radius of the loiter circle.
 
 
 ## VTOL
