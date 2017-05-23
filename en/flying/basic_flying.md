@@ -2,7 +2,6 @@
 
 This topic explains the basics of flying a vehicle using an [RC Transmitter](../getting_started/rc_transmitter_receiver.md) in a manual or autopilot-assisted flight mode (for autonomous flight see: [Missions](../flying/missions.md)).
 
-
 > **Note** Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md).
 
 ## Flight Controls/Commands
@@ -47,7 +46,7 @@ Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement
 
 Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving. 
 New users should [configure their transmitter](../config/flight_mode_configuration.md) to use flight modes where 
-the autopilot automatically compensates for erratic user input or environmental factors.
+the autopilot automatically compensates for erratic user input or environmental factors. 
 
 The following three modes are highly recommended for new users:
 
@@ -55,35 +54,14 @@ The following three modes are highly recommended for new users:
 * Altitude - Climb and drop are controlled to have a maximum rate.
 * Position - When sticks are released the vehicle will stop (and hold position against wind drift)
 
-  
-## Takeoff 
-
-### Multicopter
-
-> **Caution** Content required.
+> **Tip** You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen.
 
 
-### Plane
+## Takeoff and Landing
 
-> **Caution** Content required.
+The easiest way to takeoff is to use the automatic [TAKEOFF mode](../flight_modes/takeoff.md) (remembering that you need to arm the vehicle before you can engage the vehicle motors). To land again automatically you can use [LAND](../flight_modes/land.md) or [RETURN TO LAUNCH (RTL)](../flight_modes/rtl.md) modes.
 
-### VTOL
+The automatic takeoff/landing modes are highly recommended for Fixed Wing vehicles. For multicopter (and VTOL in multicopter mode) pilots can:
 
-> **Caution** Content required.
-
-
-## Landing
-
-### Multicopter
-
-> **Caution** Content required.
-
-
-### Plane
-
-> **Caution** Content required.
-
-### VTOL
-
-> **Caution** Content required.
-
+* Take off manually by enabling [position mode](../flight_modes/README.md#position-control), arming the vehicle, and then raising the throttle stick above [LNDMC_POS_UPTHR](../advanced_config/parameter_reference.md#LNDMC_POS_UPTHR) (default 65%). Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+* Land manually by pressing the throttle stick down until the vehicle lands (this through multiple steps) and disarm (or set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) > 0 to disarm automatically on landing).
