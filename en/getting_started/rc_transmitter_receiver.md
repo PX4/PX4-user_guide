@@ -13,7 +13,7 @@ An RC radio system consists of a *compatible* transmitter and receiver that are 
 
 The transmitter and receiver communicate using radio frequencies. The transmitter encodes a number of separate discrete *channels* within the radio signal, each which can be used to send the value of a single switch, dial, control stick position in one axis, etc. 
 
-Transmitters/receivers support different numbers of channels, depending on the model. At least 2 channels are required for controlling ground vehicle movement (steering + throttle), and at least 4 for aircraft (roll, pitch, yaw, thrust). An 8 or 16 channel transmitter provides additional channels that you can use to control other mechanisms or activate different [flight mode](../flying/flight_mode_selection.md)/functionality provided by the autopilot. 
+Transmitters/receivers support different numbers of channels, depending on the model. At least 2 channels are required for controlling ground vehicle movement (steering + throttle), and at least 4 for aircraft (roll, pitch, yaw, thrust). An 8 or 16 channel transmitter provides additional channels that you can use to control other mechanisms or activate different [flight mode](../flight_modes/README.md)/functionality provided by the autopilot. 
 
 
 ## Transmitters for Aircraft
