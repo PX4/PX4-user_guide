@@ -31,7 +31,7 @@ There are numerous possible layouts for the transmitter's control sticks, switch
 
 ## Transmitters for Ground Vehicles
 
-An Unmanned Ground Vehicle (UVG)/car minimally requires a 2 channel transmitter in order to send the values for steering and speed. Commonly transmitters set these values using a wheel and trigger, two single-axis control sticks, or a single dual-axis control stick.
+An Unmanned Ground Vehicle (UGV)/car minimally requires a 2 channel transmitter in order to send the values for steering and speed. Commonly transmitters set these values using a wheel and trigger, two single-axis control sticks, or a single dual-axis control stick.
 
 There is nothing to stop you using more channels/control mechanisms, and these can be very useful for engaging additional actuators and autopilot modes.
 
