@@ -70,3 +70,11 @@
 * [Development](development/development.md)
 * [Flight Reporting](flight-reporting.md)
 
+
+
+## Dronecode Shortcuts
+
+* [PX4 Developer Guide](https://dev.px4.io/en/)
+* [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/)
+* [QGroundControl Developer Guide](https://dev.qgroundcontrol.com/en/)
+* [MAVLink Developer Guide](https://mavlink.io/en/)
