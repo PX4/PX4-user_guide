@@ -6,8 +6,7 @@ PX4 supports multiple ways of selecting flight modes:
 
 - From the tablet/ground control station
 - Via multiple, individual switches on a radio control (multi-channel)
-- Via a single channel mapped to a single dial or multiple switches
-  (single-channel)
+- Via a single channel mapped to a single dial or multiple switches (single-channel)
 
 If radio control and tablet are both connected, the tablet can command
 flight mode changes, but the radio control will override the change
@@ -17,7 +16,7 @@ whenever its own flight mode selection switch changes.
 
 Select the individual channels for each flight mode selector in the
 flight mode configuration UI as shown in the [autopilot setup
-video](autopilot_configuration.md).
+video](../config/README.md).
 
 ## Single-Channel Flight Mode Selection
 
@@ -37,3 +36,12 @@ parameter RC_MAP_KILL_SW can be set to a RC channel (1..max channel).
 Once set, that channel stops all motor outputs immediately. Since this
 is an advanced feature for power users, no UI support is provided to set
 it up.
+
+
+## Further Information
+
+* [Flight Modes Overview](../flight_modes/README.md)
+* [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
+
+
+

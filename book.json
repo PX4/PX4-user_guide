@@ -10,7 +10,7 @@
         "page-footer-ex",
         "custom-favicon",
         "toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git",
-        "-validate-links"
+        "validate-links"
     ],
     "pluginsConfig": {
 

@@ -1,35 +1,37 @@
-# Flight Controller Orientation Configuration
+# Flight Controller/Sensor Orientation
 
-By default the flight controller should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle. If the board is mounted in another orientation (upside down, on its side, perpendicular to the heading direction etc) then you will need configure this in the firmware.
+By default the flight controller (and external compass(es), if present) should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle. If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
 
+## Calculating Orientation
+
+YAW, PITCH and/or ROLL offsets are calculated relative to the default forward-facing-upright orientation (clock-wise rotation around the Z, Y and X axis, respectively). The default orientation is referred to as `ROTATION_NONE`.
+
+<img src="../../images/fc_orientation_1.png" style="width: 600px;"/>
+
+For example, the vehicles shown below have rotations around the x-axis (only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
+
+![Yaw Rotation](../../images/yaw_rotation.png)
 
 ## Setting the Orientation
 
+To set the orientations:
+
 1. Start *QGroundControl* and connect the vehicle.
-2. Open the menu: **Settings > Sensors**.
-3. Choose the *Autopilot Orientation* value that matches your vehicle. 
+1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
+1. Select the **Set Orientations** button.
+   <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;"/>
+1. Select the **AutoPilot Orientation** (as [calculated above](#calculating-orientation)).
 
-![FC Orientation QGC v1](../../images/fc_orientation_qgc_v1.png)
-
-
-### Calculating Orientation
-
-The default setting (**ROTATION_NONE**) assumes that your flight controller is mounted upright on the vehicle facing the front. YAW, PITCH and ROLL offsets are calculated relative to this orientation as CW (clock-wise) rotation around the **Z**, **Y** and **X** axis, respectively.
-
-![FC Orientation](../../images/fc_orientation_1.png)
-
-Some different yaw offsets are shown below.
-
-![Yaw Rotation](../../images/yaw_rotation.png)
+   <img src="../../images/qgc/setup/sensor_orientation_selector_values.jpg" style="width: 200px;"/>
+1. Select the **External Compass Orientation** in the same way (this option will only be displayed if your vehicle has an external compass).
+1. Press **OK**.
 
 
 ## Fine Tuning
 
 You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
 
-After the orientation is set and level-horizon calibration is complete, check in the flight view that the heading in the compass shows a value around 0 when you point the vehicle towards north and that the horizon is level (blue on top and green on bottom).
-
-
-## Further information
+## Further Information
 
 * [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#flight_controller_orientation)

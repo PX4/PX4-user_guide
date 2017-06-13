@@ -36,7 +36,7 @@ If you start to lose control over the vehicle, and cannot bring it back under co
 crash it in an empty area as soon as possible.
 
 > **Note** It can be useful to 
-  [set a kill switch on your transmitter](../config/flight_mode_configuration.md#kill-switch).
+  [set a kill switch on your transmitter](../config/flight_mode.md#kill-switch).
   This allows you to immediately crash your drone if necessary.
 
 ## Arm the Drone
