@@ -26,7 +26,7 @@
   * [Accelerometer](config/accelerometer.md)
   * [Airspeed](config/airspeed.md)
   * [Level Horizon Calibration](config/level_horizon_calibration.md) 
-  * [Flight Mode](config/flight_mode.md)
+  * [Flight Modes](config/flight_mode.md)
   * [QuadPlane Configuration](config/vtol_quad_configuration.md)
 * [Airframe Builds](airframes/README.md)
   * [Airframes Reference](airframe_reference.md)
