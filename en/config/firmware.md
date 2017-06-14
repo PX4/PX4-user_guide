@@ -32,4 +32,11 @@ To install the firmware update:
 Next you will need to specify the [vehicle airframe](../config/airframe.md) (and then sensors, radio, etc.)
 
 
-> **Tip** QGroundControl will install the current stable version of PX4, but you can also choose to install beta builds, daily builds, or custom firmware files. For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
+> **Tip** QGroundControl will install the current stable version of PX4, but you can also choose to install beta builds, daily builds, or custom firmware files. 
+
+
+## Further Information
+
+* [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
+* [PX4 Setup Video](https://youtu.be/91VGmdSlbo4) (Youtube)
+

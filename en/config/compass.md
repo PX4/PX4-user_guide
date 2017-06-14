@@ -27,3 +27,4 @@ Once you've calibrated the vehicle in all the positions *QGroundControl* will di
 ## Further Information
 
 * [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#px4-compass-calibration)
+* [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)

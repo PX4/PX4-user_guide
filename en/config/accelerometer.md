@@ -29,3 +29,4 @@ Once you've calibrated the vehicle in all the positions *QGroundControl* will di
 ## Further Information
 
 * [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#px4-accelerometer-calibration)
+* [PX4 Setup Video - @1m46s](https://youtu.be/91VGmdSlbo4?t=1m46s) (Youtube)
