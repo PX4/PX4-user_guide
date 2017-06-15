@@ -15,7 +15,7 @@ The transmitter and receiver communicate using radio frequencies. The transmitte
 
 Transmitters/receivers support different numbers of channels, depending on the model. At least 2 channels are required for controlling ground vehicle movement (steering + throttle), and at least 4 for aircraft (roll, pitch, yaw, thrust). An 8 or 16 channel transmitter provides additional channels that you can use to control other mechanisms or activate different [flight mode](../flight_modes/README.md)/functionality provided by the autopilot. 
 
-
+<span id="transmitter_modes"></span>
 ## Transmitters for Aircraft
 
 The most popular form of transmitter for UAVs is shown below. It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (ie. aircraft need at least 4 channels). 
