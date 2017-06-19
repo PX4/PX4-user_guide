@@ -352,7 +352,7 @@ Then click **Apply and Restart**.
 ![QGroundControl - Select firmware to update](../../images/qav250_qgc_firmware.png)
 
 > **Note** For additional information see:
-  - [Autopilot Configuration](../config/autopilot_configuration.md)
+  - [Autopilot Configuration](../config/README.md)
   - [Firmware setup](https://donlakeflyer.gitbooks.io/qgroundcontrol-user-guide/content/SetupView/Firmware.html)
     (QGroundControl)
 
@@ -360,7 +360,7 @@ Then click **Apply and Restart**.
 
 Vehicle calibration/setup is typically similar for all vehicles. You can
 follow the instructions below, or see 
-[Autopilot Configuration](../config/autopilot_configuration.md).
+[Autopilot Configuration](../config/README.md).
 
 **Step 3:** Radio calibration
 
@@ -394,14 +394,14 @@ make the vehicle much easier to fly):
 - *Position* - When sticks are released the vehicle will stop (and
   hold position against wind drift)
 
-There are a number of ways to [configure flight modes](../config/flight_mode_configuration.md). In this case
+There are a number of ways to [configure flight modes](../config/flight_mode.md). In this case
 we have a three-way switch on the receiver that we map to a single channel (5).
 
 ![QGroundControl - Set flight modes](../../images/qgc_flight_mode_selection_qav250.png)
 
 For more information see:
 
-- [Flight Mode Configuration](../config/flight_mode_configuration.md)
+- [Flight Mode Configuration](../config/flight_mode.md)
 - [Flight Modes](../flight_modes/README.md)
 - [Flight Modes](https://donlakeflyer.gitbooks.io/qgroundcontrol-user-guide/content/SetupView/FlightModes.html)
   (QGroundControl)

@@ -20,7 +20,7 @@ flight with PX4 autopilot.
 
 Once you select and buy or assemble your air-frame you will have to
 preset it in QGroundControl with a template during the [Initial Setup
-process](../config/autopilot_configuration.md).
+process](../config/README.md).
 
 ![Frame Selection](../../images/frame_selection.png)
 

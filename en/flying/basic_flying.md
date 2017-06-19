@@ -45,7 +45,7 @@ Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement
 ## Assisted Flight
 
 Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving. 
-New users should [configure their transmitter](../config/flight_mode_configuration.md) to use flight modes where 
+New users should [configure their transmitter](../config/flight_mode.md) to use flight modes where 
 the autopilot automatically compensates for erratic user input or environmental factors. 
 
 The following three modes are highly recommended for new users:

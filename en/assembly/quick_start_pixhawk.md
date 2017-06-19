@@ -170,7 +170,7 @@ MAIN6 | Right aileron servo
 
 ## Configuration
 
-General configuration information is covered in: [Autopilot Configuration](../config/autopilot_configuration.md)
+General configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config/vtol_quad_configuration.md)
 
