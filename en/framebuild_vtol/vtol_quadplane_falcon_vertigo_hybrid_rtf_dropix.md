@@ -218,7 +218,7 @@ The pitot tube is installed on the front of the plane and connected to the airsp
    
    <img src="../../images/airframes/vtol/falcon_vertigo/falcon_vertigo_51_telemetry_module_mounting.jpg" width="500px" title="Paste telemetry module" />
    
- 
+<span id="flight_controller_orientation"></span>
 #### Mount and orient the flight controller
 
 1. Set your flight controller orientation to 270 degrees.
@@ -252,33 +252,18 @@ The final assembly step is to check the vehicle is stable and that the motors ha
 
 ## Configuration
 
-1. Configure the [firmware](../config/firmware.md) as usual.
+Perform the normal [Basic Configuration](../config/README.md).
 
-1. Configure the [airframe](../config/airframe.md) as usual, selecting the vehicle group/type as *VTOL Quad Tail Sitter* and the specific vehicle as *Quadrotor + Tailsitter* as shown below.
+Notes:
+
+1. For [Airframe](../config/airframe.md) select the vehicle group/type as *VTOL Quad Tail Sitter* and the specific vehicle as *Quadrotor + Tailsitter* as shown below.
 
    ![QGroundControl Select Frame](../../images/qgc/setup/airframe_px4_vtol_quad_tailsitter.jpg)
  
-1. Select sensors and follow the instructions of each of the options.
+1. Set the [Autopilot Orientation](config/flight_controller_orientation.md) to `ROTATION_YAW_270` as the autopilot is mounted [sideways](#flight_controller_orientation) with respect to the front of the vehicle.
+1. The default parameters are sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config/vtol_quad_configuration.md).
 
-   ![QGroundControl Configure Sensors](../../images/airframes/vtol/falcon_vertigo/qgroundcontrol_configure_sensors.jpg)
-   
-1. Turn on your radio and select radio, press calibrate and follow the instructions.
-
-   ![QGroundControl Configure Radio](../../images/airframes/vtol/falcon_vertigo/qgroundcontrol_configure_rc_control.jpg)
-   
-1. Select flight modes and chose each of the flight modes and the switch that configured in the radio.
-
-   ![QGroundControl Configure Flight Modes](../../images/airframes/vtol/falcon_vertigo/qgroundcontrol_configure_flight_modes.jpg)
-   
-1. Select power for configuration of battery and calibration of the ESC, for the configuration of the battery in the number of cell write the number of cell of your battery, press calibrate and follow the instructions.
-
-   ![QGroundControl Configure Battery and ESC](../../images/airframes/vtol/falcon_vertigo/qgroundcontrol_battery_esc.jpg)
-
-For calibrate ESC press calibrate and follow the instructions.
-And finish your VTOL is ready to fly. 
-
-
-The default parameters are sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config/vtol_quad_configuration.md).
+After you finish calibration the VTOL is ready to fly. 
 
 
 

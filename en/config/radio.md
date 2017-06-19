@@ -21,12 +21,12 @@ To calibrate the radio:
 
 1. Move the sticks to the positions indicated in the text (and on the transmitter image). Press **Next** when the sticks are in position. Repeat for all positions.
 1. When prompted, move all other switches and dials through their full range (you will be able to observe them moving on the *Channel Monitor*).
-1. Select values for Additional Radio Setup <!-- add info about additional radio setup here --> 
-
-   ![Radio setup - additional settings](../../images/qgc/setup/radio_additional_radio_setup.jpg)
+<!-- add info about additional radio setup here .... -->
+<!-- 1. Select values for *Additional Radio Setup  -->
+<!--  <img src="../../images/qgc/setup/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />  -->
 1. Press **Next** to save the settings.
    
-<!-- Note, for the QGC version we will have to show ardupilot additional settings, which differ -->
+
 
 Radio calibration is demonstrated in the [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=4m30s) (youtube).
 
