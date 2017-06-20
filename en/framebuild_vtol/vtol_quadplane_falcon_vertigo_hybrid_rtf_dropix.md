@@ -163,6 +163,7 @@ The image below shows back of the dropix flight controller, highlighting the out
 
 1. Connect the receiver (RC IN). 
 
+
 <span id="dropix_front"></span>
 
 #### Flight Controller Connections: Telemetry, Airspeed Sensor, GPS, Buzzer and Safety Switch
@@ -217,6 +218,15 @@ The pitot tube is installed on the front of the plane and connected to the airsp
 1. Connect the telemetry module to the *front* of the flight controller as shown below (see the [flight controller instructions](#dropix_front) for more detail on the pins).
    
    <img src="../../images/airframes/vtol/falcon_vertigo/falcon_vertigo_51_telemetry_module_mounting.jpg" width="500px" title="Paste telemetry module" />
+
+
+<span id="compass_gps"></span>
+#### GPS/Compass module   
+
+The GPS/Compass module is already mounted on the wing, in the default orientation. You don't need to have to do anything extra for this!
+
+<img src="../../images/airframes/vtol/falcon_vertigo/falcon_vertigo_gps_compass.jpg" width="500px" title="GPS/Compass" />
+
    
 <span id="flight_controller_orientation"></span>
 #### Mount and orient the flight controller
@@ -225,7 +235,7 @@ The pitot tube is installed on the front of the plane and connected to the airsp
    
    <img src="../../images/airframes/vtol/falcon_vertigo/falcon_vertigo_53_flight_controller_orientation.jpg" width="500px" title="Flight controller orientation" />
    
-1. Secure the controller in place using vibration damping foam.    
+1. Secure the controller in place using vibration damping foam. 
  
 
 ### Step 4: Final Assembly Checks
@@ -260,10 +270,17 @@ Notes:
 
    ![QGroundControl Select Frame](../../images/qgc/setup/airframe_px4_vtol_quad_tailsitter.jpg)
  
-1. Set the [Autopilot Orientation](config/flight_controller_orientation.md) to `ROTATION_YAW_270` as the autopilot is mounted [sideways](#flight_controller_orientation) with respect to the front of the vehicle.
+1. Set the [Autopilot Orientation](../config/flight_controller_orientation.md) to `ROTATION_YAW_270` as the autopilot is mounted [sideways](#flight_controller_orientation) with respect to the front of the vehicle. The compass is oriented forward, so you can leave that at the default (`ROTATION_NONE`).
 1. The default parameters are sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config/vtol_quad_configuration.md).
 
 After you finish calibration the VTOL is ready to fly. 
+
+
+## Video
+
+{% youtube %}
+http://www.youtube.com/watch?v=h7OHTigtU0s
+{% endyoutube %}
 
 
 
