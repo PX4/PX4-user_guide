@@ -276,6 +276,13 @@ Notes:
 After you finish calibration the VTOL is ready to fly. 
 
 
+## Video
+
+{% youtube %}
+http://www.youtube.com/watch?v=h7OHTigtU0s
+{% endyoutube %}
+
+
 
 ## Support
 
