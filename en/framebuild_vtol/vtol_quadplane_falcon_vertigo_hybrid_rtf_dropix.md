@@ -266,9 +266,9 @@ Perform the normal [Basic Configuration](../config/README.md).
 
 Notes:
 
-1. For [Airframe](../config/airframe.md) select the vehicle group/type as *VTOL Quad Tail Sitter* and the specific vehicle as *Quadrotor + Tailsitter* as shown below.
-
-   ![QGroundControl Select Frame](../../images/qgc/setup/airframe_px4_vtol_quad_tailsitter.jpg)
+1. For [Airframe](../config/airframe.md) select the vehicle group/type as *Standard VTOL* and the specific vehicle as *Generic quad delta VTOL* as shown below.
+   
+   ![QGroundControl Select Frame](../../images/qgc/setup/airframe_px4_vtol_generic_quad_delta_vtol.jpg)
  
 1. Set the [Autopilot Orientation](../config/flight_controller_orientation.md) to `ROTATION_YAW_270` as the autopilot is mounted [sideways](#flight_controller_orientation) with respect to the front of the vehicle. The compass is oriented forward, so you can leave that at the default (`ROTATION_NONE`).
 1. The default parameters are sufficient for stable flight. For more detailed tuning information see [Standard VTOL Wiring and Configuration](../config/vtol_quad_configuration.md).
