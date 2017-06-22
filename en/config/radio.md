@@ -44,15 +44,17 @@ As well as calibrating your control sticks and other transmitter controls, there
 <span id="spektrum_bind"></span>
 ### Spectrum Bind
 
-Before you can calibrate the radio system the receiver and transmitter must be connected/bound. If you have a Spektrum receiver you can put it in *bind mode* using *QGroundControl* as shown below (this can be particularly useful if you don't have easy physical access to the receiver on your vehicle).
+Before you can calibrate the radio system the receiver and transmitter must be connected/bound. If you have a *Spektrum* receiver you can put it in *bind mode* using *QGroundControl* as shown below (this can be particularly useful if you don't have easy physical access to the receiver on your vehicle).
 
-To put into bind mode:
+To bind a Spektrum transmitter/receiver:
 
 1. Select the **Spektrum Bind** button
 1. Select the radio button for your receiver
-1. Press **OK**. You will then need to bind the transmitter/receiver using the approach described in your transmitter/receiver documentation.
+1. Press **OK**
 
-![Spektrum Bind](../../images/qgc/setup/radio_additional_setup_spectrum_bind_select_channels.jpg)
+   ![Spektrum Bind](../../images/qgc/setup/radio_additional_setup_spectrum_bind_select_channels.jpg)
+
+1. Power on your Spektrum transmitter while holding down the bind button.
 
 
 ### Copy Trims
@@ -87,7 +89,7 @@ The flight controller will pass through the unmodified values from the specified
 
 Tuning channels allow you to map a transmitter tuning knob to a parameter (so that you can dynamically modify a parameter from your transmitter). 
 
-> **Tip** This might be useful, for example, to more easily increase or decrease the size of the geofence. 
+> **Tip** This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../advanced_config/pid_tuning_guide_multicopter.md), [Fixedwing PID Tuning Guide](../advanced_config/pid_tuning_guide_fixedwing.md).
 
 The channels used for parameter tuning are assigned in the *Radio* setup (here!), while the mapping from each tuning channel to its associated parameter is defined in the *Parameter editor*.
 
