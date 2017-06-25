@@ -23,7 +23,8 @@ vibration-damping foam pads (included in the kit). It should be
 positioned as close to your vehicle’s center of gravity as possible, oriented top-side up 
 with the arrow points towards the front of the vehicle.
 
-![Pixhawk Mini recommended orientation](../../images/pixhawk_mini_mounting_arrow.png)
+<img src="../../images/pixhawk_mini_mounting_arrow.png" width="300px" title="Pixhawk Mini recommended orientation"/>
+
 ![Mounting foam](../../images/3dr_anti_vibration_mounting_foam.png)
 
 > **Note** If the controller cannot be mounted in the
@@ -92,12 +93,14 @@ provide power on the other outputs. [Show a diagram of this?]
 Pixhawk Mini supports many different radio receiver models:
 
 - PPM and S.BUS receivers must connect to the **RCIN** port.
-  ![Pixhawk Mini - Radio port for PPM receivers](../../images/pixhawk_mini_port_rcin.png)
+
+  <img src="../../images/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - Radio port for PPM receivers" />
 - PWM receivers (with individual cables for each channel) must connect
   to the RCIN channel *via* a PPM encoder 
   [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html).
 - Spektrum and DSM receivers must connect to the **SPKT/DSM** input.
-  ![Pixhawk Mini - Radio port for Spektrum receivers](../../images/pixhawk_mini_port_spkt_dsm.png)
+
+  <img src="../../images/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
 
 *PX4* and *Pixhawk Mini* is have been validated with:
 
@@ -130,7 +133,11 @@ external safety button, as shown below.
 
 ## Motors
 
-![Pixhawk Mini - port for motors/servos](../../images/pixhawk_mini_port_main_out.png)
+The [Airframe Reference](airframe_reference.html) shows the default output port to motor/servos mappings for common airframe types.
+
+<img src="../../images/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
+
+The tables below show the most *common mapping* of output port to motor/servos for each type of vehicle. As noted above, these may differ by airframe type (and can be fully configured for a particular vehicle using parameters).
 
 
 ### Copter
