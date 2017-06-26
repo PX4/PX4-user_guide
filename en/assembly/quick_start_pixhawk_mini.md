@@ -98,7 +98,8 @@ Pixhawk Mini supports many different radio receiver models:
 - PWM receivers (with individual cables for each channel) must connect
   to the RCIN channel *via* a PPM encoder 
   [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html).
-- Spektrum and DSM receivers must connect to the **SPKT/DSM** input.
+- Spektrum and DSM receivers must connect to the **SPKT/DSM** input. There is only one exception, which is the Spektrum Serial Receiver (SPMAR7700); this receiver sends PPM and SRXL, and therefore can/should be connected directly to the RCIN channel.  
+
 
   <img src="../../images/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
 
