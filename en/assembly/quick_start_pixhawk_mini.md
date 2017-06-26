@@ -125,86 +125,31 @@ external safety button, as shown below.
 [IMAGE PLACEHOLDER - GOOD IMAGE of SIDE PORTS + CONNECTED SWITCH]
 
 
-
 ## Telemetry Radios
+
+
+
+## Motors
+
+The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframe_reference.md).
+
+> **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+
+<span></span>
+> **Tip** If your frame is not listed in the reference then use a "generic" airframe of the correct type.
+
+Notes:
+
+* The output rail must be separately powered, as discussed in the [Power](#power) section above.
+* Pixhawk Mini cannot be used for QuadPlane VTOL airframes. This is because QuadPlane requires 9 outputs (4 Main, 5 AUX) and the Pixhawk Mini only has 8 outputs (8 Main).
+
+  
+<img src="../../images/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
 
 
 ## Other Peripherals
 
-## Motors
-
-The [Airframe Reference](airframe_reference.html) shows the default output port to motor/servos mappings for common airframe types.
-
-<img src="../../images/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
-
-The tables below show the most *common mapping* of output port to motor/servos for each type of vehicle. As noted above, these may differ by airframe type (and can be fully configured for a particular vehicle using parameters).
-
-
-### Copter
-
-There is a 1:1 mapping between pin-out and motor (obviously the actual number of motors used depends on the vehicle).
-
-Output | Connection
---- | ---
-MAIN 1   | Motor 1
-MAIN 2   | Motor 2
-MAIN 3   | Motor 3
-MAIN 4   | Motor 4
-MAIN 5   | Motor 5
-MAIN 6   | Motor 6 
-MAIN 7   | Motor 7
-MAIN 8   | Motor 8
-
-
-
-### Plane
-
-Output | Connection
---- | ---
-MAIN 1   | Aileron (assuming a Y cable)
-MAIN 2   | Elevator
-MAIN 3   | Throttle
-MAIN 4   | Rudder
-MAIN 5   | 
-MAIN 6   | 
-MAIN 7   | 
-MAIN 8   | 
-
-> **Caution** It is assumed that your pusher/puller motor uses an ESC with an
-  integrated BEC so that power will be supplied to the Pixhawk on
-  AUX5. If not, you will need to setup a 5V BEC to connect to one of the
-  free Pixhawk ports. Failure to do so will result in nonfunctional servos.
-
-### VTOL
-
-#### QuadPlane
-
-> **Warning** Pixhawk Mini cannot be used for QuadPlane. This is because QuadPlane requires 9 outputs (4 Main, 5 AUX) and the Pixhawk Mini only has 8 outputs (8 Main).
-
-#### Tiltrotor
-
-Output | Connection
---- | --- 
-MAIN 1 | Motor right
-MAIN 2 | Motor left
-MAIN 3 | Motor back
-MAIN 4 | empty
-MAIN 5 | Tilt servo right
-MAIN 6 | Tilt servo left
-MAIN 7 | Elevon right
-MAIN 8 | Elevon left
-
-
-#### Tailsitter
-
-Output | Actuator
---- | --- 
-MAIN1 | Left motor controller
-MAIN2 | Right motor controller
-MAIN3 | Empty
-MAIN4 | Empty
-MAIN5 | Left aileron servo
-MAIN6 | Right aileron servo
+The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
 
 ## Configuration

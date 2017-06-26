@@ -86,86 +86,26 @@ Telemetry radios may be used to communicate and control a vehicle in flight from
 <!-- what configuration is required once you've set up a radio) -->
 
 
-## Motor/Actuator Outputs 
+## Motors
 
-### Copter
+The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframe_reference.md).
 
-There is a 1:1 mapping between pin-out and motor. The actual number of motors and how they are wired up depends on the type of multicopter. For more information see the [Copter Motor Map](../assembly/copter_motor_map.md).
+> **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 
-Output | Connection
---- | ---
-MAIN 1   | Motor 1
-MAIN 2   | Motor 2
-MAIN 3   | Motor 3
-MAIN 4   | Motor 4
-MAIN 5   | Motor 5
-MAIN 6   | Motor 6 
-MAIN 7   | Motor 7
-MAIN 8   | Motor 8
+<span></span>
+> **Tip** If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 
+Note:
 
-### Plane
+* The output rail must be separately powered, as discussed in the [Power](#power) section above.
 
-Output | Connection
---- | ---
-MAIN 1   | Aileron (assuming a Y cable)
-MAIN 2   | Elevator
-MAIN 3   | Throttle
-MAIN 4   | Rudder
-MAIN 5   | 
-MAIN 6   | 
-MAIN 7   | 
-MAIN 8   | 
-
-> **Caution** The output rail must be separately powered, as discussed in the [Power](#power) section above.
+  
+<!-- INSERT image of the motor AUX/MAIN ports? -->
 
 
-### VTOL
+## Other Peripherals
 
-#### QuadPlane
-
-Output | Connection
---- | ---
-MAIN 1   | Quad motor 1
-MAIN 2   | Quad motor 2
-MAIN 3   | Quad motor 3
-MAIN 4   | Quad motor 4
-AUX 1    | Left aileron
-AUX 2    | Right aileron
-AUX 3    | Elevator
-AUX 4    | Rudder
-AUX 5    | Throttle (motor)
-
-> **Caution** The output rail must be separately powered, as discussed in the [Power](#power) section above.
-
-
-#### Tiltrotor
-
-Output | Connection
---- | --- 
-MAIN 1 | Motor right
-MAIN 2 | Motor left
-MAIN 3 | Motor back
-MAIN 4 | empty
-MAIN 5 | Tilt servo right
-MAIN 6 | Tilt servo left
-MAIN 7 | Elevon right
-MAIN 8 | Elevon left
-
-> **Caution** The output rail must be separately powered, as discussed in the [Power](#power) section above.
-
-#### Tailsitter
-
-Output | Actuator
---- | --- 
-MAIN1 | Left motor controller
-MAIN2 | Right motor controller
-MAIN3 | Empty
-MAIN4 | Empty
-MAIN5 | Left aileron servo
-MAIN6 | Right aileron servo
-
-> **Caution** The output rail must be separately powered, as discussed in the [Power](#power) section above.
+The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
 
 ## Configuration
