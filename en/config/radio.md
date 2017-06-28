@@ -59,15 +59,18 @@ To bind a Spektrum transmitter/receiver:
 
 ### Copy Trims
 
-*Copy Trims* is used to save the zero point values for your sticks to the appropriate RC parameters (i.e. you set the trims to zero and then copy the current values to the associated parameters).
+This setting is used to copy the manual trim settings from your radio transmitter so that they can be applied automatically within the autopilot. After this is done you will need to remove the manually set trims.
 
 To copy the trims:
 
 1. Select **Copy Trims**.
 1. Center your sticks and move throttle all the way down. 
-1. Press **Ok** to copy the trims. After pressing Ok, reset the trims on your radio back to zero.
+1. Press **Ok**. 
 
-![Copy Trims](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
+   ![Copy Trims](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
+   
+1. Reset the trims on your transmitter back to zero.
+
 
 
 ### AUX Passthrough Channels
