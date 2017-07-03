@@ -14,7 +14,7 @@
   * [AUAV-X2 Wiring Quickstart](assembly/quick_start_auav_x2.md)  
   * [Pixracer Wiring Quickstart](assembly/quick_start_pixracer.md)
   * [Dropix Wiring Quickstart](assembly/quick_start_dropix.md) 
-  * [Airframes Reference](airframe_reference.md)
+  * [Airframes Reference](airframes/airframe_reference.md)
 * [Basic Configuration](config/README.md)
   * [Firmware](config/firmware.md)
   * [Airframe](config/airframe.md)

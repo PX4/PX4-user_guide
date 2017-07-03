@@ -13,7 +13,7 @@ This page lists all supported airframes and types including
 ### Coaxial Helicopter
 
 <div>
-<img src="../images/airframes/types/HelicopterCoaxial.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/HelicopterCoaxial.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -42,7 +42,7 @@ This page lists all supported airframes and types including
 ### Helicopter
 
 <div>
-<img src="../images/airframes/types/Helicopter.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/Helicopter.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -71,7 +71,7 @@ This page lists all supported airframes and types including
 ### Hexarotor +
 
 <div>
-<img src="../images/airframes/types/HexaRotorPlus.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/HexaRotorPlus.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -100,7 +100,7 @@ This page lists all supported airframes and types including
 ### Hexarotor Coaxial
 
 <div>
-<img src="../images/airframes/types/Y6B.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/Y6B.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -129,7 +129,7 @@ This page lists all supported airframes and types including
 ### Hexarotor x
 
 <div>
-<img src="../images/airframes/types/HexaRotorX.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/HexaRotorX.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -158,7 +158,7 @@ This page lists all supported airframes and types including
 ### Octo Coax Wide
 
 <div>
-<img src="../images/airframes/types/OctoRotorXCoaxial.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/OctoRotorXCoaxial.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -187,7 +187,7 @@ This page lists all supported airframes and types including
 ### Octorotor +
 
 <div>
-<img src="../images/airframes/types/OctoRotorPlus.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/OctoRotorPlus.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -216,7 +216,7 @@ This page lists all supported airframes and types including
 ### Octorotor Coaxial
 
 <div>
-<img src="../images/airframes/types/OctoRotorXCoaxial.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/OctoRotorXCoaxial.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -245,7 +245,7 @@ This page lists all supported airframes and types including
 ### Octorotor x
 
 <div>
-<img src="../images/airframes/types/OctoRotorX.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/OctoRotorX.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -274,7 +274,7 @@ This page lists all supported airframes and types including
 ### Quadrotor +
 
 <div>
-<img src="../images/airframes/types/QuadRotorPlus.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/QuadRotorPlus.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -303,7 +303,7 @@ This page lists all supported airframes and types including
 ### Quadrotor Wide
 
 <div>
-<img src="../images/airframes/types/QuadRotorWide.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/QuadRotorWide.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -375,7 +375,7 @@ This page lists all supported airframes and types including
 ### Quadrotor x
 
 <div>
-<img src="../images/airframes/types/QuadRotorX.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/QuadRotorX.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -522,7 +522,7 @@ This page lists all supported airframes and types including
 ### Tricopter Y+
 
 <div>
-<img src="../images/airframes/types/YPlus.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/YPlus.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -551,7 +551,7 @@ This page lists all supported airframes and types including
 ### Tricopter Y-
 
 <div>
-<img src="../images/airframes/types/YMinus.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/YMinus.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -582,7 +582,7 @@ This page lists all supported airframes and types including
 ### Flying Wing
 
 <div>
-<img src="../images/airframes/types/FlyingWing.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/FlyingWing.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -646,7 +646,7 @@ This page lists all supported airframes and types including
 ### Plane A-Tail
 
 <div>
-<img src="../images/airframes/types/PlaneATail.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/PlaneATail.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -703,7 +703,7 @@ This page lists all supported airframes and types including
 ### Standard Plane
 
 <div>
-<img src="../images/airframes/types/Plane.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/Plane.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -759,7 +759,7 @@ This page lists all supported airframes and types including
 ### Rover
 
 <div>
-<img src="../images/airframes/types/Rover.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/Rover.svg" width="29%" style="max-height: 180px;"/>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -807,7 +807,7 @@ passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000
 ### Standard VTOL
 
 <div>
-<img src="../images/airframes/types/VTOLPlane.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/VTOLPlane.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -861,7 +861,7 @@ passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000
 ### VTOL Duo Tailsitter
 
 <div>
-<img src="../images/airframes/types/VTOLDuoRotorTailSitter.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/VTOLDuoRotorTailSitter.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -890,7 +890,7 @@ passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000
 ### VTOL Quad Tailsitter
 
 <div>
-<img src="../images/airframes/types/VTOLQuadRotorTailSitter.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/VTOLQuadRotorTailSitter.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -924,7 +924,7 @@ passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000
 ### VTOL Tiltrotor
 
 <div>
-<img src="../images/airframes/types/VTOLTiltRotor.svg" width="29%" style="max-height: 180px;"/>
+<img src="../../assets/airframes/types/VTOLTiltRotor.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
