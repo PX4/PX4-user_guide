@@ -1,5 +1,7 @@
 # Introduction
 
+[![Releases](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) <script async defer src="http://px4-slack.herokuapp.com/slackin.js"></script>
+
 Welcome to *PX4 Autopilot Users Manual* and thank you for choosing our product.
 
 Here you will find all the information necessary to setup and fly your PX4 drone safely.
