@@ -1,6 +1,7 @@
 # PX4 Autopilot User Guide
 
-[![Releases](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io) 
+[![Releases](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io) 
+
 
 Welcome to *PX4 Autopilot User Guide* and thank you for choosing our product.
 
