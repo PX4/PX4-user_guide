@@ -7,9 +7,9 @@ The MISSION flight mode executes a [predefined mission/flight plan](../flying/mi
 >  * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes).
 >  * The vehicle must be armed before this mode can be engaged.
 
-## Additional Detail
+## Description
 
-Missions are usually created in [QGroundControl](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html) and uploaded prior to launch (they may also be created in another GCS or by a developer API, and/or uploaded in flight). 
+Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)) and uploaded prior to launch. They may also be created by a developer API, and/or uploaded in flight. 
 
 If MISSION mode is activated when no mission is stored, the vehicle will enter [HOLD mode](../flight_modes/hold.md). 
 
@@ -21,8 +21,16 @@ For more information about mission planning, see:
 * [Mission Planning](../flying/missions.md)
 * [Plan View](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
 
+
 ## Mission Parameters
 
 Mission behaviour is affected by a number of parameters. These cover, for example, how the vehicle will behave if it looses connection to its remote control during a mission ([NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)), the fixed-wing loiter radius for missions ([NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)), acceptance radius for reaching a waypoint etc.
 
 These are documented here: [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission)
+
+
+## QGroundControl Support
+*QGroundControl* provides additional GCS-level mission handling support (in addition to that provided by the flight controller). For more information see:
+* [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands) 
+* [Resume mission after RTL](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#resume-mission)
+
