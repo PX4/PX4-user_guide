@@ -5,7 +5,7 @@ the pilot or autopilot. In some flight modes, the autopilot and pilot
 share different responsibilities (e.g. holding altitude is controlled by
 the autopilot).
 
-## MANUAL
+## MANUAL Modes
 
 **Fixed wing aircraft:**
 
@@ -39,30 +39,22 @@ Throttle Command is mapped direct to Motor Speed.
   sources will not be compensated.
 
 
-## ALTITUDE CONTROL
+## ASSISTED Modes
 
-- **Fixed wing aircraft:** When the roll, pitch and yaw inputs (RPY)
-  are all centered, the aircraft will return to straight, level flight
-  and keep its current altitude.
-- **Multirotors:** Roll, pitch and yaw inputs are as in MANUAL mode.
-  Throttle inputs indicate climb or sink at a predetermined maximum
-  rate. Throttle has a large deadzone.
+- [ALTITUDE CONTROL](../flight_modes/altitude.md): More easily control vehicle altitude, and in particular reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold position/heading against wind.
 
 
-## POSITION CONTROL
-
-- **Fixed wing aircraft:** Neutral inputs provide a level flight and
-  will crab against the wind if needed to maintain a straight line.
-- **Multirotors** Roll controls left-right speed, pitch controls
-  front-back speed. When roll and pitch are all centered (inside
-  deadzone) the multirotor will hold position. Yaw controls yaw rate
-  as in MANUAL mode. Throttle controls climb/descent rate as in ALTCTL
-  mode. **WARNING**: Do not Land in POSCTL Mode, use Manual Mode to
-  Land.
-  
+- **POSITION CONTROL**
+  - **Fixed wing aircraft:** Neutral inputs provide a level flight and
+    will crab against the wind if needed to maintain a straight line.
+  - **Multirotors** Roll controls left-right speed, pitch controls
+    front-back speed. When roll and pitch are all centered (inside
+    deadzone) the multirotor will hold position. Yaw controls yaw rate
+    as in MANUAL mode. Throttle controls climb/descent rate as in ALTCTL
+    mode. **WARNING**: Do not Land in POSCTL Mode, use Manual Mode to Land.
 
 
-## AUTO
+## AUTO Modes
 
 - [HOLD](../flight_modes/hold.md): Holds at the current position (hovers for copter, circles for fixed-wing)
 - [RETURN TO LAUNCH (RTL)](../flight_modes/rtl.md): Return to the home position and land (copter) or circle (fixed-wing).
