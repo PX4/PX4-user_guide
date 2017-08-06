@@ -39,6 +39,34 @@ This page lists all supported airframes and types including
 </tr>
 </tbody></table>
 
+### Dodecarotor cox
+
+<div>
+<table style="float: right; width: 70%; font-size:1.5rem;">
+ <colgroup><col></colgroup>
+ <thead>
+   <tr><th>Common Outputs</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: motor 7</li><li><b>AUX2</b>: motor 8</li><li><b>AUX3</b>: motor 9</li><li><b>AUX4</b>: motor 10</li><li><b>AUX5</b>: motor 11</li><li><b>AUX6</b>: motor 12</li></ul></td>
+</tr>
+</tbody></table>
+</div>
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
+ <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th></th></tr>
+ </thead>
+<tbody>
+<tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
+ <td style="vertical-align: top;">Generic Dodecarotor cox geometry</td>
+ <td style="vertical-align: top;"><p>Maintainer: William Peale <develop707@gmail.com></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
+
+</tr>
+</tbody></table>
+
 ### Helicopter
 
 <div>
@@ -474,9 +502,9 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: James Goppert <james.goppert@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4060</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_intel_aero_rtf">
- <td style="vertical-align: top;">Intel Aero RTF</td>
- <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 4070</p></td>
+<tr id="copter_quadrotor_x_intel_aero_ready_to_fly_drone">
+ <td style="vertical-align: top;">Intel Aero Ready to Fly Drone</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lucas de Marchi</p><p><code>SYS_AUTOSTART</code> = 4070</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_zmr250_racer">
@@ -491,7 +519,7 @@ This page lists all supported airframes and types including
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2.0">
  <td style="vertical-align: top;">Crazyflie 2.0</td>
- <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 4900</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Dennis Shtatov <densht@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4900</p></td>
 
 </tr>
 </tbody></table>
@@ -510,11 +538,6 @@ This page lists all supported airframes and types including
 <tr id="copter_simulation_(copter)_hil_quadcopter_x">
  <td style="vertical-align: top;">HIL Quadcopter X</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
-
-</tr>
-<tr id="copter_simulation_(copter)_hil_quadcopter_+">
- <td style="vertical-align: top;">HIL Quadcopter +</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1003</p></td>
 
 </tr>
 </tbody></table>
@@ -636,6 +659,11 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3036</p></td>
 
 </tr>
+<tr id="plane_flying_wing_modified_parrot_disco">
+ <td style="vertical-align: top;">Modified Parrot Disco</td>
+ <td style="vertical-align: top;"><p>Maintainer: Jan Liphardt <JTLiphardt@gmail.com></p><p><code>SYS_AUTOSTART</code> = 3037</p></td>
+
+</tr>
 <tr id="plane_flying_wing_tbs_caipirinha">
  <td style="vertical-align: top;">TBS Caipirinha</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 3100</p></td>
@@ -682,7 +710,7 @@ This page lists all supported airframes and types including
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: rudder</li><li><b>MAIN4</b>: throttle</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: rudder</li><li><b>MAIN4</b>: throttle</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></td>
 </tr>
 </tbody></table>
 </div>
@@ -722,9 +750,9 @@ This page lists all supported airframes and types including
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="plane_standard_plane_standard_aetr_plane">
- <td style="vertical-align: top;">Standard AETR Plane</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 2104</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: throttle</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: flaps</li></ul></p></td>
+<tr id="plane_standard_plane_standard_plane">
+ <td style="vertical-align: top;">Standard Plane</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 2100</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: throttle</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></p></td>
 
 </tr>
 <tr id="plane_standard_plane_bormatec_maja">
