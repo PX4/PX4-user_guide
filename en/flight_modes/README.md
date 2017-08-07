@@ -60,7 +60,7 @@ Throttle Command is mapped direct to Motor Speed.
 - [RETURN TO LAUNCH (RTL)](../flight_modes/rtl.md): Return to the home position and land (copter) or circle (fixed-wing).
 - [TAKEOFF](../flight_modes/takeoff.md): Take off and wait for further input.
 - [LAND](../flight_modes/land.md): Land at the location where the mode was engaged. 
-- [MISSION](../flight_modes/mission.md): The aircraft obeys a programmed mission, which is usually planned and uploaded using a ground control station (GCS).
+- [MISSION](../flight_modes/mission.md): The vehicle follows a programmed mission, which is usually planned and uploaded using a ground control station (GCS).
 
 ## OFFBOARD
 

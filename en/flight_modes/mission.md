@@ -11,10 +11,12 @@ The MISSION flight mode executes a [predefined mission/flight plan](../flying/mi
 
 Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)) and uploaded prior to launch. They may also be created by a developer API, and/or uploaded in flight. Individual mission commands are handled in a way that is appropriate for each vehicle's flight characteristics (for example loiter is implemented as *hover* for copter and *circle* for fixed-wing). VTOL vehicles follow the behavior and parameters of fixed-wing when in FW mode, and of copter when in MC mode.
 
-At high level all vehicle types behave in the same way when MISSION mode is active:
+At high level all vehicle types behave in the same way when MISSION mode is engaged:
 
-1. If a mission is stored PX4 will execute the [mission/flight plan](../flying/missions.md).
-   > **Note** If the vehicle is landed and the mission does not have a `TAKEOFF` command then PX4 will add one, flying the vehicle to the minimum altitude before executing the rest of the flight plan.
+1. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step.
+1. If a mission is stored and PX4 is landed:
+   * On copters PX4 will execute the [mission/flight plan](../flying/missions.md). If the mission does not have a `TAKEOFF` command then PX4 will add one, flying the vehicle to the minimum altitude before executing the rest of the flight plan.
+   * On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero). The vehicle may start executing the mission if hand- or catapult- launched while in mission mode.  
 1. If no mission is stored, or if PX4 has finished executing all mission commands:
    * If flying the vehicle will loiter.
    * If landed the vehicle will "wait".
