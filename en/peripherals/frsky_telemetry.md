@@ -18,6 +18,32 @@ For receivers with S-port: Connect the Pixracer FrSky TX and RX lines
 together (solder the wires together) to the X series receiver's S.port
 pin. Also connect GND.
 
+## LuaPilot: Telemetry Screen on the Taranis
+If you have a Taranis that can receive the telemetry stream (e.g. a Taranis X9D
+Plus), you can install a script that shows you a nice overview of the received
+telemetry:
+![](../../images/taranis_telemetry.jpg)
+
+You can see:
+- Current flight mode
+- GPS fix
+- Vehicle heading
+- Battery level
+- RC signal strength
+- Current speed and altitude
+- and more
+
+Once you have the hardware connected, follow the instructions on
+http://ilihack.github.io/LuaPilot_Taranis_Telemetry/, Section **Taranis Setup OpenTX**.
+
+If you open the `LuaPil.lua` script with a text editor, you can edit the
+configuration. Suggested modifications:
+```
+local BattLevelmAh = -1  -- use the battery level calculation from the vehicle
+local SayFlightMode = 0  -- there are no WAV files for the PX4 flight modes
+```
+
+
 
 ## Cable/adapter sources
 
