@@ -42,6 +42,7 @@ This page lists all supported airframes and types including
 ### Dodecarotor cox
 
 <div>
+<img src="../../assets/airframes/types/DodecaRotorXCoaxial.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
