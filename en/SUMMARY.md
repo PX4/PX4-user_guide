@@ -51,6 +51,7 @@
     * [HOLD](flight_modes/hold.md)
     * [ALTITUDE CONTROL](flight_modes/altitude.md)
     * [FOLLOW ME](flight_modes/follow_me.md)
+    * [MISSION](flight_modes/mission.md)
   * [Missions](flying/missions.md)
 * [Advanced Features](advanced_features/README.md)
   * [RTK GPS](advanced_features/rtk-gps.md)
