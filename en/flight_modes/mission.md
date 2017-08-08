@@ -15,7 +15,7 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
 
 1. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step.
 1. If a mission is stored and PX4 is landed:
-   * On copters PX4 will execute the [mission/flight plan](../flying/missions.md). If the mission does not have a `TAKEOFF` command then PX4 will add one, flying the vehicle to the minimum altitude before executing the rest of the flight plan.
+   * On copters PX4 will execute the [mission/flight plan](../flying/missions.md). If the mission does not have a `TAKEOFF` command then PX4 will fly the vehicle to the minimum altitude before executing the remainder of the flight plan from the current step.
    * On fixed-wing vehicles PX4 will not automatically take off (the autopilot will detect the lack of movement and set the throttle to zero). The vehicle may start executing the mission if hand- or catapult- launched while in mission mode.  
 1. If no mission is stored, or if PX4 has finished executing all mission commands:
    * If flying the vehicle will loiter.
