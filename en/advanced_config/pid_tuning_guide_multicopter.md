@@ -137,7 +137,7 @@ add [MC_ROLLRATE_I](../advanced_config/parameter_reference.md#MC_ROLLRATE_I) and
 
 ### P Gain Tuning
 
-Parameters: [MC_RATE_P](../advanced_config/parameter_reference.md#MC_RATE_P), [MC_RATE_P](../advanced_config/parameter_reference.md#MC_RATE_P).
+Parameters: [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P), [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P).
 
 - Set `MC_ROLL_P` and `MC_PITCH_P` to a small value, e.g. 3
 
