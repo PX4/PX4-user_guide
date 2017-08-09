@@ -7,6 +7,7 @@ You will need:
 - A *laptop/PC* with QGroundControl (QGroundControl for Android/iOS do not support RTK)
 - A vehicle with a WiFi or Telemetry radio link to the laptop
 
+> **Note** *QGroundControl* can theoretically enable RTK GPS for multiple vehicles (provided they each have a rover module). At time of writing this use case has not been tested.
 
 ## Supported RTK Devices
 
@@ -34,8 +35,8 @@ Connect the base module to *QGroundControl* via USB. The base module must not be
 ### Telemetry Radio/WiFi
 
 The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../assembly/quick_start_pixhawk.md#telemetry-radios-optional). <!-- this should be a link to a telemetry topic, but we don't have one yet -->
-> **Caution** On lower-bandwidth telemetry modules (e.g. like 3DR Radios) [you must use the MAVLink2 protocol](#mavlink2).
 
+The link *must* use the MAVLink2 protocol as it makes more efficient use of the channel. This should be set by default, but if not, follow the [MAVLink2 configuration instructions](#mavlink2) below.
 
 
 ## RTK Connection Process
@@ -79,12 +80,9 @@ These settings define the minimum duration and minimum accuracy for completing t
 
 ### MAVLink2
 
-The MAVLink2 protocol is highly recommended because it makes more efficient use of the channel. 
+The MAVLink2 protocol must be used because it makes more efficient use of lower-bandwidth channels. This should be enabled by default on recent builds.
 
-> **Caution** On lower-bandwidth telemetry modules (e.g. like 3DR Telemetry Radios) you *must*) use MAVLink2, in order to avoid saturating the link.
-
-To enable MAVLink2:
-
+To ensure MAVLink2 is used:
 * Update the telemetry module firmware to the latest version (see [QGroundControl > Setup > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)).
 * Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html))
 
@@ -94,21 +92,9 @@ To enable MAVLink2:
 You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters. 
 For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) and [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) to 0.2.
 
-<!-- can we have a more complete list -->
-
-
-<!-- Video demonstration would be nice, but this one isn't very educational or interesting 
-- vehicle flies, lots of of computers, blah blah 
-What would be better is something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey. --> 
-<!--
-## Video Demonstration
-
-The following videos show vehicles flying using RTK GPS.
-
-u-blox & PX4 RTK integration on M8P (Video credits to Michael Ammann)
-{% youtube %}
-https://youtu.be/en_a5XBx2vU
-{% endyoutube %}
+<!-- 
+- Video demonstration would be nice.
+- something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey. 
 -->
 
 
@@ -116,20 +102,3 @@ https://youtu.be/en_a5XBx2vU
 
 The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](https://dev.px4.io/en/airframes_multicopter/dji_flamewheel_450.html) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
 
-
-
-
-<!--
-- RTK typically has base with multiple rovers. Does QGC support multiple rovers? How?
-- What sorts of surveying are we thinking would require/use RTK?
-- Is GPS mast "essential" or "recommended"
-- Do we state that MAVLink2 is required? My understanding is that it is required for a telemetry radio because the bandwidth isn't high enough, but Wifi has higher bandwidth and is probably OK. Do we make the distinction in the user guide?
---> 
-
-<!-- 
-
-RTK uses measurements of the phase of the signal's carrier wave, rather than the information content of the signal, and relies on a 
-single reference station to provide real-time corrections. 
-
-An RTK system consists of a fixed-position "base" module connected to *QGroundControl*, and at least one vehicle-mounted "rover" module. *QGroundControl* and the vehicle must be connected via radio or wifi telemetry.
--->
