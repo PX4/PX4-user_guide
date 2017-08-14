@@ -1,16 +1,14 @@
 # Pixhawk 3 Pro
 
-The Pixhawk 3 Pro is based on the FMUv4 (Pixracer) hardware with some upgrades
-and additional features, designed by [Drotek](https://drotek.com) and PX4.
-
+The Pixhawk 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades
+and additional features. The board was designed by [Drotek](https://drotek.com) and PX4.
 
 ![](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
+> **Note** The main hardware documentation is here: https://pixhawk.drotek.com/en/
+
 
 ## Quick Summary
-
-> **Note** **The main hardware documentation is here: https://pixhawk.drotek.com/en/ **
-
 
   * Microcontroller: **STM32F469**; Flash size is **2MiB**, RAM size is **384KiB**
   * **ICM-20608-G** gyro / accelerometer

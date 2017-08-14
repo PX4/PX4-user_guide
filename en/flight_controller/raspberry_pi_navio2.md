@@ -113,16 +113,12 @@ To generate new SSH keys enter the following commands (Choose a sensible hostnam
 
 These commands need to be run on the HOST development computer!
 
-<div class="host-code"></div>
-
 ```sh
 ssh-keygen -t rsa -C pi@px4autopilot
 ```
 Upon entering this command, you'll be asked where to save the key. We suggest you save it in the default location ($HOME/.ssh/id_rsa) by just hitting Enter.
 
 Now you should see the files ```id_rsa``` and ```id_rsa.pub``` in your ```.ssh``` directory in your home folder:
-
-<div class="host-code"></div>
 
 ```sh
 ls ~/.ssh
@@ -132,8 +128,6 @@ The ```id_rsa``` file is your private key. Keep this on the development computer
 The ```id_rsa.pub``` file is your public key. This is what you put on the targets you want to connect to.
 
 To copy your public key to your Raspberry Pi, use the following command to append the public key to your authorized_keys file on the Pi, sending it over SSH:
-
-<div class="host-code"></div>
 
 ```sh
 cat ~/.ssh/id_rsa.pub | ssh pi@px4autopilot 'cat >> .ssh/authorized_keys'
@@ -145,8 +139,6 @@ Now try ```ssh pi@px4autopilot``` and you should connect without a password prom
 
 If you see a message "```Agent admitted failure to sign using the key.```" then add your RSA or DSA identities to the authentication agent, ssh-agent and the execute the following command:
 
-<div class="host-code"></div>
-
 ```sh
 ssh-add
 ```
@@ -156,8 +148,6 @@ If this did not work, delete your keys with ```rm ~/.ssh/id*``` and follow the i
 We use SCP to transfer files from the development computer to the target board over a network (WiFi or Ethernet).
 
 To test your setup, try pushing a file from the development PC to the Pi over the network now. Make sure the Pi has network access, and you can SSH into it.
-
-<div class="host-code"></div>
 
 ```sh
 echo "Hello" > hello.txt
@@ -188,5 +178,5 @@ Then clone the Firmware directly onto the Pi.
 
 ### Building the code
 
-Continue with our [standard build system installation](../setup/dev_env_linux.md).
+Continue with our [standard build system installation](https://dev.px4.io/en/setup/dev_env_linux.html).
 

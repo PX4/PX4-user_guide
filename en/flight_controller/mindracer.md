@@ -44,7 +44,7 @@ MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-eliminat
 
 ### How to build
 
-Please follow [Getting Started](../setup/getting_started.md) and [Building the Code](../setup/building_px4.md).  The target for MindPX is `nuttx_mindpx-v2_default` (it's compatible with MindPX):
+Please follow [Getting Started](https://dev.px4.io/en/setup/getting_started.html) and [Building the Code](https://dev.px4.io/en/setup/building_px4.html).  The target for MindPX is `nuttx_mindpx-v2_default` (it's compatible with MindPX):
 
 `make nuttx_mindpx-v2_default`
 
@@ -54,7 +54,7 @@ MindRacer has an attached Adapt IO board.
 
 ![](../../assets/hardware/hardware-mindracer-conn.png)
 
-MindRacer has a built-in UART-to-USB convertor. To connect a companion computer, stack MindRacer on an interface board, and connect the companion computer to the USB port on the interface board.
+MindRacer has a built-in UART-to-USB converter. To connect a companion computer, stack MindRacer on an interface board, and connect the companion computer to the USB port on the interface board.
 
 And the max BAUD rate is the same with px4 family, which is up to 921600.
 

@@ -156,7 +156,7 @@ The APIs to set up and use the UART are described in [dspal](https://github.com/
 
 > **Todo** These are notes for advanced developers.
 
-Connect to the Linux shell (see [console instructions](../debug/system_console.md#snapdragon-flight-wiring-the-console)).
+Connect to the Linux shell (see [console instructions](https://dev.px4.io/en/debug/system_console.html#snapdragon-flight-wiring-the-console)).
 
 ### Access point mode
 
@@ -353,8 +353,8 @@ ERROR [muorb] ERROR: FastRpcWrapper Not Initialized
 If you get errors like the above when starting px4, try
 - [upgrading the Linux image](#upgradingreplacing-the-linux-image)
 - and [updating the ADSP firmware](#updating-the-adsp-firmware). Also try to do this from a native Linux installation instead of a virtual machine. There have been [reports](https://github.com/PX4/Firmware/issues/5303) where it didn't seem to work when done in a virtual machine.
-- then [rebuild the px4 software](../setup/building_px4.md#building-px4-software), by first completely deleting your existing Firmware repo and then recloning it [as described here](../setup/building_px4.md#compiling-on-the-console)
-- and finally [rebuild and re-run it](../setup/building_px4.md#qurt--snapdragon-based-boards)
+- then [rebuild the px4 software](https://dev.px4.io/en/setup/building_px4.html), by first completely deleting your existing Firmware repo and then recloning it [as described here](https://dev.px4.io/en/setup/building_px4.html#downloading-the-software-and-first-build)
+- and finally [rebuild and re-run it](https://dev.px4.io/en/setup/building_px4.html#qurt--snapdragon-based-boards)
 - make sure the executable bit of `/usr/local/qr-linux/q6-admin.sh` is set:
   `adb shell chmod +x /usr/local/qr-linux/q6-admin.sh`
 

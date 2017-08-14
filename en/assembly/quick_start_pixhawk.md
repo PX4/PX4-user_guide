@@ -88,17 +88,15 @@ Telemetry radios may be used to communicate and control a vehicle in flight from
 
 ## Motors
 
-The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframe_reference.md).
+The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
 
 > **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 
 <span></span>
 > **Tip** If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 
-Note:
-
-* The output rail must be separately powered, as discussed in the [Power](#power) section above.
-
+<span></span>
+> **Note** The output rail must be separately powered, as discussed in the [Power](#power) section above.
   
 <!-- INSERT image of the motor AUX/MAIN ports? -->
 

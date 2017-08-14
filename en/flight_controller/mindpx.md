@@ -68,7 +68,7 @@ For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/ass
 
 ### How to build
 
-Please follow [Getting Started](../setup/getting_started.md) and [Building the Code](../setup/building_px4.md). The target for MindPX is `nuttx_mindpx-v2_default`:
+Please follow [Getting Started](https://dev.px4.io/en/setup/getting_started.html) and [Building the Code](https://dev.px4.io/en/setup/building_px4.html). The target for MindPX is `nuttx_mindpx-v2_default`:
 
 ```
 make nuttx_mindpx-v2_default

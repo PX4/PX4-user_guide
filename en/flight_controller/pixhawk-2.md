@@ -2,6 +2,9 @@
 
 Pixhawk 2 is an upgrade from the standard Pixhawk 1 from 2013. It is fully supported and tested.
 
+<img src="../../images/pixhawk2_cube_hero.jpg" width="400px" />
+
+
 ## Quick Summary
 
 * 32bit STM32F427 Cortex M4 core with FPU
