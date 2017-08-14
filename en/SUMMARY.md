@@ -65,7 +65,6 @@
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)
   * [RTK GPS - Here+](peripherals/rtk_gps_hex_hereplus.md)
   * [RTK GPS - Drotek XL](peripherals/rtk_gps_drotek_xl.md)
-
 * [Autopilot Hardware](flight_controller/README.md)
   * [Pixhawk Series](flight_controller/pixhawk_series.md)
     * [Pixhawk 1](flight_controller/pixhawk.md)

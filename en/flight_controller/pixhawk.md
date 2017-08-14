@@ -1,8 +1,8 @@
 # Pixhawk 1 Flight Controller
 
-The [Pixhawk 1](https://pixhawk.org/modules/pixhawk) autopilot is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS (it was also the original standard microcontroller platform for PX4).  
+The [Pixhawk 1](https://pixhawk.org/modules/pixhawk) autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
-> **Tip** Originally manufactured by 3DR this board is the most successful design so far (in terms of sales). While the board is no longer manufactured by 3DR, you can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
+> **Tip** Originally manufactured by 3DR this board was the original standard microcontroller platform for PX4. While the board is no longer manufactured by 3DR, you can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
 
 ![Pixhawk Image](../../assets/hardware/hardware-pixhawk.png)
 
@@ -42,3 +42,7 @@ The board is documented in detailed on the [Pixhawk project](https://pixhawk.org
 ## Availability
 
 This is no longer available. The [mRo Pixhawk](../flight_controller/mro_pixhawk.md) may be used as a direct replacement. 
+
+## Key Links
+
+* [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
