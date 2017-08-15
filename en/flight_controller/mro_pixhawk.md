@@ -9,7 +9,7 @@ The *mRo Pixhawk* is a hardware compatible version of the original [Pixhawk 1](.
 
 ![Pixhawk Image](../../images/flight_controller/mro_pixhawk.jpg)
 
-As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
 
 ## Quick Summary
 
@@ -52,5 +52,7 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files
 * [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - Everything you need including telemetry radios
 
 ## Pinouts and Schematics
+
+As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 
 The board is documented in detailed on the [Pixhawk project](https://pixhawk.org/modules/pixhawk) website.

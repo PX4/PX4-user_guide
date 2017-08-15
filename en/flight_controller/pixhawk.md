@@ -6,7 +6,7 @@ The [Pixhawk 1](https://pixhawk.org/modules/pixhawk) autopilot is a popular gene
 
 ![Pixhawk Image](../../assets/hardware/hardware-pixhawk.png)
 
-As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware). 
+Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
 
 
 ## Quick Summary
@@ -36,6 +36,8 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files
 
 ## Pinouts and Schematics
 
+As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware). 
+
 The board is documented in detailed on the [Pixhawk project](https://pixhawk.org/modules/pixhawk) website.
 
 
@@ -43,6 +45,4 @@ The board is documented in detailed on the [Pixhawk project](https://pixhawk.org
 
 This is no longer available. The [mRo Pixhawk](../flight_controller/mro_pixhawk.md) may be used as a direct replacement. 
 
-## Key Links
 
-* [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
