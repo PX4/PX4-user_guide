@@ -87,8 +87,9 @@
     * [Snapdragon Advanced](flight_controller/snapdragon_flight_advanced.md)
       * [Accessing I/O Data](flight_controller/snapdragon_flight_accessing_io_data.md)
   * [Intel® Aero Ready to Fly Drone](flight_controller/intel_aero.md)
-  * [Crazyflie 2.0](flight_controller/crazyflie2.md)
   * [Raspberry Pi 2/3 Navio2](flight_controller/raspberry_pi_navio2.md)
+  * [Crazyflie 2.0](flight_controller/crazyflie2.md)
+  * [Parrot Bebop](flight_controller/bebop.md)
 * [Development](development/development.md)
 * [Flight Reporting](flight-reporting.md)
 

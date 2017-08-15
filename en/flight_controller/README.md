@@ -11,4 +11,5 @@ There are a number of options:
   * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * Commercial UAVs that can run PX4
   * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
+  * [Parrot Bebop](../flight_controller/bebop.md)
   
