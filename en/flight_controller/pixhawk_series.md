@@ -22,7 +22,7 @@ The following products in the series are recommended/regularly tested with PX4:
 * [Pixhawk Mini](../flight_controller/pixhawk_mini.md)
 * [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
 
-> **Note** This list is not exhaustive! In particular it does not include devices that have used hardware designs without complying with the open source license, or cloned product designs without licensing them.
+> **Note** This list is not exhaustive. It includes popular boards, and boards that have been used by our flight test team!
 
 <!-- 
 
@@ -40,7 +40,7 @@ Manufacturers are encouraged to take the open designs and create products that a
 
 > **Note** While a physical connector standard is not mandated, newer products generally follow the [Dronecode Autopilot Connector Standard](https://wiki.dronecode.org/workgroup/connectors/start)).
 
-Product schematics must be open-sourced under the terms of the open-hardware license, but remain the property of the owner (clones should not be created without permission). Similarly, the brand name of a product may be trademarked and should not be used without permission of the owner.
+Product schematics must be open-sourced under the terms of the open-hardware license, but remain the property of the owner. Similarly, the brand name of a product may be trademarked and should not be used without permission of the owner.
 
 > **Note** Pixhawk is a trademarked "brand" name.
 
@@ -60,7 +60,7 @@ At very high level, the main differences are:
 
 - **FMUv2:** Single board with STM32427VI processor ([Pixhawk 1](../flight_controller/pixhawk.md), [HKPilot32](../flight_controller/HKPilot32.md), [Pixfalcon](../flight_controller/pixfalcon.md), [DroPix](../flight_controller/dropix.md))
 - **FMUv3:** Addressable ram doubled to 2MB from FMUv2 ([Pixhawk 2](../flight_controller/pixhawk-2.md),[mRo Pixhawk](../flight_controller/mro_pixhawk.md))
-- **FMUv4:** Slightly increased RAM ([Pixhawk Mini](../flight_controller/pixhawk_mini.md), [Pixracer](../flight_controller/pixracer.md), [MindPX](../flight_controller/mindpx.md))
-- **FMUv4-PRO:** Slightly increased RAM and Flash memory ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
+- **FMUv4:** Slightly increased RAM. More serial ports. No IO processor ([Pixhawk Mini](../flight_controller/pixhawk_mini.md), [Pixracer](../flight_controller/pixracer.md), [MindPX](../flight_controller/mindpx.md))
+- **FMUv4-PRO:** Slightly increased RAM. More serial ports. IO processor ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
 - **FMUv5:** New processor (F7). Much faster. More RAM. More CAN busses. Much more configurable.
 
