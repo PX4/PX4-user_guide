@@ -63,6 +63,7 @@
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [Peripheral Hardware](peripherals/README.md)
+  * [Camera](peripherals/camera.md)
   * [MAVLink \(OSD / Telemetry\)](peripherals/mavlink_peripherals.md)
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)
   * [RTK GPS - Here+](peripherals/rtk_gps_hex_hereplus.md)
