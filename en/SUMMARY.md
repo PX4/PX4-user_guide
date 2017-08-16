@@ -27,6 +27,7 @@
   * [Flight Modes](config/flight_mode.md)
   * [VTOL](config_vtol/README.md)
     * [QuadPlane Configuration](config_vtol/vtol_quad_configuration.md)
+    * [Back transition tuning](config_vtol/vtol-back-transition-tuning.md)
     * [VTOL w/o Airspeed Sensor](config_vtol/vtol_without_airspeed_sensor.md)
 * [Airframe Builds](airframes/README.md)
   * [Multicopters](framebuild_multicopter/README.md)
