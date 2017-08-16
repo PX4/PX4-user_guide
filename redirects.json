@@ -1,0 +1,15 @@
+{
+    "redirects": [
+            {
+                "from": "en/config/vtol_quad_configuration.html",
+                "to": "en/config_vtol/vtol_quad_configuration.html"
+            },
+            {
+                "from": "en/advanced_config/vtol_without_airspeed_sensor.html",
+                "to": "en/config_vtol/vtol_without_airspeed_sensor.html"
+            }
+            
+
+        ]
+}
+
