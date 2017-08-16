@@ -1,0 +1,48 @@
+{
+    "redirects": [
+            {
+                "from": "en/framebuild_multicopter/lumenier_qav250_pixhawk_mini.html",
+                "to": "en/frames_multicopter/lumenier_qav250_pixhawk_mini.html"
+            },
+            {
+                "from": "en/framebuild_multicopter/lumenier_qav250_pixhawk_auav_x2.html",
+                "to": "en/frames_multicopter/lumenier_qav250_pixhawk_auav_x2.html"
+            },
+            {
+                "from": "en/framebuild_multicopter/spedix_s250_pixracer.html",
+                "to": "en/frames_multicopter/spedix_s250_pixracer.html"
+            },
+            {
+                "from": "en/framebuild_multicopter/robocat_270_pixracer.html",
+                "to": "en/frames_multicopter/robocat_270_pixracer.html"
+            },
+            {
+                "from": "en/framebuild_plane/wing_wing_z84.html",
+                "to": "en/frames_plane/wing_wing_z84.html"
+            },
+            {
+                "from": "en/framebuild_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.html",
+                "to": "en/frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.html"
+            },
+            {
+                "from": "en/framebuild_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.html",
+                "to": "en/frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.html"
+            },
+            {
+                "from": "en/framebuild_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.html",
+                "to": "en/frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.html"
+            },
+            {
+                "from": "en/framebuild_vtol/vtol_tiltrotor_birdseyeview_firefly_y6_pixfalcon.html",
+                "to": "en/frames_vtol/vtol_tiltrotor_birdseyeview_firefly_y6_pixfalcon.html"
+            },
+            {
+                "from": "en/framebuild_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.html",
+                "to": "en/frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.html"
+            }
+            
+
+        ]
+}
+
+

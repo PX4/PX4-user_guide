@@ -9,6 +9,7 @@
         "page-toc-button",
         "page-footer-ex",
         "custom-favicon",
+        "bulk-redirect",
         "toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git",
         "validate-links"
     ],
@@ -27,6 +28,10 @@
             }
         },
         "favicon": "favicon.ico",
+        "bulk-redirect": {
+            "basepath": "/",
+            "redirectsFile": "redirects.json"
+        },
         "toolbar": {
             "buttons":
             [
