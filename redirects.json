@@ -39,10 +39,16 @@
             {
                 "from": "en/framebuild_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.html",
                 "to": "en/frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.html"
+            },
+            {
+                "from": "en/config/vtol_quad_configuration.html",
+                "to": "en/config_vtol/vtol_quad_configuration.html"
+            },
+            {
+                "from": "en/advanced_config/vtol_without_airspeed_sensor.html",
+                "to": "en/config_vtol/vtol_without_airspeed_sensor.html"
             }
             
 
         ]
 }
-
-

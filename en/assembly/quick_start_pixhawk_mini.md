@@ -156,7 +156,7 @@ The wiring and configuration of other components is covered within the topics fo
 
 General configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config/vtol_quad_configuration.md)
+QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 ## Further information
 
