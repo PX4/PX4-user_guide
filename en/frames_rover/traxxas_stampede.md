@@ -51,20 +51,25 @@ For this particular mounting we chose to use the clip supplied with the rover to
 | MAIN7 | 50 Hz | Not Connected |
 | MAIN8 | 50 Hz | Not Connected |
 
-## Simulation
 
-To test the algorithms, a simulation was used. This can be ran by running 
+## Configuration
 
- ```sh
- make posix gazebo-rover
- ``` 
+Rovers are configured using *QGroundControl* in the same way as any other vehicle.
 
- from the Firmware folder. More details on how to do it can be found in section [Gazebo Simulation](../simulation/gazebo.md).
+The main rover-specific configuration is setting the correct frame:
+1. Switch to the [Basic Configuration](../config/README.md) section in *QGroundControl*
+1. Select the [Airframe](../config/airframe.md) tab. 
+1. Scroll down the list to find the **Rover** icon. 
+1. Choose **Traxxas stampede vxl 2wd** from the drop down list.
+
+![Select Airframe](../../images/qgc/setup/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
+
 
 ## Usage
+
 At the current time, PX4 only supports MISSION and MANUAL modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm. 
 
-> **Warning** It is **_VERY IMPORTANT_** to do a mission composed **_ONLY_** by normal waypoints (i.e. **_NO TAKEOFF WAYPOINTS_**) and it is crucial to **_SET THE WAYPOINT HEIGHT OF EVERY WAYPOINT TO 0_** for a correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
+> **Warning** It is **_VERY IMPORTANT_** to do a mission composed **_ONLY_** of normal waypoints (i.e. **_NO TAKEOFF WAYPOINTS_**) and it is crucial to **_SET THE WAYPOINT HEIGHT OF EVERY WAYPOINT TO 0_** for a correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
 
 
 A correct mission setup looks as follows
@@ -74,18 +79,14 @@ A correct mission setup looks as follows
 Since at the current state of development there is no obstacle avoidance, it is highly recommended to test missions in the simulator first to get acquainted with the software usage.
 
 
-## Building the firmware
-To build the firmware it is necessary to use the terminal (QGC is not supported yet). This can be done by following the instructions in [Building the Code section](../setup/building_px4.md) and uploading by running
-
-```sh
-cd ~/src/Firmware
-make px4fmu-v2_default upload
-```
+<!-- 
 
 ## Parameters
 
-The current software provides an attitude controller and a position controller. These build on top of the fixed wing framework to move an Ackerman steered vehicle following GPS coordinates (real or fake). In order to this, 2 PIDs were implemented, one for the steering and the other for the speed. 
-These can be started by setting the following general parameters, which can be set with QGC (instructions [here](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html)):
+The current software provides an attitude controller and a position controller. These build on top of the fixed wing framework to move an Ackerman steered vehicle following GPS coordinates (real or fake). In order to this, 2 PIDs were implemented, one for the steering and the other for the speed.
+
+
+These can be started by setting the following general parameters, which can be set with *QGroundControl* (instructions [here](../SetupView/Parameters.md)):
 * SYS_AUTOSTART 50002
 * MAV_TYPE 10
 * MIS_LTRMIN_ALT 0.01
@@ -117,4 +118,21 @@ If the closed loop is enabled the speed controller will take the GND_SPEED_TRIM 
 Then, general navigation parameters can be tuned for a better usage: 
 * GND_L1_DIST 3
 * NAV_ACC_RAD 0.5
+-->
 
+<!--
+## Building the firmware
+
+To build the firmware it is necessary to use the terminal (QGC is not supported yet). This can be done by following the instructions in [Building the Code section](../setup/building_px4.md) and uploading by running
+
+```sh
+cd ~/src/Firmware
+make px4fmu-v2_default upload
+```
+
+### Simulation
+
+Rover simulation is supported in Gazebo. 
+
+> **Note** Simulation is non-trivial to set up. For more information see the Developer Guide here: [Gazebo > Ackerman Vehicle ](https://dev.px4.io/en/simulation/gazebo.html#ackerman-vehicle).
+-->
