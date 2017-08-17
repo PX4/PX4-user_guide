@@ -3,7 +3,7 @@
 > **Note** Some of the following features will be available in PX4 version 1.7 and are currently only available on the experimental development branch.
 
 When a VTOL performs a back-transition (transition from fixed wing mode to multicopter) it needs to slow down before the multicopter can take proper control.
-As of PX4 version 1.7, and on the current developer branch, the vehicle will consider the back-transition complete when the horizontal speed has reached multicopter cruise speed (MPC_XY_CRUISE) or when the back-transition duration [VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR) has passed (which ever comes first).
+As of PX4 version 1.7, and on the current developer branch, the vehicle will consider the back-transition complete when the horizontal speed has reached multicopter cruise speed [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE) or when the back-transition duration [VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR) has passed (which ever comes first).
 
 ## back-transition duration
 Setting a high back-transition time [VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR) will give the vehicle more time to slow down. During this period the VTOL will shut down its fixed wing motor and slowly ramp up its MC motors while gliding. The higher this time is set the longer the vehicle will glide in an attempt to slow down. The caveat of this behavior is that the vehicle will only control altitude and not position during this period and some drift can occur.
