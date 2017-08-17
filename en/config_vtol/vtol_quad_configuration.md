@@ -4,15 +4,16 @@ This is the configuration documentation for a QuadPlane VTOL setup (Plane combi
 
 ## Firmware & Basic Settings
 
-1. Run QGroundControl
+1. Run *QGroundControl*
 2. Flash the master firmware
 3. In the Setup tab select the appropriate VTOL airframe, if your airframe is not listed select the Fun Cub VTOL airframe. 
 
 
 ### Flight / Transition Mode Switch
 
-In QGroundControl assign a switch of your remote to the transition function during
+In *QGroundControl* assign a switch of your remote to the transition function during
 the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
+
 This allows you to switch between the multicopter- and fixed wing mode. The switch in the off-position means
 that you are flying in multicopter mode.
 
@@ -46,7 +47,7 @@ airspeed is too slow when it transitions it might stall.
 
 #### Transition Throttle
 
-Parameter: VT_TRANS_THR
+Parameter: [VT_TRANS_THR](../advanced_config/parameter_reference.md#VT_TRANS_THR)
 
 Transition throttle defines the maximum throttle to use during the
 transition. Don’t set this too low otherwise you will never reach the
@@ -56,11 +57,11 @@ than lower here.
 
 #### Forward Transition Duration
 
-Parameter: VT_F_TRANS_DUR
+Parameter: [VT_F_TRANS_DUR](../advanced_config/parameter_reference.md#VT_F_TRANS_DUR)
 
 A forward transition refers to the transition from multirotor to fixed
 wing mode. This is the amount of time in seconds that should be spent
-ramping up the throttle to the target value (defined by VT\_TRANS\_THR).
+ramping up the throttle to the target value (defined by `VT_TRANS_THR`).
 A value of 0 will result in commanding the transition throttle value
 being set immediately. If you wish to smooth the throttling up you can
 increase this to a larger value, such as 3.
@@ -72,7 +73,7 @@ reached.
 
 #### Blending Airspeed
 
-Parameter: VT\_ARSP\_BLEND
+Parameter: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
 By default as the airspeed get close to the transition speed multirotor
 attitude control will be reduced and fixed wing control will start
@@ -85,7 +86,7 @@ occurs.
 
 #### Transition Airspeed
 
-Parameter: VT_ARSP_TRANS
+Parameter: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
 
 This is the airspeed which, when reached, will trigger the transition
 out of multirotor mode into fixed wing mode. It is critical that you
@@ -96,7 +97,7 @@ speed (check FW\_AIRSPD\_MIN) as this is currently not checked.
 
 #### Fixed Wing Permanent Stabilisation
 
-Parameter: VT_FW_PERM_STAB
+Parameter: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
 
 Activating permanent stabilisation will result in fixed wing flight
 being stabilised by the autopilot at all times. As soon as a transition
@@ -139,15 +140,15 @@ Make sure the VTOL is in a stable hover before you start the transition.
 Start your transition. It should transition within 50 – 100 meters. If
 it doesn’t or it isn’t flying in a stable fashion abort the transition
 (see below) and land or hover back to the start position and land. Try
-increasing the transition throttle (VT\_TRANS\_THR) value. Also consider
-reducing the transition duration (VT\_F\_TRANS\_DUR).
+increasing the transition throttle (`VT_TRANS_THR`) value. Also consider
+reducing the transition duration (`VT_F_TRANS_DUR`).
 
 As soon as you notice the transition happen be ready to handle height
 loss which may include throttling up quickly.
 
 > **Caution** The following feature has been discussed but not implemented yet: Once
   the transition happens the multirotor motors will stop and the
-  pusher/puller throttle will remain at the VT\_TRANS\_THR level until you
+  pusher/puller throttle will remain at the `VT_TRANS_THR` level until you
   move the throttle stick, assuming you are in manual mode.
 
 
@@ -163,7 +164,7 @@ command the amount of thrust your multirotor has at the moment of the
 switch. Because the wing will still be flying you’ll find you have
 plenty of time to adjust your throttle to achieve/hold a hover.
 
-For advanced tuning of the back-transition please refer to the [Back-transition tuning guide](vtol-back-transition-tuning.md)
+For advanced tuning of the back-transition please refer to the [Back-transition Tuning Guide](vtol_back_transition_tuning.md)
 
 
 #### Aborting a Transition {#aborting_a_transition}
