@@ -75,7 +75,7 @@ in the build manual for the TBS Caipirinha. Depending on the additional componen
 
 ## Airframe configuration
 
-Switch to the configuration section in [QGroundControl](../config/airframe.md) and select the airframe tab. Scroll down the list to find the *VTOL Duo Tailsitter* icon. Select the *Caipiroshka Duo Tailsitter` from the drop-down list.
+Switch to the configuration section in [QGroundControl](../config/airframe.md) and select the airframe tab. Scroll down the list to find the *VTOL Duo Tailsitter* icon. Select the *Caipiroshka Duo Tailsitter* from the drop-down list.
 
 ![](../../images/qgc/setup/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
 
