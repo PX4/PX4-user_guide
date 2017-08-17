@@ -11,9 +11,9 @@ This is the configuration documentation for a QuadPlane VTOL setup (Plane combi
 
 ### Flight / Transition Mode Switch
 
-In QGroundControl assign a switch of your remote to channel AUX1 during
-the RC calibration step. This allows you to switch between the
-multicopter- and fixed wing mode. The switch in the off-position means
+In QGroundControl assign a switch of your remote to the transition function during
+the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
+This allows you to switch between the multicopter- and fixed wing mode. The switch in the off-position means
 that you are flying in multicopter mode.
 
 
@@ -134,7 +134,7 @@ further from you before it transitions.
 Make sure the VTOL is in a stable hover before you start the transition.
 
 
-#### Transition: Multirotor to Fixed Wing
+#### Transition: Multirotor to Fixed Wing (Front-transition)
 
 Start your transition. It should transition within 50 – 100 meters. If
 it doesn’t or it isn’t flying in a stable fashion abort the transition
@@ -151,7 +151,7 @@ loss which may include throttling up quickly.
   move the throttle stick, assuming you are in manual mode.
 
 
-#### Transition: Fixed Wing to Multirotor
+#### Transition: Fixed Wing to Multirotor (Back-transition)
 
 When you transition back to multirotor mode bring your aircraft in on a
 straight level approach and reduce its speed, flip the transition switch
@@ -162,6 +162,8 @@ Consider that the throttle value you have when you transition will
 command the amount of thrust your multirotor has at the moment of the
 switch. Because the wing will still be flying you’ll find you have
 plenty of time to adjust your throttle to achieve/hold a hover.
+
+For advanced tuning of the back-transition please refer to the [Back-transition tuning guide](vtol-back-transition-tuning.md)
 
 
 #### Aborting a Transition {#aborting_a_transition}
