@@ -16,7 +16,7 @@ If your vehicle is equipped with airbrakes and your selected airframe (mixer) is
 
 ## Applying reverse thrust on your fixed wing motor
 To get the shortest possible back-transition PX4 supports active breaking by reversing the fixed wing motor direction. To use this feature you will require an ESC that supports motor rotation reversing. Generally there are 2 ways a reverse capable ESC can implement this. 
-**Note** A typical fixed wing propeller is not optimized to spin in reverse, when the throttle during reverse thrust is set too high the propeller can stall.
+> **Note** A typical fixed wing propeller is not optimized to spin in reverse, when the throttle during reverse thrust is set too high the propeller can stall.
 
 ### Using throttle scaling (3D)
 3D ESCs assume 0 thrust at 50% throttle, positive (forward) thrust above 50% and negative thrust (reverse) below 50%. The airframe (mixer) can be configured to implement this so that the throttle stick can be used from 0% to 100% purely for forward thrust and only during back-transition will implement negative (reverse) thrust. To achieve this you must set the [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) parameter to a negative value between 0 and -1.
