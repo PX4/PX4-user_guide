@@ -28,7 +28,7 @@ Generally there are 2 ways a reverse-capable ESC can implement reverse thrust.
 
 ### Using throttle scaling (3D)
 
-Normally the throttle stick is used purely for forward thrust (from 0% to 100%).
+Normally the throttle stick is used purely for forward thrust.
 
 3D ESCs assume 0 thrust at 50% throttle, positive (forward) thrust above 50% and negative thrust (reverse) below 50%. The airframe can be modified to implement this behaviour *only* during back transition, allowing reverse thrust to be applied during the transition. 
 
