@@ -1,11 +1,4 @@
----
-Date: 2017-03-01 07:06
-Status: draft
----
-
-# Pixhawk Mini Overview
-
-> **Warning** Under construction. Requires connection diagrams and more images of ports
+# Pixhawk Mini
 
 The 3DR *Pixhawk Mini* autopilot is a next-generation evolution of the
 Pixhawk (designed by 3DR in collaboration with HobbyKing). It is about
