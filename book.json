@@ -29,7 +29,7 @@
         },
         "favicon": "favicon.ico",
         "bulk-redirect": {
-            "basepath": "/", 
+            "basepath": "/",
             "redirectsFile": "redirects.json"
         },
         "toolbar": {
