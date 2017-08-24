@@ -63,7 +63,7 @@ The main rover-specific configuration is setting the correct frame:
 
 ## Usage
 
-At the current time, PX4 only supports MISSION and MANUAL modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm. 
+At the current time, PX4 only supports [MISSION](../flight_modes/mission.md) and MANUAL modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm. 
 
 > **Warning** It is **_VERY IMPORTANT_** to do a mission composed **_ONLY_** of normal waypoints (i.e. **_NO TAKEOFF WAYPOINTS_**) and it is crucial to **_SET THE WAYPOINT HEIGHT OF EVERY WAYPOINT TO 0_** for a correct execution. Failing to do so will cause the rover to continuously spin around a waypoint.
 
@@ -72,4 +72,3 @@ A correct mission setup looks as follows:
 
 ![mission](../../assets/airframes/rover/traxxas_stampede_vxl/correct_mission.jpg)
  
-Since at the current state of development there is no obstacle avoidance, it is highly recommended to test missions in the simulator first to get acquainted with the software usage.

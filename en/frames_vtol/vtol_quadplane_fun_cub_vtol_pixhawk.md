@@ -7,7 +7,7 @@ Key information:
 - **Frame:** Multiplex FunCub
 - **Flight controller:** Pixhawk
 
-![Fun cub VTOL](../../images/fun_cub_vtol_complete.jpg)
+![Fun Cub VTOL](../../images/fun_cub_vtol_complete.jpg)
 
 Unmodified, the Fun Cub is a relatively affordable plane and relatively easy to fly. After the conversion the plane is significantly heavier and less aerodynamic. It still flies quite well but needs around 75% throttle in forward flight.
 
@@ -17,16 +17,16 @@ Unmodified, the Fun Cub is a relatively affordable plane and relatively easy to 
 The actual plane looks roughly like as shown in the image above (other similar models will work
 just fine - this is a Multiplex Fun Cub). The minimal equipment required is:
 
--   Multiplex FunCub (or similar)
--   Pixhawk or compatible
--   Digital airspeed sensor
--   900 kV motors (e.g. Iris propulsion set - motors and ESC)
--   10" props for quad motors (10x45 or 10x47)
--   10" prop for fixed-wing motor (10×7)
--   GPS module
--   4S battery
--   Aluminum frame for mounting the quad motors (10x10mm square tube, 1mm wall thickness)
--   TOW is ~2.3kg with a 4200mAh 4S battery
+- Multiplex FunCub (or similar)
+- Pixhawk or compatible
+- Digital airspeed sensor
+- 900 kV motors (e.g. Iris propulsion set - motors and ESC)
+- 10" props for quad motors (10x45 or 10x47)
+- 10" prop for fixed-wing motor (10×7)
+- GPS module
+- 4S battery
+- Aluminum frame for mounting the quad motors (10x10mm square tube, 1mm wall thickness)
+- TOW is ~2.3kg with a 4200mAh 4S battery
 
 
 ## Structure
@@ -42,7 +42,7 @@ The outputs of Pixhawk should be wired like this (orientation as seen
 like "sitting in the plane").
 
 > **Success** The servo direction can be reversed using the
-  PWM\_REV parameters in the PWM_OUTPUT group of QGroundControl (cogwheel
+  PWM\_REV parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel
   tab, last item in the left menu)
   
 Port | Connection
