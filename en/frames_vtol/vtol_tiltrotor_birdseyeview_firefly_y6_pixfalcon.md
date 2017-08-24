@@ -53,8 +53,8 @@ this photo. Of course the cabling should be improved.
 
 ![](../../images/birdseyeview_firefly_y6_vtol_firefly_motor_connections.jpg)
 
-## Firmware & Settings
 
+## Firmware & Settings
 
 Flash the stable firmware using *QGroundControl*. In *QGroundControl*
 select the airframe configuration “**BirdsEyeView Aerobotics FireFly6**”
@@ -98,11 +98,18 @@ The system should now be ready for sensor calibration, at the end of which it sh
 
 Notes:
 
--   Remember to assign the transition switch for switching to
-    fixed-wing.
--   By default permanent stabilization is enabled. If you like fully
-    manual flying in fixed-wing, set VT\_FW\_PERM\_STAB to 0.
+- Remember to assign the transition switch for switching to fixed-wing.
+- By default permanent stabilization is enabled. If you like fully
+  manual flying in fixed-wing, set VT\_FW\_PERM\_STAB to 0.
 
 The first thing to do is to try out the multicopter mode and get used to
 the vehicle. Also the PID attitude controllers of the vehicle should be
 tuned via *QGroundControl* before you proceed.
+
+## Video
+
+{% youtube %}
+https://youtu.be/Vsgh5XnF44Y
+{% endyoutube %}
+
+

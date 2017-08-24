@@ -8,10 +8,6 @@ PX4 supports virtually all VTOL configurations:
 
 The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
 
-<!-- 
-> **Note** All these VTOL configurations have been actively test-flown and are ready to use. Ensure that there is airspeed sensor attached to the system as it is used by the autopilot when its safe to perform the transition.
--->
-
 This section contains build logs and instructions for assembling and configuring a number of VTOL vehicle frames.
 
 
@@ -32,8 +28,6 @@ Build Logs:
 
 ## Tiltrotor
 
-<!-- The [build log](https://pixhawk.org/platforms/vtol/birdseyeview_firefly) contains all settings and instructions to get one of these up and running. -->
-
 Build Logs:
 * [FireFly Y6 Tiltrotor](../frames_vtol/vtol_tiltrotor_birdseyeview_firefly_y6_pixfalcon.md)
 * [Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
@@ -41,8 +35,6 @@ Build Logs:
 {% youtube %}https://www.youtube.com/watch?v=Vsgh5XnF44Y&vq=hd720{% endyoutube %}
 
 ## QuadPlane VTOL
-
-<!-- The [build log](https://pixhawk.org/platforms/vtol/fun_cub_quad_vtol) contains further instructions how to build and reproduce the results below. -->
 
 Build Logs:
 * [Falcon Vertigo QuadPlane](../frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
