@@ -7,7 +7,7 @@ The Caipiroshka VTOL is a slightly modified TBS Caipirinha.
 ## Parts List
 
 * TBS Caipirinha Wing ([Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19638&Kategorie_ID=110923))
-* Left and right 3D-printed motor mount (<a href="https://github.com/PX4/Devguide/raw/master/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">design files</a>)
+* Left and right 3D-printed motor mount (<a href="https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">design files</a>)
 * CW 8045 propeller ([Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19532&Kategorie_ID=288))
 * CCW 8045 propeller ([Eflight store](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19533&Kategorie_ID=288))
 * 2x 1800 kV 120-180W motors
