@@ -23,10 +23,6 @@ products.
 
 ## FMUv4
 
-- [Pixhawk Mini](pixhawk_mini.md)
-
-  ![Pixhawk Mini](../../images/pixhawk_mini_hero.jpg)
-
 - [PixRacer](pixracer.md) v1
 
   ![Pixracer + WiFi](../../images/pixracer_wifi.jpg)
@@ -36,6 +32,10 @@ products.
 - [Pixhawk 2](https://pixhawk.org/modules/pixhawk2) ("The Cube")
 
   ![Pixhawk 2](../../images/pixhawk2_cube_hero.jpg)
+  
+- [Pixhawk Mini](pixhawk_mini.md)
+
+  ![Pixhawk Mini](../../images/pixhawk_mini_hero.jpg)
 
 
 ## FMUv2
