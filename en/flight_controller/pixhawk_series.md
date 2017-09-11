@@ -7,8 +7,7 @@ A number of companies have created products based on the Pixhawk designs,
 which all share the common architecture and have the same connections, outputs, functions, etc. 
 The products differ in that they have form-factors that better meet certain use-cases.
 
-> **Note** *Any* flight controller that is based on a Pixhawk project hardware design 
-  is a "Pixhawk".
+> **Note** *Any* flight controller that is based on a Pixhawk project hardware design and has comitted to follow the design and manufacturing standards in writing is a "Pixhawk".
 >
 >  That said, the name "Pixhawk" is very overloaded. It is also commonly used to 
   refer to 3DR's "Pixhawk" flight controller (based on the *Pixhawk project*'s 
