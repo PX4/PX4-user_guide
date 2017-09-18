@@ -45,7 +45,7 @@ PWM Output | Actuator
 MAIN2 | Steering servo
 MAIN4 | ESC input
 
-> **Note** As documented in the [Airframe reference here](/airframes/airframe_reference.html#rover_rover_traxxas_stampede_vxl_2wd).
+> **Note** As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_traxxas_stampede_vxl_2wd).
 
 
 ## Configuration
