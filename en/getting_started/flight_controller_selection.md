@@ -1,94 +1,43 @@
 # Flight Controller Selection
 
-## Pixhawk Flight Controller
+You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
 
-### First Generation Pixhawk
+PX4 can run on many flight controller boards and systems (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/Firmware/#supported-hardware)). A *subset* of the available options are listed below. 
 
-Pixhawk is the first flight controller created specifically to be loaded
-with PX4 autopilot software (PX4 flight stack). The first architecture
-created was named Pixhawk v1 which had a two components PX4FMU+PX4IO.
-Sometimes this architecture is called FMUv1.
+## Pixhawk Series
 
-- PX4FMU
+[Pixhawk Series](../flight_controller/pixhawk_series.md) open-hardware flight controllers run PX4 on NuttX OS. With many form factors, there are versions targeted towards many use cases and market segments. 
 
-  ![px4fmuv1.6_top](../../images/px4fmuv1.6_top.png)
-  ![px4fmuv1.6_bottom](../../images/px4fmuv1.6_bottom.png)
+> **Tip** If you need computer vision or other computationally intensive tasks then instead consider a [board with companion computing](#autopilots-for-computationally-intensive-tasks).
 
-- PX4IO
+Controller | Description
+--- | ---
+[mRo Pixhawk](../flight_controller/mro_pixhawk.md) | Popular *general purpose* flight controller (this is a *slightly updated* version of the discontinued 3DR [Pixhawk 1](../flight_controller/pixhawk.md)). <br>Also consider: [MindPX](../flight_controller/mindpx.md), [HKPilot32](../flight_controller/HKPilot32.md), [Dropix](../flight_controller/dropix.md).
+[Pixracer](../flight_controller/pixracer.md) | Very small/light autopilot optimised for FPV racers. It is suited to any small frame that requires no more than 6 PWM outputs. <br>Also consider:  [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md), [MindRacer](../flight_controller/mindracer.md), [Pixfalcon](../flight_controller/pixfalcon.md).
+[Pixhawk Mini](../flight_controller/pixhawk_mini.md) | Small *general purpose* autopilot that has been optimised for ease of setup.<br>The controller has internal vibration damping and only 8 main outputs (**no AUX ports**), making it much less daunting to install and connect. It is not suitable for vehicles/functions that *require* AUX ports.
+[Pixhawk 2](../flight_controller/pixhawk-2.md) | Flexible autopilot intended primarily for manufacturers of commercial systems. It is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.
 
-  ![px4iov1.3_top](../../images/px4iov1.3_top.png)
-  ![px4iov1.3_bottom](../../images/px4iov1.3_bottom.png)
+
+## Autopilots for computationally intensive tasks
+
+These flight controllers offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
+
+Controller | Description
+--- | ---
+[Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | A high-end autopilot computer that runs PX4 on the DSP (on QuRT RTOS). It includes a camera and WiFi.
+[Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) | A UAS development platform that integrates a powerful Linux computer, PX4 on NuttX, and a camera in a single package.
+[Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RaPi can be connected to an autopilot and used as a companion computer.
+
+
+## Commercial UAVs that can run PX4
+
+PX4 has been ported to a number of popular commercial drone products, as listed below. This allows you to add mission planning and other PX Flight modes to your vehicle. 
+
+Controller | Description
+--- | ---
+[Crazyflie 2.0](../flight_controller/crazyflie2.md) | A micro quad (27g) created by Bitcraze AB. 
+[Parrot Bebop](../flight_controller/bebop.md) | A popular lightweight flying camera.
+
+
 
   
-### Second Generation Pixhawk
-
-After the success of FMUv1 there was a second architecture created named
-Pixhawk v2 or sometimes called FMUv2. This architecture combines the
-PX4FMU and PX4IO in one hardware controller.
-
-- Pixhawk v2
-
-  ![pixhawk-logo-view](../../images/pixhawk_logo_view.jpg)
-
-This is the most popular Pixhawk architecture so far.
-
-
-### Third Generation Pixhawk
-
-Just recently a third generation of architecture was released,
-referred as FMUv4 and PixRacer is the first board with this
-architecture. There is Pixhawk v3 in the making so soon it will be
-available on the market.
-
-- PixRacer v1
-
-  ![Pixracer + WiFi](../../images/pixracer_wifi.jpg)
-
-## Open Hardware Concept
-
-Pixhawk is an Open Hardware architecture so there are many producers of
-Pixhawk controller with a different brand names released by different
-companies around the world. They share a common architecture and have
-the same connections, outputs, functions but in a different form
-factors. Here are some Pixhawk controllers available.
-
-- HKPilot32
-
-  ![HKPilot32](../../images/hkpilot32_flight_controller.jpg)
-
-- Pixfalcon
-
-  ![Pixfalcon](../../images/pixfalcon_flight_controller_high.jpg)
-
-- AUAV-X2
-
-  ![AUAVX2_case2](../../images/auavx2_case2.jpg)
-
-All Pixhawk flight controllers share the same connections and setup
-process explained in this Users Manual. If there are specific
-differences in the wiring we will explain it in detail further on.
-
-> **Note** In addition to PX4 autopilot, there is a
-second Flight Stack that can be loaded on to the Pixhawk FC. It is the
-popular ArduPilot Flight Stack or APM. Thus many people get confused and
-identify Pixhawk with APM which is wrong. Remember Pixhawk is HARDWARE,
-while PX4 and APM are Open Source Autopilot Software or Flight Stacks. 
-
-## Snapdragon Flight Controller
-
-There are numerous tasks that people need to perform with their aircraft
-while in flight - like image analysis, obstacle avoidance as well as
-many on-line services and system integration. Until Snapdragon Flight
-the path was to use a microcomputer like Raspberry Pi alongside the
-Flight Controller. All this integration is sometimes cumbersome and hard
-to achieve by the regular user.
-
-![snapdragon-flight3](../../images/snapdragon_flight3.jpg)
-
-Qualcomm company solves this problem and combines a true micro computer
-with a flight controller in one board. Snapdragon Flight is able to
-be loaded with PX4 flight stack, fly your aircraft and perform all the
-additional tasks needed. It features Quad Core CPU, a fully functional
-GPU and many cameras and sensors. It will be able to perform many
-additional tasks as a fully featured micro PC along flying the aircraft
-with PX4.

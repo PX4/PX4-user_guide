@@ -112,7 +112,7 @@ This kit includes Dropix flight controller with most of the required electronics
 
 <img src="../../images/airframes/vtol/falcon_vertigo/falcon_vertigo_23_dropix_and_other_electronics.jpg" width="500px" title="Falcon Vertigo Electronics" />
 
-> **Note**  General information about connecting Dropix can be found in the [Dropix Wiring Quickstart](../assembly/quick_start_dropix.md).
+> **Note**  General information about connecting Dropix can be found in [Dropix Flight Controller](../flight_controller/dropix.md).
 
 
 #### Connect the ESC power connector and pass the signals cables to the flight controller
