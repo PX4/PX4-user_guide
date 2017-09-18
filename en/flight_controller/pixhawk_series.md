@@ -61,3 +61,17 @@ At very high level, the main differences are:
 - **FMUv4-PRO:** Slightly increased RAM. More serial ports. IO processor ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
 - **FMUv5:** New processor (F7). Much faster. More RAM. More CAN busses. Much more configurable.
 
+### Licensing and trademarks
+
+Pixhawk project schematics and reference designs are licensed under [CC BY-SA 3](https://creativecommons.org/licenses/by-sa/3.0/legalcode).
+
+The license allows you to use, sell, share, modify and build on the files in almost any way you like - provided that you give credit/attribution, and that you share any changes that you make under the same open source license (see the [human readable version of the license](https://creativecommons.org/licenses/by-sa/3.0/) for a concise summary of the rights and obligations).
+
+> **Note** Boards that are *derived directly* from Pixhawk project schematic files (or reference boards) must be open sourced. They can't be commercially licensed as proprietary products.
+
+Manufacturers can create (compatible) *fully independent products* by first generating fresh schematic files that have the same pin mapping/components as the FMU designs. Products that are based on independently created schematics are considered original works, and can be licensed as required.
+
+Product names/brands can also be trademarked. Trademarked names may not be used without the permission of the owner. 
+
+> **Tip** *Pixhawk* is a trademark, and cannot be used in product names without permission.
+
