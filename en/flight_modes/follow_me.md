@@ -4,7 +4,7 @@ author: Jimmy Johnson
 
 # Follow-Me Flight Mode
 
-Follow-me mode allows a multicopter to autonomously follow and track a user on an Android phone/tablet running QGroundControl. 
+*Follow Me* mode allows a multicopter to autonomously follow and track a user on an Android phone/tablet running *QGroundControl*. 
 
 By using GPS and other positioning information a multicopter is able to automatically yaw to face and follow a user at a specified position and distance. While in this mode no user input is required.
 

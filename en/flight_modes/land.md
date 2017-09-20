@@ -1,6 +1,6 @@
-# LAND Flight Mode
+# Land Flight Mode
 
-The LAND flight mode causes the vehicle to land at the position where the mode was engaged.
+The *Land* flight mode causes the vehicle to land at the position where the mode was engaged.
 
 The specific behaviour for each vehicle type is described below.
 

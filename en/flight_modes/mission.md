@@ -1,6 +1,6 @@
-# MISSION Flight Mode
+# Mission Flight Mode
 
-The MISSION flight mode executes a [predefined mission/flight plan](../flying/missions.md) that has been uploaded to the flight controller. 
+The *Mission* flight mode executes a [predefined mission/flight plan](../flying/missions.md) that has been uploaded to the flight controller. 
 
 > **Note** 
 >  * This mode requires GPS.
