@@ -1,8 +1,8 @@
-# HOLD Flight Mode
+# Hold Flight Mode
 
-The HOLD flight mode causes the vehicle to stop and maintain its current GPS position and altitude (MC vehicles will hover at the GPS position, while FW vehicles will circle around it).
+The *Hold* flight mode (a.k.a. "Loiter") causes the vehicle to stop and maintain its current GPS position and altitude (MC vehicles will hover at the GPS position, while FW vehicles will circle around it).
 
-> **Tip** HOLD mode can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch. 
+> **Tip** *Hold mode* can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch. 
 
 <span></span>
 > **Note** 
@@ -40,5 +40,5 @@ Parameter | Description
 A VTOL follows the HOLD behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
 
 
-<!-- this maps to AUTO_LOITER in dev -->
+<!-- this maps to AUTO_LOITER in flight mode state machine -->
 

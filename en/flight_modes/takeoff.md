@@ -1,6 +1,6 @@
-# TAKEOFF Flight Mode
+# Takeoff Flight Mode
 
-The TAKEOFF flight mode causes the vehicle to take off to a specified height and wait for further input.
+The *Takeoff* flight mode causes the vehicle to take off to a specified height and wait for further input.
 
 > **Note** 
 >  * This mode requires GPS.

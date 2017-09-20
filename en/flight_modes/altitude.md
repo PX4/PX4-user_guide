@@ -1,6 +1,6 @@
-# ALTITUDE CONTROL Flight Mode (ALTCTL)
+# Altitude Flight Mode
 
-The ALTITUDE CONTROL flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold position/heading against wind.
+The *Altitude* flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold position/heading against wind.
 
 The flight mode has specific characteristics based on the type of vehicle, as discussed in the sections below.
 
@@ -15,7 +15,7 @@ The flight mode has specific characteristics based on the type of vehicle, as di
 
 ## Multi-copter (MC)
 
-When the throttle input is centered (~50% throttle) the aircraft will *hover* at its current altitude (subject to wind). Roll, pitch and yaw inputs are fully controlled by the user (as in MANUAL mode).
+When the throttle input is centered (~50% throttle) the aircraft will *hover* at its current altitude (subject to wind). Roll, pitch and yaw inputs are fully controlled by the user (as in *Manual* mode).
 
 The throttle input has a large deadzone in the centre. Outside of the centre the throttle controls the *rate* of ascent/descent (i.e. the vehicle moves faster proportional to distance from the stick centre).
 
@@ -65,4 +65,4 @@ Overall that gives you an attitude setpoint (roll, pitch, yaw) and throttle whic
 
 A VTOL follows the behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
 
-<!-- this mode maps to ALTCTL in dev -->
+<!-- this mode maps to ALTCTL in the state machine -->
