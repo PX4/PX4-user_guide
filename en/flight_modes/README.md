@@ -73,8 +73,6 @@ Throttle Command is mapped direct to Motor Speed.
 - [Land](../flight_modes/land.md): Land at the location where the mode was engaged. 
 - [Mission](../flight_modes/mission.md): The vehicle follows a programmed mission, which is usually planned and uploaded using a ground control station (GCS).
 - [Follow Me](../flight_modes/follow_me.md) (Multicopter-only): The vehicle autonomously follows a user with an Android phone/tablet running *QGroundControl*.
-- **Offboard** In this mode the position, velocity or attitude
-  reference / target / setpoint is provided by a companion computer
-  connected via serial cable and MAVLink. The offboard setpoint can be
-  provided by APIs
-  like [MAVROS](https://github.com/mavlink/mavros) or [Dronekit](http://dronekit.io/).
+- [Offboard](../flight_modes/offboard.md): The vehicle obeys a position, velocity or attitude
+  setpoint provided over MAVLink (often from a companion computer connected via serial cable). The setpoint can be
+  provided by APIs like [DroneCore](http://dronecore.io/) or [MAVROS](https://github.com/mavlink/mavros).
