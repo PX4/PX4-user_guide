@@ -13,7 +13,7 @@ Offboard mode is primarily used for controlling vehicle movement and attitude, a
 * Control vehicle position or velocity (`SET_POSITION_TARGET_LOCAL_NED`). 
 * Control vehicle attitude/orientation (`SET_ATTITUDE_TARGET`)
 
-> **Note** Velocity and attitude commands must be resent regularly at a rate of around (TBD Hz) or PX4 will stop the vehicle. 
+> **Note** All commands must be resent at a rate of > 2Hz (i.e. commands "expire" after half a second).
 
 Other operations, like taking off, land, return to launch, arming, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
 
