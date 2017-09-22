@@ -65,21 +65,31 @@ After setting up the PX4 development environment, follow these steps update the 
    ./Tools/mavlink_shell.py 0.0.0.0:14550
    ```
 
-## Connecting a Lidar Lite range finder
+## Connecting a Lidar Lite Range Finder
 
-The following instructions are for a Lidar Lite V3 connected via I2C. The I2C port on the Aero (labled compass) is used for the external magnetometer (part of the GPS). Therefore a I2C splitter has to be used to connect the Lidar Lite (see picture).
-
-![](../../assets/hardware/Aero_I2C_splitter.JPG)
+The following instructions are for a Lidar Lite V3 connected via I2C. The Aero has two ports with I2C: One labled COMPASS and the other TELEMETRY. The pinout for both of them can be found below. We recommend using the TELEMETRY port as it is not being used. If your TELEMETRY port is already occupied, a splitter can be used to share the I2C connection (works on any I2C port). Check the images below for the splitter setup.
+In addition it is recommended to use a electrolytic capacitor for the Lidar Lite I2C connection to reduce spikes in the distance readings (see [here](https://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) on page 3).
 
 The pinout for the Lidar Lite V3 is as follows
 
-| pin | Aerofc I2C | Lidar Lite V3    |
-| --- | ---------- | ---------------- |
-| 1   | VCC        | VCC              |
-| 2   | SCL        | - (Power enable) |
-| 3   | SDA        | - (Mode control) |
-| 4   | GND        | SCL              |
-| 5   | -          | SDA              |
-| 6   | -          | GND              |
+| pin | Aerofc TELEMETRY | Lidar Lite V3    |
+| --- | ---------------- | ---------------- |
+| 1   | VCC              | VCC              |
+| 2   | TX               | -                |
+| 3   | RX               | -                |
+| 4   | SCL              | SCL              |
+| 5   | SDA              | SDA              |
+| 6   | GND              | GND              |
+
+| pin | Aerofc COMPASS | Lidar Lite V3    |
+| --- | -------------- | ---------------- |
+| 1   | VCC            | VCC              |
+| 2   | SCL            | -                |
+| 3   | SDA            | -                |
+| 4   | GND            | SCL              |
+| 5   | -              | SDA              |
+| 6   | -              | GND              |
+
+![](../../assets/hardware/Aero_I2C_splitter.JPG)
 
 ![](../../assets/hardware/Aero_LidarLite.JPG)
