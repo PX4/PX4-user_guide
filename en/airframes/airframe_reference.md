@@ -148,8 +148,8 @@ This page lists all supported airframes and types including
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="copter_hexarotor_coaxial_generic_hexa_coaxial_geometry">
- <td style="vertical-align: top;">Generic Hexa coaxial geometry</td>
+<tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
+ <td style="vertical-align: top;">Generic Hexarotor coaxial geometry</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
 
 </tr>
@@ -423,23 +423,13 @@ This page lists all supported airframes and types including
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="copter_quadrotor_x_3dr_diy_quad">
- <td style="vertical-align: top;">3DR DIY Quad</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 10020</p></td>
-
-</tr>
-<tr id="copter_quadrotor_x_h4_680mm_with_z1_tiny2_gimbal">
- <td style="vertical-align: top;">H4 680mm with Z1 Tiny2 Gimbal</td>
- <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <thedevleon></p><p><code>SYS_AUTOSTART</code> = 10021</p></td>
-
-</tr>
-<tr id="copter_quadrotor_x_generic_quadrotor_x_config">
- <td style="vertical-align: top;">Generic Quadrotor X config</td>
+<tr id="copter_quadrotor_x_generic_quadrotor_x">
+ <td style="vertical-align: top;">Generic Quadrotor x</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_generic_quadrotor_x_config_with_mount_(e.g._gimbal)">
- <td style="vertical-align: top;">Generic Quadrotor X config with mount (e.g. gimbal)</td>
+<tr id="copter_quadrotor_x_generic_quadrotor_x_with_mount_(e.g._gimbal)">
+ <td style="vertical-align: top;">Generic Quadrotor x with mount (e.g. gimbal)</td>
  <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <thedevleon></p><p><code>SYS_AUTOSTART</code> = 4002</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: Mount pitch</li><li><b>AUX2</b>: Mount roll</li><li><b>AUX3</b>: Mount yaw</li><li><b>AUX4</b>: Mount retract</li></ul></p></td>
 
 </tr>
@@ -448,9 +438,9 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: James Goppert <james.goppert@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4003</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_ar.drone_frame">
- <td style="vertical-align: top;">AR.Drone Frame</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4008</p></td>
+<tr id="copter_quadrotor_x_h4_680mm_with_z1_tiny2_gimbal">
+ <td style="vertical-align: top;">H4 680mm with Z1 Tiny2 Gimbal</td>
+ <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <thedevleon></p><p><code>SYS_AUTOSTART</code> = 4004</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_lumenier_qav250">
@@ -486,6 +476,11 @@ This page lists all supported airframes and types including
 <tr id="copter_quadrotor_x_3dr_solo">
  <td style="vertical-align: top;">3DR Solo</td>
  <td style="vertical-align: top;"><p>Maintainer: Andreas Antener <andreas@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 4030</p></td>
+
+</tr>
+<tr id="copter_quadrotor_x_3dr_diy_quad">
+ <td style="vertical-align: top;">3DR DIY Quad</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_reaper_500_quad">
@@ -625,6 +620,11 @@ This page lists all supported airframes and types including
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
+<tr id="plane_flying_wing_generic_flying_wing">
+ <td style="vertical-align: top;">Generic Flying Wing</td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 3000</p></td>
+
+</tr>
 <tr id="plane_flying_wing_io_camflyer">
  <td style="vertical-align: top;"><a href="https://pixhawk.org/platforms/planes/bormatec_camflyer_q">IO Camflyer</a></td>
  <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3030</p></td>
@@ -777,6 +777,11 @@ This page lists all supported airframes and types including
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
+<tr id="rover_rover_generic_ground_vehicle">
+ <td style="vertical-align: top;">Generic Ground Vehicle</td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: steering</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+
+</tr>
 <tr id="rover_rover_axial_racing_ax10">
  <td style="vertical-align: top;">Axial Racing AX10</td>
  <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 50001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: pass-through of control group 0, channel 0</li><li><b>MAIN2</b>: pass-through of control group 0, channel 1</li><li><b>MAIN3</b>: pass-through of control group 0, channel 2</li><li><b>MAIN4</b>: pass-through of control group 0, channel 3</li><li><b>MAIN5</b>: pass-through of control group 0, channel 4</li><li><b>MAIN6</b>: pass-through of control group 0, channel 5</li><li><b>MAIN7</b>: pass-through of control group 0, channel 6</li><li><b>MAIN8</b>: pass-through of control group 0, channel 7</li></ul></p></td>
@@ -817,16 +822,6 @@ passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000
 
 <div>
 <img src="../../assets/airframes/types/VTOLPlane.svg" width="29%" style="max-height: 180px;"/>
-<table style="float: right; width: 70%; font-size:1.5rem;">
- <colgroup><col></colgroup>
- <thead>
-   <tr><th>Common Outputs</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></td>
-</tr>
-</tbody></table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -835,14 +830,19 @@ passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
+<tr id="vtol_standard_vtol_generic_quadplane_vtol">
+ <td style="vertical-align: top;">Generic Quadplane VTOL</td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></p></td>
+
+</tr>
 <tr id="vtol_standard_vtol_fun_cub_quad_vtol">
  <td style="vertical-align: top;">Fun Cub Quad VTOL</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13005</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13005</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></p></td>
 
 </tr>
 <tr id="vtol_standard_vtol_generic_quad_delta_vtol">
  <td style="vertical-align: top;">Generic quad delta VTOL</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13006</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: Right elevon</li><li><b>AUX2</b>: Left elevon</li><li><b>AUX3</b>: Motor</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13006</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Right elevon</li><li><b>AUX2</b>: Left elevon</li><li><b>AUX3</b>: Motor</li></ul></p></td>
 
 </tr>
 <tr id="vtol_standard_vtol_generic_aavvt_v-tail_plane_airframe_with_quad_vtol.">
@@ -862,7 +862,7 @@ passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000
 </tr>
 <tr id="vtol_standard_vtol_deltaquad">
  <td style="vertical-align: top;">DeltaQuad</td>
- <td style="vertical-align: top;"><p>Maintainer: Sander Smeets <sander@droneslab.com></p><p><code>SYS_AUTOSTART</code> = 13013</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: Right elevon</li><li><b>AUX2</b>: Left elevon</li><li><b>AUX3</b>: Motor</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Sander Smeets <sander@droneslab.com></p><p><code>SYS_AUTOSTART</code> = 13013</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: Right elevon</li><li><b>MAIN6</b>: Left elevon</li><li><b>MAIN7</b>: Pusher motor</li><li><b>MAIN8</b>: Pusher reverse channel</li></ul></p></td>
 
 </tr>
 </tbody></table>
