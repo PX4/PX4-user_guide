@@ -23,8 +23,10 @@ get_aero_version.py
 The instructions here are tested with the following version:
 
 ```
-BIOS_VERSION = Aero-01.00.12_Prod
-OS_VERSION = v01.00.04
+BIOS_VERSION = Aero-01.00.13
+OS_VERSION = Poky Aero (Intel Aero Linux Distro) 1.5.1-dev (pyro)"
+AIRMAP_VERSION = 1.8
+FPGA_VERSION = 0xc1
 ```
 
 
@@ -46,7 +48,11 @@ After setting up the PX4 development environment, follow these steps update the 
    If it doesn't work you can try giving the IP that will be used by the upload script:
 
    ```
-   export AERO_HOSTNAME=192.168.1.1`
+   # WiFi IP
+   export AERO_HOSTNAME=192.168.8.1
+
+   # Ethernet-over-USB IP
+   export AERO_HOSTNAME=192.168.7.2
    ```
 
 1. Upload with  `make aerofc-v1_default upload`
@@ -57,7 +63,7 @@ After setting up the PX4 development environment, follow these steps update the 
 1. Make sure you are connected to the board with WiFi or USB Network
 1. ssh to the board and make sure mavlink forwarding runs. By default it automatically starts when booting. It can be started manually with:
    ```
-   /etc/init.d/mavlink-routerd.sh start
+   systemctl start mavlink-router
    ```
 1. Start QGroundControl and it should automatically connect.
 1. Instead of starting QGroundControl, you can open a [NuttX shell](https://dev.px4.io/en/debug/system_console.html#mavlink-shell) with:
