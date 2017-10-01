@@ -792,6 +792,11 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Marco Zorzi</p><p><code>SYS_AUTOSTART</code> = 50002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: steering</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
 
 </tr>
+<tr id="rover_rover_rover_wReverse">
+ <td style="vertical-align: top;"><a href="https://www.horizonhobby.com/product/storefronts/electric-cars-and-trucks/vaterra-brand/1972-chevrolet-k10-pickup-ascender--1-10th-rtr-vtr03090">rock crawler with manual reverse</a></td>
+ <td style="vertical-align: top;"><p>Maintainer: Bo Liu</p><p><code>SYS_AUTOSTART</code> = 50003</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: steering</li><li><b>MAIN3</b>: throttle (ESC with reverse)</li></ul></p></td>
+
+</tr>
 </tbody></table>
 
 ## Tool
