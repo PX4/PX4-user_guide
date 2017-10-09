@@ -96,7 +96,7 @@ The pinout for the Lidar Lite V3 is as follows
 
 ## Using Optical Flow on the Aero
 
-The Intel Aero comes with a preinstalled optical flow binary on the compute board (Linux OS version 1.6 or higher) which enables the Aero to stably fly based on optical flow velocity estimation. In order to use optical flow, a range sensor has to be installed first (see above).
+The Intel Aero comes with a preinstalled optical flow binary on the compute board (Linux OS version 1.6 or higher), which enables the Aero to stably fly based on optical flow velocity estimation. In order to use optical flow, a range sensor has to be installed first (see above).
 
 To use the optical flow, run the following command in a console on the Aero compute board:
 ```
@@ -106,3 +106,10 @@ If you want to start the optical flow binary at boot, use
 ```
 systemctl enable aero-optical-flow #use disable to undo
 ```
+
+In addition, the following parameter values should be set in the flight controller.
+
+| Parameter     | Value |
+| ------------- | ----- |
+| EKF2_AID_MASK | 2     |
+| EKF2_HGT_MODE | 2     |
