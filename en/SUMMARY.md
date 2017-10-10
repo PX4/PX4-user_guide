@@ -34,6 +34,8 @@
     * [QAV250 \(Pixhawk/AUAV\_X2\)](frames_multicopter/lumenier_qav250_pixhawk_auav_x2.md)
     * [Spedix 250 \(Pixracer\)](frames_multicopter/spedix_s250_pixracer.md)
     * [Robocat 270 \(Pixracer\)](frames_multicopter/robocat_270_pixracer.md)
+    * [Matrice 100 (Pixhawk 1)](frames_multicopter/matrice100.md)
+    * [QAV-R 5" KISS ESC Racer (Pixracer)](frames_multicopter/qav_r_5_kiss_esc_racer.md)
   * [Planes](frames_plane/README.md)
     * [West Wing Z84 \(Pixracer\)](frames_plane/wing_wing_z84.md)
   * [VTOL](frames_vtol/README.md)
