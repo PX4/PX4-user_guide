@@ -22,7 +22,7 @@ Offboard mode is primarily used for controlling vehicle movement and attitude, a
 
 Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
 
-A stream of setpoint commands must be received by the vehicle prior to engaging the mode and in order to remain in the mode (if the message rate falls below 2Hz the vehicle will stop).
+A stream of setpoint commands must be received by the vehicle prior to engaging the mode, and in order to remain in the mode (if the message rate falls below 2Hz the vehicle will stop). In order to hold position while in this mode, the vehicle must receive a stream of setpoints for the current position.
 
 Offboard mode requires an active connection to a remote system. If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
 
