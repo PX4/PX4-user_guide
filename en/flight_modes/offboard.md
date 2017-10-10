@@ -3,21 +3,25 @@
 The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink (often from a companion computer connected via serial cable or wifi). The setpoint can be provided by APIs like [DroneCore](http://dronecore.io/) or [MAVROS](https://github.com/mavlink/mavros).
 
 > **Note** 
->  * This mode requires position information (GPS or optical flow).
+>  * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc.
 >  * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes).
 >  * The vehicle must be armed before this mode can be engaged.
+>  * The vehicle must be already be receiving a stream of target setpoints before this mode can be engaged.
+>  * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
 
 ## Description
 
 Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink commands (more may be supported in future). It can be used to:
-* Control vehicle position or velocity (`SET_POSITION_TARGET_LOCAL_NED`). 
-* Control vehicle attitude/orientation (`SET_ATTITUDE_TARGET`)
+* Control vehicle position or velocity ([SET_POSITION_TARGET_LOCAL_NED](http://mavlink.org/messages/common#SET_POSITION_TARGET_LOCAL_NED)). 
+* Control vehicle attitude/orientation ([SET_ATTITUDE_TARGET](http://mavlink.org/messages/common#SET_ATTITUDE_TARGET))
 
-> **Note** Velocity and attitude commands must be resent regularly at a rate of around (TBD Hz) or PX4 will stop the vehicle. 
+> **Note** Acceleration setpoints are not supported by PX4 (they are handled by the MAVLink receiver but not used in any controllers).
 
-Other operations, like taking off, land, return to launch, arming, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
+Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
 
-Offboard mode requires an active connection to a remote system. If the connection is lost the vehicle will attempt to land or perform some other failsafe action (after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)). The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+A stream of setpoint commands must be received by the vehicle prior to engaging the mode and in order to remain in the mode (if the message rate falls below 2Hz the vehicle will stop).
+
+Offboard mode requires an active connection to a remote system. If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
 
 
 ## Offboard Parameters
