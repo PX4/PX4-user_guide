@@ -101,11 +101,13 @@ Select the airframe **DJI Flame Wheel 450** in **QGC > Airframe > Quadrotor x**.
 
 ### Lidar-Lite
 
-To enable the *Lidar-Lite V3* (connected via I2C), the parameter `SENS_EN_LL40LS` has to be set to `2`. 
+To enable the *Lidar-Lite V3* (connected via I2C), the parameter [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS) has to be set to `I2C`.
 
-> **Note** This can be done using the NuttX shell and the command `param set SENS_EN_LL40LS 2`. 
-See [here](https://dev.px4.io/en/debug/sensor_uorb_topic_debugging.html) for information about how to get a shell 
-(Note that this is only a temporary solution, because QGC currently doesn't support setting the value to 2 directly).
+This can be done in *QGroundControl* [Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html) as shown below:
+
+![Set SENS_EN_LL40LS parameter in QGC](../../assets/airframes/multicopter/Flamewheel_450/f450_qgc_setup_i2c.png)
+
+> **Note** After setting the `SENS_EN_LL40LS` you will need to restart the flight controller.
 
 
 ### RTK GPS
