@@ -89,15 +89,21 @@ page 17.
 | 7   | BUTTON_LED    | -   | -                 |
 | 8   | GND           | 6   | GND               |
 
-## Parameters
 
-General documentation on how to setup your quad in *QGroundControl* can be found [here](https://docs.qgroundcontrol.com/en/).
+## Configuration
+
+General documentation on how to setup your quad in *QGroundControl* can be found in [Basic Configuration](../config/README.md). Specific setup instructions are provided below.
 
 ### Airframe
 
 Select the airframe **DJI Flame Wheel 450** in **QGC > Airframe > Quadrotor x**.
 
 ![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_airframe.png)
+
+
+### RTK GPS
+
+RTK GPS is plug and play. For more instructions see [here](../advanced_features/rtk-gps.md).
 
 ### Lidar-Lite
 
@@ -108,11 +114,6 @@ This can be done in *QGroundControl* [Parameters](https://docs.qgroundcontrol.co
 ![Set SENS_EN_LL40LS parameter in QGC](../../assets/airframes/multicopter/Flamewheel_450/f450_qgc_setup_i2c.png)
 
 > **Note** After setting the `SENS_EN_LL40LS` you will need to restart the flight controller.
-
-
-### RTK GPS
-
-RTK GPS is plug and play. For more instructions see [here](../advanced_features/rtk-gps.md).
 
 
 ### Others
