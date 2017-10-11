@@ -1,7 +1,5 @@
-# Framebuilds
+# Airframe/Vehicle Builds
 
-This section contains instructions for how to install 
-autopilot systems for a number of common multicopter, planes and VTOL frames.
+PX4 supports numerous types of vehicles, including different configurations of multicopters, planes, VTOL vehicles, ground vehicles, etc. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-The instructions use different [flight controllers](../flight_controller/README.md)
-and sensors in each case.
+This section contains instructions for how to install several different [flight controllers](../flight_controller/README.md) on a number of common frames.
