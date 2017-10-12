@@ -59,6 +59,7 @@
     * [Altitude](flight_modes/altitude.md)
     * [Follow Me](flight_modes/follow_me.md)
     * [Mission](flight_modes/mission.md)
+    * [Offboard](flight_modes/offboard.md)
   * [Missions](flying/missions.md)
 * [Advanced Features](advanced_features/README.md)
   * [RTK GPS](advanced_features/rtk-gps.md)
