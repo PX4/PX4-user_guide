@@ -18,15 +18,16 @@ The controller is designed to be used with a domain-specific carrier board in or
 
 * [Pixhawk 2.1 "The Cube"](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
-
 ## Build instructions
 
 `make px4fmu-v3_default upload`
-
 
 ## Pinouts and Schematics
 
 The board is documented in detailed on the [Pixhawk project](https://pixhawk.org/modules/pixhawk2) website.
 
+The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf).
 
+## Issues
 
+It is known that the CAN1 and CAN2 silk screen on the Pixhawk 2.1 is flipped (CAN1 is CAN2 and vice versa). The CAN2 port (labeled as CAN1) is not functional as it requires an external transciever. The CAN1 port (labeled as CAN2) has the transceiver built in
