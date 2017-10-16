@@ -119,7 +119,7 @@ For this method you cut the big end with the hole off the zip tie, put the rest 
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-antenna-mount.jpg)
 
-### ESC signal
+### ESC Signal
 
 For the ESC signals I followed the [hardware documentation of the Pixracer](../flight_controller/pixracer.md) and the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x) motor numbering scheme. As we have no ground or positive BEC voltage connections we connect our `PWM` ESC signal cables each to its topmost pins of the corresponding output connector.
 
@@ -171,7 +171,7 @@ The magnificent FPV camera set in the part list comes not only with the best FPV
 
 For general configuration instruction please see [Basic Configuration](../config/README.md).
 
-For this build I pulled the latest PX4 master because it supports the "FMU as task" improvements is [explained just below](#improve-racer-performance) and flashed it to the Pixracer. I used [QGC](http://qgroundcontrol.com/) daily build configure the following:
+For this build I pulled the latest PX4 master because it supports the "FMU as task" improvements [explained just below](#improve-racer-performance) (these should be released in PX4 v1.7) and flashed it to the Pixracer. I used [QGC](http://qgroundcontrol.com/) daily build configure the following:
 - Choose the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x) Airframe
 - Calibrate the sensors
 - Set the battery to 4S (4 cell LiPo) with charged cell voltage 4.15V and empty cell voltage 3.5V
