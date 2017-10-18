@@ -7,6 +7,8 @@ Key information:
 - **Frame:** Lumenier QAV-R 5"
 - **Flight controller:** [Pixracer](../flight_controller/pixracer.md)
 
+{% youtube %}https://www.youtube.com/watch?v=wMYgqvsNEwQ{% endyoutube %}
+
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg)
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 
@@ -213,6 +215,4 @@ After you found a good tuning for the rate controller, flying in manual mode wit
 [Log in FPV acro flight (maximum values: 108km/h speed, 85A total current draw)](https://logs.px4.io/plot_app?log=9c311942-bc7c-4b0c-8be8-eeb64fa8192c)
 [Log in (mostly) manual LOS flight for the entire battery](https://logs.px4.io/plot_app?log=6de8b8cd-74f9-4eae-ad2f-76867e916f4f)
 
-## Video
 
-{% youtube %}https://www.youtube.com/watch?v=wMYgqvsNEwQ{% endyoutube %}
