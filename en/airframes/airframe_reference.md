@@ -182,6 +182,11 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p></td>
 
 </tr>
+<tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
+ <td style="vertical-align: top;">Generic Hexarotor x geometry</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p></td>
+
+</tr>
 </tbody></table>
 
 ### Octo Coax Wide
@@ -329,6 +334,35 @@ This page lists all supported airframes and types including
 </tr>
 </tbody></table>
 
+### Quadrotor H
+
+<div>
+<img src="../../assets/airframes/types/QuadRotorH.svg" width="29%" style="max-height: 180px;"/>
+<table style="float: right; width: 70%; font-size:1.5rem;">
+ <colgroup><col></colgroup>
+ <thead>
+   <tr><th>Common Outputs</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
+</tr>
+</tbody></table>
+</div>
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
+ <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th></th></tr>
+ </thead>
+<tbody>
+<tr id="copter_quadrotor_h_reaper_500_quad">
+ <td style="vertical-align: top;">Reaper 500 Quad</td>
+ <td style="vertical-align: top;"><p>Maintainer: Blankered</p><p><code>SYS_AUTOSTART</code> = 4040</p></td>
+
+</tr>
+</tbody></table>
+
 ### Quadrotor Wide
 
 <div>
@@ -428,6 +462,11 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></p></td>
 
 </tr>
+<tr id="copter_quadrotor_x_generic_quadrotor_x_config">
+ <td style="vertical-align: top;">Generic Quadrotor X config</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></p></td>
+
+</tr>
 <tr id="copter_quadrotor_x_generic_quadrotor_x_with_mount_(e.g._gimbal)">
  <td style="vertical-align: top;">Generic Quadrotor x with mount (e.g. gimbal)</td>
  <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <thedevleon></p><p><code>SYS_AUTOSTART</code> = 4002</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: Mount pitch</li><li><b>AUX2</b>: Mount roll</li><li><b>AUX3</b>: Mount yaw</li><li><b>AUX4</b>: Mount retract</li></ul></p></td>
@@ -481,11 +520,6 @@ This page lists all supported airframes and types including
 <tr id="copter_quadrotor_x_3dr_diy_quad">
  <td style="vertical-align: top;">3DR DIY Quad</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
-
-</tr>
-<tr id="copter_quadrotor_x_reaper_500_quad">
- <td style="vertical-align: top;">Reaper 500 Quad</td>
- <td style="vertical-align: top;"><p>Maintainer: Blankered</p><p><code>SYS_AUTOSTART</code> = 4040</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_generic_250_racer">
