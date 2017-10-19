@@ -11,7 +11,8 @@
         "custom-favicon",
         "bulk-redirect",
         "toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git",
-        "validate-links"
+        "validate-links",
+        "theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"
     ],
     "pluginsConfig": {
 
