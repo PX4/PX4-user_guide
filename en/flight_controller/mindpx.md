@@ -58,7 +58,6 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
 |7|TF card slot|15|Tricolor Light|
 |8|NRF/SPI(Remote Control)|16|Looper|
 
-![](../../assets/hardware/hardware-mindpx-looper.png)
 
 ### Radio Receiver
 
