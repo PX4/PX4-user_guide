@@ -182,11 +182,6 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p></td>
 
 </tr>
-<tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
- <td style="vertical-align: top;">Generic Hexarotor x geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p></td>
-
-</tr>
 </tbody></table>
 
 ### Octo Coax Wide
@@ -460,11 +455,6 @@ This page lists all supported airframes and types including
 <tr id="copter_quadrotor_x_generic_quadrotor_x">
  <td style="vertical-align: top;">Generic Quadrotor x</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></p></td>
-
-</tr>
-<tr id="copter_quadrotor_x_generic_quadrotor_x_config">
- <td style="vertical-align: top;">Generic Quadrotor X config</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_generic_quadrotor_x_with_mount_(e.g._gimbal)">
