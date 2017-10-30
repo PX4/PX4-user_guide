@@ -11379,6 +11379,13 @@ For ESCs that support thrust reversal with a control channel please set VT_B_REV
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="VT_FW_ALT_ERR">VT_FW_ALT_ERR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Adaptive QuadChute</p><p><strong>Comment:</strong> Maximum negative altitude error, when in fixed wing the altitude drops below this copared to the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL</p>    </td>
+ <td style="vertical-align: top;">0.0 > 200.0 </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>QuadChute Max Pitch</p><p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>    </td>
  <td style="vertical-align: top;">0 > 180 </td>
