@@ -1066,6 +1066,27 @@ The module where these parameters are defined is: *modules/navigator*.
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="NAV_AH_LAT">NAV_AH_LAT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airfield home Lat</p><p><strong>Comment:</strong> Latitude of airfield home waypoint</p>    </td>
+ <td style="vertical-align: top;">-900000000 > 900000000 </td>
+ <td style="vertical-align: top;">-265847810 </td>
+ <td style="vertical-align: top;">deg * 1e7</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_AH_LON">NAV_AH_LON</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airfield home Lon</p><p><strong>Comment:</strong> Longitude of airfield home waypoint</p>    </td>
+ <td style="vertical-align: top;">-1800000000 > 1800000000 </td>
+ <td style="vertical-align: top;">1518423250 </td>
+ <td style="vertical-align: top;">deg * 1e7</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_AH_ALT">NAV_AH_ALT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airfield home alt</p><p><strong>Comment:</strong> Altitude of airfield home waypoint</p>    </td>
+ <td style="vertical-align: top;">-50 > ? (0.5)</td>
+ <td style="vertical-align: top;">600.0 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="NAV_DLL_CH_T">NAV_DLL_CH_T</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Comms hold wait time</p><p><strong>Comment:</strong> The amount of time in seconds the system should wait at the comms hold waypoint</p>    </td>
  <td style="vertical-align: top;">0.0 > 3600.0 (1)</td>
@@ -1113,27 +1134,6 @@ The module where these parameters are defined is: *modules/navigator*.
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_AH_LAT">NAV_AH_LAT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airfield home Lat</p><p><strong>Comment:</strong> Latitude of airfield home waypoint</p>    </td>
- <td style="vertical-align: top;">-900000000 > 900000000 </td>
- <td style="vertical-align: top;">-265847810 </td>
- <td style="vertical-align: top;">deg * 1e7</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_AH_LON">NAV_AH_LON</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airfield home Lon</p><p><strong>Comment:</strong> Longitude of airfield home waypoint</p>    </td>
- <td style="vertical-align: top;">-1800000000 > 1800000000 </td>
- <td style="vertical-align: top;">1518423250 </td>
- <td style="vertical-align: top;">deg * 1e7</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_AH_ALT">NAV_AH_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airfield home alt</p><p><strong>Comment:</strong> Altitude of airfield home waypoint</p>    </td>
- <td style="vertical-align: top;">-50 > ? (0.5)</td>
- <td style="vertical-align: top;">600.0 </td>
- <td style="vertical-align: top;">m</td>
 </tr>
 </tbody></table>
 
@@ -1970,14 +1970,6 @@ This parameter controls the time constant of the decay</p>    </td>
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="GND_WR_TC">GND_WR_TC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Attitude Wheel Time Constant</p><p><strong>Comment:</strong> This defines the latency between a steering step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>    <p><b>Module:</b> modules/gnd_att_control</p>
-</td>
- <td style="vertical-align: top;">0.4 > 1.0 (0.05)</td>
- <td style="vertical-align: top;">0.4 </td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="FW_R_TC">FW_R_TC</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Attitude Roll Time Constant</p><p><strong>Comment:</strong> This defines the latency between a roll step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>    <p><b>Module:</b> modules/fw_att_control</p>
 </td>
@@ -2317,6 +2309,14 @@ This parameter controls the time constant of the decay</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.8 </td>
  <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="GND_WR_TC">GND_WR_TC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Attitude Wheel Time Constant</p><p><strong>Comment:</strong> This defines the latency between a steering step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.</p>    <p><b>Module:</b> modules/gnd_att_control</p>
+</td>
+ <td style="vertical-align: top;">0.4 > 1.0 (0.05)</td>
+ <td style="vertical-align: top;">0.4 </td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 </tbody></table>
 
@@ -3642,141 +3642,6 @@ The module where these parameters are defined is: *drivers/mkblctrl*.
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set offboard loss failsafe mode</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Land at current position</li> 
-
-<li><strong>1:</strong> Loiter</li> 
-
-<li><strong>2:</strong> Return to Land</li> 
-</ul>
-   <p><b>Module:</b> modules/commander</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set offboard loss failsafe mode when RC is available</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Position control</li> 
-
-<li><strong>1:</strong> Altitude control</li> 
-
-<li><strong>2:</strong> Manual</li> 
-
-<li><strong>3:</strong> Return to Land</li> 
-
-<li><strong>4:</strong> Land at current position</li> 
-
-<li><strong>5:</strong> Loiter</li> 
-</ul>
-   <p><b>Module:</b> modules/commander</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Position control navigation loss response</p><p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequte for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Assume use of remote control after fallback. Switch to ALTCTL if a height estimate is available, else switch to MANUAL.</li> 
-
-<li><strong>1:</strong> Assume no use of remote control after fallback. Switch to DESCEND if a height estimate is available, else switch to TERMINATION.</li> 
-</ul>
-   <p><b>Module:</b> modules/commander</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Loiter radius (FW only)</p><p><strong>Comment:</strong> Default value of loiter radius for missions, loiter, RTL, etc. (fixedwing only).</p>    <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;">25 > 1000 (0.5)</td>
- <td style="vertical-align: top;">50.0 </td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_ACC_RAD">NAV_ACC_RAD</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Acceptance Radius</p><p><strong>Comment:</strong> Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the L1 turning distance is used for horizontal acceptance.</p>    <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
- <td style="vertical-align: top;">10.0 </td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_FW_ALT_RAD">NAV_FW_ALT_RAD</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>FW Altitude Acceptance Radius</p><p><strong>Comment:</strong> Acceptance radius for fixedwing altitude.</p>    <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
- <td style="vertical-align: top;">10.0 </td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_MC_ALT_RAD">NAV_MC_ALT_RAD</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>MC Altitude Acceptance Radius</p><p><strong>Comment:</strong> Acceptance radius for multicopter altitude.</p>    <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
- <td style="vertical-align: top;">0.8 </td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set data link loss failsafe mode</p><p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>1:</strong> Loiter</li> 
-
-<li><strong>2:</strong> Return to Land</li> 
-
-<li><strong>3:</strong> Land at current position</li> 
-
-<li><strong>4:</strong> Data Link Auto Recovery (CASA Outback Challenge rules)</li> 
-
-<li><strong>5:</strong> Terminate</li> 
-
-<li><strong>6:</strong> Lockdown</li> 
-</ul>
-   <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_RCL_ACT">NAV_RCL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set RC loss failsafe mode</p><p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>1:</strong> Loiter</li> 
-
-<li><strong>2:</strong> Return to Land</li> 
-
-<li><strong>3:</strong> Land at current position</li> 
-
-<li><strong>4:</strong> RC Auto Recovery (CASA Outback Challenge rules)</li> 
-
-<li><strong>5:</strong> Terminate</li> 
-
-<li><strong>6:</strong> Lockdown</li> 
-</ul>
-   <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">2 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_FORCE_VT">NAV_FORCE_VT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Force VTOL mode takeoff and land</p>    <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Take-off altitude</p><p><strong>Comment:</strong> This is the minimum altitude the system will take off to.</p>    <p><b>Module:</b> modules/navigator</p>
 </td>
@@ -3865,6 +3730,92 @@ The module where these parameters are defined is: *drivers/mkblctrl*.
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Loiter radius (FW only)</p><p><strong>Comment:</strong> Default value of loiter radius for missions, loiter, RTL, etc. (fixedwing only).</p>    <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">25 > 1000 (0.5)</td>
+ <td style="vertical-align: top;">50.0 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_ACC_RAD">NAV_ACC_RAD</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Acceptance Radius</p><p><strong>Comment:</strong> Default acceptance radius, overridden by acceptance radius of waypoint if set. For fixed wing the L1 turning distance is used for horizontal acceptance.</p>    <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
+ <td style="vertical-align: top;">10.0 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_FW_ALT_RAD">NAV_FW_ALT_RAD</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>FW Altitude Acceptance Radius</p><p><strong>Comment:</strong> Acceptance radius for fixedwing altitude.</p>    <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
+ <td style="vertical-align: top;">10.0 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_MC_ALT_RAD">NAV_MC_ALT_RAD</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>MC Altitude Acceptance Radius</p><p><strong>Comment:</strong> Acceptance radius for multicopter altitude.</p>    <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">0.05 > 200.0 (0.5)</td>
+ <td style="vertical-align: top;">0.8 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set data link loss failsafe mode</p><p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Loiter</li> 
+
+<li><strong>2:</strong> Return to Land</li> 
+
+<li><strong>3:</strong> Land at current position</li> 
+
+<li><strong>4:</strong> Data Link Auto Recovery (CASA Outback Challenge rules)</li> 
+
+<li><strong>5:</strong> Terminate</li> 
+
+<li><strong>6:</strong> Lockdown</li> 
+</ul>
+   <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_RCL_ACT">NAV_RCL_ACT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set RC loss failsafe mode</p><p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Loiter</li> 
+
+<li><strong>2:</strong> Return to Land</li> 
+
+<li><strong>3:</strong> Land at current position</li> 
+
+<li><strong>4:</strong> RC Auto Recovery (CASA Outback Challenge rules)</li> 
+
+<li><strong>5:</strong> Terminate</li> 
+
+<li><strong>6:</strong> Lockdown</li> 
+</ul>
+   <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">2 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_FORCE_VT">NAV_FORCE_VT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Force VTOL mode takeoff and land</p>    <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="VT_WV_TKO_EN">VT_WV_TKO_EN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Enable weather-vane mode takeoff for missions</p>    <p><b>Module:</b> modules/vtol_att_control</p>
 </td>
@@ -3883,6 +3834,55 @@ The module where these parameters are defined is: *drivers/mkblctrl*.
 <tr>
  <td style="vertical-align: top;"><strong id="VT_WV_LND_EN">VT_WV_LND_EN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Weather-vane mode landings for missions</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set offboard loss failsafe mode</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Land at current position</li> 
+
+<li><strong>1:</strong> Loiter</li> 
+
+<li><strong>2:</strong> Return to Land</li> 
+</ul>
+   <p><b>Module:</b> modules/commander</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set offboard loss failsafe mode when RC is available</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Position control</li> 
+
+<li><strong>1:</strong> Altitude control</li> 
+
+<li><strong>2:</strong> Manual</li> 
+
+<li><strong>3:</strong> Return to Land</li> 
+
+<li><strong>4:</strong> Land at current position</li> 
+
+<li><strong>5:</strong> Loiter</li> 
+</ul>
+   <p><b>Module:</b> modules/commander</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Position control navigation loss response</p><p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequte for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Assume use of remote control after fallback. Switch to ALTCTL if a height estimate is available, else switch to MANUAL.</li> 
+
+<li><strong>1:</strong> Assume no use of remote control after fallback. Switch to DESCEND if a height estimate is available, else switch to TERMINATION.</li> 
+</ul>
+   <p><b>Module:</b> modules/commander</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4392,30 +4392,6 @@ applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPP_MAN_R_MAX">MPP_MAN_R_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual roll</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 90.0 </td>
- <td style="vertical-align: top;">35.0 </td>
- <td style="vertical-align: top;">deg</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_MAN_P_MAX">MPP_MAN_P_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual pitch</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 90.0 </td>
- <td style="vertical-align: top;">35.0 </td>
- <td style="vertical-align: top;">deg</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_MAN_Y_MAX">MPP_MAN_Y_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual yaw rate</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">120.0 </td>
- <td style="vertical-align: top;">deg/s</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MP_ROLL_P">MP_ROLL_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Roll P gain</p><p><strong>Comment:</strong> Roll proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
 </td>
@@ -4546,6 +4522,30 @@ applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0
 <tr>
  <td style="vertical-align: top;"><strong id="MP_ACRO_Y_MAX">MP_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max acro yaw rate</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
+</td>
+ <td style="vertical-align: top;">0.0 > ? </td>
+ <td style="vertical-align: top;">120.0 </td>
+ <td style="vertical-align: top;">deg/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPP_MAN_R_MAX">MPP_MAN_R_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Max manual roll</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
+</td>
+ <td style="vertical-align: top;">0.0 > 90.0 </td>
+ <td style="vertical-align: top;">35.0 </td>
+ <td style="vertical-align: top;">deg</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPP_MAN_P_MAX">MPP_MAN_P_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Max manual pitch</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
+</td>
+ <td style="vertical-align: top;">0.0 > 90.0 </td>
+ <td style="vertical-align: top;">35.0 </td>
+ <td style="vertical-align: top;">deg</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPP_MAN_Y_MAX">MPP_MAN_Y_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Max manual yaw rate</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
 </td>
  <td style="vertical-align: top;">0.0 > ? </td>
  <td style="vertical-align: top;">120.0 </td>
@@ -5057,268 +5057,6 @@ towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    <p><b>Module:</b> 
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 2</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 3</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 4</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 5</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 6</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM1">PWM_AUX_TRIM1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM2">PWM_AUX_TRIM2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM3">PWM_AUX_TRIM3</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM4">PWM_AUX_TRIM4</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM5">PWM_AUX_TRIM5</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM6">PWM_AUX_TRIM6</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="THR_MDL_FAC">THR_MDL_FAC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Thrust to PWM model parameter</p><p><strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">0.0 > 1.0 </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;">s/(1000*PWM)</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_REV1">PWM_MAIN_REV1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_REV2">PWM_MAIN_REV2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 2</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_REV3">PWM_MAIN_REV3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 3</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_REV4">PWM_MAIN_REV4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 4</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_REV5">PWM_MAIN_REV5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 5</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_REV6">PWM_MAIN_REV6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 6</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_REV7">PWM_MAIN_REV7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 7</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_REV8">PWM_MAIN_REV8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 8</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM1">PWM_MAIN_TRIM1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM2">PWM_MAIN_TRIM2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM3">PWM_MAIN_TRIM3</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM4">PWM_MAIN_TRIM4</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM5">PWM_MAIN_TRIM5</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM6">PWM_MAIN_TRIM6</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM7">PWM_MAIN_TRIM7</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 7</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM8">PWM_MAIN_TRIM8</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 8</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_SBUS_MODE">PWM_SBUS_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>S.BUS out</p><p><strong>Comment:</strong> Set to 1 to enable S.BUS version 1 output instead of RSSI.</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="PWM_RATE">PWM_RATE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set the PWM output frequency for the main outputs</p><p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
@@ -5506,6 +5244,268 @@ towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    <p><b>Module:</b> 
  <td style="vertical-align: top;">0 > 2200 </td>
  <td style="vertical-align: top;">1500 </td>
  <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_REV1">PWM_MAIN_REV1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_REV2">PWM_MAIN_REV2</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 2</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_REV3">PWM_MAIN_REV3</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 3</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_REV4">PWM_MAIN_REV4</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 4</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_REV5">PWM_MAIN_REV5</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 5</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_REV6">PWM_MAIN_REV6</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 6</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_REV7">PWM_MAIN_REV7</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 7</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_REV8">PWM_MAIN_REV8</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 8</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM1">PWM_MAIN_TRIM1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM2">PWM_MAIN_TRIM2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM3">PWM_MAIN_TRIM3</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM4">PWM_MAIN_TRIM4</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM5">PWM_MAIN_TRIM5</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM6">PWM_MAIN_TRIM6</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM7">PWM_MAIN_TRIM7</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 7</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM8">PWM_MAIN_TRIM8</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 8</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_SBUS_MODE">PWM_SBUS_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>S.BUS out</p><p><strong>Comment:</strong> Set to 1 to enable S.BUS version 1 output instead of RSSI.</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 2</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 3</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 4</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 5</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 6</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM1">PWM_AUX_TRIM1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM2">PWM_AUX_TRIM2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM3">PWM_AUX_TRIM3</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM4">PWM_AUX_TRIM4</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM5">PWM_AUX_TRIM5</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM6">PWM_AUX_TRIM6</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="THR_MDL_FAC">THR_MDL_FAC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust to PWM model parameter</p><p><strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">0.0 > 1.0 </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">0.0 > ? </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">s/(1000*PWM)</td>
 </tr>
 </tbody></table>
 
@@ -5947,93 +5947,6 @@ The module where these parameters are defined is: *modules/position_estimator_in
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="RC_RSSI_PWM_CHAN">RC_RSSI_PWM_CHAN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PWM input channel that provides RSSI</p><p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Unassigned</li> 
-
-<li><strong>1:</strong> Channel 1</li> 
-
-<li><strong>2:</strong> Channel 2</li> 
-
-<li><strong>3:</strong> Channel 3</li> 
-
-<li><strong>4:</strong> Channel 4</li> 
-
-<li><strong>5:</strong> Channel 5</li> 
-
-<li><strong>6:</strong> Channel 6</li> 
-
-<li><strong>7:</strong> Channel 7</li> 
-
-<li><strong>8:</strong> Channel 8</li> 
-
-<li><strong>9:</strong> Channel 9</li> 
-
-<li><strong>10:</strong> Channel 10</li> 
-
-<li><strong>11:</strong> Channel 11</li> 
-
-<li><strong>12:</strong> Channel 12</li> 
-
-<li><strong>13:</strong> Channel 13</li> 
-
-<li><strong>14:</strong> Channel 14</li> 
-
-<li><strong>15:</strong> Channel 15</li> 
-
-<li><strong>16:</strong> Channel 16</li> 
-
-<li><strong>17:</strong> Channel 17</li> 
-
-<li><strong>18:</strong> Channel 18</li> 
-</ul>
-   <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">0 > 18 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RC_RSSI_PWM_MAX">RC_RSSI_PWM_MAX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Max input value for RSSI reading</p><p><strong>Comment:</strong> Only used if RC_RSSI_PWM_CHAN > 0</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">0 > 2000 </td>
- <td style="vertical-align: top;">1000 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RC_RSSI_PWM_MIN">RC_RSSI_PWM_MIN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Min input value for RSSI reading</p><p><strong>Comment:</strong> Only used if RC_RSSI_PWM_CHAN > 0</p>    <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">0 > 2000 </td>
- <td style="vertical-align: top;">2000 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
-</td>
- <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
-</td>
- <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
-</td>
- <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC1_MIN">RC1_MIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>RC channel 1 minimum</p><p><strong>Comment:</strong> Minimum value for RC channel 1</p>    <p><b>Module:</b> modules/sensors</p>
@@ -7418,6 +7331,93 @@ The module where these parameters are defined is: *modules/position_estimator_in
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Roll trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
+</td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Pitch trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
+</td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Yaw trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
+</td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="RC_RSSI_PWM_CHAN">RC_RSSI_PWM_CHAN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>PWM input channel that provides RSSI</p><p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Unassigned</li> 
+
+<li><strong>1:</strong> Channel 1</li> 
+
+<li><strong>2:</strong> Channel 2</li> 
+
+<li><strong>3:</strong> Channel 3</li> 
+
+<li><strong>4:</strong> Channel 4</li> 
+
+<li><strong>5:</strong> Channel 5</li> 
+
+<li><strong>6:</strong> Channel 6</li> 
+
+<li><strong>7:</strong> Channel 7</li> 
+
+<li><strong>8:</strong> Channel 8</li> 
+
+<li><strong>9:</strong> Channel 9</li> 
+
+<li><strong>10:</strong> Channel 10</li> 
+
+<li><strong>11:</strong> Channel 11</li> 
+
+<li><strong>12:</strong> Channel 12</li> 
+
+<li><strong>13:</strong> Channel 13</li> 
+
+<li><strong>14:</strong> Channel 14</li> 
+
+<li><strong>15:</strong> Channel 15</li> 
+
+<li><strong>16:</strong> Channel 16</li> 
+
+<li><strong>17:</strong> Channel 17</li> 
+
+<li><strong>18:</strong> Channel 18</li> 
+</ul>
+   <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">0 > 18 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="RC_RSSI_PWM_MAX">RC_RSSI_PWM_MAX</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Max input value for RSSI reading</p><p><strong>Comment:</strong> Only used if RC_RSSI_PWM_CHAN > 0</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">0 > 2000 </td>
+ <td style="vertical-align: top;">1000 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="RC_RSSI_PWM_MIN">RC_RSSI_PWM_MIN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Min input value for RSSI reading</p><p><strong>Comment:</strong> Only used if RC_RSSI_PWM_CHAN > 0</p>    <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">0 > 2000 </td>
+ <td style="vertical-align: top;">2000 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
 </tbody></table>
 
 ## Radio Signal Loss
@@ -8378,6 +8378,55 @@ FW_AIRSPD_MIN * RWTO_AIRSPD_SCL</p>    </td>
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="SDLOG_RATE">SDLOG_RATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Logging rate</p><p><strong>Comment:</strong> A value of -1 indicates the commandline argument should be obeyed. A value of 0 sets the minimum rate, any other value is interpreted as rate in Hertz. This parameter is only read out before logging starts (which commonly is before arming).</p>    <p><b>Module:</b> modules/sdlog2</p>
+</td>
+ <td style="vertical-align: top;">-1 > 250 </td>
+ <td style="vertical-align: top;">-1 </td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SDLOG_EXT">SDLOG_EXT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Extended logging mode</p><p><strong>Comment:</strong> A value of -1 indicates the command line argument should be obeyed. A value of 0 disables extended logging mode, a value of 1 enables it. This parameter is only read out before logging starts (which commonly is before arming).</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Command Line</li> 
+
+<li><strong>0:</strong> Disable</li> 
+
+<li><strong>1:</strong> Enable</li> 
+</ul>
+   <p><b>Module:</b> modules/sdlog2</p>
+</td>
+ <td style="vertical-align: top;">-1 > 1 </td>
+ <td style="vertical-align: top;">-1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SDLOG_GPSTIME">SDLOG_GPSTIME</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Use timestamps only if GPS 3D fix is available</p><p><strong>Comment:</strong> Constrain the log folder creation to only use the time stamp if a 3D GPS lock is present.</p>    <p><b>Module:</b> modules/sdlog2</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SDLOG_PRIO_BOOST">SDLOG_PRIO_BOOST</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Give logging app higher thread priority to avoid data loss.
+This is used for gathering replay logs for the ekf2 module</p><p><strong>Comment:</strong> A value of 0 indicates that the default priority is used. Increasing the parameter in steps of one increases the priority.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Low priority</li> 
+
+<li><strong>1:</strong> Default priority</li> 
+
+<li><strong>2:</strong> Medium priority</li> 
+
+<li><strong>3:</strong> Max priority</li> 
+</ul>
+   <p><b>Module:</b> modules/sdlog2</p>
+</td>
+ <td style="vertical-align: top;">0 > 3 </td>
+ <td style="vertical-align: top;">2 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SDLOG_UTC_OFFSET">SDLOG_UTC_OFFSET</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>UTC offset (unit: min)</p><p><strong>Comment:</strong> the difference in hours and minutes from Coordinated Universal Time (UTC) for a your place and date. for example, In case of South Korea(UTC+09:00), UTC offset is 540 min (9*60) refer to https://en.wikipedia.org/wiki/List_of_UTC_time_offsets</p>    <p><b>Module:</b> modules/logger</p>
 </td>
@@ -8435,55 +8484,6 @@ FW_AIRSPD_MIN * RWTO_AIRSPD_SCL</p>    </td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SDLOG_RATE">SDLOG_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Logging rate</p><p><strong>Comment:</strong> A value of -1 indicates the commandline argument should be obeyed. A value of 0 sets the minimum rate, any other value is interpreted as rate in Hertz. This parameter is only read out before logging starts (which commonly is before arming).</p>    <p><b>Module:</b> modules/sdlog2</p>
-</td>
- <td style="vertical-align: top;">-1 > 250 </td>
- <td style="vertical-align: top;">-1 </td>
- <td style="vertical-align: top;">Hz</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SDLOG_EXT">SDLOG_EXT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Extended logging mode</p><p><strong>Comment:</strong> A value of -1 indicates the command line argument should be obeyed. A value of 0 disables extended logging mode, a value of 1 enables it. This parameter is only read out before logging starts (which commonly is before arming).</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Command Line</li> 
-
-<li><strong>0:</strong> Disable</li> 
-
-<li><strong>1:</strong> Enable</li> 
-</ul>
-   <p><b>Module:</b> modules/sdlog2</p>
-</td>
- <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">-1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SDLOG_GPSTIME">SDLOG_GPSTIME</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Use timestamps only if GPS 3D fix is available</p><p><strong>Comment:</strong> Constrain the log folder creation to only use the time stamp if a 3D GPS lock is present.</p>    <p><b>Module:</b> modules/sdlog2</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SDLOG_PRIO_BOOST">SDLOG_PRIO_BOOST</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Give logging app higher thread priority to avoid data loss.
-This is used for gathering replay logs for the ekf2 module</p><p><strong>Comment:</strong> A value of 0 indicates that the default priority is used. Increasing the parameter in steps of one increases the priority.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Low priority</li> 
-
-<li><strong>1:</strong> Default priority</li> 
-
-<li><strong>2:</strong> Medium priority</li> 
-
-<li><strong>3:</strong> Max priority</li> 
-</ul>
-   <p><b>Module:</b> modules/sdlog2</p>
-</td>
- <td style="vertical-align: top;">0 > 3 </td>
- <td style="vertical-align: top;">2 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 </tbody></table>
 
 ## SITL
@@ -8524,160 +8524,6 @@ The module where these parameters are defined is: *modules/sensors*.
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC_PRIME">CAL_ACC_PRIME</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Primary accel ID</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_ID">CAL_ACC0_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_XOFF">CAL_ACC0_XOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_YOFF">CAL_ACC0_YOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Y-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_ZOFF">CAL_ACC0_ZOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Z-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_XSCALE">CAL_ACC0_XSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer X-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_YSCALE">CAL_ACC0_YSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Y-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_ZSCALE">CAL_ACC0_ZSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Z-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC1_ID">CAL_ACC1_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC1_XOFF">CAL_ACC1_XOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC1_YOFF">CAL_ACC1_YOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Y-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC1_ZOFF">CAL_ACC1_ZOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Z-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC1_XSCALE">CAL_ACC1_XSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer X-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC1_YSCALE">CAL_ACC1_YSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Y-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC1_ZSCALE">CAL_ACC1_ZSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Z-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC2_ID">CAL_ACC2_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC2_XOFF">CAL_ACC2_XOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC2_YOFF">CAL_ACC2_YOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Y-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC2_ZOFF">CAL_ACC2_ZOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Z-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC2_XSCALE">CAL_ACC2_XSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer X-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC2_YSCALE">CAL_ACC2_YSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Y-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC2_ZSCALE">CAL_ACC2_ZSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Z-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG_PRIME">CAL_MAG_PRIME</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Primary mag ID</p>    </td>
@@ -9339,6 +9185,160 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC_PRIME">CAL_ACC_PRIME</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Primary accel ID</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_ID">CAL_ACC0_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_XOFF">CAL_ACC0_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_YOFF">CAL_ACC0_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Y-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_ZOFF">CAL_ACC0_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Z-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_XSCALE">CAL_ACC0_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer X-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_YSCALE">CAL_ACC0_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Y-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_ZSCALE">CAL_ACC0_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Z-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC1_ID">CAL_ACC1_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC1_XOFF">CAL_ACC1_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC1_YOFF">CAL_ACC1_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Y-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC1_ZOFF">CAL_ACC1_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Z-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC1_XSCALE">CAL_ACC1_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer X-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC1_YSCALE">CAL_ACC1_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Y-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC1_ZSCALE">CAL_ACC1_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Z-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC2_ID">CAL_ACC2_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC2_XOFF">CAL_ACC2_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC2_YOFF">CAL_ACC2_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Y-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC2_ZOFF">CAL_ACC2_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Z-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC2_XSCALE">CAL_ACC2_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer X-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC2_YSCALE">CAL_ACC2_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Y-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC2_ZSCALE">CAL_ACC2_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Z-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
 </tbody></table>
 
 ## Sensor Thermal Compensation
@@ -9352,6 +9352,412 @@ The module where these parameters are defined is: *modules/sensors*.
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A_ENABLE">TC_A_ENABLE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set to 1 to enable thermal compensation for accelerometer sensors. Set to 0 to disable</p>    </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_ID">TC_A0_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Accelerometer that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X3_0">TC_A0_X3_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X3_1">TC_A0_X3_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X3_2">TC_A0_X3_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X2_0">TC_A0_X2_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X2_1">TC_A0_X2_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X2_2">TC_A0_X2_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X1_0">TC_A0_X1_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X1_1">TC_A0_X1_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X1_2">TC_A0_X1_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X0_0">TC_A0_X0_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X0_1">TC_A0_X0_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_X0_2">TC_A0_X0_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_SCL_0">TC_A0_SCL_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer scale factor - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_SCL_1">TC_A0_SCL_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer scale factor - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_SCL_2">TC_A0_SCL_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer scale factor - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_TREF">TC_A0_TREF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration reference temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">25.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_TMIN">TC_A0_TMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration minimum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A0_TMAX">TC_A0_TMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration maximum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">100.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_ID">TC_A1_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Accelerometer that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X3_0">TC_A1_X3_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X3_1">TC_A1_X3_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X3_2">TC_A1_X3_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X2_0">TC_A1_X2_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X2_1">TC_A1_X2_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X2_2">TC_A1_X2_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X1_0">TC_A1_X1_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X1_1">TC_A1_X1_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X1_2">TC_A1_X1_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X0_0">TC_A1_X0_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X0_1">TC_A1_X0_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_X0_2">TC_A1_X0_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_SCL_0">TC_A1_SCL_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer scale factor - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_SCL_1">TC_A1_SCL_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer scale factor - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_SCL_2">TC_A1_SCL_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer scale factor - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_TREF">TC_A1_TREF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration reference temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">25.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_TMIN">TC_A1_TMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration minimum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A1_TMAX">TC_A1_TMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration maximum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">100.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_ID">TC_A2_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Accelerometer that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X3_0">TC_A2_X3_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X3_1">TC_A2_X3_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X3_2">TC_A2_X3_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X2_0">TC_A2_X2_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X2_1">TC_A2_X2_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X2_2">TC_A2_X2_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X1_0">TC_A2_X1_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X1_1">TC_A2_X1_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X1_2">TC_A2_X1_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X0_0">TC_A2_X0_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X0_1">TC_A2_X0_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_X0_2">TC_A2_X0_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_SCL_0">TC_A2_SCL_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer scale factor - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_SCL_1">TC_A2_SCL_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer scale factor - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_SCL_2">TC_A2_SCL_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer scale factor - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_TREF">TC_A2_TREF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration reference temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">25.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_TMIN">TC_A2_TMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration minimum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A2_TMAX">TC_A2_TMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration maximum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">100.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B_ENABLE">TC_B_ENABLE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set to 1 to enable thermal compensation for barometric pressure sensors. Set to 0 to disable</p>    </td>
@@ -9996,412 +10402,6 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;">100.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A_ENABLE">TC_A_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set to 1 to enable thermal compensation for accelerometer sensors. Set to 0 to disable</p>    </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_ID">TC_A0_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of Accelerometer that the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X3_0">TC_A0_X3_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X3_1">TC_A0_X3_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X3_2">TC_A0_X3_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X2_0">TC_A0_X2_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X2_1">TC_A0_X2_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X2_2">TC_A0_X2_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X1_0">TC_A0_X1_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X1_1">TC_A0_X1_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X1_2">TC_A0_X1_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X0_0">TC_A0_X0_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X0_1">TC_A0_X0_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_X0_2">TC_A0_X0_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_SCL_0">TC_A0_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_SCL_1">TC_A0_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_SCL_2">TC_A0_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_TREF">TC_A0_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer calibration reference temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">25.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_TMIN">TC_A0_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer calibration minimum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_TMAX">TC_A0_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer calibration maximum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">100.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_ID">TC_A1_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of Accelerometer that the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X3_0">TC_A1_X3_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X3_1">TC_A1_X3_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X3_2">TC_A1_X3_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X2_0">TC_A1_X2_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X2_1">TC_A1_X2_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X2_2">TC_A1_X2_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X1_0">TC_A1_X1_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X1_1">TC_A1_X1_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X1_2">TC_A1_X1_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X0_0">TC_A1_X0_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X0_1">TC_A1_X0_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_X0_2">TC_A1_X0_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_SCL_0">TC_A1_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_SCL_1">TC_A1_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_SCL_2">TC_A1_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_TREF">TC_A1_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer calibration reference temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">25.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_TMIN">TC_A1_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer calibration minimum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_TMAX">TC_A1_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer calibration maximum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">100.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_ID">TC_A2_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of Accelerometer that the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X3_0">TC_A2_X3_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X3_1">TC_A2_X3_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X3_2">TC_A2_X3_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X2_0">TC_A2_X2_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X2_1">TC_A2_X2_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X2_2">TC_A2_X2_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X1_0">TC_A2_X1_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X1_1">TC_A2_X1_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X1_2">TC_A2_X1_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X0_0">TC_A2_X0_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X0_1">TC_A2_X0_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_X0_2">TC_A2_X0_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_SCL_0">TC_A2_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_SCL_1">TC_A2_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_SCL_2">TC_A2_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_TREF">TC_A2_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer calibration reference temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">25.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_TMIN">TC_A2_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer calibration minimum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_TMAX">TC_A2_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer calibration maximum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">100.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 </tbody></table>
 
 ## Sensors
@@ -10725,32 +10725,6 @@ The module where these parameters are defined is: *modules/syslink*.
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="SYS_FMU_TASK">SYS_FMU_TASK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Run the FMU as a task to reduce latency</p><p><strong>Comment:</strong> If true, the FMU will run in a separate task instead of on the work queue. Set this if low latency is required, for example for racing. This is a trade-off between RAM usage and latency: running as a task, it requires a separate stack and directly polls on the control topics, whereas running on the work queue, it runs at a fixed update rate.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="LED_RGB_MAXBRT">LED_RGB_MAXBRT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RGB Led brightness limit</p><p><strong>Comment:</strong> Set to 0 to disable, 1 for minimum brightness up to 15 (max)</p>    <p><b>Module:</b> drivers/rgbled</p>
-</td>
- <td style="vertical-align: top;">0 > 15 </td>
- <td style="vertical-align: top;">15 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SYS_USE_IO">SYS_USE_IO</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set usage of IO board</p><p><strong>Comment:</strong> Can be used to use a standard startup script but with a FMU only set-up. Set to 0 to force the FMU only set-up.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
-</td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="SYS_AUTOSTART">SYS_AUTOSTART</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Auto-start script index</p><p><strong>Comment:</strong> CHANGING THIS VALUE REQUIRES A RESTART. Defines the auto-start script used to bootstrap the system.</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/systemlib</p>
@@ -10923,6 +10897,32 @@ The module where these parameters are defined is: *modules/syslink*.
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">10 </td>
  <td style="vertical-align: top;">deg C</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SYS_USE_IO">SYS_USE_IO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set usage of IO board</p><p><strong>Comment:</strong> Can be used to use a standard startup script but with a FMU only set-up. Set to 0 to force the FMU only set-up.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4io</p>
+</td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LED_RGB_MAXBRT">LED_RGB_MAXBRT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>RGB Led brightness limit</p><p><strong>Comment:</strong> Set to 0 to disable, 1 for minimum brightness up to 15 (max)</p>    <p><b>Module:</b> drivers/rgbled</p>
+</td>
+ <td style="vertical-align: top;">0 > 15 </td>
+ <td style="vertical-align: top;">15 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SYS_FMU_TASK">SYS_FMU_TASK</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Run the FMU as a task to reduce latency</p><p><strong>Comment:</strong> If true, the FMU will run in a separate task instead of on the work queue. Set this if low latency is required, for example for racing. This is a trade-off between RAM usage and latency: running as a task, it requires a separate stack and directly polls on the control topics, whereas running on the work queue, it runs at a fixed update rate.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
 
@@ -11124,22 +11124,6 @@ The module where these parameters are defined is: *modules/syslink*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="ESC_NODE_ID">ESC_NODE_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>    <p><b>Module:</b> modules/uavcanesc</p>
-</td>
- <td style="vertical-align: top;">1 > 125 </td>
- <td style="vertical-align: top;">120 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="ESC_BITRATE">ESC_BITRATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>    <p><b>Module:</b> modules/uavcanesc</p>
-</td>
- <td style="vertical-align: top;">20000 > 1000000 </td>
- <td style="vertical-align: top;">1000000 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>    <p><b>Module:</b> modules/uavcannode</p>
 </td>
@@ -11150,6 +11134,22 @@ The module where these parameters are defined is: *modules/syslink*.
 <tr>
  <td style="vertical-align: top;"><strong id="CANNODE_BITRATE">CANNODE_BITRATE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>    <p><b>Module:</b> modules/uavcannode</p>
+</td>
+ <td style="vertical-align: top;">20000 > 1000000 </td>
+ <td style="vertical-align: top;">1000000 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ESC_NODE_ID">ESC_NODE_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>    <p><b>Module:</b> modules/uavcanesc</p>
+</td>
+ <td style="vertical-align: top;">1 > 125 </td>
+ <td style="vertical-align: top;">120 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ESC_BITRATE">ESC_BITRATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>    <p><b>Module:</b> modules/uavcanesc</p>
 </td>
  <td style="vertical-align: top;">20000 > 1000000 </td>
  <td style="vertical-align: top;">1000000 </td>
@@ -11169,59 +11169,52 @@ The module where these parameters are defined is: *modules/vtol_att_control*.
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_TRANS_THR">VT_TRANS_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Target throttle value for pusher/puller motor during the transition to fw mode</p>    </td>
+ <td style="vertical-align: top;"><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in mc mode</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.6 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_DWN_PITCH_MAX">VT_DWN_PITCH_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum allowed down-pitch the controller is able to demand. This prevents large, negative
-lift values being created when facing strong winds. The vehicle will use the pusher motor
-to accelerate forward if necessary</p>    </td>
- <td style="vertical-align: top;">0.0 > 45.0 </td>
- <td style="vertical-align: top;">5.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Fixed wing thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to fixed wing thrust being used as source for forward acceleration in multirotor mode. This technique can be used to avoid the plane having to pitch down a lot in order to move forward. Setting this value to 0 (default) will disable this strategy.</p>    </td>
- <td style="vertical-align: top;">0.0 > 2.0 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_B_TRANS_RAMP">VT_B_TRANS_RAMP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Back transition MC motor ramp up time</p><p><strong>Comment:</strong> This sets the duration during wich the MC motors ramp up to the commanded thrust during the back transition stage.</p>    </td>
- <td style="vertical-align: top;">0.0 > 20.0 </td>
- <td style="vertical-align: top;">3.0 </td>
+ <td style="vertical-align: top;"><strong id="VT_TILT_TRANS">VT_TILT_TRANS</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in transition mode</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">0.3 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in fw mode</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Duration of front transition phase 2</p><p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>    </td>
+ <td style="vertical-align: top;">0.1 > 5.0 (0.01)</td>
+ <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_B_REV_OUT">VT_B_REV_OUT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Output on airbrakes channel during back transition
-Used for airbrakes or with ESCs that have reverse thrust enabled on a seperate channel
-Airbrakes need to be enables for your selected model/mixer</p>    </td>
- <td style="vertical-align: top;">0 > 1 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"><strong id="VT_FW_MOT_OFFID">VT_FW_MOT_OFFID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>The channel number of motors that must be turned off in fixed wing mode</p>    </td>
+ <td style="vertical-align: top;">0 > 12345678 (1)</td>
+ <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Delay in seconds before applying back transition throttle
-Set this to a value greater than 0 to give the motor time to spin down</p><p><strong>Comment:</strong> unit s</p>    </td>
- <td style="vertical-align: top;">0 > 10 (1)</td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Differential thrust in forwards flight</p><p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>    </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Thottle output during back transition
-For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking
-For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>    </td>
- <td style="vertical-align: top;">-1 > 1 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_SC">VT_FW_DIFTHR_SC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Differential thrust scaling factor</p><p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
+ <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -11414,52 +11407,59 @@ For ESCs that support thrust reversal with a control channel please set VT_B_REV
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in mc mode</p>    </td>
+ <td style="vertical-align: top;"><strong id="VT_TRANS_THR">VT_TRANS_THR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Target throttle value for pusher/puller motor during the transition to fw mode</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">0.6 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_DWN_PITCH_MAX">VT_DWN_PITCH_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum allowed down-pitch the controller is able to demand. This prevents large, negative
+lift values being created when facing strong winds. The vehicle will use the pusher motor
+to accelerate forward if necessary</p>    </td>
+ <td style="vertical-align: top;">0.0 > 45.0 </td>
+ <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Fixed wing thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to fixed wing thrust being used as source for forward acceleration in multirotor mode. This technique can be used to avoid the plane having to pitch down a lot in order to move forward. Setting this value to 0 (default) will disable this strategy.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 2.0 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_TILT_TRANS">VT_TILT_TRANS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in transition mode</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.3 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in fw mode</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Duration of front transition phase 2</p><p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>    </td>
- <td style="vertical-align: top;">0.1 > 5.0 (0.01)</td>
- <td style="vertical-align: top;">0.5 </td>
+ <td style="vertical-align: top;"><strong id="VT_B_TRANS_RAMP">VT_B_TRANS_RAMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Back transition MC motor ramp up time</p><p><strong>Comment:</strong> This sets the duration during wich the MC motors ramp up to the commanded thrust during the back transition stage.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 20.0 </td>
+ <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_FW_MOT_OFFID">VT_FW_MOT_OFFID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>The channel number of motors that must be turned off in fixed wing mode</p>    </td>
- <td style="vertical-align: top;">0 > 12345678 (1)</td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"><strong id="VT_B_REV_OUT">VT_B_REV_OUT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Output on airbrakes channel during back transition
+Used for airbrakes or with ESCs that have reverse thrust enabled on a seperate channel
+Airbrakes need to be enables for your selected model/mixer</p>    </td>
+ <td style="vertical-align: top;">0 > 1 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Differential thrust in forwards flight</p><p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>    </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Delay in seconds before applying back transition throttle
+Set this to a value greater than 0 to give the motor time to spin down</p><p><strong>Comment:</strong> unit s</p>    </td>
+ <td style="vertical-align: top;">0 > 10 (1)</td>
+ <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_SC">VT_FW_DIFTHR_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential thrust scaling factor</p><p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
- <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;"><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thottle output during back transition
+For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking
+For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>    </td>
+ <td style="vertical-align: top;">-1 > 1 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
@@ -11472,38 +11472,6 @@ For ESCs that support thrust reversal with a control channel please set VT_B_REV
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="EXFW_HDNG_P">EXFW_HDNG_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/fixedwing_control</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EXFW_ROLL_P">EXFW_ROLL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/fixedwing_control</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.2 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EXFW_PITCH_P">EXFW_PITCH_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/fixedwing_control</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.2 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RV_YAW_P">RV_YAW_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/rover_steering_control</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SEG_TH2V_P">SEG_TH2V_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/segway</p>
@@ -11534,6 +11502,38 @@ For ESCs that support thrust reversal with a control channel please set VT_B_REV
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="EXFW_HDNG_P">EXFW_HDNG_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/fixedwing_control</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="EXFW_ROLL_P">EXFW_ROLL_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/fixedwing_control</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.2 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="EXFW_PITCH_P">EXFW_PITCH_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/fixedwing_control</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.2 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="RV_YAW_P">RV_YAW_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/rover_steering_control</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
