@@ -43,6 +43,21 @@ The [mRo](http://www.mRobotics.io/) *mRo-X2.1 autopilot* is based on the [Pixhaw
 * USART7 (Console)
 * USART8 (OSD)
 
+## PX4 BootLoader Issue
+
+mRo-X2.1 FlightController Adaption was programmed differently in ArduPilot and PX4.
+By Default your mRo X2.1 FlighController might come preconfigured for ArduPilot. This 
+can be seen during FW Update when the Board is recognized as FMUv2 instead of X2.1 Board.
+In this Case you can simply update the BootLoader by using the attached [ZIP File](../../assets/hardware/BL_Update_X21.zip)
+If this correction is not carried out your Compass direction will be wrong and the
+secondary IMU will not be detected. 
+
+*Procedure*
+1. Extract this file.
+2. Find this folder: "BL_Update_X21"- In the folder is a bin file and a etc subfolder with a rc.txt file
+3. Copy these files to your micro SDcards Root Directory and insert it into the x2.1
+4. Power on the x2.1 Wait for it to boot and then reboot 1 time.
+
 ## Availability
 
 This Product can be oredered at the [mRobotics Store](http://store.mrobotics.io)
