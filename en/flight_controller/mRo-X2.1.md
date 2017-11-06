@@ -45,8 +45,8 @@ The [mRo](http://www.mRobotics.io/) *mRo-X2.1 autopilot* is based on the [Pixhaw
 
 ## Availability
 
-No longer in production
-
+This Product can be oredered at the [mRobotics Store](http://store.mrobotics.io)
+ 
 ## Key Links
 
 
