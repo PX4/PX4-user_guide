@@ -2,7 +2,7 @@
 
 The MindRacer series were created by AirMind. Please refer to: http://mindpx.net
 
-![](../../assets/hardware/hardware-mindracer.png)
+![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
 ## Quick Summary
 
@@ -68,4 +68,4 @@ MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog)
 
 ## Support
 
-Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::/support@mindpx.net) for any inquiries or help.
+Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::support@mindpx.net) for any inquiries or help.

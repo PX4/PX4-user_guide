@@ -2,7 +2,7 @@
 
 The MindPX series were created by AirMind. Please refer to: http://mindpx.net
 
-![](../../assets/hardware/hardware-mindpx.png)
+![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
 
 ## Quick Summary
 
@@ -35,17 +35,17 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
 
 ### Mounting
 
-![](../../assets/hardware/hardware-mindpx-mounting.png)
+![MindPX Mounting](../../assets/hardware/hardware-mindpx-mounting.png)
 
 ### Wiring
 
-![](../../assets/hardware/hardware-mindpx-wiring1.png)
+![MindPX Wiring 1](../../assets/hardware/hardware-mindpx-wiring1.png)
 
-![](../../assets/hardware/hardware-mindpx-wiring2.png)
+![MindPX Wiring 2](../../assets/hardware/hardware-mindpx-wiring2.png)
 
 ### Pin
 
-![](../../assets/hardware/hardware-mindpx-pin.png)
+![MindPX Pinout](../../assets/hardware/hardware-mindpx-pin.png)
 
 |Num.|Description|Num.|Description|
 |:--:|:--:|:--:|:--:|
@@ -89,4 +89,4 @@ MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog)
 
 ## Support
 
-Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto://support@mindpx.net) for any inquiries or help.
+Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.
