@@ -4,7 +4,7 @@ The QuadRanger VTOL is a standard tailplane aircraft based on the Volantex Range
 
 Key information:
 
-- **Frame:** Volantex Ranger-Ex or  [Quanum Observer]()
+- **Frame:** Volantex Ranger-Ex or *Quanum Observer*
 - **Flight controller:** Pixhawk
 
 ![QuadRanger](../../images/quadranger_vtol_complete_build.jpg)

@@ -228,13 +228,13 @@ Follow the steps described in the Frame assembly section.
 
 **Step 7:** Attach the LEDs to the frame using the Phillips screws provided.
 
-![Attach LEDs to QAV250 frame](../../images/qav250_attach_leds_to_frame.jpg)
+![Attach LEDS to frame](../../images/qav250_attach_LEDs_to_frame.jpg)
 
 > **Warning** The carbon fiber is conductive use silicon to
   avoid the contact with the weld in the frame.
  
   ![Use silicon to isolate LEDs from frame](../../images/qav250_use_silicon_with_leds.jpg)
-  ![Attach LEDS to frame](../../images/qav250_attach_LEDs_to_frame.jpg)
+
 
 **Step 8:** Attach vibration damping foam to the frame as shown (the foam is included in the *Pixhawk Mini* kit).
 
