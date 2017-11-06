@@ -3808,6 +3808,23 @@ The module where these parameters are defined is: *drivers/mkblctrl*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="NAV_TRAFF_AVOID">NAV_TRAFF_AVOID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set traffic avoidance mode</p><p><strong>Comment:</strong> Enabling this will allow the system to respond to transponder data from e.g. ADSB transponders</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Warn only</li> 
+
+<li><strong>2:</strong> Return to Land</li> 
+
+<li><strong>3:</strong> Land immediately</li> 
+</ul>
+   <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="NAV_FORCE_VT">NAV_FORCE_VT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Force VTOL mode takeoff and land</p>    <p><b>Module:</b> modules/navigator</p>
 </td>
