@@ -28,7 +28,7 @@ You can read in depth about heading in [Flight Controller Orientation](../config
 
 In order to set up, control and interact with your PX4 drone you need to connect with it. There are three main types of connection you can have to Pixhawk hardware and respectively to PX4:
 
-* [Remote Control \(RC\) Connection](TBD) - Connection between the RC handset and vehicle-based receiver that you use to manually direct the vehicle.
+* [Remote Control \(RC\) Connection](../getting_started/rc_transmitter_receiver.md) - Connection between the RC handset and vehicle-based receiver that you use to manually direct the vehicle.
 * [Data/Telemetry Connection](TBD) - Connection between QGroundControl and your drone by Data Radio, Wifi or USB cable.
 * Off-board Connection - A data connection between PX4 and external microcomputer that can control PX4.
 

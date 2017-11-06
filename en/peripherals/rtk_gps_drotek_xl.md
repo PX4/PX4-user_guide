@@ -17,4 +17,4 @@ RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK
 
 ## Wiring and Connections
 
-The module inputs/outputs are [shown here](https://drotek.com/en/documentation/tiny-rtk-documentation/#version-xl) (Drotek docs).
+The module inputs/outputs are [shown here](https://drotek.gitbooks.io/doc-rtk/content/rtkmodules/schematics.html#xl-rtk-module) (Drotek docs).

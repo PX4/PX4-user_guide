@@ -1,6 +1,6 @@
 ## MindRacer 210
 
-![](../../assets/hardware/hardware-mindracer210.png)
+![MindRacer 210](../../assets/hardware/hardware-mindracer210.png)
 
 ### Summary
 

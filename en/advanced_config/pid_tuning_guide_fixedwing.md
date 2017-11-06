@@ -145,7 +145,7 @@ correctly.
 - [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) - set to the airspeed on a manual climb
 - [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - set to the airspeed on a manual descend
 - [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE) - set to the throttle (stick position between 0 and
-  1.0) on a manual level flight at [FW_AIRSPEED_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPEED_TRIM) airspeed
+  1.0) on a manual level flight at [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) airspeed
 - [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) - set to the throttle on the manual descend
 - [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) - set to the throttle on the manual climb
 - [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - set to the climb rate in meters on the manual climb

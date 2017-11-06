@@ -1,7 +1,6 @@
 # Pixhawk Wiring Quick Start
 
-This quick start guide shows how power the *3DR Pixhawk* flight controller and connect its most important peripherals
-(including output connections for [copter](#copter), [plane](#plane), and [VTOL](#vtol) vehicles).
+This quick start guide shows how power the *3DR Pixhawk* flight controller and connect its most important peripherals.
   
 ![Pixhawk Image](../../images/pixhawk_logo_view.jpg) 
 
@@ -120,6 +119,6 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 ## Further information
 
-- [Pixhawk Quick Start Guide (3DR)](https://3dr.com/wp-content/uploads/2014/03/pixhawk-manual-rev7.pdf)
+- [Pixhawk Quick Start Guide (3DR)](https://3dr.com/wp-content/uploads/2017/03/pixhawk-manual-rev7-1.pdf)
 - [Pixhawk Series](../flight_controller/pixhawk_series.md)
 - [3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html) (PX4 DevGuide)

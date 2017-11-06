@@ -73,7 +73,7 @@ takeoff at near-zero thrust.
 
 ## Tuning steps
 
-All tuning should be performed in the manual [Stabilized flight mode](../flight_modes/#manual-modes).
+All tuning should be performed in the manual [Stabilized flight mode](../flight_modes/README.md#manual-modes).
 
 <span></span>
 > **Warning** NEVER do multirotor tuning with carbon fiber or carbon fiber reinforced blades. NEVER use damaged blades.

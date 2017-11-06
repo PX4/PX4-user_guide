@@ -57,5 +57,5 @@ indoors.
 
 ![px4flow-bottom](../../images/px4flow_bottom.jpg)
 
-For the wiring of all sensors see: [Sensors Wiring](?sensors-wiring).
+For the wiring of all sensors see: [Sensors Wiring](TBD).
 
