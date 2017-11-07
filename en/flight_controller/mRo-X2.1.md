@@ -2,8 +2,7 @@
 
 The [mRo](http://www.mRobotics.io/) *mRo-X2.1 autopilot* is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
-![AUAVX2_case2](../../images/mRo-x2.1.jpg)
-
+![mRo X2.1](../../images/mRo-x2.1.jpg)
 
 ## Quick Summary
 
@@ -60,10 +59,9 @@ secondary IMU will not be detected.
 
 ## Availability
 
-This Product can be oredered at the [mRobotics Store](http://store.mrobotics.io)
+This Product can be oredered at the [mRobotics Store](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/mro-x2.1rv2-mr.htm)
  
 ## Key Links
-
 
 ## Wiring Guide
 
