@@ -61,8 +61,6 @@ secondary IMU will not be detected.
 
 This Product can be oredered at the [mRobotics Store](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/mro-x2.1rv2-mr.htm)
  
-## Key Links
-
 ## Wiring Guide
 
 *TBD*
