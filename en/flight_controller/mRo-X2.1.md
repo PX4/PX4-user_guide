@@ -52,7 +52,7 @@ If this correction is not carried out your Compass direction will be wrong and t
 secondary IMU will not be detected. 
 
 *Procedure*
-1. Extract this file.
+1. Extract [this](../../assets/hardware/BL_Update_X21.zip) file.
 2. Find this folder: "BL_Update_X21"- In the folder is a bin file and a etc subfolder with a rc.txt file
 3. Copy these files to your micro SDcards Root Directory and insert it into the x2.1
 4. Power on the x2.1 Wait for it to boot and then reboot 1 time.
