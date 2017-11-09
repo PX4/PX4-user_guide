@@ -44,22 +44,22 @@ The [mRo](http://www.mRobotics.io/) *mRo-X2.1 autopilot* is based on the [Pixhaw
 
 ## PX4 BootLoader Issue
 
-mRo-X2.1 FlightController Adaption was programmed differently in ArduPilot and PX4.
-By Default your mRo X2.1 FlighController might come preconfigured for ArduPilot. This 
-can be seen during FW Update when the Board is recognized as FMUv2 instead of X2.1 Board.
-In this Case you can simply update the BootLoader by using the attached [ZIP File](../../assets/hardware/BL_Update_X21.zip)
-If this correction is not carried out your Compass direction will be wrong and the
+By default a mRo X2.1 might come preconfigured for ArduPilot rather than PX4. This 
+can be seen during firmware update when the board is recognized as FMUv2 instead of X2.1.
+
+In this case you must update the BootLoader using [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip).
+If this correction is not carried out your compass direction will be wrong and the
 secondary IMU will not be detected. 
 
-*Procedure*
-1. Extract [this](../../assets/hardware/BL_Update_X21.zip) file.
-2. Find this folder: "BL_Update_X21"- In the folder is a bin file and a etc subfolder with a rc.txt file
-3. Copy these files to your micro SDcards Root Directory and insert it into the x2.1
-4. Power on the x2.1 Wait for it to boot and then reboot 1 time.
+The update steps are:
+1. Download and extract [BL_Update_X21.zip](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip).
+2. Find the folder *BL_Update_X21*. This contains a **bin** file and a subfolder named **/etc** containing an **rc.txt** file
+3. Copy these files to your micro SD card's root directory and insert it into the mRO x2.1
+4. Power on the mRO x2.1 Wait for it to boot and then reboot 1 time.
 
 ## Availability
 
-This Product can be oredered at the [mRobotics Store](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/mro-x2.1rv2-mr.htm)
+This product can be ordered at the [mRobotics Store](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/mro-x2.1rv2-mr.htm).
  
 ## Wiring Guide
 

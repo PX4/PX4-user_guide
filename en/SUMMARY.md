@@ -78,6 +78,7 @@
   * [Pixhawk Series](flight_controller/pixhawk_series.md)
     * [Pixhawk 1](flight_controller/pixhawk.md)
     * [mRo Pixhawk](flight_controller/mro_pixhawk.md)
+    * [mRobotics-X2.1](flight_controller/mro_x2.1.md)
     * [HKPilot32](flight_controller/HKPilot32.md)
     * [Pixfalcon](flight_controller/pixfalcon.md)
     * [Dropix](flight_controller/dropix.md) 
