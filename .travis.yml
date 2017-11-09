@@ -10,13 +10,12 @@ install:
 
 script: 
 
-- htmlproofer ./_book --empty-alt-ignore true --check-external-hash true
+- htmlproofer ./_book 
+  --empty-alt-ignore true 
+  --check-external-hash true
+  --url-ignore 'https://img.shields.io/badge/discuss-px4-ff69b4.svg,https://img.shields.io/github/release/PX4/Firmware.svg'
 
 
-# branch whitelist
-branches:
-  only:
-  - master      # test the master branch
 
 env:
   global:

@@ -26,6 +26,10 @@
             "tip": {
                 "alert": "success",
                 "picto": "fa-thumbs-o-up"
+            },
+            "archived": {
+                "alert": "warning",
+                "picto": "fa-archive"
             }
         },
         "favicon": "favicon.ico",
