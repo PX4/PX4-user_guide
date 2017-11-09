@@ -11,10 +11,11 @@ The [mRo](http://www.mRobotics.io/) *mRo-X2.1 autopilot* is based on the [Pixhaw
   * IO: STM32F100C8T6 ARM microcontroller
 * Sensors:
   * Invensense MPU9250 9DOF
-  * Invensense ICM-20603 6DOF
+  * Invensense ICM-20602 6DOF
   * MEAS MS5611 barometer
 * Dimensions/Weight
   * Size: 36mm x 50mm
+          (Can be ordered with vertical, horizontal or no headers installed)
   * Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
   * Weight: 10.9g
 * Power OR-ing schematic with reverse voltage protection. 5V power module is required!
@@ -35,6 +36,7 @@ The [mRo](http://www.mRobotics.io/) *mRo-X2.1 autopilot* is based on the [Pixhaw
 * LED output
 * 8 x Servo outputs
 * 6 x Aux outputs
+* Offboard microUSB connector
 * Kill Pin
 * AirSpeed Sensor
 * USART2 (Telem 1)
