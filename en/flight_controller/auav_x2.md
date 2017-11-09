@@ -43,7 +43,8 @@ The [AUAV](http://www.auav.com/) *AUAV-X2 autopilot* is based on the [Pixhawk-pr
 
 ## Availability
 
-No longer in production
+No longer in production. Successor is the [mRo X2.1](mRo-X2.1.md), mRobotics is the new 
+Distributor for the AUAV Products since August 2017.
 
 ## Key Links
 

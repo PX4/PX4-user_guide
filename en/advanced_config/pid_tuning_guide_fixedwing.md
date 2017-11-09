@@ -121,8 +121,10 @@ The overall softness / hardness of the control loop can be adjusted by
 the time constant. The default of 0.5 seconds should be fine for normal
 fixed wing setups and usually does not require adjustment.
 
-- [FW_ATT_TC](../advanced_config/parameter_reference.md#FW_ATT_TC) - set to a default of 0.5 seconds, increase to make the
-  response softer, decrease to make the response harder.
+- [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - set to a default of 0.5 seconds, increase to make the
+  Pitch response softer, decrease to make the response harder.
+- [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - set to a default of 0.5 seconds, increase to make the
+  Roll response softer, decrease to make the response harder.
 
 ## L1 Controller Tuning (Position)
 
