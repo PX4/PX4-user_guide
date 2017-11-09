@@ -61,13 +61,14 @@ Throttle Command is mapped direct to Motor Speed.
     deadzone) the multirotor will hold position. Yaw controls yaw rate
     as in MANUAL mode. Throttle controls climb/descent rate as in ALTCTL
     mode. 
-    **WARNING**: Prior to Landing in PosCTL Mode be sure that Landing is 
-    correctly detected. At first Landing in this mode, be ready to switch 
-    to Stabilized in order to be able to disarm. If Landing is correctly 
-    detected, Motors will spin down after touch down and then disarm shortly. 
-    If Motors keep spinning at higher RPM or start spinning up, 1. Switch 
-    to Stabilized Mode and 2. Disarm. Be aware that the Vehicle may Tip-Over 
-    on the Ground due to GPS drift. 
+    
+  > **WARNING** Prior to Landing in *Position mode* be sure that landing is 
+  > correctly detected. When first Landing in this mode, be ready to switch 
+  > to *Stabilized mode* in order to be able to disarm. If landing is correctly 
+  > detected, motors will spin down after touch down and then disarm shortly after. 
+  > If the motors keep spinning at higher RPM or start spinning up, first switch 
+  > to *Stabilized Mode*, and then disarm. Be aware that the Vehicle may tip over 
+  > on the Ground due to GPS drift. 
 
 
 ## Auto modes {#auto-modes}
