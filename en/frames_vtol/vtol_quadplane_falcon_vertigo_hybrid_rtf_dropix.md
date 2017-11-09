@@ -170,7 +170,7 @@ The image below shows back of the dropix flight controller, highlighting the out
 
 The sensor inputs, telemetry, buzzer and safety switch are located in the front of the flight controller, as shown in the connection diagram below.
 
-<img src="../../images/flight_controller/dropix/dropix_connectors_front.jpg" width="500px" title="Dropix sensor input diagram" />
+<img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" width="500px" alt="Dropix connectors front" title="Dropix connectors front" />
 
 1. Connect the telemetry, airspeed sensor, GPS, buzzer and safety switch as shown.
 

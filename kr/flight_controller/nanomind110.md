@@ -25,4 +25,4 @@ NanoMind는 flight controller로 MindRacer를 사용하며 PX4/MindPX 완전한 
 
 ### Support
 
-보다 상세한 정보는 http://www.mindpx.org 에서 찾을 수 있습니다. 문의나 도움이 필요한 경우 [support@mindpx.net](mailto://support@mindpx.net)로 전달해 주세요.
+보다 상세한 정보는 http://www.mindpx.org 에서 찾을 수 있습니다. 문의나 도움이 필요한 경우 [support@mindpx.net](mailto:support@mindpx.net)로 전달해 주세요.

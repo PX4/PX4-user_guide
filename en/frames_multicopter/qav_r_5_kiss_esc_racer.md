@@ -50,7 +50,7 @@ I mounted the four motors to the frame with the cables coming out towards the ce
 
 The KISS ESCs are known for their good performance but they also come with two disadvantages:
 - The software they use is not open source (unlike BLHeli)
-- There is no hardware package with presoldered wires and/or plugs (to my knowledge)
+- There is no hardware package with pre-soldered wires and/or plugs (to my knowledge)
 
 This means we need to solder at least 6 joints on every ESC but it's still totally worth it.
 
@@ -60,31 +60,33 @@ This means we need to solder at least 6 joints on every ESC but it's still total
 > **Tip** Make sure that you use an appropriate cable gauge for the power connections that transport the high current all the way from the battery to the motors. All signal cables can be very thin in comparison.
 
 <span></span>
-> **Tip** Put heat shrink on the cables before you start soldering! Heatshrinking the ESCs, the power module and the free floating uninsolated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage
+> **Tip** Put heat shrink on the cables before you start soldering! Heatshrinking the ESCs, the power module and the free floating uninsulated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage
 
 ### Motors
 First I cut all three motor cables to directly fit when the ESCs are mounted on the arms shifted towards the center but still let enough slack to allow easy placement of the parts and not produce any tension on the cables. Then I soldered them in the order they come out of the motor to the output contacts of the ESCs which are oriented with the switching MOS-FETs facing upwards to get good air cooling during flight. Choosing this cable order resulted in all the motors spinning counter-clockwise in my tests and I switched where necessary the direction of rotation by bridging the dedicated [JP1 solder jumper](https://1.bp.blogspot.com/-JZoWC1LjLis/VtMP6XdU9AI/AAAAAAAAAiU/4dygNp0hpwc/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) to conform the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x).
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-motor-connections.jpg)
+![Power motor connections](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-motor-connections.jpg)
 
 ### Power Module
-First I soldered the XT60 connector which comes with the frame to the labeled battery side of the [ACSP5 power module](http://fs5.directupload.net/images/160304/a72l2mbz.jpg) that was shipped with the Pixracer and added the elco capacitor delivered with the power module with the correct polarity to the same side.
+First I soldered the XT60 connector which comes with the frame to the labeled battery side of the *ACSP5 power module* that was shipped with the Pixracer and added the elco capacitor delivered with the power module with the correct polarity to the same side.
+
+![ACSP5 power module](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/acsp5_power_module.jpg)
 
 Now comes the tricky part. I soldered all four ESC voltage source + and - ports to the corresponding pad on the labeled ESC output side of the power module. Make sure to not have any cold solder joint here because the quad will not end up well with a loose connection in flight. Using the additional power distribution board of the frame would make the job a lot easier but also takes too much space on such a small frame...
 
 > **Tip** If you are also including the FPV parts don't forget to also solder your JST male power plug to the output side of the power module. You'll need it for your [FPV setup](#fpv-setup) later on.
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-module.jpg)
+![Power module](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-module.jpg)
 
 ### Signal Cables
 
 I used thin cables with a standardized pin header connector which were cut in half for the ESC signal because this will allow easy plugging on the Pixracer pins later on. Only the labeled `PWM` port on the [KISS ESCs](https://1.bp.blogspot.com/-0huvLXoOygM/VtMNAOGkE5I/AAAAAAAAAiA/eNNuuySFeRY/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) is necessary for flying. They will be connected to the correct motor signal output of the pixracer. The `TLM` port is for ESC telemetry and I soldered them on for future use as the needed protocol is not currently supported by PX4.
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-esc-signals.jpg)
+![Power ESC signals](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-esc-signals.jpg)
 
 I tested all ESC motor pairs and their rotation directions using a cheap PWM servo tester before proceeding further.
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/motor-test.jpg)
+![Motor test](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/motor-test.jpg)
 
 ## Connecting & Mounting Electronics
 
@@ -100,14 +102,16 @@ I mounted the Pixracer using the nylon spacers and screws that get shipped with 
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/mount-oring.jpg)
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-connections.jpg)
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-overview.jpg)
+![Center connections](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-connections.jpg)
+![Center overview](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-overview.jpg)
 
 ### RC Receiver
 
 I hooked up the FrSky S-BUS receiver using the cable shipped with the Pixracer but cut away the unnecessary cable branch.
 
-For the smart telemetry port I used the cable shipping with the receiver. I removed all unnecessary pins from the connector using tweezers and switched the white loose end cable to the correct pin of the connector to have the "smart" signal connected. I then soldered the loose end to a cable fitting the FrSky port following this [schematic](https://docs.px4.io/images/grau_b_pixracer_frskys.port_connection.jpg). I also skipped the ground (GND) pin because like the voltage supply positive pin it is already connected trough the RCin S-BUS cable.
+For the smart telemetry port I used the cable shipping with the receiver. I removed all unnecessary pins from the connector using tweezers and switched the white loose end cable to the correct pin of the connector to have the "smart" signal connected. I then soldered the loose end to a cable fitting the FrSky port following this schematic:
+![schematic](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
+I also skipped the ground (GND) pin because like the voltage supply positive pin it is already connected through the RCin S-BUS cable.
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-receiver-connections.jpg)
 
