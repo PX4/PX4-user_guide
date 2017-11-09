@@ -127,7 +127,7 @@ and:
 
 #### Push the latest ADSP firmware files
 
-Download the file [Flight_3.1.1a_qcom_flight_controller_hexagon_sdk_add_on.zip](http://support.intrinsyc.com/attachments/download/691/Flight_3.1.1a_qcom_flight_controller_hexagon_sdk_add_on.zip) from Intrinsyc.
+Download the file [Flight_3.1.3.1_qcom_flight_controller_hexagon_sdk_add_on.zip](https://support.intrinsyc.com/attachments/download/1571/Flight_3.1.3.1_qcom_flight_controller_hexagon_sdk_add_on.zip) from Intrinsyc.
 
 And copy them on to the Snapdragon:
 

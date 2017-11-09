@@ -130,7 +130,7 @@ adb shell chmod +x /usr/local/qr-linux/q6-admin.sh
 
 #### 上传最新的ADSP 固件文件
 
-从Intrinsyc下载[Flight_3.1.1a_qcom_flight_controller_hexagon_sdk_add_on.zip](http://support.intrinsyc.com/attachments/download/691/Flight_3.1.1a_qcom_flight_controller_hexagon_sdk_add_on.zip)。 
+从Intrinsyc下载[Flight_3.1.3.1_qcom_flight_controller_hexagon_sdk_add_on.zip](https://support.intrinsyc.com/attachments/download/1571/Flight_3.1.3.1_qcom_flight_controller_hexagon_sdk_add_on.zip)。 
 
 并把它复制到骁龙上：
 

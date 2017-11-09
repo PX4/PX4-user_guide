@@ -126,7 +126,7 @@ adb shell chmod +x /usr/local/qr-linux/q6-admin.sh
 
 #### 최신 ADSP 펌웨어 파일을 밀어넣기
 
-Intrinsync에서 파일 다운로드 [Flight_3.1.1a_qcom_flight_controller_hexagon_sdk_add_on.zip](http://support.intrinsyc.com/attachments/download/691/Flight_3.1.1a_qcom_flight_controller_hexagon_sdk_add_on.zip)
+Intrinsync에서 파일 다운로드 [Flight_3.1.3.1_qcom_flight_controller_hexagon_sdk_add_on.zip](https://support.intrinsyc.com/attachments/download/1571/Flight_3.1.3.1_qcom_flight_controller_hexagon_sdk_add_on.zip)
 
 Snapdragon으로 복사하기:
 
