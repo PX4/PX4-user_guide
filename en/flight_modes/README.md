@@ -67,8 +67,8 @@ Throttle Command is mapped direct to Motor Speed.
   > to *Stabilized mode* in order to be able to disarm. If landing is correctly 
   > detected, motors will spin down after touch down and then disarm shortly after. 
   > If the motors keep spinning at higher RPM or start spinning up, first switch 
-  > to *Stabilized Mode*, and then disarm. Be aware that the Vehicle may tip over 
-  > on the Ground due to GPS drift. 
+  > to *Stabilized mode*, and then disarm. Be aware that the vehicle may tip over 
+  > on the ground due to GPS drift. 
 
 
 ## Auto modes {#auto-modes}
