@@ -7,7 +7,7 @@ to it and that runs PX4 on NuttX. These are integrated in the same package on
 the [Intel® Aero Ready to Fly Drone](https://software.intel.com/en-us/aero/drone-dev-kit), which also includes
 the vision accessory kit.
 
-![](../../assets/hardware/hardware-intel-aero-rtf.jpg)
+![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
 
 ## Introduction
@@ -34,12 +34,12 @@ FPGA_VERSION = 0xc1
 
 After setting up the PX4 development environment, follow these steps update the PX4 software:
 
-1. Do a full update of all software on the Aero (https://github.com/intel-aero/meta-intel-aero/wiki/Upgrade-To-Latest-Software-Release)
+1. Do a full update of all software on the vehicle (https://github.com/intel-aero/meta-intel-aero/wiki/Upgrade-To-Latest-Software-Release)
 1. Grab the [Firmware](https://github.com/PX4/Firmware)
 1. Compile with `make aerofc-v1_default`
 1. Configure the target hostname
 
-   If your system resolves link local names you don't have to do anything and you can skip this step. You can test it by trying to ssh into intel-aero.local after connecting to it either via WiFi or USB:
+   If your system resolves link local names you don't have to do anything and you can skip this step. You can test it by trying to ssh into `intel-aero.local` after connecting to it either via WiFi or USB:
 
    ```
    ssh root@intel-aero.local
@@ -61,7 +61,7 @@ After setting up the PX4 development environment, follow these steps update the 
 ## Connecting QGroundControl via Network
 
 1. Make sure you are connected to the board with WiFi or USB Network
-1. ssh to the board and make sure mavlink forwarding runs. By default it automatically starts when booting. It can be started manually with:
+1. ssh to the board and make sure MAVLink forwarding runs. By default it automatically starts when booting. It can be started manually with:
    ```
    systemctl start mavlink-router
    ```
@@ -73,7 +73,7 @@ After setting up the PX4 development environment, follow these steps update the 
 
 ## Connecting a Lidar Lite Range Finder
 
-The following instructions are for a Lidar Lite V3 connected via I2C. The Aero has two ports with I2C: One labled COMPASS and the other TELEMETRY. The pinout for both of them can be found below. We recommend using the TELEMETRY port as it is not being used. If your TELEMETRY port is already occupied, a splitter can be used to share the I2C connection (works on any I2C port). Check the images below for the splitter setup.
+The following instructions are for a Lidar Lite V3 connected via I2C. The Intel® Aero Ready to Fly Drone has two ports with I2C: One labled COMPASS and the other TELEMETRY. The pinout for both of them can be found below. We recommend using the TELEMETRY port as it is not being used. If your TELEMETRY port is already occupied, a splitter can be used to share the I2C connection (works on any I2C port). Check the images below for the splitter setup.
 In addition it is recommended to use a electrolytic capacitor for the Lidar Lite I2C connection to reduce spikes in the distance readings (see [here](https://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) on page 3).
 
 The pinout for the Lidar Lite V3 is as follows
@@ -96,15 +96,15 @@ The pinout for the Lidar Lite V3 is as follows
 | 5   | -              | SDA              |
 | 6   | -              | GND              |
 
-![](../../assets/hardware/Aero_I2C_splitter.JPG)
+![Aero I2C splitter](../../assets/hardware/intel_aero/aero_i2c_splitter.jpg)
 
-![](../../assets/hardware/Aero_LidarLite.JPG)
+![Aero LidarLite](../../assets/hardware/intel_aero/aero_lidarlite.jpg)
 
 ## Using Optical Flow on the Aero
 
-The Intel Aero comes with a preinstalled optical flow binary on the compute board (Linux OS version 1.6 or higher), which enables the Aero to stably fly based on optical flow velocity estimation. In order to use optical flow, a range sensor has to be installed first (see above).
+The Intel® Aero Ready to Fly Drone comes with a preinstalled optical flow binary on the compute board (Linux OS version 1.6 or higher), which enables it to stably fly based on optical flow velocity estimation. In order to use optical flow, a range sensor has to be installed first (see above).
 
-To use the optical flow, run the following command in a console on the Aero compute board:
+To use the optical flow, run the following command in a console on the vehicle's compute board:
 ```
 systemctl start aero-optical-flow
 ```
@@ -115,7 +115,7 @@ systemctl enable aero-optical-flow #use disable to undo
 
 In addition, the following parameter values should be set in the flight controller.
 
-| Parameter     | Value |
-| ------------- | ----- |
-| EKF2_AID_MASK | 2     |
-| EKF2_HGT_MODE | 2     |
+Parameter | Value
+--- | ---
+[EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | 2
+[EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) | 2
