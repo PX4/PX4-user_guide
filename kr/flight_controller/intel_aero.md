@@ -3,7 +3,7 @@
 The Intel® Aero Ready to Fly 드론은 UAV 개발 플랫폼입니다. 구성품 중에 [Intel Aero
 Compute Board](https://software.intel.com/en-us/aero/dev-kit)은 쿼드코어 CPU를 가지고 있으며 Linux가 실행됩니다. 다른 구성품으로는 여기에 연결되는 STM32 마이크로컨트롤러가 있으며 NuttX 위에서 PX4가 실행됩니다. 이것들은 모두 [Intel® Aero Ready to Fly Drone](https://software.intel.com/en-us/aero/drone-dev-kit)에 패키징되어 있으며 비전 악세사리 킷도 포함되어 있습니다.
 
-![](../../assets/hardware/hardware-intel-aero-rtf.jpg)
+![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
 ## 소개
 
@@ -71,7 +71,7 @@ export AERO_HOSTNAME=192.168.1.1`
 
 여기서 소개하는 방법은 I2C로 Lidar Lite V3에 연결합니다. Aero(레이블은 compass)에 I2C 포트는 외부 magnetometer(GPS의 일부)로 사용합니다. 따라서 I2C splitter는 Lidar Lite를 연결하는데 사용해야 합니다.(사진 참조)
 
-![](../../assets/hardware/Aero_I2C_splitter.JPG)
+![Aero I2C splitter](../../assets/hardware/intel_aero/aero_i2c_splitter.jpg)
 
 Lidar Lite V3용 핀아웃은 다음과 같습니다.
 
@@ -84,4 +84,4 @@ Lidar Lite V3용 핀아웃은 다음과 같습니다.
 | 5   | -          | SDA              |
 | 6   | -          | GND              |
 
-![](../../assets/hardware/Aero_LidarLite.JPG)
+![Aero LidarLite](../../assets/hardware/intel_aero/aero_lidarlite.jpg)

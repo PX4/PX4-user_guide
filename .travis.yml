@@ -13,8 +13,7 @@ script:
 - htmlproofer ./_book 
   --empty-alt-ignore true 
   --check-external-hash true
-  --url-ignore 'https://img.shields.io/badge/discuss-px4-ff69b4.svg,https://img.shields.io/github/release/PX4/Firmware.svg'
-
+  --url-ignore 'https://img.shields.io/badge/discuss-px4-ff69b4.svg,https://img.shields.io/github/release/PX4/Firmware.svg,https://support.intrinsyc.com/attachments/download/1571/Flight_3.1.3.1_qcom_flight_controller_hexagon_sdk_add_on.zip,https://store.3dr.com/products/3dr-pixhawk,https://store.3dr.com/products/433-mhz-telemetry-radio,https://store.3dr.com/products/915-mhz-telemetry-radio,https://store.3dr.com/products/digital-airspeed-sensor,https://store.3dr.com/products/wifi-telemetry-radio'
 
 
 env:
