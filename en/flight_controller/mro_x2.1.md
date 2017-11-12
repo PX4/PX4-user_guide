@@ -1,6 +1,6 @@
-# mRobotics-X2.1 Autopilot
+# mRo-X2.1 Autopilot
 
-The [mRo](http://www.mRobotics.io/) *mRo-X2.1 autopilot* is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
+The *[mRo](http://www.mRobotics.io/)-X2.1 autopilot* is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 ![mRo X2.1](../../images/mRo-x2.1.jpg)
 
@@ -18,7 +18,10 @@ The [mRo](http://www.mRobotics.io/) *mRo-X2.1 autopilot* is based on the [Pixhaw
           (Can be ordered with vertical, horizontal or no headers installed)
   * Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
   * Weight: 10.9g
-* Power OR-ing schematic with reverse voltage protection. 5V power module is required!
+
+Side by Side comparison with a Pixhawk 1 (The mRo features almost identical Hardware and Connectvity but
+at a much smaller Footprint. Major discrepancies are updated Sensors and Rev 3 FMU). 
+![SideBySide](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Wiki_Files/px1_x21.jpg)
 
 ## Connectivity
 
@@ -37,7 +40,7 @@ The [mRo](http://www.mRobotics.io/) *mRo-X2.1 autopilot* is based on the [Pixhaw
 * 8 x Servo outputs
 * 6 x Aux outputs
 * Offboard microUSB connector
-* Kill Pin
+* Kill Pin *(Output. Currently not supported by Firmware)*
 * AirSpeed Sensor
 * USART2 (Telem 1)
 * USART3 (Telem 2)
@@ -65,8 +68,8 @@ This product can be ordered at the [mRobotics Store](https://store.mrobotics.io/
  
 ## Wiring Guide
 
-*TBD*
+![mRo_X2.1_Wiring](../../assets/flight_controller/mRo_X21_Wiring.png)
 
 ## Schematics
 
-The board is documented on the [Pixhawk project](https://pixhawk.org/modules/pixhawk) website.
+The board is documented on the [mRo Hardware Repo](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf) PDF.
