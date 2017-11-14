@@ -63,5 +63,5 @@ The easiest way to takeoff is to use the automatic [TAKEOFF mode](../flight_mode
 
 The automatic takeoff/landing modes are highly recommended for Fixed Wing vehicles. For multicopter (and VTOL in multicopter mode) pilots can:
 
-* Take off manually by enabling [position mode](../flight_modes/README.md#assisted-modes), arming the vehicle, and then raising the throttle stick above [LNDMC_POS_UPTHR](../advanced_config/parameter_reference.md#LNDMC_POS_UPTHR) (default 65%). Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+* Take off manually by enabling [position mode](../flight_modes/README.md#assisted-modes), arming the vehicle, and then raising the throttle stick above 62.5%. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 * Land manually by pressing the throttle stick down until the vehicle lands (this through multiple steps) and disarm (or set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) > 0 to disarm automatically on landing).
