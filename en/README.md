@@ -1,4 +1,4 @@
-<div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 Logo" width="180px"/></a></div>
+<div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 Logo" width="180px" /></a></div>
 # PX4 Autopilot User Guide
 
 [![Releases](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io) 
@@ -17,6 +17,14 @@ The core development team and community are active on the following forums and c
 * [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
 * [Slack](http://slack.px4.io) (sign up)
 * [Google+](https://plus.google.com/117509651030855307398)
+
+
+## Reporting Bugs & Issues
+
+If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
+
+If directed by the development team, issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). 
+Where possible provide [flight logs](flying/flight_reporting.md) and other information requested in the issue template.
 
 
 ## License
