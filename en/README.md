@@ -1,15 +1,13 @@
+<div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 Logo" width="180px"/></a></div>
 # PX4 Autopilot User Guide
 
 [![Releases](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io) 
 
+PX4 is the *Professional Autopilot*. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
 
-Welcome to *PX4 Autopilot User Guide* and thank you for choosing our product.
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
 
-Here you will find all the information necessary to setup and fly your PX4 drone safely.
-
-Use the navigation pane on the left to walk through the documentation.
-
-> **Note** This guide is brand new. It is suitable to get started, but does not yet cover all of PX4.
+> **Note** This guide is still a work in progress! It does not yet cover all of PX4.
 
 
 ## Forums and Chat {#support}
@@ -26,4 +24,4 @@ The core development team and community are active on the following forums and c
 PX4 code is free to use and modify under the terms of the permissive 
 [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). 
 This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). 
-For more information see: [PX4 DevGuide > Licences](https://dev.px4.io/en/contribute/licenses.html).
+For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/en/contribute/licenses.html).

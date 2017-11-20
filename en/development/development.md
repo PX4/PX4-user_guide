@@ -1,5 +1,6 @@
-# Development Guide
+# PX4 Development
 
-The PX4 development environment is documented on the
-[devguide](http://dev.px4.io/). Contact details and how to contribute
-are covered on its [contact page](http://dev.px4.io/starting-contributing.html).
+This user guide has everything you need to fly, assemble and configure a vehicle that uses one of the *many supported* airframes, flight controllers and peripherals.
+
+Developers who want to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, or contribute to PX4 will need to read 
+the [PX4 Development Guide](http://dev.px4.io/).

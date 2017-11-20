@@ -57,6 +57,7 @@
     * [Mission](flight_modes/mission.md)
     * [Offboard](flight_modes/offboard.md)
   * [Missions](flying/missions.md)
+  * [Flight Reporting](flight_reporting.md)
 * [Advanced Features](advanced_features/README.md)
   * [RTK GPS](advanced_features/rtk-gps.md)
   * [Precision Landing](advanced_features/precland.md)
@@ -103,7 +104,6 @@
   * [Crazyflie 2.0](flight_controller/crazyflie2.md)
   * [Parrot Bebop](flight_controller/bebop.md)
 * [Development](development/development.md)
-* [Flight Reporting](flight-reporting.md)
 
 
 ## Dronecode Shortcuts
