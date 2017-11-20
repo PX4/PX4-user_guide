@@ -3,7 +3,7 @@
     
             {
                 "from": "en/flight-reporting.html",
-                "to": "en/flying/flight-reporting.html"
+                "to": "en/flying/flight_reporting.html"
             },
             {
                 "from": "en/framebuild_multicopter/lumenier_qav250_pixhawk_mini.html",
