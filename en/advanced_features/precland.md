@@ -1,6 +1,6 @@
 # Precision Landing
 
-> **Warning** **PRECISION LANDING is NOT YET in PX4.**
+> **Warning** **PRECISION LANDING is NOT SUPPORTED**
 >
 > Support is planned for PX1.7.x timeframes. You can track submission in [#8160](https://github.com/PX4/Firmware/pull/8160).
 
