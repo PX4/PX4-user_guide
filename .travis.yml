@@ -25,3 +25,8 @@ script:
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true   # speeds up installation of html-proofer
+
+## Allow links to fail any time and be displayed as warnings.
+matrix:
+  allow_failures:
+    - rvm: 2.2.2
