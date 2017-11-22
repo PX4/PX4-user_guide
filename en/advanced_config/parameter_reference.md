@@ -2759,6 +2759,59 @@ but also ignore less noise</p>    </td>
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="GND_SP_CTRL_MODE">GND_SP_CTRL_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Control mode for speed</p><p><strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> open loop control</li> 
+
+<li><strong>1:</strong> close the loop with gps speed</li> 
+</ul>
+   <p><b>Module:</b> modules/gnd_pos_control</p>
+</td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="GND_SPEED_P">GND_SPEED_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Speed proportional gain</p><p><strong>Comment:</strong> This is the proportional gain for the speed closed loop controller</p>    <p><b>Module:</b> modules/gnd_pos_control</p>
+</td>
+ <td style="vertical-align: top;">0.005 > 50.0 (0.005)</td>
+ <td style="vertical-align: top;">2.0 </td>
+ <td style="vertical-align: top;">%m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="GND_SPEED_I">GND_SPEED_I</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Speed Integral gain</p><p><strong>Comment:</strong> This is the integral gain for the speed closed loop controller</p>    <p><b>Module:</b> modules/gnd_pos_control</p>
+</td>
+ <td style="vertical-align: top;">0.00 > 50.0 (0.005)</td>
+ <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;">%m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="GND_SPEED_D">GND_SPEED_D</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Speed proportional gain</p><p><strong>Comment:</strong> This is the derivative gain for the speed closed loop controller</p>    <p><b>Module:</b> modules/gnd_pos_control</p>
+</td>
+ <td style="vertical-align: top;">0.00 > 50.0 (0.005)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">%m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="GND_SPEED_IMAX">GND_SPEED_IMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Speed integral maximum value</p><p><strong>Comment:</strong> This is the maxim value the integral can reach to prevent wind-up.</p>    <p><b>Module:</b> modules/gnd_pos_control</p>
+</td>
+ <td style="vertical-align: top;">0.005 > 50.0 (0.005)</td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;">%m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="GND_SPEED_THR_SC">GND_SPEED_THR_SC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Speed to throttle scaler</p><p><strong>Comment:</strong> This is a gain to map the speed control output to the throttle linearly.</p>    <p><b>Module:</b> modules/gnd_pos_control</p>
+</td>
+ <td style="vertical-align: top;">0.005 > 50.0 (0.005)</td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;">%m/s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="GND_WR_P">GND_WR_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Wheel steering rate proportional gain</p><p><strong>Comment:</strong> This defines how much the wheel steering input will be commanded depending on the current body angular rate error.</p>    <p><b>Module:</b> modules/gnd_att_control</p>
 </td>
@@ -2829,59 +2882,6 @@ but also ignore less noise</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="GND_SP_CTRL_MODE">GND_SP_CTRL_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Control mode for speed</p><p><strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> open loop control</li> 
-
-<li><strong>1:</strong> close the loop with gps speed</li> 
-</ul>
-   <p><b>Module:</b> modules/gnd_pos_control</p>
-</td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="GND_SPEED_P">GND_SPEED_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Speed proportional gain</p><p><strong>Comment:</strong> This is the proportional gain for the speed closed loop controller</p>    <p><b>Module:</b> modules/gnd_pos_control</p>
-</td>
- <td style="vertical-align: top;">0.005 > 50.0 (0.005)</td>
- <td style="vertical-align: top;">2.0 </td>
- <td style="vertical-align: top;">%m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="GND_SPEED_I">GND_SPEED_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Speed Integral gain</p><p><strong>Comment:</strong> This is the integral gain for the speed closed loop controller</p>    <p><b>Module:</b> modules/gnd_pos_control</p>
-</td>
- <td style="vertical-align: top;">0.00 > 50.0 (0.005)</td>
- <td style="vertical-align: top;">0.1 </td>
- <td style="vertical-align: top;">%m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="GND_SPEED_D">GND_SPEED_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Speed proportional gain</p><p><strong>Comment:</strong> This is the derivative gain for the speed closed loop controller</p>    <p><b>Module:</b> modules/gnd_pos_control</p>
-</td>
- <td style="vertical-align: top;">0.00 > 50.0 (0.005)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;">%m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="GND_SPEED_IMAX">GND_SPEED_IMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Speed integral maximum value</p><p><strong>Comment:</strong> This is the maxim value the integral can reach to prevent wind-up.</p>    <p><b>Module:</b> modules/gnd_pos_control</p>
-</td>
- <td style="vertical-align: top;">0.005 > 50.0 (0.005)</td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;">%m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="GND_SPEED_THR_SC">GND_SPEED_THR_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Speed to throttle scaler</p><p><strong>Comment:</strong> This is a gain to map the speed control output to the throttle linearly.</p>    <p><b>Module:</b> modules/gnd_pos_control</p>
-</td>
- <td style="vertical-align: top;">0.005 > 50.0 (0.005)</td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;">%m/s</td>
 </tr>
 </tbody></table>
 
@@ -3642,92 +3642,77 @@ The module where these parameters are defined is: *drivers/mkblctrl*.
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Take-off altitude</p><p><strong>Comment:</strong> This is the minimum altitude the system will take off to.</p>    <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;">0 > 80 (0.5)</td>
- <td style="vertical-align: top;">2.5 </td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MIS_LTRMIN_ALT">MIS_LTRMIN_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum Loiter altitude</p><p><strong>Comment:</strong> This is the minimum altitude the system will always obey. The intent is to stay out of ground effect. set to -1, if there shouldn't be a minimum loiter altitude</p>    <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;">-1 > 80 (0.5)</td>
- <td style="vertical-align: top;">-1.0 </td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MIS_ONBOARD_EN">MIS_ONBOARD_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Persistent onboard mission storage</p><p><strong>Comment:</strong> When enabled, missions that have been uploaded by the GCS are stored and reloaded after reboot persistently.</p>    <p><b>Module:</b> modules/navigator</p>
+ <td style="vertical-align: top;"><strong id="VT_WV_TKO_EN">VT_WV_TKO_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable weather-vane mode takeoff for missions</p>    <p><b>Module:</b> modules/vtol_att_control</p>
 </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximal horizontal distance from home to first waypoint</p><p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIS_1WP from the home position.</p>    <p><b>Module:</b> modules/navigator</p>
+ <td style="vertical-align: top;"><strong id="VT_WV_LTR_EN">VT_WV_LTR_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Weather-vane mode for loiter</p>    <p><b>Module:</b> modules/vtol_att_control</p>
 </td>
- <td style="vertical-align: top;">0 > 10000 (100)</td>
- <td style="vertical-align: top;">900 </td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MIS_DIST_WPS">MIS_DIST_WPS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximal horizontal distance between waypoint</p><p><strong>Comment:</strong> Failsafe check to prevent running missions which are way too big. Set a value of zero or less to disable. The mission will not be started if any distance between two subsequent waypoints is greater than MIS_DIST_WPS.</p>    <p><b>Module:</b> modules/navigator</p>
+ <td style="vertical-align: top;"><strong id="VT_WV_LND_EN">VT_WV_LND_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Weather-vane mode landings for missions</p>    <p><b>Module:</b> modules/vtol_att_control</p>
 </td>
- <td style="vertical-align: top;">0 > 10000 (100)</td>
- <td style="vertical-align: top;">900 </td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MIS_ALTMODE">MIS_ALTMODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Altitude setpoint mode</p><p><strong>Comment:</strong> 0: the system will follow a zero order hold altitude setpoint 1: the system will follow a first order hold altitude setpoint values follow the definition in enum mission_altitude_mode</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Zero Order Hold</li> 
+ <td style="vertical-align: top;"><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set offboard loss failsafe mode</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Land at current position</li> 
 
-<li><strong>1:</strong> First Order Hold</li> 
+<li><strong>1:</strong> Loiter</li> 
+
+<li><strong>2:</strong> Return to Land</li> 
 </ul>
-   <p><b>Module:</b> modules/navigator</p>
+   <p><b>Module:</b> modules/commander</p>
 </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MIS_YAWMODE">MIS_YAWMODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Multirotor only. Yaw setpoint mode</p><p><strong>Comment:</strong> The values are defined in the enum mission_altitude_mode</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Heading as set by waypoint</li> 
+ <td style="vertical-align: top;"><strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set offboard loss failsafe mode when RC is available</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Position control</li> 
 
-<li><strong>1:</strong> Heading towards waypoint</li> 
+<li><strong>1:</strong> Altitude control</li> 
 
-<li><strong>2:</strong> Heading towards home</li> 
+<li><strong>2:</strong> Manual</li> 
 
-<li><strong>3:</strong> Heading away from home</li> 
+<li><strong>3:</strong> Return to Land</li> 
 
-<li><strong>4:</strong> Heading towards ROI</li> 
+<li><strong>4:</strong> Land at current position</li> 
+
+<li><strong>5:</strong> Loiter</li> 
 </ul>
-   <p><b>Module:</b> modules/navigator</p>
+   <p><b>Module:</b> modules/commander</p>
 </td>
- <td style="vertical-align: top;">0 > 3 </td>
- <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MIS_YAW_TMT">MIS_YAW_TMT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Time in seconds we wait on reaching target heading at a waypoint if it is forced</p><p><strong>Comment:</strong> If set > 0 it will ignore the target heading for normal waypoint acceptance. If the waypoint forces the heading the timeout will matter. For example on VTOL forwards transition. Mainly useful for VTOLs that have less yaw authority and might not reach target yaw in wind. Disabled by default.</p>    <p><b>Module:</b> modules/navigator</p>
+ <td style="vertical-align: top;"><strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Position control navigation loss response</p><p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequte for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Assume use of remote control after fallback. Switch to ALTCTL if a height estimate is available, else switch to MANUAL.</li> 
+
+<li><strong>1:</strong> Assume no use of remote control after fallback. Switch to DESCEND if a height estimate is available, else switch to TERMINATION.</li> 
+</ul>
+   <p><b>Module:</b> modules/commander</p>
 </td>
- <td style="vertical-align: top;">-1 > 20 (1)</td>
- <td style="vertical-align: top;">-1.0 </td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MIS_YAW_ERR">MIS_YAW_ERR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max yaw error in degrees needed for waypoint heading acceptance</p>    <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;">0 > 90 (1)</td>
- <td style="vertical-align: top;">12.0 </td>
- <td style="vertical-align: top;">deg</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
@@ -3833,77 +3818,92 @@ The module where these parameters are defined is: *drivers/mkblctrl*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_WV_TKO_EN">VT_WV_TKO_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable weather-vane mode takeoff for missions</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+ <td style="vertical-align: top;"><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Take-off altitude</p><p><strong>Comment:</strong> This is the minimum altitude the system will take off to.</p>    <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">0 > 80 (0.5)</td>
+ <td style="vertical-align: top;">2.5 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MIS_LTRMIN_ALT">MIS_LTRMIN_ALT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum Loiter altitude</p><p><strong>Comment:</strong> This is the minimum altitude the system will always obey. The intent is to stay out of ground effect. set to -1, if there shouldn't be a minimum loiter altitude</p>    <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">-1 > 80 (0.5)</td>
+ <td style="vertical-align: top;">-1.0 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MIS_ONBOARD_EN">MIS_ONBOARD_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Persistent onboard mission storage</p><p><strong>Comment:</strong> When enabled, missions that have been uploaded by the GCS are stored and reloaded after reboot persistently.</p>    <p><b>Module:</b> modules/navigator</p>
 </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_WV_LTR_EN">VT_WV_LTR_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Weather-vane mode for loiter</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+ <td style="vertical-align: top;"><strong id="MIS_DIST_1WP">MIS_DIST_1WP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximal horizontal distance from home to first waypoint</p><p><strong>Comment:</strong> Failsafe check to prevent running mission stored from previous flight at a new takeoff location. Set a value of zero or less to disable. The mission will not be started if the current waypoint is more distant than MIS_DIS_1WP from the home position.</p>    <p><b>Module:</b> modules/navigator</p>
 </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 > 10000 (100)</td>
+ <td style="vertical-align: top;">900 </td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_WV_LND_EN">VT_WV_LND_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Weather-vane mode landings for missions</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+ <td style="vertical-align: top;"><strong id="MIS_DIST_WPS">MIS_DIST_WPS</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximal horizontal distance between waypoint</p><p><strong>Comment:</strong> Failsafe check to prevent running missions which are way too big. Set a value of zero or less to disable. The mission will not be started if any distance between two subsequent waypoints is greater than MIS_DIST_WPS.</p>    <p><b>Module:</b> modules/navigator</p>
 </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 > 10000 (100)</td>
+ <td style="vertical-align: top;">900 </td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set offboard loss failsafe mode</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Land at current position</li> 
+ <td style="vertical-align: top;"><strong id="MIS_ALTMODE">MIS_ALTMODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Altitude setpoint mode</p><p><strong>Comment:</strong> 0: the system will follow a zero order hold altitude setpoint 1: the system will follow a first order hold altitude setpoint values follow the definition in enum mission_altitude_mode</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Zero Order Hold</li> 
 
-<li><strong>1:</strong> Loiter</li> 
-
-<li><strong>2:</strong> Return to Land</li> 
+<li><strong>1:</strong> First Order Hold</li> 
 </ul>
-   <p><b>Module:</b> modules/commander</p>
+   <p><b>Module:</b> modules/navigator</p>
 </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set offboard loss failsafe mode when RC is available</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Position control</li> 
+ <td style="vertical-align: top;"><strong id="MIS_YAWMODE">MIS_YAWMODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Multirotor only. Yaw setpoint mode</p><p><strong>Comment:</strong> The values are defined in the enum mission_altitude_mode</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Heading as set by waypoint</li> 
 
-<li><strong>1:</strong> Altitude control</li> 
+<li><strong>1:</strong> Heading towards waypoint</li> 
 
-<li><strong>2:</strong> Manual</li> 
+<li><strong>2:</strong> Heading towards home</li> 
 
-<li><strong>3:</strong> Return to Land</li> 
+<li><strong>3:</strong> Heading away from home</li> 
 
-<li><strong>4:</strong> Land at current position</li> 
-
-<li><strong>5:</strong> Loiter</li> 
+<li><strong>4:</strong> Heading towards ROI</li> 
 </ul>
-   <p><b>Module:</b> modules/commander</p>
+   <p><b>Module:</b> modules/navigator</p>
 </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">0 > 3 </td>
+ <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Position control navigation loss response</p><p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequte for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Assume use of remote control after fallback. Switch to ALTCTL if a height estimate is available, else switch to MANUAL.</li> 
-
-<li><strong>1:</strong> Assume no use of remote control after fallback. Switch to DESCEND if a height estimate is available, else switch to TERMINATION.</li> 
-</ul>
-   <p><b>Module:</b> modules/commander</p>
+ <td style="vertical-align: top;"><strong id="MIS_YAW_TMT">MIS_YAW_TMT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Time in seconds we wait on reaching target heading at a waypoint if it is forced</p><p><strong>Comment:</strong> If set > 0 it will ignore the target heading for normal waypoint acceptance. If the waypoint forces the heading the timeout will matter. For example on VTOL forwards transition. Mainly useful for VTOLs that have less yaw authority and might not reach target yaw in wind. Disabled by default.</p>    <p><b>Module:</b> modules/navigator</p>
 </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1 > 20 (1)</td>
+ <td style="vertical-align: top;">-1.0 </td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MIS_YAW_ERR">MIS_YAW_ERR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Max yaw error in degrees needed for waypoint heading acceptance</p>    <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">0 > 90 (1)</td>
+ <td style="vertical-align: top;">12.0 </td>
+ <td style="vertical-align: top;">deg</td>
 </tr>
 </tbody></table>
 
@@ -4409,6 +4409,30 @@ applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MPP_MAN_R_MAX">MPP_MAN_R_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Max manual roll</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
+</td>
+ <td style="vertical-align: top;">0.0 > 90.0 </td>
+ <td style="vertical-align: top;">35.0 </td>
+ <td style="vertical-align: top;">deg</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPP_MAN_P_MAX">MPP_MAN_P_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Max manual pitch</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
+</td>
+ <td style="vertical-align: top;">0.0 > 90.0 </td>
+ <td style="vertical-align: top;">35.0 </td>
+ <td style="vertical-align: top;">deg</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPP_MAN_Y_MAX">MPP_MAN_Y_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Max manual yaw rate</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
+</td>
+ <td style="vertical-align: top;">0.0 > ? </td>
+ <td style="vertical-align: top;">120.0 </td>
+ <td style="vertical-align: top;">deg/s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MP_ROLL_P">MP_ROLL_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Roll P gain</p><p><strong>Comment:</strong> Roll proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
 </td>
@@ -4539,30 +4563,6 @@ applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0
 <tr>
  <td style="vertical-align: top;"><strong id="MP_ACRO_Y_MAX">MP_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max acro yaw rate</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">120.0 </td>
- <td style="vertical-align: top;">deg/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_MAN_R_MAX">MPP_MAN_R_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual roll</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 90.0 </td>
- <td style="vertical-align: top;">35.0 </td>
- <td style="vertical-align: top;">deg</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_MAN_P_MAX">MPP_MAN_P_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual pitch</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 90.0 </td>
- <td style="vertical-align: top;">35.0 </td>
- <td style="vertical-align: top;">deg</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_MAN_Y_MAX">MPP_MAN_Y_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual yaw rate</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
 </td>
  <td style="vertical-align: top;">0.0 > ? </td>
  <td style="vertical-align: top;">120.0 </td>
@@ -5263,6 +5263,124 @@ towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    <p><b>Module:</b> 
  <td style="vertical-align: top;">us</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 2</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 3</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 4</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 5</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 6</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM1">PWM_AUX_TRIM1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM2">PWM_AUX_TRIM2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM3">PWM_AUX_TRIM3</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM4">PWM_AUX_TRIM4</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM5">PWM_AUX_TRIM5</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM6">PWM_AUX_TRIM6</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="THR_MDL_FAC">THR_MDL_FAC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thrust to PWM model parameter</p><p><strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">0.0 > 1.0 </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>    <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">0.0 > ? </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">s/(1000*PWM)</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV1">PWM_MAIN_REV1</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Invert direction of main output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> drivers/px4io</p>
@@ -5405,124 +5523,6 @@ towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    <p><b>Module:</b> 
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 2</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 3</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 4</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 5</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 6</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM1">PWM_AUX_TRIM1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM2">PWM_AUX_TRIM2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM3">PWM_AUX_TRIM3</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM4">PWM_AUX_TRIM4</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM5">PWM_AUX_TRIM5</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM6">PWM_AUX_TRIM6</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">-0.2 > 0.2 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="THR_MDL_FAC">THR_MDL_FAC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Thrust to PWM model parameter</p><p><strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">0.0 > 1.0 </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>    <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;">s/(1000*PWM)</td>
 </tr>
 </tbody></table>
 
@@ -5964,6 +5964,30 @@ The module where these parameters are defined is: *modules/position_estimator_in
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Roll trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
+</td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Pitch trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
+</td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Yaw trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
+</td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC1_MIN">RC1_MIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>RC channel 1 minimum</p><p><strong>Comment:</strong> Minimum value for RC channel 1</p>    <p><b>Module:</b> modules/sensors</p>
@@ -7349,30 +7373,6 @@ The module where these parameters are defined is: *modules/position_estimator_in
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="TRIM_ROLL">TRIM_ROLL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
-</td>
- <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TRIM_PITCH">TRIM_PITCH</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
-</td>
- <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TRIM_YAW">TRIM_YAW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw trim</p><p><strong>Comment:</strong> The trim value is the actuator control value the system needs for straight and level flight. It can be calibrated by flying manually straight and level using the RC trims and copying them using the GCS.</p>    <p><b>Module:</b> modules/commander</p>
-</td>
- <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="RC_RSSI_PWM_CHAN">RC_RSSI_PWM_CHAN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>PWM input channel that provides RSSI</p><p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
@@ -8542,59 +8542,10 @@ The module where these parameters are defined is: *modules/sensors*.
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_ID">CAL_GYRO0_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of the Gyro that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO_PRIME">CAL_GYRO_PRIME</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Primary gyro ID</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_EN">CAL_GYRO0_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro 0 enabled</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_XOFF">CAL_GYRO0_XOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro X-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_YOFF">CAL_GYRO0_YOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro Y-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_ZOFF">CAL_GYRO0_ZOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro Z-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_XSCALE">CAL_GYRO0_XSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro X-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_YSCALE">CAL_GYRO0_YSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro Y-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_ZSCALE">CAL_GYRO0_ZSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro Z-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -8649,125 +8600,6 @@ The module where these parameters are defined is: *modules/sensors*.
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC1_ZSCALE">CAL_ACC1_ZSCALE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Accelerometer Z-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG0_ID">CAL_MAG0_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of Magnetometer the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG0_EN">CAL_MAG0_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 0 enabled</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG0_ROT">CAL_MAG0_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 0 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Internal mag</li> 
-
-<li><strong>0:</strong> No rotation</li> 
-
-<li><strong>1:</strong> Yaw 45°</li> 
-
-<li><strong>2:</strong> Yaw 90°</li> 
-
-<li><strong>3:</strong> Yaw 135°</li> 
-
-<li><strong>4:</strong> Yaw 180°</li> 
-
-<li><strong>5:</strong> Yaw 225°</li> 
-
-<li><strong>6:</strong> Yaw 270°</li> 
-
-<li><strong>7:</strong> Yaw 315°</li> 
-
-<li><strong>8:</strong> Roll 180°</li> 
-
-<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
-
-<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
-
-<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
-
-<li><strong>12:</strong> Pitch 180°</li> 
-
-<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
-
-<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
-
-<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
-
-<li><strong>16:</strong> Roll 90°</li> 
-
-<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
-
-<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
-
-<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
-
-<li><strong>20:</strong> Roll 270°</li> 
-
-<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
-
-<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
-
-<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
-
-<li><strong>24:</strong> Pitch 90°</li> 
-
-<li><strong>25:</strong> Pitch 270°</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
- </td>
- <td style="vertical-align: top;">-1 > 30 </td>
- <td style="vertical-align: top;">-1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG0_XOFF">CAL_MAG0_XOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG0_YOFF">CAL_MAG0_YOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer Y-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG0_ZOFF">CAL_MAG0_ZOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG0_XSCALE">CAL_MAG0_XSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer X-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG0_YSCALE">CAL_MAG0_YSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer Y-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG0_ZSCALE">CAL_MAG0_ZSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer Z-axis scaling factor</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
@@ -8829,6 +8661,132 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC_PRIME">CAL_ACC_PRIME</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Primary accel ID</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_ID">CAL_MAG3_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Magnetometer the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_EN">CAL_MAG3_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Mag 3 enabled</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal mag</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+ </td>
+ <td style="vertical-align: top;">-1 > 30 </td>
+ <td style="vertical-align: top;">-1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_XOFF">CAL_MAG3_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_YOFF">CAL_MAG3_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Y-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_ZOFF">CAL_MAG3_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_XSCALE">CAL_MAG3_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer X-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_YSCALE">CAL_MAG3_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Y-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_ZSCALE">CAL_MAG3_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Z-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG_PRIME">CAL_MAG_PRIME</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Primary mag ID</p>    </td>
  <td style="vertical-align: top;"></td>
@@ -8836,63 +8794,175 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO_PRIME">CAL_GYRO_PRIME</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Primary gyro ID</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_ID">CAL_MAG1_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Magnetometer the calibration is for</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_ID">CAL_GYRO1_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_EN">CAL_MAG1_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Mag 1 enabled</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_ROT">CAL_MAG1_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 1 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal mag</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+ </td>
+ <td style="vertical-align: top;">-1 > 30 </td>
+ <td style="vertical-align: top;">-1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_XOFF">CAL_MAG1_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_YOFF">CAL_MAG1_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Y-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_ZOFF">CAL_MAG1_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_XSCALE">CAL_MAG1_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer X-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_YSCALE">CAL_MAG1_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Y-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_ZSCALE">CAL_MAG1_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Z-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO0_ID">CAL_GYRO0_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of the Gyro that the calibration is for</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_EN">CAL_GYRO1_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro 1 enabled</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO0_EN">CAL_GYRO0_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Gyro 0 enabled</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_XOFF">CAL_GYRO1_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO0_XOFF">CAL_GYRO0_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro X-axis offset</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_YOFF">CAL_GYRO1_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO0_YOFF">CAL_GYRO0_YOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Y-axis offset</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_ZOFF">CAL_GYRO1_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO0_ZOFF">CAL_GYRO0_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Z-axis offset</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_XSCALE">CAL_GYRO1_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO0_XSCALE">CAL_GYRO0_XSCALE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro X-axis scaling factor</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_YSCALE">CAL_GYRO1_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO0_YSCALE">CAL_GYRO0_YSCALE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Y-axis scaling factor</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_ZSCALE">CAL_GYRO1_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO0_ZSCALE">CAL_GYRO0_ZSCALE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Z-axis scaling factor</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
@@ -9018,57 +9088,57 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_ID">CAL_ACC0_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO1_ID">CAL_GYRO1_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of the Gyro that the calibration is for</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_EN">CAL_ACC0_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Accelerometer 0 enabled</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO1_EN">CAL_GYRO1_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Gyro 1 enabled</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_XOFF">CAL_ACC0_XOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO1_XOFF">CAL_GYRO1_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro X-axis offset</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_YOFF">CAL_ACC0_YOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Y-axis offset</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO1_YOFF">CAL_GYRO1_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro Y-axis offset</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_ZOFF">CAL_ACC0_ZOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Z-axis offset</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO1_ZOFF">CAL_GYRO1_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro Z-axis offset</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_XSCALE">CAL_ACC0_XSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer X-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO1_XSCALE">CAL_GYRO1_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro X-axis scaling factor</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_YSCALE">CAL_ACC0_YSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Y-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO1_YSCALE">CAL_GYRO1_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro Y-axis scaling factor</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_ZSCALE">CAL_ACC0_ZSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer Z-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO1_ZSCALE">CAL_GYRO1_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro Z-axis scaling factor</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
@@ -9109,132 +9179,6 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"><p>Differential pressure sensor analog scaling</p><p><strong>Comment:</strong> Pick the appropriate scaling from the datasheet. this number defines the (linear) conversion from voltage to Pascal (pa). For the MPXV7002DP this is 1000. NOTE: If the sensor always registers zero, try switching the static and dynamic tubes.</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC_PRIME">CAL_ACC_PRIME</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Primary accel ID</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG1_ID">CAL_MAG1_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of Magnetometer the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG1_EN">CAL_MAG1_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 1 enabled</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG1_ROT">CAL_MAG1_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 1 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Internal mag</li> 
-
-<li><strong>0:</strong> No rotation</li> 
-
-<li><strong>1:</strong> Yaw 45°</li> 
-
-<li><strong>2:</strong> Yaw 90°</li> 
-
-<li><strong>3:</strong> Yaw 135°</li> 
-
-<li><strong>4:</strong> Yaw 180°</li> 
-
-<li><strong>5:</strong> Yaw 225°</li> 
-
-<li><strong>6:</strong> Yaw 270°</li> 
-
-<li><strong>7:</strong> Yaw 315°</li> 
-
-<li><strong>8:</strong> Roll 180°</li> 
-
-<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
-
-<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
-
-<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
-
-<li><strong>12:</strong> Pitch 180°</li> 
-
-<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
-
-<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
-
-<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
-
-<li><strong>16:</strong> Roll 90°</li> 
-
-<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
-
-<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
-
-<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
-
-<li><strong>20:</strong> Roll 270°</li> 
-
-<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
-
-<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
-
-<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
-
-<li><strong>24:</strong> Pitch 90°</li> 
-
-<li><strong>25:</strong> Pitch 270°</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
- </td>
- <td style="vertical-align: top;">-1 > 30 </td>
- <td style="vertical-align: top;">-1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG1_XOFF">CAL_MAG1_XOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG1_YOFF">CAL_MAG1_YOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer Y-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG1_ZOFF">CAL_MAG1_ZOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG1_XSCALE">CAL_MAG1_XSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer X-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG1_YSCALE">CAL_MAG1_YSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer Y-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG1_ZSCALE">CAL_MAG1_ZSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer Z-axis scaling factor</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -9294,22 +9238,78 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG3_ID">CAL_MAG3_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_ID">CAL_ACC0_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_EN">CAL_ACC0_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Accelerometer 0 enabled</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_XOFF">CAL_ACC0_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_YOFF">CAL_ACC0_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Y-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_ZOFF">CAL_ACC0_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Z-axis offset</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_XSCALE">CAL_ACC0_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer X-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_YSCALE">CAL_ACC0_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Y-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_ZSCALE">CAL_ACC0_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Z-axis scaling factor</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_ID">CAL_MAG0_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of Magnetometer the calibration is for</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG3_EN">CAL_MAG3_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 3 enabled</p>    </td>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_EN">CAL_MAG0_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Mag 0 enabled</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_ROT">CAL_MAG0_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 0 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal mag</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -9371,42 +9371,42 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG3_XOFF">CAL_MAG3_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_XOFF">CAL_MAG0_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG3_YOFF">CAL_MAG3_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_YOFF">CAL_MAG0_YOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Y-axis offset</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG3_ZOFF">CAL_MAG3_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_ZOFF">CAL_MAG0_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG3_XSCALE">CAL_MAG3_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_XSCALE">CAL_MAG0_XSCALE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis scaling factor</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG3_YSCALE">CAL_MAG3_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_YSCALE">CAL_MAG0_YSCALE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Y-axis scaling factor</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG3_ZSCALE">CAL_MAG3_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_ZSCALE">CAL_MAG0_ZSCALE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Z-axis scaling factor</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0 </td>
@@ -9425,6 +9425,412 @@ The module where these parameters are defined is: *modules/sensors*.
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G_ENABLE">TC_G_ENABLE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set to 1 to enable thermal compensation for rate gyro sensors. Set to 0 to disable</p>    </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_ID">TC_G0_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Gyro that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X3_0">TC_G0_X3_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X3_1">TC_G0_X3_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X3_2">TC_G0_X3_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X2_0">TC_G0_X2_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X2_1">TC_G0_X2_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X2_2">TC_G0_X2_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X1_0">TC_G0_X1_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X1_1">TC_G0_X1_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X1_2">TC_G0_X1_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X0_0">TC_G0_X0_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X0_1">TC_G0_X0_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_X0_2">TC_G0_X0_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_SCL_0">TC_G0_SCL_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro scale factor - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_SCL_1">TC_G0_SCL_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro scale factor - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_SCL_2">TC_G0_SCL_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro scale factor - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_TREF">TC_G0_TREF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">25.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_TMIN">TC_G0_TMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G0_TMAX">TC_G0_TMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">100.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_ID">TC_G1_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Gyro that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X3_0">TC_G1_X3_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X3_1">TC_G1_X3_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X3_2">TC_G1_X3_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X2_0">TC_G1_X2_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X2_1">TC_G1_X2_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X2_2">TC_G1_X2_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X1_0">TC_G1_X1_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X1_1">TC_G1_X1_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X1_2">TC_G1_X1_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X0_0">TC_G1_X0_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X0_1">TC_G1_X0_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_X0_2">TC_G1_X0_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_SCL_0">TC_G1_SCL_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro scale factor - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_SCL_1">TC_G1_SCL_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro scale factor - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_SCL_2">TC_G1_SCL_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro scale factor - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_TREF">TC_G1_TREF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">25.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_TMIN">TC_G1_TMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G1_TMAX">TC_G1_TMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">100.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_ID">TC_G2_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Gyro that the calibration is for</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X3_0">TC_G2_X3_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X3_1">TC_G2_X3_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X3_2">TC_G2_X3_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X2_0">TC_G2_X2_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X2_1">TC_G2_X2_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X2_2">TC_G2_X2_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X1_0">TC_G2_X1_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X1_1">TC_G2_X1_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X1_2">TC_G2_X1_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X0_0">TC_G2_X0_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X0_1">TC_G2_X0_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_X0_2">TC_G2_X0_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_SCL_0">TC_G2_SCL_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro scale factor - X axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_SCL_1">TC_G2_SCL_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro scale factor - Y axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_SCL_2">TC_G2_SCL_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro scale factor - Z axis</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_TREF">TC_G2_TREF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">25.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_TMIN">TC_G2_TMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G2_TMAX">TC_G2_TMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">100.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_A_ENABLE">TC_A_ENABLE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set to 1 to enable thermal compensation for accelerometer sensors. Set to 0 to disable</p>    </td>
@@ -10069,412 +10475,6 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;">75.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G_ENABLE">TC_G_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set to 1 to enable thermal compensation for rate gyro sensors. Set to 0 to disable</p>    </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_ID">TC_G0_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of Gyro that the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X3_0">TC_G0_X3_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X3_1">TC_G0_X3_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X3_2">TC_G0_X3_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X2_0">TC_G0_X2_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X2_1">TC_G0_X2_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X2_2">TC_G0_X2_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X1_0">TC_G0_X1_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X1_1">TC_G0_X1_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X1_2">TC_G0_X1_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X0_0">TC_G0_X0_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X0_1">TC_G0_X0_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_X0_2">TC_G0_X0_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_SCL_0">TC_G0_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_SCL_1">TC_G0_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_SCL_2">TC_G0_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_TREF">TC_G0_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">25.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_TMIN">TC_G0_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_TMAX">TC_G0_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">100.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_ID">TC_G1_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of Gyro that the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X3_0">TC_G1_X3_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X3_1">TC_G1_X3_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X3_2">TC_G1_X3_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X2_0">TC_G1_X2_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X2_1">TC_G1_X2_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X2_2">TC_G1_X2_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X1_0">TC_G1_X1_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X1_1">TC_G1_X1_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X1_2">TC_G1_X1_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X0_0">TC_G1_X0_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X0_1">TC_G1_X0_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_X0_2">TC_G1_X0_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_SCL_0">TC_G1_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_SCL_1">TC_G1_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_SCL_2">TC_G1_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_TREF">TC_G1_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">25.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_TMIN">TC_G1_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_TMAX">TC_G1_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">100.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_ID">TC_G2_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ID of Gyro that the calibration is for</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X3_0">TC_G2_X3_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X3_1">TC_G2_X3_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X3_2">TC_G2_X3_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X2_0">TC_G2_X2_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X2_1">TC_G2_X2_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X2_2">TC_G2_X2_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X1_0">TC_G2_X1_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X1_1">TC_G2_X1_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X1_2">TC_G2_X1_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X0_0">TC_G2_X0_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X0_1">TC_G2_X0_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_X0_2">TC_G2_X0_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_SCL_0">TC_G2_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - X axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_SCL_1">TC_G2_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Y axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_SCL_2">TC_G2_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Z axis</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_TREF">TC_G2_TREF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">25.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_TMIN">TC_G2_TMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_TMAX">TC_G2_TMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">100.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 </tbody></table>
 
 ## Sensors
@@ -10986,6 +10986,15 @@ The module where these parameters are defined is: *modules/syslink*.
  <td style="vertical-align: top;">deg C</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="SYS_FMU_TASK">SYS_FMU_TASK</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Run the FMU as a task to reduce latency</p><p><strong>Comment:</strong> If true, the FMU will run in a separate task instead of on the work queue. Set this if low latency is required, for example for racing. This is a trade-off between RAM usage and latency: running as a task, it requires a separate stack and directly polls on the control topics, whereas running on the work queue, it runs at a fixed update rate.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SYS_USE_IO">SYS_USE_IO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set usage of IO board</p><p><strong>Comment:</strong> Can be used to use a standard startup script but with a FMU only set-up. Set to 0 to force the FMU only set-up.</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> drivers/px4io</p>
@@ -11000,15 +11009,6 @@ The module where these parameters are defined is: *modules/syslink*.
 </td>
  <td style="vertical-align: top;">0 > 15 </td>
  <td style="vertical-align: top;">15 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SYS_FMU_TASK">SYS_FMU_TASK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Run the FMU as a task to reduce latency</p><p><strong>Comment:</strong> If true, the FMU will run in a separate task instead of on the work queue. Set this if low latency is required, for example for racing. This is a trade-off between RAM usage and latency: running as a task, it requires a separate stack and directly polls on the control topics, whereas running on the work queue, it runs at a fixed update rate.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
@@ -11168,6 +11168,22 @@ The module where these parameters are defined is: *modules/syslink*.
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="ESC_NODE_ID">ESC_NODE_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>    <p><b>Module:</b> modules/uavcanesc</p>
+</td>
+ <td style="vertical-align: top;">1 > 125 </td>
+ <td style="vertical-align: top;">120 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ESC_BITRATE">ESC_BITRATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>    <p><b>Module:</b> modules/uavcanesc</p>
+</td>
+ <td style="vertical-align: top;">20000 > 1000000 </td>
+ <td style="vertical-align: top;">1000000 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>UAVCAN mode</p><p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Basic support for UAVCAN actuators and sensors. 2 - Full support for dynamic node ID allocation and firmware update. 3 - Sets the motor control outputs to UAVCAN and enables support for dynamic node ID allocation and firmware update.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -11226,22 +11242,6 @@ The module where these parameters are defined is: *modules/syslink*.
  <td style="vertical-align: top;">1000000 </td>
  <td style="vertical-align: top;"></td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="ESC_NODE_ID">ESC_NODE_ID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>    <p><b>Module:</b> modules/uavcanesc</p>
-</td>
- <td style="vertical-align: top;">1 > 125 </td>
- <td style="vertical-align: top;">120 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="ESC_BITRATE">ESC_BITRATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN CAN bus bitrate</p>    <p><b>Module:</b> modules/uavcanesc</p>
-</td>
- <td style="vertical-align: top;">20000 > 1000000 </td>
- <td style="vertical-align: top;">1000000 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 </tbody></table>
 
 ## VTOL Attitude Control
@@ -11256,52 +11256,59 @@ The module where these parameters are defined is: *modules/vtol_att_control*.
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in mc mode</p>    </td>
+ <td style="vertical-align: top;"><strong id="VT_TRANS_THR">VT_TRANS_THR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Target throttle value for pusher/puller motor during the transition to fw mode</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">0.6 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_DWN_PITCH_MAX">VT_DWN_PITCH_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum allowed down-pitch the controller is able to demand. This prevents large, negative
+lift values being created when facing strong winds. The vehicle will use the pusher motor
+to accelerate forward if necessary</p>    </td>
+ <td style="vertical-align: top;">0.0 > 45.0 </td>
+ <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Fixed wing thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to fixed wing thrust being used as source for forward acceleration in multirotor mode. This technique can be used to avoid the plane having to pitch down a lot in order to move forward. Setting this value to 0 (default) will disable this strategy.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 2.0 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_TILT_TRANS">VT_TILT_TRANS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in transition mode</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.3 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in fw mode</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Duration of front transition phase 2</p><p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>    </td>
- <td style="vertical-align: top;">0.1 > 5.0 (0.01)</td>
- <td style="vertical-align: top;">0.5 </td>
+ <td style="vertical-align: top;"><strong id="VT_B_TRANS_RAMP">VT_B_TRANS_RAMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Back transition MC motor ramp up time</p><p><strong>Comment:</strong> This sets the duration during wich the MC motors ramp up to the commanded thrust during the back transition stage.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 20.0 </td>
+ <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_FW_MOT_OFFID">VT_FW_MOT_OFFID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>The channel number of motors that must be turned off in fixed wing mode</p>    </td>
- <td style="vertical-align: top;">0 > 12345678 (1)</td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"><strong id="VT_B_REV_OUT">VT_B_REV_OUT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Output on airbrakes channel during back transition
+Used for airbrakes or with ESCs that have reverse thrust enabled on a seperate channel
+Airbrakes need to be enables for your selected model/mixer</p>    </td>
+ <td style="vertical-align: top;">0 > 1 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Differential thrust in forwards flight</p><p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>    </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Delay in seconds before applying back transition throttle
+Set this to a value greater than 0 to give the motor time to spin down</p><p><strong>Comment:</strong> unit s</p>    </td>
+ <td style="vertical-align: top;">0 > 10 (1)</td>
+ <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_SC">VT_FW_DIFTHR_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential thrust scaling factor</p><p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
- <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;"><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Thottle output during back transition
+For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking
+For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>    </td>
+ <td style="vertical-align: top;">-1 > 1 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -11494,59 +11501,52 @@ The module where these parameters are defined is: *modules/vtol_att_control*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_TRANS_THR">VT_TRANS_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Target throttle value for pusher/puller motor during the transition to fw mode</p>    </td>
+ <td style="vertical-align: top;"><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in mc mode</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.6 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_DWN_PITCH_MAX">VT_DWN_PITCH_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum allowed down-pitch the controller is able to demand. This prevents large, negative
-lift values being created when facing strong winds. The vehicle will use the pusher motor
-to accelerate forward if necessary</p>    </td>
- <td style="vertical-align: top;">0.0 > 45.0 </td>
- <td style="vertical-align: top;">5.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Fixed wing thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to fixed wing thrust being used as source for forward acceleration in multirotor mode. This technique can be used to avoid the plane having to pitch down a lot in order to move forward. Setting this value to 0 (default) will disable this strategy.</p>    </td>
- <td style="vertical-align: top;">0.0 > 2.0 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_B_TRANS_RAMP">VT_B_TRANS_RAMP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Back transition MC motor ramp up time</p><p><strong>Comment:</strong> This sets the duration during wich the MC motors ramp up to the commanded thrust during the back transition stage.</p>    </td>
- <td style="vertical-align: top;">0.0 > 20.0 </td>
- <td style="vertical-align: top;">3.0 </td>
+ <td style="vertical-align: top;"><strong id="VT_TILT_TRANS">VT_TILT_TRANS</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in transition mode</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">0.3 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in fw mode</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Duration of front transition phase 2</p><p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>    </td>
+ <td style="vertical-align: top;">0.1 > 5.0 (0.01)</td>
+ <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_B_REV_OUT">VT_B_REV_OUT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Output on airbrakes channel during back transition
-Used for airbrakes or with ESCs that have reverse thrust enabled on a seperate channel
-Airbrakes need to be enables for your selected model/mixer</p>    </td>
- <td style="vertical-align: top;">0 > 1 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"><strong id="VT_FW_MOT_OFFID">VT_FW_MOT_OFFID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>The channel number of motors that must be turned off in fixed wing mode</p>    </td>
+ <td style="vertical-align: top;">0 > 12345678 (1)</td>
+ <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Delay in seconds before applying back transition throttle
-Set this to a value greater than 0 to give the motor time to spin down</p><p><strong>Comment:</strong> unit s</p>    </td>
- <td style="vertical-align: top;">0 > 10 (1)</td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Differential thrust in forwards flight</p><p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>    </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Thottle output during back transition
-For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking
-For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>    </td>
- <td style="vertical-align: top;">-1 > 1 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_SC">VT_FW_DIFTHR_SC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Differential thrust scaling factor</p><p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
+ <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
@@ -11559,6 +11559,14 @@ For ESCs that support thrust reversal with a control channel please set VT_B_REV
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="RV_YAW_P">RV_YAW_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/rover_steering_control</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SEG_TH2V_P">SEG_TH2V_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/segway</p>
@@ -11613,14 +11621,6 @@ For ESCs that support thrust reversal with a control channel please set VT_B_REV
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.2 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RV_YAW_P">RV_YAW_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> examples/rover_steering_control</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
