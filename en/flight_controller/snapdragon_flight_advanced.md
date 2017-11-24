@@ -36,105 +36,28 @@ adb shell
 
 ## Upgrade Snapdragon
 
-For this step the Flight_BSP zip file from Intrynsic is required. It can be obtained after registering using the board serial.
+For this step the files from the [Intrinsyc support](https://support.intrinsyc.com/projects/snapdragon-flight/files) website is required. Latest release that has been tested is `3.1.3.1`. It can be obtained after registering using the board serial.
 
 ### Upgrading/replacing the Linux image
 
 > **Caution** Flashing the Linux image will erase everything on the Snapdragon. Back up your work before you perform this step!
 
-Make sure the board can be found using adb:
-
+Get the latest Flight_x.x_JFlash.zip from Intrinsyc and unzip it. In the unzipped folder is a script that has to be used to update the Linux image. Power your Snapdragon Flight, connect it using a micro USB cable and run
+```sh
+sudo ./jflash.sh
 ```
-adb devices
-```
-
-Then, reboot it into the fastboot bootloader:
-
-```
-adb reboot bootloader
-```
-
-Make sure the board can be found using fastboot:
-
-```
-fastboot devices
-```
-
-Download the latest BSP from Intrinsyc:
-
-```
-unzip Flight_3.1.1_BSP_apq8074-00003.zip
-cd BSP/binaries/Flight_BSP_4.0
-./fastboot-all.sh
-```
-
-It is normal that the partitions `recovery`, `update`, and `factory` will fail.
 
 ### Updating the ADSP firmware
 
 Part of the PX4 stack is running on the ADSP (the DSP side of the Snapdragon 8074). The underlying operating system QURT needs to be updated separately.
 
-> **Caution** If anything goes wrong during the ADSP firmware update, your Snapdragon can get bricked! Follow the steps below carefully which should prevent bricking in most cases.
-
-First of all, if you're not already on BSP 3.1.1, [upgrade the Linux image](#upgradingreplacing-the-linux-image)!
-
-#### Prevent bricking
-
-To prevent the system from hanging on boot because of anything wrong with the ADSP firmware, do the following changes before updating:
-
-Edit the file directly on the Snapdragon over `screen` or `adb shell`:
-```sh
-vim /usr/local/qr-linux/q6-admin.sh
-```
-
-Or load the file locally and edit it there with the editor of your choice:
-
-To do this, load the file locally:
-```sh
-adb pull /usr/local/qr-linux/q6-admin.sh
-```
-
-Edit it:
-
-```sh
-gedit q6-admin.sh
-```
-
-And push it back:
-
-```sh
-adb push q6-admin.sh /usr/local/qr-linux/q6-admin.sh
-adb shell chmod +x /usr/local/qr-linux/q6-admin.sh
-```
-
-Comment out the while loops causing boot to hang:
-
-```
-# Wait for adsp.mdt to show up
-#while [ ! -s /lib/firmware/adsp.mdt ]; do
-#  sleep 0.1
-#done
-```
-
-and:
-
-```
-# Don't leave until ADSP is up
-#while [ "`cat /sys/kernel/debug/msm_subsys/adsp`" != "2" ]; do
-#  sleep 0.1
-#done
-```
+First of all, if you're not already on BSP 3.1.3.1, [upgrade the Linux image](#upgradingreplacing-the-linux-image)!
 
 #### Push the latest ADSP firmware files
 
-Download the file [Flight_3.1.3.1_qcom_flight_controller_hexagon_sdk_add_on.zip](https://support.intrinsyc.com/attachments/download/1571/Flight_3.1.3.1_qcom_flight_controller_hexagon_sdk_add_on.zip) from Intrinsyc.
-
-And copy them on to the Snapdragon:
-
-```
-unzip Flight_3.1.1a_qcom_flight_controller_hexagon_sdk_add_on.zip
-cd images/8074-eagle/normal/adsp_proc/obj/qdsp6v5_ReleaseG/LA/system/etc/firmware
-adb push . /lib/firmware
+Download the latest Qualcomm flight controller hexagon SDK add on from Intrinsyc and unzip it. In the unzipped folder is a script that has to be used to update the ADSP image. Power your Snapdragon Flight, connect it using a micro USB cable and run
+```sh
+./installfcaddon.sh
 ```
 
 Then do a graceful reboot, so that the firmware gets applied:
