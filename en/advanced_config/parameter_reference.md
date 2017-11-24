@@ -8717,9 +8717,13 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_AIR_PMODEL">CAL_AIR_PMODEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airspeed sensor pitot model</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> HB Pitot</li> 
+ <td style="vertical-align: top;"><strong id="CAL_AIR_CMODEL">CAL_AIR_CMODEL</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airspeed sensor compensation model for the SDP3x</p><p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Model with Pitot</li> 
+
+<li><strong>1:</strong> Model without Pitot (1.5 mm tubes)</li> 
+
+<li><strong>2:</strong> Tube Pressure Drop</li> 
 </ul>
    </td>
  <td style="vertical-align: top;"></td>
@@ -8727,9 +8731,16 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_AIR_TUBED_MM">CAL_AIR_TUBED_MM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed sensor tube diameter. Only used for the Tube Pressure Drop Compensation</p>    </td>
+ <td style="vertical-align: top;">0.1 > 100 </td>
+ <td style="vertical-align: top;">1.5 </td>
+ <td style="vertical-align: top;">millimeter</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_AIR_TUBELEN">CAL_AIR_TUBELEN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airspeed sensor tube length</p>    </td>
- <td style="vertical-align: top;">0.01 > 0.5 </td>
+ <td style="vertical-align: top;"><p>Airspeed sensor tube length</p><p><strong>Comment:</strong> See the CAL_AIR_CMODEL explanation on how this parameter should be set.</p>    </td>
+ <td style="vertical-align: top;">0.01 > 2.00 </td>
  <td style="vertical-align: top;">0.2 </td>
  <td style="vertical-align: top;">meter</td>
 </tr>
