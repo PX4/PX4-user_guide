@@ -85,6 +85,8 @@ Connect to the Linux shell (see [console instructions](https://dev.px4.io/en/deb
 
 If you want the Snapdragon to be a wifi access point (AP mode), edit the file: `/etc/hostapd.conf` and set:
 
+> **Note** The passphrase has be at least 8 characters
+
 ```
 ssid=EnterYourSSID
 wpa_passphrase=EnterYourPassphrase
