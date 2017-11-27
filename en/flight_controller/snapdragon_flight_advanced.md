@@ -36,7 +36,7 @@ adb shell
 
 ## Upgrade Snapdragon
 
-For this step the files from the [Intrinsyc support](https://support.intrinsyc.com/projects/snapdragon-flight/files) website is required. Latest release that has been tested is `3.1.3.1`. It can be obtained after registering using the board serial.
+For this step the files from the [Intrinsyc support](https://support.intrinsyc.com/projects/snapdragon-flight/files) website are required. The latest release that has been tested is `3.1.3.1`. It can be obtained after registering using the board's serial number.
 
 ### Upgrading/replacing the Linux image
 
@@ -85,7 +85,7 @@ Connect to the Linux shell (see [console instructions](https://dev.px4.io/en/deb
 
 If you want the Snapdragon to be a wifi access point (AP mode), edit the file: `/etc/hostapd.conf` and set:
 
-> **Note** The passphrase has be at least 8 characters
+> **Note** The passphrase has to be at least 8 characters
 
 ```
 ssid=EnterYourSSID
