@@ -1,96 +1,6 @@
 # Parameter Reference
 > **Note** **This list is auto-generated from the source code** and contains the most recent parameter documentation.
 
-## Attitude EKF estimator
-
-
-The module where these parameters are defined is: *examples/attitude_estimator_ekf*.
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="ATT_J11">ATT_J11</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Moment of inertia matrix diagonal entry (1, 1)</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0018 </td>
- <td style="vertical-align: top;">kg*m^2</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="ATT_J22">ATT_J22</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Moment of inertia matrix diagonal entry (2, 2)</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0018 </td>
- <td style="vertical-align: top;">kg*m^2</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="ATT_J33">ATT_J33</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Moment of inertia matrix diagonal entry (3, 3)</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0037 </td>
- <td style="vertical-align: top;">kg*m^2</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="ATT_J_EN">ATT_J_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Moment of inertia enabled in estimator</p><p><strong>Comment:</strong> If set to != 0 the moment of inertia will be used in the estimator</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF_ATT_V3_Q0">EKF_ATT_V3_Q0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Body angular rate process noise</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1e-4 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF_ATT_V3_Q1">EKF_ATT_V3_Q1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Body angular acceleration process noise</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.08 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF_ATT_V3_Q2">EKF_ATT_V3_Q2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Acceleration process noise</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.009 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF_ATT_V3_Q3">EKF_ATT_V3_Q3</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnet field vector process noise</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.005 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF_ATT_V4_R0">EKF_ATT_V4_R0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro measurement noise</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0008 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF_ATT_V4_R1">EKF_ATT_V4_R1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accel measurement noise</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">10000.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF_ATT_V4_R2">EKF_ATT_V4_R2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Mag measurement noise</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">100.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-</tbody></table>
-
 ## Attitude Q estimator
 
 
@@ -4092,6 +4002,9 @@ if required by the gimbal (only in AUX output mode)</p>    </td>
 
 ## Multicopter Attitude Control
 
+
+The module where these parameters are defined is: *modules/mc_att_control*.
+
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
@@ -4101,8 +4014,7 @@ if required by the gimbal (only in AUX output mode)</p>    </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Acro Expo factor
-applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0 Purely linear input curve 1 Purely cubic input curve</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0 Purely linear input curve 1 Purely cubic input curve</p>    </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.69 </td>
  <td style="vertical-align: top;"></td>
@@ -4110,8 +4022,7 @@ applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max acro pitch rate
-default: 2 turns per second</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+default: 2 turns per second</p>    </td>
  <td style="vertical-align: top;">0.0 > 1000.0 (5)</td>
  <td style="vertical-align: top;">720.0 </td>
  <td style="vertical-align: top;">deg/s</td>
@@ -4119,8 +4030,7 @@ default: 2 turns per second</p>    <p><b>Module:</b> modules/mc_att_control</p>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max acro roll rate
-default: 2 turns per second</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+default: 2 turns per second</p>    </td>
  <td style="vertical-align: top;">0.0 > 1000.0 (5)</td>
  <td style="vertical-align: top;">720.0 </td>
  <td style="vertical-align: top;">deg/s</td>
@@ -4128,8 +4038,7 @@ default: 2 turns per second</p>    <p><b>Module:</b> modules/mc_att_control</p>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Acro SuperExpo factor
-applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>    </td>
  <td style="vertical-align: top;">0 > 0.95 </td>
  <td style="vertical-align: top;">0.7 </td>
  <td style="vertical-align: top;"></td>
@@ -4137,439 +4046,248 @@ applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max acro yaw rate
-default 1.5 turns per second</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+default 1.5 turns per second</p>    </td>
  <td style="vertical-align: top;">0.0 > 1000.0 (5)</td>
  <td style="vertical-align: top;">540.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_BAT_SCALE_EN">MC_BAT_SCALE_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery power level scaler</p><p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The copter should constantly behave as if it was fully charged with reduced max acceleration at lower battery percentages. i.e. if hover is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Battery power level scaler</p><p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The copter should constantly behave as if it was fully charged with reduced max acceleration at lower battery percentages. i.e. if hover is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_D">MC_PITCHRATE_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch rate D gain</p><p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Pitch rate D gain</p><p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.0005)</td>
  <td style="vertical-align: top;">0.003 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_FF">MC_PITCHRATE_FF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch rate feedforward</p><p><strong>Comment:</strong> Improves tracking performance.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Pitch rate feedforward</p><p><strong>Comment:</strong> Improves tracking performance.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_I">MC_PITCHRATE_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch rate I gain</p><p><strong>Comment:</strong> Pitch rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Pitch rate I gain</p><p><strong>Comment:</strong> Pitch rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.05 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_MAX">MC_PITCHRATE_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max pitch rate</p><p><strong>Comment:</strong> Limit for pitch rate in manual and auto modes (except acro). Has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation. This is not only limited by the vehicle's properties, but also by the maximum measurement rate of the gyro.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Max pitch rate</p><p><strong>Comment:</strong> Limit for pitch rate in manual and auto modes (except acro). Has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation. This is not only limited by the vehicle's properties, but also by the maximum measurement rate of the gyro.</p>    </td>
  <td style="vertical-align: top;">0.0 > 1800.0 (5)</td>
  <td style="vertical-align: top;">220.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_P">MC_PITCHRATE_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch rate P gain</p><p><strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Pitch rate P gain</p><p><strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>    </td>
  <td style="vertical-align: top;">0.0 > 0.6 (0.01)</td>
  <td style="vertical-align: top;">0.15 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PITCH_P">MC_PITCH_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch P gain</p><p><strong>Comment:</strong> Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Pitch P gain</p><p><strong>Comment:</strong> Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    </td>
  <td style="vertical-align: top;">0.0 > 10 (0.1)</td>
  <td style="vertical-align: top;">6.5 </td>
  <td style="vertical-align: top;">1/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PITCH_TC">MC_PITCH_TC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch time constant</p><p><strong>Comment:</strong> Reduce if the system is too twitchy, increase if the response is too slow and sluggish.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Pitch time constant</p><p><strong>Comment:</strong> Reduce if the system is too twitchy, increase if the response is too slow and sluggish.</p>    </td>
  <td style="vertical-align: top;">0.15 > 0.25 (0.01)</td>
  <td style="vertical-align: top;">0.2 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PR_INT_LIM">MC_PR_INT_LIM</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch rate integrator limit</p><p><strong>Comment:</strong> Pitch rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Pitch rate integrator limit</p><p><strong>Comment:</strong> Pitch rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.30 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_RATT_TH">MC_RATT_TH</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Threshold for Rattitude mode</p><p><strong>Comment:</strong> Manual input needed in order to override attitude control rate setpoints and instead pass manual stick inputs as rate setpoints</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Threshold for Rattitude mode</p><p><strong>Comment:</strong> Manual input needed in order to override attitude control rate setpoints and instead pass manual stick inputs as rate setpoints</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.8 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLLRATE_D">MC_ROLLRATE_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll rate D gain</p><p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Roll rate D gain</p><p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>    </td>
  <td style="vertical-align: top;">0.0 > 0.01 (0.0005)</td>
  <td style="vertical-align: top;">0.003 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLLRATE_FF">MC_ROLLRATE_FF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll rate feedforward</p><p><strong>Comment:</strong> Improves tracking performance.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Roll rate feedforward</p><p><strong>Comment:</strong> Improves tracking performance.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLLRATE_I">MC_ROLLRATE_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll rate I gain</p><p><strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Roll rate I gain</p><p><strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.05 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLLRATE_MAX">MC_ROLLRATE_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max roll rate</p><p><strong>Comment:</strong> Limit for roll rate in manual and auto modes (except acro). Has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation. This is not only limited by the vehicle's properties, but also by the maximum measurement rate of the gyro.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Max roll rate</p><p><strong>Comment:</strong> Limit for roll rate in manual and auto modes (except acro). Has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation. This is not only limited by the vehicle's properties, but also by the maximum measurement rate of the gyro.</p>    </td>
  <td style="vertical-align: top;">0.0 > 1800.0 (5)</td>
  <td style="vertical-align: top;">220.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLLRATE_P">MC_ROLLRATE_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll rate P gain</p><p><strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Roll rate P gain</p><p><strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>    </td>
  <td style="vertical-align: top;">0.0 > 0.5 (0.01)</td>
  <td style="vertical-align: top;">0.15 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLL_P">MC_ROLL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll P gain</p><p><strong>Comment:</strong> Roll proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Roll P gain</p><p><strong>Comment:</strong> Roll proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    </td>
  <td style="vertical-align: top;">0.0 > 8 (0.1)</td>
  <td style="vertical-align: top;">6.5 </td>
  <td style="vertical-align: top;">1/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLL_TC">MC_ROLL_TC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll time constant</p><p><strong>Comment:</strong> Reduce if the system is too twitchy, increase if the response is too slow and sluggish.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Roll time constant</p><p><strong>Comment:</strong> Reduce if the system is too twitchy, increase if the response is too slow and sluggish.</p>    </td>
  <td style="vertical-align: top;">0.15 > 0.25 (0.01)</td>
  <td style="vertical-align: top;">0.2 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_RR_INT_LIM">MC_RR_INT_LIM</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll rate integrator limit</p><p><strong>Comment:</strong> Roll rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Roll rate integrator limit</p><p><strong>Comment:</strong> Roll rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.30 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_TPA_BREAK_D">MC_TPA_BREAK_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA D Breakpoint</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch D gain</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>TPA D Breakpoint</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch D gain</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_TPA_BREAK_I">MC_TPA_BREAK_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA I Breakpoint</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch I gain</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>TPA I Breakpoint</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch I gain</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_TPA_BREAK_P">MC_TPA_BREAK_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA P Breakpoint</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch P gain</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>TPA P Breakpoint</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch P gain</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_TPA_RATE_D">MC_TPA_RATE_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA Rate D</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch D gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>TPA Rate D</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch D gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_TPA_RATE_I">MC_TPA_RATE_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA Rate I</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch I gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>TPA Rate I</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch I gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_TPA_RATE_P">MC_TPA_RATE_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA Rate P</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch P gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>TPA Rate P</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch P gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YAWRATE_D">MC_YAWRATE_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw rate D gain</p><p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Yaw rate D gain</p><p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YAWRATE_FF">MC_YAWRATE_FF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw rate feedforward</p><p><strong>Comment:</strong> Improves tracking performance.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Yaw rate feedforward</p><p><strong>Comment:</strong> Improves tracking performance.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YAWRATE_I">MC_YAWRATE_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw rate I gain</p><p><strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Yaw rate I gain</p><p><strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YAWRATE_MAX">MC_YAWRATE_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max yaw rate</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Max yaw rate</p>    </td>
  <td style="vertical-align: top;">0.0 > 1800.0 (5)</td>
  <td style="vertical-align: top;">200.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YAWRATE_P">MC_YAWRATE_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw rate P gain</p><p><strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Yaw rate P gain</p><p><strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>    </td>
  <td style="vertical-align: top;">0.0 > 0.6 (0.01)</td>
  <td style="vertical-align: top;">0.2 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YAWRAUTO_MAX">MC_YAWRAUTO_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max yaw rate in auto mode</p><p><strong>Comment:</strong> Limit for yaw rate, has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Max yaw rate in auto mode</p><p><strong>Comment:</strong> Limit for yaw rate, has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation.</p>    </td>
  <td style="vertical-align: top;">0.0 > 360.0 (5)</td>
  <td style="vertical-align: top;">45.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YAW_FF">MC_YAW_FF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw feed forward</p><p><strong>Comment:</strong> Feed forward weight for manual yaw control. 0 will give slow responce and no overshot, 1 - fast responce and big overshot.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Yaw feed forward</p><p><strong>Comment:</strong> Feed forward weight for manual yaw control. 0 will give slow responce and no overshot, 1 - fast responce and big overshot.</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YAW_P">MC_YAW_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw P gain</p><p><strong>Comment:</strong> Yaw proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Yaw P gain</p><p><strong>Comment:</strong> Yaw proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    </td>
  <td style="vertical-align: top;">0.0 > 5 (0.1)</td>
  <td style="vertical-align: top;">2.8 </td>
  <td style="vertical-align: top;">1/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YR_INT_LIM">MC_YR_INT_LIM</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw rate integrator limit</p><p><strong>Comment:</strong> Yaw rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.</p>    <p><b>Module:</b> modules/mc_att_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Yaw rate integrator limit</p><p><strong>Comment:</strong> Yaw rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.30 </td>
  <td style="vertical-align: top;"></td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_MAN_P_MAX">MPP_MAN_P_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual pitch</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 90.0 </td>
- <td style="vertical-align: top;">35.0 </td>
- <td style="vertical-align: top;">deg</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_MAN_R_MAX">MPP_MAN_R_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual roll</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 90.0 </td>
- <td style="vertical-align: top;">35.0 </td>
- <td style="vertical-align: top;">deg</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_MAN_Y_MAX">MPP_MAN_Y_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual yaw rate</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">120.0 </td>
- <td style="vertical-align: top;">deg/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_ACRO_P_MAX">MP_ACRO_P_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max acro pitch rate</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 360.0 </td>
- <td style="vertical-align: top;">35.0 </td>
- <td style="vertical-align: top;">deg/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_ACRO_R_MAX">MP_ACRO_R_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max acro roll rate</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 360.0 </td>
- <td style="vertical-align: top;">35.0 </td>
- <td style="vertical-align: top;">deg/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_ACRO_Y_MAX">MP_ACRO_Y_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max acro yaw rate</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">120.0 </td>
- <td style="vertical-align: top;">deg/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_PITCHRATE_D">MP_PITCHRATE_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch rate D gain</p><p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.002 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_PITCHRATE_I">MP_PITCHRATE_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch rate I gain</p><p><strong>Comment:</strong> Pitch rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_PITCHRATE_P">MP_PITCHRATE_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch rate P gain</p><p><strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_PITCH_P">MP_PITCH_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch P gain</p><p><strong>Comment:</strong> Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">6.0 </td>
- <td style="vertical-align: top;">1/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_ROLLRATE_D">MP_ROLLRATE_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll rate D gain</p><p><strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.002 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_ROLLRATE_I">MP_ROLLRATE_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll rate I gain</p><p><strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_ROLLRATE_P">MP_ROLLRATE_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll rate P gain</p><p><strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_ROLL_P">MP_ROLL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll P gain</p><p><strong>Comment:</strong> Roll proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">6.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_YAWRATE_D">MP_YAWRATE_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw rate D gain</p><p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_YAWRATE_I">MP_YAWRATE_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw rate I gain</p><p><strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_YAWRATE_MAX">MP_YAWRATE_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max yaw rate</p><p><strong>Comment:</strong> Limit for yaw rate, has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 360.0 </td>
- <td style="vertical-align: top;">60.0 </td>
- <td style="vertical-align: top;">deg/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_YAWRATE_P">MP_YAWRATE_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw rate P gain</p><p><strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.3 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_YAW_FF">MP_YAW_FF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw feed forward</p><p><strong>Comment:</strong> Feed forward weight for manual yaw control. 0 will give slow responce and no overshot, 1 - fast responce and big overshot.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 1.0 </td>
- <td style="vertical-align: top;">0.5 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MP_YAW_P">MP_YAW_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw P gain</p><p><strong>Comment:</strong> Yaw proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    <p><b>Module:</b> examples/mc_att_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">2.0 </td>
- <td style="vertical-align: top;">1/s</td>
-</tr>
 </tbody></table>
 
 ## Multicopter Position Control
+
+
+The module where these parameters are defined is: *modules/mc_pos_control*.
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
@@ -4579,32 +4297,28 @@ default 1.5 turns per second</p>    <p><b>Module:</b> modules/mc_att_control</p>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes down</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes down</p>    </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR">MPC_ACC_HOR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Acceleration for auto and for manual</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Acceleration for auto and for manual</p>    </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and maximum deceleration for manual mode</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and maximum deceleration for manual mode</p>    </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_UP_MAX">MPC_ACC_UP_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes upward</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes upward</p>    </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
@@ -4616,8 +4330,7 @@ default 1.5 turns per second</p>    <p><b>Module:</b> modules/mc_att_control</p>
 
 <li><strong>1:</strong> Terrain following</li> 
 </ul>
-   <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -4625,40 +4338,35 @@ default 1.5 turns per second</p>    <p><b>Module:</b> modules/mc_att_control</p>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_CRUISE_90">MPC_CRUISE_90</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Cruise speed when angle prev-current/current-next setpoint
-is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</strong> Applies only in AUTO modes (includes also RTL / hold / etc.)</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</strong> Applies only in AUTO modes (includes also RTL / hold / etc.)</p>    </td>
  <td style="vertical-align: top;">1.0 > ? (1)</td>
  <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_DEC_HOR_SLOW">MPC_DEC_HOR_SLOW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Slow horizontal manual deceleration for manual mode</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Slow horizontal manual deceleration for manual mode</p>    </td>
  <td style="vertical-align: top;">0.5 > 10.0 (1)</td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_HOLD_DZ">MPC_HOLD_DZ</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Deadzone of sticks where position hold is enabled</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Deadzone of sticks where position hold is enabled</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 </td>
  <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_HOLD_MAX_XY">MPC_HOLD_MAX_XY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal velocity for which position hold is enabled (use 0 to disable check)</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum horizontal velocity for which position hold is enabled (use 0 to disable check)</p>    </td>
  <td style="vertical-align: top;">0.0 > 3.0 </td>
  <td style="vertical-align: top;">0.8 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_HOLD_MAX_Z">MPC_HOLD_MAX_Z</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical velocity for which position hold is enabled (use 0 to disable check)</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum vertical velocity for which position hold is enabled (use 0 to disable check)</p>    </td>
  <td style="vertical-align: top;">0.0 > 3.0 </td>
  <td style="vertical-align: top;">0.6 </td>
  <td style="vertical-align: top;">m/s</td>
@@ -4670,136 +4378,119 @@ If this value is below MPC_JERK_MIN, the acceleration limit in xy and z
 is MPC_ACC_HOR_MAX and MPC_ACC_UP_MAX respectively instantaneously when the
 user demands brake (=zero stick input).
 Otherwise the acceleration limit increases from current acceleration limit
-towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    </td>
  <td style="vertical-align: top;">0.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;">m/s/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_MIN">MPC_JERK_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum jerk in manual controlled mode for BRAKING to zero</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Minimum jerk in manual controlled mode for BRAKING to zero</p>    </td>
  <td style="vertical-align: top;">0.5 > 10.0 (1)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">m/s/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Altitude for 1. step of slow landing (descend)</p><p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX" and "MPC_LAND_SPEED" to enable a smooth descent experience Value needs to be higher than "MPC_LAND_ALT2"</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Altitude for 1. step of slow landing (descend)</p><p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX" and "MPC_LAND_SPEED" to enable a smooth descent experience Value needs to be higher than "MPC_LAND_ALT2"</p>    </td>
  <td style="vertical-align: top;">0 > 122 </td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_ALT2">MPC_LAND_ALT2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Altitude for 2. step of slow landing (landing)</p><p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED" Value needs to be lower than "MPC_LAND_ALT1"</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Altitude for 2. step of slow landing (landing)</p><p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED" Value needs to be lower than "MPC_LAND_ALT1"</p>    </td>
  <td style="vertical-align: top;">0 > 122 </td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_SPEED">MPC_LAND_SPEED</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Landing descend rate</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Landing descend rate</p>    </td>
  <td style="vertical-align: top;">0.6 > ? </td>
  <td style="vertical-align: top;">0.7 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MANTHR_MAX">MPC_MANTHR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum manual thrust</p><p><strong>Comment:</strong> Limit max allowed thrust. Setting a value of one can put the system into actuator saturation as no spread between the motors is possible any more. A value of 0.8 - 0.9 is recommended.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum manual thrust</p><p><strong>Comment:</strong> Limit max allowed thrust. Setting a value of one can put the system into actuator saturation as no spread between the motors is possible any more. A value of 0.8 - 0.9 is recommended.</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.9 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MANTHR_MIN">MPC_MANTHR_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum manual thrust</p><p><strong>Comment:</strong> Minimum vertical thrust. It's recommended to set it > 0 to avoid free fall with zero thrust.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Minimum manual thrust</p><p><strong>Comment:</strong> Minimum vertical thrust. It's recommended to set it > 0 to avoid free fall with zero thrust.</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.08 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MAN_TILT_MAX">MPC_MAN_TILT_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximal tilt angle in manual or altitude mode</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximal tilt angle in manual or altitude mode</p>    </td>
  <td style="vertical-align: top;">0.0 > 90.0 </td>
  <td style="vertical-align: top;">35.0 </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MAN_Y_MAX">MPC_MAN_Y_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual yaw rate</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Max manual yaw rate</p>    </td>
  <td style="vertical-align: top;">0.0 > 400 </td>
  <td style="vertical-align: top;">200.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_HOVER">MPC_THR_HOVER</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Hover thrust</p><p><strong>Comment:</strong> Vertical thrust required to hover. This value is mapped to center stick for manual throttle control. With this value set to the thrust required to hover, transition from manual to ALTCTL mode while hovering will occur with the throttle stick near center, which is then interpreted as (near) zero demand for vertical speed.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Hover thrust</p><p><strong>Comment:</strong> Vertical thrust required to hover. This value is mapped to center stick for manual throttle control. With this value set to the thrust required to hover, transition from manual to ALTCTL mode while hovering will occur with the throttle stick near center, which is then interpreted as (near) zero demand for vertical speed.</p>    </td>
  <td style="vertical-align: top;">0.2 > 0.8 (0.01)</td>
  <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_MAX">MPC_THR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum thrust in auto thrust control</p><p><strong>Comment:</strong> Limit max allowed thrust. Setting a value of one can put the system into actuator saturation as no spread between the motors is possible any more. A value of 0.8 - 0.9 is recommended.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum thrust in auto thrust control</p><p><strong>Comment:</strong> Limit max allowed thrust. Setting a value of one can put the system into actuator saturation as no spread between the motors is possible any more. A value of 0.8 - 0.9 is recommended.</p>    </td>
  <td style="vertical-align: top;">0.0 > 0.95 (0.01)</td>
  <td style="vertical-align: top;">0.9 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_MIN">MPC_THR_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum thrust in auto thrust control</p><p><strong>Comment:</strong> It's recommended to set it > 0 to avoid free fall with zero thrust.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Minimum thrust in auto thrust control</p><p><strong>Comment:</strong> It's recommended to set it > 0 to avoid free fall with zero thrust.</p>    </td>
  <td style="vertical-align: top;">0.05 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.12 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TILTMAX_AIR">MPC_TILTMAX_AIR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum tilt angle in air</p><p><strong>Comment:</strong> Limits maximum tilt in AUTO and POSCTRL modes during flight.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum tilt angle in air</p><p><strong>Comment:</strong> Limits maximum tilt in AUTO and POSCTRL modes during flight.</p>    </td>
  <td style="vertical-align: top;">0.0 > 90.0 </td>
  <td style="vertical-align: top;">45.0 </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TILTMAX_LND">MPC_TILTMAX_LND</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum tilt during landing</p><p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum tilt during landing</p><p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>    </td>
  <td style="vertical-align: top;">0.0 > 90.0 </td>
  <td style="vertical-align: top;">12.0 </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TKO_RAMP_T">MPC_TKO_RAMP_T</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position control smooth takeoff ramp time constant</p><p><strong>Comment:</strong> Increasing this value will make automatic and manual takeoff slower. If it's too slow the drone might scratch the ground and tip over.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Position control smooth takeoff ramp time constant</p><p><strong>Comment:</strong> Increasing this value will make automatic and manual takeoff slower. If it's too slow the drone might scratch the ground and tip over.</p>    </td>
  <td style="vertical-align: top;">0.1 > 1 </td>
  <td style="vertical-align: top;">0.4 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TKO_SPEED">MPC_TKO_SPEED</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Takeoff climb rate</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Takeoff climb rate</p>    </td>
  <td style="vertical-align: top;">1 > 5 </td>
  <td style="vertical-align: top;">1.5 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Low pass filter cut freq. for numerical velocity derivative</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Low pass filter cut freq. for numerical velocity derivative</p>    </td>
  <td style="vertical-align: top;">0.0 > 10 </td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">Hz</td>
@@ -4808,258 +4499,107 @@ towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    <p><b>Module:</b> 
  <td style="vertical-align: top;"><strong id="MPC_VEL_MANUAL">MPC_VEL_MANUAL</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum horizontal velocity setpoint for manual controlled mode
 If velocity setpoint larger than MPC_XY_VEL_MAX is set, then
-the setpoint will be capped to MPC_XY_VEL_MAX</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
  <td style="vertical-align: top;">3.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal velocity in mission</p><p><strong>Comment:</strong> Normal horizontal velocity in AUTO modes (includes also RTL / hold / etc.) and endpoint for position stabilized mode (POSCTRL).</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum horizontal velocity in mission</p><p><strong>Comment:</strong> Normal horizontal velocity in AUTO modes (includes also RTL / hold / etc.) and endpoint for position stabilized mode (POSCTRL).</p>    </td>
  <td style="vertical-align: top;">3.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_MAN_EXPO">MPC_XY_MAN_EXPO</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Manual control stick exponential curve sensitivity attenuation with small velocity setpoints</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Manual control stick exponential curve sensitivity attenuation with small velocity setpoints</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_P">MPC_XY_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for horizontal position error</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Proportional gain for horizontal position error</p>    </td>
  <td style="vertical-align: top;">0.0 > 2.0 </td>
  <td style="vertical-align: top;">0.95 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_VEL_D">MPC_XY_VEL_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential gain for horizontal velocity error. Small values help reduce fast oscillations. If value is too big oscillations will appear again</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Differential gain for horizontal velocity error. Small values help reduce fast oscillations. If value is too big oscillations will appear again</p>    </td>
  <td style="vertical-align: top;">0.005 > 0.1 </td>
  <td style="vertical-align: top;">0.01 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_VEL_I">MPC_XY_VEL_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integral gain for horizontal velocity error</p><p><strong>Comment:</strong> Non-zero value allows to resist wind.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Integral gain for horizontal velocity error</p><p><strong>Comment:</strong> Non-zero value allows to resist wind.</p>    </td>
  <td style="vertical-align: top;">0.0 > 0.1 </td>
  <td style="vertical-align: top;">0.02 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_VEL_MAX">MPC_XY_VEL_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal velocity</p><p><strong>Comment:</strong> Maximum horizontal velocity in AUTO mode. If higher speeds are commanded in a mission they will be capped to this velocity.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum horizontal velocity</p><p><strong>Comment:</strong> Maximum horizontal velocity in AUTO mode. If higher speeds are commanded in a mission they will be capped to this velocity.</p>    </td>
  <td style="vertical-align: top;">0.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">12.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_VEL_P">MPC_XY_VEL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for horizontal velocity error</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Proportional gain for horizontal velocity error</p>    </td>
  <td style="vertical-align: top;">0.06 > 0.15 </td>
  <td style="vertical-align: top;">0.09 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_MAN_EXPO">MPC_Z_MAN_EXPO</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Manual control stick vertical exponential curve</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Manual control stick vertical exponential curve</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_P">MPC_Z_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for vertical position error</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Proportional gain for vertical position error</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.5 </td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_D">MPC_Z_VEL_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential gain for vertical velocity error</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Differential gain for vertical velocity error</p>    </td>
  <td style="vertical-align: top;">0.0 > 0.1 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_I">MPC_Z_VEL_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integral gain for vertical velocity error</p><p><strong>Comment:</strong> Non zero value allows hovering thrust estimation on stabilized or autonomous takeoff.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Integral gain for vertical velocity error</p><p><strong>Comment:</strong> Non zero value allows hovering thrust estimation on stabilized or autonomous takeoff.</p>    </td>
  <td style="vertical-align: top;">0.01 > 0.1 </td>
  <td style="vertical-align: top;">0.02 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_MAX_DN">MPC_Z_VEL_MAX_DN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical descent velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum vertical descent velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>    </td>
  <td style="vertical-align: top;">0.5 > 4.0 </td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_MAX_UP">MPC_Z_VEL_MAX_UP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical ascent velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Maximum vertical ascent velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>    </td>
  <td style="vertical-align: top;">0.5 > 8.0 </td>
  <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_P">MPC_Z_VEL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for vertical velocity error</p>    <p><b>Module:</b> modules/mc_pos_control</p>
-</td>
+ <td style="vertical-align: top;"><p>Proportional gain for vertical velocity error</p>    </td>
  <td style="vertical-align: top;">0.1 > 0.4 </td>
  <td style="vertical-align: top;">0.2 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_LAND_SPEED">MPP_LAND_SPEED</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Landing descend rate</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;">m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_THR_MAX">MPP_THR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum thrust</p><p><strong>Comment:</strong> Limit max allowed thrust.</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 1.0 </td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_THR_MIN">MPP_THR_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum thrust</p><p><strong>Comment:</strong> Minimum vertical thrust. It's recommended to set it > 0 to avoid free fall with zero thrust.</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 1.0 </td>
- <td style="vertical-align: top;">0.1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_TILTMAX_AIR">MPP_TILTMAX_AIR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum tilt angle in air</p><p><strong>Comment:</strong> Limits maximum tilt in AUTO and POSCTRL modes during flight.</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 90.0 </td>
- <td style="vertical-align: top;">45.0 </td>
- <td style="vertical-align: top;">deg</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_TILTMAX_LND">MPP_TILTMAX_LND</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum tilt during landing</p><p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 90.0 </td>
- <td style="vertical-align: top;">15.0 </td>
- <td style="vertical-align: top;">deg</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_XY_FF">MPP_XY_FF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Horizontal velocity feed forward</p><p><strong>Comment:</strong> Feed forward weight for position control in position control mode (POSCTRL). 0 will give slow responce and no overshot, 1 - fast responce and big overshot.</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 1.0 </td>
- <td style="vertical-align: top;">0.5 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_XY_P">MPP_XY_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for horizontal position error</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_XY_VEL_D">MPP_XY_VEL_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential gain for horizontal velocity error. Small values help reduce fast oscillations. If value is too big oscillations will appear again</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.01 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_XY_VEL_I">MPP_XY_VEL_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integral gain for horizontal velocity error</p><p><strong>Comment:</strong> Non-zero value allows to resist wind.</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.02 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_XY_VEL_MAX">MPP_XY_VEL_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal velocity</p><p><strong>Comment:</strong> Maximum horizontal velocity in AUTO mode and endpoint for position stabilized mode (POSCTRL).</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">5.0 </td>
- <td style="vertical-align: top;">m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_XY_VEL_P">MPP_XY_VEL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for horizontal velocity error</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_Z_FF">MPP_Z_FF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Vertical velocity feed forward</p><p><strong>Comment:</strong> Feed forward weight for altitude control in stabilized modes (ALTCTRL). 0 will give slow responce and no overshot, 1 - fast responce and big overshot.</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > 1.0 </td>
- <td style="vertical-align: top;">0.5 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_Z_P">MPP_Z_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for vertical position error</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_Z_VEL_D">MPP_Z_VEL_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential gain for vertical velocity error</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_Z_VEL_I">MPP_Z_VEL_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integral gain for vertical velocity error</p><p><strong>Comment:</strong> Non zero value allows hovering thrust estimation on stabilized or autonomous takeoff.</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.02 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_Z_VEL_MAX">MPP_Z_VEL_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL).</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">5.0 </td>
- <td style="vertical-align: top;">m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPP_Z_VEL_P">MPP_Z_VEL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for vertical velocity error</p>    <p><b>Module:</b> examples/mc_pos_control_multiplatform</p>
-</td>
- <td style="vertical-align: top;">0.0 > ? </td>
- <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
@@ -5577,173 +5117,6 @@ The module where these parameters are defined is: *examples/bottle_drop*.
  <td style="vertical-align: top;">30.0 > 500.0 </td>
  <td style="vertical-align: top;">120.0 </td>
  <td style="vertical-align: top;">m</td>
-</tr>
-</tbody></table>
-
-## Position Estimator
-
-
-The module where these parameters are defined is: *examples/ekf_att_pos_estimator*.
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_ABIAS_PNOISE">PE_ABIAS_PNOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer bias estimate process noise</p><p><strong>Comment:</strong> Generic defaults: 0.00001f, multicopters: 0.00001f, ground vehicles: 0.00001f. Increasing this value makes the bias estimation faster and noisier.</p>    </td>
- <td style="vertical-align: top;">0.00001 > 0.001 </td>
- <td style="vertical-align: top;">1e-05 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_ACC_PNOISE">PE_ACC_PNOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer process noise</p><p><strong>Comment:</strong> Generic defaults: 0.25, multicopters: 0.25, ground vehicles: 0.25. Increasing this value makes the filter trust the accelerometer less and other sensors more.</p>    </td>
- <td style="vertical-align: top;">0.05 > 1.0 </td>
- <td style="vertical-align: top;">0.125 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_EAS_NOISE">PE_EAS_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airspeed measurement noise</p><p><strong>Comment:</strong> Increasing this value will make the filter trust this sensor less and trust other sensors more.</p>    </td>
- <td style="vertical-align: top;">0.5 > 5.0 </td>
- <td style="vertical-align: top;">1.4 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_GBIAS_PNOISE">PE_GBIAS_PNOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro bias estimate process noise</p><p><strong>Comment:</strong> Generic defaults: 1e-07f, multicopters: 1e-07f, ground vehicles: 1e-07f. Increasing this value will make the gyro bias converge faster but noisier.</p>    </td>
- <td style="vertical-align: top;">0.00000005 > 0.00001 </td>
- <td style="vertical-align: top;">1e-07 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_GPS_ALT_WGT">PE_GPS_ALT_WGT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>GPS vs. barometric altitude update weight</p><p><strong>Comment:</strong> RE-CHECK this.</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 </td>
- <td style="vertical-align: top;">0.9 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_GYRO_PNOISE">PE_GYRO_PNOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro process noise</p><p><strong>Comment:</strong> Generic defaults: 0.015, multicopters: 0.015, ground vehicles: 0.015. This noise controls how much the filter trusts the gyro measurements. Increasing it makes the filter trust the gyro less and other sensors more.</p>    </td>
- <td style="vertical-align: top;">0.001 > 0.05 </td>
- <td style="vertical-align: top;">0.015 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_HGT_DELAY_MS">PE_HGT_DELAY_MS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Height estimate delay</p><p><strong>Comment:</strong> The delay in milliseconds of the height estimate from the barometer.</p>    </td>
- <td style="vertical-align: top;">0 > 1000 </td>
- <td style="vertical-align: top;">350 </td>
- <td style="vertical-align: top;">ms</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_MAGB_PNOISE">PE_MAGB_PNOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer body frame offsets process noise</p><p><strong>Comment:</strong> Generic defaults: 0.0003, multicopters: 0.0003, ground vehicles: 0.0003. Increasing this value makes the magnetometer body bias estimate converge faster but also noisier.</p>    </td>
- <td style="vertical-align: top;">0.0001 > 0.01 </td>
- <td style="vertical-align: top;">0.0003 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_MAGB_X">PE_MAGB_X</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer X bias</p><p><strong>Comment:</strong> The magnetometer bias. This bias is learnt by the filter over time and persists between boots.</p>    </td>
- <td style="vertical-align: top;">-0.6 > 0.6 </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_MAGB_Y">PE_MAGB_Y</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer Y bias</p><p><strong>Comment:</strong> The magnetometer bias. This bias is learnt by the filter over time and persists between boots.</p>    </td>
- <td style="vertical-align: top;">-0.6 > 0.6 </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_MAGB_Z">PE_MAGB_Z</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer Z bias</p><p><strong>Comment:</strong> The magnetometer bias. This bias is learnt by the filter over time and persists between boots.</p>    </td>
- <td style="vertical-align: top;">-0.6 > 0.6 </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_MAGE_PNOISE">PE_MAGE_PNOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer earth frame offsets process noise</p><p><strong>Comment:</strong> Generic defaults: 0.0001, multicopters: 0.0001, ground vehicles: 0.0001. Increasing this value makes the magnetometer earth bias estimate converge faster but also noisier.</p>    </td>
- <td style="vertical-align: top;">0.0001 > 0.01 </td>
- <td style="vertical-align: top;">0.0003 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_MAG_DELAY_MS">PE_MAG_DELAY_MS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag estimate delay</p><p><strong>Comment:</strong> The delay in milliseconds of the magnetic field estimate from the magnetometer.</p>    </td>
- <td style="vertical-align: top;">0 > 1000 </td>
- <td style="vertical-align: top;">30 </td>
- <td style="vertical-align: top;">ms</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_MAG_NOISE">PE_MAG_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Magnetometer measurement noise</p><p><strong>Comment:</strong> Generic defaults: 0.05, multicopters: 0.05, ground vehicles: 0.05</p>    </td>
- <td style="vertical-align: top;">0.01 > 1.0 </td>
- <td style="vertical-align: top;">0.05 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_POSDEV_INIT">PE_POSDEV_INIT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Threshold for filter initialization</p><p><strong>Comment:</strong> If the standard deviation of the GPS position estimate is below this threshold in meters, the filter will initialize.</p>    </td>
- <td style="vertical-align: top;">0.3 > 10.0 </td>
- <td style="vertical-align: top;">5.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_POSD_NOISE">PE_POSD_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position noise in down (vertical) direction</p><p><strong>Comment:</strong> Generic defaults: 1.25, multicopters: 1.0, ground vehicles: 1.0</p>    </td>
- <td style="vertical-align: top;">0.5 > 3.0 </td>
- <td style="vertical-align: top;">1.25 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_POSNE_NOISE">PE_POSNE_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position noise in north-east (horizontal) direction</p><p><strong>Comment:</strong> Generic defaults: 0.5, multicopters: 0.5, ground vehicles: 0.5</p>    </td>
- <td style="vertical-align: top;">0.1 > 10.0 </td>
- <td style="vertical-align: top;">0.5 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_POS_DELAY_MS">PE_POS_DELAY_MS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Position estimate delay</p><p><strong>Comment:</strong> The delay in milliseconds of the position estimate from GPS.</p>    </td>
- <td style="vertical-align: top;">0 > 1000 </td>
- <td style="vertical-align: top;">210 </td>
- <td style="vertical-align: top;">ms</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_TAS_DELAY_MS">PE_TAS_DELAY_MS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>True airspeeed estimate delay</p><p><strong>Comment:</strong> The delay in milliseconds of the airspeed estimate.</p>    </td>
- <td style="vertical-align: top;">0 > 1000 </td>
- <td style="vertical-align: top;">210 </td>
- <td style="vertical-align: top;">ms</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_VELD_NOISE">PE_VELD_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Velocity noise in down (vertical) direction</p><p><strong>Comment:</strong> Generic default: 0.3, multicopters: 0.4, ground vehicles: 0.7</p>    </td>
- <td style="vertical-align: top;">0.2 > 3.0 </td>
- <td style="vertical-align: top;">0.3 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_VELNE_NOISE">PE_VELNE_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Velocity measurement noise in north-east (horizontal) direction</p><p><strong>Comment:</strong> Generic default: 0.3, multicopters: 0.5, ground vehicles: 0.5</p>    </td>
- <td style="vertical-align: top;">0.05 > 5.0 </td>
- <td style="vertical-align: top;">0.3 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PE_VEL_DELAY_MS">PE_VEL_DELAY_MS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Velocity estimate delay</p><p><strong>Comment:</strong> The delay in milliseconds of the velocity estimate from GPS.</p>    </td>
- <td style="vertical-align: top;">0 > 1000 </td>
- <td style="vertical-align: top;">230 </td>
- <td style="vertical-align: top;">ms</td>
 </tr>
 </tbody></table>
 
@@ -10498,13 +9871,6 @@ The module where these parameters are defined is: *modules/sensors*.
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="ATT_VIBE_THRESH">ATT_VIBE_THRESH</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Threshold (of RMS) to warn about high vibration levels</p>    </td>
- <td style="vertical-align: top;">0.01 > 10 </td>
- <td style="vertical-align: top;">0.2 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG_SIDES">CAL_MAG_SIDES</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Bitfield selecting mag sides for calibration</p><p><strong>Comment:</strong> DETECT_ORIENTATION_TAIL_DOWN = 1 DETECT_ORIENTATION_NOSE_DOWN = 2 DETECT_ORIENTATION_LEFT = 4 DETECT_ORIENTATION_RIGHT = 8 DETECT_ORIENTATION_UPSIDE_DOWN = 16 DETECT_ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>Values:</strong><ul>
