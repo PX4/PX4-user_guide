@@ -40,11 +40,58 @@ For this step the files from the [Intrinsyc support](https://support.intrinsyc.c
 
 ### Upgrading/replacing the Linux image
 
-> **Caution** Flashing the Linux image will erase everything on the Snapdragon. Back up your work before you perform this step!
+> **Caution** Flashing the Linux image will erase everything on the Snapdragon. Back up your work before you perform this step! Also, check the [Prevent bricking](#Prevent-bricking) section!
 
 Get the latest Flight_x.x_JFlash.zip from Intrinsyc and unzip it. In the unzipped folder is a script that has to be used to update the Linux image. Power your Snapdragon Flight, connect it using a micro USB cable and run
 ```sh
 sudo ./jflash.sh
+```
+
+#### Prevent bricking
+
+To prevent the system from hanging on boot because of anything wrong with the ADSP firmware, do the following changes before updating:
+
+Edit the file directly on the Snapdragon over `screen` or `adb shell`:
+```sh
+vim /usr/local/qr-linux/q6-admin.sh
+```
+
+Or load the file locally and edit it there with the editor of your choice:
+
+To do this, load the file locally:
+```sh
+adb pull /usr/local/qr-linux/q6-admin.sh
+```
+
+Edit it:
+
+```sh
+gedit q6-admin.sh
+```
+
+And push it back:
+
+```sh
+adb push q6-admin.sh /usr/local/qr-linux/q6-admin.sh
+adb shell chmod +x /usr/local/qr-linux/q6-admin.sh
+```
+
+Comment out the while loops causing boot to hang:
+
+```
+# Wait for adsp.mdt to show up
+#while [ ! -s /lib/firmware/adsp.mdt ]; do
+#  sleep 0.1
+#done
+```
+
+and:
+
+```
+# Don't leave until ADSP is up
+#while [ "`cat /sys/kernel/debug/msm_subsys/adsp`" != "2" ]; do
+#  sleep 0.1
+#done
 ```
 
 ### Updating the ADSP firmware
