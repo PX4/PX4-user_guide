@@ -6700,19 +6700,6 @@ The module where these parameters are defined is: *modules/position_estimator_in
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="RC_RL1_DSM_VCC">RC_RL1_DSM_VCC</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Relay control of relay 1 mapped to the Spektrum receiver power supply</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>1:</strong> Relay controls DSM power</li> 
-</ul>
-   <p><b>Module:</b> modules/sensors</p>
-</td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="RC_RSSI_PWM_CHAN">RC_RSSI_PWM_CHAN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>PWM input channel that provides RSSI</p><p><strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
@@ -6773,14 +6760,6 @@ The module where these parameters are defined is: *modules/position_estimator_in
 </td>
  <td style="vertical-align: top;">0 > 2000 </td>
  <td style="vertical-align: top;">2000 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RC_TH_USER">RC_TH_USER</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RC mode switch threshold automatic distribution</p><p><strong>Comment:</strong> This parameter is used by Ground Station software to specify whether the threshold values for flight mode switches were automatically calculated. 0 indicates that the threshold values were set by the user. Any other value indicates that the threshold value where automatically set by the ground station software. It is only meant for ground station use.</p>    <p><b>Module:</b> modules/sensors</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
