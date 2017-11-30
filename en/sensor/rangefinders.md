@@ -119,7 +119,7 @@ You can also use the *QGroundControl MAVLink Console* to observe the `distance_s
 listener distance_sensor 5
 ```
 
-> **Note** This works when connected to Pixhawk or other NuttX targets, but not the Simulator. 
+> **Note** The *QGroundControl MAVLink Console* works when connected to Pixhawk or other NuttX targets, but not the Simulator. On the Simulator you can run the commands directly in the terminal.
 
 For more information see: [Sensor/Topic Debugging using the Listener Command](https://dev.px4.io/en/debug/sensor_uorb_topic_debugging.html) (PX4 Development Guide).
 
