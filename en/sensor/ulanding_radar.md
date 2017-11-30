@@ -13,14 +13,15 @@ The *Aerotenna* [uLanding](https://aerotenna.com/sensors/#ulanding) altimeter is
  
 ### Add the Driver to the Firmware
 
-Add the following line to the *cmake* config file which corresponds to the target you want to build for:
+Add the following line to the *cmake* [config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) which corresponds to the target you want to build for:
 ```
 drivers/ulanding
 ```
 
-All config files are located [here.](https://github.com/PX4/Firmware/tree/master/cmake/configs) If you are running a Posix build
-and want to use the uLanding driver, your config file will need to include `-D__PX4_POSIX` in the `add_definitions` section. An example
-of how to do this is in either of the OcPoc config files (**posix_ocpoc_cross.cmake** or **posix_ocpoc_ubuntu.cmake**) - but you do not 
+If you are running a Posix build and want to use the uLanding driver, 
+your config file will need to include `-D__PX4_POSIX` in the `add_definitions` section. 
+An example of how to do this is in either of the OcPoc config files 
+(**posix_ocpoc_cross.cmake** or **posix_ocpoc_ubuntu.cmake**) - but you do not 
 need an OcPoc as the driver will run on any Posix build.  
 
 ### Start the Driver {#start_driver}

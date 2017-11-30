@@ -16,8 +16,8 @@ PX4 supports the following LightWare Lidar rangefinders through the I2C bus (onl
 
 Newer sensors/versions require no additional configuration.
 
-> **Tip** Older sensors may be miss-configured to have an I2C address equal to `0x55` (this conflicts with `rgbled` module).
-> You can check the address by connecting the sensor via USB (it has an internal USB to serial converter), run terminal, press **space**.
+> **Tip** Older sensors may be miss-configured to have an I2C address equal to `0x55` (this conflicts with `rgbled` module). 
+> On Linux systems you may be able to determine the address using [i2cdetect](http://manpages.ubuntu.com/manpages/zesty/man8/i2cdetect.8.html).
 > If the I2C address is equal to `0x66` the sensor can be used with PX4.
 
 

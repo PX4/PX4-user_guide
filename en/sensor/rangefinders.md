@@ -9,15 +9,25 @@ This section lists the rangefinders supported by PX4 and the generic configurati
 > **Tip** The drivers for less common rangefinders may not be present by default in all firmware. In this case you may need to add the driver into your *cmake* configuration file and build the firmware yourself. For more information see the [PX4 Development Guide](https://dev.px4.io/en/setup/building_px4.html).
 
 
+<img src="../../assets/hardware/sensors/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/uLanding_lite_1.jpg" alt="Aerotenna uLanding" width="200px" />
+
 ## Supported Rangefinders
 
 ### Lidar-Lite
 
-The [Lidar Lite](https://buy.garmin.com/en-AU/AU/p/557294) can be used with either PWM (serial) or I2C (PWM is recommended as some older models do not behave reliably on I2C). The rangefinder/port is enabled using [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS).
+The *Lidar Lite* can be used with either PWM or I2C. The rangefinder/port is enabled using [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS):
 
-Wiring information with Pixhawk can be found here: [Lidar lite](https://pixhawk.org/peripherals/rangefinder#lidar-lite) (pixhawk.org).
+* [LIDAR-Lite v3](https://buy.garmin.com/en-AU/AU/p/557294) (5cm - 40m)
 
-The driver for this rangefinder is typically available in firmware (driver added as: `drivers/ll40ls`).
+Pixhawk wiring information and Lidar-lite specific test instructions can be found here: [Lidar lite](https://pixhawk.org/peripherals/rangefinder#lidar-lite) (pixhawk.org).
+<!-- This is specific to the ll40ls (usually Lidar Lite) connected via PWM. When running ll40ls test pwm, there will be an output. You can also use it for testing if you connect it via I2C. https://github.com/PX4/Firmware/blob/master/src/drivers/ll40ls/ll40ls.cpp#L336-L345 Just replace pwm with i2c -->
+
+The driver for this rangefinder is usually present in firmware (driver added as: `drivers/ll40ls`).
+
+> **Note** PWM is recommended if using an older model (some older models do not behave reliably on I2C). 
+
+<span></span>
+> **Info** The *Lidar-Lite v3* is used in the [The Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md##connecting-a-lidar-lite-range-finder).
 
 
 ### MaxBotix I2CXL-MaxSonar-EZ
@@ -53,6 +63,7 @@ These rangefinders must be connected via the I2C bus (using an [I2C adapter](htt
 
 The sensors are enabled using the parameter [SENS_EN_TRANGER](../advanced_config/parameter_reference.md#SENS_EN_TRANGER) (you can set the type of sensor or that PX4 should auto-detect the type).
 
+> **Info** The *Terranger One* is used in the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md). 
 
 ### uLanding Radar
 
@@ -68,15 +79,35 @@ PX4 also supports the Bebop rangefinder.
 
 ## Rangefinder Configuration
 
-The rangefinder is configured using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_AID) parameters, e.g. delay, offset of rangefinder from vehicle body, etc.
+The rangefinder is configured using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X) parameters, e.g. delay, offset of rangefinder from vehicle body, etc.
+
+The rangefinder can also be used to improve altitude measurements even if it is not the primary height source by setting [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_RNG_AID) to 1. Other parameters affecting "Range Aid" are prefixed with `EKF2\_RNG\_A\_`.
 
 
 ## Testing
 
-Rangefinder values/performance can be tested using the *QGroundControl Analyse tool*, or in the *QGroundControl MAVLink Console* by observing the `distance_sensor` uORB topic:
+The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4. The sections below show some approaches to getting the measured range.
+
+### QGC MAVLink Inspector
+
+The *QGroundControl MAVLink Inspector* tool lets you check the altitude sent from the vehicle. If you set the vehicle to use a rangefinder as the main height source, then this should reflect the sensor values:
+
+1. Set the rangefinder as the main height source (TBD)
+1. Open the menu **Widgets > MAVLink Inspector**:
+
+   ![Menu for QGC MAVLink Inspector](../../assets/qgc/menu_mavlink_inspector.png)
+1. Select the target vehicle and then the `ALTITUDE` message. Observe the value as shown:
+   ![MAVLink Inspector ALTITUDE value](../../assets/qgc/mavlink_inspector_altitude.png)
+
+
+### QGroundControl MAVLink Console
+
+You can also use the *QGroundControl MAVLink Console* to observe the `distance_sensor` uORB topic:
 ```sh
 listener distance_sensor 5
 ```
+
+> **Note** This works when connected to Pixhawk or other NuttX targets, but not the Simulator. 
 
 For more information see: [Sensor/Topic Debugging using the Listener Command](https://dev.px4.io/en/debug/sensor_uorb_topic_debugging.html) (PX4 Development Guide).
 
@@ -84,11 +115,55 @@ For more information see: [Sensor/Topic Debugging using the Listener Command](ht
 ## Simulation
 
 Lidar and sonar rangefinders can be used in the [Gazebo Simulator](https://dev.px4.io/en/simulation/gazebo.html) (PX4 Development Guide).
+To do this you must start the simulator using a vehicle model that includes the rangefinder. 
 
-<!-- 
-gazebo lidar
-gazebo sonar
---> 
+The iris optical flow model includes a Lidar rangefinder:
+```sh
+make posix_sitl_default gazebo_iris_opt_flow
+```
+
+The typhoon_h480 includes a sonar rangefinder:
+```sh
+make posix_sitl_default gazebo_typhoon_h480
+```
+
+If you need to use a different vehicle you can include the model in its configuration file. You can see how in the respective Iris and Typhoon configuration files:
+- [iris_opt_flow.sdf](https://github.com/PX4/sitl_gazebo/blob/master/models/iris_opt_flow/iris_opt_flow.sdf)
+  ```xml
+    <include>
+      <uri>model://sonar</uri>
+    </include>
+    <joint name="sonar_joint" type="revolute">
+      <child>sonar_model::link</child>
+      <parent>typhoon_h480::base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+   ```
+- [typhoon_h480.sdf](
+https://github.com/PX4/sitl_gazebo/blob/master/models/typhoon_h480/typhoon_h480.sdf#L1144)
+  ```xml
+    <include>
+      <uri>model://lidar</uri>
+      <pose>-0.12 0 0 0 3.1415 0</pose>
+    </include>
+    <joint name="lidar_joint" type="revolute">
+      <child>lidar::link</child>
+      <parent>iris::base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+  ```
 
 
 ## Further Information
