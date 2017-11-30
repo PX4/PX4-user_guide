@@ -97,16 +97,19 @@ The rangefinder can be enabled in two ways:
 
 The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4. The sections below show some approaches to getting the measured range.
 
-### QGC MAVLink Inspector
+### QGroundControl Analyze Tool 
 
-The *QGroundControl MAVLink Inspector* tool lets you check the altitude sent from the vehicle. If you set the vehicle to use a rangefinder as the main height source, then this should reflect the sensor values:
+The *QGroundControl Analyze Tool* tool and *QGroundControl MAVLink Inspector* let you get messages sent from the vehicle, including `DISTANCE_SENSOR` from the rangefinder. The main difference between the tools is that the *Analyze* tool allows you to plot the messages, which and make for easier review.
 
-1. Make the rangefinder the main height source (set parameter `EKF2_HGT_MODE` to Range finder (`2`))
-1. Open the menu **Widgets > MAVLink Inspector**:
+> **Note** The messages that are sent depend on the vehicle configuration. You will only get `distance_sensor` messages if the connected vehicle has a rangefinder installed and is publishing sensor values. 
 
-   ![Menu for QGC MAVLink Inspector](../../assets/qgc/menu_mavlink_inspector.png)
-1. Select the target vehicle and then the `ALTITUDE` message. Observe the value as shown:
-   ![MAVLink Inspector ALTITUDE value](../../assets/qgc/mavlink_inspector_altitude.png)
+To view the rangefinder output::
+
+1. Open the menu **Widgets > Analyze**:
+
+   ![Menu for QGC Analyze Tool](../../assets/qgc/menu_analyze_tool.png)
+1. Select the message `DISTANCE_SENSOR.current_value`. The tool will then plot the result:
+   ![QGC Analyze DISTANCE_SENSOR value](../../assets/qgc/qgc_analyze_tool_distance_sensor.png)
 
 
 ### QGroundControl MAVLink Console
