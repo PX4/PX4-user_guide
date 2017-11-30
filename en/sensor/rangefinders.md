@@ -79,10 +79,19 @@ PX4 also supports the Bebop rangefinder.
 
 ## Rangefinder Configuration
 
-The rangefinder is configured using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X) parameters, e.g. delay, offset of rangefinder from vehicle body, etc.
+### Setup
 
-The rangefinder can also be used to improve altitude measurements even if it is not the primary height source by setting [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_RNG_AID) to 1. Other parameters affecting "Range Aid" are prefixed with `EKF2\_RNG\_A\_`.
+The rangefinder is configured using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X) parameters. These configure information about the offset of the rangefinder from the centre of the vehicle body, the approximate delay of data reaching the estimator from the sensor, etc.
 
+### Enable/Use
+
+The rangefinder can be enabled in two ways:
+1. Set [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) to *Range finder* (`2`). This makes the rangefinder the primary source of height estimation (the default altitude sensor is the barometer).
+1. Set [EKF2_RNG_AID](../advanced_config/parameter_reference.md#EKF2_RNG_AID) to `1`. This makes the vehicle use the rangefinder as the primary source when it is safe to use, but will otherwise use the sensor specified in `EKF2_HGT_MODE`.
+   * Specifically, the rangefinder is enabled when: 
+     * velocity < [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX)
+     * distance to ground < [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX)
+   * Other parameters affecting "Range aid" are prefixed with `EKF2\_RNG\_A\_`.
 
 ## Testing
 
@@ -92,7 +101,7 @@ The easiest way to test the rangefinder is to vary the range and compare to the 
 
 The *QGroundControl MAVLink Inspector* tool lets you check the altitude sent from the vehicle. If you set the vehicle to use a rangefinder as the main height source, then this should reflect the sensor values:
 
-1. Set the rangefinder as the main height source (TBD)
+1. Make the rangefinder the main height source (set parameter `EKF2_HGT_MODE` to Range finder (`2`))
 1. Open the menu **Widgets > MAVLink Inspector**:
 
    ![Menu for QGC MAVLink Inspector](../../assets/qgc/menu_mavlink_inspector.png)
