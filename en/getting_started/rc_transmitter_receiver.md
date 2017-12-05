@@ -69,11 +69,13 @@ The appropriate connection for each type of receiver is described below:
 
 ### Transmitters
 
-One of the most popular radio systems is the open source *FrSky Taranis PPM-Sum Compatible Transmitter*. This is compatible with many high quality FrSky PPM-Sum compatible receivers.
+One of the most popular radio systems is the *FrSky Taranis X9D Remote Control*. It offers high flexibility thanks to the highly customizable open source OpenTX Firmware and a custom radio transmitter module slot. It can directly be used with the internal transmitter module when binding for example to the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers.
 
 ![Taranis X9D Transmitter](../../images/frsky_taranis_x9d_transmitter.jpg)
 
-Other popular transmitter/receiver combinations include:
+Other popular remote control transmitter/receiver combinations include:
 
-* Turnigy transmitters (with the FrSky Transmitter Module) and compatible PPM-Sum receivers.
+* Turnigy remote e.g. with the FrSky transmitter/receiver modules.
 * Futaba Transmitters and compatible Futaba S-Bus receivers.
+* Long range ~900MHz, low latency: "Team Black Sheep Crossfire" or "Crossfire Micro" set with a compatible remote (e.g. Taranis)
+* Long Range ~433MHz: ImmersionRC EzUHF set with a compatible remote (e.g. Taranis)
