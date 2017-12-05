@@ -1,6 +1,6 @@
 # LeddarOne Lidar
 
-//https://github.com/PX4/Firmware/pull/8409
+> **Caution** As time of writing this is not in the master codeline. Track its inclusion through [#8409](https://github.com/PX4/Firmware/pull/8409).
 
 [LeddarOne](https://leddartech.com/modules/leddarone/) is small-size Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
 
