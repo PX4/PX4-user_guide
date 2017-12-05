@@ -71,6 +71,11 @@ The *Aerotenna* [uLanding](https://aerotenna.com/sensors/#ulanding) altimeter is
 
 The uLanding Radar is not present in "most" firmware by default and must be started by updating a configuration file (rather than by a parameter). More information can be found here: [uLanding Radar](../sensor/ulanding_radar.md).
 
+### LeddarOne
+
+[LeddarOne](https://leddartech.com/modules/leddarone/) is small-size lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance in a robust, reliable, cost-effective package. It has a sensing range is from 1cm to 40m and needs to be connected to a UART/serial bus.
+
+The LeddarOne is not present in "most" firmware by default and must be started by updating a configuration file (rather than by a parameter). More information can be found here: [LeddarOne](../sensor/leddar_one.md).
 
 ### Other
 
