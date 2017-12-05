@@ -1,6 +1,14 @@
-# LeddarOne
+# LeddarOne Lidar
 
-[LeddarOne](https://leddartech.com/modules/leddarone/) is small-size lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance in a robust, reliable, cost-effective package. It has a sensing range is from 1cm to 40m and needs to be connected to a UART/serial bus.
+//https://github.com/PX4/Firmware/pull/8409
+
+[LeddarOne](https://leddartech.com/modules/leddarone/) is small-size Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
+
+The *LeddarOne* is not automatically included in most firmware, and hence cannot be used just by setting a parameter through *QGroundControl* (as is possible with some other rangefinders). 
+To use it you will need to add the driver to firmware and update a configuration file to start the driver on boot. The sections below explain how.
+
+<img src="../../assets/hardware/sensors/leddar_one.jpg" alt="LeddarOne Lidar rangefinder" width="200px" />
+
 
 ## Supporting LeddarOne in Firmware
 
@@ -17,9 +25,11 @@ You can simply add the following line to an [extras.txt](https://dev.px4.io/en/a
 leddar_one start -d /dev/serial_port
 ```
 
-In the above command you will have to replace the last argument with the serial port you have connected the hardware to. Make sure that there is no MAVLink stream in the serial port choosen, if there is one find the parameter to disable it.
+In the above command you will have to replace the last argument with the id of the serial port used to connect the hardware. Make sure that there is no MAVLink stream in the selected serial port (if there is find the parameter to disable it).
+
+For more information see: [System Startup > Customizing the System Startup](https://dev.px4.io/en/advanced/system_startup.html#customizing-the-system-startup) (PX4 Development Guide).
 
 ## Hardware Setup
 
-You can connect to any free serial port, but you will need to [start the driver](#start_driver) on this port (as above).
+You can connect to any free serial port (e.g. TELEM2), but you will need to [start the driver](#start_driver) on this port (as above).
 Just build a cable following your board pinout and [LeddarOne pinout](https://leddartech.com/app/uploads/dlm_uploads/2017/05/Spec-Sheets-LeddarOne-27octobre2017-web.pdf) you only will need to connect 5V, TX, RX and GND pins.

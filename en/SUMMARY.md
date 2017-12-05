@@ -82,6 +82,7 @@
   * [Rangerfinders](sensor/rangefinders.md)
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
+    * [LeddarOne Lidar](sensor/leddar_one.md)
 * [Autopilot Hardware](flight_controller/README.md)
   * [Pixhawk Series](flight_controller/pixhawk_series.md)
     * [Pixhawk 1](flight_controller/pixhawk.md)
