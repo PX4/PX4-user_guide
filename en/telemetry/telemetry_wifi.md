@@ -7,14 +7,14 @@ PX4 supports telemetry via UDP and Wifi. It broadcasts a heartbeat to port 14550
 
 ## 3DR WiFi Telemetry
 
-The [3DR WiFi Telemetry Radio](https://store.3dr.com/products/wifi-telemetry-radio) is supported by PX4. Simply connect it to the flight controller's `TELEM` port. Once connected to the WiFi, it should automatically connect to *QGroundControl*.
+The [3DR WiFi Telemetry Radio](https://store.3dr.com/products/wifi-telemetry-radio) is supported by PX4. Simply connect it to the flight controller's `TELEM1` port to create a WiFi "hotspot" for the vehicle with the details below:
 
-The connection details are:
 ```sh
 essid: APM_PIX
 password: 12345678
 ```
 
+Connect your ground control station to the above WiFi SSID. After connecting the vehicle should automatically be detected and connect to *QGroundControl*.
+
 ![3DR Wifi Telemetry Radio 1](../../assets/hardware/telemetry/3dr_telemetry_wifi_1.jpg)
 ![3DR Wifi Telemetry Radio 2](../../assets/hardware/telemetry/3dr_telemetry_wifi_2.png)
-
