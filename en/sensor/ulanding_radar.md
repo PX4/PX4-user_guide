@@ -4,9 +4,7 @@ The *Aerotenna* [uLanding](https://aerotenna.com/sensors/#ulanding) altimeter is
 
 <img src="../../assets/hardware/sensors/uLanding_lite_1.jpg" alt="Aerotenna uLanding" width="300px" />
 
-> **Note** Due to flash space limitations on some flight controllers the driver may not be built into all firmware. 
-> In order to use this rangefinder you will need to build PX4 and add the firmware yourself. 
-> This is requires an understanding of the build system. For more information see the [PX4 Development Guide](https://dev.px4.io/en/).
+The rangefinder is not automatically included in most firmware, and hence cannot be used just by setting a parameter through *QGroundControl* (as is possible with some other rangefinders). To use it you will need to add the driver to firmware and update a configuration file to start the driver on boot. The sections below explain how.
 
 
 ## Supporting uLanding in Firmware
@@ -32,12 +30,12 @@ You can simply add the following line to an [extras.txt](https://dev.px4.io/en/a
 ulanding_radar start /dev/serial_port
 ```
 
-In the above command you will have to replace the last argument with the serial port you have connected the hardware to.
+In the above command you will have to replace the last argument with the id of the serial port used to connect the hardware. 
 If you don't specify any port the driver will use `/dev/ttyS2` which is the **TELEM2** port on Pixhawk. If either of the OcPoc config
 files are used (**posix_ocpoc_cross.cmake** or **posix_ocpoc_ubuntu.cmake**) the default port will be `/dev/ttyS6`.
 
 > **Warning** If you are connecting the radar device to **TELEM2** then make sure to set the parameter [SYS_COMPANION](../advanced_config/parameter_reference.md#SYS_COMPANION) to 0. Otherwise the
-serial port will be used by a another application and you will get unexpected behaviour.
+serial port may be used by another application and you will get unexpected behaviour.
 
 ## Hardware Setup
 
@@ -45,3 +43,9 @@ The rangefinder is supported by any hardware which runs a NuttX or Posix OS and 
 interface. Minimally this will include most, if not all, [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers.
 
 You can connect to any free serial port - e.g. **TELEM2**, but you will need to [start the driver](#start_driver) on this port (as above).
+
+## Further Information
+
+<!-- Would be good to add links to topics on adding drivers to firmware -->
+* [PX4 Development Guide](https://dev.px4.io/en/)
+* [System Startup > Customizing the System Startup](https://dev.px4.io/en/advanced/system_startup.html#customizing-the-system-startup) (PX4 Development Guide)
