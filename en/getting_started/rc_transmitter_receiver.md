@@ -6,11 +6,11 @@ A remote control (RC) radio system is required if you want to *manually* control
 
 ## How do RC Systems Work?
 
-An RC system has a ground-based *remote control unit* that is used by the operator to control the vehicle. The remote control typically contains a radio transmitter that is bound to, and communicates with, a (compatible) receiver on the vehicle. The receiver is connected to the flight controller, which in turn drives the vehicle motors and actuators.
+An *RC system* has a ground-based *remote control unit* that is used by the operator to command the vehicle. The remote control contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. The receiver is connected to the flight controller, which in turn drives the vehicle motors and actuators.
 
 <!-- image showing the different parts here would be nice -->
 
-> **Note** Some RC systems also allow the remote control unit to receive and display vehicle telemetry (e.g. battery level, flight mode, etc.). This requires radio modules that can both transmit and receive, and a configurable remote control unit.
+> **Note** *Telemetry-enabled* RC systems additionally allow the remote control unit to receive and display vehicle information (e.g. battery level, flight mode) back from the vehicle.
 
 The transmitter encodes a number of separate discrete *channels* within the radio signal, each which can be used to send the value of a single switch, dial, control stick position in one axis, etc.
 
@@ -27,7 +27,7 @@ There are numerous possible layouts for the control sticks, switches, etc. The m
 
 ![Mode1-Mode2](../../images/mode1_mode2.png)
 
-> **Note** The choice of mode is largely one of taste, and must be made before you buy the remote control.
+> **Note** The choice of mode is largely one of taste (*Mode 2* is more popular).
   
 
 ## Remote Control Units for Ground Vehicles
@@ -56,7 +56,7 @@ One of the most popular radio control units is the *FrSky Taranis X9D*. It offer
 
 Turnigy remote control units are also popular, and can be used with FrSky radio modules.
 
-### Transmitters
+### Transmitter/Receiver Pairs
 
 * *FrSky Taranis X9D Remote Control* internal transmitter module (recommended for use with receivers: *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy)).
 * Turnigy remote e.g. with the FrSky transmitter/receiver modules.
@@ -65,11 +65,11 @@ Turnigy remote control units are also popular, and can be used with FrSky radio 
 * Long Range ~433MHz: ImmersionRC EzUHF set with a compatible remote (e.g. Taranis)
 
 
-### Receivers
+## Compatible Receivers {#compatible_receivers}
 
-Different receivers connect to the flight controller using different protocols/connectors. 
+In addition to the transmitter/receiver pairs being compatible, the receiver must also be compatible with PX4 and the flight controller hardware.
 
-Pixhawk supports many different radio receiver models. *PX4* and *Pixhawk* have been validated with:
+*PX4* and *Pixhawk* have been validated with:
 
 - All Spektrum DSM RC receivers
 - All Futaba S.BUS and S.BUS2 RC receivers
@@ -77,14 +77,31 @@ Pixhawk supports many different radio receiver models. *PX4* and *Pixhawk* have 
 - Graupner HoTT
 - All PPM models from other manufacturers
 
-The appropriate connection for each type of receiver is described below:
 
-- PPM and S.BUS receivers must connect to the **RC** ground, power and signal pins as shown.
-  ![Pixhawk - Radio port for PPM/S.BUS receivers](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
+## Connecting Receivers
+
+As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
+
+- Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
+- PPM and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
 - PWM receivers must connect to the RCIN channel *via* a PPM encoder 
-  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM receivers use a single signal wire for all channels, while PWM receivers have an individual wire for each channe).
-- Spektrum and DSM receivers must connect to the **SPKT/DSM** input.
-  ![Pixhawk - Radio port for Spektrum receivers](../../images/pixhawk_3dr_receiver_spektrum.jpg)
+  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM receivers use a single signal wire for all channels, while PWM receivers have an individual wire for each channel).
+
+Instructions for connecting to specific flight controllers are given in the following quick-start guides:
+
+* [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
+* [Pixhawk Mini](../assembly/quick_start_pixhawk_mini.md#radioremote-control)
+* [Pixracer](../assembly/quick_start_pixracer.md)
+
+> **Tip** See the manufacturer's flight controller setup guide for additional information. 
+
+
+## Binding Transmitter/Receiver {#binding}
+
+Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other. The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions).
+
+If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
+
 
 ## Related Topics
 

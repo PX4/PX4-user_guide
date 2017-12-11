@@ -16,3 +16,16 @@
 ![Grau pixracer double](../../assets/flight_controller/pixracer/grau_pixracer_double.jpg)
 
 
+## Radio/Remote Control
+
+For general information about selecting a radio system, receiver compatibility, and binding see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+
+- PPM and S.BUS receivers must connect to the **RCIN** port.
+- PWM receivers (with individual cables for each channel) must connect
+  to the RCIN channel *via* a PPM encoder 
+  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html).
+- FrSky receivers must support via the port shown, and can use the provided I/O Connector
+  
+![Radio Connection](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg)
+
+![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
