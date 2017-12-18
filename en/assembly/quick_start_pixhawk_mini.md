@@ -101,16 +101,9 @@ Pixhawk Mini supports many different radio receiver models:
 
   <img src="../../images/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
 
-*PX4* and *Pixhawk Mini* is have been validated with:
+For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
-- All Spektrum DSM RC receivers
-- All Futaba S.BUS and S.BUS2 RC receivers
-- All FrSky PPM and S.Bus models
-- Graupner HoTT
-- All PPM models from other manufacturers
 
-> **Note** ADD SOMETHING ON BINDING TO RECIEVER TO BIND
-> **Note** ADD SOMETHING ON DIFFERENT TRANSMITTERS. We PERHAPS NEED A COMPATIBILITY PAGE  
 
 ## Safety switch (optional)
 

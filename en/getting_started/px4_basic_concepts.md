@@ -36,8 +36,12 @@ You can follow the links to see detailed explanation on each connection type.
 
 ## Remote Control
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes). A radio system consists of a transmitter with the operator that communicates with a receiver based on the vehicle. 
+A remote control (RC) radio system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate with a receiver based on the vehicle. 
+
+> **Note** PX4 does not require a remote control system for autonomous flight modes.
 
 ![Taranis X9D Transmitter](../../images/frsky_taranis_x9d_transmitter.jpg)
 
-To pick a radio system see: [RC System Selection](../getting_started/rc_transmitter_receiver.md). To learn more about flying with an RC transmitter see: [Flying 101](../flying/basic_flying.md).
+[RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
+* [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in *QGroundControl*.
+* [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control. 
