@@ -11,7 +11,7 @@ On *telemetry-enabled* RC systems, the remote control unit can also receive and 
 
 ![Taranis X9D Transmitter](../../images/frsky_taranis_x9d_transmitter.jpg)
 
-The remote control unit contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle that is connected to the flight controller. The flight controller determines how interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
+The remote control unit contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. The vehicle-based unit is connected to the flight controller. The flight controller determines how interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
 
 <!-- image showing the different parts here would be nice -->
 
@@ -19,7 +19,7 @@ The remote control unit contains a radio module that is bound to, and communicat
 
 An important quality of an RC system is how many "channels" it supports. The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used). 
 
-An aircraft must use a system that supports at least 4 channels (for roll, pitch, yaw, thrust). Ground vehicles need at least two channels (steering + throttle). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md)/ provided by the autopilot. 
+An aircraft must use a system that supports at least 4 channels (for roll, pitch, yaw, thrust). Ground vehicles need at least two channels (steering + throttle). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot. 
 
 ## Types of Remote Controls
 
@@ -82,9 +82,9 @@ In addition to the transmitter/receiver pairs being compatible, the receiver mus
 As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
 
 - Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
-- PPM and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
-- PWM receivers must connect to the RCIN channel *via* a PPM encoder 
-  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM receivers use a single signal wire for all channels, while PWM receivers have an individual wire for each channel).
+- PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
+- PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder.
+  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 Instructions for connecting to specific flight controllers are given in the following quick-start guides:
 
