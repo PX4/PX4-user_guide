@@ -1,8 +1,10 @@
 # Pixhack V3
 
-The CUAV *Pixhack V3* autopilot is a flexible autopilot intended primarily for manufacturers of commercial systems.  
-It is a variant of the hardware based on PH2 (SOLO pixhawk2), but it is fully compatible with APM OR PX4 code.
-It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+The CUAV *Pixhack V3* flight controller board is a flexible autopilot intended primarily for manufacturers of commercial systems.
+
+The board is a variant of the SOLO Pixhawk 2 (PH2) flight controller, which is in turn based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with both PX4 or ArduPilot (APM) firmware.
+
+*Pixhack V3* has significant improvements with respect to the original design, including better interface layout and the addition of vibration damping and a thermostat system
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
@@ -48,5 +50,5 @@ The board can be purchased from:
 
 ## Pinouts and Schematics
 
-* Open hardware files: https://github.com/cuav/CUAV_Hardware
-* Documentation/interface (Chinese): http://doc.cuav.net/PixHack/pixhack-v3.html
+* Open hardware files: https://github.com/cuav/CUAV_Hardware/tree/master/Pixhack_V3
+* Documentation/wiring guides: http://doc.cuav.net/PixHack/pixhack-v3.html
