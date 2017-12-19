@@ -14,9 +14,11 @@ There are a number of options:
   * [Parrot Bebop](../flight_controller/bebop.md)
   
   
-## Supported Boards
+## Documented Boards
 
 The list of boards documented in this library can be found in the sidebar (reproduced below):
+
+> **Note** The library does not document all boards that can run PX4 (there are other compatible flight controllers and variants).
 
 * [Pixhawk Series](../flight_controller/pixhawk_series.md)
   * [Pixhawk 1](../flight_controller/pixhawk.md)

@@ -30,7 +30,7 @@ The following products in the series are recommended/regularly tested with PX4:
 
 -->
 
-The remainder topic explains a bit more about the series, but is not required reading.
+The rest of this topic explains a bit more about the Pixhawk series, but is not required reading.
 
 ## Background
 
