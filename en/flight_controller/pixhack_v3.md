@@ -4,11 +4,9 @@ The CUAV *Pixhack V3* flight controller board is a flexible autopilot intended p
 
 The board is a variant of the SOLO Pixhawk 2 (PH2) flight controller, which is in turn based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with both PX4 or ArduPilot (APM) firmware.
 
-*Pixhack V3* has significant improvements with respect to the original design, including better interface layout and the addition of vibration damping and a thermostat system
+*Pixhack V3* has significant improvements with respect to the original design, including better interface layout and the addition of vibration damping and a thermostat system.
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
-
-The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly. For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs form the frame of the vehicle.
 
 
 ## Quick Summary
