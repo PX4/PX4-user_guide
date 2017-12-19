@@ -100,6 +100,7 @@
     * [Pixhawk 2](flight_controller/pixhawk-2.md)
     * [Pixhawk Mini](flight_controller/pixhawk_mini.md)
     * [Pixhawk 3 Pro](flight_controller/pixhawk3_pro.md)
+    * [Pixhack v3](flight_controller/pixhack_v3.md)
     * [AUAV-X2 (Discontinued)](flight_controller/auav_x2.md) 
   * [Snapdragon Flight](flight_controller/snapdragon_flight.md)
     * [Camera App and Optical Flow](flight_controller/snapdragon_flight_camera.md)
