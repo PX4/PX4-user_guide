@@ -22,7 +22,7 @@ The following products in the series are recommended/regularly tested with PX4:
 * [Pixhawk Mini](../flight_controller/pixhawk_mini.md)
 * [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
 
-> **Note** This list is not exhaustive. It includes popular boards, and boards that have been used by our flight test team!
+> **Note** This is not an exhaustive list of all boards that can run PX4. Other boards are linked from the sidebar, and there may be other flight controllers that we have not documented.
 
 <!-- 
 

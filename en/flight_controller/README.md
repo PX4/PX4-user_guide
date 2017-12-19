@@ -13,3 +13,35 @@ There are a number of options:
   * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
   * [Parrot Bebop](../flight_controller/bebop.md)
   
+  
+## Supported Boards
+
+The list of boards documented in this library can be found in the sidebar (reproduced below):
+
+* [Pixhawk Series](../flight_controller/pixhawk_series.md)
+  * [Pixhawk 1](../flight_controller/pixhawk.md)
+  * [mRo Pixhawk](../flight_controller/mro_pixhawk.md)
+  * [mRobotics-X2.1](../flight_controller/mro_x2.1.md)
+  * [HKPilot32](../flight_controller/HKPilot32.md)
+  * [Pixfalcon](../flight_controller/pixfalcon.md)
+  * [Dropix](../flight_controller/dropix.md) 
+  * [Pixracer](../flight_controller/pixracer.md)
+  * [MindPX](../flight_controller/mindpx.md)
+  * [MindRacer](../flight_controller/mindracer.md)
+    * [MindRacer BNF & RTF](../flight_controller/mindracer_BNF_RTF.md)
+      * [MindRacer 210](../flight_controller/mindracer210.md)
+      * [NanoMind 110](../flight_controller/nanomind110.md)
+  * [Pixhawk 2](../flight_controller/pixhawk-2.md)
+  * [Pixhawk Mini](../flight_controller/pixhawk_mini.md)
+  * [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
+  * [Pixhack v3](../flight_controller/pixhack_v3.md)
+  * [AUAV-X2 (Discontinued)](../flight_controller/auav_x2.md) 
+  * [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
+  * [Camera App and Optical Flow](../flight_controller/snapdragon_flight_camera.md)
+  * [Snapdragon Advanced](../flight_controller/snapdragon_flight_advanced.md)
+    * [Accessing I/O Data](../flight_controller/snapdragon_flight_accessing_io_data.md)
+* [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md)
+* [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
+* [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
+* [Crazyflie 2.0](../flight_controller/crazyflie2.md)
+* [Parrot Bebop](../flight_controller/bebop.md)
