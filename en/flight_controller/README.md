@@ -38,7 +38,7 @@ The list of boards documented in this library can be found in the sidebar (repro
   * [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
   * [Pixhack v3](../flight_controller/pixhack_v3.md)
   * [AUAV-X2 (Discontinued)](../flight_controller/auav_x2.md) 
-  * [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
+* [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
   * [Camera App and Optical Flow](../flight_controller/snapdragon_flight_camera.md)
   * [Snapdragon Advanced](../flight_controller/snapdragon_flight_advanced.md)
     * [Accessing I/O Data](../flight_controller/snapdragon_flight_accessing_io_data.md)
