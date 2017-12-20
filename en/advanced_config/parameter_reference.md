@@ -1109,16 +1109,17 @@ This parameter controls the time constant of the decay</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Integer bitmask controlling data fusion and aiding methods</p><p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Set to true to use GPS data if available 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU bias estimation 3 : Set to true to enable vision position fusion 4 : Set to true to enable vision yaw fusion 5 : Set to true to enable multi-rotor drag specific force fusion</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> use GPS</li> 
+ <td style="vertical-align: top;"><p>Integer bitmask controlling data fusion and aiding methods</p><p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Set to true to use GPS data if available 1 : Set to true to use optical flow data if available 2 : Set to true to inhibit IMU bias estimation 3 : Set to true to enable vision position fusion 4 : Set to true to enable vision yaw fusion 5 : Set to true to enable multi-rotor drag specific force fusion 6 : set to true if the EV observations are in a non NED reference frame and need to be rotated before being used</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> use GPS</li> 
   <li><strong>1:</strong> use optical flow</li> 
   <li><strong>2:</strong> inhibit IMU bias estimation</li> 
   <li><strong>3:</strong> vision position fusion</li> 
   <li><strong>4:</strong> vision yaw fusion</li> 
   <li><strong>5:</strong> multi-rotor drag fusion</li> 
+  <li><strong>6:</strong> rotate external vision</li> 
 </ul>
  <p><b>Reboot required:</b> true</p>
  </td>
- <td style="vertical-align: top;">0 > 63 </td>
+ <td style="vertical-align: top;">0 > 127 </td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
