@@ -1193,6 +1193,13 @@ This should be adjusted to minimise variance of the Y-axis drag specific force i
  <td style="vertical-align: top;">kg/m**2</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="EKF2_BETA_GATE">EKF2_BETA_GATE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gate size for synthetic sideslip fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>    </td>
+ <td style="vertical-align: top;">1.0 > ? </td>
+ <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;">SD</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="EKF2_BETA_NOISE">EKF2_BETA_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Noise for synthetic sideslip fusion</p>    </td>
  <td style="vertical-align: top;">0.1 > 1.0 </td>
