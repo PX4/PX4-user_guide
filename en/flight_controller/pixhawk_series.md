@@ -55,9 +55,9 @@ PX4 *users* generally do not need to know very much about FMU versions:
 
 At very high level, the main differences are:
 
-- **FMUv2:** Single board with STM32427VI processor ([Pixhawk 1](../flight_controller/pixhawk.md), [HKPilot32](../flight_controller/HKPilot32.md), [Pixfalcon](../flight_controller/pixfalcon.md), [DroPix](../flight_controller/dropix.md), [mRobotics-X2.1](../flight_controller/mro_x2.1.md).)
-- **FMUv3:** Addressable ram doubled to 2MB from FMUv2 ([Pixhawk 2](../flight_controller/pixhawk-2.md),[mRo Pixhawk](../flight_controller/mro_pixhawk.md))
-- **FMUv4:** Slightly increased RAM. More serial ports. No IO processor ([Pixhawk Mini](../flight_controller/pixhawk_mini.md), [Pixracer](../flight_controller/pixracer.md), [MindPX](../flight_controller/mindpx.md))
+- **FMUv2:** Single board with STM32427VI processor ([Pixhawk 1](../flight_controller/pixhawk.md), [HKPilot32](../flight_controller/HKPilot32.md), [Pixfalcon](../flight_controller/pixfalcon.md), [DroPix](../flight_controller/dropix.md))
+- **FMUv3:** Identical to FMUv2, but usable flash doubled to 2MB ([Pixhawk 2](../flight_controller/pixhawk-2.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), [Pixhawk Mini](../flight_controller/pixhawk_mini.md))
+- **FMUv4:** Increased RAM. Faster CPU. More serial ports. No IO processor ([Pixracer](../flight_controller/pixracer.md))
 - **FMUv4-PRO:** Slightly increased RAM. More serial ports. IO processor ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
 - **FMUv5:** New processor (F7). Much faster. More RAM. More CAN busses. Much more configurable.
 
