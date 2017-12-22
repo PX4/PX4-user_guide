@@ -3068,7 +3068,7 @@ The module where these parameters are defined is: *modules/land_detector*.
  <td style="vertical-align: top;"><strong id="LNDFW_VELI_MAX">LNDFW_VELI_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Fixedwing max short-term velocity</p><p><strong>Comment:</strong> Maximum velocity integral in flight direction allowed in the landed state (m/s)</p>    </td>
  <td style="vertical-align: top;">2 > 10 </td>
- <td style="vertical-align: top;">4.0 </td>
+ <td style="vertical-align: top;">8.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
