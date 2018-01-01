@@ -77,6 +77,18 @@ The uLanding Radar is not present in "most" firmware by default and must be star
 
 The *LeddarOne* must typically be added to firmware before it can be used. For setup/usage information see: [LeddarOne](../sensor/leddar_one.md).
 
+
+### TFmini 
+
+The [Benewake TFmini LiDAR](http://www.benewake.com/en/tfmini.html) is a tiny, low cost, and low power LIDAR with 12m range. 
+
+The sensor should be connected to the SERIAL 4/5 port on Pixhawk devices. It is enabled by setting parameter [SENS_EN_TFMINI](../advanced_config/parameter_reference.md#SENS_EN_TFMINI) > 0.
+
+> **Note** This lidar is currently in master, and should appear in releases from PX4 v1.8.
+
+<!-- driver: drivers/tfmini -->
+ 
+
 ### Other
 
 PX4 also supports the Bebop rangefinder.
