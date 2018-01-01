@@ -3609,6 +3609,19 @@ The module where these parameters are defined is: *drivers/mkblctrl*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_TAKEOFF_ACT">COM_TAKEOFF_ACT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Action after TAKEOFF has been accepted</p><p><strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Hold</li> 
+
+<li><strong>1:</strong> Mission (if valid)</li> 
+</ul>
+   <p><b>Module:</b> modules/commander</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MIS_ALTMODE">MIS_ALTMODE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Altitude setpoint mode</p><p><strong>Comment:</strong> 0: the system will follow a zero order hold altitude setpoint 1: the system will follow a first order hold altitude setpoint values follow the definition in enum mission_altitude_mode</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Zero Order Hold</li> 
