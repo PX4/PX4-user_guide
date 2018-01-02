@@ -10057,6 +10057,14 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="SENS_EN_TFMINI">SENS_EN_TFMINI</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Benewake TFmini laser rangefinder</p>   <p><b>Reboot required:</b> true</p>
+ </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_THERMAL">SENS_EN_THERMAL</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Thermal control of sensor temperature</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Thermal control unavailable</li> 
