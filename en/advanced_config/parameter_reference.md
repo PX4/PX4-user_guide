@@ -4725,8 +4725,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4734,8 +4733,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 2</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4743,8 +4741,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 3</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4752,8 +4749,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 4</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4761,8 +4757,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 5</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4770,8 +4765,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 6</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of aux output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4908,8 +4902,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV1">PWM_MAIN_REV1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 1</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4917,8 +4910,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV2">PWM_MAIN_REV2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 2</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4926,8 +4918,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV3">PWM_MAIN_REV3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 3</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4935,8 +4926,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV4">PWM_MAIN_REV4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 4</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4944,8 +4934,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV5">PWM_MAIN_REV5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 5</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4953,8 +4942,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV6">PWM_MAIN_REV6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 6</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4962,8 +4950,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV7">PWM_MAIN_REV7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 7</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 7</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -4971,8 +4958,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV8">PWM_MAIN_REV8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 8</p><p><strong>Comment:</strong> Set to 1 to invert the channel, 0 for default direction.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 8</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -10648,13 +10634,6 @@ The module where these parameters are defined is: *modules/vtol_att_control*.
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_ARSP_LP_GAIN">VT_ARSP_LP_GAIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Total airspeed estimate low-pass filter gain</p><p><strong>Comment:</strong> Gain for tuning the low-pass filter for the total airspeed estimate</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.3 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="VT_ARSP_TRANS">VT_ARSP_TRANS</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Transition airspeed</p><p><strong>Comment:</strong> Airspeed at which we can switch to fw mode</p>    </td>
  <td style="vertical-align: top;">0.00 > 30.00 (1)</td>
@@ -10816,27 +10795,6 @@ to accelerate forward if necessary</p>    </td>
  <td style="vertical-align: top;">us</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_MC_ARSPD_MAX">VT_MC_ARSPD_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum airspeed in multicopter mode</p><p><strong>Comment:</strong> This is the maximum speed of the air flowing over the control surfaces.</p>    </td>
- <td style="vertical-align: top;">0.0 > 30.0 (0.5)</td>
- <td style="vertical-align: top;">30.0 </td>
- <td style="vertical-align: top;">m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_MC_ARSPD_MIN">VT_MC_ARSPD_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum airspeed in multicopter mode</p><p><strong>Comment:</strong> This is the minimum speed of the air flowing over the control surfaces.</p>    </td>
- <td style="vertical-align: top;">0.0 > 30.0 (0.5)</td>
- <td style="vertical-align: top;">10.0 </td>
- <td style="vertical-align: top;">m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_MC_ARSPD_TRIM">VT_MC_ARSPD_TRIM</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim airspeed when in multicopter mode</p><p><strong>Comment:</strong> This is the airflow over the control surfaces for which no airspeed scaling is applied in multicopter mode.</p>    </td>
- <td style="vertical-align: top;">0.0 > 30.0 (0.5)</td>
- <td style="vertical-align: top;">10.0 </td>
- <td style="vertical-align: top;">m/s</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="VT_MOT_COUNT">VT_MOT_COUNT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>VTOL number of engines</p>    </td>
  <td style="vertical-align: top;">0 > 8 (1)</td>
@@ -10848,20 +10806,6 @@ to accelerate forward if necessary</p>    </td>
  <td style="vertical-align: top;"><p>Optimal recovery strategy for pitch-weak tailsitters</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_POWER_MAX">VT_POWER_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Motor max power</p><p><strong>Comment:</strong> Indicates the maximum power the motor is able to produce. Used to calculate propeller efficiency map.</p>    </td>
- <td style="vertical-align: top;">1 > 10000 (1)</td>
- <td style="vertical-align: top;">120.0 </td>
- <td style="vertical-align: top;">W</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_PROP_EFF">VT_PROP_EFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Propeller efficiency parameter</p><p><strong>Comment:</strong> Influences propeller efficiency at different power settings. Should be tuned beforehand.</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
