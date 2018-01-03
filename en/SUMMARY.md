@@ -62,6 +62,7 @@
   * [RTK GPS](advanced_features/rtk-gps.md)
   * [Precision Landing](advanced_features/precland.md)
 * [Advanced Configuration](advanced_config/README.md)
+  * [Parameters](advanced_config/parameters.md)
   * [Multicopter PID Tuning Guide](advanced_config/pid_tuning_guide_multicopter.md)
   * [Fixedwing PID Tuning Guide](advanced_config/pid_tuning_guide_fixedwing.md)
   * [VTOL](config_vtol/README.md)
