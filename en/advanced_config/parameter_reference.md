@@ -7627,6 +7627,18 @@ The module where these parameters are defined is: *modules/navigator*.
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="RTL_LAND_TYPE">RTL_LAND_TYPE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>RTL land location</p><p><strong>Comment:</strong> Land at the home location or planned mission landing</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Home Position</li> 
+
+<li><strong>1:</strong> Planned Landing (Mission)</li> 
+</ul>
+   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="RTL_MIN_DIST">RTL_MIN_DIST</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum distance to trigger rising to a safe altitude</p><p><strong>Comment:</strong> If the system is horizontally closer than this distance to home it will land straight on home instead of raising to the return altitude first.</p>    </td>
  <td style="vertical-align: top;">0.5 > 20 (0.5)</td>
