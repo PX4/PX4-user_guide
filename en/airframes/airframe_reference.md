@@ -524,7 +524,7 @@ This page lists all supported airframes and types including
 </tr>
 <tr id="copter_quadrotor_x_intel_aero_ready_to_fly_drone">
  <td style="vertical-align: top;">Intel Aero Ready to Fly Drone</td>
- <td style="vertical-align: top;"><p>Maintainer: Lucas de Marchi</p><p><code>SYS_AUTOSTART</code> = 4070</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Beat Kueng <beat@px4.io></p><p><code>SYS_AUTOSTART</code> = 4070</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_zmr250_racer">
