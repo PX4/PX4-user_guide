@@ -70,6 +70,7 @@
     * [Back-transition Tuning](config_vtol/vtol_back_transition_tuning.md)
     * [VTOL w/o Airspeed Sensor](config_vtol/vtol_without_airspeed_sensor.md)
   * [ESC Calibration](advanced_config/esc_calibration.md)
+  * [Sensor Thermal Compensation](advanced_config/sensor_thermal_calibration.md)
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [Peripheral Hardware](peripherals/README.md)
