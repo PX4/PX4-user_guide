@@ -818,28 +818,6 @@ This page lists all supported airframes and types including
 </tr>
 </tbody></table>
 
-## Tool
-
-### custom
-
-<div>
-</div>
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
- <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup>
- <thead>
-   <tr><th>Name</th><th></th></tr>
- </thead>
-<tbody>
-<tr id="tool_custom_passthrough_mode_for_snapdragon">
- <td style="vertical-align: top;">Passthrough mode for Snapdragon</td>
- <td style="vertical-align: top;"><p>Maintainer: Julian Oes <julian@oes.ch>
-This startup can be used on Pixhawk/Pixfalcon/Pixracer for the
-passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000</p></td>
-
-</tr>
-</tbody></table>
-
 ## VTOL
 
 ### Standard VTOL
