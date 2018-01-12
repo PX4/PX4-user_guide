@@ -242,7 +242,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  <p><b>Module:</b> modules/systemlib</p>
 </td>
  <td style="vertical-align: top;">(0.01)</td>
- <td style="vertical-align: top;">3.4 </td>
+ <td style="vertical-align: top;">3.5 </td>
  <td style="vertical-align: top;">V</td>
 </tr>
 <tr>
@@ -10855,7 +10855,7 @@ to accelerate forward if necessary</p>    </td>
  <td style="vertical-align: top;"><strong id="VT_ELEV_MC_LOCK">VT_ELEV_MC_LOCK</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Lock elevons in multicopter mode</p><p><strong>Comment:</strong> If set to 1 the elevons are locked in multicopter mode</p>    </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
