@@ -8,7 +8,7 @@ To set the airframe:
 
 1. Start *QGroundControl* and connect the vehicle.
 1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Airframe** in the sidebar.   
-1. Select the broad vehicle group/type that matches your airframe and then use the dropdown within the group to choose the airframe that best matches your vehicle. 
+1. Select the broad vehicle group/type that matches your airframe and then use the dropdown within the group to choose the airframe that best matches your vehicle.
    
    ![](../../images/qgc/setup/airframe_px4.jpg)
    
