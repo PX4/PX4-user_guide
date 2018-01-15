@@ -3232,17 +3232,17 @@ by initializing the estimator to the LPE_LAT/LON parameters when global informat
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_FUSION">LPE_FUSION</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Integer bitmask controlling data fusion</p><p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Set to true to fuse GPS data if available, also requires GPS for altitude init 1 : Set to true to fuse optical flow data if available 2 : Set to true to fuse vision position 3 : Set to true to fuse vision yaw 4 : Set to true to fuse land detector 5 : Set to true to publish AGL as local position down component 6 : Set to true to enable flow gyro compensation 7 : Set to true to enable baro fusion default (145 - GPS only)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> fuse GPS, requires GPS for alt. init</li> 
-  <li><strong>1:</strong> fuse optical flow</li> 
-  <li><strong>2:</strong> fuse vision position</li> 
-  <li><strong>3:</strong> fuse vision yaw</li> 
-  <li><strong>4:</strong> fuse land detector</li> 
-  <li><strong>5:</strong> pub agl as lpos down</li> 
-  <li><strong>6:</strong> flow gyro compensation</li> 
-  <li><strong>7:</strong> fuse baro</li> 
+ <td style="vertical-align: top;"><p>Integer bitmask controlling data fusion</p><p><strong>Comment:</strong> Set bits in the following positions to enable: 0 : Set to true to fuse GPS data if available, also requires GPS for altitude init 1 : Set to true to fuse optical flow data if available 2 : Set to true to fuse vision position 3 : Set to true to enable landing target 4 : Set to true to fuse land detector 5 : Set to true to publish AGL as local position down component 6 : Set to true to enable flow gyro compensation 7 : Set to true to enable baro fusion default (145 - GPS, baro, land detector)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong>  fuse GPS, requires GPS for alt. init</li> 
+  <li><strong>1:</strong>  fuse optical flow</li> 
+  <li><strong>2:</strong>  fuse vision position</li> 
+  <li><strong>3:</strong>  fuse landing target</li> 
+  <li><strong>4:</strong>  fuse land detector</li> 
+  <li><strong>5:</strong>  pub agl as lpos down</li> 
+  <li><strong>6:</strong>  flow gyro compensation</li> 
+  <li><strong>7:</strong>  fuse baro</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 255 </td>
+ <td style="vertical-align: top;">0 > 4294967295 </td>
  <td style="vertical-align: top;">145 </td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -3718,14 +3718,6 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
  <td style="vertical-align: top;">-1 > 80 (0.5)</td>
  <td style="vertical-align: top;">-1.0 </td>
  <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MIS_ONBOARD_EN">MIS_ONBOARD_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Persistent onboard mission storage</p><p><strong>Comment:</strong> When enabled, missions that have been uploaded by the GCS are stored and reloaded after reboot persistently.</p>    <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
