@@ -40,7 +40,7 @@ The most important parameters are discussed below.
 
 The parameter [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE) determines if the beacon is assumed to be stationary or moving.
 If `LTEST_MODE` is set to moving (e.g. it is installed on a vehicle on which the multicopter is to land), beacon measurements are only used to generate position setpoints in the precision landing controller.
-If `LTEST_MODE` is set to stationary, the beacon measurements are also used by LPE.
+If `LTEST_MODE` is set to stationary, the beacon measurements are also used by the vehicle position estimator (EKF2 or LPE).
 
 The parameters [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X) and [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) can be used to scale beacon measurements before they are used to estimate the beacon's position and velocity relative to the vehicle.
 Measurement scaling may be necessary due to lens distortions of the IR-LOCK sensor.
@@ -93,11 +93,6 @@ To start the simulation with the world that contains a IR-LOCK beacon and a vehi
 ```
 make posix_sitl_default gazebo_iris_irlock
 ```
-This runs PX4 with the default configuration, i.e. using EKF2. Therefore, enhanced vehicle position estimation is not supported. To test out this feature, run:
-
-```
-make posix_sitl_lpe gazebo_iris_irlock
-```
 
 You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42).
 
@@ -117,8 +112,6 @@ The `landing_target_estimator` publishes the estimated relative position and vel
 The landing target estimate is published in the `landing_target_pose` uORB message.
 
 ### Enhanced Vehicle Position Estimation
-
-> **Note** Enhanced vehicle position estimation is currently only supported with LPE.
 
 If the beacon is specified to be stationary using the parameter `LTEST_MODE`, the vehicle's position/velocity estimate can be improved with the help of the beacon measurements.
 This is done by fusing the beacon's velocity as a measurement of the negative velocity of the vehicle.
