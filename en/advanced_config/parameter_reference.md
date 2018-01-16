@@ -1155,6 +1155,14 @@ value will determine the minimum airspeed which will still be fused</p>    </td>
  <td style="vertical-align: top;">ms</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="EKF2_AVEL_DELAY">EKF2_AVEL_DELAY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Auxillary Velocity Estimate (e.g from a landing target) delay relative to IMU measurements</p>   <p><b>Reboot required:</b> true</p>
+ </td>
+ <td style="vertical-align: top;">0 > 300 </td>
+ <td style="vertical-align: top;">5 </td>
+ <td style="vertical-align: top;">ms</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="EKF2_BARO_DELAY">EKF2_BARO_DELAY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Barometer measurement delay relative to IMU measurements</p>   <p><b>Reboot required:</b> true</p>
  </td>
@@ -3134,6 +3142,73 @@ The module where these parameters are defined is: *modules/land_detector*.
 </tr>
 </tbody></table>
 
+## Landing target Estimator
+
+
+The module where these parameters are defined is: *modules/landing_target_estimator*.
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="LTEST_ACC_UNC">LTEST_ACC_UNC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Acceleration uncertainty</p><p><strong>Comment:</strong> Variance of acceleration measurement used for landing target position prediction. Higher values results in tighter following of the measurements and more lenient outlier rejection</p>    </td>
+ <td style="vertical-align: top;">0.01 > ? </td>
+ <td style="vertical-align: top;">10.0 </td>
+ <td style="vertical-align: top;">(m/s^2)^2</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LTEST_MEAS_UNC">LTEST_MEAS_UNC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Landing target measurement uncertainty</p><p><strong>Comment:</strong> Variance of the landing target measurement from the driver. Higher values results in less agressive following of the measurement and a smoother output as well as fewer rejected measurements.</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.005 </td>
+ <td style="vertical-align: top;">tan(rad)^2</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LTEST_MODE">LTEST_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Landing target mode</p><p><strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving:     The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Moving</li> 
+
+<li><strong>1:</strong> Stationary</li> 
+</ul>
+   </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LTEST_POS_UNC_IN">LTEST_POS_UNC_IN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Initial landing target position uncertainty</p><p><strong>Comment:</strong> Initial variance of the relative landing target position in x and y direction</p>    </td>
+ <td style="vertical-align: top;">0.001 > ? </td>
+ <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;">m^2</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LTEST_SCALE_X">LTEST_SCALE_X</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Scale factor for sensor measurements in sensor x axis</p><p><strong>Comment:</strong> Landing target x measurements are scaled by this factor before being used</p>    </td>
+ <td style="vertical-align: top;">0.01 > ? </td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LTEST_SCALE_Y">LTEST_SCALE_Y</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Scale factor for sensor measurements in sensor y axis</p><p><strong>Comment:</strong> Landing target y measurements are scaled by this factor before being used</p>    </td>
+ <td style="vertical-align: top;">0.01 > ? </td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LTEST_VEL_UNC_IN">LTEST_VEL_UNC_IN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Initial landing target velocity uncertainty</p><p><strong>Comment:</strong> Initial variance of the relative landing target velocity in x and y direction</p>    </td>
+ <td style="vertical-align: top;">0.001 > ? </td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;">(m/s)^2</td>
+</tr>
+</tbody></table>
+
 ## Local Position Estimator
 
 
@@ -3323,6 +3398,13 @@ EPV used if greater than this value</p>    </td>
  <td style="vertical-align: top;">-180 > 180 </td>
  <td style="vertical-align: top;">8.545594 </td>
  <td style="vertical-align: top;">deg</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LPE_LT_COV">LPE_LT_COV</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum landing target standard covariance, uses reported covariance if greater</p>    </td>
+ <td style="vertical-align: top;">0.0 > 10 </td>
+ <td style="vertical-align: top;">0.0001 </td>
+ <td style="vertical-align: top;">m^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_PN_B">LPE_PN_B</strong> (FLOAT)</td>
@@ -5386,6 +5468,61 @@ The module where these parameters are defined is: *modules/position_estimator_in
  <td style="vertical-align: top;">0.0 > 10.0 </td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;"></td>
+</tr>
+</tbody></table>
+
+## Precision Land
+
+
+The module where these parameters are defined is: *modules/navigator*.
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="PLD_BTOUT">PLD_BTOUT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Landing Target Timeout</p><p><strong>Comment:</strong> Time after which the landing target is considered lost without any new measurements.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 50 (0.5)</td>
+ <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PLD_FAPPR_ALT">PLD_FAPPR_ALT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Final approach altitude</p><p><strong>Comment:</strong> Allow final approach (without horizontal positioning) if losing landing target closer than this to the ground.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 10 (0.1)</td>
+ <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PLD_HACC_RAD">PLD_HACC_RAD</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Horizontal acceptance radius</p><p><strong>Comment:</strong> Start descending if closer above landing target than this.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 10 (0.1)</td>
+ <td style="vertical-align: top;">0.2 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PLD_MAX_SRCH">PLD_MAX_SRCH</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Maximum number of search attempts</p><p><strong>Comment:</strong> Maximum number of times to seach for the landing target if it is lost during the precision landing.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 100 </td>
+ <td style="vertical-align: top;">3 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PLD_SRCH_ALT">PLD_SRCH_ALT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Search altitude</p><p><strong>Comment:</strong> Altitude above home to which to climb when searching for the landing target.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 100 (0.1)</td>
+ <td style="vertical-align: top;">10.0 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PLD_SRCH_TOUT">PLD_SRCH_TOUT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Search timeout</p><p><strong>Comment:</strong> Time allowed to search for the landing target before falling back to normal landing.</p>    </td>
+ <td style="vertical-align: top;">0.0 > 100 (0.1)</td>
+ <td style="vertical-align: top;">10.0 </td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 </tbody></table>
 
