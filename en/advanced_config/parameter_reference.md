@@ -3317,7 +3317,7 @@ by initializing the estimator to the LPE_LAT/LON parameters when global informat
   <li><strong>7:</strong>  fuse baro</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 4294967295 </td>
+ <td style="vertical-align: top;">0 > 255 </td>
  <td style="vertical-align: top;">145 </td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -5506,7 +5506,7 @@ The module where these parameters are defined is: *modules/navigator*.
 <tr>
  <td style="vertical-align: top;"><strong id="PLD_MAX_SRCH">PLD_MAX_SRCH</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Maximum number of search attempts</p><p><strong>Comment:</strong> Maximum number of times to seach for the landing target if it is lost during the precision landing.</p>    </td>
- <td style="vertical-align: top;">0.0 > 100 </td>
+ <td style="vertical-align: top;">0 > 100 </td>
  <td style="vertical-align: top;">3 </td>
  <td style="vertical-align: top;"></td>
 </tr>
