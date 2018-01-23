@@ -3802,6 +3802,19 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MIS_MNT_YAW_CTL">MIS_MNT_YAW_CTL</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable yaw control of the mount. (Only affects multicopters and ROI mission items)</p><p><strong>Comment:</strong> If enabled, yaw commands will be sent to the mount and the vehicle will follow its heading mode as specified by MIS_YAWMODE. If disabled, the vehicle will yaw towards the ROI.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable</li> 
+
+<li><strong>1:</strong> Enable</li> 
+</ul>
+   <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Take-off altitude</p><p><strong>Comment:</strong> This is the minimum altitude the system will take off to.</p>    <p><b>Module:</b> modules/navigator</p>
 </td>
@@ -3819,8 +3832,6 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
 <li><strong>2:</strong> Heading towards home</li> 
 
 <li><strong>3:</strong> Heading away from home</li> 
-
-<li><strong>4:</strong> Heading towards ROI</li> 
 </ul>
    <p><b>Module:</b> modules/navigator</p>
 </td>
