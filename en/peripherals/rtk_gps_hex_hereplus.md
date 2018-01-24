@@ -38,3 +38,11 @@ The Here+ GPS pinout is provided below. This can be used to help modify the conn
 | 6   | BUTTON        | -   | -                 |
 | 7   | BUTTON_LED    | -   | -                 |
 | 8   | GND           | 6   | GND               |
+
+### Pin Removal instructions.  
+
+Pull the white piece of plastic between the metal stripes (I use a straight pin, to lift it up.
+pull the pin out of the back side of the connector.
+
+<img src="../../images/rtk_here_plug_gps_pin_removal.jpg" width="500px" /> 
+
