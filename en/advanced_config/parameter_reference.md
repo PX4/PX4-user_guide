@@ -3204,7 +3204,7 @@ The module where these parameters are defined is: *modules/landing_target_estima
  <td style="vertical-align: top;"><strong id="LTEST_VEL_UNC_IN">LTEST_VEL_UNC_IN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Initial landing target velocity uncertainty</p><p><strong>Comment:</strong> Initial variance of the relative landing target velocity in x and y direction</p>    </td>
  <td style="vertical-align: top;">0.001 > ? </td>
- <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;">(m/s)^2</td>
 </tr>
 </tbody></table>
