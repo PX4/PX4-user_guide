@@ -1134,7 +1134,9 @@ This parameter controls the time constant of the decay</p>    </td>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ARSP_THR">EKF2_ARSP_THR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Airspeed fusion threshold. A value of zero will deactivate airspeed fusion. Any other positive
-value will determine the minimum airspeed which will still be fused</p>    </td>
+value will determine the minimum airspeed which will still be fused. Set to about 90% of the vehicles stall speed.
+Both airspeed fusion and sideslip fusion must be active for the EKF to continue navigating after loss of GPS.
+Use EKF2_FUSE_BETA to activate sideslip fusion</p>    </td>
  <td style="vertical-align: top;">0.0 > ? </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;">m/s</td>
@@ -1293,7 +1295,7 @@ Increasing it makes the multi-rotor wind estimates adjust more slowly</p>    </t
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_FUSE_BETA">EKF2_FUSE_BETA</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Boolean determining if synthetic sideslip measurements should fused</p><p><strong>Comment:</strong> A value of 1 indicates that fusion is active</p>    </td>
+ <td style="vertical-align: top;"><p>Boolean determining if synthetic sideslip measurements should fused</p><p><strong>Comment:</strong> A value of 1 indicates that fusion is active Both  sideslip fusion and airspeed fusion must be active for the EKF to continue navigating after loss of GPS. Use EKF2_ARSP_THR to activate airspeed fusion.</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -1657,7 +1659,8 @@ Assumes measurement is timestamped at trailing edge of integration period</p>   
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_RMAX">EKF2_OF_RMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Optical Flow data will not fused if the magnitude of the flow rate > EKF2_OF_RMAX</p>    </td>
+ <td style="vertical-align: top;"><p>Optical Flow data will not fused if the magnitude of the flow rate > EKF2_OF_RMAX.
+Control loops will be instructed to limit ground speed such that the flow rate produced by movement over ground is less than 50% of EKF2_OF_RMAX</p>    </td>
  <td style="vertical-align: top;">1.0 > ? </td>
  <td style="vertical-align: top;">2.5 </td>
  <td style="vertical-align: top;">rad/s</td>
@@ -4475,6 +4478,15 @@ The module where these parameters are defined is: *modules/mc_pos_control*.
  <td style="vertical-align: top;"><p>Acceleration for auto and for manual</p>    </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;">m/s/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_FLOW">MPC_ACC_HOR_FLOW</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Horizontal acceleration in manual modes when optical flow ground speed limit is removed.
+If full stick is being applied and the EKF starts using GPS whilst using optical flow,
+the vehicle will accelerate at this rate until the normal position control speed is achieved</p>    </td>
+ <td style="vertical-align: top;">0.2 > 2.0 (0.1)</td>
+ <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
@@ -9013,6 +9025,13 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"><p>Differential pressure sensor offset</p><p><strong>Comment:</strong> The offset (zero-reading) in Pascal</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SENS_FLOW_MINRNG">SENS_FLOW_MINRNG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Optical Flow minimum focus distance</p><p><strong>Comment:</strong> This parameter defines the minimum distance from ground required for the optical flow sensor to operate reliably. The sensor may be usable below this height, but accuracy will progressively reduce to loss of focus. *</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.7 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
