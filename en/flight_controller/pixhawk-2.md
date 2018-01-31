@@ -33,4 +33,4 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 
 ### The UAVCAN port labelled CAN1 does not work
 
-At time of writing (October 2017) the CAN1 and CAN2 silk screen on the Pixhawk 2.1 is flipped (CAN1 is CAN2 and vice versa). The CAN2 port (labeled as CAN1) is not functional as it requires an external transceiver. The CAN1 port (labeled as CAN2) should be used as it has the transceiver built in.
+At time of writing (October 2017) the CAN1 and CAN2 silk screen on the Pixhawk 2.1 is flipped (CAN1 is CAN2 and vice versa). 
