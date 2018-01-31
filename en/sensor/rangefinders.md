@@ -2,7 +2,7 @@
 
 Rangefinders provide distance measurement that can be used for terrain following, precision hovering (e.g. for photography), warning of regulatory height limits, collision avoidance etc.
 
-The sensors can usually be connected to either a serial (PWM) or I2C port (depending on driver support for the particular rangefinder), and the rangefinder is enabled on a port by setting a particular parameter. 
+The sensors can usually be connected to either a serial (PWM) or I2C port (depending on driver support for the particular rangefinder), and the rangefinder is enabled on a port by setting a particular parameter.
 
 This section lists the rangefinders supported by PX4 and the generic configuration information. More detailed documentation is linked for some rangefinders.
 
@@ -24,7 +24,7 @@ Pixhawk wiring information and Lidar-lite specific test instructions can be foun
 
 The driver for this rangefinder is usually present in firmware (driver added as: `drivers/ll40ls`).
 
-> **Note** PWM is recommended if using an older model (some older models do not behave reliably on I2C). 
+> **Note** PWM is recommended if using an older model (some older models do not behave reliably on I2C).
 
 <span></span>
 > **Info** The *Lidar-Lite v3* is used in the [The Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md##connecting-a-lidar-lite-range-finder).
@@ -63,7 +63,7 @@ These rangefinders must be connected via the I2C bus (using an [I2C adapter](htt
 
 The sensors are enabled using the parameter [SENS_EN_TRANGER](../advanced_config/parameter_reference.md#SENS_EN_TRANGER) (you can set the type of sensor or that PX4 should auto-detect the type).
 
-> **Info** The *Terranger One* is used in the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md). 
+> **Info** The *Terranger One* is used in the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md).
 
 ### uLanding Radar
 
@@ -78,16 +78,27 @@ The uLanding Radar is not present in "most" firmware by default and must be star
 The *LeddarOne* must typically be added to firmware before it can be used. For setup/usage information see: [LeddarOne](../sensor/leddar_one.md).
 
 
-### TFmini 
+### TFmini
 
-The [Benewake TFmini LiDAR](http://www.benewake.com/en/tfmini.html) is a tiny, low cost, and low power LIDAR with 12m range. 
-
-The sensor should be connected to the SERIAL 4/5 port on Pixhawk devices. It is enabled by setting parameter [SENS_EN_TFMINI](../advanced_config/parameter_reference.md#SENS_EN_TFMINI) > 0.
+The [Benewake TFmini LiDAR](http://www.benewake.com/en/tfmini.html) is a tiny, low cost, and low power LIDAR with 12m range.
 
 > **Note** This lidar is currently in master, and should appear in releases from PX4 v1.8.
 
+In general the TFmini can be used by setting the parameter [SENS_EN_TFMINI](../advanced_config/parameter_reference.md#SENS_EN_TFMINI) > 0.
+
+For boards based on [PX4FMU_V3](../flight_controller/pixhawk_series.md#fmu-versions) firmware (only) the sensor can be connected to the SERIAL 4/5 port.
+
+For the [Intel Aero](../flight_controller/intel_aero.md), the sensor can be connected to the TELEMETRY port.
+
+For other Pixhawk based boards the parameter [SYS_COMPANION](../advanced_config/parameter_reference.md#SYS_COMPANION) has to be 0 and the sensor can be connected to TELEM2.
+
+To use the TFmini on other boards/ports, the driver can be started in a [shell](https://dev.px4.io/en/debug/system_console.html#mavlink-shell) with
+```
+tfmini start -d <serial port>
+```
+
 <!-- driver: drivers/tfmini -->
- 
+
 
 ### Other
 
@@ -105,7 +116,7 @@ The rangefinder is configured using [EKF2\_RNG\_*](../advanced_config/parameter_
 The rangefinder can be enabled in two ways:
 1. Set [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) to *Range finder* (`2`). This makes the rangefinder the primary source of height estimation (the default altitude sensor is the barometer).
 1. Set [EKF2_RNG_AID](../advanced_config/parameter_reference.md#EKF2_RNG_AID) to `1`. This makes the vehicle use the rangefinder as the primary source when it is safe to use, but will otherwise use the sensor specified in `EKF2_HGT_MODE`.
-   * Specifically, the rangefinder is enabled when: 
+   * Specifically, the rangefinder is enabled when:
      * velocity < [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX)
      * distance to ground < [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX)
    * Other parameters affecting "Range aid" are prefixed with `EKF2\_RNG\_A\_`.
@@ -114,11 +125,11 @@ The rangefinder can be enabled in two ways:
 
 The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4. The sections below show some approaches to getting the measured range.
 
-### QGroundControl Analyze Tool 
+### QGroundControl Analyze Tool
 
 The *QGroundControl Analyze Tool* tool and *QGroundControl MAVLink Inspector* let you view messages sent from the vehicle, including `DISTANCE_SENSOR` information from the rangefinder. The main difference between the tools is that the *Analyze* tool can plot values in a graph.
 
-> **Note** The messages that are sent depend on the vehicle configuration. You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values. 
+> **Note** The messages that are sent depend on the vehicle configuration. You will only get `DISTANCE_SENSOR` messages if the connected vehicle has a rangefinder installed and is publishing sensor values.
 
 To view the rangefinder output:
 
@@ -144,7 +155,7 @@ For more information see: [Sensor/Topic Debugging using the Listener Command](ht
 ## Simulation
 
 Lidar and sonar rangefinders can be used in the [Gazebo Simulator](https://dev.px4.io/en/simulation/gazebo.html) (PX4 Development Guide).
-To do this you must start the simulator using a vehicle model that includes the rangefinder. 
+To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
 The iris optical flow model includes a Lidar rangefinder:
 ```sh
