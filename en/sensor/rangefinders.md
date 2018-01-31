@@ -84,20 +84,23 @@ The [Benewake TFmini LiDAR](http://www.benewake.com/en/tfmini.html) is a tiny, l
 
 > **Note** This lidar is currently in master, and should appear in releases from PX4 v1.8.
 
-In general the TFmini can be used by setting the parameter [SENS_EN_TFMINI](../advanced_config/parameter_reference.md#SENS_EN_TFMINI) > 0.
+In general the *TFmini* can be used by setting the parameter [SENS_EN_TFMINI](../advanced_config/parameter_reference.md#SENS_EN_TFMINI) > 0 and connecting the sensor to the correct (board-specific) port:
 
-For boards based on [PX4FMU_V3](../flight_controller/pixhawk_series.md#fmu-versions) firmware (only) the sensor can be connected to the SERIAL 4/5 port.
+Board | Port
+---|---
+[Intel Aero](../flight_controller/intel_aero.md) | TELEMETRY
+Pixhawk [PX4FMU_V3](../flight_controller/pixhawk_series.md#fmu-versions) | SERIAL 4/5
+Other Pixhawk based boards | TELEM2. The [SYS_COMPANION](../advanced_config/parameter_reference.md#SYS_COMPANION) must be set to 0.
 
-For the [Intel Aero](../flight_controller/intel_aero.md), the sensor can be connected to the TELEMETRY port.
-
-For other Pixhawk based boards the parameter [SYS_COMPANION](../advanced_config/parameter_reference.md#SYS_COMPANION) has to be 0 and the sensor can be connected to TELEM2.
-
-To use the TFmini on other boards/ports, the driver can be started in a [shell](https://dev.px4.io/en/debug/system_console.html#mavlink-shell) with
+To use the TFmini on other ports/boards, the driver can be started by using the following line in a [shell](https://dev.px4.io/en/debug/system_console.html#mavlink-shell) or the [extras.txt](https://dev.px4.io/en/advanced/system_startup.html) (startup) file located on your SD card (where `<serial port>` is the port id):
 ```
 tfmini start -d <serial port>
 ```
 
-<!-- driver: drivers/tfmini -->
+> **Tip** Most boards will already include the driver in firmware. If not, add the following line to the *cmake* [config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target board:
+   ```
+   drivers/tfmini
+   ```
 
 
 ### Other
