@@ -78,15 +78,31 @@ The uLanding Radar is not present in "most" firmware by default and must be star
 The *LeddarOne* must typically be added to firmware before it can be used. For setup/usage information see: [LeddarOne](../sensor/leddar_one.md).
 
 
-### TFmini 
+### TFmini
 
 The [Benewake TFmini LiDAR](http://www.benewake.com/en/tfmini.html) is a tiny, low cost, and low power LIDAR with 12m range. 
 
-The sensor should be connected to the SERIAL 4/5 port on Pixhawk devices. It is enabled by setting parameter [SENS_EN_TFMINI](../advanced_config/parameter_reference.md#SENS_EN_TFMINI) > 0.
+> **Note** The lidar driver is currently in master, and should appear in releases from PX4 v1.8.
 
-> **Note** This lidar is currently in master, and should appear in releases from PX4 v1.8.
+For boards based on [PX4FMU_V3](../flight_controller/pixhawk_series.md#fmu-versions) firmware (only) the sensor can be connected to the SERIAL 4/5 port and enabled by setting parameter [SENS_EN_TFMINI](../advanced_config/parameter_reference.md#SENS_EN_TFMINI) > 0.
 
-<!-- driver: drivers/tfmini -->
+For other boards you may need to add the driver to the firmware and ensure it is started on boot:
+1. The driver is present by default in most firmware. If not, add the following line to the *cmake* [config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target board:
+   ```
+   drivers/tfmini
+   ```
+1. Update the system to start the driver during system startup on your required port.
+   You can simply add the following line to an [extras.txt](https://dev.px4.io/en/advanced/system_startup.html) file located on your SD card. For example to start the driver on serial 4/5:
+   ```
+   #start the driver on serial 4/5 (default)
+   tfmini start
+   ```
+   
+   You can also start the driver on other free serial ports (e.g. TELEM2) by specifying your desired serial port id.
+   ```
+   tfmini start -d serial_port
+   ```
+1. You may also need to disable access to the selected serial port from other services. For example, if you're using TELEM2 then set the parameter [SYS_COMPANION](../advanced_config/parameter_reference.md#SYS_COMPANION) to 0 in order to disable MAVLink communication with a companion computer on this port. 
  
 
 ### Other
