@@ -9660,6 +9660,14 @@ The module where these parameters are defined is: *modules/syslink*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="TEST_3">TEST_3</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> systemcmds/tests</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="TEST_D">TEST_D</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p></p>    <p><b>Module:</b> lib/controllib/controllib_test</p>
 </td>
