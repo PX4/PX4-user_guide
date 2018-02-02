@@ -164,7 +164,9 @@ Be sure to include the text "2-wire" at the end of each line to allow the UART t
 
 Even though the 3DR GPS is described to have a 5v input, operation with 3.3V seems to work fine. (The built-in regulator MIC5205 has a minimum operating voltage of 2.5v.)
 
-| Snapdragon J9 Pin | Signal   | Comment       | 3DR GPS 6pin/4pin  | Pixfalcon GPS pin | 3DR PIXHAWK MINI GPS |
+> **Note** The pin count on the Holybro GPS starts from the right
+
+| Snapdragon J9 Pin | Signal   | Comment       | 3DR GPS 6pin/4pin  | Pixfalcon GPS pin | 3DR PIXHAWK MINI GPS / Holybro GPS |
 | ----------------- | ---------| ------------- | ------------------ | ----------------- | -------------------  |
 | 1                 | 3.3V     | (3.3V)        | 1                  | 4                 |3 (5V)                |
 | 2                 | UART2_TX | Output (3.3V) | 2/-                | 3                 |4                     |
