@@ -1,6 +1,6 @@
 # Pixhawk Wiring Quick Start
 
-This quick start guide shows how power the *3DR Pixhawk* flight controller and connect its most important peripherals.
+This quick start guide shows how to power the *3DR Pixhawk* flight controller and connect its most important peripherals.
   
 ![Pixhawk Image](../../images/pixhawk_logo_view.jpg) 
 
