@@ -2397,7 +2397,7 @@ Set to 0 to disable heading hold</p>    </td>
 ## FW Launch detection
 
 
-The module where these parameters are defined is: *lib/launchdetection*.
+The module where these parameters are defined is: *modules/fw_pos_control_l1/launchdetection*.
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
@@ -7906,7 +7906,7 @@ The module where these parameters are defined is: *modules/navigator*.
 ## Runway Takeoff
 
 
-The module where these parameters are defined is: *lib/runway_takeoff*.
+The module where these parameters are defined is: *modules/fw_pos_control_l1/runway_takeoff*.
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
