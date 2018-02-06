@@ -86,7 +86,7 @@ http://www.youtube.com/watch?v=scqO7vbH2jo
 
 > **Tip** We recommend you use [Single Channel Flight Mode](#single_channel) selection because the Multi Channel selection user interface can be confusing. If you do choose to use this method, then the best approach is to start assigning channels and take note of information displayed by *QGroundControl* following your selection. 
 
-The multi-channel selection UI allows you to map one or more modes to one or more channels. There are some modes (and hence switches) that must always be defined, and the channel to which they must be allocated.
+The multi-channel selection user interface allows you to map one or more modes to one or more channels. There are some modes (and hence switches) that must always be defined, and the channel to which they must be allocated.
 
 To configure flight modes using the multi-channel UI:
 
@@ -98,7 +98,7 @@ To configure flight modes using the multi-channel UI:
    
    > **Tip** If the screen opens in *Single Channel Mode* click the **Use Multi Channel Mode Selection** button to change screen.
    
-1. Select the modes you want to assign to your switches and select the associated channel (selected modes will *move* in the UI to be grouped by channel).
+1. Select the modes you want to assign to your switches and select the associated channel (selected modes will *move* in the user interface to be grouped by channel).
    There are a number of complications on the mode to channel assignments:
    * Some modes will have a grayed out channel selector because they cannot be disabled and you cannot directly set the value. For example:
      * *Mission* mode - Has the same channel number as *Hold* (if it is defined), or otherwise the same channel as *Stabilized/Main* mode.
