@@ -156,10 +156,10 @@ correctly.
   throttle set to [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) and flown at the same airspeed as used
   to measure [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)
 
-Once these parameters are set, put the system into a figure 8 pattern
+Once these parameters are set, make the system follow a figure 8 pattern
 with waypoints and observe the altitude hold and airspeed hold
 performance. The default gains are “soft” and gentle. To improve
-altitude hold (but also make the throttle response more twitchy,
+altitude hold (but also make the throttle response more twitchy),
 decrease the time constant:
 
 - [FW_T_TIME_CONST](../advanced_config/parameter_reference.md#FW_T_TIME_CONST) - decrease to improve altitude hold performance,
