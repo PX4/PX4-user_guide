@@ -15,9 +15,9 @@ Tuning is required when creating a new airframe type or significantly modifying 
 **P**roportional, **I**ntegral, **D**erivative controllers are the most widespread control technique. 
 There are substantially better performing control techniques (LQR/LQG) from the model predictive control (MPC), 
 but since these techniques require a more or less accurate model of the system, they not as widely used. 
-The goal of all PX4 control infrastructure is move as soon as possible on MPC, 
+The goal of all PX4 control infrastructure is to move as soon as possible on MPC, 
 but since not all supported systems models are available, 
-PID tuning is very relevant (and PID control sufficient for many cases).
+PID tuning is very relevant (and PID control is sufficient for many cases).
 
 
 ### PID Controller Overview 
@@ -51,8 +51,8 @@ to go back to level.
 
 There is also [MC_YAW_FF](../advanced_config/parameter_reference.md#MC_YAW_FF) parameter that controls how much of user input
 need to feed forward to yaw rate controller. 0 means very slow control,
-controller will start to move yaw only when sees yaw position error, 1
-means very responsive control, but with some overshot, controller will
+controller will start to move yaw only when it sees yaw position error. 1
+means very responsive control, but with some overshoot, controller will
 move yaw immediately, always keeping yaw error near zero.
 
 
