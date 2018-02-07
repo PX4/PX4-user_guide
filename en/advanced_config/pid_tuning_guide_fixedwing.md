@@ -131,7 +131,7 @@ fixed wing setups and usually does not require adjustment.
 All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control).
 
 - [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - This is the L1 distance and defines the tracking
-  point ahead of the aircraft its following. A value of 25 meters
+  point ahead of the aircraft it is following . A value of 25 meters
   works for most aircraft. A value of 16-18 will still work, and
   provide a sharper response. Shorten slowly during tuning until
   response is sharp without oscillation.
@@ -157,7 +157,7 @@ correctly.
   to measure [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)
 
 Once these parameters are set, put the system into a figure 8 pattern
-with waypoints and observer the altitude hold and airspeed hold
+with waypoints and observe the altitude hold and airspeed hold
 performance. The default gains are “soft” and gentle. To improve
 altitude hold (but also make the throttle response more twitchy,
 decrease the time constant:
