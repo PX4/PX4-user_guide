@@ -196,7 +196,7 @@ increase P until the response is firm, but it does not oscillate.
 Typical value is around 2…3.
 
 Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshoot should be not more
-than 2-5% (less than for attitude).
+than 2-5% (which is less than the overshoot for roll and pitch angles).
 
 
 #### Feed Forward Tuning
@@ -209,4 +209,4 @@ comfortable response. Valid range is 0…1. Typical value is 0.8…0.9. (For
 aerial video optimal value may be much smaller to get smooth response.)
 
 Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshoot should be not more
-than 2-5% (less than for attitude).
+than 2-5% (which is less than the overshoot for roll and pitch angles).
