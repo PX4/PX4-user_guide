@@ -51,7 +51,7 @@ Throttle Command is mapped direct to Motor Speed.
 
 "Assisted" flight modes are also user controlled but offer some level of "automatic" assistance to gain or restore controlled flight.
 
-- [Altitude](../flight_modes/altitude.md): More easily control vehicle altitude, and in particular reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold position/heading against wind.
+- [Altitude](../flight_modes/altitude.md): More easily control vehicle altitude, and in particular reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold the x and y position/heading against wind.
 
 - **Position**
   - **Fixed wing aircraft:** Neutral inputs provide a level flight and
