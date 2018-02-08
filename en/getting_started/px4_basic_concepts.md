@@ -30,7 +30,7 @@ In order to set up, control and interact with your PX4 drone you need to connect
 
 * [Remote Control \(RC\) Connection](../getting_started/rc_transmitter_receiver.md) - Connection between the RC handset and vehicle-based receiver that you use to manually direct the vehicle.
 * [Data/Telemetry Connection](TBD) - Connection between QGroundControl and your drone by Data Radio, Wifi or USB cable.
-* Off-board Connection - A data connection between PX4 and external microcomputer that can control PX4.
+* Off-board Connection - A data connection via serial cable or wifi between PX4 and external microcomputer that can control PX4.
 
 You can follow the links to see detailed explanation on each connection type.
 
