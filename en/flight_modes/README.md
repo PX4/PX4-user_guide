@@ -59,7 +59,7 @@ Throttle Command is mapped direct to Motor Speed.
   - **Multirotors** Roll controls left-right speed, pitch controls
     front-back speed. When roll and pitch are all centered (inside
     deadzone) the multirotor will hold position. Yaw controls yaw rate
-    as in MANUAL mode. Throttle controls climb/descent rate as in ALTCTL
+    as in MANUAL mode. Throttle controls climb/descent rate as in Altitude
     mode. 
     
   > **WARNING** Prior to Landing in *Position mode* be sure that landing is 
