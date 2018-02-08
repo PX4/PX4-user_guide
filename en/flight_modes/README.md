@@ -54,7 +54,7 @@ Throttle Command is mapped direct to Motor Speed.
 - [Altitude](../flight_modes/altitude.md): More easily control vehicle altitude, and in particular reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold the x and y position/heading against wind.
 
 - **Position**
-  - **Fixed wing aircraft:** Neutral inputs provide a level flight and
+  - **Fixed wing aircraft:** Neutral inputs (meaning when roll, pitch and yaw sticks are centered) provide a level flight and
     will crab against the wind if needed to maintain a straight line.
   - **Multirotors** Roll controls left-right speed, pitch controls
     front-back speed. When roll and pitch are all centered (inside
