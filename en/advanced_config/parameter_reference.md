@@ -9167,6 +9167,14 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="SENS_EN_LEDDAR1">SENS_EN_LEDDAR1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>LeddarOne rangefinder</p>   <p><b>Reboot required:</b> true</p>
+ </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_LL40LS">SENS_EN_LL40LS</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Lidar-Lite (LL40LS)</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
