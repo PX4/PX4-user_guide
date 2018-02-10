@@ -3024,7 +3024,7 @@ The module where these parameters are defined is: *modules/navigator*.
 ## Iridium SBD
 
 
-The module where these parameters are defined is: *drivers/iridiumsbd*.
+The module where these parameters are defined is: *drivers/telemetry/iridiumsbd*.
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
