@@ -3578,16 +3578,66 @@ The module where these parameters are defined is: *modules/mavlink*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MAV_TEST_PAR">MAV_TEST_PAR</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Test parameter</p><p><strong>Comment:</strong> This parameter is not actively used by the system. Its purpose is to allow testing the parameter interface on the communication level.</p>    </td>
- <td style="vertical-align: top;">-1000 > 1000 </td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MAV_TYPE">MAV_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>MAVLink airframe type</p>    </td>
- <td style="vertical-align: top;">1 > ? </td>
+ <td style="vertical-align: top;"><p>MAVLink airframe type</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Generic micro air vehicle</li> 
+
+<li><strong>1:</strong> Fixed wing aircraft</li> 
+
+<li><strong>2:</strong> Quadrotor</li> 
+
+<li><strong>3:</strong> Coaxial helicopter</li> 
+
+<li><strong>4:</strong> Normal helicopter with tail rotor</li> 
+
+<li><strong>5:</strong> Ground installation</li> 
+
+<li><strong>6:</strong> Operator control unit / ground control station</li> 
+
+<li><strong>7:</strong> Airship, controlled</li> 
+
+<li><strong>8:</strong> Free balloon, uncontrolled</li> 
+
+<li><strong>9:</strong> Rocket</li> 
+
+<li><strong>10:</strong> Ground rover</li> 
+
+<li><strong>11:</strong> Surface vessel, boat, ship</li> 
+
+<li><strong>12:</strong> Submarine</li> 
+
+<li><strong>13:</strong> Hexarotor</li> 
+
+<li><strong>14:</strong> Octorotor</li> 
+
+<li><strong>15:</strong> Tricopter</li> 
+
+<li><strong>16:</strong> Flapping wing</li> 
+
+<li><strong>17:</strong> Kite</li> 
+
+<li><strong>18:</strong> Onboard companion controller</li> 
+
+<li><strong>19:</strong> Two-rotor VTOL using control surfaces in vertical operation in addition. Tailsitter.</li> 
+
+<li><strong>20:</strong> Quad-rotor VTOL using a V-shaped quad config in vertical operation. Tailsitter.</li> 
+
+<li><strong>21:</strong> Tiltrotor VTOL</li> 
+
+<li><strong>22:</strong> VTOL reserved 2</li> 
+
+<li><strong>23:</strong> VTOL reserved 3</li> 
+
+<li><strong>24:</strong> VTOL reserved 4</li> 
+
+<li><strong>25:</strong> VTOL reserved 5</li> 
+
+<li><strong>26:</strong> Onboard gimbal</li> 
+
+<li><strong>27:</strong> Onboard ADSB peripheral</li> 
+</ul>
+   </td>
+ <td style="vertical-align: top;">1 > 27 </td>
  <td style="vertical-align: top;">2 </td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -3943,6 +3993,14 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">2 </td>
  <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_RCL_LT">NAV_RCL_LT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>RC Loss Loiter Time (CASA Outback Challenge rules)</p><p><strong>Comment:</strong> The amount of time in seconds the system should loiter at current position before termination. Only applies if NAV_RCL_ACT is set to 2 (CASA Outback Challenge rules). Set to -1 to make the system skip loitering.</p>    <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">-1.0 > ? (0.1)</td>
+ <td style="vertical-align: top;">120.0 </td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_TRAFF_AVOID">NAV_TRAFF_AVOID</strong> (INT32)</td>
@@ -4519,7 +4577,7 @@ the vehicle will accelerate at this rate until the normal position control speed
  <td style="vertical-align: top;"><strong id="MPC_CRUISE_90">MPC_CRUISE_90</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Cruise speed when angle prev-current/current-next setpoint
 is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</strong> Applies only in AUTO modes (includes also RTL / hold / etc.)</p>    </td>
- <td style="vertical-align: top;">1.0 > ? (1)</td>
+ <td style="vertical-align: top;">1.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
@@ -5603,7 +5661,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC10_REV">RC10_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 10 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 10 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -5643,7 +5706,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC11_REV">RC11_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 11 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 11 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -5683,7 +5751,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC12_REV">RC12_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 12 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 12 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -5723,7 +5796,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC13_REV">RC13_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 13 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 13 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -5763,7 +5841,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC14_REV">RC14_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 14 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 14 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -5803,7 +5886,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC15_REV">RC15_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 15 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 15 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -5843,7 +5931,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC16_REV">RC16_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 16 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 16 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -5883,7 +5976,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC17_REV">RC17_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 17 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 17 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -5923,7 +6021,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC18_REV">RC18_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 18 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 18 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -5963,7 +6066,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC1_REV">RC1_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 1 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 1 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -6003,7 +6111,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC2_REV">RC2_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 2 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 2 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -6043,7 +6156,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC3_REV">RC3_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 3 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 3 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -6083,7 +6201,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC4_REV">RC4_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 4 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 4 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -6123,7 +6246,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC5_REV">RC5_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 5 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 5 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -6163,7 +6291,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC6_REV">RC6_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 6 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 6 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -6203,7 +6336,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC7_REV">RC7_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 7 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 7 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -6243,7 +6381,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC8_REV">RC8_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 8 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 8 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -6283,7 +6426,12 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC9_REV">RC9_REV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC channel 9 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>RC channel 9 reverse</p><p><strong>Comment:</strong> Set to -1 to reverse channel.</p> <strong>Values:</strong><ul>
+<li><strong>-1.0:</strong> Reverse</li> 
+
+<li><strong>1.0:</strong> Normal</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0 </td>
@@ -6315,7 +6463,7 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_FLT_CUTOFF">RC_FLT_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Cutoff frequency for the low pass filter on roll,pitch, yaw and throttle</p><p><strong>Comment:</strong> Does not get set unless below RC_FLT_SMP_RATE/2 because of filter instability characteristics.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>Cutoff frequency for the low pass filter on roll, pitch, yaw and throttle</p><p><strong>Comment:</strong> Does not get set unless below RC_FLT_SMP_RATE/2 because of filter instability characteristics.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">0.1 > ? </td>
  <td style="vertical-align: top;">10.0 </td>
@@ -6323,7 +6471,7 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_FLT_SMP_RATE">RC_FLT_SMP_RATE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Sample rate of the remote control values for the low pass filter on roll,pitch, yaw and throttle</p><p><strong>Comment:</strong> Has an influence on the cutoff frequency precision.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>Sample rate of the remote control values for the low pass filter on roll, pitch, yaw and throttle</p><p><strong>Comment:</strong> Has an influence on the cutoff frequency precision.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">1.0 > ? </td>
  <td style="vertical-align: top;">50.0 </td>
@@ -7026,26 +7174,6 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
  <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
-</tr>
-</tbody></table>
-
-## Radio Signal Loss
-
-
-The module where these parameters are defined is: *modules/navigator*.
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_RCL_LT">NAV_RCL_LT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Loiter Time</p><p><strong>Comment:</strong> The amount of time in seconds the system should loiter at current position before termination Set to -1 to make the system skip loitering</p>    </td>
- <td style="vertical-align: top;">-1.0 > ? (0.1)</td>
- <td style="vertical-align: top;">120.0 </td>
- <td style="vertical-align: top;">s</td>
 </tr>
 </tbody></table>
 
@@ -9038,9 +9166,6 @@ The module where these parameters are defined is: *modules/sensors*.
 
 ## Sensors
 
-
-The module where these parameters are defined is: *modules/sensors*.
-
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
@@ -9056,7 +9181,8 @@ The module where these parameters are defined is: *modules/sensors*.
 
 <li><strong>63:</strong> Six side calibration</li> 
 </ul>
-   </td>
+   <p><b>Module:</b> modules/sensors</p>
+</td>
  <td style="vertical-align: top;">34 > 63 </td>
  <td style="vertical-align: top;">63 </td>
  <td style="vertical-align: top;"></td>
@@ -9064,7 +9190,8 @@ The module where these parameters are defined is: *modules/sensors*.
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_ACCEL_CUTOFF">IMU_ACCEL_CUTOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Driver level cut frequency for accel</p><p><strong>Comment:</strong> The cut frequency for the 2nd order butterworth filter on the accel driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> modules/sensors</p>
+</td>
  <td style="vertical-align: top;">5 > 1000 </td>
  <td style="vertical-align: top;">30.0 </td>
  <td style="vertical-align: top;">Hz</td>
@@ -9072,14 +9199,16 @@ The module where these parameters are defined is: *modules/sensors*.
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_CUTOFF">IMU_GYRO_CUTOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Driver level cut frequency for gyro</p><p><strong>Comment:</strong> The cut frequency for the 2nd order butterworth filter on the gyro driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> modules/sensors</p>
+</td>
  <td style="vertical-align: top;">5 > 1000 </td>
  <td style="vertical-align: top;">30.0 </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>QNH for barometer</p>    </td>
+ <td style="vertical-align: top;"><p>QNH for barometer</p>    <p><b>Module:</b> modules/sensors</p>
+</td>
  <td style="vertical-align: top;">500 > 1500 </td>
  <td style="vertical-align: top;">1013.25 </td>
  <td style="vertical-align: top;">hPa</td>
@@ -9140,28 +9269,32 @@ The module where these parameters are defined is: *modules/sensors*.
 <li><strong>25:</strong> Pitch 270°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> modules/sensors</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BOARD_X_OFF">SENS_BOARD_X_OFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Board rotation X (Roll) offset</p><p><strong>Comment:</strong> This parameter defines a rotational offset in degrees around the X (Roll) axis It allows the user to fine tune the board offset in the event of misalignment.</p>    </td>
+ <td style="vertical-align: top;"><p>Board rotation X (Roll) offset</p><p><strong>Comment:</strong> This parameter defines a rotational offset in degrees around the X (Roll) axis It allows the user to fine tune the board offset in the event of misalignment.</p>    <p><b>Module:</b> modules/sensors</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BOARD_Y_OFF">SENS_BOARD_Y_OFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Board rotation Y (Pitch) offset</p><p><strong>Comment:</strong> This parameter defines a rotational offset in degrees around the Y (Pitch) axis. It allows the user to fine tune the board offset in the event of misalignment.</p>    </td>
+ <td style="vertical-align: top;"><p>Board rotation Y (Pitch) offset</p><p><strong>Comment:</strong> This parameter defines a rotational offset in degrees around the Y (Pitch) axis. It allows the user to fine tune the board offset in the event of misalignment.</p>    <p><b>Module:</b> modules/sensors</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BOARD_Z_OFF">SENS_BOARD_Z_OFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Board rotation Z (YAW) offset</p><p><strong>Comment:</strong> This parameter defines a rotational offset in degrees around the Z (Yaw) axis. It allows the user to fine tune the board offset in the event of misalignment.</p>    </td>
+ <td style="vertical-align: top;"><p>Board rotation Z (YAW) offset</p><p><strong>Comment:</strong> This parameter defines a rotational offset in degrees around the Z (Yaw) axis. It allows the user to fine tune the board offset in the event of misalignment.</p>    <p><b>Module:</b> modules/sensors</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;">deg</td>
@@ -9169,7 +9302,8 @@ The module where these parameters are defined is: *modules/sensors*.
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_LEDDAR1">SENS_EN_LEDDAR1</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>LeddarOne rangefinder</p>   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> drivers/distance_sensor/leddar_one</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -9184,7 +9318,8 @@ The module where these parameters are defined is: *modules/sensors*.
 <li><strong>2:</strong> I2C</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> drivers/distance_sensor/ll40ls</p>
+</td>
  <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -9192,7 +9327,8 @@ The module where these parameters are defined is: *modules/sensors*.
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_MB12XX">SENS_EN_MB12XX</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Maxbotix Soanr (mb12xx)</p>   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> drivers/distance_sensor/mb12xx</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -9213,7 +9349,8 @@ The module where these parameters are defined is: *modules/sensors*.
 <li><strong>5:</strong> SF11/c</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> drivers/distance_sensor/sf0x</p>
+</td>
  <td style="vertical-align: top;">0 > 4 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -9234,7 +9371,8 @@ The module where these parameters are defined is: *modules/sensors*.
 <li><strong>5:</strong> SF/LW20</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> drivers/distance_sensor/sf1xx</p>
+</td>
  <td style="vertical-align: top;">0 > 5 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -9242,7 +9380,8 @@ The module where these parameters are defined is: *modules/sensors*.
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_TFMINI">SENS_EN_TFMINI</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Benewake TFmini laser rangefinder</p>   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> drivers/distance_sensor/tfmini</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -9254,7 +9393,8 @@ The module where these parameters are defined is: *modules/sensors*.
 
 <li><strong>0:</strong> Thermal control off</li> 
 </ul>
-   </td>
+   <p><b>Module:</b> modules/sensors</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">-1 </td>
  <td style="vertical-align: top;"></td>
@@ -9271,7 +9411,8 @@ The module where these parameters are defined is: *modules/sensors*.
 <li><strong>3:</strong> TREvo</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> drivers/distance_sensor/teraranger</p>
+</td>
  <td style="vertical-align: top;">0 > 3 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -9296,7 +9437,8 @@ The module where these parameters are defined is: *modules/sensors*.
 <li><strong>7:</strong> Yaw 315°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
- </td>
+ <p><b>Module:</b> modules/sensors</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">6 </td>
  <td style="vertical-align: top;"></td>
