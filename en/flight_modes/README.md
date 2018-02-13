@@ -62,8 +62,8 @@ Throttle Command is mapped direct to Motor Speed.
     as in MANUAL mode. Throttle controls climb/descent rate as in ALTCTL
     mode. 
     
-  > **WARNING** Prior to Landing in *Position mode* be sure that landing is 
-  > correctly detected. When first Landing in this mode, be ready to switch 
+  > **Warning** Care must be taken when landing in *Position mode* to ensure that landing is 
+  > *correctly detected*. When first landing in this mode, be ready to switch 
   > to *Stabilized mode* in order to be able to disarm. If landing is correctly 
   > detected, motors will spin down after touch down and then disarm shortly after. 
   > If the motors keep spinning at higher RPM or start spinning up, first switch 
