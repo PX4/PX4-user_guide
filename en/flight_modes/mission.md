@@ -21,7 +21,7 @@ At high level all vehicle types behave in the same way when MISSION mode is enga
    * If flying the vehicle will loiter.
    * If landed the vehicle will "wait".
 1. You can manually change the current mission command by selecting it in *QGroundControl*. 
-   > **Note** If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter and "fully restart" the mission.
+   > **Note** If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter. One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
 1. The mission will only reset when the vehicle is disarmed or when a new mission is uploaded.
 
 Missions can be paused by activating [HOLD mode](../flight_modes/hold.md). The mission will then continue from the current mission command when you reactivate the MISSION flight mode.
