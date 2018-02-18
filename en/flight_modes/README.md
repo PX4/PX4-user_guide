@@ -63,12 +63,12 @@ Throttle Command is mapped direct to Motor Speed.
     mode. 
     
   > **Warning** Prior to Landing in *Position mode* be sure that landing is 
-  > correctly detected. When first Landing in this mode, be ready to switch 
-  > to *Stabilized mode* in order to be able to disarm. If landing is correctly 
-  > detected, motors will spin down after touch down and then disarm shortly after. 
-  > If the motors keep spinning at higher RPM or start spinning up, first switch 
-  > to *Stabilized mode*, and then disarm. Be aware that the vehicle may tip over 
-  > on the ground due to GPS drift. 
+    correctly detected. When first Landing in this mode, be ready to switch 
+    to *Stabilized mode* in order to be able to disarm. If landing is correctly 
+    detected, motors will spin down after touch down and then disarm shortly after. 
+    If the motors keep spinning at higher RPM or start spinning up, first switch 
+    to *Stabilized mode*, and then disarm. Be aware that the vehicle may tip over 
+    on the ground due to GPS drift. 
 
 
 ## Auto modes {#auto-modes}
