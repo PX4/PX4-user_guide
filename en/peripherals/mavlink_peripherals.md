@@ -7,7 +7,7 @@ stream.
 
 ## TELEM2 Port
 
-The MAVLink settings default to OSD mode at 57600 baud.
+The MAVLink settings default to OSD mode at 57600 baud. 
 
 The **drop-down menu** for the SYS_COMPANION parameter allows to set
 the optimal mode depending on the application scenario.
@@ -17,6 +17,8 @@ the optimal mode depending on the application scenario.
 -   OSD mode at 57600 baud
 -   Command / RC input mode (receive only) at 57600 baud
 -   Normal telemetry mode at 57600 baud
+
+> **Note** OSD mode defines the mavlink stream (set of activated messages & their rates). All the other modes are for a specific hardware (e.g. ESP8266 for WiFi), and use the optimal baud rate settings for their link.
 
 ![QGC Telemetry Setup](../../images/qgc_telemetry_setup.png)
 
