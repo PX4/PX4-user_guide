@@ -29,3 +29,5 @@ For general information about selecting a radio system, receiver compatibility, 
 ![Radio Connection](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg)
 
 ![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
+
+![Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png)
