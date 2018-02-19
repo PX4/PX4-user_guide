@@ -24,7 +24,7 @@ Parameter | Description
 <span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) | Minimum RTL return altitude in meters (default: 60m). The vehicle will ascend to this altitude before returning. If already above this value the vehicle will return at its current altitude.
 <span id="RTL_DESCEND_ALT"></span>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | Altitude at which the vehicle will slow or stop its initial descent (default: 30m)
 <span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) | Time to hover at `RTL_DESCEND_ALT` before landing (default: 0.5s). If set to -1 the system will loiter at `RTL_DESCEND_ALT` rather than landing.
-<span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST) | Minimum distance to trigger rising to a safe altitude. If the system is horizontally closer than this distance to home it will land straight on home instead of raising to the return altitude first.
+<span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST) | Minimum horizontal distance from home position to trigger ascent to a safe altitude (RTL_RETURN_ALT). If the vehicle is horizontally closer than this distance to home, it will return at its current altitude (instead of first ascending to RTL_RETURN_ALT). 
 
 
 ## Fixed Wing (FW)
