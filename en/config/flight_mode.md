@@ -81,6 +81,23 @@ The video then shows how to use *QGroundControl* to specify the mode channel and
 http://www.youtube.com/watch?v=scqO7vbH2jo
 {% endyoutube %}
 
+### Single-Channel Flight Mode Selection Example
+
+If you want to switch between 3 different flight modes e.g. Manual, Altitude, Acro using one 3-way switch e.g. switch “SD” on FrSky Taranis RC, the switch can be assigned to a channel e.g. channel 5 in the ‘mixer’ page of Taranis user interface, as shown below.
+
+![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_1.png)
+
+![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_2.png)
+
+You can then select the channel and the flight modes in single channel mode selection option in QGC: 
+
+![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_3.png)
+
+Similarly, you can also assign a 2-way switch e.g. “SF” to another channel (e.g. channel 6) to arm and disarm the motors manually with RC. The parameter RC_MAP_ARM_SW can then be set to channel 6 in QGC:
+
+![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_4.png)
+
+
 <span id="multi_channel"></span>
 ## Multi-Channel Flight Mode Selection
 
