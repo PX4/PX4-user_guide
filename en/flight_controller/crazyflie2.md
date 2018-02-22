@@ -22,7 +22,7 @@ After setting up the PX4 development environment, follow these steps to put the 
 
 1. Grab source code of the PX4 [Bootloader](https://github.com/PX4/Bootloader)
 1. Compile using `make crazyflie_bl`
-1. Put the CF2 into DFU mode:
+1. Put the CrazyFly 2 (CF2) into DFU mode by following these steps:
    - Ensure it is initially unpowered
    - Hold down button
    - Plug into computer's USB port
