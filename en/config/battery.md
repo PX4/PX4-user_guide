@@ -1,24 +1,49 @@
-# Battery and Powermodule Setup
+# Battery and Power Module Setup
 
-> **Warning** Before you fly for the first time you should make sure you have a way to monitor your battery state. Not knowing how much fuel is left may likely lead to deep discharge of the used battery which can cause damage to the battery, loss of vehicle control and hence a crash.
+This topic explains how to configure power settings.
 
-> **Note** The battery monitoring related features of PX4 can only be used if you have compatible hardware which is in most cases a power module that measures the battery voltage and the current between battery and vehicle.
+> **Note** The battery monitoring features of PX4 can only be used if you have compatible hardware. In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
 
-## Set the Basic Battery Settings
+## Overview
+
+The goal of the power setup is to provide a good estimate of remaining battery capacity, so that the vehicle is not used to the point that it runs out of power and crashes (or the battery is damaged due to deep-discharge).
+
+PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
+
+1. [Basic Battery Settings](#basic_settings) (default): raw measured voltage is compared to the range between "empty" and "full" voltages. This results in "course" estimates because measured voltage (and its corresponding capacity) will fluctuate under load.
+1. [Voltage-based Estimation with Load Compensation](#load_compensation): Counteracts the effects of loading on the capacity calculation.
+1. [Voltage-based Estimation with Current Integration](#current_integration): Fuses the load-compensated voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. This results in a capacity estimate that is comparable to that of a smart battery.
+
+Later methods build on preceding methods. The approach you use will depend on whether the vehicle's power module can measure current.
+
+
+## Basic Battery Settings (default) {#basic_settings}
+
+> **Note** This default/basic power configuration results in relatively course estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+
+The basic battery settings configure PX4 to use the default method for capacity estimate. 
+This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells). 
+
+To configure the basic settings:
 
 1. Start *QGroundControl* and connect the vehicle.
 1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Power** in the sidebar.
 
-You are presented with the basic settings that characterize your battery.
+You are presented with the basic settings that characterize your battery. The sections below explain what values to set for each field.
 
-### Number of accumulator cells connected in series
-Batteries commonly rely on a chemical process to save and supply energy. The voltage across one atomic battery cell is given by the chemical properties of the battery type.
-For example the byy far most common battery type for remote controlled vehicles are lithium polymer (li-po) accumulators with a nominal cell voltage of 3.7V.
-To achieve higher voltages for efficiently powering the actuators of a vehicle, multiple cells are connected in series.
-This results in multiples of the cell voltage as output at the battery terminals. Batteries are labeled with the number of cells they contain by a number followed by a big S for series. E.g. 1S is one cell, 4S are four cells in series.
-If you cannot find any label on your battery telling you the number of cells you can infer the count by the battery type and its nominal voltage.
+![QGC Power Setup](../../assets/qgc/qgc_setup_power_px4.jpg)
 
-So for li-po batteries the following voltages are possible
+
+> **Note** The basic settings below correspond to [parameters](../advanced_config/parameters.md): [BAT_N_CELLS](../advanced_config/parameter_reference.md#BAT_N_CELLS), [BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY), [BAT_V_CHARGED](../advanced_config/parameter_reference.md#BAT_V_CHARGED). 
+
+
+### Number of Cells (in Series)
+
+This sets the number of cells connected in series in the battery. Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5s").
+
+> **Note** The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type. The most common drone battery type (Lithium-Polymer - LiPo) has a nominal cell voltage of 3.7V. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*. The battery voltage at the terminals is then a multiple of the cell voltage.
+
+If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell. The table below shows the voltage-to-cell relationship for LiPo batteries:
 * 1S - 3.7V
 * 2S - 7.4V
 * 3S - 11.1V
@@ -26,56 +51,91 @@ So for li-po batteries the following voltages are possible
 * 5S - 18.5V
 * 6S - 22.2V
 
-This setting sets the number of cells connected in series PX4 should monitor.
 
-### Full cell voltage
-A chemical battery cells output voltage depends on many parameters like the way the battery was built, temperature, load, if the battery was damaged. But for a healthy battery under normal conditions with no load attached the remaining capacity is the main factor.
-Normal li-po batteries should be charged by dedicated charging devices such that each cell reaches a maximal voltage of exactly 4.2V. But after the battery was fully charged and is stored for later use the voltage starts to decrease even with no external load at all.
-That's why this setting should be set just a bit lower than the maximal voltage of a cell otherwise the fuel estimate will likely already be below 100% by the time you connect the battery to your autopilot.
+### Full Voltage (per cell)
 
-### Empty cell voltage
-Most battery cells particularly also li-pos suffer a lot when they get used after they are "empty". To say if they are empty is not binary and not accurately possible by only knowing the cell voltage.
-On one hand if a li-po ever sees a voltage lower than 3.2V even if it's under load it will suffer significant damage for sure. On the other hand the nominal cell voltage 3.7V without load is where the battery starts to get into the empty range and that's the most conservative voltage to consider it empty.
-In between these extremes the earlier you put the battery to charge again the longer the life span will be and the less capacity degrade you'll see.
+This sets the *nominal* maximum voltage of each cell (the lowest voltage at which the cell will be considered "full").
 
-> **Hint** As my personal most general rule of thumb if the first li-po cell raw voltage gets below 3.5V during flight (under load) I start to land immediately.
+The value should be set slightly lower that the nominal maximum cell voltage for the battery (4.2V for LiPo), but not so low that the estimated capacity is still 100% after a few minutes of flight. The default value is usually appropriate for LiPo batteries. 
 
-When speaking about the empty cell voltage we need to distinguish:
-* Raw voltage under load, the voltage directly measured while flying
-This value highly varies depending on the momentary current draw from the cells. As a result you will see fluctuating battery percentages
-* Rest voltage without a load when the battery is resting for some time
-Best suitable measurement to infer charge status of the cell.
-* Load compensated voltage calculated in air (under load)
-Ideally you want to have a load compensated voltage available during flight which reflects the rest voltage without load. but in practise the load compensated value will always be a bit below what you end up with because the battery "recovers" its unloaded voltage over time without gaining usable capacity.
+> **Note**  The voltage of a full battery may drop a small amount over time after charging. Setting a slightly-lower than maximum value compensates for this drop.
 
-## Without load compensation
-With the default parameter set there is no load compensation enabled because if you don't have a current sensor, it might be uncalibrated or the internal resistance of your battery is completely off the resulting compensation might not make sense.
+### Empty Voltage (per cell)
 
-If you don't want to use load compensation set the empty cell voltage to the value that should result in 0% battery estimation.
+This sets the nominal minimum safe voltage of each cell (use below this voltage may damage the battery).
 
-## With load compensation
-If you use load compensation the empty voltage should be set higher than without because the compensated voltage gets used for the estimation. What you want to set is typically a bit below the expected rest cell voltage when empty after use.
+> **Note** There is no single value at which a battery is said to be empty. If you choose a value that is too low the battery may be damaged due to deep discharge (and/or the vehicle may crash). If you choose a value that is too high you may unnecessarily curtail your flight.
 
-### With thrust based load compensation (not recommended)
-Without a current sensor it's very hard to do load compensation. You can enable compensation based on the total thrust which gets commanded to the motors by setting the parameter BAT_V_LOAD_DROP to how much voltage drop a cell shows under the load of full throttle. But this method is not accurate even with a good parameter because there's a delay between thrust command and current and the thrust in not linearly proportional to the current.
+A rule of thumb for LiPo batteries:
+- 3.7V without load is a conservative minimum value.
+- 3.5 V under load (while flying) is closer to the true minimum. At this voltage you should land immediately. 
+- 3.2V under load will cause damage to the battery. 
 
-### With current based load compensation (recommended)
-If you have a current sensor on board you can enable load compensation using the current measurement by setting the parameter `BAT_R_INTERNAL` to the internal resistance of your battery. There are li-po chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ but this can vary with discharge current rating, age and health of the cells.
-With decent configured load compensation the voltage used for the battery fuel estimation is much more stable and will not vary that much anymore when flying up and down.
+> **Tip** Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
 
-### Calibration Voltage Devider & Current per volt
-If you have a vehicle which measures voltage and current through a power module and the ADC of the FCU then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
 
-The easiest way to calibrate the dividers is by using QGroundControl and following the step-by-step guide on https://docs.qgroundcontrol.com/en/SetupView/Power.html.
+### Voltage divider/Amps per volt
 
-## Combning voltage based estimation with current integration
-After tuning the voltage based estimation you can achieve a more stable linear and accurate estimation by fusing your estimate with the so far used capacity. This is only possible with accurate current measurements because the current gets mathematically integrated over time to have a used capacity estimate.
-This is the best way to have totally accurate relative fuel consumption of the battery. You can not use only this technique because:
-* You cannot detect how full the battery is when the vehicle is turned on
-* If the absolute fuel estimation is for some reason wrong or the battery is faulty you don't have feedback.
+If you have a vehicle that measures voltage and current through a power module and the ADC of the FCU then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
 
-That's why you should always configure and tune the voltage based estimation first and then afterwards enable direct used capacity fusion.
-To enable this feature make sure you have a working and safe voltage based estimation then set the parameter `BAT_CAPACITY` to around 90% of the advertised battery capacity which is usually printed on a label on the battery.
-Setting this value too large will not extend your flight time it will only result in worse estimation and a sudden percentage drop or if exaggerated to totally unreliable percentages.
+The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
 
-If you set up all of this correctly and you use a healthy, fresh charged battery on every boot up the estimation will be comparable to a smart battery and theoretically allow for accurate remaining flight time estimation.
+
+
+## Voltage-based Estimation with Load Compensation {#load_compensation}
+
+> **Note** With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
+
+Load compensation attempts to counteract the fluctuation in measured voltage/estimated capacity under load that occur when using the [basic configuration](#basic_settings). This works by estimating what the voltage would be for the *unloaded* battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity. 
+
+> **Note** To use the load compensation you will still need to set the [basic configuration](#basic_settings). The *Empty Voltage* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher than because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
+
+PX4 supports two load compensation methods, which are enabled by  [setting](../advanced_config/parameters.md) either of the two parameters below:
+* [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
+* [BAT_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
+
+### Current-based Load Compensation (recommended) {#current_based_load_compensation}
+
+This load compensation method relies on current measurement to determine load. It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
+
+To enable this feature:
+
+1. Set the parameter [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) to to the internal resistance of your battery. 
+   > **Tip** There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ but this can vary with discharge current rating, age and health of the cells.
+
+
+### Thrust-based Load Compensation {#thrust_based_load_compensation}
+
+This load compensation method estimates the load based on the total thrust that gets commanded to the motors. 
+
+> **Caution** This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current. Use  [Current-based Load Compensation](#current_based_load_compensation) instead if your vehicle has a current sensor.
+
+To enable this feature:
+
+1. Set the parameter [BAT_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
+
+
+## Voltage-based Estimation with Current Integration {#current_integration}
+
+> **Note** This is the most accurate way to measure relative battery consumption. If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
+
+This method evaluates the remaining battery capacity by *fusing* the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. It requires hardware that can accurately measure current.
+
+To enable this feature:
+
+1. First set up accurate voltage estimation using [current-based load compensation](#current_based_load_compensation).
+1. Set the parameter [BAT_CAPACITY](../advanced_config/parameter_reference.md#BAT_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
+   > **Note** Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
+   
+---
+**Additional information**
+
+The estimate of the charge that has been consumed over time is produced by mathematically integrating the measured current (this approach provides very accurate energy consumption estimates).
+
+At system startup PX4 first does uses a voltage-based estimate to determine the initial battery charge. This estimate is then fused with the value from current integration to provide a combined better estimate.
+The relative value placed on each estimate in the fused result depends on the battery state.
+The emptier the battery gets, the more of the voltage based estimate gets fused in. This prevents deep discharge (e.g. because it was configured with the wrong capacity or the start value was wrong). 
+
+If you always start with a healthy full battery, this approach is similar to that used by a smart battery.
+
+> **Note** Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the *initial* capacity. Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
