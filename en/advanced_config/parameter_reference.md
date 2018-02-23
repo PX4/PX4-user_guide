@@ -4288,6 +4288,13 @@ default 1.5 turns per second</p>    </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MC_DTERM_CUTOFF">MC_DTERM_CUTOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Cutoff frequency for the low pass filter on the D-term in the rate controller</p><p><strong>Comment:</strong> The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to decrease the driver-level filtering, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.</p>    </td>
+ <td style="vertical-align: top;">0 > 1000 (10)</td>
+ <td style="vertical-align: top;">0. </td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_D">MC_PITCHRATE_D</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Pitch rate D gain</p><p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.0005)</td>
@@ -4325,7 +4332,7 @@ default 1.5 turns per second</p>    </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PITCH_P">MC_PITCH_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Pitch P gain</p><p><strong>Comment:</strong> Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    </td>
- <td style="vertical-align: top;">0.0 > 10 (0.1)</td>
+ <td style="vertical-align: top;">0.0 > 12 (0.1)</td>
  <td style="vertical-align: top;">6.5 </td>
  <td style="vertical-align: top;">1/s</td>
 </tr>
@@ -4388,7 +4395,7 @@ default 1.5 turns per second</p>    </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLL_P">MC_ROLL_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Roll P gain</p><p><strong>Comment:</strong> Roll proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    </td>
- <td style="vertical-align: top;">0.0 > 8 (0.1)</td>
+ <td style="vertical-align: top;">0.0 > 12 (0.1)</td>
  <td style="vertical-align: top;">6.5 </td>
  <td style="vertical-align: top;">1/s</td>
 </tr>
@@ -6463,9 +6470,9 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/rc_re
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_FLT_CUTOFF">RC_FLT_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Cutoff frequency for the low pass filter on roll, pitch, yaw and throttle</p><p><strong>Comment:</strong> Does not get set unless below RC_FLT_SMP_RATE/2 because of filter instability characteristics.</p>    <p><b>Module:</b> modules/sensors</p>
+ <td style="vertical-align: top;"><p>Cutoff frequency for the low pass filter on roll, pitch, yaw and throttle</p><p><strong>Comment:</strong> Does not get set unless below RC_FLT_SMP_RATE/2 because of filter instability characteristics. Set to 0 to disable the filter.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
- <td style="vertical-align: top;">0.1 > ? </td>
+ <td style="vertical-align: top;">0 > ? </td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
@@ -9189,19 +9196,19 @@ The module where these parameters are defined is: *modules/sensors*.
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_ACCEL_CUTOFF">IMU_ACCEL_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Driver level cut frequency for accel</p><p><strong>Comment:</strong> The cut frequency for the 2nd order butterworth filter on the accel driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Driver level cutoff frequency for accel</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the accel driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
 </td>
- <td style="vertical-align: top;">5 > 1000 </td>
+ <td style="vertical-align: top;">0 > 1000 </td>
  <td style="vertical-align: top;">30.0 </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_CUTOFF">IMU_GYRO_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Driver level cut frequency for gyro</p><p><strong>Comment:</strong> The cut frequency for the 2nd order butterworth filter on the gyro driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Driver level cutoff frequency for gyro</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the gyro driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
 </td>
- <td style="vertical-align: top;">5 > 1000 </td>
+ <td style="vertical-align: top;">0 > 1000 </td>
  <td style="vertical-align: top;">30.0 </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>

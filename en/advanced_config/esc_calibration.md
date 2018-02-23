@@ -1,11 +1,11 @@
 # ESC calibration
 
-Electronic speed controllers translate the input from the RC or the
+Electronic Speed Controllers (ESC) translate the input from the RC or the
 flight controller to the motors. ESCs do not always have to be
 calibrated. High-quality controllers come with a factory calibration and
 can be just configured using the PWM\_MIN and PWM\_MAX parameters. This
 ensures that all the ESCs in a multicopter will scale the same way the
-input from the flight controller (FC) to the motors.  However, many low-cost models do
+input from the Flight Controller (FC) to the motors.  However, many low-cost models do
 require calibration and so if unsure calibration is recommended. Here is
 how you do it.
 
