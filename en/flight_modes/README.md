@@ -1,6 +1,6 @@
 # Flight Modes
 
-*Flight Modes* are used to control how the autopilot responds to user input and manages vehicle movement. They are loosely grouped based on the level/type of control provided by the autopilot.:
+*Flight Modes* are used to control how the autopilot responds to user input and manages vehicle movement. They are loosely grouped based on the level/type of control provided by the autopilot:
 
 * [Manual flight modes](#manual-modes) are those where the user has control over vehicle movement via the RC control sticks (or joystick). Vehicle movement always follows stick movement, but the level/type of response changes depending on the mode. For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
 * [Assisted flight modes](#assisted-modes) are also user controlled but offer some level of "automatic" assistance - for example, automatically holding position/direction, against wind. Assisted modes often make it much easier to gain or restore controlled flight.
@@ -51,7 +51,7 @@ Throttle Command is mapped direct to Motor Speed.
 
 "Assisted" flight modes are also user controlled but offer some level of "automatic" assistance to gain or restore controlled flight.
 
-- [Altitude](../flight_modes/altitude.md): More easily control vehicle altitude, and in particular reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold the x and y position/heading against wind.
+- [Altitude](../flight_modes/altitude.md): More easily control vehicle altitude, and in particular reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold the vehicle x and y position or course against wind.
 
 - **Position**
   - **Fixed wing aircraft:** Neutral inputs (meaning when roll, pitch and yaw sticks are centered) provide a level flight and
