@@ -18,7 +18,7 @@ the optimal mode depending on the application scenario.
 -   Command / RC input mode (receive only) at 57600 baud
 -   Normal telemetry mode at 57600 baud
 
-> **Note** OSD mode defines the MAVLink stream (set of activated messages & their rates). All the other modes are for a specific hardware (e.g. ESP8266 for WiFi), and use the optimal baud rate settings for their link.
+> **Note** OSD mode defines the MAVLink stream required by OSD (set of activated messages & their rates). The other modes are for other specific hardware (e.g. ESP8266 for WiFi), and use the optimal baud rate settings for their link.
 
 ![QGC Telemetry Setup](../../images/qgc_telemetry_setup.png)
 
