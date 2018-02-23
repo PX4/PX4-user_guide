@@ -45,7 +45,7 @@ Some pilots may also wish to enable:
 
 The single-channel selection mode allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
 
-> **Note** In order to use approach you will first need to configure your *transmitter* to encode the physical positions of your mode switch(es) into a single channel. We provide a video guide of how this is done for the popular *Taranis* transmitter [below](#taranis_setup) (check your documentation if you use a different transmitter). 
+> **Note** In order to use this approach you will first need to configure your *transmitter* to encode the physical positions of your mode switch(es) into a single channel. We provide a video guide of how this is done for the popular *Taranis* transmitter [below](#taranis_setup) (check your documentation if you use a different transmitter). 
 
 To configure single-channel flight mode selection:
 
@@ -81,12 +81,29 @@ The video then shows how to use *QGroundControl* to specify the mode channel and
 http://www.youtube.com/watch?v=scqO7vbH2jo
 {% endyoutube %}
 
+### Single-Channel Flight Mode Selection Example
+
+If you want to switch between 3 different flight modes e.g. Manual, Altitude, Acro using one 3-way switch e.g. switch “SD” on FrSky Taranis RC, the switch can be assigned to a channel e.g. channel 5 in the ‘mixer’ page of Taranis user interface, as shown below.
+
+![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_1.png)
+
+![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_2.png)
+
+You can then select the channel and the flight modes in single channel mode selection option in QGC: 
+
+![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_3.png)
+
+Similarly, you can also assign a 2-way switch e.g. “SF” to another channel (e.g. channel 6) to arm and disarm the motors manually with RC. The parameter RC_MAP_ARM_SW can then be set to channel 6 in QGC:
+
+![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_4.png)
+
+
 <span id="multi_channel"></span>
 ## Multi-Channel Flight Mode Selection
 
 > **Tip** We recommend you use [Single Channel Flight Mode](#single_channel) selection because the Multi Channel selection user interface can be confusing. If you do choose to use this method, then the best approach is to start assigning channels and take note of information displayed by *QGroundControl* following your selection. 
 
-The multi-channel selection UI allows you to map one or more modes to one or more channels. There are some modes (and hence switches) that must always be defined, and the channel to which they must be allocated.
+The multi-channel selection user interface allows you to map one or more modes to one or more channels. There are some modes (and hence switches) that must always be defined, and the channel to which they must be allocated.
 
 To configure flight modes using the multi-channel UI:
 
@@ -98,7 +115,7 @@ To configure flight modes using the multi-channel UI:
    
    > **Tip** If the screen opens in *Single Channel Mode* click the **Use Multi Channel Mode Selection** button to change screen.
    
-1. Select the modes you want to assign to your switches and select the associated channel (selected modes will *move* in the UI to be grouped by channel).
+1. Select the modes you want to assign to your switches and select the associated channel (selected modes will *move* in the user interface to be grouped by channel).
    There are a number of complications on the mode to channel assignments:
    * Some modes will have a grayed out channel selector because they cannot be disabled and you cannot directly set the value. For example:
      * *Mission* mode - Has the same channel number as *Hold* (if it is defined), or otherwise the same channel as *Stabilized/Main* mode.

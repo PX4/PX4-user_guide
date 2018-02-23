@@ -11,7 +11,7 @@ On *telemetry-enabled* RC systems, the remote control unit can also receive and 
 
 ![Taranis X9D Transmitter](../../images/frsky_taranis_x9d_transmitter.jpg)
 
-The remote control unit contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. The vehicle-based unit is connected to the flight controller. The flight controller determines how interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
+The remote control unit contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. The vehicle-based unit is connected to the flight controller. The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
 
 <!-- image showing the different parts here would be nice -->
 

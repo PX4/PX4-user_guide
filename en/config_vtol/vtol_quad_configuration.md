@@ -75,7 +75,7 @@ reached.
 
 Parameter: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
-By default as the airspeed get close to the transition speed multirotor
+By default, as the airspeed gets close to the transition speed, multirotor
 attitude control will be reduced and fixed wing control will start
 increasing continuously until the transition occurs.
 

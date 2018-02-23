@@ -17,7 +17,7 @@ Hardware for the SiK radio can be obtained from various manufacturers/stores in 
 
 The ground station-based radio is connected via USB (essentially plug-n-play). 
 
-The vehicle is connected to the flight-controller's `TELEM1` port, and typically requires no further configuration.
+The vehicle-based radio is connected to the flight-controller's `TELEM1` port, and typically requires no further configuration.
 
 
 ## Firmware Update

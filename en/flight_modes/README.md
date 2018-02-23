@@ -51,17 +51,18 @@ Throttle Command is mapped direct to Motor Speed.
 
 "Assisted" flight modes are also user controlled but offer some level of "automatic" assistance to gain or restore controlled flight.
 
-- [Altitude](../flight_modes/altitude.md): More easily control vehicle altitude, and in particular reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold position/heading against wind.
+- [Altitude](../flight_modes/altitude.md): More easily control vehicle altitude, and in particular reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold the x and y position/heading against wind.
 
 - **Position**
-  - **Fixed wing aircraft:** Neutral inputs provide a level flight and
+  - **Fixed wing aircraft:** Neutral inputs (meaning when roll, pitch and yaw sticks are centered) provide a level flight and
     will crab against the wind if needed to maintain a straight line.
   - **Multirotors** Roll controls left-right speed, pitch controls
     front-back speed. When roll and pitch are all centered (inside
     deadzone) the multirotor will hold position. Yaw controls yaw rate
-    as in MANUAL mode. Throttle controls climb/descent rate as in ALTCTL
+    as in MANUAL mode. Throttle controls climb/descent rate as in Altitude
     mode. 
     
+
   > **Warning** Care must be taken when landing in *Position mode* to ensure that landing is 
   > *correctly detected*. When first landing in this mode, be ready to switch 
   > to *Stabilized mode* in order to be able to disarm. If landing is correctly 
@@ -69,6 +70,7 @@ Throttle Command is mapped direct to Motor Speed.
   > If the motors keep spinning at higher RPM or start spinning up, first switch 
   > to *Stabilized mode*, and then disarm. Be aware that the vehicle may tip over 
   > on the ground due to GPS drift. 
+
 
 
 ## Auto modes {#auto-modes}

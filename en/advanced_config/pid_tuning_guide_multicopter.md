@@ -15,9 +15,9 @@ Tuning is required when creating a new airframe type or significantly modifying 
 **P**roportional, **I**ntegral, **D**erivative controllers are the most widespread control technique. 
 There are substantially better performing control techniques (LQR/LQG) from the model predictive control (MPC), 
 but since these techniques require a more or less accurate model of the system, they not as widely used. 
-The goal of all PX4 control infrastructure is move as soon as possible on MPC, 
+The goal of all PX4 control infrastructure is to move as soon as possible on MPC, 
 but since not all supported systems models are available, 
-PID tuning is very relevant (and PID control sufficient for many cases).
+PID tuning is very relevant (and PID control is sufficient for many cases).
 
 
 ### PID Controller Overview 
@@ -51,8 +51,8 @@ to go back to level.
 
 There is also [MC_YAW_FF](../advanced_config/parameter_reference.md#MC_YAW_FF) parameter that controls how much of user input
 need to feed forward to yaw rate controller. 0 means very slow control,
-controller will start to move yaw only when sees yaw position error, 1
-means very responsive control, but with some overshot, controller will
+controller will start to move yaw only when it sees yaw position error. 1
+means very responsive control, but with some overshoot, controller will
 move yaw immediately, always keeping yaw error near zero.
 
 
@@ -126,8 +126,8 @@ with the magnitudes of RATE\_P and RATE\_D the response can be
 fine-tuned. Typical value is around 0.01…0.02.
 
 In QGroundControl you can plot roll and pitch rates
-(ATTITUDE.rollspeed/pitchspeed). It must not oscillate, but some
-overshot (10-20%) is ok.
+(ATTITUDE.rollspeed/pitchspeed) from **Widgets -> Analyze**. It must not oscillate, but some
+overshoot (10-20%) is ok.
 
 
 #### I Gain Tuning
@@ -149,11 +149,11 @@ so that the weight is virtually zero. Tilt it in roll or pitch
 direction, and observe the response. It should go slowly back to level.
 If it oscillates, tune down P. Once the control response is slow but
 correct, increase P until it starts to oscillate. Optimal response is
-some overshot (\~10-20%). After getting stable response fine tune
+some overshoot (\~10-20%). After getting stable response fine tune
 `RATE_P`, `RATE_D` again.
 
 In *QGroundControl* you can plot roll and pitch (`ATTITUDE.roll`/`ATTITUDE.pitch`) and
-control (ctrl0, ctrl1). Attitude angles overshot should be not more than
+control (ctrl0, ctrl1). Attitude angles overshoot should be not more than
 10-20%.
 
 
@@ -195,8 +195,8 @@ oscillates, tune down P. Once the control response is slow but correct,
 increase P until the response is firm, but it does not oscillate.
 Typical value is around 2…3.
 
-Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshot should be not more
-than 2-5% (less than for attitude).
+Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshoot should be not more
+than 2-5% (which is less than the overshoot for roll and pitch angles).
 
 
 #### Feed Forward Tuning
@@ -208,5 +208,5 @@ yaw response will be sluggish or too fast. Play with FF parameter to get
 comfortable response. Valid range is 0…1. Typical value is 0.8…0.9. (For
 aerial video optimal value may be much smaller to get smooth response.)
 
-Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshot should be not more
-than 2-5% (less than for attitude).
+Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshoot should be not more
+than 2-5% (which is less than the overshoot for roll and pitch angles).
