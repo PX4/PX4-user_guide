@@ -74,12 +74,20 @@ A rule of thumb for LiPo batteries:
 > **Tip** Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
 
 
-### Voltage divider/Amps per volt
+### Voltage divider
 
-If you have a vehicle that measures voltage and current through a power module and the ADC of the FCU then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
+If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
+
+The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
+
+
+### Amps per volt {#current_divider}
+
+> **Tip** This setting is not needed if you are using the basic configuration (without load compensation etc.)
+
+If you are using [Current-based Load Compensation](#current_based_load_compensation) or [Current Integration](#current_integration) the APMs per volt needs to be calibrated. 
 
 The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
-
 
 
 ## Voltage-based Estimation with Load Compensation {#load_compensation}
@@ -102,7 +110,7 @@ To enable this feature:
 
 1. Set the parameter [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) to to the internal resistance of your battery. 
    > **Tip** There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ but this can vary with discharge current rating, age and health of the cells.
-
+1. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 
 ### Thrust-based Load Compensation {#thrust_based_load_compensation}
 
@@ -124,6 +132,8 @@ This method evaluates the remaining battery capacity by *fusing* the voltage-bas
 To enable this feature:
 
 1. First set up accurate voltage estimation using [current-based load compensation](#current_based_load_compensation).
+   > **Tip** Including calibrating the [Amps per volt divider](#current_divider) setting.
+   
 1. Set the parameter [BAT_CAPACITY](../advanced_config/parameter_reference.md#BAT_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
    > **Note** Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
    
