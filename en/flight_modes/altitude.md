@@ -1,6 +1,6 @@
 # Altitude Flight Mode
 
-The *Altitude* flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold position/heading against wind.
+The *Altitude* flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. TThe mode does not use GPS, and hence will not attempt to hold the vehicle x and y position or course against wind.
 
 The flight mode has specific characteristics based on the type of vehicle, as discussed in the sections below.
 

@@ -40,8 +40,7 @@ Some pilots may also wish to enable:
 
 > **Tip** The recommended approach is use *Single Channel Mode Selection* because it easy to understand and configure. 
 
-<span id="single_channel"></span>
-## Single-Channel Flight Mode Selection
+## Single-Channel Flight Mode Selection {#single_channel}
 
 The single-channel selection mode allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
 
@@ -69,8 +68,7 @@ To configure single-channel flight mode selection:
 
 All values are automatically saved as they are changed.
 
-<span id="taranis_setup"></span>
-### Video Example (including Transmitter Setup)
+### Single-Channel Setup Video Example (including Transmitter Setup) {#taranis_setup}
 
 It is common to use the positions of a 2- and a 3-position switch on the transmitter to represent the 6 flight modes, and encode each combination of switches as a particular PWM value for the mode that will be sent on a single channel. 
 
@@ -81,25 +79,32 @@ The video then shows how to use *QGroundControl* to specify the mode channel and
 http://www.youtube.com/watch?v=scqO7vbH2jo
 {% endyoutube %}
 
-### Single-Channel Flight Mode Selection Example
+### Single-Channel Setup Instructional Example
 
-If you want to switch between 3 different flight modes e.g. Manual, Altitude, Acro using one 3-way switch e.g. switch “SD” on FrSky Taranis RC, the switch can be assigned to a channel e.g. channel 5 in the ‘mixer’ page of Taranis user interface, as shown below.
+This example shows how you can configure a transmitter and PX4 with:
+* A 3-way switch to choose between flight modes using the single-channel mode setting approach (Manual, Altitude, Acro).
+* A 2-way switch that invokes some function (arm/disarm) (via a [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameter).
 
-![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_1.png)
+> **Note** This example shows how to set up the popular *FrSky Taranis* transmitter. Configuration will be slightly different for other transmitters.
 
-![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_2.png)
+First set up your transmitter. Below we show how to map the Taranis "SD" switch to channel 5. This is done in the Taranis UI 'mixer' page, as shown below:
 
-You can then select the channel and the flight modes in single channel mode selection option in QGC: 
+![Taranis - Map channel to switch](../../images/qgc/setup/single_channel_mode_selection_1.png)
 
-![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_3.png)
+![Taranis - Configure channel](../../images/qgc/setup/single_channel_mode_selection_2.png)
 
-Similarly, you can also assign a 2-way switch e.g. “SF” to another channel (e.g. channel 6) to arm and disarm the motors manually with RC. The parameter RC_MAP_ARM_SW can then be set to channel 6 in QGC:
+You can then select the channel and the flight modes in single channel mode selection option in *QGroundControl*: 
 
-![Single channel mode example](../../images/qgc/setup/single_channel_mode_selection_4.png)
+![QGC - Set mode channel](../../images/qgc/setup/single_channel_mode_selection_3.png)
+
+The [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameters map a particular function to a channel. Assuming you have already mapped a channel in your transmitter you can assign the channel by [setting the parameter](../advanced_config/parameters.md).
+
+For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter in *QGroundControl*
+
+![QGC - Map ARM switch to channel](../../images/qgc/setup/single_channel_mode_selection_4.png)
 
 
-<span id="multi_channel"></span>
-## Multi-Channel Flight Mode Selection
+## Multi-Channel Flight Mode Selection {#multi_channel}
 
 > **Tip** We recommend you use [Single Channel Flight Mode](#single_channel) selection because the Multi Channel selection user interface can be confusing. If you do choose to use this method, then the best approach is to start assigning channels and take note of information displayed by *QGroundControl* following your selection. 
 
