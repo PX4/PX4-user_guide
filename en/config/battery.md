@@ -10,7 +10,7 @@ The goal of the power setup is to provide a good estimate of remaining battery c
 
 PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
 
-1. [Basic Battery Settings](#basic_settings) (default): raw measured voltage is compared to the range between "empty" and "full" voltages. This results in "course" estimates because measured voltage (and its corresponding capacity) will fluctuate under load.
+1. [Basic Battery Settings](#basic_settings) (default): raw measured voltage is compared to the range between "empty" and "full" voltages. This results in coarse estimates because measured voltage (and its corresponding capacity) will fluctuate under load.
 1. [Voltage-based Estimation with Load Compensation](#load_compensation): Counteracts the effects of loading on the capacity calculation.
 1. [Voltage-based Estimation with Current Integration](#current_integration): Fuses the load-compensated voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. This results in a capacity estimate that is comparable to that of a smart battery.
 
@@ -19,7 +19,7 @@ Later methods build on preceding methods. The approach you use will depend on wh
 
 ## Basic Battery Settings (default) {#basic_settings}
 
-> **Note** This default/basic power configuration results in relatively course estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+> **Note** This default/basic power configuration results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
 
 The basic battery settings configure PX4 to use the default method for capacity estimate. 
 This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells). 
@@ -85,7 +85,7 @@ The easiest way to calibrate the divider is by using *QGroundControl* and follow
 
 > **Tip** This setting is not needed if you are using the basic configuration (without load compensation etc.)
 
-If you are using [Current-based Load Compensation](#current_based_load_compensation) or [Current Integration](#current_integration) the APMs per volt needs to be calibrated. 
+If you are using [Current-based Load Compensation](#current_based_load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated. 
 
 The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
 
@@ -96,7 +96,7 @@ The easiest way to calibrate the dividers is by using *QGroundControl* and follo
 
 Load compensation attempts to counteract the fluctuation in measured voltage/estimated capacity under load that occur when using the [basic configuration](#basic_settings). This works by estimating what the voltage would be for the *unloaded* battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity. 
 
-> **Note** To use the load compensation you will still need to set the [basic configuration](#basic_settings). The *Empty Voltage* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher than because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
+> **Note** To use the load compensation you will still need to set the [basic configuration](#basic_settings). The *Empty Voltage* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
 
 PX4 supports two load compensation methods, which are enabled by  [setting](../advanced_config/parameters.md) either of the two parameters below:
 * [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
