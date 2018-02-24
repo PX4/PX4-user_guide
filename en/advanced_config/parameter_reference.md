@@ -110,7 +110,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </td>
  <td style="vertical-align: top;">-1.0 > 100000 (50)</td>
  <td style="vertical-align: top;">-1.0 </td>
- <td style="vertical-align: top;">mA</td>
+ <td style="vertical-align: top;">mAh</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_CNT_V_CURR">BAT_CNT_V_CURR</strong> (FLOAT)</td>
