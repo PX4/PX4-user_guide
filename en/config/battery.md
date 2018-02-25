@@ -6,7 +6,7 @@ This topic explains how to configure power settings.
 
 ## Overview
 
-The goal of the power setup is to provide a good estimate of remaining battery capacity, so that the vehicle is not used to the point that it runs out of power and crashes (or the battery is damaged due to deep-discharge).
+The goal of the power setup is to provide a good estimate of remaining battery percentage (and capacity), so that the vehicle is not used to the point that it runs out of power and crashes (or the battery is damaged due to deep-discharge).
 
 PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
 
@@ -109,7 +109,7 @@ This load compensation method relies on current measurement to determine load. I
 To enable this feature:
 
 1. Set the parameter [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) to to the internal resistance of your battery. 
-   > **Tip** There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ but this can vary with discharge current rating, age and health of the cells.
+   > **Tip** There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
 1. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 
 ### Thrust-based Load Compensation {#thrust_based_load_compensation}
@@ -123,7 +123,7 @@ To enable this feature:
 1. Set the parameter [BAT_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
 
 
-## Voltage-based Estimation with Current Integration {#current_integration}
+## Voltage-based Estimation Fused with Current Integration {#current_integration}
 
 > **Note** This is the most accurate way to measure relative battery consumption. If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
 
