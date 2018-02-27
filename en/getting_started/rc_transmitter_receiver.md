@@ -2,7 +2,7 @@
 
 A remote control (RC) radio system is required if you want to *manually* control your vehicle. This topic explains a little about how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller. 
 
-> **Tip** PX4 does not require a remote control system for autonomous flight modes.
+> **Tip** PX4 does not require a remote control system for autonomous flight modes. You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
 
 ## How do RC Systems Work?
 
