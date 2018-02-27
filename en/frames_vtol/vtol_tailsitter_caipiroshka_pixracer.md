@@ -84,10 +84,10 @@ The descriptions in the table below are referring to the user facing the front o
 
 | Output | Rate | Actuator |
 | --- | --- | --- |
-| MAIN1 | 400 Hz | Left motor controller |
-| MAIN2 | 400 Hz | Right motor controller |
+| MAIN1 | 400 Hz | Right (starboard) motor controller |
+| MAIN2 | 400 Hz | Left (port) motor controller |
 | MAIN3 | 400 Hz | Empty |
 | MAIN4 | 400 Hz | Empty |
-| MAIN5 | 50 Hz | Left aileron servo |
-| MAIN6 | 50 Hz | Right aileron servo |
+| MAIN5 | 50 Hz | Right (starboard) aileron servo |
+| MAIN6 | 50 Hz | Left (port) aileron servo |
 
