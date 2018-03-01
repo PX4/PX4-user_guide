@@ -9274,6 +9274,24 @@ The module where these parameters are defined is: *modules/sensors*.
 <li><strong>24:</strong> Pitch 90°</li> 
 
 <li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Roll 270°, Yaw 270°</li> 
+
+<li><strong>27:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>28:</strong> Pitch 90°, Yaw 180</li> 
+
+<li><strong>29:</strong> Pitch 90°, Roll 90°</li> 
+
+<li><strong>30:</strong> Yaw 293°, Pitch 68°, Roll 90° (Solo)</li> 
+
+<li><strong>31:</strong> Pitch 90°, Roll 270°</li> 
+
+<li><strong>32:</strong> Pitch 9°, Yaw 180°</li> 
+
+<li><strong>33:</strong> Pitch 45°</li> 
+
+<li><strong>34:</strong> Pitch 315°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
