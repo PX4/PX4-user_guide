@@ -11329,7 +11329,7 @@ to accelerate forward if necessary</p>    </td>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TRANS_MIN_TM">VT_TRANS_MIN_TM</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Front transition minimum time</p><p><strong>Comment:</strong> Minimum time in seconds for front transition.</p>    </td>
- <td style="vertical-align: top;">0.0 > 10.0 </td>
+ <td style="vertical-align: top;">0.0 > 20.0 </td>
  <td style="vertical-align: top;">2.0 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
