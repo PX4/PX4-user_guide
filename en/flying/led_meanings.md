@@ -4,8 +4,8 @@
 
 ![LED meanings](../../images/led_meanings.gif)
 
-> **Note** **GPS unit vs GPS Lock**    
-    Please note that Pixhawk’s RGB LED will only turn green and allow you to execute guided mission only if you have a GPS unit and Pixhawk is able to validate the global position from the GPS unit. If you have a GPS unit plugged in but the RGB LED continues to be blue, verify that Pixhawk is reading your GPS properly, and that your GPS is sending a proper GPS position.
+> **Note:** **GPS unit vs GPS Lock** 
+Please note that Pixhawk’s RGB LED will only turn green and allow you to execute guided mission only if you have a GPS unit and Pixhawk is able to validate the global position from the GPS unit. If you have a GPS unit plugged in but the RGB LED continues to be blue, verify that Pixhawk is reading your GPS properly, and that your GPS is sending a proper GPS position.
     
 
 * **[Solid Blue] Armed, No GPS Lock:** Indicates Pixhawk has been armed and has no position lock from a GPS unit.
