@@ -18,11 +18,10 @@ The sections below provide a high-level overview of the modes (more detail can b
 **Fixed wing aircraft:**
 
 - **Manual**: The pilot has direct control (via the safety
-  coprocessor). This is the only
-  mode which overrides the FMU and it provides a safety mechanism
+  coprocessor). This is the only mode that overrides the FMU. It provides a safety mechanism
   which allows full control of throttle, elevator, ailerons and rudder
   via RC in the event of an FMU firmware malfunction.
-- **Stabilized (aka fly-by-wire)**: The pilot's inputs are passed as roll and pitch angle commands to the autopilot and as yaw command directly to the output mixer to control rudder manually. If the RC roll and pitch sticks are centered, the autopilot regulates the roll and pitch angles to zero, hence stabilizing (leveling-out) the attitude against any wind disturbances. However, in this mode the position of the aircraft is not controlled by the autopilot, hence the position can drift due to wind. With nonzero roll, pitch and yaw inputs the vehicle does a coordinated turn which has zero sideslip (the acceleration in y-direction (sidewards) is zero). During a coordinated turn, the rudder is used to control the sideslip.
+- **Stabilized (aka fly-by-wire)**: The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via the output mixer to the rudder (manual control). If the RC roll and pitch sticks are centered, the autopilot regulates the roll and pitch angles to zero, hence stabilizing (leveling-out) the attitude against any wind disturbances. However, in this mode the position of the aircraft is not controlled by the autopilot, hence the position can drift due to wind. With nonzero roll input the vehicle does a coordinated turn to achieve zero sideslip (the acceleration in y-direction (sidewards) is zero). During a coordinated turn, the rudder is used to control the sideslip and any manual yaw input is added to that.
  - **Acro:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates. Throttle is passed directly to the output mixer.
 
 
