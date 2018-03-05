@@ -1,11 +1,11 @@
 # LED meanings
 
-[Pixhawk flight controllers](../flight_controller/pixhawk_series.md) have an RGB LED to indicate the current status of the FMU.
+[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) have an RGB LED to indicate the current status of the vehicle. The diagram below shows the relationship between LED and vehicle status.
 
 ![LED meanings](../../images/led_meanings.gif)
 
-> **Note:** **GPS unit vs GPS Lock** 
-Please note that Pixhawk’s RGB LED will only turn green and allow you to execute guided mission only if you have a GPS unit and Pixhawk is able to validate the global position from the GPS unit. If you have a GPS unit plugged in but the RGB LED continues to be blue, verify that Pixhawk is reading your GPS properly, and that your GPS is sending a proper GPS position.
+> **Note:** **GPS Lock is required to takeoff** 
+The LED will only turn green (ready to execute guided mission) if PX4 is able to validate the global position. If the LED does not change from blue to green, verify that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
     
 
 * **[Solid Blue] Armed, No GPS Lock:** Indicates Pixhawk has been armed and has no position lock from a GPS unit.
