@@ -75,3 +75,8 @@ Product names/brands can also be trademarked. Trademarked names may not be used 
 
 > **Tip** *Pixhawk* is a trademark, and cannot be used in product names without permission.
 
+## Additional Information
+
+### LEDs
+
+All *Pixhawk-series* flight controllers have an RGB LED to indicate the current status of the vehicle. To interpret the LEDs see: [LED Meanings](../flying/led_meanings.md).
