@@ -4,7 +4,7 @@
 
 ![LED meanings](../../images/led_meanings.gif)
 
-> **Note** **GPS Lock is required to takeoff** 
+> **Note** **GPS Lock is required to takeoff: ** 
   The LED will only turn green (ready to execute guided mission) if PX4 is able to validate the global position. If the LED does not change from blue to green, verify that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
 
 * **[Solid Blue] Armed, No GPS Lock:** Indicates vehicle has been armed and has no position lock from a GPS unit.
