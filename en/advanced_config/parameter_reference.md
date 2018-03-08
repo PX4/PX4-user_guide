@@ -11148,9 +11148,9 @@ Airbrakes need to be enables for your selected model/mixer</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Thottle output during back transition
-For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking
-For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>    </td>
+ <td style="vertical-align: top;"><p>Target throttle value for the transition to hover flight.
+standard vtol: pusher
+tailsitter, tiltrotor: main throttle</p><p><strong>Comment:</strong> Note for standard vtol: For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>    </td>
  <td style="vertical-align: top;">-1 > 1 (0.01)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
@@ -11221,13 +11221,6 @@ to accelerate forward if necessary</p>    </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_FW_PITCH_TRIM">VT_FW_PITCH_TRIM</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Fixed wing pitch trim</p><p><strong>Comment:</strong> This parameter allows to adjust the neutral elevon position in fixed wing mode.</p>    </td>
- <td style="vertical-align: top;">-1.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>QuadChute Max Pitch</p><p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>    </td>
  <td style="vertical-align: top;">0 > 180 </td>
@@ -11247,6 +11240,15 @@ to accelerate forward if necessary</p>    </td>
  <td style="vertical-align: top;">0.00 > 20.00 (1)</td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_F_TRANS_THR">VT_F_TRANS_THR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Target throttle value for the transition to fixed wing flight.
+standard vtol: pusher
+tailsitter, tiltrotor: main throttle</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_F_TR_OL_TM">VT_F_TR_OL_TM</strong> (FLOAT)</td>
@@ -11274,6 +11276,14 @@ to accelerate forward if necessary</p>    </td>
  <td style="vertical-align: top;"><p>Optimal recovery strategy for pitch-weak tailsitters</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_PSHER_RMP_DT">VT_PSHER_RMP_DT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition
+to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR</p>    </td>
+ <td style="vertical-align: top;">? > 20 (0.01)</td>
+ <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -11310,13 +11320,6 @@ to accelerate forward if necessary</p>    </td>
  <td style="vertical-align: top;">0.1 > 5.0 (0.01)</td>
  <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_TRANS_THR">VT_TRANS_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Target throttle value for pusher/puller motor during the transition to fw mode</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.6 </td>
- <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TRANS_TIMEOUT">VT_TRANS_TIMEOUT</strong> (FLOAT)</td>
