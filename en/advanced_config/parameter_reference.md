@@ -11049,12 +11049,14 @@ The module where these parameters are defined is: *modules/sensors*.
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_ENABLE">UAVCAN_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UAVCAN mode</p><p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Basic support for UAVCAN actuators and sensors. 2 - Full support for dynamic node ID allocation and firmware update. 3 - Sets the motor control outputs to UAVCAN and enables support for dynamic node ID allocation and firmware update.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>UAVCAN mode</p><p><strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
-<li><strong>2:</strong> Only Sensors</li> 
+<li><strong>1:</strong> Sensors Manual Config</li> 
 
-<li><strong>3:</strong> Sensors and Motors</li> 
+<li><strong>2:</strong> Sensors Automatic Config</li> 
+
+<li><strong>3:</strong> Sensors and Actuators (ESCs) Automatic Config</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/uavcan</p>
