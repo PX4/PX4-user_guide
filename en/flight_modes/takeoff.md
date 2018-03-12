@@ -20,7 +20,7 @@ Parameter | Description
 [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | Target altitude during takeoff (default: 2.5m)
 [MPC_TKO_SPEED](../advanced_config/parameter_reference.md#MPC_TKO_SPEED) | Speed of ascent (default: 1.5m/s)
 
-## Fixed Wing (FW) {#fixed-wing}
+## Fixed Wing (FW)
 
 The aircraft takes off in the current direction using either *catapult/hand-launch mode* or *runway takeoff mode*. The mode defaults to catapult/hand launch, but can be set to runway takeoff using `RWTO_TKOFF`.
 
