@@ -36,7 +36,7 @@ Throttle Command is mapped direct to Motor Speed.
   yaw *rate* commands to the autopilot at the extreme positions of
   the sticks. If not the inputs are passed as roll and
   pitch *angle* commands and a yaw *rate* command.
-- **Stabilized** The pilot's inputs are passed as roll and
+- **Manual/Stabilized** The pilot's inputs are passed as roll and
   pitch *angle* commands and a yaw *rate *command. If Sticks are
   released the Aircraft will level out. Drift from Wind or other
   sources will not be compensated.
