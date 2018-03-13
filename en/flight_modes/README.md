@@ -32,11 +32,11 @@ Throttle Command is mapped direct to Motor Speed.
 - **Acro:** The pilot's inputs are passed as roll, pitch, and
   yaw *rate* commands to the autopilot. The Aircraft will not
   level out after Sticks return to Center. This allows maneuvers like Loops.
-- **Rattitude** The pilot's inputs are passed as roll, pitch, and
+- **Rattitude:** The pilot's inputs are passed as roll, pitch, and
   yaw *rate* commands to the autopilot at the extreme positions of
   the sticks. If not the inputs are passed as roll and
   pitch *angle* commands and a yaw *rate* command.
-- **Manual/Stabilized** The pilot's inputs are passed as roll and
+- **Manual/Stabilized:** The pilot's inputs are passed as roll and
   pitch *angle* commands and a yaw *rate *command. If Sticks are
   released the Aircraft will level out. Drift from Wind or other
   sources will not be compensated.
