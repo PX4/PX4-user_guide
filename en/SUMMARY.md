@@ -50,6 +50,7 @@
   * [Flying 101](flying/basic_flying.md)
     * [Landing \(Fixed Wing\)](flying/fixed_wing_landing.md)
   * [Flight Modes](flight_modes/README.md)
+    * [Flight Modes Summary](flight_modes/flight_modes_summary.md)
     * [Takeoff](flight_modes/takeoff.md)
     * [Land](flight_modes/land.md)
     * [Return (RTL)](flight_modes/rtl.md)
