@@ -1,5 +1,24 @@
 # Flight Modes Summary
 
+The tables below summarizes flight modes for fixed wing and multicopter. Key for understanding the table is as follows:
+
+
+* M: Manual control via RC sticks. RC input is sent directly to the output mixer.
+* S: Assistance from autopilot to stabilize the attitude. RC input is required. Position of RC stick maps to the orientation of vehicle.
+* S<sub>rate</sub>: Assistance from autopilot to stabilize the attitude rate. RC input is required. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
+* S<sup>+</sup>: Assistance from autopilot to hold position or altitude against wind. RC input is required.
+* Auto: This mode is automatic (RC control is disabled by default except to change modes).
+
+
+* Y*: Altitude mode only requires a sensor that measures height/altitude e.g. barometer or LIDAR
+* Y: Sensor that measures position including height is needed e.g. optical flow, GPS+barometer, visual-inertial odometry
+
+* Abbreviations:
+  * RPY: Roll, Pitch, Yaw
+  * RPT: Roll, Pitch Throttle
+
+
+
 ## Fixed Wing
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
