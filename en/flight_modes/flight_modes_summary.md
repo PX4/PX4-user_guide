@@ -18,7 +18,7 @@
  
 <tr>
  <td>Stabilized</td>
- <td style="vertical-align: middle;">M</td>
+ <td style="vertical-align: middle;">S</td>
  <td style="vertical-align: middle;">M</td>
  <td style="vertical-align: middle;">M</td>
  <td></td>
@@ -108,7 +108,7 @@
 				<p><span style="font-weight: 400;">S</span><span style="font-weight: 400;">+</span></p>
 			</td>
 			<td>
-				<p><span style="font-weight: 400;">Y*</span></p>
+				<p><span style="font-weight: 400;">Y <sup>*</sup></span></p>
 			</td>
 			<td>
 				<p><span style="font-weight: 400;">Centered RC RPY sticks and 50% throttle &ndash; autopilot holds current altitude against wind and gives level flight.</span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;"><br /></span><span style="font-weight: 400;">* Only requires </span><span style="font-weight: 400;">altitude</span><span style="font-weight: 400;"> sensor (e.g. Baro, Rangefinder).</span></p>
