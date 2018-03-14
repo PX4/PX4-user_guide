@@ -38,7 +38,8 @@
  <td style="vertical-align: middle;">S<sub>rate</sub></td>
  <td style="vertical-align: middle;">M</td>
  <td></td>
- <td>RC RPY stick inputs are translated to angular rate commands that are stabilized by autopilot.</td>
+ <td><p>This mode can be used to perform acrobatic maneuvers.</p>
+<p>RC RPY stick inputs are translated to angular rate commands that are stabilized by autopilot.</p></td>
 </tr>
 
 <tr>
@@ -47,8 +48,8 @@
  <td style="vertical-align: middle;">M</td>
  <td style="vertical-align: middle;">S<sup>+</sup></td>
  <td>Y<sup>*</sup></td>
- <td><p>Centered RC RPY sticks and 50% throttle – autopilot holds current altitude against wind and gives level flight.</p>
-	 
+ <td><p>This mode helps vehicle reach and maintain altitude.</p>
+ <p>Centered RC RPY sticks and 50% throttle – autopilot holds current altitude against wind and gives level flight.</p>	 
 <p><sup>*</sup>Only requires altitude sensor (e.g. Baro, Rangefinder).</p></td>
 </tr>
 
@@ -131,7 +132,8 @@
  <td style="vertical-align: middle;">S<sub>rate</sub></td>
  <td style="vertical-align: middle;">M</td>
  <td></td>
- <td>RC RPY stick inputs are translated to angular rate commands that are stabilized by autopilot.</td>
+ <td><p>This mode can be used to perform acrobatic maneuvers e.g. flips</p>
+<p>RC RPY stick inputs are translated to angular rate commands that are stabilized by autopilot.</p></td>
 </tr>
 
 <tr>
@@ -164,7 +166,7 @@
  <td style="vertical-align: middle;">S<sub>rate</sub></td>
  <td style="vertical-align: middle;">S<sup>+</sup></td>
  <td>Y</td>
- <td>
+ <td><p>This mode helps vehicle reach and maintain a certain position.</p>
 <p>RPT sticks used to control multicopter’s left, right and up/down speed.</p>
 <p>Centered RPT sticks hold x, y, z position steady against any wind.</p>
 </td>
