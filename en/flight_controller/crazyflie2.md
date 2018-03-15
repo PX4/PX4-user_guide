@@ -36,6 +36,8 @@ After setting up the PX4 development environment, follow these steps to put the 
 1. Wait for completion
 1. Done! Calibrate via QGC
 
+> **Note** If QGC does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/Firmware/blob/master/platforms/nuttx/nuttx-configs/crazyflie/nsh/defconfig#L934) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`
+
 ## Wireless
 
 The onboard nRF module allows connecting to the board via Bluetooth or through the proprietary 2.4GHz Nordic ESB protocol.
@@ -49,11 +51,12 @@ Using the official Bitcraze **Crazyflie phone app**
 - Change mode in settings to 1 or 2
 - Calibrate via QGC
 
-
 Connecting via **MAVLink**
 
 - Use a Crazyradio PA alongside a compatible GCS
-- See [cfbridge](https://github.com/dennisss/cfbridge) for how to connect any UDP capable GCS to the radio
+- See [cfbridge](https://github.com/dennisss/cfbridge) for how to connect any UDP capable GCS to the radio. Before using the `make run` command of cfbridge, make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer. Then go to the cfbridge folder and run `make run`.
+
+
 
 
 ## Flying
