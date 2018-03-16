@@ -71,7 +71,7 @@ The smoothing can be turned off by setting `MPC_JERK_MAX` to a value smaller tha
 
 In auto mode the vehicle always follows a straight line from the previous waypoint to the current target. 
 
-![Slewrate Reset](../../images/autologic.png).
+![Auto Logic](../../images/autologic.png).
 
 $$\mathbf{wp}_{prev}$$ is the previous waypoint that either was already passed or is the position at the time when the new target waypoint was received, but no previous waypoint provided. 
 The setpoint during line tracking can be split into two components:
