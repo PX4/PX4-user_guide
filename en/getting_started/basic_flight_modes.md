@@ -163,4 +163,6 @@ Basically TVOL aircraft can fly like a Copter or like an Airplane. The switch be
 
 In the VTOL aircraft the Copter mode is used mainly for take off and landing while the Airplane Flight or Forward Flight is used for core flying or mission execution.
 
-While in copter mode VTOL is controlled exactly like a [Copter/Multicopter](../../images/flight_modes/manual_stabilized_MC.png)
+In copter mode the VTOL is controlled exactly like a [Copter/Multicopter](https://github.com/PX4/px4_user_guide/blob/master/en/getting_started/basic_flight_modes.md#copter-flight-modes)
+
+In forward flight mode the VTOL is controlled exectly like an [Airplane](https://github.com/PX4/px4_user_guide/blob/master/en/getting_started/basic_flight_modes.md#copter-flight-modes)
