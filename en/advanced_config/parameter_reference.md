@@ -4300,13 +4300,6 @@ default 1.5 turns per second</p>    </td>
  <td style="vertical-align: top;">1/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MC_PITCH_TC">MC_PITCH_TC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch time constant</p><p><strong>Comment:</strong> Reduce if the system is too twitchy, increase if the response is too slow and sluggish.</p>    </td>
- <td style="vertical-align: top;">0.15 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.2 </td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MC_PR_INT_LIM">MC_PR_INT_LIM</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Pitch rate integrator limit</p><p><strong>Comment:</strong> Pitch rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.</p>    </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
@@ -4361,13 +4354,6 @@ default 1.5 turns per second</p>    </td>
  <td style="vertical-align: top;">0.0 > 12 (0.1)</td>
  <td style="vertical-align: top;">6.5 </td>
  <td style="vertical-align: top;">1/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MC_ROLL_TC">MC_ROLL_TC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll time constant</p><p><strong>Comment:</strong> Reduce if the system is too twitchy, increase if the response is too slow and sluggish.</p>    </td>
- <td style="vertical-align: top;">0.15 > 0.25 (0.01)</td>
- <td style="vertical-align: top;">0.2 </td>
- <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_RR_INT_LIM">MC_RR_INT_LIM</strong> (FLOAT)</td>
