@@ -14,7 +14,7 @@ You have to remember that the flight modes have a slightly different way of beha
 
 Some modes are GPS guided (dependent) and we will use    symbol to denote them. In order to function properly and be enabled, this GPS dependent mode’s need a GPS lock and they cannot be enabled during flight without GPS Lock. 
 
-**<span style="color:red;"> Attention! </span>** It is highly advisable when you start  your aircraft at the flight field, to wait for GPS Lock prior arming to have a good Home Point Location. Without Home Point GPS Lock it is impossible for the Return to Land to be engaged and the craft will never come back in case of emergency.
+<span style="color:red;"> Attention! </span> It is highly advisable when you start  your aircraft at the flight field, to wait for GPS Lock prior arming to have a good Home Point Location. Without Home Point GPS Lock it is impossible for the Return to Land to be engaged and the craft will never come back in case of emergency.
 You can read in depth about Flight Modes in the Flight Mode Setup page.
  
 ## Copter Flight Modes
