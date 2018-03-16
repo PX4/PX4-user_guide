@@ -12,7 +12,7 @@ Depending on the amount of assistance the Flight controller commits to you durin
 
 You have to remember that the flight modes have a slightly different way of behavior depending on the air-frame. There are differences between Airplane, Multicopter and VTOL modes so we will explain it in brief on this page.
 
-Some modes are GPS guided (dependent) and we will use ![GPS](../../images/flight_modes/GPS.png) symbol to denote them. In order to function properly and be enabled, this GPS dependent mode’s need a GPS lock and they cannot be enabled during flight without GPS Lock. 
+Some modes are GPS guided (dependent) and we will use ![GPS](../../images/flight_modes/GPS_s.png) symbol to denote them. In order to function properly and be enabled, this GPS dependent mode’s need a GPS lock and they cannot be enabled during flight without GPS Lock. 
 
 <span style="color:red;font-weight:bold">Attention!</span> It is highly advisable when you start  your aircraft at the flight field, to wait for GPS Lock prior arming to have a good Home Point Location. Without Home Point GPS Lock it is impossible for the Return to Land to be engaged and the craft will never come back in case of emergency.
 You can read in depth about Flight Modes in the Flight Mode Setup page.
