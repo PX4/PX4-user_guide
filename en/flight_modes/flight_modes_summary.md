@@ -68,8 +68,11 @@ The tables below summarizes flight modes for fixed wing and multicopter. Key for
  <td style="vertical-align: middle;">S<sup>+</sup></td>
  <td>Y<sup>*</sup></td>
  <td><p>This mode helps vehicle reach and maintain altitude.</p>
- <p>Centered RC RPY sticks and 50% throttle – autopilot holds current altitude against wind and gives level flight.</p>	 
-<p><sup>*</sup>Only requires altitude sensor (e.g. Baro, Rangefinder).</p></td>
+ <p>Centered RC RPY sticks gives level flight.</p>	 
+ <p>Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.</p>	
+ <p>Throttle stick controls the airspeed of the aircraft only if airspeed sensor is connected.</p>	 
+ <p>Without airspeed sensor, the user cannot control Throttle.</p>	
+ <p><sup>*</sup>Only requires altitude sensor (e.g. Baro, Rangefinder).</p></td>
 </tr>
 
 <tr>
@@ -97,7 +100,7 @@ The tables below summarizes flight modes for fixed wing and multicopter. Key for
 </tr>
 
 <tr>
- <td>Loiter/Hold</td>
+ <td>Hold (Loiter)</td>
  <td colspan="3">Auto</td>
  <td>Y</td>
  <td>The aircraft circles around the GPS hold position at the current altitude.</td>
@@ -142,7 +145,9 @@ The tables below summarizes flight modes for fixed wing and multicopter. Key for
  <td style="vertical-align: middle;">S<sub>rate</sub></td>
  <td style="vertical-align: middle;">M</td>
  <td></td>
- <td>Autopilot stabilizes attitude. Centered RC sticks levels out the attitude.</td>
+ <td><p>This mode allows manual control with assistance from autopilot to stabilize attitude.</p>
+<p>Centered RC sticks level-out the attitude.</p>
+</td>
 </tr>
  
 <tr>
@@ -209,7 +214,7 @@ Vehicle lands at the position where the mode was engaged.
 </tr>
 
 <tr>
- <td>Loiter/Hold</td>
+ <td>Hold (Loiter)</td>
  <td colspan="3">Auto</td>
  <td>Y</td>
  <td>
