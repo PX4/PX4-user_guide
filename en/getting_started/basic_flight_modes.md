@@ -170,3 +170,8 @@ In **Forward Flight - Fixed Wing** mode the VTOL is controlled exectly like an [
 ## Transition
 
 The transition between the Copter and Fixed Wing modes is perrormed automaticaly by the autopilot on a transition switch command by the pilot or by Mission control.
+
+
+## Types of VTOL
+
+Depending on the way the Copter mode 
