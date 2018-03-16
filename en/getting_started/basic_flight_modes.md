@@ -54,11 +54,11 @@ This is the GPS guided mode. You can fly in Position Mode if you need precision 
 
 Autonomous or Auto modes do not require any input from the pilot.
  
-**AUSE: Auto Pause**
+**PAUSE: Auto Pause**
 
 You can use Pause in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously, while you get time to access the situation either emergency or mission related. When you activate Pause mode with a pre-programmed switch, the copter or multi-copter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft and panic.
  
-**RETURN: Return to Launch (RTL)**
+**RETURN: Return to Launch (RTL) / Return to Home**
 
 The copter or multicopter will return in a straight line at the current altitude (if higher than the home position + hovering altitude) or on the hovering altitude (if higher than the current altitude), then lands automatically.
  
@@ -102,12 +102,12 @@ This is the GPS guided mode. You can fly in Position Mode if you need precision 
 
 Autonomous or Auto modes do not require any input from the pilot.
  
-**PAUSE - Auto Pause**
+**PAUSE: Auto Pause**
 
 You can use Pause in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously, while you get time to access the situation either emergency or mission related. When you activate Pause mode with a pre-programmed switch the airplane will start circling around at fixed GPS position, holding its current altitude during the circles. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft.
  
  
-**RETURN: Return to Launch (RTL)**
+**RETURN: Return to Launch (RTL) / Return to Home**
 
 The aircraft returns to the home position and hovers in a circle above the home position at a preset altitude.
  
