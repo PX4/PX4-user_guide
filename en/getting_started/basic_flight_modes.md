@@ -176,7 +176,7 @@ The transition between the Copter and Fixed Wing modes is perrormed automaticaly
 
 Depending on the way the VTOL flyes in Copter mode or how it makes the transition there are three main types of VTOL aircraft.
 
-**Convertiplane** - Generic airplane with pucher/puller motor and separate motors for vertical thrust. The VTOL hovers with its vertical motors. The transition is done when the forward motors are enabled and after the plane reaches cruising speed the hover motors are disabled in horizontal flight.
+**Multicopter - Airplane** - Generic airplane with pucher/puller motor and separate motors for vertical thrust. The VTOL hovers with its vertical motors. The transition is done when the forward motors are enabled and after the plane reaches cruising speed the hover motors are disabled in horizontal flight.
 
 **Tail-sitter** - Airplane with two or more motors that sits on its tail while landed, then in vertical flight it balances in vertical frame orientation. The transition is made when the whole airplane changes its orientation from vertical to horizontal.
 
