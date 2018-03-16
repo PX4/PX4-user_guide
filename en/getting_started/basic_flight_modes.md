@@ -1,4 +1,4 @@
-#Basic PX4 Flight Modes
+# Basic PX4 Flight Modes
 
 During setup you will be asked to assign a Mode Switch on your Remote Control. With it you will be able to switch modes during flight and ask the aircraft to act in a different way depending on your needs.
 Depending on the amount of assistance the Flight controller commits to you during flight you will have three main flight modes categories that you can use in PX4.
@@ -14,7 +14,7 @@ Some modes are GPS guided (dependent) and we will use    symbol to denote them. 
 Attention! It is highly advisable when you start  your aircraft at the flight field, to wait for GPS Lock prior arming to have a good Home Point Location. Without Home Point GPS Lock it is impossible for the Return to Land to be engaged and the craft will never come back in case of emergency.
 You can read in depth about Flight Modes in the Flight Mode Setup page.
  
-##Copter Flight Modes
+## Copter Flight Modes
 
 Manual Modes
 
@@ -70,7 +70,7 @@ Once Take Off is activated
 LAND
  
  
-##Fixed Wing Aircraft Modes
+## Fixed Wing Aircraft Modes
 
 Manual Modes
 
