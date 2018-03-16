@@ -174,4 +174,11 @@ The transition between the Copter and Fixed Wing modes is perrormed automaticaly
 
 ## Types of VTOL
 
-Depending on the way the Copter mode 
+Depending on the way the VTOL flyes in Copter mode or how it makes the transition there are three main types of VTOL aircraft.
+
+**Convertiplane - Generic VTOL with pucher/pullermotor**
+
+**Tail-sitter**
+
+**Tilt-rotor**
+
