@@ -75,12 +75,13 @@ The copter or multicopter will return in a straight line at the current altitude
 
 In Mission mode the aircraft will start the execution of a predefined Mission or Flight Plan. The Mission can be edited and uploaded to the aircraft with the software called Ground Control Station. The PX4 GCS is called QGroundControl and it can run on Windows, Linux, Android and iOS. You can download it from qgroundcontrol.com. The Mission upload to the aircraft can be done via USB connection on the ground or by wireless Data Link sometimes called Telemetry. During flight you can edit and change the current mission via this Data Link and monitor the current flight status and telemetry data live.
  
-**TAKE OFF**
+![GPS](../../images/flight_modes/GPS_s.png) **TAKE OFF**
 
+When **Take Off** is activated the multicopter automatically will give thrust to the motors such to take off then climb vertically to a preset take off altitude, stop the climb and hover at place witing for pilot's command input.
  
-Once Take Off is activated
- 
-**LAND**
+![GPS](../../images/flight_modes/GPS_s.png) **LAND**
+
+When **Land** is activated the multicopter automatically lower the throttle such that to stard slowly descending with preset vertical speed. When it touches the ground it will lower the throttle to minimum and disarm the craft.
  
  
 ## Fixed Wing Aircraft Modes
@@ -137,5 +138,11 @@ The aircraft returns to the home position and hovers in a circle above the home 
 In Mission mode the aircraft will start the execution of a predefined Mission or Flight Plan. The Mission can be edited and uploaded to the aircraft with the software called Ground Control Station. The PX4 GCS is called QGroundControl and it can run on Windows, Linux, Android and iOS. You can download it from qgroundcontrol.com. The Mission upload to the aircraft can be done via USB connection on the ground or by wireless Data Link sometimes called Telemetry. During flight you can edit and change the current mission via this Data Link and monitor the current flight status and telemetry data live.
  
 **TAKE OFF**
+
+There are a couple of options for automatic Take Off for airplanes. We could perform take off from runway, from launch pad or throw the plane from hand. Different aspects from the take off process can be preset in the Prameters section in the PX4 autopilot.
+
+Hand throwing
+
+When **Take Off** is activated the autopilot will give thrust to the motor/s and the props will start spinning. Then we throw the airplane up and forward, it gives throttle and starts climbing to e preset take off altitude. Once the altitude is reached the airplane starts circling at the current altitude and wait for pilot's command input.
 
 **LAND**
