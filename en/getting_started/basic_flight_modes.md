@@ -45,7 +45,7 @@ In simple terms it is the mix between Stabilized and Acrobatic mode. So when the
 
 ## Assisted Modes
 
-Assisted modes are with more assistance to the pilot from the autopilot. Assisted modes need manual pilot input for the roll/pitch/yaw but automatically control the thrust to hold a fixed altitude at centered throttle. Vertical speed is controlled by manual input from the pilot to throttle stick but in a rate of descend and ascend fasion. The horizontal speed is controlled by the pitch/roll stick input.
+Assisted modes are with more assistance to the pilot from the autopilot. Assisted modes need manual pilot input for the roll/pitch/yaw but automatically control the thrust to hold a fixed altitude at centered throttle stick. Vertical speed is controlled by manual input from the pilot to throttle stick but in a rate of descend and ascend fasion. The horizontal speed is controlled by the pitch/roll stick input.
 
 **ALTITUDE: Altitude Control**
 
@@ -108,7 +108,7 @@ In acrobatic you fly like a plane without any stabilization electronics. You can
  
 ## Assisted Modes
 
-Assisted modes are with more assistance to the pilot. Assisted modes need manual pilot input for the roll/pitch/yaw but automatically control the throttle to sustain the desired speed at fixed altitude. With manual input from the pilot to the throttle stick he controls the speed and with manual input to the pitch stick he controls the altitude.
+Assisted modes are with more assistance to the pilot from the autopilot. Assisted modes need manual pilot input for the roll/pitch/yaw but automatically control the thrust to sustain the desired speed at fixed altitude. With manual input from the pilot to the throttle stick he controls the speed of the airplane and with manual input to the pitch stick he controls the altitude.
 
 **ALTITUDE: Altitude Control**
 
