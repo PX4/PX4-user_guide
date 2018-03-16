@@ -180,5 +180,5 @@ Depending on the way the VTOL flyes in Copter mode or how it makes the transitio
 
 **Tail-sitter** - Airplane with two or more motors that sits on its tail while landed, then in vertical flight it balances in vertical frame orientation. The transition is made when the whole airplane changes its orientation from vertical to horizontal.
 
-**Tilt-rotor**
+**Tilt-rotor** - Airplane with two or more motors that mechanicaly swing arround an Y axys. The transition is done when gradually the motors change the thrust vector from vertical to horizontal.
 
