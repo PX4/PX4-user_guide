@@ -2,7 +2,9 @@ During setup you will be asked to assign a Mode Switch on your Remote Control. W
 Depending on the amount of assistance the Flight controller commits to you during flight you will have three main flight modes categories that you can use in PX4.
 
 •	Manual Modes
+
 •	Assisted Modes
+
 •	Autonomous Modes
 
 You have to remember that the flight modes have a slightly different way of behavior depending on the air-frame. There are differences between Airplane, Multicopter and VTOL modes so we will explain it in brief on this page.
