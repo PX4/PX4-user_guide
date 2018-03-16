@@ -165,4 +165,4 @@ In the VTOL aircraft the Copter mode is used mainly for take off and landing whi
 
 In copter mode the VTOL is controlled exactly like a [Copter/Multicopter](https://github.com/PX4/px4_user_guide/blob/master/en/getting_started/basic_flight_modes.md#copter-flight-modes)
 
-In forward flight mode the VTOL is controlled exectly like an [Airplane](https://github.com/PX4/px4_user_guide/blob/master/en/getting_started/basic_flight_modes.md#copter-flight-modes)
+In forward flight mode the VTOL is controlled exectly like an [Airplane - Fixed Wing Aircraft](https://github.com/PX4/px4_user_guide/blob/master/en/getting_started/basic_flight_modes.md#fixed-wing-aircraft-modes)
