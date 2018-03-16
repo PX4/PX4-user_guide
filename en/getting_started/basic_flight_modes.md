@@ -23,7 +23,7 @@ You can read in depth about Flight Modes in the Flight Mode Setup page.
 
 ## Manual Modes
 
-Manual modes are with the least assistance from the PX4 autopilot or even without assistance. 
+Manual modes are with the least assistance from the PX4 autopilot or even without assistance to the pilot. 
 
 **MANUAL - STABILIZED FLIGHT**
 
@@ -45,7 +45,7 @@ In simple terms it is the mix between Stabilized and Acrobatic mode. So when the
 
 ## Assisted Modes
 
-Assisted modes are with more assistance from the PX4 or even without assistance. 
+Assisted modes are with more assistance to the pilot from the autopilot. Assisted modes need manual pilot input for the roll/pitch/yaw but automatically control the thrust to hold a fixed altitude at centered throttle. Vertical speed is controlled by manual input from the pilot to throttle stick but in a rate of descend and ascend fasion. The horizontal speed is controlled by the pitch/roll stick input.
 
 **ALTITUDE: Altitude Control**
 
@@ -90,7 +90,7 @@ When **Land** is activated the multicopter automatically lower the throttle such
 
 ## Manual Modes
 
-Manual modes are with the least assistance from the PX4 or even without assistance. 
+Manual modes are with the least assistance from the PX4 or even without assistance to the pilot. 
 
 **STABILIZED**
 
@@ -107,6 +107,8 @@ In acrobatic you fly like a plane without any stabilization electronics. You can
  
  
 ## Assisted Modes
+
+Assisted modes are with more assistance to the pilot. Assisted modes need manual pilot input for the roll/pitch/yaw but automatically control the throttle to sustain the desired speed at fixed altitude. With manual input from the pilot to the throttle stick he controls the speed and with manual input to the pitch stick he controls the altitude.
 
 **ALTITUDE: Altitude Control**
 
