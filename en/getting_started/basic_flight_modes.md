@@ -27,7 +27,7 @@ Manual modes are with the least assistance from the PX4 autopilot or even withou
 
 In Stabilized flight your Copter will hover in level flight once the Pitch and Roll sticks are at center position. You will have a full manual angle control over the multicopter. If your craft is perfectly set and balanced it will hold the altitude if Throttle is at 50% in the middle of the scale at calm weather. If there is a wind blowing the craft will drift in the direction of the wind and you have to control the throttle all the time during wind gusts to hold altitude. In order to perform a maneuver, you have to hold your Pitch, Roll and Yaw command, otherwise the craft will level itself the moment you release the control sticks.
 
-![MC Manual Flight](../../images/flight_modes/manual_mtabilized_MC.png) 
+![MC Manual Flight](../images/flight_modes/manual_mtabilized_MC.png) 
  
  
 **ACROBATIC**
