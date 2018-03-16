@@ -155,3 +155,12 @@ When **Take Off** is activated the autopilot will give thrust to the motor/s and
 
 
 **LAND**
+
+
+## VERTICAL TAKE OFF AND LANDING AIRCRAFT (VTOL)
+
+Basically TVOL aircraft can fly like a Copter or like an Airplane. The switch between both kinds of flying is done either by the pilot with a preset switch on the RC, or automatically by the autopilot in the Auto modes.
+
+In the VTOL aircraft the Copter mode is used mainly for take off and landing while the Airplane Flight or Forward Flight is used for core flying or mission execution.
+
+While in copter mode VTOL is controlled exactly like a [Copter/Multicopter](../../images/flight_modes/manual_stabilized_MC.png)
