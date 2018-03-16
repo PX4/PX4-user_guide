@@ -91,20 +91,28 @@ Manual modes are with the least assistance from the PX4 or even without assistan
 
 **STABILIZED**
 In Stabilized flight your plane will maintain a level flight. It will fight against the wind gusts automatically and maintain a horizontal posture. You will have a full manual angle control over the craft. You will be able to glide with your airplane when you lower the Throttle to 0% and the motor stops. In order to perform a turn you have to hold the command throughout the maneuver because if you release the roll the plane will stop turning and level itself. It is the same for the Pitch and Yaw commands as well.
+
+![FW Manual Flight](../../images/flight_modes/manual_stabilized_FW.png)
  
  
 **ACROBATIC**
 In acrobatic you fly like a plane without any stabilization electronics. You can make 360 rolls, flips, stalls and acrobatic figures. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. The control is a Rate control over the Roll, Pitch, Yaw and Throttle.
+
+![FW Manual Acrobatic Flight](../../images/flight_modes/manual_acrobatic_FW.png)
  
  
 ### Assisted Modes
 
 **ALTITUDE: Altitude Control**
 Altitude Mode is the safest non GPS guided mode appropriate for beginners learning how to fly. In this mode the altitude is controlled by the PX4 autopilot. The throttle will determine your airspeed, at 50% throttle the aircraft will hold its current altitude with a preset cruise air speed. You can descend and climb with pitch up and down command. In Altitude Mode you have full angle control over Pitch, Roll and Yaw. Once you center all the sticks you will have a level flying aircraft at the current altitude. If the wind blows the aircraft will drift in the direction of the wind.
+
+![FW Altitude Mode](../../images/flight_modes/altitude_FW.png)
  
  
 ![GPS](../../images/flight_modes/GPS_s.png) **POSITION: Position Control**
 This is the GPS guided mode. You can fly in Position Mode if you need precision in flight, keeping straight line course, and still maintaining the control of the aircraft with your RC. The altitude is controlled by the PX4 autopilot. The throttle will determine your airspeed, at 50% throttle the aircraft will hold its current altitude with a preset cruise speed. You can descend and climb with pitch up and down command. Position Mode is almost like Altitude Mode with full angle control over Pitch, Roll and Yaw. But Once you center all the sticks you will have a level flying aircraft at the current altitude and GPS guided straight line course. If the wind blows the aircraft will keep its direction of flight and course and will fight the wind.
+
+![FW Position Mode](../../images/flight_modes/position_FW.png)
  
  
 ### Autonomous Modes
