@@ -40,7 +40,7 @@ For multicopter and helicopters it is the 3D flying mode. You can make flips and
  
 **RATITUDE**
 
-In simple terms it is the Stabilized Acrobatic mode. So when the sticks are in the middle the craft hovers. When you give small movements of the sticks around the center u to the middle the craft will move gently like in stabilize flight (angle control around the middle). When you push the sticks in their extreme position you have Acrobatic movement ie you can perform flips and other figures(rate controll at extreme stick positions).
+In simple terms it is the mix between Stabilized and Acrobatic mode. So when the sticks are in the center the craft hovers. When you give small movements of the sticks arround the center up to the middle the craft will move gently and behave like in stabilize flight (angle control from the center to the middle). When you push the sticks beyound the middle to their extreme positions you have Acrobatic movement ie. you can perform flips and other figures (rate controll at extreme stick positions).
  
 
 ## Assisted Modes
