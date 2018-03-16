@@ -1,6 +1,9 @@
 {   
     "gitbook": ">= 3.2.2",
     "title": "PX4 User Guide",
+    "variables": {
+        "logo": "./assets/site/logo_pro_small.png"
+    },
     "plugins": [
         "youtube",
         "richquotes",
