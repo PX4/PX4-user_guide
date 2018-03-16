@@ -17,9 +17,9 @@ Some modes are GPS guided (dependent) and we will use ![GPS](../../images/flight
 > **<span style="color:red;font-weight:bold">Attention!</span>** It is highly advisable when you start  your aircraft at the flight field, to wait for GPS Lock prior arming to have a good Home Point Location. Without Home Point GPS Lock it is impossible for the Return to Land to be engaged and the craft will never come back in case of emergency.
 You can read in depth about Flight Modes in the Flight Mode Setup page.
  
-## Copter Flight Modes
+## COPTER FLIGHT MODES
 
-### Manual Modes
+## Manual Modes
 
 Manual modes are with the least assistance from the PX4 autopilot or even without assistance. 
 
@@ -41,7 +41,7 @@ For multicopter and helicopters it is the 3D flying mode. You can make flips and
 In simple terms it is the Stabilized Acrobatic mode. So when the sticks are in the middle the craft hovers. When you give small movements of the sticks around the center the craft is gentle movement like in stabilize (angle control around the middle). When you push the sticks in their extreme position you have Acrobatic movement ie you can perform flips and other figures.
  
 
-### Assisted Modes
+## Assisted Modes
 
 Assisted modes are with more assistance from the PX4 or even without assistance. 
 
@@ -59,7 +59,7 @@ This is the GPS guided mode. You can fly in Position Mode if you need precision 
 ![MC Position Mode](../../images/flight_modes/position_MC.png)
  
  
-### Autonomous Modes
+## Autonomous Modes
 
 Autonomous or Auto modes do not require any input from the pilot.
  
@@ -84,9 +84,9 @@ When **Take Off** is activated the multicopter automatically will give thrust to
 When **Land** is activated the multicopter automatically lower the throttle such that to stard slowly descending with preset vertical speed. When it touches the ground it will lower the throttle to minimum and disarm the craft.
  
  
-## Fixed Wing Aircraft Modes
+## FIXED WING AIRCRAFT MODES
 
-### Manual Modes
+## Manual Modes
 
 Manual modes are with the least assistance from the PX4 or even without assistance. 
 
@@ -104,7 +104,7 @@ In acrobatic you fly like a plane without any stabilization electronics. You can
 ![FW Manual Acrobatic Flight](../../images/flight_modes/manual_acrobatic_FW.png)
  
  
-### Assisted Modes
+## Assisted Modes
 
 **ALTITUDE: Altitude Control**
 
@@ -120,7 +120,7 @@ This is the GPS guided mode. You can fly in Position Mode if you need precision 
 ![FW Position Mode](../../images/flight_modes/position_FW.png)
  
  
-### Autonomous Modes
+## Autonomous Modes
 
 Autonomous or Auto modes do not require any input from the pilot.
  
