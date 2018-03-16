@@ -7,6 +7,7 @@
   * [Flight Controller Selection](getting_started/flight_controller_selection.md)
   * [Sensor Selection](getting_started/sensor_selection.md)
   * [RC System Selection](getting_started/rc_transmitter_receiver.md)
+  * [Basic Flight Modes](getting_started/basic_flight_modes.md)
 * [Basic Assembly](assembly/README.md)
   * [Mounting the Flight Controller](assembly/mount_and_orient_controller.md)
   * [Pixhawk Wiring Quickstart](assembly/quick_start_pixhawk.md)
