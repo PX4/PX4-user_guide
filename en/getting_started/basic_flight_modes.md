@@ -36,7 +36,7 @@ For multicopter and helicopters it is the 3D flying mode. You can make flips and
 In simple terms it is the Stabilized Acrobatic mode. So when the sticks are in the middle the craft hovers. When you give small movements of the sticks around the center the craft is gentle movement like in stabilize (angle control around the middle). When you push the sticks in their extreme position you have Acrobatic movement ie you can perform flips and other figures.
  
 
-Assisted Modes
+### Assisted Modes
 
 Assisted modes are with more assistance from the PX4 or even without assistance. 
 
@@ -50,7 +50,9 @@ Altitude Mode is the safest non GPS guided mode appropriate for beginners learni
 This is the GPS guided mode. You can fly in Position Mode if you need precision in flight, keeping course or hovering at a certain spot in the air, but still maintaining the control of the aircraft with your RC. The altitude is controlled by the PX4 autopilot. At 50% throttle the aircraft will hold its current altitude. If you want to descend just lower the throttle bellow center or if you need to climb push the throttle over the center. The further the throttle stick is from the center position the larger the climb or descent rate you will have. Position Mode is almost like Altitude Mode with full angle control over Pitch, Roll and Yaw. But Once you center all the sticks you will have a hovering aircraft at the current altitude and current GPS position. If the wind blows the aircraft will keep its direction of flight and course and will fight the wind.
  
  
-Autonomous Modes
+### Autonomous Modes
+
+Autonomous or Auto modes do not require any input from the pilot.
  
 **AUSE: Auto Pause**
 
@@ -74,7 +76,7 @@ Once Take Off is activated
  
 ## Fixed Wing Aircraft Modes
 
-Manual Modes
+### Manual Modes
 
 Manual modes are with the least assistance from the PX4 or even without assistance. 
 
@@ -86,7 +88,7 @@ In Stabilized flight your plane will maintain a level flight. It will fight agai
 In acrobatic you fly like a plane without any stabilization electronics. You can make 360 rolls, flips, stalls and acrobatic figures. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. The control is a Rate control over the Roll, Pitch, Yaw and Throttle.
  
  
-Asisted Modes
+### Assisted Modes
 
 **ALTITUDE: Altitude Control**
 Altitude Mode is the safest non GPS guided mode appropriate for beginners learning how to fly. In this mode the altitude is controlled by the PX4 autopilot. The throttle will determine your airspeed, at 50% throttle the aircraft will hold its current altitude with a preset cruise air speed. You can descend and climb with pitch up and down command. In Altitude Mode you have full angle control over Pitch, Roll and Yaw. Once you center all the sticks you will have a level flying aircraft at the current altitude. If the wind blows the aircraft will drift in the direction of the wind.
@@ -96,7 +98,9 @@ Altitude Mode is the safest non GPS guided mode appropriate for beginners learni
 This is the GPS guided mode. You can fly in Position Mode if you need precision in flight, keeping straight line course, and still maintaining the control of the aircraft with your RC. The altitude is controlled by the PX4 autopilot. The throttle will determine your airspeed, at 50% throttle the aircraft will hold its current altitude with a preset cruise speed. You can descend and climb with pitch up and down command. Position Mode is almost like Altitude Mode with full angle control over Pitch, Roll and Yaw. But Once you center all the sticks you will have a level flying aircraft at the current altitude and GPS guided straight line course. If the wind blows the aircraft will keep its direction of flight and course and will fight the wind.
  
  
-Autonomous Modes
+### Autonomous Modes
+
+Autonomous or Auto modes do not require any input from the pilot.
  
 **PAUSE - Auto Pause**
 
