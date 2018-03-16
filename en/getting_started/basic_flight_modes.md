@@ -4,7 +4,7 @@ During setup you will be asked to assign a Mode Switch on your Remote Control. W
 
 Depending on the amount of assistance the Flight controller commits to you during flight you will have three main flight modes categories that you can use in PX4.
 
-   [• Manual Modes]
+   [ • Manual Modes ][vasko]
 
    [ **•	Assisted Modes** ]
 
