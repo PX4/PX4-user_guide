@@ -141,8 +141,13 @@ In Mission mode the aircraft will start the execution of a predefined Mission or
 
 There are a couple of options for automatic Take Off for airplanes. We could perform take off from runway, from launch pad or throw the plane from hand. Different aspects from the take off process can be preset in the Prameters section in the PX4 autopilot.
 
-Hand throwing
+**Hand throwing**
 
 When **Take Off** is activated the autopilot will give thrust to the motor/s and the props will start spinning. Then we throw the airplane up and forward, it gives throttle and starts climbing to e preset take off altitude. Once the altitude is reached the airplane starts circling at the current altitude and wait for pilot's command input.
+
+**Launch Pad take off**
+
+**Runway take off**
+
 
 **LAND**
