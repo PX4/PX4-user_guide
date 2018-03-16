@@ -86,11 +86,11 @@ from angle to target speed is an exponential function of the form $$a \times b^{
 
 ![Speed Angle](../../images/speed_from_angle.png).
 
-At an angle of `180 degrees`, which corresponds to a straight line from $$\mathbf{wp}_{prev}$$ to $$\mathbf{wp}_{n\ext}$$ with the target waypoint somewhere in between, the target speed at the target waypoint
-will be `MPC_XY_CRUISE`. If the angle is `0 degrees`, which correponds to having $$\mathbf{wp}_{n\ext}$$ on the line $$\mathbf{wp}_{prev}$$ to target waypoint, then the target speed is set to a minimum speed of `1 m/s`.
+At an angle of `180 degrees`, which corresponds to a straight line from $$\mathbf{wp}_{prev}$$ to $$\mathbf{wp}_{next}$$ with the target waypoint somewhere in between, the target speed at the target waypoint
+will be `MPC_XY_CRUISE`. If the angle is `0 degrees`, which correponds to having $$\mathbf{wp}_{next}$$ on the line $$\mathbf{wp}_{prev}$$ to target waypoint, then the target speed is set to a minimum speed of `1 m/s`.
 If the angle is `90 degrees`, the target speed is set to  [MPC_CRUISE_90](parameter_reference.md#MPC_CRUISE_90). All other possible angles are mapped to the target speed from the same exponential function. 
-If there is no $$\mathbf{wp}_{n\ext}$$ present, then the vehicle will just decelerate to zero cruise speed. 
+If there is no $$\mathbf{wp}_{next}$$ present, then the vehicle will just decelerate to zero cruise speed. 
 
 A target waypoint is considered reached once the vehicle is within the acceptance radius $$r_{rad}$$ that is parametrized by [NAV_ACC_RAD](parameter_reference.md#NAV_ACC_RAD). In addition, the vehicle also has to reach the
 desired altitude (theshold [NAV_MC_ALT_RAD](parameter_reference.md#NAV_MC_ALT_RAD)) and the desired yaw (threshold [MIS_YAW_ERR](parameter_reference.md#MIS_YAW_ERR)). Once the vehicle enters that circle, the waypoints
-will update. $$\mathbf{wp}_{n\ext}$$ will become the new target waypoint, $$\mathbf{wp}_{prev}$$ will assume the old target waypoint and a new $$\mathbf{wp}_{n\ext}$$ will be added.
+will update. $$\mathbf{wp}_{next}$$ will become the new target waypoint, $$\mathbf{wp}_{prev}$$ will assume the old target waypoint and a new $$\mathbf{wp}_{next}$$ will be added.
