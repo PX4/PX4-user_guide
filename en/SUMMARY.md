@@ -66,7 +66,7 @@
 * [Advanced Configuration](advanced_config/README.md)
   * [Parameters](advanced_config/parameters.md)
   * [Multicopter PID Tuning Guide](advanced_config/pid_tuning_guide_multicopter.md)
-  * [Multicopter Advanced Tuning Guide](advanced_config/advanced_position_ctrl_tuning.md)
+  * [Multicopter Advanced Tuning Guide](advanced_config/advanced_mc_position_tuning.md)
   * [Fixedwing PID Tuning Guide](advanced_config/pid_tuning_guide_fixedwing.md)
   * [VTOL](config_vtol/README.md)
     * [QuadPlane Configuration](config_vtol/vtol_quad_configuration.md)
