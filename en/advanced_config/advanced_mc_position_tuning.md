@@ -8,7 +8,7 @@ gitbook.events.bind("page.change", function() {
 # Advanced Multicopter Position Control Tuning
  The objective of this document is to give an overview of the higher-level position-control tuning parameters for multicopters. Higher-level tuning applies to any parameter that has an effect on
  the desired position/velocity setpoint as opposed to [lower-level tuning](pid_tuning_guide_multicopter.md) that influences the tracking.
- The set of higher-level tuning parameters can be split into two sections: tunig parameters for manual control position mode and tuning parameter for auto. Some parameters will have an effect on both
+ The set of higher-level tuning parameters can be split into two sections: tunig parameters for manual control position mode and tuning parameters for auto. Some parameters will have an effect on both
  modes. 
 
 > **Warning** This guide is for advanced users/experts. 
@@ -29,17 +29,17 @@ be mapped directly to the physical quantity.
 
 #### MPC_ACC_HOR_MAX
 
-This parameter is used for position-control in the horizontal direction, where the vehicle is supposed to stay at current location. The limit for velocity setpoint change is defined by 
- `MPC_ACC_HOR_MAX`. This parameter should be set larger than any of the other acceleration related parameter in the horizontal direction.
+This parameter is used for position-control in the horizontal direction, where the vehicle is supposed to stay at the current location. The limit for the rate of change of the velocity setpoint is defined by 
+ `MPC_ACC_HOR_MAX`. This parameter should be set larger than any of the other acceleration related parameters in the horizontal direction.
 
 #### MPC_ACC_HOR and MPC_DEC_HOR_SLOW
 
-In velocity-control the rate limit for velocity setpoint is extracted from a linear map from stick input to acceleration limit with maximum `MPC_ACC_HOR` and minimum `MPC_DEC_HOR_SLOW`. For example, if the stick input
+In velocity-control the rate limit for the velocity setpoint is extracted from a linear map from stick input to acceleration limit with maximum `MPC_ACC_HOR` and minimum `MPC_DEC_HOR_SLOW`. For example, if the stick input
 is at `MPC_HOLD_DZ`, the limiting acceleration is `MPC_DEC_HOR_SLOW`, if the stick input is at maximum (=`1`), the the limiting acceleration is `MPC_ACC_HOR` and any stick input in between is mapped linearly between the two parameters. 
 In addition, `MPC_DEC_HOR_SLOW` also limits the change in velocity setpoint when the user demands a deceleration in the current flight direction. For instance, if the stick input changes from maximum (=`1`) to `0.5`, the velocity
 setpoint change will be limited by `MPC_DEC_HOR_SLOW`.
 During transition from **velocity-control** to **position-control**, there is a hard switch from from `MPC_ACC_HOR` to `MPC_ACC_HOR_MAX` and a reset of the velocity setpoint to the current vehicle velocity. The reset and the hard witch can 
-both introduce a jerky flight performance during stopping. Nonetheless, The reset is required because the
+both introduce a jerky flight performance during stopping. Nonetheless, the reset is required because the
 smoothing parameters introduce a delay to the setpoint, which can lead to unexpected flight maneuvers. A simle example is given below:
 
 ![Slewrate Reset](../../images/slewrate_reset.svg).
