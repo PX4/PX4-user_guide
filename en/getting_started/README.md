@@ -5,7 +5,7 @@ In this section we will explain in brief about the basic concepts you need to kn
 
 
 
-[Flight Controller Selection](../getting_started/flight_controller_selection.md) - What wre Pixhawk controller options from different vendors.
+[Flight Controller Selection](../getting_started/flight_controller_selection.md) - What are Pixhawk controller options from different vendors.
 
 [Frame Selection](../getting_started/frame_selection.md) - Pixhawk can control Aircraft, Ground Vehicles and Marine vessels.
 
