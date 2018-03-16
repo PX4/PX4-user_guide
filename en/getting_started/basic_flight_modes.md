@@ -33,6 +33,8 @@ In Stabilized flight your Copter will hover in level flight once the Pitch and R
 **ACROBATIC**
 
 For multicopter and helicopters it is the 3D flying mode. You can make flips and acrobatics. In acrobatic mode you have fully direct rate control over your aircraft. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. In Acrobatic you have full rate control over the Roll, Pitch, Yaw and Throttle.
+
+![MC Manual Acrobatic Flight](../../images/flight_modes/manual_acrobatic_MC.png)
  
 **RATITUDE**
 
