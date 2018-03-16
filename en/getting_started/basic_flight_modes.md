@@ -52,7 +52,7 @@ Altitude Mode is the safest non GPS guided mode appropriate for beginners learni
 ![MC Altitude Mode](../../images/flight_modes/altitude_MC.png)
  
  
-**POSITION: Position Control**
+![GPS](../../images/flight_modes/GPS_s.png) **POSITION: Position Control**
 
 This is the GPS guided mode. You can fly in Position Mode if you need precision in flight, keeping course or hovering at a certain spot in the air, but still maintaining the control of the aircraft with your RC. The altitude is controlled by the PX4 autopilot. At 50% throttle the aircraft will hold its current altitude. If you want to descend just lower the throttle bellow center or if you need to climb push the throttle over the center. The further the throttle stick is from the center position the larger the climb or descent rate you will have. Position Mode is almost like Altitude Mode with full angle control over Pitch, Roll and Yaw. But Once you center all the sticks you will have a hovering aircraft at the current altitude and current GPS position. If the wind blows the aircraft will keep its direction of flight and course and will fight the wind.
 
@@ -67,11 +67,11 @@ Autonomous or Auto modes do not require any input from the pilot.
 
 You can use Pause in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously, while you get time to access the situation either emergency or mission related. When you activate Pause mode with a pre-programmed switch, the copter or multi-copter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft and panic.
  
-**RETURN: Return to Launch (RTL) / Return to Home**
+![GPS](../../images/flight_modes/GPS_s.png) **RETURN: Return to Launch (RTL) / Return to Home**
 
 The copter or multicopter will return in a straight line at the current altitude (if higher than the home position + hovering altitude) or on the hovering altitude (if higher than the current altitude), then lands automatically.
  
-**MISSION**
+![GPS](../../images/flight_modes/GPS_s.png) **MISSION**
 
 In Mission mode the aircraft will start the execution of a predefined Mission or Flight Plan. The Mission can be edited and uploaded to the aircraft with the software called Ground Control Station. The PX4 GCS is called QGroundControl and it can run on Windows, Linux, Android and iOS. You can download it from qgroundcontrol.com. The Mission upload to the aircraft can be done via USB connection on the ground or by wireless Data Link sometimes called Telemetry. During flight you can edit and change the current mission via this Data Link and monitor the current flight status and telemetry data live.
  
@@ -103,7 +103,7 @@ In acrobatic you fly like a plane without any stabilization electronics. You can
 Altitude Mode is the safest non GPS guided mode appropriate for beginners learning how to fly. In this mode the altitude is controlled by the PX4 autopilot. The throttle will determine your airspeed, at 50% throttle the aircraft will hold its current altitude with a preset cruise air speed. You can descend and climb with pitch up and down command. In Altitude Mode you have full angle control over Pitch, Roll and Yaw. Once you center all the sticks you will have a level flying aircraft at the current altitude. If the wind blows the aircraft will drift in the direction of the wind.
  
  
-**POSITION: Position Control**
+![GPS](../../images/flight_modes/GPS_s.png) **POSITION: Position Control**
 This is the GPS guided mode. You can fly in Position Mode if you need precision in flight, keeping straight line course, and still maintaining the control of the aircraft with your RC. The altitude is controlled by the PX4 autopilot. The throttle will determine your airspeed, at 50% throttle the aircraft will hold its current altitude with a preset cruise speed. You can descend and climb with pitch up and down command. Position Mode is almost like Altitude Mode with full angle control over Pitch, Roll and Yaw. But Once you center all the sticks you will have a level flying aircraft at the current altitude and GPS guided straight line course. If the wind blows the aircraft will keep its direction of flight and course and will fight the wind.
  
  
@@ -116,11 +116,11 @@ Autonomous or Auto modes do not require any input from the pilot.
 You can use Pause in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously, while you get time to access the situation either emergency or mission related. When you activate Pause mode with a pre-programmed switch the airplane will start circling around at fixed GPS position, holding its current altitude during the circles. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft.
  
  
-**RETURN: Return to Launch (RTL) / Return to Home**
+![GPS](../../images/flight_modes/GPS_s.png) **RETURN: Return to Launch (RTL) / Return to Home**
 
 The aircraft returns to the home position and hovers in a circle above the home position at a preset altitude.
  
-**MISSION**
+![GPS](../../images/flight_modes/GPS_s.png) **MISSION**
 
 In Mission mode the aircraft will start the execution of a predefined Mission or Flight Plan. The Mission can be edited and uploaded to the aircraft with the software called Ground Control Station. The PX4 GCS is called QGroundControl and it can run on Windows, Linux, Android and iOS. You can download it from qgroundcontrol.com. The Mission upload to the aircraft can be done via USB connection on the ground or by wireless Data Link sometimes called Telemetry. During flight you can edit and change the current mission via this Data Link and monitor the current flight status and telemetry data live.
  
