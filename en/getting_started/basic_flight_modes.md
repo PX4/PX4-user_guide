@@ -1,5 +1,7 @@
 # Basic PX4 Flight Modes
 
+> **Warning** This topic is under construction. It is not complete and has not been fully reviewed.
+
 During setup you will be asked to assign a Mode Switch on your Remote Control. With it you will be able to switch flight modes during flight and ask the aircraft to act in a different way depending on your needs.
 
 Depending on the amount of assistance the Flight controller commits to you during flight you will have three main flight modes categories that you can use in PX4.
