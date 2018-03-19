@@ -30,7 +30,7 @@ For copters this is the 3D flying mode. You can make flips and acrobatics. In ac
 
 #### Rattitude
 
-In simple terms it is the mix between Stabilized and Acrobatic mode. So when the sticks are in the center the craft hovers. When you give small movements of the sticks around the center up to the middle the craft will move gently and behave like in stabilize flight (angle control from the center to the middle). When you push the sticks beyond the middle to their extreme positions you have Acrobatic movement i.e. you can perform flips and other figures (rate control at extreme stick positions).
+In simple terms it is the mix between Manual/Stabilized and Acro mode. When the Roll/Pitch stick is centered or if you move it up to halfway then the craft behaves like in Manual/Stabalized mode. If you move Roll/Pitch stick beyound halfway to full command the the copter behaves like in Acro mode. This way you could fly in the comfort of stabalized flight but still be able to perform flips and tricks with your copter.
  
 
 ### Assisted Modes
@@ -58,7 +58,7 @@ You can fly in Position Mode if you need precision in flight, keeping course or 
 
 Autonomous or Auto modes do not require any input from the pilot.
  
-#### Pause (Auto Pause)
+#### Hold (Auto Hold)
 
 You can use Pause in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously, while you get time to access the situation either emergency or mission related. When you activate Pause mode with a pre-programmed switch, the copter or multi-copter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft and panic.
 
@@ -133,7 +133,7 @@ This is the GPS guided mode. You can fly in Position Mode if you need precision 
 
 Autonomous or Auto modes do not require any input from the pilot.
 
-#### Pause (Auto Pause)
+#### Hold (Auto Hold)
 
 You can use Pause in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously, while you get time to access the situation either emergency or mission related. When you activate Pause mode with a pre-programmed switch the airplane will start circling around at fixed GPS position, holding its current altitude during the circles. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft.
 
