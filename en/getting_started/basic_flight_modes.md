@@ -1,4 +1,4 @@
-# Basic PX4 Flight Modes
+# PX4 Flight Modes Overview
 
 > **Warning** This topic is under construction. It is not complete and has not been fully reviewed.
 
