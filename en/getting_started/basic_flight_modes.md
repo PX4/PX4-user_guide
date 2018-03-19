@@ -60,7 +60,7 @@ Autonomous or Auto modes do not require any input from the pilot.
  
 #### Hold (Auto Hold)
 
-You can use Pause in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously, while you get time to access the situation either emergency or mission related. When you activate Pause mode with a pre-programmed switch, the copter or multi-copter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft and panic.
+You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the fligh, while you get time to access the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch, the copter or multi-copter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft and panic.
 
 #### Return Mode (Return to Launch/Home - RTL)
 
@@ -135,7 +135,7 @@ Autonomous or Auto modes do not require any input from the pilot.
 
 #### Hold (Auto Hold)
 
-You can use Pause in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously, while you get time to access the situation either emergency or mission related. When you activate Pause mode with a pre-programmed switch the airplane will start circling around at fixed GPS position, holding its current altitude during the circles. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft.
+You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the flight, while you get time to access the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch the airplane will start circling around at fixed GPS position, holding its current altitude during the circles. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft.
 
 
 #### Return Mode
