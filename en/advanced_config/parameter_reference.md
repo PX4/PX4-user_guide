@@ -1935,6 +1935,62 @@ The module where these parameters are defined is: *modules/fw_att_control*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="FW_DTRIM_P_FLPS">FW_DTRIM_P_FLPS</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Pitch trim increment for flaps configuration</p><p><strong>Comment:</strong> This increment is added to the pitch trim whenever flaps are fully deployed.</p>    </td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FW_DTRIM_P_VMAX">FW_DTRIM_P_VMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Pitch trim increment at maximum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSP_MAX.</p>    </td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FW_DTRIM_P_VMIN">FW_DTRIM_P_VMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Pitch trim increment at minimum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MIN.</p>    </td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FW_DTRIM_R_FLPS">FW_DTRIM_R_FLPS</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Roll trim increment for flaps configuration</p><p><strong>Comment:</strong> This increment is added to TRIM_ROLL whenever flaps are fully deployed.</p>    </td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FW_DTRIM_R_VMAX">FW_DTRIM_R_VMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Roll trim increment at maximum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSP_MAX.</p>    </td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FW_DTRIM_R_VMIN">FW_DTRIM_R_VMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Roll trim increment at minimum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MIN.</p>    </td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FW_DTRIM_Y_VMAX">FW_DTRIM_Y_VMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Yaw trim increment at maximum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSP_MAX.</p>    </td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FW_DTRIM_Y_VMIN">FW_DTRIM_Y_VMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Yaw trim increment at minimum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MIN.</p>    </td>
+ <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="FW_FLAPERON_SCL">FW_FLAPERON_SCL</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Scale factor for flaperons</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
@@ -2301,7 +2357,7 @@ Set to 0 to disable heading hold</p>    </td>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_THR_ALT_SCL">FW_THR_ALT_SCL</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Scale throttle by pressure change</p><p><strong>Comment:</strong> Automatically adjust throttle to account for decreased air density at higher altitudes. Start with a scale factor of 1.0 and adjust for different propulsion systems. When flying without airspeed sensor this will help to keep a constant performance over large altitude ranges. The default value of 0 will disable scaling.</p>    </td>
- <td style="vertical-align: top;">0.0 > 2.0 (0.1)</td>
+ <td style="vertical-align: top;">0.0 > 10.0 (0.1)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
