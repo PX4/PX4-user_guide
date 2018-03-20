@@ -29,10 +29,7 @@ The sections below provide a high-level overview of the modes (more detail can b
 
 Throttle Command is mapped direct to Motor Speed.
 
-- **Manual/Stabilized:** The pilot's inputs are passed as roll and
-  pitch *angle* commands and a yaw *rate *command. If Sticks are
-  released the Aircraft will level out. Drift from Wind or other
-  sources will not be compensated.
+- [Manual/Stabilized](../flight_modes/manual_stabilized.md) The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command. Throttle is passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude. The autopilot does not compensate for drift due to wind (or other sources).
 - **Acro:** The pilot's inputs are passed as roll, pitch, and
   yaw *rate* commands to the autopilot. The Aircraft will not
   level out after Sticks return to Center. This allows maneuvers like Loops.

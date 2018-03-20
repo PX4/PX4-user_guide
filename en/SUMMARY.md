@@ -52,6 +52,7 @@
     * [Landing \(Fixed Wing\)](flying/fixed_wing_landing.md)
   * [Flight Modes](flight_modes/README.md)
     * [Flight Modes Summary](flight_modes/flight_modes_summary.md)
+    * [Manual/Stabilized (MC)](flight_modes/manual_stabilized.md)
     * [Takeoff](flight_modes/takeoff.md)
     * [Land](flight_modes/land.md)
     * [Return (RTL)](flight_modes/rtl.md)
