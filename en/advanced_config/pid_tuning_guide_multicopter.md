@@ -19,6 +19,19 @@ The goal of all PX4 control infrastructure is to move as soon as possible on MPC
 but since not all supported systems models are available, 
 PID tuning is very relevant (and PID control is sufficient for many cases).
 
+## Precondition
+
+The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
+turn off all [higher-level tuning](advanced_mc_position_tuning.md).
+
+- [MPC_ACC_HOR_MAX](parameter_reference.md#MPC_ACC_HOR_MAX): 1000
+- [MPC_ACC_HOR](parameter_reference.md#MPC_ACC_HOR) : 1000
+- [MPC_DEC_HOR_SLOW](parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000 
+- [MPC_ACC_UP_MAX](parameter_reference.md#MPC_ACC_UP_MAX) : 1000 
+- [MPC_ACC_DOWN_MAX](parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000 
+- [MPC_JERK_MAX](parameter_reference.md#MPC_JERK_MAX) : 0 
+- [MPC_JERK_MIN](parameter_reference.md#MPC_JERK_MIN) : 1
+
 
 ### PID Controller Overview 
 
