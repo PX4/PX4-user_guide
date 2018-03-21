@@ -1,25 +1,32 @@
 # Advanced Multicopter Position Control Tuning
 
-This document provides an overview of the higher-level position-control tuning parameters for multicopters.
+This document provides an overview of the multicopter position-control tuning parameters that affect the value of a desired setpoint (as contrasted with those parameters that affect how well the vehicle tracks the setpoint). 
 
 > **Warning** This guide is for advanced users/experts.
 
 <span></span>
-> **Tip** Follow the instructions in the [Multicopter PID Tuning Guide](https://docs.px4.io/en/advanced_config/pid_tuning_guide_multicopter.html) *before* doing any of the higher-level related control tuning described here. Do not use the advanced position control tuning parameters to fix bad tracking or vibration!
+> **Tip** Follow the instructions in the [Multicopter PID Tuning Guide](../advanced_config/pid_tuning_guide_multicopter.md) *before* doing any of the higher-level related control tuning described here. Do not use the advanced position control tuning parameters to fix bad tracking or vibration!
 
 ## Overview
 
-Higher-level tuning applies to any parameter that has an effect on the desired position/velocity setpoint, in contrast to [lower-level tuning](pid_tuning_guide_multicopter.md) that influences the tracking.
+The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../advanced_config/pid_tuning_guide_multicopter.md) ("Lower level" tuning) aims reduce the error between the desired setpoint and the estimate of the vehicle state. Poor P/PID Gains can lead to instability.
 
-The set of higher-level tuning parameters can be split into two sections: tuning parameters for [Manual/Stabilized](#manual_mode) mode and tuning parameters for [Mission](#mission_mode) mode. Some parameters will have an effect on both modes. 
+The *desired* setpoint passed to the P/PID controller is itself calculated from a *demanded* setpoint based on a stick position (in RC modes) or from a mission command. Setpoint value ("higher level") tuning is used to specify the mapping between the demanded setpoint and the desired setpoint. Poorly tuned setpoint values cannot result in instability, but may result in jerky or unresponsive flight between setpoint changes.
 
-> **Note** The position controller ([diagram here](https://dev.px4.io/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop. 
+> **Tip** The demanded setpoint can change very quickly (e.g. if a user moves stick from zero to maximum value as a "step"). Vehicle flight characteristics are better if the corresponding desired setpoint changes as a "ramp".
+
+The setpoint-value tuning parameters can be split into two groups: tuning parameters for [Position](#position_mode) mode and tuning parameters for [Mission](#mission_mode) mode. Some parameters will have an effect on both modes. 
+
+### Definitions
+
+The position controller ([diagram here](https://dev.px4.io/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop. 
 Depending on the control (flight) mode either both loops are active or just the velocity control loop. 
+
 For the remainder of this topic the term **position-control** represents the case where both loops are active while **velocity-control** refers to the case when only the velocity control loop is in use.
 
-## Manual/Stabilized Mode {#manual_mode}
+## Position Mode {#position_mode}
 
-In [Manual/Stabilized](../flight_modes/manual_stabilized.md) mode the stick inputs are mapped either to **position-control** or **velocity-control**.
+In [Position](../flight_modes/position_mc.md) mode the stick inputs are mapped either to **position-control** or **velocity-control**.
  
 Position-control is active when the stick inputs are within the deadzone [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ), and velocity-control otherwise. All the parameters below are tuning parameters and cannot be mapped directly to the physical quantity.
 
@@ -39,20 +46,21 @@ For instance, if the stick input changes from maximum (=`1`) to `0.5`, the veloc
 
 During transition from **velocity-control** to **position-control**, there is a hard switch from from `MPC_ACC_HOR` to `MPC_ACC_HOR_MAX` and a reset of the velocity setpoint to the current vehicle velocity. 
 The reset and the hard switch can both introduce a jerky flight performance during stopping. 
-Nonetheless, the reset is required because the smoothing parameters introduce a delay to the setpoint, which can lead to unexpected flight maneuvers. 
+Nonetheless, the reset is required because the smoothing parameters introduce a delay to the setpoint, which can lead to unexpected flight maneuvers.
 
-A simple example is given below (the example flight is described below the diagram):
+A simple example explaining why the reset is needed is given below.
 
-![Slewrate Reset](../../images/slewrate_reset.svg).
+Consider the case where a user demands full speed from hover followed by a stop request. This is equivalent to full stick input with maximum value of `1` followed by zero stick input. 
+To simplify the example, assume that `MPC_ACC_HOR_MAX` is equal to `MPC_ACC_HOR` and therefore there is no hard switch in acceleration limit when switching from **velocity-control** to **position-control**. In addition, let's assume the maximum speed that can be demanded is `4 m/s`.
 
-Thee user demands full speed from hover followed by a stop request. This is equivalent to full stick input with maximum value of `1` followed by zero stick input. 
-To simplify the example, let's assume that `MPC_ACC_HOR_MAX` is equal to `MPC_ACC_HOR` and therefore there is no hard switch in acceleration limit when switching from **velocity-control** to **position-control**. In addition, let's assume the maximum speed that can be demanded is `4 m/s`.
+During full stick input, the velocity setpoint will not change directly from `0 m/s` to `4 m/s` (aka step input) - instead the velocity setpoint follows a ramp with slope `MPC_ACC_HOR`. 
+The actual velocity of the vehicle, however, will not track the setpoint perfectly, but rather will lag behind. The lag will be more significant the larger the value of `MPC_ACC_HOR`. 
 
-During full stick input, the velocity setpoint will not change directly from `0 m/s` to `4 m/s` (aka step input), but rather the velocity setpoint follows a ramp with slope `MPC_ACC_HOR`. 
-The actual velocity of the vehicle, however, will not track the setpoint perfectly, but rather will lack behind. The lack will be more significant the larger the value of `MPC_ACC_HOR`. 
+![Slewrate Reset](../../images/slewrate_reset.svg)
+
 Without the reset (the top graph), at the moment of the stop demand (stick equal 0) the velocity setpoint will ramp down with the maximum rate given by `MPC_ACC_HOR_MAX`. 
-Due to the lack the vehicle will first continue to accelerate in the direction previous to the stop demand followed by slowly decelerating towards zero. 
-With the reset of the velocity setpoint to the current velocity, the delay due to the lack during stop demand can be overcome. 
+Due to the lag the vehicle will first continue to accelerate in the direction previous to the stop demand followed by slowly decelerating towards zero. 
+With the reset of the velocity setpoint to the current velocity, the delay due to the lag during stop demand can be overcome. 
 
 
 #### MPC_ACC_UP_MAX and MPC_ACC_DOWN_MAX
@@ -88,7 +96,7 @@ cruise speed will be adjusted accordingly. To reach the cruise speed, $$\mathbf{
 When the vehicle is `1.5 x MPC_XY_CRUISE` in front of the target waypoint, the vehicle will start to decelerate to a target speed that depends on the angle $$\alpha$$. 
 The function used for the mapping from angle to target speed is an exponential function of the form $$a \times b^{x} + c$$:
 
-![Speed Angle](../../images/speed_from_angle.png).
+![Speed Angle](../../images/speed_from_angle.png)
 
 At an angle of `180 degrees`, which corresponds to a straight line from $$\mathbf{wp}_{prev}$$ to $$\mathbf{wp}_{next}$$ with the target waypoint somewhere in between, the target speed at the target waypoint will be `MPC_XY_CRUISE`. 
 If the angle is `0 degrees`, which corresponds to having $$\mathbf{wp}_{next}$$ on the line $$\mathbf{wp}_{prev}$$ to target waypoint, then the target speed is set to a minimum speed of `1 m/s`.
