@@ -9,9 +9,9 @@ This document provides an overview of the multicopter position-control tuning pa
 
 ## Overview
 
-The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../advanced_config/pid_tuning_guide_multicopter.md) ("Lower level" tuning) aims reduce the error between the desired setpoint and the estimate of the vehicle state. Poor P/PID Gains can lead to instability.
+The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../advanced_config/pid_tuning_guide_multicopter.md) ("Lower level" tuning) aims to reduce the error between the desired setpoint and the estimate of the vehicle state. Poor P/PID Gains can lead to instability.
 
-The *desired* setpoint passed to the P/PID controller is itself calculated from a *demanded* setpoint based on a stick position (in RC modes) or from a mission command. Setpoint value ("higher level") tuning is used to specify the mapping between the demanded setpoint and the desired setpoint. Poorly tuned setpoint values cannot result in instability, but may result in jerky or unresponsive flight between setpoint changes.
+The *desired* setpoint passed to the P/PID controller is itself calculated from a *demanded* setpoint based on a stick position (in RC modes) or from a mission command. Setpoint value ("higher level") tuning is used to specify the mapping between the demanded setpoint and the desired setpoint. Poorly tuned setpoint values cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
 
 > **Tip** The demanded setpoint can change very quickly (e.g. if a user moves stick from zero to maximum value as a "step"). Vehicle flight characteristics are better if the corresponding desired setpoint changes as a "ramp".
 
