@@ -37,7 +37,13 @@ Flight Modes are loosely grouped based on the level/type of control provided by 
 
 #### Manual/Stabilized Mode
 
-In Stabilized flight your multicopter will hover in level flight once the Pitch and Roll sticks are at center position. You will have a full manual angle control over the multicopter. If your craft is perfectly set and balanced it will hold the altitude if throttle is at 50% in the middle of the scale at calm weather. If there is a wind blowing the craft will drift in the direction of the wind and you have to control the throttle all the time during wind gusts to hold altitude. In order to perform a maneuver, you have to hold your Pitch, Roll and Yaw command, otherwise the craft will level itself the moment you release the control sticks.
+The [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
+
+> **Note** This multicopter mode is enabled if you set either *Manual* or *Stabilized* modes for an MC vehicle.
+
+When under manual control the roll and pitch sticks control the angle of the vehicle (attitude), the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
+
+As soon as you release the control sticks they will return to the centre deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately, and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
 
 ![MC Manual Flight](../../images/flight_modes/manual_stabilized_MC.png)
 
