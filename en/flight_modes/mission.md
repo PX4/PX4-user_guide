@@ -1,11 +1,15 @@
 # Mission Flight Mode
 
-The *Mission* flight mode executes a [predefined mission/flight plan](../flying/missions.md) that has been uploaded to the flight controller. 
+![GPS](../../images/flight_modes/GPS_s.png)
 
+*Mission mode* causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/en/).
+
+<span></span>
 > **Note** 
->  * This mode requires GPS.
+>  * This mode requires 3d position information (e.g. GPS).
 >  * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes).
 >  * The vehicle must be armed before this mode can be engaged.
+
 
 ## Description
 

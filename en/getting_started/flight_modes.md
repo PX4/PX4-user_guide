@@ -22,7 +22,7 @@ In Stabilized flight your copter will hover in level flight once the Pitch and R
 
 ![MC Manual Flight](../../images/flight_modes/manual_stabilized_MC.png)
 
-#### Acro (Acrobatic Mode)
+#### Acro Mode (Acrobatic)
 
 For copters this is the 3D flying mode. You can make flips and acrobatics. In acrobatic mode you have fully direct rate control over your aircraft. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. In Acrobatic mode you have full rate control over the Roll, Pitch, Yaw and Ttrottle.
 
@@ -58,7 +58,7 @@ You can fly in Position Mode if you need precision in flight, keeping course or 
 
 Autonomous or Auto modes do not require any input from the pilot.
  
-#### Hold (Auto Hold)
+#### Hold Mode (Auto Hold)
 
 You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the fligh, while you get time to access the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch, the copter or multi-copter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft and panic.
 
@@ -68,13 +68,15 @@ You can use Hold in case of emergency or during a mission in order to Hold the a
 
 The copter or multicopter will return in a straight line at the current altitude (if higher than the home position + hovering altitude) or on the hovering altitude (if higher than the current altitude), then lands automatically.
 
+
 #### Mission Mode
 
 ![GPS](../../images/flight_modes/GPS_s.png)
 
-In Mission mode the aircraft will start the execution of a predefined mission or flight plan. The mission can be edited and uploaded to the aircraft with a Ground Control Station (GCS).
+[Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application. 
 
-> **Tip** The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/).
+> **Tip** The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
+
 
 #### Takeoff Mode
 
@@ -102,7 +104,7 @@ In Stabilized flight your plane will maintain a level flight. It will fight agai
 ![FW Manual Flight](../../images/flight_modes/manual_stabilized_FW.png)
 
 
-#### Acro Mode
+#### Acro Mode (Acrobatic)
 
 In acrobatic you fly like a plane without any stabilization electronics. You can make 360 rolls, flips, stalls and acrobatic figures. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. The control is a Rate control over the Roll, Pitch, Yaw and Throttle.
 
@@ -133,7 +135,7 @@ This is the GPS guided mode. You can fly in Position Mode if you need precision 
 
 Autonomous or Auto modes do not require any input from the pilot.
 
-#### Hold (Auto Hold)
+#### Hold Mode (Auto Hold)
 
 You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the flight, while you get time to access the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch the airplane will start circling around at fixed GPS position, holding its current altitude during the circles. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft.
 
@@ -148,9 +150,10 @@ The aircraft returns to the home position and hovers in a circle above the home 
 
 ![GPS](../../images/flight_modes/GPS_s.png)
 
-In Mission mode the aircraft will start the execution of a predefined *mission* or flight plan. The mission can be edited and uploaded to the aircraft with a Ground Control Station (GCS).
+[Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application. 
 
-> **Tip** The main PX4 for working with PX4 is called [QGroundControl](https://docs.qgroundcontrol.com/en/).
+> **Tip** The PX4 GCS is called [QGroundControl](https://docs.qgroundcontrol.com/en/). *QGroundControl* is the same application we use for [configuring PX4](../config/README.md).
+
 
 #### Takeoff Mode
  
