@@ -17,12 +17,13 @@ Store](https://store.3dr.com/products/3dr-pixhawk). Wiring information is availa
 
 **Processors:**
 
-- **Main Processor​:** STM32F427 Rev 3
-- **IO Processor​:** STM32F103
+- **Main Processor:** STM32F427 Rev 3
+- **IO Processor:** STM32F103
 
 **Sensors:**
 
 - **Accel/Gyro/Mag:** MPU9250
+  - [deprecated](https://github.com/PX4/Firmware/pull/7618) by the PX4 firmware
 - **Accel/Gyro:** ICM20608
 - **Barometer:** MS5611
 
@@ -34,7 +35,7 @@ Store](https://store.3dr.com/products/3dr-pixhawk). Wiring information is availa
 - **USB Power Input:** 4.1\`5.5V
 - **Servo Rail Input:** 0\~10V
 
-**Interfaces​:**
+**Interfaces:**
 
 - 1 x UART Serial Port (for GPS)
 - Spektrum DSM/DSM2/DSM-X® Satellite Compatible RC input
@@ -47,13 +48,13 @@ Store](https://store.3dr.com/products/3dr-pixhawk). Wiring information is availa
 
 **Weight and dimensions:**
 
-- **Dimensions:​** 38x43x12mm
+- **Dimensions:** 38x43x12mm
 - **Weight:** 15.8g
 
-**GPS module (supplied with kit)​:**
+**GPS module (supplied with kit):**
 
 - **GNSS receiver:** ublox Neo-M8N; compass HMC5983
-- **Weight:**​ 22.4g
+- **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
 
 ## Connector assignments
@@ -169,6 +170,15 @@ Pixhawk Mini features an advanced processor and sensor technology from
 ST Microelectronics® and a NuttX real-time operating system, delivering
 excellent performance, flexibility, and reliability for controlling any
 autonomous vehicle.
+
+## Known issues
+
+- Some Pixhawk Minis have a [hardware defect](https://github.com/PX4/Firmware/issues/7327#issuecomment-317132917) that makes the internal MPU9250 IMU unreliable.
+  - The problem is only present in older hardware revisions, because [it was fixed at some point by the manufacturer](https://github.com/PX4/Firmware/issues/7327#issuecomment-372393609).
+  - To check whether a specific board is affected or not, leave the board disconnected for some time, then power it on and try to start the mpu9250 driver from the PX4 command line. If the board is affected, the driver will not start.
+  - The MPU9250 is [disabled by default](https://github.com/PX4/Firmware/pull/7618) on the PX4 firmware.
+  - The defective Pixhawk Minis will not calibrate without an external magnetometer or an attached GPS, even indoor.
+  - When using an external GPS, [this is not a problem](https://github.com/PX4/Firmware/pull/7618#issuecomment-320270082) because the secondary ICM20608 provides the accelerometer and the gyro, while the external GPS provides the magnetometer.
 
 ## More information
 
