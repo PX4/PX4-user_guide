@@ -11316,13 +11316,6 @@ tailsitter, tiltrotor: main throttle</p>    </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_OPT_RECOV_EN">VT_OPT_RECOV_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Optimal recovery strategy for pitch-weak tailsitters</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="VT_PSHER_RMP_DT">VT_PSHER_RMP_DT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition
 to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR</p>    </td>
@@ -11392,6 +11385,61 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.15 </td>
  <td style="vertical-align: top;"></td>
+</tr>
+</tbody></table>
+
+## Wind Estimator
+
+
+The module where these parameters are defined is: *modules/wind_estimator*.
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="WEST_BETA_GATE">WEST_BETA_GATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Gate size for true sideslip fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>    </td>
+ <td style="vertical-align: top;">1 > 5 </td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;">SD</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="WEST_BETA_NOISE">WEST_BETA_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Wind estimator sideslip measurement noise</p>    </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0.3 </td>
+ <td style="vertical-align: top;">rad</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="WEST_SC_P_NOISE">WEST_SC_P_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Wind estimator true airspeed scale process noise</p>    </td>
+ <td style="vertical-align: top;">0 > 0.1 </td>
+ <td style="vertical-align: top;">0.0001 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="WEST_TAS_GATE">WEST_TAS_GATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Gate size for true airspeed fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>    </td>
+ <td style="vertical-align: top;">1 > 5 </td>
+ <td style="vertical-align: top;">3 </td>
+ <td style="vertical-align: top;">SD</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="WEST_TAS_NOISE">WEST_TAS_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Wind estimator true airspeed measurement noise</p>    </td>
+ <td style="vertical-align: top;">0 > 4 </td>
+ <td style="vertical-align: top;">1.4 </td>
+ <td style="vertical-align: top;">m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="WEST_W_P_NOISE">WEST_W_P_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Wind estimator wind process noise</p>    </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;">m/s/s</td>
 </tr>
 </tbody></table>
 
