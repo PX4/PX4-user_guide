@@ -6,11 +6,11 @@ Flight modes are used to provide different types of autopilot control, enabling 
 
 Pilots can transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
 
-This topic provides a very high level view of each of the flight modes, and the (mostly minor) differences in how they behave in copter, fixed-wing and VTOL frames. For more detailed information see [Flight Modes](../flight_modes/README.md).
+This topic provides a very high level view of each of the flight modes, and the (mostly minor) differences in how they behave in multicopter (MC), fixed-wing (FW) and VTOL frames. For more detailed information see [Flight Modes](../flight_modes/README.md).
 
 > **Tip** ![GPS](../../images/flight_modes/GPS_s.png) - This symbol is used to denote modes that *require* position information! These modes cannot be enabled without a position lock from GPS, VIO, or some other positioning system.
 
-## Copter
+## Multicopter
 
 ### Manual Modes
 
@@ -18,19 +18,19 @@ Manual modes are those where the user has control over vehicle movement via the 
 
 #### Manual/Stabilized Mode
 
-In Stabilized flight your copter will hover in level flight once the Pitch and Roll sticks are at center position. You will have a full manual angle control over the copter. If your craft is perfectly set and balanced it will hold the altitude if throttle is at 50% in the middle of the scale at calm weather. If there is a wind blowing the craft will drift in the direction of the wind and you have to control the throttle all the time during wind gusts to hold altitude. In order to perform a maneuver, you have to hold your Pitch, Roll and Yaw command, otherwise the craft will level itself the moment you release the control sticks.
+In Stabilized flight your multicopter will hover in level flight once the Pitch and Roll sticks are at center position. You will have a full manual angle control over the multicopter. If your craft is perfectly set and balanced it will hold the altitude if throttle is at 50% in the middle of the scale at calm weather. If there is a wind blowing the craft will drift in the direction of the wind and you have to control the throttle all the time during wind gusts to hold altitude. In order to perform a maneuver, you have to hold your Pitch, Roll and Yaw command, otherwise the craft will level itself the moment you release the control sticks.
 
 ![MC Manual Flight](../../images/flight_modes/manual_stabilized_MC.png)
 
 #### Acro Mode (Acrobatic)
 
-For copters this is the 3D flying mode. You can make flips and acrobatics. In acrobatic mode you have fully direct rate control over your aircraft. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. In Acrobatic mode you have full rate control over the Roll, Pitch, Yaw and Ttrottle.
+For multicopters this is the 3D flying mode. You can make flips and acrobatics. In acrobatic mode you have fully direct rate control over your aircraft. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. In Acrobatic mode you have full rate control over the Roll, Pitch, Yaw and Throttle.
 
 ![MC Manual Acrobatic Flight](../../images/flight_modes/manual_acrobatic_MC.png)
 
 #### Rattitude
 
-In simple terms it is the mix between Manual/Stabilized and Acro mode. When the Roll/Pitch stick is centered or if you move it up to halfway then the craft behaves like in Manual/Stabilized mode. If you move Roll/Pitch stick beyond halfway to full command the the copter behaves like in Acro mode. This way you could fly in the comfort of stabilized flight but still be able to perform flips and tricks with your copter.
+In simple terms it is the mix between Manual/Stabilized and Acro mode. When the Roll/Pitch stick is centered or if you move it up to halfway then the craft behaves like in Manual/Stabilized mode. If you move Roll/Pitch stick beyond halfway to full command the the multicopter behaves like in Acro mode. This way you could fly in the comfort of stabilized flight but still be able to perform flips and tricks with your multicopter.
  
 
 ### Assisted Modes
@@ -60,13 +60,13 @@ Autonomous or Auto modes do not require any input from the pilot.
  
 #### Hold Mode (Auto Hold)
 
-You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the flight, while you get time to assess the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch, the copter or multi-copter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you lose control over the aircraft and panic.
+You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the flight, while you get time to assess the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch, the multicopter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you lose control over the aircraft and panic.
 
 #### Return Mode (Return to Launch/Home - RTL)
 
 ![GPS](../../images/flight_modes/GPS_s.png)
 
-The copter or multicopter will return in a straight line at the current altitude (if higher than the home position + hovering altitude) or on the hovering altitude (if higher than the current altitude), then lands automatically.
+The multicopter will return in a straight line at the current altitude (if higher than the home position + hovering altitude) or on the hovering altitude (if higher than the current altitude), then lands automatically.
 
 
 #### Mission Mode
@@ -82,13 +82,13 @@ The copter or multicopter will return in a straight line at the current altitude
 
 ![GPS](../../images/flight_modes/GPS_s.png)
 
-When **Take Off** is activated the copter automatically will give thrust to the motors such to take off then climb vertically to a preset take off altitude, stop the climb and hover at place waiting for pilot's command input.
+When **Take Off** is activated the multicopter automatically will give thrust to the motors such to take off then climb vertically to a preset take off altitude, stop the climb and hover at place waiting for pilot's command input.
 
 #### Land Mode
 
 ![GPS](../../images/flight_modes/GPS_s.png)
 
-When **Land** is activated the copter automatically lower the throttle such that to start slowly descending with preset vertical speed. When it touches the ground it will lower the throttle to minimum and disarm the craft.
+When **Land** is activated the multicopter automatically lower the throttle such that to start slowly descending with preset vertical speed. When it touches the ground it will lower the throttle to minimum and disarm the craft.
  
  
 ## Fixed-Wing
@@ -176,7 +176,7 @@ TBD
 
 ## Vertical Take Off and Landing (VTOL)
 
-A VTOL aircraft can fly as either a copter or as fixed-wing vehicle. The copter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution. The switch between modes is initiated either by the pilot using an RC switch or automatically by the autopilot when needed in the Auto modes.
+A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution. The switch between modes is initiated either by the pilot using an RC switch or automatically by the autopilot when needed in the Auto modes.
 
-Generally the flight modes for VTOL vehicles are the same as for copter and fixed-wing, and mode behaviour is appropriate for the vehicle's current configuration.
+Generally the flight modes for VTOL vehicles are the same as for multicopter and fixed-wing, and mode behaviour is appropriate for the vehicle's current configuration.
 
