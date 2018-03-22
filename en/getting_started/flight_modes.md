@@ -2,19 +2,38 @@
 
 > **Warning** This topic is under construction. It is not complete and has not been fully reviewed.
 
-Flight modes are used to provide different types of autopilot control, enabling manual, assisted and fully autonomous flight.
+Flight modes enable different [levels](#categories) and types of autopilot control. They define how the autopilot responds to remote control input, and how it manages vehicle movement during fully autonomous flight.
+
+Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types. 
+
+This topic provides an overview of the available the flight modes, and the (mostly minor) differences in their default behaviour in multicopter (MC), fixed-wing (FW) and VTOL frames.
+
+> **Tip** ![GPS](../../images/flight_modes/GPS_s.png) - This symbol is used to denote modes that *require* position information! These modes cannot be enabled without a position lock from GPS, VIO, or some other positioning system.
+
+
+## Switching Between Modes
 
 Pilots can transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
 
-This topic provides a very high level view of each of the flight modes, and the (mostly minor) differences in how they behave in multicopter (MC), fixed-wing (FW) and VTOL frames. For more detailed information see [Flight Modes](../flight_modes/README.md).
+Some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis). PX4 will not allow transitions to those modes until the right conditions are met.
 
-> **Tip** ![GPS](../../images/flight_modes/GPS_s.png) - This symbol is used to denote modes that *require* position information! These modes cannot be enabled without a position lock from GPS, VIO, or some other positioning system.
+
+## Categories of Modes {#categories}
+
+Flight Modes are loosely grouped based on the level/type of control provided by the autopilot:
+
+**Manual** flight modes are those where the user has control over vehicle movement via the RC control sticks (or joystick). Vehicle movement always follows stick movement, but the *way* the vehicle responds changes depending on the mode. For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
+
+**Assisted** flight modes are also manually/RC controlled, but offer some level of "automatic" assistance - for example, automatically holding position/direction or altitude against wind. Assisted modes often make it much easier to gain or restore controlled flight.
+
+**Autonomous** flight modes are fully controlled by the autopilot, and require no pilot/remote control input (e.g. to takeoff, land, fly missions, etc.).
+
 
 ## Multicopter {#mc_flight_modes}
 
 ### Manual Modes
 
-Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick). Vehicle movement always follows stick movement, but the level/type of response changes depending on the mode. For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
+"Manual" flight modes are those where the user has control over vehicle movement via the RC control sticks (or joystick).
 
 #### Manual/Stabilized Mode
 
@@ -35,7 +54,7 @@ In simple terms it is the mix between Manual/Stabilized and Acro mode. When the 
 
 ### Assisted Modes
 
-Assisted modes are with more assistance to the pilot from the autopilot. Assisted modes need manual pilot input for the roll/pitch/yaw but automatically control the thrust to hold a fixed altitude at centered throttle stick. Vertical speed is controlled by manual input from the pilot to throttle stick but in a rate of descend and ascend fashion. The horizontal speed is controlled by the pitch/roll stick input.
+"Assisted" flight modes are also manually/RC controlled but offer some level of "automatic" assistance to gain or restore controlled flight.
 
 #### Altitude Mode
 
@@ -56,7 +75,7 @@ You can fly in Position Mode if you need precision in flight, keeping course or 
  
 ### Autonomous Modes
 
-Autonomous or Auto modes do not require any input from the pilot.
+"Autonomous" flight modes are fully controlled by the autopilot, and require no pilot/remote control input.
  
 #### Hold Mode (Auto Hold)
 
@@ -89,13 +108,18 @@ When **Take Off** is activated the multicopter automatically will give thrust to
 ![GPS](../../images/flight_modes/GPS_s.png)
 
 When **Land** is activated the multicopter automatically lower the throttle such that to start slowly descending with preset vertical speed. When it touches the ground it will lower the throttle to minimum and disarm the craft.
- 
+
+#### Follow Me Mode
+
+TBD
+
+
  
 ## Fixed-Wing {#fw_flight_modes}
 
 ### Manual Modes
 
-Manual modes are with the least assistance from the PX4 or even without assistance to the pilot. 
+"Manual" flight modes are those where the user has control over vehicle movement via the RC control sticks (or joystick).
 
 #### Stabilized Mode
 
@@ -113,7 +137,7 @@ In acrobatic you fly like a plane without any stabilization electronics. You can
  
 ### Assisted Modes
 
-Assisted modes are with more assistance to the pilot from the autopilot. Assisted modes need manual pilot input for the roll/pitch/yaw but automatically control the thrust to sustain the desired speed at fixed altitude. With manual input from the pilot to the throttle stick he controls the speed of the airplane and with manual input to the pitch stick he controls the altitude.
+"Assisted" flight modes are also manually/RC controlled but offer some level of "automatic" assistance to gain or restore controlled flight.
 
 #### Altitude Mode
 
@@ -133,7 +157,7 @@ This is the GPS guided mode. You can fly in Position Mode if you need precision 
  
 ### Autonomous Modes
 
-Autonomous or Auto modes do not require any input from the pilot.
+"Autonomous" flight modes are fully controlled by the autopilot, and require no pilot/remote control input.
 
 #### Hold Mode (Auto Hold)
 
@@ -181,3 +205,9 @@ A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The mu
 Generally the flight modes for VTOL vehicles are the same as for [multicopter](#mc_flight_modes) when flying in MC mode and [fixed-wing](#fw_flight_modes) when flying in FW mode.
 
 The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
+
+
+## Further Information
+
+* [Flying > Flight Modes](../flight_modes/README.md) - Detailed technical explanation of all modes
+* [Basic Configuration > Flight Modes](../config/flight_mode.md) - How to map RC control switches to specific flight modes
