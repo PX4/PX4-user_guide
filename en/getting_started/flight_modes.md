@@ -10,7 +10,7 @@ This topic provides a very high level view of each of the flight modes, and the 
 
 > **Tip** ![GPS](../../images/flight_modes/GPS_s.png) - This symbol is used to denote modes that *require* position information! These modes cannot be enabled without a position lock from GPS, VIO, or some other positioning system.
 
-## Multicopter
+## Multicopter {#mc_flight_modes}
 
 ### Manual Modes
 
@@ -91,7 +91,7 @@ When **Take Off** is activated the multicopter automatically will give thrust to
 When **Land** is activated the multicopter automatically lower the throttle such that to start slowly descending with preset vertical speed. When it touches the ground it will lower the throttle to minimum and disarm the craft.
  
  
-## Fixed-Wing
+## Fixed-Wing {#fw_flight_modes}
 
 ### Manual Modes
 
@@ -176,7 +176,8 @@ TBD
 
 ## Vertical Take Off and Landing (VTOL)
 
-A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution. The switch between modes is initiated either by the pilot using an RC switch or automatically by the autopilot when needed in the Auto modes.
+A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution. 
 
-Generally the flight modes for VTOL vehicles are the same as for multicopter and fixed-wing, and mode behaviour is appropriate for the vehicle's current configuration.
+Generally the flight modes for VTOL vehicles are the same as for [multicopter](#mc_flight_modes) when flying in MC mode and [fixed-wing](#fw_flight_modes) when flying in FW mode.
 
+The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
