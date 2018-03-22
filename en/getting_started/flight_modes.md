@@ -6,7 +6,7 @@ Flight modes are used to provide different types of autopilot control, enabling 
 
 Pilots can transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
 
-This topic provide a very high level view of each of the flight modes, and the (mostly minor) differences in how they behave in copter, fixed-wing and VTOL frames. For more detailed information see [Flight Modes](../flight_modes/README.md).
+This topic provides a very high level view of each of the flight modes, and the (mostly minor) differences in how they behave in copter, fixed-wing and VTOL frames. For more detailed information see [Flight Modes](../flight_modes/README.md).
 
 > **Tip** ![GPS](../../images/flight_modes/GPS_s.png) - This symbol is used to denote modes that *require* position information! These modes cannot be enabled without a position lock from GPS, VIO, or some other positioning system.
 
@@ -30,7 +30,7 @@ For copters this is the 3D flying mode. You can make flips and acrobatics. In ac
 
 #### Rattitude
 
-In simple terms it is the mix between Manual/Stabilized and Acro mode. When the Roll/Pitch stick is centered or if you move it up to halfway then the craft behaves like in Manual/Stabalized mode. If you move Roll/Pitch stick beyound halfway to full command the the copter behaves like in Acro mode. This way you could fly in the comfort of stabalized flight but still be able to perform flips and tricks with your copter.
+In simple terms it is the mix between Manual/Stabilized and Acro mode. When the Roll/Pitch stick is centered or if you move it up to halfway then the craft behaves like in Manual/Stabilized mode. If you move Roll/Pitch stick beyond halfway to full command the the copter behaves like in Acro mode. This way you could fly in the comfort of stabilized flight but still be able to perform flips and tricks with your copter.
  
 
 ### Assisted Modes
@@ -41,7 +41,7 @@ Assisted modes are with more assistance to the pilot from the autopilot. Assiste
 
 [Altitude Mode](../flight_modes/altitude.md) is the safest non GPS guided mode appropriate for beginners learning how to fly. 
 
-In this mode the altitude is controlled by the PX4 autopilot. At 50% throttle the aircraft will hold its current altitude. If you want to descend just lower the throttle bellow center or if you need to climb push the throttle over the center. The further the throttle stick is from the center position the larger the climb or descent rate you will have. In Altitude Mode you have full angle control over Pitch, Roll and Yaw. Once you center all the sticks you will have a hovering aircraft at the current altitude. If the wind blows the aircraft will drift in the direction of the wind.
+In this mode the altitude is controlled by the PX4 autopilot. At 50% throttle the aircraft will hold its current altitude. If you want to descend just lower the throttle below center or if you need to climb push the throttle over the center. The further the throttle stick is from the center position the larger the climb or descent rate you will have. In Altitude Mode you have full angle control over Pitch, Roll and Yaw. Once you center all the sticks you will have a hovering aircraft at the current altitude. If the wind blows the aircraft will drift in the direction of the wind.
 
 ![MC Altitude Mode](../../images/flight_modes/altitude_MC.png)
 
@@ -49,7 +49,7 @@ In this mode the altitude is controlled by the PX4 autopilot. At 50% throttle th
 
 ![GPS](../../images/flight_modes/GPS_s.png) Position mode is the GPS guided mode. 
 
-You can fly in Position Mode if you need precision in flight, keeping course or hovering at a certain spot in the air, but still maintaining the control of the aircraft with your RC. The altitude is controlled by the PX4 autopilot. At 50% throttle the aircraft will hold its current altitude. If you want to descend just lower the throttle bellow center or if you need to climb push the throttle over the center. The further the throttle stick is from the center position the larger the climb or descent rate you will have. Position Mode is almost like Altitude Mode with full angle control over Pitch, Roll and Yaw. But once you center all the sticks you will have a hovering aircraft at the current altitude and current GPS position. If the wind blows the aircraft will keep its direction of flight and course and will fight the wind.
+You can fly in Position Mode if you need precision in flight, keeping course or hovering at a certain spot in the air, but still maintaining the control of the aircraft with your RC. The altitude is controlled by the PX4 autopilot. At 50% throttle the aircraft will hold its current altitude. If you want to descend just lower the throttle below center or if you need to climb push the throttle over the center. The further the throttle stick is from the center position the larger the climb or descent rate you will have. Position Mode is almost like Altitude Mode with full angle control over Pitch, Roll and Yaw. But once you center all the sticks you will have a hovering aircraft at the current altitude and current GPS position. If the wind blows the aircraft will keep its direction of flight and course and will fight the wind.
 
 ![MC Position Mode](../../images/flight_modes/position_MC.png)
  
@@ -60,7 +60,7 @@ Autonomous or Auto modes do not require any input from the pilot.
  
 #### Hold Mode (Auto Hold)
 
-You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the fligh, while you get time to access the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch, the copter or multi-copter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft and panic.
+You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the flight, while you get time to assess the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch, the copter or multi-copter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you lose control over the aircraft and panic.
 
 #### Return Mode (Return to Launch/Home - RTL)
 
@@ -137,7 +137,7 @@ Autonomous or Auto modes do not require any input from the pilot.
 
 #### Hold Mode (Auto Hold)
 
-You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the flight, while you get time to access the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch the airplane will start circling around at fixed GPS position, holding its current altitude during the circles. During hold you are not able to control the craft with the RC. It is the first line of defense if you loose control over the aircraft.
+You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the flight, while you get time to assess the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch the airplane will start circling around at fixed GPS position, holding its current altitude during the circles. During hold you are not able to control the craft with the RC. It is the first line of defense if you lose control over the aircraft.
 
 
 #### Return Mode
