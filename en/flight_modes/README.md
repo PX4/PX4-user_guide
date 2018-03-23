@@ -71,7 +71,7 @@ Throttle Command is mapped direct to Motor Speed.
 "Auto" flight modes are those where the controller requires little to no user input (e.g. to takeoff, land and fly missions).
 
 - [Hold](../flight_modes/hold.md): Holds at the current position (hovers for copter, circles for fixed-wing)
-- [Return (RTL)](../flight_modes/rtl.md): Return to the home position and land (copter) or circle (fixed-wing).
+- [Return (RTL)](../flight_modes/return.md): Return to the home position and land (copter) or circle (fixed-wing).
 - [Takeoff](../flight_modes/takeoff.md): Take off and wait for further input.
 - [Land](../flight_modes/land.md): Land at the location where the mode was engaged. 
 - [Mission](../flight_modes/mission.md): The vehicle follows a programmed mission, which is usually planned and uploaded using a ground control station (GCS).
