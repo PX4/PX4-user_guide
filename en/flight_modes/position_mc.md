@@ -27,7 +27,7 @@ The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
 ## Technical Summary
 
-Roll controls left-right speed over ground, pitch controls front-back speed over ground, and throttle controls climb/descent speed (as in [Altitude](../flight_modes/altitude.md) mode). Yaw controls yaw *rate* (as in [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode).  When roll, pitch and throttle inputs are all centered (inside deadzone) the multirotor will hold position (in x, y, z frame), compensating for drift due to wind (or other sources).
+Roll controls left-right speed over ground, pitch controls front-back speed over ground, and throttle controls climb/descent speed (as in [Altitude](../flight_modes/altitude.md) mode). Yaw controls yaw *rate* over horizontal plane (as in [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode).  When roll, pitch and throttle inputs are all centered (inside deadzone) the multirotor will hold position (in x, y, z frame), compensating for drift due to wind (or other sources).
 
 > **Note**
 >  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).

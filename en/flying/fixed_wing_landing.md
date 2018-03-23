@@ -1,6 +1,6 @@
 # Fixed Wing Landing
 
-PX4 enables autopilot-controlled fixed-wing (FW) landing in [Missions](../flying/missions.md), [LAND mode](../flight_modes/land.md), and [RETURN TO LAUNCH (RTL) mode](../flight_modes/rtl.md). 
+PX4 enables autopilot-controlled fixed-wing (FW) landing in [Missions](../flying/missions.md), [LAND mode](../flight_modes/land.md), and [RETURN TO LAUNCH (RTL) mode](../flight_modes/return.md). 
 
 The landing logic has several phases, as shown below. In the first phase the vehicle will follow a fixed trajectory ([FW_LND_ANG](#FW_LND_ANG)) towards the ground. At the flare landing altitude ([FW_LND_FLALT](#FW_LND_FLALT)) the vehicle will start to follow a flare path, and finally land at the touchdown point.
 

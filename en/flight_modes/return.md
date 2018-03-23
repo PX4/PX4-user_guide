@@ -1,6 +1,6 @@
 # Return Flight Mode (RTL)
 
-The *Return* flight mode (also known as "Return to Launch") causes the vehicle to return to its home position where it may then either wait (hover or circle) or land.
+The *Return* flight mode (also known as "Return to Launch (RTL)" and "Return to Home (RTH)") causes the vehicle to return to its home position where it may then either wait (hover or circle) or land.
 
 > **Note** 
 >  * This mode requires GPS.

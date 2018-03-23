@@ -21,7 +21,7 @@ New users should consider setting one or more of the following modes, which make
 
 It is also common to map switches to:
 
-- [Return To Launch](../flight_modes/rtl.md) - This mode raises the vehicle to a safe height and returns to the launch position.
+- [Return To Launch](../flight_modes/return.md) - This mode raises the vehicle to a safe height and returns to the launch position.
 - **Mission** - This mode runs a pre-programmed mission sent by the ground control station.
 
 Some pilots may also wish to enable:

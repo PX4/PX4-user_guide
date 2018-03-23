@@ -1,6 +1,6 @@
 # Flight Modes Summary
 
-The tables below summarizes flight modes for fixed wing and copter ([table key is below](#key)). 
+The tables below summarizes flight modes for fixed wing and copter ([table key is below](#key)). Note that this is the "high level" default behaviour, and may vary based on vehicle parameters.
 
 <!-- Styles used for tables below -->
 <style>
@@ -68,7 +68,7 @@ th {
 <tbody>
 
 <tr>
- <td>Manual (M)</td>
+ <td>Manual</td>
  <td>M</td>
  <td>M</td>
  <td>M</td>
@@ -77,7 +77,7 @@ th {
 </tr>
  
 <tr>
- <td>Stabilized (S)</td>
+ <td>Stabilized</td>
  <td>S</td>
  <td>M</td>
  <td>M</td>
@@ -128,9 +128,7 @@ th {
  <td><a href="../flight_modes/takeoff.md">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td>Y</td>
- <td>The aircraft takes off in the current direction using either <a href="../flight_modes/takeoff.md#fixed-wing-fw"><em>catapult/hand-launch mode</em> or <em>runway takeoff mode</em></a>.</td>
- 
- 
+ <td>Vehicle initiates the takeoff sequence using either <em>catapult/hand-launch mode</em> or <em>runway takeoff mode</em> (in the current direction).</td>
 </tr>
 
 
@@ -138,21 +136,21 @@ th {
  <td><a href="../flight_modes/land.md">Land</a></td>
  <td class="centred" colspan="3">Auto</td>
  <td>Y</td>
- <td><a href="../flying/fixed_wing_landing.md">FW landing</a> is initiated.</td>
+ <td>Vehicle initiates the <a href="../flying/fixed_wing_landing.md">fixed-wing landing</a> sequence.</td>
 </tr>
 
 <tr>
  <td><a href="../flight_modes/hold.md">Hold</td>
  <td colspan="3">Auto</td>
  <td>Y</td>
- <td>The aircraft circles around the GPS hold position at the current altitude.</td>
+ <td>Vehicle circles around the GPS hold position at the current altitude.</td>
 </tr>
 
 <tr>
- <td><a href="../flight_modes/rtl.md">Return</a></td>
+ <td><a href="../flight_modes/return.md">Return</a></td>
  <td colspan="3">Auto</td>
  <td>Y</td>
- <td>The aircraft will first ascend to the <a href="../advanced_config/parameter_reference.md#RTL_RETURN_ALT">RTL_RETURN_ALT</a> altitude and then fly to the home position in a straight line (if already above RTL_RETURN_ALT it will return at its current altitude). Either lands or loiters above the home position depending on the value of <a href="../flight_modes/rtl.md#RTL_LAND_DELAY">RTL_LAND_DELAY</a>.</td>
+ <td>Vehicle ascends to a safe height and then returns to its home position and circles. </td>
 </tr>
 
 
@@ -161,14 +159,6 @@ th {
  <td colspan="3">Auto</td>
  <td>Y</td>
  <td>Vehicle executes a <a href="../flying/missions.md">predefined mission/flight plan</a> that has been uploaded to the flight controller. </td>
-</tr>
-
-
-<tr>
- <td><a href="../flight_modes/offboard.md">Offboard</a></td>
- <td colspan="3">Auto</td>
- <td>Y</td>
- <td>(only supported for VTOL) The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink (often from a companion computer connected via serial cable or wifi).</td>
 </tr>
  
 </tbody></table>
@@ -191,24 +181,81 @@ th {
 <tbody>
 
 <tr>
- <td>Manual/ Stabilized</td>
+ <td><a id="manual_stabilized_mc" href="../flight_modes/manual_stabilized_mc.md">Manual/ Stabilized</a></td>
  <td>S</td>
  <td>S<sub>rate</sub></td>
  <td>M</td>
  <td></td>
- <td><p>This mode allows manual control with assistance from autopilot to stabilize attitude.</p>
-<p>Centered RC sticks level-out the attitude.</p>
+ <td><p>RC/manual mode where centered sticks level vehicle (position is not stabilized).</p>
+   <p>
+   <ul>
+    <li>Centered RP sticks level vehicle.</li>
+    <li>Outside center:
+      <ul>
+       <li>RP sticks control left/right and forward/back speed (respectively).</li>
+       <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
+       <li>Throttle stick controls altitude/speed.</li>
+      </ul>
+    </li>
+    </ul>
+  <p>
 </td>
 </tr>
- 
+
 <tr>
- <td>Acro</td>
+ <td><a id="mc_altitude" href="../flight_modes/altitude.md">Altitude</a></td>
+ <td>S</td>
+ <td>S<sub>rate</sub></td>
+ <td>S<sup>+</sup></td>
+ <td>Y<sup><a href="#baro_only">*</a></sup></td>
+ <td><p><a href="#manual_stabilized_mc">Manual/Stabilized</a> mode with <em>altitude stabilization</em> (centered sticks level vehicle and hold it to fixed altitude).
+  <ul>
+    <li>Centered sticks:
+      <ul>
+       <li>RPY sticks stabilizes altitude and levels vehicle.</li>
+       <li>Throttle holds current altitude steady against wind.</li>
+    </ul>
+    <li>Outside center:
+      <ul>
+       <li>RPT sticks control left/right, forward/back and up/down speed (respectively).</li>
+       <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
+    </ul>
+  </li>
+  </ul>
+ </p>
+ <p><sup>*</sup>Only requires altitude sensor (e.g. Baro, Rangefinder).</p>
+ </td>
+
+</tr>
+
+<tr>
+ <td><a href="../flight_modes/position_mc.md">Position</a></td>
+ <td>S<sup>+</sup></td>
+ <td>S<sub>rate</sub></td>
+ <td>S<sup>+</sup></td>
+ <td>Y</td>
+ <td><p><a href="#manual_stabilized_mc">Manual/Stabilized</a> mode with <em>3D position stabilization</em> (centered sticks level vehicle and hold it to fixed position and altitude against wind).
+  <ul>
+    <li>Centered RPT sticks hold x, y, z position steady against any wind and levels attitude.</li>
+    <li>Outside center:
+      <ul>
+       <li>RPT sticks control left/right, forward/back and up/down speed (respectively).</li>
+       <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
+    </ul>
+  </li>
+  </ul>
+ </p>
+</td>
+</tr>
+
+<tr>
+ <td id="acro_mc">Acro</td>
  <td>S<sub>rate</sub></td>
  <td>S<sub>rate</sub></td>
  <td>M</td>
  <td></td>
- <td><p>This mode can be used to perform acrobatic maneuvers e.g. flips</p>
-<p>RC RPY stick inputs are translated to angular rate commands that are stabilized by autopilot.</p></td>
+ <td><p>RC/manual mode for performing acrobatic maneuvers e.g. flips.</p> 
+<p>RC RPY stick inputs control the rate of angular rotation around the respective axes. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level!)</p></td>
 </tr>
 
 <tr>
@@ -218,66 +265,42 @@ th {
  <td>M</td>
  <td></td>
  <td>
-<p>Centered RC sticks- vehicle acts like in Stabilised Mode (S).</p>
-<p>RC sticks away from center – vehicle acts like in ACRO mode (S rate).</p>
+ <p><a href="#acro_mc">Acro</a> mode with <em>attitude stabilization</em> (centered sticks level vehicle).
+  <ul>
+    <li>Centered sticks: Vehicle levels out (i.e. like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode).</li>
+    <li>Sticks outside center: RPY stick inputs control the rate of angular rotation around the respective axes. (i.e. like <a href="#acro_mc">Acro</a> mode).</li>
+  </ul>
+ </p>
 </td>
 </tr>
 
-<tr>
- <td><a href="../flight_modes/altitude.md">Altitude</a></td>
- <td>S</td>
- <td>S<sub>rate</sub></td>
- <td>S<sup>+</sup></td>
- <td>Y<sup>*</sup></td>
- <td><p>This mode helps vehicle reach and maintain altitude.</p>
-<p>Centered RPY sticks stabilizes attitude/ vehicle levels out.</p>
-<p>Centered throttle holds current altitude steady against wind.</p>	 
-<p><sup>*</sup>Only requires altitude sensor (e.g. Baro, Rangefinder).</p></td>
-</tr>
-
-<tr>
- <td>Position</td>
- <td>S<sup>+</sup></td>
- <td>S<sub>rate</sub></td>
- <td>S<sup>+</sup></td>
- <td>Y</td>
- <td><p>This mode helps vehicle reach and maintain a certain position.</p>
-<p>RPT sticks used to control multicopter’s left, right and up/down speed.</p>
-<p>Centered RPT sticks hold x, y, z position steady against any wind.</p>
-</td>
-</tr>
 
 <tr>
  <td><a href="../flight_modes/takeoff.md">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td>Y</td>
- <td>Vehicle ascends to the altitude defined in <a href="../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</a> and holds position.</td>
+ <td>Vehicle ascends to takeoff altitude and holds position.</td>
 </tr>
-
 
 <tr>
  <td><a href="../flight_modes/land.md">Land</a></td>
  <td colspan="3">Auto</td>
  <td>Y</td>
- <td>
-Vehicle lands at the position where the mode was engaged.
-</td>
+ <td>Vehicle lands at the position where the mode was engaged.</td>
 </tr>
 
 <tr>
  <td><a href="../flight_modes/hold.md">Hold</td>
  <td colspan="3">Auto</td>
  <td>Y</td>
- <td>
-Multicopter hovers at the current GPS position and altitude.
-</td>
+ <td>Vehicle hovers at the current GPS position and altitude.</td>
 </tr>
 
 <tr>
- <td><a href="../flight_modes/rtl.md">Return</a></td>
+ <td><a href="../flight_modes/return.md">Return</a></td>
  <td colspan="3">Auto</td>
  <td>Y</td>
- <td>Vehicle will first ascend to the <a href="../advanced_config/parameter_reference.md#RTL_RETURN_ALT">RTL_RETURN_ALT</a> altitude and then fly to the home position in a straight line (if already above RTL_RETURN_ALT it will return at its current altitude). Lands when home position reached.
+ <td>Vehicle ascends to a safe height and then returns to its home position and lands. 
 </td>
 </tr>
 
@@ -293,19 +316,24 @@ Multicopter hovers at the current GPS position and altitude.
  <td><a href="../flight_modes/follow_me.md">Follow Me</a></td>
  <td colspan="3">Auto</td>
  <td>Y</td>
- <td>
-Vehicle autonomously follows a user using an Android phone/tablet running QGC.
-</td>
+ <td>Vehicle autonomously follows a user using an Android phone/tablet running QGC.</td>
 </tr>
 
 <tr>
  <td><a href="../flight_modes/offboard.md">Offboard</a></td>
  <td colspan="3">Auto</td>
  <td>Y</td>
- <td>The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink (often from a companion computer connected via serial cable or wifi).</td>
+ <td>Vehicle obeys a position, velocity or attitude setpoint provided over MAVLink (often from a companion computer connected via serial cable or wifi).</td>
 </tr>
  
 </tbody></table>
+
+
+## VTOL
+
+VTOL vehicles support both fixed-wing and multicopter flight modes, executing them based on the current vehicle mode (MC or FW).
+
+VTOL supports <a href="../flight_modes/offboard.md">Offboard</a> mode in either configuration.
 
 
 ## Key
@@ -319,7 +347,7 @@ S | Assistance from autopilot to stabilize the attitude. RC input is required. P
 S<sub>rate</sub> |  Assistance from autopilot to stabilize the attitude rate. RC input is required. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 S<sup>+</sup> | Assistance from autopilot to hold position or altitude against wind. RC input is required.
 Auto | This mode is automatic (RC control is disabled by default except to change modes).
-Y* | Altitude mode only requires a sensor that measures height/altitude e.g. barometer or LIDAR
+<span id="baro_only"></span>Y* | Altitude mode only requires a sensor that measures height/altitude e.g. barometer or LIDAR
 Y | Sensor that measures position including height is needed e.g. optical flow, GPS+barometer, visual-inertial odometry
 
 

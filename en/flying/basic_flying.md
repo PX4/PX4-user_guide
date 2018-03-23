@@ -59,7 +59,7 @@ The following three modes are highly recommended for new users:
 
 ## Takeoff and Landing
 
-The easiest way to takeoff is to use the automatic [TAKEOFF mode](../flight_modes/takeoff.md) (remembering that you need to arm the vehicle before you can engage the vehicle motors). To land again automatically you can use [LAND](../flight_modes/land.md) or [RETURN TO LAUNCH (RTL)](../flight_modes/rtl.md) modes.
+The easiest way to takeoff is to use the automatic [TAKEOFF mode](../flight_modes/takeoff.md) (remembering that you need to arm the vehicle before you can engage the vehicle motors). To land again automatically you can use [LAND](../flight_modes/land.md) or [RETURN TO LAUNCH (RTL)](../flight_modes/return.md) modes.
 
 The automatic takeoff/landing modes are highly recommended for Fixed Wing vehicles. For multicopter (and VTOL in multicopter mode) pilots can:
 
