@@ -4300,6 +4300,13 @@ default 1.5 turns per second</p>    </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MC_AIRMODE">MC_AIRMODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Multicopter air-mode</p><p><strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable.</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MC_BAT_SCALE_EN">MC_BAT_SCALE_EN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Battery power level scaler</p><p><strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The copter should constantly behave as if it was fully charged with reduced max acceleration at lower battery percentages. i.e. if hover is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.</p>    </td>
  <td style="vertical-align: top;"></td>
@@ -4310,7 +4317,7 @@ default 1.5 turns per second</p>    </td>
  <td style="vertical-align: top;"><strong id="MC_DTERM_CUTOFF">MC_DTERM_CUTOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Cutoff frequency for the low pass filter on the D-term in the rate controller</p><p><strong>Comment:</strong> The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to decrease the driver-level filtering, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.</p>    </td>
  <td style="vertical-align: top;">0 > 1000 (10)</td>
- <td style="vertical-align: top;">30. </td>
+ <td style="vertical-align: top;">0. </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
