@@ -192,9 +192,9 @@ th {
     <li>Centered RP sticks level vehicle.</li>
     <li>Outside center:
       <ul>
-       <li>RP sticks control left/right and forward/back speed (respectively).</li>
+       <li>Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.</li>
+       <li>Throttle stick controls up/down speed (and movement speed in other axes).</li>
        <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
-       <li>Throttle stick controls altitude/speed.</li>
       </ul>
     </li>
     </ul>
@@ -217,7 +217,8 @@ th {
     </ul>
     <li>Outside center:
       <ul>
-       <li>RPT sticks control left/right, forward/back and up/down speed (respectively).</li>
+       <li>Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.</li>
+       <li>Throttle stick controls up/down speed (and movement speed in other axes).</li>
        <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
     </ul>
   </li>
@@ -239,7 +240,8 @@ th {
     <li>Centered RPT sticks hold x, y, z position steady against any wind and levels attitude.</li>
     <li>Outside center:
       <ul>
-       <li>RPT sticks control left/right, forward/back and up/down speed (respectively).</li>
+       <li>Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.</li>
+       <li>Throttle stick controls up/down speed (and movement speed in other axes).</li>
        <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
     </ul>
   </li>
