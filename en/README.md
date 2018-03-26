@@ -33,3 +33,17 @@ PX4 code is free to use and modify under the terms of the permissive
 [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). 
 This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). 
 For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/en/contribute/licenses.html).
+
+
+
+### Icons
+
+The following icons used in this library are licensed separately (as shown below):
+
+<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> *gps-fixed-indicator* icon made by <a href="https://www.flaticon.com/authors/google" title="Google">Google</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+
+<img src="../../assets/site/difficulty_1.svg" title="Easiest flight mode" width="30px" />&nbsp;<img src="../../assets/site/difficulty_2.svg" title="Easy flight mode" width="30px" />&nbsp;<img src="../../assets/site/difficulty_3.svg" title="Medium difficulty" width="30px" />&nbsp;<img src="../../assets/site/difficulty_4.svg" title="Medium-hard flight mode" width="30px" />&nbsp;<img src="../../assets/site/difficulty_5.svg" title="Hard flight mode" width="30px" />&nbsp;<img src="../../assets/site/difficulty_6.svg" title="Hardest flight mode" width="30px" /> *speed-meter* con made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+
+<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /> *remote-control* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+
+<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
