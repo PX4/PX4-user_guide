@@ -20,21 +20,26 @@ Some flight modes make sense only under specific pre-flight and in-flight condit
 
 ## Types of Modes {#categories}
 
-Flight Modes are loosely grouped based on the level/type of control provided by the autopilot:
+Flight Modes are either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and require no pilot/remote control input.
 
-**Manual** flight modes are those where the user has control over vehicle movement via the RC control sticks (or joystick). Vehicle movement always follows stick movement, but the *way* the vehicle responds changes depending on the mode. For example, experienced fliers can use modes that provide direct passthrough of stick positions to actuators, while beginners will often choose modes that are less responsive to sudden stick-position changes.
+> **Tip** Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight. For example, most modes will level out the vehicle when the RC sticks are centered.
 
-* Manual/Stabilized ([MC](#manual_stabilized_mc))
+Manual modes may further be divided into "easy" and "acrobatic" modes. In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively). Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip. In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis). Vehicles can flip, and while more maneuverable, are harder to fly.
+
+Easy manual modes:
+
+* Manual ([FW](#manual_fw))
 * Stabilized ([FW](#stabilized_fw))
-* Acro ([MC](#acro_mc) | [FW](#acro_fw))
-* Rattitude ([MC](#rattitude_mc))
-
-**Assisted** flight modes are also manually/RC controlled, but offer some level of "automatic" assistance - for example, automatically holding position/direction or altitude against wind. Assisted modes often make it much easier to gain or restore controlled flight.
-
+* Manual/Stabilized ([MC](#manual_stabilized_mc))
 * Altitude ([MC](#altitude_mc) | [FW](#altitude_fw))
 * Position ([MC](#position_mc) | [FW](#position_fw))
 
-**Autonomous** flight modes are fully controlled by the autopilot, and require no pilot/remote control input (e.g. to takeoff, land, fly missions, etc.).
+Acrobatic manual modes:
+
+* Acro ([MC](#acro_mc) | [FW](#acro_fw))
+* Rattitude ([MC](#rattitude_mc))
+
+Autonomous modes:
 
 * Hold ([MC](#hold_mc) | [FW](#hold_fw))
 * Return ([MC](#return_mc) | [FW](#return_fw))
@@ -42,7 +47,6 @@ Flight Modes are loosely grouped based on the level/type of control provided by 
 * Takeoff ([MC](#takeoff_mc) | [FW](#takeoff_fw))
 * Land ([MC](#land_mc) | [FW](#land_fw))
 * Follow Me ([MC](#followme_mc))
-
 
 
 ## Multicopter {#mc_flight_modes}
@@ -143,6 +147,10 @@ TBD
  
 ## Fixed-Wing {#fw_flight_modes}
 
+
+### Manual Mode {#manual_fw}
+
+User RC sticks input directly sent to the output mixer for manual control.
 
 ### Stabilized Mode {#stabilized_fw}
 
