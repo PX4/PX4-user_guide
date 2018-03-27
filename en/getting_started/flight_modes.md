@@ -24,27 +24,16 @@ Flight Modes are either *manual* or *autonomous*. Manual modes are those where t
 
 Manual modes may further be divided into "easy" and "acrobatic" modes. In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively). Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip. In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis). Vehicles can flip, and while more maneuverable, are harder to fly.
 
-Easy manual modes:
+Fixed Wing:
 
-* Manual ([FW](#manual_fw))
-* Stabilized ([FW](#stabilized_fw))
-* Manual/Stabilized ([MC](#manual_stabilized_mc))
-* Altitude ([MC](#altitude_mc) | [FW](#altitude_fw))
-* Position ([MC](#position_mc) | [FW](#position_fw))
+* Manual-Easy: [Position](#position_fw), [Altitude](#altitude_fw), [Stabilized](#stabilized_fw), [Manual](#manual_fw)
+* Manual-Acrobatic: [Acro](#acro_fw)
+* Autonomous: [Hold](#hold_fw), [Return](#return_fw), [Mission](#mission_fw), [Takeoff](#takeoff_fw), [Land](#land_fw)
 
-Acrobatic manual modes:
-
-* Acro ([MC](#acro_mc) | [FW](#acro_fw))
-* Rattitude ([MC](#rattitude_mc))
-
-Autonomous modes:
-
-* Hold ([MC](#hold_mc) | [FW](#hold_fw))
-* Return ([MC](#return_mc) | [FW](#return_fw))
-* Mission ([MC](#mission_mc) | [FW](#mission_fw))
-* Takeoff ([MC](#takeoff_mc) | [FW](#takeoff_fw))
-* Land ([MC](#land_mc) | [FW](#land_fw))
-* Follow Me ([MC](#followme_mc))
+Multicopter: 
+* Manual-Easy: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc)
+* Manual-Acrobatic: [Rattitude](#rattitude_mc), [Acro](#acro_mc)
+* Autonomous: [Hold](#hold_mc), [Return](#return_mc), [Mission](#mission_mc), [Takeoff](#takeoff_mc), [Land](#land_mc), [Follow Me](#followme_mc)
 
 
 ## Key
