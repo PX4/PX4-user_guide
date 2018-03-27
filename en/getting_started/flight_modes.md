@@ -55,9 +55,15 @@ Icon | Description
 
 [<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-Position mode is the GPS guided mode. 
+[Position mode](../flight_modes/position_mc.md) is an easy-to-fly RC mode in which the vehicle can be "locked" to a position in 3D space (irrespective of wind and other forces) by releasing (centering) the RC sticks.
 
-You can fly in Position Mode if you need precision in flight, keeping course or hovering at a certain spot in the air, but still maintaining the control of the aircraft with your RC. The altitude is controlled by the PX4 autopilot. At 50% throttle the aircraft will hold its current altitude. If you want to descend just lower the throttle below center or if you need to climb push the throttle over the center. The further the throttle stick is from the center position the larger the climb or descent rate you will have. Position Mode is almost like Altitude Mode with full angle control over Pitch, Roll and Yaw. But once you center all the sticks you will have a hovering aircraft at the current altitude and current GPS position. If the wind blows the aircraft will keep its direction of flight and course and will fight the wind.
+> **Tip** Position mode is the safest manual mode for new fliers. It is much like [Altitude](#altitude_mc) mode, but additionally stabilizes horizontal position.
+
+Vehicle movement is intuitive. The roll and pitch sticks move the vehicle left-right and front-back over ground, with speed increasing proportionally with distance from the centre (the sticks actually control the tilt angle, which in turn alters the speed in each direction). The throttle controls climb/descent speed. The yaw input controls angular rate of rotation over the horizontal plane.
+
+When the control sticks are released (centred) the multicopter will level out and hover at the current altitude and GPS position (holding position against wind or other forces).
+
+The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
 ![MC Position Mode](../../images/flight_modes/position_MC.png)
 

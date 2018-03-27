@@ -1,17 +1,14 @@
 # Position Flight Mode (Multicopter)
 
-![GPS](../../images/flight_modes/GPS_s.png)
+[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*Position* mode is an assisted RC mode, in which the vehicle can easily be brought to a stop with a level attitude (irrespective of wind and other forces), and in which the flight controls are intuitive and straightforward. 
+*Position* mode is an easy-to-fly RC mode in which the vehicle can be "locked" to a position in 3D space (irrespective of wind and other forces) by releasing (centering) the RC sticks.
 
-> **Tip** Position mode is the safest manual mode for new fliers.
+> **Tip** Position mode is the safest manual mode for new fliers. It is much like [Altitude](../flight_modes/altitude.md) mode, but additionally stabilizes horizontal position.
 
-<span></span>
-> **Tip** Position mode is much like [Altitude](../flight_modes/altitude.md) mode, but additionally stabilizes horizontal position.
+Vehicle movement is intuitive. The roll and pitch sticks move the vehicle left-right and front-back over ground, with speed increasing proportionally with distance from the center (the sticks actually control the tilt angle, which in turn alters the speed in each direction). The throttle controls climb/descent speed. The yaw input controls angular rate of rotation over the horizontal plane.
 
-When the control sticks are centred the multicopter will level out and hover at the current altitude and GPS position (holding position against wind or other forces). <!-- does it maintain course? -->
-
-Outsize of the stick deadzone roll controls left-right speed over ground, pitch controls front-back speed over ground, and throttle controls climb/descent speed (in all cases the speed increases proportionally with distance from the centre). The yaw input controls angular rate of rotation over the horizontal plane (as in [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode).
+When the control sticks are released (centred) the multicopter will level out and hover at the current altitude and GPS position (holding position against wind or other forces).
 
 The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
@@ -27,7 +24,13 @@ The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
 ## Technical Summary
 
-Roll controls left-right speed over ground, pitch controls front-back speed over ground, and throttle controls climb/descent speed (as in [Altitude](../flight_modes/altitude.md) mode). Yaw controls yaw *rate* over horizontal plane (as in [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode).  When roll, pitch and throttle inputs are all centered (inside deadzone) the multirotor will hold position (in x, y, z frame), compensating for drift due to wind (or other sources).
+Manual/Stabilized mode with <em>3D position stabilization</em> (centered sticks level vehicle and hold it to fixed position and altitude against wind).
+
+* Centered RPT sticks (in RC deadzone) hold x, y, z position steady against any wind and levels attitude.
+* Outside center:
+  * Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
+  * Throttle stick controls up/down speed (and movement speed in other axes).
+  * Yaw stick controls rate of angular rotation above the horizontal plane.
 
 > **Note**
 >  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
