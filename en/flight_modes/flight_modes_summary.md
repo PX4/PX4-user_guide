@@ -200,13 +200,13 @@ th {
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td><p>RC/manual mode where centered sticks level vehicle and hold it to fixed position and altitude against wind.
+ <td><p>RC/manual mode where RPT sticks control <em>speed</em> in corresponding directions. Centered sticks level vehicle and hold it to fixed position and altitude against wind.
   <ul>
     <li>Centered RPT sticks hold x, y, z position steady against any wind and levels attitude.</li>
     <li>Outside center:
       <ul>
-       <li>Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.</li>
-       <li>Throttle stick controls up/down speed (and movement speed in other axes).</li>
+       <li>Roll/Pitch sticks control speed over ground in left-right and forward-back directions (respectively) relative to the "front" of the vehicle.</li>
+       <li>Throttle stick controls speed of ascent-descent.</li>
        <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
       </ul>
     </li>

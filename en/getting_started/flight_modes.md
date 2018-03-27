@@ -55,13 +55,9 @@ Icon | Description
 
 [<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Position mode](../flight_modes/position_mc.md) is an easy-to-fly RC mode in which the vehicle can be "locked" to a position in 3D space (irrespective of wind and other forces) by releasing (centering) the RC sticks.
+[Position mode](../flight_modes/position_mc.md) is an easy-to-fly RC mode in which roll and pitch sticks control speed over ground in the left-right and forward-back directions (relative to the "front" of the vehicle), and throttle controls speed of ascent-descent. When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
 
-> **Tip** Position mode is the safest manual mode for new fliers. It is much like [Altitude](#altitude_mc) mode, but additionally stabilizes horizontal position.
-
-Vehicle movement is intuitive. The roll and pitch sticks move the vehicle left-right and front-back over ground, with speed increasing proportionally with distance from the centre (the sticks actually control the tilt angle, which in turn alters the speed in each direction). The throttle controls climb/descent speed. The yaw input controls angular rate of rotation over the horizontal plane.
-
-When the control sticks are released (centred) the multicopter will level out and hover at the current altitude and GPS position (holding position against wind or other forces).
+> **Tip** Position mode is the safest manual mode for new fliers. Unlike [Altitude](#altitude_mc) and [Manual/Stabilized](#manual_stabilized_mc) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. 
 
 The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
