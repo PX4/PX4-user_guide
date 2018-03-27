@@ -1,62 +1,113 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<g transform="translate(0 -1)">
-	<g>
-		<g>
-			<path d="M179.2,239.933c-28.237,0-51.2,22.963-51.2,51.2s22.963,51.2,51.2,51.2c28.237,0,51.2-22.963,51.2-51.2
-				S207.437,239.933,179.2,239.933z M204.8,299.667h-17.067v17.067c0,4.71-3.814,8.533-8.533,8.533s-8.533-3.823-8.533-8.533
-				v-17.067H153.6c-4.719,0-8.533-3.823-8.533-8.533s3.814-8.533,8.533-8.533h17.067v-17.067c0-4.71,3.814-8.533,8.533-8.533
-				s8.533,3.823,8.533,8.533V282.6H204.8c4.719,0,8.533,3.823,8.533,8.533S209.519,299.667,204.8,299.667z"/>
-			<path d="M401.067,188.733h-76.8v-25.6c0-4.71-3.814-8.533-8.533-8.533h-51.2V68.055c14.686-3.814,25.6-17.067,25.6-32.922
-				C290.133,16.309,274.825,1,256,1s-34.133,15.309-34.133,34.133c0,15.855,10.914,29.107,25.6,32.922V154.6h-51.2
-				c-4.719,0-8.533,3.823-8.533,8.533v25.6h-76.8c-18.825,0-34.133,15.309-34.133,34.133v119.1l13.764,10.692
-				C117.803,374.444,146.756,385,179.2,385h153.6c32.444,0,61.397-10.556,88.533-32.265l13.867-11.87V222.867
-				C435.2,204.042,419.891,188.733,401.067,188.733z M179.2,359.4c-37.641,0-68.267-30.626-68.267-68.267
-				s30.626-68.267,68.267-68.267c37.641,0,68.267,30.626,68.267,68.267S216.841,359.4,179.2,359.4z M332.8,359.4
-				c-37.641,0-68.267-30.626-68.267-68.267s30.626-68.267,68.267-68.267c37.641,0,68.267,30.626,68.267,68.267
-				S370.441,359.4,332.8,359.4z"/>
-			<path d="M332.8,239.933c-28.237,0-51.2,22.963-51.2,51.2s22.963,51.2,51.2,51.2s51.2-22.963,51.2-51.2
-				S361.037,239.933,332.8,239.933z M358.4,299.667h-17.067v17.067c0,4.71-3.814,8.533-8.533,8.533s-8.533-3.823-8.533-8.533
-				v-17.067H307.2c-4.719,0-8.533-3.823-8.533-8.533s3.814-8.533,8.533-8.533h17.067v-17.067c0-4.71,3.814-8.533,8.533-8.533
-				s8.533,3.823,8.533,8.533V282.6H358.4c4.719,0,8.533,3.823,8.533,8.533S363.119,299.667,358.4,299.667z"/>
-			<path d="M332.8,402.067H179.2c-35.968,0-69.342-12.109-99.2-36.002l-3.2-2.492v115.294C76.8,497.691,92.109,513,110.933,513
-				h290.133c18.825,0,34.133-15.309,34.133-34.133V363.325l-2.987,2.56C402.142,389.958,368.768,402.067,332.8,402.067z
-				 M281.6,478.867h-51.2c-4.719,0-8.533-3.823-8.533-8.533s3.814-8.533,8.533-8.533h51.2c4.719,0,8.533,3.823,8.533,8.533
-				S286.319,478.867,281.6,478.867z M281.6,444.733h-51.2c-4.719,0-8.533-3.823-8.533-8.533c0-4.71,3.814-8.533,8.533-8.533h51.2
-				c4.719,0,8.533,3.823,8.533,8.533C290.133,440.91,286.319,444.733,281.6,444.733z"/>
-		</g>
-	</g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="30"
+   height="30"
+   viewBox="0 0 7.9374998 7.9375002"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="remote_control.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="15.839192"
+     inkscape:cx="8.2523269"
+     inkscape:cy="12.959703"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-289.06248)">
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:0.99607843;stroke:none;stroke-width:1.14113545;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4485"
+       width="6.6145835"
+       height="6.6145835"
+       x="0.70158255"
+       y="290.28516"
+       rx="0.66244233"
+       ry="0.6883173" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:0.99607843;stroke:none;stroke-width:0.28405154;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4485-9"
+       width="2.7057667"
+       height="1.0019234"
+       x="2.6559911"
+       y="289.8512"
+       rx="0.27097917"
+       ry="0.10426073" />
+    <ellipse
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.61286139;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4510"
+       cx="4.0088744"
+       cy="289.80038"
+       rx="0.33408689"
+       ry="0.68487817" />
+    <circle
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.71015;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4512"
+       cx="2.4875493"
+       cy="292.5376"
+       r="1.2347223" />
+    <circle
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.71015;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4512-4"
+       cx="5.5944681"
+       cy="292.5376"
+       r="1.2347223" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.28370944;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4535"
+       width="0.52916664"
+       height="0.52916664"
+       x="2.222966"
+       y="292.27301"
+       rx="0"
+       ry="0" />
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.28370944;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4535-3"
+       width="0.52916664"
+       height="0.52916664"
+       x="5.329885"
+       y="292.27301"
+       rx="0"
+       ry="0" />
+  </g>
 </svg>
