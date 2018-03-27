@@ -42,10 +42,10 @@ The icons below are used within the document:
 
 Icon | Description
 --- | ---
-<span id="key_manual">[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual) | Manual mode. Remote control required.
-<span id="key_automatic">[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic) | Automatic mode. RC control is disabled by default except to change modes.
-<span id="key_position_fixed">[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed) | Position fix required (e.g. GPS, VIO, or some other positioning system).
-<span id="key_difficulty">[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="30px" />](../getting_started/flight_modes.md#key_difficulty) | Flight mode difficulty (Easy to Hard)
+<span id="key_manual">[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual) | Manual mode. Remote control required.
+<span id="key_automatic">[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic) | Automatic mode. RC control is disabled by default except to change modes.
+<span id="key_position_fixed">[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed) | Position fix required (e.g. GPS, VIO, or some other positioning system).
+<span id="key_difficulty">[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="30px" />](#key_difficulty) | Flight mode difficulty (Easy to Hard)
 
 
 
@@ -53,7 +53,7 @@ Icon | Description
 
 ### Position Mode {#position_mc}
 
-[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 Position mode is the GPS guided mode. 
 
@@ -64,7 +64,7 @@ You can fly in Position Mode if you need precision in flight, keeping course or 
 
 ### Altitude Mode {#altitude_mc}
 
-[<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 [Altitude Mode](../flight_modes/altitude.md) is the safest non GPS guided mode appropriate for beginners learning how to fly. 
 
@@ -75,7 +75,7 @@ In this mode the altitude is controlled by the PX4 autopilot. At 50% throttle th
 
 ### Manual/Stabilized Mode {#manual_stabilized_mc}
 
-[<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 The [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
 
@@ -90,7 +90,7 @@ As soon as you release the control sticks they will return to the centre deadzon
 
 ### Rattitude {#rattitude_mc}
 
-[<img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 In simple terms it is the mix between Manual/Stabilized and Acro mode. When the Roll/Pitch stick is centered or if you move it up to halfway then the craft behaves like in Manual/Stabilized mode. If you move Roll/Pitch stick beyond halfway to full command the the multicopter behaves like in Acro mode. This way you could fly in the comfort of stabilized flight but still be able to perform flips and tricks with your multicopter.
 
@@ -99,7 +99,7 @@ In simple terms it is the mix between Manual/Stabilized and Acro mode. When the 
 
 ### Acro Mode {#acro_mc}
 
-[<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 
 For multicopters this is the 3D flying mode. You can make flips and acrobatics. In acrobatic mode you have fully direct rate control over your aircraft. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. In Acrobatic mode you have full rate control over the Roll, Pitch, Yaw and Throttle.
@@ -109,20 +109,20 @@ For multicopters this is the 3D flying mode. You can make flips and acrobatics. 
 
 ### Hold Mode {#hold_mc}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the flight, while you get time to assess the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch, the multicopter will fix itself to its current GPS position and altitude and hover there. During hold you are not able to control the craft with the RC. It is the first line of defense if you lose control over the aircraft and panic.
 
 ### Return Mode {#return_mc}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 The multicopter will return in a straight line at the current altitude (if higher than the home position + hovering altitude) or on the hovering altitude (if higher than the current altitude), then lands automatically.
 
 
 ### Mission Mode {#mission_mc}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application. 
 
@@ -131,20 +131,20 @@ The multicopter will return in a straight line at the current altitude (if highe
 
 ### Takeoff Mode {#takeoff_mc}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 When **Take Off** is activated the multicopter automatically will give thrust to the motors such to take off then climb vertically to a preset take off altitude, stop the climb and hover at place waiting for pilot's command input.
 
 ### Land Mode {#land_mc}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 When **Land** is activated the multicopter automatically lower the throttle such that to start slowly descending with preset vertical speed. When it touches the ground it will lower the throttle to minimum and disarm the craft.
 
 
-#### Follow Me Mode {#followme_mc}
+### Follow Me Mode {#followme_mc}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 
 
@@ -158,7 +158,7 @@ TBD
 
 ### Position Mode {#position_fw}
 
-[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 This is the GPS guided mode. You can fly in Position Mode if you need precision in flight, keeping straight line course, and still maintaining the control of the aircraft with your RC. The altitude is controlled by the PX4 autopilot. The throttle will determine your airspeed, at 50% throttle the aircraft will hold its current altitude with a preset cruise speed. You can descend and climb with pitch up and down command. Position Mode is almost like Altitude Mode with full angle control over Pitch, Roll and Yaw. But Once you center all the sticks you will have a level flying aircraft at the current altitude and GPS guided straight line course. If the wind blows the aircraft will keep its direction of flight and course and will fight the wind.
 
@@ -167,7 +167,7 @@ This is the GPS guided mode. You can fly in Position Mode if you need precision 
 
 ### Altitude Mode {#altitude_fw}
 
-[<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 Altitude Mode is the safest non GPS guided mode appropriate for beginners learning how to fly. In this mode the altitude is controlled by the PX4 autopilot. The throttle will determine your airspeed, at 50% throttle the aircraft will hold its current altitude with a preset cruise air speed. You can descend and climb with pitch up and down command. In Altitude Mode you have full angle control over Pitch, Roll and Yaw. Once you center all the sticks you will have a level flying aircraft at the current altitude. If the wind blows the aircraft will drift in the direction of the wind.
 
@@ -176,7 +176,7 @@ Altitude Mode is the safest non GPS guided mode appropriate for beginners learni
 
 ### Stabilized Mode {#stabilized_fw}
 
-[<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 In Stabilized flight your plane will maintain a level flight. It will fight against the wind gusts automatically and maintain a horizontal posture. You will have a full manual angle control over the craft. You will be able to glide with your airplane when you lower the Throttle to 0% and the motor stops. In order to perform a turn you have to hold the command throughout the maneuver because if you release the roll the plane will stop turning and level itself. It is the same for the Pitch and Yaw commands as well.
 
@@ -185,7 +185,7 @@ In Stabilized flight your plane will maintain a level flight. It will fight agai
 
 ### Acro Mode {#acro_fw}
 
-[<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 In acrobatic you fly like a plane without any stabilization electronics. You can make 360 rolls, flips, stalls and acrobatic figures. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. The control is a Rate control over the Roll, Pitch, Yaw and Throttle.
 
@@ -194,21 +194,21 @@ In acrobatic you fly like a plane without any stabilization electronics. You can
 
 ### Manual Mode {#manual_fw}
 
-[<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 
 User RC sticks input directly sent to the output mixer for manual control.
 
 ### Hold Mode {#hold_fw}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 You can use Hold in case of emergency or during a mission in order to Hold the aircraft at its current position autonomously and pause the flight, while you get time to assess the situation either emergency or mission related. When you activate Hold mode with a pre-programmed switch the airplane will start circling around at fixed GPS position, holding its current altitude during the circles. During hold you are not able to control the craft with the RC. It is the first line of defense if you lose control over the aircraft.
 
 
 ### Return Mode {#return_fw}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 Vehicle returns to the launch/home position.
 
@@ -216,7 +216,7 @@ The aircraft returns to the home position and hovers in a circle above the home 
 
 ### Mission Mode {#mission_fw}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Mission mode](../flight_modes/mission.md) causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application. 
 
@@ -225,7 +225,7 @@ The aircraft returns to the home position and hovers in a circle above the home 
 
 ### Takeoff Mode {#takeoff_fw}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
  
 There are a couple of options for automatic Take Off for airplanes. We could perform take off from runway, from launch pad or throw the plane from hand. Different aspects from the take off process can be preset in the Parameters section in the PX4 autopilot.
 
@@ -241,7 +241,7 @@ When **Take Off** is activated the autopilot will give thrust to the motor/s and
 
 ### Land Mode {#land_fw}
 
-[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](../getting_started/flight_modes.md#key_automatic)&nbsp;
+[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;
 
 TBD
 
