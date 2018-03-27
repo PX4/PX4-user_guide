@@ -68,7 +68,9 @@ th {
 <tbody>
 
 <tr>
- <td>Position</td>
+ <td>Position
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="20px" /></a></p>
+ </td>
  <td>S<sup>+</sup></td>
  <td>S<sup>+</sup></td>
  <td>S<sup>+</sup></td>
@@ -77,21 +79,25 @@ th {
 </tr>
 
 <tr>
- <td><a href="../flight_modes/altitude.md">Altitude</a></td>
+ <td><a href="../flight_modes/altitude.md">Altitude</a>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="20px" /></a></p>
+ </td>
  <td><p>S (roll)</p><p>S<sup>+</sup>(pitch)</p></td>
  <td>M</td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a><sup><a href="#baro_only">++</a></sup></td>
  <td><p>This mode helps vehicle reach and maintain altitude.</p>
  <p>Centered RC RPY sticks gives level flight.</p>
- <p>Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.</p>	
- <p>Throttle stick controls the airspeed of the aircraft only if airspeed sensor is connected.</p>	 
- <p>Without airspeed sensor, the user cannot control Throttle.</p>	
- <p><sup>*</sup>Only requires altitude sensor (e.g. Baro, Rangefinder).</p></td>
+ <p>Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.</p>
+ <p>Throttle stick controls the airspeed of the aircraft only if airspeed sensor is connected.</p>
+ <p>Without airspeed sensor, the user cannot control Throttle.</p>
+ </td>
 </tr>
  
 <tr>
- <td>Stabilized</td>
+ <td>Stabilized
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="20px" /></a></p>
+ </td>
  <td>S</td>
  <td>M</td>
  <td>M</td>
@@ -106,7 +112,9 @@ th {
 </tr>
 
 <tr>
- <td>Acro</td>
+ <td>Acro
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="20px" /></a></p>
+ </td>
  <td>S<sub>rate</sub></td>
  <td>S<sub>rate</sub></td>
  <td>M</td>
@@ -116,7 +124,9 @@ th {
 </tr>
 
 <tr>
- <td>Manual</td>
+ <td>Manual
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="20px" /></a></p>
+ </td>
  <td>M</td>
  <td>M</td>
  <td>M</td>
@@ -183,7 +193,9 @@ th {
 
 
 <tr>
- <td><a href="../flight_modes/position_mc.md">Position</a></td>
+ <td><a href="../flight_modes/position_mc.md">Position</a>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="20px" /></a></p>
+ </td>
  <td>S<sup>+</sup></td>
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
@@ -203,7 +215,9 @@ th {
 </tr>
 
 <tr>
- <td><a id="mc_altitude" href="../flight_modes/altitude.md">Altitude</a></td>
+ <td><a id="mc_altitude" href="../flight_modes/altitude.md">Altitude</a>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="20px" /></a></p>
+ </td>
  <td>S</td>
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
@@ -228,7 +242,9 @@ th {
 
 
 <tr>
- <td><a id="manual_stabilized_mc" href="../flight_modes/manual_stabilized_mc.md">Manual/ Stabilized</a></td>
+ <td><a id="manual_stabilized_mc" href="../flight_modes/manual_stabilized_mc.md">Manual/ Stabilized</a>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="20px" /></a></p>
+ </td>
  <td>S</td>
  <td>S<sub>rate</sub></td>
  <td>M</td>
@@ -251,17 +267,9 @@ th {
 
 
 <tr>
- <td id="acro_mc">Acro</td>
- <td>S<sub>rate</sub></td>
- <td>S<sub>rate</sub></td>
- <td>M</td>
- <td></td>
- <td><p>RC/manual mode for performing acrobatic maneuvers e.g. flips.</p> 
-<p>RC RPY stick inputs control the rate of angular rotation around the respective axes. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level!)</p></td>
-</tr>
-
-<tr>
- <td>Rattitude</td>
+ <td>Rattitude
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="20px" /></a></p>
+ </td>
  <td>S or S<sub>rate</sub></td>
  <td>S<sub>rate</sub></td>
  <td>M</td>
@@ -274,6 +282,19 @@ th {
   </ul>
  </p>
 </td>
+</tr>
+
+
+<tr>
+ <td id="acro_mc">Acro
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="20px" /></a></p>
+ </td>
+ <td>S<sub>rate</sub></td>
+ <td>S<sub>rate</sub></td>
+ <td>M</td>
+ <td></td>
+ <td><p>RC/manual mode for performing acrobatic maneuvers e.g. flips.</p> 
+<p>RC RPY stick inputs control the rate of angular rotation around the respective axes. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level!)</p></td>
 </tr>
 
 
@@ -350,6 +371,7 @@ S<sub>rate</sub> |  Assistance from autopilot to stabilize the attitude rate. RC
 S<sup>+</sup> | Assistance from autopilot to hold position or altitude against wind. RC input is required.
 Auto | This mode is automatic (RC control is disabled by default except to change modes).
 <span id="key_position_fixed"></span><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /> | Sensor(s) that measures position/height needed e.g. optical flow, GPS+barometer, visual-inertial odometry. <p id="baro_only"><b>++</b> - <em>Altitude Mode</em> only requires altitude sensor (e.g. Baro, Rangefinder).</p>
+<span id="key_difficulty">[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="20px" />&nbsp;<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="20px" />&nbsp;<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="20px" />&nbsp;<img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="20px" />&nbsp;<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="20px" />&nbsp;<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="20px" />](#key_difficulty) | Flight mode difficulty (easy to hard).
 
 
 Abbreviations:
