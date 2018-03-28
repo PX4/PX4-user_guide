@@ -111,14 +111,14 @@ For multicopters this is the 3D flying mode. You can make flips and acrobatics. 
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Hold](../flight_modes/hold.md) causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It is usually activated with a pre-programmed RC switch.
+[Hold mode](../flight_modes/hold.md) causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It is usually activated with a pre-programmed RC switch.
 
 
 ### Return Mode {#return_mc}
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-The multicopter will return in a straight line at the current altitude (if higher than the home position + hovering altitude) or on the hovering altitude (if higher than the current altitude), then lands automatically.
+[Return mode](../flight_modes/return.md) causes the vehicle to return (at a safe height) to its home position and land. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
 
 
 ### Mission Mode {#mission_mc}
@@ -211,9 +211,7 @@ User RC sticks input directly sent to the output mixer for manual control.
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-Vehicle returns to the launch/home position.
-
-The aircraft returns to the home position and hovers in a circle above the home position at a preset altitude.
+[Return mode](../flight_modes/return.md) causes the vehicle to fly back to its home position (at a safe height) and circle over it. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
 
 ### Mission Mode {#mission_fw}
 

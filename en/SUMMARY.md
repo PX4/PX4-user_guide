@@ -57,7 +57,7 @@
     * [Position (MC)](flight_modes/position_mc.md)
     * [Takeoff](flight_modes/takeoff.md)
     * [Land](flight_modes/land.md)
-    * [Return (RTL)](flight_modes/return.md)
+    * [Return](flight_modes/return.md)
     * [Hold](flight_modes/hold.md)
     * [Mission](flight_modes/mission.md)
     * [Follow Me](flight_modes/follow_me.md)
