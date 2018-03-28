@@ -16,6 +16,8 @@ Landing is affected by the following parameters:
 Parameter | Description
 --- | ---
 [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED) | The rate of descent during landing. This should be kept fairly low as the ground conditions are not known.
+[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Time-out for auto disarm after landing. By default this is 0 (vehicle will not auto-disarm after landing).
+
 
 ## Fixed Wing (FW)
 
@@ -23,6 +25,11 @@ The vehicle will turn and lands at the location at which the mode was engaged. F
 
 > **Note** Often a FW vehicle will follow a fixed landing trajectory to ground (it will not attempt a flared landing). This is because in LAND mode the vehicle may not know ground altitude and will assume it is at sea level. As ground level may be much higher, a vehicle will often reach the ground at an altitude above where flare logic would be engaged.
 
+Landing is affected by the following parameters (also see [Landing (Fixed Wing)](../flying/fixed_wing_landing.md)):
+
+Parameter | Description
+--- | ---
+[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Time-out for auto disarm after landing. By default this is 0 (vehicle will not auto-disarm after landing).
 
 ## VTOL
 
