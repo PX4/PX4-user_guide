@@ -200,13 +200,13 @@ th {
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td><p><a href="#manual_stabilized_mc">Manual/Stabilized</a> mode with <em>3D position stabilization</em> (centered sticks level vehicle and hold it to fixed position and altitude against wind).
+ <td><p>RC/manual mode where RPT sticks control <em>speed</em> in corresponding directions. Centered sticks level vehicle and hold it to fixed position and altitude against wind.
   <ul>
     <li>Centered RPT sticks hold x, y, z position steady against any wind and levels attitude.</li>
     <li>Outside center:
       <ul>
-       <li>Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.</li>
-       <li>Throttle stick controls up/down speed (and movement speed in other axes).</li>
+       <li>Roll/Pitch sticks control speed over ground in left-right and forward-back directions (respectively) relative to the "front" of the vehicle.</li>
+       <li>Throttle stick controls speed of ascent-descent.</li>
        <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
       </ul>
     </li>
@@ -225,7 +225,7 @@ th {
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a><sup><a href="#baro_only">++</a></sup></td>
- <td><p><a href="#manual_stabilized_mc">Manual/Stabilized</a> mode with <em>altitude stabilization</em> (centered sticks level vehicle and hold it to fixed altitude).
+ <td><p>RC/manual mode where centered sticks level vehicle and hold it to a fixed altitude (but not horizontal position).
   <ul>
     <li>Centered sticks:
       <ul>
@@ -253,7 +253,7 @@ th {
  <td>S<sub>rate</sub></td>
  <td>M</td>
  <td></td>
- <td><p>RC/manual mode where centered sticks level vehicle (position is not stabilized).</p>
+ <td><p>RC/manual mode where centered sticks level vehicle (only - position is not stabilized).</p>
    <p>
    <ul>
     <li>Centered RP sticks level vehicle.</li>
