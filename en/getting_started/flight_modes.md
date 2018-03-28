@@ -209,7 +209,7 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 <!-- It will fight against the wind gusts automatically and maintain a horizontal posture. -->
 <!-- You will have a full manual angle control over the craft. --> 
 <!-- You will be able to glide with your airplane when you lower the Throttle to 0% and the motor stops. -->
-<1-- In order to perform a turn you have to hold the command throughout the maneuver because if you release the roll the plane will stop turning and level itself. -->
+<!-- In order to perform a turn you have to hold the command throughout the maneuver because if you release the roll the plane will stop turning and level itself. -->
 <!-- It is the same for the Pitch and Yaw commands as well. -->
 
 ![FW Manual Flight](../../images/flight_modes/manual_stabilized_FW.png)
