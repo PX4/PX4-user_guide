@@ -79,22 +79,44 @@ th {
 </tr>
 
 <tr>
- <td><a href="../flight_modes/altitude.md">Altitude</a>
+ <td><a href="../flight_modes/altitude_fw.md">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="20px" /></a></p>
  </td>
  <td><p>S (roll)</p><p>S<sup>+</sup>(pitch)</p></td>
  <td>M</td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a><sup><a href="#baro_only">++</a></sup></td>
- <td><p>This mode helps vehicle reach and maintain altitude.</p>
+ <td>
+ <!-- 
+ <p>This mode helps vehicle reach and maintain altitude.</p>
  <p>Centered RC RPY sticks gives level flight.</p>
  <p>Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.</p>
  <p>Throttle stick controls the airspeed of the aircraft only if airspeed sensor is connected.</p>
  <p>Without airspeed sensor, the user cannot control Throttle.</p>
+ -->
+ <p>RC/manual mode like <a href="#stabilized_fw">Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
+  <ul>
+    <li>Centered sticks (inside deadband):
+      <ul>
+       <li>Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.</li> 
+       <li>RPY sticks gives level flight.</li> 
+       <li>Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected (without airspeed sensor, the user cannot control throttle).</li>
+    </ul>
+    <li>Outside center: <!-- (same as <em>Stabilized</em> mode?) -->
+      <ul>
+       <li>Pitch stick controls altitude.</li>
+       <li>Roll stick controls roll angle.</li>
+       <li>Throttle sets airspeed.</li> 
+       <li>Yaw stick sets angle yaw from current heading .</li> 
+    </ul>
+  </li>
+  </ul>
+ </p>
  </td>
 </tr>
- 
-<tr>
+
+
+<tr id="stabilized_fw">
  <td>Stabilized
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="20px" /></a></p>
  </td>
@@ -103,11 +125,8 @@ th {
  <td>M</td>
  <td></td>
  <td>
-<p>If zero roll/pitch sticks - vehicle levels out.</p>
-
-<p>If non-zero roll/pitch sticks - vehicle does a coordinated turn.</p>
-
-<p>Manual yaw input is added to rudder control input- to control sideslip.</p>
+  <p>RC/manual mode where centered RP sticks level vehicle (centered sticks put vehicle into straight and level flight). The vehicle course and altitude are not maintained, and can drift due to wind.</p>
+  <p>If roll/pitch sticks are non-zero the vehicle does a coordinated turn (manual yaw input is added to rudder control input to control sideslip). </p>
 </td>
 </tr>
 
@@ -218,25 +237,25 @@ th {
 </tr>
 
 <tr>
- <td><a id="mc_altitude" href="../flight_modes/altitude.md">Altitude</a>
+ <td><a id="mc_altitude" href="../flight_modes/altitude_mc.md">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="20px" /></a></p>
  </td>
  <td>S</td>
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a><sup><a href="#baro_only">++</a></sup></td>
- <td><p>RC/manual mode where centered sticks level vehicle and hold it to a fixed altitude (but not horizontal position).
+ <td><p>RC/manual mode like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks level vehicle and hold it to fixed altitude). The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
   <ul>
-    <li>Centered sticks:
+    <li>Centered sticks (inside deadband):
       <ul>
-       <li>RPY sticks stabilizes altitude and levels vehicle.</li>
-       <li>Throttle holds current altitude steady against wind.</li>
+       <li>RPY sticks stabilizes altitude and levels vehicle.</li> 
+       <li>Throttle (~50%) holds current altitude steady against wind.</li>
     </ul>
-    <li>Outside center:
+    <li>Outside center: <!-- same as (same as <em>Manual/Stabilized</em> mode) right? -->
       <ul>
-       <li>Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.</li>
-       <li>Throttle stick controls up/down speed (and movement speed in other axes).</li>
-       <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
+       <li>Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.</li>
+       <li>Throttle stick controls up/down speed with a predetermined maximum rate (and movement speed in other axes).</li> 
+       <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li> 
     </ul>
   </li>
   </ul>
