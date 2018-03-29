@@ -30,7 +30,10 @@ Parameter | Description
 <span id="FW_AIRSPD_MIN"></span>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) | Min airspeed/throttle. Default: 10 m/s.
 <span id="FW_AIRSPD_MAX"></span>[FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) | Max airspeed/throttle. Default: 20 m/s.
 <span id="FW_AIRSPD_TRIM"></span>[FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) | Cruise speed. Default: 15 m/s.
+<span id="FW_MAN_P_MAX">[FW_MAN_P_MAX](../advanced_config/parameter_reference.md#FW_MAN_P_MAX) | Max pitch for manual control in attitude stabilized mode. Default: 45 degrees.
+<span id="FW_MAN_R_MAX">[FW_MAN_R_MAX](../advanced_config/parameter_reference.md#FW_MAN_R_MAX) | Max roll for manual control in attitude stabilized mode. Default: 45 degrees.
 <span id="FW_L1_CONTROL">[FW L1 Control](../advanced_config/parameter_reference.md#fw-l1-control) | The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW L1 Control parameters. 
+
 
 <!-- 
 FW notes: 
