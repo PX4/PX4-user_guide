@@ -2,9 +2,11 @@
 
 [<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-The *Altitude* flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold the vehicle course against wind.
+The *Altitude* flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
 
-The climb/descent rate is controlled via the pitch/elevator stick. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed. The throttle input controls airspeed. 
+The climb/descent rate is controlled via the pitch/elevator stick. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed. 
+
+The throttle input controls airspeed.  Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
 
 When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
 
@@ -14,9 +16,19 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 
 ## Technical Summary
 
+RC/manual mode like Stabilized mode but with altitude stabilization (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
+
+* Centered sticks (inside deadband):
+  * Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.
+  * RPY sticks gives level flight.
+  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected (without airspeed sensor, the user cannot control throttle).
+
+* Outside center:
+  * Pitch stick controls altitude.
+  * Throttle sets airspeed.
+  * If roll/pitch sticks are non-zero the vehicle does a coordinated turn (manual yaw input is added to rudder control input to control sideslip).
 
 > **Note**
->  * This mode is *assisted*. The autopilot makes it easier for users to control the vehicle. 
 >  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
 >  * The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy. 
 
