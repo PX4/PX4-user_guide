@@ -2,9 +2,9 @@
 
 > **Warning** This topic is under construction. It is not complete and has not been fully reviewed.
 
-Flight modes enable different [levels](#categories) and types of autopilot control. They define how the autopilot responds to remote control input, and how it manages vehicle movement during fully autonomous flight.
+Flight modes define how the autopilot responds to remote control input, and how it manages vehicle movement during fully autonomous flight. 
 
-Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types. 
+The modes provide different types/levels of autopilot assistance to the user (pilot), ranging from automation of common tasks like takeoff and landing, through to mechanisms that make it easier to regain level flight, hold the vehicle to a fixed path or position, etc. 
 
 This topic provides an overview of the available the flight modes, and the (mostly minor) differences in their default behaviour in multicopter (MC), fixed-wing (FW) and VTOL frames.
 
@@ -13,10 +13,12 @@ This topic provides an overview of the available the flight modes, and the (most
 
 Pilots can transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
 
+Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types. 
+
 Some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis). PX4 will not allow transitions to those modes until the right conditions are met.
 
 
-## Types of Modes {#categories}
+## Autonomous and Manual Modes {#categories}
 
 Flight Modes are either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and require no pilot/remote control input.
 
