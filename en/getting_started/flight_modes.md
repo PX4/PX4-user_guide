@@ -59,8 +59,6 @@ Icon | Description
 
 > **Tip** Position mode is the safest manual mode for new fliers. Unlike [Altitude](#altitude_mc) and [Manual/Stabilized](#manual_stabilized_mc) modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance. 
 
-The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
-
 ![MC Position Mode](../../images/flight_modes/position_MC.png)
 
 
@@ -68,9 +66,11 @@ The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
 [<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-[Altitude Mode](../flight_modes/altitude.md) is the safest non GPS guided mode appropriate for beginners learning how to fly. 
+[Altitude mode](../flight_modes/altitude_mc.md) is a *relatively* easy-to-fly RC mode in which roll and pitch sticks control vehicle movement in the left-right and forward-back directions (relative to the "front" of the vehicle), yaw stick controls rate of rotation over the horizontal plane, and throttle controls speed of ascent-descent.
 
-In this mode the altitude is controlled by the PX4 autopilot. At 50% throttle the aircraft will hold its current altitude. If you want to descend just lower the throttle below center or if you need to climb push the throttle over the center. The further the throttle stick is from the center position the larger the climb or descent rate you will have. In Altitude Mode you have full angle control over Pitch, Roll and Yaw. Once you center all the sticks you will have a hovering aircraft at the current altitude. If the wind blows the aircraft will drift in the direction of the wind.
+When the sticks are released/centered the vehicle will level and maintain the current *altitude*. If moving in the horizontal plane the vehicle will continue until any momentum is dissipated by wind resistance. If the wind blows the aircraft will drift in the direction of the wind.
+
+> **Tip** *Attitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](#manual_stabilized_mc) mode but additionally stabilizes the vehicle altitude when the sticks are released.
 
 ![MC Altitude Mode](../../images/flight_modes/altitude_MC.png)
 
@@ -96,7 +96,7 @@ As soon as you release the control sticks they will return to the centre deadzon
 
 In simple terms it is the mix between Manual/Stabilized and Acro mode. When the Roll/Pitch stick is centered or if you move it up to halfway then the craft behaves like in Manual/Stabilized mode. If you move Roll/Pitch stick beyond halfway to full command the the multicopter behaves like in Acro mode. This way you could fly in the comfort of stabilized flight but still be able to perform flips and tricks with your multicopter.
 
-<!-- image ? -->
+<!-- Image missing: https://github.com/PX4/px4_user_guide/issues/189 -->
 
 
 ### Acro Mode {#acro_mc}
@@ -107,6 +107,8 @@ In simple terms it is the mix between Manual/Stabilized and Acro mode. When the 
 For multicopters this is the 3D flying mode. You can make flips and acrobatics. In acrobatic mode you have fully direct rate control over your aircraft. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. In Acrobatic mode you have full rate control over the Roll, Pitch, Yaw and Throttle.
 
 ![MC Manual Acrobatic Flight](../../images/flight_modes/manual_acrobatic_MC.png)
+
+<!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
 
 
 ### Hold Mode {#hold_mc}
@@ -156,19 +158,22 @@ For multicopters this is the 3D flying mode. You can make flips and acrobatics. 
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Offboard mode](../flight_modes/offboard.html) causes the multicopter to obey a position, velocity or attitude setpoint provided over MAVLink. 
+[Offboard mode](../flight_modes/offboard.md) causes the multicopter to obey a position, velocity or attitude setpoint provided over MAVLink. 
 
 > **Note** This mode is intended for companion computers and ground stations!
 
  
 ## Fixed-Wing {#fw_flight_modes}
 
-
 ### Position Mode {#position_fw}
 
 [<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-This is the GPS guided mode. You can fly in Position Mode if you need precision in flight, keeping straight line course, and still maintaining the control of the aircraft with your RC. The altitude is controlled by the PX4 autopilot. The throttle will determine your airspeed, at 50% throttle the aircraft will hold its current altitude with a preset cruise speed. You can descend and climb with pitch up and down command. Position Mode is almost like Altitude Mode with full angle control over Pitch, Roll and Yaw. But Once you center all the sticks you will have a level flying aircraft at the current altitude and GPS guided straight line course. If the wind blows the aircraft will keep its direction of flight and course and will fight the wind.
+[Position mode](../flight_modes/position_fw.md) is an easy-to-fly RC mode in which, when the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces. 
+
+The throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed). Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
+
+> **Tip** Position mode is the safest fixed-wing manual mode for new fliers.
 
 ![FW Position Mode](../../images/flight_modes/position_FW.png)
 
@@ -177,7 +182,13 @@ This is the GPS guided mode. You can fly in Position Mode if you need precision 
 
 [<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-Altitude Mode is the safest non GPS guided mode appropriate for beginners learning how to fly. In this mode the altitude is controlled by the PX4 autopilot. The throttle will determine your airspeed, at 50% throttle the aircraft will hold its current altitude with a preset cruise air speed. You can descend and climb with pitch up and down command. In Altitude Mode you have full angle control over Pitch, Roll and Yaw. Once you center all the sticks you will have a level flying aircraft at the current altitude. If the wind blows the aircraft will drift in the direction of the wind.
+[Altitude mode](../flight_modes/altitude_fw.md) makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
+
+The climb/descent rate is controlled via the pitch/elevator stick. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed. The throttle input controls airspeed.  Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
+
+When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
+
+> **Tip** *Altitude mode* is the safest non GPS guided mode appropriate for beginners learning how to fly. It is just like [Manual](#manual_fw) mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
 
 ![FW Altitude Mode](../../images/flight_modes/altitude_FW.png)
 
@@ -186,7 +197,13 @@ Altitude Mode is the safest non GPS guided mode appropriate for beginners learni
 
 [<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-In Stabilized flight your plane will maintain a level flight. It will fight against the wind gusts automatically and maintain a horizontal posture. You will have a full manual angle control over the craft. You will be able to glide with your airplane when you lower the Throttle to 0% and the motor stops. In order to perform a turn you have to hold the command throughout the maneuver because if you release the roll the plane will stop turning and level itself. It is the same for the Pitch and Yaw commands as well.
+[Stabilized mode](../flight_modes/stabilized_fw.md) mode puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
+
+The vehicle climb/descends based on pitch input and performs a coordinated turn if the roll/pitch sticks are non-zero. Roll and pitch are angle controlled (you can't roll upside down or loop).
+
+> **Tip** *Stabilized mode* is much easier to fly than [Manual mode](#manual_fw) because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
+
+The vehicle will glide if the throttle is lowered to 0% (motor stops). In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
 
 ![FW Manual Flight](../../images/flight_modes/manual_stabilized_FW.png)
 
@@ -203,7 +220,6 @@ In acrobatic you fly like a plane without any stabilization electronics. You can
 ### Manual Mode {#manual_fw}
 
 [<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
-
 
 User RC sticks input directly sent to the output mixer for manual control.
 

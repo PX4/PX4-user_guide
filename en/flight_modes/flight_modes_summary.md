@@ -67,35 +67,61 @@ th {
  </thead>
 <tbody>
 
-<tr>
- <td>Position
+<tr id="position_fw">
+ <td><a href="../flight_modes/position_fw.md">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
  <td>S<sup>+</sup></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td>Centered RC RPY sticks – gives level flight that follows a straight line ground track in the current direction against any wind.</td>
+ <td><p>RC/manual mode where centered sticks put vehicle into straight and level flight where vehicle posture/attitude, altitude, and the straight line vehicle path are maintained against wind (and other forces).
+   <ul>
+       <li>Centered RC RPY sticks – level flight that follows a straight line ground track in the current direction against any wind.</li>
+       <li>Outside center:
+      <ul>
+       <li>Pitch is used to ascend/descend (controls altitude).</li>
+       <li>Throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed).</li> 
+       <li>Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
+     </ul></li>
+   </ul>
+  </p>
+  </td>
 </tr>
 
-<tr>
- <td><a href="../flight_modes/altitude.md">Altitude</a>
+
+<tr id="altitude_fw">
+ <td><a href="../flight_modes/altitude_fw.md">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="20px" /></a></p>
  </td>
  <td><p>S (roll)</p><p>S<sup>+</sup>(pitch)</p></td>
  <td>M</td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a><sup><a href="#baro_only">++</a></sup></td>
- <td><p>This mode helps vehicle reach and maintain altitude.</p>
- <p>Centered RC RPY sticks gives level flight.</p>
- <p>Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.</p>
- <p>Throttle stick controls the airspeed of the aircraft only if airspeed sensor is connected.</p>
- <p>Without airspeed sensor, the user cannot control Throttle.</p>
+ <td>
+ <p>RC/manual mode like <a href="#stabilized_fw">Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
+  <ul>
+    <li>Centered sticks (inside deadband):
+      <ul>
+       <li>Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.</li> 
+       <li>RPY sticks gives level flight.</li> 
+       <li>Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected (without airspeed sensor, the user cannot control throttle).</li>
+    </ul>
+    <li>Outside center:
+      <ul>
+       <li>Pitch stick controls altitude.</li>
+       <li>Throttle sets airspeed.</li> 
+       <li>If roll/pitch sticks are non-zero the vehicle does a coordinated turn (manual yaw input is added to rudder control input to control sideslip).</li>
+    </ul>
+  </li>
+  </ul>
+ </p>
  </td>
 </tr>
- 
-<tr>
- <td>Stabilized
+
+
+<tr id="stabilized_fw">
+ <td><a href="../flight_modes/stabilized_fw.md">Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -103,15 +129,12 @@ th {
  <td>M</td>
  <td></td>
  <td>
-<p>If zero roll/pitch sticks - vehicle levels out.</p>
-
-<p>If non-zero roll/pitch sticks - vehicle does a coordinated turn.</p>
-
-<p>Manual yaw input is added to rudder control input- to control sideslip.</p>
-</td>
+  <p>RC/manual mode where centered RP sticks level vehicle (centered sticks put vehicle into straight and level flight). The vehicle course and altitude are not maintained, and can drift due to wind.</p>
+  <p>If roll/pitch sticks are non-zero the vehicle does a coordinated turn (manual yaw input is added to rudder control input to control sideslip).</p>
+ </td>
 </tr>
 
-<tr>
+<tr id="acro_fw">
  <td>Acro
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="20px" /></a></p>
  </td>
@@ -123,7 +146,7 @@ th {
 <p>RC RPY stick inputs are translated to angular rate commands that are stabilized by autopilot.</p></td>
 </tr>
 
-<tr>
+<tr id="manual_fw">
  <td>Manual
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="20px" /></a></p>
  </td>
@@ -135,7 +158,7 @@ th {
 </tr>
 
 
-<tr>
+<tr id="takeoff_fw">
  <td><a href="../flight_modes/takeoff.md">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
@@ -143,21 +166,21 @@ th {
 </tr>
 
 
-<tr>
+<tr id="land_fw">
  <td><a href="../flight_modes/land.md">Land</a></td>
  <td class="centred" colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle initiates the <a href="../flying/fixed_wing_landing.md">fixed-wing landing</a> sequence.</td>
 </tr>
 
-<tr>
+<tr id="hold_fw">
  <td><a href="../flight_modes/hold.md">Hold</td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle circles around the GPS hold position at the current altitude.</td>
 </tr>
 
-<tr>
+<tr id="return_fw">
  <td><a href="../flight_modes/return.md">Return</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
@@ -165,7 +188,7 @@ th {
 </tr>
 
 
-<tr>
+<tr id="mission_fw">
  <td><a href="../flight_modes/mission.md">Mission</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
@@ -192,7 +215,7 @@ th {
 <tbody>
 
 
-<tr>
+<tr id="position_mc">
  <td><a href="../flight_modes/position_mc.md">Position</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="20px" /></a></p>
  </td>
@@ -217,26 +240,26 @@ th {
 </td>
 </tr>
 
-<tr>
- <td><a id="mc_altitude" href="../flight_modes/altitude.md">Altitude</a>
+<tr id="altitude_mc">
+ <td><a href="../flight_modes/altitude_mc.md">Altitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="20px" /></a></p>
  </td>
  <td>S</td>
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a><sup><a href="#baro_only">++</a></sup></td>
- <td><p>RC/manual mode where centered sticks level vehicle and hold it to a fixed altitude (but not horizontal position).
+ <td><p>RC/manual mode like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks level vehicle and hold it to fixed altitude). The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
   <ul>
-    <li>Centered sticks:
+    <li>Centered sticks (inside deadband):
       <ul>
-       <li>RPY sticks stabilizes altitude and levels vehicle.</li>
-       <li>Throttle holds current altitude steady against wind.</li>
+       <li>RPY sticks levels vehicle.</li> 
+       <li>Throttle (~50%) holds current altitude steady against wind.</li>
     </ul>
     <li>Outside center:
       <ul>
-       <li>Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.</li>
-       <li>Throttle stick controls up/down speed (and movement speed in other axes).</li>
-       <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
+       <li>Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.</li>
+       <li>Throttle stick controls up/down speed with a predetermined maximum rate (and movement speed in other axes).</li> 
+       <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li> 
     </ul>
   </li>
   </ul>
@@ -245,8 +268,8 @@ th {
 </tr>
 
 
-<tr>
- <td><a id="manual_stabilized_mc" href="../flight_modes/manual_stabilized_mc.md">Manual/ Stabilized</a>
+<tr id="manual_stabilized_mc">
+ <td><a href="../flight_modes/manual_stabilized_mc.md">Manual/ Stabilized</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="20px" /></a></p>
  </td>
  <td>S</td>
@@ -270,7 +293,7 @@ th {
 </tr>
 
 
-<tr>
+<tr id="rattitude_mc">
  <td>Rattitude
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="20px" /></a></p>
  </td>
@@ -289,8 +312,8 @@ th {
 </tr>
 
 
-<tr>
- <td id="acro_mc">Acro
+<tr id="acro_mc">
+ <td>Acro
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
@@ -302,28 +325,28 @@ th {
 </tr>
 
 
-<tr>
+<tr id="takeoff_mc">
  <td><a href="../flight_modes/takeoff.md">Takeoff</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle ascends to takeoff altitude and holds position.</td>
 </tr>
 
-<tr>
+<tr id="land_mc">
  <td><a href="../flight_modes/land.md">Land</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle lands at the position where the mode was engaged.</td>
 </tr>
 
-<tr>
+<tr id="hold_mc">
  <td><a href="../flight_modes/hold.md">Hold</td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle hovers at the current GPS position and altitude.</td>
 </tr>
 
-<tr>
+<tr id="return_mc">
  <td><a href="../flight_modes/return.md">Return</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
@@ -332,21 +355,21 @@ th {
 </tr>
 
 
-<tr>
+<tr id="mission_mc">
  <td><a href="../flight_modes/mission.md">Mission</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle executes a <a href="../flying/missions.md">predefined mission/flight plan</a> that has been uploaded to the flight controller. </td>
 </tr>
 
-<tr>
+<tr id="followme_mc">
  <td><a href="../flight_modes/follow_me.md">Follow Me</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle autonomously follows a user using an Android phone/tablet running QGC.</td>
 </tr>
 
-<tr>
+<tr id="offboard_mc">
  <td><a href="../flight_modes/offboard.md">Offboard</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
