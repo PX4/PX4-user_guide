@@ -1,0 +1,38 @@
+# Manual Flight Mode (Fixed Wing)
+
+<!-- this requires review and updates -->
+
+[<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+
+*Manual mode* sends RC stick input directly to the output mixer for fully manual control.
+
+> **Tip** This is the hardest mode to fly, because nothing is stabilized. Unlike [Acro Mode](../flight_modes/acro_fw.md) if the RP stick is centered the vehicle will not automatically stop rotating around the axis; the pilot actually has to move the stick to apply force in the other direction. 
+
+<span></span>
+> **Note** This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+
+## Technical Description
+
+RC mode where stick input is sent directly to the output mixer (for "fully" manual control).
+
+This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+
+## Parameters
+
+Parameter | Description
+--- | ---
+&nbsp; | 
+
+<!-- Possibly of interest:
+
+FW_MAN_P_MAX (FLOAT) - Max manual pitch - Max pitch for manual control in attitude stabilized mode. Default 45.0	deg
+
+FW_MAN_P_SC - Manual pitch scale - Scale factor applied to the desired pitch actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. Default 1.0 norm.
+
+FW_MAN_R_MAX - Max manual roll - Comment: Max roll for manual control in attitude stabilized mode. Default 45 deg.
+
+FW_MAN_R_SC - Manual roll scale - Scale factor applied to the desired roll actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. Default: 1.0	norm
+
+FW_MAN_Y_SC - Manual yaw scale - Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. 1.0	norm
+
+-->

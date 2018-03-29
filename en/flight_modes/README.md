@@ -77,7 +77,7 @@ th {
  <td>S<sup>+</sup></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td><p>RC/manual mode where centered sticks put vehicle into straight and level flight where vehicle posture/attitude, altitude, and the straight line vehicle path are maintained against wind (and other forces).
+ <td><p>RC mode where centered sticks put vehicle into straight and level flight where vehicle posture/attitude, altitude, and the straight line vehicle path are maintained against wind (and other forces).
    <ul>
        <li>Centered RC RPY sticks – level flight that follows a straight line ground track in the current direction against any wind.</li>
        <li>Outside center:
@@ -101,7 +101,7 @@ th {
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a><sup><a href="#baro_only">++</a></sup></td>
  <td>
- <p>RC/manual mode like <a href="#stabilized_fw">Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
+ <p>RC mode like <a href="#stabilized_fw">Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
   <ul>
     <li>Centered sticks (inside deadband):
       <ul>
@@ -131,32 +131,36 @@ th {
  <td>M</td>
  <td></td>
  <td>
-  <p>RC/manual mode where centered RP sticks level vehicle (centered sticks put vehicle into straight and level flight). The vehicle course and altitude are not maintained, and can drift due to wind.</p>
+  <p>RC mode where centered RP sticks level vehicle (centered sticks put vehicle into straight and level flight). The vehicle course and altitude are not maintained, and can drift due to wind.</p>
   <p>If roll/pitch sticks are non-zero the vehicle does a coordinated turn (manual yaw input is added to rudder control input to control sideslip).</p>
  </td>
 </tr>
 
 <tr id="acro_fw">
- <td>Acro
+ <td><a href="../flight_modes/acro_fw.md">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
  <td>S<sub>rate</sub></td>
  <td>M</td>
  <td></td>
- <td><p>This mode can be used to perform acrobatic maneuvers.</p>
-<p>RC RPY stick inputs are translated to angular rate commands that are stabilized by autopilot.</p></td>
+ <td><p>RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.</p>
+<p>RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to the output mixer.</p></td>
 </tr>
 
+
 <tr id="manual_fw">
- <td>Manual
+ <td><a href="../flight_modes/manual_fw.md">Manual</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="20px" /></a></p>
  </td>
  <td>M</td>
  <td>M</td>
  <td>M</td>
  <td></td>
- <td>User RC sticks input directly sent to the output mixer for manual control.</td>
+ <td><p>RC mode where stick input is sent directly to the output mixer (for "fully" manual control).</p>
+   <p>This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+   </p>
+  </td>
 </tr>
 
 
@@ -225,7 +229,7 @@ th {
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td><p>RC/manual mode where RPT sticks control <em>speed</em> in corresponding directions. Centered sticks level vehicle and hold it to fixed position and altitude against wind.
+ <td><p>RC mode where RPT sticks control <em>speed</em> in corresponding directions. Centered sticks level vehicle and hold it to fixed position and altitude against wind.
   <ul>
     <li>Centered RPT sticks hold x, y, z position steady against any wind and levels attitude.</li>
     <li>Outside center:
@@ -250,7 +254,7 @@ th {
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a><sup><a href="#baro_only">++</a></sup></td>
- <td><p>RC/manual mode like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks level vehicle and hold it to fixed altitude). The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
+ <td><p>RC mode like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks level vehicle and hold it to fixed altitude). The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
   <ul>
     <li>Centered sticks (inside deadband):
       <ul>
@@ -278,7 +282,7 @@ th {
  <td>S<sub>rate</sub></td>
  <td>M</td>
  <td></td>
- <td><p>RC/manual mode where centered sticks level vehicle (only - position is not stabilized).</p>
+ <td><p>RC mode where centered sticks level vehicle (only - position is not stabilized).</p>
    <p>
    <ul>
     <li>Centered RP sticks level vehicle.</li>
@@ -296,7 +300,7 @@ th {
 
 
 <tr id="rattitude_mc">
- <td>Rattitude
+ <td><a href="../flight_modes/rattitude_mc.md">Rattitude</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="20px" /></a></p>
  </td>
  <td>S or S<sub>rate</sub></td>
@@ -304,10 +308,18 @@ th {
  <td>M</td>
  <td></td>
  <td>
- <p><a href="#acro_mc">Acro</a> mode with <em>attitude stabilization</em> (centered sticks level vehicle).
+ <p>RC mode that allows pilots to fly using <a href="#manual_stabilized_mc">Manual/Stabilized</a> flight most of the time, but still perform <a href="#acro_mc">Acro mode</a>-style flips and tricks when desired. Centered sticks level vehicle.
   <ul>
-    <li>Centered sticks: Vehicle levels out (i.e. like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode).</li>
-    <li>Sticks outside center: RPY stick inputs control the rate of angular rotation around the respective axes. (i.e. like <a href="#acro_mc">Acro</a> mode).</li>
+    <li>Sticks within mode's threshold (like <a href="#manual_stabilized_mc">Manual/Stabilized mode</a>).
+      <ul>
+       <li>Centered RP sticks level vehicle. Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.</li>
+      </ul>
+    </li>
+    <li>Sticks outside threshold (like <a href="#acro_mc">Acro mode</a>): 
+      <ul>
+       <li>RPY stick inputs control the rate of angular rotation around the respective axes.</li>
+      </ul>
+    </li>
   </ul>
  </p>
 </td>
@@ -315,15 +327,16 @@ th {
 
 
 <tr id="acro_mc">
- <td>Acro
+ <td><a href="../flight_modes/acro_mc.md">Acro</a>
  <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
  <td>S<sub>rate</sub></td>
  <td>M</td>
  <td></td>
- <td><p>RC/manual mode for performing acrobatic maneuvers e.g. flips.</p> 
-<p>RC RPY stick inputs control the rate of angular rotation around the respective axes. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level!)</p></td>
+ <td><p>RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.</p> 
+  <p>RC RPY stick inputs control the rate of angular rotation around the respective axes. Throttle is passed directly to the output mixer.  When sticks are centered the vehicle will stop rotating, but remain in its current orientation (e.g. possibly inverted) and moving according to its current momentum.</p>
+ </td>
 </tr>
 
 
@@ -408,77 +421,4 @@ Abbreviations:
   * RPT: Roll, Pitch Throttle
 
 
-
-<!-- 
-
-## Manual modes {#manual-modes}
-
-"Manual" flight modes are those where the user has control over vehicle movement via the RC control sticks (or joystick). 
-
-**Fixed wing aircraft:**
-
-- **Manual**: The pilot has direct control (via the safety
-  coprocessor). This is the only mode that overrides the FMU. It provides a safety mechanism
-  which allows full control of throttle, elevator, ailerons and rudder
-  via RC in the event of an FMU firmware malfunction.
-- **Stabilized (aka fly-by-wire)**: The pilot's pitch and roll inputs are passed as angle commands to the autopilot, while the yaw input is sent directly via the output mixer to the rudder (manual control). If the RC roll and pitch sticks are centered, the autopilot regulates the roll and pitch angles to zero, hence stabilizing (leveling-out) the attitude against any wind disturbances. However, in this mode the position of the aircraft is not controlled by the autopilot, hence the position can drift due to wind. With nonzero roll input the vehicle does a coordinated turn to achieve zero sideslip (the acceleration in y-direction (sidewards) is zero). During a coordinated turn, the rudder is used to control the sideslip and any manual yaw input is added to that.
-- **Acro:** The pilot's inputs are passed as roll, pitch, and yaw *rate* commands to the autopilot. The autopilot controls the angular rates. Throttle is passed directly to the output mixer.
-
-
-**Multirotors:** 
-
-Throttle Command is mapped direct to Motor Speed.
-
-- [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command. Throttle is passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered, consequently leveling-out the attitude. The autopilot does not compensate for drift due to wind (or other sources).
-- **Acro:** The pilot's inputs are passed as roll, pitch, and
-  yaw *rate* commands to the autopilot. The Aircraft will not
-  level out after Sticks return to Center. This allows maneuvers like Loops.
-- **Rattitude:** The pilot's inputs are passed as roll, pitch, and
-  yaw *rate* commands to the autopilot at the extreme positions of
-  the sticks. If not the inputs are passed as roll and
-  pitch *angle* commands and a yaw *rate* command.
-  
-  > **Note** For Multirotors, the Manual and Stabilized modes are the same.
-
-
-
-## Assisted modes {#assisted-modes}
-
-"Assisted" flight modes are also user controlled but offer some level of "automatic" assistance to gain or restore controlled flight.
-
-- **Altitude** ([FW](../flight_modes/altitude_fw.md)/[MC](../flight_modes/altitude_mc.md)): More easily control vehicle altitude, and in particular reach and maintain a fixed altitude. The mode does not use GPS, and hence will not attempt to hold the vehicle x and y position or course against wind.
-
-- **Position**
-  - **Fixed wing aircraft:** Neutral inputs (meaning when roll, pitch and yaw sticks are centered) provide a level flight and
-    will crab against the wind if needed to maintain a straight line.
-  - **Multirotors** Roll controls left-right speed, pitch controls
-    front-back speed. When roll and pitch are all centered (inside
-    deadzone) the multirotor will hold position. Yaw controls yaw rate
-    as in MANUAL mode. Throttle controls climb/descent rate as in Altitude
-    mode.
-
-    > **Warning** Care must be taken when landing in *Position mode* to ensure that landing is 
-    > *correctly detected*. When first landing in this mode, be ready to switch 
-    > to *Stabilized mode* in order to be able to disarm. If landing is correctly 
-    > detected, motors will spin down after touch down and then disarm shortly after. 
-    > If the motors keep spinning at higher RPM or start spinning up, first switch 
-    > to *Stabilized mode*, and then disarm. Be aware that the vehicle may tip over 
-    > on the ground due to GPS drift. 
-
-
-## Auto modes {#auto-modes}
-
-"Auto" flight modes are those where the controller requires little to no user input (e.g. to takeoff, land and fly missions).
-
-- [Hold](../flight_modes/hold.md): Holds at the current position (hovers for copter, circles for fixed-wing)
-- [Return (RTL)](../flight_modes/return.md): Return to the home position and land (copter) or circle (fixed-wing).
-- [Takeoff](../flight_modes/takeoff.md): Take off and wait for further input.
-- [Land](../flight_modes/land.md): Land at the location where the mode was engaged. 
-- [Mission](../flight_modes/mission.md): The vehicle follows a programmed mission, which is usually planned and uploaded using a ground control station (GCS).
-- [Follow Me](../flight_modes/follow_me.md) (Multicopter-only): The vehicle autonomously follows a user with an Android phone/tablet running *QGroundControl*.
-- [Offboard](../flight_modes/offboard.md): The vehicle obeys a position, velocity or attitude
-  setpoint provided over MAVLink (often from a companion computer connected via serial cable). The setpoint can be
-  provided by APIs like [DroneCore](http://dronecore.io/) or [MAVROS](https://github.com/mavlink/mavros).
-  
--->
 

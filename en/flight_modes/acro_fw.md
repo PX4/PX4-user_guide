@@ -1,0 +1,39 @@
+# Acro Flight Mode (Fixed Wing)
+
+<!-- this requires review and updates -->
+
+[<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+
+*Acro mode* is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+
+The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+
+![FW Manual Acrobatic Flight](../../images/flight_modes/manual_acrobatic_FW.png)
+
+## Technical Description
+
+RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+
+RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. 
+Throttle is passed directly to the output mixer.
+
+
+## Parameters
+
+Parameter | Description
+--- | ---
+&nbsp; | 
+
+
+<!--
+
+Possibly relevant.
+
+FW_ACRO_X_MAX - Acro body x max rate - This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode. Default 90 degrees. 
+
+FW_ACRO_Y_MAX - Acro body y max rate - This is the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode. Default 90 degrees. 
+
+FW_ACRO_Z_MAX - Acro body z max rate - This is the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode. Default 45 degrees.
+
+
+-->

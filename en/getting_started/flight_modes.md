@@ -8,6 +8,8 @@ The modes provide different types/levels of autopilot assistance to the user (pi
 
 This topic provides an overview of the available the flight modes, and the (mostly minor) differences in their default behaviour in multicopter (MC), fixed-wing (FW) and VTOL frames.
 
+> **Tip** More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
+
 
 ## Switching Between Modes
 
@@ -96,7 +98,9 @@ As soon as you release the control sticks they will return to the centre deadzon
 
 [<img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-In simple terms it is the mix between Manual/Stabilized and Acro mode. When the Roll/Pitch stick is centered or if you move it up to halfway then the craft behaves like in Manual/Stabilized mode. If you move Roll/Pitch stick beyond halfway to full command the the multicopter behaves like in Acro mode. This way you could fly in the comfort of stabilized flight but still be able to perform flips and tricks with your multicopter.
+[Rattitude mode](../flight_modes/rattitude_mc.md) allows pilots to fly using [Manual/Stabilized](#manual_stabilized_mc) flight most of the time, but still perform [Acro mode](#acro_mc)-style flips and tricks when desired. 
+
+The vehicle behaves as in *Manual/Stabilized mode* when the Roll/Pitch stick is moved within the central area and like *Acro mode* when the stick is moved in the outer circumference (by default Manual/Stabilized mode occupies about 80% of the range). When the sticks are centered the multicopter will level out (but will still drift in the direction of any wind and with any pre-existing momentum).
 
 <!-- Image missing: https://github.com/PX4/px4_user_guide/issues/189 -->
 
@@ -105,8 +109,9 @@ In simple terms it is the mix between Manual/Stabilized and Acro mode. When the 
 
 [<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
+[Acro mode](../flight_modes/acro_mc.md) is the RC mode for performing acrobatic maneuvers e.g. rolls and loops.
 
-For multicopters this is the 3D flying mode. You can make flips and acrobatics. In acrobatic mode you have fully direct rate control over your aircraft. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. In Acrobatic mode you have full rate control over the Roll, Pitch, Yaw and Throttle.
+The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
 ![MC Manual Acrobatic Flight](../../images/flight_modes/manual_acrobatic_MC.png)
 
@@ -214,7 +219,9 @@ The vehicle will glide if the throttle is lowered to 0% (motor stops). In order 
 
 [<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-In acrobatic you fly like a plane without any stabilization electronics. You can make 360 rolls, flips, stalls and acrobatic figures. You have to remember that once you release Pitch and Roll to their center position the craft remains in its current state. You have to give back command in order to level it or change course and direction. The control is a Rate control over the Roll, Pitch, Yaw and Throttle.
+[Acro mode](../flight_modes/acro_fw.md) is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+
+The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
 
 ![FW Manual Acrobatic Flight](../../images/flight_modes/manual_acrobatic_FW.png)
 
@@ -223,7 +230,13 @@ In acrobatic you fly like a plane without any stabilization electronics. You can
 
 [<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
-User RC sticks input directly sent to the output mixer for manual control.
+[Manual mode](../flight_modes/manual_fw.md) sends RC stick input directly to the output mixer for "fully" manual control.
+
+> **Tip** This is the hardest mode to fly, because nothing is stabilised. Unlike [Acro Mode](#acro_fw) if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction. 
+
+<span></span>
+> **Note** This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
+
 
 ### Hold Mode {#hold_fw}
 
