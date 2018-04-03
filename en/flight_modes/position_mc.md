@@ -35,6 +35,8 @@ RC/manual mode where RPT sticks control *speed* in corresponding directions. Cen
 
 ### Parameters
 
+All the parameters in the [Multicopter Position Control](../advanced_config/parameter_reference.md#multicopter-position-control) group are relevant. A few parameters of particular note are listed below.
+
 Parameter | Description
 --- | ---
 <span id="MPC_HOLD_DZ"></span>[MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ) | Deadzone of sticks where position hold is enabled. Default: 0.1 (10% of full stick range).
