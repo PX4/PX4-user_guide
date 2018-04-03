@@ -9363,7 +9363,7 @@ The module where these parameters are defined is: *modules/sensors*.
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_MB12XX">SENS_EN_MB12XX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Maxbotix Soanr (mb12xx)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Maxbotix Sonar (mb12xx)</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> drivers/distance_sensor/mb12xx</p>
 </td>
  <td style="vertical-align: top;"></td>
