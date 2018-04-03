@@ -54,8 +54,34 @@ Using the official Bitcraze **Crazyflie phone app**
 Connecting via **MAVLink**
 
 - Use a Crazyradio PA alongside a compatible GCS
-- See [cfbridge](https://github.com/dennisss/cfbridge) for how to connect any UDP capable GCS to the radio. Before using the `make run` command of cfbridge, make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer. Then go to the cfbridge folder and run `make run`.
+- Clone the [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python#linux-osx-windows).
+- Copy [cfbridge.py](https://github.com/dennisss/cfbridge) into the crazyflie-lib-python [example folder](https://github.com/bitcraze/crazyflie-lib-python/tree/master/examples).
+- Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
+- Connect a Crazyradio PA via USB.
+- Build a [virtualenv (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies:
+  * `pip install virtualenv`
+  * `pip install tox`
+  * `virtualenv venv`
+  * Navigate to the crazyflie-lib-python folder.
+  * `source venv-cflib/bin/activate`
+- `pip install -r requirements.txt`
 
+Note: For systems that support [make](https://www.gnu.org/software/make/manual/html_node/Simple-Makefile.html), the above six steps can be skipped and replaced with:
+ * `pip install tox`
+ * Navigate to the crazyflie-lib-python folder.
+ * `make venv`
+
+To launch cfbridge.py everytime:
+- Switch on CF2 (which is already flashed with PX4 firmware) by pressing its ON button and wait for it to boot up.
+- Connect a Crazyradio PA via USB.
+- Navigate to the crazyflie-lib-python folder.
+- Activate the environment: `source venv-cflib/bin/activate`
+- `cd examples`
+- `python cfbridge.py`
+- Open QGC.
+- After using cfbridge, you can deactivate the virtualenv if you activated it by running `deactivate` or pressing `CTRL+z`
+
+> **Note** Set the Joystick rate parameter in QGC to any value between 5 to 15 Hz. This is the rate at which Joystick commands are sent from QGC to CF2 via crazyradio PA. (This parameter does not exist yet. For now, you can set the [sleep time](https://github.com/mavlink/qgroundcontrol/blob/master/src/Joystick/Joystick.cc#L546) between 80 to 100 ms. To do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to obtain QGC source code and build it.)
 
 
 
