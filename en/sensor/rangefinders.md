@@ -53,15 +53,18 @@ Wiring and other information for the I2C variants can be found in the topic [Lig
 > **Tip** Not all devices are supported for both serial and I2C; check the parameters for more information and supported models.
 
 
-### TeraRanger One
+### TeraRanger Rangefinders
 
 TeraRanger provide a number of lightweight distance measurement sensor based on infrared Time-of-Flight (ToF) technology. They are typically faster and have greater range than sonar, and smaller and lighter than laser-based systems. PX4 supports:
-* [TeraRanger One](http://www.teraranger.com/products/teraranger-one/) (0.2 - 14 m)
-* [TeraRanger Evo](https://www.terabee.com/portfolio-item/teraranger-evo-infrared-distance-sensor/) (0.5 – 60 m)
+* [TeraRanger One](http://www.teraranger.com/products/teraranger-one/) (0.2 - 14 m) (Requires an [I2C adapter](http://www.teraranger.com/product/teraranger-i2c-adapter/))
+* [TeraRanger Evo 60m](https://www.terabee.com/portfolio-item/teraranger-evo-infrared-distance-sensor/) (0.5 – 60 m)
+* TeraRanger Evo 600Hz (0.75 - 8 m)
 
-These rangefinders must be connected via the I2C bus (using an [I2C adapter](http://www.teraranger.com/product/teraranger-i2c-adapter/)).
+All TeraRanger sensors must be connected via the I2C bus. While TeraRanger One requires an [I2C adapter](http://www.teraranger.com/product/teraranger-i2c-adapter/) any sensor from TeraRanger Evo series can be connected directly to the autopilot. 
 
 The sensors are enabled using the parameter [SENS_EN_TRANGER](../advanced_config/parameter_reference.md#SENS_EN_TRANGER) (you can set the type of sensor or that PX4 should auto-detect the type).
+
+> **Note** In case of auto-detect for Evo sensors the min_range and max_range are set to the lowest and highest possible reading across the Evo family (currently 0.5 - 60 m). If a true values of min_range and max_range are required it is advised to select the appropriate model of the Evo sensor instead of using autodetect.
 
 > **Info** The *Terranger One* is used in the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md).
 
