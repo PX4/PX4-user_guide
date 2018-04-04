@@ -2,7 +2,7 @@
 
 <!-- this requires review and updates -->
 
-[<img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
 *Rattitude mode* allows pilots to fly using [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) flight most of the time, but still perform [Acro mode](../flight_modes/acro_mc.md)-style flips and tricks when desired.
 

@@ -71,7 +71,7 @@ th {
 
 <tr id="position_fw">
  <td><a href="../flight_modes/position_fw.md">Position</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="20px" /></a></p>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
  <td>S<sup>+</sup></td>
@@ -94,7 +94,7 @@ th {
 
 <tr id="altitude_fw">
  <td><a href="../flight_modes/altitude_fw.md">Altitude</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="20px" /></a></p>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td><p>S (roll)</p><p>S<sup>+</sup>(pitch)</p></td>
  <td>M</td>
@@ -124,7 +124,7 @@ th {
 
 <tr id="stabilized_fw">
  <td><a href="../flight_modes/stabilized_fw.md">Stabilized</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="20px" /></a></p>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
  <td>M</td>
@@ -138,7 +138,7 @@ th {
 
 <tr id="acro_fw">
  <td><a href="../flight_modes/acro_fw.md">Acro</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="20px" /></a></p>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
  <td>S<sub>rate</sub></td>
@@ -151,7 +151,7 @@ th {
 
 <tr id="manual_fw">
  <td><a href="../flight_modes/manual_fw.md">Manual</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="20px" /></a></p>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>M</td>
  <td>M</td>
@@ -223,7 +223,7 @@ th {
 
 <tr id="position_mc">
  <td><a href="../flight_modes/position_mc.md">Position</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="20px" /></a></p>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S<sup>+</sup></td>
  <td>S<sub>rate</sub></td>
@@ -248,7 +248,7 @@ th {
 
 <tr id="altitude_mc">
  <td><a href="../flight_modes/altitude_mc.md">Altitude</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="20px" /></a></p>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
  <td>S<sub>rate</sub></td>
@@ -276,7 +276,7 @@ th {
 
 <tr id="manual_stabilized_mc">
  <td><a href="../flight_modes/manual_stabilized_mc.md">Manual/ Stabilized</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="20px" /></a></p>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a></p>
  </td>
  <td>S</td>
  <td>S<sub>rate</sub></td>
@@ -301,7 +301,7 @@ th {
 
 <tr id="rattitude_mc">
  <td><a href="../flight_modes/rattitude_mc.md">Rattitude</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="20px" /></a></p>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>S or S<sub>rate</sub></td>
  <td>S<sub>rate</sub></td>
@@ -328,7 +328,7 @@ th {
 
 <tr id="acro_mc">
  <td><a href="../flight_modes/acro_mc.md">Acro</a>
- <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="20px" /></a></p>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></p>
  </td>
  <td>S<sub>rate</sub></td>
  <td>S<sub>rate</sub></td>
@@ -413,7 +413,7 @@ S<sub>rate</sub> |  Assistance from autopilot to stabilize the attitude rate. RC
 S<sup>+</sup> | Assistance from autopilot to hold position or altitude against wind. RC input is required.
 Auto | This mode is automatic (RC control is disabled by default except to change modes).
 <span id="key_position_fixed"></span><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /> | Sensor(s) that measures position/height needed e.g. optical flow, GPS+barometer, visual-inertial odometry. <p id="baro_only"><b>++</b> - <em>Altitude Mode</em> only requires altitude sensor (e.g. Baro, Rangefinder).</p>
-<span id="key_difficulty">[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="20px" />&nbsp;<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="20px" />&nbsp;<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="20px" />&nbsp;<img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="20px" />&nbsp;<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="20px" />&nbsp;<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="20px" />](#key_difficulty) | Flight mode difficulty (easy to hard).
+<span id="key_difficulty">[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" />](#key_difficulty) | Flight mode difficulty (easy/medium/hard).
 
 
 Abbreviations:

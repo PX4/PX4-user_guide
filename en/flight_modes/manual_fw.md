@@ -2,7 +2,7 @@
 
 <!-- this requires review and updates -->
 
-[<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
 *Manual mode* sends RC stick input directly to the output mixer for fully manual control.
 

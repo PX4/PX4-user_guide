@@ -48,8 +48,8 @@ Icon | Description
 --- | ---
 <span id="key_manual">[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual) | Manual mode. Remote control required.
 <span id="key_automatic">[<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic) | Automatic mode. RC control is disabled by default except to change modes.
-<span id="key_position_fixed">[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed) | Position fix required (e.g. GPS, VIO, or some other positioning system).
-<span id="key_difficulty">[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />&nbsp;<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="30px" />](#key_difficulty) | Flight mode difficulty (Easy to Hard)
+<span id="key_position_fixed">[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed) | Position fix required (e.g. GPS, VIO, or some other positioning system). <p id="baro_only"><b>++Baro only</b> - <em>Altitude Mode</em> only requires altitude sensor (e.g. Baro, Rangefinder).</p>
+<span id="key_difficulty">[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty) | Flight mode difficulty (Easy to Hard)
 
 
 
@@ -57,7 +57,7 @@ Icon | Description
 
 ### Position Mode {#position_mc}
 
-[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Position mode](../flight_modes/position_mc.md) is an easy-to-fly RC mode in which roll and pitch sticks control speed over ground in the left-right and forward-back directions (relative to the "front" of the vehicle), and throttle controls speed of ascent-descent. When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
 
@@ -68,7 +68,9 @@ Icon | Description
 
 ### Altitude Mode {#altitude_mc}
 
-[<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />++Baro only](#baro_only)
+
+
 
 [Altitude mode](../flight_modes/altitude_mc.md) is a *relatively* easy-to-fly RC mode in which roll and pitch sticks control vehicle movement in the left-right and forward-back directions (relative to the "front" of the vehicle), yaw stick controls rate of rotation over the horizontal plane, and throttle controls speed of ascent-descent.
 
@@ -81,7 +83,7 @@ When the sticks are released/centered the vehicle will level and maintain the cu
 
 ### Manual/Stabilized Mode {#manual_stabilized_mc}
 
-[<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 The [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
 
@@ -96,7 +98,7 @@ As soon as you release the control sticks they will return to the centre deadzon
 
 ### Rattitude {#rattitude_mc}
 
-[<img src="../../assets/site/difficulty_4.svg" title="Difficulty (Medium-hard)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 [Rattitude mode](../flight_modes/rattitude_mc.md) allows pilots to fly using [Manual/Stabilized](#manual_stabilized_mc) flight most of the time, but still perform [Acro mode](#acro_mc)-style flips and tricks when desired. 
 
@@ -107,7 +109,7 @@ The vehicle behaves as in *Manual/Stabilized mode* when the Roll/Pitch stick is 
 
 ### Acro Mode {#acro_mc}
 
-[<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 [Acro mode](../flight_modes/acro_mc.md) is the RC mode for performing acrobatic maneuvers e.g. rolls and loops.
 
@@ -174,7 +176,7 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 
 ### Position Mode {#position_fw}
 
-[<img src="../../assets/site/difficulty_1.svg" title="Difficulty (Easiest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Position mode](../flight_modes/position_fw.md) is an easy-to-fly RC mode in which, when the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces. 
 
@@ -187,7 +189,7 @@ The throttle determines airspeed (at 50% throttle the aircraft will hold its cur
 
 ### Altitude Mode {#altitude_fw}
 
-[<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />++Baro only](#baro_only)
 
 [Altitude mode](../flight_modes/altitude_fw.md) makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
 
@@ -202,7 +204,7 @@ When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throt
 
 ### Stabilized Mode {#stabilized_fw}
 
-[<img src="../../assets/site/difficulty_3.svg" title="Difficulty (Medium)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 [Stabilized mode](../flight_modes/stabilized_fw.md) mode puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
 
@@ -217,7 +219,7 @@ The vehicle will glide if the throttle is lowered to 0% (motor stops). In order 
 
 ### Acro Mode {#acro_fw}
 
-[<img src="../../assets/site/difficulty_5.svg" title="Difficulty (Hard)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 [Acro mode](../flight_modes/acro_fw.md) is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
@@ -228,7 +230,7 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 
 ### Manual Mode {#manual_fw}
 
-[<img src="../../assets/site/difficulty_6.svg" title="Difficulty (Hardest)" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;
 
 [Manual mode](../flight_modes/manual_fw.md) sends RC stick input directly to the output mixer for "fully" manual control.
 
