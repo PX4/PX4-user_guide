@@ -14,7 +14,13 @@ The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the
   * nRF51822 radio and power management MCU
   * MPU9250 Accel / Gyro / Mag
   * LPS25H barometer
-
+  
+## Where to buy
+* [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0)
+* [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between QGC and crazyflie 2.0.
+* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals. 
+* [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck): contains an optical flow sensor to measure movements of the ground and a distance sensor to measure the distance to the ground. This will be useful for precise altitude and position control.
+* [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): used for high speed onboard logging to a micro SD card.
 
 ## Flashing
 
