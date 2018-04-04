@@ -60,8 +60,7 @@ Using the official Bitcraze **Crazyflie phone app**
 Connecting via **MAVLink**
 
 - Use a Crazyradio PA alongside a compatible GCS
-- Clone the [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python#linux-osx-windows).
-- Copy [cfbridge.py](https://github.com/dennisss/cfbridge) into the crazyflie-lib-python [example folder](https://github.com/bitcraze/crazyflie-lib-python/tree/master/examples).
+- Clone the [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge).
 - Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
 - Connect a Crazyradio PA via USB.
 - Build a [virtualenv (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies:
