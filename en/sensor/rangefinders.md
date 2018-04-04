@@ -64,8 +64,9 @@ All TeraRanger sensors must be connected via the I2C bus. While TeraRanger One r
 
 The sensors are enabled using the parameter [SENS_EN_TRANGER](../advanced_config/parameter_reference.md#SENS_EN_TRANGER) (you can set the type of sensor or that PX4 should auto-detect the type).
 
-> **Note** In case of auto-detect for Evo sensors the min_range and max_range are set to the lowest and highest possible reading across the Evo family (currently 0.5 - 60 m). If a true values of min_range and max_range are required it is advised to select the appropriate model of the Evo sensor instead of using autodetect.
+> **Note** If using auto-detect for Evo sensors the minimum and maximum values for the range are set to the lowest and highest possible readings across the Evo family (currently 0.5 - 60 m). In order to use the correct max/min values the appropriate model of the Evo sensor should be set in the parameter (instead of using autodetect).
 
+<span></span>
 > **Info** The *Terranger One* is used in the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md).
 
 ### uLanding Radar
