@@ -61,6 +61,9 @@ Connecting via **MAVLink**
 
 - Use a Crazyradio PA alongside a compatible GCS
 - Clone the [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge).
+
+>**Note** This fork of crazyflie-lib-python contains [cfbridge.py](https://github.com/barzanisar/crazyflie-lib-python/blob/cfbridge/examples/cfbridge.py) which is taken from [here](https://github.com/dennisss/cfbridge). Cfbridge allows wireless Mavlink communication between CF2 (flashed with PX4) and QGC by enabling QGC to communicate with the crazyradio PA. The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use cfbridge.py.
+
 - Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
 - Connect a Crazyradio PA via USB.
 - Build a [virtualenv (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies:
