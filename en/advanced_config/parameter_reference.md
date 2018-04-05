@@ -9445,7 +9445,9 @@ The module where these parameters are defined is: *modules/sensors*.
 
 <li><strong>2:</strong> TROne</li> 
 
-<li><strong>3:</strong> TREvo</li> 
+<li><strong>3:</strong> TREvo60m</li> 
+
+<li><strong>4:</strong> TREvo600Hz</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> drivers/distance_sensor/teraranger</p>
