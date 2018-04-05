@@ -89,7 +89,10 @@ To launch cfbridge.py everytime:
 - Open QGC.
 - After using cfbridge, you can deactivate the virtualenv if you activated it by running `deactivate` or pressing `CTRL+z`
 
-> **Note** Set the Joystick rate parameter in QGC to any value between 5 to 15 Hz. This is the rate at which Joystick commands are sent from QGC to CF2 via crazyradio PA. (This parameter does not exist yet. For now, you can set the [sleep time](https://github.com/mavlink/qgroundcontrol/blob/master/src/Joystick/Joystick.cc#L546) between 80 to 100 ms. To do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to obtain QGC source code and build it.)
+> **Note** Set the Joystick message frequency in QGC to any value between 5 to 14 Hz (10 Hz is recommended). This is the rate at which Joystick commands are sent from QGC to CF2. (To do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to obtain the latest QGC source code (master) and build it.)
+
+
+![](../../assets/hardware/joystick-message-frequency.png)
 
 
 
