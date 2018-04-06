@@ -4608,6 +4608,19 @@ is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</str
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MPC_FLT_TSK">MPC_FLT_TSK</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Flag to test flight tasks instead of legacy functionality
+Temporary Parameter during the transition to flight tasks</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Legacy Functionality</li> 
+
+<li><strong>1:</strong> Test flight tasks</li> 
+</ul>
+   </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MPC_HOLD_DZ">MPC_HOLD_DZ</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Deadzone of sticks where position hold is enabled</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 </td>
