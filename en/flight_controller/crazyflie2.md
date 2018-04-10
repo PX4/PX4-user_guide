@@ -94,8 +94,31 @@ To launch cfbridge.py everytime:
 
 > **Note** To use Joystick, set COM_RC_IN_MODE in QGC to "Joystick/No RC Checks". Calibrate the Joystick and set the Joystick message frequency in QGC to any value between 5 to 14 Hz (10 Hz is recommended). This is the rate at which Joystick commands are sent from QGC to CF2. (To do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to obtain the latest QGC source code (master) and build it.)
 
+# Using a FrSky Taranis RC transmitter as a controller
+If you already own a Taranis RC transmitter and want to use it as a controller, it can be configured as a USB Joystick:
 
-![](../../assets/hardware/joystick-message-frequency.png)
+- Create a new model in Taranis.
+
+![](../../assets/hardware/taranis-setup-crazyflie-model.jpg)
+
+- In “MODEL SETUP” menu page, turn off both internal and external TX modules.
+
+![](../../assets/hardware/taranis-setup-crazyflie-modelSetup.jpg)
+
+- In “OUTPUTS” menu page (also called “SERVOS” page in some Taranis transmitters), invert Throttle (CH1) and Aileron (CH3)
+
+![](../../assets/hardware/taranis-setup-crazyflie-outputs.jpg)
+
+To use Taranis switches to arm/disarm and switch to different flight modes:
+
+- In Taranis UI “MIXER” menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGC Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
+
+![](../../assets/hardware/taranis-setup-crazyflie-switchSetup.jpg)
+
+- Connect Taranis to PC with a USB cable and Open QGC. 
+- In QGC Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGC Joystick setup. You can assign any mode to this button e.g. Altitude mode. Now when you lower the switch "SD", flight mode will change to Altitude.
+
+![](../../assets/hardware/joystick-setup-crazyflie.png)
 
 
 
