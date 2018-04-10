@@ -96,7 +96,7 @@ To launch cfbridge.py everytime:
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
-# Using a FrSky Taranis RC transmitter as a controller
+### Using a FrSky Taranis RC transmitter as a controller
 If you already own a Taranis RC transmitter and want to use it as a controller, it can be configured as a USB Joystick:
 
 - Create a new model in Taranis.
