@@ -19,7 +19,7 @@ To install the firmware update:
    
    ![](../../images/qgc/setup/firmware_connected_default_px4.jpg)
    
-   > **Tip** If another autopilot is pre-installed, select the **PX4 Flight Stack ...** radio button to select PX4.
+   > **Tip** If another autopilot is pre-installed, select the **PX4 Flight Stack ...** option to select PX4.
 
 1. Click the **OK** button to start the update.
 
