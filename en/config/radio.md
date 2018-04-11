@@ -8,6 +8,7 @@ Before you can calibrate the radio system the receiver and transmitter must be c
 
 > **Note** If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*, as [shown below](#spektrum_bind).
 
+
 > **Note** If you are using a *FrSky* receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
 
 ## Performing the Calibration 
