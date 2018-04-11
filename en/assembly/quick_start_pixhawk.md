@@ -121,4 +121,4 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 - [Pixhawk Quick Start Guide (3DR)](https://3dr.com/wp-content/uploads/2017/03/pixhawk-manual-rev7-1.pdf)
 - [Pixhawk Series](../flight_controller/pixhawk_series.md)
-- [3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html) (PX4 DevGuide)
+- [3DR Pixhawk](https://docs.px4.io/en/flight_controller/pixhawk.html) 
