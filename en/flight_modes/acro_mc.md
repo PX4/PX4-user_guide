@@ -16,26 +16,14 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 
 RC/manual mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
-RC RPY stick inputs control the rate of angular rotation around the respective axes. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level!)
+RC RPY stick inputs control the rate of angular rotation around the respective axes. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level!).
 
 ## Parameters
 
 Parameter | Description
 --- | ---
-&nbsp; | 
-
- 
-<!-- 
-Possibly interesting and relevant:
-
-MC_ACRO_EXPO - Acro Expo factor applied to input of all axis: roll, pitch, yaw - 0 Purely linear input curve 1 Purely cubic input curve. Default 0.69	
-
-MC_ACRO_P_MAX - Max acro pitch rate default: 2 turns per second (720.0	deg/s)
-
-MC_ACRO_R_MAX - Max acro roll rate default: 2 turns per second (720.0	deg/s)
-
-MC_ACRO_SUPEXPO - Acro SuperExpo factor applied to input of all axis: roll, pitch, yaw. Comment: 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect. Default (0.7)
-
-MC_ACRO_Y_MAX - Max acro yaw rate default 1.5 turns per second (540.0 degrees/s)
-
--->
+<span id="MC_ACRO_EXPO"></span>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_EXPO) | Acro Expo factor applied to input of all axis: roll, pitch, yaw - 0 Purely linear input curve 1 Purely cubic input curve. Default: 0.69.
+<span id="MC_ACRO_P_MAX"></span>[MC_ACRO_P_MAX](../advanced_config/parameter_reference.md#MC_ACRO_P_MAX) | Max acro pitch rate. Default: 2 turns per second (720.0 deg/s).
+<span id="MC_ACRO_R_MAX"></span>[MC_ACRO_R_MAX](../advanced_config/parameter_reference.md#MC_ACRO_R_MAX) | Max acro roll rate. Default: 2 turns per second (720.0 deg/s).
+<span id="MC_ACRO_SUPEXPO"></span>[MC_ACRO_SUPEXPO](../advanced_config/parameter_reference.md#MC_ACRO_SUPEXPO) | Acro SuperExpo factor applied to input of all axes: roll, pitch, yaw. Values: 0 Pure Expo function, 0.7 reasonable shape enhancement for intuitive stick feel, 0.95 very strong bent input curve only near maxima have effect. Default: 0.7.
+<span id="MC_ACRO_Y_MAX"></span>[MC_ACRO_Y_MAX](../advanced_config/parameter_reference.md#MC_ACRO_Y_MAX) | Max acro yaw rate. Default: 1.5 turns per second (540.0 degrees/s).

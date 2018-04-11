@@ -1,6 +1,6 @@
 # Manual Flight Mode (Fixed Wing)
 
-<!-- this requires review and updates -->
+<!-- this requires review -->
 
 [<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
@@ -21,18 +21,6 @@ This is the only mode that overrides the FMU (commands are sent via the safety c
 
 Parameter | Description
 --- | ---
-&nbsp; | 
-
-<!-- Possibly of interest:
-
-FW_MAN_P_MAX (FLOAT) - Max manual pitch - Max pitch for manual control in attitude stabilized mode. Default 45.0	deg
-
-FW_MAN_P_SC - Manual pitch scale - Scale factor applied to the desired pitch actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. Default 1.0 norm.
-
-FW_MAN_R_MAX - Max manual roll - Comment: Max roll for manual control in attitude stabilized mode. Default 45 deg.
-
-FW_MAN_R_SC - Manual roll scale - Scale factor applied to the desired roll actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. Default: 1.0	norm
-
-FW_MAN_Y_SC - Manual yaw scale - Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. 1.0	norm
-
--->
+<span id="FW_MAN_P_SC"></span>[FW_MAN_P_SC](../advanced_config/parameter_reference.md#FW_MAN_P_SC) | Manual pitch scale. Scale factor applied to the desired pitch actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. Default: 1.0 norm.
+<span id="FW_MAN_R_SC"></span>[FW_MAN_R_SC](../advanced_config/parameter_reference.md#FW_MAN_R_SC) | Manual roll scale. Scale factor applied to the desired roll actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. Default: 1.0 norm.
+<span id="FW_MAN_Y_SC"></span>[FW_MAN_Y_SC](../advanced_config/parameter_reference.md#FW_MAN_Y_SC) | Manual yaw scale. Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces. Default: 1.0 norm.

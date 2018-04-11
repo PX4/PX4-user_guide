@@ -25,10 +25,6 @@ RC mode that allows pilots to fly using [Manual/Stabilized](../flight_modes/manu
 
 Parameter | Description
 --- | ---
-&nbsp; | 
+<span id="MC_RATT_TH"></span>[MC_RATT_TH](../advanced_config/parameter_reference.md#MC_RATT_TH) | Threshold for Rattitude mode (the percentage of the stick radius at which mode switches between manual/stabilised and acro-like modes. Default 0.8.
 
-<!-- possibly of interest:
-
-MC_RATT_TH - Threshold for Rattitude mode - Comment: Manual input needed in order to override attitude control rate setpoints and instead pass manual stick inputs as rate setpoints. Default 0.8 []
-
--->
+The parameters for [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) and [Acro mode](../flight_modes/acro_mc.md) are also relevant.
