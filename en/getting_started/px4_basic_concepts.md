@@ -6,7 +6,9 @@ In this chapter we will introduce you to the most basic concepts of setting up a
 
 PX4 is platform independent autopilot software (or a software stack/firmware) that can fly or drive Unmanned Aerial or Ground Vehicles (UAV/UGV). It is loaded (flashed) on certain [vehicle control hardware](flight_controller_selection.md) and together with Ground Control Station it makes a fully autonomous autopilot system. 
 
-The PX4 ground control station is called  [QGroundControl](http://qgroundcontrol.com/) and is integral part of the PX4 Autopilot System. QGroundControl can run on Windows, OS X or Linux. Download and install QGroundControl from [here](http://qgroundcontrol.com/downloads/). With the help of  QGroundControl you can load (flash) the PX4 on to the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions. If you are already familiar with the basic concepts, you can move on to [Basic Assembly](https://docs.px4.io/en/assembly/) section that explains how to wire your specific autopilot hardware. To load firmware and set up the vehicle with QGroundControl, visit the section [Basic Configuration](https://docs.px4.io/en/config/).
+The PX4 ground control station is called  [QGroundControl](http://qgroundcontrol.com/) and is integral part of the PX4 Autopilot System. QGroundControl can run on Windows, OS X or Linux. Download and install QGroundControl from [here](http://qgroundcontrol.com/downloads/). With the help of  QGroundControl you can load (flash) the PX4 on to the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+
+If you are already familiar with the basic concepts, you can move on to [Basic Assembly](https://docs.px4.io/en/assembly/) section that explains how to wire your specific autopilot hardware. To load firmware and set up the vehicle with QGroundControl, visit the section [Basic Configuration](https://docs.px4.io/en/config/).
 
 ![QGC Main Screen](../../images/qgc_main_screen.jpg)
 
@@ -29,8 +31,8 @@ You can read in depth about heading in [Flight Controller Orientation](../config
 In order to set up, control and interact with your PX4 drone you need to connect with it. There are three main types of connection you can have to Pixhawk hardware and respectively to PX4:
 
 * [Remote Control \(RC\) Connection](../getting_started/rc_transmitter_receiver.md) - Connection between the RC handset and vehicle-based receiver that you use to manually direct the vehicle.
-* [Data/Telemetry Connection](../telemetry/README.md) - Connection between QGroundControl and your drone by Data Radio, Wifi or USB cable.
-* [Off-board Connection](../flight_modes/offboard.md) - A data connection via serial cable or wifi between PX4 and external microcomputer that can control PX4.
+* [Data/Telemetry Connection](../telemetry/README.md) - Connection between QGroundControl and your drone by Telemetry Radio, Wifi or USB cable.
+* [Off-board Connection](../flight_modes/offboard.md) - A data connection via serial cable or wifi between PX4 and external microcomputer (companion computer) that can control PX4.
 
 
 You can follow the links to see detailed explanation on each connection type.
