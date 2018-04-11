@@ -2,9 +2,9 @@
 
 This section contains *essential* configuration topics, including how to install firmware onto the flight controller hardware, selecting an airframe, and configure the core sensors that PX4 needs to be present on every vehicle (compass, GPS, gyro etc.)
 
-The configuration process consists of these major steps:
+The configuration process is executed using QGroundConrol and consists of these major steps:
 
-- Selecting the airframe in which the autopilot is installed (plane, multicopter, VTOL, etc.)
+- Selecting the airframe on which the autopilot is installed (plane, multicopter, VTOL, etc.)
 - Specifying the autopilot/sensor orientation and calibrating the vehicle's sensors.
 - Optional: Calibrating the radio control (PX4 can be flown without a radio control using *QGroundControl* on a desktop of mobile ground station).
 - Optional: Selecting which switches of the radio control should switch the system between different [flight modes](../config/flight_mode.md).
