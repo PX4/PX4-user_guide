@@ -5,7 +5,18 @@
 
 PX4 is the *Professional Autopilot*. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
 
-This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
+This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle, including:
+
+- [Getting Started](getting_started/README.md) - basic concepts for beginners needed to build and fly an unmanned vehicle using PX4.
+- [Basic Assembly](assembly/README.md) - how to mount flight controller hardware and wire/connect most important peripherals.
+- [Basic Configuration](config/README.md) - how to install PX4 firmware onto the flight controller hardware, select an airframe, configure/calibrate the core sensors that PX4 needs (e.g. compass, GPS, gyro etc.), setup the battery, setup the radio control transmitter and map flight modes to its switches.
+- [Airframe Builds](airframes/README.md) - gives examples of how to setup different flight controller hardware on common airframes/vehicles.
+- [Flying](flying/README.md) - covers flying basics and explanation of different flight modes, including manual, autopilot-assisted and fully autonomous mission modes.
+- [Advanced Features](advanced_features/README.md) - contains topics related to some of the more advanced features of the PX4 autopilot such as RTK GPS and precision landing.
+- [Advanced Configuration](advanced_config/README.md) - how to tune parameters of the vehicle that can affect its flight (e.g. PID gains) and topics about less-common sensors and peripherals.
+- [Peripheral Hardware](peripherals/README.md) - topics about external sensors and optional peripheral hardware that you can use with the autopilot.
+- [Autopilot Hardware](flight_controller/README.md) - describes different autopilot hardware that can be used to run the PX4 flight stack. 
+- [Development](development/development.md) - Developers who want to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, or contribute to PX4 will need to read the PX4 Development Guide, which contains more advanced topics.
 
 > **Note** This guide is still a work in progress! It does not yet cover all of PX4.
 
