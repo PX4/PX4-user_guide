@@ -1,6 +1,6 @@
 # AirSpeed Calibration
 
-For airspeed calibration you will need to keep your airspeed sensor out of any wind and then blow across the sensor.
+The airspeed calibration needs to read a stable baseline with 0 airspeed to determine an offset. Cup your hands over the pitot to make sure it's not reading any wind (if calibrating the sensor indoors this is not needed) and then blow into the pitot tube using your mouth to signal completion of the calibration.
 
 > **Note** Fixed Wing and VTOL vehicles usually have an airspeed sensor.
 
@@ -14,14 +14,21 @@ To calibrate the airspeed sensor:
 
    ![Airspeed calibration](../../images/qgc/setup/sensor_airspeed.jpg)
    
-1. Cover the sensor (i.e. with your hand).
+1. Cover the sensor to block any wind (i.e. cup it with your hand).
 
    > **Warning** Do not touch the sensor (obstruct any holes) during calibration.
-   
+
 1. Click **OK** to start the calibration.
-1. Blow across the sensor.
+1. Blow into the tip of the pitot tube to signal the end of calibration.
+
+   > **Tip** Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error. 
+
 1. Wait for 2-3 seconds before removing the covering (calibration completes silently after several seconds)
 
+
+## Testing
+
+After calibration a quick test is to press your finger against the tip of the pitot and hold it. You should see the system read and hold a positive airspeed until you release.
 
 ## Further Information
 
