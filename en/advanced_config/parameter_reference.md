@@ -852,6 +852,20 @@ Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_HLDL_LOSS_T">COM_HLDL_LOSS_T</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>High Latency Datalink loss time threshold</p><p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>    </td>
+ <td style="vertical-align: top;">60 > 3600 </td>
+ <td style="vertical-align: top;">120 </td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_HLDL_REG_T">COM_HLDL_REG_T</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>High Latency Datalink regain time threshold</p><p><strong>Comment:</strong> After a data link loss: after this this amount of seconds with a healthy datalink the 'datalink loss' flag is set back to false</p>    </td>
+ <td style="vertical-align: top;">0 > 60 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_HOME_H_T">COM_HOME_H_T</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Home set horizontal threshold</p><p><strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.</p>    </td>
  <td style="vertical-align: top;">2 > 15 (0.5)</td>
@@ -3052,11 +3066,26 @@ The module where these parameters are defined is: *drivers/telemetry/iridiumsbd*
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="ISBD_READINT">ISBD_READINT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Satellite radio read interval</p>    </td>
- <td style="vertical-align: top;">0 > 300 </td>
- <td style="vertical-align: top;">10 </td>
+ <td style="vertical-align: top;"><strong id="ISBD_READ_INT">ISBD_READ_INT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Satellite radio read interval. Only required to be nonzero if data is not sent using a ring call</p>    </td>
+ <td style="vertical-align: top;">0 > 5000 </td>
+ <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ISBD_SBD_TIMEOUT">ISBD_SBD_TIMEOUT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Iridium SBD session timeout</p>    </td>
+ <td style="vertical-align: top;">0 > 300 </td>
+ <td style="vertical-align: top;">60 </td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ISBD_STACK_TIME">ISBD_STACK_TIME</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Time [ms] the Iridium driver will wait for additional mavlink messages to combine them into one SBD message
+Value 0 turns the functionality off</p>    </td>
+ <td style="vertical-align: top;">0 > 500 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">ms</td>
 </tr>
 </tbody></table>
 
