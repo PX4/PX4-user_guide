@@ -1,6 +1,6 @@
 # DroPix Flight Controller
 
-The Drotek *DroPix autopilot* is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
+The Drotek<sup>&reg;</sup> *DroPix autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
 
 The DroPix system includes integrated multithreading, a Unix/Linux-like programming environment, completely new autopilot functions such as Lua scripting of missions and flight behavior, and a custom PX4 driver layer ensuring tight timing across all processes.
 
@@ -22,7 +22,7 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 * Sensors
   * ST Micro L3GD20 3-axis 16-bit gyroscope
   * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
-  * Invensense MPU 6000 3-axis accelerometer/gyroscope
+  * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
   * MEAS MS5611 barometer
 * Standard MK style mounting holes 45 mm x 45 mm (M3 holes)
 * Dimensions

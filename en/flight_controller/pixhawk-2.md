@@ -1,6 +1,6 @@
 # Pixhawk 2
 
-The [Pixhawk 2](https://pixhawk.org/modules/pixhawk2) autopilot is a flexible autopilot intended primarily for manufacturers of commercial systems.  It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+The [Pixhawk<sup>&reg;</sup> 2](https://pixhawk.org/modules/pixhawk2) autopilot is a flexible autopilot intended primarily for manufacturers of commercial systems.  It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 <img src="../../assets/flight_controller/pixhawk2_cube_hero.jpg" width="400px" />
 
@@ -8,7 +8,7 @@ The controller is designed to be used with a domain-specific carrier board in or
 
 ## Quick Summary
 
-* 32bit STM32F427 Cortex M4 core with FPU
+* 32bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
 * 168 MHz
 * 256 KB RAM
 * 2 MB Flash \(fully accessible\)
