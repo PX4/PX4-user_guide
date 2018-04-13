@@ -122,6 +122,16 @@ To use Taranis switches to arm/disarm and switch to different flight modes:
 
 ![](../../assets/hardware/hardware-crazyflie-QGCjoystick-setup.png)
 
+### ROS
+To connect to the crazyflie via mavros:
+
+- Start up cfbridge using the above instructions.
+- Change the UDP port QGC listens to:
+   - In QGC, navigate to **Application Settings > General** and uncheck all the boxes under "Autoconnect to the following devices".
+   - Add in **Comm Links** a link of type "UDP", check the "Automatically Connect on Start" option, change the "Listening Port" to 14557, add Target Hosts: 127.0.0.1 and then press ok.
+- Make sure you have [mavros](https://github.com/mavlink/mavros/tree/master/mavros#installation) installed.
+- Start mavros with a command: `roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"`
+- Restart QGC if it doesn't connect.
 
 ## Flying
 
