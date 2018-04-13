@@ -101,10 +101,17 @@ For more information about selecting a radio system, receiver compatibility, and
 
 Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission). One radio must be connected to your vehicle as shown below. The other is connected to your ground station computer or mobile device (usually by USB).
 
-![Pixhawk/Telemetry Radio](../../images/pixhawk4_telemetry_radio.png)
+![Pixhawk 4/Telemetry Radio](../../images/pixhawk4_telemetry_radio.png)
 
 <!-- what configuration is required once you've set up a radio) -->
 
+## SD Card (Optional)
+
+SD card is needed to upload missions in order to fly in mission mode and to log flight details which can be extracted after flight for analysing any issues faced during flight. Insert SD card in Pixhawk 4 as shown below.
+
+![Pixhawk 4/SD Card](../../images/pixhawk4_sd_card.png)
+
+<!-- what configuration is required once you've set up a radio) -->
 
 ## Motors
 

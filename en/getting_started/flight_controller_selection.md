@@ -16,6 +16,8 @@ Controller | Description
 [Pixracer](../flight_controller/pixracer.md) | Very small/light autopilot optimised for FPV racers. It is suited to any small frame that requires no more than 6 PWM outputs. <br>Also consider:  [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md), [MindRacer](../flight_controller/mindracer.md), [Pixfalcon](../flight_controller/pixfalcon.md).
 [Pixhawk Mini](../flight_controller/pixhawk_mini.md) | Small *general purpose* autopilot that has been optimised for ease of setup.<br>The controller has internal vibration damping and only 8 main outputs (**no AUX ports**), making it much less daunting to install and connect. It is not suitable for vehicles/functions that *require* AUX ports.
 [Pixhawk 2](../flight_controller/pixhawk-2.md) | Flexible autopilot intended primarily for manufacturers of commercial systems. It is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.
+[Pixhawk 4](../flight_controller/pixhawk4.md) | Latest update to Pixhawk series flight controllers, Pixhawk 4 is optimized to run PX4 version 1.7 and is suitable for academic and commercial developers. It features more computing power and 2X the RAM than previous versions, additional ports for better integration and expansion, new sensors and integrated vibration isolation.
+
 
 
 ## Autopilots for computationally intensive tasks
