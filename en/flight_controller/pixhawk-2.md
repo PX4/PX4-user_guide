@@ -1,6 +1,6 @@
 # Pixhawk 2 "The Cube"
 
-The [Pixhawk 2](https://pixhawk.org/modules/pixhawk2) autopilot is a flexible autopilot intended for manufacturers of commercial systems and hobbiests alike.  It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+The [Pixhawk 2](https://pixhawk.org/modules/pixhawk2) autopilot is a flexible autopilot intended for manufacturers of commercial systems and hobbyists alike. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 <img src="../../assets/flight_controller/pixhawk2_cube_hero.jpg" width="400px" />
 
