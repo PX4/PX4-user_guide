@@ -1,12 +1,71 @@
 # Thermal Calibration and Compensation
 
-## Overview
+PX4 contains functionality to calibrate and compensate rate gyro, accelerometer and barometric pressure sensors for the effect of changing sensor temperature on sensor bias.
 
-PX4 contains functionality to calibrate and compensate rate gyro, accelerometer and barometric pressure sensors for the effect of changing sensor temperature on sensor bias. 
+This topic details the [calibration procedures](#procedures) (including best practises). At the end there is a description of the [implementation](#implementation). 
+
+
+## Calibration Procedures {#procedures}
+
+PX4 supports two calibration procedures: 
+* [onboard](#onboard_calibration) - calibration is run on the board itself. This method requires knowledge of the amount of temperature rise that is achievable with the test setup.
+* [offboard](#offboard_calibration) - compensation parameters are calculated on a development computer based on log information collected during the calibration procedure. This method allows users to visually check the quality of the data and curve-fit.
+
+The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate. 
+
+
+### Best Practices
+
+
+TBD
+
+
+### Onboard Calibration Procedure {#onboard_calibration}
+
+Onboard calibration is run entirely on the device. It require knowledge of the amount of temperature rise that is achievable with the test setup. 
+
+To perform and onboard calibration:
+
+1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
+2. Power the board and set the `SYS_CAL_*` parameters to 1 to enable calibration of the required sensors at the next startup. [^1]
+3. Set the [SYS_CAL_TDEL](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) parameter to the number of degrees of temperature rise required for the onboard calibrator to complete. If this parameter is too small, then the calibration will complete early and the temperature range for the calibration will not be sufficient to compensate when the board is fully warmed up. If this parameter is set too large, then the onboard calibrator will never complete. allowance should be made for the rise in temperature due to the boards self heating when setting this parameter. If the amount of temperature rise at the sensors is unknown, then the off-board method should be used.
+4. Set the [SYS_CAL_TMIN](../advanced_config/parameter_reference.md#SYS_CAL_TMIN) parameter to the lowest temperature data that you want the calibrator to use. This enables a lower cold soak ambient temperature to be used to reduce the cold soak time whilst maintaining control over the calibration minimum temperature. The data for a sensor will not be used by the calibrator if it is below the value set by this parameter.
+5. Set the [SYS_CAL_TMAX](../advanced_config/parameter_reference.md#SYS_CAL_TMAX) parameter to the highest starting sensor temperature that should be accepted by the calibrator. If the starting temperature is higher than the value set by this parameter, the calibration will exit with an error. Note that if the variation in measured temperature between different sensors exceeds the gap between `SYS_CAL_TMAX` and `SYS_CAL_TMIN`, then it will be impossible for the calibration to start.
+6. Remove power and cold soak the board to below the starting temperature specified by the `SYS_CAL_TMIN` parameter. Note that there is a 10 second delay on startup before calibration starts to allow any sensors to stabilise and the sensors will warm internally during this period.
+7. Keeping the board stationary[^2], apply power and warm to a temperature high enough to achieve the temperature rise specified by the `SYS_CAL_TDEL` parameter. The completion percentage is printed to the system console during calibration. [^3]
+8. When the calibration completes, remove power, allow the board to cool to a temperature that is within the calibration range before performing the next step.
+9. Perform a 6-point accel calibration via the system console using `commander calibrate accel` or via *QGroundControl*. If the board is being set-up for the first time, the gyro and magnetometer calibration will also need to be performed.
+8. The board should always be re-powered before flying after any sensor calibration, because sudden offset changes from calibration can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup. 
+
+### Offboard Calibration Procedure {#offboard_calibration}
+
+Offboard calibration is run on a development computer using data collected during the calibration test. This method provides a way to visually check the quality of data and curve fit.
+
+To perform an offboard calibration:
+
+1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
+2. Power up the board and set the `TC_A_ENABLE`, `TC_B_ENABLE` and `TC_G_ENABLE` parameters to 1.
+3. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_EN) parameters to defaults.
+4. Set the [SYS_LOGGER](../advanced_config/parameter_reference.md#SYS_LOGGER) parameter to 1 to use the new system logger.
+5. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot and set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter to 4 to log the raw sensor data required for calibration.
+6. Cold soak the board to the minimum temperature it will be required to operate in.
+7. Apply power and keeping the board still [^2], warm it slowly to the maximum required operating temperature. [^3]
+8. Remove power and extract the .ulog file.
+9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script script file: 
+   ```sh
+   python process_sensor_caldata.py <full path name to .ulog file>
+   ```
+   This will generate a **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
+10. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
+11. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
+12. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
+
+
+## Implementation Detail {#implementation}
 
 Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
 
-The inertial rate gyro and accelerometer sensor offsets are calculated using a 3rd order polynomial, whereas the barometric pressure sensor offset is calculated using a 5th order polynomial. Examples fits are show below:
+The inertial rate gyro and accelerometer sensor offsets are calculated using a 3rd order polynomial, whereas the barometric pressure sensor offset is calculated using a 5th order polynomial. Example fits are show below:
 
 ![Thermal calibration gyro](../../assets/calibration/thermal_calibration_gyro.png)
 
@@ -74,42 +133,6 @@ If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` para
 
 Scale factors are assumed to be temperature invariant due to the difficulty associated with measuring these at different temperatures. This limits the usefulness of the accelerometer calibration to those sensor models with stable scale factors. In theory with a thermal chamber or IMU heater capable of controlling IMU internal temperature to within a degree, it would be possible to perform a series of 6 sided accelerometer calibrations and correct the accelerometers for both offset and scale factor. Due to the complexity of integrating the required board movement with the calibration algorithm, this capability has not been included.
 
-
-## Onboard Calibration Procedure
-
-This method is simpler and faster than the off-board method, but does require knowledge off the amount of temperature rise that is achievable with the test setup. It does not provide a method to visually check the quality of the data and curve-fit.
-
-1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-2. Power the board and set the `SYS_CAL_*` parameters to 1 to enable calibration of the required sensors at the next startup. [^1]
-3. Set the [SYS_CAL_TDEL](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) parameter to the number of degrees of temperature rise required for the onboard calibrator to complete. If this parameter is too small, then the calibration will complete early and the temperature range for the calibration will not be sufficient to compensate when the board is fully warmed up. If this parameter is set too large, then the onboard calibrator will never complete. allowance should be made for the rise in temperature due to the boards self heating when setting this parameter. If the amount of temperature rise at the sensors is unknown, then the off-board method should be used.
-4. Set the [SYS_CAL_TMIN](../advanced_config/parameter_reference.md#SYS_CAL_TMIN) parameter to the lowest temperature data that you want the calibrator to use. This enables a lower cold soak ambient temperature to be used to reduce the cold soak time whilst maintaining control over the calibration minimum temperature. The data for a sensor will not be used by the calibrator if it is below the value set by this parameter.
-5. Set the [SYS_CAL_TMAX](../advanced_config/parameter_reference.md#SYS_CAL_TMAX) parameter to the highest starting sensor temperature that should be accepted by the calibrator. If the starting temperature is higher than the value set by this parameter, the calibration will exit with an error. Note that if the variation in measured temperature between different sensors exceeds the gap between `SYS_CAL_TMAX` and `SYS_CAL_TMIN`, then it will be impossible for the calibration to start.
-6. Remove power and cold soak the board to below the starting temperature specified by the `SYS_CAL_TMIN` parameter. Note that there is a 10 second delay on startup before calibration starts to allow any sensors to stabilise and the sensors will warm internally during this period.
-7. Keeping the board stationary[^2], apply power and warm to a temperature high enough to achieve the temperature rise specified by the `SYS_CAL_TDEL` parameter. The completion percentage is printed to the system console during calibration. [^3]
-8. When the calibration completes, remove power, allow the board to cool to a temperature that is within the calibration range before performing the next step.
-9. Perform a 6-point accel calibration via the system console using `commander calibrate accel` or via *QGroundControl*. If the board is being set-up for the first time, the gyro and magnetometer calibration will also need to be performed.
-8. The board should always be re-powered before flying after any sensor calibration, because sudden offset changes from calibration can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup. 
-
-## Offboard Calibration Procedure
-
-This method provides a way to visually check the quality of data and curve fit but is a more complex procedure requiring more human intervention.
-
-1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-2. Power up the board and set the `TC_A_ENABLE`, `TC_B_ENABLE` and `TC_G_ENABLE` parameters to 1.
-3. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_EN) parameters to defaults.
-4. Set the [SYS_LOGGER](../advanced_config/parameter_reference.md#SYS_LOGGER) parameter to 1 to use the new system logger.
-5. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot and set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter to 4 to log the raw sensor data required for calibration.
-6. Cold soak the board to the minimum temperature it will be required to operate in.
-7. Apply power and keeping the board still [^2], warm it slowly to the maximum required operating temperature. [^3]
-8. Remove power and extract the .ulog file.
-9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script script file: 
-   ```sh
-   python process_sensor_caldata.py <full path name to .ulog file>
-   ```
-   This will generate a **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
-10. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
-11. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
-12. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
 
 ---
 [^1]: The [SYS_CAL_ACCEL](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL), [SYS_CAL_BARO](../advanced_config/parameter_reference.md#SYS_CAL_BARO) and [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) parameters are reset to 0 when the calibration is started.
