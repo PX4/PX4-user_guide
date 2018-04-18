@@ -21,7 +21,7 @@ RC/manual mode like Stabilized mode but with altitude stabilization (centered st
 * Centered sticks (inside deadband):
   * Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.
   * RPY sticks gives level flight.
-  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected (without airspeed sensor, the user cannot control throttle).
+  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)), increasing or decreasing throttle as needed to climb or descend).
 
 * Outside center:
   * Pitch stick controls altitude.
