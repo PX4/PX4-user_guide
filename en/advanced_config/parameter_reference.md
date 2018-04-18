@@ -11275,7 +11275,7 @@ to accelerate forward if necessary</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_FW_ALT_ERR">VT_FW_ALT_ERR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Adaptive QuadChute</p><p><strong>Comment:</strong> Maximum negative altitude error, when in fixed wing the altitude drops below this copared to the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL</p>    </td>
+ <td style="vertical-align: top;"><p>Adaptive QuadChute</p><p><strong>Comment:</strong> Maximum negative altitude error for fixed wing flight. If the altitude drops below this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.</p>    </td>
  <td style="vertical-align: top;">0.0 > 200.0 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
