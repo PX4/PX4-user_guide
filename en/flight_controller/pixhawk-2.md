@@ -1,10 +1,14 @@
-# Pixhawk 2
+# Pixhawk 2 "The Cube"
+
 
 The [Pixhawk<sup>&reg;</sup> 2](https://pixhawk.org/modules/pixhawk2) autopilot is a flexible autopilot intended primarily for manufacturers of commercial systems.  It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+
 
 <img src="../../assets/flight_controller/pixhawk2_cube_hero.jpg" width="400px" />
 
 The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly. For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs form the frame of the vehicle.
+
+The Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / Backup.
 
 ## Quick Summary
 
@@ -30,7 +34,4 @@ The board is documented in detailed on the [Pixhawk project](https://pixhawk.org
 The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf).
 
 ## Issues
-
-### The UAVCAN port labelled CAN1 does not work
-
 At time of writing (October 2017) the CAN1 and CAN2 silk screen on the Pixhawk 2.1 is flipped (CAN1 is CAN2 and vice versa). 

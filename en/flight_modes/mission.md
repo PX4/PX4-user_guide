@@ -15,6 +15,8 @@
 
 Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)) and uploaded prior to launch. They may also be created by a developer API, and/or uploaded in flight. Individual mission commands are handled in a way that is appropriate for each vehicle's flight characteristics (for example loiter is implemented as *hover* for copter and *circle* for fixed-wing). VTOL vehicles follow the behavior and parameters of fixed-wing when in FW mode, and of copter when in MC mode.
 
+> **Note** Missions are uploaded on SD card which need to be mounted/inserted **before** booting up the autopilot. 
+
 At high level all vehicle types behave in the same way when MISSION mode is engaged:
 
 1. If a mission is stored and PX4 is flying it will execute the [mission/flight plan](../flying/missions.md) from the current step.

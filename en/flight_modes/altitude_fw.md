@@ -1,6 +1,6 @@
 # Altitude Flight Mode (Fixed Wing)
 
-[<img src="../../assets/site/difficulty_2.svg" title="Difficulty (Easy)" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />++Baro only](../getting_started/flight_modes.md#baro_only)
 
 The *Altitude* flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
 
@@ -21,7 +21,7 @@ RC/manual mode like Stabilized mode but with altitude stabilization (centered st
 * Centered sticks (inside deadband):
   * Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.
   * RPY sticks gives level flight.
-  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected (without airspeed sensor, the user cannot control throttle).
+  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)), increasing or decreasing throttle as needed to climb or descend).
 
 * Outside center:
   * Pitch stick controls altitude.
