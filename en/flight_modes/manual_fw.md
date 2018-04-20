@@ -1,4 +1,4 @@
-# Manual Flight Mode (Fixed Wing)
+# Manual Mode (Fixed Wing)
 
 <!-- this requires review -->
 
