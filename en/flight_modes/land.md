@@ -1,4 +1,4 @@
-# Land Flight Mode
+# Land Mode
 
 The *Land* flight mode causes the vehicle to land at the position where the mode was engaged.
 
