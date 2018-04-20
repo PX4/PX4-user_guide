@@ -1,14 +1,73 @@
 # FrSky Telemetry
 
-FrSky telemetry allows you to access vehicle telemetry and error information on a compatible RC transmitter.
+FrSky telemetry allows you to access vehicle [telemetry/status](#messages) information on a compatible RC transmitter.
 
 This information includes: flight mode, battery level, RC signal strength, speed, altitude etc. Some transmitters can additionally provide audible and vibration feedback, which is particularly useful for low battery and other failsafe warnings.
 
-Pixhawk/PX4 supports D (old) and S (new) FrSky telemetry. FMUv4 based boards ([Pixracer](../flight_controller/pixracer.md)) include the required electronics for the interface, older boards (Pixhawk) need a UART to S.PORT adapter board.
+The autopilot and FrSky receiver are connected for telemetry through a dedicated port (separate from the connections for RC channels). Pixhawk/PX4 supports S (new) and D (old) FrSky telemetry ports. With the exception of [Pixracer](../flight_controller/pixracer.md), Pixhawk-series UART ports and Receiver telemetry ports are incompatible, and must (usually) be connected via an adapter. Usually it is cheaper and easier to use a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver.
+
+![](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
+
+
+## Telemetry Messages {#messages}
+
+FrySky Telemetry can transmit most of the more useful status information from PX4. S-Port and D-Port receivers transmit different sets of messages, as listed the following sections.
+
+### S-Port
+
+S-Port receivers transmit the following messages (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
+
+- **AccX, AccY, AccZ:** Accelerometer values.
+- **Alt:** Barometer based altitude, relative to home location.
+- **ASpd:** True air speed (from pitot sensor).
+- **A4:** Average cell value. 
+  > **Warning** Unlike FLVSS and MLVSS sensors, you do not get actual lowest value of a cell, but an average: `(total lipo voltage) / (number of cells)`
+- **Curr:** Actual current consumption (Amps).
+- **Fuel:** Remaining battery percentage if `battery_capacity` variable set and variable `smartport_fuel_percent = ON`, mAh drawn otherwise.
+- **GAlt:** GPS altitude, sea level is zero.
+- **GPS:** GPS coordinates.
+- **GSpd:** Current horizontal ground speed, calculated by GPS.
+- **Hdg:** Heading (degrees - North is 0°).
+- **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
+- **VSpd:** Vertical speed (cm/s).
+- **Tmp1:** Flight mode, sent as 5 digits. 
+
+  Number is sent as ABCDE detailed below. The numbers are additive (for example: if digit C is 6, it means both position hold and altitude hold are active).
+   
+  - **A:** 1 = Flaperon mode, 2 = Auto tune mode, 4 = Failsafe mode.
+  - **B:** 1 = Return to home, 2 = waypoint mode, 4 = Headfree mode.
+  - **C:** 1 = Heading hold, 2 = Altitude hold, 4 = Position hold.
+  - **D:** 1 = Angle mode, 2 = Horizon mode, 4 = Passthrough mode.
+  - **E:** 1 = OK to arm, 2 = arming is prevented, 4 = armed.
+- **Tmp2:** GPS lock status, accuracy, home reset trigger, and number of satellites. Number is sent as ABCD detailed below. Typical minimum GPS 3D lock value is 3906 (GPS locked and home fixed, HDOP highest accuracy, 6 satellites).
+  - **A:** 1 = GPS fix, 2 = GPS home fix, 4 = home reset (numbers are additive).
+  - **B:** GPS accuracy based on HDOP (0 = lowest to 9 = highest accuracy).
+  - **C:** Number of satellites locked (digit C & D are the number of locked satellites).
+  - **D:** Number of satellites locked (if 14 satellites are locked, C = 1 & D = 4).
+- **0420:** Distance to GPS home fix (metres).
+
+### D-port
+
+D-Port receivers transmit the following messages (from [here](http://shipow.github.io/cleanflight-web/docs/telemetry.html)):
+
+- **AccX, AccY, AccZ:** Accelerometer values.
+- **Alt:** Barometer based altitude, init level is zero.
+- **Cels:** Average cell voltage value (battery voltage divided by cell number).
+- **Curr:** Actual current consumption (Amps).
+- **Fuel:** Remaining battery percentage if capacity is set, mAh drawn otherwise.
+- **Date:** Time since powered.
+- **GAlt:** GPS altitude, sea level is zero.
+- **GPS:** GPS coordinates.
+- **GSpd:** Current speed, calculated by GPS.
+- **Hdg:** Heading (degrees - North is 0°).
+- **RPM:** Throttle value if armed, otherwise battery capacity. Note that blade number needs to be set to 12 in Taranis.
+- **Tmp1:** Baro temp if available, gyro otherwise.
+- **Tmp2:** Number of sats. Every second, a number > 100 is sent to represent GPS signal quality.
+- **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
+- **Vspd:** Vertical speed (cm/s).
+
 
 ## Flight Controller Hardware
-
-
 
 ### Pixracer
 
@@ -32,10 +91,10 @@ The S-port connection is shown below (using the provided I/O Connector).
 
 Connect the Pixracer FrSky TX line (FS out) to the receiver's RX line. Connect the Pixracer FrSky RX line (FS in) to the receivers TX line. GND need not be connected as this will have been done when attaching to RC/SBus (for normal RC). 
 
-<!-- ![Radio Connection](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg) -->
+<!-- Image would be nice -->
 
 
-### Pixhawk v2
+### Pixhawk v2 {#pixhawk_v2}
 
 #### Configuration
 
@@ -49,11 +108,14 @@ You will need to connect via a UART to S.PORT adapter board, or using a [ready-m
 
 <!-- ideally add diagram here -->
 
+
 ### Pixhawk Pro
 
 [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) can be connected to TELEM4 (no additional software configuration is needed).
 
 You will need to connect via a UART to S.PORT adapter board, or using a [ready-made cable](#ready_made_cable).
+
+> **Tip** You can also connect to the TELEM2 port, and configure the software exactly as for [Pixhawk v2](#pixhawk_v2).
 
 
 ## RC Transmitter Setup
@@ -87,7 +149,7 @@ local SayFlightMode = 0  -- there are no WAV files for the PX4 flight modes
 
 Pixhawk/PX4 supports D (old) and S (new) FrSky telemetry. The table belows all FrSky receivers that support telemetry via a D/S.PORT (in theory all of these should work). 
 
-> **Tip** Note that only the more common D and X series receivers listed below have actually been tested/validated for use with PX4. The X-series receivers are recommended!
+> **Tip** Note that the X series receivers listed below are recommended (e.g. XSR, X8R). The R and G series have not been tested/validated by the test team, but should work.
 
 
 Receiver | Range | Combined output | Digital telemetry input | Dimensions | Weight
@@ -108,7 +170,7 @@ R9 | 10km | S.Bus (16) | Smart Port | 43.3x26.8x13.9mm | 15.8g
 R9 slim | 10km | S.Bus (16) | Smart Port | 43.3x26.8x13.9mm | 15.8g
 
 
-> **Note** The above table originates from http://www.redsilico.com/frsky-receiver-chart and the FrSky product documentation.
+> **Note** The above table originates from http://www.redsilico.com/frsky-receiver-chart and FrSky [product documentation](https://www.frsky-rc.com/product-category/receivers/).
 
 
 ## Ready-Made Cables {#ready_made_cable}
@@ -116,11 +178,15 @@ R9 slim | 10km | S.Bus (16) | Smart Port | 43.3x26.8x13.9mm | 15.8g
 Ready-made cables (which include the required adapters) are available from:
 * [Craft and Theory](http://www.craftandtheoryllc.com/telemetry-cable). Versions are available with DF-13 compatible *PicoBlade connectors* (for FMUv2/3DR Pixhawk, FMUv2/HKPilot32) and *JST-GH connectors* (for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1).
 
-   <a href="http://www.craftandtheoryllc.com/telemetry-cable"><img src="http://www.craftandtheoryllc.com/wp-content/uploads/2017/09/Telemetry-cable.jpg" width="50%" alt="Purchase cable here from Craft and Theory"></a>
-   
+   <a href="http://www.craftandtheoryllc.com/telemetry-cable"><img src="../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg" alt="Purchase cable here from Craft and Theory"></a>
+
+## DIY cables
+
+It is possible to create your own cables, connecting as described in the hardware section. 
+
 UART to S.PORT adapters can be sourced from:
 * SPC: [getfpv.com](http://www.getfpv.com/frsky-smart-port-converter-cable.html), [unmannedtechshop.co.uk](https://www.unmannedtechshop.co.uk/frsky-smart-port-converter-spc/) 
-* FUL-1: [unmannedtech.co.uk](https://www.unmannedtechshop.co.uk/frsky-transmitter-receiver-upgrade-adapter-ful-1/)
+* [FrSky FUL-1](https://www.frsky-rc.com/product/ful-1/): [unmannedtech.co.uk](https://www.unmannedtechshop.co.uk/frsky-transmitter-receiver-upgrade-adapter-ful-1/)
 
 
 ## Additional Information
