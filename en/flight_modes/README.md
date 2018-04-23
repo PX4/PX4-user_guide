@@ -82,10 +82,10 @@ th {
        <li>Centered RC RPY sticks – level flight that follows a straight line ground track in the current direction against any wind.</li>
        <li>Outside center:
       <ul>
-       <li>Pitch stick same as in <a href="#altitude_fw">Altitude</a>.</li>
-        <li>Roll stick same as in <a href="#stabilized_fw">Stabilized</a>.</li>
-       <li>Throttle same as in <a href="#altitude_fw">Altitude</a>.</li> 
-       <li>Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
+        <li>Pitch stick controls altitude (same as <a href="#altitude_fw">Altitude</a>).</li>
+        <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a> (same as <a href="#stabilized_fw">Stabilized</a>).</li>
+        <li>Throttle sets airspeed (same as <a href="#altitude_fw">Altitude</a>).</li> 
+        <li>Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
      </ul></li>
    </ul>
   </p>
@@ -113,7 +113,7 @@ th {
       <ul>
        <li>Pitch stick controls altitude.</li>
        <li>Throttle sets airspeed.</li> 
-       <li>Roll stick same as in <a href="#stabilized_fw">Stabilized</a>.</li>
+       <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>. This is same as in <a href="#stabilized_fw">Stabilized mode</a>.</li>
     </ul>
   </li>
   </ul>
@@ -134,9 +134,9 @@ th {
   <p>RC mode where centered RP sticks levels vehicle attitude (roll and pitch). The vehicle course and altitude are not maintained, and can drift due to wind.</p>
 <ul>
    <li>Pitch stick controls pitch angle.</li>
-   <li>Roll stick controls roll angle. Autopilot will maintain coordinated flight.</li>
+   <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>.</li>
    <li>Throttle stick controls throttle.</li>
-   <li>Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain coordinated flight.)</li>
+   <li>Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>).</li>
 </ul>
  </td>
 </tr>
