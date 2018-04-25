@@ -907,9 +907,23 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>    </td>
  <td style="vertical-align: top;"><strong id="COM_POS_FS_DELAY">COM_POS_FS_DELAY</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Loss of position failsafe activation delay</p><p><strong>Comment:</strong> This sets number of seconds that the position checks need to be failed before the failsafe will activate. The default value has been optimised for rotary wing applications. For fixed wing applications, a larger value between 5 and 10 should be used.</p>   <p><b>Reboot required:</b> true</p>
  </td>
- <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 > 100 </td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;">sec</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_POS_FS_EPH">COM_POS_FS_EPH</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Horizontal position error threshold</p><p><strong>Comment:</strong> This is the horizontal position error (EPV) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">5 </td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_POS_FS_EPV">COM_POS_FS_EPV</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Vertical position error threshold</p><p><strong>Comment:</strong> This is the vertical position error (EPV) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">10 </td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POS_FS_GAIN">COM_POS_FS_GAIN</strong> (INT32)</td>
@@ -923,7 +937,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>    </td>
  <td style="vertical-align: top;"><strong id="COM_POS_FS_PROB">COM_POS_FS_PROB</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Loss of position probation delay at takeoff</p><p><strong>Comment:</strong> The probation delay is the number of seconds that the EKF innovation checks need to pass for the position to be declared good after it has been declared bad. The probation delay will be reset to this parameter value when takeoff is detected. After takeoff, if position checks are passing, the probation delay will reduce by one second for every lapsed second of valid position down to a minimum of 1 second. If position checks are failing, the probation delay will increase by COM_POS_FS_GAIN seconds for every lapsed second up to a maximum of 100 seconds. The default value has been optimised for rotary wing applications. For fixed wing applications, a value of 1 should be used.</p>   <p><b>Reboot required:</b> true</p>
  </td>
- <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 > 100 </td>
  <td style="vertical-align: top;">30 </td>
  <td style="vertical-align: top;">sec</td>
 </tr>
@@ -968,6 +982,13 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>    </td>
  <td style="vertical-align: top;">5 > 40 (0.05)</td>
  <td style="vertical-align: top;">12.0 </td>
  <td style="vertical-align: top;">%</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_VEL_FS_EVH">COM_VEL_FS_EVH</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Horizontal velocity error threshold</p><p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 </tbody></table>
 
@@ -1612,6 +1633,13 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
  <td style="vertical-align: top;">0.5 > 50.0 </td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="EKF2_NOAID_TOUT">EKF2_NOAID_TOUT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Maximum lapsed time from last fusion of measurements that constrain velocity drift before the EKF will report the horizontal nav solution as invalid</p>    </td>
+ <td style="vertical-align: top;">500000 > 10000000 </td>
+ <td style="vertical-align: top;">5000000 </td>
+ <td style="vertical-align: top;">uSec</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_DELAY">EKF2_OF_DELAY</strong> (FLOAT)</td>
