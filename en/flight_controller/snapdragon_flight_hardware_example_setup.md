@@ -20,7 +20,7 @@ We suggest using the Snapdragon Flight with the Lumenier QAV-R 250 frame and our
 * GPS module: [mRo GPS + Compass module](https://store.mrobotics.io/mRo-GPS-u-Blox-Neo-M8N-HMC5983-Compass-p/gps002-mr.htm)
 * Optional:[Trone range finder](http://www.teraranger.com/product/teraranger-one-distance-sensor-for-drones-and-robotics)
 * Along with Trone: [I2C Adapter](http://www.teraranger.com/product/adapters-for-oneduo/)
-* TODO: insert links to 3D printed parts
+* 3D Parts: [Legs, Mounting brackets](https://drive.google.com/drive/u/0/folders/1MOunJae4ZLu6-bZ_-JvcPQUc9Aa5fe1U)
 
 ![](../../assets/hardware/snapdragon/snapdragon_components.jpg)
 
