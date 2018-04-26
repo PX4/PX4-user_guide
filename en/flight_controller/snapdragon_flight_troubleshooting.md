@@ -1,4 +1,5 @@
-# Snapdragon Advanced
+# Troubleshooting Snapdragon
+This page is a collection of legacy pieces of documentation which might come in handy when debugging on the Snapdragon platform.
 
 ## Connect to Snapdragon
 
@@ -34,89 +35,9 @@ To get a shell, do:
 adb shell
 ```
 
-## Upgrade Snapdragon
-
-For this step the files from the [Intrinsyc support](https://support.intrinsyc.com/projects/snapdragon-flight/files) website are required. The latest release that has been tested is `3.1.3.1`. It can be obtained after registering using the board's serial number.
-
-### Upgrading/replacing the Linux image
-
-> **Caution** Flashing the Linux image will erase everything on the Snapdragon. Back up your work before you perform this step! Also, check the [Prevent bricking](#Prevent-bricking) section!
-
-Get the latest Flight_x.x_JFlash.zip from Intrinsyc and unzip it. In the unzipped folder is a script that has to be used to update the Linux image. Power your Snapdragon Flight, connect it using a micro USB cable and run
-```sh
-sudo ./jflash.sh
-```
-
-#### Prevent bricking
-
-To prevent the system from hanging on boot because of anything wrong with the ADSP firmware, do the following changes before updating:
-
-Edit the file directly on the Snapdragon over `screen` or `adb shell`:
-```sh
-vim /usr/local/qr-linux/q6-admin.sh
-```
-
-Or load the file locally and edit it there with the editor of your choice:
-
-To do this, load the file locally:
-```sh
-adb pull /usr/local/qr-linux/q6-admin.sh
-```
-
-Edit it:
-
-```sh
-gedit q6-admin.sh
-```
-
-And push it back:
-
-```sh
-adb push q6-admin.sh /usr/local/qr-linux/q6-admin.sh
-adb shell chmod +x /usr/local/qr-linux/q6-admin.sh
-```
-
-Comment out the while loops causing boot to hang:
-
-```
-# Wait for adsp.mdt to show up
-#while [ ! -s /lib/firmware/adsp.mdt ]; do
-#  sleep 0.1
-#done
-```
-
-and:
-
-```
-# Don't leave until ADSP is up
-#while [ "`cat /sys/kernel/debug/msm_subsys/adsp`" != "2" ]; do
-#  sleep 0.1
-#done
-```
-
-### Updating the ADSP firmware
-
-Part of the PX4 stack is running on the ADSP (the DSP side of the Snapdragon 8074). The underlying operating system QURT needs to be updated separately.
-
-First of all, if you're not already on BSP 3.1.3.1, [upgrade the Linux image](#upgradingreplacing-the-linux-image)!
-
-#### Push the latest ADSP firmware files
-
-Download the latest Qualcomm flight controller hexagon SDK add on from Intrinsyc and unzip it. In the unzipped folder is a script that has to be used to update the ADSP image. Power your Snapdragon Flight, connect it using a micro USB cable and run
-```sh
-./installfcaddon.sh
-```
-
-Then do a graceful reboot, so that the firmware gets applied:
-
-```
-adb reboot
-```
-
 
 ## Serial ports
 
-### Use serial ports
 
 Not all POSIX calls are currently supported on QURT. Therefore, some custom ioctl are needed.
 
@@ -163,6 +84,84 @@ Then configure station mode:
 /usr/local/qr-linux/wificonfig.sh -s station
 reboot
 ```
+
+## Using the cameras on the Snapdragon Flight
+
+The Snapdragon Flight board has a downward facing gray-scale camera which can be used for optical flow based position stabilization and a forward facing RGB camera. The [snap_cam](https://github.com/PX4/snap_cam) repo offers a way to run and stream the different cameras and calculate the optical flow.
+
+Besides a camera, optical flow requires a downward facing distance sensor. Here, the use of the TeraRanger One is discussed.
+
+### Optical Flow
+The optical flow is computed on the application processor and sent to PX4 through Mavlink.
+Clone and compile the [snap_cam](https://github.com/PX4/snap_cam) repo according to the instructions in its readme.
+
+Run the optical flow application (90 frames per second and auto exposure) as root:
+```
+./optical_flow -f 90 -a
+```
+
+The optical flow application requires IMU Mavlink messages from PX4. You may have to add an additional Mavlink instance to PX4 by adding the following to your `mainapp.config`:
+```
+mavlink start -u 14557 -r 1000000 -t 127.0.0.1 -o 14558
+mavlink stream -u 14557 -s HIGHRES_IMU -r 250
+```
+
+### TeraRanger One setup
+To connect the TeraRanger One (TROne) to the Snapdragon Flight, the TROne I2C adapter must be used. The TROne must be flashed with the I2C firmware by the vendor.
+
+The TROne is connected to the Snapdragon Flight through a custom DF13 4-to-6 pin cable. We recommend using connector J15 (next to USB), as all others are already in use (RC, ESCs, GPS). The wiring is as follows:
+
+| 4 pin | <-> | 6 pin |
+| -- | -- | -- |
+| 1 |  | 1 |
+| 2 |  | 6 |
+| 3 |  | 4 |
+| 4 |  | 5 |
+
+The TROne must be powered with 10 - 20V.
+
+### Camera streaming in QGroundControl
+
+To watch the live stream of either camera `qcamvid` can be used. Run the following command on the Snapdragon Flight to stream the hires camera for 10 minutes without recording with a 720p resolution.
+```
+qcamvid -c hires -r 720p -s -t 600
+```
+Use `qcamvid -h` to have a look at all the options.
+
+To watch the live stream in QGroundControl, it has to be built with gstreamer (see [here](https://github.com/mavlink/qgroundcontrol/tree/master/src/VideoStreaming)).
+
+Once installed and conneted to the Snapdragon Flight's network, the following changes have to be made in QGroundControl.
+
+![](../../assets/videostreaming/QGC_snapdragon_streaming_settings.png)
+
+## Accessing I/O Data
+Low level bus data can be accessed from code running on the aDSP, using a POSIX-like API called DSPAL.  The header files for this API are maintained
+on [github](https://github.com/ATLFlight/dspal) and are commented with Doxygen formatted documentation in each header file.  A description of the API's supported
+and links to the applicable header files is provided below. 
+
+### API Overview
+* [Serial:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_serial.h)
+* [I2C:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_i2c.h)
+* [SPI:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_spi.h) 
+* [GPIO:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_gpio.h)
+* Timers: [qurt_timer.h](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools)
+* Power Control: [HAP_power.h](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools)
+
+### Sample Source Code
+The unit test code to verify each DSPAL function also represent good examples for how to call the functions.  
+This code is also on [github](https://github.com/ATLFlight/dspal/tree/master/test/dspal_tester)
+
+### Setting the Serial Data Rate
+The serial API does not conform to the termios convention for setting data rate through the tcsetattr() function.  IOCTL codes are used instead and are
+described in the header file linked above.
+
+### Timers
+Additional functions for more advanced aDSP operations are available with the prefix qurt_.  Timer functions, for example, are available with the qurt_timer prefix
+and are documented in the qurt_timer.h header file included with the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools).
+
+### Setting the Power Level
+Using the HAP functions provided by the Hexagon SDK, it is possible to set the power level of the aDSP.  This will often lead to reduced I/O latencies.
+More information on these API's is available in the HAP_power.h header file available in the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools).
 
 
 ## Troubleshooting
