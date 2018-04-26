@@ -41,23 +41,25 @@ The following boards have dedicated zero-configuration FrSky ports:
 * [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) TELEM4 port: No additional software configuration is needed when connecting to this port.
 * [Pixracer](../flight_controller/pixracer.md) FrSky port: No additional software configuration is needed (once connected FrSky telemetry auto-starts and detects D or S mode). 
 
-> **Tip** You can still use TELEM2 on the above boards (by setting the `SYS_COMPANION` parameter). If you wish to use any other port you will need to modify the firmware.
+> **Tip** You can still use the `TELEM2` port on the above boards (by setting the `SYS_COMPANION` parameter). If you wish to use any other port you will need to start the [frsky_telemetry](https://dev.px4.io/en/middleware/modules_communication.html#frskytelemetry) module, specifying the required port (either modify the firmware or [customise startup using an SD Card](https://dev.px4.io/en/advanced/system_startup.html#starting-additional-applications).
 
 
 ## Compatible RC Transmitters {#transmitters}
 
-You will need an RC transmitter that can receive the telemetry stream. Popular alternatives include:
+You will need an RC transmitter that can receive the telemetry stream (and that is bound to the FrSky receiver). 
+
+Popular alternatives include:
 * FrSky Taranis X9D Plus (recommended)
 * FrSky Taranis X9D
 * FrSky Taranis X9E
 * FrSky Taranis Q X7
 * Turnigy 9XR Pro
 
-The transmitter must be bound to your receiver and be running customised scripts to display the telemetry (see following sections).
+The above transmitters can display telemetry data without any further configuration. The following section(s) explain how you can customise telemetry display (for example, to create a better UI/UX).
 
 ### Taranis - LuaPilot Setup
 
-Compatible Taranis receivers (e.g. X9D Plus) running OpenTX 2.1.6 or newer can use the LuaPilot script to display received telemetry, as shown in the screenshot below.
+Compatible Taranis receivers (e.g. X9D Plus) running OpenTX 2.1.6 or newer can use the LuaPilot script to modify the displayed telemetry (as shown in the screenshot below).
 
 ![Telemetry Screen on the Taranis](../../images/taranis_telemetry.jpg)
 
@@ -70,17 +72,14 @@ If you open the `LuaPil.lua` script with a text editor, you can edit the configu
 
 ## Telemetry Messages {#messages}
 
-FrySky Telemetry can transmit most of the more useful status information from PX4. S-Port and D-Port receivers transmit different sets of messages, as listed the following sections.
+FrySky Telemetry can transmit most of the more useful status information from PX4. S-Port and D-Port receivers transmit different sets of messages, as listed in the following sections.
 
 ### S-Port {#s_port}
 
-S-Port receivers transmit the following messages (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
+S-Port receivers transmit the following messages from PX4 (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
 
 - **AccX, AccY, AccZ:** Accelerometer values.
 - **Alt:** Barometer based altitude, relative to home location.
-- **ASpd:** True air speed (from pitot sensor).
-- **A4:** Average cell value. 
-  > **Warning** Unlike FLVSS and MLVSS sensors, you do not get actual lowest value of a cell, but an average: `(total lipo voltage) / (number of cells)`
 - **Curr:** Actual current consumption (Amps).
 - **Fuel:** Remaining battery percentage if `battery_capacity` variable set and variable `smartport_fuel_percent = ON`, mAh drawn otherwise.
 - **GAlt:** GPS altitude, sea level is zero.
@@ -89,21 +88,19 @@ S-Port receivers transmit the following messages (from [here](https://github.com
 - **Hdg:** Heading (degrees - North is 0°).
 - **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
 - **VSpd:** Vertical speed (cm/s).
-- **Tmp1:** Flight mode, sent as 5 digits. 
-
-  Number is sent as ABCDE detailed below. The numbers are additive (for example: if digit C is 6, it means both position hold and altitude hold are active).
-   
-  - **A:** 1 = Flaperon mode, 2 = Auto tune mode, 4 = Failsafe mode.
-  - **B:** 1 = Return to home, 2 = waypoint mode, 4 = Headfree mode.
-  - **C:** 1 = Heading hold, 2 = Altitude hold, 4 = Position hold.
-  - **D:** 1 = Angle mode, 2 = Horizon mode, 4 = Passthrough mode.
-  - **E:** 1 = OK to arm, 2 = arming is prevented, 4 = armed.
-- **Tmp2:** GPS lock status, accuracy, home reset trigger, and number of satellites. Number is sent as ABCD detailed below. Typical minimum GPS 3D lock value is 3906 (GPS locked and home fixed, HDOP highest accuracy, 6 satellites).
-  - **A:** 1 = GPS fix, 2 = GPS home fix, 4 = home reset (numbers are additive).
-  - **B:** GPS accuracy based on HDOP (0 = lowest to 9 = highest accuracy).
-  - **C:** Number of satellites locked (digit C & D are the number of locked satellites).
-  - **D:** Number of satellites locked (if 14 satellites are locked, C = 1 & D = 4).
+- **Tmp1:** [Flight mode](../getting_started/flight_modes.md), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 21 - Rattitude, 25 - Takeoff, 29 - Land, 30 - Follow Me.
+- **Tmp2:** GPS information. Right-most digit is GPS fix type (0 = none, 2 = 2D, 3 = 3D). Other digits are number of satellites.
 - **0420:** Distance to GPS home fix (metres).
+
+> **Note** The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A4**. 
+
+<!-- FYI: 
+Values of FRSKY_ID_TEMP1 and FRSKY_ID_TEMP1 set: 
+- https://github.com/PX4/Firmware/blob/master/src/drivers/telemetry/frsky_telemetry/frsky_telemetry.cpp#L85  (get_telemetry_flight_mode)
+- https://github.com/PX4/Firmware/blob/master/src/drivers/telemetry/frsky_telemetry/frsky_data.cpp#L234-L237 
+Lua map of flight modes:
+- https://github.com/ilihack/LuaPilot_Taranis_Telemetry/blob/master/SCRIPTS/TELEMETRY/LuaPil.lua#L790
+-->
 
 ### D-port
 
@@ -120,8 +117,8 @@ D-Port receivers transmit the following messages (from [here](http://shipow.gith
 - **GSpd:** Current speed, calculated by GPS.
 - **Hdg:** Heading (degrees - North is 0°).
 - **RPM:** Throttle value if armed, otherwise battery capacity. Note that blade number needs to be set to 12 in Taranis.
-- **Tmp1:** Baro temp if available, gyro otherwise.
-- **Tmp2:** Number of sats. Every second, a number > 100 is sent to represent GPS signal quality.
+- **Tmp1:** Flight mode (as for S-Port).
+- **Tmp2:** GPS information (as for S-Port).
 - **VFAS:** Actual battery voltage value (Voltage FrSky Ampere Sensor).
 - **Vspd:** Vertical speed (cm/s).
 
