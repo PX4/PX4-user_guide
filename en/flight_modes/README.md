@@ -99,7 +99,7 @@ th {
  <td><p>S (roll)</p><p>S<sup>+</sup>(pitch)</p></td>
  <td>M</td>
  <td>S<sup>+</sup></td>
- <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a><sup><a href="#baro_only">++</a></sup></td>
+ <td><a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a></td>
  <td>
  <p>RC mode like <a href="#stabilized_fw">Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
   <ul>
@@ -253,7 +253,7 @@ th {
  <td>S</td>
  <td>S<sub>rate</sub></td>
  <td>S<sup>+</sup></td>
- <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a><sup><a href="#baro_only">++</a></sup></td>
+ <td><a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a></td>
  <td><p>RC mode like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks level vehicle and hold it to fixed altitude). The horizontal position of the vehicle can move due to wind (or pre-existing momentum).
   <ul>
     <li>Centered sticks (inside deadband):
@@ -412,7 +412,8 @@ S | Assistance from autopilot to stabilize the attitude. RC input is required. P
 S<sub>rate</sub> |  Assistance from autopilot to stabilize the attitude rate. RC input is required. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
 S<sup>+</sup> | Assistance from autopilot to hold position or altitude against wind. RC input is required.
 Auto | This mode is automatic (RC control is disabled by default except to change modes).
-<span id="key_position_fixed"></span><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /> | Sensor(s) that measures position/height needed e.g. optical flow, GPS+barometer, visual-inertial odometry. <p id="baro_only"><b>++</b> - <em>Altitude Mode</em> only requires altitude sensor (e.g. Baro, Rangefinder).</p>
+<span id="key_position_fixed"></span><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /> | Sensor(s) that measures position/height needed e.g. optical flow, GPS+barometer, visual-inertial odometry.
+<span id="altitude_only"></span><img src="../../assets/site/altitude_icon.svg" title="Altitude fix required (e.g. barometer, rangefinder)" width="20px" /> | Sensor(s) that measures height/altitude needed e.g. barometer, rangefinder.
 <span id="key_difficulty">[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" />](#key_difficulty) | Flight mode difficulty (easy/medium/hard).
 
 
