@@ -43,7 +43,7 @@ A remote control (RC) radio system is used to *manually* control the vehicle. It
 
 > **Note** PX4 does not require a remote control system for autonomous flight modes.
 
-![Taranis X9D Transmitter](../../images/frsky_taranis_x9d_transmitter.jpg)
+![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
 [RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
 * [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in *QGroundControl*.

@@ -101,11 +101,11 @@ If you already own a Taranis RC transmitter and want to use it as a controller, 
 
 - Create a new model in Taranis.
 
-![](../../assets/hardware/hardware-crazyflie-taranis-model.jpg)
+![](../../assets/hardware/transmitters/hardware-crazyflie-taranis-model.jpg)
 
 - In “MODEL SETUP” menu page, turn off both internal and external TX modules.
 
-![](../../assets/hardware/hardware-crazyflie-taranis-modelSetup.jpg)
+![](../../assets/hardware/transmitters/hardware-crazyflie-taranis-modelSetup.jpg)
 
 - In “OUTPUTS” menu page (also called “SERVOS” page in some Taranis transmitters), invert Throttle (CH1) and Aileron (CH3).
 
@@ -115,12 +115,12 @@ To use Taranis switches to arm/disarm and switch to different flight modes:
 
 - In Taranis UI “MIXER” menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGC Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
 
-![](../../assets/hardware/hardware-crazyflie-taranis-switchSetup.jpg)
+![Taranis switch setup](../../assets/hardware/transmitters/hardware-crazyflie-taranis-switchSetup.jpg)
 
 - Connect Taranis to PC with a USB cable and Open QGC. 
 - In QGC Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGC Joystick setup. You can assign any mode to this button e.g. Altitude mode. Now when you lower the switch "SD", flight mode will change to Altitude.
 
-![](../../assets/hardware/hardware-crazyflie-QGCjoystick-setup.png)
+![Joystick setup](../../assets/hardware/hardware-crazyflie-QGCjoystick-setup.png)
 
 ### ROS
 To connect to the crazyflie via mavros:
