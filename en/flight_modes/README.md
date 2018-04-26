@@ -82,9 +82,10 @@ th {
        <li>Centered RC RPY sticks – level flight that follows a straight line ground track in the current direction against any wind.</li>
        <li>Outside center:
       <ul>
-       <li>Pitch is used to ascend/descend (controls altitude).</li>
-       <li>Throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed).</li> 
-       <li>Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
+        <li>Pitch stick controls altitude (same as <a href="#altitude_fw">Altitude</a>).</li>
+        <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a> (same as <a href="#stabilized_fw">Stabilized</a>).</li>
+        <li>Throttle sets airspeed (same as <a href="#altitude_fw">Altitude</a>).</li> 
+        <li>Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
      </ul></li>
    </ul>
   </p>
@@ -105,15 +106,14 @@ th {
   <ul>
     <li>Centered sticks (inside deadband):
       <ul>
-       <li>Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.</li> 
-       <li>RPY sticks gives level flight.</li> 
+       <li>Autopilot maintains altitude with wings also level.</li> 
        <li>Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected (without airspeed sensor, the user cannot control throttle).</li>
     </ul>
     <li>Outside center:
       <ul>
        <li>Pitch stick controls altitude.</li>
        <li>Throttle sets airspeed.</li> 
-       <li>If roll/pitch sticks are non-zero the vehicle does a coordinated turn (manual yaw input is added to rudder control input to control sideslip).</li>
+       <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>. This is same as in <a href="#stabilized_fw">Stabilized mode</a>.</li>
     </ul>
   </li>
   </ul>
@@ -131,8 +131,13 @@ th {
  <td>M</td>
  <td></td>
  <td>
-  <p>RC mode where centered RP sticks level vehicle (centered sticks put vehicle into straight and level flight). The vehicle course and altitude are not maintained, and can drift due to wind.</p>
-  <p>If roll/pitch sticks are non-zero the vehicle does a coordinated turn (manual yaw input is added to rudder control input to control sideslip).</p>
+  <p>RC mode where centered RP sticks levels vehicle attitude (roll and pitch). The vehicle course and altitude are not maintained, and can drift due to wind.</p>
+<ul>
+   <li>Pitch stick controls pitch angle.</li>
+   <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>.</li>
+   <li>Throttle stick controls throttle.</li>
+   <li>Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>).</li>
+</ul>
  </td>
 </tr>
 
