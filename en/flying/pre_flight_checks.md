@@ -1,10 +1,12 @@
-# Preflight Sensor and EKF Checks
+# Preflight Sensor/Estimator Checks
 
-PX4 performs a number of preflight sensor quality and EKF checks to determine if there is a good enough position estimate to arm/fly. These checks are controlled by the [COM\_ARM\_](../advanced_config/parameter_reference.md#commander) parameters.
+PX4 performs a number of preflight sensor quality and estimator checks to determine if there is a good enough position estimate to arm and fly the vehicle (these checks are controlled by the [COM\_ARM\_](../advanced_config/parameter_reference.md#commander) parameters). Any preflight errors are reported in *QGroundControl* as `PREFLIGHT FAIL` messages. 
+
+The sections below list the errors, their likely causes and solutions, and any parameters that affect how the preflight checks are run. 
 
 ## EKF Preflight Checks/Errors
 
-The following errors (with associated checks and parameters) are reported by the EKF (and propagate to *QGroundControl*):
+The following errors (with associated checks and parameters) are reported by the [EKF](https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html) (and propagate to *QGroundControl*):
 
 `PREFLIGHT FAIL: EKF HGT ERROR`:
 * This error is produced when the IMU and height measurement data are inconsistent.

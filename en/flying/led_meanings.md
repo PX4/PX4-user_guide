@@ -4,8 +4,13 @@
 
 ![LED meanings](../../images/led_meanings.gif)
 
-> **Note** **GPS Lock is required to takeoff: ** 
-  The LED will only turn green (ready to execute guided mission) if PX4 is able to validate the global position. If the LED does not change from blue to green, verify that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
+> **Note** **A valid global position estimate is required to takeoff:** 
+  The LED will only turn green (ready to execute guided mission) if PX4 is able to validate the global position. If the LED does not change from blue to green, verify that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.  
+
+<span></span>
+> **Tip** In the event of an error (blinking red), or if the vehicle can't achieve GPS lock, check for more detailed status information in *QGroundControl*.
+> Useful information includes both calibration status, and any error messages from the [Preflight Checks (Internal)](../flying/pre_flight_checks.md) messages.
+
 
 * **[Solid Blue] Armed, No GPS Lock:** Indicates vehicle has been armed and has no position lock from a GPS unit.
 When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone.
