@@ -14,14 +14,30 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 
 RC/manual mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
-RC RPY stick inputs control the rate of angular rotation around the respective axes. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level!).
+RC RPY stick inputs control the rate of angular rotation around the respective axes. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (not necessarily level).
+
+## Stick Input Mapping
+
+The default roll, pitch, yaw input stick mapping for Acro mode is shown below. The curve enables a high turn rate at maximum stick input for performing acrobatic maneuvers, and a zone of lower sensitivity close to the stick center for small corrections. 
+
+![Acro mode - default input curve](../../images/flight_modes/acro_mc_input_curve_expo_superexpo_default.png)
+
+This input stick response can be tuned using the [MC_ACRO_EXPO](#MC_ACRO_EXPO) and [MC_ACRO_SUPEXPO](#MC_ACRO_SUPEXPO) "exponential" parameters.
+`MC_ACRO_EXPO` can be used to tune the curve between a linear and cubic curve as shown below. 
+The `MC_ACRO_SUPEXPO` allows the shape to be further tuned, modifying the width of the area of reduced sensitivity.
+
+![Acro mode - expo - pure linear input curve](../../images/flight_modes/acro_mc_input_curve_expo_linear.png) ![Acro mode - expo - pure cubic input curve](../../images/flight_modes/acro_mc_input_curve_expo_cubic.png)
+
+> **Note** The mathematical relationship is: $$\mathrm{y} = r(x^3 + x(1-f)) (1-g)/(1-g |x|)$$, where `f = MC_ACRO_EXPO`, `g = MC_ACRO_SUPEXPO` and `r` is the maximum rate.
+You can experiment with the relationships [here](https://www.desmos.com/calculator/yty5kgurmc). 
+
 
 ## Parameters
 
 Parameter | Description
 --- | ---
-<span id="MC_ACRO_EXPO"></span>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_EXPO) | Acro Expo factor applied to input of all axis: roll, pitch, yaw - 0 Purely linear input curve 1 Purely cubic input curve. Default: 0.69.
+<span id="MC_ACRO_EXPO"></span>[MC_ACRO_EXPO](../advanced_config/parameter_reference.md#MC_ACRO_EXPO) | Acro mode "exponential" factor for tuning input curve shape (applied to input of all axis: roll, pitch, yaw) - 0 Purely linear input curve 1 Purely cubic input curve. Default: 0.69.
+<span id="MC_ACRO_SUPEXPO"></span>[MC_ACRO_SUPEXPO](../advanced_config/parameter_reference.md#MC_ACRO_SUPEXPO) | Acro mode "superexpo" factor for refining input curve shape tuned using `MC_ACRO_EXPO` (applied to input of all axes: roll, pitch, yaw). Values: 0 Pure Expo function, 0.7 reasonable shape enhancement for intuitive stick feel, 0.95 very strong bent input curve only near maxima have effect. Default: 0.7.
 <span id="MC_ACRO_P_MAX"></span>[MC_ACRO_P_MAX](../advanced_config/parameter_reference.md#MC_ACRO_P_MAX) | Max acro pitch rate. Default: 2 turns per second (720.0 deg/s).
 <span id="MC_ACRO_R_MAX"></span>[MC_ACRO_R_MAX](../advanced_config/parameter_reference.md#MC_ACRO_R_MAX) | Max acro roll rate. Default: 2 turns per second (720.0 deg/s).
-<span id="MC_ACRO_SUPEXPO"></span>[MC_ACRO_SUPEXPO](../advanced_config/parameter_reference.md#MC_ACRO_SUPEXPO) | Acro SuperExpo factor applied to input of all axes: roll, pitch, yaw. Values: 0 Pure Expo function, 0.7 reasonable shape enhancement for intuitive stick feel, 0.95 very strong bent input curve only near maxima have effect. Default: 0.7.
 <span id="MC_ACRO_Y_MAX"></span>[MC_ACRO_Y_MAX](../advanced_config/parameter_reference.md#MC_ACRO_Y_MAX) | Max acro yaw rate. Default: 1.5 turns per second (540.0 degrees/s).
