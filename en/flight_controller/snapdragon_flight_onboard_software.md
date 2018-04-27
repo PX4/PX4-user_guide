@@ -7,7 +7,7 @@ To get the platform running with the complete VIO system running, multiple piece
 | MAVROS	| 0.19.0				|[399a04e](https://github.com/nicovanduijn/mavros/commit/399a04ef5739bd93fe1c596b63d6bdbfba7d84ef)|
 | MAVLink	| release/kinetic/mavlink/2017.5.5-0 	|[2ec76d2](https://github.com/mavlink/mavlink-gbp-release/commit/2ec76d25c6b7e6fac1f6b0d08765d07aa0f4f69d)|
 | PX4		| 1.7.3 + additions			|[087f0f8](https://github.com/ChristophTobler/Firmware/commit/087f0f8bf014a6b073c12408f35cb9fb2e588af9)|
-| Snap VIO	| mv-1.0.2/mavros-integration		|[4221f9a](https://github.com/nicovanduijn/snap-vislam-ros/commit/4221f9a09c28acb176e60d65ba0d0b6f10a84f4d)|
+| Snap VIO	| mv-1.0.2/mavros-integration		|[eecc3c2](https://github.com/nicovanduijn/snap-vislam-ros/commit/eecc3c24cb2dc4451df1e97f699fffdaac04f266)|
 | Snapdragon-Linux| 3.1.3.1				|[here](https://support.intrinsyc.com/projects/snapdragon-flight/files)|
 | DSP Firmware	| 3.1.3.1				|[here](https://support.intrinsyc.com/projects/snapdragon-flight/files)|
 | Qualcomm MV	| 1.0.2					|[here](https://developer.qualcomm.com/sdflight-tools)|
@@ -74,7 +74,7 @@ git checkout pr-raw_imu_snappy
 git submodule update --init --recursive
 export FC_ADDON=<location-of-extracted-flight-controller-addon>
 make clean
-make egale_default
+make eagle_default
 make eagle_default upload
 adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 ```
@@ -95,30 +95,32 @@ network={
 ```
 
 
-Finally, set the system to station mode: (all inside adb shell)
+Finally, set the system to station mode. Also, editing the station network interface config file will keep your ssh terminal from lagging: (all inside adb shell)
 ```
 /usr/local/qr-linux/wificonfig.sh -s station
+echo 'wireless-power off' |sudo tee -a /etc/network/interfaces.d/.qca6234.cfg.station
 sudo reboot
 ```
 
-Now, to install ros, start by setting your locale, sources.list and keys (in adb shell)
+Now, to install ros, start by setting your locale, sources.list and keys (in adb or ssh shell)
 ```
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+sudo  locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales
 sudo update-locale LANG=C LANGUAGE=C LC_ALL=C LC_MESSAGES=POSIX
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu trusty main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 sudo apt-get update
-sudo apt-get install -f
+sudo apt-get install ros-indigo-ros-base #(yields error)
 sudo apt-get -f -o Dpkg::Options::="--force-overwrite" install
-sudo apt-get install ros-indigo-ros-base
 ```
 
 Edit your `~/.bashrc` to source the ros environment:
 ```
-vim /home/linaro/.bashrc
-```
-Append at the end:
-```
-source /opt/ros/indigo/setup.bash
+sudo chown -R linaro /home/linaro
+echo "source /opt/ros/indigo/setup.bash" >> /home/linaro/.bashrc
+source .bashrc
 ```
 
 ## Install some Extra Packages:
@@ -139,10 +141,9 @@ Now, set up your workspace:
 ```
 source .bashrc
 mkdir -p /home/linaro/ros_ws/src
-sudo chown -R linaro /home/linaro/ros_ws
-cd /home/linaro/ros_ws/src
+cd ros_ws/src
 catkin_init_workspace
-cd /home/linaro/ros_ws
+cd ..
 ```
 
 
@@ -153,12 +154,7 @@ In order not to run out of memory during compilation of mavros, you need to crea
 sudo fallocate -l 1G /mnt/1GB.swap
 sudo mkswap /mnt/1GB.swap
 sudo swapon /mnt/1GB.swap
-sudo vim /etc/fstab
-```
-
-Append to it: 
-```
-/mnt/1GB.swap  none  swap  sw 0  0
+echo '/mnt/1GB.swap  none  swap  sw 0  0' |sudo tee -a /etc/fstab
 ```
 
 ## Install MAVROS & MAVLink
@@ -168,7 +164,6 @@ sudo apt-get install python-rosinstall
 sudo apt-get update
 sudo apt-get install python-rosinstall-generator
 sudo apt-get install python-catkin-tools
-cd ros_ws
 rosinstall_generator --rosdistro kinetic mavlink | tee /tmp/mavros.rosinstall
 rosinstall_generator --rosdistro kinetic --upstream mavros | tee -a /tmp/mavros.rosinstall
 wstool init src
@@ -180,13 +175,12 @@ cd src/mavros
 git checkout 0.19.0
 cd ../mavlink
 git checkout release/kinetic/mavlink/2017.5.5-0
-cd ..
+cd ../..
 catkin build
+echo 'source /home/linaro/ros_ws/devel/setup.sh' >> /home/linaro/.bashrc
+source ../bashrc
 ```
-"catkin build" is necessary as it creates the `/home/linaro/ros_ws/devel` directory. This is where the generated libraries and the executables will be generated. It also generates a new bash setup script which includes the appropriate environment variables for using the "ros_ws" workspace. It is recommended to add this script to the `/home/linaro/.bashrc` so that the paths are setup correctly:
-```
-source /home/linaro/ros_ws/devel/setup.sh
-```
+"catkin build" is necessary as it creates the `/home/linaro/ros_ws/devel` directory. This is where the generated libraries and the executables will be generated. It also generates a new bash setup script which includes the appropriate environment variables for using the "ros_ws" workspace.
 
 ## Install snap VIO
 First, download (to your PC) version 1.0.2 Snapdragon Machine Vision SDK from [here](https://developer.qualcomm.com/sdflight-tools). The package name will be mv<version>.deb. Push the deb package to the snapdragon and install it.
@@ -195,6 +189,7 @@ adb push mv<version>.deb /home/linaro
 adb shell sync
 adb shell
 dpkg -i /home/linaro/mv<version>.deb
+mkdir /opt/qcom-licenses
 ```
 
 The Machine Vision SDK will need a license file to run. Obtain a research and development license file from [here](https://developer.qualcomm.com/sdflight-key-req). The license file needs to be placed in the following folder on target: `/opt/qcom-licenses/`
