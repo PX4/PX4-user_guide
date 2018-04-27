@@ -1,4 +1,4 @@
-# Snapdragon Offboard Software Installation
+# Snapdragon Development Environment Installation
 In order to get your snapdragon into the air, a few things need to be installed on your local PC.
 
 ## Set up development environment
