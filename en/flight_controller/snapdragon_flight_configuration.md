@@ -1,31 +1,32 @@
 # Configure Snapdragon
 ## Autostart PX4 and Snap VIO
-In order to boot both the ROS node and PX4 automatically on bootup, create a file called `start.sh` in your home directory (on the snapdragon:)
-```
-vim /home/linaro/start.sh
-```
+In order to boot both the ROS node and PX4 automatically on bootup, edit the `/etc/rc.local` file on the snapdragon to look like this: (note that the first line changed too!)
 
-With the following contents:
 ```
-#!/bin/bash
+#!/bin/bash -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Generate the SSH keys if non-existent
+test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
 cd /home/linaro
 source /opt/ros/indigo/setup.bash
 source /home/linaro/ros_ws/devel/setup.bash
 sleep 5
-roslaunch snapdragon_mavros_vislam mavros_vislam.launch
-```
-	
-Now, add execution to that file and edit `/etc/rc.local`:
-```
-chmod +x start.sh
-sudo vim /etc/rc.local
-```
-
-And append to the file, just before “exit 0”
-```
-/home/linaro/start.sh&
+roslaunch snapdragon_mavros_vislam mavros_vislam.launch &
 sleep 10
-(cd /home/linaro && ./px4 ros_ws/src/snap-vislam-ros/px4_configs/ekf2/mainapp.conf > mainapp_vislam.log)
+(cd /home/linaro && ./px4 ros_ws/src/snap-vislam-ros/px4_configs/ekf2/mainapp.co
+nf > mainapp_vislam.log)
+exit 0
 ```
 
 ## Put Snapdragon back into Access Point Mode
