@@ -4318,8 +4318,14 @@ The module where these parameters are defined is: *modules/mc_att_control*.
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Acro Expo factor
-applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0 Purely linear input curve 1 Purely cubic input curve</p>    </td>
+ <td style="vertical-align: top;"><p>Acro mode Expo factor for Roll and Pitch</p><p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>    </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0.69 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MC_ACRO_EXPO_Y">MC_ACRO_EXPO_Y</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Acro mode Expo factor for Yaw</p><p><strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve</p>    </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.69 </td>
  <td style="vertical-align: top;"></td>
@@ -4328,7 +4334,7 @@ applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0
  <td style="vertical-align: top;"><strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max acro pitch rate
 default: 2 turns per second</p>    </td>
- <td style="vertical-align: top;">0.0 > 1000.0 (5)</td>
+ <td style="vertical-align: top;">0.0 > 1800.0 (5)</td>
  <td style="vertical-align: top;">720.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
@@ -4336,14 +4342,20 @@ default: 2 turns per second</p>    </td>
  <td style="vertical-align: top;"><strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max acro roll rate
 default: 2 turns per second</p>    </td>
- <td style="vertical-align: top;">0.0 > 1000.0 (5)</td>
+ <td style="vertical-align: top;">0.0 > 1800.0 (5)</td>
  <td style="vertical-align: top;">720.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Acro SuperExpo factor
-applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>    </td>
+ <td style="vertical-align: top;"><p>Acro mode SuperExpo factor for Roll and Pitch</p><p><strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>    </td>
+ <td style="vertical-align: top;">0 > 0.95 </td>
+ <td style="vertical-align: top;">0.7 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Acro mode SuperExpo factor for Yaw</p><p><strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect</p>    </td>
  <td style="vertical-align: top;">0 > 0.95 </td>
  <td style="vertical-align: top;">0.7 </td>
  <td style="vertical-align: top;"></td>
@@ -4352,7 +4364,7 @@ applied to input of all axis: roll, pitch, yaw</p><p><strong>Comment:</strong> 0
  <td style="vertical-align: top;"><strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max acro yaw rate
 default 1.5 turns per second</p>    </td>
- <td style="vertical-align: top;">0.0 > 1000.0 (5)</td>
+ <td style="vertical-align: top;">0.0 > 1800.0 (5)</td>
  <td style="vertical-align: top;">540.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
@@ -4740,14 +4752,14 @@ towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MANTHR_MAX">MPC_MANTHR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum manual thrust</p><p><strong>Comment:</strong> Limit max allowed thrust. Setting a value of one can put the system into actuator saturation as no spread between the motors is possible any more. A value of 0.8 - 0.9 is recommended.</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum manual thrust</p><p><strong>Comment:</strong> Limit max allowed thrust for Manual mode.</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.9 </td>
+ <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MANTHR_MIN">MPC_MANTHR_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum manual thrust</p><p><strong>Comment:</strong> Minimum vertical thrust. It's recommended to set it > 0 to avoid free fall with zero thrust.</p>    </td>
+ <td style="vertical-align: top;"><p>Minimum manual thrust</p><p><strong>Comment:</strong> Minimum vertical thrust. It's recommended to set it > 0 to avoid free fall with zero thrust. With MC_AIRMODE set to 1, this can safely be set to 0.</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.08 </td>
  <td style="vertical-align: top;">norm</td>
@@ -4775,9 +4787,9 @@ towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_MAX">MPC_THR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum thrust in auto thrust control</p><p><strong>Comment:</strong> Limit max allowed thrust. Setting a value of one can put the system into actuator saturation as no spread between the motors is possible any more. A value of 0.8 - 0.9 is recommended.</p>    </td>
- <td style="vertical-align: top;">0.0 > 0.95 (0.01)</td>
- <td style="vertical-align: top;">0.9 </td>
+ <td style="vertical-align: top;"><p>Maximum thrust in auto thrust control</p><p><strong>Comment:</strong> Limit max allowed thrust</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
