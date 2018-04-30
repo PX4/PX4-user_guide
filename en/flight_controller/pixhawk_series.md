@@ -1,6 +1,6 @@
 # Pixhawk Series
 
-[Pixhawk](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, *autopilot 
+[Pixhawk<sup>&reg;</sup>](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, *autopilot 
 hardware designs* to the academic, hobby and industrial communities. "Pixhawk-series" boards run PX4 on the [NuttX](http://nuttx.org) OS. 
 
 Manufacturers have created many different boards based on the open designs, with form factors that are optimised for applications from cargo carrying though to first person view (FPV) racers.
@@ -38,7 +38,7 @@ The [Pixhawk project](https://pixhawk.org/) creates open hardware designs in the
 
 Manufacturers are encouraged to take the [open designs](https://github.com/PX4/Hardware#hardware) and create products that are best suited to a particular market or use case (the physical layout/form factor not part of the open specification). Boards based on the same design are binary compatible.
 
-> **Note** While a physical connector standard is not mandated, newer products generally follow the [Dronecode Autopilot Connector Standard](https://wiki.dronecode.org/workgroup/connectors/start).
+> **Note** While a physical connector standard is not mandated, newer products generally follow the [Dronecode<sup>&reg;</sup> Autopilot Connector Standard](https://wiki.dronecode.org/workgroup/connectors/start).
 
 The project also creates reference autopilot boards based on the open designs, and shares them under the same [licence](#licensing-and-trademarks).
 

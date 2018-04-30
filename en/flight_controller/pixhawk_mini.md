@@ -1,7 +1,7 @@
 # Pixhawk Mini
 
-The 3DR *Pixhawk Mini* autopilot is a next-generation evolution of the
-Pixhawk (designed by 3DR in collaboration with HobbyKing). It is about
+The 3DR<sup>&reg;</sup> *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the
+Pixhawk (designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>). It is about
 1/3rd the size of the original Pixhawk and has more powerful processors
 and sensors.
 
@@ -10,7 +10,7 @@ optimized for the PX4 flight stack.
 
 ![Pixhawk Mini](../../images/pixhawk_mini_hero.jpg)
 
-The flight controller (autopilot) can be purchased from the [3DR
+The flight controller (autopilot) can be purchased from the [3DR<sup>&reg;</sup>
 Store](https://store.3dr.com/products/3dr-pixhawk). Wiring information is available in the [Quick Start](../assembly/quick_start_pixhawk_mini.md).
 
 ## Specifications
@@ -53,7 +53,7 @@ Store](https://store.3dr.com/products/3dr-pixhawk). Wiring information is availa
 
 **GPS module (supplied with kit):**
 
-- **GNSS receiver:** ublox Neo-M8N; compass HMC5983
+- **GNSS receiver:** ublox<sup>&reg;</sup> Neo-M8N; compass HMC5983
 - **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
 
@@ -67,7 +67,7 @@ Key features of the Pixhawk Mini are:
 
 - Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
 - 8 PWM/servo outputs
-- Multiple connectivity options for additional peripherals (UART,  I^2^C, CAN)
+- Multiple connectivity options for additional peripherals (UART,  I2C, CAN)
 - Redundant power supply inputs and automatic failover
 - Integrated safety switch and optional external safety button for
   easy motor activation

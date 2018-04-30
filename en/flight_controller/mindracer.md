@@ -1,6 +1,6 @@
 # MindRacer Hardware
 
-The MindRacer series were created by AirMind. Please refer to: http://mindpx.net
+The MindRacer series were created by AirMind<sup>&reg;</sup>. Please refer to: http://mindpx.net
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
@@ -18,7 +18,7 @@ MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-eliminat
 - Support PPM/SBUS/DSM radio receivers, support D.Port/S.Port/Wifi telemetry
 - On board flight data recorder
 - Support IMU isolation
-- DroneCode standard compliance connector
+- DroneCode<sup>&reg;</sup> standard compliance connector
 
 |Item|Description|
 |:--:|:--:|
@@ -29,7 +29,7 @@ MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-eliminat
 |IMU|10DOF|
 |IMU isolation|YES/Optional|
 |Radio Receiver|S.BUS/PPM/DSM/DSM2/DSMX/SUMD|
-|Telemetry|FrSky D.Port, S.Port, Wifi, 3DR radio|
+|Telemetry|FrSky<sup>&reg;</sup> D.Port, S.Port, Wifi, 3DR radio|
 |On board TF card for flight data recording|YES|
 |OneShot ESC Support|YES|
 |Expansion Slots|2x7(pin)x2|
@@ -64,7 +64,7 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 ## Where to buy
 
-MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon or eBay.
+MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ## Support
 

@@ -1,7 +1,7 @@
 # Pixhawk 3 Pro
 
-The Pixhawk 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades
-and additional features. The board was designed by [Drotek](https://drotek.com) and PX4.
+The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades
+and additional features. The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
 
 ![](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
@@ -18,7 +18,7 @@ and additional features. The board was designed by [Drotek](https://drotek.com) 
   * Two I2C buses
   * Two CAN buses
   * Voltage / battery readings from two power modules
-  * FrSky Inverter
+  * FrSky<sup>&reg;</sup> Inverter
   * 8 Main + 6 AUX PWM outputs (Separate IO chip, PX4IO)
   * microSD (logging)
   * S.BUS / Spektrum / SUMD / PPM input

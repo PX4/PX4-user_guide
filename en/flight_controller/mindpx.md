@@ -1,6 +1,6 @@
 # MindPX Hardware
 
-The MindPX series were created by AirMind. Please refer to: http://mindpx.net
+The MindPX series were created by AirMind<sup>&reg;</sup>. Please refer to: http://mindpx.net
 
 ![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
 
@@ -8,19 +8,19 @@ The MindPX series were created by AirMind. Please refer to: http://mindpx.net
 
 > **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
 
-MindPX is a new generation autopilot system branched from Pixhawk, been revised in schematic and structure, and been further enhanced with new features to make un-manned vehicle more smart and more friendly to use.
+MindPX is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>, been revised in schematic and structure, and been further enhanced with new features to make un-manned vehicle more smart and more friendly to use.
 
 MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs).  This makes MindPX can support more complicated VTOL configurations and more fine control. It is especially meaningful for those FMU-V4 based flight controllers as MindPX implements main and aux output in one single FMU.
 
 ![](../../assets/hardware/hardware-mindpx-specs.png)
 
   * Main System-on-Chip: STM32F427
-    * CPU: 32bits, 168 MHz ARM Cortex M4 with FPU
+    * CPU: 32bits, 168 MHz ARM Cortex<sup>&reg;</sup> M4 with FPU
     * RAM: 256 KB SRAM
     * 2MB Flash
     * ST Micro LSM303D 14 bit accelerometer/magnetometer
     * MEAS MS5611 barometer
-    * InvenSense MPU6500 integrated 6-axis sensors
+    * InvenSense<sup>&reg;</sup> MPU6500 integrated 6-axis sensors
 
 
   * Highlighted features:
@@ -61,7 +61,7 @@ MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs
 
 ### Radio Receiver
 
-MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SBUS/DSM/DSM2/DSMX.  MindPX also support FrSky bi-direction telemetry D and S.Port. 
+MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SBUS/DSM/DSM2/DSMX.  MindPX also support FrSky<sup>&reg;</sup> bi-direction telemetry D and S.Port. 
 
 For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
@@ -85,7 +85,7 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 ## Where to buy
 
-MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon or eBay.
+MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ## Support
 
