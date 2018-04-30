@@ -18,7 +18,7 @@ sudo chmod +x ubuntu_sim_common_deps.sh
 ./ubuntu_sim_common_deps.sh
 ```
 
-## Cross- toolchain & Qualcomm stuff
+## Cross- toolchain & Hexagon SDK
 Start by installing some dependencies:
 ```
 sudo apt-get install android-tools-adb android-tools-fastboot \

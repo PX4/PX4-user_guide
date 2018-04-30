@@ -1,4 +1,4 @@
-# Troubleshooting Snapdragon
+# Snapdragon Advanced
 This page is a collection of legacy pieces of documentation which might come in handy when debugging on the Snapdragon platform.
 
 ## Connect to Snapdragon

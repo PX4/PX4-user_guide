@@ -158,6 +158,7 @@ echo '/mnt/1GB.swap  none  swap  sw 0  0' |sudo tee -a /etc/fstab
 ```
 
 ## Install MAVROS & MAVLink
+In order to get MAVROS and MAVLink running, you need to install some python tools and then clone the code and check out the proper commits for compatibility.
 ```
 sudo apt-get install python-pip
 sudo apt-get install python-rosinstall
