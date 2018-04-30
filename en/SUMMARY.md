@@ -49,6 +49,7 @@
 * [Flying](flying/README.md)
   * [First Flight Guidelines](flying/first_flight_guidelines.md)
   * [LED Meanings](flying/led_meanings.md)
+  * [Preflight Checks (Internal)](flying/pre_flight_checks.md)
   * [Flying 101](flying/basic_flying.md)
     * [Landing \(Fixed Wing\)](flying/fixed_wing_landing.md)
   * [Flight Modes](flight_modes/README.md)
