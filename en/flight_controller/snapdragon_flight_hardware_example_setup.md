@@ -7,7 +7,7 @@ This guide documents in detail one particular build based on the Snapdragon Flig
 
 ## PX4 Dev Team Recommended Setup
 
-We suggest using the Snapdragon Flight with the Lumenier QAV-R 250 frame and our custom hardware mounts. This setup uses a conventional PWM ESC board and therefore needs to be built with the `eagle_default` make target (see our instructions [here](https://dev.px4.io/en/setup/building_px4.html)). 
+We suggest using the Snapdragon Flight with the Lumenier QAV-R 250 frame and our custom hardware mounts. This setup uses a conventional PWM ESC board and therefore needs to be built with the `eagle_default` make target (see our instructions [here](https://dev.px4.io/en/setup/building_px4.html#qurt--snapdragon-based-boards)). 
 
 ### Components
 * Snapdragon Flight: [available here](https://www.intrinsyc.com/vertical-development-platforms/qualcomm-snapdragon-flight/)
@@ -17,9 +17,9 @@ We suggest using the Snapdragon Flight with the Lumenier QAV-R 250 frame and our
 * Motors: [Lumenier RX2206 2350KV](https://www.getfpv.com/lumenier-rx2206-11-2350kv-motor.html)
 * Receiver: [Spektrum RC FPV Racing Serial Receiver](https://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
 * Wi-Fi Antenna: [Laird Multiband](https://www.lairdtech.com/products/maf95056-nanoblade-internal-embedded-antenna-2400-2500-4900-6000-mhz)
-* GPS module: [mRo GPS + Compass module](https://store.mrobotics.io/mRo-GPS-u-Blox-Neo-M8N-HMC5983-Compass-p/gps002-mr.htm)
-* Optional:[Trone range finder](http://www.teraranger.com/product/teraranger-one-distance-sensor-for-drones-and-robotics)
-* Along with Trone: [I2C Adapter](http://www.teraranger.com/product/adapters-for-oneduo/)
+* GPS module (optional): [mRo GPS + Compass module](https://store.mrobotics.io/mRo-GPS-u-Blox-Neo-M8N-HMC5983-Compass-p/gps002-mr.htm)
+* Distance sensor (optional):[Trone range finder](http://www.teraranger.com/product/teraranger-one-distance-sensor-for-drones-and-robotics)
+* Distance sensor adapter (required only when using Trone): [I2C Adapter](http://www.teraranger.com/product/adapters-for-oneduo/)
 * 3D Parts: [Legs, Mounting brackets](https://drive.google.com/drive/u/0/folders/1MOunJae4ZLu6-bZ_-JvcPQUc9Aa5fe1U)
 
 ![](../../assets/hardware/snapdragon/snapdragon_components.jpg)
@@ -41,6 +41,8 @@ The Hobbywing 4in1 ESC fits the frame nicely as seen in the picture below.
 > **Warning** We noticed that the snapdragon is very susceptible to frame vibrations. Make sure to tighten all screws well, but not so much that you damage the windings in the plastic nut on the other end.
 
 To attach the snapdragon to the frame, first port it over to the stereo-vision add-on kit's mounting plate. This task is quite delicate, make sure not to damage the cameras when taking them out of the old plastic housing. We recommend attaching the Wi-Fi antenna's uFL connector during this step, as it will become incredibly difficult to do so once the snapdragon is in its new housing.
+
+> **Note** We are using the stereo-vision add-on kit, as it is easier to mount to the QAV-250 and we may be using stereo-vision in the future. However, currently the stereo-functionality is not being used.
 
 ![](../../assets/hardware/snapdragon/snapdragon_stereo_assembly.jpg)
 
