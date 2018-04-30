@@ -1,6 +1,8 @@
 # Preflight Sensor/Estimator Checks
 
-PX4 performs a number of preflight sensor quality and estimator checks to determine if there is a good enough position estimate to arm and fly the vehicle (these checks are controlled by the [COM\_ARM\_](../advanced_config/parameter_reference.md#commander) parameters). Any preflight errors are reported in *QGroundControl* as `PREFLIGHT FAIL` messages. 
+PX4 performs a number of preflight sensor quality and estimator checks to determine if there is a good enough position estimate to arm and fly the vehicle (these checks are controlled by the [COM\_ARM\_](../advanced_config/parameter_reference.md#commander) parameters). 
+
+> **Tip** Any preflight errors are reported in *QGroundControl* as `PREFLIGHT FAIL` messages. The `estimator_status.gps_check_fail_flags` message [in the logs](../flying/flight_reporting.md) also shows which GPS quality checks are failing.
 
 The sections below list the errors, their likely causes and solutions, and any parameters that affect how the preflight checks are run. 
 
