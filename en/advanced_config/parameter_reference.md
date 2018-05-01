@@ -106,7 +106,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_CAPACITY">BAT_CAPACITY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Battery capacity</p><p><strong>Comment:</strong> Defines the capacity of the attached battery.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/systemlib</p>
+ <p><b>Module:</b> lib/battery</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 100000 (50)</td>
  <td style="vertical-align: top;">-1.0 </td>
@@ -131,7 +131,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_CRIT_THR">BAT_CRIT_THR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Critical threshold</p><p><strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/systemlib</p>
+ <p><b>Module:</b> lib/battery</p>
 </td>
  <td style="vertical-align: top;">0.05 > 0.1 (0.01)</td>
  <td style="vertical-align: top;">0.07 </td>
@@ -140,7 +140,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_EMERGEN_THR">BAT_EMERGEN_THR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Emergency threshold</p><p><strong>Comment:</strong> Sets the threshold when the battery will be reported as dangerously low. This has to be lower than the critical threshold. This threshold commonly will trigger landing.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/systemlib</p>
+ <p><b>Module:</b> lib/battery</p>
 </td>
  <td style="vertical-align: top;">0.03 > 0.07 (0.01)</td>
  <td style="vertical-align: top;">0.05 </td>
@@ -149,7 +149,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_LOW_THR">BAT_LOW_THR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Low threshold</p><p><strong>Comment:</strong> Sets the threshold when the battery will be reported as low. This has to be higher than the critical threshold.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/systemlib</p>
+ <p><b>Module:</b> lib/battery</p>
 </td>
  <td style="vertical-align: top;">0.12 > 0.4 (0.01)</td>
  <td style="vertical-align: top;">0.15 </td>
@@ -191,7 +191,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <li><strong>16:</strong> 16S Battery</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/systemlib</p>
+ <p><b>Module:</b> lib/battery</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -200,7 +200,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_R_INTERNAL">BAT_R_INTERNAL</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Explicitly defines the per cell internal resistance</p><p><strong>Comment:</strong> If non-negative, then this will be used in place of BAT_V_LOAD_DROP for all calculations.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/systemlib</p>
+ <p><b>Module:</b> lib/battery</p>
 </td>
  <td style="vertical-align: top;">-1.0 > 0.2 </td>
  <td style="vertical-align: top;">-1.0 </td>
@@ -222,7 +222,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_V_CHARGED">BAT_V_CHARGED</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Full cell voltage (5C load)</p><p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered full under a mild load. This will never be the nominal voltage of 4.2V</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/systemlib</p>
+ <p><b>Module:</b> lib/battery</p>
 </td>
  <td style="vertical-align: top;">(0.01)</td>
  <td style="vertical-align: top;">4.05 </td>
@@ -239,7 +239,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_V_EMPTY">BAT_V_EMPTY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Empty cell voltage (5C load)</p><p><strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/systemlib</p>
+ <p><b>Module:</b> lib/battery</p>
 </td>
  <td style="vertical-align: top;">(0.01)</td>
  <td style="vertical-align: top;">3.5 </td>
@@ -248,7 +248,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_V_LOAD_DROP">BAT_V_LOAD_DROP</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Voltage drop per cell on full throttle</p><p><strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT_R_INTERNAL is set.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/systemlib</p>
+ <p><b>Module:</b> lib/battery</p>
 </td>
  <td style="vertical-align: top;">0.07 > 0.5 (0.01)</td>
  <td style="vertical-align: top;">0.3 </td>
