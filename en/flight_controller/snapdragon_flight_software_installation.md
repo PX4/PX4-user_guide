@@ -13,7 +13,7 @@ To get the platform running with the complete VIO system running, multiple piece
 | Qualcomm MV	| 1.0.2					|[here](https://developer.qualcomm.com/sdflight-tools)|
 
 
-## Prevent bricking
+## Prevent Bricking
 To prevent the system from hanging on boot because of anything wrong with the ADSP firmware, do the following changes before going any further.
 Plug your snapdragon into your computer via USB and open the android debug shell:
 `adb shell`
@@ -48,7 +48,7 @@ Get the latest `Flight_x.x_JFlash.zip` from [here](https://support.intrinsyc.com
 `sudo ./jflash.sh`
 
 
-## Update DSP processor firmware
+## Update DSP Processor Firmware
 Get the latest `Flight_x.x_qcom_flight_controller_hexagon_sdk_add_on.zip` from [here](https://support.intrinsyc.com/projects/snapdragon-flight/files) and unzip it. In the unzipped folder, run
 ```
 ./installfcaddon.sh
@@ -56,7 +56,7 @@ adb shell
 sudo reboot
 ```
 
-## Clone PX4 Firmware & build
+## Clone PX4 Firmware & Build
 On your PC, clone the PX4 firmware repo and build it like so:
 
 If you haven't yet cloned the Firmware repo:
@@ -80,7 +80,7 @@ adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 ```
 
 ## Install ROS
-Set up your snapdragon to connect to your local Wi-Fi network. To do so, open an adb shell and edit the file `/etc/wpa_supplicant/wpa_supplicant.conf` and add your local network settings:
+Set up your Snapdragon Flight to connect to your local Wi-Fi network. To do so, open an *adb* shell and edit the file `/etc/wpa_supplicant/wpa_supplicant.conf` and add your local network settings:
 ```
 adb shell
 vim /etc/wpa_supplicant/wpa_supplicant.conf
@@ -102,7 +102,7 @@ echo 'wireless-power off' |sudo tee -a /etc/network/interfaces.d/.qca6234.cfg.st
 sudo reboot
 ```
 
-Now, to install ros, start by setting your locale, sources.list and keys (in adb or ssh shell)
+Now, to install ROS, start by setting your locale, sources.list and keys (in *adb* or ssh shell)
 ```
 export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -137,7 +137,7 @@ sudo dpkg -r libhwloc-plugins
 sudo dpkg -r ocl-icd-libopencl1:armhf
 ``` 		
 
-Now, set up your workspace: 
+Now, set up your workspace:
 ```
 source .bashrc
 mkdir -p /home/linaro/ros_ws/src
@@ -147,7 +147,7 @@ cd ..
 ```
 
 
-		
+
 ## Create a Swap Directory on the Snapdragon
 In order not to run out of memory during compilation of mavros, you need to create a swap file:
 ```
@@ -183,7 +183,7 @@ source ../bashrc
 ```
 "catkin build" is necessary as it creates the `/home/linaro/ros_ws/devel` directory. This is where the generated libraries and the executables will be generated. It also generates a new bash setup script which includes the appropriate environment variables for using the "ros_ws" workspace.
 
-## Install snap VIO
+## Install Snap VIO
 First, download (to your PC) version 1.0.2 Snapdragon Machine Vision SDK from [here](https://developer.qualcomm.com/sdflight-tools). The package name will be mv<version>.deb. Push the deb package to the snapdragon and install it.
 ```
 adb push mv<version>.deb /home/linaro
@@ -211,5 +211,3 @@ git checkout mv-1.0.2/mavros-integration
 cd ..
 catkin build
 ```
-
-

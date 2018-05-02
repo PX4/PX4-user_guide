@@ -1,15 +1,17 @@
 # Snapdragon Development Environment Installation
-In order to get your snapdragon into the air, a few things need to be installed on your local PC.
+In order to get your Snapdragon into the air, a few things need to be installed on your local PC.
 
-## Set up development environment
-Add your user to the dialout group: 
+> ***Note*** The proper firmware for the Qualcomm Snapdragon Flight is not built and downloaded by QGroundControl by default.
+
+## Set up Development Environment
+Add your user to the dialout group:
 
 `sudo usermod -a -G dialout $USER`
 
-		
+
 Log out and back in
 
-Download this script and run it on your machine: 
+Download this script and run it on your machine:
 
 ```
 cd ~
