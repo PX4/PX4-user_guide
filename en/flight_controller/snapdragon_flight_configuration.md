@@ -30,6 +30,7 @@ exit 0
 ```
 
 ## Put Snapdragon back into Access Point Mode
+If you followed the installation process closely so far, your Snapdragon Flight will still be in station mode. This could be a problem if you want to fly it outdoors where your home Wi-Fi is no longer available, so we recommend putting it back into access point mode.
 ```
 /usr/local/qr-linux/wificonfig.sh -s softap
 sudo reboot
@@ -52,11 +53,3 @@ sudo reboot
 | PWM_MIN	    | 1150us			  |
 | CAL_MAG0_ROT	    | No rotation		  |
 | CAL_MAG1_ROT	    | Yaw 90°			  |
-
-
-
-
-
-
-
-

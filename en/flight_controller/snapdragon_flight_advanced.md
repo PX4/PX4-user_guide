@@ -1,5 +1,5 @@
 # Snapdragon Advanced
-This page is a collection of legacy pieces of documentation which might come in handy when debugging on the Snapdragon platform.
+This page is a collection of useful commands and instructions which might come in handy when working with the Snapdragon platform.
 
 ## Connect to Snapdragon
 
@@ -35,6 +35,12 @@ To get a shell, do:
 adb shell
 ```
 
+### DSP Debug Monitor
+You can also run mini-dm provided by hexagon to see the output of the DSP:
+'''
+${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
+'''
+Note: alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
 
 ## Serial ports
 
@@ -43,7 +49,7 @@ Not all POSIX calls are currently supported on QURT. Therefore, some custom ioct
 
 The APIs to set up and use the UART are described in [dspal](https://github.com/PX4/dspal/blob/master/include/dev_fs_lib_serial.h).
 
-## Wifi-settings
+## Wi-Fi settings
 
 > **Todo** These are notes for advanced developers.
 
@@ -120,7 +126,7 @@ The TROne is connected to the Snapdragon Flight through a custom DF13 4-to-6 pin
 
 The TROne must be powered with 10 - 20V.
 
-### Camera streaming in QGroundControl
+### Camera Streaming in QGroundControl
 
 To watch the live stream of either camera `qcamvid` can be used. Run the following command on the Snapdragon Flight to stream the hires camera for 10 minutes without recording with a 720p resolution.
 ```
@@ -137,12 +143,12 @@ Once installed and conneted to the Snapdragon Flight's network, the following ch
 ## Accessing I/O Data
 Low level bus data can be accessed from code running on the aDSP, using a POSIX-like API called DSPAL.  The header files for this API are maintained
 on [github](https://github.com/ATLFlight/dspal) and are commented with Doxygen formatted documentation in each header file.  A description of the API's supported
-and links to the applicable header files is provided below. 
+and links to the applicable header files is provided below.
 
 ### API Overview
 * [Serial:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_serial.h)
 * [I2C:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_i2c.h)
-* [SPI:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_spi.h) 
+* [SPI:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_spi.h)
 * [GPIO:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_gpio.h)
 * Timers: [qurt_timer.h](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools)
 * Power Control: [HAP_power.h](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools)
