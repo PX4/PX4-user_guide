@@ -1,0 +1,225 @@
+# Safety Configuration (Failsafes) 
+
+PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the [action](#failsafe_actions) that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+
+The most important failsafe settings are configured in the *QGroundControl* [Safety Setup](#qgc_safety_setup) page. Others must be configured via [parameters](#failsafe_other).
+
+## Failsafe Actions {#failsafe_actions}
+
+Each failsafe defines its own set of actions. Some of the more common failsafe actions are:
+
+Action | Description
+--- | --- 
+None/Disabled | No action (the failsafe will be ignored).
+Warning | A warning message will be sent to *QGroundControl*.
+Loiter | The vehicle will enter [Hold mode](../flight_modes/hold.md). For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
+Return to Land | The vehicle will enter [Return mode](../flight_modes/return.md). Return behaviour can be set in the [Return Home Settings](#return_settings) (below).
+Land at current position |  The vehicle enters [Land mode](../flight_modes/land.md), and lands immediately.
+RC Auto Recovery (CASA Outback Challenge rules) | ?
+Terminate/Flight termination | ?
+Lockdown | ?
+
+
+> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code. This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
+
+
+## QGroundControl Safety Setup {#qgc_safety_setup}
+
+The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* **Gear** icon (Vehicle Setup - top toolbar) and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the return actions *Return* and *Land*.
+
+![Safety Setup (QGC)](../../images/qgc/setup/safety_setup.png)
+
+
+### Low Battery Failsafe
+
+The low battery failsafe is triggered when the battery capacity drops below one (or more warning) level values. 
+
+![Safety - Battery (QGC)](../../images/qgc/setup/safety_battery.png)
+
+The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`).
+With this configuration the failsafe will trigger warning, then return, and finally landing if capacity drops below the respective levels.
+ 
+It is also possible to set the *Failsafe Action* to warn, return, or land. 
+In this case the vehicle will perform the specified action when the *Warn* failsafe level is reached.
+
+The settings and underlying parameters are shown below.
+  
+Setting | Parameter | Description
+--- | --- | ---
+Failsafe Action | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below Battery Warn Level, OR Warn, then return, then land based on each of the level settings below. 
+Battery Warn Level | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR) | Percentage capacity for warnings (or other actions).
+Battery Failsafe Level | [BAT_CRIT_THR](https://docs.px4.io/en/advanced_config/parameter_reference.html#BAT_CRIT_THR) | Percentage capacity for Return action.
+Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.
+
+
+### RC Loss Failsafe
+
+The RC Loss failsafe is triggered if the RC transmitter link is lost.
+
+![Safety - RC Loss (QGC)](../../images/qgc/setup/safety_rc_loss.png)
+
+The settings and underlying parameters are shown below.
+
+Setting | Parameter | Description
+--- | --- | ---
+RC Loss Timeout | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Amount of time after losing the RC connection before the failsafe will trigger.
+Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Disabled, Loiter, Return, Land, RC Auto Recovery, Terminate, Lockdown.
+RC Loss Loiter Time | [NAV_RCL_LT](../advanced_config/parameter_reference.md#NAV_RCL_LT) | If the *Failsafe Action* (`NAV_RCL_ACT`) is set to *CASA Outback Challenge rules* this sets the loiter time after RC loss.
+
+<!-- note, does not seem any way to set NAV_RCL_LT in qgc -->
+
+
+### Data Link Loss Failsafe
+
+The Data Link loss failsafe is triggered if a telemetry link is lost.
+
+![Safety - Data Link Loss (QGC)](../../images/qgc/setup/safety_data_link_loss.png)
+
+The settings and underlying parameters are shown below.
+
+Setting | Parameter | Description
+--- | --- | ---
+Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger.
+Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) | Disabled, Loiter, Return, Land, RC Auto Recovery, Terminate, Lockdown.
+
+
+<!-- ../advanced_config/parameter_reference.md#data-link-loss What are these? 
+Do we explicitly need to recommend not using the CASA rules as the linked parameter does
+-->
+
+
+### Geofence Failsafe
+
+The Geofence is defined as a "virtual" cylinder around the home position.
+If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
+
+![Safety - Geofence (QGC)](../../images/qgc/setup/safety_geofence.png)
+
+The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.
+
+Setting | Parameter | Description
+--- | --- | ---
+Action on breach | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION) | None, Warning, Loiter, Return, Flight Terminate.
+Max Radius | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | Horizontal radius of geofence cylinder. Geofence disabled if 0.
+Max Altitude | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | Height of geofence cylinder. Geofence disabled if 0.
+
+
+<!-- flight termination notes: Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using a software circuit breaker, which needs to be reset to 0 to really shut down the system. WHAT is the breaker, and what happens instead -->
+
+<!--  What are these? Not in QGC
+* GF_ALTMODE (INT32)	- Geofence altitude mode. Comment: Select which altitude reference should be used 0 = WGS84, 1 = AMSL. Values:
+* GF_COUNT (INT32)	- Geofence counter limit. Comment: Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered
+* GF_SOURCE (INT32)	- Geofence source
+-->
+
+
+### Return Home Settings {#return_settings}
+
+*Return to land* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. 
+This section shows how to set the land/loiter behaviour after returning.
+
+![Safety - Return Home Settings (QGC)](../../images/qgc/setup/safety_return_home.png)
+
+The settings and underlying parameters are shown below:
+
+Setting | Parameter | Description
+--- | --- | ---
+Climb to altitude | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT) | Vehicle ascend to this minimum height (if below it) for the return flight.
+Return behaviour |  | Choice list of *Return then*: Land, Loiter and do not land, or Loiter and land after a specified time.
+Loiter Altitude | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | If return with loiter is selected you can also specify the altitude at which the vehicle hold.
+Loiter Time | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) | If return with loiter then land is selected you can also specify how long the vehicle will hold.
+
+> **Note** The return behavour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). If negative the vehicle will land immediately. Additional information can be found in [Return mode](../flight_modes/return.md).
+
+
+### Land Mode Settings
+
+*Land at the current position* is a common [failsafe action](#failsafe_actions) that engages [Land Mode](../flight_modes/land.md). 
+This section shows how to set whether the vehicle will automatically disarm after landing. For Multicopters (only) you can additionally set the descent rate.
+
+![Safety - Land Mode Settings (QGC)](../../images/qgc/setup/safety_land_mode.png)
+
+The settings and underlying parameters are shown below:
+
+Setting | Parameter | Description
+--- | --- | ---
+Disarm After | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing, and enter delay after landing before disarming (must be non-zero). 
+Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED) | Rate of descent (MC only).
+
+
+## Other Failsafe Settings {#failsafe_other}
+
+This section contains information about failsafe settings that cannot be configured through the *QGroundControl* [Safety Setup](#qgc_safety_setup) page.
+
+### Position (GPS) Loss Failsafe
+
+The Position Loss failsafe is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss).
+
+The relevant parameters are shown below:
+
+Parameter | Description
+--- | ---
+[COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.
+[CBRK_GPSFAIL](../advanced_config/parameter_reference.md#CBRK_GPSFAIL) | Circuit breaker that can be used to disable GPS failure detection.
+
+<!-- Below are TBD -->
+
+* [gps-failure-navigation](../advanced_config/parameter_reference.md#gps-failure-navigation)
+  * [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) - Loiter time. The time in seconds the system should do open loop loiter and wait for GPS recovery before it goes into flight termination. Set to 0 to disable.
+  * [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P) - Fixed pitch angle. Comment: Pitch in degrees during the open loop loiter
+  * [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R) - Fixed bank angle. Comment: Roll in degrees during the loiter
+  * [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR)
+
+
+### Offboard Loss Failsafe
+
+The Offboard Loss failsafe is triggered if the offboard link is lost while under Offboard control. 
+Different failsafe behaviour can be specified based on whether or not there is also an RC connection available.
+
+The relevant parameters are shown below:
+
+Parameter | Description
+--- | ---
+[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T) | Delay after loss of offboard connection before the failsafe is triggered.
+[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT) | Failsafe action if no RC is available: Land, Loiter, Return
+[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual, Return, Land, Loiter.
+
+
+### Mission Failsafe
+
+The Mission Failsafe checks prevent a previous mission being started at a new takeoff location or if it is too big (distance between waypoints is too great).
+The failsafe action is that the mission will not be run.
+
+The relevant parameters are shown below:
+
+Parameter | Description
+--- | ---
+* [MIS_DIST_1WP](../advanced_config/parameter_reference.md#MIS_DIST_1WP) | The mission will not be started if the current waypoint is more distant than this value from the home position. Disabled if value is 0 or less.
+* [MIS_DIST_WPS](../advanced_config/parameter_reference.md#MIS_DIST_WPS) | The mission will not be started if any distance between two subsequent waypoints is greater than this value.
+
+
+### Traffic Avoidance Failsafe
+
+The Traffic Avoidance Failsafe allows PX4 to respond to transponder data (e.g. from ADSB transponders).
+
+The relevant parameters are shown below:
+
+Parameter | Description
+--- | ---
+[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return, Land.
+
+
+### Adaptive QuadChute Failsafe
+
+Maximum negative altitude error for fixed wing flight. If the altitude drops below this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.
+
+The relevant parameters are shown below:
+
+Parameter | Description
+--- | ---
+[VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | Adaptive QuadChute
+
+
+## Further Information
+
+* [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
