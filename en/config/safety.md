@@ -153,27 +153,29 @@ This section contains information about failsafe settings that cannot be configu
 
 ### Position (GPS) Loss Failsafe
 
-The Position Loss failsafe is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss).
+The *Position Loss Failsafe* is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss).
+The action is always to loiter (hover or circle - depending on vehicle type) for a time while trying to regain GPS, and then enter flight termination.
 
-The relevant parameters are shown below:
+The relevant parameters for all vehicles shown below (also see [GPS Failure navigation parameters](../advanced_config/parameter_reference.md#gps-failure-navigation)):
 
 Parameter | Description
 --- | ---
 [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.
 [CBRK_GPSFAIL](../advanced_config/parameter_reference.md#CBRK_GPSFAIL) | Circuit breaker that can be used to disable GPS failure detection.
+[NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into flight termination). Set to 0 to disable.
 
-<!-- Below are TBD -->
+Parameters that only affect Fixed Wing vehicles:
 
-* [gps-failure-navigation](../advanced_config/parameter_reference.md#gps-failure-navigation)
-  * [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) - Loiter time. The time in seconds the system should do open loop loiter and wait for GPS recovery before it goes into flight termination. Set to 0 to disable.
-  * [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P) - Fixed pitch angle. Comment: Pitch in degrees during the open loop loiter
-  * [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R) - Fixed bank angle. Comment: Roll in degrees during the loiter
-  * [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR)
+Parameter | Description
+--- | ---
+[NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P) | Fixed pitch angle while circling.
+[NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R) | Fixed roll/bank angle while circling.
+[NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | Thrust while circling.
 
 
 ### Offboard Loss Failsafe
 
-The Offboard Loss failsafe is triggered if the offboard link is lost while under Offboard control. 
+The *Offboard Loss Failsafe* is triggered if the offboard link is lost while under Offboard control. 
 Different failsafe behaviour can be specified based on whether or not there is also an RC connection available.
 
 The relevant parameters are shown below:
