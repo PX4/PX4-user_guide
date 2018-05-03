@@ -33,6 +33,9 @@ Attach the provided GPS with integrated compass, safety switch and buzzer to the
 
 ![Connect compass/GPS to Pixhawk 4](../../images/pixhawk4_compass_gps.png)
 
+By default, if the safety switch is connected to the pixhawk, the safety is enabled. This means the autopilot will not let you arm the vehicle. To arm the vehicle, you have to press and hold the safety switch for 1 sec to disable safety. Similarly, if the vehicle is armed and something goes wrong such that you are unable to disarm the vehicle from QGC or RC, you can press the safety switch again to disarm and enable safety.
+
+
 
 ## Power
 
