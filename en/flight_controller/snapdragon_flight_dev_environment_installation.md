@@ -39,3 +39,16 @@ Download the latest version of the qrlSDK file from [here](https://support.intri
 Run the installer
 
 `./installsdk.sh --APQ8074 --arm-gcc --qrlSDK`
+
+Lastly, the installer tells you to set a few environment variables. Append those to your `~/.bashrc`:
+```
+export HEXAGON_SDK_ROOT=/home/<YOUR_LINUX_USERNAME>/Qualcomm/Hexagon_SDK/3.0
+export HEXAGON_TOOLS_ROOT=/home/<YOUR_LINUX_USERNAME>/Qualcomm/HEXAGON_Tools/7.2.12/Tools
+export HEXAGON_ARM_SYSROOT=/home/<YOUR_LINUX_USERNAME>/Qualcomm/qrlinux_sysroot
+export ARM_CROSS_GCC_ROOT=/home/<YOUR_LINUX_USERNAME>/Qualcomm/ARM_Tools/gcc-4.9-2014.11
+```
+
+And don't forget to source it
+```
+source ~/.bashrc
+```

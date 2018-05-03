@@ -80,7 +80,8 @@ adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
 ```
 
 ## Install ROS
-Set up your Snapdragon Flight to connect to your local Wi-Fi network. To do so, open an *adb* shell and edit the file `/etc/wpa_supplicant/wpa_supplicant.conf` and add your local network settings:
+Set up your Snapdragon Flight to connect to your local Wi-Fi network so you can easily clone git repositories directly onto it.
+To do so, open an *adb* shell and edit the file `/etc/wpa_supplicant/wpa_supplicant.conf` and add your local network settings:
 ```
 adb shell
 vim /etc/wpa_supplicant/wpa_supplicant.conf
