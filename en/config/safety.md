@@ -153,13 +153,13 @@ This section contains information about failsafe settings that cannot be configu
 
 ### Position (GPS) Loss Failsafe
 
-The *Position Loss Failsafe* is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss).
+The *Position Loss Failsafe* is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss) while in a mode that requires an acceptable position estimate.
 
-In manual modes the action is to loiter (hover or circle - depending on vehicle type) for a time, while trying to regain GPS, and then enter flight termination.
+The failure action is controlled by [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL), based on whether RC control is assumed to be available (and altitude information):
+* `0`: Remote control available. Switch to *Altitude mode* if a height estimate is available, otherwise *Stabilized mode*.
+* `1`: Remote control *not* available. Switch to *Land mode* if a height estimate is available, otherwise enter flight termination.
 
-During missions the failure action is controlled by [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL), based on whether RC control is available:
-* `0`: Assume remote control available. Switch to *Altitude mode* if a height estimate is available, otherwise *Stabilized* mode.
-* `1`: Assume remote control not available. Switch to *Land mode* if a height estimate is available, otherwise enter flight termination.
+Fixed Wing vehicles additionally have a parameter ([NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT)) for defining how long they will loiter (circle) after losing position before attempting to land. 
 
 The relevant parameters for all vehicles shown below (also see [GPS Failure navigation parameters](../advanced_config/parameter_reference.md#gps-failure-navigation)):
 
@@ -169,6 +169,7 @@ Parameter | Description
 [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) | Position control navigation loss response during mission. Values: 0 - assume use of RC, 1 - Assume no RC.
 [CBRK_GPSFAIL](../advanced_config/parameter_reference.md#CBRK_GPSFAIL) | Circuit breaker that can be used to disable GPS failure detection.
 [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_GPSFAIL) | Circuit breaker for position error check (disables error checks in all modes).
+
 
 Parameters that only affect Fixed Wing vehicles:
 
