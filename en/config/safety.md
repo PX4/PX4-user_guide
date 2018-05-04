@@ -71,7 +71,7 @@ RC Loss Loiter Time | [NAV_RCL_LT](../advanced_config/parameter_reference.md#NAV
 
 ### Data Link Loss Failsafe
 
-The Data Link loss failsafe is triggered if a telemetry link is lost.
+The Data Link loss failsafe is triggered if a telemetry link (connection to ground station) is lost.
 
 ![Safety - Data Link Loss (QGC)](../../images/qgc/setup/safety_data_link_loss.png)
 
@@ -154,20 +154,27 @@ This section contains information about failsafe settings that cannot be configu
 ### Position (GPS) Loss Failsafe
 
 The *Position Loss Failsafe* is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss).
-The action is always to loiter (hover or circle - depending on vehicle type) for a time while trying to regain GPS, and then enter flight termination.
+
+In manual modes the action is to loiter (hover or circle - depending on vehicle type) for a time, while trying to regain GPS, and then enter flight termination.
+
+During missions the failure action is controlled by [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL), based on whether RC control is available:
+* `0`: Assume remote control available. Switch to *Altitude mode* if a height estimate is available, otherwise *Stabilized* mode.
+* `1`: Assume remote control not available. Switch to *Land mode* if a height estimate is available, otherwise enter flight termination.
 
 The relevant parameters for all vehicles shown below (also see [GPS Failure navigation parameters](../advanced_config/parameter_reference.md#gps-failure-navigation)):
 
 Parameter | Description
 --- | ---
 [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.
+[COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) | Position control navigation loss response during mission. Values: 0 - assume use of RC, 1 - Assume no RC.
 [CBRK_GPSFAIL](../advanced_config/parameter_reference.md#CBRK_GPSFAIL) | Circuit breaker that can be used to disable GPS failure detection.
-[NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into flight termination). Set to 0 to disable.
+[CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_GPSFAIL) | Circuit breaker for position error check (disables error checks in all modes).
 
 Parameters that only affect Fixed Wing vehicles:
 
 Parameter | Description
 --- | ---
+[NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into flight termination). Set to 0 to disable.
 [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P) | Fixed pitch angle while circling.
 [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R) | Fixed roll/bank angle while circling.
 [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | Thrust while circling.
