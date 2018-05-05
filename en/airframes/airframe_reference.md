@@ -1,7 +1,7 @@
 # Airframes Reference
 > **Note** **This list is auto-generated from the source code**.
 > 
-> The **AUX** channels are only available on Pixhawk Boards (labeled with **AUX OUT** or **FMU PWM OUT**).
+> The **AUX** channels are only available on Pixhawk Boards (labeled with **AUX OUT**).
 > 
 
 This page lists all supported airframes and types including
