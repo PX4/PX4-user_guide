@@ -7,18 +7,27 @@ PX4 is the *Professional Autopilot*. Developed by world-class developers from in
 
 > **Tip** This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
 
-Topics include:
+The following tips will help you navigate through this guide:
 
-- [Getting Started](getting_started/README.md) - basic concepts for users that are new to unmanned vehicles and PX4.
-- [Basic Assembly](assembly/README.md) - how to mount flight controller hardware and wire/connect mandatory peripherals.
-- [Basic Configuration](config/README.md) - how to install PX4 firmware onto the flight controller hardware, select an airframe, configure/calibrate the core sensors that PX4 needs (e.g. compass, GPS, gyro etc.), setup the battery, setup the radio control transmitter and map flight modes to its switches.
-- [Airframe Builds](airframes/README.md) - examples of how to setup different flight controller hardware on common airframes/vehicles.
-- [Flying](flying/README.md) - covers flying basics and explanation of different flight modes, including manual, autopilot-assisted and fully autonomous mission modes.
-- [Advanced Features](advanced_features/README.md) - contains topics related to some of the more advanced features of the PX4 autopilot such as RTK GPS and precision landing.
-- [Advanced Configuration](advanced_config/README.md) - Advanced tuning and configuration for non-standard airframes and less common sensors and peripheral hardware.
-- [Peripheral Hardware](peripherals/README.md) - topics about external sensors and optional peripheral hardware that can be used.
-- [Autopilot Hardware](flight_controller/README.md) - describes different flight controller hardware that can be used to run the PX4 flight stack. 
-- [Development](development/development.md) - Developers who want to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, or contribute to PX4 will need to read the PX4 Development Guide, which contains more advanced topics.
+I already have a vehicle and I just want to fly:
+
+* If you've never used a PX4 controlled system then you should check out our [Getting Started](getting_started/README.md) section.
+* You'll need to do [basic configuration](config/README.md) which includes updating firmware on your autopilot and calibrating your compass and IMU etc.
+* The [Flying](flying/README.md) section teaches flying basics and provides more detailed information about flight modes and safety checklists.
+
+I want to build a (PX4 supported) airframe from scratch:
+
+* Again, you'll need to see the [Getting Started](getting_started/README.md) to learn about different flight controller hardwares, vehicles and airframes PX4 supports. You can find further information about your specific airframe and your flight controller in the [Airframe Builds](airframes/README.md) and [Autopilot Hardware](flight_controller/README.md) sections respectively.
+* Next, you can proceed onto [wiring](assembly/README.md) important peripherals to your autpilot and [setup](config/README.md) your vehicle and its sensors with a ground control station.
+* Once you are ready to fly your vehicle, visit our [Flying](flying/README.md) section to learn about different flight modes and safety configurations.
+
+I am creating a new airframe and want to add extra peripherals:
+
+* If you haven't already selected your flight controller, [Autopilot Hardware](flight_controller/README.md) section may help you make the right choice for your airframe.
+* You may want to checkout some tips and examples of how to build your airframe in [Airframe Builds](airframes/README.md) section.
+* The [Peripheral Hardware](peripherals/README.md) section can help you learn about and choose external sensors.
+* After [wiring](assembly/README.md) all the peripherals, you will need to do a combination of [basic](config/README.md) and [advanced](advanced_config/README.md) configuration for your new airframe.
+* If you want to integrate PX4 with new hardware, you can proceed to the [Development](development/development.md) section.
 
 > **Note** This guide is still a work in progress! It does not yet cover all of PX4.
 
