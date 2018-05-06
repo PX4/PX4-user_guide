@@ -20,11 +20,13 @@ Pixhawk 4 Wiring Quick Start is provided [here](../assembly/quick_start_pixhawk4
 
 
 ## Purchase
-(Link to Holybro webpage when ready)
+Order from [Holybro](http://www.holybro.com/product/55)
 
 
 ## Further info
 
-The reference design (FMUv5) pinout is available [here](https://github.com/PX4/Hardware/blob/master/FMUv5/FMUv5_stm32_pinout.xlsx).
+The reference design (FMUv5) pinout is available [here](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
 
-The board is documented in detail on the [Pixhawk website](https://pixhawk.org/modules/pixhawk4).
+<!-- save the final pinout in PX4 hardware: https://github.com/PX4/Hardware/blob/master/FMUv5/FMUv5_stm32_pinout.xlsx-->
+
+The board is documented in detail on the [Pixhawk website](https://pixhawk.org/modules/pixhawk4). <!-- update the pixhawk.org url-->
