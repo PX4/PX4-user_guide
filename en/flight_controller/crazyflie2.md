@@ -20,10 +20,11 @@ The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the
 * [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between QGC and crazyflie 2.0.
 * [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals. 
 * [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck): contains an optical flow sensor to measure movements of the ground and a distance sensor to measure the distance to the ground. This will be useful for precise altitude and position control.
+* [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) has the same distance sensor as the Flow deck to measure the distance to the ground. This will be useful for precise altitude control.
 * [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): used for high speed onboard logging to a micro SD card.
 * [Logitech Joystick](https://www.logitechg.com/en-ch/product/f310-gamepad)
 
-## Flashing
+## Flashing PX4
 
 After setting up the PX4 development environment, follow these steps to put the PX4 software on the CF2:
 
@@ -45,7 +46,7 @@ After setting up the PX4 development environment, follow these steps to put the 
 
 > **Note** If QGC does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/Firmware/blob/master/platforms/nuttx/nuttx-configs/crazyflie/nsh/defconfig#L934) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`
 
-## Wireless
+## Wireless Setup Instructions
 
 The onboard nRF module allows connecting to the board via Bluetooth or through the proprietary 2.4GHz Nordic ESB protocol.
 
@@ -63,7 +64,11 @@ Connecting via **MAVLink**
 - Use a Crazyradio PA alongside a compatible GCS
 - Clone the [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge).
 
->**Note** This fork of crazyflie-lib-python contains [cfbridge.py](https://github.com/barzanisar/crazyflie-lib-python/blob/cfbridge/examples/cfbridge.py) which is taken from [here](https://github.com/dennisss/cfbridge). Cfbridge allows wireless Mavlink communication between CF2 (flashed with PX4) and QGC by enabling QGC to communicate with the crazyradio PA. The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use cfbridge.py.
+>**Note** This fork of crazyflie-lib-python contains [cfbridge.py](https://github.com/barzanisar/crazyflie-lib-python
+/blob/cfbridge/examples/cfbridge.py) which is taken from [here](https://github.com/dennisss/cfbridge). Cfbridge allows wireless 
+Mavlink communication between CF2 (flashed with PX4) and QGC by enabling QGC to communicate with the crazyradio PA. The [C based 
+cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use 
+cfbridge.py.
 
 - Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
 - Connect a Crazyradio PA via USB.
@@ -88,13 +93,66 @@ To launch cfbridge.py everytime:
 - `cd examples`
 - `python cfbridge.py`
 - Open QGC.
-- After using cfbridge, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`. Most of the time, launching cfbridge again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal for cfbridge and relaunching cfbridge in a new terminal. 
+- After using cfbridge, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`. Most of the time, launching cfbridge again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal and relaunching cfbridge in a new terminal. 
 
-> **Note** If you change any driver in [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge) or if launching cfbridge in a new terminal does not find crazyflie, make sure you navigate to the crazyflie-lib-python folder and run `make venv`.
+> **Note** If you change any driver in [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge) 
+or if launching cfbridge in a new terminal does not find crazyflie, you can try navigating to the crazyflie-lib-python folder and 
+run `make venv`.
 
-> **Note** To use Joystick, set COM_RC_IN_MODE in QGC to "Joystick/No RC Checks". Calibrate the Joystick and set the Joystick message frequency in QGC to any value between 5 to 14 Hz (10 Hz is recommended). This is the rate at which Joystick commands are sent from QGC to CF2. (To do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to obtain the latest QGC source code (master) and build it.)
+> **Note** To use Joystick, set COM_RC_IN_MODE in QGC to "Joystick/No RC Checks". Calibrate the Joystick and set the Joystick 
+message frequency in QGC to any value between 5 to 14 Hz (10 Hz is recommended). This is the rate at which Joystick commands are 
+sent from QGC to CF2. (To do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to 
+obtain the latest QGC source code (master) and build it.)
 
 ![](../../assets/hardware/joystick-message-frequency.png)
+
+## Hardware Setup
+
+Uptill now we have been able to fly crazyflie with precise control in Stabilised and Altitude modes. 
+
+To fly in Altitude mode:
+* You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) or the distance sensor integrated in the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck).
+* The onboard barometer is highly susceptible to any external wind disturbances including those created by crazyflie's own propellers. Hence, we isolated the barometer with a piece of foam and then mounted the distance sensor on top of it as shown below:
+
+![](../../assets/hardware/hardware-crazyflie-barometer.jpg)
+
+![](../../assets/hardware/hardware-crazyflie-baro-foam.jpg)
+
+![](../../assets/hardware/hardware-crazyflie-opticalflow.jpg)
+
+In order to log flight details, you can mount SD card deck on top of crazyflie as shown below:
+
+![](../../assets/hardware/hardware-crazyflie-sdcard.jpg)
+
+Then, you need to stick the battery on top of the SD card deck using a double sided tape:
+
+![](../../assets/hardware/hardware-crazyflie-battery-setup.jpg)
+
+## Adjust Parameters
+
+| Parameter Name    | Recommended Value           |
+|-------------------|-----------------------------|
+| EKF2_HGT_MODE     | 2   Range Sensor            |
+| EKF2_AID_MASK     | 0*                          |
+| MPC_THR_HOVER     | 70 %               	        |
+| MPC_MANTHR_MAX    | 100 %               	       |
+| MPC_THR_MAX       | 100 %               	       |
+| MPC_Z_P           | 1.5              	          |
+| MPC_Z_VEL_I       | 0.3               	         |
+| MPC_Z_VEL_P       | 0.4               	         |
+| MC_PITCHRATE_P    | 0.07                 	      |
+| MC_PITCHRATE_I    | 0.2                 	       |
+| MC_PITCHRATE_D    | 0.002                 	     |
+| MC_ROLLRATE_P     | 0.07                 	      |
+| MC_ROLLRATE_I     | 0.2                 	       |
+| MC_ROLLRATE_D     | 0.002              	        |
+| MC_YAW_P          | 3.0                         |
+| IMU_GYRO_CUTOFF   | 100                         |
+| IMU_ACCEL_CUTOFF  | 30                          |
+| IMU_DTERM_CUTOFF  | 70                          |
+| SYS_FMU_TASK      | Enabled                     |
+
+\* Since we haven't been able to fly it with optical flow, we don't use optical flow data yet.
 
 ### Using FrSky Taranis RC transmitter as joystick
 If you already own a Taranis RC transmitter and want to use it as a controller, it can be configured as a USB Joystick:
