@@ -12,12 +12,12 @@ Action | Description
 --- | --- 
 None/Disabled | No action (the failsafe will be ignored).
 Warning | A warning message will be sent to *QGroundControl*.
-Loiter | The vehicle will enter [Hold mode](../flight_modes/hold.md). For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
-Return to Land | The vehicle will enter [Return mode](../flight_modes/return.md). Return behaviour can be set in the [Return Home Settings](#return_settings) (below).
-Land at current position |  The vehicle enters [Land mode](../flight_modes/land.md), and lands immediately.
-RC Auto Recovery (CASA Outback Challenge rules) | ?
-Terminate/Flight termination | ?
-Lockdown | ?
+[Hold mode](../flight_modes/hold.md) | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
+[Return mode](../flight_modes/return.md) | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return_settings) (below).
+[Land mode](../flight_modes/land.md) | The vehicle will enter *Land mode*, and lands immediately.
+RC Auto Recovery (CASA Outback Challenge rules) | TBD
+Terminate/Flight termination | Turns off all controllers and sets all PWM outputs to a failsafe value (defined in airframe configuration using `FAILSAFE` variable).
+Lockdown | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](../config/flight_mode.md#kill-switch).
 
 
 > **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code. This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
@@ -39,16 +39,15 @@ The low battery failsafe is triggered when the battery capacity drops below one 
 The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`).
 With this configuration the failsafe will trigger warning, then return, and finally landing if capacity drops below the respective levels.
  
-It is also possible to set the *Failsafe Action* to warn, return, or land. 
-In this case the vehicle will perform the specified action when the *Warn* failsafe level is reached.
+It is also possible to set the *Failsafe Action* to warn, return, or land when the [Battery Failsafe Level](#BAT_CRIT_THR) failsafe level is reached.
 
 The settings and underlying parameters are shown below.
   
 Setting | Parameter | Description
 --- | --- | ---
-Failsafe Action | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below Battery Warn Level, OR Warn, then return, then land based on each of the level settings below. 
+Failsafe Action | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR Warn, then return, then land based on each of the level settings below. 
 Battery Warn Level | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR) | Percentage capacity for warnings (or other actions).
-Battery Failsafe Level | [BAT_CRIT_THR](https://docs.px4.io/en/advanced_config/parameter_reference.html#BAT_CRIT_THR) | Percentage capacity for Return action.
+<span id="BAT_CRIT_THR"></span>Battery Failsafe Level | [BAT_CRIT_THR](https://docs.px4.io/en/advanced_config/parameter_reference.html#BAT_CRIT_THR) | Percentage capacity for Return action (or other actions if a single action selected).
 Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.
 
 
@@ -80,12 +79,7 @@ The settings and underlying parameters are shown below.
 Setting | Parameter | Description
 --- | --- | ---
 Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger.
-Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) | Disabled, Loiter, Return, Land, RC Auto Recovery, Terminate, Lockdown.
-
-
-<!-- ../advanced_config/parameter_reference.md#data-link-loss What are these? 
-Do we explicitly need to recommend not using the CASA rules as the linked parameter does
--->
+Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) | Disabled, Hold mode, Return mode, Land mode, Data Link Auto Recovery (CASA Outback Challenge rules), Terminate, Lockdown. Selecting the `Data Link Auto Recovery (CASA Outback Challenge rules)` action additionally enables the [Data Link Loss](../advanced_config/parameter_reference.md#data-link-loss) parameters.
 
 
 ### Geofence Failsafe
@@ -99,23 +93,28 @@ The settings and underlying [geofence parameters](../advanced_config/parameter_r
 
 Setting | Parameter | Description
 --- | --- | ---
-Action on breach | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION) | None, Warning, Loiter, Return, Flight Terminate.
+Action on breach | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION) | None, Warning, Hold mode, Return mode, Terminate.
 Max Radius | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | Horizontal radius of geofence cylinder. Geofence disabled if 0.
 Max Altitude | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | Height of geofence cylinder. Geofence disabled if 0.
 
+> **Note** Setting `GF_ACTION` to terminate will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using [CBRK_FLIGHTTERM](#CBRK_FLIGHTTERM), which needs to be reset to 0 to really shut down the system.
 
-<!-- flight termination notes: Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using a software circuit breaker, which needs to be reset to 0 to really shut down the system. WHAT is the breaker, and what happens instead -->
+The following settings also apply, but are not displayed in the QGC UI.
 
-<!--  What are these? Not in QGC
-* GF_ALTMODE (INT32)	- Geofence altitude mode. Comment: Select which altitude reference should be used 0 = WGS84, 1 = AMSL. Values:
-* GF_COUNT (INT32)	- Geofence counter limit. Comment: Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered
-* GF_SOURCE (INT32)	- Geofence source
--->
+Setting | Parameter | Description
+--- | --- | ---
+Geofence altitude mode | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE) | Altitude reference used: 0 = WGS84, 1 = AMSL.
+Geofence counter limit | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT) | Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered.
+Geofence source | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE) | Set whether position source is estimated global position or direct from the GPS device.
+<span id="CBRK_FLIGHTTERM"></span>Circuit breaker for flight termination | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Enables/Disables flight termination action (disabled by default).
+
+
+Setting this value to 4 enables flight termination, which will -->
 
 
 ### Return Home Settings {#return_settings}
 
-*Return to land* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. 
+*Return* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. 
 This section shows how to set the land/loiter behaviour after returning.
 
 ![Safety - Return Home Settings (QGC)](../../images/qgc/setup/safety_return_home.png)
