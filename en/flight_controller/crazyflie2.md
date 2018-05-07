@@ -133,7 +133,7 @@ Then, you need to stick the battery on top of the SD card deck using a double si
 | Parameter Name    | Recommended Value           |
 |-------------------|-----------------------------|
 | EKF2_HGT_MODE     | 2   Range Sensor            |
-| EKF2_AID_MASK     | 0*                          |
+| EKF2_AID_MASK     | 1*                          |
 | MPC_THR_HOVER     | 70 %               	        |
 | MPC_MANTHR_MAX    | 100 %               	       |
 | MPC_THR_MAX       | 100 %               	       |
