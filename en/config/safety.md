@@ -109,9 +109,6 @@ Geofence source | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURC
 <span id="CBRK_FLIGHTTERM"></span>Circuit breaker for flight termination | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Enables/Disables flight termination action (disabled by default).
 
 
-Setting this value to 4 enables flight termination, which will -->
-
-
 ### Return Home Settings {#return_settings}
 
 *Return* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. 
