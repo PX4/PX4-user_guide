@@ -16,11 +16,13 @@ Warning | A warning message will be sent to *QGroundControl*.
 [Return mode](../flight_modes/return.md) | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return_settings) (below).
 [Land mode](../flight_modes/land.md) | The vehicle will enter *Land mode*, and lands immediately.
 RC Auto Recovery (CASA Outback Challenge rules) | TBD
-Terminate/Flight termination | Turns off all controllers and sets all PWM outputs to a failsafe value (defined in airframe configuration using `FAILSAFE` variable).
+Terminate/Flight termination | Turns off all controllers and sets all PWM outputs to a failsafe value (defined in airframe configuration using `FAILSAFE` variable). For a fixed-wing vehicle this might allow you to glide the vehicle to safety.
 Lockdown | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](../config/flight_mode.md#kill-switch).
 
+> **Note** It is possible to recover from a failsafe action (if the cause is fixed) by switching modes. For example, in the case where RC Loss failsafe causes the vehicle to enter *Return mode*, if RC is recovered you can change to *Position mode* and continue flying. 
 
-> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code. This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
+<span></span>
+> **Note** If a failsafe occurs while the vehicle is responding to another failsafe (e.g. Low battery while in Return mode due to RC Loss), the specified failsafe action for the second trigger is ignored. Instead the action is determined by separate system level and vehicle specific code. This might result in the vehicle being changed to a manual mode so the user can directly manage recovery.
 
 
 ## QGroundControl Safety Setup {#qgc_safety_setup}
@@ -64,8 +66,6 @@ Setting | Parameter | Description
 RC Loss Timeout | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Amount of time after losing the RC connection before the failsafe will trigger.
 Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Disabled, Loiter, Return, Land, RC Auto Recovery, Terminate, Lockdown.
 RC Loss Loiter Time | [NAV_RCL_LT](../advanced_config/parameter_reference.md#NAV_RCL_LT) | If the *Failsafe Action* (`NAV_RCL_ACT`) is set to *CASA Outback Challenge rules* this sets the loiter time after RC loss.
-
-<!-- note, does not seem any way to set NAV_RCL_LT in qgc -->
 
 
 ### Data Link Loss Failsafe
@@ -187,8 +187,8 @@ The relevant parameters are shown below:
 Parameter | Description
 --- | ---
 [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T) | Delay after loss of offboard connection before the failsafe is triggered.
-[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT) | Failsafe action if no RC is available: Land, Loiter, Return
-[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual, Return, Land, Loiter.
+[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT) | Failsafe action if no RC is available: Land mode, Hold mode, Return mode.
+[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual mode, Return mode, Land mode, Hold mode.
 
 
 ### Mission Failsafe
@@ -212,18 +212,20 @@ The relevant parameters are shown below:
 
 Parameter | Description
 --- | ---
-[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return, Land.
+[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return mode, Land mode.
 
 
 ### Adaptive QuadChute Failsafe
 
-Maximum negative altitude error for fixed wing flight. If the altitude drops below this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.
+Failsafe for when a pusher motor fails (or airspeed sensor) and a VTOL vehicle can no longer achieve a desired altitude setpoint in fixed-wing mode. 
+If triggered, the vehicle will transition to multicopter mode and enter failsafe Return mode.
 
 The relevant parameters are shown below:
 
 Parameter | Description
 --- | ---
-[VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | Adaptive QuadChute
+[VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | Maximum negative altitude error for fixed wing flight. If the altitude drops more than this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.
+
 
 
 ## Further Information
