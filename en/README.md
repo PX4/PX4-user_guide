@@ -12,26 +12,40 @@ PX4 is the *Professional Autopilot*. Developed by world-class developers from in
 
 ## How Do I Get Started?
 
-The following tips will help you navigate through this guide:
+[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+
+Depending on what you want to achieve, the following tips will help you navigate through this guide:
 
 **I already have a vehicle and I just want to fly:**
 
-- If you've never used a PX4 controlled system then you should check out our [Getting Started](getting_started/README.md) section.
-- You'll need to do [basic configuration](config/README.md) which includes updating firmware on your autopilot and calibrating your compass and IMU etc.
-- The [Flying](flying/README.md) section teaches flying basics and provides more detailed information about flight modes and safety checklists.
+If you have a Ready To Fly (RTF) vehicle that supports PX4:
 
-**I want to build a (PX4 supported) airframe from scratch:**
+- [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+- [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
 
-- Again, you'll need to see the [Getting Started](getting_started/README.md) to learn about different flight controller hardwares, vehicles and airframes PX4 supports. You can find further information about your specific airframe and your flight controller in the [Airframe Builds](airframes/README.md) and [Autopilot Hardware](flight_controller/README.md) sections respectively.
-- Next, you can proceed onto [wiring](assembly/README.md) important peripherals to your autopilot and [setup](config/README.md) your vehicle and its sensors with a ground control station.
-- Once you are ready to fly your vehicle, visit our [Flying](flying/README.md) section to learn about different flight modes and safety configurations.
 
-**I am creating a new airframe and want to add extra peripherals:**
+**I want to build a supported vehicle from scratch:**
 
-- If you haven't already selected your flight controller, [Autopilot Hardware](flight_controller/README.md) section may help you make the right choice for your airframe.
-- You may want to checkout some tips and examples of how to build your airframe in [Airframe Builds](airframes/README.md) section.
-- The [Peripheral Hardware](peripherals/README.md) section can help you learn about and choose external sensors.
-- After [wiring](assembly/README.md) all the peripherals, you will need to do a combination of [basic](config/README.md) and [advanced](advanced_config/README.md) configuration for your new airframe.
+> **Tip** The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*. 
+
+If you want to build a vehicle from scratch:
+
+- Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
+- Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
+- [Assembly](assembly/README.md) explains how to wire up the important peripherals to your autopilot.
+- [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe. This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+
+Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+
+
+**I am modifying a supported vehicle:**
+
+Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics: 
+
+- [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
+- [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
+- [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+
 
 **I want to run PX4 on new hardware and extend the platform:**
 
