@@ -1,6 +1,6 @@
 # Pixhawk 4 
 
-Pixhawk 4 is an advanced autopilot designed and made in collaboration with Holybro and the PX4 team. It is optimized to run PX4 version 1.7, suitable for academic and commercial developers. 
+Pixhawk<sup>&reg;</sup> 4 is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 version 1.7, suitable for academic and commercial developers. 
 
 ![Pixhawk4 Image](../../assets/hardware/hardware-pixhawk4.png)
 
@@ -26,7 +26,7 @@ Order from [Holybro](http://www.holybro.com/product/55)
 ## Further info
 
 The reference design (FMUv5) pinout is available [here](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
-
 <!-- save the final pinout in PX4 hardware: https://github.com/PX4/Hardware/blob/master/FMUv5/FMUv5_stm32_pinout.xlsx-->
 
-The board is documented in detail on the [Pixhawk website](https://pixhawk.org/modules/pixhawk4). <!-- update the pixhawk.org url-->
+The board is documented in detail on the [Pixhawk website](../flight_controller/pixhawk4_website.md). 
+<!-- update the pixhawk.org url  https://pixhawk.org/modules/pixhawk4-->

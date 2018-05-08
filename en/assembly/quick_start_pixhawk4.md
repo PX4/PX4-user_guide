@@ -1,6 +1,6 @@
 # Pixhawk 4 Wiring Quick Start
 
-This quick start guide shows how to power the Pixhawk 4 flight controller and connect its most important peripherals.
+This quick start guide shows how to power the Pixhawk<sup>&reg;</sup> 4 flight controller and connect its most important peripherals.
   
 ![Pixhawk 4 Image](../../images/pixhawk4_logo_view.png) 
 
@@ -8,14 +8,15 @@ This quick start guide shows how to power the Pixhawk 4 flight controller and co
 
 <p style="margin-bottom:1cm;">The image below shows standard Pixhawk 4 connections (except the motor and servo outputs). We'll go through each main part in the following sections.</p>
 
-![Pixhawk 4 Wiring Overview](../../images/pixhawk4_wiring_overview.jpg) 
+![Pixhawk 4 Wiring Overview](../../images/pixhawk4_wiring_overview.png)
 
 
 ## Mount and Orient Controller
 
 Pixhawk 4 should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
-![Pixhawk 4 mounting and orientation](../../images/pixhawk4_mounting_and_foam.png)
+<img src="../../images/pixhawk4_mounting_and_foam.png" align="center"/>
+<!--![Pixhawk 4 mounting and orientation](../../images/pixhawk4_mounting_and_foam.png)--> 
 
 > **Note** If the controller cannot be mounted in the
   recommended/default orientation (e.g. due to space constraints) you will
@@ -152,7 +153,6 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 ![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg) -->
 
 ## Further information
-
-- <!--[Pixhawk 4 Quick Start Guide (Holybro)]() Add link-->
+<!-- - [Pixhawk 4 Quick Start Guide (Holybro)]() Add link-->
 - [Pixhawk 4](../flight_controller/pixhawk4.md)
-- [Pixhawk project](https://pixhawk.org/modules/pixhawk4) <!-- update with new website's url-->
+- [Pixhawk project](../flight_controller/pixhawk4_website.md) <!-- update with pixhawk.org pixhawk4 url-->
