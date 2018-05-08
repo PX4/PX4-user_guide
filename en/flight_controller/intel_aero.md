@@ -71,7 +71,24 @@ After setting up the PX4 development environment, follow these steps update the 
    ./Tools/mavlink_shell.py 0.0.0.0:14550
    ```
 
-## Connecting a Lidar Lite Range Finder
+## Connecting LeddarOne Range Finder
+
+Connect the LeddarOne to Aero RTF telemetry port.
+The pinout for the LeddarOne and telemetry port is as follows
+
+| pin | Aerofc TELEMETRY | LeddarOne        |
+| --- | ---------------- | ---------------- |
+| 1   | VCC              | GND              |
+| 2   | TX               | -                |
+| 3   | RX               | VCC              |
+| 4   | SCL              | RX               |
+| 5   | SDA              | TX               |
+| 6   | GND              | -                |
+
+After that you need to set SENS_EN_LEDDAR1 parameter to 1 and reboot the board.
+From now on, the telemetry port will be used by LeddarOne, to bring the telemetry port back to MAVLink you just need to set the parameter above to 0 and reboot.
+
+## Connecting a Lidar Lite Range Finder(not recommended due measurements spikes)
 
 The following instructions are for a Lidar Lite V3 connected via I2C. The Intel® Aero Ready to Fly Drone has two ports with I2C: One labled COMPASS and the other TELEMETRY. The pinout for both of them can be found below. We recommend using the TELEMETRY port as it is not being used. If your TELEMETRY port is already occupied, a splitter can be used to share the I2C connection (works on any I2C port). Check the images below for the splitter setup.
 In addition it is recommended to use a electrolytic capacitor for the Lidar Lite I2C connection to reduce spikes in the distance readings (see [here](https://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) on page 3).
