@@ -91,6 +91,7 @@ Instructions for connecting to specific flight controllers are given in the foll
 * [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
 * [Pixhawk Mini](../assembly/quick_start_pixhawk_mini.md#radioremote-control)
 * [Pixracer](../assembly/quick_start_pixracer.md)
+* [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 
 > **Tip** See the manufacturer's flight controller setup guide for additional information. 
 
