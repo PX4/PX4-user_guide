@@ -2,21 +2,22 @@
 
 This quick start guide shows how to power the Pixhawk<sup>&reg;</sup> 4 flight controller and connect its most important peripherals.
   
-![Pixhawk 4 Image](../../images/pixhawk4_logo_view.png) 
+<img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" /> 
+
 
 ## Wiring Chart Overview
 
 <p style="margin-bottom:1cm;">The image below shows standard Pixhawk 4 connections (except the motor and servo outputs). We'll go through each main part in the following sections.</p>
 
-![Pixhawk 4 Wiring Overview](../../images/pixhawk4_wiring_overview.png)
+![Pixhawk 4 Wiring Overview](../../assets/flight_controller/pixhawk4/pixhawk4_wiring_overview.png)
 
 
 ## Mount and Orient Controller
 
 Pixhawk 4 should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
-<img src="../../images/pixhawk4_mounting_and_foam.png" align="center"/>
-<!--![Pixhawk 4 mounting and orientation](../../images/pixhawk4_mounting_and_foam.png)--> 
+<img src="../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png" align="center"/>
+<!--![Pixhawk 4 mounting and orientation](../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png)--> 
 
 > **Note** If the controller cannot be mounted in the
   recommended/default orientation (e.g. due to space constraints) you will
@@ -32,7 +33,7 @@ Attach the provided GPS with integrated compass, safety switch, buzzer and LED t
   other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other 
   electronics will reduce interference).
 
-![Connect compass/GPS to Pixhawk 4](../../images/pixhawk4_compass_gps.png)
+![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
 When GPS module with integrated safety switch is connected to Pixhawk 4, by default the safety is enabled. This means the autopilot will not let you arm the vehicle. To arm the vehicle, you have to press and hold the safety switch for 1 sec to disable safety. Similarly, if the vehicle is armed and something goes wrong such that you are unable to disarm the vehicle from QGC or RC, you can press the safety switch again to disarm, enabling safety.
 
@@ -44,7 +45,7 @@ Connect the output of the *Power Management Board* (PM board) that comes with th
 
 The image below shows the power management board provided with Pixhawk 4.
 
-![Pixhawk 4 - Power Management Board](../../images/pixhawk4_power_management_board.png)
+![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4/pixhawk4_power_management_board.jpg)
 
 > **Note** If using a plane or rover, the 8 pin power (+) rail of **FMU PWM-OUT** will need to be separately powered in order to drive 
   servos for rudders, elevons etc. To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a
@@ -98,7 +99,7 @@ The instructions below show how to connect the different types of receivers to P
 
 - Spektrum/DSM or S.BUS receivers must connect to the **DSM/SBUS RC** input.
   
-  ![Pixhawk 4 - Radio port for Spektrum receivers](../../images/pixhawk4_receiver_sbus.png)
+  ![Pixhawk 4 - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk4/pixhawk4_receiver_sbus.png)
 
 - PPM must connect to the **PPM RC** input port.
   
@@ -113,7 +114,7 @@ For more information about selecting a radio system, receiver compatibility, and
 
 Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission). One radio must be connected to your vehicle as shown below. The other is connected to your ground station computer or mobile device (usually by USB).
 
-![Pixhawk 4/Telemetry Radio](../../images/pixhawk4_telemetry_radio.png)
+![Pixhawk 4/Telemetry Radio](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
 
 <!-- what configuration is required once you've set up a radio) -->
 
@@ -121,7 +122,7 @@ Telemetry radios may be used to communicate and control a vehicle in flight from
 
 SD card is needed to upload missions and to log flight details which can be extracted after flight. Insert SD card in Pixhawk 4 as shown below.
 
-![Pixhawk 4/SD Card](../../images/pixhawk4_sd_card.png)
+![Pixhawk 4/SD Card](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 
 <!-- what configuration is required once you've set up a radio) -->
 
