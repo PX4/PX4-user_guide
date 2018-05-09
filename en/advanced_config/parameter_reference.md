@@ -485,7 +485,7 @@ The module where these parameters are defined is: *modules/commander*.
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_AUTH">COM_ARM_AUTH</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Arm authorization parameters, this uint32_t will be splitted between starting from the LSB:
+ <td style="vertical-align: top;"><p>Arm authorization parameters, this uint32_t will be split between starting from the LSB:
 - 8bits to authorizer system id
 - 16bits to authentication method parameter, this will be used to store a timeout for the first 2 methods but can be used to another parameter for other new authentication methods.
 - 7bits to authentication method
@@ -884,11 +884,11 @@ Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than
  <td style="vertical-align: top;"><p>Battery failsafe mode</p><p><strong>Comment:</strong> Action the system takes on low battery. Defaults to off</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Warning</li> 
 
-<li><strong>1:</strong> Return to land</li> 
+<li><strong>1:</strong> Return mode</li> 
 
-<li><strong>2:</strong> Land at current position</li> 
+<li><strong>2:</strong> Land mode</li> 
 
-<li><strong>3:</strong> Return to land at critically low level, land at current position if reaching dangerously low levels</li> 
+<li><strong>3:</strong> Return mode at critically low level, Land mode at current position if reaching dangerously low levels</li> 
 </ul>
    </td>
  <td style="vertical-align: top;">(1)</td>
@@ -3024,11 +3024,11 @@ The module where these parameters are defined is: *modules/navigator*.
 
 <li><strong>1:</strong> Warning</li> 
 
-<li><strong>2:</strong> Loiter</li> 
+<li><strong>2:</strong> Hold mode</li> 
 
-<li><strong>3:</strong> Return to Land</li> 
+<li><strong>3:</strong> Return mode</li> 
 
-<li><strong>4:</strong> Flight terminate</li> 
+<li><strong>4:</strong> Terminate</li> 
 </ul>
    </td>
  <td style="vertical-align: top;">0 > 4 </td>
@@ -3834,11 +3834,11 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
 <tr>
  <td style="vertical-align: top;"><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set offboard loss failsafe mode</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Land at current position</li> 
+<li><strong>0:</strong> Land mode</li> 
 
-<li><strong>1:</strong> Loiter</li> 
+<li><strong>1:</strong> Hold mode</li> 
 
-<li><strong>2:</strong> Return to Land</li> 
+<li><strong>2:</strong> Return mode</li> 
 </ul>
    <p><b>Module:</b> modules/commander</p>
 </td>
@@ -3849,17 +3849,17 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
 <tr>
  <td style="vertical-align: top;"><strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set offboard loss failsafe mode when RC is available</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Position control</li> 
+<li><strong>0:</strong> Position mode</li> 
 
-<li><strong>1:</strong> Altitude control</li> 
+<li><strong>1:</strong> Altitude mode</li> 
 
 <li><strong>2:</strong> Manual</li> 
 
-<li><strong>3:</strong> Return to Land</li> 
+<li><strong>3:</strong> Return mode</li> 
 
-<li><strong>4:</strong> Land at current position</li> 
+<li><strong>4:</strong> Land mode</li> 
 
-<li><strong>5:</strong> Loiter</li> 
+<li><strong>5:</strong> Hold mode</li> 
 </ul>
    <p><b>Module:</b> modules/commander</p>
 </td>
@@ -3869,10 +3869,10 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Position control navigation loss response</p><p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequte for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Assume use of remote control after fallback. Switch to ALTCTL if a height estimate is available, else switch to MANUAL.</li> 
+ <td style="vertical-align: top;"><p>Position control navigation loss response</p><p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.</li> 
 
-<li><strong>1:</strong> Assume no use of remote control after fallback. Switch to DESCEND if a height estimate is available, else switch to TERMINATION.</li> 
+<li><strong>1:</strong> Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.</li> 
 </ul>
    <p><b>Module:</b> modules/commander</p>
 </td>
@@ -3997,11 +3997,11 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
  <td style="vertical-align: top;"><p>Set data link loss failsafe mode</p><p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong> Loiter</li> 
+<li><strong>1:</strong> Hold mode</li> 
 
-<li><strong>2:</strong> Return to Land</li> 
+<li><strong>2:</strong> Return mode</li> 
 
-<li><strong>3:</strong> Land at current position</li> 
+<li><strong>3:</strong> Land mode</li> 
 
 <li><strong>4:</strong> Data Link Auto Recovery (CASA Outback Challenge rules)</li> 
 
@@ -4033,7 +4033,7 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_LOITER_RAD">NAV_LOITER_RAD</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Loiter radius (FW only)</p><p><strong>Comment:</strong> Default value of loiter radius for missions, loiter, RTL, etc. (fixedwing only).</p>    <p><b>Module:</b> modules/navigator</p>
+ <td style="vertical-align: top;"><p>Loiter radius (FW only)</p><p><strong>Comment:</strong> Default value of loiter radius for missions, Hold mode, Return mode, etc. (fixedwing only).</p>    <p><b>Module:</b> modules/navigator</p>
 </td>
  <td style="vertical-align: top;">25 > 1000 (0.5)</td>
  <td style="vertical-align: top;">50.0 </td>
@@ -4052,11 +4052,11 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
  <td style="vertical-align: top;"><p>Set RC loss failsafe mode</p><p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
-<li><strong>1:</strong> Loiter</li> 
+<li><strong>1:</strong> Hold mode</li> 
 
-<li><strong>2:</strong> Return to Land</li> 
+<li><strong>2:</strong> Return mode</li> 
 
-<li><strong>3:</strong> Land at current position</li> 
+<li><strong>3:</strong> Land mode</li> 
 
 <li><strong>4:</strong> RC Auto Recovery (CASA Outback Challenge rules)</li> 
 
@@ -4085,9 +4085,9 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
 
 <li><strong>1:</strong> Warn only</li> 
 
-<li><strong>2:</strong> Return to Land</li> 
+<li><strong>2:</strong> Return mode</li> 
 
-<li><strong>3:</strong> Land immediately</li> 
+<li><strong>3:</strong> Land mode</li> 
 </ul>
    <p><b>Module:</b> modules/navigator</p>
 </td>
@@ -8079,7 +8079,7 @@ The module where these parameters are defined is: *modules/sensors*.
 </tr>
 </tbody></table>
 
-## Return To Land
+## Return Mode
 
 
 The module where these parameters are defined is: *modules/navigator*.
@@ -8092,29 +8092,17 @@ The module where these parameters are defined is: *modules/navigator*.
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_DESCEND_ALT">RTL_DESCEND_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RTL loiter altitude</p><p><strong>Comment:</strong> Stay at this altitude above home position after RTL descending. Land (i.e. slowly descend) from this altitude if autolanding allowed.</p>    </td>
+ <td style="vertical-align: top;"><p>Return mode loiter altitude</p><p><strong>Comment:</strong> Stay at this altitude above home position after RTL descending. Land (i.e. slowly descend) from this altitude if autolanding allowed.</p>    </td>
  <td style="vertical-align: top;">2 > 100 (0.5)</td>
  <td style="vertical-align: top;">30 </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_LAND_DELAY">RTL_LAND_DELAY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RTL delay</p><p><strong>Comment:</strong> Delay after descend before landing in RTL mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>    </td>
+ <td style="vertical-align: top;"><p>Return mode delay</p><p><strong>Comment:</strong> Delay after descend before landing in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>    </td>
  <td style="vertical-align: top;">-1 > 300 (0.5)</td>
  <td style="vertical-align: top;">-1.0 </td>
  <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RTL_LAND_TYPE">RTL_LAND_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RTL land location</p><p><strong>Comment:</strong> Land at the home location or planned mission landing</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Home Position</li> 
-
-<li><strong>1:</strong> Planned Landing (Mission)</li> 
-</ul>
-   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_MIN_DIST">RTL_MIN_DIST</strong> (FLOAT)</td>
@@ -8129,6 +8117,31 @@ The module where these parameters are defined is: *modules/navigator*.
  <td style="vertical-align: top;">0 > 150 (0.5)</td>
  <td style="vertical-align: top;">60 </td>
  <td style="vertical-align: top;">m</td>
+</tr>
+</tbody></table>
+
+## Return To Land
+
+
+The module where these parameters are defined is: *modules/navigator*.
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="RTL_LAND_TYPE">RTL_LAND_TYPE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>RTL land location</p><p><strong>Comment:</strong> Land at the home location or planned mission landing</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Home Position</li> 
+
+<li><strong>1:</strong> Planned Landing (Mission)</li> 
+</ul>
+   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
 
