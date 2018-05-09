@@ -2,15 +2,15 @@
 
 [LeddarOne](https://leddartech.com/modules/leddarone/) is small-size Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
 
-The rangefinder is not automatically included in most firmware, and hence cannot be used just by setting a parameter through *QGroundControl* (as is possible with some other rangefinders). 
-To use it you will need to add the driver to firmware and update a configuration file to start the driver on boot. The sections below explain how.
-
 <img src="../../assets/hardware/sensors/leddar_one.jpg" alt="LeddarOne Lidar rangefinder" width="200px" />
 
 
 ## Supporting LeddarOne in Firmware
 
-Add the following line to the *cmake* [config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) which corresponds to the target you want to build for:
+LeddarOne is not automatically included in [most](#aero) firmware. 
+To use it you may need to add the driver to firmware and update a configuration file to start the driver on boot. 
+
+To add the driver to firmware, add the following line to the *cmake* [config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) which corresponds to the target you want to build for:
 ```
 drivers/leddar_one
 ```
@@ -32,10 +32,28 @@ serial port may be used by another application and you will get unexpected behav
 ## Hardware Setup
 
 You can connect to any free serial port (e.g. TELEM2), but you will need to [start the driver](#start_driver) on this port (as above).
-Just build a cable following your board pinout and [LeddarOne pinout](https://leddartech.com/app/uploads/dlm_uploads/2017/05/Spec-Sheets-LeddarOne-27octobre2017-web.pdf) you only will need to connect 5V, TX, RX and GND pins.
+
+Build a cable following your board and pinout and LeddarOne pinout (shown below). You only will need to connect 5V, TX, RX and GND pins.
+
+Pin | LeddarOne
+--- | ---
+1 | GND 
+2 | - 
+3 | VCC 
+4 | RX 
+5 | TX 
+6 | - 
+
+## Intel Aero {#aero}
+
+The LeddarOne is the recommended rangefinder for the *Intel® Aero Ready to Fly Drone*. It is present in Aero firmware and can be enabled/started through *QGroundControl* by setting the [SENS_EN_LEDDAR1](../advanced_config/parameter_reference.md#SENS_EN_LEDDAR1) parameter to 1 (and rebooting).
+
+For more information on hardware setup and configuration see: [The Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md#leddarone).
+
 
 ## Further Information
 
 <!-- Would be good to add links to topics on adding drivers to firmware -->
 * [PX4 Development Guide](https://dev.px4.io/en/)
 * [System Startup > Customizing the System Startup](https://dev.px4.io/en/advanced/system_startup.html#customizing-the-system-startup) (PX4 Development Guide)
+* [LeddarOne Spec sheet](https://leddartech.com/app/uploads/dlm_uploads/2017/05/Spec-Sheets-LeddarOne-27octobre2017-web.pdf)
