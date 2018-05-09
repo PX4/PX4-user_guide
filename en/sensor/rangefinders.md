@@ -27,7 +27,7 @@ The driver for this rangefinder is usually present in firmware (driver added as:
 > **Note** PWM is recommended if using an older model (some older models do not behave reliably on I2C).
 
 <span></span>
-> **Info** The *Lidar-Lite v3* is used in the [The Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md##connecting-a-lidar-lite-range-finder).
+> **Info** The *Lidar-Lite v3* may be used in the [The Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md#lidar_lite) (but is not recommended).
 
 
 ### MaxBotix I2CXL-MaxSonar-EZ
