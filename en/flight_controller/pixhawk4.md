@@ -37,7 +37,7 @@ Pixhawk<sup>&reg;</sup> 4 is an advanced autopilot designed and made in collabor
 * Other Characteristics:
   * Operating temperature: -40 ~ 85°c
 
-Download full Pixhawk 4 Technical Data Sheet from [here](../../assets/flight_controller/pixhawk4/Pixhawk4-DataSheet.pdf).
+Download full Pixhawk 4 Technical Data Sheet from [here]().
 <!-- Later change to holybro wesbite (https://github.com/PX4/Hardware/blob/master/FMUv5/Pixhawk4-Datasheet.pdf).-->
 
 ## Assembly/Setup 
@@ -62,7 +62,7 @@ or to the receiver connected to it.
 
 ## Pinouts
 
-Download Pixhawk 4 pinouts from [here](../../assets/flight_controller/pixhawk4/Pixhawk4-DataSheet.pdf).
+Download Pixhawk 4 pinouts from [here]().
 <!-- link to holybro (https://github.com/PX4/Hardware/blob/master/FMUv5/Pixhawk4-Pinouts.pdf)-->
 
 ## Voltage Ratings
