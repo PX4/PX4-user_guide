@@ -2,7 +2,7 @@
 
 Pixhawk<sup>&reg;</sup> 4 is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 version 1.7, suitable for academic and commercial developers. 
 
-![Pixhawk4 Image](../../assets/hardware/hardware-pixhawk4.png)
+![Pixhawk4 Image](../../assets/flight_controller/pixhawk4/hardware-pixhawk4.png)
 
 ## Quick Summary
 
