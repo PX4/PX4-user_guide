@@ -52,7 +52,7 @@ The image below shows the power management board provided with Pixhawk 4.
 
 PIN&Connector | Function
 --- | ---
-I/O PWM-IN* | If using Copter, connect to I/O PWM OUT port of Pixhawk 4
+I/O PWM-IN | See note below for connection to Pixhawk 4
 M1 | I/O PWM OUT 1: connect signal wire to ESC of motor 1 here 
 M2 | I/O PWM OUT 2: connect signal wire to ESC of motor 2 here
 M3 | I/O PWM OUT 3: connect signal wire to ESC of motor 3 here
@@ -61,8 +61,8 @@ M5 | I/O PWM OUT 5: connect signal wire to ESC of motor 5 here
 M6 | I/O PWM OUT 6: connect signal wire to ESC of motor 6 here
 M7 | I/O PWM OUT 7: connect signal wire to ESC of motor 7 here
 M8 | I/O PWM OUT 8: connect signal wire to ESC of motor 8 here
-FMU PWM-IN* | If using Copter, connect to FMU PWM OUT port of Pixhawk 4. If using Plane or Rover, connect to I/O PWM OUT port of Pixhawk 4.
-FMU PWM-OUT** | If FMU PWM-IN is connected to Pixhawk 4, connect signal wires to ESC or signal, +, - wires to servos here
+FMU PWM-IN | See note below for connection to Pixhawk 4
+FMU PWM-OUT | If FMU PWM-IN is connected to Pixhawk 4, connect signal wires to ESC or signal, +, - wires to servos here
 CAP&ADC-OUT | connect to CAP & ADC IN port of Pixhawk 4
 CAP&ADC-IN | CAP&ADC input
 B+ | connect to ESC B+ to power the ESC
@@ -71,20 +71,29 @@ PWR1 | 5v output 3A, connect to Pixhawk 4 POWER 1
 PWR2 | 5v output 3A, connect to Pixhawk 4 POWER 2 
 2~12S | Power Input, connect to 12S LiPo Battery
 
-\* Depending on your airframe type, refer to [Airframe Reference](../airframes/airframe_reference.md) to connect **I/O PWM OUT** and **FMU PWM OUT** ports of Pixhawk 4 to PM board. **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of Pixhawk 4 whereas **AUX outputs** map to **FMU PWM OUT** of Pixhawk 4. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT**.
+> **Note** Depending on your airframe type, refer to [Airframe Reference](../airframes/airframe_reference.md) to connect **I/O PWM OUT** and **FMU PWM OUT** ports of Pixhawk 4 to PM board. **MAIN** 
+outputs in PX4 firmware map to **I/O PWM OUT** port of Pixhawk 4 whereas **AUX outputs** map to **FMU PWM OUT** of Pixhawk 4. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps 
+to FMU_CH1 pin of **FMU PWM OUT**. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**, which is used to drive servos (e.g. aileron, elevator, rudder, elevon, gear, flaps, gimbal, 
+steering). **I/O PWM-IN** of PM board is internally connected to **M1-8**, which is used to drive motors (e.g. throttle in Plane, VTOL and Rover). The following table summarizes how to connect Pixhawk 4's PWM OUT ports to PM board's PWM-IN ports, depending on the Airframe Reference.
 
-** FMU PWM-OUT is used to drive servos in a Plane, Rover or Copter, while M1-8 is used for motors.
+Airframe Reference | Connection between Pixhawk 4 --> PM board
+--- | ---
+**MAIN**: motor | I/O PWM OUT --> I/O PWM IN
+**MAIN**: servo | I/O PWM OUT --> FMU PWM IN
+**AUX**: motor  | FMU PWM OUT --> I/O PWM IN
+**AUX**: servo  | FMU PWM OUT --> FMU PWM IN
 
+<!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 The pinout of Pixhawk 4’s power ports is shown below. The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default. The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60A as default. The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged.
 
 
 Pin | Signal | Volt
 --- | --- | ---
 1(red) | VCC | +5V
-2(yellow) | VCC | +5V
-3(blue) | CURRENT | +3.3V
-4(white) | VOLTAGE | +3.3V
-5(green) | GND | GND
+2(black) | VCC | +5V
+3(black) | CURRENT | +3.3V
+4(black) | VOLTAGE | +3.3V
+5(black) | GND | GND
 6(black) | GND | GND
 
 
