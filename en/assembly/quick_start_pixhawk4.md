@@ -2,7 +2,7 @@
 
 This quick start guide shows how to power the Pixhawk<sup>&reg;</sup> 4 flight controller and connect its most important peripherals.
   
-![Pixhawk 4 Image](../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.png)
+<img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" /> 
 
 
 ## Wiring Chart Overview
@@ -33,7 +33,7 @@ Attach the provided GPS with integrated compass, safety switch, buzzer and LED t
   other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other 
   electronics will reduce interference).
 
-![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.png)
+![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
 When GPS module with integrated safety switch is connected to Pixhawk 4, by default the safety is enabled. This means the autopilot will not let you arm the vehicle. To arm the vehicle, you have to press and hold the safety switch for 1 sec to disable safety. Similarly, if the vehicle is armed and something goes wrong such that you are unable to disarm the vehicle from QGC or RC, you can press the safety switch again to disarm, enabling safety.
 
@@ -45,7 +45,7 @@ Connect the output of the *Power Management Board* (PM board) that comes with th
 
 The image below shows the power management board provided with Pixhawk 4.
 
-![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4/pixhawk4_power_management_board.png)
+![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4/pixhawk4_power_management_board.jpg)
 
 > **Note** If using a plane or rover, the 8 pin power (+) rail of **FMU PWM-OUT** will need to be separately powered in order to drive 
   servos for rudders, elevons etc. To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a
@@ -114,7 +114,7 @@ For more information about selecting a radio system, receiver compatibility, and
 
 Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission). One radio must be connected to your vehicle as shown below. The other is connected to your ground station computer or mobile device (usually by USB).
 
-![Pixhawk 4/Telemetry Radio](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.png)
+![Pixhawk 4/Telemetry Radio](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
 
 <!-- what configuration is required once you've set up a radio) -->
 

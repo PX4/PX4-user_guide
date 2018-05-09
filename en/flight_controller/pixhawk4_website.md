@@ -1,6 +1,6 @@
 # Pixhawk 4 - Pinouts 
 
-![Pixhawk4 Image](../../assets/flight_controller/pixhawk4/hardware-pixhawk4.png)
+<img src="../../assets/flight_controller/pixhawk4/hardware-pixhawk4.jpg" width="200px" title="Pixhawk4 Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" /> 
 
 
 ## Pinouts
@@ -11,7 +11,7 @@ Download Pixhawk<sup>&reg;</sup> 4 pinouts from [here.](https://github.com/PX4/H
 > **Note** The SBUS RC and PPM RC ports are for RC receivers only and provide power. NEVER connect any servos, power supplies or batteries to it 
 or to the receiver connected to it.
 
-![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/hardware-pixhawk4-connectors.png)
+![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/hardware-pixhawk4-connectors.jpg)
 
 ## Voltage Ratings
 
