@@ -36,7 +36,7 @@ After setting up the PX4 development environment, follow these steps to put the 
    - Plug into computer's USB port
    - After a second, the blue LED should start blinking and after 5 seconds should start blinking faster
    - Release button
-1. Flash bootloader using dfu-util: `sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build_crazyflie_bl/crazyflie_bl.bin` and unplug CF2 when done
+1. Flash bootloader using dfu-util: `sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build/crazyflie_bl/crazyflie_bl.bin` and unplug CF2 when done
    - If successful, then the yellow LED should blink when plugging in again
 1. Grab the [Firmware](https://github.com/PX4/Firmware)
 1. Compile with `make crazyflie_default upload`
