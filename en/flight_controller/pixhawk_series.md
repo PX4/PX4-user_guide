@@ -25,12 +25,6 @@ The following products in the series are recommended/regularly tested with PX4:
 
 > **Note** This is not an exhaustive list of all boards that can run PX4. Other boards are linked from the sidebar, and there may be other flight controllers that we have not documented.
 
-<!-- 
-
-<a href="pixhawk_mini.md" title="Pixhawk Mini"><img src="../../images/pixhawk_mini_hero.jpg" width="180px" /></a> <a href="pixracer.md" title="Pixracer"><img src="../../images/pixracer_wifi.jpg" width="180px" /></a> <a href="pixhawk-2.md" title="Pixhawk 2"><img src="../../images/pixhawk2_cube_hero.jpg" width="180px" /></a> <a href="mro_pixhawk.md" title="Pixhawk 1/mRo Pixhawk"><img src="../../images/flight_controller/mro_pixhawk.jpg" width="180px" /></a> <a href="pixfalcon.md" title="Pixfalcon"><img src="../../images/flight_controller/pixfalcon_flight_controller_high.jpg" width="180px" /></a> <a href="HKPilot32.md" title="HKPilot32"><img src="../../images/flight_controller/dropix/dropix_flight_controller_hero.jpg" width="180px" /></a> <a href="dropix.md" title="Dropix"><img src="../../images/hkpilot32_flight_controller.jpg" width="180px" /></a> <a href="mindpx.md" title="MindPX"><img src="../../assets/hardware/hardware-mindpx.png" width="180px" /></a> 
-
--->
-
 The rest of this topic explains a bit more about the Pixhawk series, but is not required reading.
 
 ## Background
@@ -45,14 +39,18 @@ The project also creates reference autopilot boards based on the open designs, a
 
 ### FMU Versions
 
-The Pixhawk project has created a number of different open designs/schematics. Each design is named using the designation: FMUvX (e.g.: FMUv1, FMUv2, FMUv3, FMUv4, etc.). 
+The Pixhawk project has created a number of different open designs/schematics. 
+All boards based on a design should be binary compatible (run the same firmware).
+
+Each design is named using the designation: FMUvX (e.g.: FMUv1, FMUv2, FMUv3, FMUv4, etc.). 
+Higher FMU numbers indicate that the board is more recent, 
+but may not indicate increased capability (versions can be almost identical - differing only in connector wiring).
 
 PX4 *users* generally do not need to know very much about FMU versions:
 - *QGroundControl* automatically downloads the correct firmware for a connected autopilot (based on its FMU version "under the hood").
-- FMU versions are of limited use when choosing an autopilot. Versions can be almost identical (differing only in connector wiring).
 - Choosing a controller is usually based on physical constraints/form factor rather than FMU version. 
 
-> **Tip** PX4 *developers* need to know the FMU version of their board, as this is required to build custom hardware. 
+PX4 *developers* need to know the FMU version of their board, as this is required to build custom hardware. 
 
 At very high level, the main differences are:
 
