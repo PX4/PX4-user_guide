@@ -11,3 +11,6 @@ _book
 *.epub
 *.mobi
 *.pdf
+
+#backup files
+*.bak

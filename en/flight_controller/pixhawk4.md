@@ -1,8 +1,8 @@
 # Pixhawk 4 
 
-Pixhawk<sup>&reg;</sup> 4 is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 version 1.7, suitable for academic and commercial developers. 
+*Pixhawk 4*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 version 1.7, suitable for academic and commercial developers. 
 
-![Pixhawk4 Image](../../assets/hardware/hardware-pixhawk4.png)
+<img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" /> 
 
 ## Quick Summary
 
@@ -37,58 +37,66 @@ Pixhawk<sup>&reg;</sup> 4 is an advanced autopilot designed and made in collabor
 * Other Characteristics:
   * Operating temperature: -40 ~ 85°c
 
-Download full Pixhawk 4 Technical Data Sheet from [here]().
-<!-- Later change to holybro wesbite (https://github.com/PX4/Hardware/blob/master/FMUv5/Pixhawk4-Datasheet.pdf).-->
-
-## Assembly/Setup 
-
-Pixhawk 4 Wiring Quick Start is provided [here](../assembly/quick_start_pixhawk4.md). It includes instructions on how to assemble important peripherals such as GPS, Power Management Board etc.
-
-
-## Build Instructions
-
-`make px4fmu-v5_default upload`
+Additional information can be found in the [Pixhawk 4 Technical Data Sheet]().
+<!-- Later change to holybro wesbite (https://github.com/PX4/Hardware/blob/master/FMUv5/Pixhawk4-Datasheet.pdf). -->
 
 
 ## Purchase
-Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html)
+
+Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
 
 ## Connectors
-> **Note** The SBUS RC and PPM RC ports are for RC receivers only and provide power. NEVER connect any servos, power supplies or batteries to it 
-or to the receiver connected to it.
 
-![Pixhawk 4 connectors](../../assets/hardware/hardware-pixhawk4-connectors.png)
+![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
+
+> **Warning** The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+
 
 ## Pinouts
 
-Download Pixhawk 4 pinouts from [here]().
+Download *Pixhawk 4* pinouts from [here]( ).
 <!-- link to holybro (https://github.com/PX4/Hardware/blob/master/FMUv5/Pixhawk4-Pinouts.pdf)-->
+
 
 ## Voltage Ratings
 
-Pixhawk 4 can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module inputs 1 and 2 and 
-USB input.
+*Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+
+> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered. 
 
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
-1. Power module inputs 1 and 2  (4.9V to 5.5V)
-1. USB power input (4.75V to 5.25V)
-
-> **Note** **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) input voltage does not power autopilot, autopilot will be unpowered if power module input is not present.
+1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
+1. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
 Under these conditions the system will not draw any power (will not be operational), but will remain intact.
-1. Power module inputs 1 and 2 (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. USB power input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of FMU PWM OUT and I/O PWM OUT (0V to 42V undamaged)
+1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
+1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
 
-### Debug Port
+## Assembly/Setup 
 
-The system's serial console and SWD interface runs on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port.  In order to access these ports, the user has to remove the Pixhawk 4 casing. Both ports have standard serial pinout and can be connected to a standard FTDI cable (3.3V, but its 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout is following the Dronecode debug connector pinout. Please refer to the [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
+The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
+
+
+## Building Firmware
+
+`make px4fmu-v5_default upload`
+
+
+## Debug Port
+
+The system's serial console and SWD interface runs on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port.
+In order to access these ports, the user must remove the *Pixhawk 4* casing. 
+
+Both ports have standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). 
+The pinout uses the standard Dronecode debug connector pinout. 
+Please refer to the [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
 
 
 ## Peripherals
@@ -105,6 +113,6 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## Further info
 
-The reference design (FMUv5) pinout is available [here](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
-
-<!--The board is documented in detail on the [Pixhawk website](). -->
+- [Pixhawk 4 Technical Data Sheet]() <!-- Later change to holybro wesbite (https://github.com/PX4/Hardware/blob/master/FMUv5/Pixhawk4-Datasheet.pdf). -->
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
+- [Pixhawk project](https://pixhawk.org/modules/start) <!-- update with pixhawk.org pixhawk4 url-->
