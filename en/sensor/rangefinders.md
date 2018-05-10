@@ -79,7 +79,7 @@ The uLanding Radar is not present in "most" firmware by default and must be star
 
 [LeddarOne](https://leddartech.com/modules/leddarone/) is small-size Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
 
-The *LeddarOne* must typically be added to firmware before it can be used. For setup/usage information see: [LeddarOne](../sensor/leddar_one.md).
+For setup/usage information see: [LeddarOne](../sensor/leddar_one.md).
 
 
 ### TFmini
