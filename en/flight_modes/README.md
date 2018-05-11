@@ -86,6 +86,7 @@ th {
         <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a> (same as <a href="#stabilized_fw">Stabilized</a>).</li>
         <li>Throttle sets airspeed (same as <a href="#altitude_fw">Altitude</a>).</li> 
         <li>Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).</li>
+        <li>Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.</li>
      </ul></li>
    </ul>
   </p>
@@ -114,6 +115,7 @@ th {
        <li>Pitch stick controls altitude.</li>
        <li>Throttle sets airspeed.</li> 
        <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>. This is same as in <a href="#stabilized_fw">Stabilized mode</a>.</li>
+       <li>Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.</li>
     </ul>
   </li>
   </ul>
