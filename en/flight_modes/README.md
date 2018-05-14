@@ -105,7 +105,7 @@ th {
  <td>
  <p>RC mode like <a href="#stabilized_fw">Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
   <ul>
-    <li>Centered sticks (inside deadband):
+    <li>Centered RPY sticks (inside deadband):
       <ul>
        <li>Autopilot maintains altitude with wings also level.</li> 
        <li>Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected (without airspeed sensor, the user cannot control throttle).</li>
@@ -113,8 +113,7 @@ th {
     <li>Outside center:
       <ul>
        <li>Pitch stick controls altitude.</li>
-       <li>Throttle sets airspeed.</li> 
-       <li>Roll stick controls roll angle. Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>. This is same as in <a href="#stabilized_fw">Stabilized mode</a>.</li>
+       <li>Throttle stick controls the airspeed of the aircraft (as for centred RPY sticks).</li>
        <li>Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.</li>
     </ul>
   </li>
