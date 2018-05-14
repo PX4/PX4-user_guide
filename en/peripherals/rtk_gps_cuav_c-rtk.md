@@ -21,3 +21,13 @@ The Pixhawk 3 Pro and Pixracer have 6-pin GPS port connectors. For these control
 
 4-pin connector for GPS2 - This cable can also be connected if desired.
 
+
+### Pinout
+The C-RTK GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
+
+
+
+
+
+
+
