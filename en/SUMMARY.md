@@ -94,7 +94,7 @@
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)
   * [RTK GPS - Here+](peripherals/rtk_gps_hex_hereplus.md)
   * [RTK GPS - Drotek XL](peripherals/rtk_gps_drotek_xl.md)
-  * [RTK GPS - CUAV C-RTK](peripherals/rtk_gps_c-rtk.md)
+  * [RTK GPS - CUAV C-RTK](peripherals/rtk_gps_cuav_c-rtk.md)
 
   * [Telemetry Radios](telemetry/README.md)
     * [SiK Radio](telemetry/sik_radio.md)
