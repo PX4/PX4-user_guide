@@ -1,6 +1,6 @@
 # Drotek XL RTK
 
-The [Drotek XL RTK GPS receiver](https://drotek.com/shop/en/home/792-xl-rtk-gps-neo-m8p-rover.html) is a competitively priced RTK module that can be configured as either base or rover. Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
+The [Drotek XL RTK GPS receiver](https://drotek.com/shop/en/home/792-xl-rtk-gps-neo-m8p-rover.html) is a competitively priced RTK module that can be configured as either base or rover.Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
 <img src="../../images/rtk_base_drotek_xl_rtk_gps.jpg" width="300px" /> <img src="../../images/rtk_rover_drotek_xl_rtk_gps.jpg" width="300px" />
 
