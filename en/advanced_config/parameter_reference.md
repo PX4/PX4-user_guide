@@ -80,7 +80,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ATT_W_MAG">ATT_W_MAG</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Complimentary filter magnetometer weight</p>    </td>
+ <td style="vertical-align: top;"><p>Complimentary filter magnetometer weight</p><p><strong>Comment:</strong> Set to 0 to avoid using the magnetometer.</p>    </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
@@ -2118,14 +2118,14 @@ The module where these parameters are defined is: *modules/fw_att_control*.
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_P_RMAX_NEG">FW_P_RMAX_NEG</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum negative / down pitch rate</p><p><strong>Comment:</strong> This limits the maximum pitch down up angular rate the controller will output (in degrees per second). Setting a value of zero disables the limit.</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum negative / down pitch rate</p><p><strong>Comment:</strong> This limits the maximum pitch down up angular rate the controller will output (in degrees per second).</p>    </td>
  <td style="vertical-align: top;">0.0 > 90.0 (0.5)</td>
  <td style="vertical-align: top;">60.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_P_RMAX_POS">FW_P_RMAX_POS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum positive / up pitch rate</p><p><strong>Comment:</strong> This limits the maximum pitch up angular rate the controller will output (in degrees per second). Setting a value of zero disables the limit.</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum positive / up pitch rate</p><p><strong>Comment:</strong> This limits the maximum pitch up angular rate the controller will output (in degrees per second).</p>    </td>
  <td style="vertical-align: top;">0.0 > 90.0 (0.5)</td>
  <td style="vertical-align: top;">60.0 </td>
  <td style="vertical-align: top;">deg/s</td>
@@ -2188,7 +2188,7 @@ The module where these parameters are defined is: *modules/fw_att_control*.
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_R_RMAX">FW_R_RMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum roll rate</p><p><strong>Comment:</strong> This limits the maximum roll rate the controller will output (in degrees per second). Setting a value of zero disables the limit.</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum roll rate</p><p><strong>Comment:</strong> This limits the maximum roll rate the controller will output (in degrees per second).</p>    </td>
  <td style="vertical-align: top;">0.0 > 90.0 (0.5)</td>
  <td style="vertical-align: top;">70.0 </td>
  <td style="vertical-align: top;">deg/s</td>
@@ -2237,9 +2237,9 @@ The module where these parameters are defined is: *modules/fw_att_control*.
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_W_RMAX">FW_W_RMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum wheel steering rate</p><p><strong>Comment:</strong> This limits the maximum wheel steering rate the controller will output (in degrees per second). Setting a value of zero disables the limit.</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum wheel steering rate</p><p><strong>Comment:</strong> This limits the maximum wheel steering rate the controller will output (in degrees per second).</p>    </td>
  <td style="vertical-align: top;">0.0 > 90.0 (0.5)</td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">30.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
@@ -2253,7 +2253,7 @@ The module where these parameters are defined is: *modules/fw_att_control*.
  <td style="vertical-align: top;"><strong id="FW_YR_I">FW_YR_I</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Yaw rate integrator gain</p><p><strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.</p>    </td>
  <td style="vertical-align: top;">0.0 > 50.0 (0.5)</td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">0.01 </td>
  <td style="vertical-align: top;">%/rad</td>
 </tr>
 <tr>
@@ -2272,9 +2272,9 @@ The module where these parameters are defined is: *modules/fw_att_control*.
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_Y_RMAX">FW_Y_RMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum yaw rate</p><p><strong>Comment:</strong> This limits the maximum yaw rate the controller will output (in degrees per second). Setting a value of zero disables the limit.</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum yaw rate</p><p><strong>Comment:</strong> This limits the maximum yaw rate the controller will output (in degrees per second).</p>    </td>
  <td style="vertical-align: top;">0.0 > 90.0 (0.5)</td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">50.0 </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 </tbody></table>
