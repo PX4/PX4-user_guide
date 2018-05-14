@@ -37,8 +37,7 @@
 * Other Characteristics:
   * Operating temperature: -40 ~ 85°c
 
-Additional information can be found in the [Pixhawk 4 Technical Data Sheet]().
-<!-- Later change to holybro wesbite (https://github.com/PX4/Hardware/blob/master/FMUv5/Pixhawk4-Datasheet.pdf). -->
+Additional information can be found in the [Pixhawk 4 Technical Data Sheet](http://www.holybro.com/manual/Pixhawk4-DataSheet.pdf).
 
 
 ## Purchase
@@ -55,9 +54,7 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
 ## Pinouts
 
-Download *Pixhawk 4* pinouts from [here]( ).
-<!-- link to holybro (https://github.com/PX4/Hardware/blob/master/FMUv5/Pixhawk4-Pinouts.pdf)-->
-
+Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf).
 
 ## Voltage Ratings
 
@@ -113,6 +110,6 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## Further info
 
-- [Pixhawk 4 Technical Data Sheet]() <!-- Later change to holybro wesbite (https://github.com/PX4/Hardware/blob/master/FMUv5/Pixhawk4-Datasheet.pdf). -->
+- [Pixhawk 4 Technical Data Sheet](http://www.holybro.com/manual/Pixhawk4-DataSheet.pdf)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
 - [Pixhawk project](https://pixhawk.org/modules/start) <!-- update with pixhawk.org pixhawk4 url-->
