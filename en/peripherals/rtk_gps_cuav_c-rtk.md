@@ -27,12 +27,12 @@ The C-RTK GPS pinout is provided below. This can be used to help modify the conn
 
 | pin | C-RTK GPS 6P  | pin | Pixhawk 3 Pro GPS |
 | --- | ------------- | --- | ----------------- |
-| 1   | VCC_5V        | 1   | VCC               |
-| 2   | GPS_RX        | 2   | GPS_TX            |
-| 3   | GPS_TX        | 3   | GPS_RX            |
-| 4   | SCL           | 4   | SCL               |
-| 5   | SDA           | 5   | SDA               |
-| 6   | BUTTON        | -   | -                 |
+| 1   | SDA           | 1   | VCC               |
+| 2   | SCL           | 2   | GPS_TX            |
+| 3   | GPS_TX        |3   | GPS_RX            |
+| 4   | GPS_RX        | 4   | SCL               |
+| 5   | VCC_5V        | 5   | SDA               |
+| 6   | GND           | 6 | -                 |
 
            
 
