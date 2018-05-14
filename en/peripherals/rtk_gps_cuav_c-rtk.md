@@ -1,6 +1,6 @@
 # CUAV C-RTK
 
-The [CUAV C-RTK GPS receiver](http://doc.cuav.net/gps/c-rtk/en/) is a Real Time Kinematics module for mass market launched by CUAV. The complete RTK system can be composed of two C-RTK modules (one for aircraft and one for base station).Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
+The [CUAV C-RTK GPS receiver](http://doc.cuav.net/gps/c-rtk/en/) is a RTK module for mass market launched by CUAV. The complete RTK system can be composed of two C-RTK modules (one for aircraft and one for base station).Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
 <img src="../../images/rtk_c_rtk.jpg" />
 
