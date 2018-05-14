@@ -18,15 +18,15 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 
 RC/manual mode like Stabilized mode but with altitude stabilization (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
 
-* Centered sticks (inside deadband):
-  * Pitch input is used to control the altitude. If zero pitch input – autopilot holds current altitude against wind.
-  * RPY sticks gives level flight.
+* Centered Roll/Pitch/Yaw inputs (inside deadband):
+  * Autopilot levels vehicle/wings and maintains altitude.
   * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)), increasing or decreasing throttle as needed to climb or descend).
-
 * Outside center:
   * Pitch stick controls altitude.
-  * Throttle sets airspeed.
-  * If roll/pitch sticks are non-zero the vehicle does a coordinated turn (manual yaw input is added to rudder control input to control sideslip).
+  * Throttle stick controls the airspeed of the aircraft (as for centred Roll/Pitch/Yaw inputs).
+  * Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight). This is same as in [Stabilized mode](#stabilized_fw).
+  * aw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)). This is same as in [Stabilized mode](#stabilized_fw).
+
 
 > **Note**
 >  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
