@@ -13,8 +13,6 @@ The [CUAV C-RTK GPS receiver](http://doc.cuav.net/gps/c-rtk/en/) is a RTK module
 
 RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
 
-> **Tip** The Drotek UCenter tool is not required for configuration - everything is handled by *QGroundControl*.
-
 
 ## Wiring and Connections
 
