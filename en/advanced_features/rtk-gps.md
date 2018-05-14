@@ -12,7 +12,7 @@ You will need:
 ## Supported RTK Devices
 
 PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) GPS and products that incorporate it. The following RTK-compatible devices have been tested.
-* [CUAV C-RTK GPS](../peripherals/rtk_gps_C-RTK.md)
+* [CUAV C-RTK GPS](../peripherals/rtk_gps_cuav_c-rtk.md)
 * [Drotek XL RTK GPS](../peripherals/rtk_gps_drotek_xl.md)
 * [Here+ RTK GPS](../peripherals/rtk_gps_hex_hereplus.md)
 
