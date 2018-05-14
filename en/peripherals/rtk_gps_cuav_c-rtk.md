@@ -1,6 +1,6 @@
 # CUAV C-RTK
 
-The [CUAV C-RTK GPS receiver](http://doc.cuav.net/gps/c-rtk/en/) is a RTK module for mass market launched by CUAV. The complete RTK system consists of at least two C-RTK modules (one for the base station and the others for the aircraft). Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
+The [CUAV C-RTK GPS receiver](http://doc.cuav.net/gps/c-rtk/en/) is a RTK module for mass market launched by CUAV. The complete RTK system consists of at least two C-RTK modules \(one for the base station and the others for the aircraft\). Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
 ![C-RTK](../../images/rtk_c-rtk.jpg)
 
@@ -11,13 +11,13 @@ The [CUAV C-RTK GPS receiver](http://doc.cuav.net/gps/c-rtk/en/) is a RTK module
 
 ## Configuration
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
-
+RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RTK GPS](../advanced_features/rtk-gps.md) for more information\).
 
 ## Wiring and Connections
+
 C-RTK GPS with 6-pin connector and 4-pin connector, 6-pin connector can be plugged directly into [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/Instructions.html) GPS UART port, 4-pin connector can not be connected or access pixhack v3 SER4/5 port
 
-The Pixhawk 3 Pro and Pixracer have 6-pin GPS port connectors. For these controllers, you can modify the order of the GPS cables (shown below).
+The Pixhawk 3 Pro and Pixracer have 6-pin GPS port connectors. For these controllers, you can modify the order of the GPS cables \(shown below\).![](/assets/rtk_cuav_c-rtk_to_6pin_connector.jpg)
 
-<img src = "../../ images / rtk_here_plug_gps_to_6pin_connector.jpg" width = "500px"/>
 4-pin connector for GPS2 - This cable can also be connected if desired.
+
