@@ -17,7 +17,7 @@ RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RT
 
 C-RTK GPS with 6-pin connector and 4-pin connector, 6-pin connector can be plugged directly into [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/Instructions.html) GPS UART port, 4-pin connector can not be connected or access pixhack v3 SER4/5 port
 
-The Pixhawk 3 Pro and Pixracer have 6-pin GPS port connectors. For these controllers, you can modify the order of the GPS cables \(shown below\).![](/assets/rtk_cuav_c-rtk_to_6pin_connector.jpg)
+The Pixhawk 3 Pro and Pixracer have 6-pin GPS port connectors. For these controllers, you can modify the order of the GPS cables \(shown below\).![C-RTK_6PIN](/assets/rtk_cuav_c-rtk_to_6pin_connector.jpg)
 
 4-pin connector for GPS2 - This cable can also be connected if desired.
 
