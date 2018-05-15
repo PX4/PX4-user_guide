@@ -29,10 +29,10 @@ The C-RTK GPS pinout is provided below. This can be used to help modify the conn
 | --- | ------------- | --- | ----------------- |
 | 1   | SDA           | 1   | VCC               |
 | 2   | SCL           | 2   | GPS_TX            |
-| 3   | GPS_TX        |3   | GPS_RX            |
-| 4   | GPS_RX        | 4   | SCL               |
+| 3   | GPS_RX        |3   | GPS_RX            |
+| 4   | GPS_TX        | 4   | SCL               |
 | 5   | VCC_5V        | 5   | SDA               |
-| 6   | GND           | 6 | -                 |
+| 6   | GND           | 6 | GND              |
 
            
 
