@@ -75,9 +75,9 @@ cfbridge.py.
 - Build a [virtualenv (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies:
   * `pip install virtualenv`
   * `pip install tox`
+  * Navigate to the crazyflie-lib-python folder.
   * `pip install -e .`
   * `virtualenv venv` for linux or `python -m virtualenv venv` for Mac OSX
-  * Navigate to the crazyflie-lib-python folder.
   * Activate the virtual environment: `source venv/bin/activate`
 - `pip install -r requirements.txt`
 
