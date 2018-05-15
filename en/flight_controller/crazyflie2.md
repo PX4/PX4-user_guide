@@ -75,21 +75,23 @@ cfbridge.py.
 - Build a [virtualenv (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies:
   * `pip install virtualenv`
   * `pip install tox`
-  * `virtualenv venv`
+  * `pip install -e .`
+  * `virtualenv venv` for linux or `python -m virtualenv venv` for Mac OSX
   * Navigate to the crazyflie-lib-python folder.
-  * `source venv-cflib/bin/activate`
+  * Activate the virtual environment: `source venv/bin/activate`
 - `pip install -r requirements.txt`
 
 Note: For systems that support [make](https://www.gnu.org/software/make/manual/html_node/Simple-Makefile.html), the above six steps can be skipped and replaced with:
  * `pip install tox`
  * Navigate to the crazyflie-lib-python folder.
  * `make venv`
+ * Activate the virtual environment: `source venv-cflib/bin/activate`
 
 To launch cfbridge.py everytime:
 - Switch on CF2 (which is already flashed with PX4 firmware) by pressing its ON button and wait for it to boot up.
 - Connect a Crazyradio PA via USB.
 - Navigate to the crazyflie-lib-python folder.
-- Activate the environment: `source venv-cflib/bin/activate`
+- Activate the environment: `source venv-cflib/bin/activate` or `source venv/bin/activate` depending on the name of the venv folder you have.
 - `cd examples`
 - `python cfbridge.py`
 - Open QGC.
