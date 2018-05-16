@@ -8,14 +8,15 @@ The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the
 
 > **Note** The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
 
-  * Main System-on-Chip: STM32F405RG
-    * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
-    * RAM: 192 KB SRAM
-  * nRF51822 radio and power management MCU
-  * MPU9250 Accel / Gyro / Mag
-  * LPS25H barometer
-  
-## Where to buy
+* Main System-on-Chip: STM32F405RG
+  * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
+  * RAM: 192 KB SRAM
+* nRF51822 radio and power management MCU
+* MPU9250 Accel / Gyro / Mag
+* LPS25H barometer
+
+## Where to Buy
+
 * [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0)
 * [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between QGC and crazyflie 2.0.
 * [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals. 
@@ -29,7 +30,7 @@ The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the
 After setting up the PX4 development environment, follow these steps to put the PX4 software on the CF2:
 
 1. Grab source code of the PX4 [Bootloader](https://github.com/PX4/Bootloader)
-1. Compile using `make crazyflie_bl`
+1. Compile using: `make crazyflie_bl`
 1. Put the CrazyFly 2 (CF2) into DFU mode by following these steps:
    - Ensure it is initially unpowered
    - Hold down button
@@ -53,13 +54,13 @@ The onboard nRF module allows connecting to the board via Bluetooth or through t
 - A [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/) is recommended.
 - To fly the CF2 right away, the Crazyflie phone app is supported via Bluetooth
 
-Using the official Bitcraze **Crazyflie phone app**
+Using the official Bitcraze **Crazyflie phone app**:
 
 - Connect via Bluetooth
 - Change mode in settings to 1 or 2
 - Calibrate via QGC
 
-Connecting via **MAVLink**
+Connecting via **MAVLink**:
 
 - Use a Crazyradio PA alongside a compatible GCS
 - Clone the [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge).
@@ -73,12 +74,15 @@ cfbridge.py.
 - Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
 - Connect a Crazyradio PA via USB.
 - Build a [virtualenv (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies:
-  * `pip install virtualenv`
-  * `pip install tox`
-  * Navigate to the crazyflie-lib-python folder.
-  * `pip install -e .`
-  * `virtualenv venv` for linux or `python -m virtualenv venv` for Mac OSX
-  * Activate the virtual environment: `source venv/bin/activate`
+  - Enter the following:
+    ```
+    pip install virtualenv`
+    pip install tox
+    ```
+  - Navigate to the crazyflie-lib-python folder.
+  - `pip install -e .`
+  - `virtualenv venv` for linux or `python -m virtualenv venv` for Mac OSX
+  - Activate the virtual environment: `source venv/bin/activate`
 - `pip install -r requirements.txt`
 
 Note: For systems that support [make](https://www.gnu.org/software/make/manual/html_node/Simple-Makefile.html), the above six steps can be skipped and replaced with:
@@ -156,39 +160,42 @@ Then, you need to stick the battery on top of the SD card deck using a double si
 
 \* Since we haven't been able to fly it with optical flow, we don't use optical flow data yet.
 
-### Using FrSky Taranis RC transmitter as joystick
+
+### Using FrSky Taranis RC Transmitter as Joystick
+
 If you already own a Taranis RC transmitter and want to use it as a controller, it can be configured as a USB Joystick:
 
 - Create a new model in Taranis.
 
-![](../../assets/hardware/transmitters/hardware-crazyflie-taranis-model.jpg)
+  ![](../../assets/hardware/transmitters/hardware-crazyflie-taranis-model.jpg)
 
 - In “MODEL SETUP” menu page, turn off both internal and external TX modules.
 
-![](../../assets/hardware/transmitters/hardware-crazyflie-taranis-modelSetup.jpg)
+  ![](../../assets/hardware/transmitters/hardware-crazyflie-taranis-modelSetup.jpg)
 
 - In “OUTPUTS” menu page (also called “SERVOS” page in some Taranis transmitters), invert Throttle (CH1) and Aileron (CH3).
 
-![](../../assets/hardware/harware-crazyflie-taranis-outputs.jpg)
+  ![](../../assets/hardware/harware-crazyflie-taranis-outputs.jpg)
+  
 
 To use Taranis switches to arm/disarm and switch to different flight modes:
 
 - In Taranis UI “MIXER” menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGC Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
 
-![Taranis switch setup](../../assets/hardware/transmitters/hardware-crazyflie-taranis-switchSetup.jpg)
+  ![Taranis switch setup](../../assets/hardware/transmitters/hardware-crazyflie-taranis-switchSetup.jpg)
 
 - Connect Taranis to PC with a USB cable and Open QGC. 
 - In QGC Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGC Joystick setup. You can assign any mode to this button e.g. Altitude mode. Now when you lower the switch "SD", flight mode will change to Altitude.
 
-![Joystick setup](../../assets/hardware/hardware-crazyflie-QGCjoystick-setup.png)
+  ![Joystick setup](../../assets/hardware/hardware-crazyflie-QGCjoystick-setup.png)
 
 ### ROS
 To connect to the crazyflie via mavros:
 
 - Start up cfbridge using the above instructions.
 - Change the UDP port QGC listens to:
-   - In QGC, navigate to **Application Settings > General** and uncheck all the boxes under "Autoconnect to the following devices".
-   - Add in **Comm Links** a link of type "UDP", check the "Automatically Connect on Start" option, change the "Listening Port" to 14557, add Target Hosts: 127.0.0.1 and then press ok.
+  - In QGC, navigate to **Application Settings > General** and uncheck all the boxes under "Autoconnect to the following devices".
+  - Add in **Comm Links** a link of type "UDP", check the "Automatically Connect on Start" option, change the "Listening Port" to 14557, add Target Hosts: 127.0.0.1 and then press ok.
 - Make sure you have [mavros](https://github.com/mavlink/mavros/tree/master/mavros#installation) installed.
 - Start mavros with a command: `roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"`
 - Restart QGC if it doesn't connect.
