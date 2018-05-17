@@ -63,7 +63,7 @@ Using the official Bitcraze **Crazyflie phone app**:
 Connecting via **MAVLink**:
 
 - Use a Crazyradio PA alongside a compatible GCS
-- Clone the [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge).
+- Clone the [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge) and checkout its cfbridge branch: `git checkout cfbridge`
 
 >**Note** This fork of crazyflie-lib-python contains [cfbridge.py](https://github.com/barzanisar/crazyflie-lib-python
 /blob/cfbridge/examples/cfbridge.py) which is taken from [here](https://github.com/dennisss/cfbridge). Cfbridge allows wireless 
