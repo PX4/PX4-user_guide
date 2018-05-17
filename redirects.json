@@ -2,8 +2,8 @@
     "redirects": [
     
             {
-                "from": "en/flight-reporting.html",
-                "to": "en/flying/flight_reporting.html"
+                "from": "en/flying/flight_reporting.html",
+                "to": "en/getting_started/flight_reporting.html"
             },
             {
                 "from": "en/framebuild_multicopter/lumenier_qav250_pixhawk_mini.html",

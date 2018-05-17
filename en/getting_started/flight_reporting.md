@@ -13,4 +13,6 @@ Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/) (v3.2 
 
 ## Sharing the Log Files for Review by PX4 Developers
 
-Upload the log files to [http://review.px4.io](http://review.px4.io) and share the link in the Github issue or via email.
+Upload the log files to [http://review.px4.io](http://review.px4.io). The log file link can then be shared for review in [discussion forums](../README.md#support) or a [Github issue](../README.md#reporting-bugs--issues).
+
+> **Tip** The topic [Flight Log Analysis](https://dev.px4.io/en/log/flight_log_analysis.html) (PX4 Developer Guide) contains basic information about log file analysis (and alternative analysis tools).

@@ -66,7 +66,7 @@ The core development team and community are active on the following forums and c
 If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
 
 If directed by the development team, issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). 
-Where possible provide [flight logs](flying/flight_reporting.md) and other information requested in the issue template.
+Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
 
 ## License
