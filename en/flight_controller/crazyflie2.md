@@ -205,4 +205,4 @@ To connect to the crazyflie via mavros:
 
 ## Flying
 
-{% youtube %}https://www.youtube.com/watch?v=oWk0RRIzF-4{% endyoutube %}
+{% youtube %}https://www.youtube.com/watch?v=2Bcy3k1h5uc{% endyoutube %}
