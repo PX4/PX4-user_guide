@@ -94,19 +94,19 @@ For systems that support [make](https://www.gnu.org/software/make/manual/html_no
  * `make venv`
  * Activate the virtual environment: `source venv-cflib/bin/activate`
 
-To launch cfbridge.py everytime:
+To **launch cfbridge** everytime:
 - Switch on CF2 (which is already flashed with PX4 firmware) by pressing its ON button and wait for it to boot up.
 - Connect a Crazyradio PA via USB.
 - Navigate to the crazyflie-lib-python folder.
 - Activate the environment: `source venv-cflib/bin/activate` or `source venv/bin/activate` depending on the name of the venv folder you have.
 - `cd examples`
-- `python cfbridge.py`
+- Launch cfbridge: `python cfbridge.py`
 - Open QGC.
 - After using cfbridge, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`. Most of the time, launching cfbridge again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal and relaunching cfbridge in a new terminal. 
 
-> **Note** If you change any driver in [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge) 
+> **Tip** If you change any driver in [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge) 
 or if launching cfbridge in a new terminal does not find crazyflie, you can try navigating to the crazyflie-lib-python folder and 
-run `make venv`.
+run `make venv` to rebuild cflib.
 
 > **Note** To use Joystick, set COM_RC_IN_MODE in QGC to "Joystick/No RC Checks". Calibrate the Joystick and set the Joystick 
 message frequency in QGC to any value between 5 to 14 Hz (10 Hz is recommended). This is the rate at which Joystick commands are 
@@ -117,10 +117,9 @@ obtain the latest QGC source code (master) and build it.)
 
 ## Hardware Setup
 
-Uptill now we have been able to fly crazyflie with precise control in Stabilised and Altitude modes. 
+Crazyflie is able to fly with precise control in Stabilised, Altitude and Position modes. 
 
-To fly in Altitude mode:
-* You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) or the distance sensor integrated in the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck).
+* You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) to fly in Altitude mode. If you also want to fly in the Position mode, it is recommended you buy the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) which also has the Z-ranger sensor integrated in it.
 * The onboard barometer is highly susceptible to any external wind disturbances including those created by crazyflie's own propellers. Hence, we isolated the barometer with a piece of foam and then mounted the distance sensor on top of it as shown below:
 
 ![](../../assets/hardware/hardware-crazyflie-barometer.jpg)
@@ -142,13 +141,16 @@ Then, you need to stick the battery on top of the SD card deck using a double si
 | Parameter Name    | Recommended Value           |
 |-------------------|-----------------------------|
 | EKF2_HGT_MODE     | 2   Range Sensor            |
-| EKF2_AID_MASK     | 1*                          |
+| EKF2_AID_MASK     | 3                           |
+| EKF2_OF_DELAY     | 10                          |
 | MPC_THR_HOVER     | 70 %               	        |
 | MPC_MANTHR_MAX    | 100 %               	       |
 | MPC_THR_MAX       | 100 %               	       |
 | MPC_Z_P           | 1.5              	          |
 | MPC_Z_VEL_I       | 0.3               	         |
 | MPC_Z_VEL_P       | 0.4               	         |
+| MPC_HOLD_MAX_XY   | 0.1                    	    |
+| MPC_MAX_FLOW_HGT  | 3                    	      |
 | MC_PITCHRATE_P    | 0.07                 	      |
 | MC_PITCHRATE_I    | 0.2                 	       |
 | MC_PITCHRATE_D    | 0.002                 	     |
@@ -161,10 +163,24 @@ Then, you need to stick the battery on top of the SD card deck using a double si
 | IMU_DTERM_CUTOFF  | 70                          |
 | SYS_FMU_TASK      | Enabled                     |
 
-\* Since we haven't been able to fly it with optical flow, we don't use optical flow data yet.
+## Altitude Control 
+
+Crazyflie is able to fly in Altitude mode if you use a [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-
+ranger-deck), connected to the board on I2C interface. The driver for this range finder is called "vl53lxx.cpp" which publishes 
+range readings on a uORB topic, named "distance_sensor". The maximum height (above ground) the range finder can sense lies in the 
+range of 0.5 to 1 m, depending on the reflective property of the ground surface. This means you cannot hold altitudes above this 
+range in Altitude or Position flight modes.
+
+> **Tip** If in Altitude or Position mode, the crazyflie height drifts at mid-throttle command, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).  
+
+> **Note** Since the onboard barometer is highly susceptible to wind disturbances created by the crazyflie's own propellers, you cannot rely on it to hold Altitude. 
+
+## Position Control 
+
+With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly crazyflie in Position mode. The driver for this sensor is called "pmw3901.cpp", which publishes the flow readings on the "optical_flow" uORB topic. Unlike PX4flow, the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates. Moreover, the flow deck shares the same SPI bus as the SD card deck, therefore logging at high rate on SD card is not recommended when flying in Position mode. A ulog for flight in Position mode is available [here](https://logs.px4.io/plot_app?log=a0e68bf1-e905-410f-b828-f6146dba9d45).
 
 
-### Using FrSky Taranis RC Transmitter as Joystick
+## Using FrSky Taranis RC Transmitter as Joystick
 
 If you already own a Taranis RC transmitter and want to use it as a controller, it can be configured as a USB Joystick:
 
