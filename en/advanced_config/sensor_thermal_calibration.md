@@ -2,22 +2,38 @@
 
 PX4 contains functionality to calibrate and compensate rate gyro, accelerometer and barometric pressure sensors for the effect of changing sensor temperature on sensor bias.
 
-This topic details the [calibration procedures](#procedures) (including best practises). At the end there is a description of the [implementation](#implementation). 
+This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation). 
 
 
-## Calibration Procedures {#procedures}
+## Test Setup/Best Practice {#test_setup}
+
+The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
+
+For the cold soak you can use a regular home freezer to achieve -20C, and commercial freezers can achieve of the order of -40C. 
+The board should be placed in a ziplock/anti-static bag containing a silica packet, 
+with a power lead coming out through a sealed hole. 
+After the cold soak the bag can be moved to the test environment and the test continued in the same bag. 
+
+> **Note** The bag/silica is to prevent condensation from forming on the board.
+
+It possible to perform the calibration without a commercial-grade environment chamber.
+A simple environment container can be created using a styrofoam box with a very small internal volume of air. 
+This allows the autopilot to self-heat the air relatively quickly (be sure that the box has a small hole to equalize to ambient room pressure, but still be able to heat up inside). 
+
+Using this sort of setup it is possible to heat a board to ~70C. 
+Anecdotal evidence suggests that many common boards can be heated to this temperature without adverse side effects. 
+If in doubt, check the safe operating range with your manufacturer.
+
+> **Tip** To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor. 
+
+
+## Calibration Procedures {#calibration_procedures}
 
 PX4 supports two calibration procedures: 
 * [onboard](#onboard_calibration) - calibration is run on the board itself. This method requires knowledge of the amount of temperature rise that is achievable with the test setup.
 * [offboard](#offboard_calibration) - compensation parameters are calculated on a development computer based on log information collected during the calibration procedure. This method allows users to visually check the quality of the data and curve-fit.
 
 The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate. 
-
-
-### Best Practices
-
-
-TBD
 
 
 ### Onboard Calibration Procedure {#onboard_calibration}
