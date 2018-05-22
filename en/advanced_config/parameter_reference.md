@@ -9849,6 +9849,24 @@ The module where these parameters are defined is: *modules/syslink*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="SYS_HAS_BARO">SYS_HAS_BARO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Control if the vehicle has a barometer</p><p><strong>Comment:</strong> Disable this if the board has no barometer, such as some of the the Omnibus F4 SD variants. If disabled, the preflight checks will not check for the presence of a barometer.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> modules/systemlib</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SYS_HAS_MAG">SYS_HAS_MAG</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Control if the vehicle has a magnetometer</p><p><strong>Comment:</strong> Disable this if the board has no magnetometer, such as the Omnibus F4 SD. If disabled, the preflight checks will not check for the presence of a magnetometer.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> modules/systemlib</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SYS_HITL">SYS_HITL</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Enable HITL mode on next boot</p><p><strong>Comment:</strong> While enabled the system will boot in HITL mode and not enable all sensors and checks. When disabled the same vehicle can be normally flown outdoors.</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/systemlib</p>
