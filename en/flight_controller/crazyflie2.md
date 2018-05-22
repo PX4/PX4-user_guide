@@ -63,13 +63,12 @@ Using the official Bitcraze **Crazyflie phone app**:
 Connecting via **MAVLink**:
 
 - Use a Crazyradio PA alongside a compatible GCS
-- Clone the [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge) and checkout its cfbridge branch: `git checkout cfbridge`
+- Clone the [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python)
+- Copy [cfbridge.py](https://github.com/dennisss/cfbridge/blob/master/scripts/cfbridge.py) in your cloned crazyflie-lib-python/examples repository.
 
->**Note** This fork of crazyflie-lib-python contains [cfbridge.py](https://github.com/barzanisar/crazyflie-lib-python
-/blob/cfbridge/examples/cfbridge.py) which is taken from [here](https://github.com/dennisss/cfbridge). Cfbridge allows wireless 
-Mavlink communication between CF2 (flashed with PX4) and QGC by enabling QGC to communicate with the crazyradio PA. The [C based 
-cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use 
-cfbridge.py.
+>**Note** Cfbridge allows wireless Mavlink communication between CF2 (flashed with PX4) and QGC by enabling QGC to communicate 
+with the crazyradio PA. The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, 
+which is why we have chosen to use cfbridge.py.
 
 - Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
 - Connect a Crazyradio PA via USB.
@@ -94,7 +93,7 @@ For systems that support [make](https://www.gnu.org/software/make/manual/html_no
  * `make venv`
  * Activate the virtual environment: `source venv-cflib/bin/activate`
 
-To **launch cfbridge** everytime:
+To connect crazyflie with crazyradio, **launch cfbridge** by following these steps:
 - Switch on CF2 (which is already flashed with PX4 firmware) by pressing its ON button and wait for it to boot up.
 - Connect a Crazyradio PA via USB.
 - Navigate to the crazyflie-lib-python folder.
@@ -117,9 +116,9 @@ obtain the latest QGC source code (master) and build it.)
 
 ## Hardware Setup
 
-Crazyflie is able to fly with precise control in Stabilised, Altitude and Position modes. 
+Crazyflie is able to fly with precise control in [Stabilized](../flight_modes/manual_stabilized_mc.md), [Altitude](../flight_modes/altitude_mc.md) and [Position](../flight_modes/position_mc.md) modes. 
 
-* You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) to fly in Altitude mode. If you also want to fly in the Position mode, it is recommended you buy the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) which also has the Z-ranger sensor integrated in it.
+* You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) to fly in *Altitude* mode. If you also want to fly in the *Position* mode, it is recommended you buy the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) which also has the Z-ranger sensor integrated in it.
 * The onboard barometer is highly susceptible to any external wind disturbances including those created by crazyflie's own propellers. Hence, we isolated the barometer with a piece of foam and then mounted the distance sensor on top of it as shown below:
 
 ![](../../assets/hardware/hardware-crazyflie-barometer.jpg)
@@ -162,22 +161,23 @@ Then, you need to stick the battery on top of the SD card deck using a double si
 | IMU_ACCEL_CUTOFF  | 30                          |
 | IMU_DTERM_CUTOFF  | 70                          |
 | SYS_FMU_TASK      | Enabled                     |
+| SDLOG_PROFILE     | 1                           |
+| EKF2_ABL_LIM      | 2.0                         |
 
 ## Altitude Control 
 
-Crazyflie is able to fly in Altitude mode if you use a [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-
-ranger-deck), connected to the board on I2C interface. The driver for this range finder is called "vl53lxx.cpp" which publishes 
-range readings on a uORB topic, named "distance_sensor". The maximum height (above ground) the range finder can sense lies in the 
-range of 0.5 to 1 m, depending on the reflective property of the ground surface. This means you cannot hold altitudes above this 
-range in Altitude or Position flight modes.
+Crazyflie is able to fly in *Altitude* mode if you use a [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-
+ranger-deck). According to the datasheet, the maximum height (above ground) the range finder can sense is 2 m. However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in *Altitude* or *Position* flight modes.
 
-> **Tip** If in Altitude or Position mode, the crazyflie height drifts at mid-throttle command, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).  
+> **Tip** If in *Altitude* or *Position* mode, the crazyflie height drifts at mid-throttle command, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).  
 
-> **Note** Since the onboard barometer is highly susceptible to wind disturbances created by the crazyflie's own propellers, you cannot rely on it to hold Altitude. 
+> **Note** Since the onboard barometer is highly susceptible to wind disturbances created by the crazyflie's own propellers, you cannot rely on it to hold *Altitude*. 
 
 ## Position Control 
 
-With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly crazyflie in Position mode. The driver for this sensor is called "pmw3901.cpp", which publishes the flow readings on the "optical_flow" uORB topic. Unlike PX4flow, the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates. Moreover, the flow deck shares the same SPI bus as the SD card deck, therefore logging at high rate on SD card is not recommended when flying in Position mode. A ulog for flight in Position mode is available [here](https://logs.px4.io/plot_app?log=a0e68bf1-e905-410f-b828-f6146dba9d45).
+With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly crazyflie in *Position* mode. Unlike PX4flow, the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates. Moreover, the flow deck shares the same SPI bus as the SD card deck, therefore logging at high rate on SD card is not recommended when flying in *Position* mode. 
+
+> **Note** A ulog for flight in *Position* mode is available [here](https://logs.px4.io/plot_app?log=a0e68bf1-e905-410f-b828-f6146dba9d45). This can be used as a reference to compare your flight performance.
 
 
 ## Using FrSky Taranis RC Transmitter as Joystick
@@ -204,7 +204,7 @@ To use Taranis switches to arm/disarm and switch to different flight modes:
   ![Taranis switch setup](../../assets/hardware/transmitters/hardware-crazyflie-taranis-switchSetup.jpg)
 
 - Connect Taranis to PC with a USB cable and Open QGC. 
-- In QGC Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGC Joystick setup. You can assign any mode to this button e.g. Altitude mode. Now when you lower the switch "SD", flight mode will change to Altitude.
+- In QGC Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGC Joystick setup. You can assign any mode to this button e.g. *Altitude* mode. Now when you lower the switch "SD", flight mode will change to *Altitude*.
 
   ![Joystick setup](../../assets/hardware/hardware-crazyflie-QGCjoystick-setup.png)
 
