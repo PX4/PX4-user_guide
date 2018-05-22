@@ -91,15 +91,15 @@ provide power on the other outputs. [Show a diagram of this?]
 
 Pixhawk Mini supports many different radio receiver models:
 
-- PPM and S.BUS receivers must connect to the **RCIN** port.
-
-  <img src="../../images/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - Radio port for PPM receivers" />
-- PWM receivers (with individual cables for each channel) must connect
-  to the RCIN channel *via* a PPM encoder 
-  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html).
-- Spektrum and DSM receivers must connect to the **SPKT/DSM** input.
+- Spektrum and DSM receivers connect to the **SPKT/DSM** input.
 
   <img src="../../images/pixhawk_mini_port_spkt_dsm.png" width="350px" title="Pixhawk Mini - Radio port for Spektrum receivers" />
+  
+- PPM-SUM and S.BUS receivers connect to the **RCIN** port.
+
+  <img src="../../images/pixhawk_mini_port_rcin.png" width="350px" title="Pixhawk Mini - Radio port for PPM receivers" />
+
+- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RCIN** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
