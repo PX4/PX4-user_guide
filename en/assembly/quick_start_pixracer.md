@@ -20,22 +20,24 @@ This quick start guide shows how to power the [Pixracer](../flight_controller/pi
 
 ### Radio/Remote Control
 
-For general information about selecting a radio system, receiver compatibility, and binding see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes). 
 
-- PPM and S.BUS receivers must connect to the **RCIN** port.
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver). 
 
-  ![Radio Connection](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg)
+The instructions below show how to connect the different types of receivers:
 
-- PWM receivers (with individual cables for each channel) must connect
-  to the RCIN channel *via* a PPM encoder 
-  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html).
-
-- FrSky receivers are supported via the port shown, and can use the provided I/O Connector.
+- FrSky receivers connect via the port shown, and can use the provided I/O Connector.
   
   ![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
   ![Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png)
+
+- PPM-SUM and S.BUS receivers connect to the **RCIN** port.
+
+  ![Radio Connection](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg)
   
+- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RCIN** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+
 ### Power Module (ACSP4)
 
 ![Grau ACSP4 2 roh](../../assets/flight_controller/pixracer/grau_acsp4_2_roh.jpg)
