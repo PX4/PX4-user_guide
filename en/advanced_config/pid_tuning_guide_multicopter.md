@@ -14,7 +14,7 @@ Tuning is required when creating a new airframe type or significantly modifying 
 
 **P**roportional, **I**ntegral, **D**erivative controllers are the most widespread control technique. 
 There are substantially better performing control techniques (LQR/LQG) from the model predictive control (MPC), 
-but since these techniques require a more or less accurate model of the system, they not as widely used. 
+but since these techniques require a more or less accurate model of the system, they are not as widely used. 
 The goal of all PX4 control infrastructure is to move as soon as possible on MPC, 
 but since not all supported systems models are available, 
 PID tuning is very relevant (and PID control is sufficient for many cases).
@@ -80,8 +80,8 @@ band-limit. If one of the rotors leaves this safety band, the total
 thrust of the system is lowered so that the relative percentage that the
 controller did output can be satisfied. As a result the multi rotor
 might not climb or lose altitude a bit, but it will never flip over. The
-same for lower side, even if commanded roll is large, it will be scaled
-to not exceed commanded summary thrust and copter will not flip on
+same for lower side, even if the commanded roll is large, it will be scaled
+to not exceed the commanded summary thrust and the copter will not flip on
 takeoff at near-zero thrust.
 
 ## Tuning steps
@@ -115,8 +115,8 @@ even 10% for final fine tuning. Note, that too large gain (even only
 
 Parameters: [MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P).
 
-If copter is symmetrical, then values for ROLL and PITCH should be
-equal, if not - then tune it separately.
+If the copter is symmetrical, then values for ROLL and PITCH should be
+equal, if not they should be tuned separately.
 
 Keep the multi rotor in your hand and increase the thrust to about 50%,
 so that the weight is virtually zero. Tilt it in roll or pitch
