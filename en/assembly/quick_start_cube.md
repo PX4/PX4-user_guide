@@ -176,7 +176,7 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 ## Further information
 
 - [Cube](../flight_controller/pixhawk-2.md)
-- [Pixhawk 2](https://pixhawk.org/modules/pixhawk2) (Pixhawk.org)
+- [Cube Repository](https://github.com/proficnc/The-Cube) 
 <!-- - [pixhawk2 user manual copy]()  // fold out insert shipped with doc /assets/flight_controller/cube/cube_mount_front/pixhawk2 user manual copy.pdf --> 
 <!-- - [Cube Quickstart]() (HEX) --> 
 
