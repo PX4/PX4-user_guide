@@ -9831,6 +9831,8 @@ The module where these parameters are defined is: *modules/syslink*.
 <li><strong>3115200:</strong> Normal Telemetry (115200 baud, 8N1)</li> 
 
 <li><strong>5115200:</strong> Minimal Telemetry (115200 baud, 8N1)</li> 
+
+<li><strong>6460800:</strong> RTPS Client (460800 baud)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/systemlib</p>
