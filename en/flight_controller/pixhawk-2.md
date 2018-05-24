@@ -35,7 +35,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 
 ## Pinouts and Schematics
 
-The board is documented in detailed on the [Pixhawk project](https://pixhawk.org/modules/pixhawk2) website.
+The board is documented in detailed on the [The Cube Project](https://github.com/proficnc/The-Cube) website.
 
 The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf).
 
@@ -55,4 +55,4 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
 ## Issues
-At time of writing (October 2017) the CAN1 and CAN2 silk screen on the Pixhawk 2.1 is flipped (CAN1 is CAN2 and vice versa). 
+CAN1 and CAN2 silk screen on the Pixhawk 2.1 are flipped (CAN1 is CAN2 and vice versa). 
