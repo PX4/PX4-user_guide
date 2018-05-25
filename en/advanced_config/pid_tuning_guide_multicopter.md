@@ -80,8 +80,8 @@ band-limit. If one of the rotors leaves this safety band, the total
 thrust of the system is lowered so that the relative percentage that the
 controller did output can be satisfied. As a result the multi rotor
 might not climb or lose altitude a bit, but it will never flip over. The
-same for lower side, even if the commanded roll is large, it will be scaled
-to not exceed the commanded summary thrust and the copter will not flip on
+same is also true for the lower side, even if the commanded roll is large, it will be scaled
+to not exceed the commanded summary thrust so the copter will not flip on
 takeoff at near-zero thrust.
 
 ## Tuning steps
