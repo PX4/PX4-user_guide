@@ -28,9 +28,88 @@ OS_VERSION = Poky Aero (Intel Aero Linux Distro) 1.5.1-dev (pyro)"
 AIRMAP_VERSION = 1.8
 FPGA_VERSION = 0xc1
 ```
+## Setup Intel Aero using Ubuntu
 
+In order to install Ubuntu on Intel Aero, the following equipment is neededé
 
-## Flashing
+1. Power supply (battery or network cable)
+1. Micro HDMI to HDMI cable to attach a monitor
+1. Micro USB3 to USB2 female adapter
+1. USB Hub to attach mouse and keyboard
+
+Follow the linked instructions from [Intel Aero wiki > Installing Ubuntu on Intel Aero](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#installing-ubuntu-on-intel-aero):
+
+1. [Upgrade Yocto first](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#upgrade-yocto-first) (optional)
+1. [OS](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#os)
+1. [Intel Aero Repository](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-aero-repository)
+
+As soon as the steps under [Intel Aero Repository](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-aero-repository) are completed an aero kernel is installed. From there on make sure to always boot using this kernel.
+
+Follow the instructions to flash the BIOS, FPGA and Flight Controller. Open the mavlink router config file: 
+
+   ```
+   vi /etc/mavlink-router/main.conf
+   ```
+And include the laptop IP as a UDP Endpoint by adding the following lines to the file. The IP adress must be set to the one of the laptop. To find the IP adress of the laptop, execute `ifconfig`.
+
+   ```
+   [UdpEndpoint wifi]
+   Mode = Normal
+   Address = 192.168.8.255
+   ```
+
+After all those steps are completed, the drone should automatically connect to the QGroundControl running on the laptop.
+
+Now, ROS must be installed. Instructions on how to install ROS can be found [here](https://github.com/intel-aero/meta-intel-aero/wiki/05-Autonomous-drone-programming-with-ROS).
+
+### Realsense Camera
+
+1. RealSense SDK
+
+   Follow the steps to install the RealSense SDK listed on the [aero wiki](https://github.com/intel-aero/meta-intel-aero/wiki/90-%28References%29-OS-user-Installation#intel-realsense-sdk).
+   When cloning the repository, the legacy branch needs to be used for the R200 model. If the D435 or D415 is used, the master branch needs to be cloned. All other steps are the same and the branches can be just switched back and forth if the camera is changed.
+
+   If the RealSense R200 is used, it can already be started over a ROS node using:
+
+   ```
+   roslaunch realsense_camera r200_nodelet_default.launch
+   ```
+
+   If any D400 series camera is used, follow the next step to install a different ROS wrapper.
+
+1. ROS Wrapper for D400 series RealSense
+
+   Follow the instructions in [Install Intel RealSense ROS from Sources](https://github.com/intel-ros/realsense#step-3-install-intel-realsense-ros-from-sources) to install a catkin workspace and clone the RealSense software.
+
+   Install the udev rules using:
+   ```
+   sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
+
+   sudo udevadm control --reload-rules && udevadm trigger
+   ```
+
+   Now the Realsense can be started over a ROS node using:
+
+   ```
+   roslaunch realsense2_camera rs_camera.launch
+   ```
+
+### Obstacle Avoidance
+
+To run the PX4 obstacle avoidance software, install catkin first:
+
+   ```
+   apt install python-catkin-tools
+   ```
+Create a catkin workspace and initialize it. Then clone the avoidance repository into the source space, or use a symbolic link to the source space. Build the package and start the ROS node using:
+
+   ```
+   catkin build local_planner
+
+   roslaunch local_planner local_planner_aero.launch
+   ```
+
+## Flashing PX4 software
 
 After setting up the PX4 development environment, follow these steps update the PX4 software:
 
