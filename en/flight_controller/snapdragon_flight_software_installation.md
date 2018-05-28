@@ -1,21 +1,24 @@
 # Installing Software on the Snapdragon
-To get the platform running with the complete VIO system running, multiple pieces are required. The following is an overview of the different versions used.
+To get the platform running with the complete VIO system running, multiple pieces are required. The following is an overview of the different versions used. Detailed installation instructions below.
 
 | Software	| Tested version			| Link/commit ID				|
 |---------------|---------------------------------------|-----------------------------------------------|
-| ROS		| indigo				|[here](http://wiki.ros.org/indigo)		|
-| MAVROS	| 0.19.0				|[399a04e](https://github.com/nicovanduijn/mavros/commit/399a04ef5739bd93fe1c596b63d6bdbfba7d84ef)|
-| MAVLink	| release/kinetic/mavlink/2017.5.5-0 	|[2ec76d2](https://github.com/mavlink/mavlink-gbp-release/commit/2ec76d25c6b7e6fac1f6b0d08765d07aa0f4f69d)|
-| PX4		| 1.7.3 + additions			|[087f0f8](https://github.com/ChristophTobler/Firmware/commit/087f0f8bf014a6b073c12408f35cb9fb2e588af9)|
-| Snap VIO	| mv-1.0.2/mavros-integration		|[eecc3c2](https://github.com/nicovanduijn/snap-vislam-ros/commit/eecc3c24cb2dc4451df1e97f699fffdaac04f266)|
+| ROS		  | indigo				|[here](http://wiki.ros.org/indigo)		|
+| MAVROS	| 0.23.1				|[here](https://github.com/mavlink/mavros/tree/0.23.1)|
+| MAVLink	| release/kinetic/mavlink/2018.5.5-0 	|[here](https://github.com/mavlink/mavlink-gbp-release/tree/upstream/2018.5.5)|
+| PX4		  | master			  |[here](https://github.com/PX4/Firmware)|
+| Snap VIO| master		    |[here](https://github.com/PX4/ros-examples)|
 | Snapdragon-Linux| 3.1.3.1				|[here](https://support.intrinsyc.com/projects/snapdragon-flight/files)|
-| DSP Firmware	| 3.1.3.1				|[here](https://support.intrinsyc.com/projects/snapdragon-flight/files)|
-| Qualcomm MV	| 1.0.2					|[here](https://developer.qualcomm.com/sdflight-tools)|
+| DSP Firmware	  | 3.1.3.1				|[here](https://support.intrinsyc.com/projects/snapdragon-flight/files)|
+| Qualcomm MV	    | 1.0.2					|[here](https://developer.qualcomm.com/sdflight-tools)|
 
 
 ## Prevent Bricking
 To prevent the system from hanging on boot because of anything wrong with the ADSP firmware, do the following changes before going any further.
 Plug your snapdragon into your computer via USB and open the android debug shell:
+
+> **Note** Note that the Snapdragon Flight needs to be powered by an external power source. The power over USB is not sufficient. And as always, take your props off before you apply power!
+
 `adb shell`
 
 Edit the file `/usr/local/qr-linux/q6-admin.sh`:
@@ -64,13 +67,12 @@ If you haven't yet cloned the Firmware repo:
 cd ~
 mkdir src
 cd src
-git clone git@github.com:ChristophTobler/Firmware.git
-cd Firmware
+git clone git@github.com:PX4/Firmware.git
 ```
 
 Once you're in your local copy of the Firmware:
 ```
-git checkout pr-raw_imu_snappy
+cd Firmware
 git submodule update --init --recursive
 export FC_ADDON=<location-of-extracted-flight-controller-addon>
 make clean
@@ -174,12 +176,12 @@ wstool update -t src -j4
 rosdep update
 sudo rosdep install --rosdistro indigo --from-paths src --ignore-src -y
 cd src/mavros
-git checkout 0.19.0
+git checkout 0.23.1
 cd ../mavlink
-git checkout release/kinetic/mavlink/2017.5.5-0
+git checkout release/kinetic/mavlink/2018.5.5-0
 cd ../..
 catkin build
-echo 'source /home/linaro/ros_ws/devel/setup.sh' >> /home/linaro/.bashrc
+echo 'source /home/linaro/ros_ws/devel/setup.bash' >> /home/linaro/.bashrc
 source ../bashrc
 ```
 "catkin build" is necessary as it creates the `/home/linaro/ros_ws/devel` directory. This is where the generated libraries and the executables will be generated. It also generates a new bash setup script which includes the appropriate environment variables for using the "ros_ws" workspace.
@@ -206,9 +208,6 @@ Now, we are ready to clone the snap vislam node:
 ```
 adb shell
 cd ~/ros_ws/src
-git clone https://github.com/nicovanduijn/snap-vislam-ros.git
-cd snap-vislam-ros
-git checkout mv-1.0.2/mavros-integration
-cd ..
+git clone https://github.com/PX4/ros-examples
 catkin build
 ```

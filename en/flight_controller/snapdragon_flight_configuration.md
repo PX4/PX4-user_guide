@@ -42,14 +42,12 @@ sudo reboot
 |-------------------|-----------------------------|
 | EKF2_HEIGHT_MODE  | 3   VISION                  |
 | EKF2_AID_MASK     | 24 (VISION POS, VISION YAW) |
-| MPC_THR_HOWVER    | 25 %               	  |
-| MC_PITCHRATE_P    | 0.03                 	  |
-| MC_PITCHRATE_D    | 0.001                 	  |
-| MC_ROLLRATE_P     | 0.03                 	  |
-| MC_ROLLRATE_D     | 0.001              	  |
+| MPC_THR_HOVER     | 25 %               	        |
+| MC_PITCHRATE_P    | 0.03                 	      |
+| MC_PITCHRATE_D    | 0.001                 	    |
+| MC_ROLLRATE_P     | 0.03                 	      |
+| MC_ROLLRATE_D     | 0.001              	        |
 | MC_RAWRATE_P      | 0.08                        |
-| EKF2_IMU_POS_Z    | 0.030m    		  |
-| EKF2_EV_POS_Z     | 0.03m			  |
-| PWM_MIN	    | 1150us			  |
-| CAL_MAG0_ROT	    | No rotation		  |
-| CAL_MAG1_ROT	    | Yaw 90°			  |
+| EKF2_IMU_POS_Z    | 0.030m    		              |
+| EKF2_EV_POS_Z     | 0.03m			                  |
+| PWM_MIN	          | 1150us                      |
