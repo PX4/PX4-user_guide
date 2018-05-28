@@ -76,12 +76,21 @@ To access the I/O Debug port, the user must remove the *Pixhack v5 shell.
 Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant) or [Dronecode probe]. [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). 
 The pinout as shown
 ![](/assets/pixhack_v5_debug.jpg)
- 
+
+| pin | pixhack v5 debug    | 
+| --- | ------------- | 
+| 1   | GND      |        
+| 2   | FMU-SWCLK       |
+| 3   | FMU-SWDIO       |
+| 4   | UART7_RX          | 
+| 5   | UART7_TX          | 
+| 6   | VCC        |
+
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [Telemetry Radio Modules](https://docs.px4.io/en/telemetry/)
+* [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
+* [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
 * [Rangefinders/Distance sensors](https://docs.px4.io/en/sensor/rangefinders.html)
 
 
