@@ -11,8 +11,8 @@ The board is  is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** 
 * IO Processor: STM32F100
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
 * On-board sensors:
-  * Accelerometer/Gyro: ICM-20689
-  * Accelerometer/Gyro: BMI055
+  * Accelerometer/Gyroscope: ICM-20689
+  * Accelerometer/Gyroscope: BMI055
   * Magnetometer: IST8310
   * Barometer: MS5611
 
