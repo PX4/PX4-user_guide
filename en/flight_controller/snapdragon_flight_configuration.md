@@ -1,6 +1,10 @@
 # Configure Snapdragon
+
+This topic explains how to configure the *Qualcomm Snapdragon Flight*.
+
 ## Autostart PX4 and Snap VIO
-In order to boot both the ROS node and PX4 automatically on bootup, edit the `/etc/rc.local` file on the snapdragon to look like this: (note that the first line changed too!)
+
+In order to boot both the ROS node and PX4 automatically on bootup, edit the **/etc/rc.local** file on the Snapdragon Flight to look like this (note that the first line must change too!):
 
 ```
 #!/bin/bash -e
@@ -30,7 +34,9 @@ exit 0
 ```
 
 ## Put Snapdragon back into Access Point Mode
-The Snapdragon Flight was set to station mode in the [ROS Setup](snapdragon_flight_software_installation.md#install-ros). This could be a problem if you want to fly it outdoors where your home Wi-Fi is no longer available, so we recommend putting it back into access point mode.
+
+The Snapdragon Flight was set to station mode in the [ROS Setup](snapdragon_flight_software_installation.md#install-ros). 
+This could be a problem if you want to fly it outdoors where your home Wi-Fi is no longer available, so we recommend putting it back into access point mode.
 ```
 /usr/local/qr-linux/wificonfig.sh -s softap
 sudo reboot
@@ -42,12 +48,12 @@ sudo reboot
 |-------------------|-----------------------------|
 | EKF2_HEIGHT_MODE  | 3   VISION                  |
 | EKF2_AID_MASK     | 24 (VISION POS, VISION YAW) |
-| MPC_THR_HOVER     | 25 %               	        |
-| MC_PITCHRATE_P    | 0.03                 	      |
-| MC_PITCHRATE_D    | 0.001                 	    |
-| MC_ROLLRATE_P     | 0.03                 	      |
-| MC_ROLLRATE_D     | 0.001              	        |
+| MPC_THR_HOVER     | 25 %                        |
+| MC_PITCHRATE_P    | 0.03                        |
+| MC_PITCHRATE_D    | 0.001                       |
+| MC_ROLLRATE_P     | 0.03                        |
+| MC_ROLLRATE_D     | 0.001                       |
 | MC_RAWRATE_P      | 0.08                        |
-| EKF2_IMU_POS_Z    | 0.030m    		              |
-| EKF2_EV_POS_Z     | 0.03m			                  |
-| PWM_MIN	          | 1150us                      |
+| EKF2_IMU_POS_Z    | 0.030m                      |
+| EKF2_EV_POS_Z     | 0.03m                       |
+| PWM_MIN           | 1150us                      |
