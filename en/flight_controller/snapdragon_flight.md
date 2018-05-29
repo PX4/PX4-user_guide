@@ -1,10 +1,10 @@
 # Snapdragon Flight Autopilot
 
-The Snapdragon Flight platform is a high-end autopilot / onboard computer which runs the PX4 Flight Stack on the DSP on the QuRT real time operating system using the [DSPAL API](https://github.com/ATLFlight/dspal) for POSIX compatibility. In comparison to [Pixhawk](../flight_controller/pixhawk.md) it adds a camera and WiFi and high-end processing power, and different IO.
+The *Qualcomm Snapdragon Flight* platform is a high-end autopilot / onboard computer which runs the PX4 Flight Stack on the DSP on the QuRT real time operating system using the [DSPAL API](https://github.com/ATLFlight/dspal) for POSIX compatibility. In comparison to [Pixhawk](../flight_controller/pixhawk.md) it adds a camera and WiFi and high-end processing power, and different IO.
 
-More information about the Snapdragon Flight platform is at [Snapdragon-Flight-Details](https://www.intrinsyc.com/qualcomm-snapdragon-flight-details/)
+More information about the Snapdragon Flight platform is in the official [Qualcomm® Snapdragon™ Flight Kit](https://www.intrinsyc.com/qualcomm-snapdragon-flight-details/) documentation. 
 
-![](../../assets/hardware/hardware-snapdragon.jpg)
+![Snapdragon Hero Doc](../../assets/hardware/hardware-snapdragon.jpg)
 
 ## Quick Summary
 
@@ -67,14 +67,19 @@ The default mapping of the serial ports is as follows:
 | ```/dev/tty-3``` | J12 (next to J13)                     |
 | ```/dev/tty-4``` | J9 (next to J15)                      |
 
-For a custom UART to BAM mapping, create a file called "blsp.config" and adb push it to ```/usr/share/data/adsp```. E.g., to keep the default mapping, your "blsp.config" should look as follows:
-
+For a custom UART to BAM mapping, create a file called **blsp.config** and *adb* push it to **/usr/share/data/adsp**. 
+For example, to keep the default mapping, your **blsp.config** should look as follows:
+```
 tty-1 bam-9 2-wire  
 tty-2 bam-6 2-wire  
 tty-3 bam-8 2-wire  
 tty-4 bam-2 2-wire  
+```
 
-Be sure to include the text "2-wire" at the end of each line to allow the UART to use only the TX and RX pins specified in the tables below.  If 2-wire is not specified (or if the file is not present on the target) the UART will default to using 4-wire mode and will require an additional two pins for RTS/CTS flow control.  This will cause a problem for any other type of I/O on the same connector, since the pins will be configured as RTS and CTS signals. If, for example, J9 (described below) was being used to connect to both a UART and an I2C device, the I2C signals on pin 4 and pin 6 would be configured as RTS and CTS signals, overriding the I2C SDA and SCL signals.
+Be sure to include the text "2-wire" at the end of each line to allow the UART to use only the TX and RX pins specified in the tables below.
+If 2-wire is not specified (or if the file is not present on the target) the UART will default to using 4-wire mode and will require an additional two pins for RTS/CTS flow control.  
+This will cause a problem for any other type of I/O on the same connector, since the pins will be configured as RTS and CTS signals. 
+If, for example, J9 (described below) was being used to connect to both a UART and an I2C device, the I2C signals on pin 4 and pin 6 would be configured as RTS and CTS signals, overriding the I2C SDA and SCL signals.
 
 #### J9 / GPS
 
@@ -132,4 +137,4 @@ Be sure to include the text "2-wire" at the end of each line to allow the UART t
 
 ## Dimensions
 
-![](../../assets/hardware/hardware-snapdragon-dimensions.png)
+![Snapdragon Dimensions](../../assets/hardware/hardware-snapdragon-dimensions.png)
