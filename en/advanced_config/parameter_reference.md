@@ -4952,6 +4952,19 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="MOT_ORDERING">MOT_ORDERING</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Motor Ordering</p><p><strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. ONLY supported for fmu output (Pixracer or Omnibus F4). When changing this, make sure to test the motor response without props first.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> PX4</li> 
+
+<li><strong>1:</strong> Betaflight / Cleanflight</li> 
+</ul>
+   <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>    <p><b>Module:</b> drivers/px4fmu</p>
 </td>
