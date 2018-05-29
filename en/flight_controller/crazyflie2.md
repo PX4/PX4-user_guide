@@ -63,7 +63,7 @@ Using the official Bitcraze **Crazyflie phone app**:
 Connecting via **MAVLink**:
 
 - Use a Crazyradio PA alongside a compatible GCS
-- Clone the [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge).
+- Clone the [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge) and checkout its cfbridge branch: `git checkout cfbridge`
 
 >**Note** This fork of crazyflie-lib-python contains [cfbridge.py](https://github.com/barzanisar/crazyflie-lib-python
 /blob/cfbridge/examples/cfbridge.py) which is taken from [here](https://github.com/dennisss/cfbridge). Cfbridge allows wireless 
@@ -73,19 +73,22 @@ cfbridge.py.
 
 - Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
 - Connect a Crazyradio PA via USB.
-- Build a [virtualenv (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies:
+- Build a [virtualenv (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using one of the following methods:
+
+**Method 1:**
   - Enter the following:
     ```
-    pip install virtualenv`
+    pip install virtualenv
     pip install tox
     ```
   - Navigate to the crazyflie-lib-python folder.
   - `pip install -e .`
   - `virtualenv venv` for linux or `python -m virtualenv venv` for Mac OSX
   - Activate the virtual environment: `source venv/bin/activate`
-- `pip install -r requirements.txt`
+  - `pip install -r requirements.txt`
 
-Note: For systems that support [make](https://www.gnu.org/software/make/manual/html_node/Simple-Makefile.html), the above six steps can be skipped and replaced with:
+**Method 2:** 
+For systems that support [make](https://www.gnu.org/software/make/manual/html_node/Simple-Makefile.html), follow this alternative:
  * `pip install tox`
  * Navigate to the crazyflie-lib-python folder.
  * `make venv`
@@ -202,4 +205,4 @@ To connect to the crazyflie via mavros:
 
 ## Flying
 
-{% youtube %}https://www.youtube.com/watch?v=oWk0RRIzF-4{% endyoutube %}
+{% youtube %}https://www.youtube.com/watch?v=2Bcy3k1h5uc{% endyoutube %}

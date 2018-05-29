@@ -4952,6 +4952,19 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="MOT_ORDERING">MOT_ORDERING</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Motor Ordering</p><p><strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. ONLY supported for fmu output (Pixracer or Omnibus F4). When changing this, make sure to test the motor response without props first.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> PX4</li> 
+
+<li><strong>1:</strong> Betaflight / Cleanflight</li> 
+</ul>
+   <p><b>Module:</b> drivers/px4fmu</p>
+</td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>    <p><b>Module:</b> drivers/px4fmu</p>
 </td>
@@ -8132,11 +8145,13 @@ The module where these parameters are defined is: *modules/navigator*.
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="RTL_LAND_TYPE">RTL_LAND_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RTL land location</p><p><strong>Comment:</strong> Land at the home location or planned mission landing</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Home Position</li> 
+ <td style="vertical-align: top;"><strong id="RTL_TYPE">RTL_TYPE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Return type</p><p><strong>Comment:</strong> Fly straight to the home location or planned mission landing and land there or use the planned mission to get to those points.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Return home via direct path</li> 
 
-<li><strong>1:</strong> Planned Landing (Mission)</li> 
+<li><strong>1:</strong> Return to a planned mission landing, if available, via direct path, else return to home via direct path</li> 
+
+<li><strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path</li> 
 </ul>
    </td>
  <td style="vertical-align: top;"></td>
@@ -9831,6 +9846,8 @@ The module where these parameters are defined is: *modules/syslink*.
 <li><strong>3115200:</strong> Normal Telemetry (115200 baud, 8N1)</li> 
 
 <li><strong>5115200:</strong> Minimal Telemetry (115200 baud, 8N1)</li> 
+
+<li><strong>6460800:</strong> RTPS Client (460800 baud)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/systemlib</p>
@@ -9846,6 +9863,24 @@ The module where these parameters are defined is: *modules/syslink*.
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SYS_HAS_BARO">SYS_HAS_BARO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Control if the vehicle has a barometer</p><p><strong>Comment:</strong> Disable this if the board has no barometer, such as some of the the Omnibus F4 SD variants. If disabled, the preflight checks will not check for the presence of a barometer.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> modules/systemlib</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SYS_HAS_MAG">SYS_HAS_MAG</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Control if the vehicle has a magnetometer</p><p><strong>Comment:</strong> Disable this if the board has no magnetometer, such as the Omnibus F4 SD. If disabled, the preflight checks will not check for the presence of a magnetometer.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> modules/systemlib</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>

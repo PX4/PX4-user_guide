@@ -1,8 +1,9 @@
 # CUAV C-RTK
 
-The [CUAV C-RTK GPS receiver](http://doc.cuav.net/gps/c-rtk/en/) is a RTK module for mass market launched by CUAV. The complete RTK system consists of at least two C-RTK modules \(one for the base station and the others for the aircraft\). Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
+The [CUAV C-RTK GPS receiver](http://doc.cuav.net/gps/c-rtk/en/) is an RTK module for mass market launched by CUAV. A complete RTK system consists of at least two C-RTK modules \(one for the base station and the others for the aircraft\). Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
-![C-RTK](../../images/rtk_c-rtk.jpg)
+<img src="../../assets/hardware/gps/rtk_c-rtk.jpg" width="500px" title="C-RTK" />
+
 
 ## Purchase
 
@@ -15,29 +16,27 @@ RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RT
 
 ## Wiring and Connections
 
-C-RTK GPS with 6-pin connector and 4-pin connector, 6-pin connector can be plugged directly into [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/Instructions.html) GPS UART port, If you only need rtk gps, 4-pin connector does not need to be connected to flight control.
+C-RTK GPS comes with a cable that terminates in a 6-pin connector and 4-pin connector that are compatible with [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/Instructions.html).
+The 6-pin connector provides the interface for RTK GPS, and should be connected to the flight controller's GPS port.
+The 4-pin connector is an m8n (standard) GPS interface that is intended for (optional) use as a second GPS. 
 
-The Pixhawk 3 Pro and Pixracer have 6-pin GPS port connectors. For these controllers, you can modify the order of the GPS cables \(shown below\).![C-RTK_6PIN](../../images/rtk_cuav_c-rtk_to_6pin_connector.jpg)
+> **Tip** At time of writing PX4 does not yet fully support a second GPS. The 4-pin port need not be connected.
 
-4-pin connector for GPS（m8n module)  - This cable can also be connected if desired.
+<img src="../../assets/hardware/gps/rtk_cuav_c-rtk_to_6pin_connector.jpg" width="500px" title="C-RTK_6PIN" />
+
+The cables/connectors may need to be modified in order to connect to other flight controller boards. The pin mappings for *Pixhawk 3 Pro* and *Pixracer* are shown below.
 
 
 ### Pinout
+
 The C-RTK GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
 
 | pin | C-RTK GPS 6P  | pin | Pixhawk 3 Pro GPS |C-RTK GPS 4P
 | --- | ------------- | --- | ----------------- |-----------------|
-| 1   | SDA           | 1   | VCC               |   |
-| 2   | SCL           | 2   | GPS_TX            |  |
-| 3   | GPS_RX        |3   | GPS_RX             |    GPS_RX|
-| 4   | GPS_TX        | 4   | SCL               |  GPS_TX |
+| 1   | SDA           | 1   | VCC               |        |
+| 2   | SCL           | 2   | GPS_TX            |        |
+| 3   | GPS_RX        | 3   | GPS_RX            | GPS_RX |
+| 4   | GPS_TX        | 4   | SCL               | GPS_TX |
 | 5   | VCC_5V        | 5   | SDA               | VCC_5v |
-| 6   | GND           | 6 | GND                 |GND|
-
-           
-
-
-
-
-
+| 6   | GND           | 6   | GND               | GND    |
 

@@ -46,7 +46,7 @@ Connect the output of the *Power Management Board* (PM board) that comes with th
 
 The image below shows the power management board provided with *Pixhawk 4*.
 
-![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4/pixhawk4_power_management_board.jpg)
+![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4/pixhawk4_power_management_board.png)
 
 > **Note** If using a plane or rover, the 8 pin power (+) rail of **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Be careful with the voltage of servo you are going to use here.
 
@@ -64,7 +64,7 @@ M8 | I/O PWM OUT 8: connect signal wire to ESC of motor 8 here
 FMU PWM-IN | See note below for connection to *Pixhawk 4*
 FMU PWM-OUT | If FMU PWM-IN is connected to *Pixhawk 4*, connect signal wires to ESC or signal, +, - wires to servos here
 CAP&ADC-OUT | connect to CAP & ADC IN port of *Pixhawk 4*
-CAP&ADC-IN | CAP&ADC input
+CAP&ADC-IN | CAP&ADC input: Pinouts are printed on the back side of the board
 B+ | connect to ESC B+ to power the ESC
 GND | connect to ESC Ground
 PWR1 | 5v output 3A, connect to *Pixhawk 4* POWER 1 
@@ -111,15 +111,15 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers to *Pixhawk 4*:
 
-- Spektrum/DSM or S.BUS receivers must connect to the **DSM/SBUS RC** input.
+- Spektrum/DSM or S.BUS receivers connect to the **DSM/SBUS RC** input.
   
   ![Pixhawk 4 - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk4/pixhawk4_receiver_sbus.png)
 
-- PPM must connect to the **PPM RC** input port.
+- PPM receivers connect to the **PPM RC** input port.
   
  ![Pixhawk 4 - Radio port for PPM receivers](../../images/pixhawk_4_receiver_ppm.png)
 
-- PWM receivers must connect to the **PPM RC** input port via a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM receivers use a single signal wire for all channels, while PWM receivers have an individual wire for each channel).
+- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
@@ -136,7 +136,7 @@ The vehicle-based radio should be connected to the **TELEM1** port as shown belo
 
 ## SD Card (Optional)
 
-SD cards are most commonly used to [log and analyse flight details](../flying/flight_reporting.md). Insert the card (included in Pixhawk 4 kit) into *Pixhawk 4* as shown below.
+SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). Insert the card (included in Pixhawk 4 kit) into *Pixhawk 4* as shown below.
 
 ![Pixhawk 4/SD Card](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 

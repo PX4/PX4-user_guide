@@ -34,7 +34,7 @@ There are numerous possible layouts for the control sticks, switches, etc. The m
 ![Mode1-Mode2](../../images/mode1_mode2.png)
 
 > **Note** The choice of mode is largely one of taste (*Mode 2* is more popular).
-  
+
 
 ## Remote Control Units for Ground Vehicles
 
@@ -83,8 +83,7 @@ As general guidance, receivers connect to the flight controller using the port a
 
 - Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
 - PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
-- PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder.
-  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 Instructions for connecting to specific flight controllers are given in the following quick-start guides:
 
