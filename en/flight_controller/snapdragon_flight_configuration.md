@@ -30,7 +30,7 @@ exit 0
 ```
 
 ## Put Snapdragon back into Access Point Mode
-The Snapdragon Flight was set to station mode in the [ROS Setup](snapdragon_flight_software_installation.html#install-ros). This could be a problem if you want to fly it outdoors where your home Wi-Fi is no longer available, so we recommend putting it back into access point mode.
+The Snapdragon Flight was set to station mode in the [ROS Setup](snapdragon_flight_software_installation.md#install-ros). This could be a problem if you want to fly it outdoors where your home Wi-Fi is no longer available, so we recommend putting it back into access point mode.
 ```
 /usr/local/qr-linux/wificonfig.sh -s softap
 sudo reboot

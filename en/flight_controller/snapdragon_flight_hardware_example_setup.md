@@ -49,6 +49,6 @@ Finally, attach the brackets to the frame using double-sided tape. We achieved b
 
 ![](../../assets/hardware/snapdragon/snapdragon_vibration_dampening.jpg)
 
-You can mount the GPS module and TeraRanger module in addition, but they are not required for normal VIO-based flight. More information about range finders can be found [here](../sensor/rangefinders.html##teraranger-rangefinders). You can now attach the Snapdragon module to the QAV frame and connect the  ESC and receiver.
+You can mount the GPS module and TeraRanger module in addition, but they are not required for normal VIO-based flight. More information about range finders can be found [here](../sensor/rangefinders.md#teraranger-rangefinders). You can now attach the Snapdragon module to the QAV frame and connect the  ESC and receiver.
 
 ![](../../assets/hardware/snapdragon/snapdragon_minimal_finished_closeup.jpg)
