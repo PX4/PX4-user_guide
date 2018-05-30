@@ -74,8 +74,8 @@ Under these conditions all power sources will be used in this order to power the
 ## Debug Port
 
 The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector.
-To access the I/O Debug port, the user must remove the *Pixhack v5 shell.
-Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant) or [Dronecode probe]. [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). 
+To access the I/O Debug port, the user must remove the Pixhack v5 shell.
+Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
 The pinout as shown
 ![](/assets/pixhack_v5_debug.jpg)
 
