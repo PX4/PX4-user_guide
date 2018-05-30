@@ -15,7 +15,7 @@ The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight contro
   * STM32F427
   * STM32F100 (Failsafe co-processor)
 * Sensors:
-  * Accelerometers (3): LS303D, MPU6000, MPU9250
+  * Accelerometers (3): LS303D, MPU6000, MPU9250/hmc5983
   * Gyroscopes (3): L3GD20, MPU6000, MPU9250
   * Compass (2): LS303D, MPU9250
   * Barometer (2): MS5611 X2

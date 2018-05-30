@@ -123,6 +123,7 @@
     * [Pixhawk 3 Pro](flight_controller/pixhawk3_pro.md)
     * [Pixhack v3](flight_controller/pixhack_v3.md)
     * [Pixhawk 4](flight_controller/pixhawk4.md)
+    * [Pixhack v5](flight_controller/pixhack_v5.md)
     * [AUAV-X2 (Discontinued)](flight_controller/auav_x2.md) 
   * [Snapdragon Flight](flight_controller/snapdragon_flight.md)
     * [Hardware Setup Example](flight_controller/snapdragon_flight_hardware_example_setup.md)
