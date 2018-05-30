@@ -39,7 +39,7 @@ The list of boards documented in this library can be found in the sidebar (repro
   * [Pixhack v3](../flight_controller/pixhack_v3.md)
   * [Pixhawk 4](../flight_controller/pixhawk4.md)
   * [AUAV-X2 (Discontinued)](../flight_controller/auav_x2.md) 
-  * [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
+* [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
 * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md)
 * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
