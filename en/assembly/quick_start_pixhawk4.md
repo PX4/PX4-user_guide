@@ -20,8 +20,6 @@ The image below shows how to connect the most important sensors and peripherals 
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png" align="center"/>
 
-<!-- ![Pixhawk 4 mounting and orientation](../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png) -->  
-
 > **Note** If the controller cannot be mounted in the
   recommended/default orientation (e.g. due to space constraints) you will
   need to configure the autopilot software with the orientation that you
@@ -102,6 +100,9 @@ Pin | Signal | Volt
 5(black) | GND | GND
 6(black) | GND | GND
 
+> **Note** Using the Power Module that comes with the kit you will need to configure the *Number of Cells* in the [Power Settings](https://docs.qgroundcontrol.com/en/SetupView/Power.html)
+> but you won't need to calibrate the *voltage divider*.
+> You will have to update the *voltage divider* if you are using any other power module (e.g. the one from the Pixracer).
 
 ## Radio Control
 
@@ -117,7 +118,7 @@ The instructions below show how to connect the different types of receivers to *
 
 - PPM receivers connect to the **PPM RC** input port.
   
- ![Pixhawk 4 - Radio port for PPM receivers](../../images/pixhawk_4_receiver_ppm.png)
+  ![Pixhawk 4 - Radio port for PPM receivers](../../images/pixhawk_4_receiver_ppm.png)
 
 - PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
