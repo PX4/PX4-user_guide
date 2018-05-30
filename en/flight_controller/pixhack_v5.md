@@ -1,7 +1,9 @@
 # Pixhack v5
 
-*Pixhack v5*<sup>&reg;</sup> is an advanced autopilot designed and made in CUAV<sup>&reg;</sup> . 
-The board is  is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with both PX4 <sup>&reg;</sup>  firmware. intended primarily for academic and commercial develop.
+*Pixhack v5*<sup>&reg;</sup> is an advanced autopilot designed and made by CUAV<sup>&reg;</sup> . 
+The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. 
+It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with PX4 firmware. 
+It is intended primarily for academic and commercial developers.
 ![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5.jpg)
 
 ## Quick Summary
@@ -42,7 +44,7 @@ The board is  is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** 
 ## Purchase
 
 Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
-## connection{#connection}
+## Connection{#connection}
 
 ![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5_connector.jpg)
 
@@ -54,7 +56,7 @@ Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426
 
 ## Voltage Ratings
 
-*Pixhach v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+*PixhacK v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered. 
 
