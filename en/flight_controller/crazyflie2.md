@@ -75,17 +75,24 @@ Connecting via **MAVLink**:
 
 - Use a Crazyradio PA alongside a compatible GCS
 - Clone the [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python)
-- Copy [cfbridge.py](https://github.com/dennisss/cfbridge/blob/master/scripts/cfbridge.py) in your cloned **crazyflie-lib-python/examples** repository.
 
->**Note** *Cfbridge* allows wireless MAVLink communication between CF2 (flashed with PX4) and QGC by enabling QGC to communicate 
-with the crazyradio PA. 
-  The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have chosen to use **cfbridge.py**.
+We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between CF2 (flashed with PX4) and QGC. *Cfbridge* enables QGC to communicate with the crazyradio PA. 
+
+>**Note** The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have 
+chosen to use **cfbridge.py**.
 
 - Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
 - Connect a Crazyradio PA via USB.
 - Build a [virtualenv (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using one of the following methods:
 
-**Method 1:**
+**Method 1:** 
+For systems that support [make](https://www.gnu.org/software/make/manual/html_node/Simple-Makefile.html), follow this alternative:
+ * `pip install tox`
+ * Navigate to the crazyflie-lib-python folder.
+ * `make venv`
+ * Activate the virtual environment: `source venv-cflib/bin/activate`
+
+**Method 2:**
   - Enter the following:
     ```
     pip install virtualenv
@@ -105,13 +112,6 @@ with the crazyradio PA.
     pip install -r requirements.txt
     ```
 
-**Method 2:** 
-For systems that support [make](https://www.gnu.org/software/make/manual/html_node/Simple-Makefile.html), follow this alternative:
- * `pip install tox`
- * Navigate to the crazyflie-lib-python folder.
- * `make venv`
- * Activate the virtual environment: `source venv-cflib/bin/activate`
-
 To connect crazyflie with crazyradio, **launch cfbridge** by following these steps:
 - Switch on CF2 (which is already flashed with PX4 firmware) by pressing its ON button and wait for it to boot up.
 - Connect a Crazyradio PA via USB.
@@ -119,10 +119,14 @@ To connect crazyflie with crazyradio, **launch cfbridge** by following these ste
 - Activate the environment: `source venv-cflib/bin/activate` or `source venv/bin/activate` depending on the name of the venv folder you have.
 - `cd examples`
 - Launch cfbridge: `python cfbridge.py`
+  > **Note** *Cfbridge* by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7. 
+  If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced- 
+  swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGC via a USB
+  cable and change the syslink parameters (channel, address) in QGC. Next, launch the cfbridge by giving the same channel and address as   the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
 - Open QGC.
 - After using *cfbridge*, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`. Most of the time, launching *cfbridge* again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal and relaunching *cfbridge* in a new terminal. 
 
-> **Tip** If you change any driver in [crazyflie-lib-python](https://github.com/barzanisar/crazyflie-lib-python/tree/cfbridge) 
+> **Tip** If you change any driver in [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python) 
 or if launching *cfbridge* in a new terminal does not find crazyflie, you can try navigating to the crazyflie-lib-python folder and 
 run `make venv` to rebuild cflib.
 
