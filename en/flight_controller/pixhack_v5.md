@@ -78,18 +78,19 @@ The system's serial console and SWD interface operate on the **FMU Debug** port.
 To access the I/O Debug port, the user must remove the Pixhack v5 shell.
 Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
 
-The pinout is as shown
+The pinout is as shown.
 
-![](/assets/pixhack_v5_debug.jpg)
+![Pixhack v5 debug](../../assets/flight_controller/pixhack_v5/pixhack_v5_debug.jpg)
 
-| pin | pixhack v5 debug    | 
-| --- | ------------- | 
-| 1   | GND      |        
-| 2   | FMU-SWCLK       |
-| 3   | FMU-SWDIO       |
-| 4   | UART7_RX          | 
-| 5   | UART7_TX          | 
-| 6   | VCC        |
+
+pin | pixhack v5 debug 
+--- | --- 
+1 | GND 
+2 | FMU-SWCLK 
+3 | FMU-SWDIO 
+4 | UART7_RX 
+5 | UART7_TX 
+6 | VCC 
 
 
 ## Peripherals
