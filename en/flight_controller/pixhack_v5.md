@@ -41,7 +41,6 @@ It is intended primarily for academic and commercial developers.
 * Other Characteristics:
   * Operating temperature: -20 ~ 80°C （Measured value）
 
-
 ## Purchase
 
 Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
@@ -51,7 +50,6 @@ Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426
 ![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5_connector.jpg)
 
 > **Warning**The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
-
 
 ## Voltage Ratings
 
@@ -71,7 +69,6 @@ Under these conditions all power sources will be used in this order to power the
 make px4fmu-v5_default upload
 ```
 
-
 ## Debug Port
 
 The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector.
@@ -80,7 +77,7 @@ Both ports have standard serial pins and can be connected to a standard FTDI cab
 
 The pinout is as shown
 
-![](/assets/pixhack_v5_debug.jpg)
+![Pixhack v5 debug](../../assets/flight_controller/pixhack_v5/pixhack_v5_debug.jpg)
 
 | pin | pixhack v5 debug    | 
 | --- | ------------- | 
@@ -91,24 +88,18 @@ The pinout is as shown
 | 5   | UART7_TX          | 
 | 6   | VCC        |
 
-
 ## Peripherals
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
 * [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
 * [Rangefinders/Distance sensors](https://docs.px4.io/en/sensor/rangefinders.html)
 
-
 ## Supported Platforms / Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. 
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-
 ## Further info
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
 - [Pixhack v5 docs](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
 - [CUAV Github](https://github.com/cuav) 
-
-
-
