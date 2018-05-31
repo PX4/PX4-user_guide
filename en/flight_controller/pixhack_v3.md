@@ -30,7 +30,7 @@ The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight contro
   * ADC IN: 3.3V X1 , 6.6V X1
   * PWM OUT: 8 PWM IO + 4 IO
 * Power System:
-  * PM POWER IN: 4.5 ~ 5.5 V |
+  * PM POWER IN: 4.5 ~ 5.5 V
   * USB POWER IN: 5.0 V +- 0.25v
 * Weight and Dimensions:
   * Weight: 63g
@@ -38,7 +38,7 @@ The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight contro
   * Thickness: 17mm
   * Length: 44mm
 * Other Characteristics:
-  * Operating temperature: -20 ~ 60°c
+  * Operating temperature: -20 ~ 60°C
 
 ## Availability
 

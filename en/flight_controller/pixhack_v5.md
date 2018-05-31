@@ -1,9 +1,10 @@
 # Pixhack v5
 
-*Pixhack v5*<sup>&reg;</sup> is an advanced autopilot designed and made by CUAV<sup>&reg;</sup> . 
+*Pixhack v5*<sup>&reg;</sup> is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 
 The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. 
 It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with PX4 firmware. 
 It is intended primarily for academic and commercial developers.
+
 ![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5.jpg)
 
 ## Quick Summary
@@ -38,25 +39,23 @@ It is intended primarily for academic and commercial developers.
   * Weight: 90g
   * Dimensions: 44x84x12mm
 * Other Characteristics:
-  * Operating temperature: -20 ~ 80°c（Measured value）
+  * Operating temperature: -20 ~ 80°C （Measured value）
 
 
 ## Purchase
 
 Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
-## Connection{#connection}
+
+## Connection {#connection}
 
 ![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5_connector.jpg)
-
-
-
 
 > **Warning**The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
 
 
 ## Voltage Ratings
 
-*PixhacK v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+*Pixhack v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered. 
 
@@ -68,7 +67,9 @@ Under these conditions all power sources will be used in this order to power the
 
 ## Building Firmware
 
-`make px4fmu-v5_default upload`
+```
+make px4fmu-v5_default upload
+```
 
 
 ## Debug Port
@@ -76,7 +77,9 @@ Under these conditions all power sources will be used in this order to power the
 The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector.
 To access the I/O Debug port, the user must remove the Pixhack v5 shell.
 Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
-The pinout as shown
+
+The pinout is as shown
+
 ![](/assets/pixhack_v5_debug.jpg)
 
 | pin | pixhack v5 debug    | 
@@ -98,8 +101,8 @@ The pinout as shown
 
 ## Supported Platforms / Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
-
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. 
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 
 ## Further info
