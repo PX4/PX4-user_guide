@@ -6,7 +6,7 @@ This quick start guide shows how to power the [Cube](../flight_controller/pixhaw
 
 ## Accessories
 
-Cube is comes with most (or all) of the accessories you will need when [purchased](../flight_controller/pixhawk-2.md#stores). 
+Cube comes with most (or all) of the accessories you will need when [purchased](../flight_controller/pixhawk-2.md#stores). 
 
 ![Cube Accessories](../../assets/flight_controller/cube/cube_accessories.jpg)
 
