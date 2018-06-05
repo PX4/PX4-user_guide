@@ -249,6 +249,15 @@ If it still doesn't work, check [this answer on StackOverflow](http://askubuntu.
 
 ### Board doesn't start / is boot-looping / is bricked
 
+The only solution here will be to try and update the Android/Linux image on your board.
+If you happen to have a [P2 board](#do-i-have-a-p1-or-p2-board), you should be able to reset the Snapdragon to the recovery image by starting up the Snapdragon while shorting the two pins next to where J3 is written (The two rectangular pins in-between the corner hole and the MicroSD card slot almost at the edge of the board.
+
+If that does not work you can try one of the following two options to put the board into fastboot mode, which will then enable you to update the Android/Linux image.
+
+If everything fails, you probably need to request help from intrinsyc.
+
+#### Recover via fastboot (method 1)
+
 If you can still connect to the board using the serial console and get to a prompt such as:
 
 ```
@@ -277,10 +286,24 @@ fastboot devices
 
 Once you managed to get into fastboot mode, you can try [above teps](#upgradingreplacing-the-linux-image) to update the Android/Linux image.
 
-If you happen to have a [P2 board](#do-i-have-a-p1-or-p2-board), you should be able to reset the Snapdragon to the recovery image by starting up the Snapdragon while shorting the two pins next to where J3 is written (The two rectangular pins in-between the corner hole and the MicroSD card slot almost at the edge of the board.
+#### Recover via fastboot (method 2)
+With a serial console adapter board use the following procedure to recover the Snapdragon Flight board:
 
-If everything fails, you probably need to request help from intrinsyc.
+1. Disconnect power and USB cable(s) from the Snapdragon Flight and adapter boards.
+2. Plug the serial console adapter board into the Snapdragon Flight board.
+3. Enable (insert jumper) J2 (FASTBOOT) of the serial console adapter board.
+4. Connect the debug board’s 3-pin serial port to the computer’s USB port, using the provided USB-to-serial cable, and open a serial terminal (CuteCom or Putty).
+5. Power up the Snapdragon Flight board.
+6. Connect the Snapdragon Flight board to the computer via a USB cable.
+7. Validate the connection by typing “fastboot devices” on a command prompt or terminal window. You should now see the device-specific random number displayed.
+8. Once you managed to get into fastboot mode, you can try [above teps](#upgradingreplacing-the-linux-image) to update the Android/Linux image.
 
+To boot the board normally again, perform the following steps:
+
+1. Unplug the power supply and USB cable.
+2. Remove the jumper from FSTBT (J2) on the serial console adapter board.
+3. Power up the Snapdragon Flight board and connect the board to the computer via a USB cable.
+4. Validate the connection by typing “adb devices” on a command prompt or terminal window.
 
 ### No space left on device
 
