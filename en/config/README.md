@@ -11,7 +11,7 @@ The configuration process is executed using QGroundConrol and consists of these 
 
 Configuration & calibration instructions are linked from the sidebar and/or you can follow the [video guide](#video-guide) below. 
 
-> **Tip** Before starting this section you should [Download QGroundControl](http://qgroundcontrol.org/downloads) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
+> **Tip** Before starting this section you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
 
 <span></span>
 > **Note** For a [supported airframe](../config/airframe.md) only this basic configuration is required. If you're creating a new airframe you will additionally need to perform vehicle tuning (see [Advanced Configuration](../advanced_config/README.md)).
