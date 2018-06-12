@@ -82,6 +82,7 @@
   * [ESC Calibration](advanced_config/esc_calibration.md)
   * [Multicopter PID Tuning Guide](advanced_config/pid_tuning_guide_multicopter.md)
   * [Multicopter Advanced Tuning Guide](advanced_config/advanced_mc_position_tuning.md)
+  * [Multicopter Racer Setup](advanced_config/racer_setup.md)
   * [Fixedwing PID Tuning Guide](advanced_config/pid_tuning_guide_fixedwing.md)
   * [VTOL](config_vtol/README.md)
     * [QuadPlane Configuration](config_vtol/vtol_quad_configuration.md)
