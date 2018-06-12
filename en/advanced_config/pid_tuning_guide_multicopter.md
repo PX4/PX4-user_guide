@@ -1,74 +1,206 @@
 # Multicopter PID Tuning Guide
 
-This tutorial explains how to tune the PID loops on PX4 for all [multi rotor setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
+This tutorial explains how to tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
 
-Tuning is required when creating a new airframe type or significantly modifying an existing supported frame. Generally if you're using a [supported configuration](../airframes/airframe_reference.md#copter) (e.g. using an airframe in [QGroundControl > Airframe](../config/airframe.md)) the default tuning should be acceptable (particularly for larger frames). 
+Tuning is required when creating a new airframe type or modifying an existing supported frame. Generally if you're using a [supported specific configuration](../airframes/airframe_reference.md#copter) (e.g. using an airframe in [QGroundControl > Airframe](../config/airframe.md)), where all components are fixed, the default tuning should work.
+To get the best performance it is usually good to tune a new vehicle, as for example using other ESCs or motors will require different tuning gains.
 
-> **Warning** This guide is for advanced users/experts. Un- or partially- tuned vehicles are likely to be unstable, and easy to crash.
-
-<span></span>
-> **Tip** The most important parameters are covered in this guide. Other parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md).
+> **Warning** This guide is for advanced users. Un- or partially- tuned vehicles are likely to be unstable, and easy to crash.
+> Make sure to have a Kill-switch assigned.
 
 
 ## Introduction 
 
-**P**roportional, **I**ntegral, **D**erivative controllers are the most widespread control technique. 
-There are substantially better performing control techniques (LQR/LQG) from the model predictive control (MPC), 
-but since these techniques require a more or less accurate model of the system, they are not as widely used. 
-The goal of all PX4 control infrastructure is to move as soon as possible on MPC, 
-but since not all supported systems models are available, 
-PID tuning is very relevant (and PID control is sufficient for many cases).
+PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers, which are the most widespread control technique. 
+
+The controllers are layered, which means a higher-level controller passes its
+results to a lower-level controller. The lowest-level controller is the the **rate
+controller**, then there is the **attitude contoller**, and then the **position
+controller**.
+The PID tuning needs to be done in the same order, starting with the rate
+controller, as it will affect all other controllers.
+
 
 ## Precondition
+- You have chosen the closest matching airframe. It should give you a vehicle
+  that already flies.
+- You should have done an [ESC calibration](esc_calibration.md).
+- `PWM_MIN` is set correctly. It needs to be set low, but such that the **motors
+  never stop** when the vehicle is armed. This can be tested in acro
+  or in manual mode, without props:
+  - arm the vehicle and lower the throttle to the minimum,
+  - tilt the vehicle to all directions, about 60 degrees,
+  - check that no motor turns off.
+- Optionally enable the high-rate logging profile with the `SDLOG_PROFILE`
+  parameter. It will help evaluating the rate and attitude tracking performance
+  from the log. The option can be disabled afterwards.
 
-The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
-turn off all [higher-level tuning](advanced_mc_position_tuning.md).
-
-- [MPC_ACC_HOR_MAX](parameter_reference.md#MPC_ACC_HOR_MAX): 1000
-- [MPC_ACC_HOR](parameter_reference.md#MPC_ACC_HOR) : 1000
-- [MPC_DEC_HOR_SLOW](parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000 
-- [MPC_ACC_UP_MAX](parameter_reference.md#MPC_ACC_UP_MAX) : 1000 
-- [MPC_ACC_DOWN_MAX](parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000 
-- [MPC_JERK_MAX](parameter_reference.md#MPC_JERK_MAX) : 0 
-- [MPC_JERK_MIN](parameter_reference.md#MPC_JERK_MIN) : 1
+> **Warning** Always disable `MC_AIRMODE` when tuning a vehile. 
 
 
-### PID Controller Overview 
 
-The PX4 `multirotor_att_control` app executes an outer loop of orientation controller, controlled by parameters:
+## Tuning steps
 
-- Roll control ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
-- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P)
-- Yaw control ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
+> **Note** For safety reasons, the default gains are set to a small value.  
+> You must increase the gains before you can expect good control responses. 
 
-And an inner loop with three independent PID controllers to control the attitude rates:
+Here are some general points to follow when tuning:
+- All gains should be increased very slowly, by 20-30% per iteration, and
+  even 5-10% for final fine tuning.
+  Note that too large gains may cause dangerous oscillations!
+- It is advised to always quickly land when changing a parameter, and then
+  slowly increase the throttle and check for oscillations.
+- Tune the vehicle around the hovering thrust point, and
+  use the thrust curve parameter or TPA to account for thrust
+  non-linearities or high-thrust oscillations (see [below](#thrust_curve)).
+
+### Rate Controller
+The rate controller is the inner-most loop with three independent PID
+controllers to control the body rates:
 
 - Roll rate control ([MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_ROLLRATE_I](../advanced_config/parameter_reference.md#MC_ROLLRATE_I), [MC_ROLLRATE_D](../advanced_config/parameter_reference.md#MC_ROLLRATE_D))
 - Pitch rate control ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D))
 - Yaw rate control ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D))
 
-The outer loop's output are desired body rates (e.g. if the multirotor
-should be level but currently has 30 degrees roll, the control output
-will be e.g. a rotation speed of 60 degrees per second). The inner rate
-control loop changes the rotor motor outputs so that the copter rotates
-with the desired angular speed.
+A well-tuned rate controller is very important as it affects all flight modes.
+The difference between a badly tuned rate controller and a good one is for
+example easily noticeable in position hold.
 
-The gains actually have an intuitive meaning, e.g.: if the [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P)
-gain is 6.0, the copter will try to compensate 0.5 radian offset in
-attitude (\~30 degrees) with 6 times the angular speed, i.e. 3 radians/s
-or \~170 degrees/s. Then if gain for the inner loop `MC_ROLLRATE_P` is
-0.1 then thrust control output for roll will be 3 \* 0.1 = 0.3. This
-means that it will lower the speed of rotors on one side by 30% and
-increase the speed on the other one to induce angular momentum in order
-to go back to level.
+To tune the rate controller you have 2 options:
+- In **acro mode**. This is the preferred method, but flying in acro is more
+  difficult.
+  If you choose this, disable all stick expo:
+  - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, 
+    `MC_ACRO_SUPEXPOY` = 0
+  - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
+  - `MC_ACRO_Y_MAX` = 100
+- In **manual mode**. This is simpler to fly, but it is also more difficult to see
+  if the attitude or the rate controller needs more tuning.
 
-There is also [MC_YAW_FF](../advanced_config/parameter_reference.md#MC_YAW_FF) parameter that controls how much of user input
-need to feed forward to yaw rate controller. 0 means very slow control,
-controller will start to move yaw only when it sees yaw position error. 1
-means very responsive control, but with some overshoot, controller will
-move yaw immediately, always keeping yaw error near zero.
+In case your vehicle does not fly at all:
+- If you notice strong oscillations when first trying to takeoff (to the point
+  where it does not fly), decrease all P and D gains until it takes off.
+- If on the other hand you hardly get any reaction at all to your RC commands,
+  increase the P gains.
+
+The actual tuning is roughly the same in manual or acro:
+You iteratively tune the P and D gains for roll and pitch, and then the I gain.
+Initially you can use the same values for roll and pitch, and once you have good
+values, you can fine-tune them by looking at roll and pitch response separately
+(if your vehicle is symmetric, this is not needed).
+For yaw it is very similar, except that D can be left at 0.
+
+#### P Gain
+The P (proportional) gain directly tries to minimize the tracking error, it is
+responsible for a quick response and thus should be set as high as possible, but
+without introducing oscillations.
+- If the P gain is too high: you will see high-frequency oscillations.
+- If the P gain is too low: you will get slow reactions and the vehicle will
+  drift around in acro, such that you need to correct constantly for the
+  vehicle to keep level.
+
+#### D Gain
+The D (derivative) gain is used for dampening. It is required but should
+be set only as high as needed to avoid overshoots.
+- If the D gain is too high: the motors become twitchy (and maybe hot), because
+  the D term amplifies noise.
+- If the D gain is too low: you see overshoots after a step-input.
+
+#### I Gain
+The I (integral) gain keeps a memory of the error. The I term
+increases when the desired rate is not reached over some time. It is
+important (especially when flying acro), but it should not be set too high.
+- If the I gain is too high: you will see slow oscillations.
+- If the I gain is too low: this is best tested in acro, by tilting the vehicle
+  to one side about 45 degrees, and keeping it like that. It should keep the
+  same angle. If it drifts back, increase the I gain. A low I gain is also
+  visible in a log, when there is an offset between the desired and the
+  actual rate over a longer time.
+
+Typical values are between 0.3 and 0.5, and the pitch gain usually needs to be a
+bit higher.
+
+#### Testing Procedure
+To test the current gains, provide a fast **step-input** when
+hovering and observe how the vehicle reacts: it should immediately
+follow the command, and neither oscillate, nor overshoot (it feels 'locked-in').
+You can create a step-input for example for roll, by quickly pushing the roll
+stick to one side, and then let it go back quickly (be aware that the stick will
+oscillate too if you just let go of it, because it is spring-loaded - a
+well-tuned vehicle will follow these oscillations).
+
+> **Note** A well-tuned vehicle in acro mode will not tilt randomly towards one
+> side, but keeps the attitude for tens of seconds even without any corrections.
 
 
+#### Logs
+Looking at a log helps to evaluate tracking performance as well. Here
+is an example for good roll and yaw rate tracking:
+
+![roll rate tracking](../../images/mc_pid_tuning/roll_rate_tracking.png)
+![yaw rate tracking](../../images/mc_pid_tuning/yaw_rate_tracking.png)
+
+And here is a good example for the roll rate tracking with several flips, which
+create an extreme step-input. You can see that the vehicle overshoots only by a
+very small amount:
+![roll rate tracking flips](../../images/mc_pid_tuning/roll_rate_tracking_flip.png)
+
+
+### Attitude Controller
+This controls the orientation and outputs desired body rates with the following
+tuning parameters:
+- Roll control ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
+- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P)
+- Yaw control ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
+
+The attitude controller is much easier to tune. In fact, most of the time the
+defaults do not need to be changed at all.
+
+To tune the attitude controller, fly in manual mode and increase the P gains
+gradually. If you start to see oscillations or overshoots, the gains are too high.
+
+The following parameters can also be adjusted, they determine the maximum
+rotation rates around all three axes:
+- Maximum roll rate ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
+- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX)
+- Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
+
+### Thrust Curve / Throttle PID Attenuation (TPA) {#thrust_curve}
+So far you tuned the vehicle that it works well around the hover throttle. But
+it can be that you start to see oscillations when going towards full throttle.
+
+There are 2 ways to counteract that:
+- Adjust the thrust curve with the `THR_MDL_FAC` parameter (preferred method).
+  The thrust to PWM mapping is linear by default, setting `THR_MDL_FAC` to 1
+  makes it quadratic. Values in between use a linear interpolation of the two.
+  Typical values are between 0.3 and 0.5.
+  You can start off with 0.3 and then increase it by 0.1 at a time. If it is too
+  high, you will start to notice oscillations at lower throttle values. Be aware
+  that changing this requires the rate controller to be re-tuned.
+- Enable TPA, which is used to linearly reduce the gains when the throttle is
+  above a threshold (`MC_TPA_BREAK_*`). The attenuation rate is controlled via
+  `MC_TPA_RATE_*` parameters. TPA should generally not be needed, but it can be
+  used in addition to the thrust curve parameter.
+
+
+
+
+<!-- TODO: needed?
+#### Feed Forward Tuning
+
+Parameters: [MC_YAW_FF](../advanced_config/parameter_reference.md#MC_YAW_FF).
+
+This parameter is not critical and can be tuned in flight, in worst case
+yaw response will be sluggish or too fast. Play with FF parameter to get
+comfortable response. Valid range is 0…1. Typical value is 0.8…0.9. (For
+aerial video optimal value may be much smaller to get smooth response.)
+
+Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshoot should be not more
+than 2-5% (which is less than the overshoot for roll and pitch angles).
+-->
+
+
+<!-- TODO: required? if so, needs updating with airmode. preferably with a picture
 ### Motor Band / Limiting
 
 As the above example illustrates, under certain conditions it would be
@@ -83,143 +215,24 @@ might not climb or lose altitude a bit, but it will never flip over. The
 same is also true for the lower side, even if the commanded roll is large, it will be scaled
 to not exceed the commanded summary thrust so the copter will not flip on
 takeoff at near-zero thrust.
-
-## Tuning steps
-
-All tuning should be performed in the manual [Stabilized flight mode](../flight_modes/README.md#manual-modes).
-
-<span></span>
-> **Warning** NEVER do multirotor tuning with carbon fiber or carbon fiber reinforced blades. NEVER use damaged blades.
-
-### Step 1: Preparation
-
-First of all set all parameters to initial values:
-
-1. Set all `MC_XXX_P` to zero (ROLL, PITCH, YAW)
-2. Set all `MC_XXXRATE_P`, `MC_XXXRATE_I`, `MC_XXXRATE_D` to zero,
-   except [MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P) and [MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P)
-3. Set [MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P) and [MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P) to a small value, e.g. 0.02
-4. Set [MC_YAW_FF](../advanced_config/parameter_reference.md#MC_YAW_FF) to 0.5
-
-> **Note** For safety reasons, the default gains are set to small value.  
-> You MUST increase the gains before you can expect any control responses. 
-
-All gains should be increased very slowly, by 20%-30% per iteration, and
-even 10% for final fine tuning. Note, that too large gain (even only
-1.5-2 times more than optimal!) may cause very dangerous oscillations!
+-->
 
 
-### Step 2: Stabilize Roll and Pitch Rates
 
-#### P Gain Tuning
+<!-- TODO
+### Position Control
+The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
+turn off all [higher-level position controller tuning gains](advanced_mc_position_tuning.md).
 
-Parameters: [MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P).
-
-If the copter is symmetrical, then values for ROLL and PITCH should be
-equal, if not they should be tuned separately.
-
-Keep the multi rotor in your hand and increase the thrust to about 50%,
-so that the weight is virtually zero. Tilt it in roll or pitch
-direction, and observe the response. It should mildly fight the motion,
-but it will NOT try to go back to level. If it oscillates, tune down
-`RATE_P`. Once the control response is slow but correct, increase `RATE_P`
-until it starts to oscillate. Cut back `RATE_P` until it does only mildly
-oscillate or not oscillate any more (about 10% cutback), just
-over-shoots. Typical value is around 0.1.
-
-#### D Gain Tuning
-
-Parameters: [MC_ROLLRATE_D](../advanced_config/parameter_reference.md#MC_ROLLRATE_D), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D).
-
-Assuming the gains are in a state where the multi rotor oscillated and
-RATE\_P was slightly reduced. Slowly increase RATE\_D, starting from
-0.01. Increase RATE\_D to stop the last bit of oscillation. If the
-motors become twitchy, the RATE\_D is too large, cut it back. By playing
-with the magnitudes of RATE\_P and RATE\_D the response can be
-fine-tuned. Typical value is around 0.01…0.02.
-
-In QGroundControl you can plot roll and pitch rates
-(ATTITUDE.rollspeed/pitchspeed) from **Widgets -> Analyze**. It must not oscillate, but some
-overshoot (10-20%) is ok.
+- [MPC_ACC_HOR_MAX](parameter_reference.md#MPC_ACC_HOR_MAX): 1000
+- [MPC_ACC_HOR](parameter_reference.md#MPC_ACC_HOR) : 1000
+- [MPC_DEC_HOR_SLOW](parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000 
+- [MPC_ACC_UP_MAX](parameter_reference.md#MPC_ACC_UP_MAX) : 1000 
+- [MPC_ACC_DOWN_MAX](parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000 
+- [MPC_JERK_MAX](parameter_reference.md#MPC_JERK_MAX) : 0 
+- [MPC_JERK_MIN](parameter_reference.md#MPC_JERK_MIN) : 1
+ -->
 
 
-#### I Gain Tuning
+<!-- TODO: enable airmode -->
 
-If the roll and pitch rates never reach the setpoint but have an offset,
-add [MC_ROLLRATE_I](../advanced_config/parameter_reference.md#MC_ROLLRATE_I) and [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I) gains, starting at 5-10% of the `MC_ROLLRATE_P` gain value.
-
-
-### Step 3: Stabilize Roll and Pitch Angles
-
-#### P Gain Tuning
-
-Parameters: [MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P), [MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P).
-
-- Set `MC_ROLL_P` and `MC_PITCH_P` to a small value, e.g. 3
-
-Keep the multi rotor in your hand and increase the thrust to about 50%,
-so that the weight is virtually zero. Tilt it in roll or pitch
-direction, and observe the response. It should go slowly back to level.
-If it oscillates, tune down P. Once the control response is slow but
-correct, increase P until it starts to oscillate. Optimal response is
-some overshoot (\~10-20%). After getting stable response fine tune
-`RATE_P`, `RATE_D` again.
-
-In *QGroundControl* you can plot roll and pitch (`ATTITUDE.roll`/`ATTITUDE.pitch`) and
-control (ctrl0, ctrl1). Attitude angles overshoot should be not more than
-10-20%.
-
-
-### Step 4: Stabilize Yaw Rate
-
-#### P Gain Tuning
-
-Parameters: [MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P).
-
-- Set `MC_YAWRATE_P` to small value, e.g. 0.1
-
-Keep the multi rotor in your hand and increase the thrust to about 50%,
-so that the weight is virtually zero. Turn it around its yaw axis,
-observe the response. The motor sound should change and the system
-should fight the yaw rotation. The response will be substantially weaker
-than roll and pitch, which is fine. If it oscillates or becomes twitchy,
-tune down `RATE_P`. If response is very large even on small movements
-(full throttle spinning vs idle spinning propellers) reduce `RATE_P`.
-Typical value is around 0.2…0.3.
-
-The yaw rate control, if very strong or oscillating, can deteriorate the
-roll and pitch response. Check the total response by turning around,
-roll, pitch and yaw.
-
-
-### Step 5: Stabilize Yaw Angle
-
-
-#### P Gain Tuning
-
-Parameters: [MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P).
-
-- Set `MC_YAW_P` to a low value, e.g. 1
-
-Keep the multi rotor in your hand and increase the thrust to about 50%,
-so that the weight is virtually zero. Rotate it around yaw, and observe
-the response. It should go slowly back to the initial heading. If it
-oscillates, tune down P. Once the control response is slow but correct,
-increase P until the response is firm, but it does not oscillate.
-Typical value is around 2…3.
-
-Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshoot should be not more
-than 2-5% (which is less than the overshoot for roll and pitch angles).
-
-
-#### Feed Forward Tuning
-
-Parameters: [MC_YAW_FF](../advanced_config/parameter_reference.md#MC_YAW_FF).
-
-This parameter is not critical and can be tuned in flight, in worst case
-yaw response will be sluggish or too fast. Play with FF parameter to get
-comfortable response. Valid range is 0…1. Typical value is 0.8…0.9. (For
-aerial video optimal value may be much smaller to get smooth response.)
-
-Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshoot should be not more
-than 2-5% (which is less than the overshoot for roll and pitch angles).
