@@ -22,14 +22,20 @@ In order to boot both the ROS node and PX4 automatically on bootup, edit the **/
 
 # Generate the SSH keys if non-existent
 test -f /etc/ssh/ssh_host_dsa_key || dpkg-reconfigure openssh-server
+
+# Prepare the ROS environment
 cd /home/linaro
 source /opt/ros/indigo/setup.bash
 source /home/linaro/ros_ws/devel/setup.bash
+
+# Launch the mavros vislam node but add some delay otherwise startup is not reliable
 sleep 5
-roslaunch snapdragon_mavros_vislam mavros_vislam.launch &
-sleep 10
-(cd /home/linaro && ./px4 ros_ws/src/snap-vislam-ros/px4_configs/ekf2/mainapp.co
-nf > mainapp_vislam.log)
+roslaunch snapdragon_mavros_vislam mavros_vislam.launch > /dev/null &
+
+# Launch PX4 autopilot in VIO configuration but add some delay otherwise startup is not reliable
+sleep 5
+./px4 /home/linaro/ros_ws/src/ros-examples/px4_configs/ekf2/mainapp.conf > /dev/null &
+
 exit 0
 ```
 
