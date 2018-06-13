@@ -382,7 +382,7 @@ The module where these parameters are defined is: *drivers/camera_trigger*.
 ## Circuit Breaker
 
 
-The module where these parameters are defined is: *modules/systemlib*.
+The module where these parameters are defined is: *lib/circuit_breaker*.
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
@@ -9864,7 +9864,7 @@ The module where these parameters are defined is: *modules/syslink*.
   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/systemlib</p>
 </td>
- <td style="vertical-align: top;">0 > 1921600 </td>
+ <td style="vertical-align: top;">0 > 6460800 </td>
  <td style="vertical-align: top;">157600 </td>
  <td style="vertical-align: top;"></td>
 </tr>
