@@ -209,6 +209,16 @@ source ../bashrc
 This is where the generated libraries and the executables will be generated. 
 It also generates a new bash setup script which includes the appropriate environment variables for using the "ros_ws" workspace.
 
+### Install geographiclib
+MAVROS requires geographiclib to be installed on the system. Follow these steps to install it on the Snapdragon:
+```
+mkdir -p /usr/share/geographiclib
+/home/linaro/ros_ws/src/mavros/mavros/scripts/install_geographiclib_datasets.sh
+mkdir /usr/share/geographiclib/GeographicLib
+cd /usr/share/geographiclib
+mv geoids/ GeographicLib/
+```
+
 ## Install Snap VIO
 
 First, download (to your PC) version 1.0.2 *Snapdragon Machine Vision SDK* from [here](https://developer.qualcomm.com/sdflight-tools). 
