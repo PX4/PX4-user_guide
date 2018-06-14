@@ -47,7 +47,7 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'px4buildbot_github', passwordVariable: 'GIT_PASS', usernameVariable: 'GIT_USER')]) {
           sh('git clone https://${GIT_USER}:${GIT_PASS}@github.com/PX4/docs.px4.io.git')
         }
-        sh('rm -rf docs.px4.io/*')
+        //sh('rm -rf docs.px4.io/*')
         sh('cp -r _book/* docs.px4.io/')
         sh('cd docs.px4.io; git add .; git commit -a -m "gitbook build update `date`"')
         sh('cd docs.px4.io; git push')
