@@ -16,7 +16,8 @@
         "toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git",
         "validate-links",
         "mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn",
-        "theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"
+        "theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git",
+        "ga"
     ],
     "pluginsConfig": {
 
@@ -63,10 +64,11 @@
                     "url": "https://github.com/PX4/px4_user_guide/edit/master/{{filepath_lang}}"
                 }
             ]
-        }
-        
-    } 
-    
+        },
+        "ga": {
+            "token": "UA-33658859-3"
+        }   
+    }
     
 }
 
