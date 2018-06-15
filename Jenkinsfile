@@ -50,16 +50,21 @@ pipeline {
         sh('rm -rf docs.px4.io/*')
         sh('cp -r _book/* docs.px4.io/')
         sh('cd docs.px4.io; git add .; git commit -a -m "gitbook build update `date`"')
-        sh('cd docs.px4.io; git push')
+        sh('cd docs.px4.io; git push origin master')
       }
 
       when {
         anyOf {
           branch 'master'
-          branch 'pr-jenkins'
         }
       }
     } // Deploy
   } // stages
+
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '10', artifactDaysToKeepStr: '30'))
+    timeout(time: 60, unit: 'MINUTES')
+  }
+
 }
 
