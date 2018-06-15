@@ -6,11 +6,13 @@ pipeline {
       environment {
         HOME = "${WORKSPACE}"
       }
+
       agent {
         docker {
-          image 'px4io/px4-docs:1.0'
+          image 'px4io/px4-docs:2018-06-14'
         }
       }
+
       steps {
         sh 'export'
         sh 'gitbook install'
@@ -27,6 +29,7 @@ pipeline {
           reportName: 'PX4 User Guide'
         ]
       }
+
     } // Build
 
     stage('Deploy') {
@@ -37,7 +40,7 @@ pipeline {
 
       agent {
         docker {
-          image 'px4io/px4-docs:1.0'
+          image 'px4io/px4-docs:2018-06-14'
         }
       }
 
@@ -58,6 +61,7 @@ pipeline {
           branch 'master'
         }
       }
+
     } // Deploy
   } // stages
 
