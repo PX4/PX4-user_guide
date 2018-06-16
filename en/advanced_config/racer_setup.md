@@ -29,7 +29,7 @@ interesting especially for beginners:
 - You can go into position hold and the vehicle will just stay in one place.
   This is handy if you lose the orientation or need a brake. It can also be used
   to land safely.
-- Return-To-Land (RTL) can be used, either on a switch or as RC loss/low
+- [Return mode](../flight_modes/return.md) can be used, either on a switch or as RC loss/low
   battery failsafe.
 - You will have the last position when it crashes.
 - The log contains the flight track, which means you can review the flight (in 3D).

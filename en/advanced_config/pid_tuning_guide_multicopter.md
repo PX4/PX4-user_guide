@@ -35,7 +35,7 @@ controller, as it will affect all other controllers.
   parameter. It will help evaluating the rate and attitude tracking performance
   from the log. The option can be disabled afterwards.
 
-> **Warning** Always disable `MC_AIRMODE` when tuning a vehile. 
+> **Warning** Always disable `MC_AIRMODE` when tuning a vehicle. 
 
 
 
@@ -170,18 +170,25 @@ So far you tuned the vehicle that it works well around the hover throttle. But
 it can be that you start to see oscillations when going towards full throttle.
 
 There are 2 ways to counteract that:
-- Adjust the thrust curve with the `THR_MDL_FAC` parameter (preferred method).
+- Adjust the **thrust curve** with the `THR_MDL_FAC` parameter (preferred method).
   The thrust to PWM mapping is linear by default, setting `THR_MDL_FAC` to 1
   makes it quadratic. Values in between use a linear interpolation of the two.
   Typical values are between 0.3 and 0.5.
   You can start off with 0.3 and then increase it by 0.1 at a time. If it is too
   high, you will start to notice oscillations at lower throttle values. Be aware
   that changing this requires the rate controller to be re-tuned.
-- Enable TPA, which is used to linearly reduce the gains when the throttle is
-  above a threshold (`MC_TPA_BREAK_*`). The attenuation rate is controlled via
+- Enable **Throttle PID Attenuation** (TPA), which is used to linearly reduce the
+  PID gains when the throttle is
+  above a threshold (<span style="color:#6383B0">breakpoint</span>,
+  `MC_TPA_BREAK_*` parameters). The <span style="color:#8D6C9C">attenuation rate</span> is controlled via
   `MC_TPA_RATE_*` parameters. TPA should generally not be needed, but it can be
-  used in addition to the thrust curve parameter.
+  used in addition to the thrust curve parameter. The following illustration
+  shows the thrust in relationship to the attenuated PID values:
 
+  ![TPA](../../images/mc_pid_tuning/MC_PID_tuning-TPA.svg)
+<!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
+     On the second Tab
+-->
 
 
 
@@ -197,24 +204,6 @@ aerial video optimal value may be much smaller to get smooth response.)
 
 Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshoot should be not more
 than 2-5% (which is less than the overshoot for roll and pitch angles).
--->
-
-
-<!-- TODO: required? if so, needs updating with airmode. preferably with a picture
-### Motor Band / Limiting
-
-As the above example illustrates, under certain conditions it would be
-possible that one motor gets an input higher than its maximum speed and
-another gets an input lower than zero. If this happens, the forces
-created by the motors violate the control model and the multi rotor will
-likely flip. To prevent this, the multi rotor mixers on PX4 include a
-band-limit. If one of the rotors leaves this safety band, the total
-thrust of the system is lowered so that the relative percentage that the
-controller did output can be satisfied. As a result the multi rotor
-might not climb or lose altitude a bit, but it will never flip over. The
-same is also true for the lower side, even if the commanded roll is large, it will be scaled
-to not exceed the commanded summary thrust so the copter will not flip on
-takeoff at near-zero thrust.
 -->
 
 
@@ -234,5 +223,46 @@ turn off all [higher-level position controller tuning gains](advanced_mc_positio
  -->
 
 
-<!-- TODO: enable airmode -->
+### Airmode & Mixer Saturation
+The rate controller outputs roll, pitch, yaw and thrust commands, which need to
+be converted into individual motor thrust commands. This step is called mixing.
+
+It can happen that one of the motor commands becomes negative, for example for a
+low thrust and large roll command (and similarly it can go above 100%). This is
+a mixer saturation. It is physically impossible for the vehicle to execute these
+commands (except for reversible motors). PX4 has two modes to resolve this:
+- Either by reducing the commanded roll such that none of the motor commands is
+  below zero (Airmode disabled). In the extreme case where the commanded thrust
+  is zero, it means that no attitude correction is possible anymore, which is
+  why a minimum thrust is always required for this mode.
+- Or by increasing (boosting) the commanded thrust, such that none of the motor
+  commands is negative (Airmode enabled). This has the big advantage that the
+  attitude/rates can be tracked correctly even at low or zero throttle. It
+  generally improves the flight performance.
+
+  However it increases the total thrust which can lead to situations where the
+  vehicle continues to ascend even though the throttle is reduced to zero. For a
+  well-tuned, correctly functioning vehicle it is not the case, but for example
+  it can happen when the vehicle strongly oscillates due to too high P tuning
+  gains.
+
+Both modes are shown below with a 2D illustration for two motors and a roll
+command <span style="color:#9673A6">r</span>. On the left motor
+<span style="color:#9673A6">r</span> is added to the commanded thrust, while on
+the right motor it is substracted from it.
+The motor thrusts are in <span style="color:#6A9153">green</span>.
+With Airmode enabled, the commanded thrust is increased by
+<span style="color:#B85450">b</span>. When it is disabled,
+<span style="color:#9673A6">r</span> is reduced.
+
+  ![Airmode](../../images/mc_pid_tuning/MC_PID_tuning-Airmode.svg)
+<!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
+     On the first Tab
+-->
+
+If mixing becomes saturated towards the upper bound, the Airmode logic is
+always used (the commanded thrust is reduced).
+
+Once your vehicle flies well you can enable Airmode via the `MC_AIRMODE`
+parameter.
 
