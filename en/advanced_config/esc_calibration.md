@@ -1,33 +1,30 @@
 # ESC Calibration
 
-Electronic Speed Controllers (ESC) translate the input from the RC or the
-flight controller to the motors. ESCs do not always have to be
-calibrated, but in most cases it's good to do it anyway. High-quality
-controllers come with a factory calibration and
-can be just configured using the `PWM_MIN` and `PWM_MAX` parameters. This
-ensures that all the ESCs in a multicopter will scale the same way the
-input from the Flight Controller (FC) to the motors.  However, many low-cost models do
-require calibration and so if unsure calibration is recommended. Here is
-how you do it.
+Electronic Speed Controllers (ESC) regulate the speed (and direction) of motors based on a PWM input from the flight controller (FC). 
+
+All ESCs in a multicopter must be configured to respond to flight controller input in the same way (across the whole input range). 
+High-quality controllers come with a factory calibration and can be just configured using the [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) and [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) parameters provided in the ESC technical specification.
+
+Many low-cost models require calibration. This can/should be performed if you are unsure whether it is required!
 
 > **Warning** Never attempt ESC calibration with props on. Before you begin just remove them.
 
-For the calibration process to begin you should use only the USB
-connection to the flight controller in the first step.
+To calibrate the ESCs:
 
-![ESC Calibration step 1](../../images/esc_calibration_step_1.png)
+1. Disconnect the battery and connect the flight controller via USB (only). 
+1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
 
-Then you will be asked to plug in the battery.
+   ![ESC Calibration step 1](../../images/qgc_esc_calibration.png)
 
-![ESC Calibration step 2](../../images/esc_calibration_step_2.png)
+1. Connect the battery when prompted:
 
-The calibration will begin automatically.
+   ![ESC Calibration step 2](../../images/esc_calibration_step_2.png)
 
-![ESC Calibration step 3](../../images/esc_calibration_step_3.png)
+   The calibration will begin automatically:
 
-Wait until it is finished.
+   ![ESC Calibration step 3](../../images/esc_calibration_step_3.png)
 
-![ESC Calibration step 4](../../images/esc_calibration_step_4.png)
+1. Once the calibration complete you will be prompted to disconnect the battery.
 
-You are done. Now the ESCs are calibrated.
+   ![ESC Calibration step 4](../../images/esc_calibration_step_4.png)
 
