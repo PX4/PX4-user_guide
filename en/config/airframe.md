@@ -1,6 +1,6 @@
 # Airframe Setup
 
-After installing firmware you need to configure the firmware parameters for your specific airframe.
+After installing firmware you need to configure the firmware parameters for your [specific airframe](../airframes/airframe_reference.md).
 
 ## Set the Airframe
 
