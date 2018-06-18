@@ -1,6 +1,6 @@
 # QAV-R 5" KISS ESC Racer (Pixracer)
 
-The Lumenier QAV-R 5" FPV Racing Quadcopter is a rigid, light, and fast FPV racer with removable arms. This topic provides full build and configuration instructions for using the frame with the Pixracer flight controller and *KISS 24A Race Edition* ESCs. It also provides information on the (optional) FPV setup.
+The Lumenier QAV-R 5" FPV Racing Quadcopter is a rigid, light, and fast FPV racer with removable arms. This topic provides full build and configuration instructions for using the frame with the *Pixracer* flight controller and *KISS 24A Race Edition* ESCs. It also provides information on the (optional) FPV setup.
 
 Key information:
 
@@ -184,7 +184,7 @@ For this build I pulled the latest PX4 master because it supports the "FMU as ta
 - Calibrate the voltage devider through typing in the current accurate voltmeter measurement
 - Calibrate the RC cannels with the Taranis already configured for two additional switch inputs. One switch in the top right corner of the Taranis front plate for the mode switch and the other switch in the top left corner of the front plate as arm switch.
 - If you want to use an arming switch, see
-  [here](../advanced_config/racer_setup.md#arming-switch) how to set it up.
+  [here](../advanced_config/racer_setup.md#arming_switch) how to set it up.
 
 
 ### Tuning
