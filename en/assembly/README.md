@@ -9,3 +9,4 @@ This section contains topics that explain how to assemble such a system for diff
 
 * See [Peripherals](../peripherals/README.md) for information about connecting sensors and other peripherals (e.g. airspeed sensor for planes).
 * See [Airframe Builds](../airframes/README.md) for complete assembly examples on different vehicle frames.
+* See [Multicopter Racer Setup](advanced_config/racer_setup.md) for racer-specific assembly and configuration information.
