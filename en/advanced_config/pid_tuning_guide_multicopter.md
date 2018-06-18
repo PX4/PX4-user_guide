@@ -210,7 +210,7 @@ turn off all [higher-level position controller tuning gains](advanced_mc_positio
  -->
 
 
-### Airmode & Mixer Saturation
+### Airmode & Mixer Saturation {#airmode}
 
 The rate controller outputs roll, pitch, yaw and thrust commands, which need to be converted into individual motor thrust commands. 
 This step is called mixing.
