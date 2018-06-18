@@ -59,6 +59,10 @@ You can move the battery until it is correct and mark it on the frame so you wil
 
 > **Note** The integral term can account for an imbalanced setup, and a custom mixer can do that even better. However it is best to fix any imbalance as part of the vehicle setup.
 
+### Motor Ordering
+If you plan to use a 4-in-1 ESC, such as the [Hobbywing XRotor Micro 40A 4in1](http://www.hobbywing.com/goods.php?id=588), you will notice that it uses a motor ordering that is different from the one that PX4 uses.
+PX4 allows you to change the motor ordering in software via [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) parameter. You can select the Betaflight/Cleanflight motor ordering that is typically used on these 4-in-1 ESCs.
+
 ## Software Setup
 
 After having built the racer, you will need to configure the software.
