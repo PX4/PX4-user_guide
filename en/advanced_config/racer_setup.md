@@ -20,8 +20,8 @@ The minimal configuration is to use only a gyro and accelerometer sensor.
 > **Note** If the board has an internal magnetometer, it should not be used (small racers are particularly prone to strong electromagnetic interference).
 
 Racers typically do not have a GPS as it adds some weight and is prone to damage during crashes
-(a GPS + external magenetometer must be placed on a GPS mast away from high currents to avoid
-mag interferences, which unfortunately means it easy to break). 
+(a GPS + external magnetometer must be placed on a GPS mast away from high currents to avoid
+magnetic interference, which unfortunately means that it is easy to break). 
 
 There are however some benefits in adding GPS, particularly for beginners:
 - You can go into position hold and the vehicle will just stay in one place.
