@@ -248,7 +248,7 @@ With Airmode enabled, the commanded thrust is increased by
      On the first Tab
 -->
 
-If mixing becomes saturated towards the upper bound, the Airmode logic is always used (the commanded thrust is reduced).
+If mixing becomes saturated towards the upper bound the commanded thrust is reduced to ensure that no motor is commanded to deliver more than 100% thrust. This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
 
 Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
 
