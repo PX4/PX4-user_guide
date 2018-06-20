@@ -2,8 +2,9 @@
 
 This tutorial explains how to tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
 
-Tuning is required when creating a new airframe type or modifying an existing supported frame. Generally if you're using a [supported specific configuration](../airframes/airframe_reference.md#copter) (e.g. using an airframe in [QGroundControl > Airframe](../config/airframe.md)), where all components are fixed, the default tuning should work.
-To get the best performance it is usually good to tune a new vehicle, as for example using other ESCs or motors will require different tuning gains.
+Generally if you're using a [supported specific configuration](../airframes/airframe_reference.md#copter) (e.g. using an airframe in [QGroundControl > Airframe](../config/airframe.md)) the default tuning should be sufficient to fly the vehicle safely.
+To get the very best performance it is usually good to tune a new vehicle. 
+For example, different ESCs or motors require different tuning gains for optimal flight.
 
 > **Warning** This guide is for advanced users. Un- or partially- tuned vehicles are likely to be unstable, and easy to crash.
 > Make sure to have a Kill-switch assigned.
