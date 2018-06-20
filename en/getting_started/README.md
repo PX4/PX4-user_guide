@@ -2,7 +2,7 @@
 
 This section provides an overview of the basic concepts you need to understand in order to build and fly an unmanned vehicle using PX4.
 
-[PX4 Basic Concepts](../getting_started/px4_basic_concepts.md) — Brief introduction to PX4 and the Dronecode Platform.
+[Basic Concepts](../getting_started/px4_basic_concepts.md) — Brief introduction to PX4 and the Dronecode Platform.
 
 [Flight Controllers](../getting_started/flight_controller_selection.md) — Flight controller hardware options from different platforms and vendors.
 

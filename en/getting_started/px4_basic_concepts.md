@@ -1,36 +1,81 @@
-# PX4 Basic Concepts
+# Basic Concepts
 
-In this chapter we will introduce you to the most basic concepts of setting up and controlling your drone. This section is meant mostly for novice users but it is a good quick start introduction to PX4 autopilot concepts for the experienced users as well.
+This topic provides a basic introduction to drones and using PX4 (it is meant mostly for novice users but is also a good introduction for experienced users).
 
-## PX4 Autopilot
+If you are already familiar with the basic concepts, you can move on to [Basic Assembly](https://docs.px4.io/en/assembly/) to learn how to wire your specific autopilot hardware. To load firmware and set up the vehicle with *QGroundControl*, see [Basic Configuration](../config/README.md).
 
-PX4 is platform independent autopilot software (or a software stack/firmware) that can fly or drive Unmanned Aerial or Ground Vehicles (UAV/UGV). It is loaded (flashed) on certain [vehicle control hardware](flight_controller_selection.md) and together with Ground Control Station it makes a fully autonomous autopilot system. 
+## What is a Drone?
 
-The PX4 ground control station is called  [QGroundControl](http://qgroundcontrol.com/) and is integral part of the PX4 Autopilot System. QGroundControl can run on Windows, OS X or Linux. Download and install QGroundControl from [here](http://qgroundcontrol.com/downloads/). With the help of  QGroundControl you can load (flash) the PX4 on to the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+A drone is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
 
-If you are already familiar with the basic concepts, you can move on to [Basic Assembly](https://docs.px4.io/en/assembly/) section that explains how to wire your specific autopilot hardware. To load firmware and set up the vehicle with QGroundControl, visit the section [Basic Configuration](https://docs.px4.io/en/config/).
+Drones are used for many consumer, industrial and military [use cases and applications](http://px4.io/applications/). These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc. 
+
+> **Tip** Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
+
+The "brain" of the drone is called an autopilot. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
+
+
+## Dronecode Platform {#dronecode}
+
+PX4 is part of the [Dronecode Platform](https://www.dronecode.org/platform/) — a complete end-to-end platform for drone development, delivered under a common industry-friendly open source license. It includes, among other things, the [PX4 flight stack](#autopilot)), [QGroundControl](#qgc) ground control station, the [Dronecode SDK](https://www.dronecode.org/sdk/) and the [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/).
+
+## PX4 Autopilot {#autopilot}
+
+[PX4](http://px4.io/) is powerful open source autopilot *flight stack*. 
+
+Some of PX4's key features are:
+- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed wing aircraft and VTOLs), ground vehicles and underwater vehicles. 
+- Great choice of hardware for [vehicle controller](#vehicle_controller), sensors and other peripherals.
+- Flexible and powerful [flight modes](#flight_modes) and [safety features](#safety).
+
+
+## QGroundControl {#qgc}
+
+The Dronecode ground control station is called [QGroundControl](http://qgroundcontrol.com/).  You can use *QGroundControl* to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+
+*QGroundControl* runs on Windows, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/). 
 
 ![QGC Main Screen](../../images/qgc_main_screen.jpg)
 
-## Heading and Directions
+## Vehicle Controller {#vehicle_controller}
 
-All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+PX4 was initially designed to run on Pixhawk-series controllers, but can now run on Linux computers and other hardware.
+You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
 
-![Frame Heading](../../images/frame_heading.png)
+For more information see: [Flight Controller Selection](flight_controller_selection.md).
 
-It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Despite it is not obvious, Multicopters have a heading despite they are symmetrical from all sides. Usually manufacturers use a colored props or colored arms to indicate the heading.
+## Sensors & Peripherals
 
-![Frame Heading TOP](../../images/frame_heading_top.png)
+PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
-In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+For more information see: 
+* [Sensors](../getting_started/sensor_selection.md) 
+* [Peripherals](../peripherals/README.md)
 
-You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
 
-## PX4 Connections
+## ESCs & Motors
 
-In order to set up, control and interact with your PX4 drone you need to connect with it. The main connection types are listed below.
+Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) 
+(the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
 
-### Remote Control
+PX4 supports ESCs that take a PWM input or use the ESC *OneShot* standard. At time of writing PX4 does not support the *DShot* protocol.
+
+For more information see:
+* [ESC Calibration](../advanced_config/esc_calibration.md)
+* [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
+
+
+## Battery/Power
+
+PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. 
+The battery is typically connected to the system using a *Power Module* or *Power Management Board*, 
+which provide separate power for the flight controller and to the ESCs (for the motors).
+
+Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md)
+and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
+
+
+## Remote Control
 
 A [Remote Control \(RC\)](../getting_started/rc_transmitter_receiver.md) radio system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
@@ -44,14 +89,14 @@ A [Remote Control \(RC\)](../getting_started/rc_transmitter_receiver.md) radio s
 * [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
 
-### Data/Telemetry Radios
+## Data/Telemetry Radios
 
 [Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
 
-### Offboard/Companion Computer
+## Offboard/Companion Computer
 
-PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink Robotics API like DroneCore or MAVROS.
+PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the Dronecode SDK or MAVROS.
 
 > **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 
@@ -59,7 +104,7 @@ PX4 can be controlled from a separate on-vehicle companion computer via a serial
 * [Robotics APIs](https://dev.px4.io/en/robotics/) (PX4 Developer Guide)
 
 
-## Flight Modes
+## Flight Modes {#flight_modes}
 
 Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). 
 *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. 
@@ -76,7 +121,7 @@ An overview of the available flight modes [can be found here](../getting_started
 Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
 
-## Safety Settings (Failsafe)
+## Safety Settings (Failsafe) {#safety}
 
 PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
@@ -94,4 +139,16 @@ The main failsafe areas are listed below:
 
 For more information see: [Safety](../config/safety.md) (Basic Configuration).
 
+## Heading and Directions
 
+All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+
+![Frame Heading](../../images/frame_heading.png)
+
+It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Despite it is not obvious, Multicopters have a heading despite they are symmetrical from all sides. Usually manufacturers use a colored props or colored arms to indicate the heading.
+
+![Frame Heading TOP](../../images/frame_heading_top.png)
+
+In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+
+You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
