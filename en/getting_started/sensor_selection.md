@@ -1,4 +1,4 @@
-# Sensor Selection
+# Sensors
 
 PX4-based systems use sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, etc.
 

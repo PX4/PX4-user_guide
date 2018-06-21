@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Getting Started](getting_started/README.md)
-  * [PX4 Basic Concepts](getting_started/px4_basic_concepts.md)
+  * [Basic Concepts](getting_started/px4_basic_concepts.md)
   * [Vehicles/Frames](getting_started/frame_selection.md)
   * [Flight Controllers](getting_started/flight_controller_selection.md)
   * [Sensors](getting_started/sensor_selection.md)
