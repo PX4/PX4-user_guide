@@ -2,8 +2,9 @@
 
 This tutorial explains how to tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
 
-Tuning is required when creating a new airframe type or modifying an existing supported frame. Generally if you're using a [supported specific configuration](../airframes/airframe_reference.md#copter) (e.g. using an airframe in [QGroundControl > Airframe](../config/airframe.md)), where all components are fixed, the default tuning should work.
-To get the best performance it is usually good to tune a new vehicle, as for example using other ESCs or motors will require different tuning gains.
+Generally if you're using a [supported specific configuration](../airframes/airframe_reference.md#copter) (e.g. using an airframe in [QGroundControl > Airframe](../config/airframe.md)) the default tuning should be sufficient to fly the vehicle safely.
+To get the very best performance it is usually good to tune a new vehicle. 
+For example, different ESCs or motors require different tuning gains for optimal flight.
 
 > **Warning** This guide is for advanced users. Un- or partially- tuned vehicles are likely to be unstable, and easy to crash.
 > Make sure to have a Kill-switch assigned.
@@ -15,8 +16,8 @@ PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers, whic
 
 The controllers are layered, which means a higher-level controller passes its
 results to a lower-level controller. The lowest-level controller is the the **rate
-controller**, then there is the **attitude contoller**, and then the **position
-controller**.
+controller**, then there is the **attitude contoller**, and then the **velocity
+& position controller**.
 The PID tuning needs to be done in the same order, starting with the rate
 controller, as it will affect all other controllers.
 
@@ -56,8 +57,8 @@ The rate controller is the inner-most loop with three independent PID controller
 - Pitch rate control ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D))
 - Yaw rate control ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D))
 
-A well-tuned rate controller is very important as it affects all flight modes.
-The difference between a badly and a well tuned rate controller is, for example, easily noticeable in [Position mode](../flight_modes/position_mc.md).
+
+> **Note** A well-tuned rate controller is very important as it affects *all* flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
 
 The rate controller can be tuned in [Acro mode](../flight_modes/acro_mc.md) or [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
 - *Acro mode* is preferred, but is harder to fly. If you choose this mode, disable all stick expo:
@@ -196,7 +197,7 @@ than 2-5% (which is less than the overshoot for roll and pitch angles).
 
 
 <!-- TODO
-### Position Control
+### Velocity & Position Controller
 The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
 turn off all [higher-level position controller tuning gains](advanced_mc_position_tuning.md).
 
@@ -212,13 +213,13 @@ turn off all [higher-level position controller tuning gains](advanced_mc_positio
 
 ### Airmode & Mixer Saturation {#airmode}
 
-The rate controller outputs roll, pitch, yaw and thrust commands, which need to be converted into individual motor thrust commands. 
+The rate controller outputs torque commands for all three axis (roll, pitch and yaw) and a scalar thrust value, which need to be converted into individual motor thrust commands. 
 This step is called mixing.
 
 It can happen that one of the motor commands becomes negative, for example for a low thrust and large roll command (and similarly it can go above 100%). 
 This is a mixer saturation. 
 It is physically impossible for the vehicle to execute these commands (except for reversible motors). PX4 has two modes to resolve this:
-- Either by reducing the commanded roll such that none of the motor commands is
+- Either by reducing the commanded torque for roll such that none of the motor commands is
   below zero (Airmode disabled). In the extreme case where the commanded thrust
   is zero, it means that no attitude correction is possible anymore, which is
   why a minimum thrust is always required for this mode.
@@ -233,8 +234,8 @@ It is physically impossible for the vehicle to execute these commands (except fo
   it can happen when the vehicle strongly oscillates due to too high P tuning
   gains.
 
-Both modes are shown below with a 2D illustration for two motors and a roll
-command <span style="color:#9673A6">r</span>. On the left motor
+Both modes are shown below with a 2D illustration for two motors and a torque
+command for roll <span style="color:#9673A6">r</span>. On the left motor
 <span style="color:#9673A6">r</span> is added to the commanded thrust, while on
 the right motor it is substracted from it.
 The motor thrusts are in <span style="color:#6A9153">green</span>.
@@ -247,7 +248,7 @@ With Airmode enabled, the commanded thrust is increased by
      On the first Tab
 -->
 
-If mixing becomes saturated towards the upper bound, the Airmode logic is always used (the commanded thrust is reduced).
+If mixing becomes saturated towards the upper bound the commanded thrust is reduced to ensure that no motor is commanded to deliver more than 100% thrust. This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
 
 Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
 
