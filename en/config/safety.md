@@ -4,7 +4,7 @@ PX4 has a number of safety features to protect and recover your vehicle if somet
 
 * *Failsafes* allow you to specify areas and conditions under which you can safely fly, and the [action](#failsafe_actions) that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 The most important failsafe settings are configured in the *QGroundControl* [Safety Setup](#qgc_safety_setup) page. Others must be configured via [parameters](#failsafe_other).
-* [Safety switches](#safety_switch) on the remote control can be used to immediately crash or return the vehicle in the event of a problem. 
+* [Safety switches](#safety_switch) on the remote control can be used to immediately stop motors or return the vehicle in the event of a problem. 
 
 ## Failsafe Actions {#failsafe_actions}
 
@@ -231,35 +231,40 @@ Parameter | Description
 
 ## Safety Switches {#safety_switch}
 
-A safety switch allows you to immediately crash or return the vehicle from the remote control transmitter
+A safety switch allows you to immediately stop all motors or return the vehicle from the remote control transmitter
 (if you lose control of the vehicle, this may be better than allowing it to continue flying).
 
 This section lists the available safety switches.
 
 ### Kill Switch {#kill_switch}
 
-A kill switch immediately stops all motor outputs, causing the vehicle to crash.
+A kill switch immediately stops all motor outputs (if flying the vehicle will start to fall).
+The vehicle is not disarmed, and the motors will restart if the switch is reverted.
 
 The kill switch is enabled as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md#safety_switch).
 
 
 ### Arm/Disarm Switch {#arming_switch}
 
-> **Tip** The arming switch is similar to the [kill switch](#kill_switch), but cannot be enabled in all modes during flight (i.e. those modes where it less likely to be needed).
+The arm/disarm switch is a replacement for the default stick arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop). It might be used in preference to the default mechanism because:
+- Of a preference of a switch over a stick motion (e.g. if using a stick on another autopilot).
+- It avoids accidentally triggering arming/disarming in-air with a certain stick motion.
+- There is no delay (it reacts immediately).
 
-An arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that *support disarming in flight* (i.e. for these modes it is the same as the [kill switch](#kill_switch)). This includes the modes: 
+The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that *support disarming in flight*. This includes: 
 - *Manual mode*
 - *Acro mode*
+- *Stabilized*
+- *Rattitude*
 
-For modes that do not support disarming in flight, the command is ignored until after landing has been detected. This includes the modes:
-- *Position mode*
-
+For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes *Position mode*.
 
 To use an arm switch you will need to [manually set parameters](../advanced_config/parameters.md):
 - [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) must be set to the corresponding switch RC channel. 
 - If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value). 
 
 <!-- The switch should be settable in QGC. Depends on https://github.com/PX4/Firmware/pull/9622 -->
+
 
 ### Return Switch {#return_switch}
 
