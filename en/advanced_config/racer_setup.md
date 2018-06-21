@@ -97,14 +97,8 @@ Configure [RC loss and low battery failsafe](../config/safety.md).
 If you do not use a GPS, set the failsafe to **Lockdown**, which turns off the motors. 
 Test RC loss on the bench without props attached by turning off the remote when the vehicle is armed.
 
-Make sure to assign a [kill switch](../config/flight_mode.md#kill-switch) or an [arming switch](#arming_switch).Test it and train to use it!
+Make sure to assign a [kill switch](../config/safety.md#kill_switch) or an [arming switch](../config/safety.md#arming_switch). Test it and train to use it!
 
-#### Arm Switch {#arming_switch}
-
-To use an arm switch manually set the parameter [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) to the corresponding switch RC channel. 
-The vehicle should, from then on, immediately arm/disarm whenever your switch is turned on/off. 
-If the switch positions are reversed just change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) or also change its value to alter the threshold value. 
-Make sure to test this under safe conditions!
 
 ### PID Tuning
 
