@@ -33,7 +33,7 @@ Some of PX4's key features are:
 
 The Dronecode ground control station is called [QGroundControl](http://qgroundcontrol.com/).  You can use *QGroundControl* to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
 
-*QGroundControl* runs on Windows, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/). 
+*QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/). 
 
 ![QGC Main Screen](../../images/qgc_main_screen.jpg)
 
@@ -58,7 +58,7 @@ For more information see:
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) 
 (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
 
-PX4 supports ESCs that take a PWM input or use the ESC *OneShot* standard. At time of writing PX4 does not support the *DShot* protocol.
+PX4 supports ESCs that take a PWM input, ESCs that use the ESC *OneShot* standard, UAVCAN ESCs, PCA9685 ESC (via I2C), and some UART ESCs (from Yuneec). At time of writing PX4 does not support the *DShot* protocol.
 
 For more information see:
 * [ESC Calibration](../advanced_config/esc_calibration.md)
