@@ -21,14 +21,9 @@ New users should consider setting one or more of the following modes, which make
 
 It is also common to map switches to:
 
-- [Return To Launch](../flight_modes/return.md) - This mode raises the vehicle to a safe height and returns to the launch position.
-- **Mission** - This mode runs a pre-programmed mission sent by the ground control station.
-
-Some pilots may also wish to enable:
-
-<span id="kill-switch">
-- **Kill Switch** - Immediately stops all motor outputs. The vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying.
-
+- [Return](../flight_modes/return.md) - This mode raises the vehicle to a safe height and returns to the launch position.
+- [Mission](../flight_modes/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
+- <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
 
 ## Multi Channel vs Single Channel Mode Selection

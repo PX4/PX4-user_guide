@@ -1,8 +1,10 @@
 # Safety Configuration (Failsafes) 
 
-PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the [action](#failsafe_actions) that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+PX4 has a number of safety features to protect and recover your vehicle if something goes wrong:
 
+* *Failsafes* allow you to specify areas and conditions under which you can safely fly, and the [action](#failsafe_actions) that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 The most important failsafe settings are configured in the *QGroundControl* [Safety Setup](#qgc_safety_setup) page. Others must be configured via [parameters](#failsafe_other).
+* [Safety switches](#safety_switch) on the remote control can be used to immediately stop motors or return the vehicle in the event of a problem. 
 
 ## Failsafe Actions {#failsafe_actions}
 
@@ -17,7 +19,7 @@ Warning | A warning message will be sent to *QGroundControl*.
 [Land mode](../flight_modes/land.md) | The vehicle will enter *Land mode*, and lands immediately.
 RC Auto Recovery (CASA Outback Challenge rules) | TBD
 Terminate/Flight termination | Turns off all controllers and sets all PWM outputs to a failsafe value (defined in airframe configuration using `FAILSAFE` variable). For a fixed-wing vehicle this might allow you to glide the vehicle to safety.
-Lockdown | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](../config/flight_mode.md#kill-switch).
+Lockdown | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill_switch).
 
 > **Note** It is possible to recover from a failsafe action (if the cause is fixed) by switching modes. For example, in the case where RC Loss failsafe causes the vehicle to enter *Return mode*, if RC is recovered you can change to *Position mode* and continue flying. 
 
@@ -226,6 +228,49 @@ Parameter | Description
 --- | ---
 [VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | Maximum negative altitude error for fixed wing flight. If the altitude drops more than this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.
 
+
+## Safety Switches {#safety_switch}
+
+A safety switch allows you to immediately stop all motors or return the vehicle from the remote control transmitter
+(if you lose control of the vehicle, this may be better than allowing it to continue flying).
+
+This section lists the available safety switches.
+
+### Kill Switch {#kill_switch}
+
+A kill switch immediately stops all motor outputs (if flying the vehicle will start to fall).
+The vehicle is not disarmed, and the motors will restart if the switch is reverted.
+
+The kill switch is enabled as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md#safety_switch).
+
+
+### Arm/Disarm Switch {#arming_switch}
+
+The arm/disarm switch is a replacement for the default stick arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop). It might be used in preference to the default mechanism because:
+- Of a preference of a switch over a stick motion (e.g. if using a stick on another autopilot).
+- It avoids accidentally triggering arming/disarming in-air with a certain stick motion.
+- There is no delay (it reacts immediately).
+
+The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that *support disarming in flight*. This includes: 
+- *Manual mode*
+- *Acro mode*
+- *Stabilized*
+- *Rattitude*
+
+For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
+
+To use an arm switch you will need to [manually set parameters](../advanced_config/parameters.md):
+- [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) must be set to the corresponding switch RC channel. 
+- If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value). 
+
+<!-- The switch should be settable in QGC. Depends on https://github.com/PX4/Firmware/pull/9622 -->
+
+
+### Return Switch {#return_switch}
+
+A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
+
+The *Return* switch is enabled as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md#safety_switch).
 
 
 ## Further Information
