@@ -1,5 +1,9 @@
 pipeline {
-  agent any
+  agent {
+        docker {
+          image 'px4io/px4-docs:2018-06-14'
+        }
+  }
   stages {
 
     stage('Build') {
@@ -7,19 +11,14 @@ pipeline {
         HOME = "${WORKSPACE}"
       }
 
-      agent {
-        docker {
-          image 'px4io/px4-docs:2018-06-14'
-        }
-      }
-
       steps {
-        sh 'export'
-        sh 'gitbook install'
-        sh 'gitbook build'
-        stash includes: '_book/', name: 'gitbook'
+        sh('export')
+        checkout(scm)
+        sh('gitbook install')
+        sh('gitbook build')
+        stash(includes: '_book/', name: 'gitbook')
         // publish html
-        publishHTML target: [
+        publishHTML(target: [
           reportTitles: 'PX4 User Guide',
           allowMissing: false,
           alwaysLinkToLastBuild: true,
@@ -27,26 +26,22 @@ pipeline {
           reportDir: '_book',
           reportFiles: '*',
           reportName: 'PX4 User Guide'
-        ]
+        ])
       }
 
     } // Build
 
     stage('Deploy') {
       environment {
+        GIT_AUTHOR_EMAIL = "bot@pixhawk.org"
+        GIT_AUTHOR_NAME = "PX4BuildBot"
         GIT_COMMITTER_EMAIL = "bot@pixhawk.org"
         GIT_COMMITTER_NAME = "PX4BuildBot"
       }
 
-      agent {
-        docker {
-          image 'px4io/px4-docs:2018-06-14'
-        }
-      }
-
       steps {
-        sh 'export'
-        unstash 'gitbook'
+        sh('export')
+        unstash('gitbook')
         withCredentials([usernamePassword(credentialsId: 'px4buildbot_github', passwordVariable: 'GIT_PASS', usernameVariable: 'GIT_USER')]) {
           sh('git clone https://${GIT_USER}:${GIT_PASS}@github.com/PX4/docs.px4.io.git')
         }
@@ -67,8 +62,8 @@ pipeline {
 
   options {
     buildDiscarder(logRotator(numToKeepStr: '10', artifactDaysToKeepStr: '30'))
+    skipDefaultCheckout()
     timeout(time: 60, unit: 'MINUTES')
   }
 
 }
-
