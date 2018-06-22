@@ -257,7 +257,7 @@ The arm/disarm switch immediately disarms (stop) motors for those [flight modes]
 - *Stabilized*
 - *Rattitude*
 
-For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes *Position mode*.
+For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
 
 To use an arm switch you will need to [manually set parameters](../advanced_config/parameters.md):
 - [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) must be set to the corresponding switch RC channel. 
