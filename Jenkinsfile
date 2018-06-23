@@ -1,8 +1,8 @@
 pipeline {
   agent {
-        docker {
-          image 'px4io/px4-docs:2018-06-14'
-        }
+    docker {
+      image 'px4io/px4-docs:2018-06-14'
+    }
   }
   stages {
 
