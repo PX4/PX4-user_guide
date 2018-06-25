@@ -29,15 +29,14 @@ They are so important because the autopilot does not have other means to detect
 
 ![Digital airspeed sensor](../../images/digital_airspeed_sensor.jpg)
 
-Recommended digital airspeed sensors include:
-* [mRo I2C Airspeed Sensor JST-GH MS4525DO](https://store.mrobotics.io/mRo-I2C-Airspeed-Sensor-JST-GH-p/mro-classy-arspd-mr.htm) (mRo store)
+For more information and recommended hardware see: [Airspeed Sensors](../sensor/airspeed.md).
 
 
 ## Distance
 
 Distance sensors are used for precision landing, object avoidance and terrain following.
 
-PX4 supports many affordable distance sensors, using different technologies, and supporting different ranges and features. For more information see: [Rangerfinders](../sensor/rangefinders.md).
+PX4 supports many affordable distance sensors, using different technologies, and supporting different ranges and features. For more information see: [Distance Sensors](../sensor/rangefinders.md).
 
 <img src="../../images/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
 

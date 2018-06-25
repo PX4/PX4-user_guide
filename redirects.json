@@ -2,6 +2,18 @@
     "redirects": [
     
             {
+                "from": "en/peripherals/rtk_gps_hex_hereplus.html",
+                "to": "en/gps_compass/rtk_gps_hex_hereplus.html"
+            },
+            {
+                "from": "en/peripherals/rtk_gps_drotek_xl.html",
+                "to": "en/gps_compass/rtk_gps_drotek_xl.html"
+            },
+            {
+                "from": "en/peripherals/rtk_gps_cuav_c-rtk.html",
+                "to": "en/gps_compass/rtk_gps_cuav_c-rtk.html"
+            },
+            {
                 "from": "en/flying/flight_reporting.html",
                 "to": "en/getting_started/flight_reporting.html"
             },
