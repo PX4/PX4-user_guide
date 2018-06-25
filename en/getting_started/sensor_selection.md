@@ -9,25 +9,16 @@ The minimal set of sensors is incorporated into [Pixhawk Series](../flight_contr
 Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
 
 
-## GPS
+## GPS & Compass {#gps_compass}
 
-Many types of GPS can be used with PX4. When using Pixhawk-series flight controllers we recommend using a *combined GPS + Compass*.
+PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). 
+It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
 > **Tip** The Pixhawk internal compass is close to other electronics, and may be susceptible to electromagnetic noise. An external compass/GPS mounted on a pedestal or wing (for fixed-wing) away from the rest of the system is recommended.
 
-![3DR GPS_Top](../../images/gps_3dr_top_1.jpg) 
+Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/README.md).
+
 ![GPS + Compass](../../images/gps_compass.jpg)
-
-Some options include:
-* [Ublox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) (Hobbyking)
-* [mRo GPS u-Blox Neo-M8N Dual Compass LIS3MDL+ IST8310](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) (mRo store)
-* [Drotek uBlox GPS/Compasses](https://drotek.com/shop/en/184-u-blox) (drotek)
-* [Holybro Micro M8N GPS Module](https://www.getfpv.com/holybro-micro-m8n-gps-module.html) (getfpv)
-* [Holybro Ublox NEO-M8N GPS Module](https://www.getfpv.com/holybro-ublox-neo-m8n-gps-module.html) (getfpv)
-* [Here GNSS GPS (M8N)](https://www.getfpv.com/here-gnss-gps-m8n.html) (getfpv) 
-* [3DR uBlox GPS with Compass kit](https://www.getfpv.com/3dr-ublox-gps-with-compass-kit.html) (www.getfpv.com) - Discontinued
-
-> **Tip** Pay attention to pinout when connecting the GPS module. While these are all compatible, there are several different pin orderings.
 
 
 ## Airspeed

@@ -39,7 +39,7 @@ The Dronecode ground control station is called [QGroundControl](http://qgroundco
 
 ## Vehicle/Flight Controller Board {#vehicle_controller}
 
-PX4 was initially designed to run on Pixhawk-series controllers, but can now run on Linux computers and other hardware.
+PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers, but can now run on Linux computers and other hardware.
 You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
 
 For more information see: [Flight Controller Selection](flight_controller_selection.md).
