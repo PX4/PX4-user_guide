@@ -88,7 +88,6 @@ As general guidance, receivers connect to the flight controller using the port a
 Instructions for connecting to specific flight controllers are given in the following quick-start guides:
 
 * [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
-* [Pixhawk Mini](../assembly/quick_start_pixhawk_mini.md#radioremote-control)
 * [Pixracer](../assembly/quick_start_pixracer.md)
 * [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 
@@ -105,5 +104,5 @@ If you are using a *Spektrum* receiver, you can put it into bind mode using *QGr
 ## Related Topics
 
 * [RC System Selection](../getting_started/rc_transmitter_receiver.md) - Choose a compatible RC system.
-* [Radio/Remote Control Setup](../config/radio.md) - Configuring your radio with PX4.
+* [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
 * [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control. 
