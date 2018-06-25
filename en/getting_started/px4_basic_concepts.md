@@ -37,14 +37,14 @@ The Dronecode ground control station is called [QGroundControl](http://qgroundco
 
 ![QGC Main Screen](../../images/qgc_main_screen.jpg)
 
-## Vehicle Controller {#vehicle_controller}
+## Vehicle/Flight Controller Board {#vehicle_controller}
 
-PX4 was initially designed to run on Pixhawk-series controllers, but can now run on Linux computers and other hardware.
+PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers, but can now run on Linux computers and other hardware.
 You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
 
 For more information see: [Flight Controller Selection](flight_controller_selection.md).
 
-## Sensors & Peripherals
+## Sensors
 
 PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
@@ -58,9 +58,8 @@ For more information see:
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) 
 (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
 
-PX4 supports ESCs that take a PWM input, ESCs that use the ESC *OneShot* standard, UAVCAN ESCs, PCA9685 ESC (via I2C), and some UART ESCs (from Yuneec). At time of writing PX4 does not support the *DShot* protocol.
-
-For more information see:
+For information about what ESC/Motors are supported by PX4 see:
+* [ESC & Motors](../peripherals/esc_motors.md)
 * [ESC Calibration](../advanced_config/esc_calibration.md)
 * [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
@@ -75,9 +74,9 @@ Information about batteries and battery configuration can be found in [Battery C
 and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
 
-## Remote Control
+## Radio Control (RC) {#rc_systems}
 
-A [Remote Control \(RC\)](../getting_started/rc_transmitter_receiver.md) radio system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
+A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
 > **Note** PX4 does not require a remote control system for autonomous flight modes.
 

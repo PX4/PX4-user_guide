@@ -48,7 +48,7 @@ Customized screws are supposed to be M2.5 with thread length inside Cube in rang
 
 ## GPS + Compass + Safety Switch + LED {#gps}
 
-The recommended GPS modules are the *Here* and [Here+](../peripherals/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../flying/led_meanings.md).
+The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../flying/led_meanings.md).
 
 > **Note** The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../advanced_features/rtk-gps.md). Otherwise they are used/connected in the same way.
 

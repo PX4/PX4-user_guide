@@ -1,6 +1,6 @@
 # HEX/ProfiCNC Here+ RTK GPS
 
-The [Here+ RTK GPS receiver](http://www.proficnc.com/content/12-here) is a small, light and energy efficient RTK GPS, based on the u-blox M8P. Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
+The [Here+ RTK GPS receiver](http://www.proficnc.com/content/12-here) is a small, light and energy efficient [RTK GPS module](../gps_compass/rtk_gps.md), based on the u-blox M8P. Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
 <img src="../../images/rtk_here_plus.jpg" />
 
