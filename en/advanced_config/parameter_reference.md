@@ -3130,13 +3130,6 @@ The module where these parameters are defined is: *modules/land_detector*.
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="LNDFW_VELI_MAX">LNDFW_VELI_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Fixedwing max short-term velocity</p><p><strong>Comment:</strong> Maximum velocity integral in flight direction allowed in the landed state (m/s)</p>    </td>
- <td style="vertical-align: top;">2 > 10 </td>
- <td style="vertical-align: top;">8.0 </td>
- <td style="vertical-align: top;">m/s</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="LNDFW_VEL_XY_MAX">LNDFW_VEL_XY_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Fixedwing max horizontal velocity</p><p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state (m/s)</p>    </td>
  <td style="vertical-align: top;">0.5 > 10 </td>
@@ -3146,9 +3139,16 @@ The module where these parameters are defined is: *modules/land_detector*.
 <tr>
  <td style="vertical-align: top;"><strong id="LNDFW_VEL_Z_MAX">LNDFW_VEL_Z_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Fixedwing max climb rate</p><p><strong>Comment:</strong> Maximum vertical velocity allowed in the landed state (m/s up and down)</p>    </td>
- <td style="vertical-align: top;">5 > 20 </td>
- <td style="vertical-align: top;">10.0 </td>
+ <td style="vertical-align: top;">0.1 > 20 </td>
+ <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="LNDFW_XYACC_MAX">LNDFW_XYACC_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Fixedwing max horizontal acceleration</p><p><strong>Comment:</strong> Maximum horizontal (x,y body axes) acceleration allowed in the landed state (m/s^2)</p>    </td>
+ <td style="vertical-align: top;">2 > 15 </td>
+ <td style="vertical-align: top;">8.0 </td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LNDMC_ALT_MAX">LNDMC_ALT_MAX</strong> (FLOAT)</td>
