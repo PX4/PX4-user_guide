@@ -1,12 +1,12 @@
-# Rangefinders/Distance Sensors
+# Distance Sensors (Rangefinders)
 
-Rangefinders provide distance measurement that can be used for terrain following, precision hovering (e.g. for photography), warning of regulatory height limits, collision avoidance etc.
+Distance sensors provide distance measurement that can be used for terrain following, precision hovering (e.g. for photography), warning of regulatory height limits, collision avoidance etc.
 
-The sensors can usually be connected to either a serial (PWM) or I2C port (depending on driver support for the particular rangefinder), and the rangefinder is enabled on a port by setting a particular parameter.
+The sensors can usually be connected to either a serial (PWM) or I2C port (depending on the device driver), and is enabled on the port by setting a particular parameter.
 
-This section lists the rangefinders supported by PX4 and the generic configuration information. More detailed documentation is linked for some rangefinders.
+This section lists the distance sensors supported by PX4 and the generic configuration information. More detailed documentation is linked for some rangefinders.
 
-> **Tip** The drivers for less common rangefinders may not be present by default in all firmware. In this case you may need to add the driver into your *cmake* configuration file and build the firmware yourself. For more information see the [PX4 Development Guide](https://dev.px4.io/en/setup/building_px4.html).
+> **Tip** The drivers for less common sensors may not be present by default in all firmware. In this case you may need to add the driver into your *cmake* configuration file and build the firmware yourself. For more information see the [PX4 Development Guide](https://dev.px4.io/en/setup/building_px4.html).
 
 
 <img src="../../assets/hardware/sensors/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/uLanding_lite_1.jpg" alt="Aerotenna uLanding" width="200px" />

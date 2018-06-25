@@ -101,7 +101,7 @@
   * [Telemetry Radios](telemetry/README.md)
     * [SiK Radio](telemetry/sik_radio.md)
     * [Telemetry Wifi](telemetry/telemetry_wifi.md)
-  * [Rangerfinders](sensor/rangefinders.md)
+  * [Distance Sensors (Rangerfinders)](sensor/rangefinders.md)
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
     * [LeddarOne Lidar](sensor/leddar_one.md)
