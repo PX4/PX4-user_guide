@@ -106,6 +106,7 @@
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
     * [LeddarOne Lidar](sensor/leddar_one.md)
+    * [Lidar-Lite](sensor/lidar_lite.md)
   * [Airspeed Sensors](sensor/airspeed.md)
   * [ESCs & Motors](peripherals/esc_motors.md)
   * [MAVLink \(OSD / Telemetry\)](peripherals/mavlink_peripherals.md)
