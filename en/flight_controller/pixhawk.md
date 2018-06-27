@@ -10,7 +10,7 @@ It runs PX4 on the [NuttX](http://nuttx.org) OS.
 Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
 
 
-## Quick Summary
+## Key Features
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   * CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
@@ -240,7 +240,9 @@ Please refer to the Devguide [wiring](https://dev.px4.io/en/debug/system_console
 
 ## Build Instructions
 
-`make px4fmu-v2_default upload`
+```
+make px4fmu-v2_default upload
+```
 
 
 
