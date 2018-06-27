@@ -1,6 +1,6 @@
 # Cube Flight Controller
 
-The [Cube](https://pixhawk.org/modules/pixhawk2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 
+The [Cube](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 
 It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 <img src="../../assets/flight_controller/cube/pixhawk2_cube_hero.png" width="400px" />

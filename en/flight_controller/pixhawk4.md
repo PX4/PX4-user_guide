@@ -2,6 +2,8 @@
 
 *Pixhawk 4*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 version 1.7, suitable for academic and commercial developers. 
 
+It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" /> 
 
 ## Quick Summary
@@ -112,4 +114,4 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 - [Pixhawk 4 Technical Data Sheet](http://www.holybro.com/manual/Pixhawk4-DataSheet.pdf)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
-- [Pixhawk project](https://pixhawk.org/modules/start) <!-- update with pixhawk.org pixhawk4 url-->
+

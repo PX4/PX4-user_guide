@@ -7,7 +7,7 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 ![Dropix](../../assets/flight_controller/dropix/dropix_flight_controller_hero.jpg)
 
 
-## Quick Summary
+## Key Features
 
 * Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
 * 14 PWM/servo outputs (8 with failsafe and manual override, 5 auxiliary, high-power compatible)

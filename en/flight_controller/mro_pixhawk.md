@@ -11,7 +11,7 @@ The *mRo Pixhawk<sup>&reg;</sup>* is a hardware compatible version of the origin
 
 Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
 
-## Quick Summary
+## Key Features
 
 * Microprocessor:
   * 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
@@ -53,6 +53,9 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 
 ## Pinouts and Schematics
 
-As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
 
-The board is documented in detailed on the [Pixhawk project](https://pixhawk.org/modules/pixhawk) website.
+* [FMUv3 schematic](https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF) -- Schematic and layout
+
+> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware). 
+

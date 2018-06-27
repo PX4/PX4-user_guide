@@ -173,4 +173,3 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 ## Further information
 <!-- - [Pixhawk 4 Quick Start Guide (Holybro)]() Add link--> 
 - [Pixhawk 4](../flight_controller/pixhawk4.md)
-- [Pixhawk project](https://pixhawk.org/modules/start) <!-- update with pixhawk.org pixhawk4 url-->

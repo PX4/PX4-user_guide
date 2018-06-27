@@ -9,7 +9,7 @@ The Hobbyking<sup>&reg;</sup> *HKPilot32 autopilot* is based on the [Pixhawk<sup
 As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files should be [available here](https://github.com/PX4/Hardware). 
 
 
-## Quick Summary
+## Key Features
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   * CPU: 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
@@ -54,4 +54,8 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 
 ## Pinouts and Schematics
 
-The board is documented on the [Pixhawk project](https://pixhawk.org/modules/pixhawk) website.
+The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
+
+* [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+
+> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware). 
