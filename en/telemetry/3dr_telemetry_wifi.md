@@ -14,4 +14,4 @@ Connect your ground control station to the above WiFi SSID.
 After connecting the vehicle should automatically be detected and connect to *QGroundControl*.
 
 ![3DR Wifi Telemetry Radio 1](../../assets/hardware/telemetry/3dr_telemetry_wifi_1.jpg)
-![3DR Wifi Telemetry Radio 2](../../assets/hardware/telemetry/3dr_telemetry_wifi_2.png)
+![3DR Wifi Telemetry Radio 2](../../assets/hardware/telemetry/3dr_telemetry_wifi_2.jpg)
