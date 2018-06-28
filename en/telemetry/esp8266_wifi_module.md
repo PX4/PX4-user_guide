@@ -72,8 +72,6 @@ I built a cable where RX, TX, VCC, and GND are properly wired directly from the 
 
 Install your ESP8266 to your PixRacer.
 
-> **Note** On the beta boards the 8266 will hang over the side of the flight controller.
-
 Flash PX4 master (a current copy or via QGroundControl) to your Pixracer.
 
 Using a computer or tablet with WiFi, find the open wireless network for your ESP8266. By default, it will be named **PixRacer**. Connect to this network. The default password is **pixracer**.

@@ -11,7 +11,6 @@ The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing qu
   * CPU: 180 MHz ARM Cortex<sup>&reg;</sup> M4 with single-precision FPU
   * RAM: 256 KB SRAM (L1)
 * Standard FPV form factor: 36x36 mm with standard 30.5 mm hole pattern
-* Integrated Wifi telemetry and boot loading through the [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md)
 * Invensense<sup>&reg;</sup> ICM-20608 Accel / Gyro (4 KHz) / MPU9250 Accel / Gyro / Mag (4 KHz)
 * HMC5983 magnetometer with temperature compensation
 * Measurement Specialties MS5611 barometer
@@ -42,11 +41,12 @@ The Pixracer is designed to use a separate avionics power supply. This is necess
 
 ## Wifi (no USB required)
 
-One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. This frees it of the need of any desktop system.
+One of the main features of the board is its ability to use Wifi for flashing new firmware, system setup and in-flight telemetry. 
+This frees it of the need of any desktop system.
 
 > **Todo** Setup and telemetry are already available, firmware upgrade is already supported by the default bootloader but not yet enabled
 
-* [ESP8266 Documentation and Flash Instructions](../telemetry/esp8266_wifi_module.md)
+* [ESP8266 Wifi](../telemetry/esp8266_wifi_module.md)
 * [Custom ESP8266 MAVLink firmware](https://github.com/dogmaphobic/mavesp8266)
 
 
