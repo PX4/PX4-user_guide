@@ -7401,7 +7401,7 @@ The module where these parameters are defined is: *modules/sensors*.
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_ARM_SW">RC_MAP_ARM_SW</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Arm switch channel</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Arm switch channel</p><p><strong>Comment:</strong> Use it to arm/disarm via switch instead of default throttle stick. If this is assigned, arming and disarming via stick is disabled.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Unassigned</li> 
 
 <li><strong>1:</strong> Channel 1</li> 
