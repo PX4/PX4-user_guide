@@ -5,6 +5,9 @@
 
 Manufacturers have created many different boards based on the open designs, with form factors that are optimised for applications from cargo carrying though to first person view (FPV) racers.
 
+> **Tip** A main benefit of using a *Pixhawk series* controller is that *QGroundControl* automatically downloads the correct firmware for a connected autopilot. This is possible because all boards within a *version* are software-compatible.
+
+<span></span>
 > **Tip** For computationally intensive tasks (e.g. computer vision) you will need a separate companion computer (e.g. [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)) or a platform with an integrated companion solution (e.g. [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md), [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md)).
 
 ## Recommended boards
