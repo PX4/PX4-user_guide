@@ -6,5 +6,6 @@ Usually only a single radio unit for the vehicle is needed (assuming the ground 
 
 PX4 supports telemetry via UDP and Wifi. It broadcasts a heartbeat to port 14550 on 255.255.255.255 until it receives the first heartbeat from a ground control station, at which point it will only send data to this ground control station.
 
-Available Wifi Telemetry modules include:
+Compatible WiFi Telemetry modules include:
+* [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md)
 * [3DR Telemetry Wifi](../telemetry/3dr_telemetry_wifi.md) (Discontinued)

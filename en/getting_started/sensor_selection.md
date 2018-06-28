@@ -61,4 +61,3 @@ In addition, see:
 * [Basic Assembly](../assembly/README.md) contains flight controller quick start guides. These cover wiring of the core sensors to specific flight controller hardware.
 * [Flight Controller](../flight_controller/README.md) topics often contain wiring information.
 * [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors.
-* [Peripherals](https://pixhawk.org/peripherals/start) (Pixhawk.org)

@@ -15,19 +15,10 @@ This section lists the distance sensors supported by PX4 and the generic configu
 
 ### Lidar-Lite
 
-The *Lidar Lite* can be used with either PWM or I2C. The rangefinder/port is enabled using [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS):
+LIDAR-Lite is a compact, high-performance optical distant measurement rangefinder. 
+It has a sensor range from (5cm - 40m) and can be connected to either PWM or I2C ports.
 
-* [LIDAR-Lite v3](https://buy.garmin.com/en-AU/AU/p/557294) (5cm - 40m)
-
-Pixhawk wiring information and Lidar-lite specific test instructions can be found here: [Lidar lite](https://pixhawk.org/peripherals/rangefinder#lidar-lite) (pixhawk.org).
-<!-- This is specific to the ll40ls (usually Lidar Lite) connected via PWM. When running ll40ls test pwm, there will be an output. You can also use it for testing if you connect it via I2C. https://github.com/PX4/Firmware/blob/master/src/drivers/ll40ls/ll40ls.cpp#L336-L345 Just replace pwm with i2c -->
-
-The driver for this rangefinder is usually present in firmware (driver added as: `drivers/ll40ls`).
-
-> **Note** PWM is recommended if using an older model (some older models do not behave reliably on I2C).
-
-<span></span>
-> **Info** The *Lidar-Lite v3* may be used in the [The Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md#lidar_lite) (but is not recommended).
+For setup/usage information see: [Lidar-Lite](../sensor/lidar_lite.md).
 
 
 ### MaxBotix I2CXL-MaxSonar-EZ

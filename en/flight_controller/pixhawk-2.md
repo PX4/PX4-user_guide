@@ -1,6 +1,6 @@
 # Cube Flight Controller
 
-The [Cube](https://pixhawk.org/modules/pixhawk2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 
+The [Cube](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 
 It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 <img src="../../assets/flight_controller/cube/pixhawk2_cube_hero.png" width="400px" />
@@ -11,31 +11,93 @@ while a carrier board for a racer could includes ESCs form the frame of the vehi
 
 Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / Backup.
 
-## Quick Summary
 
-* 32bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
-* 168 MHz
+## Key Features
+
+* 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4)<sup>&reg;</sup> core with FPU
+* 168 MHz / 252 MIPS 
 * 256 KB RAM
 * 2 MB Flash \(fully accessible\)
 * 32 bit STM32F103 failsafe co-processor
+* 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
+* Abundant connectivity options for additional peripherals (UART, I2C, CAN)
+* Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply (fixed-wing use)
+* Backup system integrates mixing, providing consistent autopilot and manual override mixing modes (fixed wing use)
+* Redundant power supply inputs and automatic failover
+* External safety switch
+* Multicolor LED main visual indicator
+* High-power, multi-tone piezo audio indicator
+* microSD card for high-rate logging over extended periods of time
 
 
-## Purchase {#stores}
+## Where to Buy {#stores}
 
 * [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
+
 
 ## Assembly
 
 * [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
 
 
-## Build Firmware
+## Specifications
 
-`make px4fmu-v3_default upload`
+### Processor
+
+* 32bit STM32F427 [Cortex M4](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) core with FPU
+* 168 MHz / 252 MIPS 
+* 256 KB RAM
+* 2 MB Flash (fully accessible)
+* 32 bit STM32F103 failsafe co-processor
+
+### Sensors
+
+* TBA
+
+### Interfaces
+
+* 5x UART (serial ports), one high-power capable, 2x with HW flow control
+* 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
+* Spektrum DSM / DSM2 / DSM-X® Satellite compatible input
+* Futaba S.BUS® compatible input and output
+* PPM sum signal input
+* RSSI (PWM or voltage) input
+* I2C
+* SPI
+* 3.3 and 6.6V ADC inputs
+* Internal microUSB port and external microUSB port extension
+
+### Power System and Protection
+
+* Ideal diode controller with automatic failover
+* Servo rail high-power (max. 10V) and high-current (10A+) ready
+* All peripheral outputs over-current protected, all inputs ESD protected
+
+
+### Voltage Ratings
+
+Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
+
+#### Normal Operation Maximum Ratings
+
+Under these conditions all power sources will be used in this order to power the system
+
+- Power module input (4.8V to 5.4V)
+- Servo rail input (4.8V to 5.4V) **UP TO 10V FOR MANUAL OVERRIDE, BUT AUTOPILOT PART WILL BE UNPOWERED ABOVE 5.7V IF POWER MODULE INPUT IS NOT PRESENT**
+- USB power input (4.8V to 5.4V)
+
+#### Absolute Maximum Ratings
+
+Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+
+- Power module input (4.1V to 5.7V, 0V to 20V undamaged)
+- Servo rail input (4.1V to 5.7V, 0V to 20V)
+- USB power input (4.1V to 5.7V, 0V to 6V)
+
 
 ## Pinouts and Schematics
 
-The board is documented in detailed on the [The Cube Project](https://github.com/proficnc/The-Cube) website.
+Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
 The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf).
 
@@ -53,6 +115,13 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 ### USB/SDCard Ports
 
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
+
+
+## Build Firmware
+
+```
+make px4fmu-v3_default upload
+```
 
 ## Issues
 CAN1 and CAN2 silk screen on the Pixhawk 2.1 are flipped (CAN1 is CAN2 and vice versa). 
