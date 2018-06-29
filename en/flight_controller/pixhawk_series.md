@@ -7,6 +7,18 @@ Manufacturers have created many different boards based on the open designs, with
 
 > **Tip** For computationally intensive tasks (e.g. computer vision) you will need a separate companion computer (e.g. [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)) or a platform with an integrated companion solution (e.g. [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md), [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md)).
 
+
+## Key Benefits
+
+Key benefits of using a *Pixhawk series* controller include:
+* Software support - as PX4 reference hardware these are our best-maintained boards.
+* Flexibility in terms of hardware peripherals that can be attached.
+* High quality.
+* Highly customizable in terms of form factor.
+* Widely-used and thus well-tested/stable.
+* Automated update of latest firmware via *QGroundControl* (end-user friendly).
+
+
 ## Recommended boards
 
 The following products in the series are recommended/regularly tested with PX4:
