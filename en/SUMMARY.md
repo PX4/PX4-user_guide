@@ -111,6 +111,7 @@
     * [LeddarOne Lidar](sensor/leddar_one.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
   * [Airspeed Sensors](sensor/airspeed.md)
+  * [Optical Flow](sensor/px4flow.md)
   * [ESCs & Motors](peripherals/esc_motors.md)
   * [MAVLink \(OSD / Telemetry\)](peripherals/mavlink_peripherals.md)
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)

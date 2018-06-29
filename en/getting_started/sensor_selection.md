@@ -42,7 +42,7 @@ PX4 supports many affordable distance sensors, using different technologies, and
 
 ## Optical Flow
 
-[PX4Flow](https://pixhawk.org/modules/px4flow) (pixhawk.org) is an optical flow smart camera that can track motion, and has as integrated sonar sensor.
+[PX4Flow](../sensor/px4flow.md) is an optical flow smart camera that can track motion, and has as integrated sonar sensor.
 PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. 
 This sensor can be used indoors, when no GPS signal is available.
 
