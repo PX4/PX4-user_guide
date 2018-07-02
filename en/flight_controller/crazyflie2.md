@@ -2,7 +2,8 @@
 
 The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
 
-![Crazyflie2 Image](../../assets/hardware/hardware-crazyflie2.png)
+![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
+
 
 ## Quick Summary
 
@@ -40,6 +41,7 @@ After setting up the PX4 development environment, follow these steps to install 
 1. Put the Crazyflie 2.0 into DFU mode by following these steps:
    - Ensure it is initially unpowered.
    - Hold down the reset button (see figure below...).
+     ![Crazyflie2 Reset Button](../../assets/flight_controller/crazyflie/crazyflie_reset_button.jpg)
    - Plug into computer's USB port.
    - After a second, the blue LED should start blinking and after 5 seconds should start blinking faster.
    - Release button.
@@ -164,19 +166,19 @@ Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight
   If you also want to fly in the *Position* mode, it is recommended you buy the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) which also has the integrated Z-ranger sensor.
 * The onboard barometer is highly susceptible to any external wind disturbances including those created by Crazyflie's own propellers. Hence, we isolated the barometer with a piece of foam, and then mounted the distance sensor on top of it as shown below:
 
-![Crazyflie barometer](../../assets/hardware/hardware-crazyflie-barometer.jpg)
+![Crazyflie barometer](../../assets/flight_controller/crazyflie/crazyflie_barometer.jpg)
 
-![Crazyflie barometer foam](../../assets/hardware/hardware-crazyflie-baro-foam.jpg)
+![Crazyflie barometer foam](../../assets/flight_controller/crazyflie/crazyflie_baro_foam.jpg)
 
-![Crazyflie optical flow](../../assets/hardware/hardware-crazyflie-opticalflow.jpg)
+![Crazyflie optical flow](../../assets/flight_controller/crazyflie/crazyflie_opticalflow.jpg)
 
 In order to log flight details, you can mount SD card deck on top of crazyflie as shown below:
 
-![](../../assets/hardware/hardware-crazyflie-sdcard.jpg)
+![Crazyflie SDCard](../../assets/flight_controller/crazyflie/crazyflie_sdcard.jpg)
 
 Then, you need to stick the battery on top of the SD card deck using a double sided tape:
 
-![Crazyflie battery setup](../../assets/hardware/hardware-crazyflie-battery-setup.jpg)
+![Crazyflie battery setup](../../assets/flight_controller/crazyflie/crazyflie_battery_setup.jpg)
 
 
 ## Altitude Control 
@@ -204,27 +206,27 @@ If you already own a Taranis RC transmitter and want to use it as a controller, 
 
 - Create a new model in Taranis.
 
-  ![Taranis - new model](../../assets/hardware/transmitters/hardware-crazyflie-taranis-model.jpg)
+  ![Taranis - new model](../../assets/flight_controller/crazyflie/taranis_model.jpg)
 
 - In *MODEL SETUP* menu page, turn off both internal and external TX modules.
 
-  ![Taranis - model setup](../../assets/hardware/transmitters/hardware-crazyflie-taranis-modelSetup.jpg)
+  ![Taranis - model setup](../../assets/flight_controller/crazyflie/taranis_model_setup.jpg)
 
 - In *OUTPUTS* menu page (also called “SERVOS” page in some Taranis transmitters), invert Throttle (CH1) and Aileron (CH3).
 
-  ![Taranis - outputs](../../assets/hardware/harware-crazyflie-taranis-outputs.jpg)
+  ![Taranis - outputs](../../assets/flight_controller/crazyflie/taranis_outputs.jpg)
   
 
 To use Taranis switches to arm/disarm and switch to different flight modes:
 
 - In Taranis UI *MIXER* menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGroundControl Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
 
-  ![Taranis switch setup](../../assets/hardware/transmitters/hardware-crazyflie-taranis-switchSetup.jpg)
+  ![Taranis switch setup](../../assets/flight_controller/crazyflie/taranis_switch_setup.jpg)
 
 - Connect Taranis to PC with a USB cable and Open QGroundControl. 
 - In QGroundControl Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGroundControl Joystick setup. You can assign any mode to this button e.g. *Altitude* mode. Now when you lower the switch "SD", flight mode will change to *Altitude*.
 
-  ![Joystick setup](../../assets/hardware/hardware-crazyflie-QGCjoystick-setup.png)
+  ![Joystick setup](../../assets/flight_controller/crazyflie/crazyflie_QGCjoystick_setup.png)
 
 ### ROS
 
