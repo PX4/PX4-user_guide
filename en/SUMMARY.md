@@ -136,6 +136,7 @@
     * [Pixhawk Mini (Discontinued)](flight_controller/pixhawk_mini.md)
     * [AUAV-X2 (Discontinued)](flight_controller/auav_x2.md)
     * [Silicon Errata](flight_controller/silicon_errata.md)
+  * [Omnibus F4 SD](flight_controller/omnibus_f4_sd.md)
   * [Snapdragon Flight](flight_controller/snapdragon_flight.md)
     * [Hardware Setup Example](flight_controller/snapdragon_flight_hardware_example_setup.md)
     * [Developer Environment Installation](flight_controller/snapdragon_flight_dev_environment_installation.md)
