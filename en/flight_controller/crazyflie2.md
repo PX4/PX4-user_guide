@@ -1,6 +1,6 @@
 # Crazyflie 2.0
 
-The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2 (CF2) can be [found here](https://www.bitcraze.io/crazyflie-2/).
+The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
 
 ![Crazyflie2 Image](../../assets/hardware/hardware-crazyflie2.png)
 
@@ -17,134 +17,152 @@ The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the
 
 ## Where to Buy
 
-* [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0)
-* [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between *QGroundControl* (QGC) and CF2.
+* [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
+* [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between *QGroundControl* and Crazyflie 2.0.
 * [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals. 
 * [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck): contains an optical flow sensor to measure movements of the ground and a distance sensor to measure the distance to the ground. This will be useful for precise altitude and position control.
 * [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) has the same distance sensor as the Flow deck to measure the distance to the ground. This will be useful for precise altitude control.
 * [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): used for high speed onboard logging to a micro SD card.
-* [Logitech Joystick](https://www.logitechg.com/en-ch/product/f310-gamepad)
+* [Logitech Joystick](https://www.logitechg.com/en-ch/product/f310-gamepad).
 
 ## Flashing PX4
 
-After setting up the PX4 development environment, follow these steps to put the PX4 software on the CF2:
+After setting up the PX4 development environment, follow these steps to install the PX4 Autopilot on the Crazyflie 2.0:
 
-1. Grab source code of the PX4 [Bootloader](https://github.com/PX4/Bootloader)
-1. Compile it using:
+1. Download the source code of the PX4 Bootloader:
+   ```
+   git clone https://github.com/PX4/Bootloader.git
+   ```
+1. Navigate into the top directory of the source code and compile it using:
    ```
    make crazyflie_bl
    ```
-1. Put the CF2 into DFU mode by following these steps:
+1. Put the Crazyflie 2.0 into DFU mode by following these steps:
    - Ensure it is initially unpowered.
-   - Hold down button.
+   - Hold down the reset button (see figure below...).
    - Plug into computer's USB port.
    - After a second, the blue LED should start blinking and after 5 seconds should start blinking faster.
    - Release button.
-1. Flash bootloader using *dfu-util* and unplug CF2 when done: 
+   
+1. Install *dfu-util*:
+   ```
+   sudo apt-get update
+   sudo apt-get install dfu-util
+   ```
+
+1. Flash bootloader using *dfu-util* and unplug Crazyflie 2.0 when done: 
    ```
    sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build/crazyflie_bl/crazyflie_bl.bin
    ``` 
-   If successful, then the yellow LED should blink when plugging in again
-1. Grab the [Firmware](https://github.com/PX4/Firmware)
-1. Compile it using:
+   When powering on the Crazyflie 2.0 the yellow LED should blink.
+   
+1. Download the source code of the PX4 autopilot:
+   ```
+   git clone https://github.com/PX4/Firmware.git
+   ```
+1. Navigate into the top directory of the source code and compile it using:
    ```
    make crazyflie_default upload
    ```
-1. When prompted to plug in device, plug in CF2. 
+1. When prompted to plug in device, plug in Crazyflie 2.0. 
    The yellow LED should start blinking indicating bootloader mode. 
    Then the red LED should turn on indicating that the flashing process has started.
 1. Wait for completion.
-1. Done! Calibrate via QGC.
+1. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html).
 
-> **Note** If QGC does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/Firmware/blob/master/platforms/nuttx/nuttx-configs/crazyflie/nsh/defconfig#L934) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`
+> **Note** If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/Firmware/blob/master/platforms/nuttx/nuttx-configs/crazyflie/nsh/defconfig#L934) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`
 
 ## Wireless Setup Instructions
 
 The onboard nRF module allows connecting to the board via Bluetooth or through the proprietary 2.4GHz Nordic ESB protocol.
 
 - A [Crazyradio PA](https://www.bitcraze.io/crazyradio-pa/) is recommended.
-- To fly the CF2 right away, the Crazyflie phone app is supported via Bluetooth
+- To fly the Crazyflie 2.0 right away, the Crazyflie phone app is supported via Bluetooth.
 
 Using the official Bitcraze **Crazyflie phone app**:
 
-- Connect via Bluetooth
-- Change mode in settings to 1 or 2
-- Calibrate via QGC
+- Connect via Bluetooth.
+- Change mode in settings to 1 or 2.
+- Calibrate via QGroundControl.
 
 Connecting via **MAVLink**:
 
-- Use a Crazyradio PA alongside a compatible GCS
-- Clone the [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python)
+- Use a Crazyradio PA alongside a compatible GCS.
 
-We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between CF2 (flashed with PX4) and QGC. *Cfbridge* enables QGC to communicate with the crazyradio PA. 
+- Download the *crazyflie-lib-python* source code:
 
->**Note** The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have 
+   ```
+   git clone https://github.com/bitcraze/crazyflie-lib-python.git
+   ```
+
+>**Note** 
+We will use [cfbridge.py](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/cfbridge.py) to setup a wireless MAVlink communication link between Crazyflie 2.0 (flashed with PX4) and QGroundControl. *Cfbridge* enables QGroundControl to communicate with the crazyradio PA. 
+The [C based cfbridge](https://github.com/dennisss/cfbridge) is currently experiencing data loss issues, which is why we have 
 chosen to use **cfbridge.py**.
 
 - Make sure you have set the udev permissions to use the USB Radio. To do this, follow the steps listed [here](https://github.com/bitcraze/crazyflie-lib-python#setting-udev-permissions) and **restart** your computer.
 - Connect a Crazyradio PA via USB.
-- Build a [virtualenv (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using one of the following methods:
-
-**Method 1:** 
-For systems that support [make](https://www.gnu.org/software/make/manual/html_node/Simple-Makefile.html), follow this alternative:
- * `pip install tox`
- * Navigate to the crazyflie-lib-python folder.
- * `make venv`
- * Activate the virtual environment: `source venv-cflib/bin/activate`
-
-**Method 2:**
-  - Enter the following:
+- Build a [virtual environment (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using the following method:
     ```
-    pip install virtualenv
     pip install tox
     ```
-  - Navigate to the crazyflie-lib-python folder.
-  - `pip install -e .`
-  - Create the virtual environment
-    - Linux: `virtualenv venv`
-    - MacOS: `python -m virtualenv venv`
-  - Activate the virtual environment: 
+- Navigate to the crazyflie-lib-python folder and type: 
     ```
-    source venv/bin/activate
+    make venv
     ```
-  - Install required dependencies:
+- Activate the virtual environment: 
+    ```
+    source venv-cflib/bin/activate
+    ```
+- Install required dependencies:
     ```
     pip install -r requirements.txt
     ```
 
-To connect crazyflie with crazyradio, **launch cfbridge** by following these steps:
-- Switch on CF2 (which is already flashed with PX4 firmware) by pressing its ON button and wait for it to boot up.
-- Connect a Crazyradio PA via USB.
+To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these steps:
+- Power off and power on Crazyflie 2.0 and wait for it to boot up.
+- Connect a Crazyflie radio device via USB.
 - Navigate to the crazyflie-lib-python folder.
-- Activate the environment: `source venv-cflib/bin/activate` or `source venv/bin/activate` depending on the name of the venv folder you have.
-- `cd examples`
-- Launch cfbridge: `python cfbridge.py`
+- Activate the environment: 
+    ```
+    source venv-cflib/bin/activate
+    ```
+- Navigate to the examples folder:
+    ```
+    cd examples
+    ```
+- Launch cfbridge: 
+    ```
+    python cfbridge.py
+    ```
   > **Note** *Cfbridge* by default tries to initiate the radio link communication on channel 80 and with crazyflie address 0xE7E7E7E7E7. 
   If you are using [multiple crazyflies and/or crazyradios](https://github.com/dennisss/cfbridge/blob/master/README.md#advanced- 
-  swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGC via a USB
-  cable and change the syslink parameters (channel, address) in QGC. Next, launch the cfbridge by giving the same channel and address as   the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
-- Open QGC.
+  swarming) in the same room and want to use a different channel and/or address for each, first connect the crazyflie with QGroundControl via a USB
+  cable and change the syslink parameters (channel, address) in QGroundControl. Next, launch the cfbridge by giving the same channel and address as   the first and second arguments respectively, e.g: `python cfbridge.py 90 0x0202020202`
+- Open QGroundControl.
 - After using *cfbridge*, you can deactivate the virtualenv if you activated it by pressing `CTRL+z`. Most of the time, launching *cfbridge* again from the same terminal doesn't connect to crazyflie, this can be solved by closing the terminal and relaunching *cfbridge* in a new terminal. 
 
 > **Tip** If you change any driver in [crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python) 
 or if launching *cfbridge* in a new terminal does not find crazyflie, you can try navigating to the crazyflie-lib-python folder and 
-run `make venv` to rebuild cflib.
+run the script below to rebuild cflib.
+   ```
+   make venv
+   ```
 
 <span></span>
-> **Note** To use Joystick, set COM_RC_IN_MODE in QGC to "Joystick/No RC Checks". Calibrate the Joystick and set the Joystick 
-message frequency in QGC to any value between 5 to 14 Hz (10 Hz is recommended). This is the rate at which Joystick commands are 
-sent from QGC to CF2. (To do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to 
-obtain the latest QGC source code (master) and build it.)
+> **Note** To use Joystick, set COM_RC_IN_MODE in QGroundControl to "Joystick/No RC Checks". Calibrate the Joystick and set the Joystick 
+message frequency in QGroundControl to any value between 5 to 14 Hz (10 Hz is recommended). To be able to set the frequency, the advanced option should be enabled. This is the rate at which Joystick commands are sent from QGroundControl to Crazyflie 2.0. (To do this, you will need to follow the instructions [here](https://github.com/mavlink/qgroundcontrol) to 
+obtain the latest QGroundControl source code (master) and build it.)
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
 ## Hardware Setup
 
-Crazyflie is able to fly with precise control in [Stabilized mode](../flight_modes/manual_stabilized_mc.md), [Altitude mode](../flight_modes/altitude_mc.md) and [Position mode](../flight_modes/position_mc.md). 
+Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight_modes/manual_stabilized_mc.md), [Altitude mode](../flight_modes/altitude_mc.md) and [Position mode](../flight_modes/position_mc.md). 
 
 * You will need the [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) to fly in *Altitude* mode. 
   If you also want to fly in the *Position* mode, it is recommended you buy the [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck) which also has the integrated Z-ranger sensor.
-* The onboard barometer is highly susceptible to any external wind disturbances including those created by CF2's own propellers. Hence, we isolated the barometer with a piece of foam, and then mounted the distance sensor on top of it as shown below:
+* The onboard barometer is highly susceptible to any external wind disturbances including those created by Crazyflie's own propellers. Hence, we isolated the barometer with a piece of foam, and then mounted the distance sensor on top of it as shown below:
 
 ![Crazyflie barometer](../../assets/hardware/hardware-crazyflie-barometer.jpg)
 
@@ -160,48 +178,20 @@ Then, you need to stick the battery on top of the SD card deck using a double si
 
 ![Crazyflie battery setup](../../assets/hardware/hardware-crazyflie-battery-setup.jpg)
 
-## Adjust Parameters
-
-| Parameter Name    | Recommended Value           |
-|-------------------|-----------------------------|
-| EKF2_HGT_MODE     | 2   Range Sensor            |
-| EKF2_AID_MASK     | 3                           |
-| EKF2_OF_DELAY     | 10                          |
-| MPC_THR_HOVER     | 70 %               	        |
-| MPC_MANTHR_MAX    | 100 %               	       |
-| MPC_THR_MAX       | 100 %               	       |
-| MPC_Z_P           | 1.5              	          |
-| MPC_Z_VEL_I       | 0.3               	         |
-| MPC_Z_VEL_P       | 0.4               	         |
-| MPC_HOLD_MAX_XY   | 0.1                    	    |
-| MPC_MAX_FLOW_HGT  | 3                    	      |
-| MC_PITCHRATE_P    | 0.07                 	      |
-| MC_PITCHRATE_I    | 0.2                 	       |
-| MC_PITCHRATE_D    | 0.002                 	     |
-| MC_ROLLRATE_P     | 0.07                 	      |
-| MC_ROLLRATE_I     | 0.2                 	       |
-| MC_ROLLRATE_D     | 0.002              	        |
-| MC_YAW_P          | 3.0                         |
-| IMU_GYRO_CUTOFF   | 100                         |
-| IMU_ACCEL_CUTOFF  | 30                          |
-| IMU_DTERM_CUTOFF  | 70                          |
-| SYS_FMU_TASK      | Enabled                     |
-| SDLOG_PROFILE     | 1                           |
-| EKF2_ABL_LIM      | 2.0                         |
 
 ## Altitude Control 
 
 Crazyflie is able to fly in *Altitude* mode if you use a [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck). 
 According to the datasheet, the maximum height (above ground) the range finder can sense is 2 m. However, when tested on dark surfaces this value decreases to 0.5 m. On a light floor, it goes up to max 1.3 m. This means you cannot hold altitudes above this value in *Altitude* or *Position* flight modes.
 
-> **Tip** If the CF2 height drifts at mid-throttle command in *Altitude mode* or *Position mode*, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).  
+> **Tip** If the Crazyflie 2.0 height drifts at mid-throttle command in *Altitude mode* or *Position mode*, first try rebooting the vehicle. If this does not fix the problem, recalibrate the accel and mag (compass).  
 
 <span></span>
-> **Note** Since the onboard barometer is highly susceptible to wind disturbances created by the CF2's own propellers, you cannot rely on it to hold altitude. 
+> **Note** Since the onboard barometer is highly susceptible to wind disturbances created by the Crazyflie's own propellers, you cannot rely on it to hold altitude. 
 
 ## Position Control 
 
-With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly CF2 in *Position mode*. 
+With [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck), you can fly Crazyflie 2.0 in *Position mode*. 
 Unlike PX4flow, the flow deck does not house a gyro, hence the onboard gyro is used for flow fusion to find the local position estimates. 
 Moreover, the flow deck shares the same SPI bus as the SD card deck, therefore logging at high rate on SD card is not recommended when flying in *Position mode*. 
 
@@ -227,29 +217,29 @@ If you already own a Taranis RC transmitter and want to use it as a controller, 
 
 To use Taranis switches to arm/disarm and switch to different flight modes:
 
-- In Taranis UI *MIXER* menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGC Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
+- In Taranis UI *MIXER* menu page, you can assign the switches to any channel in the range channel 9-16 which map to the buttons 0-7 in the QGroundControl Joystick setup. For example, Taranis “SD” switch can be set to channel 9 in Taranis UI:
 
   ![Taranis switch setup](../../assets/hardware/transmitters/hardware-crazyflie-taranis-switchSetup.jpg)
 
-- Connect Taranis to PC with a USB cable and Open QGC. 
-- In QGC Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGC Joystick setup. You can assign any mode to this button e.g. *Altitude* mode. Now when you lower the switch "SD", flight mode will change to *Altitude*.
+- Connect Taranis to PC with a USB cable and Open QGroundControl. 
+- In QGroundControl Joystick Setup, you can see the buttons turning yellow when you switch them on. For example, channel 9 in Taranis maps to button 0 in QGroundControl Joystick setup. You can assign any mode to this button e.g. *Altitude* mode. Now when you lower the switch "SD", flight mode will change to *Altitude*.
 
   ![Joystick setup](../../assets/hardware/hardware-crazyflie-QGCjoystick-setup.png)
 
 ### ROS
 
-To connect to CF2 via MAVROS:
+To connect to Crazyflie 2.0 via MAVROS:
 
 - Start up *cfbridge* using the above instructions.
-- Change the UDP port QGC listens to:
-  - In QGC, navigate to **Application Settings > General** and uncheck all the boxes under *Autoconnect to the following devices*.
+- Change the UDP port QGroundControl listens to:
+  - In QGroundControl, navigate to **Application Settings > General** and uncheck all the boxes under *Autoconnect to the following devices*.
   - Add in **Comm Links** a link of type *UDP*, check the *Automatically Connect on Start* option, change the *Listening Port* to 14557, add Target Hosts: 127.0.0.1 and then press **OK**.
 - Make sure you have [MAVROS](https://github.com/mavlink/mavros/tree/master/mavros#installation) installed.
 - Start MAVROS with command:
   ```
   roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"
   ```
-- Restart QGC if it doesn't connect.
+- Restart QGroundControl if it doesn't connect.
 
 ## Flying
 
