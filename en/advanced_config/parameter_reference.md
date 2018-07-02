@@ -2323,7 +2323,7 @@ The module where these parameters are defined is: *modules/fw_pos_control_l1*.
  <td style="vertical-align: top;"><strong id="FW_LND_FLALT">FW_LND_FLALT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Landing flare altitude (relative to landing altitude)</p>    </td>
  <td style="vertical-align: top;">0.0 > 25.0 (0.5)</td>
- <td style="vertical-align: top;">8.0 </td>
+ <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
@@ -2555,7 +2555,7 @@ The module where these parameters are defined is: *modules/fw_pos_control_l1/lau
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_T_INTEG_GAIN">FW_T_INTEG_GAIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integrator gain</p><p><strong>Comment:</strong> This is the integrator gain on the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot.</p>    <p><b>Module:</b> modules/fw_pos_control_l1</p>
+ <td style="vertical-align: top;"><p>Integrator gain</p><p><strong>Comment:</strong> This is the integrator gain on the control loop. Increasing this gain increases the speed at which speed and height offsets are trimmed out, but reduces damping and increases overshoot. Set this value to zero to completely disable all integrator action.</p>    <p><b>Module:</b> modules/fw_pos_control_l1</p>
 </td>
  <td style="vertical-align: top;">0.0 > 2.0 (0.05)</td>
  <td style="vertical-align: top;">0.1 </td>
@@ -2581,7 +2581,7 @@ The module where these parameters are defined is: *modules/fw_pos_control_l1/lau
  <td style="vertical-align: top;"><strong id="FW_T_SINK_MAX">FW_T_SINK_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum descent rate</p><p><strong>Comment:</strong> This sets the maximum descent rate that the controller will use. If this value is too large, the aircraft can over-speed on descent. This should be set to a value that can be achieved without exceeding the lower pitch angle limit and without over-speeding the aircraft.</p>    <p><b>Module:</b> modules/fw_pos_control_l1</p>
 </td>
- <td style="vertical-align: top;">2.0 > 15.0 (0.5)</td>
+ <td style="vertical-align: top;">1.0 > 15.0 (0.5)</td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
