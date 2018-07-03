@@ -683,17 +683,17 @@ This page lists all supported airframes and types including
 
 </tr>
 <tr id="plane_flying_wing_io_camflyer">
- <td style="vertical-align: top;"><a href="https://pixhawk.org/platforms/planes/bormatec_camflyer_q">IO Camflyer</a></td>
+ <td style="vertical-align: top;">IO Camflyer</td>
  <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3030</p></td>
 
 </tr>
 <tr id="plane_flying_wing_phantom_fpv_flying_wing">
- <td style="vertical-align: top;"><a href="https://pixhawk.org/platforms/planes/z-84_wing_wing">Phantom FPV Flying Wing</a></td>
+ <td style="vertical-align: top;"><a href="https://docs.px4.io/en/frames_plane/wing_wing_z84.html">Phantom FPV Flying Wing</a></td>
  <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3031</p></td>
 
 </tr>
 <tr id="plane_flying_wing_skywalker_x5_flying_wing">
- <td style="vertical-align: top;"><a href="https://pixhawk.org/platforms/planes/skywalker_x5">Skywalker X5 Flying Wing</a></td>
+ <td style="vertical-align: top;">Skywalker X5 Flying Wing</td>
  <td style="vertical-align: top;"><p>Maintainer: Julian Oes <julian@px4.io></p><p><code>SYS_AUTOSTART</code> = 3032</p></td>
 
 </tr>
@@ -865,6 +865,11 @@ This page lists all supported airframes and types including
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
+<tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
+ <td style="vertical-align: top;">HIL Standard VTOL QuadPlane</td>
+ <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@auterion.com></p><p><code>SYS_AUTOSTART</code> = 1002</p></td>
+
+</tr>
 <tr id="vtol_standard_vtol_generic_quadplane_vtol">
  <td style="vertical-align: top;">Generic Quadplane VTOL</td>
  <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></p></td>
