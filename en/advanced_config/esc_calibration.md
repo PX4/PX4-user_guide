@@ -10,6 +10,12 @@ Subsequently all the ESCs/motors will respond to flight controller input in the 
 
 Calibration is recommended for all ESCs, and in particular for low cost models.
 
+## Preconditions
+
+The system must include a power module (PX4 uses the measured voltage to determine whether or not a battery is connected).
+
+## Steps
+
 To calibrate the ESCs:
 
 1. Remove the propellers.
