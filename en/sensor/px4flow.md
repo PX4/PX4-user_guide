@@ -60,26 +60,10 @@ The default orientation (meaning: zero rotation) is defined as Y on flow board p
 ![PX4Flow align with Pixhawk](../../assets/hardware/sensors/px4flow/px4flowalignwithpixhawk.jpg)
 
 
-The orientation of PX4Flow can be set using the parameter [MAV_SENSOR_ORIENTATION](https://mavlink.io/en/messages/common.html#MAV_SENSOR_ORIENTATION)
+The orientation of PX4Flow can be set using the parameter [SENS_FLOW_ROT](https://docs.px4.io/en/advanced_config/parameter_reference.html#SENS_FLOW_ROT)
 
 > **Warning** This parameter can only be applied to PX4 flight stack and is **not** part of the sensor itself settings
 
-<!-- Remove below if orientation  param above is correct -->
-<!-- 
-The detail parameter is listed below and more can be found [here](???). 
-| **SENS_FLOW_ROT** | PX4Flow board rotation |   |   |  0 |
-| ::: | <div>This parameter defines the rotation of the PX4FLOW board relative to the platform.
-Zero rotation is defined as Y on flow board pointing towards front of vehicle
-Possible values are:
-0 = No rotation
-1 = Yaw 45°
-2 = Yaw 90°
-3 = Yaw 135°
-4 = Yaw 180°
-5 = Yaw 225°
-6 = Yaw 270°
-7 = Yaw 315°</div> ||||
--->
 
 ## Wiring
 
