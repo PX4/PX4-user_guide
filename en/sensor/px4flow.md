@@ -259,6 +259,24 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
   - If you want to get higher res to focus the sensor, go to **Config > Advanced Config** and set the [VIDEO_ONLY](#VIDEO_ONLY) parameter to 1.
   
   
+## General Troubleshooting
+
+* Unplug the flow sensor if plugged
+* Start *QGroundControl*, select the PX4 startup mode go to **Config > Firmware Upgrade**.
+  * Click on SCAN (green button in the center)
+  * Connect the flow sensor now
+  * Flash the stable firmware
+* Click on **Advanced Config** in the left menu to see the parameters
+* Display the video stream with QGroundControl (**Tool Widgets > Video Downlink**)
+  * Check that there are no stripes on the stream. If you get stripes, set `IMAGE_TEST_PAT` to 1. It should look like the examples above. If you have stripes in the image but no stripes when this mode is enabled, right-click into the image once in both modes and save and send an image of each mode to the manufacturer's support team.
+  * Check that you get a clear image (its a tele / zoom lens, so the visible area will be small)
+* Set the `VIDEO_ONLY` parameter to 1 to obtain a higher resolution image.
+* Check that the image is sharp at the operating distance (the typical flight altitude)
+
+  > **Tip** [Ask for help](../README.md#support) if you have a distorted image with visible dark lines (like the one below):
+    ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
+
+  
 
 # PX4FLOW Developer Guide {#developer_guide}
 
@@ -421,20 +439,3 @@ If the parameter IMAGE_TEST_PAT is set to 1, the sensor inserts a vertical gray-
 * Test Pattern 376x240 (VIDEO ONLY Mode is ON)
   ![test_pattern_376x240](../../assets/hardware/sensors/px4flow/test_pattern_376x240.png)
 
-
-## General Troubleshooting
-
-* Unplug the flow sensor if plugged
-* Start *QGroundControl*, select the PX4 startup mode go to **Config > Firmware Upgrade**.
-  * Click on SCAN (green button in the center)
-  * Connect the flow sensor now
-  * Flash the stable firmware
-* Click on **Advanced Config** in the left menu to see the parameters
-* Display the video stream with QGroundControl (**Tool Widgets > Video Downlink**)
-  * Check that there are no stripes on the stream. If you get stripes, set `IMAGE_TEST_PAT` to 1. It should look like the examples above. If you have stripes in the image but no stripes when this mode is enabled, right-click into the image once in both modes and save and send an image of each mode to the manufacturer's support team.
-  * Check that you get a clear image (its a tele / zoom lens, so the visible area will be small)
-* Set the `VIDEO_ONLY` parameter to 1 to obtain a higher resolution image.
-* Check that the image is sharp at the operating distance (the typical flight altitude)
-
-  > **Tip** [Ask for help](../README.md#support) if you have a distorted image with visible dark lines (like the one below):
-    ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
