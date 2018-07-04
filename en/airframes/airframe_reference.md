@@ -900,8 +900,8 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Andreas Antener <andreas@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13009</p></td>
 
 </tr>
-<tr id="vtol_standard_vtol_deltaquad">
- <td style="vertical-align: top;">DeltaQuad</td>
+<tr id="vtol_standard_vtol_vertical_technologies_deltaquad">
+ <td style="vertical-align: top;">Vertical Technologies DeltaQuad</td>
  <td style="vertical-align: top;"><p>Maintainer: Sander Smeets <sander@droneslab.com></p><p><code>SYS_AUTOSTART</code> = 13013</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: Right elevon</li><li><b>MAIN6</b>: Left elevon</li><li><b>MAIN7</b>: Pusher motor</li><li><b>MAIN8</b>: Pusher reverse channel</li></ul></p></td>
 
 </tr>
