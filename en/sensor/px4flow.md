@@ -22,7 +22,8 @@ https://youtu.be/0Jpq6DU_HVg
 Order this module from:
 
 * [Unmanned Tech](http://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/) (UK)
-* [UAV store](http://www.uav-store.de/sensoren/px4-flow-kit/) (Germany & EU)
+* [Holybro](https://shop.holybro.com/px4flow-kit_p1035.html) (Germany & EU)
+* [Drotek](https://drotek.com/shop/en/distance/798-optical-flow-kit-px4flow.html)
 
 If out of stock the software-compatible, but not connector-compatible version can be used:
 
