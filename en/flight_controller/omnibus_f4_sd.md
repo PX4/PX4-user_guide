@@ -47,14 +47,16 @@ These are the boards tested and known to work:
    Purchase from:
   * [Hobbywing XRotor F4 Flight Controller w/OSD](https://www.getfpv.com/hobbywing-xrotor-f4-flight-controller-w-osd.html) (getfpv)
 
-- Original Airbot OmnibusF4 SD
-  - Available from:
-    - [Airbot (CN manufacturer)](https://store.myairbot.com/omnibusf4prov3.html)
-    - [Ready To Fly Quads (US reseller)](http://www.readytoflyquads.com/flip-32-f4-omnibus-v2-pro)
-> **Tip** Any OmnibusF4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
-  - Silkscreens (V1)
-<img src="../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg" title="Omnibus F4 SD v1 Silkscreen Top" />
-<img src="../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg" title="Omnibus F4 SD v1 Silkscreen Bottom" />
+- Original Airbot Omnibus F4 SD
+
+  Purchase from:
+  * [Airbot (CN manufacturer)](https://store.myairbot.com/omnibusf4prov3.html)
+  * [Ready To Fly Quads (US reseller)](http://www.readytoflyquads.com/flip-32-f4-omnibus-v2-pro)
+> **Tip** Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
+  * Silkscreens (V1)
+
+  <img src="../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg" title="Omnibus F4 SD v1 Silkscreen Top" />
+  <img src="../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg" title="Omnibus F4 SD v1 Silkscreen Bottom" />
 
 Accessories include:
 * [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry.
@@ -66,7 +68,8 @@ Accessories include:
 RC is connected to one of the following ports:
 - UART1
 - SBUS/PPM port (via inverter, internally goes to UART1)
-> **Note** Some OmnibusF4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Set your jumper or solder bridge to the appropriate MCU pin before use.
+
+> **Note** Some Omnibus F4 boards have a jumper connecting either or both the MCU SBUS and PPM to a single pin header. Set your jumper or solder bridge to the appropriate MCU pin before use.
 
 
 ### UARTs
@@ -76,7 +79,8 @@ RC is connected to one of the following ports:
   - RX: MCU pin PC7
 
   - Airbot Omnibus F4 SD Pinout is on Port J10 (TX6/RX6):
-<img src="../../assets/flight_controller/omnibus_f4_sd/uart6.jpg" title="Omnibus F4 SD UART6" />
+
+  <img src="../../assets/flight_controller/omnibus_f4_sd/uart6.jpg" title="Omnibus F4 SD UART6" />
 
 - UART4
   - TX: MCU pin PA0
@@ -87,9 +91,10 @@ RC is connected to one of the following ports:
   - Airbot Omnibus F4 SD Pinout:
     - TX: RSSI pin
     - RX: PWM out 5
-<img src="../../assets/flight_controller/omnibus_f4_sd/uart4.jpg" title="Omnibus F4 SD UART4" />
 
-<img src="../../assets/flight_controller/omnibus_f4_sd/uart4-top.jpg" title="Omnibus F4 SD UART4 Top" />
+  <img src="../../assets/flight_controller/omnibus_f4_sd/uart4.jpg" title="Omnibus F4 SD UART4" />
+
+  <img src="../../assets/flight_controller/omnibus_f4_sd/uart4-top.jpg" title="Omnibus F4 SD UART4 Top" />
 
 ### I2C
 
@@ -130,7 +135,7 @@ make omnibusf4sd_bl
 
 ### Flash
 
-You can flash the Px4 bootloader via the [dfu-util](http://dfu-util.sourceforge.net/) or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) tool on windows.
+You can flash the PX4 bootloader via the [dfu-util](http://dfu-util.sourceforge.net/) or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) tool on windows.
 
 Don't be afraid to try flashing using any of the below methods. The STM32 MCU cannot be bricked. DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
 
@@ -146,17 +151,19 @@ dfu-util -a 0 --dfuse-address 0x08000000 -D  build/omnibusf4sd_bl/omnibusf4sd_bl
 
 Reboot the flight controller and it let it boot without holding the boot button.
 
+#### dfuse
+
+See the dfuse manual is here: https://www.st.com/resource/en/user_manual/cd00155676.pdf
+
+Flash the `omnibusf4sd_bl.bin` file.
+
+#### PX4 Firmware
 Build and flash the PX4 Firmware with the following build target:
 
 ```
 make omnibus-f4sd_default upload
 ```
 
-#### dfuse
-
-See the dfuse manual is here: https://www.st.com/resource/en/user_manual/cd00155676.pdf
-
-Flash the `omnibusf4sd_bl.bin` file
 
 ### Installing other firmwares
 
