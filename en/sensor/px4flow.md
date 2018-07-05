@@ -66,16 +66,12 @@ The orientation of PX4Flow can be set using the parameter [SENS_FLOW_ROT](https:
 > **Warning** This parameter can only be applied to PX4 flight stack and is **not** part of the sensor itself settings
 
 
-## Wiring
+## Connecting
 
-It is highly recommended to use twisted / shielded I2C wires to minimize radiated noise ([I2C spec](http://www.nxp.com/documents/user_manual/UM10204.pdf)). From the spec:
-
-If the bus lines are twisted-pairs, each bus line must be twisted with a VSS return. Alternatively, the SCL line can be twisted with a VSS return, and the SDA line twisted with a VDD return. In the latter case, capacitors must be used to decouple the VDD line to the VSS line at both ends of the twisted pairs.
-If the bus lines are shielded (shield connected to VSS), interference is minimized. However, the shielded cable must have low capacitive coupling between the SDA and SCL lines to minimize crosstalk.
+The PX4flow is connected to the I2C bus. If you are connecting multiple devices to the same bus you will need to set each with a unique address. The next section explains how.
 
 
-
-## I2C
+### PX4FLOW I2C Device address
 
 The 7 Bit **I2C Address** of the Flow Module is user selectable. Using the solder jumpers on the back of the flow board you can add an offset to the baseaddress 0x42. The address range for the 8 possible choices is: 0x42 - 0x49.
 
@@ -86,80 +82,8 @@ Address | Bit 2 | Bit 1 | Bit 0
  :  |  :  |  :  |  :
 7 Bit Address 0x49 |  1  |  1  |  1
 
-> **Tip** There are different I2C readouts available. For details check the description of the **I2C frame** and the **I2C integral frame**.
+> **Tip** There are different I2C readouts available. Details about the **I2C frame** and the **I2C integral frame** are in the driver source code.
 
-The **I2C frame** contains 22 bytes of data in the following order:
-
-Register Address | Register Content
---- | ---
-0x00 (0) |  Framecounter lower byte
-0x01 (1) |  Framecounter upper byte
-0x02 (2) |  latest Flow*10 in x direction lower byte
-0x03 (3) |  latest Flow*10 in x direction upper byte
- :  |  :
-0x13 (19)|  Sonar Timestamp
-0x14 (20)|  Grounddistance lower byte
-0x15 (21)|  Grounddistance upper byte
-
-22 Byte Data Packet (send 0x0 to PX4FLOW module and receive back 22 Bytes data, internal address auto increments)
-
-```cpp
-typedef struct i2c_frame
-{
-    uint16_t frame_count;// counts created I2C frames [#frames]
-    int16_t pixel_flow_x_sum;// latest x flow measurement in pixels*10 [pixels]
-    int16_t pixel_flow_y_sum;// latest y flow measurement in pixels*10 [pixels]
-    int16_t flow_comp_m_x;// x velocity*1000 [meters/sec]
-    int16_t flow_comp_m_y;// y velocity*1000 [meters/sec]
-    int16_t qual;// Optical flow quality / confidence [0: bad, 255: maximum quality]
-    int16_t gyro_x_rate; // latest gyro x rate [rad/sec]
-    int16_t gyro_y_rate; // latest gyro y rate [rad/sec]
-    int16_t gyro_z_rate; // latest gyro z rate [rad/sec]
-    uint8_t gyro_range; // gyro range [0 .. 7] equals [50 deg/sec .. 2000 deg/sec] 
-    uint8_t sonar_timestamp;// time since last sonar update [milliseconds]
-    int16_t ground_distance;// Ground distance in meters*1000 [meters]. Positive value: distance known. Negative value: Unknown distance
-} i2c_frame;
-```
-
-The **I2C integral frame** contains 25 bytes of data in the following order:
-
-Register Address | Register Content
---- | ---
-0x16 (22) |  Framecounter since last I2C readout lower byte
-0x17 (23) |  Framecounter since last I2C readout upper byte
-0x18 (24) |  Accumulated flow in radians*10000 around x axis since last I2C readout lower byte
-0x19 (25) |  Accumulated flow in radians*10000 around x axis since last I2C readout upper byte
- :  |  :
-0x22 (34) |  Accumulation timespan in microseconds since last I2C readout byte 0
-0x23 (35) |  Accumulation timespan in microseconds since last I2C readout byte 1
-0x24 (36) |  Accumulation timespan in microseconds since last I2C readout byte 2
-0x25 (37) |  Accumulation timespan in microseconds since last I2C readout byte 3
- :  |  :
-0x2A (42)|  Grounddistance in meters*1000 lower byte
-0x2B (43)|  Grounddistance in meters*1000 upper byte
-0x2C (44)|  Temperature in Degree Celsius*100 lower byte
-0x2D (45)|  Temperature in Degree Celsius*100 upper byte
-0x2E (46)|  Averaged quality of accumulated flow values
-
-
-25 Byte Data Packet (send 0x16 (22) to PX4FLOW module and receive back 25 Bytes data, internal address auto increments)
-
-```cpp
-typedef struct i2c_integral_frame
-{
-    uint16_t frame_count_since_last_readout;//number of flow measurements since last I2C readout [#frames]
-    int16_t pixel_flow_x_integral;//accumulated flow in radians*10000 around x axis since last I2C readout [rad*10000]
-    int16_t pixel_flow_y_integral;//accumulated flow in radians*10000 around y axis since last I2C readout [rad*10000]
-    int16_t gyro_x_rate_integral;//accumulated gyro x rates in radians*10000 since last I2C readout [rad*10000] 
-    int16_t gyro_y_rate_integral;//accumulated gyro y rates in radians*10000 since last I2C readout [rad*10000] 
-    int16_t gyro_z_rate_integral;//accumulated gyro z rates in radians*10000 since last I2C readout [rad*10000] 
-    uint32_t integration_timespan;//accumulation timespan in microseconds since last I2C readout [microseconds]
-    uint32_t sonar_timestamp;// time since last sonar update [microseconds]
-    int16_t ground_distance;// Ground distance in meters*1000 [meters*1000]
-    int16_t gyro_temperature;// Temperature * 100 in centi-degrees Celsius [degcelsius*100]
-    uint8_t quality;// averaged quality of accumulated flow values [0:bad quality;255: max quality]
-} __attribute__((packed)) i2c_integral_frame;
-```
 
 ## Accuracy
 
@@ -185,7 +109,7 @@ Linux and MacOS come with the required drivers. Windows drivers can be downloade
 
 The flow module as been accepted as paper to the International Conference on Robotics and Automation (ICRA 2013) in Karlsruhe, Germany. 
 
-* Dominik Honegger, Lorenz Meier, Petri Tanskanen and Marc Pollefeys.* [An Open Source and Open Hardware Embedded Metric Optical Flow CMOS Camera for Indoor and Outdoor Applications](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_paper.pdf)
+* Dominik Honegger, Lorenz Meier, Petri Tanskanen and Marc Pollefeys: [An Open Source and Open Hardware Embedded Metric Optical Flow CMOS Camera for Indoor and Outdoor Applications](https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/sensors/px4flow/px4flow_paper.pdf)
 
 
 ### Libraries
