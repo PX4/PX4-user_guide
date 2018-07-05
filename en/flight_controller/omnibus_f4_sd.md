@@ -38,7 +38,8 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 ## Where to Buy
 
 The board is produced by different vendors, with some variations (e.g. with or without a barometer).
-If the Betaflight OMNIBUSF4SD target can be used, then it should work with PX4 as well.
+
+> **Tip** PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if *OMNIBUSF4SD* is present on the product page the board should work with PX4).
 
 These are the boards tested and known to work:
 - [Hobbywing XRotor Flight Controller F4](http://www.hobbywing.com/goods.php?id=590) 
