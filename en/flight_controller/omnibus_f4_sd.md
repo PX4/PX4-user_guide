@@ -41,9 +41,12 @@ The board is produced by different vendors, with some variations (e.g. with or w
 
 > **Tip** PX4 is compatible with boards that support the Betaflight OMNIBUSF4SD target (if *OMNIBUSF4SD* is present on the product page the board should work with PX4).
 
+<span></span>
+> **Tip** Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
+
 These are the boards tested and known to work:
 - [Hobbywing XRotor Flight Controller F4](http://www.hobbywing.com/goods.php?id=590) 
-   > **Tip** This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
+   > **Note** This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
    
    Purchase from:
   * [Hobbywing XRotor F4 Flight Controller w/OSD](https://www.getfpv.com/hobbywing-xrotor-f4-flight-controller-w-osd.html) (getfpv)
@@ -53,18 +56,24 @@ These are the boards tested and known to work:
   Purchase from:
   * [Airbot (CN manufacturer)](https://store.myairbot.com/omnibusf4prov3.html)
   * [Ready To Fly Quads (US reseller)](http://www.readytoflyquads.com/flip-32-f4-omnibus-v2-pro)
-> **Tip** Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
-  * Silkscreens (V1)
 
-  <img src="../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg" title="Omnibus F4 SD v1 Silkscreen Top" />
-  <img src="../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg" title="Omnibus F4 SD v1 Silkscreen Bottom" />
 
 Accessories include:
 * [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry.
   You need to connect these pins: GND, RX, TX, VCC and CH-PD (CH-PD to 3.3V). The baud rate is 921600.
 
+  
+## Connectors
+
+Below are silkscreens for Omnibus F4 SD (V1), showing both top and bottom
+
+![Omnibus F4 SD v1 Silkscreen Top](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg)
+![Omnibus F4 SD v1 Silkscreen Bottom](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
+
 
 ## Pinouts
+
+### Radio Control
 
 RC is connected to one of the following ports:
 - UART1
@@ -81,7 +90,7 @@ RC is connected to one of the following ports:
 
   - Airbot Omnibus F4 SD Pinout is on Port J10 (TX6/RX6):
 
-  <img src="../../assets/flight_controller/omnibus_f4_sd/uart6.jpg" title="Omnibus F4 SD UART6" />
+  ![Omnibus F4 SD UART6](../../assets/flight_controller/omnibus_f4_sd/uart6.jpg)
 
 - UART4
   - TX: MCU pin PA0
@@ -93,9 +102,9 @@ RC is connected to one of the following ports:
     - TX: RSSI pin
     - RX: PWM out 5
 
-  <img src="../../assets/flight_controller/omnibus_f4_sd/uart4.jpg" title="Omnibus F4 SD UART4" />
+  ![Omnibus F4 SD UART4](../../assets/flight_controller/omnibus_f4_sd/uart4.jpg)
 
-  <img src="../../assets/flight_controller/omnibus_f4_sd/uart4-top.jpg" title="Omnibus F4 SD UART4 Top" />
+  ![Omnibus F4 SD UART4 Top](../../assets/flight_controller/omnibus_f4_sd/uart4-top.jpg)
 
 ### I2C
 
@@ -109,11 +118,12 @@ There is one I2C port available via:
   - Airbot Omnibus F4 SD Pinout is on Port J10 (SCL [clock] / SCA [data]):
 <img src="../../assets/flight_controller/omnibus_f4_sd/uart6.jpg" title="Omnibus F4 SD UART6" />
 
-Here is an example implementation. I used a spektrum plug to get 3.3v from the DSM port, connecting only 3.3v + to each line via 2.2k resistor.
+Here is an example implementation. I used a Spektrum plug to get 3.3v from the DSM port, connecting only 3.3v + to each line via 2.2k resistor.
 
-<img src="../../assets/flight_controller/omnibus_f4_sd/pullup-schematic.jpg" title="Omnibus F4 SD Pullup" />
+![Omnibus F4 SD Pullup](../../assets/flight_controller/omnibus_f4_sd/pullup-schematic.jpg)
 
-<img src="../../assets/flight_controller/omnibus_f4_sd/pullup.jpg" title="Omnibus F4 SD Pullup Implementation" />
+![Omnibus F4 SD Pullup Implementation](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
+
 
 
 ## Schematics
