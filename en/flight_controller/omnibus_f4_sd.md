@@ -101,7 +101,7 @@ make omnibus-f4sd_default upload
 If you later on want to switch back to *Betaflight*, you can easily do that:
 - Backup the parameters by copying the **params** file on the SD card (or use another SD card)
 - Keep the **bootloader** button pressed while attaching the USB cable
-- Then flash ^Betaflight* as usual with the *Betaflight-configurator*
+- Then flash *Betaflight* as usual with the *Betaflight-configurator*
 
 ## Configuration
 
