@@ -124,7 +124,7 @@ These are the factors that contribute to the latency:
 - A soft airframe or soft vibration mounting (they act as a filter).
 - Low-pass filters in software and on the sensor chip.
 - PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
-  Enable [SYS_FMU_TASK](../advanced_config/parameter_reference.md#SYS_FMU_TASK) to reduce latency (default on [Pixracer](../flight_controller/pixracer.md) and Omnibus).
+  Enable [SYS_FMU_TASK](../advanced_config/parameter_reference.md#SYS_FMU_TASK) to reduce latency (default on [Pixracer](../flight_controller/pixracer.md) and [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)).
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk).
   To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
 - PWM output signal: enable One-Shot ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0) to reduce latency.
