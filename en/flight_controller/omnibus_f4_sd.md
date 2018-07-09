@@ -57,7 +57,6 @@ These are the boards tested and known to work:
   * [Airbot (CN manufacturer)](https://store.myairbot.com/omnibusf4prov3.html)
   * [Ready To Fly Quads (US reseller)](http://www.readytoflyquads.com/flip-32-f4-omnibus-v2-pro)
 
-
 Accessories include:
 * [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry.
   You need to connect these pins: GND, RX, TX, VCC and CH-PD (CH-PD to 3.3V). The baud rate is 921600.
@@ -65,7 +64,12 @@ Accessories include:
   
 ## Connectors
 
-Below are silkscreens for Omnibus F4 SD (V1), showing both top and bottom
+Boards from different vendors (based on this design) can have significantly different layout.
+Layouts/Silkscreens for various versions are shown below.
+
+### Airbot Omnibus F4 SD
+
+Below are silkscreens for the Airbot Omnibus F4 SD (V1), showing both top and bottom.
 
 ![Omnibus F4 SD v1 Silkscreen Top](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg)
 ![Omnibus F4 SD v1 Silkscreen Bottom](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
