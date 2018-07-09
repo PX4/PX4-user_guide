@@ -74,6 +74,12 @@ Below are silkscreens for the Airbot Omnibus F4 SD (V1), showing both top and bo
 ![Omnibus F4 SD v1 Silkscreen Top](../../assets/flight_controller/omnibus_f4_sd/silk-top.jpg)
 ![Omnibus F4 SD v1 Silkscreen Bottom](../../assets/flight_controller/omnibus_f4_sd/silk-bottom.jpg)
 
+### Hobbywing XRotor Flight Controller F4
+
+Below are silkscreens for the Hobbywing XRotor Flight Controller F4.
+
+![Hobbywing XRotor Flight Controller F4 Silkscreen](../../assets/flight_controller/omnibus_f4_sd/hobbywing_xrotor_silk.png)
+
 
 ## Pinouts
 
