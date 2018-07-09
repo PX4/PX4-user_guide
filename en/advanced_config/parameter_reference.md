@@ -9903,7 +9903,7 @@ The module where these parameters are defined is: *modules/syslink*.
  <p><b>Module:</b> drivers/px4fmu</p>
 </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
