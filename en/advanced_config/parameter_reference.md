@@ -2070,6 +2070,13 @@ The module where these parameters are defined is: *modules/fw_att_control*.
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="FW_FLAPS_TO_SCL">FW_FLAPS_TO_SCL</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Flaps setting during take-off</p><p><strong>Comment:</strong> Sets a fraction of full flaps (FW_FLAPS_SCL) during take-off</p>    </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">norm</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="FW_MAN_P_MAX">FW_MAN_P_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max manual pitch</p><p><strong>Comment:</strong> Max pitch for manual control in attitude stabilized mode</p>    </td>
  <td style="vertical-align: top;">0.0 > 90.0 (0.5)</td>
