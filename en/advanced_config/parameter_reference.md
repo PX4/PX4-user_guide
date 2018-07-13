@@ -4810,6 +4810,14 @@ towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MPC_OBS_AVOID">MPC_OBS_AVOID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Flag to enable obstacle avoidance
+Temporary Parameter to enable interface testing</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_HOVER">MPC_THR_HOVER</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Hover thrust</p><p><strong>Comment:</strong> Vertical thrust required to hover. This value is mapped to center stick for manual throttle control. With this value set to the thrust required to hover, transition from manual to ALTCTL mode while hovering will occur with the throttle stick near center, which is then interpreted as (near) zero demand for vertical speed.</p>    </td>
  <td style="vertical-align: top;">0.2 > 0.8 (0.01)</td>
