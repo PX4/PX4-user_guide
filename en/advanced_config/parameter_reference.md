@@ -8288,6 +8288,9 @@ to takeoff is reached</p>    </td>
 
 ## SD Logging
 
+
+The module where these parameters are defined is: *modules/logger*.
+
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
@@ -8297,33 +8300,9 @@ to takeoff is reached</p>    </td>
 <tr>
  <td style="vertical-align: top;"><strong id="SDLOG_DIRS_MAX">SDLOG_DIRS_MAX</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Maximum number of log directories to keep</p><p><strong>Comment:</strong> If there are more log directories than this value, the system will delete the oldest directories during startup. In addition, the system will delete old logs if there is not enough free space left. The minimum amount is 300 MB. If this is set to 0, old directories will only be removed if the free space falls below the minimum.</p>   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/logger</p>
-</td>
+ </td>
  <td style="vertical-align: top;">0 > 1000 </td>
  <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SDLOG_EXT">SDLOG_EXT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Extended logging mode</p><p><strong>Comment:</strong> A value of -1 indicates the command line argument should be obeyed. A value of 0 disables extended logging mode, a value of 1 enables it. This parameter is only read out before logging starts (which commonly is before arming).</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Command Line</li> 
-
-<li><strong>0:</strong> Disable</li> 
-
-<li><strong>1:</strong> Enable</li> 
-</ul>
-   <p><b>Module:</b> modules/sdlog2</p>
-</td>
- <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">-1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SDLOG_GPSTIME">SDLOG_GPSTIME</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Use timestamps only if GPS 3D fix is available</p><p><strong>Comment:</strong> Constrain the log folder creation to only use the time stamp if a 3D GPS lock is present.</p>    <p><b>Module:</b> modules/sdlog2</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -8336,28 +8315,9 @@ to takeoff is reached</p>    </td>
 <li><strong>2:</strong> from boot until shutdown</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/logger</p>
-</td>
+ </td>
  <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SDLOG_PRIO_BOOST">SDLOG_PRIO_BOOST</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Give logging app higher thread priority to avoid data loss.
-This is used for gathering replay logs for the ekf2 module</p><p><strong>Comment:</strong> A value of 0 indicates that the default priority is used. Increasing the parameter in steps of one increases the priority.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Low priority</li> 
-
-<li><strong>1:</strong> Default priority</li> 
-
-<li><strong>2:</strong> Medium priority</li> 
-
-<li><strong>3:</strong> Max priority</li> 
-</ul>
-   <p><b>Module:</b> modules/sdlog2</p>
-</td>
- <td style="vertical-align: top;">0 > 3 </td>
- <td style="vertical-align: top;">2 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -8371,32 +8331,21 @@ This is used for gathering replay logs for the ekf2 module</p><p><strong>Comment
   <li><strong>6:</strong> sensor comparison</li> 
 </ul>
  <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/logger</p>
-</td>
+ </td>
  <td style="vertical-align: top;">0 > 127 </td>
  <td style="vertical-align: top;">3 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="SDLOG_RATE">SDLOG_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Logging rate</p><p><strong>Comment:</strong> A value of -1 indicates the commandline argument should be obeyed. A value of 0 sets the minimum rate, any other value is interpreted as rate in Hertz. This parameter is only read out before logging starts (which commonly is before arming).</p>    <p><b>Module:</b> modules/sdlog2</p>
-</td>
- <td style="vertical-align: top;">-1 > 250 </td>
- <td style="vertical-align: top;">-1 </td>
- <td style="vertical-align: top;">Hz</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="SDLOG_UTC_OFFSET">SDLOG_UTC_OFFSET</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>UTC offset (unit: min)</p><p><strong>Comment:</strong> the difference in hours and minutes from Coordinated Universal Time (UTC) for a your place and date. for example, In case of South Korea(UTC+09:00), UTC offset is 540 min (9*60) refer to https://en.wikipedia.org/wiki/List_of_UTC_time_offsets</p>    <p><b>Module:</b> modules/logger</p>
-</td>
+ <td style="vertical-align: top;"><p>UTC offset (unit: min)</p><p><strong>Comment:</strong> the difference in hours and minutes from Coordinated Universal Time (UTC) for a your place and date. for example, In case of South Korea(UTC+09:00), UTC offset is 540 min (9*60) refer to https://en.wikipedia.org/wiki/List_of_UTC_time_offsets</p>    </td>
  <td style="vertical-align: top;">-1000 > 1000 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;">min</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SDLOG_UUID">SDLOG_UUID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Log UUID</p><p><strong>Comment:</strong> If set to 1, add an ID to the log, which uniquely identifies the vehicle</p>    <p><b>Module:</b> modules/logger</p>
-</td>
+ <td style="vertical-align: top;"><p>Log UUID</p><p><strong>Comment:</strong> If set to 1, add an ID to the log, which uniquely identifies the vehicle</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
@@ -9946,20 +9895,6 @@ The module where these parameters are defined is: *modules/syslink*.
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SYS_LOGGER">SYS_LOGGER</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>SD logger</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> sdlog2 (legacy)</li> 
-
-<li><strong>1:</strong> logger (default)</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
- <p><b>Module:</b> modules/systemlib</p>
-</td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
