@@ -2993,6 +2993,14 @@ The module where these parameters are defined is: *drivers/gps*.
  <td style="vertical-align: top;">7 </td>
  <td style="vertical-align: top;"></td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="GPS_YAW_OFFSET">GPS_YAW_OFFSET</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Heading/Yaw offset for dual antenna GPS</p><p><strong>Comment:</strong> Heading offset angle for dual antenna GPS setups that support heading estimation. (currently only for the Trimble MB-Two). Set this to 0 if the antennas are parallel to the forward-facing direction of the vehicle and the first antenna is in front. The offset angle increases counterclockwise. Set this to 90 if the first antenna is placed on the right side and the second on the left side of the vehicle.</p>   <p><b>Reboot required:</b> true</p>
+ </td>
+ <td style="vertical-align: top;">0 > 360 </td>
+ <td style="vertical-align: top;">0. </td>
+ <td style="vertical-align: top;">deg</td>
+</tr>
 </tbody></table>
 
 ## GPS Failure Navigation
