@@ -238,13 +238,12 @@ The system's serial console runs on the port labeled SERIAL4/5. The pinout is st
 Please refer to the Devguide [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
 
 
-## Build Instructions
+## Build Firmware
 
+To build (and upload) PX4 firmware for this board:
 ```
 make px4fmu-v2_default upload
 ```
-
-
 
 ## Parts / Housings
 
