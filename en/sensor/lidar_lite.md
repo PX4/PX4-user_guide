@@ -3,8 +3,6 @@
 LIDAR-Lite is a compact, high-performance optical distant measurement sensor solution for drone, robot or unmanned vehicle applications. It can be connected to either I2C or PWM.
 
  ![LidarLite v3](../../assets/hardware/sensors/lidar_lite_v3.jpg)
- 
-> **Info** The *Lidar-Lite v3* may be used in the [The Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md#lidar_lite).
 
 ## Where to Buy
 
