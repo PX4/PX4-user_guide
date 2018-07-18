@@ -8,6 +8,19 @@ LIDAR-Lite is a compact, high-performance optical distant measurement sensor sol
 
 * [LIDAR-Lite v3](https://buy.garmin.com/en-AU/AU/p/557294) (5cm - 40m)
 
+## Pinouts
+
+The Lidar-Lite (v2, v3) pinout is shown below.
+
+Pin | Name | Description
+--- | ---   | ---
+1   | POWER_IN | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.
+2   | POWER_EN | Active high, enables operation of the 3.3V micro-controller regulator. Low puts board to sleep, draws <40 μA. (Internal 100K pull-up)
+3   | Mode Select Control | Provides trigger (high-low edge) PWM out (high)
+4   | SCL | I2C Clock
+5   | SDA | I2C Data
+6   | GND | Signal/power ground.
+
 
 ## Wiring
 
@@ -20,15 +33,19 @@ The servo must be separately powered via some ESC/BEC (whether connected via PWM
 
 ### PWM Interface Wiring
 
+The wiring for connecting LidarLite to the *Pixhawk 1* AUX ports (PWM interface) is shown below. 
+This applies to both LidarLite v2 and v3.
+
 ![Lidar Lite 2 Interface wiring](../../assets/hardware/sensors/lidar_lite_2_interface_wiring.jpg)
 
-Pixhawk AUX servo pin | Lidar-Lite pin | Comment
---- | --- | ---
-AUX row 5 (bottom) | 3 / PWM   | PWM input of the Lidar Lite. **Needs a 470 Ohm pull-down (to GND)**
-AUX row 6 (center) | 1 / +5V   | Power supply
-AUX row 6 (top)    | 6 / GND   | Ground
-AUX row 6 (bottom) | 2 / RESET | Reset line of the sensor |
-
+Pin | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | Comment
+--- | ---   | --- | ---
+1   | VCC   | AUX 6 (center) | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.
+2   | RESET | AUX 6 (bottom) | Reset line of the sensor
+3   | PWM   | AUX 5 (bottom) | PWM input of the Lidar Lite. **Needs a 470 Ohm pull-down (to GND)**
+4   | SCL (I2C Clock)     | - | Not connected
+5   | SDA (I2C Data)     | - | Not connected
+6   | GND   | AUX 6 (top) | Ground
 
 ![Lidar Lite 2 Interface wiring](../../assets/hardware/sensors/lidarlite_wiring_scheme_pixhawk.jpg)
 
