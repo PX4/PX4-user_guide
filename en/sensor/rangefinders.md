@@ -9,7 +9,7 @@ This section lists the distance sensors supported by PX4 and the generic configu
 > **Tip** The drivers for less common sensors may not be present by default in all firmware. In this case you may need to add the driver into your *cmake* configuration file and build the firmware yourself. For more information see the [PX4 Development Guide](https://dev.px4.io/en/setup/building_px4.html).
 
 
-<img src="../../assets/hardware/sensors/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/uLanding_lite_1.jpg" alt="Aerotenna uLanding" width="200px" />
+<img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/uLanding_lite_1.jpg" alt="Aerotenna uLanding" width="200px" />
 
 ## Supported Rangefinders
 
