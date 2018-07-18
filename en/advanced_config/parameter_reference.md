@@ -5013,7 +5013,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">0.0 > ? </td>
  <td style="vertical-align: top;">0.0 </td>
@@ -5021,7 +5021,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS1">PWM_AUX_DIS1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the AUX 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 1 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
@@ -5030,7 +5030,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS2">PWM_AUX_DIS2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the AUX 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 2 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
@@ -5039,7 +5039,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS3">PWM_AUX_DIS3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the AUX 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 3 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
@@ -5048,7 +5048,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS4">PWM_AUX_DIS4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the AUX 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 4 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
@@ -5057,7 +5057,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS5">PWM_AUX_DIS5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the AUX 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 5 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
@@ -5066,7 +5066,25 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_DIS6">PWM_AUX_DIS6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the disarmed PWM for the AUX 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 6 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1 </td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_DIS7">PWM_AUX_DIS7</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 7 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2200 </td>
+ <td style="vertical-align: top;">-1 </td>
+ <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_DIS8">PWM_AUX_DIS8</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the disarmed PWM for the auxiliary 8 output</p><p><strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_AUX_DISARMED will be used</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-1 > 2200 </td>
@@ -5084,7 +5102,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MAX">PWM_AUX_MAX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the maximum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 2000 for default or 2100 to increase servo travel</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the maximum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 2000 for industry default or 2100 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">1600 > 2200 </td>
@@ -5093,7 +5111,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_MIN">PWM_AUX_MIN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set the minimum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 1000 for default or 900 to increase servo travel</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Set the minimum PWM for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 1000 for industry default or 900 to increase servo travel.</p>   <p><b>Reboot required:</b> true</p>
  <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">800 > 1400 </td>
@@ -5101,8 +5119,17 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
  <td style="vertical-align: top;">us</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_RATE">PWM_AUX_RATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set the PWM output frequency for the auxiliary outputs</p><p><strong>Comment:</strong> Set to 400 for industry default or 1000 for high frequency ESCs. Set to 0 for Oneshot125.</p>   <p><b>Reboot required:</b> true</p>
+ <p><b>Module:</b> modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">-1 > 2000 </td>
+ <td style="vertical-align: top;">50 </td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5110,7 +5137,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5118,7 +5145,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5126,7 +5153,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5134,7 +5161,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5142,7 +5169,23 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of aux output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV7">PWM_AUX_REV7</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 7</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_REV8">PWM_AUX_REV8</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 8</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5150,7 +5193,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM1">PWM_AUX_TRIM1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Trim value for auxiliary output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5158,7 +5201,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM2">PWM_AUX_TRIM2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Trim value for auxiliary output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5166,7 +5209,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM3">PWM_AUX_TRIM3</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Trim value for auxiliary output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5174,7 +5217,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM4">PWM_AUX_TRIM4</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Trim value for auxiliary output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5182,7 +5225,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM5">PWM_AUX_TRIM5</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Trim value for auxiliary output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5190,7 +5233,23 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM6">PWM_AUX_TRIM6</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for FMU PWM output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Trim value for auxiliary output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM7">PWM_AUX_TRIM7</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for auxiliary output channel 7</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">-0.2 > 0.2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="PWM_AUX_TRIM8">PWM_AUX_TRIM8</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Trim value for auxiliary output channel 8</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5279,7 +5338,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV1">PWM_MAIN_REV1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5287,7 +5346,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV2">PWM_MAIN_REV2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5295,7 +5354,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV3">PWM_MAIN_REV3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5303,7 +5362,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV4">PWM_MAIN_REV4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5311,7 +5370,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV5">PWM_MAIN_REV5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5319,7 +5378,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV6">PWM_MAIN_REV6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5327,7 +5386,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV7">PWM_MAIN_REV7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 7</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 7</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5335,7 +5394,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV8">PWM_MAIN_REV8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 8</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 8</p><p><strong>Comment:</strong> Enable to invert the channel.</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
@@ -5343,7 +5402,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM1">PWM_MAIN_TRIM1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 1</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5351,7 +5410,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM2">PWM_MAIN_TRIM2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 2</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5359,7 +5418,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM3">PWM_MAIN_TRIM3</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 3</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5367,7 +5426,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM4">PWM_MAIN_TRIM4</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 4</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5375,7 +5434,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM5">PWM_MAIN_TRIM5</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 5</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5383,7 +5442,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM6">PWM_MAIN_TRIM6</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 6</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5391,7 +5450,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM7">PWM_MAIN_TRIM7</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 7</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 7</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5399,7 +5458,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_TRIM8">PWM_MAIN_TRIM8</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Trim value for main output channel 8</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> drivers/px4io</p>
+ <td style="vertical-align: top;"><p>Trim value for main output channel 8</p><p><strong>Comment:</strong> Set to normalized offset</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">-0.2 > 0.2 </td>
  <td style="vertical-align: top;">0 </td>
@@ -5442,7 +5501,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="THR_MDL_FAC">THR_MDL_FAC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Thrust to PWM model parameter</p><p><strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2</p>    <p><b>Module:</b> drivers/px4fmu</p>
+ <td style="vertical-align: top;"><p>Thrust to PWM model parameter</p><p><strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2</p>    <p><b>Module:</b> modules/sensors</p>
 </td>
  <td style="vertical-align: top;">0.0 > 1.0 </td>
  <td style="vertical-align: top;">0.0 </td>
