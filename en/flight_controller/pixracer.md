@@ -24,7 +24,7 @@ The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing qu
 
 ## Where to Buy
 
-Pixracer is available from the [AUAV store](http://www.auav.co/product-p/xr-v1.htm).
+Pixracer is available from the [mRobotics.io](https://store.mrobotics.io/mRo-PixRacer-R15-Official-p/auav-pxrcr-r15-mr.htm).
 
 Accessories include:
 * [Digital airspeed sensor](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
