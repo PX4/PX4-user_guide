@@ -4617,13 +4617,6 @@ default 1.5 turns per second</p>    </td>
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MC_YAW_FF">MC_YAW_FF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw feed forward</p><p><strong>Comment:</strong> Feed forward weight for manual yaw control. 0 will give slow responce and no overshot, 1 - fast responce and big overshot.</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.5 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MC_YAW_P">MC_YAW_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Yaw P gain</p><p><strong>Comment:</strong> Yaw proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>    </td>
  <td style="vertical-align: top;">0.0 > 5 (0.1)</td>
@@ -4716,19 +4709,6 @@ is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</str
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_FLT_TSK">MPC_FLT_TSK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Flag to test flight tasks instead of legacy functionality
-Temporary Parameter during the transition to flight tasks</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Legacy Functionality</li> 
-
-<li><strong>1:</strong> Test flight tasks</li> 
-</ul>
-   </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MPC_HOLD_DZ">MPC_HOLD_DZ</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Deadzone of sticks where position hold is enabled</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 </td>
@@ -4748,6 +4728,13 @@ Temporary Parameter during the transition to flight tasks</p> <strong>Values:</s
  <td style="vertical-align: top;">0.0 > 3.0 </td>
  <td style="vertical-align: top;">0.6 </td>
  <td style="vertical-align: top;">m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPC_IDLE_TKO">MPC_IDLE_TKO</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Delay from idle state to arming state</p><p><strong>Comment:</strong> For altitude controlled modes, the transition from idle to armed state is delayed by MPC_IDLE_TKO time to ensure that the propellers have reached idle speed before attempting a takeoff. This delay is particularly useful for vehicles with large propellers.</p>    </td>
+ <td style="vertical-align: top;">0 > 10 </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">sec</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)</td>
@@ -4823,6 +4810,20 @@ towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    </td>
 Temporary Parameter to enable interface testing</p>    </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPC_POS_MODE">MPC_POS_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Manual-Position control sub-mode</p><p><strong>Comment:</strong> The supported sub-modes are: 0 Default position control where sticks map to position/velocity directly. Maximum speeds is MPC_VEL_MANUAL. 1 Smooth position control where setpoints are adjusted based on acceleration limits and jerk limits. 2 Sport mode that is the same Default position control but with velocity limits set to the maximum allowed speeds (MPC_XY_VEL_MAX)</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Default position control</li> 
+
+<li><strong>1:</strong> Smooth position control</li> 
+
+<li><strong>2:</strong> Sport position control</li> 
+</ul>
+   </td>
+ <td style="vertical-align: top;">0 > 2 </td>
+ <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -4937,6 +4938,13 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
  <td style="vertical-align: top;"><p>Proportional gain for horizontal velocity error</p>    </td>
  <td style="vertical-align: top;">0.06 > 0.15 </td>
  <td style="vertical-align: top;">0.09 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPC_YAW_EXPO">MPC_YAW_EXPO</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Manual control stick yaw rotation exponential curve</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
