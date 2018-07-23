@@ -111,8 +111,8 @@ Unless otherwise noted, the implementation is as defined in the MAVLink speifica
 
 
 Note:
-- PX4 parses the above messages, but they are not necessary *acted* on. For example, some messages are vehicle specific.
-- PX4 does not support the frame type [MAV_FRAME_GLOBAL_RELATIVE_ALT_INT](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL_RELATIVE_ALT_INT)
+- PX4 parses the above messages, but they are not necessary *acted* on. For example, some messages are vehicle-type specific.
+- PX4 generally does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
 - Not all messages/commands are exposed via *QGroundControl*.
 - The list may be [out of date](#out_of_date) as messages are added. You can check the current set by inspecting the code.
   Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp) 
