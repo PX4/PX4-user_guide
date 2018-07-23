@@ -1,10 +1,12 @@
 # PX4FLOW Smart Camera
 
-PX4FLOW is an optical flow smart camera (it provides the image for setup purposes, but it not designed to capture images like a webcam). It has a native resolution of 752x480 pixels and calculates optical flow on a 4x binned and cropped area at 400 Hz, giving it a very high light sensitivity. 
+PX4FLOW is an [optical flow](../sensor/optical_flow.md) smart camera. 
+It has a native resolution of 752x480 pixels and calculates optical flow on a 4x binned and cropped area at 400 Hz, giving it a very high light sensitivity. 
 
 ![PX4Flow v1.0](../../assets/hardware/sensors/px4flow/px4flow_v1.0_top_generated.png)
 
-Unlike many mouse sensors, it also works indoors and in low outdoor light conditions without the need for an illumination LED. It can be freely reprogrammed to do any other basic, efficient low-level computer vision task.
+Unlike many mouse sensors, it also works indoors and in low outdoor light conditions without the need for an illumination LED. 
+It can be freely reprogrammed to perform any other basic, efficient low-level computer vision tasks.
 
 * 168 MHz Cortex M4F CPU (128 + 64 KB RAM)
 * 752x480 MT9V034 image sensor, L3GD20 3D Gyro
@@ -44,36 +46,49 @@ If out of stock the software-compatible, but not connector-compatible version ca
 ![PX4Flow Top](../../assets/hardware/sensors/px4flow/px4flow_top.jpg) ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg) 
 
 
-# Pixhawk Setup
+## Pixhawk Setup
+
+In order to use the PX4Flow board, just connect it with I2C. 
 
 > **Note** Applies to all PX4 FMU versions, including all versions of Pixhawk.
 
 - Update the firmware on PX4Flow using *QGroundControl* (in the top left menu, click on CONFIG, then on Firmware Upgrade)
 - Connect PX4Flow I2C to the Pixhawk I2C
 
-The module will be detected on boot, flow data should be coming through at 10Hz if the autopilot is connected via **USB**. 
+The module will be detected on boot.
+Flow data should be coming through at 10Hz if the autopilot is connected via **USB**. 
 Flow data is transmitted via wireless at a lower rate.
 
-## Orientation
 
-The default orientation (meaning: zero rotation) is defined as Y on flow board pointing towards **front of vehicle** as shown in the following picture.
+### Mounting/Orientation
+
+The default orientation (meaning: zero rotation) is defined as Y on flow board pointing towards **front of vehicle**, as shown in the following picture.
 
 ![PX4Flow align with Pixhawk](../../assets/hardware/sensors/px4flow/px4flowalignwithpixhawk.jpg)
 
-
-The orientation of PX4Flow can be set using the parameter [SENS_FLOW_ROT](https://docs.px4.io/en/advanced_config/parameter_reference.html#SENS_FLOW_ROT)
+In this configuration the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT) should be 270 degrees (which is the default). 
+Make sure the the PX4Flow board is well dampened.
 
 > **Warning** This parameter can only be applied to PX4 flight stack and is **not** part of the sensor itself settings
 
 
-## Connecting
+### Connecting
 
-The PX4flow is connected to the I2C bus. If you are connecting multiple devices to the same bus you will need to set each with a unique address. The next section explains how.
+The PX4flow is connected to the I2C bus. 
+If you are connecting multiple devices to the same bus you will need to set each with a unique address. 
+The next section explains how.
 
 
 ### PX4FLOW I2C Device address
 
-The 7 Bit **I2C Address** of the Flow Module is user selectable. Using the solder jumpers on the back of the flow board you can add an offset to the baseaddress 0x42. The address range for the 8 possible choices is: 0x42 - 0x49.
+The default I2C address of the PX4Flow is 0x42, but it can be incremented using the three solder jumpers labeled "I2C BUS ADDR". 
+This is useful if another device has the same address.
+
+The address increment is equal to the 3-bit value encoded by the jumpers. 
+For example if jumper 0 and 1 are soldered and jumper 2 is unsoldered, the address is incremented by 1\*1 + 1\*2 + 0\*4 = 3, which gives address 0x45.
+If all jumpers are unsoldered, the camera will be automatically discovered by the autopilot firmware.
+ 
+The address range for the 8 possible choices is: 0x42 - 0x49.
 
 Address | Bit 2 | Bit 1 | Bit 0
 --- | --- | --- | ---
@@ -82,7 +97,36 @@ Address | Bit 2 | Bit 1 | Bit 0
  :  |  :  |  :  |  :
 7 Bit Address 0x49 |  1  |  1  |  1
 
-> **Tip** There are different I2C readouts available. Details about the **I2C frame** and the **I2C integral frame** are in the driver source code.
+> **Tip** There are different I2C readouts available. 
+  Details about the **I2C frame** and the **I2C integral frame** are in the driver source code.
+
+
+If you modify the I2C address of the PX4Flow, make sure to start the PX4 driver with the correct address:
+```
+px4flow start                  # address=0x42 (default)
+px4flow stop
+px4flow start -a 0x45          # address=0x45
+```
+
+
+## Focusing the Lens
+
+In order to ensure good optical flow quality, it is important to focus the camera on the PX4Flow to the desired height of flight. 
+To focus the camera, put an object with text on (e. g. a book) and plug in the PX4Flow into USB and run *QGroundControl*. 
+Under the settings menu, select the PX4Flow and you should see a camera image. 
+Focus the lens by unscrewing the set screw and loosening and tightening the lens to find where it is in focus.
+
+> **Note** If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.
+
+![Flow Focus Book](../../assets/hardware/sensors/px4flow/flow_focus_book.png)
+
+*Figure: Use a text book to focus the flow camera at the height you want to fly, typically 1-3 meters. 
+Above 3 meters the camera should be focused at infinity and work for all higher altitudes.*
+
+
+![Flow Focusing](../../assets/hardware/sensors/px4flow/flow_focusing.png)
+
+*Figure: The QGroundControl px4flow interface that can be used for focusing the camera*
 
 
 ## Accuracy
@@ -278,6 +322,7 @@ Now a new Unmanned System should appear and Onboard Parameters are loaded (click
 Change Parameter `VIDEO_ONLY` to 1 and press Set.
 
 The Widget Video Downlink shows now the Image in full resolution. Focus the lens on 1.5m. Fix the lens position and switch `VIDEO_ONLY` Mode off.
+
 
 
 ## Data Output
