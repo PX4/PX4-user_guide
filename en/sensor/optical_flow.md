@@ -47,8 +47,8 @@ However we recommend using a LIDAR over a Sonar, because of robustness and accur
 ## Estimators
 
 ### Extended Kalman Filter (EKF2)
-In order to use the EKF2 estimator, make sure the parameter [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) is set to `2` and reboot. 
-For Optical Flow fusion, the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) has to be set accordingly.
+
+For Optical Flow fusion using EKF2, the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) must be set to `1`.
 
 ### Local Position Estimator (LPE)
 
