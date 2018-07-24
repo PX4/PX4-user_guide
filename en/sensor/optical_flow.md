@@ -5,9 +5,14 @@ Optical Flow based navigation is supported by: EKF2 and LPE.
 
 ## Setup
 
-An Optical Flow setup requires a downward facing camera which publishes to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic and a [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR) publishing messages to the [DISANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
+An Optical Flow setup requires a downward facing camera and a [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR).
+These can be connected via MAVLink, I2C or any other bus that supports the peripheral.
 
-The output of the flow has to be as follows
+> **Note** If connected to PX4 via MAVLink
+  the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic,
+  and the distance sensor much publish to the [DISANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
+
+The output of the flow when moving in different directions must be as follows:
 
 | Vehicle movement | Integrated flow |
 | -- | -- |
