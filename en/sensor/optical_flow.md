@@ -21,7 +21,7 @@ The output of the flow when moving in different directions must be as follows:
 | Right | - X |
 | Left | + X |
 
-For pure rotations the `integraded_xgyro` and `integraded_x` (respectively `integraded_ygyro` and `integraded_y`) have to be the same.
+For pure rotations the `integrated_xgyro` and `integrated_x` (respectively `integrated_ygyro` and `integrated_y`) have to be the same.
 
 An exemplary setup is the [PX4Flow](../sensor/px4flow.md) and [Lidar-Lite](../sensor/lidar_lite.md), as shown below.
 
