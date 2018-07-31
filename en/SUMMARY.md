@@ -113,6 +113,7 @@
   * [Airspeed Sensors](sensor/airspeed.md)
   * [Optical Flow](sensor/optical_flow.md)
     * [PX4FLOW](sensor/px4flow.md)
+    * [Bitcraze Flow](sensor/bitcraze_flow.md)
   * [ESCs & Motors](peripherals/esc_motors.md)
   * [MAVLink \(OSD / Telemetry\)](peripherals/mavlink_peripherals.md)
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)

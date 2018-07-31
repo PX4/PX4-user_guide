@@ -1,7 +1,6 @@
 # Optical Flow
 
-Optical Flow uses a downward facing camera and a downward facing distance sensor for position estimation. 
-Optical Flow based navigation is supported by: EKF2 and LPE.
+Optical Flow uses a downward facing camera and a downward facing distance sensor for position estimation.
 
 ## Setup
 
@@ -32,7 +31,7 @@ An exemplary setup is the [PX4Flow](../sensor/px4flow.md) and [Lidar-Lite](../se
 
 #### PX4Flow
 
-The easiest way to calculate the optical flow is to use the [PX4Flow](../sensor/px4flow.md) board (see link for setup information).
+Currently PX4 supports both the [PX4Flow](../sensor/px4flow.md) and the [Bitcraze Flow](../sensor/bitcraze_flow.md) (see link for setup information). 
 
 #### Other Cameras
 
