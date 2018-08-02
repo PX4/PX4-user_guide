@@ -2360,6 +2360,13 @@ The module where these parameters are defined is: *modules/fw_pos_control_l1*.
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="FW_L1_R_SLEW_MAX">FW_L1_R_SLEW_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>L1 controller roll slew rate limit</p><p><strong>Comment:</strong> The maxium change in roll angle setpoint per second.</p>    </td>
+ <td style="vertical-align: top;">0 > ? (1)</td>
+ <td style="vertical-align: top;">90.0 </td>
+ <td style="vertical-align: top;">deg/s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="FW_LND_AIRSPD_SC">FW_LND_AIRSPD_SC</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Min. airspeed scaling factor for landing</p><p><strong>Comment:</strong> Multiplying this factor with the minimum airspeed of the plane gives the target airspeed the landing approach. FW_AIRSPD_MIN * FW_LND_AIRSPD_SC</p>    </td>
  <td style="vertical-align: top;">1.0 > 1.5 (0.01)</td>
