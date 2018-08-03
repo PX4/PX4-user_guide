@@ -147,6 +147,7 @@
     * [Snapdragon Advanced](flight_controller/snapdragon_flight_advanced.md)
   * [Intel® Aero Ready to Fly Drone](flight_controller/intel_aero.md)
   * [Raspberry Pi 2/3 Navio2](flight_controller/raspberry_pi_navio2.md)
+  * [BeagleBone Blue](flight_controller/beaglebone_blue.md)
   * [OcPoC-Zynq Mini](flight_controller/ocpoc_zynq.md)
   * [Crazyflie 2.0](flight_controller/crazyflie2.md)
   * [Parrot Bebop](flight_controller/bebop.md)
