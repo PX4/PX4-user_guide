@@ -11646,6 +11646,14 @@ The module where these parameters are defined is: *modules/wind_estimator*.
  <td style="vertical-align: top;">rad</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="WEST_EN">WEST_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable Wind estimator</p>   <p><b>Reboot required:</b> true</p>
+ </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="WEST_SC_P_NOISE">WEST_SC_P_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Wind estimator true airspeed scale process noise</p>    </td>
  <td style="vertical-align: top;">0 > 0.1 </td>
