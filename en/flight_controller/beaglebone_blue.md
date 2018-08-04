@@ -187,11 +187,23 @@ WantedBy=multi-user.target
 
 ### Miscellaneous
 
-#### 5V Level Signal to Inverted 3V Level Signal Converter
+#### Power Servo Rail
 
-SBUS signal from receiver (e.g., FrSky X8R) is a 5V level inverted signal. 
-UARTs on BeagleBone Blue only work with un-inverted 3V level signal. The 
-following circuit is an example of signal converter which converts 5V level
-input signal to 3V level output signal:
+When PX4 starts, it automatically applies power to servos.
 
-![](../../assets/hardware/inverted_5v_to_3v_signal_converter.jpg)
+#### Unique Features
+
+BeagleBone Blue has some unique features such as multiple choices of WiFi 
+interfaces. Refer to comments in /home/debian/px4/posix-configs/px4.config
+for usage of these features.
+
+#### SBUS Signal Converter
+
+SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. 
+UARTs on BeagleBone Blue only work with non-inverted 3.3V level signal. The 
+following circuit is an example of signal converter which converts inverted
+input signal to non-inverted 3.3V level output signal. The resistor values  
+shown in the diagram reflect resistors that the author had on hand back then, 
+and you can choose values as you see fit.
+
+![](../../assets/hardware/sbus_signal_converter.jpg)
