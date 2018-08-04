@@ -4015,23 +4015,6 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MIS_YAWMODE">MIS_YAWMODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Multirotor only. Yaw setpoint mode</p><p><strong>Comment:</strong> The values are defined in the enum mission_altitude_mode</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Heading as set by waypoint</li> 
-
-<li><strong>1:</strong> Heading towards waypoint</li> 
-
-<li><strong>2:</strong> Heading towards home</li> 
-
-<li><strong>3:</strong> Heading away from home</li> 
-</ul>
-   <p><b>Module:</b> modules/navigator</p>
-</td>
- <td style="vertical-align: top;">0 > 3 </td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MIS_YAW_ERR">MIS_YAW_ERR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max yaw error in degrees needed for waypoint heading acceptance</p>    <p><b>Module:</b> modules/navigator</p>
 </td>
@@ -4046,6 +4029,23 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
  <td style="vertical-align: top;">-1 > 20 (1)</td>
  <td style="vertical-align: top;">-1.0 </td>
  <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPC_YAW_MODE">MPC_YAW_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Yaw mode</p><p><strong>Comment:</strong> Specifies the heading in Auto.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> towards waypoint</li> 
+
+<li><strong>1:</strong> towards home</li> 
+
+<li><strong>2:</strong> away from home</li> 
+
+<li><strong>3:</strong> along trajectory</li> 
+</ul>
+   <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
+ <td style="vertical-align: top;">0 > 2 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_ACC_RAD">NAV_ACC_RAD</strong> (FLOAT)</td>
@@ -8668,34 +8668,6 @@ The module where these parameters are defined is: *modules/sensors*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_AIR_CMODEL">CAL_AIR_CMODEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airspeed sensor compensation model for the SDP3x</p><p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Model with Pitot</li> 
-
-<li><strong>1:</strong> Model without Pitot (1.5 mm tubes)</li> 
-
-<li><strong>2:</strong> Tube Pressure Drop</li> 
-</ul>
-   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_AIR_TUBED_MM">CAL_AIR_TUBED_MM</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airspeed sensor tube diameter. Only used for the Tube Pressure Drop Compensation</p>    </td>
- <td style="vertical-align: top;">0.1 > 100 </td>
- <td style="vertical-align: top;">1.5 </td>
- <td style="vertical-align: top;">millimeter</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_AIR_TUBELEN">CAL_AIR_TUBELEN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airspeed sensor tube length</p><p><strong>Comment:</strong> See the CAL_AIR_CMODEL explanation on how this parameter should be set.</p>    </td>
- <td style="vertical-align: top;">0.01 > 2.00 </td>
- <td style="vertical-align: top;">0.2 </td>
- <td style="vertical-align: top;">meter</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_BARO_PRIME">CAL_BARO_PRIME</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Primary baro ID</p>    </td>
  <td style="vertical-align: top;"></td>
@@ -9408,6 +9380,37 @@ is less than 50% of this value</p>    </td>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_AIR_CMODEL">CAL_AIR_CMODEL</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airspeed sensor compensation model for the SDP3x</p><p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Model with Pitot</li> 
+
+<li><strong>1:</strong> Model without Pitot (1.5 mm tubes)</li> 
+
+<li><strong>2:</strong> Tube Pressure Drop</li> 
+</ul>
+   <p><b>Module:</b> modules/sensors</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_AIR_TUBED_MM">CAL_AIR_TUBED_MM</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed sensor tube diameter. Only used for the Tube Pressure Drop Compensation</p>    <p><b>Module:</b> modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">0.1 > 100 </td>
+ <td style="vertical-align: top;">1.5 </td>
+ <td style="vertical-align: top;">millimeter</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_AIR_TUBELEN">CAL_AIR_TUBELEN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed sensor tube length</p><p><strong>Comment:</strong> See the CAL_AIR_CMODEL explanation on how this parameter should be set.</p>    <p><b>Module:</b> modules/sensors</p>
+</td>
+ <td style="vertical-align: top;">0.01 > 2.00 </td>
+ <td style="vertical-align: top;">0.2 </td>
+ <td style="vertical-align: top;">meter</td>
+</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG_SIDES">CAL_MAG_SIDES</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Bitfield selecting mag sides for calibration</p><p><strong>Comment:</strong> DETECT_ORIENTATION_TAIL_DOWN = 1 DETECT_ORIENTATION_NOSE_DOWN = 2 DETECT_ORIENTATION_LEFT = 4 DETECT_ORIENTATION_RIGHT = 8 DETECT_ORIENTATION_UPSIDE_DOWN = 16 DETECT_ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>Values:</strong><ul>
