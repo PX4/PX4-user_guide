@@ -184,3 +184,14 @@ RestartSec=1
 [Install]
 WantedBy=multi-user.target
 ```
+
+### Miscellaneous
+
+#### 5V Level Signal to Inverted 3V Level Signal Converter
+
+SBUS signal from receiver (e.g., FrSky X8R) is a 5V level inverted signal. 
+UARTs on BeagleBone Blue only work with un-inverted 3V level signal. The 
+following circuit is an example of signal converter which converts 5V level
+input signal to 3V level output signal:
+
+![](../../assets/hardware/inverted_5v_to_3v_signal_converter.jpg)
