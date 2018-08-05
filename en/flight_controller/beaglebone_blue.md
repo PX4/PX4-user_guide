@@ -11,17 +11,17 @@ is available [here](https://beagleboard.org/latest-images), and test OS images
 are frequently released on [this site](https://rcn-ee.net/rootfs/bb.org/testing/). 
 Refer to [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware) 
 when flashing OS image. Other useful information can be found in 
-[this FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-(FAQ) ).
+[this FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;).
 
 
 ### Robot Control Library
 
 On [BeagleBone Blue](https://beagleboard.org/blue), PX4 uses 
-[librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol). 
-BeagleBoard OS images come with librobotcontrol preinstalled. We need choose
-OS images in which librobotcontrol works properly. Optionally you can update
-to a realtime kernel, and if you do, re-check if librobotcontrol works properly
-with the realtime kernel.
+[librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) of 
+version 1.0.0 or higher. BeagleBoard OS images come with librobotcontrol 
+preinstalled. We need choose OS images in which librobotcontrol works 
+properly. Optionally you can update to a realtime kernel, and if you do, 
+re-check if librobotcontrol works properly with the realtime kernel.
 
 One way to check if librobotcontrol works properly is to run rc_test_drivers 
 which comes with librobotcontrol. As shown in the following example, all tests
@@ -71,31 +71,39 @@ It seems that currently librobotcontrol debian package is only available on
 BeagleBoard products. Here are the ways to obtain the librobotcontrol on 
 BeagleBone Blue:
 
-1) use the one pre-installed in BeagleBoard images
+1. use the one pre-installed in BeagleBoard images
 
-2) install from debian package or repository (sudo apt update && sudo apt install librobotcontrol)
+2. install from debian package or repository 
+```sh
+    sudo apt update && sudo apt install librobotcontrol
+```
 
-3) install from source
+3. install from source
+```sh
     git clone https://github.com/StrawsonDesign/librobotcontrol.git
     cd librobotcontrol
     sudo make install
+```
 
 After acquiring the pre-built library,
 
-a) select and define LIBROBOTCONTROL_INSTALL_DIR environment variable so that other unwanted headers will not be included
+* select librobotcontrol installation directory, and define it as LIBROBOTCONTROL_INSTALL_DIR environment variable so that other unwanted headers will not be included
 
-b) install robotcontrol.h and rc/* into $LIBROBOTCONTROL_INSTALL_DIR/include
+* install robotcontrol.h and rc/* into $LIBROBOTCONTROL_INSTALL_DIR/include
 
-c) install pre-built native (ARM) version of librobotcontrol.* into $LIBROBOTCONTROL_INSTALL_DIR/lib
+ install pre-built native (ARM) version of librobotcontrol.* into $LIBROBOTCONTROL_INSTALL_DIR/lib
 
 then the BeagleBone Blue target can be built on both cross compile host system 
-and native build system, e.g., make posix_bbblue_cross [upload | upload_px4].
-
+and native build system, i.e., 
+```sh
+    make posix_bbblue_cross [upload | upload_px4].
+```
 
 ### File Transfer from the Development Computer to the Target Board
 
-We use SCP to transfer files from the development computer to the target board 
-over a network (WiFi or Ethernet). Setup SSH using steps similar to ones described
+In our cross compile build system, we use SCP to transfer files from the 
+development computer to the target board over a network (WiFi or Ethernet). 
+Setup SSH using steps similar to ones described 
 [here](../flight_controller/raspberry_pi_navio2.md).
 
 On development host computer, define BeagleBone Blue board as BBBluePX4 in /etc/hosts.
@@ -110,7 +118,7 @@ echo "Hello" > hello.txt
 scp hello.txt debian@BBBluePX4:/home/debian/px4/posix-configs
 rm hello.txt
 ```
-After verifying that the file was indeed copied, delete it.
+Verify that the file is indeed copied, and then delete it from BBBluePX4.
 
 ### Native Builds (optional)
 
@@ -164,7 +172,7 @@ cd /home/debian/px4
 exit 0
 ```
 
-Here is a systemd service example [/lib/systemd/system/px4-quad-copter.service]:
+Below is a systemd service example [/lib/systemd/system/px4-quad-copter.service]:
 
 ```sh
 [Unit]
@@ -200,10 +208,10 @@ for usage of these features.
 #### SBUS Signal Converter
 
 SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. 
-UARTs on BeagleBone Blue only work with non-inverted 3.3V level signal. The 
-following circuit is an example of signal converter which converts inverted
-input signal to non-inverted 3.3V level output signal. The resistor values  
+UARTs on BeagleBone Blue only can work with non-inverted 3.3V level signal. The 
+following circuit is an example of signal converter which converts the inverted
+input signal to a non-inverted 3.3V level output signal. The resistor values 
 shown in the diagram reflect resistors that the author had on hand back then, 
-and you can choose values as you see fit.
+and you can choose resistor values as you see fit.
 
 ![](../../assets/hardware/sbus_signal_converter.jpg)

@@ -9,9 +9,9 @@ There are a number of options:
   * [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) - High-end autopilot with integrated onboard computer.
   * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) - UAV development platform with high-end autopilot and integrated onboard computer.
   * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
-  * [BeagleBone Blue](../flight_controller/beaglebone_blue.md) 
   * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
   * [Parrot Bebop](../flight_controller/bebop.md)
+  * [BeagleBone Blue](../flight_controller/beaglebone_blue.md) 
   
   
 ## Documented Boards
@@ -46,3 +46,4 @@ The list of boards documented in this library can be found in the sidebar (repro
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
 * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
 * [Parrot Bebop](../flight_controller/bebop.md)
+* [BeagleBone Blue](../flight_controller/beaglebone_blue.md) 
