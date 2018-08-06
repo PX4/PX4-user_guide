@@ -9,7 +9,7 @@ The orientation and horizon level may be fine-tuned manually with parameters to 
 
 If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of this fine-tuning offset angle parameters instead of using the trimmers of your RC Transmitter. This way when in fully autonomous flight the aircraft will maintain the trimming.
 
-## 手机方向参数
+## Setting Orientation Parameters
 
 To change the orientation parameters:
 
@@ -18,7 +18,7 @@ To change the orientation parameters:
 
 ## Parameter information
 
-** SENS_BOARD_ROT ** 参数定义相对于平台的旋转, 而 X、Y 和 Z 微调偏移相对于主板本身是固定的。 将微调偏移量添加到 SENS_BOARD_ROT 角, 以获得飞行控制器偏航、俯仰和滚动方向的总偏移角。
+The **SENS_BOARD_ROT** parameter defines the rotation relative to the platform, while the X,Y and Z fine tuning offsets are fixed relative to the board itself. What happens is that the fine tuning offsets are added to the SENS_BOARD_ROT angle in order to get the total offset angles for the Yaw, Pitch and Roll orientation of the flight controller.
 
 **SENS_BOARD_ROT**
 
@@ -26,7 +26,7 @@ This parameter defines the rotation of the FMU board relative to the platform. P
 
 - 0 = No rotation
 - 1 = Yaw 45°
-- 2 = 偏航90°
+- 2 = Yaw 90°
 - 3 = Yaw 135°
 - 4 = Yaw 180°
 - 5 = Yaw 225°
