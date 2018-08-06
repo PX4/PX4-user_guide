@@ -1,13 +1,13 @@
-# 高级飞行控制器方向调整
+# Advanced Flight Controller Orientation Tuning
 
-方向和地平线水平可以手动微调的参数, 以纠正传感器板小错位或轻微校准误差。
+The orientation and horizon level may be fine-tuned manually with parameters to correct for sensor board small misalignment or minor calibration errors.
 
-> **Note**对于常规用户, 不建议使用这些说明。 对于基本设置, 坚持以下链接的说明:
+> **Note** These instructions are not recommended for regular users. For basic settings stick to the instructions linked below:
 
 - [Flight Controller Orientation](../config/flight_controller_orientation.md)
 - [Level Horizon Calibration](../config/level_horizon_calibration.md) 
 
-如果存在持续漂移偏差 (通常在 multirotors 中看到但不限于它们), 则最好的策略是在微调偏移角度参数的帮助下修剪它, 而不是使用 RC 发射机的修剪器。 This way when in fully autonomous flight the aircraft will maintain the trimming.
+If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of this fine-tuning offset angle parameters instead of using the trimmers of your RC Transmitter. This way when in fully autonomous flight the aircraft will maintain the trimming.
 
 ## 手机方向参数
 
