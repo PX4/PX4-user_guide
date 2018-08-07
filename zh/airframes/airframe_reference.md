@@ -1,6 +1,6 @@
 # Airframes Reference
 
-> **Note** **This list is auto-generated from the source code**.
+> **Note****该列表是从源码自动生成的**。
 > 
 > The **AUX** channels are only available on Pixhawk Boards (labeled with **AUX OUT**).
 
