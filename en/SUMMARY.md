@@ -150,6 +150,7 @@
   * [OcPoC-Zynq Mini](flight_controller/ocpoc_zynq.md)
   * [Crazyflie 2.0](flight_controller/crazyflie2.md)
   * [Parrot Bebop](flight_controller/bebop.md)
+  * [BeagleBone Blue](flight_controller/beaglebone_blue.md)
 * [Development](development/development.md)
 
 
