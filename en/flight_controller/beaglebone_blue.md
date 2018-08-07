@@ -4,6 +4,13 @@
 
 ## Quick Start
 
+[BeagleBone Blue](https://beagleboard.org/blue) is an all-in-one Linux-based 
+computer. Although it is optimized for robotics, this compact inexpensive 
+board has all necessary sensors and peripherals needed by a flight controller. 
+This topic shows how to set up the board to run PX4 with 
+[librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) robotics 
+package.
+
 ### OS Image
 
 The latest official OS image for [BeagleBone Blue](https://beagleboard.org/blue) 
@@ -30,7 +37,7 @@ should pass. Optionally run other tests such as rc_test_bmp, rc_test_mpu, etc.
 ```sh
 debian@beaglebone:~$ rc_test_drivers
 
-Kernel: 4.14.58-ti-rt-r66
+Kernel: 4.14.56-ti-rt-r64
 BeagleBoard.org Debian Image 2018-07-22
 Debian: 9.5
 
@@ -38,7 +45,7 @@ PASSED: gpio 0
 PASSED: gpio 1
 PASSED: gpio 2
 PASSED: gpio 3
-ERROR:  ti-pwm driver not loaded for hrpwm1
+PASSED: pwm1
 PASSED: pwm2
 PASSED: eqep0
 PASSED: eqep1
@@ -58,9 +65,10 @@ Currently running on a:
 MODEL_BB_BLUE
 Robot Control library Version:
 1.0.0
+
 ```
 
-As of this writing, the last OS images in which librobotcontrol works properly
+As of this writing, the latest OS images in which librobotcontrol works properly
 is [bone-debian-9.5-iot-armhf-2018-07-22-4gb.img.xz](https://rcn-ee.net/rootfs/bb.org/testing/2018-07-22/stretch-iot/bone-debian-9.5-iot-armhf-2018-07-22-4gb.img.xz).
 
 #### Setup Robot Control Library
@@ -96,29 +104,37 @@ After acquiring the pre-built library,
 then the BeagleBone Blue target can be built on both cross compile host system 
 and native build system, i.e., 
 ```sh
-    make posix_bbblue_cross [upload | upload_px4].
+    make posix_bbblue_cross [upload]
 ```
 
 ### File Transfer from the Development Computer to the Target Board
 
-In our cross compile build system, we use SCP to transfer files from the 
+In PX4 cross compile build system, rsync is used to transfer files from the 
 development computer to the target board over a network (WiFi or Ethernet). 
-Setup SSH using steps similar to ones described 
-[here](../flight_controller/raspberry_pi_navio2.md).
+For rsync over SSH with key authentication, setup SSH using steps similar 
+to ones described [here](../flight_controller/raspberry_pi_navio2.md).
 
-On development host computer, define BeagleBone Blue board as BBBluePX4 in /etc/hosts.
+On development host computer, define BeagleBone Blue board as BBBluePX4 in 
+/etc/hosts, and run the following command to build and upload files:
+```sh
+    make posix_bbblue_cross upload
+```
 
-On BeagleBone Blue board, create directory: /home/debian/px4/posix-configs. 
-PX4 will be installed to /home/debian/px4.
-
-To test your setup, try pushing a file from the development PC to BeagleBone Blue over the network now. 
+To test the uploaded files on BeagleBone Blue board, run the following commands:
 
 ```sh
-echo "Hello" > hello.txt
-scp hello.txt debian@BBBluePX4:/home/debian/px4/posix-configs
-rm hello.txt
+cd /home/debian/px4 
+sudo ./bin/px4 -s px4.config 
 ```
-Verify that the file is indeed copied, and then delete it from BBBluePX4.
+Currently librobotcontrol requires root access.
+
+Note that if you use a PX4 version before [Posix Shell](https://github.com/PX4/Firmware/pull/10173) 
+is available, run the following commands instead:
+
+```sh
+cd /home/debian/px4 
+sudo px4 posix-configs/px4.config 
+```
 
 ### Native Builds (optional)
 
@@ -167,7 +183,9 @@ Here is an example [/etc/rc.local]:
 
 cd /home/debian/px4 
 
-/home/debian/px4/px4 -d /home/debian/px4  /home/debian/px4/posix-configs/px4.config > /home/debian/px4/PX4.log & 
+#For PX4 version before Posix Shell (pull request https://github.com/PX4/Firmware/pull/10173) is available
+#/home/debian/px4/px4 -d /home/debian/px4  /home/debian/px4/posix-configs/px4.config > /home/debian/px4/PX4.log & 
+/home/debian/px4/bin/px4 -d -s /home/debian/px4/px4.config > /home/debian/px4/PX4.log & 
 
 exit 0
 ```
@@ -184,7 +202,7 @@ Conflicts=px4-fixed-wing.service
 [Service]
 WorkingDirectory=/home/debian/px4
 User=root
-ExecStart=/home/debian/px4/px4 -d /home/debian/px4/posix-configs/px4.config 
+ExecStart=/home/debian/px4/bin/px4 -d -s /home/debian/px4/px4.config  
 
 Restart=on-failure
 RestartSec=1
@@ -202,8 +220,8 @@ When PX4 starts, it automatically applies power to servos.
 #### Unique Features
 
 BeagleBone Blue has some unique features such as multiple choices of WiFi 
-interfaces. Refer to comments in /home/debian/px4/posix-configs/px4.config
-for usage of these features.
+interfaces. Refer to comments in /home/debian/px4/px4.config for usage of 
+these features.
 
 #### SBUS Signal Converter
 
