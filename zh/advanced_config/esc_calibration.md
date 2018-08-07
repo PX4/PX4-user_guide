@@ -1,6 +1,6 @@
-# ESC Calibration
+# 电调（ESC）校准
 
-> **Note** These instructions are only relevant to ESCs that use a PWM input.
+> **Note** 该说明只针对以PWM为输入的电子调速器（ESC）。
 
 Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on the PWM input value from the flight controller (FC). The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
 
