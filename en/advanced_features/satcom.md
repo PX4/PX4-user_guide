@@ -1,17 +1,20 @@
-# Satellite Communication System Manual
-The satellite communication system ensures a long range high latency link between the ground station and the vehicle using RockBlock as the service provider for the Iridium SBD Satellite Communication System. Given good signal quality the latency is between 10 to 15 seconds.
+# Iridium/RockBlock Satellite Communication System
+A satellite communication system can be used to provide long range high latency link between a ground station and a vehicle.
 
- The link running cost consists of a line rental and per message cost:
+This topic describes how to set up a system that uses RockBlock as the service provider for the Iridium SBD Satellite Communication System. Given good signal quality, users can expect a latency between 10 to 15 seconds.
+
+## Overview
+The following components are required for an operating satellite communication link:
+* A [RockBlock 9603](http://www.rock7mobile.com/products-rockblock-9603) module connected to a Pixhawk flashed with the PX4 Autopilot.
+* A message relay server running Ubuntu.
+* A ground station computer with QGroundControl installed and running Ubuntu 14.04 or 16.04 as the operating system.
+
+The link running cost consists of a line rental and per message cost:
 * Each module needs to be activated which costs £10.00 per month
 * Each message transmitted over the system costs one Credit per 50 bytes. Bundles of Credits can be bought from RockBlock for £0.04-£0.11 per Credit depending on the bundle size.
 
-The following components are required for an operating satellite commuication link:
-* A [RockBlock 9603](http://www.rock7mobile.com/products-rockblock-9603) module connected to a Pixhawk flashed with the PX4 Autopilot.
-* A message relay server running Ubuntu.
-* A groundStation computer with QGroundControl installed and running Ubuntu as the operating system.
-
 Notes: 
-* It might be possible to run the system also on other OS but this has not been tested yet and therefore is not guaranteed to work.
+* It might be possible to run the system also on other ground station OS but this has not been tested yet and therefore is not guaranteed to work.
 * The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) can also be used but the RockBlock 9603 module is recommended as it is smaller and lighter while providing the same functionality.
 * Refer to the [RockBlock Documentation](https://docs.rockblock.rock7.com/docs) for a detailed explanation of the modules, running costs and RockBlock in general.
 
@@ -83,11 +86,7 @@ It is expected that the relay server is either using the Ubuntu 16.04 or 14.04 O
 
 * Install the required python modules:
 
-```
-    sudo pip install pika
-    sudo pip install tornado
-    sudo pip install future
-```
+    `sudo pip install pika tornado future`
 
 * Install the `rabbitmq` message broker:
 
@@ -135,11 +134,7 @@ It is expected that the relay server is either using the Ubuntu 16.04 or 14.04 O
 #### Ground Station Computer
 * Install the required python modules:
 
-```
-    sudo pip install pika
-    sudo pip install tornado
-    sudo pip install future
-```
+    `sudo pip install pika tornado future`
 
 * Clone the SatComInfrastructure repository:
 
