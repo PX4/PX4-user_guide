@@ -19,7 +19,7 @@ Other useful information can be found in the [FAQ](https://github.com/beagleboar
 
 ## Robot Control Library
 
-On [BeagleBone Blue](https://beagleboard.org/blue), PX4 uses [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) version 1.0.0 or higher.
+On [BeagleBone Blue](https://beagleboard.org/blue), PX4 requires [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) version 1.0.0 or higher.
 
 BeagleBoard OS images come with *librobotcontrol* preinstalled, but it may not work properly in all OS images.
 
@@ -69,7 +69,7 @@ The latest OS images in which *librobotcontrol* works properly (at time of writi
 
 If you want to build PX4, there are additional setup steps for this library.
 
-At time of writing the *librobotcontrol* debian package is only available on BeagleBoard products (not BeagleBone Blue). 
+At time of writing, without modifying its build files to add cross compile support, the *librobotcontrol* debian package is only available on BeagleBoard products including BeagleBone Blue. 
 Here are the ways to obtain the *librobotcontrol* on BeagleBone Blue:
 
 1. Use the one pre-installed in BeagleBoard images.
@@ -118,12 +118,6 @@ sudo ./bin/px4 -s px4.config
 
 > **Note** Currently *librobotcontrol* requires root access.
 
-<span></span>
-> **Note** If you use a PX4 version before [Posix Shell](https://github.com/PX4/Firmware/pull/10173) is available, run the following commands instead:
-   ```sh
-   cd /home/debian/px4 
-   sudo px4 posix-configs/px4.config 
-  ```
 
 ## Native Builds (optional) {#native_builds}
 
@@ -162,8 +156,6 @@ Here is an example [/etc/rc.local]:
 
 cd /home/debian/px4 
 
-#For PX4 version before Posix Shell (pull request https://github.com/PX4/Firmware/pull/10173) is available
-#/home/debian/px4/px4 -d /home/debian/px4  /home/debian/px4/posix-configs/px4.config > /home/debian/px4/PX4.log & 
 /home/debian/px4/bin/px4 -d -s /home/debian/px4/px4.config > /home/debian/px4/PX4.log & 
 
 exit 0
