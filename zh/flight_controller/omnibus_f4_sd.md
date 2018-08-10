@@ -139,6 +139,40 @@ Here is an example implementation. I used a Spektrum plug to get 3.3v from the D
 
 ![Omnibus F4 SD Pullup Implementation](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
 
+## RC Telemetry
+
+The Omnibus supports telemetry to the RC Transmitter using [FrSky Telemetry](../peripherals/frsky_telemetry.md) or [CRSF Crossfire Telemetry](#crsf_telemetry).
+
+### CRSF Crossfire Telemetry {#crsf_telemetry}
+
+TBS CRSF Crossfire telemetry is used to send telemetry data from the flight controller (the vehicle's attitude, battery, flight mode and GPS data) to the RC transmitter (Taranis).
+
+Benefits over FrSky telemetry include:
+
+* Only a single UART is needed for RC and telemetry.
+* The CRSF protocol is optimized for low latency.
+* 150 Hz RC update rate.
+* The signals are uninverted and thus no (external) inverter logic is required.
+
+For Omnibus we recommend the [TBS Crossfire Nano RX](http://team-blacksheep.com/products/prod:crossfire_nano_rx), since it is specifically designed for small Quads.
+
+On the handheld controller (e.g. Taranis) you will also need a [Transmitter Module](http://team-blacksheep.com/shop/cat:rc_transmitters#product_listing). This can be plugged into the back of the RC controller.
+
+> **Note** The referenced links above contains the documentation for the TX/RX modules.
+
+#### Setup
+
+Connect the Nano RX and Omnibus pins as shown:
+
+| Omnibus UART1 | Nano RX |
+| ------------- | ------- |
+| TX            | Ch2     |
+| RX            | Ch1     |
+
+Nothing else needs to be configured on PX4 flight controller side - the RC protocol is auto-detected.
+
+Next update the TX/RX modules to use the CRSF protocol and set up telemetry. Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
+
 ## Schematics
 
 The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
