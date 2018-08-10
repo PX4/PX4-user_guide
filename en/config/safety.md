@@ -234,15 +234,14 @@ Parameter | Description
 A safety switch allows you to immediately stop all motors or return the vehicle from the remote control transmitter
 (if you lose control of the vehicle, this may be better than allowing it to continue flying).
 
+The safety switches may be enabled as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md#safety_switch).
+
 This section lists the available safety switches.
 
 ### Kill Switch {#kill_switch}
 
 A kill switch immediately stops all motor outputs (if flying the vehicle will start to fall).
 The vehicle is not disarmed, and the motors will restart if the switch is reverted.
-
-The kill switch is enabled as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md#safety_switch).
-
 
 ### Arm/Disarm Switch {#arming_switch}
 
@@ -259,18 +258,15 @@ The arm/disarm switch immediately disarms (stop) motors for those [flight modes]
 
 For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
 
-To use an arm switch you will need to [manually set parameters](../advanced_config/parameters.md):
-- [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) must be set to the corresponding switch RC channel. 
-- If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value). 
-
-<!-- The switch should be settable in QGC. Depends on https://github.com/PX4/Firmware/pull/9622 -->
+<!-- 
+> **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel. 
+  If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value). 
+  -->
 
 
 ### Return Switch {#return_switch}
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
-
-The *Return* switch is enabled as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md#safety_switch).
 
 
 ## Further Information
