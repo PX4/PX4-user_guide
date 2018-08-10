@@ -76,7 +76,7 @@
 * [Advanced Features](advanced_features/README.md) 
   * [RTK GPS](advanced_features/rtk-gps.md)
   * [Precision Landing](advanced_features/precland.md)
-  * [RockBlock SatCom System](advanced_features/satcom.md)
+  * [RockBlock SatCom System](advanced_features/satcom_roadblock.md)
 * [Advanced Configuration](advanced_config/README.md) 
   * [Parameters](advanced_config/parameters.md)
   * [ESC Calibration](advanced_config/esc_calibration.md)
