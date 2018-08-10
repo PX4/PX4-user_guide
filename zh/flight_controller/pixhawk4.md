@@ -39,7 +39,7 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
 * Other Characteristics: 
   * Operating temperature: -40 ~ 85°c
 
-Additional information can be found in the [Pixhawk 4 Technical Data Sheet](http://www.holybro.com/manual/Pixhawk4-DataSheet.pdf).
+Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
 ## Purchase
 
@@ -106,5 +106,5 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## Further info
 
-* [Pixhawk 4 Technical Data Sheet](http://www.holybro.com/manual/Pixhawk4-DataSheet.pdf)
+* [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 * [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
