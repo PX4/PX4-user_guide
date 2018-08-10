@@ -19,7 +19,7 @@ Other useful information can be found in the [FAQ](https://github.com/beagleboar
 
 ## Robot Control Library
 
-On [BeagleBone Blue](https://beagleboard.org/blue), PX4 uses [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) version 1.0.0 or higher.
+On [BeagleBone Blue](https://beagleboard.org/blue), PX4 requires [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) version 1.0.0 or higher.
 
 BeagleBoard OS images come with *librobotcontrol* preinstalled, but it may not work properly in all OS images.
 
@@ -69,7 +69,7 @@ The latest OS images in which *librobotcontrol* works properly (at time of writi
 
 If you want to build PX4, there are additional setup steps for this library.
 
-At time of writing the *librobotcontrol* debian package is only available on BeagleBoard products (not BeagleBone Blue). 
+At time of writing, without modifying its build files to add cross compile support, the *librobotcontrol* debian package is only available on BeagleBoard products including BeagleBone Blue. 
 Here are the ways to obtain the *librobotcontrol* on BeagleBone Blue:
 
 1. Use the one pre-installed in BeagleBoard images.
@@ -101,6 +101,29 @@ The recommended way to build PX4 for *BeagleBone Blue* is to compile on a develo
 
 > **Tip** This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
 
+### Cross Compiler Setup
+
+ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/). 
+The following is an example setup on development host. 
+
+1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*. Here is an example of using soft link to select which version of the toolchain you want to use:
+   ```sh
+    ...@ubuntu:/opt/bbblue_toolchain$ ls -l
+        lrwxrwxrwx 1 root root   51 Mar 22 16:10 gcc-arm-linux-gnueabihf -> gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
+        drwxr-xr-x 8 root root 4096 May 17  2017 gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
+        drwxr-xr-x 8 root root 4096 Nov 19 03:51 gcc-linaro-6.4.1-2017.11-x86_64_arm-linux-gnueabihf
+   ```
+    
+1. Add it to the PATH in ~/.profile as shown below
+   ```sh
+   export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/bin
+   export CrossCompiler=/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+   ```
+
+> **Tip** GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain 
+where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*. 
+
+### Cross Compile and Upload
 
 1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). 
    - For *rsync* over SSH with key authentication, follow steps similar to those for [Raspberry Pi/Navio](../flight_controller/raspberry_pi_navio2.md)
@@ -118,12 +141,6 @@ sudo ./bin/px4 -s px4.config
 
 > **Note** Currently *librobotcontrol* requires root access.
 
-<span></span>
-> **Note** If you use a PX4 version before [Posix Shell](https://github.com/PX4/Firmware/pull/10173) is available, run the following commands instead:
-   ```sh
-   cd /home/debian/px4 
-   sudo px4 posix-configs/px4.config 
-  ```
 
 ## Native Builds (optional) {#native_builds}
 
@@ -162,8 +179,6 @@ Here is an example [/etc/rc.local]:
 
 cd /home/debian/px4 
 
-#For PX4 version before Posix Shell (pull request https://github.com/PX4/Firmware/pull/10173) is available
-#/home/debian/px4/px4 -d /home/debian/px4  /home/debian/px4/posix-configs/px4.config > /home/debian/px4/PX4.log & 
 /home/debian/px4/bin/px4 -d -s /home/debian/px4/px4.config > /home/debian/px4/PX4.log & 
 
 exit 0
