@@ -58,7 +58,7 @@ Wiring information is available [below](#wiring).
 
 ## Connector assignments
 
-\<To be added.\>
+`<To be added.>`
 
 ## Features
 
@@ -99,7 +99,7 @@ RC-in cable for PPM/SBUS             | ![RC-in cable for PPM/SBUS](../../images/
 6 to 6/4 ‘Y’ adapter for GPS and additional I2C devices    | ![6 to 6/4 ‘Y’ adapter](../../images/pixhawk_mini_6_to_6_and_4_pin_Y_cable_drawing.png) 
 6 pin cable (2)    (for power distribution board and for compass/gps)                   | ![6 pin cable](../../images/pixhawk_mini_6_pin_cable_drawing.png) 
 6 pin JST to DF13 for legacy telemetry radio      | ![6 pin JST to DF13](../../images/pixhawk_mini_6pin_JST_to_DF13_cable_drawing.png)
-Safety switch                        | ![Safety switch](../../images/pixhawk_mini_safety_switch_drawing.png
+Safety switch                        | ![Safety switch](../../images/pixhawk_mini_safety_switch_drawing.png)
 8 Channel PWM Breakout cable         | ![8 Channel PWM Breakout cable](../../images/pixhawk_mini_8channel_pwm_breakout_cable_drawing.png)
 Mounting foam                        | ![Mounting foam](../../images/3dr_anti_vibration_mounting_foam.png) 
 I2C breakout board ? - not listed  parts on handout |  -                                   
