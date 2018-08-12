@@ -33,9 +33,9 @@ pipeline {
 
     stage('Deploy') {
       environment {
-        GIT_AUTHOR_EMAIL = "bot@pixhawk.org"
+        GIT_AUTHOR_EMAIL = "bot@px4.io"
         GIT_AUTHOR_NAME = "PX4BuildBot"
-        GIT_COMMITTER_EMAIL = "bot@pixhawk.org"
+        GIT_COMMITTER_EMAIL = "bot@px4.io"
         GIT_COMMITTER_NAME = "PX4BuildBot"
       }
 
