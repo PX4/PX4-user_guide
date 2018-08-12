@@ -161,6 +161,36 @@ The module where these parameters are defined is: *modules/attitude_estimator_q*
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="BAT_ADC_CHANNEL">BAT_ADC_CHANNEL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery ADC Channel
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. A value of -1 means to use the board default.
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="BAT_A_PER_V">BAT_A_PER_V</strong> (FLOAT)
     </td>
     
@@ -5389,6 +5419,52 @@ The module where these parameters are defined is: *drivers/gps*.
  <td style="vertical-align: top;">0. </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SER_GPS1_BAUD">SER_GPS1_BAUD</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        GPS Baudrate
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure the Baudrate for the GPS Serial Port. In most cases this can be set to Auto. The Trimble MB-Two GPS does not support auto-detection and uses a baudrate of 115200.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        
+<li><strong>0:</strong> Auto</li> 
+
+<li><strong>9600:</strong> 9600 8N1</li> 
+
+<li><strong>19200:</strong> 19200 8N1</li> 
+
+<li><strong>38400:</strong> 38400 8N1</li> 
+
+<li><strong>57600:</strong> 57600 8N1</li> 
+
+<li><strong>115200:</strong> 115200 8N1</li>      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
 </table>
 
 ## GPS Failure Navigation
@@ -16981,7 +17057,7 @@ The module where these parameters are defined is: *modules/logger*.
       </p>
       
       <p>
-        <strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming. This parameter is only for the new logger (SYS_LOGGER=1).
+        <strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.
       </p>
       
       <strong>Values:</strong>
@@ -19484,8 +19560,6 @@ The module where these parameters are defined is: *modules/syslink*.
 
 <li><strong>357600:</strong> Normal Telemetry (57600 baud, 8N1)</li> 
 
-<li><strong>419200:</strong> Iridium Telemetry (19200 baud, 8N1)</li> 
-
 <li><strong>519200:</strong> Minimal Telemetry (19200 baud, 8N1)</li> 
 
 <li><strong>538400:</strong> Minimal Telemetry (38400 baud, 8N1)</li> 
@@ -19494,9 +19568,13 @@ The module where these parameters are defined is: *modules/syslink*.
 
 <li><strong>921600:</strong> Companion Link (921600 baud, 8N1)</li> 
 
+<li><strong>1500000:</strong> Companion Link (1500000 baud, 8N1)</li> 
+
 <li><strong>1921600:</strong> ESP8266 (921600 baud, 8N1)</li> 
 
 <li><strong>3115200:</strong> Normal Telemetry (115200 baud, 8N1)</li> 
+
+<li><strong>4115200:</strong> Iridium Telemetry (115200 baud, 8N1)</li> 
 
 <li><strong>5115200:</strong> Minimal Telemetry (115200 baud, 8N1)</li> 
 
