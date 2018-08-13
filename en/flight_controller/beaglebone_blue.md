@@ -221,7 +221,5 @@ these features.
 
 SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. 
 UARTs on BeagleBone Blue only can work with non-inverted 3.3V level signal. 
-The following circuit is an example of signal converter which converts the inverted input signal to a non-inverted 3.3V level output signal. 
-The resistor values shown in the diagram reflect resistors that the author had on hand back then, and you can choose resistor values as you see fit.
-
-![SBUS signal converter](../../assets/hardware/sbus_signal_converter.jpg)
+[This tutorial](https://dev.px4.io/en/tutorials/linux_sbus.html) contains a 
+SBUS signal inverter circuit.
