@@ -213,8 +213,8 @@ When PX4 starts, it automatically applies power to servos.
 
 #### Unique Features
 
-BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces. 
-Refer to comments in **/home/debian/px4/px4.config** for usage of 
+BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces
+and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of 
 these features.
 
 #### SBUS Signal Converter
@@ -223,3 +223,22 @@ SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal.
 UARTs on BeagleBone Blue only can work with non-inverted 3.3V level signal. 
 [This tutorial](https://dev.px4.io/en/tutorials/linux_sbus.html) contains a 
 SBUS signal inverter circuit.
+
+#### Typical Connections
+
+For a typical quadcopter with GPS and a receiver with SBUS, here are typical 
+connections:
+
+1. Connect ESC of motor 1, 2, 3 and 4 to channel 1, 2, 3 and 4 of servo outputs 
+on BeagleBone Blue, respectively. If your ESC connector contains power output 
+pin, remove it and do not connect it to the power output pin in servo channel 
+on BeagleBone Blue.
+
+1. Connect the above mentioned converted SBUS signal to dsm2 port if you have 
+the matching connector for dsm2, otherwise connect it to any other available 
+UART port and change the corresponding port in **/home/debian/px4/px4.config** 
+accordingly.
+
+1. Connect signals of GPS module to GPS port on BeagleBone Blue. Notice that 
+signal pins in GPS port on BeagleBone Blue are only 3.3V tolerant, so choose 
+your GPS module accordingly.
