@@ -8501,13 +8501,6 @@ The module where these parameters are defined is: *modules/simulator*.
  <td style="vertical-align: top;">60 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SITL_UDP_PRT">SITL_UDP_PRT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Simulator UDP port</p>    </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">14560 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 </tbody></table>
 
 ## Sensor Calibration
