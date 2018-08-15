@@ -78,8 +78,8 @@ At time of writing, without modifying its build files to add cross compile suppo
 After acquiring the pre-built library,
 
 1. Select the *librobotcontrol* installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
-2. Install **robotcontrol.h** and **rc/*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
-3. Install pre-built native (ARM) version of librobotcontrol.* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
+2. Install **robotcontrol.h** and **rc/\*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
+3. Install pre-built native (ARM) version of librobotcontrol.\* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
 
 At this point the BeagleBone Blue target can be built on both cross compile host system and native build system, i.e.,
 
@@ -204,10 +204,18 @@ When PX4 starts, it automatically applies power to servos.
 
 #### Unique Features
 
-BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
+BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
 
 #### SBUS Signal Converter
 
-SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue only can work with non-inverted 3.3V level signal. The following circuit is an example of signal converter which converts the inverted input signal to a non-inverted 3.3V level output signal. The resistor values shown in the diagram reflect resistors that the author had on hand back then, and you can choose resistor values as you see fit.
+SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](https://dev.px4.io/en/tutorials/linux_sbus.html) contains a SBUS signal inverter circuit.
 
-![SBUS signal converter](../../assets/hardware/sbus_signal_converter.jpg)
+#### Typical Connections
+
+For a quadcopter with GPS and an SBUS receiver, here are typical connections:
+
+1. Connect the ESC of motor 1, 2, 3 and 4 to channel 1, 2, 3 and 4 of servo outputs on BeagleBone Blue, respectively. If your ESC connector contains a power output pin, remove it and do not connect it to the power output pin of the servo channel on the BeagleBone Blue.
+
+2. Connect the above mentioned converted SBUS signal to the dsm2 port if you have the matching connector for dsm2, otherwise connect it to any other available UART port and change the corresponding port in **/home/debian/px4/px4.config** accordingly.
+
+3. Connect the signals of GPS module to GPS port on the BeagleBone Blue. Note that the signal pins of the GPS port on the BeagleBone Blue are only 3.3V tolerant, so choose your GPS module accordingly.
