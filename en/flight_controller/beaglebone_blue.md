@@ -87,8 +87,8 @@ Here are the ways to obtain the *librobotcontrol* on BeagleBone Blue:
 After acquiring the pre-built library,
 
 1. Select the *librobotcontrol* installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
-1. Install **robotcontrol.h** and __rc/*__ into `$LIBROBOTCONTROL_INSTALL_DIR/include`
-1. Install pre-built native (ARM) version of librobotcontrol.* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
+1. Install **robotcontrol.h** and __rc/\*__ into `$LIBROBOTCONTROL_INSTALL_DIR/include`
+1. Install pre-built native (ARM) version of librobotcontrol.\* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
 
 At this point the BeagleBone Blue target can be built on both cross compile host system and native build system, i.e., 
 ```sh
@@ -220,25 +220,24 @@ these features.
 #### SBUS Signal Converter
 
 SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. 
-UARTs on BeagleBone Blue only can work with non-inverted 3.3V level signal. 
+UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. 
 [This tutorial](https://dev.px4.io/en/tutorials/linux_sbus.html) contains a 
 SBUS signal inverter circuit.
 
 #### Typical Connections
 
-For a typical quadcopter with GPS and a receiver with SBUS, here are typical 
-connections:
+For a quadcopter with GPS and an SBUS receiver, here are typical connections:
 
-1. Connect ESC of motor 1, 2, 3 and 4 to channel 1, 2, 3 and 4 of servo outputs 
-on BeagleBone Blue, respectively. If your ESC connector contains power output 
-pin, remove it and do not connect it to the power output pin in servo channel 
-on BeagleBone Blue.
+1. Connect the ESC of motor 1, 2, 3 and 4 to channel 1, 2, 3 and 4 of servo outputs 
+on BeagleBone Blue, respectively. If your ESC connector contains a power output 
+pin, remove it and do not connect it to the power output pin of the servo channel 
+on the BeagleBone Blue.
 
-1. Connect the above mentioned converted SBUS signal to dsm2 port if you have 
+1. Connect the above mentioned converted SBUS signal to the dsm2 port if you have 
 the matching connector for dsm2, otherwise connect it to any other available 
 UART port and change the corresponding port in **/home/debian/px4/px4.config** 
 accordingly.
 
-1. Connect signals of GPS module to GPS port on BeagleBone Blue. Notice that 
-signal pins in GPS port on BeagleBone Blue are only 3.3V tolerant, so choose 
-your GPS module accordingly.
+1. Connect the signals of GPS module to GPS port on the BeagleBone Blue. Note
+that the signal pins of the GPS port on the BeagleBone Blue are only 3.3V
+tolerant, so choose your GPS module accordingly.
