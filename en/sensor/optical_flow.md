@@ -1,6 +1,6 @@
 # Optical Flow
 
-Optical Flow uses a downward facing camera and a downward facing distance sensor for position estimation. 
+Optical Flow uses a downward facing camera and a downward facing distance sensor for position estimation.
 Optical Flow based navigation is supported by: EKF2 and LPE.
 
 ## Setup
@@ -36,21 +36,21 @@ The easiest way to calculate the optical flow is to use the [PX4Flow](../sensor/
 
 #### Other Cameras
 
-It is also possible to use a board/quad that has an integrated camera (Bebop2, Snapdragon Flight). 
+It is also possible to use a board/quad that has an integrated camera (Bebop2, Snapdragon Flight).
 For this the [Optical Flow repo](https://github.com/PX4/OpticalFlow) can be used (see also [snap_cam](https://github.com/PX4/snap_cam)).
 
 ### Range Finder
 
 You can use any supported [distance sensor](../sensor/rangefinders.md).
-However we recommend using a LIDAR over a Sonar, because of robustness and accuracy. 
+However we recommend using a LIDAR over a Sonar, because of robustness and accuracy.
 
 ## Estimators
 
 ### Extended Kalman Filter (EKF2)
 
-For Optical Flow fusion using EKF2, the parameter [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) must be set to `1`.
+For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter, as shown using QGroundControl below:
+![QGroundControl - Calibrate Sensors](../../images/qgc_ekf2_enable_flow.png)
 
 ### Local Position Estimator (LPE)
 
 TODO
-
