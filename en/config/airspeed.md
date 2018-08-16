@@ -14,10 +14,8 @@ To calibrate the airspeed sensor:
 
    ![Airspeed calibration](../../images/qgc/setup/sensor_airspeed.jpg)
    
-1. Cover the sensor to block any wind (i.e. cup it with your hand).
-
-   > **Warning** Do not touch the sensor (obstruct any holes) during calibration.
-
+1. Shield the sensor from the wind (i.e. cup it with your hand). 
+   Take care not to block any of its holes.
 1. Click **OK** to start the calibration.
 1. Blow into the tip of the pitot tube to signal the end of calibration.
 
