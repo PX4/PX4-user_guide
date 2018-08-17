@@ -1353,7 +1353,7 @@ Increasing it makes the multi-rotor wind estimates adjust more slowly</p>    </t
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_CHECK">EKF2_GPS_CHECK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Integer bitmask controlling GPS checks</p><p><strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Minimum required GDoP set by EKF2_REQ_GDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check can only be used if the vehicle is stationary during alignment. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check can only be used if the vehicle is stationary during alignment. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check can only be used if the vehicle is stationary during alignment. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Min sat count (EKF2_REQ_NSATS)</li> 
+ <td style="vertical-align: top;"><p>Integer bitmask controlling GPS checks</p><p><strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Minimum required GDoP set by EKF2_REQ_GDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Min sat count (EKF2_REQ_NSATS)</li> 
   <li><strong>1:</strong> Min GDoP (EKF2_REQ_GDOP)</li> 
   <li><strong>2:</strong> Max horizontal position error (EKF2_REQ_EPH)</li> 
   <li><strong>3:</strong> Max vertical position error (EKF2_REQ_EPV)</li> 
@@ -1365,7 +1365,7 @@ Increasing it makes the multi-rotor wind estimates adjust more slowly</p>    </t
 </ul>
   </td>
  <td style="vertical-align: top;">0 > 511 </td>
- <td style="vertical-align: top;">21 </td>
+ <td style="vertical-align: top;">245 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -1614,7 +1614,7 @@ This parameter is used when the magnetometer fusion method is set automatically 
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAG_TYPE">EKF2_MAG_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Type of magnetometer fusion</p><p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetomer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Type of magnetometer fusion</p><p><strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetomer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests controlled by the EKF2_MOVE_TEST parameter indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Automatic</li> 
 
 <li><strong>1:</strong> Magnetic heading</li> 
@@ -1654,6 +1654,13 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
  <td style="vertical-align: top;">0.01 > ? </td>
  <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="EKF2_MOVE_TEST">EKF2_MOVE_TEST</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Vehicle movement test threshold</p><p><strong>Comment:</strong> Scales the threshold tests applied to IMU data used to determine if the vehicle is static or moving. See parameter descriptions for EKF2_GPS_CHECK and EKF2_MAG_TYPE for further information on the functionality affected by this parameter.</p>    </td>
+ <td style="vertical-align: top;">0.1 > 10.0 </td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_NOAID_NOISE">EKF2_NOAID_NOISE</strong> (FLOAT)</td>
@@ -1766,14 +1773,14 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><strong id="EKF2_REQ_EPH">EKF2_REQ_EPH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Required EPH to use GPS</p>    </td>
  <td style="vertical-align: top;">2 > 100 </td>
- <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_REQ_EPV">EKF2_REQ_EPV</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Required EPV to use GPS</p>    </td>
  <td style="vertical-align: top;">2 > 100 </td>
- <td style="vertical-align: top;">8.0 </td>
+ <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
@@ -1787,7 +1794,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><strong id="EKF2_REQ_HDRIFT">EKF2_REQ_HDRIFT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum horizontal drift speed to use GPS</p>    </td>
  <td style="vertical-align: top;">0.1 > 1.0 </td>
- <td style="vertical-align: top;">0.3 </td>
+ <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
@@ -1801,14 +1808,14 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><strong id="EKF2_REQ_SACC">EKF2_REQ_SACC</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Required speed accuracy to use GPS</p>    </td>
  <td style="vertical-align: top;">0.5 > 5.0 </td>
- <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_REQ_VDRIFT">EKF2_REQ_VDRIFT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum vertical drift speed to use GPS</p>    </td>
  <td style="vertical-align: top;">0.1 > 1.5 </td>
- <td style="vertical-align: top;">0.5 </td>
+ <td style="vertical-align: top;">0.2 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
