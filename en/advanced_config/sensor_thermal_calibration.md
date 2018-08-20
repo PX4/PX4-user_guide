@@ -60,21 +60,22 @@ Offboard calibration is run on a development computer using data collected durin
 To perform an offboard calibration:
 
 1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-2. Power up the board and set the `TC_A_ENABLE`, `TC_B_ENABLE` and `TC_G_ENABLE` parameters to 1.
-3. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_EN) parameters to defaults.
-4. Set the [SYS_LOGGER](../advanced_config/parameter_reference.md#SYS_LOGGER) parameter to 1 to use the new system logger.
-5. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot and set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter to 4 to log the raw sensor data required for calibration.
-6. Cold soak the board to the minimum temperature it will be required to operate in.
-7. Apply power and keeping the board still [^2], warm it slowly to the maximum required operating temperature. [^3]
-8. Remove power and extract the .ulog file.
-9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script script file: 
+1. Power up the board and set the `TC_A_ENABLE`, `TC_B_ENABLE` and `TC_G_ENABLE` parameters to 1.
+1. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_EN) parameters to defaults.
+1. Set the [SYS_LOGGER](../advanced_config/parameter_reference.md#SYS_LOGGER) parameter to 1 to use the new system logger.
+1. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot. 
+1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
+1. Cold soak the board to the minimum temperature it will be required to operate in.
+1. Apply power and keeping the board still [^2], warm it slowly to the maximum required operating temperature. [^3]
+1. Remove power and extract the .ulog file.
+1. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script script file: 
    ```sh
    python process_sensor_caldata.py <full path name to .ulog file>
    ```
    This will generate a **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
-10. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
-11. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
-12. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
+1. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
+1. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
+1. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
 
 
 ## Implementation Detail {#implementation}
