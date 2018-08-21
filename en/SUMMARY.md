@@ -106,7 +106,7 @@
     * [Telemetry Wifi](telemetry/telemetry_wifi.md)
       * [ESP8266 WiFi Module](telemetry/esp8266_wifi_module.md)
       * [3DR Telemetry Wifi (Discontinued)](telemetry/3dr_telemetry_wifi.md)
-  * [Distance Sensors (Rangerfinders)](sensor/rangefinders.md)
+  * [Distance Sensors (Rangefinders)](sensor/rangefinders.md)
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
     * [LeddarOne Lidar](sensor/leddar_one.md)
