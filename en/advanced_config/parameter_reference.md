@@ -2396,6 +2396,18 @@ The module where these parameters are defined is: *modules/fw_pos_control_l1*.
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="FW_LND_EARLYCFG">FW_LND_EARLYCFG</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Early landing configuration deployment</p><p><strong>Comment:</strong> When set to 0/disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When set to 1/enabled, it is already activated when entering the final loiter-down (loiter-to-alt) WP before the landing approach. This shifts the (often large) altitude and airspeed errors caused by the configuration change away from the ground such that these are not so critical. It also gives the controller enough time to adapt to the new configuration such that the landing approach starts with a cleaner initial state.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable early land configuration deployment</li> 
+
+<li><strong>1:</strong> Enable early land configuration deployment</li> 
+</ul>
+   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="FW_LND_FLALT">FW_LND_FLALT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Landing flare altitude (relative to landing altitude)</p>    </td>
  <td style="vertical-align: top;">0.0 > 25.0 (0.5)</td>
@@ -2404,14 +2416,14 @@ The module where these parameters are defined is: *modules/fw_pos_control_l1*.
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_FL_PMAX">FW_LND_FL_PMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Flare, maximum pitch</p><p><strong>Comment:</strong> Maximum pitch during flare, a positive sign means nose up Applied once FW_LND_TLALT is reached</p>    </td>
+ <td style="vertical-align: top;"><p>Flare, maximum pitch</p><p><strong>Comment:</strong> Maximum pitch during flare, a positive sign means nose up Applied once FW_LND_FLALT is reached</p>    </td>
  <td style="vertical-align: top;">0 > 45.0 (0.5)</td>
  <td style="vertical-align: top;">15.0 </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_FL_PMIN">FW_LND_FL_PMIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Flare, minimum pitch</p><p><strong>Comment:</strong> Minimum pitch during flare, a positive sign means nose up Applied once FW_LND_TLALT is reached</p>    </td>
+ <td style="vertical-align: top;"><p>Flare, minimum pitch</p><p><strong>Comment:</strong> Minimum pitch during flare, a positive sign means nose up Applied once FW_LND_FLALT is reached</p>    </td>
  <td style="vertical-align: top;">0 > 15.0 (0.5)</td>
  <td style="vertical-align: top;">2.5 </td>
  <td style="vertical-align: top;">deg</td>
@@ -2430,6 +2442,13 @@ Set to 0 to disable heading hold</p>    </td>
  <td style="vertical-align: top;">1.0 > 15.0 (0.5)</td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FW_LND_THRTC_SC">FW_LND_THRTC_SC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Throttle time constant factor for landing</p><p><strong>Comment:</strong> Set this parameter to <1.0 to make the TECS throttle loop react faster during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS throttle time constant (FW_T_THRO_CONST) is multiplied by this value.</p>    </td>
+ <td style="vertical-align: top;">0.2 > 1.0 (0.1)</td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_TLALT">FW_LND_TLALT</strong> (FLOAT)</td>
@@ -2489,7 +2508,7 @@ Set to 0 to disable heading hold</p>    </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_THR_LND_MAX">FW_THR_LND_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Throttle limit value before flare</p><p><strong>Comment:</strong> This throttle value will be set as throttle limit at FW_LND_TLALT, before aircraft will flare.</p>    </td>
+ <td style="vertical-align: top;"><p>Throttle limit during landing below throttle limit altitude</p><p><strong>Comment:</strong> During the flare of the autonomous landing process, this value will be set as throttle limit when the aircraft altitude is below FW_LND_TLALT.</p>    </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">norm</td>
@@ -4121,6 +4140,14 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="NAV_FW_ALTL_RAD">NAV_FW_ALTL_RAD</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>FW Altitude Acceptance Radius before a landing</p><p><strong>Comment:</strong> Altitude acceptance used for the last waypoint before a fixed-wing landing. This is usually smaller than the standard vertical acceptance because close to the ground higher accuracy is required.</p>    <p><b>Module:</b> modules/navigator</p>
+</td>
+ <td style="vertical-align: top;">0.05 > 200.0 </td>
+ <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_FW_ALT_RAD">NAV_FW_ALT_RAD</strong> (FLOAT)</td>
