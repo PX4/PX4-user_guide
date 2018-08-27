@@ -92,7 +92,6 @@
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [Peripheral Hardware](peripherals/README.md)
-
   * [GPS/Compass](gps_compass/README.md)
     * [RTK GPS](gps_compass/rtk_gps.md)
       * [Here+](gps_compass/rtk_gps_hex_hereplus.md)
@@ -115,6 +114,7 @@
   * [Optical Flow](sensor/optical_flow.md)
     * [PX4FLOW](sensor/px4flow.md)
   * [ESCs & Motors](peripherals/esc_motors.md)
+  * [Camera](peripherals/camera.md)
   * [MAVLink \(OSD / Telemetry\)](peripherals/mavlink_peripherals.md)
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)
 * [Autopilot Hardware](flight_controller/README.md)
