@@ -1,32 +1,45 @@
-# ESC calibration
+# ESC Calibration
 
-Electronic speed controllers translate the input from the RC or the
-flight controller to the motors. ESCs do not always have to be
-calibrated. High-quality controllers come with a factory calibration and
-can be just configured using the PWM\_MIN and PWM\_MAX parameters. This
-ensures that all the ESCs in a multicopter will scale the same way the
-input from the FC to the motors.  However, many low-cost models do
-require calibration and so if unsure calibration is recommended. Here is
-how you do it.
+> **Note** These instructions are only relevant to ESCs that use a PWM input.
 
-> **Warning** Never attempt ESC calibration with props on. Before you begin just remove them.
+Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on the PWM input value from the flight controller (FC).
+The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
 
-For the calibration process to begin you should use only the USB
-connection to the flight controller in the first step.
+This calibration updates all the ESCs with the maximum and minimum PWM input values that will be supplied by the flight controller. 
+Subsequently all the ESCs/motors will respond to flight controller input in the same way (across the whole input range).
 
-![ESC Calibration step 1](../../images/esc_calibration_step_1.png)
+Calibration is recommended for all ESCs, and in particular for low cost models.
 
-Then you will be asked to plug in the battery.
+## Preconditions
 
-![ESC Calibration step 2](../../images/esc_calibration_step_2.png)
+The system must include a power module (PX4 uses the measured voltage to determine whether or not a battery is connected).
 
-The calibration will begin automatically.
+## Steps
 
-![ESC Calibration step 3](../../images/esc_calibration_step_3.png)
+To calibrate the ESCs:
 
-Wait until it is finished.
+1. Remove the propellers.
 
-![ESC Calibration step 4](../../images/esc_calibration_step_4.png)
+   > **Warning** Never attempt ESC calibration with props on. Remove them before you begin!
+   
+1. Disconnect the battery and connect the flight controller via USB (only). 
+1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
 
-You are done. Now the ESCs are calibrated.
+   ![ESC Calibration step 1](../../images/qgc_esc_calibration.png)
 
+1. Connect the battery when prompted:
+
+   ![ESC Calibration step 2](../../images/esc_calibration_step_2.png)
+
+   The calibration will begin automatically:
+
+   ![ESC Calibration step 3](../../images/esc_calibration_step_3.png)
+
+1. Once the calibration complete you will be prompted to disconnect the battery.
+
+   ![ESC Calibration step 4](../../images/esc_calibration_step_4.png)
+
+
+> **Note** High-quality controllers come with a factory calibration. 
+  In *theory* this means that they can be configured by just setting the [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) and [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) parameters to the values provided in the ESC technical specification.
+  In practice the input range may differ even on high quality controllers, which is why calibration is recommended.

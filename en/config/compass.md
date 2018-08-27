@@ -4,6 +4,8 @@
 
 ## Performing the Calibration 
 
+> **Note** If you are using an external magnetometer/compass for example a compass integrated into a GPS module, make sure you mount the external compass on your vehicle properly and connect it to the autopilot hardware. Instructions for connecting your GPS+compass can be found in [Basic Assembly](../assembly/README.md) for your specific autopilot hardware. Once connected, QGroundControl will automatically detect the external mag.  
+
 The calibration steps are:
 
 1. Start *QGroundControl* and connect the vehicle.

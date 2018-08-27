@@ -1,7 +1,6 @@
 # Pixhawk Wiring Quick Start
 
-This quick start guide shows how power the *3DR Pixhawk* flight controller and connect its most important peripherals
-(including output connections for [copter](#copter), [plane](#plane), and [VTOL](#vtol) vehicles).
+This quick start guide shows how to power the *3DR Pixhawk* flight controller and connect its most important peripherals.
   
 ![Pixhawk Image](../../images/pixhawk_logo_view.jpg) 
 
@@ -38,7 +37,7 @@ Connect the included buzzer and safety switch as shown below (these are mandator
 
 ## GPS + Compass
 
-Attach a GPS (required) to the GPS port using the 6-wire cable supplied in the kit. Optionally attach a compass to the I2C port using a 4-wire cable (the Pixhawk has an internal compass, than can be used if necessary).
+Attach a GPS (required) to the GPS port using the 6-wire cable supplied in the kit. Optionally attach a compass to the I2C port using a 4-wire cable (the Pixhawk has an internal compass, which can be used if necessary).
 
 > **Note** The diagram shows a combined GPS and Compass.  The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
@@ -55,7 +54,7 @@ The power module supplies the flight controller with power from the battery and 
 
 > **Warning** The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail). For copter this does not matter because the motors are separately powered. 
 
-For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. Often the main pusher/puller motor uses an ESC with an integrated [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) that can be connected to the AUX5 pin to power the Pixhawk output rail. If not, you will need to setup a 5V BEC to connect to one of the free Pixhawk ports (without power, the servos will not work).
+For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. Often the main pusher/puller motor uses an ESC with an integrated [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) that can be connected to the Pixhawk output rail. If not, you will need to setup a 5V BEC to connect to one of the free Pixhawk ports (without power, the servos will not work).
 
 <!-- It would be good to have real example of this powering --> 
 
@@ -67,14 +66,15 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers to Pixhawk:
 
-- PPM and S.BUS receivers must connect to the **RC** ground, power and signal pins as shown.
-  ![Pixhawk - Radio port for PPM/S.BUS receivers](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
-- PWM receivers must connect to the RCIN channel *via* a PPM encoder 
-  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM receivers use a single signal wire for all channels, while PWM receivers have an individual wire for each channe).
-- Spektrum and DSM receivers must connect to the **SPKT/DSM** input.
+- Spektrum and DSM receivers connect to the **SPKT/DSM** input.
   ![Pixhawk - Radio port for Spektrum receivers](../../images/pixhawk_3dr_receiver_spektrum.jpg)
 
-For more information about selecting a radio system and receiver compatibility see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+- PPM-SUM and S.BUS receivers connect to the **RC** ground, power and signal pins as shown.
+  ![Pixhawk - Radio port for PPM/S.BUS receivers](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
+
+- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+
+For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
 
 ## Telemetry Radios (Optional)
@@ -88,17 +88,15 @@ Telemetry radios may be used to communicate and control a vehicle in flight from
 
 ## Motors
 
-The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframe_reference.md).
+The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
 
 > **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 
 <span></span>
 > **Tip** If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 
-Note:
-
-* The output rail must be separately powered, as discussed in the [Power](#power) section above.
-
+<span></span>
+> **Note** The output rail must be separately powered, as discussed in the [Power](#power) section above.
   
 <!-- INSERT image of the motor AUX/MAIN ports? -->
 
@@ -112,7 +110,7 @@ The wiring and configuration of other components is covered within the topics fo
 
 General configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config/vtol_quad_configuration.md)
+QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
@@ -122,6 +120,5 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 ## Further information
 
-- [Pixhawk Quick Start Guide (3DR)](https://3dr.com/wp-content/uploads/2014/03/pixhawk-manual-rev7.pdf)
 - [Pixhawk Series](../flight_controller/pixhawk_series.md)
-- [3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html) (PX4 DevGuide)
+- [3DR Pixhawk](../flight_controller/pixhawk.md) 

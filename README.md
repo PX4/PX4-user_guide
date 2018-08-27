@@ -124,6 +124,3 @@ translated: false
 ```
 
 > **Note** The *translated_sha* is the full SHA of the commit that you translated. Find this by opening the source page on github, press the **History** button. Find the commit of the document you are translating from (ideally the most recent) and press the "Copy the full SHA" icon associated with that commit.
-
-
-

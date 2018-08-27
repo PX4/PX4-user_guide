@@ -11,9 +11,8 @@ The main things to look for are:
 - Make sure the space is open. No high trees, hills or buildings next
   to it, because it will impair the GPS reception.
 - Make sure no people are within 100 m / 300 feet.
-- Make sure there is nothing that you shouldn't crash onto within 100
-  m / 300 feet: No houses, structures, cars, water, corn fields (hard
-  to find drones in).
+- Make sure there is nothing that you shouldn't crash onto within 100 m / 300 feet: 
+  No houses, structures, cars, water, corn fields (hard to find drones in).
 
 ## Bring a Pro
 
@@ -36,8 +35,8 @@ If you start to lose control over the vehicle, and cannot bring it back under co
 crash it in an empty area as soon as possible.
 
 > **Note** It can be useful to 
-  [set a kill switch on your transmitter](../config/flight_mode.md#kill-switch).
-  This allows you to immediately crash your drone if necessary.
+  [set a safety switch on your transmitter](../config/safety.md#safety_switch).
+  This allows you to immediately return or crash your drone if necessary.
 
 ## Arm the Drone
 
