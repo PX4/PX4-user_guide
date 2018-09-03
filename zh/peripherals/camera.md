@@ -8,13 +8,13 @@ In addition to a pulse being sent out, a MAVLink message is published containing
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
-| Mode | Description                                                                                                                                                                                                  |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 0    | Camera triggering is disabled.                                                                                                                                                                               |
-| 1    | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](camera_trigger.md#command-interface) for more details. |
-| 2    | Switches the intervalometer constantly on.                                                                                                                                                                   |
-| 3    | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval.               |
-| 4    | triggers automatically when flying a survey in Mission mode.                                                                                                                                                 |
+| Mode | Description                                                                                                                                                                                    |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0    | Camera triggering is disabled.                                                                                                                                                                 |
+| 1    | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#command_interface) for more details.    |
+| 2    | Switches the intervalometer constantly on.                                                                                                                                                     |
+| 3    | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval. |
+| 4    | triggers automatically when flying a survey in Mission mode.                                                                                                                                   |
 
 > **Info** If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
 
@@ -45,7 +45,7 @@ The camera trigger driver supports several backends - each for a specific applic
 
 The full list of parameters pertaining to the camera trigger module can be found on the [parameter reference](../advanced_config/parameter_reference.md#camera-trigger) page.
 
-## Command Interface
+## Command Interface {#command_interface}
 
 **TODO : NEEDS UPDATING updating**
 
