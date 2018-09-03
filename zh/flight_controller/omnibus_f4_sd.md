@@ -123,8 +123,8 @@ RC is connected to one of the following ports:
 
 There is one I2C port available via:
 
-* TX: MCU pin PB10
-* RX: MCU pin PB11
+* SCL: MCU pin PB10 (might be labeled as TX3)
+* SDA: MCU pin PB11 (might be labeled as RX3)
 
 > **Note** You will need external pullups on both signals (clock and data). You can use 2.2k pullups for example to attach an external mag.
 
