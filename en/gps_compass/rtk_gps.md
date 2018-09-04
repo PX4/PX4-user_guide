@@ -11,10 +11,11 @@ You will need:
 
 ## Supported RTK Devices
 
-PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) GPS and products that incorporate it. The following RTK-compatible devices have been tested.
+PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS and products that incorporate it. The following RTK-compatible devices have been tested.
 * [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)
 * [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)
 * [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
+* [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
 
 > **Note** Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
 
