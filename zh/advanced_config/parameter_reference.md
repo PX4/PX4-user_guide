@@ -1266,10 +1266,10 @@ The module where these parameters are defined is: *modules/commander*.
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="COM_DISARM_LAND">COM_DISARM_LAND</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Time-out for auto disarm after landing</p><p><strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. The vehicle will also auto-disarm right after arming if it has not even flown, however the time will be longer by a factor of 5. A value of zero means that automatic disarming is disabled.</p>    </td>
- <td style="vertical-align: top;">0 > 20 (1)</td>
- <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"><strong id="COM_DISARM_LAND">COM_DISARM_LAND</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Time-out for auto disarm after landing</p><p><strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. The vehicle will also auto-disarm right after arming if it has not even flown, however the time will always be 10 seconds such that the pilot has enough time to take off. A negative value means that automatic disarming triggered by landing detection is disabled.</p>    </td>
+ <td style="vertical-align: top;">-1 > 20 </td>
+ <td style="vertical-align: top;">-1.0 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
@@ -4663,6 +4663,48 @@ The module where these parameters are defined is: *modules/fw_pos_control_l1/lau
       m/s
     </td>
   </tr>
+</table>
+
+## Failure Detector
+
+The module where these parameters are defined is: *modules/commander/failure_detector*.
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FD_FAIL_P">FD_FAIL_P</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>FailureDetector Max Pitch</p><p><strong>Comment:</strong> Maximum pitch angle before FailureDetector triggers the attitude_failure flag Does not affect the behavior of the vehicle for now; only for logging</p>    </td>
+ <td style="vertical-align: top;">0 > 180 </td>
+ <td style="vertical-align: top;">60 </td>
+ <td style="vertical-align: top;">degrees</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="FD_FAIL_R">FD_FAIL_R</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>FailureDetector Max Roll</p><p><strong>Comment:</strong> Maximum roll angle before FailureDetector triggers the attitude_failure flag Does not affect the behavior of the vehicle for now; only for logging</p>    </td>
+ <td style="vertical-align: top;">0 > 180 </td>
+ <td style="vertical-align: top;">60 </td>
+ <td style="vertical-align: top;">degrees</td>
+</tr>
 </table>
 
 ## Follow target
@@ -9334,6 +9376,294 @@ The module where these parameters are defined is: *modules/mc_pos_control*.
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="PWM_AUX_FAIL1">PWM_AUX_FAIL1</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the auxiliary 1 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_FAIL2">PWM_AUX_FAIL2</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the auxiliary 2 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_FAIL3">PWM_AUX_FAIL3</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the auxiliary 3 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_FAIL4">PWM_AUX_FAIL4</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the auxiliary 4 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_FAIL5">PWM_AUX_FAIL5</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the auxiliary 5 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_FAIL6">PWM_AUX_FAIL6</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the auxiliary 6 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_FAIL7">PWM_AUX_FAIL7</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the auxiliary 7 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_FAIL8">PWM_AUX_FAIL8</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the auxiliary 8 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="PWM_AUX_MAX">PWM_AUX_MAX</strong> (INT32)
     </td>
     
@@ -10228,6 +10558,294 @@ The module where these parameters are defined is: *modules/mc_pos_control*.
       
       <p>
         <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if not armed. When set to -1 the value for PWM_DISARMED will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_FAIL1">PWM_MAIN_FAIL1</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the main 1 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_FAIL2">PWM_MAIN_FAIL2</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the main 2 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_FAIL3">PWM_MAIN_FAIL3</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the main 3 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_FAIL4">PWM_MAIN_FAIL4</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the main 4 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_FAIL5">PWM_MAIN_FAIL5</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the main 5 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_FAIL6">PWM_MAIN_FAIL6</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the main 6 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_FAIL7">PWM_MAIN_FAIL7</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the main 7 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_FAIL8">PWM_MAIN_FAIL8</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the failsafe PWM for the main 8 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
       </p>
       
       <p>
@@ -17168,13 +17786,13 @@ The module where these parameters are defined is: *modules/logger*.
   </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SDLOG_PROFILE">SDLOG_PROFILE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Logging topic profile (integer bitmask)</p><p><strong>Comment:</strong> This integer bitmask controls the set and rates of logged topics. The default allows for general log analysis and estimator replay, while keeping the log file size reasonably small. Enabling multiple sets leads to higher bandwidth requirements and larger log files. Set bits in the following positions to enable: 0 : Set to true to use the default set (used for general log analysis) 1 : Set to true to enable full rate estimator (EKF2) replay topics 2 : Set to true to enable topics for thermal calibration (high rate raw IMU and Baro sensor data) 3 : Set to true to enable topics for system identification (high rate actuator control and IMU data) 4 : Set to true to enable full rates for analysis of fast maneuvers (RC, attitude, rates and actuators) 5 : Set to true to enable debugging topics (debug_*.msg topics, for custom code) 6 : Set to true to enable topics for sensor comparison (low rate raw IMU, Baro and Magnetomer data)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> default set (log analysis)</li> 
-  <li><strong>1:</strong> estimator replay (EKF2)</li> 
-  <li><strong>2:</strong> thermal calibration</li> 
-  <li><strong>3:</strong> system identification</li> 
-  <li><strong>4:</strong> high rate</li> 
-  <li><strong>5:</strong> debug</li> 
-  <li><strong>6:</strong> sensor comparison</li> 
+ <td style="vertical-align: top;"><p>Logging topic profile (integer bitmask)</p><p><strong>Comment:</strong> This integer bitmask controls the set and rates of logged topics. The default allows for general log analysis and estimator replay, while keeping the log file size reasonably small. Enabling multiple sets leads to higher bandwidth requirements and larger log files. Set bits true to enable: 0 : Default set (used for general log analysis) 1 : Full rate estimator (EKF2) replay topics 2 : Topics for thermal calibration (high rate raw IMU and Baro sensor data) 3 : Topics for system identification (high rate actuator control and IMU data) 4 : Full rates for analysis of fast maneuvers (RC, attitude, rates and actuators) 5 : Debugging topics (debug_*.msg topics, for custom code) 6 : Topics for sensor comparison (low rate raw IMU, Baro and Magnetomer data)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Default set (general log analysis)</li> 
+  <li><strong>1:</strong> Estimator replay (EKF2)</li> 
+  <li><strong>2:</strong> Thermal calibration</li> 
+  <li><strong>3:</strong> System identification</li> 
+  <li><strong>4:</strong> High rate</li> 
+  <li><strong>5:</strong> Debug</li> 
+  <li><strong>6:</strong> Sensor comparison</li> 
 </ul>
  <p><b>Reboot required:</b> true</p>
  </td>
@@ -18811,6 +19429,36 @@ The module where these parameters are defined is: *modules/sensors*.
       
       <p>
         <b>Module:</b> drivers/distance_sensor/mb12xx
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_EN_PGA460">SENS_EN_PGA460</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PGA460 Ultrasonic driver (PGA460)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> drivers/distance_sensor/pga460
       </p>
     </td>
     
