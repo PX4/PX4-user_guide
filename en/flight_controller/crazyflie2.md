@@ -106,7 +106,7 @@ chosen to use **cfbridge.py**.
 - Connect a Crazyradio PA via USB.
 - Build a [virtual environment (local python environment)](https://virtualenv.pypa.io/en/latest/) with package dependencies using the following method:
     ```
-    pip install tox
+    pip install tox --user
     ```
 - Navigate to the crazyflie-lib-python folder and type: 
     ```
@@ -118,7 +118,7 @@ chosen to use **cfbridge.py**.
     ```
 - Install required dependencies:
     ```
-    pip install -r requirements.txt
+    pip install -r requirements.txt --user
     ```
 
 To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these steps:
