@@ -11,17 +11,24 @@ This topic explains how you can update the bootloader to the latest version so t
 
 ### Main Steps
 
-You can initiate bootloader update on next restart by [setting the parameter](../advanced_config/parameters.md#parameter-configuration): [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+You can initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
 To update the bootloader:
 
 1. Insert an SD card (enables boot logging to debug any problems.)
-1. Flash master of `fmu-v2 target` (e.g. through QGC)
-   ![FMUv2 update](https://user-images.githubusercontent.com/13203106/45455962-cff71f80-b69d-11e8-8b90-cfce2be689b1.JPG)
-1. Enable [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)
-1. Reboot & Wait.
-1. Then [Update the Firmware](../config/firmware.md) to FMU-V3. This time you should note that the Firmware is detected as FMUv3.
+1. [Update the Firmware](../config/firmware.md) to PX4 *master* version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list).
+   *QGroundControl* will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
+   
+   ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
+   
+   Wait for the vehicle to reboot.
+1. [Find and enable](../advanced_config/parameters.md#parameter-configuration) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+1. Reboot (disconnect/reconnect the board). 
+   The bootloader update will only take a few seconds.
+1. Then [Update the Firmware](../config/firmware.md) again. 
+   This time *QGroundControl* should autodetect the hardware as FMUv3 and update the Firmware appropriately.
 
-   ![7](https://user-images.githubusercontent.com/13203106/45455986-ee5d1b00-b69d-11e8-9ee0-75df46a7b432.JPG)
+   ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
 
-   > **Note** If the hardware has the *Silicon Errata* it will still be detected as FMUv2 (see console above) and you will not be able to install FMUv3 hardware.
+   > **Note** If the hardware has the *Silicon Errata* it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). 
+     In this case you will not be able to install FMUv3 hardware.

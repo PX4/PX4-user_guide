@@ -14,9 +14,11 @@ To install the latest firmware update:
 
    > **Note** Connect directly to a powered USB port on your machine (do not connect through a USB hub).
 
-1. Once the controller is connected you can choose which firmware to load (*QGroundControl* presents sensible options based on the connected hardware). Select the **PX4 Flight Stack XXX Release** option to install the latest stable version of PX4.
+1. Once the controller is connected you can choose which firmware to load (*QGroundControl* presents sensible options based on the connected hardware). 
    
-   ![Install PX4 default](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
+   * Select the **PX4 Flight Stack XXX Release** option to install the latest stable version of PX4 *for your hardware* (autodetected).
+   
+     ![Install PX4 default](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
    
    > **Tip** To install a different version of PX4, check **Advanced settings** and select the version from the dropdown list.
    >
