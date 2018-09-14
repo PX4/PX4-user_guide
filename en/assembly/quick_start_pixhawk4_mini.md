@@ -31,16 +31,17 @@ Attach the provided GPS with integrated compass, safety switch, buzzer, and LED 
 
 
 ## Power
+The Power Management Board (PMB) serves the purpose of a power module as well as a power distribution board. In addition to providing regulated power to *Pixhawk 4 Mini* and the ESCs, it sends information to the autopilot about the battery’s voltage and current draw.
 
-Connect the output of the *Power Management Board* (PMB) that comes with the kit to the **POWER** port of the *Pixhawk 4 Mini* using a 6-wire cable. The connections of the PMB, including power supply and signal connections to the ESCs and servos, are explained in the image below.
+Connect the output of the PMB that comes with the kit to the **POWER** port of the *Pixhawk 4 Mini* using a 6-wire cable. The connections of the PMB, including power supply and signal connections to the ESCs and servos, are explained in the image below.
 
 ![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_power_management.png)
-Below are the pinouts for the PMB.
+> **Note** The image above only shows the connection of a single ESC and a single servo. Connect the remaining ESCs and servos similarly.
 
 Pin(s) or Connector | Function
 --- | ---
-B+ | connect to ESC B+ to power the ESC
-GND | connect to ESC Ground
+B+ | Connect to ESC B+ to power the ESC
+GND | Connect to ESC Ground
 PWR | JST-GH 6-pin Connector, 5V 3A output<br> connect to *Pixhawk 4 Mini* POWER
 BAT | Power Input, connect to 2~12s LiPo Battery
 
@@ -58,8 +59,6 @@ Pin | Signal | Volt
 > **Note** If using a plane or rover, the 8 pin power (+) rail of **MAIN OUT** will need to be separately powered in order to drive servos for rudders, elevons, etc. To do this, the power rail needs to be connected to a BEC equipped ESC, a standalone 5V BEC, or a 2S LiPo battery. Be careful with the voltage of servo you are going to use here.
 
 <!--  -->
-
-> **Note** Refer to [Airframe Reference](../airframes/airframe_reference.md) to connect ESCs to **MAIN OUT** in the correct order for your airframe configuration.
 
 <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 
@@ -105,7 +104,7 @@ SD cards are most commonly used to [log and analyse flight details](../getting_s
 
 ## Motors
 
-Motors/servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+Motors/servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). See [*Pixhawk 4 Mini* > Supported Platforms](../flight_controller/pixhawk4_mini.md#supportedplatforms) for more information.
 
 > **Note** This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 
