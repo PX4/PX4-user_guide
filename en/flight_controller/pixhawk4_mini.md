@@ -1,6 +1,6 @@
 # Pixhawk 4 Mini
 
-The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hobbyists who are looking to tap into the power of *Pixhawk 4* but are working with smaller drones. *Pixhawk 4 Mini* takes the FMU processor and memory resources from the *Pixhawk 4* while eliminating normally unused interfaces. This allows the *Pixhawk 4 Mini* to be small enough to fit in a 250mm racer drone.
+The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hobbyists who are looking to tap into the power of *Pixhawk 4* but are working with smaller drones. *Pixhawk 4 Mini* takes the FMU processor and memory resources from the *Pixhawk 4* while eliminating interfaces that are normally unused. This allows the *Pixhawk 4 Mini* to be small enough to fit in a 250mm racer drone.
 
 *Pixhawk 4 Mini* was designed and developed in collaboration with Holybro<sup>&reg;</sup> and Auterion<sup>&reg;</sup>. It is based on the [Pixhawk](https://pixhawk.org/) **FMUv5** design standard and is optimized to run PX4 flight control software.
 
@@ -59,10 +59,9 @@ Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_gu
 ![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_dimensions.png)
 
 ## Voltage Ratings
+*Pixhawk 4 Mini* can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
 
-*Pixhawk 4 Mini* can be redundant on the power supply if two power sources are supplied. The power rails are: **POWER** and **USB**.
-
-> **Note** The output power rail **MAIN OUT** does not power the flight controller board (and is not powered by it). You must supply power to one of **POWER** or **USB** or the board will be unpowered.
+> **Note** The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#voltageratings) to one of **POWER** or **USB** or the board will be unpowered.
 
 **Normal Operation Maximum Ratings**
 
@@ -76,7 +75,6 @@ Under these conditions the system will not draw any power (will not be operation
 1. **POWER** input (operational range 4.1V to 5.7V, 0V to 10V undamaged)
 1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
 1. Servo input: VDD_SERVO pin of **MAIN OUT** (0V to 36V undamaged)
-
 
 ## Assembly/Setup
 
@@ -103,9 +101,9 @@ Both ports have standard serial pinout and can be connected to a standard FTDI c
 
 
 ## Supported Platforms / Airframes
+Motors and servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
-
+> **Warning** *Pixhawk 4 Mini* does not have AUX ports. The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces. It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
 
 ## Further info
 
