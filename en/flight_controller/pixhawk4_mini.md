@@ -100,7 +100,7 @@ Both ports have standard serial pinout and can be connected to a standard FTDI c
 * [Rangefinders/Distance sensors](https://docs.px4.io/en/sensor/rangefinders.html)
 
 
-## Supported Platforms / Airframes
+## Supported Platforms
 Motors and servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 
 > **Warning** *Pixhawk 4 Mini* does not have AUX ports. The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces. It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
