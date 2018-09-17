@@ -117,6 +117,7 @@
   * [Optical Flow](sensor/optical_flow.md)
     * [PX4FLOW](sensor/px4flow.md)
   * [ESCs & Motors](peripherals/esc_motors.md)
+    * [PWM ESCs and Servos](peripherals/pwm_escs_and_servo.md)
   * [Camera](peripherals/camera.md)
   * [MAVLink \(OSD / Telemetry\)](peripherals/mavlink_peripherals.md)
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)
