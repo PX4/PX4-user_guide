@@ -1,6 +1,6 @@
 # Parameter Reference
 
-> **Note** **This list is auto-generated from the source code** and contains the most recent parameter documentation.
+> **Note** **This list is auto-generated from the source code** (using `make parameters_metadata`) and contains the most recent parameter documentation.
 
 ## Attitude Q estimator
 
@@ -6498,6 +6498,20 @@ The module where these parameters are defined is: *modules/mavlink*.
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MAV_HASH_CHK_EN">MAV_HASH_CHK_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Parameter hash check</p><p><strong>Comment:</strong> Disabling the parameter hash check functionality will make the mavlink instance stream parameters continuously.</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MAV_HB_FORW_EN">MAV_HB_FORW_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Hearbeat message forwarding</p><p><strong>Comment:</strong> The mavlink hearbeat message will not be forwarded if this parameter is set to 'disabled'. The main reason for disabling heartbeats to be forwarded is because they confuse dronekit.</p>    </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
   
   <tr>
     <td style="vertical-align: top;">
@@ -9700,6 +9714,294 @@ The module where these parameters are defined is: *modules/mc_pos_control*.
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MAX1">PWM_AUX_MAX1</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the auxiliary 1 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MAX2">PWM_AUX_MAX2</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the auxiliary 2 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MAX3">PWM_AUX_MAX3</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the auxiliary 3 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MAX4">PWM_AUX_MAX4</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the auxiliary 4 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MAX5">PWM_AUX_MAX5</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the auxiliary 5 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MAX6">PWM_AUX_MAX6</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the auxiliary 6 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MAX7">PWM_AUX_MAX7</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the auxiliary 7 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MAX8">PWM_AUX_MAX8</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the auxiliary 8 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="PWM_AUX_MIN">PWM_AUX_MIN</strong> (INT32)
     </td>
     
@@ -9727,6 +10029,294 @@ The module where these parameters are defined is: *modules/mc_pos_control*.
     
     <td style="vertical-align: top;">
       1000
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MIN1">PWM_AUX_MIN1</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the auxiliary 1 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MIN2">PWM_AUX_MIN2</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the auxiliary 2 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MIN3">PWM_AUX_MIN3</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the auxiliary 3 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MIN4">PWM_AUX_MIN4</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the auxiliary 4 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MIN5">PWM_AUX_MIN5</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the auxiliary 5 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MIN6">PWM_AUX_MIN6</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the auxiliary 6 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MIN7">PWM_AUX_MIN7</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the auxiliary 7 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_AUX_MIN8">PWM_AUX_MIN8</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the auxiliary 8 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_AUX_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
     </td>
     
     <td style="vertical-align: top;">
@@ -10846,6 +11436,582 @@ The module where these parameters are defined is: *modules/mc_pos_control*.
       
       <p>
         <strong>Comment:</strong> This is the PWM pulse the autopilot is outputting if in failsafe mode. When set to -1 the value is set automatically depending if the actuator is a motor (900us) or a servo (1500us)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MAX1">PWM_MAIN_MAX1</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the main 1 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MAX2">PWM_MAIN_MAX2</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the main 2 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MAX3">PWM_MAIN_MAX3</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the main 3 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MAX4">PWM_MAIN_MAX4</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the main 4 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MAX5">PWM_MAIN_MAX5</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the main 5 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MAX6">PWM_MAIN_MAX6</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the main 6 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MAX7">PWM_MAIN_MAX7</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the main 7 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MAX8">PWM_MAIN_MAX8</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the max PWM value for the main 8 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MAX will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MIN1">PWM_MAIN_MIN1</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the main 1 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MIN2">PWM_MAIN_MIN2</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the main 2 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MIN3">PWM_MAIN_MIN3</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the main 3 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MIN4">PWM_MAIN_MIN4</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the main 4 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MIN5">PWM_MAIN_MIN5</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the main 5 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MIN6">PWM_MAIN_MIN6</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the main 6 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MIN7">PWM_MAIN_MIN7</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the main 7 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/sensors
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 2200
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PWM_MAIN_MIN8">PWM_MAIN_MIN8</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set the min PWM value for the main 8 output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum PWM pulse the autopilot is allowed to output. When set to -1 the value for PWM_MIN will be used
       </p>
       
       <p>
@@ -19729,6 +20895,144 @@ The module where these parameters are defined is: *modules/sensors*.
     <td style="vertical-align: top;">
     </td>
   </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_IMU_TEMP">SENS_IMU_TEMP</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Target IMU temperature
+      </p>
+      
+      <p>
+        <b>Module:</b> drivers/heater
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 85.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      55.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      C
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_IMU_TEMP_FF">SENS_IMU_TEMP_FF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        IMU heater controller feedforward value
+      </p>
+      
+      <p>
+        <b>Module:</b> drivers/heater
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.5
+    </td>
+    
+    <td style="vertical-align: top;">
+      microseconds
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_IMU_TEMP_I">SENS_IMU_TEMP_I</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        IMU heater controller integrator gain value
+      </p>
+      
+      <p>
+        <b>Module:</b> drivers/heater
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.025
+    </td>
+    
+    <td style="vertical-align: top;">
+      microseconds/C
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_IMU_TEMP_P">SENS_IMU_TEMP_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        IMU heater controller proportional gain value
+      </p>
+      
+      <p>
+        <b>Module:</b> drivers/heater
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.25
+    </td>
+    
+    <td style="vertical-align: top;">
+      microseconds/C
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_TEMP_ID">SENS_TEMP_ID</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Target IMU device ID to regulate temperature
+      </p>
+      
+      <p>
+        <b>Module:</b> drivers/heater
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1442826
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
 </table>
 
 ## Snapdragon UART ESC
@@ -20048,6 +21352,40 @@ The module where these parameters are defined is: *modules/syslink*.
     
     <td style="vertical-align: top;">
       0 > 99999
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SYS_BL_UPDATE">SYS_BL_UPDATE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Bootloader update
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If enabled, update the bootloader on the next boot. WARNING: do not cut the power during an update process, otherwise you will have to recover using some alternative method (e.g. JTAG). Instructions: - Insert an SD card - Enable this parameter - Reboot the board (plug the power or send a reboot command) - Wait until the board comes back up (or at least 2 minutes) - If it does not come back, check the file bootlog.txt on the SD card
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+      
+      <p>
+        <b>Module:</b> modules/systemlib
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
     </td>
     
     <td style="vertical-align: top;">
