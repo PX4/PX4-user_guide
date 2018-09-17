@@ -2,7 +2,7 @@
 
 This section describes how to connect and power PWM-based brushless motor controllers and servos.
 
-## ESC Power Connection
+## ESC Connection Overview
 
 Each PWM Electronic Speed Controller (ESC) minimally has the following wires:
 - Power VBAT (usually thick and red)
@@ -12,33 +12,46 @@ And on the servo plug:
 - PWM signal (usually white or yellow)
 - GND (usually black or brown)
 
-Always connect Power VBAT and GND to the battery, and the PWM signal and GND from the servo plug to the motor.
+The servo plug *may* also have a +5V wire (usually red or orange).
+The purpose of this wire and how it is connected depends on particular ESC and vehicle type.
 
-> **Tip** There is **no setup** that does not require signal ground to be connected!
-  
-The servo plug *may also have a +5V wire* (usually red or orange).
-The purpose of this wire and how it is connected depends on the particular ESC in use:
-
-- On a fixed wing ESC it usually provides the output of a Battery Elimination Circuit (BEC). 
-  - This can be connected to the Pixhawk servo rail and used to power servos for flaps, ailerons etc.
-  - As a rule of thumb you should only connect the *output of only one BEC* to the Pixhawk servo rail. 
-    > **Tip** While it may be possible to connect multiple +5V outputs to the rail, this depends on the ESC model.
-- On a multicopter ESC this line might not be present or (if present) may not be connected.
-  - Multicopters often do not need servos, and hence do not need to power the Pixhawk servo rail (motors are usually separately powered from a power distribution board).
-  - There is no harm (or benefit) in connecting the wire to the servo rail.
-  - DJI ESCs typically include this wire, but it is not connected.
-- On an opto-isolated ESC **without** BEC this line might need to be connected and powered (in order to provide power to the ESC microcontroller). 
-  In this case the wire will normally be connected to the flight controller servo rail, and the servo rail must be powered from an additional BEC. 
-  
-> **Note** It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
-  This is why **Pixhawk series** flight controllers do not provide power for the servo rail (the AUX servo rail is unpowered and is limited to 1A).
-  On a fixed wing vehicle the servo rail is usually powered from the ESC +5V supply.
-
-<span></span>
-> **Tip** In some cases the +5V line is not needed. 
+> **Tip** In some cases (see below)the +5V line is not needed. 
   Instead of cutting the +5V line you can gently lift of the locking tab of the plastic housing of the servo connector for that pin (e.g. using a cutter blade or small screw driver) and pull the pin out. 
   Isolate it with electrical isolation tape and tape it to the servo cable. 
   This allows you to easily undo the wire later if needed.
+
+
+## Power Connections
+
+Always connect Power VBAT and GND to the battery, and the PWM signal and GND from the servo plug to the motor.
+
+> **Tip** There is **no setup** that does not require signal ground to be connected!
+
+
+The connection to the +5V wire (if present) depends on the ESC/Vehicle.
+
+
+### Fixed Wing
+
+On a fixed wing ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC). 
+- This can be connected to the Pixhawk servo rail and used to power servos for flaps, ailerons etc.
+  > **Note** It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
+    This is why **Pixhawk series** flight controllers do not provide power for the servo rail 
+    (the AUX servo rail is unpowered and is limited to 1A).
+- As a rule of thumb you should only connect the *output of only one BEC* to the Pixhawk servo rail. 
+  (while it may be possible to connect multiple +5V outputs to the rail, this depends on the ESC model).
+
+### Multicopter
+
+On a multicopter, the +5V line might not be present or (if present) may not be connected.
+- Multicopters often do not need servos, and hence do not need to power the Pixhawk servo rail (motors are usually separately powered from a power distribution board).
+- There is no harm (or benefit) in connecting the wire to the servo rail.
+- DJI ESCs typically include this wire, but it is not connected.
+
+### Opto-isolated ESC
+
+On an opto-isolated ESC **without** BEC, the +5V line might need to be connected and powered (in order to provide power to the ESC microcontroller). 
+In this case the wire will normally be connected to the flight controller servo rail, and the servo rail must be powered from an additional BEC. 
 
 
 ## PWM Configuration
