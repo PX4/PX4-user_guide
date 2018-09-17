@@ -1,6 +1,6 @@
 # PWM Servos and ESCs (Motor Controllers)
 
-This section describes the interfaces to PWM-based brushless motor controllers and servos.
+This section describes how to connect and power PWM-based brushless motor controllers and servos.
 
 ## ESC Power Connection
 
