@@ -31,9 +31,9 @@ Always connect Power VBAT and GND to the battery, and the PWM signal and GND fro
 The connection to the +5V wire (if present) depends on the ESC/Vehicle.
 
 
-### Fixed Wing
+### Fixed Wing / VTOL
 
-On a fixed wing ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC). 
+On a fixed wing (or VTOL) ESC, the +5V line usually provides the output of a Battery Elimination Circuit (BEC). 
 - This can be connected to the Pixhawk servo rail and used to power servos for flaps, ailerons etc.
   > **Note** It is unsafe to power servos or ESCs from the autopilot's avionics power supply.
     This is why **Pixhawk series** flight controllers do not provide power for the servo rail 
