@@ -1,20 +1,30 @@
 # VTOL Weather Vane Feature
 
-## Motivation
-The weather vane feature can be used to make a VTOL vehicle automatically turn its nose into the relative wind during hover flight. Due to stability reasons this situation is always favourable. Wind coming from the side can easily pick-up the wind-facing wing and flip the vehicle.
+The *weather vane* feature automatically turns a VTOL vehicle to face its nose into the relative wind during hover flight. 
+The improves stability (reducing the chance that wind from the side will pick-up the wind-facing wing and flip the vehicle).
 
-## How does it work?
-During hover flight the vehicle needs to overcome the drag excerted on it by the wind in order to hold it's position.
-The only way for it to achieve this is by tilting its thrust vector into the relative wind, it literally 'leans' against the wind. Therefore, keeping track of the thrust vector one can estimate the wind direction. A weathervane controller is used to command a yawrate that turns the vehicle nose into the estimated wind direction.
+The feature is enabled by setting the parameter [WV_EN](../advanced_config/parameter_reference.md#WV_EN).
 
-## How to enable it
-- Enable weathervane parameter [WV_EN](../advanced_config/parameter_reference.md#WV_EN)
+> **Tip** Enabling weather vane functionality is recommended.
+  It can only be enabled for VTOL hybrid vehicles flying in multicopter mode (not pure multirotors).
 
-> **Note** This feature can only be enabled for VTOL hybrid vehicles which excludes pure multirotors.
 
-### Behaviour in manual mode
-In manual mode the weather vane feature will only take effect in position control mode. Even though the weather vane controller will try to turn the nose of the vehicle into the wind the user can still use the yaw stick to demand a yaw rate. The target yaw rate is therefore the sum of weather vane yaw rate and user commaned yaw rate.
+### Manual Mode Behaviour
 
-### Behaviour in auto mode
-In auto mode the weather vane feature will always be active (given that it has been enabled by parameter).
-As a result any yaw angle commanded in a mission will be ignored.
+The weather vane feature will only take effect in [Position mode](../flight_modes/position_mc.md) (not other manual MC modes). 
+
+The user can still use the yaw stick to demand a yaw rate even while the weather vane controller is trying to turn the nose of the vehicle into the wind.
+The target yaw rate is the sum of weather vane yaw rate and user commanded yaw rate.
+
+### Mission Mode Behaviour
+
+In [Mission mode](../flight_modes/mission.md) the weather vane feature will always be active when the parameter is enabled.
+Any yaw angle commanded in a mission will be ignored.
+
+
+## How Does it Work?
+
+During hover flight the vehicle needs to overcome the drag exerted on it by the wind in order to hold its position.
+The only way for it to achieve this is by tilting its thrust vector into the relative wind (it literally 'leans' against the wind).
+By keeping track of the thrust vector one can estimate the wind direction. 
+A weathervane controller is used to command a yawrate that turns the vehicle nose into the estimated wind direction.
