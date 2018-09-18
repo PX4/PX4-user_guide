@@ -28,10 +28,10 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
   * Analog inputs for voltage / current of battery
   * 2 additional analog input
 * Power System:
+  * Power Brick Input: 4.75~5.5V
   * USB Power Input: 4.75~5.25V
-  * Servo Rail Input: 0~36V
+  * Servo Rail Input: 0~24V
   * Max current sensing: 120A
-  * Max input voltage: 6V
 * Weight and Dimensions:
   * Dimensions: 38x55x15.5mm
 * Other Characteristics:
@@ -66,15 +66,15 @@ Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_gu
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
-1. **POWER** (4.9V to 5.5V)
+1. **POWER** (4.75V to 5.5V)
 1. **USB** input (4.75V to 5.25V)
 
 **Absolute Maximum Ratings**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
-1. **POWER** input (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-1. Servo input: VDD_SERVO pin of **MAIN OUT** (0V to 36V undamaged)
+Under these conditions the system will remain intact.
+1. **POWER** input (0V to 6V undamaged)
+1. **USB** input (0V to 6V undamaged)
+1. Servo input: VDD_SERVO pin of **MAIN OUT** (0V to 24V undamaged)
 
 ## Assembly/Setup
 
