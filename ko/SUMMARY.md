@@ -90,6 +90,7 @@
     * [QuadPlane Configuration](config_vtol/vtol_quad_configuration.md)
     * [Back-transition Tuning](config_vtol/vtol_back_transition_tuning.md)
     * [VTOL w/o Airspeed Sensor](config_vtol/vtol_without_airspeed_sensor.md)
+    * [VTOL Weather Vane](config_vtol/vtol_weathervane.md)
   * [Sensor Thermal Compensation](advanced_config/sensor_thermal_calibration.md)
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
