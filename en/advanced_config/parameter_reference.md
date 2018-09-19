@@ -3748,6 +3748,8 @@ The module where these parameters are defined is: *modules/mavlink*.
 <li><strong>0:</strong> Never broadcast</li> 
 
 <li><strong>1:</strong> Always broadcast</li> 
+
+<li><strong>2:</strong> Only multicast</li> 
 </ul>
    </td>
  <td style="vertical-align: top;"></td>
@@ -4262,30 +4264,6 @@ The module where these parameters are defined is: *platforms/qurt/fc_addon/mpu_s
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_WV_LND_EN">VT_WV_LND_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Weather-vane mode landings for missions</p>    <p><b>Module:</b> modules/vtol_att_control</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_WV_LTR_EN">VT_WV_LTR_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Weather-vane mode for loiter</p>    <p><b>Module:</b> modules/vtol_att_control</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="VT_WV_TKO_EN">VT_WV_TKO_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable weather-vane mode takeoff for missions</p>    <p><b>Module:</b> modules/vtol_att_control</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 </tbody></table>
 
 ## Mount
@@ -4763,9 +4741,6 @@ default 1.5 turns per second</p>    </td>
 
 ## Multicopter Position Control
 
-
-The module where these parameters are defined is: *modules/mc_pos_control*.
-
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
@@ -4774,14 +4749,16 @@ The module where these parameters are defined is: *modules/mc_pos_control*.
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes down</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes down</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR">MPC_ACC_HOR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Acceleration for auto and for manual</p>    </td>
+ <td style="vertical-align: top;"><p>Acceleration for auto and for manual</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
@@ -4791,21 +4768,24 @@ The module where these parameters are defined is: *modules/mc_pos_control*.
  <td style="vertical-align: top;"><p>Horizontal acceleration in manual modes when te estimator speed limit is removed.
 If full stick is being applied and the estimator stops demanding a speed limit,
 which it had been before (e.g if GPS is gained while flying on optical flow/vision only),
-the vehicle will accelerate at this rate until the normal position control speed is achieved</p>    </td>
+the vehicle will accelerate at this rate until the normal position control speed is achieved</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.2 > 2.0 (0.1)</td>
  <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and maximum deceleration for manual mode</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and maximum deceleration for manual mode</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_UP_MAX">MPC_ACC_UP_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes upward</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes upward</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
@@ -4819,7 +4799,8 @@ the vehicle will accelerate at this rate until the normal position control speed
 
 <li><strong>2:</strong> Terrain hold</li> 
 </ul>
-   </td>
+   <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -4827,42 +4808,48 @@ the vehicle will accelerate at this rate until the normal position control speed
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_CRUISE_90">MPC_CRUISE_90</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Cruise speed when angle prev-current/current-next setpoint
-is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</strong> Applies only in AUTO modes (includes also RTL / hold / etc.)</p>    </td>
+is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</strong> Applies only in AUTO modes (includes also RTL / hold / etc.)</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">1.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_DEC_HOR_SLOW">MPC_DEC_HOR_SLOW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Slow horizontal manual deceleration for manual mode</p>    </td>
+ <td style="vertical-align: top;"><p>Slow horizontal manual deceleration for manual mode</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.5 > 10.0 (1)</td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_HOLD_DZ">MPC_HOLD_DZ</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Deadzone of sticks where position hold is enabled</p>    </td>
+ <td style="vertical-align: top;"><p>Deadzone of sticks where position hold is enabled</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 1.0 </td>
  <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_HOLD_MAX_XY">MPC_HOLD_MAX_XY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal velocity for which position hold is enabled (use 0 to disable check)</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum horizontal velocity for which position hold is enabled (use 0 to disable check)</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 3.0 </td>
  <td style="vertical-align: top;">0.8 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_HOLD_MAX_Z">MPC_HOLD_MAX_Z</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical velocity for which position hold is enabled (use 0 to disable check)</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum vertical velocity for which position hold is enabled (use 0 to disable check)</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 3.0 </td>
  <td style="vertical-align: top;">0.6 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_IDLE_TKO">MPC_IDLE_TKO</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Delay from idle state to arming state</p><p><strong>Comment:</strong> For altitude controlled modes, the transition from idle to armed state is delayed by MPC_IDLE_TKO time to ensure that the propellers have reached idle speed before attempting a takeoff. This delay is particularly useful for vehicles with large propellers.</p>    </td>
+ <td style="vertical-align: top;"><p>Delay from idle state to arming state</p><p><strong>Comment:</strong> For altitude controlled modes, the transition from idle to armed state is delayed by MPC_IDLE_TKO time to ensure that the propellers have reached idle speed before attempting a takeoff. This delay is particularly useful for vehicles with large propellers.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0 > 10 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;">sec</td>
@@ -4874,63 +4861,72 @@ If this value is below MPC_JERK_MIN, the acceleration limit in xy and z
 is MPC_ACC_HOR_MAX and MPC_ACC_UP_MAX respectively instantaneously when the
 user demands brake (=zero stick input).
 Otherwise the acceleration limit increases from current acceleration limit
-towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    </td>
+towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;">m/s/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_MIN">MPC_JERK_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum jerk in manual controlled mode for BRAKING to zero</p>    </td>
+ <td style="vertical-align: top;"><p>Minimum jerk in manual controlled mode for BRAKING to zero</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.5 > 10.0 (1)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">m/s/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Altitude for 1. step of slow landing (descend)</p><p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX" and "MPC_LAND_SPEED" to enable a smooth descent experience Value needs to be higher than "MPC_LAND_ALT2"</p>    </td>
+ <td style="vertical-align: top;"><p>Altitude for 1. step of slow landing (descend)</p><p><strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX" and "MPC_LAND_SPEED" to enable a smooth descent experience Value needs to be higher than "MPC_LAND_ALT2"</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0 > 122 </td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_ALT2">MPC_LAND_ALT2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Altitude for 2. step of slow landing (landing)</p><p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED" Value needs to be lower than "MPC_LAND_ALT1"</p>    </td>
+ <td style="vertical-align: top;"><p>Altitude for 2. step of slow landing (landing)</p><p><strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED" Value needs to be lower than "MPC_LAND_ALT1"</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0 > 122 </td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_SPEED">MPC_LAND_SPEED</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Landing descend rate</p>    </td>
+ <td style="vertical-align: top;"><p>Landing descend rate</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.6 > ? </td>
  <td style="vertical-align: top;">0.7 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MANTHR_MAX">MPC_MANTHR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum manual thrust</p><p><strong>Comment:</strong> Limit max allowed thrust for Manual mode.</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum manual thrust</p><p><strong>Comment:</strong> Limit max allowed thrust for Manual mode.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MANTHR_MIN">MPC_MANTHR_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum manual thrust</p><p><strong>Comment:</strong> Minimum vertical thrust. It's recommended to set it > 0 to avoid free fall with zero thrust. With MC_AIRMODE set to 1, this can safely be set to 0.</p>    </td>
+ <td style="vertical-align: top;"><p>Minimum manual thrust</p><p><strong>Comment:</strong> Minimum vertical thrust. It's recommended to set it > 0 to avoid free fall with zero thrust. With MC_AIRMODE set to 1, this can safely be set to 0.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.08 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MAN_TILT_MAX">MPC_MAN_TILT_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximal tilt angle in manual or altitude mode</p>    </td>
+ <td style="vertical-align: top;"><p>Maximal tilt angle in manual or altitude mode</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 90.0 </td>
  <td style="vertical-align: top;">35.0 </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_MAN_Y_MAX">MPC_MAN_Y_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Max manual yaw rate</p>    </td>
+ <td style="vertical-align: top;"><p>Max manual yaw rate</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 400 </td>
  <td style="vertical-align: top;">200.0 </td>
  <td style="vertical-align: top;">deg/s</td>
@@ -4938,7 +4934,8 @@ towards MPC_ACC_HOR_MAX/MPC_ACC_UP_MAX with jerk limit</p>    </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_OBS_AVOID">MPC_OBS_AVOID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Flag to enable obstacle avoidance
-Temporary Parameter to enable interface testing</p>    </td>
+Temporary Parameter to enable interface testing</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -4952,63 +4949,72 @@ Temporary Parameter to enable interface testing</p>    </td>
 
 <li><strong>2:</strong> Sport position control</li> 
 </ul>
-   </td>
+   <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_HOVER">MPC_THR_HOVER</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Hover thrust</p><p><strong>Comment:</strong> Vertical thrust required to hover. This value is mapped to center stick for manual throttle control. With this value set to the thrust required to hover, transition from manual to ALTCTL mode while hovering will occur with the throttle stick near center, which is then interpreted as (near) zero demand for vertical speed.</p>    </td>
+ <td style="vertical-align: top;"><p>Hover thrust</p><p><strong>Comment:</strong> Vertical thrust required to hover. This value is mapped to center stick for manual throttle control. With this value set to the thrust required to hover, transition from manual to ALTCTL mode while hovering will occur with the throttle stick near center, which is then interpreted as (near) zero demand for vertical speed.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.2 > 0.8 (0.01)</td>
  <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_MAX">MPC_THR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum thrust in auto thrust control</p><p><strong>Comment:</strong> Limit max allowed thrust</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum thrust in auto thrust control</p><p><strong>Comment:</strong> Limit max allowed thrust</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_MIN">MPC_THR_MIN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum thrust in auto thrust control</p><p><strong>Comment:</strong> It's recommended to set it > 0 to avoid free fall with zero thrust.</p>    </td>
+ <td style="vertical-align: top;"><p>Minimum thrust in auto thrust control</p><p><strong>Comment:</strong> It's recommended to set it > 0 to avoid free fall with zero thrust.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.05 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.12 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TILTMAX_AIR">MPC_TILTMAX_AIR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum tilt angle in air</p><p><strong>Comment:</strong> Limits maximum tilt in AUTO and POSCTRL modes during flight.</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum tilt angle in air</p><p><strong>Comment:</strong> Limits maximum tilt in AUTO and POSCTRL modes during flight.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 90.0 </td>
  <td style="vertical-align: top;">45.0 </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TILTMAX_LND">MPC_TILTMAX_LND</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum tilt during landing</p><p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum tilt during landing</p><p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 90.0 </td>
  <td style="vertical-align: top;">12.0 </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TKO_RAMP_T">MPC_TKO_RAMP_T</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position control smooth takeoff ramp time constant</p><p><strong>Comment:</strong> Increasing this value will make automatic and manual takeoff slower. If it's too slow the drone might scratch the ground and tip over.</p>    </td>
+ <td style="vertical-align: top;"><p>Position control smooth takeoff ramp time constant</p><p><strong>Comment:</strong> Increasing this value will make automatic and manual takeoff slower. If it's too slow the drone might scratch the ground and tip over.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.1 > 1 </td>
  <td style="vertical-align: top;">0.4 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TKO_SPEED">MPC_TKO_SPEED</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Takeoff climb rate</p>    </td>
+ <td style="vertical-align: top;"><p>Takeoff climb rate</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">1 > 5 </td>
  <td style="vertical-align: top;">1.5 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_VELD_LP">MPC_VELD_LP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Low pass filter cut freq. for numerical velocity derivative</p>    </td>
+ <td style="vertical-align: top;"><p>Low pass filter cut freq. for numerical velocity derivative</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 10 </td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">Hz</td>
@@ -5017,115 +5023,155 @@ Temporary Parameter to enable interface testing</p>    </td>
  <td style="vertical-align: top;"><strong id="MPC_VEL_MANUAL">MPC_VEL_MANUAL</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum horizontal velocity setpoint for manual controlled mode
 If velocity setpoint larger than MPC_XY_VEL_MAX is set, then
-the setpoint will be capped to MPC_XY_VEL_MAX</p>    </td>
+the setpoint will be capped to MPC_XY_VEL_MAX</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">3.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_CRUISE">MPC_XY_CRUISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal velocity in mission</p><p><strong>Comment:</strong> Normal horizontal velocity in AUTO modes (includes also RTL / hold / etc.) and endpoint for position stabilized mode (POSCTRL).</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum horizontal velocity in mission</p><p><strong>Comment:</strong> Normal horizontal velocity in AUTO modes (includes also RTL / hold / etc.) and endpoint for position stabilized mode (POSCTRL).</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">3.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_MAN_EXPO">MPC_XY_MAN_EXPO</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Manual control stick exponential curve sensitivity attenuation with small velocity setpoints</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    </td>
+ <td style="vertical-align: top;"><p>Manual control stick exponential curve sensitivity attenuation with small velocity setpoints</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_P">MPC_XY_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for horizontal position error</p>    </td>
+ <td style="vertical-align: top;"><p>Proportional gain for horizontal position error</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 2.0 </td>
  <td style="vertical-align: top;">0.95 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_VEL_D">MPC_XY_VEL_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential gain for horizontal velocity error. Small values help reduce fast oscillations. If value is too big oscillations will appear again</p>    </td>
+ <td style="vertical-align: top;"><p>Differential gain for horizontal velocity error. Small values help reduce fast oscillations. If value is too big oscillations will appear again</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.005 > 0.1 </td>
  <td style="vertical-align: top;">0.01 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_VEL_I">MPC_XY_VEL_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integral gain for horizontal velocity error</p><p><strong>Comment:</strong> Non-zero value allows to resist wind.</p>    </td>
+ <td style="vertical-align: top;"><p>Integral gain for horizontal velocity error</p><p><strong>Comment:</strong> Non-zero value allows to resist wind.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 0.1 </td>
  <td style="vertical-align: top;">0.02 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_VEL_MAX">MPC_XY_VEL_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal velocity</p><p><strong>Comment:</strong> Maximum horizontal velocity in AUTO mode. If higher speeds are commanded in a mission they will be capped to this velocity.</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum horizontal velocity</p><p><strong>Comment:</strong> Maximum horizontal velocity in AUTO mode. If higher speeds are commanded in a mission they will be capped to this velocity.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 20.0 (1)</td>
  <td style="vertical-align: top;">12.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_VEL_P">MPC_XY_VEL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for horizontal velocity error</p>    </td>
+ <td style="vertical-align: top;"><p>Proportional gain for horizontal velocity error</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.06 > 0.15 </td>
  <td style="vertical-align: top;">0.09 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_YAW_EXPO">MPC_YAW_EXPO</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Manual control stick yaw rotation exponential curve</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    </td>
+ <td style="vertical-align: top;"><p>Manual control stick yaw rotation exponential curve</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_MAN_EXPO">MPC_Z_MAN_EXPO</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Manual control stick vertical exponential curve</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    </td>
+ <td style="vertical-align: top;"><p>Manual control stick vertical exponential curve</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_P">MPC_Z_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for vertical position error</p>    </td>
+ <td style="vertical-align: top;"><p>Proportional gain for vertical position error</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 1.5 </td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_D">MPC_Z_VEL_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential gain for vertical velocity error</p>    </td>
+ <td style="vertical-align: top;"><p>Differential gain for vertical velocity error</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 0.1 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_I">MPC_Z_VEL_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integral gain for vertical velocity error</p><p><strong>Comment:</strong> Non zero value allows hovering thrust estimation on stabilized or autonomous takeoff.</p>    </td>
+ <td style="vertical-align: top;"><p>Integral gain for vertical velocity error</p><p><strong>Comment:</strong> Non zero value allows hovering thrust estimation on stabilized or autonomous takeoff.</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.01 > 0.1 </td>
  <td style="vertical-align: top;">0.02 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_MAX_DN">MPC_Z_VEL_MAX_DN</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical descent velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum vertical descent velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.5 > 4.0 </td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_MAX_UP">MPC_Z_VEL_MAX_UP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum vertical ascent velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>    </td>
+ <td style="vertical-align: top;"><p>Maximum vertical ascent velocity</p><p><strong>Comment:</strong> Maximum vertical velocity in AUTO mode and endpoint for stabilized modes (ALTCTRL, POSCTRL).</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.5 > 8.0 </td>
  <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_VEL_P">MPC_Z_VEL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for vertical velocity error</p>    </td>
+ <td style="vertical-align: top;"><p>Proportional gain for vertical velocity error</p>    <p><b>Module:</b> modules/mc_pos_control</p>
+</td>
  <td style="vertical-align: top;">0.1 > 0.4 </td>
  <td style="vertical-align: top;">0.2 </td>
  <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="WV_EN">WV_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable weathervane</p>    <p><b>Module:</b> lib/WeatherVane</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="WV_ROLL_MIN">WV_ROLL_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum roll angle setpoint for weathervane controller to demand a yaw-rate</p>    <p><b>Module:</b> lib/WeatherVane</p>
+</td>
+ <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;">deg</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="WV_YRATE_MAX">WV_YRATE_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum yawrate the weathervane controller is allowed to demand</p>    <p><b>Module:</b> lib/WeatherVane</p>
+</td>
+ <td style="vertical-align: top;">0 > 120 </td>
+ <td style="vertical-align: top;">90.0 </td>
+ <td style="vertical-align: top;">deg/s</td>
 </tr>
 </tbody></table>
 
@@ -11953,9 +11999,6 @@ The module where these parameters are defined is: *modules/sensors*.
 
 ## VTOL Attitude Control
 
-
-The module where these parameters are defined is: *modules/vtol_att_control*.
-
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
@@ -11964,21 +12007,24 @@ The module where these parameters are defined is: *modules/vtol_att_control*.
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_ARSP_BLEND">VT_ARSP_BLEND</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Transition blending airspeed</p><p><strong>Comment:</strong> Airspeed at which we can start blending both fw and mc controls. Set to 0 to disable.</p>    </td>
+ <td style="vertical-align: top;"><p>Transition blending airspeed</p><p><strong>Comment:</strong> Airspeed at which we can start blending both fw and mc controls. Set to 0 to disable.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.00 > 30.00 (1)</td>
  <td style="vertical-align: top;">8.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_ARSP_TRANS">VT_ARSP_TRANS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Transition airspeed</p><p><strong>Comment:</strong> Airspeed at which we can switch to fw mode</p>    </td>
+ <td style="vertical-align: top;"><p>Transition airspeed</p><p><strong>Comment:</strong> Airspeed at which we can switch to fw mode</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.00 > 30.00 (1)</td>
  <td style="vertical-align: top;">10.0 </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_DEC_MSS">VT_B_DEC_MSS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Approximate deceleration during back transition</p><p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in mission mode. A lower value will make the VTOL transition further from the destination waypoint.</p>    </td>
+ <td style="vertical-align: top;"><p>Approximate deceleration during back transition</p><p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in mission mode. A lower value will make the VTOL transition further from the destination waypoint.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.00 > 20.00 (1)</td>
  <td style="vertical-align: top;">2.0 </td>
  <td style="vertical-align: top;">m/s/s</td>
@@ -11986,7 +12032,8 @@ The module where these parameters are defined is: *modules/vtol_att_control*.
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Delay in seconds before applying back transition throttle
-Set this to a value greater than 0 to give the motor time to spin down</p><p><strong>Comment:</strong> unit s</p>    </td>
+Set this to a value greater than 0 to give the motor time to spin down</p><p><strong>Comment:</strong> unit s</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0 > 10 (1)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
@@ -11995,21 +12042,24 @@ Set this to a value greater than 0 to give the motor time to spin down</p><p><st
  <td style="vertical-align: top;"><strong id="VT_B_REV_OUT">VT_B_REV_OUT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Output on airbrakes channel during back transition
 Used for airbrakes or with ESCs that have reverse thrust enabled on a seperate channel
-Airbrakes need to be enables for your selected model/mixer</p>    </td>
+Airbrakes need to be enables for your selected model/mixer</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0 > 1 (0.01)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_TRANS_DUR">VT_B_TRANS_DUR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Duration of a back transition</p><p><strong>Comment:</strong> Time in seconds used for a back transition</p>    </td>
+ <td style="vertical-align: top;"><p>Duration of a back transition</p><p><strong>Comment:</strong> Time in seconds used for a back transition</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.00 > 20.00 (1)</td>
  <td style="vertical-align: top;">4.0 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_TRANS_RAMP">VT_B_TRANS_RAMP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Back transition MC motor ramp up time</p><p><strong>Comment:</strong> This sets the duration during wich the MC motors ramp up to the commanded thrust during the back transition stage.</p>    </td>
+ <td style="vertical-align: top;"><p>Back transition MC motor ramp up time</p><p><strong>Comment:</strong> This sets the duration during wich the MC motors ramp up to the commanded thrust during the back transition stage.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 20.0 </td>
  <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">s</td>
@@ -12018,7 +12068,8 @@ Airbrakes need to be enables for your selected model/mixer</p>    </td>
  <td style="vertical-align: top;"><strong id="VT_B_TRANS_THR">VT_B_TRANS_THR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Target throttle value for the transition to hover flight.
 standard vtol: pusher
-tailsitter, tiltrotor: main throttle</p><p><strong>Comment:</strong> Note for standard vtol: For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>    </td>
+tailsitter, tiltrotor: main throttle</p><p><strong>Comment:</strong> Note for standard vtol: For ESCs and mixers that support reverse thrust on low PWM values set this to a negative value to apply active breaking For ESCs that support thrust reversal with a control channel please set VT_B_REV_OUT and set this to a positive value to apply active breaking</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">-1 > 1 (0.01)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
@@ -12027,84 +12078,96 @@ tailsitter, tiltrotor: main throttle</p><p><strong>Comment:</strong> Note for st
  <td style="vertical-align: top;"><strong id="VT_DWN_PITCH_MAX">VT_DWN_PITCH_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum allowed down-pitch the controller is able to demand. This prevents large, negative
 lift values being created when facing strong winds. The vehicle will use the pusher motor
-to accelerate forward if necessary</p>    </td>
+to accelerate forward if necessary</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 45.0 </td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_ELEV_MC_LOCK">VT_ELEV_MC_LOCK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Lock elevons in multicopter mode</p><p><strong>Comment:</strong> If set to 1 the elevons are locked in multicopter mode</p>    </td>
+ <td style="vertical-align: top;"><p>Lock elevons in multicopter mode</p><p><strong>Comment:</strong> If set to 1 the elevons are locked in multicopter mode</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Fixed wing thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to fixed wing thrust being used as source for forward acceleration in multirotor mode. This technique can be used to avoid the plane having to pitch down a lot in order to move forward. Setting this value to 0 (default) will disable this strategy.</p>    </td>
+ <td style="vertical-align: top;"><p>Fixed wing thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to fixed wing thrust being used as source for forward acceleration in multirotor mode. This technique can be used to avoid the plane having to pitch down a lot in order to move forward. Setting this value to 0 (default) will disable this strategy.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 2.0 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_FW_ALT_ERR">VT_FW_ALT_ERR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Adaptive QuadChute</p><p><strong>Comment:</strong> Maximum negative altitude error for fixed wing flight. If the altitude drops below this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.</p>    </td>
+ <td style="vertical-align: top;"><p>Adaptive QuadChute</p><p><strong>Comment:</strong> Maximum negative altitude error for fixed wing flight. If the altitude drops below this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 200.0 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_EN">VT_FW_DIFTHR_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Differential thrust in forwards flight</p><p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>    </td>
+ <td style="vertical-align: top;"><p>Differential thrust in forwards flight</p><p><strong>Comment:</strong> Set to 1 to enable differential thrust in fixed-wing flight.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_FW_DIFTHR_SC">VT_FW_DIFTHR_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential thrust scaling factor</p><p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>    </td>
+ <td style="vertical-align: top;"><p>Differential thrust scaling factor</p><p><strong>Comment:</strong> This factor specifies how the yaw input gets mapped to differential thrust in forwards flight.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
  <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_FW_MIN_ALT">VT_FW_MIN_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>QuadChute Altitude</p><p><strong>Comment:</strong> Minimum altitude for fixed wing flight, when in fixed wing the altitude drops below this altitude the vehicle will transition back to MC mode and enter failsafe RTL</p>    </td>
+ <td style="vertical-align: top;"><p>QuadChute Altitude</p><p><strong>Comment:</strong> Minimum altitude for fixed wing flight, when in fixed wing the altitude drops below this altitude the vehicle will transition back to MC mode and enter failsafe RTL</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 200.0 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_FW_MOT_OFFID">VT_FW_MOT_OFFID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>The channel number of motors that must be turned off in fixed wing mode</p>    </td>
+ <td style="vertical-align: top;"><p>The channel number of motors that must be turned off in fixed wing mode</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0 > 12345678 (1)</td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_FW_PERM_STAB">VT_FW_PERM_STAB</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Permanent stabilization in fw mode</p><p><strong>Comment:</strong> If set to one this parameter will cause permanent attitude stabilization in fw mode. This parameter has been introduced for pure convenience sake.</p>    </td>
+ <td style="vertical-align: top;"><p>Permanent stabilization in fw mode</p><p><strong>Comment:</strong> If set to one this parameter will cause permanent attitude stabilization in fw mode. This parameter has been introduced for pure convenience sake.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_FW_QC_P">VT_FW_QC_P</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>QuadChute Max Pitch</p><p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>    </td>
+ <td style="vertical-align: top;"><p>QuadChute Max Pitch</p><p><strong>Comment:</strong> Maximum pitch angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0 > 180 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_FW_QC_R">VT_FW_QC_R</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>QuadChute Max Roll</p><p><strong>Comment:</strong> Maximum roll angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>    </td>
+ <td style="vertical-align: top;"><p>QuadChute Max Roll</p><p><strong>Comment:</strong> Maximum roll angle before QuadChute engages Above this the vehicle will transition back to MC mode and enter failsafe RTL</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0 > 180 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_F_TRANS_DUR">VT_F_TRANS_DUR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Duration of a front transition</p><p><strong>Comment:</strong> Time in seconds used for a transition</p>    </td>
+ <td style="vertical-align: top;"><p>Duration of a front transition</p><p><strong>Comment:</strong> Time in seconds used for a transition</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.00 > 20.00 (1)</td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">s</td>
@@ -12113,28 +12176,32 @@ to accelerate forward if necessary</p>    </td>
  <td style="vertical-align: top;"><strong id="VT_F_TRANS_THR">VT_F_TRANS_THR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Target throttle value for the transition to fixed wing flight.
 standard vtol: pusher
-tailsitter, tiltrotor: main throttle</p>    </td>
+tailsitter, tiltrotor: main throttle</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_F_TR_OL_TM">VT_F_TR_OL_TM</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airspeed less front transition time (open loop)</p><p><strong>Comment:</strong> The duration of the front transition when there is no airspeed feedback available.</p>    </td>
+ <td style="vertical-align: top;"><p>Airspeed less front transition time (open loop)</p><p><strong>Comment:</strong> The duration of the front transition when there is no airspeed feedback available.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">1.0 > 30.0 </td>
  <td style="vertical-align: top;">6.0 </td>
  <td style="vertical-align: top;">seconds</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_IDLE_PWM_MC">VT_IDLE_PWM_MC</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Idle speed of VTOL when in multicopter mode</p>    </td>
+ <td style="vertical-align: top;"><p>Idle speed of VTOL when in multicopter mode</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">900 > 2000 (1)</td>
  <td style="vertical-align: top;">900 </td>
  <td style="vertical-align: top;">us</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_MOT_COUNT">VT_MOT_COUNT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>VTOL number of engines</p>    </td>
+ <td style="vertical-align: top;"><p>VTOL number of engines</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0 > 8 (1)</td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -12142,49 +12209,56 @@ tailsitter, tiltrotor: main throttle</p>    </td>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_PSHER_RMP_DT">VT_PSHER_RMP_DT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Defines the time window during which the pusher throttle will be ramped up linearly to VT_F_TRANS_THR during a transition
-to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR</p>    </td>
+to fixed wing mode. Zero or negative values will produce an instant throttle rise to VT_F_TRANS_THR</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">? > 20 (0.01)</td>
  <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TILT_FW">VT_TILT_FW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in fw mode</p>    </td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in fw mode</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in mc mode</p>    </td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in mc mode</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TILT_TRANS">VT_TILT_TRANS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position of tilt servo in transition mode</p>    </td>
+ <td style="vertical-align: top;"><p>Position of tilt servo in transition mode</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.3 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TRANS_MIN_TM">VT_TRANS_MIN_TM</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Front transition minimum time</p><p><strong>Comment:</strong> Minimum time in seconds for front transition.</p>    </td>
+ <td style="vertical-align: top;"><p>Front transition minimum time</p><p><strong>Comment:</strong> Minimum time in seconds for front transition.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.0 > 20.0 </td>
  <td style="vertical-align: top;">2.0 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TRANS_P2_DUR">VT_TRANS_P2_DUR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Duration of front transition phase 2</p><p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>    </td>
+ <td style="vertical-align: top;"><p>Duration of front transition phase 2</p><p><strong>Comment:</strong> Time in seconds it should take for the rotors to rotate forward completely from the point when the plane has picked up enough airspeed and is ready to go into fixed wind mode.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.1 > 5.0 (0.01)</td>
  <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TRANS_TIMEOUT">VT_TRANS_TIMEOUT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Front transition timeout</p><p><strong>Comment:</strong> Time in seconds after which transition will be cancelled. Disabled if set to 0.</p>    </td>
+ <td style="vertical-align: top;"><p>Front transition timeout</p><p><strong>Comment:</strong> Time in seconds after which transition will be cancelled. Disabled if set to 0.</p>    <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0.00 > 30.00 (1)</td>
  <td style="vertical-align: top;">15.0 </td>
  <td style="vertical-align: top;">s</td>
@@ -12198,17 +12272,19 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
 
 <li><strong>2:</strong> Standard</li> 
 </ul>
-   </td>
+   <p><b>Module:</b> modules/vtol_att_control</p>
+</td>
  <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="VT_WV_YAWR_SCL">VT_WV_YAWR_SCL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Weather-vane yaw rate scale</p><p><strong>Comment:</strong> The desired yawrate from the controller will be scaled in order to avoid yaw fighting against the wind.</p>    </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
- <td style="vertical-align: top;">0.15 </td>
- <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;"><strong id="WV_GAIN">WV_GAIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Weather-vane roll angle to yawrate</p><p><strong>Comment:</strong> The desired gain to convert roll sp into yaw rate sp.</p>    <p><b>Module:</b> lib/WeatherVane</p>
+</td>
+ <td style="vertical-align: top;">0.0 > 3.0 (0.01)</td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;">1/s</td>
 </tr>
 </tbody></table>
 
