@@ -1,7 +1,7 @@
 # VTOL Weather Vane Feature
 
 The *weather vane* feature automatically turns a VTOL vehicle to face its nose into the relative wind during hover flight. 
-The improves stability (reducing the chance that wind from the side will pick-up the wind-facing wing and flip the vehicle).
+This improves stability (reducing the chance that wind from the side will pick-up the wind-facing wing and flip the vehicle).
 
 The feature is enabled by setting the parameter [WV_EN](../advanced_config/parameter_reference.md#WV_EN).
 
