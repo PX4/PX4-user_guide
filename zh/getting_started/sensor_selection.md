@@ -40,7 +40,7 @@ PX4 supports many affordable distance sensors, using different technologies, and
 
 [PX4Flow](../sensor/px4flow.md) is an optical flow smart camera that can track motion, and has as integrated sonar sensor. PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. This sensor can be used indoors, when no GPS signal is available.
 
-![px4flow-bottom](../../images/px4flow_bottom.jpg)
+![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
 
 Some options include:
 
