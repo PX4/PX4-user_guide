@@ -46,6 +46,8 @@ PX4 supports many affordable distance sensors, using different technologies, and
 PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. 
 This sensor can be used indoors, when no GPS signal is available.
 
+![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg) 
+
 Some options include:
 * [3DR PX4Flow Smart Camera (Optical Flow Sensor)](https://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/) (unmannedtechshop)
 * [HK Pilot32 Optical Flow Kit With Sonar](https://hobbyking.com/en_us/hk-pilot32-optical-flow-kit-with-sonar.html) (Hobbyking) - Software-compatible, but not connector-compatible.
