@@ -1,4 +1,4 @@
-# Falcon Vertigo Hybrid VTOL RTF (Dropix)
+# Falcon Vertigo Hybrid VTOL RTF (Dropix) (Discontinued)
 
 The *Falcon Vertigo Hybrid VTOL* is a quadplane VTOL aircraft that has been designed to work with PX4 and the Dropix (Pixhawk compatible) flight controller. It can carry a small GoPro camera. 
 
@@ -6,7 +6,7 @@ The RTF kit contains everything needed for a full system except an RC receiver a
 
 Key information:
 
-- **Frame:** [Falcon Vertigo Hybrid VTOL RTF](http://flyingwings.co.uk/new-products/venturi-fpv-wing-192.html)
+- **Frame:** Falcon Vertigo Hybrid VTOL RTF (Discontinued)
 - **Flight controller:** Dropix
 - **Wing span:** 1.3m
 
@@ -18,7 +18,7 @@ Key information:
 Almost everything you need is provided in the RTF kit (the links next to components below are provided in case you wished to purchase any component separately):
 
 * Pre laminated EPP wings
-* Wingtips and full hardware - [frame](http://flyingwings.co.uk/new-products/venturi-fpv-wing-193.html)
+* Wingtips and full hardware - (Discontinued)
 * [Dropix](https://drotek.com/shop/en/drotek-parts/494-dropix-flight-controller.html) flight controller with
   * [GPS Ublox M8N](https://drotek.com/shop/en/drotek-parts/512-ublox-neo-m8-gps-hmc5983-compass.html)
   * Power Sensor  
