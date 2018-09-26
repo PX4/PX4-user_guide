@@ -95,6 +95,7 @@
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [Peripheral Hardware](peripherals/README.md)
+  * [Serial Port Configuration](peripherals/serial_configuration.md)
   * [GPS/Compass](gps_compass/README.md)
     * [RTK GPS](gps_compass/rtk_gps.md)
       * [Here+](gps_compass/rtk_gps_hex_hereplus.md)
