@@ -1,7 +1,7 @@
 # Pixhawk Series
 
-[Pixhawk<sup>&reg;</sup>](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, *autopilot hardware designs* to the academic, hobby and industrial communities. 
-"Pixhawk-series" boards run PX4 on the [NuttX](http://nuttx.org) OS. 
+[Pixhawk<sup>&reg;</sup>](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, *autopilot hardware designs* to the academic, hobby and industrial communities.
+"Pixhawk-series" boards run PX4 on the [NuttX](http://nuttx.org) OS.
 
 Manufacturers have created many different boards based on the open designs, with form factors that are optimised for applications from cargo carrying though to first person view (FPV) racers.
 
@@ -19,7 +19,7 @@ Key benefits of using a *Pixhawk series* controller include:
 * Automated update of latest firmware via *QGroundControl* (end-user friendly).
 
 
-## Recommended boards
+## Recommended Boards
 
 The following products in the series are recommended/regularly tested with PX4:
 
@@ -34,6 +34,7 @@ The following products in the series are recommended/regularly tested with PX4:
 * [Pixhawk 2](../flight_controller/pixhawk-2.md)
 * [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
 * [Pixhawk 4](../flight_controller/pixhawk4.md)
+* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
 * [Pixhack v5](../flight_controller/pixhack_v5.md)
 > **Note** This is not an exhaustive list of all boards that can run PX4. Other boards are linked from the sidebar, and there may be other flight controllers that we have not documented.
 
@@ -41,7 +42,7 @@ The rest of this topic explains a bit more about the Pixhawk series, but is not 
 
 ## Background
 
-The [Pixhawk project](https://pixhawk.org/) creates open hardware designs in the form of schematics, which define a set of components (CPU, sensors, etc.) and their connections/pin mappings. 
+The [Pixhawk project](https://pixhawk.org/) creates open hardware designs in the form of schematics, which define a set of components (CPU, sensors, etc.) and their connections/pin mappings.
 
 Manufacturers are encouraged to take the [open designs](https://github.com/PX4/Hardware#hardware) and create products that are best suited to a particular market or use case (the physical layout/form factor not part of the open specification). Boards based on the same design are binary compatible.
 
@@ -51,18 +52,18 @@ The project also creates reference autopilot boards based on the open designs, a
 
 ### FMU Versions
 
-The Pixhawk project has created a number of different open designs/schematics. 
+The Pixhawk project has created a number of different open designs/schematics.
 All boards based on a design should be binary compatible (run the same firmware).
 
-Each design is named using the designation: FMUvX (e.g.: FMUv1, FMUv2, FMUv3, FMUv4, etc.). 
-Higher FMU numbers indicate that the board is more recent, 
+Each design is named using the designation: FMUvX (e.g.: FMUv1, FMUv2, FMUv3, FMUv4, etc.).
+Higher FMU numbers indicate that the board is more recent,
 but may not indicate increased capability (versions can be almost identical - differing only in connector wiring).
 
 PX4 *users* generally do not need to know very much about FMU versions:
 - *QGroundControl* automatically downloads the correct firmware for a connected autopilot (based on its FMU version "under the hood").
-- Choosing a controller is usually based on physical constraints/form factor rather than FMU version. 
+- Choosing a controller is usually based on physical constraints/form factor rather than FMU version.
 
-PX4 *developers* need to know the FMU version of their board, as this is required to build custom hardware. 
+PX4 *developers* need to know the FMU version of their board, as this is required to build custom hardware.
 
 At very high level, the main differences are:
 
@@ -82,7 +83,7 @@ The license allows you to use, sell, share, modify and build on the files in alm
 
 Manufacturers can create (compatible) *fully independent products* by first generating fresh schematic files that have the same pin mapping/components as the FMU designs. Products that are based on independently created schematics are considered original works, and can be licensed as required.
 
-Product names/brands can also be trademarked. Trademarked names may not be used without the permission of the owner. 
+Product names/brands can also be trademarked. Trademarked names may not be used without the permission of the owner.
 
 > **Tip** *Pixhawk* is a trademark, and cannot be used in product names without permission.
 
