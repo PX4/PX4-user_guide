@@ -17,7 +17,7 @@ Key benefits of using a *Pixhawk series* controller include:
 * Widely-used and thus well-tested/stable.
 * Automated update of latest firmware via *QGroundControl* (end-user friendly).
 
-## Recommended boards
+## Recommended Boards
 
 The following products in the series are recommended/regularly tested with PX4:
 
@@ -32,6 +32,7 @@ The following products in the series are recommended/regularly tested with PX4:
 * [Pixhawk 2](../flight_controller/pixhawk-2.md)
 * [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
 * [Pixhawk 4](../flight_controller/pixhawk4.md)
+* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
 * [Pixhack v5](../flight_controller/pixhack_v5.md) > **Note** This is not an exhaustive list of all boards that can run PX4. Other boards are linked from the sidebar, and there may be other flight controllers that we have not documented.
 
 The rest of this topic explains a bit more about the Pixhawk series, but is not required reading.
@@ -55,7 +56,7 @@ Each design is named using the designation: FMUvX (e.g.: FMUv1, FMUv2, FMUv3, FM
 PX4 *users* generally do not need to know very much about FMU versions:
 
 * *QGroundControl* automatically downloads the correct firmware for a connected autopilot (based on its FMU version "under the hood").
-* Choosing a controller is usually based on physical constraints/form factor rather than FMU version. 
+* Choosing a controller is usually based on physical constraints/form factor rather than FMU version.
 
 PX4 *developers* need to know the FMU version of their board, as this is required to build custom hardware.
 
