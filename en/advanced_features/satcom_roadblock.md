@@ -65,29 +65,25 @@ The module is now ready to be used with PX4.
 
 ### Software
 
-Flash the Pixhawk with the latest PX4 master. 
-To activate either set the [SYS_COMPANION](../advanced_config/parameter_reference.md#SYS_COMPANION) parameter to `Iridium Telemetry (115200 baud, 8N1)` or add the following lines to the **extras.txt** on the SD card:
+[Configure the serial port](../peripherals/serial_configuration.md) on which the RockBlock module will run using [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG).
+<!-- There is no need to set the baud rate for the port, as this is configured by the driver. -->
+The baud rate for the connected port should be set to: 115200.
 
-```sh
-# add a sleep here to make sure that the module is powered
-usleep 200000
+> **Note** If `ISBD_CONFIG` is not available in *QGroundControl* then you will need to [add the driver to the firmware](#firmware).
 
-#driver
-if iridiumsbd start -d SERIAL_PORT
-then
-	# start the iridium mavlink instance
-	mavlink start -d /dev/iridium -m iridium -b 115200
+### Firmware Setup {#firmware}
 
-	# Sleep a bit to give Mavlink time to set up
-	usleep 100000
+Flash the Pixhawk with the latest PX4 master.
 
-else
-	echo "WARN: Iridiumsbd driver not started, reboot"
-	tune_control play -m "ML<<CP4CP4CP4CP4CP4"
-fi
+> **Note** PX4 firmware includes the required driver by default on most [Pixhawk-series](../flight_controller/pixhawk_series.md) boards.
+  This step is only required for the few boards that don't include it in firmware.
+
+You can include the driver in firmware by adding the following line to the [cmake config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target you want to build for:
+```
+drivers/iridiumsbd
 ```
 
-where `SERIAL_PORT` is the serial port to which the RockBlock module is connected.
+You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
 
 ## RockBlock Setup
 
@@ -250,3 +246,5 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
     If it is decreasing during the flight and you are using the internal antenna consider using an external antenna. 
     If you are already using the external antenna try moving the antenna as far away as possible from any electronics or anything which might disturb the signal. 
     Also make sure that the antenna is is not damaged.
+
+    
