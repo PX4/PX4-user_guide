@@ -34,14 +34,19 @@ Ready-made cables (which include the required adapters) are available from:
   
 ## PX4 Configuration
 
-The typical port used for FrSky telemetry is TELEM2. This can be enabled by [setting](../advanced_config/parameters.md) the [SYS_COMPANION](../advanced_config/parameter_reference.md#SYS_COMPANION) parameter to 10.
+[Configure the serial port](../peripherals/serial_configuration.md) on which FrSky will run using [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG) (typically `TELEM 2` is used for FrSky telemetry). 
+There is no need to set the baud rate for the port, as this is configured by the driver.
 
+> **Note** If `TEL_FRSKY_CONFIG` is not available in *QGroundControl* then you will need to [add the driver to the firmware](#firmware).
+
+No further configuration is required; FrSky telemetry auto-starts when connected and detects D or S mode.
+
+<!--
 The following boards have dedicated zero-configuration FrSky ports:
 
 * [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) TELEM4 port: No additional software configuration is needed when connecting to this port.
 * [Pixracer](../flight_controller/pixracer.md) FrSky port: No additional software configuration is needed (once connected FrSky telemetry auto-starts and detects D or S mode). 
-
-> **Tip** You can still use the `TELEM2` port on the above boards (by setting the `SYS_COMPANION` parameter). If you wish to use any other port you will need to start the [frsky_telemetry](https://dev.px4.io/en/middleware/modules_communication.html#frskytelemetry) module, specifying the required port (either modify the firmware or [customise startup using an SD Card](https://dev.px4.io/en/advanced/system_startup.html#starting-additional-applications).
+-->
 
 
 ## Compatible RC Transmitters {#transmitters}
@@ -196,6 +201,20 @@ Most other boards connect to the receiver for FrSky telemetry via the TELEM2 UAR
 You will need to connect via a UART to S.PORT adapter board, or a [ready-made cable](#ready_made_cable).
 
 <!-- ideally add diagram here -->
+
+
+
+## Firmware Setup {#firmware}
+
+> **Note** PX4 firmware includes the FrSky driver by default on most [Pixhawk-series](../flight_controller/pixhawk_series.md) boards.
+  This step is only required for the few boards that don't include it in firmware.
+
+You can include the driver in firmware by adding the following line to the [cmake config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target you want to build for:
+```
+drivers/frsky_telemetry
+```
+
+You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
 
 
 ## Additional Information
