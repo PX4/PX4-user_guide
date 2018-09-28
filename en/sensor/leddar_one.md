@@ -1,6 +1,6 @@
 # LeddarOne Lidar
 
-[LeddarOne](https://leddartech.com/modules/leddarone/) is small-size Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. 
+[LeddarOne](https://leddartech.com/modules/leddarone/) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. 
 It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
 
 <img src="../../assets/hardware/sensors/leddar_one.jpg" alt="LeddarOne Lidar rangefinder" width="200px" />
@@ -24,20 +24,17 @@ Pin | LeddarOne
 
 ## Parameter Setup
 
-To enable LeddarOne configure the serial port on which it will run using [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG).
-For more information see: [Serial Port Configuration](../peripherals/serial_configuration.md).
+To enable LeddarOne, [configure the serial port](../peripherals/serial_configuration.md) on which it will run using [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG).
 
-> **Note** PX4 includes the LeddarOne driver by default on many [Pixhawk-series](../flight_controller/pixhawk_series.md) boards, including: px4fmu-v3, px4fmu-v4, px4fmu-v4pro, px4fmu-v5, aerofc-v1, aerocore2, auav-X21, mindpx-v2, nxphlite-v3.
-  You can use any other board (e.g. px4fmu-v2) but you will need to [add the driver to the firmware](#firmware).
+> **Note** If `SENS_LEDDAR1_CFG` is not available in *QGroundControl* then you will need to [add the driver to the firmware](#firmware).
 
-  
-## Add LeddarOne to Firmware {#firmware}
 
-> **Note** This is only required if you want to use LeddarOne on a board that doesn't include it in firmware.
+## Firmware Setup {#firmware}
 
-LeddarOne is present if the build configuration includes `drivers/distance_sensor` or `drivers/distance_sensor/leddar_one` (check using [this search](https://github.com/PX4/Firmware/search?utf8=%E2%9C%93&q=%22drivers%2Fdistance_sensor%22)).
+> **Note** PX4 firmware includes the LeddarOne driver by default on most [Pixhawk-series](../flight_controller/pixhawk_series.md) boards.
+  This step is only required for the few boards that don't include it in firmware.
 
-If it isn't present you can include the driver in firmware by adding the following line to the [cmake config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target you want to build for:
+You can can include the driver in firmware by adding the following line to the [cmake config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target you want to build for:
 ```
 drivers/distance_sensor/leddar_one
 ```

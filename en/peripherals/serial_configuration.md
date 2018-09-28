@@ -1,7 +1,7 @@
 # Serial Port Configuration
 
 Most serial (UART) ports on a Pixhawk board can be fully configured via parameters
-(exceptions are ports that are used for a very specific purpose, e.g. RC input).
+(exceptions are ports that are used for a very specific purpose like RC input, or which are not configurable like `SERIAL 5`).
 
 The configuration makes it easy to (for example):
 - change the baudrate on a port.
@@ -25,14 +25,17 @@ All other ports have no assigned functions by default (are disabled).
 
 All the serial drivers/ports are configured in the same way:
 1. Set the configuration parameter for the service/peripheral to the port it will use.
-  Configuration parameter names follow the pattern `\*\_CONFIG` or `\*\_CFG`.
 1. Reboot the vehicle.
-1. Set the baud rate parameter for the selected port to the desired value. 
+1. Set the baud rate parameter for the selected port to the desired value.
+1. Configure module-specific parameters (i.e. MAVLink streams and data rate configuration).
 
+> **Note** Configuration parameter names follow the pattern `\*\_CONFIG` or `\*\_CFG`.
+  *QGroundControl* only displays the parameters for services/drivers that are present in firmware. 
 
-The following example provides a practical example: how to run a secondary GPS (`GPS_2_CONFIG`) on the `TELEM 2` port.
+The following steps provide a practical example of how to configure a port in *QGroundControl*. 
+It shows how to run a secondary GPS (`GPS_2_CONFIG`) on the `TELEM 2` port.
 
-1. Go to the Parameters settings
+1. Go to the **Parameters** section in vehicle setup.
 1. Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3).
   ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
 1. Reboot the vehicle in order for the other parameters to show up.
@@ -42,8 +45,7 @@ The following example provides a practical example: how to run a secondary GPS (
 
 ## Deconficting Ports
 
-At time of writing there is no way to de-conflict ports.
+Port conflicts are handled by system startup, which ensures that at most one service is run on a specific port.
 
-> **Caution** If you assign the same port to multiple services neither service may work properly.
-
+> **Caution** At time of writing there is no user feedback about conflicting ports.
 
