@@ -35,10 +35,12 @@ There is no need to set the baud rate for the port, as this is configured by the
 > **Note** PX4 firmware includes the LeddarOne driver by default on most [Pixhawk-series](../flight_controller/pixhawk_series.md) boards.
   This step is only required for the few boards that don't include it in firmware.
 
-You can can include the driver in firmware by adding the following line to the [cmake config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target you want to build for:
+You can include the driver in firmware by adding the following line to the [cmake config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target you want to build for:
 ```
 drivers/distance_sensor/leddar_one
 ```
+
+You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
 
 ## Intel Aero {#aero}
 
