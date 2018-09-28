@@ -114,6 +114,7 @@
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
     * [LeddarOne Lidar](sensor/leddar_one.md)
+    * [Benewake TFmini Lidar](sensor/tfmini.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
   * [Airspeed Sensors](sensor/airspeed.md)
   * [Optical Flow](sensor/optical_flow.md)

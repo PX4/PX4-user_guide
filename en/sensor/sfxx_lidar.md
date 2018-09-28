@@ -55,7 +55,7 @@ The lidar can be connected to any unused *serial port* (UART), e.g.: TELEM2, TEL
 
 ### Parameter Setup {#i2c_parameter_setup}
 
-To enable the lidar, [configure the serial port](../peripherals/serial_configuration.md) on which it will run using [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG).
+[Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG).
 There is no need to set the baud rate for the port, as this is configured by the driver.
 
 Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF0X) parameter to match the rangefinder model and reboot:

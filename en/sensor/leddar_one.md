@@ -24,7 +24,8 @@ Pin | LeddarOne
 
 ## Parameter Setup
 
-To enable LeddarOne, [configure the serial port](../peripherals/serial_configuration.md) on which it will run using [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG).
+[Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG).
+There is no need to set the baud rate for the port, as this is configured by the driver.
 
 > **Note** If `SENS_LEDDAR1_CFG` is not available in *QGroundControl* then you will need to [add the driver to the firmware](#firmware).
 
@@ -46,7 +47,4 @@ The LeddarOne is the recommended rangefinder for the *Intel® Aero Ready to Fly 
 
 ## Further Information
 
-<!-- Would be good to add links to topics on adding drivers to firmware -->
-* [PX4 Development Guide](https://dev.px4.io/en/)
-* [System Startup > Customizing the System Startup](https://dev.px4.io/en/advanced/system_startup.html#customizing-the-system-startup) (PX4 Development Guide)
 * [LeddarOne Spec sheet](https://leddartech.com/app/uploads/dlm_uploads/2017/05/Spec-Sheets-LeddarOne-27octobre2017-web.pdf)
