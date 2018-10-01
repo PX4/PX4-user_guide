@@ -47,16 +47,18 @@ Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX)
 
 ## Serial Setup
 
-### Hardware {#i2c_hardware_setup}
+### Hardware {#serial_hardware_setup}
 
 The lidar can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
 <!-- Would be good to show serial setup! -->
 
-### Parameter Setup {#i2c_parameter_setup}
+### Parameter Setup {#serial_parameter_setup}
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG).
 There is no need to set the baud rate for the port, as this is configured by the driver.
+
+> **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware).
 
 Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF0X) parameter to match the rangefinder model and reboot:
 * `0`: Disabled

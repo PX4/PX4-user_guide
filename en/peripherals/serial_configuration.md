@@ -49,3 +49,21 @@ Port conflicts are handled by system startup, which ensures that at most one ser
 
 > **Caution** At time of writing there is no user feedback about conflicting ports.
 
+
+## Troubleshooting
+
+### Configuration Parameter Missing from *QGroundControl* {#parameter_not_in_firmware}
+
+*QGroundControl* only displays the parameters for services/drivers that are present in firmware.
+If a parameter is missing, then you may need to add it in firmware.
+
+> **Note** PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_controller/pixhawk_series.md) boards.
+  Flash-limited boards may comment out/omit the driver (at time of writing this only affects boards based on FMUv2).
+
+You can include the missing driver in firmware by uncommenting (or adding) the driver in the [cmake config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target you want to build for. 
+For example, to enable the leddar_one driver, you would remove the `#` at the beginning of the line below.
+```
+#drivers/distance_sensor/leddar_one
+```
+
+You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).

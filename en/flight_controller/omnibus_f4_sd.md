@@ -106,7 +106,7 @@ RC is connected to one of the following ports:
   - TX: MCU pin PA0
   - RX: MCU pin PA1
   - 57600 baud
-
+  - This can be configured as the `TELEM 2` port.
   - Airbot Omnibus F4 SD Pinout:
     - TX: RSSI pin
     - RX: PWM out 5

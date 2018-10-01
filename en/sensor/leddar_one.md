@@ -27,20 +27,10 @@ Pin | LeddarOne
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG).
 There is no need to set the baud rate for the port, as this is configured by the driver.
 
-> **Note** If `SENS_LEDDAR1_CFG` is not available in *QGroundControl* then you will need to [add the driver to the firmware](#firmware).
-
-
-## Firmware Setup {#firmware}
-
-> **Note** PX4 firmware includes the LeddarOne driver by default on most [Pixhawk-series](../flight_controller/pixhawk_series.md) boards.
-  This step is only required for the few boards that don't include it in firmware.
-
-You can include the driver in firmware by adding the following line to the [cmake config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target you want to build for:
-```
-drivers/distance_sensor/leddar_one
-```
-
-You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
+> **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+  ```
+  drivers/distance_sensor/leddar_one
+  ```
 
 ## Intel Aero {#aero}
 

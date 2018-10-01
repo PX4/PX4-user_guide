@@ -66,24 +66,12 @@ The module is now ready to be used with PX4.
 ### Software
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the RockBlock module will run using [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG).
-<!-- There is no need to set the baud rate for the port, as this is configured by the driver. -->
-The baud rate for the connected port should be set to: 115200.
+There is no need to set the baud rate for the port, as this is configured by the driver.
 
-> **Note** If `ISBD_CONFIG` is not available in *QGroundControl* then you will need to [add the driver to the firmware](#firmware).
-
-### Firmware Setup {#firmware}
-
-Flash the Pixhawk with the latest PX4 master.
-
-> **Note** PX4 firmware includes the required driver by default on most [Pixhawk-series](../flight_controller/pixhawk_series.md) boards.
-  This step is only required for the few boards that don't include it in firmware.
-
-You can include the driver in firmware by adding the following line to the [cmake config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target you want to build for:
-```
-drivers/iridiumsbd
-```
-
-You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
+> **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware):
+  ```
+  drivers/telemetry/iridiumsbd
+  ```
 
 ## RockBlock Setup
 
