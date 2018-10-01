@@ -67,3 +67,8 @@ For example, to enable the leddar_one driver, you would remove the `#` at the be
 ```
 
 You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
+
+
+## Further Information
+
+* [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md)
