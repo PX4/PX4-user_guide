@@ -9,7 +9,7 @@ The configuration makes it easy to (for example):
 - setup dual GPS.
 - enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
 
-## Pre-configured Ports
+## Pre-configured Ports {#default_port_mapping}
 
 The following functions are typically mapped to the same specific serial ports on all boards, and are hence mapped by default:
 

@@ -1,24 +1,53 @@
-# MAVLink (OSD/Telemetry)
+# MAVLink Peripherals (GCS/OSD/Companion)
 
-## TELEM1 Port
+Ground Control Stations (GCS), On-Screen Displays (OSD), Companion Computers, and other MAVLink peripherals interact with PX4 using separate MAVLink streams, sent via different serial ports.
+These communication channels are are configured using the [MAVLink parameters](../advanced_config/parameter_reference.md#mavlink).
 
-The telemetry 1 port defaults to 57600 baud, 8N1 and transmits a MAVLink
-stream.
+## MAVLink Instances
 
-## TELEM2 Port
+In order to assign a particular peripheral to a serial port we use the (abstract) concept of a *MAVLink instance*. 
+A *MAVLink instance* can represent "any stream of messages"; parameters are used to define the data stream it represents, the port used, data rate, etc.
 
-The MAVLink settings default to OSD mode at 57600 baud. 
+> **Note** At time of writing three instances are defined, which correspond to the 0, 1, 2 in the parameters listed below.
 
-The **drop-down menu** for the [SYS_COMPANION](../advanced_config/parameter_reference.md#SYS_COMPANION) parameter is used to set
-the optimal mode depending on the application scenario.
+The parameters for each instance are:
+- [MAV_X_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) - Set the serial port (UART) for this instance "X", where X is 0, 1, 2. 
+  It can be any unused port, e.g.: TELEM2, TELEM3, GPS2 etc. For more information see [Serial Port Configuration](../peripherals/serial_configuration.md)
+- [MAV_X_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Specify the set of messages for the current instance (and their sending rate).
+  The values are:
+  - Normal
+  - Custom
+  - Onboard
+  - OSD
+  - Magic
+  - Config
+  - Iridium
+  - Minimal
+- [MAV_X_RATE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Set the streaming rate for this instance.
+- [MAV_X_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) - Enable forwarding of MAVLink packets received by the current instance onto other interfaces.
 
--   Companion computer mode at 921600 baud
--   Companion computer mode at 57600 baud
--   OSD mode at 57600 baud
--   Command / RC input mode (receive only) at 57600 baud
--   Normal telemetry mode at 57600 baud
+## Default MAVLink Ports {#default_ports}
 
-> **Note** OSD mode defines the MAVLink stream required by OSD (set of activated messages & their rates). The other modes are for other specific hardware (e.g. ESP8266 for WiFi), and use the optimal baud rate settings for their link.
+The `TELEM 1` port is almost always used for the GCS telemetry stream.
 
-![QGC Telemetry Setup](../../images/qgc_telemetry_setup.png)
+To support this there is a [default serial port mapping](../peripherals/serial_configuration.md#default_port_mapping) of MAVLink instance 0 as shown below:
+- [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) = `TELEM 1`
+- [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) = `Normal`
+- [MAV_0_RATE](../advanced_config/parameter_reference.md#MAV_0_RATE)= `57600` baud
+- [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) = `True`
 
+## Example
+
+For example, to use a Companion Computer on `TELEM 2` you might set parameters as shown:
+- [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) = `TELEM 2`
+- [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) = `Onboard`
+- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)= `921600` baud
+- [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD) = `True`
+
+<!--
+Companion computer mode at 921600 baud
+Companion computer mode at 57600 baud
+OSD mode at 57600 baud
+Command / RC input mode (receive only) at 57600 baud
+Normal telemetry mode at 57600 baud
+-->
