@@ -50,28 +50,9 @@ The module is now ready to be used with PX4.
 
 ### Software
 
-Flash the Pixhawk with the latest PX4 master. To activate either set the [SYS_COMPANION](../advanced_config/parameter_reference.md#SYS_COMPANION) parameter to `Iridium Telemetry (115200 baud, 8N1)` or add the following lines to the **extras.txt** on the SD card:
+[Configure the serial port](../peripherals/serial_configuration.md) on which the RockBlock module will run using [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG). There is no need to set the baud rate for the port, as this is configured by the driver.
 
-```sh
-# add a sleep here to make sure that the module is powered
-usleep 200000
-
-#driver
-if iridiumsbd start -d SERIAL_PORT
-then
-    # start the iridium mavlink instance
-    mavlink start -d /dev/iridium -m iridium -b 115200
-
-    # Sleep a bit to give Mavlink time to set up
-    usleep 100000
-
-else
-    echo "WARN: Iridiumsbd driver not started, reboot"
-    tune_control play -m "ML<<CP4CP4CP4CP4CP4"
-fi
-```
-
-where `SERIAL_PORT` is the serial port to which the RockBlock module is connected.
+> **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```drivers/telemetry/iridiumsbd```
 
 ## RockBlock Setup
 
