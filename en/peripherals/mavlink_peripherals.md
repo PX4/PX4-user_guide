@@ -1,7 +1,7 @@
 # MAVLink Peripherals (GCS/OSD/Companion)
 
 Ground Control Stations (GCS), On-Screen Displays (OSD), Companion Computers, and other MAVLink peripherals interact with PX4 using separate MAVLink streams, sent via different serial ports.
-These communication channels are are configured using the [MAVLink parameters](../advanced_config/parameter_reference.md#mavlink).
+These communication channels are configured using the [MAVLink parameters](../advanced_config/parameter_reference.md#mavlink).
 
 ## MAVLink Instances
 
