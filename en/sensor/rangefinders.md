@@ -4,10 +4,7 @@ Distance sensors provide distance measurement that can be used for terrain follo
 
 The sensors can usually be connected to either a serial (PWM) or I2C port (depending on the device driver), and is enabled on the port by setting a particular parameter.
 
-This section lists the distance sensors supported by PX4 and the generic configuration information. More detailed documentation is linked for some rangefinders.
-
-> **Tip** The drivers for less common sensors may not be present by default in all firmware. In this case you may need to add the driver into your *cmake* configuration file and build the firmware yourself. For more information see the [PX4 Development Guide](https://dev.px4.io/en/setup/building_px4.html).
-
+This section lists the distance sensors supported by PX4 (linked to more detailed documentation), the [generic configuration](#configuration) required for all rangefinders, testing, and simulation information.
 
 <img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/uLanding_lite_1.jpg" alt="Aerotenna uLanding" width="200px" />
 
@@ -15,10 +12,8 @@ This section lists the distance sensors supported by PX4 and the generic configu
 
 ### Lidar-Lite
 
-LIDAR-Lite is a compact, high-performance optical distant measurement rangefinder. 
+[Lidar-Lite](../sensor/lidar_lite.md) is a compact, high-performance optical distant measurement rangefinder. 
 It has a sensor range from (5cm - 40m) and can be connected to either PWM or I2C ports.
-
-For setup/usage information see: [Lidar-Lite](../sensor/lidar_lite.md).
 
 
 ### MaxBotix I2CXL-MaxSonar-EZ
@@ -29,7 +24,7 @@ The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_co
 
 ### Lightware LIDARs
 
-[Lightware](http://lightware.co.za/shop2017/) provide a range of lightweight "laser altimeters" that are suitable for many drone applications:
+[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) provide a range of lightweight "laser altimeters" that are suitable for many drone applications:
 * [SF02](http://lightware.co.za/shop2017/proximity-sensors/1-sf02f.html)
 * [SF10/A](http://lightware.co.za/shop2017/drone-altimeters/26-sf10a-25-m.html) (25 m)
 * [SF10/B](http://lightware.co.za/shop2017/drone-altimeters/25-sf10b-50-m.html) (50 m)
@@ -37,11 +32,7 @@ The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_co
 * [SF11/C](http://lightware.co.za/shop2017/drone-altimeters/44-sf11c-120-m.html) (120 m)
 * [SF/LW20](http://lightware.co.za/shop2017/drone-altimeters/51-lw20-100-m.html) (100 m) - Waterproofed (IP67) with servo for sense-and-avoid applications
 
-Drivers exist for both I2C and serial ports, which can be configured using the parameters [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF0X) and [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) (respectively).
-
-Wiring and other information for the I2C variants can be found in the topic [Lightware SFxx Lidar](../sensor/sfxx_lidar.md).
-
-> **Tip** Not all devices are supported for both serial and I2C; check the parameters for more information and supported models.
+Drivers exist for both I2C and serial ports (not all devices are supported for both serial and I2C).
 
 
 ### TeraRanger Rangefinders
@@ -62,40 +53,17 @@ The sensors are enabled using the parameter [SENS_EN_TRANGER](../advanced_config
 
 ### uLanding Radar
 
-The *Aerotenna* [uLanding](https://aerotenna.com/sensors/#ulanding) altimeter is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of 45m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
+The [*Aerotenna* uLanding Radar](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of 45m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
 
-The uLanding Radar is not present in "most" firmware by default and must be started by updating a configuration file (rather than by a parameter). More information can be found here: [uLanding Radar](../sensor/ulanding_radar.md).
 
 ### LeddarOne
 
-[LeddarOne](https://leddartech.com/modules/leddarone/) is small-size Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
-
-For setup/usage information see: [LeddarOne](../sensor/leddar_one.md).
+[LeddarOne](../sensor/leddar_one.md) is small Lidar module with a narrow, yet diffuse beam that offers excellent overall detection range and performance, in a robust, reliable, cost-effective package. It has a sensing range from 1cm to 40m and needs to be connected to a UART/serial bus.
 
 
 ### TFmini
 
-The [Benewake TFmini LiDAR](http://www.benewake.com/en/tfmini.html) is a tiny, low cost, and low power LIDAR with 12m range.
-
-> **Note** This lidar is currently in master, and should appear in releases from PX4 v1.8.
-
-In general the *TFmini* can be used by setting the parameter [SENS_EN_TFMINI](../advanced_config/parameter_reference.md#SENS_EN_TFMINI) > 0 and connecting the sensor to the correct (board-specific) port:
-
-Board | Port
----|---
-[Intel Aero](../flight_controller/intel_aero.md) | TELEMETRY
-Pixhawk [PX4FMU_V3](../flight_controller/pixhawk_series.md#fmu-versions) | SERIAL 4/5
-Other Pixhawk based boards | TELEM2. The [SYS_COMPANION](../advanced_config/parameter_reference.md#SYS_COMPANION) must be set to 0.
-
-To use the TFmini on other ports/boards, the driver can be started by using the following line in a [shell](https://dev.px4.io/en/debug/system_console.html#mavlink-shell) or the [extras.txt](https://dev.px4.io/en/advanced/system_startup.html) (startup) file located on your SD card (where `<serial port>` is the port id):
-```
-tfmini start -d <serial port>
-```
-
-> **Tip** Most boards will already include the driver in firmware. If not, add the following line to the *cmake* [config file](https://github.com/PX4/Firmware/tree/master/cmake/configs) that corresponds to the target board:
-   ```
-   drivers/tfmini
-   ```
+The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low power LIDAR with 12m range.
 
 
 ### Other
@@ -103,7 +71,7 @@ tfmini start -d <serial port>
 PX4 also supports the Bebop rangefinder.
 
 
-## Rangefinder Configuration
+## Rangefinder Configuration {#configuration}
 
 ### Setup
 
