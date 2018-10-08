@@ -16,16 +16,17 @@ The parameters for each instance are:
 - [MAV_X_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Specify the telemetry mode/target (the set of messages to stream for the current instance and their rate).
   The values are:
   - *Normal*: Standard set of messages for a GCS.
-  - *Custom*: Nothing (in the default PX4 implementation).
+  - *Custom* or *Magic*: Nothing (in the default PX4 implementation).
+    These might be used for testing when developing a new mode.
   - *Onboard*: Standard set of messages for a companion computer.
   - *OSD*: Standard set of messages for an OSD system.
-  - *Magic*: Nothing (in the default PX4 implementation).
-  - *Config*: Set of messages that may be useful for configuration.
-  - *Iridium*: Standard set of messages for an Iridium satellite system. This should not be set (use [ISBD_CONFIG](../advanced_features/satcom_roadblock.md) to configure a satellite system).
-  - *Minimal*: Minimal set of messages.
+  - *Config*: Standard set of messages and rate configuration for a fast link (e.g. USB).
+  - *Minimal*: Minimal set of messages for use with a GCS connected on a high latency link.
 - [MAV_X_RATE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Set the maximum data rate for this instance (bytes/second). 
   This is the combined rate for all streams of individual message (the rates for individual messages are reduced if the total rate exceeds this value).
-- [MAV_X_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) - Enable forwarding of MAVLink packets received by the current instance onto other interfaces.
+  The default setting will generally be acceptable, but might be reduced if the telemetry link becomes saturated and too many messages are being dropped.
+In many cases the default should be good however.
+- [MAV_X_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) - Enable forwarding of MAVLink packets received by the current instance onto other interfaces. This might be used, for example, to transfer messages between a GCS and a companion computer so that the GCS can talk to a MAVLink enabled camera connected to the companion computer.
 
 ## Default MAVLink Ports {#default_ports}
 
