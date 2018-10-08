@@ -14,7 +14,7 @@ The parameters for each instance are:
 - [MAV_X_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) - Set the serial port (UART) for this instance "X", where X is 0, 1, 2. 
   It can be any unused port, e.g.: TELEM2, TELEM3, GPS2 etc. For more information see [Serial Port Configuration](../peripherals/serial_configuration.md).
 - [MAV_X_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Specify the telemetry mode/target (the set of messages to stream for the current instance and their rate).
-  The values are:
+  The default values are:
   - *Normal*: Standard set of messages for a GCS.
   - *Custom* or *Magic*: Nothing (in the default PX4 implementation).
     These might be used for testing when developing a new mode.
@@ -22,11 +22,15 @@ The parameters for each instance are:
   - *OSD*: Standard set of messages for an OSD system.
   - *Config*: Standard set of messages and rate configuration for a fast link (e.g. USB).
   - *Minimal*: Minimal set of messages for use with a GCS connected on a high latency link.
+  
+  > **Tip** The mode defines the *default* messages and rates.
+  A connected MAVLink system can still request the streams/rates that it wants using [MAV_CMD_SET_MESSAGE_INTERVAL](https://mavlink.io/en/messages/common.html#MAV_CMD_SET_MESSAGE_INTERVAL).
 - [MAV_X_RATE](../advanced_config/parameter_reference.md#MAV_0_MODE) - Set the maximum data rate for this instance (bytes/second). 
   This is the combined rate for all streams of individual message (the rates for individual messages are reduced if the total rate exceeds this value).
   The default setting will generally be acceptable, but might be reduced if the telemetry link becomes saturated and too many messages are being dropped.
 In many cases the default should be good however.
 - [MAV_X_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) - Enable forwarding of MAVLink packets received by the current instance onto other interfaces. This might be used, for example, to transfer messages between a GCS and a companion computer so that the GCS can talk to a MAVLink enabled camera connected to the companion computer.
+
 
 ## Default MAVLink Ports {#default_ports}
 
