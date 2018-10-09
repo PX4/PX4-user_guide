@@ -1,4 +1,6 @@
 # Fixedwing trimming guide
+Trims are used to calibrate the control surfaces at trim conditions (relative airspeed, air density, angle of attack, aircraft configuration, ...). A properly trimmed aircraft flying at trim conditions will keep its attitude without requiring any control inputs from the pilot or the stabilizing computer. General aviation, commercial and large unmanned planes trim their control surfaces using [trim tabs](https://en.wikipedia.org/wiki/Trim_tab) while small UAVs simply add an offset to the actuator of the control surface.
+The [Basic trimming](#basic-trimming) section explains which trim parameter has to be used for what and how to find the correct value. The [Advanced Trimming](#advanced-trimming) section introduces parameters that can be set to automatically adjust the trims based on the measured airspeed and flaps position.
 
 ## Basic trimming
 There are several parameters an operator might want to use in order to properly trim a fixedwing aircraft. An overview of those parameters and their use case is shown below:
