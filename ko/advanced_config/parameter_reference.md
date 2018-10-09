@@ -3847,7 +3847,7 @@
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_DTRIM_P_VMAX">FW_DTRIM_P_VMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Pitch trim increment at maximum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSP_MAX.</p>   </td>
+ <td style="vertical-align: top;"><p>Pitch trim increment at maximum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_PITCH when airspeed is FW_AIRSPD_MAX.</p>   </td>
  <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
@@ -3868,7 +3868,7 @@
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_DTRIM_R_VMAX">FW_DTRIM_R_VMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Roll trim increment at maximum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSP_MAX.</p>   </td>
+ <td style="vertical-align: top;"><p>Roll trim increment at maximum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_ROLL when airspeed is FW_AIRSPD_MAX.</p>   </td>
  <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
@@ -3882,7 +3882,7 @@
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_DTRIM_Y_VMAX">FW_DTRIM_Y_VMAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Yaw trim increment at maximum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSP_MAX.</p>   </td>
+ <td style="vertical-align: top;"><p>Yaw trim increment at maximum airspeed</p><p><strong>Comment:</strong> This increment is added to TRIM_YAW when airspeed is FW_AIRSPD_MAX.</p>   </td>
  <td style="vertical-align: top;">-0.25 > 0.25 (0.01)</td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
@@ -5624,13 +5624,6 @@
  <td style="vertical-align: top;">deg/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="LNDMC_THR_RANGE">LNDMC_THR_RANGE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Multicopter sub-hover throttle scaling</p><p><strong>Comment:</strong> The range between throttle_min and throttle_hover is scaled by this parameter to define how close to minimum throttle the current throttle value needs to be in order to get accepted as landed.</p>   </td>
- <td style="vertical-align: top;">0.05 > 0.5 </td>
- <td style="vertical-align: top;">0.1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="LNDMC_XY_VEL_MAX">LNDMC_XY_VEL_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Multicopter max horizontal velocity</p><p><strong>Comment:</strong> Maximum horizontal velocity allowed in the landed state (m/s)</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -6256,8 +6249,6 @@
 
 <li><strong>5:</strong> Config</li> 
 
-<li><strong>6:</strong> Iridium</li> 
-
 <li><strong>7:</strong> Minimal</li>      </ul>
       
       <p>
@@ -6418,8 +6409,6 @@
 
 <li><strong>5:</strong> Config</li> 
 
-<li><strong>6:</strong> Iridium</li> 
-
 <li><strong>7:</strong> Minimal</li>      </ul>
       
       <p>
@@ -6579,8 +6568,6 @@
 <li><strong>4:</strong> Magic</li> 
 
 <li><strong>5:</strong> Config</li> 
-
-<li><strong>6:</strong> Iridium</li> 
 
 <li><strong>7:</strong> Minimal</li>      </ul>
       
@@ -8553,10 +8540,44 @@
     <td style="vertical-align: top;">
     </td>
   </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MPC_THR_CURVE">MPC_THR_CURVE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Thrust curve in Manual Mode
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to commanded thrust in Manual/Stabilized flight mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: in case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        
+<li><strong>0:</strong> Rescale to hover thrust</li> 
+
+<li><strong>1:</strong> No Rescale</li>      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_HOVER">MPC_THR_HOVER</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Hover thrust</p><p><strong>Comment:</strong> Vertical thrust required to hover. This value is mapped to center stick for manual throttle control. With this value set to the thrust required to hover, transition from manual to ALTCTL mode while hovering will occur with the throttle stick near center, which is then interpreted as (near) zero demand for vertical speed.</p>   </td>
- <td style="vertical-align: top;">0.2 > 0.8 (0.01)</td>
+ <td style="vertical-align: top;"><p>Hover thrust</p><p><strong>Comment:</strong> Vertical thrust required to hover. This value is mapped to center stick for manual throttle control. With this value set to the thrust required to hover, transition from manual to Altitude or Position mode while hovering will occur with the throttle stick near center, which is then interpreted as (near) zero demand for vertical speed. This parameter is also important for the landing detection to work correctly.</p>   </td>
+ <td style="vertical-align: top;">0.1 > 0.8 (0.01)</td>
  <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;">norm</td>
 </tr>
