@@ -38,4 +38,4 @@ Request access from dev team. -->
 
 A perfectly symmetrical airframe would only require pitch trim increments, but since a real airframe is never perfectly symmetrical, roll and yaw trims increments are also sometimes required. 
 
-> **Note** If a scale factor different from 1.0 is used for the flaps (parameter [FW_FLAPS_SCL](https://dev.px4.io/en/advanced/parameter_reference.html#FW_FLAPS_SCL), the trim increment added by the `FW_DTRIM_R/P_FLPS`is also scaled by the same factor.
+> **Note** If a scale factor different from 1.0 is used for the flaps (parameter [FW_FLAPS_SCL](https://dev.px4.io/en/advanced/parameter_reference.html#FW_FLAPS_SCL)), the trim increment added by the `FW_DTRIM_R/P_FLPS`is also scaled by the same factor.
