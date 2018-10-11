@@ -28,7 +28,7 @@ Step 3 can be performed before step 2 if you don't want to have to look at the l
 ## Advanced trimming
 Given that the downward pitch moment induced by an asymmetric airfoil increases witch airspeed and when the flaps are deployed, the aircraft needs to be re-trimmed according to the current measured airspeed and flaps position. For this purpose, a bilinear curve (see figure below) function of airspeed and a pitch trim increment function of the flaps state can be defined using the following parameters:
 
-- [FW_DTRIM_R/P/Y_VMIN/VMAX](../advanced_config/parameter_reference.md#FW_DTRIM_R_VMIN) is the roll/pitch/yaw trim value added to `TRIM_ROLL/PITCH/YAW` at min/max airspeed (defined by [FW_AIRSPD_MIN](https://dev.px4.io/en/advanced/parameter_reference.html#FW_AIRSPD_MIN) and [FW_AIRSPD_MAX](https://dev.px4.io/en/advanced/parameter_reference.html#FW_AIRSPD_MAX)).
+- [FW_DTRIM_R/P/Y_VMIN/VMAX](../advanced_config/parameter_reference.md#FW_DTRIM_R_VMIN) is the roll/pitch/yaw trim value added to `TRIM_ROLL/PITCH/YAW` at min/max airspeed (defined by [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) and [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX)).
 
 - [FW_DTRIM_R/P_FLPS](../advanced_config/parameter_reference.md#FW_DTRIM_R_FLPS) is the roll/pitch trim value added to `TRIM_ROLL/PITCH/YAW` when the flaps are deployed.
 
@@ -38,4 +38,4 @@ Request access from dev team. -->
 
 A perfectly symmetrical airframe would only require pitch trim increments, but since a real airframe is never perfectly symmetrical, roll and yaw trims increments are also sometimes required. 
 
-> **Note** If a scale factor different from 1.0 is used for the flaps (parameter [FW_FLAPS_SCL](https://dev.px4.io/en/advanced/parameter_reference.html#FW_FLAPS_SCL)), the trim increment added by the `FW_DTRIM_R/P_FLPS`is also scaled by the same factor.
+> **Note** If a scale factor different from 1.0 is used for the flaps (parameter [FW_FLAPS_SCL](../advanced_config/parameter_reference.md#FW_FLAPS_SCL)), the trim increment added by the `FW_DTRIM_R/P_FLPS`is also scaled by the same factor.
