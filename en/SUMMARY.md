@@ -82,6 +82,7 @@
   * [Parameters](advanced_config/parameters.md)
   * [ESC Calibration](advanced_config/esc_calibration.md)
   * [Bootloader Update (FMUv2)](advanced_config/bootloader_update.md)
+  * [Land Detector Configuration (MC / FW)](advanced_config/land_detector.md)
   * [Multicopter PID Tuning Guide](advanced_config/pid_tuning_guide_multicopter.md)
   * [Multicopter Advanced Tuning Guide](advanced_config/advanced_mc_position_tuning.md)
   * [Multicopter Racer Setup](advanced_config/racer_setup.md)
