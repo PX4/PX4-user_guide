@@ -1,23 +1,33 @@
 # Land Detector Configuration
 
-The land detector is a dynamic vehicle model representing key vehicle states such as landed and ground contact.
+The land detector is a dynamic vehicle model representing key vehicle states from ground contact through to landed.
+This topic explains the main parameters you may wish to tune in order to improve landing behaviour.
 
 ## Auto-Disarming
 
-By default the land detector does detect landing, but does not auto-disarm. If the hysteresis parameter [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) is set to a non-zero value the system will auto-disarm after N seconds \(the value it is set to\).
+The land-detector does not auto-disarm the system on landing.
+
+You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (auto-disarming is disabled if this is zero).
 
 ## Multicopter Configuration
 
-The complete set of parameters is available in the *QGroundControl* parameter editor under the [LNDMC](../advanced_config/parameter_reference.md#land-detector) prefix. 
-The key parameters that might differ per airframe are these:
+The complete set of relevant landing detector parameters are listed in the parameter reference with the prefix [LNDMC](../advanced_config/parameter_reference.md#land-detector) (these can be edited in QGroundControl via the [parameter editor](../advanced_config/parameters.md)).
 
-* [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - the hover throttle of the system \(in percent, default is 50%\). It is important to set this correctly as not only does it make the altitude control more accurate, but it also ensures correct land detection. A racer or a big camera drone without payload mounted might need a much lower setting \(e.g. 35%\).
-* [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system. This should be set to enable a controlled descent.
+> **Tip** Information about how the parameters affect landing can be found below in [Land Detector States](#states).
+
+Other key parameters that you may need to tune in order to improve landing behaviour on particular airframes are:
+
+* [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - the hover throttle of the system (default is 50%). 
+  It is important to set this correctly as not only does it make the altitude control more accurate, but it also ensures correct land detection. 
+  A racer or a big camera drone without payload mounted might need a much lower setting (e.g. 35%).
+* [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system. 
+  This should be set to enable a controlled descent.
 
 
 ## Fixed Wing Configuration
 
-The complete set of parameters is available under the [LNDFW](../advanced_config/parameter_reference.md#land-detector) prefix. These two user parameters are sometimes worth tuning:
+The complete set of relevant parameters is available under the [LNDFW](../advanced_config/parameter_reference.md#land-detector) prefix. 
+These two parameters are sometimes worth tuning:
 
 * [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) - the maximum airspeed allowed for the system still to be considered landed. 
   The default of 8 m/s is a reliable tradeoff between airspeed sensing accuracy and triggering fast enough. 
@@ -26,8 +36,7 @@ The complete set of parameters is available under the [LNDFW](../advanced_config
   This parameter can be adjusted to ensure a sooner or later land detection on throwing the airframe for hand-launches.
 
 
-
-## Land Detector States
+## Land Detector States {#states}
 
 ### Multicopter Land Detection
 
