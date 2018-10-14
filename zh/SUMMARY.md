@@ -86,6 +86,7 @@
   * [Multicopter Advanced Tuning Guide](advanced_config/advanced_mc_position_tuning.md)
   * [Multicopter Racer Setup](advanced_config/racer_setup.md)
   * [Fixedwing PID Tuning Guide](advanced_config/pid_tuning_guide_fixedwing.md)
+  * [Fixedwing Trimming Guide](advanced_config/trimming_guide_fixedwing.md)
   * [VTOL](config_vtol/README.md) 
     * [QuadPlane Configuration](config_vtol/vtol_quad_configuration.md)
     * [Back-transition Tuning](config_vtol/vtol_back_transition_tuning.md)
