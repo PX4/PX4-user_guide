@@ -11,7 +11,7 @@
 >    can violate the maximum forces of your airframe. Increase gains carefully.
 >  - Roll and pitch tuning follow the same
 >    sequence. The only difference is that pitch is more sensitive to trim
->    offsets, so integrator gains need more attention to compensate this.
+>    offsets, so [trimming](trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.
 
 <span></span>
 > **Tip** All parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md).
