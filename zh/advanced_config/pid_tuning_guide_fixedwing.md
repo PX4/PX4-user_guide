@@ -4,7 +4,7 @@
 
 <span></span>
 
-> **Note** - An incorrectly set gain during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in manual (override) control. - Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe. Increase gains carefully. - Roll and pitch tuning follow the same sequence. The only difference is that pitch is more sensitive to trim offsets, so integrator gains need more attention to compensate this.
+> **Note** - An incorrectly set gain during tuning can make attitude control unstable. A pilot tuning gains should therefore be able to fly and land the plane in manual (override) control. - Excessive gains (and rapid servo motion) can violate the maximum forces of your airframe. Increase gains carefully. - Roll and pitch tuning follow the same sequence. The only difference is that pitch is more sensitive to trim offsets, so [trimming](trimming_guide_fixedwing.md) has to be done carefully and integrator gains need more attention to compensate this.
 
 <span></span>
 
