@@ -106,7 +106,7 @@ Make sure to assign a [kill switch](../config/safety.md#kill_switch) or an [armi
 
 At this point you should be ready for a first test flight.
 
-If it goes well, do a first pass of [PID tuning](pid_tuning_guide_multicopter.md) (ignore the thrust curve settings).
+If it goes well, do a first pass of [PID tuning](../config_mc/pid_tuning_guide_multicopter.md) (ignore the thrust curve settings).
 The vehicle needs to be **undertuned**, meaning the **P** and **D** gains should be set too low - such that there are no oscillations from the controller that could
 be interpreted as noise (the default gains might be good enough). 
 This is important for the [filter](#filters) tuning. 
@@ -192,7 +192,7 @@ Now do a second round of PID tuning, this time as tight as possible, and also tu
 ### Airmode
 
 After you verified that the vehicle flies well at low and high throttle, you can
-enable [airmode](../advanced_config/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter. This feature makes sure that the
+enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter. This feature makes sure that the
 vehicle is still controllable and tracks the rate at low throttle.
 
 Happy flipping :)
