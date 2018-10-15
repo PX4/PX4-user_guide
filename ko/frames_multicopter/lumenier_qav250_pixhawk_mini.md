@@ -350,7 +350,7 @@ The parameters below are recommended for this build (the yellow parameters are t
 
 ![Recommended parameters for QAV250](../../images/qav250_recommended_parameters.jpg)
 
-For general information on tuning see: [Multicopter PID Tuning Guide](../advanced_config/pid_tuning_guide_multicopter.md).
+For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
 
 ## Video
 
