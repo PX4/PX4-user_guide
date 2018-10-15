@@ -186,11 +186,11 @@ For this build I pulled the latest PX4 master because it supports the "FMU as ta
 - Set the battery to 4S (4 cell LiPo) with charged cell voltage 4.15V and empty cell voltage 3.5V
 - Calibrate the voltage devider through typing in the current accurate voltmeter measurement
 - Calibrate the RC cannels with the Taranis already configured for two additional switch inputs. One switch in the top right corner of the Taranis front plate for the mode switch and the other switch in the top left corner of the front plate as arm switch.
-- If you want to use an arming switch, see [here](../advanced_config/racer_setup.md#arming_switch) how to set it up.
+- If you want to use an arming switch, see [here](../config_mc/racer_setup.md#arming_switch) how to set it up.
 
 ### Tuning
 
-Here's the general [Tuning Guide](../advanced_config/pid_tuning_guide_multicopter.md) with instructions on all the basics.
+Here's the general [Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) with instructions on all the basics.
 
 ### Log Examples
 
