@@ -7,5 +7,5 @@ PX4 supports [ESCs that take a PWM input](../peripherals/pwm_escs_and_servo.md),
 For more information see:
 
 * [PWM ESCs and Servos](../peripherals/pwm_escs_and_servo.md)
-* [ESC Calibration](../advanced_config/esc_calibration.md)
+* [电调（ESC）校准](../advanced_config/esc_calibration.md)
 * [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
