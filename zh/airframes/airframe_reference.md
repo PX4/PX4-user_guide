@@ -1346,6 +1346,38 @@ This page lists all supported airframes and types including the motor assignment
 </tr>
 </tbody></table>
 
+### Plane V-Tail
+
+<div>
+  <table style="float: right; width: 70%; font-size:1.5rem;">
+    <colgroup><col></colgroup> <tr>
+      <th>
+        Common Outputs
+      </th>
+    </tr>
+<tr>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+</tr>
+  </table>
+</div>
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
+  <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+    </th>
+  </tr>
+<tbody>
+<tr id="plane_plane_v-tail_x-uav_mini_talon">
+ <td style="vertical-align: top;">X-UAV Mini Talon</td>
+ <td style="vertical-align: top;"><p>Maintainer: Friedrich Beckmann <friedrich.beckmann@hs-augsburg.de></p><p><code>SYS_AUTOSTART</code> = 2200</p></td>
+
+</tr>
+</tbody></table>
+
 ### Simulation (Plane)
 
 <div>
@@ -1486,55 +1518,6 @@ This page lists all supported airframes and types including the motor assignment
             <b>MAIN7</b>: flaps
           </li>
         </ul>
-      </p>
-    </td>
-  </tr>
-</table>
-
-## Plane
-
-The Mini Talon does not have a wheel and no flaps. I leave them here because the mixer computes also wheel and flap controls.
-
-### Plane V-Tail
-
-<div>
-  <table style="float: right; width: 70%; font-size:1.5rem;">
-    <colgroup><col></colgroup> <tr>
-      <th>
-        Common Outputs
-      </th>
-    </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
-</tr>
-  </table>
-</div>
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
-  <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-    </th>
-  </tr>
-  
-  <tr id="plane
-the_mini_talon_does_not_have_a_wheel_and
-no_flaps._i_leave_them_here_because_the_mixer
-computes_also_wheel_and_flap_controls._plane_v-tail_x-uav_mini_talon">
-    <td style="vertical-align: top;">
-      X-UAV Mini Talon
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Maintainer: Friedrich Beckmann <friedrich.beckmann@hs-augsburg.de>
-      </p>
-      
-      <p>
-        <code>SYS_AUTOSTART</code> = 2200
       </p>
     </td>
   </tr>
