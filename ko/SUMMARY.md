@@ -94,7 +94,7 @@
     * [VTOL Weather Vane](config_vtol/vtol_weathervane.md)
   * [ESC Calibration](advanced_config/esc_calibration.md)
   * [Bootloader Update (FMUv2)](advanced_config/bootloader_update.md)
-  * [Land Detector Configuration (MC / FW)](advanced_config/land_detector.md)
+  * [Land Detector Configuration](advanced_config/land_detector.md)
   * [Sensor Thermal Compensation](advanced_config/sensor_thermal_calibration.md)
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
