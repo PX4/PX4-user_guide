@@ -12,7 +12,7 @@ All flying, including takeoff and landing, is controlled using the 4 basic comma
 
 In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space. This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
 
-### Hover aircraft
+### Hover Aircraft
 
 Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as shown below:
 
@@ -23,7 +23,7 @@ Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as 
 * Yaw => Left/right rotation around the centre of the frame.
 * Throttle => Changed altitude/speed.
 
-### Forward-flying aircraft
+### Forward-flying Aircraft
 
 Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement commands as shown below:
 
@@ -52,7 +52,11 @@ The following three modes are highly recommended for new users:
 
 The easiest way to takeoff is to use the automatic [Takeoff mode](../flight_modes/takeoff.md) (remembering that you need to arm the vehicle before you can engage the vehicle motors). To land again automatically you can use [Land](../flight_modes/land.md) or [Return](../flight_modes/return.md) modes.
 
-The automatic takeoff/landing modes are highly recommended for Fixed Wing vehicles. For multicopter (and VTOL in multicopter mode) pilots can:
+> **Tip** The automatic takeoff/landing modes are highly recommended, in particular for Fixed Wing vehicles.
+
+For multicopter (and VTOL in multicopter mode) pilots can:
 
 * Take off manually by enabling [position mode](../flight_modes/README.md#assisted-modes), arming the vehicle, and then raising the throttle stick above 62.5%. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
-* Land manually by pressing the throttle stick down until the vehicle lands (this through multiple steps) and disarm (or set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) > 0 to disarm automatically on landing).
+* Land manually by pressing the throttle stick down until the vehicle lands and disarms (or set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) > 0 to disarm automatically on landing).
+
+> **Note** If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
