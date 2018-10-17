@@ -5,11 +5,11 @@ This document provides an overview of the multicopter position-control tuning pa
 > **Warning** This guide is for advanced users/experts.
 
 <span></span>
-> **Tip** Follow the instructions in the [Multicopter PID Tuning Guide](../advanced_config/pid_tuning_guide_multicopter.md) *before* doing any of the higher-level related control tuning described here. Do not use the advanced position control tuning parameters to fix bad tracking or vibration!
+> **Tip** Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) *before* doing any of the higher-level related control tuning described here. Do not use the advanced position control tuning parameters to fix bad tracking or vibration!
 
 ## Overview
 
-The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../advanced_config/pid_tuning_guide_multicopter.md) ("Lower level" tuning) aims to reduce the error between the desired setpoint and the estimate of the vehicle state. Poor P/PID Gains can lead to instability.
+The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../config_mc/pid_tuning_guide_multicopter.md) ("Lower level" tuning) aims to reduce the error between the desired setpoint and the estimate of the vehicle state. Poor P/PID Gains can lead to instability.
 
 The *desired* setpoint passed to the P/PID controller is itself calculated from a *demanded* setpoint based on a stick position (in RC modes) or from a mission command. Setpoint value ("higher level") tuning is used to specify the mapping between the demanded setpoint and the desired setpoint. Poorly tuned setpoint values cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
 
@@ -90,7 +90,7 @@ The setpoint during line tracking can be split into two components:
 - position setpoint $$\mathbf{p}_{sp}$$: it is the pose on the track closest to vehicle position 
 - velocity setpoint $$\mathbf{v}_{cruise}$$: it the desired velocity along the track
 
-The cruise speed of $$\mathbf{v}_{cruise}$$ is by default [MPC_XY_CRUISE](parameter_reference.md#MPC_XY_CRUISE). However, if the target waypoint (red circle) is close to the previous waypoint, the
+The cruise speed of $$\mathbf{v}_{cruise}$$ is by default [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE). However, if the target waypoint (red circle) is close to the previous waypoint, the
 cruise speed will be adjusted accordingly. To reach the cruise speed, $$\mathbf{v}_{cruise}$$ will  accelerate with `MPC_ACC_HOR`. 
 
 When the vehicle is `1.5 x MPC_XY_CRUISE` in front of the target waypoint, the vehicle will start to decelerate to a target speed that depends on the angle $$\alpha$$. 
@@ -100,12 +100,12 @@ The function used for the mapping from angle to target speed is an exponential f
 
 At an angle of `180 degrees`, which corresponds to a straight line from $$\mathbf{wp}_{prev}$$ to $$\mathbf{wp}_{next}$$ with the target waypoint somewhere in between, the target speed at the target waypoint will be `MPC_XY_CRUISE`. 
 If the angle is `0 degrees`, which corresponds to having $$\mathbf{wp}_{next}$$ on the line $$\mathbf{wp}_{prev}$$ to target waypoint, then the target speed is set to a minimum speed of `1 m/s`.
-If the angle is `90 degrees`, the target speed is set to [MPC_CRUISE_90](parameter_reference.md#MPC_CRUISE_90). 
+If the angle is `90 degrees`, the target speed is set to [MPC_CRUISE_90](../advanced_config/parameter_reference.md#MPC_CRUISE_90). 
 All other possible angles are mapped to the target speed from the same exponential function. 
 If there is no $$\mathbf{wp}_{next}$$ present, then the vehicle will just decelerate to zero cruise speed. 
 
-A target waypoint is considered reached once the vehicle is within the acceptance radius $$r_{rad}$$ that is parametrized by [NAV_ACC_RAD](parameter_reference.md#NAV_ACC_RAD).
+A target waypoint is considered reached once the vehicle is within the acceptance radius $$r_{rad}$$ that is parametrized by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD).
 
-In addition, the vehicle also has to reach the desired altitude (threshold [NAV_MC_ALT_RAD](parameter_reference.md#NAV_MC_ALT_RAD)) and the desired yaw (threshold [MIS_YAW_ERR](parameter_reference.md#MIS_YAW_ERR)). 
+In addition, the vehicle also has to reach the desired altitude (threshold [NAV_MC_ALT_RAD](../advanced_config/parameter_reference.md#NAV_MC_ALT_RAD)) and the desired yaw (threshold [MIS_YAW_ERR](../advanced_config/parameter_reference.md#MIS_YAW_ERR)). 
 Once the vehicle enters that circle, the waypoints will update. 
 $$\mathbf{wp}_{next}$$ will become the new target waypoint, $$\mathbf{wp}_{prev}$$ will assume the old target waypoint and a new $$\mathbf{wp}_{next}$$ will be added.
