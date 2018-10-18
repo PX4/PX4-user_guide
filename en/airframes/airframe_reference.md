@@ -405,6 +405,7 @@ This page lists all supported airframes and types including
 ### Quadrotor asymmetric
 
 <div>
+<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -552,6 +553,7 @@ This page lists all supported airframes and types including
 ### Simulation (Copter)
 
 <div>
+<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -570,6 +572,7 @@ This page lists all supported airframes and types including
 ### Tilt-Quad
 
 <div>
+<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -761,6 +764,7 @@ This page lists all supported airframes and types including
 ### Plane V-Tail
 
 <div>
+<img src="../../assets/airframes/types/PlaneVTail.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -789,6 +793,7 @@ This page lists all supported airframes and types including
 ### Simulation (Plane)
 
 <div>
+<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
