@@ -20,7 +20,10 @@ To calibrate the ESCs:
 
 1. Remove the propellers.
 
-   > **Warning** Never attempt ESC calibration with props on. Remove them before you begin!
+   > **Warning** Never attempt ESC calibration with props on.
+   >
+   > The motors should not spin during ESC calibration. 
+   > However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
    
 1. Disconnect the battery and connect the flight controller via USB (only). 
 1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
