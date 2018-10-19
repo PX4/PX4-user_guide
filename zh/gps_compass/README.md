@@ -1,12 +1,14 @@
 # GPS & Compass
 
-PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the UBlox, MTK or Ashtech protocols, or via UAVCAN. It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extends GPS systems to centimetre-level precision.
+PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the UBlox, MTK or Ashtech protocols, or via UAVCAN. It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
 PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI).
 
-> **Tip** When using Pixhawk-series flight controllers we recommend using a *combined GPS + Compass* (the Pixhawk internal compass is close to other electronics, and may be susceptible to electromagnetic noise).
+Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source. The system automatically chooses the best available compass based on their internal priority (external magnetometers have a higher priority). If the primary compass fails in-flight, it will failover to the next one. If it fails before flight, arming will be denied.
 
 ![GPS + Compass](../../images/gps_compass.jpg)
+
+> **Tip** When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing). The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
 
 ## Combined GPS/Compass Options
 
@@ -30,11 +32,21 @@ Instructions for connecting the GPS and compass are usually provided by the manu
 
 > **Tip** Pay attention to pinout when connecting the GPS module. While these are all software-compatible, there are several different pin orderings.
 
-GPS configuration is handled transparently for the user (provided the module GPS connector is connected correctly). Compass setup is covered in: [Compass Configuration](../config/compass.md).
-
 ## RTK-GPS Devices
 
 Information about supported devices and setup/configuration can be found in the sidebar under: [RTK GPS](../gps_compass/rtk_gps.md).
+
+## Configuration
+
+### GPS
+
+GPS configuration is handled transparently for the user (provided the module GPS connector is connected correctly).
+
+### Compass
+
+Compass calibration is covered in: [Compass Configuration](../config/compass.md). The process is straightforward and will calibrate all connected magnetometers.
+
+Additional configuration can be [performed](../advanced_config/parameters.md) using the [CAL*MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_EN) parameters (where `x=0-3`). Generally you will not need to *modify* these as compasses are autodetected, prioritised and are all calibrated at the same time (a possible exception is [CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN) which might be used to disable an internal compass). You may however wish to read them, as they will let you know which magnetometers are internal or external ([CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN)) and which is being uses as the main heading source ([CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME)).
 
 ## Developer Information
 
