@@ -12,7 +12,9 @@ Below we describe some of the sensors. At the end there are links to information
 
 PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
-> **Tip** The Pixhawk internal compass is close to other electronics, and may be susceptible to electromagnetic noise. An external compass/GPS mounted on a pedestal or wing (for fixed-wing) away from the rest of the system is recommended.
+> **Tip** [Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
+
+We recommend the use of an external "combined" compass/GPS module mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
 
 Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/README.md).
 
