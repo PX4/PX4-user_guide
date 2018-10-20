@@ -639,18 +639,7 @@ This page lists all supported airframes and types including the motor assignment
 ### Quadrotor x
 
 <div>
-  <img src="../../assets/airframes/types/QuadRotorX.svg" width="29%" style="max-height: 180px;" /> 
-  
-  <table style="float: right; width: 70%; font-size:1.5rem;">
-    <colgroup><col></colgroup> <tr>
-      <th>
-        Common Outputs
-      </th>
-    </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
-</tr>
-  </table>
+<img src="../../assets/airframes/types/QuadRotorX.svg" width="29%" style="max-height: 180px;"/>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -681,6 +670,24 @@ This page lists all supported airframes and types including the motor assignment
         <b>Specific Outputs:</b>
         
         <ul>
+          <li>
+            <b>MAIN1</b>: motor 1
+          </li>
+          <li>
+            <b>MAIN2</b>: motor 2
+          </li>
+          <li>
+            <b>MAIN3</b>: motor 3
+          </li>
+          <li>
+            <b>MAIN4</b>: motor 4
+          </li>
+          <li>
+            <b>MAIN5</b>: feed-through of RC AUX1 channel
+          </li>
+          <li>
+            <b>MAIN6</b>: feed-through of RC AUX2 channel
+          </li>
           <li>
             <b>AUX1</b>: feed-through of RC AUX1 channel
           </li>
@@ -716,6 +723,24 @@ This page lists all supported airframes and types including the motor assignment
         <b>Specific Outputs:</b>
         
         <ul>
+          <li>
+            <b>MAIN1</b>: motor 1
+          </li>
+          <li>
+            <b>MAIN2</b>: motor 2
+          </li>
+          <li>
+            <b>MAIN3</b>: motor 3
+          </li>
+          <li>
+            <b>MAIN4</b>: motor 4
+          </li>
+          <li>
+            <b>MAIN5</b>: feed-through of RC AUX1 channel
+          </li>
+          <li>
+            <b>MAIN6</b>: feed-through of RC AUX2 channel
+          </li>
           <li>
             <b>AUX1</b>: Mount pitch
           </li>
@@ -985,6 +1010,41 @@ This page lists all supported airframes and types including the motor assignment
       
       <p>
         <code>SYS_AUTOSTART</code> = 4090
+      </p>
+    </td>
+  </tr>
+  
+  <tr id="copter_quadrotor_x_teal_one">
+    <td style="vertical-align: top;">
+      Teal One
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Alex Klimaj <alex.klimaj@tealdrones.com>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 4250
+      </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: motor 1
+          </li>
+          <li>
+            <b>MAIN2</b>: motor 2
+          </li>
+          <li>
+            <b>MAIN3</b>: motor 3
+          </li>
+          <li>
+            <b>MAIN4</b>: motor 4
+          </li>
+        </ul>
       </p>
     </td>
   </tr>
