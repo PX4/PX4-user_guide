@@ -1,12 +1,12 @@
 # MindRacer Hardware
 
-The MindRacer series were created by AirMind<sup>&reg;</sup>. Please refer to: http://mindpx.net
+The AirMind<sup>&reg; <a href="http://mindpx.net">MindRacer</a> series is a fully stackable flight platform for miniature UAVs.</sup>.
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
 ## Quick Summary
 
-MindRacer is a fully stackable flight platform for miniature UAVs. Based on MindPX, MindRacer further scales down in formfactor while focused on providing modularity. MindRacer is a platform rather than a flight controller.
+MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. MindRacer is a platform rather than a flight controller.
 
 MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-elimination-protocol) concepts. Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
 
@@ -38,17 +38,17 @@ MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-eliminat
 
 ## Quick Start
 
-### Pin out map
+### Pin-out Map
 
-![](../../assets/hardware/hardware-mindracer-pinout.png)
+![Mindracer pinout](../../assets/hardware/hardware-mindracer-pinout.png)
 
-### How to build
+### How to Build
 
 Please follow [Getting Started](https://dev.px4.io/en/setup/getting_started.html) and [Building the Code](https://dev.px4.io/en/setup/building_px4.html). The target for MindPX is `nuttx_mindpx-v2_default` (it's compatible with MindPX):
 
 `make nuttx_mindpx-v2_default`
 
-### Companion PC connection
+### Companion PC Connection
 
 MindRacer has an attached Adapt IO board.
 
@@ -62,7 +62,7 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 > **Note** The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
 
-## Where to buy
+## Where to Buy
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
