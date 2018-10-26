@@ -28285,7 +28285,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> If there are more log directories than this value, the system will delete the oldest directories during startup. In addition, the system will delete old logs if there is not enough free space left. The minimum amount is 300 MB. If this is set to 0, old directories will only be removed if the free space falls below the minimum.
+        <strong>Comment:</strong> If there are more log directories than this value, the system will delete the oldest directories during startup. In addition, the system will delete old logs if there is not enough free space left. The minimum amount is 300 MB. If this is set to 0, old directories will only be removed if the free space falls below the minimum. Note: this does not apply to mission log files.
       </p>
       
       <p>
@@ -28299,6 +28299,50 @@
     
     <td style="vertical-align: top;">
       0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SDLOG_MISSION">SDLOG_MISSION</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Mission Log
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If enabled, a small additional "mission" log file will be written to the SD card. The log contains just those messages that are useful for tasks like generating flight statistics and geotagging. The different modes can be used to further reduce the logged data (and thus the log file size). For example, choose geotagging mode to only log data required for geotagging. Note that the normal/full log is still created, and contains all the data in the mission log (and more).
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>1:</strong> All mission messages
+        </li>
+        <li>
+          <strong>2:</strong> Geotagging messages
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1
     </td>
     
     <td style="vertical-align: top;">
@@ -28339,7 +28383,6 @@
     </td>
     
     <td style="vertical-align: top;">
-      0 > 2
     </td>
     
     <td style="vertical-align: top;">
