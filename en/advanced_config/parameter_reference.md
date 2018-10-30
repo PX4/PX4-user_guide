@@ -2416,7 +2416,7 @@ Set to 0 to disable heading hold</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_USETER">FW_LND_USETER</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Use terrain estimate during landing</p>   </td>
+ <td style="vertical-align: top;"><p>Use terrain estimate during landing</p><p><strong>Comment:</strong> This is turned off by default and a waypoint or return altitude is normally used (or sea level for an arbitrary land position).</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
