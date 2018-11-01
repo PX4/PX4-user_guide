@@ -25,7 +25,7 @@ Plan the flight before taking off. Make sure you know the whole route and where/
 
 ## Limit the Damage
 
-Damaging property or injuring people with your UAV can have significantly legal and financial 
+Damaging property or injuring people with your UAV can have significant legal and financial 
 consequences (far in excess of the value of the UAV itself).
 
 The UAV should always be manually flown within a safe zone where there are no obstacles or people, 
