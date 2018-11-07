@@ -1,12 +1,15 @@
 # Obstacle Avoidance
 
 *Obstacle Avoidance* enables a vehicle to navigate around obstacles when following a preplanned path.
-This feature is intended for automatic modes where an endpoint destination is known. 
-It is currently supported for multicopter vehicles in [Missions](#mission_mode) and [Offboard mode](#offboard_mode).
+
+The feature requires a companion computer that is running computer vision software. 
+This software maps obstacles and provide a route around obstacles for a given desired trajectory from PX4.
+
+Obstacle avoidance is intended for automatic modes, and is currently supported for multicopter vehicles in [Missions](#mission_mode) and [Offboard mode](#offboard_mode).
 
 This topic explains how the feature is set up and enabled in both modes.
 
-> **Tip** Manual modes instead use the much simpler *Collision Avoidance* approach, which simply stops the vehicle from crashing into obstacles.
+> **Tip** Manual modes instead use the (much simpler) *Collision Avoidance* approach, which simply stops the vehicle from crashing into obstacles.
 
 
 ## Offboard Mode Avoidance {#offboard_mode}
@@ -14,55 +17,59 @@ This topic explains how the feature is set up and enabled in both modes.
 PX4 supports collision avoidance in [Offboard mode](flight_modes/offboard.md), where the original planned route comes from a [ROS](http://dev.px4.io/en/ros/) node running on a companion computer, and then passed into an obstacle avoidance module (another ROS node).
 The avoidance node sends the final computed path to the flight stack using the `SET_POSITION_TARGET_LOCAL_NED` message.
 
-The flight controller must be in Offboard mode.
+> **Note** PX4 does not do anything special for, or even know about, collision avoidance in offboard mode.
+  To PX4 the whole avoidance system could be any other ROS application.
+  
+The route setpoints (`SET_POSITION_TARGET_LOCAL_NED`) can be supplied by any system.
 
-The *local_planner* avoidance software must be running on the companion computer.
-This is set up as described in the [Intel Aero](../flight_controller/intel_aero.md) section on [Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) and in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
-
-The tested hardware/software platform is [Intel Aero](../flight_controller/intel_aero.md) (setup as per linked topic).
+The tested hardware/software platform is [Intel Aero](../flight_controller/intel_aero.md) running the *local_planner* avoidance software (which has been set up as described in the [Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) and in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo).
 
 
 ## Mission Mode Avoidance {#mission_mode}
 
 PX4 supports object avoidance in [Missions](../flight_modes/mission.md).
 
-On a correctly setup vehicle, object avoidance is enabled by [setting](../advanced_config/parameters.md) the `MPC_OBS_AVOID` to 1.
-
-
 ### Overview
+
+Object avoidance is enabled by [setting](../advanced_config/parameters.md) the `MPC_OBS_AVOID` to 1.
 
 The planned route is sent to an obstacle avoidance system running on a companion computer.
 When an obstacle is detected, the avoidance software returns a stream of setpoints that the vehicle can follow to navigate around the obstacle.
 The MAVLink [Obstacle Avoidance Protocol](TBD) is used for communicating with the avoidance software.
 
-PX4 itself puts no particular constraints on the companion hardware or software.
+PX4 itself puts no particular constraints on the companion hardware or software (at long as it sends setpoints to avoid obstacles!)
 
-The tested setup is:
-* Hardware: [Intel Aero](../flight_controller/intel_aero.md) with RealSense camera
-* Avoidance software: *local_planner* ROS node.
-  * This is set up as described in the section on [Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) and in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
-
-
-
-Additional details about the PX4 and companion implementation are provided below.
+The tested hardware/software platform is [Intel Aero](../flight_controller/intel_aero.md) running the *local_planner* avoidance software (which has been set up as described in the [Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) and in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo).
 
 
 ### Mission Progression
 
-The mission logic is handled by the navigator in the same as for flight without obstacle avoidance a part for two differences:
-- in normal missions the vehicle has to reach a waypoint with a certain heading (the vehicle is supposed to reach the waypoint in a straight line from the previous waypoint plus a smaller error). 
-  When obstacle avoidance is active, this constraint cannot be fulfilled because the obstacle avoidance algorithm has full control of the vehicle heading such that the vehicle always move in the current field of view. 
-  Therefore a waypoint is always reached when the vehicle is within the acceptance radius regardless of its heading
+Obstacle avoidance changes the mission behaviour only slightly:
+- A waypoint is "reached" when the vehicle is within the acceptance radius, regardless of its heading.
+  - In normal missions the vehicle must reach a waypoint with a certain heading (i.e. in a "close to" straight line from the previous waypoint). 
+  - When obstacle avoidance is active, this constraint cannot be fulfilled because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
 - navigator updates the triplets when the vehicle has reached the acceptance radius of each waypoint. 
   If a waypoint is inside an obstacle it can happen that it’s never reach and the mission will be stuck. 
   If the vehicle projection on the line previous-current waypoint has passed the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
-- same concept as before the the altitude acceptance of a waypoint. 
-  If the vehicle is either above or below a waypoint (within the x-y acceptance radius), the altitude acceptance is modified such that the mission progresses
+- If the vehicle within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
   
 
 ###  Mission Mode Avoidance Interface
 
-When a mission is uploaded from QGC and the parameter MPC_OBS_AVOID is set to True, the Firmware fills the uORB message `vehicle_trajectory_waypoint_desired` in the following way.
+Mission mode is enabled on PX4 by setting `MPC_OBS_AVOID` to `True`.
+
+PX4 communicates with the computer vision system on the companion computer using the Path Planning Protocol. <!-- check we call it this! -->
+At very high level:
+* PX4 sends `TRAJECTORY_REPRESENTATION_WAYPOINTS` messages to the companion at 5Hz.
+  - The first point (array index 0) contains the vehicle current NED body position, NED body velocity, acceleration, and vehicle yaw. 
+  - The index 1 and 2 points contain information about the current and next mission waypoints, respectively: position, yaw setpoint and yaw speed setpoint.
+* When an obstacle is detected, the planning system returns a stream of the same `TRAJECTORY_REPRESENTATION_WAYPOINTS` message containing setpoints to navigate around the obstacle (only the first field is filled).
+
+The paragraphs below describe the behaviour in greater detail, covering the internal PX4 behaviour and message flow through ROS.
+
+#### Detailed Mission Mode Information
+
+When a mission is uploaded from QGC and the parameter `MPC_OBS_AVOID` is set to `True`, PX4 fills the uORB message `vehicle_trajectory_waypoint_desired` in the following way.
 
 Array `waypoints`:
 _index 0 :_
@@ -88,9 +95,11 @@ _Index2:_
 
 The remaining indices are filled with NaN. 
 
-The message vehicle_trajectory_waypoint_desired` is mapped into the MAVLink message `TRAJECTORY_REPRESENTATION_WAYPOINTS`. The messages are sent at 5Hz.
+The message vehicle_trajectory_waypoint_desired` is mapped into the MAVLink message `TRAJECTORY_REPRESENTATION_WAYPOINTS`. 
+The messages are sent at 5Hz.
 
-MAVROS translates the MAVLink message into a ROS message called mavros_msgs::trajectory and does the conversion from NED to ENU frames. Messages are published on the ROS topic `/mavros/trajectory/desired`
+MAVROS translates the MAVLink message into a ROS message called mavros_msgs::trajectory and does the conversion from NED to ENU frames. 
+Messages are published on the ROS topic `/mavros/trajectory/desired`
 
 On the avoidance side, the algorithm plans a path to the waypoint.
 
@@ -110,10 +119,7 @@ On the Firmware side, incoming `TRAJECTORY_REPRESENTATION_WAYPOINTS` are transla
 The setpoints are tracked by the multicopter position controller.
 
 
-
-
-## Further Information
-
+<!-- ## Further Information -->
 <!-- @mrivi is expert! -->
 <!-- Issue with discussion : https://github.com/PX4/Devguide/issues/530 -->
 <!-- PR for mavlink docs: https://github.com/mavlink/mavlink-devguide/pull/133 -->
