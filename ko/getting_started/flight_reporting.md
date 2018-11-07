@@ -22,9 +22,14 @@ The logging system is configured by default to collect sensible logs for use wit
 
 Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters. The parameters you are most likely to change are listed below.
 
-Parameter | Description \--- | \--- [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) | Logging Mode defines when logging starts and stops.  
-- `0`: log when armed until disarm (default)  
-- `1`: log from boot until disarm  
-- `2`: log from boot until shutdown. [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration). [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log". This log can *not* be used with *Flight Review*, but is useful when you need a small log for geotagging or regulatory compliance.
+| Parameter                                                                | Description                                                                                                                                                                     |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | Logging Mode defines when logging starts and stops.  
+- `0`: log when armed until disarm (default).  
+- `1`: log from boot until disarm.  
+- `2`: log from boot until shutdown. |
+| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).            |
+| [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".  
+This log can *not* be used with *Flight Review*, but is useful when you need a small log for geotagging or regulatory compliance. |
 
 Developers can further configure what information is logged via the [logger](https://dev.px4.io/en/middleware/modules_system.html#logger) module (you would use this, for example, if you want to log your own topics). For more information see: [Logging](https://dev.px4.io/en/log/logging.html) (PX4 Developer Guide).
