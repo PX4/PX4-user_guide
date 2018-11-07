@@ -1,6 +1,6 @@
 # Pixhack v5
 
-*Pixhack v5*<sup>&reg;</sup> is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with PX4 firmware. It is intended primarily for academic and commercial developers.
+*Pixhack v5*<sup>&reg;</sup> 是由CUAV<sup>&reg;</sup>设计和制造的先进的自动驾驶仪。 The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with PX4 firmware. It is intended primarily for academic and commercial developers.
 
 ![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5.jpg)
 
