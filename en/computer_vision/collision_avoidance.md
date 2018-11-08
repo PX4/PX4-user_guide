@@ -4,8 +4,8 @@
 
 It can be enabled for multicopter vehicles in [Position mode](../flight_modes/position_mc.md), and at time of writing requires a companion computer.
 
-> **Tip** This feature is intended for manual modes. 
-  Automatic modes instead use *Obstacle Avoidance*, which navigates around obstacles in order to follow a planned path.
+> **Warning** Collision avoidance may not prevent a crash if your vehicle is moving too fast!
+  This feature has only been tested (at time of writing) for a vehicle moving at 4 m/s.
 
 
 ## Overview
@@ -15,8 +15,8 @@ The closest allowed distance to an obstacle is set using [MPC_COL_AVOID_D](../ad
 
 The feature requires obstacle information from either an external system (sent using the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
-> **Warning** *Collision Avoidance* currently only works with a companion computer! 
-  Support for distance sensors on the flight controller is coming soon.
+> **Note** *Collision Avoidance* currently only works with a companion computer! 
+  Very soon, we hope to also enable it for distance sensors attached to the flight controller.
 
 The vehicle starts braking as soon as it detects an obstacle.
 The velocity setpoint towards the obstacle is reduced linearly such that it is set to zero at the point when the vehicle reaches the minimum allowed distance.
@@ -40,23 +40,23 @@ Set the following [parameters](../advanced_config/parameters.md) in *QGroundCont
 
 ## Companion Setup
 
-The companion computer needs to supply [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages when an obstacle is detected.
-The messages must be sent at a rate of TBD Hz.
+The companion computer needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages when an obstacle is detected.
 
-The tested hardware/software platform is [Intel Aero](../flight_controller/intel_aero.md) running the *local_planner* avoidance software (setup as per [Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) and in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo).
+The minimum rate at which messages *must* be sent depends on vehicle speed - at higher rates the vehicle will have a longer time to respond to detected obstacles.
+
+> **Info** Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 30Hz (the maximum rate supported by the vision system).
+  The system may work well at significantly higher speeds and lower frequency distance updates. 
+
+The tested hardware/software platform is [Auterion IF750A](https://auterion.com/if750a/) reference multicopter running the *local_planner* avoidance software from the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo.
+
+The hardware and software should be set up as described in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo.
+In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true. 
 
 
 ## PX4 Distance Sensor
 
-> **Note** At time of writing this does not support collision avoidance from a rangefinder connected directly to the flight controller.
+PX4 does **not yet support** collision avoidance using a rangfinder connected directly to the flight controller).
+We plan to add support very soon.
 
-<!-- state rate of message? How about 10Hz? 
-No minimum rate - but will depend on maximum velocity that needs to be shed. 
-Rate must be > 2Hz - QGC will automatically warn on stale data once collison avoidance is enabled.
--->
-
-<!-- what hardware - links
-- what software? 
--->
 
 <!-- Initial PR: https://github.com/PX4/Firmware/pull/10785 -->
