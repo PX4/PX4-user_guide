@@ -18,7 +18,7 @@ The desired route comes from a [ROS](http://dev.px4.io/en/ros/) node running on 
 This is passed into an obstacle avoidance module (another ROS node).
 The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
 
-> **Note** The only required PX4-side setup is to put PX4 into *Offboard mode*..
+> **Note** The only required PX4-side setup is to put PX4 into *Offboard mode*.
   While the `SET_POSITION_TARGET_LOCAL_NED` setpoints come from a ROS collision avoidance node, to PX4 could be from any MAVLink system.
 
 The tested hardware/software platform is [Intel Aero](../flight_controller/intel_aero.md) running either the *local_planner* or *global_planner*. 
@@ -29,7 +29,7 @@ The setup is as described in the [Intel Aero > Obstacle Avoidance](../flight_con
 
 PX4 supports obstacle avoidance in [Missions](../flight_modes/mission.md), using avoidance software running on a separate companion computer. 
 
-Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the `MPC_OBS_AVOID` to 1.
+Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) to 1.
 PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](TBD) (Trajectory Interface) which is [#described below](mission_avoidance_interface).
 Provided an avoidance system complies with this interface it can be used with PX4.
 
@@ -57,9 +57,7 @@ The difference when avoidance is active are:
 
 Mission mode is enabled on PX4 by setting `MPC_OBS_AVOID` to `1`.
 
-PX4 communicates with the computer vision system on the companion computer using an implementation of the [Path Planning Protocol](TBD) (Trajectory Interface). <!-- check we call it this! -->
-
-PX4 sends the desired trajectory to the companion computer in `TRAJECTORY_REPRESENTATION_WAYPOINTS` messages at 5Hz.
+PX4 sends the desired trajectory to the companion computer in [TRAJECTORY_REPRESENTATION_WAYPOINTS](http://localhost:4000/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
 The "waypoint" array fields are set as shown:
 - _index 0 :_
   - position: x-y-z NED vehicle local position
@@ -93,6 +91,8 @@ The array waypoints should contains all `NaN` except for index 0:
 The messages should be sent over the whole mission (not just when navigating around an obstacle).
 The rate at which target setpoints are sent depends on the capabilities of the planning software. 
 Nominally this should exceed [TBD].
+
+> **Note** The protocol above describes an implementation of the [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface).
 
 The paragraphs below describe the behaviour in greater detail, covering the internal PX4 behaviour and message flow through ROS.
 
@@ -153,4 +153,3 @@ The setpoints are tracked by the multicopter position controller.
 <!-- @mrivi is expert! -->
 <!-- Issue with discussion : https://github.com/PX4/Devguide/issues/530 -->
 <!-- PR for mavlink docs: https://github.com/mavlink/mavlink-devguide/pull/133 -->
-
