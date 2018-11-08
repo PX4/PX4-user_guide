@@ -30,7 +30,7 @@ The setup is as described in the [Intel Aero > Obstacle Avoidance](../flight_con
 PX4 supports obstacle avoidance in [Missions](../flight_modes/mission.md), using avoidance software running on a separate companion computer. 
 
 Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) to 1.
-PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](TBD) (Trajectory Interface) which is [#described below](mission_avoidance_interface).
+PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface) which is [#described below](mission_avoidance_interface).
 Provided an avoidance system complies with this interface it can be used with PX4.
 
 The tested companion computer platform is [Intel Aero](../flight_controller/intel_aero.md) running either the *local_planner* or *global_planner* avoidance software.
@@ -91,8 +91,6 @@ The array waypoints should contains all `NaN` except for index 0:
 The messages should be sent over the whole mission (not just when navigating around an obstacle).
 The rate at which target setpoints are sent depends on the capabilities of the planning software. 
 Nominally this should exceed [TBD].
-
-> **Note** The protocol above describes an implementation of the [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface).
 
 The paragraphs below describe the behaviour in greater detail, covering the internal PX4 behaviour and message flow through ROS.
 
