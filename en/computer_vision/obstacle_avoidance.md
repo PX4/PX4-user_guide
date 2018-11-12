@@ -12,7 +12,7 @@ This topic explains how the feature is set up and enabled in both modes.
 
 ## Offboard Mode Avoidance {#offboard_mode}
 
-PX4 supports collision avoidance in [Offboard mode](flight_modes/offboard.md).
+PX4 supports collision avoidance in [Offboard mode](../flight_modes/offboard.md).
 
 The desired route comes from a [ROS](http://dev.px4.io/en/ros/) node running on a companion computer.
 This is passed into an obstacle avoidance module (another ROS node).
@@ -30,7 +30,7 @@ The setup is as described in the [Intel Aero > Obstacle Avoidance](../flight_con
 PX4 supports obstacle avoidance in [Missions](../flight_modes/mission.md), using avoidance software running on a separate companion computer. 
 
 Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) to 1.
-PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface) which is [#described below](mission_avoidance_interface).
+PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface) which is [#described below](#mission_avoidance_interface).
 Provided an avoidance system complies with this interface it can be used with PX4.
 
 The tested companion computer platform is [Intel Aero](../flight_controller/intel_aero.md) running either the *local_planner* or *global_planner* avoidance software.
@@ -39,58 +39,69 @@ This is set up as described in the [Intel Aero > Obstacle Avoidance](../flight_c
 
 ### Mission Progression
 
-The companion computer provides setpoint navigation for the *entire route* (not just when there are obstacles) based on current position, current waypoint and next waypoint information from PX4.
-
-The resulting mission behaviour is very similar to missions without obstacle avoidance, and mainly affects the criteria used to determine that a waypoint has been reached.
+Mission behaviour with obstacle avoidance enabled is *slightly different* to the original plan.
 
 The difference when avoidance is active are:
 - A waypoint is "reached" when the vehicle is within the acceptance radius, regardless of its heading.
-  - In normal missions the vehicle must reach a waypoint with a certain heading (i.e. in a "close to" straight line from the previous waypoint). 
-  - When obstacle avoidance is active, this constraint cannot be fulfilled because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
-- navigator updates the triplets when the vehicle has reached the acceptance radius of each waypoint. 
-  If a waypoint is inside an obstacle it can happen that it’s never reach and the mission will be stuck. 
-  If the vehicle projection on the line previous-current waypoint has passed the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
-- If the vehicle within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
-  
+  - This differs from normal missions, in which the vehicle must reach a waypoint with a certain heading (i.e. in a "close to" straight line from the previous waypoint). This constraint cannot be fulfilled when bstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
+- PX4 starts emitting a new current/next waypoint once the previous waypoint is reached (i.e. as soon as vehicle enters its acceptance radius).
+- If a waypoint is *inside* an obstacle it may unreachable (and the mission will be stuck). 
+  - If the vehicle projection on the line previous-current waypoint passes the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
+  - If the vehicle within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
+- The original mission speed (as set in *QGroundControl*/PX4) is ignored.
+  The speed will be determined by the avoidance software:
+  - *local planner* mission speed is around 3 m/s.
+  - *global planner* mission speed is around 1-1.5 m/s.
+
 
 ###  Mission Mode Avoidance Interface {#mission_avoidance_interface}
 
 Mission mode is enabled on PX4 by setting `MPC_OBS_AVOID` to `1`.
 
-PX4 sends the desired trajectory to the companion computer in [TRAJECTORY_REPRESENTATION_WAYPOINTS](http://localhost:4000/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
-The "waypoint" array fields are set as shown:
-- _index 0 :_
-  - position: x-y-z NED vehicle local position
-  - velocity: x-y-z NED velocity setpoint
-  - acceleration: vehicle acceleration
-  - yaw: vehicle yaw
-  - yaw_speed: NaN
-- _index 1:_
-  - position: x-y-z NED local coordinates of the current mission waypoint
-  - velocity: NaN
-  - Acceleration: NaN
-  - yaw: yaw setpoint
-  - yaw_speed: yaw speed setpoint
-- _Index2:_
-  - position: x-y-z NED local coordinates of the next mission waypoint
-  - velocity: NaN
-  - acceleration: NaN
-  - yaw: yaw setpoint
-  - yaw_speed: yaw speed setpoint
-- The remaining indices/fields are filled with NaN. 
+PX4 sends the desired trajectory to the companion computer in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
 
-PX4 expects to receive target setpoints in a stream of `TRAJECTORY_REPRESENTATION_WAYPOINTS` messages.
-The array waypoints should contains all `NaN` except for index 0:
-- _index 0 :_
-  - Position: position setpoint
-  - Velocity: velocity setpoint
-  - acceleration: `NaN` (acceleration setpoints are not supported by PX4)
-  - Yaw: yaw setpoint
-  - Yaw_speed: yaw speed setpoint
+The fields are set as shown:
+- `time_usec`: UNIX Epoch time.
+- `valid_points`: 3
+- Current vehicle information:
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
+  - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: x-y-z NED acceleration setpoint
+  - `pos_yaw[0]`: Current yaw angle
+  - `vel_yaw[0]`: NaN
+- Current waypoint:
+  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED local position of *current* mission waypoint
+  - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
+  - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
+  - `pos_yaw[1]`: Yaw setpoint
+  - `vel_yaw[1]`: Yaw speed setpoint
 
-The messages should be sent over the whole mission (not just when navigating around an obstacle).
-The rate at which target setpoints are sent depends on the capabilities of the planning software. 
-Nominally this should exceed [TBD].
+- Next waypoint:
+  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED local position of *next* mission waypoint
+  - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
+  - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
+  - `pos_yaw[2]`: Yaw setpoint
+  - `vel_yaw[2]`: Yaw speed setpoint
+- All other indices/fields are set as NaN. 
+
+
+PX4 expects to receive target setpoints in a stream of `TRAJECTORY_REPRESENTATION_WAYPOINTS` messages for the duration of the mission (not just when there are obstacles).
+
+The fields for the message from the avoidance software are set as shown:
+- `time_usec`: UNIX Epoch time.
+- `valid_points`: 1
+- Current vehicle information:
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position setpoint
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
+  - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
+  - `pos_yaw[0]`: Yaw angle setpoint
+  - `vel_yaw[0]`: Yaw speed setpoint
+- All other indices/fields are set as NaN. 
+
+The rate at which target setpoints are sent depends on the capabilities of the planning software and the desired speed.
+
+> **Note** Currently the *local planner* emits messages at ~30Hz and can move at around 3 m/s. 
+  The *global planner* emits messages at ~10Hz and mission speed is around 1-1.5 m/s.
 
 The paragraphs below describe the behaviour in greater detail, covering the internal PX4 behaviour and message flow through ROS.
 
@@ -122,7 +133,7 @@ Array `waypoints`:
 
 The remaining indices are filled with NaN. 
 
-The message `vehicle_trajectory_waypoint_desired` is mapped into the MAVLink message `TRAJECTORY_REPRESENTATION_WAYPOINTS`. 
+The message `vehicle_trajectory_waypoint_desired` is mapped into the MAVLink message `TRAJECTORY_REPRESENTATION_WAYPOINTS` (see [avoidance interface](#mission_avoidance_interface) above). 
 The messages are sent at 5Hz.
 
 MAVROS translates the MAVLink message into a ROS message called `mavros_msgs::trajectory` and does the conversion from NED to ENU frames. 
