@@ -16769,7 +16769,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.0 > 90.0
+      0.0 > 180.0
     </td>
     
     <td style="vertical-align: top;">
@@ -16915,7 +16915,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Manual control stick exponential curve sensitivity attenuation with small velocity setpoints
+        Manual position control stick exponential curve sensitivity
       </p>
       
       <p>
