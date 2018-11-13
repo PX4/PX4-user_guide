@@ -5069,7 +5069,7 @@ Temporary Parameter to enable interface testing</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TILTMAX_LND">MPC_TILTMAX_LND</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum tilt during landing</p><p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>   </td>
- <td style="vertical-align: top;">0.0 > 90.0 </td>
+ <td style="vertical-align: top;">0.0 > 180.0 </td>
  <td style="vertical-align: top;">12.0 </td>
  <td style="vertical-align: top;">deg</td>
 </tr>
@@ -5112,7 +5112,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_MAN_EXPO">MPC_XY_MAN_EXPO</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Manual control stick exponential curve sensitivity attenuation with small velocity setpoints</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
+ <td style="vertical-align: top;"><p>Manual position control stick exponential curve sensitivity</p><p><strong>Comment:</strong> The higher the value the less sensitivity the stick has around zero while still reaching the maximum value with full stick deflection. 0 Purely linear input curve (default) 1 Purely cubic input curve</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.0 </td>
  <td style="vertical-align: top;"></td>
