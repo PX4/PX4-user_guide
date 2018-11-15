@@ -105,8 +105,8 @@ Please refer to the [wiring](https://dev.px4.io/en/debug/system_console.html) pa
 ## Peripherals
 
 * [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [Telemetry Radio Modules](https://docs.px4.io/en/telemetry/)
-* [Rangefinders/Distance sensors](https://docs.px4.io/en/sensor/rangefinders.html)
+* [Telemetry Radio Modules](../telemetry/README.md)
+* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 
 ## Supported Platforms / Airframes

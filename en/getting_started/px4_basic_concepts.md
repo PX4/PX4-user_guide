@@ -2,15 +2,18 @@
 
 This topic provides a basic introduction to drones and using PX4 (it is meant mostly for novice users but is also a good introduction for experienced users).
 
-If you are already familiar with the basic concepts, you can move on to [Basic Assembly](https://docs.px4.io/en/assembly/) to learn how to wire your specific autopilot hardware. To load firmware and set up the vehicle with *QGroundControl*, see [Basic Configuration](../config/README.md).
+If you are already familiar with the basic concepts, you can move on to [Basic Assembly](../assembly/README.md) to learn how to wire your specific autopilot hardware. 
+To load firmware and set up the vehicle with *QGroundControl*, see [Basic Configuration](../config/README.md).
 
 ## What is a Drone?
 
 A drone is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
 
-Drones are used for many consumer, industrial and military [use cases and applications](http://px4.io/applications/). These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc. 
+Drones are used for many consumer, industrial and military [use cases and applications](http://px4.io/applications/). 
+These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc. 
 
-> **Tip** Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
+> **Tip** Different types of drones exist for use in air, ground, sea, and underwater. 
+These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
 
 The "brain" of the drone is called an autopilot. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
 
@@ -31,7 +34,8 @@ Some of PX4's key features are:
 
 ## QGroundControl {#qgc}
 
-The Dronecode ground control station is called [QGroundControl](http://qgroundcontrol.com/).  You can use *QGroundControl* to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+The Dronecode ground control station is called [QGroundControl](http://qgroundcontrol.com/).
+You can use *QGroundControl* to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
 
 *QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/). 
 
@@ -46,7 +50,9 @@ For more information see: [Flight Controller Selection](flight_controller_select
 
 ## Sensors
 
-PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). 
+The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. 
+A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
 For more information see: 
 * [Sensors](../getting_started/sensor_selection.md) 
@@ -76,7 +82,9 @@ and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wirin
 
 ## Radio Control (RC) {#rc_systems}
 
-A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
+A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. 
+It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. 
+Some RC systems can additionally receive telemetry information back from the autopilot.
 
 > **Note** PX4 does not require a remote control system for autonomous flight modes.
 
@@ -90,7 +98,8 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 
 ## Data/Telemetry Radios
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. 
+This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
 
 ## Offboard/Companion Computer
@@ -122,9 +131,11 @@ Instructions for how to set up your remote control switches to turn on different
 
 ## Safety Settings (Failsafe) {#safety}
 
-PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! 
+These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
-> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+> **Note** You can only specify the action for the *first* failsafe event. 
+  Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 
 The main failsafe areas are listed below:
 - Low Battery
@@ -144,7 +155,9 @@ All the vehicles, boats and aircraft have a heading direction or an orientation 
 
 ![Frame Heading](../../images/frame_heading.png)
 
-It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Despite it is not obvious, Multicopters have a heading despite they are symmetrical from all sides. Usually manufacturers use a colored props or colored arms to indicate the heading.
+It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. 
+Multicopters have a heading even when they are symmetrical from all sides!
+Usually manufacturers use a colored props or colored arms to indicate the heading.
 
 ![Frame Heading TOP](../../images/frame_heading_top.png)
 
