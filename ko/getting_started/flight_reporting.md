@@ -10,11 +10,17 @@ Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/) (v3.2 
 
 ![Flight Log Download](../../assets/qgc/analyze/log_download.jpg)
 
+## Analyzing the Logs
+
+Upload the log file to the online [Flight Review](http://logs.px4.io) tool (http://logs.px4.io).
+
+[Log Analysis using Flight Review](../log/flight_review.md) explains how to interpret the plots, and can help you to verify/reject the causes of common problems: excessive vibration, poor PID tuning, saturated controllers, imbalanced vehicles, GPS noise, etc.
+
+> **Note** [Flight Log Analysis](../log/flight_log_analysis.md) contains links to information about many other useful logging tools.
+
 ## Sharing the Log Files for Review by PX4 Developers
 
-Upload the log files to [Flight Review](http://logs.px4.io) (http://logs.px4.io). The log file link can then be shared for review in [discussion forums](../README.md#support) or a [Github issue](../README.md#reporting-bugs--issues).
-
-> **Tip** The topic [Flight Log Analysis](https://dev.px4.io/en/log/flight_log_analysis.html) (PX4 Developer Guide) contains basic information about log file analysis (and alternative analysis tools).
+After uploading a file to [Flight Review](http://logs.px4.io), the log file link can be shared for discussion in the [support forums](../README.md#support) or a [Github issue](../README.md#reporting-bugs--issues).
 
 ## Additional Configuration
 
@@ -32,4 +38,4 @@ Logging may further be configured using the [SD Logging](../advanced_config/para
 | [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".  
 This log can *not* be used with *Flight Review*, but is useful when you need a small log for geotagging or regulatory compliance. |
 
-Developers can further configure what information is logged via the [logger](https://dev.px4.io/en/middleware/modules_system.html#logger) module (you would use this, for example, if you want to log your own topics). For more information see: [Logging](https://dev.px4.io/en/log/logging.html) (PX4 Developer Guide).
+> **Note** *Developers* can further configure what information is logged via the [logger](https://dev.px4.io/en/middleware/modules_system.html#logger) module (you would use this, for example, if you want to log your own topics). For more information see: [Logging](https://dev.px4.io/en/log/logging.html) (PX4 Developer Guide).
