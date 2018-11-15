@@ -5140,8 +5140,8 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_VEL_I">MPC_XY_VEL_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integral gain for horizontal velocity error</p><p><strong>Comment:</strong> Non-zero value allows to resist wind.</p>   </td>
- <td style="vertical-align: top;">0.0 > 0.1 </td>
+ <td style="vertical-align: top;"><p>Integral gain for horizontal velocity error</p><p><strong>Comment:</strong> Non-zero value allows to eliminate steady state errors in the presence of disturbances like wind.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 3.0 </td>
  <td style="vertical-align: top;">0.02 </td>
  <td style="vertical-align: top;"></td>
 </tr>
