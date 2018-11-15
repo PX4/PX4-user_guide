@@ -78,6 +78,7 @@
   * [RTK GPS](advanced_features/rtk-gps.md)
   * [Precision Landing](advanced_features/precland.md)
   * [RockBlock SatCom System](advanced_features/satcom_roadblock.md)
+  * [Obstacle Avoidance](computer_vision/obstacle_avoidance.md)
 * [Advanced Configuration](advanced_config/README.md) 
   * [Parameters](advanced_config/parameters.md)
   * [Multicopter Config/Tuning](config_mc/README.md) 
