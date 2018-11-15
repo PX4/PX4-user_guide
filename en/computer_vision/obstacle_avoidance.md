@@ -27,7 +27,7 @@ The setup is as described in the [Intel Aero > Obstacle Avoidance](../flight_con
 
 ## Mission Mode Avoidance {#mission_mode}
 
-PX4 supports obstacle avoidance in [Missions](../flight_modes/mission.md), using avoidance software running on a separate companion computer. 
+PX4 supports obstacle avoidance in [Mission mode](../flight_modes/mission.md), using avoidance software running on a separate companion computer. 
 
 Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) to 1.
 PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface) which is [#described below](#mission_avoidance_interface).
@@ -52,6 +52,8 @@ The difference when avoidance is active are:
   The speed will be determined by the avoidance software:
   - *local planner* mission speed is around 3 m/s.
   - *global planner* mission speed is around 1-1.5 m/s.
+
+If PX4 stops receiving setpoint updates then obstacle avoidance will be disabled, and the mission continues under normal PX4 [Mission mode](../flight_modes/mission.md) control. 
 
 
 ###  Mission Mode Avoidance Interface {#mission_avoidance_interface}
