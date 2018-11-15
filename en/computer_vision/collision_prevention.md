@@ -1,21 +1,21 @@
-# Collision Avoidance
+# Collision Prevention
 
-*Collision Avoidance* may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
+*Collision Prevention* may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
 
 It can be enabled for multicopter vehicles in [Position mode](../flight_modes/position_mc.md), and at time of writing requires a companion computer.
 
-> **Warning** Collision avoidance may not prevent a crash if your vehicle is moving too fast!
+> **Warning** Collision prevention may not prevent a crash if your vehicle is moving too fast!
   This feature has only been tested (at time of writing) for a vehicle moving at 4 m/s.
 
 
 ## Overview
 
-*Collision Avoidance* is enabled on PX4 using the parameter [MPC_COL_AVOID](../advanced_config/parameter_reference.md#MPC_COL_AVOID).
+*Collision Prevention* is enabled on PX4 using the parameter [MPC_COL_AVOID](../advanced_config/parameter_reference.md#MPC_COL_AVOID).
 The closest allowed distance to an obstacle is set using [MPC_COL_AVOID_D](../advanced_config/parameter_reference.md#MPC_COL_AVOID_D).
 
 The feature requires obstacle information from either an external system (sent using the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
-> **Note** *Collision Avoidance* currently only works with a companion computer! 
+> **Note** *Collision Prevention* currently only works with a companion computer! 
   Very soon, we hope to also enable it for distance sensors attached to the flight controller.
 
 The vehicle starts braking as soon as it detects an obstacle.
@@ -26,14 +26,14 @@ Only the velocity components *towards* the obstacle are affected.
 RC inputs that cause the vehicle to move tangentially to the obstacle are still obeyed. 
 So if a vehicle approaches an obstacle from an angle, the vehicle will slow until it reaches the minimum distance and then "slide" along the surface until it is no longer blocked.
 
-The user is notified through *QGroundControl* while *collision avoidance* is actively controlling velocity setpoints.
+The user is notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
 
 
 ## PX4 (Software) Setup
 
 Set the following [parameters](../advanced_config/parameters.md) in *QGroundControl*:
 
-* [MPC_COL_AVOID](../advanced_config/parameter_reference.md#MPC_COL_AVOID) - Set to 1 in order to enable collision avoidance.
+* [MPC_COL_AVOID](../advanced_config/parameter_reference.md#MPC_COL_AVOID) - Set to 1 in order to enable collision prevention.
 * [MPC_COL_AVOID_D](../advanced_config/parameter_reference.md#MPC_COL_AVOID_D) - Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle).
   This should be tuned for both the *desired* minimal distance and likely speed of the vehicle.
 
@@ -55,7 +55,7 @@ In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure*
 
 ## PX4 Distance Sensor
 
-PX4 does **not yet support** collision avoidance using a rangfinder connected directly to the flight controller).
+PX4 does **not yet support** collision prevention using a rangefinder connected directly to the flight controller).
 We plan to add support very soon.
 
 
