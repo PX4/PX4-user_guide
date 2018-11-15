@@ -17015,12 +17015,12 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Non-zero value allows to resist wind.
+        <strong>Comment:</strong> Non-zero value allows to eliminate steady state errors in the presence of disturbances like wind.
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      0.0 > 0.1
+      0.0 > 3.0
     </td>
     
     <td style="vertical-align: top;">
