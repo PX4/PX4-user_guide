@@ -4,7 +4,7 @@ This topic outlines approaches and software packages that can be used to analyze
 
 ## Reporting Flights
 
-[Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues with a flight.
+[Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
 
 ## Structured Analysis
 
