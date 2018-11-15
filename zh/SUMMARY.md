@@ -74,6 +74,8 @@
     * [Mission](flight_modes/mission.md)
     * [Follow Me](flight_modes/follow_me.md)
     * [Offboard](flight_modes/offboard.md)
+* [Flight Log Analysis](log/flight_log_analysis.md) 
+  * [Log Analysis using Flight Review](log/flight_review.md)
 * [Advanced Features](advanced_features/README.md) 
   * [RTK GPS](advanced_features/rtk-gps.md)
   * [Precision Landing](advanced_features/precland.md)
