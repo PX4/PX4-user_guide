@@ -2,7 +2,8 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink (often from a companion computer connected via serial cable or wifi). The setpoint can be provided by APIs like [DroneCore](http://dronecore.io/) or [MAVROS](https://github.com/mavlink/mavros).
+The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink.
+The setpoint may be provided by a MAVLink API (e.g. [Dronecode SDK](https://sdk.dronecode.org/en/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
 > **Note** Offboard mode is not supported by Fixed Wing vehicles. It is supported for Copter and VTOL vehicles.
 
@@ -22,11 +23,15 @@ Offboard mode is primarily used for controlling vehicle movement and attitude, a
   - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](http://mavlink.org/messages/common#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](http://mavlink.org/messages/common#MAV_FRAME_BODY_NED).
 * Control vehicle attitude/orientation ([SET_ATTITUDE_TARGET](http://mavlink.org/messages/common#SET_ATTITUDE_TARGET)).
 
-Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
+Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. 
+Operations like uploading, downloading missions can be performed in any mode.
 
-A stream of setpoint commands must be received by the vehicle prior to engaging the mode, and in order to remain in the mode (if the message rate falls below 2Hz the vehicle will stop). In order to hold position while in this mode, the vehicle must receive a stream of setpoints for the current position.
+A stream of setpoint commands must be received by the vehicle prior to engaging the mode, and in order to remain in the mode (if the message rate falls below 2Hz the vehicle will stop). 
+In order to hold position while in this mode, the vehicle must receive a stream of setpoints for the current position.
 
-Offboard mode requires an active connection to a remote MAVLink system (e.g. companion computer or GCS). If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+Offboard mode requires an active connection to a remote MAVLink system (e.g. companion computer or GCS). 
+If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. 
+The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
 
 
 ## Offboard Parameters
@@ -42,7 +47,7 @@ Parameter | Description
 
 ## Developer Resources
 
-Typically developers do not directly work at the MAVLink layer, but instead use a robotics API like [DroneCore](http://dronecore.io/) or [ROS](http://www.ros.org/) (these provide a developer friendly API, and take care of managing and maintaining connections, sending messages and monitoring responses - the minutiae of working with *Offboard mode* and MAVLink). 
+Typically developers do not directly work at the MAVLink layer, but instead use a robotics API like [Dronecode SDK](https://sdk.dronecode.org/en/) or [ROS](http://www.ros.org/) (these provide a developer friendly API, and take care of managing and maintaining connections, sending messages and monitoring responses - the minutiae of working with *Offboard mode* and MAVLink). 
 
 The following resources may be useful for a developer audience:
 
