@@ -4905,7 +4905,7 @@ the vehicle will accelerate at this rate until the normal position control speed
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_COL_PREV_D">MPC_COL_PREV_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum distance the vehicle should keep to all obstacles</p><p><strong>Comment:</strong> Only used in Position mode. Collision avoidace is disable by setting this parameter to a negative value</p>   </td>
+ <td style="vertical-align: top;"><p>Minimum distance the vehicle should keep to all obstacles</p><p><strong>Comment:</strong> Only used in Position mode. Collision avoidace is disabled by setting this parameter to a negative value</p>   </td>
  <td style="vertical-align: top;">-1 > 15 </td>
  <td style="vertical-align: top;">-1.0 </td>
  <td style="vertical-align: top;">meters</td>
