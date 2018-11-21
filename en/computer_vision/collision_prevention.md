@@ -10,8 +10,7 @@ It can be enabled for multicopter vehicles in [Position mode](../flight_modes/po
 
 ## Overview
 
-*Collision Prevention* is enabled on PX4 using the parameter [MPC_COL_PREV](../advanced_config/parameter_reference.md#MPC_COL_PREV).
-The closest allowed distance to an obstacle is set using [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D).
+*Collision Prevention* is enabled/configured on PX4 by setting the parameter for minimum allowed distance ([MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D)).
 
 The feature requires obstacle information from either an external system (sent using the [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
@@ -31,10 +30,10 @@ The user is notified through *QGroundControl* while *Collision Prevention* is ac
 
 ## PX4 (Software) Setup
 
-Set the following [parameters](../advanced_config/parameters.md) in *QGroundControl*:
+Set the following [parameter](../advanced_config/parameters.md) in *QGroundControl*:
 
-* [MPC_COL_PREV](../advanced_config/parameter_reference.md#MPC_COL_PREV) - Set to 1 in order to enable collision prevention.
-* [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D) - Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle).
+* [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D) - Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle). Set negative to disable *collision prevention*.
+
   This should be tuned for both the *desired* minimal distance and likely speed of the vehicle.
 
 
