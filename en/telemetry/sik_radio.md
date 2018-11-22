@@ -2,16 +2,21 @@
 
 [SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
-Hardware for the SiK radio can be obtained from various manufacturers/stores in variants that support different range and form factors. Typically you will need a pair of devices - one for the vehicle and one for the ground station. 
+PX4 is protocol-compatible with radios that use *SiK*.
+SiK Radios often come with appropriate connectors/cables allowing them to be directly connected to [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers
+(in some cases you may need to obtain an appropriate cable/connector).
+Typically you will need a pair of devices - one for the vehicle and one for the ground station.
 
-## Purchase {#vendors}
+Hardware for the SiK radio can be obtained from various manufacturers/stores in variants that support different range and form factors.
 
-* 3DR Radio \(small\) - [US (915MHz)](https://store.3dr.com/products/915-mhz-telemetry-radio) / [European (433MHz)](https://store.3dr.com/products/433-mhz-telemetry-radio)
-* [HK Radio](http://www.hobbyking.com/hobbyking/store/uh_viewitem.asp?idproduct=55559) \(small\)
-* [RFD900u](http://rfdesign.com.au/products/rfd900u-modem/) \(small\)
-* [RFD900](http://rfdesign.com.au/products/rfd900-modem/) \(long range\)
+![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
 
-![SiK Radio](../../assets/hardware/telemetry/sik_radio.jpg)
+## Vendors {#vendors}
+
+* [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
+* [HKPilot Telemetry Radio](../telemetry/hkpilot_sik_radio.md)
+* [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
+* <del>*3DR Telemetry Radio*</del> (Discontinued)
 
 ## Setup/Configuration
 

@@ -1,8 +1,12 @@
 {   
     "gitbook": ">= 3.2.2",
     "title": "PX4 User Guide",
+    "variables": {
+        "logo": "./assets/site/logo_pro_small.png"
+    },
     "plugins": [
         "youtube",
+        "ga",
         "richquotes",
         "language-picker",
         "collapsible-menu",
@@ -12,6 +16,7 @@
         "bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git",
         "toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git",
         "validate-links",
+        "mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn",
         "theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"
     ],
     "pluginsConfig": {
@@ -20,6 +25,9 @@
             "copyright":"© PX4 Dev Team. License:   <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a>",
             "update_label":"Updated: ",
             "update_format":"YYYY-MM-DD HH:mm:ss"
+        },
+        "ga": {
+            "token": "UA-33658859-3"
         },
         "richquotes":
         {

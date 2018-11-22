@@ -1,4 +1,6 @@
-# Takeoff Flight Mode
+# Takeoff Mode
+
+[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 The *Takeoff* flight mode causes the vehicle to take off to a specified height and wait for further input.
 
@@ -20,7 +22,7 @@ Parameter | Description
 [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | Target altitude during takeoff (default: 2.5m)
 [MPC_TKO_SPEED](../advanced_config/parameter_reference.md#MPC_TKO_SPEED) | Speed of ascent (default: 1.5m/s)
 
-## Fixed Wing (FW)
+## Fixed Wing (FW) {#fixed_wing}
 
 The aircraft takes off in the current direction using either *catapult/hand-launch mode* or *runway takeoff mode*. The mode defaults to catapult/hand launch, but can be set to runway takeoff using `RWTO_TKOFF`.
 

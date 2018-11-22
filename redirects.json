@@ -1,9 +1,42 @@
 {
     "redirects": [
-    
+
+
             {
-                "from": "en/flight-reporting.html",
-                "to": "en/flying/flight_reporting.html"
+                "from": "en/advanced_config/pid_tuning_guide_multicopter.html",
+                "to": "en/config_mc/pid_tuning_guide_multicopter.html"
+            },
+            {
+                "from": "en/advanced_config/advanced_mc_position_tuning.html",
+                "to": "en/config_mc/advanced_mc_position_tuning.html"
+            },
+            {
+                "from": "en/advanced_config/racer_setup.html",
+                "to": "en/config_mc/racer_setup.html"
+            },
+            {
+                "from": "en/advanced_config/pid_tuning_guide_fixedwing.html",
+                "to": "en/config_fw/pid_tuning_guide_fixedwing.html"
+            },
+            {
+                "from": "en/advanced_config/trimming_guide_fixedwing.html",
+                "to": "en/config_fw/trimming_guide_fixedwing.html"
+            },
+            {
+                "from": "en/peripherals/rtk_gps_hex_hereplus.html",
+                "to": "en/gps_compass/rtk_gps_hex_hereplus.html"
+            },
+            {
+                "from": "en/peripherals/rtk_gps_drotek_xl.html",
+                "to": "en/gps_compass/rtk_gps_drotek_xl.html"
+            },
+            {
+                "from": "en/peripherals/rtk_gps_cuav_c-rtk.html",
+                "to": "en/gps_compass/rtk_gps_cuav_c-rtk.html"
+            },
+            {
+                "from": "en/flying/flight_reporting.html",
+                "to": "en/getting_started/flight_reporting.html"
             },
             {
                 "from": "en/framebuild_multicopter/lumenier_qav250_pixhawk_mini.html",

@@ -1,8 +1,8 @@
 # mRo Pixhawk  Flight Controller (Pixhawk 1)
 
-The *mRo Pixhawk* is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md).  It runs PX4 on the [NuttX](http://nuttx.org) OS. 
+The *mRo Pixhawk<sup>&reg;</sup>* is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md).  It runs PX4 on the [NuttX](http://nuttx.org) OS. 
 
-> **Tip** The controller can be used as a drop-in replacement for the 3DR [Pixhawk 1](../flight_controller/pixhawk.md).
+> **Tip** The controller can be used as a drop-in replacement for the 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md).
 
 <span></span>
 > **Note** The main difference is that it is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design, which corrects a bug that limited the original Pixhawk 1 to 1MB of flash.
@@ -11,25 +11,25 @@ The *mRo Pixhawk* is a hardware compatible version of the original [Pixhawk 1](.
 
 Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
 
-## Quick Summary
+## Key Features
 
 * Microprocessor:
-  * 32-bit STM32F427 Cortex M4 core with FPU
+  * 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
   * 168 MHz/256 KB RAM/2 MB Flash
   * 32 bit STM32F103 failsafe co-processor
 * Sensors:
   * ST Micro L3GD20 3-axis 16-bit gyroscope
   * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
-  * Invensense MPU 6000 3-axis accelerometer/gyroscope
+  * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
   * MEAS MS5611 barometer
 * Interfaces:
   * 5x UART (serial ports), one high-power capable, 2x with HW flow control
   * 2x CAN
   * Spektrum DSM / DSM2 / DSM-X® Satellite compatible input up to DX8 (DX9 and above not supported)
-  * Futaba S.BUS® compatible input and output
+  * Futaba<sup>&reg;</sup> S.BUS compatible input and output
   * PPM sum signal
   * RSSI (PWM or voltage) input
-  * I2C®
+  * I2C
   * SPI
   * 3.3 and 6.6V ADC inputs
   * External microUSB port
@@ -53,6 +53,9 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 
 ## Pinouts and Schematics
 
-As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
 
-The board is documented in detailed on the [Pixhawk project](https://pixhawk.org/modules/pixhawk) website.
+* [FMUv3 schematic](https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF) -- Schematic and layout
+
+> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware). 
+

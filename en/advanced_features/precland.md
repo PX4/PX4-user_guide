@@ -1,10 +1,6 @@
 # Precision Landing
 
-> **Warning** **PRECISION LANDING is NOT SUPPORTED**
->
-> Support is planned for PX1.7.x timeframes. You can track submission in [#8160](https://github.com/PX4/Firmware/pull/8160).
-
-PX4 supports precision landing for *multicopters* using the [IR-LOCK Sensor](https://irlock.com/products/ir-lock-sensor-precision-landing-kit), an IR beacon (e.g. [IR-LOCK MarkOne](https://irlock.com/collections/markone)), and a downward facing range sensor.
+PX4 supports precision landing for *multicopters* (from PX4 v1.7.4) using the [IR-LOCK Sensor](https://irlock.com/products/ir-lock-sensor-precision-landing-kit), an IR beacon (e.g. [IR-LOCK MarkOne](https://irlock.com/collections/markone)), and a downward facing range sensor.
 This enables landing with a precision of roughly 10 cm (GPS precision, by contrast, may be as large as several meters).
 
 A precision landing can be initiated by entering the *Precision Land* flight mode, or as part of a [mission](#mission).

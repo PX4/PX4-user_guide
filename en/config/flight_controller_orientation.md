@@ -8,7 +8,7 @@ YAW, PITCH and/or ROLL offsets are calculated relative to the default forward-fa
 
 <img src="../../images/fc_orientation_1.png" style="width: 600px;"/>
 
-For example, the vehicles shown below have rotations around the x-axis (only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
+For example, the vehicles shown below have rotations around the z-axis (only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
 ![Yaw Rotation](../../images/yaw_rotation.png)
 

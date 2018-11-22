@@ -1,5 +1,7 @@
 # Snapdragon Advanced
 
+This page is a collection of useful commands and instructions which might come in handy when working with the Snapdragon platform.
+
 ## Connect to Snapdragon
 
 ### Over FTDI
@@ -20,8 +22,7 @@ Change USB0 to whatever it happens to be. Check `/dev/` or `/dev/serial/by-id`.
 Connect the Snapdragon over USB2.0 and power it up using the power module.
 When the Snapdragon is running the, the LED will be slowly blinking (breathing) in blue.
 
-Make sure the board can be found using adb:
-
+Make sure the board can be found using *adb*:
 ```
 adb devices
 ```
@@ -34,95 +35,22 @@ To get a shell, do:
 adb shell
 ```
 
-## Upgrade Snapdragon
+### DSP Debug Monitor
 
-For this step the files from the [Intrinsyc support](https://support.intrinsyc.com/projects/snapdragon-flight/files) website are required. The latest release that has been tested is `3.1.3.1`. It can be obtained after registering using the board's serial number.
-
-### Upgrading/replacing the Linux image
-
-> **Caution** Flashing the Linux image will erase everything on the Snapdragon. Back up your work before you perform this step! Also, check the [Prevent bricking](#Prevent-bricking) section!
-
-Get the latest Flight_x.x_JFlash.zip from Intrinsyc and unzip it. In the unzipped folder is a script that has to be used to update the Linux image. Power your Snapdragon Flight, connect it using a micro USB cable and run
-```sh
-sudo ./jflash.sh
+You can also run *mini-dm* provided by hexagon to see the output of the DSP:
+```
+${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
 ```
 
-#### Prevent bricking
-
-To prevent the system from hanging on boot because of anything wrong with the ADSP firmware, do the following changes before updating:
-
-Edit the file directly on the Snapdragon over `screen` or `adb shell`:
-```sh
-vim /usr/local/qr-linux/q6-admin.sh
-```
-
-Or load the file locally and edit it there with the editor of your choice:
-
-To do this, load the file locally:
-```sh
-adb pull /usr/local/qr-linux/q6-admin.sh
-```
-
-Edit it:
-
-```sh
-gedit q6-admin.sh
-```
-
-And push it back:
-
-```sh
-adb push q6-admin.sh /usr/local/qr-linux/q6-admin.sh
-adb shell chmod +x /usr/local/qr-linux/q6-admin.sh
-```
-
-Comment out the while loops causing boot to hang:
-
-```
-# Wait for adsp.mdt to show up
-#while [ ! -s /lib/firmware/adsp.mdt ]; do
-#  sleep 0.1
-#done
-```
-
-and:
-
-```
-# Don't leave until ADSP is up
-#while [ "`cat /sys/kernel/debug/msm_subsys/adsp`" != "2" ]; do
-#  sleep 0.1
-#done
-```
-
-### Updating the ADSP firmware
-
-Part of the PX4 stack is running on the ADSP (the DSP side of the Snapdragon 8074). The underlying operating system QURT needs to be updated separately.
-
-First of all, if you're not already on BSP 3.1.3.1, [upgrade the Linux image](#upgradingreplacing-the-linux-image)!
-
-#### Push the latest ADSP firmware files
-
-Download the latest Qualcomm flight controller hexagon SDK add on from Intrinsyc and unzip it. In the unzipped folder is a script that has to be used to update the ADSP image. Power your Snapdragon Flight, connect it using a micro USB cable and run
-```sh
-./installfcaddon.sh
-```
-
-Then do a graceful reboot, so that the firmware gets applied:
-
-```
-adb reboot
-```
-
+> **Note** Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
 
 ## Serial ports
-
-### Use serial ports
 
 Not all POSIX calls are currently supported on QURT. Therefore, some custom ioctl are needed.
 
 The APIs to set up and use the UART are described in [dspal](https://github.com/PX4/dspal/blob/master/include/dev_fs_lib_serial.h).
 
-## Wifi-settings
+## Wi-Fi settings
 
 > **Todo** These are notes for advanced developers.
 
@@ -130,14 +58,13 @@ Connect to the Linux shell (see [console instructions](https://dev.px4.io/en/deb
 
 ### Access point mode
 
-If you want the Snapdragon to be a wifi access point (AP mode), edit the file: `/etc/hostapd.conf` and set:
-
-> **Note** The passphrase has to be at least 8 characters
-
+If you want the Snapdragon to be a wifi access point (AP mode), edit the file: **/etc/hostapd.conf** and set:
 ```
 ssid=EnterYourSSID
 wpa_passphrase=EnterYourPassphrase
 ```
+
+> **Note** The passphrase must be at least 8 characters
 
 Then configure AP mode:
 
@@ -148,7 +75,7 @@ reboot
 
 ### Station mode
 
-If you want the Snapdragon to connect to your existing wifi, edit the file: `/etc/wpa_supplicant/wpa_supplicant.conf` and add your network settings:
+If you want the Snapdragon to connect to your existing wifi, edit the file: **/etc/wpa_supplicant/wpa_supplicant.conf** and add your network settings:
 
 ```
 network={
@@ -164,6 +91,94 @@ Then configure station mode:
 reboot
 ```
 
+## Using the cameras on the Snapdragon Flight
+
+The Snapdragon Flight board has a downward facing gray-scale camera which can be used for optical flow based position stabilization and a forward facing RGB camera. 
+The [snap_cam](https://github.com/PX4/snap_cam) repo offers a way to run and stream the different cameras and calculate the optical flow.
+
+Besides a camera, optical flow requires a downward facing distance sensor. Here, the use of the TeraRanger One is discussed.
+
+### Optical Flow
+
+The optical flow is computed on the application processor and sent to PX4 through MAVLink.
+Clone and compile the [snap_cam](https://github.com/PX4/snap_cam) repo according to the instructions in its README.
+
+Run the optical flow application (90 frames per second and auto exposure) as root:
+```
+./optical_flow -f 90 -a
+```
+
+The optical flow application requires IMU MAVLink messages from PX4. You may have to add an additional MAVLink instance to PX4 by adding the following to your **mainapp.config**:
+```
+mavlink start -u 14557 -r 1000000 -t 127.0.0.1 -o 14558
+mavlink stream -u 14557 -s HIGHRES_IMU -r 250
+```
+
+### TeraRanger One Setup
+
+To connect the TeraRanger One (TROne) to the Snapdragon Flight, the TROne I2C adapter must be used. The TROne must be flashed with the I2C firmware by the vendor.
+
+The TROne is connected to the Snapdragon Flight through a custom DF13 4-to-6 pin cable. We recommend using connector J15 (next to USB), as all others are already in use (RC, ESCs, GPS). The wiring is as follows:
+
+| 4 pin | <-> | 6 pin |
+| -- | -- | -- |
+| 1 |  | 1 |
+| 2 |  | 6 |
+| 3 |  | 4 |
+| 4 |  | 5 |
+
+The TROne must be powered with 10 - 20V.
+
+### Camera Streaming in QGroundControl
+
+To watch the live stream of either camera `qcamvid` can be used. Run the following command on the Snapdragon Flight to stream the hires camera for 10 minutes without recording with a 720p resolution.
+```
+qcamvid -c hires -r 720p -s -t 600
+```
+Use `qcamvid -h` to have a look at all the options.
+
+To watch the live stream in QGroundControl, it has to be built with gstreamer (see [here](https://github.com/mavlink/qgroundcontrol/tree/master/src/VideoStreaming)).
+
+Once installed and conneted to the Snapdragon Flight's network, the following changes have to be made in QGroundControl.
+
+![](../../assets/videostreaming/QGC_snapdragon_streaming_settings.png)
+
+## Accessing I/O Data
+
+Low level bus data can be accessed from code running on the aDSP, using a POSIX-like API called DSPAL.  The header files for this API are maintained
+on [github](https://github.com/ATLFlight/dspal) and are commented with Doxygen formatted documentation in each header file.  A description of the API's supported
+and links to the applicable header files is provided below.
+
+### API Overview
+
+* [Serial:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_serial.h)
+* [I2C:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_i2c.h)
+* [SPI:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_spi.h)
+* [GPIO:](https://github.com/ATLFlight/dspal/blob/master/include/dev_fs_lib_gpio.h)
+* Timers: [qurt_timer.h](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools)
+* Power Control: [HAP_power.h](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools)
+
+### Sample Source Code
+
+The unit test code to verify each DSPAL function also represent good examples for how to call the functions.  
+This code is also on [github](https://github.com/ATLFlight/dspal/tree/master/test/dspal_tester)
+
+### Setting the Serial Data Rate
+
+The serial API does not conform to the termios convention for setting data rate through the `tcsetattr()` function.  IOCTL codes are used instead and are
+described in the header file linked above.
+
+### Timers
+
+Additional functions for more advanced aDSP operations are available with the prefix `qurt_`.  
+Timer functions, for example, are available with the `qurt_timer` prefix and are documented in the **qurt_timer.h** header file included with the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools).
+
+### Setting the Power Level
+
+Using the HAP functions provided by the Hexagon SDK, it is possible to set the power level of the aDSP.  
+This will often lead to reduced I/O latencies.
+More information on these API's is available in the **HAP_power.h** header file available in the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools).
+
 
 ## Troubleshooting
 
@@ -177,61 +192,57 @@ reboot
 
 ### USB permissions
 
-1) Create a new permissions file
+1. Create a new permissions file
+   ```
+   sudo -i gedit /etc/udev/rules.d/51-android.rules
+   ```
 
-```
-sudo -i gedit /etc/udev/rules.d/51-android.rules
-```
+1. Paste this content, which enables most known devices for ADB access:
+   ```
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0bb4", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0e79", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0502", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0b05", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="413c", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0489", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="091e", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0bb4", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="12d1", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="24e3", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="2116", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0482", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="17ef", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="1004", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="22b8", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0409", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="2080", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0955", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="2257", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="10a9", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="1d4d", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0471", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="04da", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="05c6", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="1f53", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="04e8", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="04dd", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0fce", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="0930", MODE="0666", GROUP="plugdev"
+   SUBSYSTEM=="usb", ATTRS{idVendor}=="19d2", MODE="0666", GROUP="plugdev"
+   ```
 
-paste this content, which enables most known devices for ADB access:
+1. Set up the right permissions for the file:
+   ```
+   sudo chmod a+r /etc/udev/rules.d/51-android.rules
+   ```
 
-```
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0bb4", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0e79", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0502", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0b05", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="413c", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0489", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="091e", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0bb4", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="12d1", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="24e3", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="2116", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0482", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="17ef", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="1004", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="22b8", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0409", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="2080", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0955", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="2257", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="10a9", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="1d4d", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0471", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="04da", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="05c6", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="1f53", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="04e8", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="04dd", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0fce", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="0930", MODE="0666", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTRS{idVendor}=="19d2", MODE="0666", GROUP="plugdev"
-```
-
-Set up the right permissions for the file:
-
-```
-sudo chmod a+r /etc/udev/rules.d/51-android.rules
-```
-
-Restart the deamon
-
-```
-sudo udevadm control --reload-rules
-sudo service udev restart
-sudo udevadm trigger
-```
+1. Restart the daemon
+   ```
+   sudo udevadm control --reload-rules
+   sudo service udev restart
+   sudo udevadm trigger
+   ```
 
 If it still doesn't work, check [this answer on StackOverflow](http://askubuntu.com/questions/461729/ubuntu-is-not-detecting-my-android-device#answer-644222).
 
@@ -256,7 +267,7 @@ If the serial console is not possible, you can try to connect the Micro USB cabl
 adb wait-for-device && adb reboot bootloader
 ```
 
-Then power cycle the board. If you're lucky, adb manages to connect briefly and can send the board into fastboot.
+Then power cycle the board. If you're lucky, *adb* manages to connect briefly and can send the board into fastboot.
 
 To check if it's in fastboot mode, use:
 
@@ -301,7 +312,7 @@ If you see the following output on mini-dm when trying to start the px4 program,
 [08500/03]  05:10.960  HAP:45:undefined PLT symbol _FDtest (689) /libpx4muorb_skel.so  0303  symbol.c
 ```
 
-#### Something else
+#### Something Else
 
 If you have changed the source, presumably added functions and you see `undefined PLT symbol ...` it means that the linking has failed.
 
@@ -376,7 +387,7 @@ The mini-dm console output typically looks like this:
 [08500/02]  20:32.550  HAP:76:cannot find /voiceproc_rx.so  0141  load.c
 ```
 
-### Do I have a P1 or P2 board?
+### Do I have a P1 or P2 Board?
 
 The silkscreen on the Snapdragon reads something like:
 

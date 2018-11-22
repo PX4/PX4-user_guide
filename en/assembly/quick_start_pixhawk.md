@@ -66,12 +66,13 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers to Pixhawk:
 
-- PPM and S.BUS receivers must connect to the **RC** ground, power and signal pins as shown.
-  ![Pixhawk - Radio port for PPM/S.BUS receivers](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
-- PWM receivers must connect to the RCIN channel *via* a PPM encoder 
-  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM receivers use a single signal wire for all channels, while PWM receivers have an individual wire for each channe).
-- Spektrum and DSM receivers must connect to the **SPKT/DSM** input.
+- Spektrum and DSM receivers connect to the **SPKT/DSM** input.
   ![Pixhawk - Radio port for Spektrum receivers](../../images/pixhawk_3dr_receiver_spektrum.jpg)
+
+- PPM-SUM and S.BUS receivers connect to the **RC** ground, power and signal pins as shown.
+  ![Pixhawk - Radio port for PPM/S.BUS receivers](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
+
+- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
 
@@ -119,6 +120,5 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 ## Further information
 
-- [Pixhawk Quick Start Guide (3DR)](https://3dr.com/wp-content/uploads/2017/03/pixhawk-manual-rev7-1.pdf)
 - [Pixhawk Series](../flight_controller/pixhawk_series.md)
-- [3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html) (PX4 DevGuide)
+- [3DR Pixhawk](../flight_controller/pixhawk.md) 

@@ -21,14 +21,9 @@ New users should consider setting one or more of the following modes, which make
 
 It is also common to map switches to:
 
-- [Return To Launch](../flight_modes/rtl.md) - This mode raises the vehicle to a safe height and returns to the launch position.
-- **Mission** - This mode runs a pre-programmed mission sent by the ground control station.
-
-Some pilots may also wish to enable:
-
-<span id="kill-switch">
-- **Kill Switch** - Immediately stops all motor outputs. The vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying.
-
+- [Return](../flight_modes/return.md) - This mode raises the vehicle to a safe height and returns to the launch position.
+- [Mission](../flight_modes/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
+- <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
 
 ## Multi Channel vs Single Channel Mode Selection
@@ -52,7 +47,7 @@ To configure single-channel flight mode selection:
 1. Turn on your RC transmitter.
 1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
    
-   ![Flight modes multi-channel](../../images/qgc/setup/flight_modes_single_channel.jpg)
+   ![Flight modes single-channel](../../images/qgc/setup/flight_modes_single_channel.jpg)
    
    > **Tip** If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode Selection** button to change screen.
    
@@ -60,7 +55,7 @@ To configure single-channel flight mode selection:
    * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration). 
    * Select up to six **Flight Modes**.
 1. Specify *Switch Settings*:
-   * Select channels for *Return To Launch* mode, *Kill Switch*, and *offboard* mode (if you have spare switches and channels on your transmitter).
+   * Select the channels that you want to map to specific actions - e.g.: *Return* mode, *Kill switch*, *offboard* mode, etc. (if you have spare switches and channels on your transmitter).
 1. Test that the modes are mapped to the right transmitter switches:
    * Check the *Channel Monitor* to confirm that the expected channel is changed by each switch.
    * Select each mode switch on your transmitter in turn, and check that the desired flight mode is activated (the text turns yellow on *QGroundControl* for the active mode).

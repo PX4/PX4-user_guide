@@ -14,7 +14,7 @@ MR210 uses MindRacer as flight controller.  MR210 is a fully modularized, stacka
 2. Stackable SEP/WEP sockets for soldering-free ESC connection and parts replacement.
 3. 30A/4S/OneShot enabled BLHeli ESC.
 4. 5V universal voltage supply for all avionics including camera and VTX.
-5. DroneCode standard compliant JST GH connectors.
+5. DroneCode<sup>&reg;</sup> standard compliant JST GH connectors.
 6. Have options for PPM/S.Bus/Specktrum DSM receiver
 
 ### User Guide
@@ -23,7 +23,7 @@ MR210 uses MindRacer as flight controller.  MR210 is a fully modularized, stacka
 
 ### Where to buy
 
-MindRacer 210 is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon or eBay.
+MindRacer 210 is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ### Support
 

@@ -1,15 +1,15 @@
-# Remote Control Systems
+# Radio Control Systems
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle. This topic explains a little about how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller. 
+A radio control (RC) system is required if you want to *manually* control your vehicle from a handheld transmitter. This topic explains a little about how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller. 
 
-> **Tip** PX4 does not require a remote control system for autonomous flight modes.
+> **Tip** PX4 does not require a remote control system for autonomous flight modes. You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
 
 ## How do RC Systems Work?
 
 An *RC system* has a ground-based *remote control unit* that is used by the operator to command the vehicle. The remote has physical controls that can be used to specify vehicle movement (e.g. speed, direction, throttle, yaw, pitch, roll, etc.) and to enable autopilot [flight modes](../flight_modes/README.md) (e.g. takeoff, land, return to land, mission etc.).
 On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle (e.g. battery level, flight mode).
 
-![Taranis X9D Transmitter](../../images/frsky_taranis_x9d_transmitter.jpg)
+![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
 The remote control unit contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. The vehicle-based unit is connected to the flight controller. The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
 
@@ -34,7 +34,7 @@ There are numerous possible layouts for the control sticks, switches, etc. The m
 ![Mode1-Mode2](../../images/mode1_mode2.png)
 
 > **Note** The choice of mode is largely one of taste (*Mode 2* is more popular).
-  
+
 
 ## Remote Control Units for Ground Vehicles
 
@@ -83,14 +83,13 @@ As general guidance, receivers connect to the flight controller using the port a
 
 - Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
 - PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
-- PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder.
-  [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 Instructions for connecting to specific flight controllers are given in the following quick-start guides:
 
 * [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
-* [Pixhawk Mini](../assembly/quick_start_pixhawk_mini.md#radioremote-control)
 * [Pixracer](../assembly/quick_start_pixracer.md)
+* [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 
 > **Tip** See the manufacturer's flight controller setup guide for additional information. 
 
@@ -105,5 +104,5 @@ If you are using a *Spektrum* receiver, you can put it into bind mode using *QGr
 ## Related Topics
 
 * [RC System Selection](../getting_started/rc_transmitter_receiver.md) - Choose a compatible RC system.
-* [Radio/Remote Control Setup](../config/radio.md) - Configuring your radio with PX4.
+* [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
 * [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control. 

@@ -2,7 +2,7 @@
 
 The CUAV *Pixhack V3* flight controller board is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
-The board is a variant of the SOLO Pixhawk 2 (PH2) flight controller, which is in turn based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with both PX4 or ArduPilot (APM) firmware.
+The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight controller, which is in turn based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with both PX4 or ArduPilot<sup>&reg;</sup> (APM) firmware.
 
 *Pixhack V3* has significant improvements with respect to the original design, including better interface layout and the addition of vibration damping and a thermostat system.
 
@@ -15,7 +15,7 @@ The board is a variant of the SOLO Pixhawk 2 (PH2) flight controller, which is i
   * STM32F427
   * STM32F100 (Failsafe co-processor)
 * Sensors:
-  * Accelerometers (3): LS303D, MPU6000, MPU9250
+  * Accelerometers (3): LS303D, MPU6000, MPU9250/hmc5983
   * Gyroscopes (3): L3GD20, MPU6000, MPU9250
   * Compass (2): LS303D, MPU9250
   * Barometer (2): MS5611 X2
@@ -30,7 +30,7 @@ The board is a variant of the SOLO Pixhawk 2 (PH2) flight controller, which is i
   * ADC IN: 3.3V X1 , 6.6V X1
   * PWM OUT: 8 PWM IO + 4 IO
 * Power System:
-  * PM POWER IN: 4.5 ~ 5.5 V |
+  * PM POWER IN: 4.5 ~ 5.5 V
   * USB POWER IN: 5.0 V +- 0.25v
 * Weight and Dimensions:
   * Weight: 63g
@@ -38,7 +38,7 @@ The board is a variant of the SOLO Pixhawk 2 (PH2) flight controller, which is i
   * Thickness: 17mm
   * Length: 44mm
 * Other Characteristics:
-  * Operating temperature: -20 ~ 60°c
+  * Operating temperature: -20 ~ 60°C
 
 ## Availability
 

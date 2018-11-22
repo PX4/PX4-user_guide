@@ -1,8 +1,13 @@
 # Parameter Configuration
 
-The *QGroundControl Parameters screen* allows you to find and modify any of the parameters associated with the vehicle. The screen is accessed by clicking the top menu *Gear* icon and then *Parameters* in the sidebar.
+A lot of PX4 behaviour can be configured/tuned using [parameters](../advanced_config/parameter_reference.md) (e.g. [Multicopter PID gains](../config_mc/pid_tuning_guide_multicopter.md), calibration information, etc.).
 
-> **Note** The Parameters screen is needed when accessing less commonly modified parameters - for example while tuning a new vehicle. Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. 
+The *QGroundControl Parameters screen* allows you to find and modify **any** of the parameters associated with the vehicle. The screen is accessed by clicking the top menu *Gear* icon and then *Parameters* in the sidebar.
+
+> **Note** The Parameters screen is needed when accessing less commonly modified parameters - for example while tuning a new vehicle. Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section.
+
+<span></span>
+> **Note** While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
 
 
 ## Finding a Parameter

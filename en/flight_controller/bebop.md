@@ -7,6 +7,8 @@ The [Parrot Bebop 2](http://global.parrot.com/au/products/bebop2/) is a popular 
 
 ## Video
 
+{% youtube %}https://youtu.be/SsnzYhiuWiE{% endyoutube %}
+
 {% youtube %}https://www.youtube.com/watch?v=hTVNHlqxWBk{% endyoutube %}
 
 
