@@ -38348,40 +38348,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="VT_AIRSPD_RULE">VT_AIRSPD_RULE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Airspeed rules regarding fixed wing control surface scaling
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> No special rules
-        </li>
-        <li>
-          <strong>1:</strong> During hover (excluding transitions) use the lowest possible airspeed value.
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="VT_ARSP_BLEND">VT_ARSP_BLEND</strong> (FLOAT)
     </td>
     
