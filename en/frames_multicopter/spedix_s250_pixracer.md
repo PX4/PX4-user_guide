@@ -13,8 +13,8 @@ The hardware required for this build is displayed below.
 ## Mounting and Wiring
 
 Connect GPS and the Wifi module as shown in the [Pixracer instructions](../flight_controller/pixracer.md). 
-Connect the four motors in the layout and order as shown below, so the MAIN1 connector should
-connect to motor 1, and so on.
+
+Connect the motors in the layout and order defined in the [Airframe Reference](../airframes/airframe_reference.md#quadrotor-asymmetric), and as reproduced below.
 
 <div>
 <img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
