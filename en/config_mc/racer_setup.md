@@ -120,7 +120,7 @@ The *control latency* is the delay from a physical disturbance of the vehicle un
 > **Tip** It is *crucial* to reduce the control latency as much as possible — a lower latency allows you to increase the rate **P** gains, which means better flight performance. 
 Even one millisecond added to the latency makes a difference. 
 
-These are the factors that contribute to the latency:
+These factors can reduce the latency:
 - A soft airframe or soft vibration mounting (they act as a filter).
 - Low-pass filters in software and on the sensor chip.
 - PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
