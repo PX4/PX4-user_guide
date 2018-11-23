@@ -1,12 +1,12 @@
-# Collision Prevention
+# 防撞功能
 
-*Collision Prevention* may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
+*防撞*功能用于自动减速或停车，以免飞机撞上障碍物。
 
-It can be enabled for multicopter vehicles in [Position mode](../flight_modes/position_mc.md), and at time of writing requires a companion computer.
+该功能可在多旋翼飞行器的[定点模式（Position mode）](../flight_modes/position_mc.md)中启用，在写入指令时，还需要一台机载计算机。
 
-> **Warning** Collision prevention may not prevent a crash if your vehicle is moving too fast! This feature has only been tested (at time of writing) for a vehicle moving at 4 m/s.
+> **Warning**如果您的飞机速度太快，防撞功能可能无法达到预期效果。 (在编写本文档的阶段) 此功能仅在速度不超过4m/s的飞机上测试过。
 
-## Overview
+## 概述
 
 *Collision Prevention* is enabled/configured on PX4 by setting the parameter for minimum allowed distance ([MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D)).
 
@@ -20,11 +20,11 @@ Only the velocity components *towards* the obstacle are affected. RC inputs that
 
 The user is notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
 
-## PX4 (Software) Setup
+## PX4 (软件) 设置
 
-Set the following [parameter](../advanced_config/parameters.md) in *QGroundControl*:
+在 *QGroundControl* 中设置以下 [参数](../advanced_config/parameters.md)：
 
-* [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D) - Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle). Set negative to disable *collision prevention*.
+* [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D) - 设置最小安全距离（飞机靠近障碍物的最小距离）。 Set negative to disable *collision prevention*.
     
     This should be tuned for both the *desired* minimal distance and likely speed of the vehicle.
 
@@ -34,18 +34,18 @@ The companion computer needs to supply a stream of [OBSTACLE_DISTANCE](https://m
 
 The minimum rate at which messages *must* be sent depends on vehicle speed - at higher rates the vehicle will have a longer time to respond to detected obstacles.
 
-> **Info** Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 30Hz (the maximum rate supported by the vision system). The system may work well at significantly higher speeds and lower frequency distance updates.
+> **Info**对该系统的初步测试使用的载具移动速度为4m/s，`OBSTACLE_DISTANCE` 消息以 30Hz (视觉系统支持的最大频率) 发出。 在更高的速度或更低的距离信息更新频率下，该系统应该也能达到不错的效果。
 
-The tested hardware/software platform is [Auterion IF750A](https://auterion.com/if750a/) reference multicopter running the *local_planner* avoidance software from the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo.
+测试样机使用的软硬件平台分别是：[Auterion IF750A](https://auterion.com/if750a/)多旋翼平台，来自[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)代码仓库的 *local_planner*避障软件。
 
-The hardware and software should be set up as described in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo. In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true.
+软硬件的配置应遵照 [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) 代码仓库的说明。 要发出 `OBSTACLE_DISTANCE`消息，必须使用*rqt_reconfigure*工具，并将参数`send_obstacles_fcu`设置为true。
 
-## PX4 Distance Sensor
+## PX4距离传感器
 
-PX4 does **not yet support** collision prevention using a rangefinder connected directly to the flight controller). We plan to add support very soon.
+PX4目前**尚不支持**基于直接连接到飞控的测距仪的防撞功能。 我们将尽快上线该功能。
 
-## Gazebo Setup
+## Gazebo设置
 
-*Collision Prevention* can also be tested using Gazebo. See [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) for setup instructions.
+*防撞*功能支持Gazebo仿真测试。 设置方法请遵照[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)的说明。
 
 <!-- Initial PR: https://github.com/PX4/Firmware/pull/10785 -->
