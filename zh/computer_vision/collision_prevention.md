@@ -18,13 +18,13 @@ The vehicle starts braking as soon as it detects an obstacle. The velocity setpo
 
 Only the velocity components *towards* the obstacle are affected. RC inputs that cause the vehicle to move tangentially to the obstacle are still obeyed. So if a vehicle approaches an obstacle from an angle, the vehicle will slow until it reaches the minimum distance and then "slide" along the surface until it is no longer blocked.
 
-The user is notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
+当 *防撞*功能主动调整速率设定值时，通过 *QGroundControl* 用户会收到通知。
 
 ## PX4 (软件) 设置
 
 在 *QGroundControl* 中设置以下 [参数](../advanced_config/parameters.md)：
 
-* [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D) - 设置最小安全距离（飞机靠近障碍物的最小距离）。 Set negative to disable *collision prevention*.
+* [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D) - 设置最小安全距离（飞机靠近障碍物的最小距离）。 设置为负值将禁用 *防撞* 功能。
     
     This should be tuned for both the *desired* minimal distance and likely speed of the vehicle.
 
