@@ -16,7 +16,7 @@
 > 
 > 飞机一旦检测到障碍物就开始制动。 朝向障碍物的速度设定值将线性降低，在达到最小安全距离时将降低为零。 如果 (由于过冲或者外力) 飞机越过最小安全距离，动力系统将启动反向推力使飞机远离障碍物。
 > 
-> 但只有 *朝向* 障碍物的速度分量才会受到影响。 RC inputs that cause the vehicle to move tangentially to the obstacle are still obeyed. So if a vehicle approaches an obstacle from an angle, the vehicle will slow until it reaches the minimum distance and then "slide" along the surface until it is no longer blocked.
+> 但只有 *朝向* 障碍物的速度分量才会受到影响。 如果遥控器发出沿障碍物切线方向移动的指令，将正常执行。 因此，如果载具以一定角度接近障碍物，载具会逐渐减速，直到最小安全距离，然后沿着平行于表面的方向“滑行”，直到原运动方向恢复畅通。
 > 
 > 当 *防撞*功能主动调整速率设定值时，通过 *QGroundControl* 用户会收到通知。
 > 
@@ -30,9 +30,9 @@
 > 
 > ## 机载计算机设置
 > 
-> The companion computer needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages when an obstacle is detected.
+> 机载计算机应在检测到障碍物时上传[OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE)的消息流。
 > 
-> The minimum rate at which messages *must* be sent depends on vehicle speed - at higher rates the vehicle will have a longer time to respond to detected obstacles.
+> 消息发送的最低频率*必须*由飞机速度决定 - 频率越高留给载具识别障碍物的反应时间越长。
 > 
 > > **Info**对该系统的初步测试使用的载具移动速度为4m/s，`OBSTACLE_DISTANCE` 消息以 30Hz (视觉系统支持的最大频率) 发出。 在更高的速度或更低的距离信息更新频率下，该系统应该也能达到不错的效果。
 > 
