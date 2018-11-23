@@ -6684,6 +6684,34 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="FW_FLAPS_LND_SCL">FW_FLAPS_LND_SCL</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Flaps setting during landing
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets a fraction of full flaps (FW_FLAPS_SCL) during landing
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1.0 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      norm
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="FW_FLAPS_SCL">FW_FLAPS_SCL</strong> (FLOAT)
     </td>
     
