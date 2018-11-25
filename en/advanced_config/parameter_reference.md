@@ -10856,6 +10856,13 @@ is less than 50% of this value</p>   </td>
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="LED_RGB1_MAXBRT">LED_RGB1_MAXBRT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>RGB Led brightness limit</p><p><strong>Comment:</strong> Set to 0 to disable, 1 for minimum brightness up to 31 (max)</p>   </td>
+ <td style="vertical-align: top;">0 > 31 </td>
+ <td style="vertical-align: top;">31 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="LED_RGB_MAXBRT">LED_RGB_MAXBRT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>RGB Led brightness limit</p><p><strong>Comment:</strong> Set to 0 to disable, 1 for minimum brightness up to 15 (max)</p>   </td>
  <td style="vertical-align: top;">0 > 15 </td>
