@@ -9,8 +9,8 @@ The rangefinder is not automatically included in most firmware, and hence cannot
 
 ## Hardware Setup
 
-The rangefinder is supported by any hardware which runs a NuttX or Posix OS and which can offer a serial port for the
-interface. Minimally this will include most, if not all, [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers.
+The rangefinder is supported by any hardware which runs a NuttX or Posix OS and which can offer a serial port for the interface. 
+Minimally this will include most, if not all, [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers.
 
 uLanding can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 

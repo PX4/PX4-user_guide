@@ -125,12 +125,12 @@ To do this you must start the simulator using a vehicle model that includes the 
 
 The iris optical flow model includes a Lidar rangefinder:
 ```sh
-make px4_sitl_default gazebo_iris_opt_flow
+make px4_sitl gazebo_iris_opt_flow
 ```
 
 The typhoon_h480 includes a sonar rangefinder:
 ```sh
-make px4_sitl_default gazebo_typhoon_h480
+make px4_sitl gazebo_typhoon_h480
 ```
 
 If you need to use a different vehicle you can include the model in its configuration file. You can see how in the respective Iris and Typhoon configuration files:
