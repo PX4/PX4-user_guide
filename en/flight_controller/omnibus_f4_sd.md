@@ -212,13 +212,12 @@ See the dfuse manual is here: https://www.st.com/resource/en/user_manual/cd00155
 
 Flash the `omnibusf4sd_bl.bin` file.
 
-#### PX4 Firmware
-Build and flash the PX4 Firmware with the following build target:
+## Building Firmware
 
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 ```
-make omnibus-f4sd_default upload
+make omnibus_f4sd_default
 ```
-
 
 ### Installing other firmwares
 

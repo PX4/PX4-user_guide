@@ -117,10 +117,14 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
 
-## Build Firmware
+## Building Firmware
 
+> **Tip** Most users will not need to build this firmware!
+  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 ```
-make px4fmu-v3_default upload
+make px4_fmu-v3_default
 ```
 
 ## Issues

@@ -85,9 +85,8 @@ Precision landing can be initiated as part of a [mission](../flying/missions.md)
 Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/en/simulation/gazebo.html).
 
 To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
-
 ```
-make posix_sitl_default gazebo_iris_irlock
+make px4_sitl_default gazebo_iris_irlock
 ```
 
 You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42).

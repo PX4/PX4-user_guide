@@ -83,8 +83,13 @@ The [*Pixhawk 4 Mini* Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.
 
 ## Building Firmware
 
-`make px4fmu-v5_default upload`
+> **Tip** Most users will not need to build this firmware!
+  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+```
+make make px4_fmu-v5_default
+```
 
 ## Debug Port
 

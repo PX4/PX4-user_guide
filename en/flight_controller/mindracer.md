@@ -9,7 +9,7 @@ The AirMind<sup>&reg; [MindRacer](http://mindpx.net) series is a fully stackable
 MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. 
 MindRacer is a platform rather than a flight controller.
 
-MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-elimination-protocol) concepts. Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
+MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts. Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
 
 > **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
 
@@ -45,9 +45,13 @@ MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-eliminat
 
 ### How to Build
 
-Please follow [Getting Started](https://dev.px4.io/en/setup/getting_started.html) and [Building the Code](https://dev.px4.io/en/setup/building_px4.html).  The target for MindPX is `nuttx_mindpx-v2_default` (it's compatible with MindPX):
+> **Tip** Most users will not need to build this firmware!
+  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-`make nuttx_mindpx-v2_default`
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+```
+make airmind_mindpx-v2_default
+```
 
 ### Companion PC Connection
 

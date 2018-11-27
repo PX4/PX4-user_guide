@@ -173,15 +173,16 @@ The following PDF files are provided for *convenience only*:
 * [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
 
 
-## Build Firmware
+## Building Firmware
 
-To build (and upload) PX4 firmware for this board:
+> **Tip** Most users will not need to build this firmware!
+  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 ```
-make px4fmu-v4_default upload
+make px4_fmu-v4_default
 ```
-  
-  
+
 ## Credits
 
 This design was created by Nick Arsov and Phillip Kocmoud and architected by Lorenz Meier, David Sidrane and Leonard Hall.
