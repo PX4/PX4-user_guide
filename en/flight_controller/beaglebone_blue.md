@@ -92,7 +92,7 @@ After acquiring the pre-built library,
 
 At this point the BeagleBone Blue target can be built on both cross compile host system and native build system, i.e., 
 ```sh
-make posix_bbblue_cross [upload]
+make beaglebone_blue_cross [upload]
 ```
 
 ## Cross Compiler Build
@@ -130,7 +130,7 @@ where version of GCC is not higher than version of GCC which comes with the OS i
    - On the development computer, define the BeagleBone Blue board as `BBBluePX4` in **/etc/hosts**
 1. Run the following command to build and upload files:
    ```sh
-   make posix_bbblue_cross upload
+   make beaglebone_blue_cross upload
    ```
 
 To test the uploaded files, run the following commands on the *BeagleBone Blue* board:

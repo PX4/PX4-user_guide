@@ -46,7 +46,8 @@ ${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
 
 ## Serial ports
 
-Not all POSIX calls are currently supported on QURT. Therefore, some custom ioctl are needed.
+Not all POSIX calls are currently supported on QURT. 
+Therefore, some custom ioctl are needed.
 
 The APIs to set up and use the UART are described in [dspal](https://github.com/PX4/dspal/blob/master/include/dev_fs_lib_serial.h).
 
@@ -116,9 +117,12 @@ mavlink stream -u 14557 -s HIGHRES_IMU -r 250
 
 ### TeraRanger One Setup
 
-To connect the TeraRanger One (TROne) to the Snapdragon Flight, the TROne I2C adapter must be used. The TROne must be flashed with the I2C firmware by the vendor.
+To connect the TeraRanger One (TROne) to the Snapdragon Flight, the TROne I2C adapter must be used. 
+The TROne must be flashed with the I2C firmware by the vendor.
 
-The TROne is connected to the Snapdragon Flight through a custom DF13 4-to-6 pin cable. We recommend using connector J15 (next to USB), as all others are already in use (RC, ESCs, GPS). The wiring is as follows:
+The TROne is connected to the Snapdragon Flight through a custom DF13 4-to-6 pin cable. 
+We recommend using connector J15 (next to USB), as all others are already in use (RC, ESCs, GPS). 
+The wiring is as follows:
 
 | 4 pin | <-> | 6 pin |
 | -- | -- | -- |
@@ -131,7 +135,8 @@ The TROne must be powered with 10 - 20V.
 
 ### Camera Streaming in QGroundControl
 
-To watch the live stream of either camera `qcamvid` can be used. Run the following command on the Snapdragon Flight to stream the hires camera for 10 minutes without recording with a 720p resolution.
+To watch the live stream of either camera `qcamvid` can be used. 
+Run the following command on the Snapdragon Flight to stream the hires camera for 10 minutes without recording with a 720p resolution.
 ```
 qcamvid -c hires -r 720p -s -t 600
 ```
@@ -145,9 +150,9 @@ Once installed and conneted to the Snapdragon Flight's network, the following ch
 
 ## Accessing I/O Data
 
-Low level bus data can be accessed from code running on the aDSP, using a POSIX-like API called DSPAL.  The header files for this API are maintained
-on [github](https://github.com/ATLFlight/dspal) and are commented with Doxygen formatted documentation in each header file.  A description of the API's supported
-and links to the applicable header files is provided below.
+Low level bus data can be accessed from code running on the aDSP, using a POSIX-like API called DSPAL.  
+The header files for this API are maintained on [github](https://github.com/ATLFlight/dspal) and are commented with Doxygen formatted documentation in each header file.
+A description of the API's supported and links to the applicable header files is provided below.
 
 ### API Overview
 
