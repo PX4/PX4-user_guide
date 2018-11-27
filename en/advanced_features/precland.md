@@ -62,6 +62,7 @@ The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT]
 In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the beacon is visible when landing is initiated. If it is not visible the vehicle immediately performs a *normal* landing at the current position.
 
 ## Performing a Precision Landing
+> **Note** Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
 
 ### Via Command
 
