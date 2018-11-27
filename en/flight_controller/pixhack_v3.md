@@ -46,6 +46,16 @@ The board can be purchased from:
 * [store.cuav.net](http://store.cuav.net/index.php?id_product=8&id_product_attribute=0&rewrite=pixhack-v3-autopilot&controller=product&id_lang=3)
 * [leixun.aliexpress.com/store](https://leixun.aliexpress.com/store)
 
+## Building Firmware
+
+> **Tip** Most users will not need to build this firmware!
+  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+```
+make px4_fmu-v3_default
+```
+
 ## Pinouts and Schematics
 
 * Open hardware files: https://github.com/cuav/CUAV_Hardware/tree/master/Pixhack_V3

@@ -64,7 +64,7 @@ After setting up the PX4 development environment, follow these steps to install 
    ```
 1. Navigate into the top directory of the source code and compile it using:
    ```
-   make crazyflie_default upload
+   make bitcraze_crazyflie_default upload
    ```
 1. When prompted to plug in device, plug in Crazyflie 2.0. 
    The yellow LED should start blinking indicating bootloader mode. 

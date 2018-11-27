@@ -24,6 +24,12 @@ and additional features. The board was designed by [Drotek<sup>&reg;</sup>](http
   * S.BUS / Spektrum / SUMD / PPM input
   * JST GH user-friendly connectors: same connectors and pinouts as Pixracer
 
-## Build Instructions
+## Building Firmware
 
-`make px4fmu-v4pro_default upload`
+> **Tip** Most users will not need to build this firmware!
+  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+```
+make px4_fmu-v4pro_default
+```

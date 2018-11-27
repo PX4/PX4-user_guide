@@ -118,7 +118,7 @@ After setting up the PX4 development environment, follow these steps update the 
 
 1. Do a full update of all software on the vehicle (https://github.com/intel-aero/meta-intel-aero/wiki/Upgrade-To-Latest-Software-Release)
 1. Grab the [Firmware](https://github.com/PX4/Firmware)
-1. Compile with `make aerofc-v1_default`
+1. Compile with `make intel_aerofc-v1_default`
 1. Configure the target hostname
 
    If your system resolves link local names you don't have to do anything and you can skip this step. You can test it by trying to ssh into `intel-aero.local` after connecting to it either via WiFi or USB:
@@ -137,7 +137,7 @@ After setting up the PX4 development environment, follow these steps update the 
    export AERO_HOSTNAME=192.168.7.2
    ```
 
-1. Upload with: `make aerofc-v1_default upload`
+1. Upload with: `make intel_aerofc-v1_default upload`
 
 
 ## Connecting QGroundControl via Network
