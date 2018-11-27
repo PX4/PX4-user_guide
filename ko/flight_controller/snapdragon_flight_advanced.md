@@ -137,7 +137,8 @@ Once installed and conneted to the Snapdragon Flight's network, the following ch
 
 ## Accessing I/O Data
 
-Low level bus data can be accessed from code running on the aDSP, using a POSIX-like API called DSPAL. The header files for this API are maintained on [github](https://github.com/ATLFlight/dspal) and are commented with Doxygen formatted documentation in each header file. A description of the API's supported and links to the applicable header files is provided below.
+Low level bus data can be accessed from code running on the aDSP, using a POSIX-like API called DSPAL.  
+The header files for this API are maintained on [github](https://github.com/ATLFlight/dspal) and are commented with Doxygen formatted documentation in each header file. A description of the API's supported and links to the applicable header files is provided below.
 
 ### API Overview
 
