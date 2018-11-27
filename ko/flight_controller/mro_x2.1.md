@@ -67,6 +67,15 @@ This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://sto
 
 ![mRo_X2.1_Wiring](../../assets/flight_controller/mro/mro_x21_wiring.png)
 
+## Building Firmware
+
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+
+    make auav_x21_default
+    
+
 ## Schematics
 
 The board is documented on the mRo hardware repo: [x21_V2_schematic.pdf](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf).
