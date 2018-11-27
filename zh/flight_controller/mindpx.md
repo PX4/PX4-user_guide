@@ -66,11 +66,13 @@ MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SB
 
 For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
-### How to build
+### Building Firmware
 
-Please follow [Getting Started](https://dev.px4.io/en/setup/getting_started.html) and [Building the Code](https://dev.px4.io/en/setup/building_px4.html). The target for MindPX is `nuttx_mindpx-v2_default`:
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-    make nuttx_mindpx-v2_default
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+
+    make airmind_mindpx-v2_default
     
 
 ### Companion PC connection
