@@ -81,8 +81,8 @@ Once you're in your local copy of the Firmware:
     git submodule update --init --recursive
     export FC_ADDON=<location-of-extracted-flight-controller-addon>
     make clean
-    make eagle_default
-    make eagle_default upload
+    make atlflight_eagle_default
+    make atlflight_eagle_default upload
     adb push ROMFS/px4fmu_common/mixers/quad_x.main.mix  /usr/share/data/adsp
     
 
