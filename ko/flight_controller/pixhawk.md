@@ -229,11 +229,13 @@ The system's serial console runs on the port labeled SERIAL4/5. The pinout is st
 
 Please refer to the Devguide [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
 
-## Build Firmware
+## Building Firmware
 
-To build (and upload) PX4 firmware for this board:
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-    make px4fmu-v2_default upload
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+
+    make px4_fmu-v2_default
     
 
 ## Parts / Housings
