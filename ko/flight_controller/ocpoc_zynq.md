@@ -39,7 +39,7 @@ Pinouts for the default OcPoC-Zynq configuration and full step-by-step instructi
 
 After setting up the PX4 development environment and cloning the [PX4 Firmware](https://github.com/PX4/Firmware), you can build PX4 for OcPoC-Zynq with the following commands:
 
-- For Aerotenna's default ubuntu-armhf root file system: ```make posix_ocpoc_ubuntu```
+- For Aerotenna's default ubuntu-armhf root file system: ```make aerotenna_ocpoc_ubuntu```
 - For Petalinux: ```make posix_ocpoc_cross```
 
 See the user hub page [PX4 on OcPoC Zynq Mini](https://aerotenna.readme.io/docs/px4-setup) for full step-by-step instructions for first time setup of PX4 on OcPoC-Zynq. Note: At the present time PX4 firmware must be built from source as no pre-built binaries for OcPoC-Zynq are supplied through QGroundControl.
