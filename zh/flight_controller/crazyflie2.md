@@ -48,7 +48,7 @@ After setting up the PX4 development environment, follow these steps to install 
 
 6. Download the source code of the PX4 autopilot: ```git clone https://github.com/PX4/Firmware.git```
 
-7. Navigate into the top directory of the source code and compile it using: ```make crazyflie_default upload```
+7. Navigate into the top directory of the source code and compile it using: ```make bitcraze_crazyflie_default upload```
 8. When prompted to plug in device, plug in Crazyflie 2.0. The yellow LED should start blinking indicating bootloader mode. Then the red LED should turn on indicating that the flashing process has started.
 9. Wait for completion.
 10. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html).
