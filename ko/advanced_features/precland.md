@@ -52,6 +52,8 @@ In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if
 
 ## Performing a Precision Landing
 
+> **Note** Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
+
 ### Via Command
 
 Precision landing can be initiated through the command line interface with
