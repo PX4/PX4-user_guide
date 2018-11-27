@@ -43,3 +43,11 @@ The following diagrams show the Dropix connector information (for more informati
 <img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" width="500px" />
 
 <img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" width="500px" />
+
+## Building Firmware
+
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+
+    make px4_fmu-v2_default
