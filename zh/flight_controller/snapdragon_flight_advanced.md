@@ -264,7 +264,7 @@ If everything fails, you probably need to request help from intrinsyc.
 
 ### No space left on device
 
-Sometimes `make eagle_default upload` fails to upload:
+Sometimes `make atlflight_eagle_default upload` fails to upload:
 
     failed to copy 'px4' to '/home/linaro/px4': No space left on device
     
@@ -293,7 +293,7 @@ If you see the following output on mini-dm when trying to start the px4 program,
 If you have changed the source, presumably added functions and you see `undefined PLT symbol ...` it means that the linking has failed.
 
 - Do the declaration and definition of your function match one to one?
-- Is your code actually getting compiled? Is the module listed in the [cmake config](https://github.com/PX4/Firmware/blob/master/cmake/configs/qurt_eagle_default.cmake)?
+- Is your code actually getting compiled? Is the module listed in the [cmake config](https://github.com/PX4/Firmware/blob/master/boards/atlflight/eagle/qurt-default.cmake)
 - Is the (added) file included in the `CMakeLists.txt`?
 - Try adding it to the POSIX build and running the compilation. The POSIX linker will inform you about linking errors at compile/linking time.
 
