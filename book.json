@@ -16,6 +16,7 @@
         "bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git",
         "toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git",
         "validate-links",
+        "versions",
         "mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn",
         "theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"
     ],
@@ -67,10 +68,22 @@
                     "url": "https://github.com/PX4/px4_user_guide/edit/master/{{filepath_lang}}"
                 }
             ]
-        }
+        },
         
-    } 
-    
-    
+        "versions": {
+            "gitbookConfigURL": "https://raw.githubusercontent.com/PX4/px4_user_guide/master/book.json",
+            "options": [
+                {
+                    "value": "https://docs.px4.io/en/",
+                    "text": "Master",
+                    "selected": true
+                }
+            ]
+        }
+
+
+    }
+
+
 }
 
