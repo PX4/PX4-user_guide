@@ -4896,18 +4896,14 @@ the vehicle will accelerate at this rate until the normal position control speed
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_AUTO_MODE">MPC_AUTO_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Auto sub-mode</p><p><strong>Comment:</strong> The supported sub-modes are: 0 Direct line tracking, no smoothing 1 Not used 2 Not used 3 Jerk-limited trajectory</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Auto sub-mode</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Default line tracking</li> 
 
-<li><strong>1:</strong> N/A</li> 
-
-<li><strong>2:</strong> N/A</li> 
-
-<li><strong>3:</strong> Jerk-limited trajectory</li> 
+<li><strong>1:</strong> Jerk-limited trajectory</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">3 </td>
+ <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
