@@ -16171,10 +16171,6 @@
         Auto sub-mode
       </p>
       
-      <p>
-        <strong>Comment:</strong> The supported sub-modes are: 0 Direct line tracking, no smoothing 1 Not used 2 Not used 3 Jerk-limited trajectory
-      </p>
-      
       <strong>Values:</strong>
       
       <ul>
@@ -16182,13 +16178,7 @@
           <strong>0:</strong> Default line tracking
         </li>
         <li>
-          <strong>1:</strong> N/A
-        </li>
-        <li>
-          <strong>2:</strong> N/A
-        </li>
-        <li>
-          <strong>3:</strong> Jerk-limited trajectory
+          <strong>1:</strong> Jerk-limited trajectory
         </li>
       </ul>
     </td>
@@ -16197,7 +16187,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      3
+      1
     </td>
     
     <td style="vertical-align: top;">
