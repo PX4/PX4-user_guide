@@ -1,8 +1,8 @@
-# Obstacle Avoidance
+# 避障功能
 
-*Obstacle Avoidance* enables a vehicle to navigate around obstacles when following a preplanned path.
+*避障功能* 使飞机沿预定路线前进时，能够自动绕开障碍物。
 
-The feature requires a companion computer that is running computer vision software. This software provides a route for a given desired trajectory, mapping and navigating around obstacles to achieve the best path.
+该功能需要运行计算机视觉软件的机载计算机。 This software provides a route for a given desired trajectory, mapping and navigating around obstacles to achieve the best path.
 
 Obstacle avoidance is intended for automatic modes, and is currently supported for multicopter vehicles in [Missions](#mission_mode) and [Offboard mode](#offboard_mode).
 
@@ -102,7 +102,7 @@ The paragraphs below describe the behaviour in greater detail, covering the inte
 
 When a mission is uploaded from QGC and the parameter `MPC_OBS_AVOID` is set to `1`, PX4 fills the uORB message `vehicle_trajectory_waypoint_desired` as described below:
 
-Array `waypoints`:
+数组 `waypoints`：
 
 - *index 0 :*
   
