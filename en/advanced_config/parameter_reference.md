@@ -4252,7 +4252,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>3:</strong> along trajectory</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 2 </td>
+ <td style="vertical-align: top;">0 > 3 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
