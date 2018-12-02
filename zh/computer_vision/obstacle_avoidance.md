@@ -22,18 +22,18 @@ PX4在 [Offboard模式](../flight_modes/offboard.md) 中支持避障功能。
 
 PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台独立的运行避障软件的机载计算机配合。
 
-要启用自主避障功能，只需将PX4的 [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) [设置](../advanced_config/parameters.md)为1即可。 PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface) which is [#described below](#mission_avoidance_interface). Provided an avoidance system complies with this interface it can be used with PX4.
+要启用自主避障功能，只需将PX4的 [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) [设置](../advanced_config/parameters.md)为1即可。 PX4通过MAVLink的[路径规划协议](https://mavlink.io/en/services/trajectory.html)（Trajectory 接口）实现与避障软件的交互，[#详见后文](#mission_avoidance_interface)。 PX4兼容所有符合此接口的避障系统。
 
-The tested companion computer platform is [Intel Aero](../flight_controller/intel_aero.md) running either the *local_planner* or *global_planner* avoidance software. 避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
+功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../flight_controller/intel_aero.md) 。 避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
 
-### Mission Progression
+### 任务模式的变化
 
-Mission behaviour with obstacle avoidance enabled is *slightly different* to the original plan.
+开启避障功能的任务模式的行为有*些许不同*。
 
 激活避障之后的不同之处有：
 
-- A waypoint is "reached" when the vehicle is within the acceptance radius, regardless of its heading. 
-  - This differs from normal missions, in which the vehicle must reach a waypoint with a certain heading (i.e. in a "close to" straight line from the previous waypoint). This constraint cannot be fulfilled when bstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
+- 飞机距离目标航点小于阈值半径，即判定为“到达”，不考虑航向。 
+  - 在普通任务模式下，飞机必须沿某一航向“到达”目标航点（比如从上一航点沿直线靠近）。 This constraint cannot be fulfilled when bstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
 - PX4 starts emitting a new current/next waypoint once the previous waypoint is reached (i.e. as soon as vehicle enters its acceptance radius).
 - If a waypoint is *inside* an obstacle it may unreachable (and the mission will be stuck). 
   - If the vehicle projection on the line previous-current waypoint passes the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
