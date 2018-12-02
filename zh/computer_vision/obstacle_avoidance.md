@@ -22,7 +22,7 @@ PX4在 [Offboard模式](../flight_modes/offboard.md) 中支持避障功能。
 
 PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台独立的运行避障软件的机载计算机配合。
 
-Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) to 1. PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface) which is [#described below](#mission_avoidance_interface). Provided an avoidance system complies with this interface it can be used with PX4.
+要启用自主避障功能，只需将PX4的 [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) [设置](../advanced_config/parameters.md)为1即可。 PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface) which is [#described below](#mission_avoidance_interface). Provided an avoidance system complies with this interface it can be used with PX4.
 
 The tested companion computer platform is [Intel Aero](../flight_controller/intel_aero.md) running either the *local_planner* or *global_planner* avoidance software. 避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
 
