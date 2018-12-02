@@ -32,10 +32,10 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
 
 激活避障之后的不同之处有：
 
-- 飞机距离目标航点小于阈值半径，即判定为“到达”，不考虑航向。 
-  - 在普通任务模式下，飞机必须沿某一航向“到达”目标航点（比如从上一航点沿直线靠近）。 This constraint cannot be fulfilled when bstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
-- PX4 starts emitting a new current/next waypoint once the previous waypoint is reached (i.e. as soon as vehicle enters its acceptance radius).
-- If a waypoint is *inside* an obstacle it may unreachable (and the mission will be stuck). 
+- 飞机距离目标航点小于阈值半径，即判定为抵达，不考虑航向。 
+  - 在普通任务模式下，飞机必须沿某一航向抵达目标航点（比如从上一航点沿直线靠近）。 开启避障模式后该约束失效，因为避障算法接管了飞机的航向控制，飞机只是根据当前视野进行移动。 
+- 一旦判定为到达某航点（即距离航点小于阈值半径），PX4就开始切换新的当前航点与下一个航点。
+- 如果一个航点在某个障碍物*之内*，有可能无法抵达（任务将被阻塞）。 
   - If the vehicle projection on the line previous-current waypoint passes the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
   - If the vehicle within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
 - The original mission speed (as set in *QGroundControl*/PX4) is ignored. The speed will be determined by the avoidance software: 
