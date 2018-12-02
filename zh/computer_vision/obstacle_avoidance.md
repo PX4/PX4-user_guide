@@ -1,8 +1,8 @@
 # 避障功能
 
-*避障功能* 使飞机沿预定路线前进时，能够自动绕开障碍物。
+*自主避障* 使载具沿预定路线前进时，能够自动绕开障碍物。
 
-该功能需要运行计算机视觉软件的机载计算机。 This software provides a route for a given desired trajectory, mapping and navigating around obstacles to achieve the best path.
+该功能需要运行计算机视觉软件的机载计算机。 该软件对期望路线重新规划，在导航绕开障碍物，并选取最佳路径。
 
 Obstacle avoidance is intended for automatic modes, and is currently supported for multicopter vehicles in [Missions](#mission_mode) and [Offboard mode](#offboard_mode).
 
