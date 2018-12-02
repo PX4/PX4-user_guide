@@ -1,6 +1,6 @@
 # 避障功能
 
-*自主避障* 使载具沿预定路线前进时，能够自动绕开障碍物。
+*避障功能* 使飞机沿预定路线前进时，能够自动绕开障碍物。
 
 该功能需要运行计算机视觉软件的机载计算机。 该软件对期望路线重新规划，在导航绕开障碍物，并选取最佳路径。
 
@@ -8,23 +8,23 @@ Obstacle avoidance is intended for automatic modes, and is currently supported f
 
 This topic explains how the feature is set up and enabled in both modes.
 
-## Offboard Mode Avoidance {#offboard_mode}
+## Offboard模式避障 {#offboard_mode}
 
 PX4 supports collision avoidance in [Offboard mode](../flight_modes/offboard.md).
 
-The desired route comes from a [ROS](http://dev.px4.io/en/ros/) node running on a companion computer. This is passed into an obstacle avoidance module (another ROS node). The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
+期望路径来自在配套计算机上运行的一个 [ROS](http://dev.px4.io/en/ros/) 节点。 This is passed into an obstacle avoidance module (another ROS node). The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
 
-> **Note** The only required PX4-side setup is to put PX4 into *Offboard mode*. While the `SET_POSITION_TARGET_LOCAL_NED` setpoints come from a ROS collision avoidance node, to PX4 could be from any MAVLink system.
+> **Note** The only required PX4-side setup is to put PX4 into *Offboard mode*. PX4飞控并不知道发送 `SET_POSITION_TARGET_LOCAL_NED` 消息的信息源来自哪一个MAVLink系统。
 
-The tested hardware/software platform is [Intel Aero](../flight_controller/intel_aero.md) running either the *local_planner* or *global_planner*. Object avoidance can also be tested using Gazebo. The set up for both is as described in the [Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) and in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+The tested hardware/software platform is [Intel Aero](../flight_controller/intel_aero.md) running either the *local_planner* or *global_planner*. 避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
 
-## Mission Mode Avoidance {#mission_mode}
+## 任务模式避障 {#mission_mode}
 
 PX4 supports obstacle avoidance in [Mission mode](../flight_modes/mission.md), using avoidance software running on a separate companion computer.
 
 Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) to 1. PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface) which is [#described below](#mission_avoidance_interface). Provided an avoidance system complies with this interface it can be used with PX4.
 
-The tested companion computer platform is [Intel Aero](../flight_controller/intel_aero.md) running either the *local_planner* or *global_planner* avoidance software. Object avoidance can also be tested using Gazebo. The set up for both is as described in the [Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) and in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+The tested companion computer platform is [Intel Aero](../flight_controller/intel_aero.md) running either the *local_planner* or *global_planner* avoidance software. 避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
 
 ### Mission Progression
 
