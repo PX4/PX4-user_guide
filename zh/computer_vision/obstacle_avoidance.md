@@ -30,7 +30,7 @@ The tested companion computer platform is [Intel Aero](../flight_controller/inte
 
 Mission behaviour with obstacle avoidance enabled is *slightly different* to the original plan.
 
-The difference when avoidance is active are:
+激活避障之后的不同之处有：
 
 - A waypoint is "reached" when the vehicle is within the acceptance radius, regardless of its heading. 
   - This differs from normal missions, in which the vehicle must reach a waypoint with a certain heading (i.e. in a "close to" straight line from the previous waypoint). This constraint cannot be fulfilled when bstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
@@ -42,9 +42,9 @@ The difference when avoidance is active are:
   - *local planner* mission speed is around 3 m/s.
   - *global planner* mission speed is around 1-1.5 m/s.
 
-If PX4 stops receiving setpoint updates then obstacle avoidance will be disabled, and the mission continues under normal PX4 [Mission mode](../flight_modes/mission.md) control.
+如果PX4接收不到期望点，避障功能将被关闭，PX4将恢复普通[任务模式](../flight_modes/mission.md)。
 
-### Mission Mode Avoidance Interface {#mission_avoidance_interface}
+### 任务模式避障接口 {#mission_avoidance_interface}
 
 Mission mode is enabled on PX4 by setting `MPC_OBS_AVOID` to `1`.
 
@@ -61,7 +61,7 @@ The fields are set as shown:
   - `pos_yaw[0]`: Current yaw angle
   - `vel_yaw[0]`: NaN
 
-- Current waypoint:
+- 当前航点：
   
   - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED local position of *current* mission waypoint
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
@@ -84,7 +84,7 @@ The fields for the message from the avoidance software are set as shown:
 
 - `time_usec`: UNIX Epoch time.
 - `valid_points`: 1
-- Current vehicle information: 
+- 当前飞机信息： 
   - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position setpoint
   - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
@@ -98,7 +98,7 @@ The rate at which target setpoints are sent depends on the capabilities of the p
 
 The paragraphs below describe the behaviour in greater detail, covering the internal PX4 behaviour and message flow through ROS.
 
-#### Mission Mode Detailed Behaviour
+#### Mission模式更详细的行为描述
 
 When a mission is uploaded from QGC and the parameter `MPC_OBS_AVOID` is set to `1`, PX4 fills the uORB message `vehicle_trajectory_waypoint_desired` as described below:
 
