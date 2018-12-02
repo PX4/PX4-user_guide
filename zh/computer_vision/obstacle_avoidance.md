@@ -4,23 +4,23 @@
 
 该功能需要运行计算机视觉软件的机载计算机。 该软件对期望路线重新规划，在导航绕开障碍物，并选取最佳路径。
 
-Obstacle avoidance is intended for automatic modes, and is currently supported for multicopter vehicles in [Missions](#mission_mode) and [Offboard mode](#offboard_mode).
+避障功能适用于自动化模式，目前仅支持多旋翼飞行器的 [任务Missions](#mission_mode) 和 [Offboard](#offboard_mode) 模式。
 
-This topic explains how the feature is set up and enabled in both modes.
+本文将阐述怎样在这两种模式中设置自主避障功能。
 
 ## Offboard模式避障 {#offboard_mode}
 
-PX4 supports collision avoidance in [Offboard mode](../flight_modes/offboard.md).
+PX4在 [Offboard模式](../flight_modes/offboard.md) 中支持避障功能。
 
-期望路径来自在配套计算机上运行的一个 [ROS](http://dev.px4.io/en/ros/) 节点。 This is passed into an obstacle avoidance module (another ROS node). The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
+期望路径来自在配套计算机上运行的一个 [ROS](http://dev.px4.io/en/ros/) 节点。 并传递给自主避障模块（另一个ROS节点）。 避障软件将规划路径通过 `SET_POSITION_TARGET_LOCAL_NED` 消息流发送给飞行控制栈。
 
-> **Note** The only required PX4-side setup is to put PX4 into *Offboard mode*. PX4飞控并不知道发送 `SET_POSITION_TARGET_LOCAL_NED` 消息的信息源来自哪一个MAVLink系统。
+> **Note** 唯一需要PX4这边的设置是将PX4切换到 *Offboard 模式* 。 PX4飞控并不知道发送 `SET_POSITION_TARGET_LOCAL_NED` 消息的信息源来自哪一个MAVLink系统。
 
-The tested hardware/software platform is [Intel Aero](../flight_controller/intel_aero.md) running either the *local_planner* or *global_planner*. 避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
+功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../flight_controller/intel_aero.md) 。 避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
 
 ## 任务模式避障 {#mission_mode}
 
-PX4 supports obstacle avoidance in [Mission mode](../flight_modes/mission.md), using avoidance software running on a separate companion computer.
+PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台独立的运行避障软件的机载计算机配合。
 
 Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) to 1. PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface) which is [#described below](#mission_avoidance_interface). Provided an avoidance system complies with this interface it can be used with PX4.
 
@@ -52,7 +52,7 @@ PX4 sends the desired trajectory to the companion computer in [TRAJECTORY_REPRES
 
 The fields are set as shown:
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec`: UNIX纪元时间戳
 - `valid_points`: 3
 - Current vehicle information: 
   - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position
@@ -82,7 +82,7 @@ PX4 expects to receive target setpoints in a stream of `TRAJECTORY_REPRESENTATIO
 
 The fields for the message from the avoidance software are set as shown:
 
-- `time_usec`: UNIX Epoch time.
+- `time_usec`: UNIX纪元时间戳
 - `valid_points`: 1
 - 当前飞机信息： 
   - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position setpoint
