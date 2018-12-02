@@ -36,25 +36,25 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
   - 在普通任务模式下，飞机必须沿某一航向抵达目标航点（比如从上一航点沿直线靠近）。 开启避障模式后该约束失效，因为避障算法接管了飞机的航向控制，飞机只是根据当前视野进行移动。 
 - 一旦判定为到达某航点（即距离航点小于阈值半径），PX4就开始切换新的当前航点与下一个航点。
 - 如果一个航点在某个障碍物*之内*，有可能无法抵达（任务将被阻塞）。 
-  - If the vehicle projection on the line previous-current waypoint passes the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
-  - If the vehicle within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
-- The original mission speed (as set in *QGroundControl*/PX4) is ignored. The speed will be determined by the avoidance software: 
-  - *local planner* mission speed is around 3 m/s.
-  - *global planner* mission speed is around 1-1.5 m/s.
+  - 如果飞机在上一航点与当前航点连线上的投影经过了当前航点，阈值半径将被放大，当前航点将被标记为抵达。
+  - 如果载具只能进入x-y方向的阈值半径，高度方向的可接受阈值将被修改，然后任务将继续（即使无法进入高度的可接受半径）。
+- （由 *QGroundControl*或PX4）预设的任务模式速度将被忽略。 速度将由避障软件决定： 
+  - *local planner* 任务速度约 3m/s。
+  - *global planner* 任务速度约 1~1.5 m/s。
 
 如果PX4接收不到期望点，避障功能将被关闭，PX4将恢复普通[任务模式](../flight_modes/mission.md)。
 
 ### 任务模式避障接口 {#mission_avoidance_interface}
 
-Mission mode is enabled on PX4 by setting `MPC_OBS_AVOID` to `1`.
+将`MPC_OBS_AVOID` 设置为 `1` 即会在PX4上开启任务模式。
 
-PX4 sends the desired trajectory to the companion computer in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
+PX4将期望轨迹封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息中，以 5Hz 的频率发送给机载计算机。
 
-The fields are set as shown:
+各字段定义如下：
 
 - `time_usec`: UNIX纪元时间戳
 - `valid_points`: 3
-- Current vehicle information: 
+- 当前飞机信息： 
   - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position
   - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: x-y-z NED acceleration setpoint
@@ -114,21 +114,21 @@ When a mission is uploaded from QGC and the parameter `MPC_OBS_AVOID` is set to 
 
 - *index 1:*
   
-  - position: x-y-z NED local coordinates of the current mission waypoint
+  - position: x-y-z NED 坐标系下当前任务航点位置
   - Velocity: NaN
   - Acceleration: NaN
   - Yaw: yaw setpoint
-  - Yaw_speed: yaw speed setpoint
+  - Yaw_speed: 偏航速率设定值
 
-- *Index2:*
+- *Index 2:*
   
-  - position: x-y-z NED local coordinates of the next mission waypoint
+  - position: x-y-z NED 坐标系下 下一个任务航点位置
   - Velocity: NaN
   - Acceleration: NaN
-  - Yaw: yaw setpoint
-  - Yaw_speed: yaw speed setpoint
+  - Yaw: 航向设定值
+  - Yaw_speed: 偏航速率设定值
 
-The remaining indices are filled with NaN.
+其余index均填充为NaN。
 
 The message `vehicle_trajectory_waypoint_desired` is mapped into the MAVLink message `TRAJECTORY_REPRESENTATION_WAYPOINTS` (see [avoidance interface](#mission_avoidance_interface) above). The messages are sent at 5Hz.
 
@@ -142,11 +142,11 @@ MAVROS converts the set points from ENU to NED frame and translates the ROS mess
 
 On the PX4 side, incoming `TRAJECTORY_REPRESENTATION_WAYPOINTS` are translated into uORB `vehicle_trajectory_waypoint` messages. The array waypoints contains all NAN expect for index 0:
 
-- Position: position setpoint
-- Velocity: velocity setpoint
-- acceleration: NaN (acceleration setpoints are not supported by the Firmware)
-- Yaw: yaw setpoint
-- Yaw_speed: yaw speed setpoint
+- Position: 位置设定值
+- Velocity: 速度设定值
+- acceleration: NaN（飞控固件暂不支持加速度设定值）
+- Yaw: 航向设定值
+- Yaw_speed: 偏航速率设定值
 
 The setpoints are tracked by the multicopter position controller.
 
