@@ -12455,7 +12455,7 @@ Airbrakes need to be enables for your selected model/mixer</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_TRANS_RAMP">VT_B_TRANS_RAMP</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Back transition MC motor ramp up time</p><p><strong>Comment:</strong> This sets the duration during wich the MC motors ramp up to the commanded thrust during the back transition stage.</p>   </td>
+ <td style="vertical-align: top;"><p>Back transition MC motor ramp up time</p><p><strong>Comment:</strong> This sets the duration during which the MC motors ramp up to the commanded thrust during the back transition stage.</p>   </td>
  <td style="vertical-align: top;">0.0 > 20.0 </td>
  <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;">s</td>
