@@ -38564,7 +38564,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> This sets the duration during wich the MC motors ramp up to the commanded thrust during the back transition stage.
+        <strong>Comment:</strong> This sets the duration during which the MC motors ramp up to the commanded thrust during the back transition stage.
       </p>
     </td>
     
