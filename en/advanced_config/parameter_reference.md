@@ -10805,44 +10805,6 @@ is less than 50% of this value</p>   </td>
 </tr>
 </tbody></table>
 
-## Syslink
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="SLNK_RADIO_ADDR1">SLNK_RADIO_ADDR1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Operating address of the NRF51 (most significant byte)</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">231 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SLNK_RADIO_ADDR2">SLNK_RADIO_ADDR2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Operating address of the NRF51 (least significant 4 bytes)</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">3890735079 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SLNK_RADIO_CHAN">SLNK_RADIO_CHAN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Operating channel of the NRF51</p>   </td>
- <td style="vertical-align: top;">0 > 125 </td>
- <td style="vertical-align: top;">80 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SLNK_RADIO_RATE">SLNK_RADIO_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Operating datarate of the NRF51</p>   </td>
- <td style="vertical-align: top;">0 > 2 </td>
- <td style="vertical-align: top;">2 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-</tbody></table>
-
 ## System
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
