@@ -1021,7 +1021,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Alex Klimaj <alex.klimaj@tealdrones.com>
+        Maintainer: Jacob Dahl <jacob.dahl@tealdrones.com>
       </p>
       
       <p>
