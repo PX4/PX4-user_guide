@@ -55,21 +55,21 @@ PX4将期望轨迹封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlin
 - `time_usec`: UNIX纪元时间戳
 - `valid_points`: 3
 - 当前飞机信息： 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
-  - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: x-y-z NED acceleration setpoint
-  - `pos_yaw[0]`: Current yaw angle
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED坐标系下的载具位置
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下速度设定值
+  - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: x-y-z NED 坐标系下加速度设定值
+  - `pos_yaw[0]`: 当前航向角
   - `vel_yaw[0]`: NaN
 
 - 当前航点：
   
-  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED local position of *current* mission waypoint
+  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED 坐标系下的 *当前* 任务航点位置坐标
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
   - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
-  - `pos_yaw[1]`: Yaw setpoint
-  - `vel_yaw[1]`: Yaw speed setpoint
+  - `pos_yaw[1]`: 航向设定值
+  - `vel_yaw[1]`: 偏航速率设定值
 
-- Next waypoint:
+- 下一个航点：
   
   - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED local position of *next* mission waypoint
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
@@ -86,7 +86,7 @@ The fields for the message from the avoidance software are set as shown:
 - `valid_points`: 1
 - 当前飞机信息： 
   - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position setpoint
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下速度设定值
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
   - `pos_yaw[0]`: Yaw angle setpoint
   - `vel_yaw[0]`: Yaw speed setpoint
