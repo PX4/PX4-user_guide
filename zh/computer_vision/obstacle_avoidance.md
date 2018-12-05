@@ -71,16 +71,16 @@ PX4将期望轨迹封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlin
 
 - 下一个航点：
   
-  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED local position of *next* mission waypoint
+  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED 坐标系 *下一个* 任务航点位置坐标
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
   - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
-  - `pos_yaw[2]`: Yaw setpoint
-  - `vel_yaw[2]`: Yaw speed setpoint
-- All other indices/fields are set as NaN. 
+  - `pos_yaw[2]`: 航向设定值
+  - `vel_yaw[2]`: 偏航速率设定值
+- 所有其它字段都是NaN(未定义)。 
 
 PX4 expects to receive target setpoints in a stream of `TRAJECTORY_REPRESENTATION_WAYPOINTS` messages for the duration of the mission (not just when there are obstacles).
 
-The fields for the message from the avoidance software are set as shown:
+来自避障软件的消息各字段定义如下：
 
 - `time_usec`: UNIX纪元时间戳
 - `valid_points`: 1
@@ -90,11 +90,11 @@ The fields for the message from the avoidance software are set as shown:
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
   - `pos_yaw[0]`: Yaw angle setpoint
   - `vel_yaw[0]`: Yaw speed setpoint
-- All other indices/fields are set as NaN. 
+- 所有其它字段都是NaN(未定义)。 
 
 The rate at which target setpoints are sent depends on the capabilities of the planning software and the desired speed.
 
-> **Note** Currently the *local planner* emits messages at ~30Hz and can move at around 3 m/s. The *global planner* emits messages at ~10Hz and mission speed is around 1-1.5 m/s.
+> **Note** 目前 *local planner* 发送消息的频率约 30Hz，可以保证载具的移动速度为 3 m/s。 The *global planner* emits messages at ~10Hz and mission speed is around 1-1.5 m/s.
 
 The paragraphs below describe the behaviour in greater detail, covering the internal PX4 behaviour and message flow through ROS.
 
