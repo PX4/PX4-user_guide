@@ -1049,9 +1049,9 @@ This page lists all supported airframes and types including the motor assignment
     </td>
   </tr>
   
-  <tr id="copter_quadrotor_x_crazyflie_2.0">
+  <tr id="copter_quadrotor_x_crazyflie_2">
     <td style="vertical-align: top;">
-      Crazyflie 2.0
+      Crazyflie 2
     </td>
     
     <td style="vertical-align: top;">
