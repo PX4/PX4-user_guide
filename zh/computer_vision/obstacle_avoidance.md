@@ -1,10 +1,10 @@
-# 避障功能
+# 自主避障
 
-*避障功能* 使飞机沿预定路线前进时，能够自动绕开障碍物。
+*自主避障* 使飞机沿预定路线前进时，能够自动绕开障碍物。
 
 该功能需要运行计算机视觉软件的机载计算机。 该软件对期望路线重新规划，在导航绕开障碍物，并选取最佳路径。
 
-避障功能适用于自动化模式，目前仅支持多旋翼飞行器的 [任务Missions](#mission_mode) 和 [Offboard](#offboard_mode) 模式。
+自主避障适用于自动化模式，目前仅支持多旋翼飞行器的 [任务Missions](#mission_mode) 和 [Offboard](#offboard_mode) 模式。
 
 本文将阐述怎样在这两种模式中设置自主避障功能。
 
@@ -16,7 +16,7 @@ PX4在 [Offboard模式](../flight_modes/offboard.md) 中支持避障功能。
 
 > **Note** 唯一需要PX4这边的设置是将PX4切换到 *Offboard 模式* 。 PX4飞控并不知道发送 `SET_POSITION_TARGET_LOCAL_NED` 消息的信息源来自哪一个MAVLink系统。
 
-功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../flight_controller/intel_aero.md) 。 避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
+功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../flight_controller/intel_aero.md) 。 自主避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
 
 ## 任务模式避障 {#mission_mode}
 
@@ -24,11 +24,11 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
 
 要启用自主避障功能，只需将PX4的 [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) [设置](../advanced_config/parameters.md)为1即可。 PX4通过MAVLink的[路径规划协议](https://mavlink.io/en/services/trajectory.html)（Trajectory 接口）实现与避障软件的交互，[#详见后文](#mission_avoidance_interface)。 PX4兼容所有符合此接口的避障系统。
 
-功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../flight_controller/intel_aero.md) 。 避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
+功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../flight_controller/intel_aero.md) 。 自主避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
 
 ### 任务模式的变化
 
-开启避障功能的任务模式的行为有*些许不同*。
+开启自主避障功能的任务模式的行为有*些许不同*。
 
 激活避障之后的不同之处有：
 
@@ -42,7 +42,7 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
   - *local planner* 任务速度约 3m/s。
   - *global planner* 任务速度约 1~1.5 m/s。
 
-如果PX4接收不到期望点，避障功能将被关闭，PX4将恢复普通[任务模式](../flight_modes/mission.md)。
+如果PX4接收不到期望点，自主避障功能将被关闭，PX4将恢复普通[任务模式](../flight_modes/mission.md)。
 
 ### 任务模式避障接口 {#mission_avoidance_interface}
 
@@ -98,7 +98,7 @@ PX4期望在整个任务期间 (不论障碍物是否存在) 都能接收到由`
 
 下文将对避障功能进行更详细的描述，包括PX4飞控和来自ROS的消息流的行为。
 
-#### Mission模式更详细的行为描述
+#### 任务模式更详细的行为描述
 
 当QGC向飞控上传一个任务并将 `MPC_OBS_AVOID` 设置为 `1`，PX4将uORB消息 `vehicle_trajectory_waypoint_desired` 填充如下：
 
