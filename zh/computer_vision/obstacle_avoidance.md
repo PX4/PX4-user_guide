@@ -148,7 +148,7 @@ MAVROS 将设定值的坐标系从 ENU 转换到 NED，并将 ROS 消息转换�
 - Yaw: 航向设定值
 - Yaw_speed: 偏航速率设定值
 
-The setpoints are tracked by the multicopter position controller.
+以上设定值将作为飞控位置控制器的跟踪目标。
 
 <!-- ## Further Information -->
 
