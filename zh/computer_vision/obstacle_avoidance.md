@@ -78,7 +78,7 @@ PX4将期望轨迹封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlin
   - `vel_yaw[2]`: 偏航速率设定值
 - 所有其它字段都是NaN(未定义)。 
 
-PX4 expects to receive target setpoints in a stream of `TRAJECTORY_REPRESENTATION_WAYPOINTS` messages for the duration of the mission (not just when there are obstacles).
+PX4期望在整个任务期间 (不论障碍物是否存在) 都能接收到由`TRAJECTORY_REPRESENTATION_WAYPOINTS` 消息发送的目标期望点信息。
 
 来自避障软件的消息各字段定义如下：
 
