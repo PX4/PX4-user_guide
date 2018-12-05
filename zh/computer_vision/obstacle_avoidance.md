@@ -85,11 +85,11 @@ PX4期望在整个任务期间 (不论障碍物是否存在) 都能接收到由`
 - `time_usec`: UNIX纪元时间戳
 - `valid_points`: 1
 - 当前飞机信息： 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED vehicle local position setpoint
+  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED坐标系下的载具位置设定值
   - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下速度设定值
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: Yaw angle setpoint
-  - `vel_yaw[0]`: Yaw speed setpoint
+  - `pos_yaw[0]`: 航向角设定值
+  - `vel_yaw[0]`: 偏航速率设定值
 - 所有其它字段都是NaN(未定义)。 
 
 The rate at which target setpoints are sent depends on the capabilities of the planning software and the desired speed.
