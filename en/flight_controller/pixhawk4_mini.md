@@ -40,8 +40,8 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
 Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
 ## Purchase
-Available soon.
-<!-- Order from [Holybro](https://shop.holybro.com/). -->
+
+Order from [Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html).
 
 ## Interfaces
 
