@@ -41,7 +41,7 @@ Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Shee
 
 ## Purchase
 
-Available soon. <!-- Order from [Holybro](https://shop.holybro.com/). -->
+Order from [Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html).
 
 ## Interfaces
 
