@@ -112,6 +112,15 @@ PX4 can be controlled from a separate on-vehicle companion computer via a serial
 * [Robotics APIs](https://dev.px4.io/en/robotics/) (PX4 Developer Guide)
 
 
+## Removable Memory/Logging
+
+PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md) (SD support may not be present on every flight controller).
+
+> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB.
+
+A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
+
+
 ## Flight Modes {#flight_modes}
 
 Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). 
