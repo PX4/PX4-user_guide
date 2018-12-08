@@ -25,7 +25,7 @@ All other ports have no assigned functions by default (are disabled).
 All the serial drivers/ports are configured in the same way:
 
 1. Set the configuration parameter for the service/peripheral to the port it will use.
-2. Reboot the vehicle.
+2. 차량을 재부팅합니다.
 3. Set the baud rate parameter for the selected port to the desired value.
 4. Configure module-specific parameters (i.e. MAVLink streams and data rate configuration).
 
@@ -59,6 +59,6 @@ You can include the missing driver in firmware by uncommenting (or adding) the d
 
 You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
 
-## Further Information
+## 추가 정보
 
 * [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md)
