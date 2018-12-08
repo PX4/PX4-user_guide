@@ -1,4 +1,4 @@
-# Flight Mode Configuration
+# 비행 모드 구성
 
 [Flight Modes](../flight_modes/README.md) provide different types of *autopilot-assisted flight*, and *fully autonomous flight* via missions or offboard (companion computer) control. Different flight modes allow new users to learn flying with a more forgiving platform than provided by basic RC control alone. They also enable automation of common tasks like taking off, landing and returning to the original launch position.
 
@@ -33,7 +33,7 @@ It is also common to map switches to:
 
 > **Tip** The recommended approach is use *Single Channel Mode Selection* because it easy to understand and configure.
 
-## Single-Channel Flight Mode Selection {#single_channel}
+## 단일 채널 비행 모드 선택 {#single_channel}
 
 The single-channel selection mode allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
 
@@ -41,7 +41,7 @@ The single-channel selection mode allows you to specify a "mode" channel and sel
 
 To configure single-channel flight mode selection:
 
-1. Start *QGroundControl* and connect the vehicle.
+1. *QGroundControl *을 시작하고 차량을 연결합니다.
 2. Turn on your RC transmitter.
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
     
@@ -67,7 +67,7 @@ It is common to use the positions of a 2- and a 3-position switch on the transmi
 
 The video below shows how this is done with the *FrSky Taranis* transmitter (a very popular and highly recommended RC transmitter). The process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
 
-The video then shows how to use *QGroundControl* to specify the mode channel and map modes to each of the 6 "slots". {% youtube %} http://www.youtube.com/watch?v=scqO7vbH2jo {% endyoutube %}
+The video then shows how to use *QGroundControl* to specify the mode channel and map modes to each of the 6 "slots". {% youtube %} http://www.youtube.com/watch?v=scqO7vbH2jo {% endyoutube %} 
 
 ### Single-Channel Setup Instructional Example
 
@@ -94,7 +94,7 @@ For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/pa
 
 ![QGC - Map ARM switch to channel](../../images/qgc/setup/single_channel_mode_selection_4.png)
 
-## Multi-Channel Flight Mode Selection {#multi_channel}
+## 다중 채널 비행 모드 선택 {#multi_channel}
 
 > **Tip** We recommend you use [Single Channel Flight Mode](#single_channel) selection because the Multi Channel selection user interface can be confusing. If you do choose to use this method, then the best approach is to start assigning channels and take note of information displayed by *QGroundControl* following your selection.
 
@@ -103,7 +103,7 @@ The multi-channel selection user interface allows you to map one or more modes t
 To configure flight modes using the multi-channel UI:
 
 1. Turn on your RC transmitter.
-2. Start *QGroundControl* and connect the vehicle.
+2. *QGroundControl *을 시작하고 차량을 연결합니다.
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
     
     ![Flight modes multi-channel](../../images/qgc/setup/flight_modes_multi_channel.jpg)
@@ -123,7 +123,7 @@ This mode is demonstrated in the [autopilot setup video here](https://youtu.be/9
 
 > **Note** This flight mode selection mechanism is relatively complicated due to the way that PX4 works out which mode should be selected. You may be able to gain some insight from this [flow chart](https://dev.px4.io/en/concept/flight_modes.html#flight-mode-evaluation-diagram) (PX4 Developer Guide).
 
-## Further Information
+## 추가 정보
 
 * [Flight Modes Overview](../flight_modes/README.md)
 * [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
