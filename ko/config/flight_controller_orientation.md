@@ -1,37 +1,42 @@
-# Flight Controller/Sensor Orientation
+# 비행 통제관/센서 방향
 
-By default the flight controller (and external compass(es), if present) should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle. If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
+기본적으로 비행 컨트롤러(및 외부 나침반(있는 경우)는 화살표가 차량 앞쪽으로 향하도록 프레임에 배치되어야 합니다. 보드나 외부 나침반이 다른 방향으로 마운트된 경우 펌웨어에서 이를 구성해야 합니다.
 
-## Calculating Orientation
+## 방향 계산
 
 YAW, PITCH and/or ROLL offsets are calculated relative to the forward-facing-upright orientation (clock-wise rotation around the Z, Y and X axis, respectively). This frame is referred to as the *body frame* and the default orientation as `ROTATION_NONE`.
 
 <img src="../../images/fc_orientation_1.png" style="width: 600px;" />
 
-For example, the vehicles shown below have rotations around the z-axis (only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
+예를 들어, 아래에 표시된 차량은 `=0> 회전_70_RONE `,  회전_YAW_90>에 해당하는 Z축 주위로 회전합니다.</p>
 
-![Yaw Rotation](../../images/yaw_rotation.png)
+<p><img src="../../images/yaw_rotation.png" alt="Yaw 회전" /></p>
 
-## Setting the Orientation
+<h2>방향 설정</h2>
 
-To set the orientations:
+<p>방향을 설정하려면</p>
 
-1. Start *QGroundControl* and connect the vehicle.
-2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-3. Select the **Set Orientations** button. <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
-4. Select the **AutoPilot Orientation** (as [calculated above](#calculating-orientation)).
-    
-    <img src="../../images/qgc/setup/sensor_orientation_selector_values.jpg" style="width: 200px;" />
+<ol start="1">
+<li><em>QGroundControl </em>을 시작하고 차량을 연결합니다.</li>
+<li>상단 툴바에서 <strong> 기어 </ 0> 아이콘 (차량 설정) 을 선택한 다음 사이드 바에서 <strong> 센서 </ 0>를 선택하십시오.</li>
+<li><strong> 방향 설정 </strong> 버튼을 선택합니다.
+<img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;"/></li>
+<li><p><strong> AutoPilot Orientation</strong>을 선택합니다(<a href="#calculating-orientation">위에서 계산함</a>으로서).
+ 
+</p>
 
-5. Select the **External Compass Orientation** in the same way (this option will only be displayed if your vehicle has an external compass).
+<p><img src="../../images/qgc/setup/sensor_orientation_selector_values.jpg" style="width: 200px;"/></p></li>
+<li><p>동일한 방법으로 <strong> 외부 나침반 방향 </strong>을 선택합니다(이 옵션은 차량이 외부 나침반인 경우에만 표시됨).</p></li>
+<li><strong>OK </strong>을 누릅니다.</li>
+</ol>
 
-6. Press **OK**.
+<h2>미세 조정</h2>
 
-## Fine Tuning
+<p>컨트롤러 방향에 작은 미스-정렬을 보상 하 고 비행 보기에서 수평선을 레벨 <a href="../config/level_horizon_calibration.md">수준 수평선 보정</a>을 사용할 수 있습니다.</p>
 
-You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
+<h2>추가 정보</h2>
 
-## Further Information
-
-* [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#flight_controller_orientation)
+<ul>
+<li><a href="../advanced_config/advanced_flight_controller_orientation_leveling.md">방향 조정 고급</a> (고급 사용자만)입니다.</li>
+<li><a href="https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#flight_controller_orientation">QGroundControl 사용 설명서 > 센서</a></li>
+</ul>
