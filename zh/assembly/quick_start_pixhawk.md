@@ -1,22 +1,22 @@
-# Pixhawk Wiring Quick Start
+# Pixhawk快速使用指导
 
-This quick start guide shows how to power the *3DR Pixhawk* flight controller and connect its most important peripherals.
+此快速入门指南演示如何为 * 3DR Pixhawk * 飞行控制器供电并连接其最重要的外围配件设备。
 
 ![Pixhawk Image](../../images/pixhawk_logo_view.jpg)
 
-> **Note** The [3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
+> **注意** 3DR不再提供[3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html) 可以使用其他公司基于 [ Pixhawk FMUv2 原理图 ](../flight_controller/pixhawk_series.md) 设计的飞行控制器配件 (他们采用相同的连接器、输出、功能等，例如 它们使用相同的连线线材）。
 
-## Wiring Chart Overview
+## 接线介绍
 
-The image below shows standard Pixhawk connections (excepting the motor and servo outputs). We'll go through each main part in the following sections.
+下面的图片显示标准的 Pixhawk 连接 (除了马达和控制信号输出)。 我们将在下面各节中介绍每个主要部分。
 
 ![Pixhawk Wiring Overview](../../images/pixhawk_wiring_overview.jpg)  
 
-> **Note** More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
+> ** 注意 **更详细的接线信息 [ 如下所示 ](#detailed-wiring-infographic-copter)。
 
-## Mount and Orient Controller
+## 飞控的安装和方向
 
-The *Pixhawk* should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow points towards the front of the vehicle.
+应使用减震泡沫垫 (包括在配件中) 将 * Pixhawk * 安装在机架上。 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
 
 ![Pixhawk mounting and orientation](../../images/pixhawk_3dr_mounting_and_foam.jpg)
 
@@ -64,7 +64,7 @@ The instructions below show how to connect the different types of receivers to P
 
 - PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息, 请参阅: 遥控器发射机&接收器 </0 >。</p> 
 
 ## Telemetry Radios (Optional)
 
@@ -96,7 +96,7 @@ The wiring and configuration of other components is covered within the topics fo
 
 ## Configuration
 
-General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+一般配置信息在以下内容中介绍: Autopilot 配置 </0 >。</p> 
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
