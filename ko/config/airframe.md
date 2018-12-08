@@ -1,24 +1,25 @@
 # Airframe Setup
 
-After installing firmware you need to configure the firmware parameters for your [specific airframe](../airframes/airframe_reference.md).
+펌웨어를 설치 한 후 당신의 특정 기체 </ 0>에 맞는 펌웨어 매개 변수를 구성해야합니다.</p> 
 
-## Set the Airframe
+## 기체(항공기) 설정
 
-To set the airframe:
+기체 설정하기
 
-1. Start *QGroundControl* and connect the vehicle.
-2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Airframe** in the sidebar. 
-3. Select the broad vehicle group/type that matches your airframe and then use the dropdown within the group to choose the airframe that best matches your vehicle.
+1. *QGroundControl *을 시작하고 차량을 연결합니다.
+2. 상단 툴바에서 ** 기어 </ 0> 아이콘 (차량 설정) 을 선택한 다음 사이드 바에서 ** 기체 </ 0>를 선택하십시오. </li> 
     
-    ![](../../images/qgc/setup/airframe_px4.jpg)
-    
-    The example above shows *3DR Iris Quadrotor* selected from the *Quadrotor Wide* group.
-
-4. Click **Apply and Restart**. Click **Apply** in the following prompt to save the settings and restart the vehicle.
-    
-    <img src="../../images/qgc/setup/airframe_px4_apply_prompt.jpg" width="300px" title="Apply airframe selection prompt" />
-
-## Further Information
-
-* [QGroundControl User Guide > Airframe](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
-* [PX4 Setup Video - @37s](https://youtu.be/91VGmdSlbo4?t=35s) (Youtube)
+    * 당신의 기체와 일치하는 넓은 차량 그룹/유형을 선택한 다음 그룹 내의 드롭 다운을 사용하여 자신의 차량과 가장 일치하는 기체를 선택하십시오.
+        
+        ![](../../images/qgc/setup/airframe_px4.jpg)
+        
+        위의 예는 * Quadrotor Wide </ 0> 그룹에서 선택된 * 3DR Iris Quadrotor </ 0>입니다.</p></li> 
+        
+        * ** 적용을 클릭한 후 다시 시작</ 0>을 클릭하십시오. 다음 명령에서 ** 적용 </ 0>을 클릭하여 설정을 저장하고 차량을 다시 시작하십시오.</p> 
+            
+            <img src="../../images/qgc/setup/airframe_px4_apply_prompt.jpg" width="300px" title="기체 선택 명령 적용" /></li> </ol> 
+            
+            ## 추가 정보
+            
+            * [QGroundControl 사용자 안내서 > Airframe](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
+            *  PX4 설치 비디오 - @ 37s </ 0> (Youtube)</li> </ul>
