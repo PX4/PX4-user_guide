@@ -10,14 +10,14 @@ Before you can calibrate the radio system the receiver and transmitter must be c
 > 
 > **Note** If you are using a *FrSky* receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
 
-## Performing the Calibration
+## 보정 수행
 
 The calibration process is straightforward - you will be asked to move the sticks in a specific pattern that is shown on the transmitter diagram on the top right of the screen.
 
 To calibrate the radio:
 
 1. Turn on your RC transmitter.
-2. Start *QGroundControl* and connect the vehicle.
+2. *QGroundControl *을 시작하고 차량을 연결합니다.
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Radio** in the sidebar.
 4. Press **OK** to start the calibration.
     
@@ -117,7 +117,7 @@ To map a PARAM tuning channel to a parameter:
 
 > **Tip** You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the *Parameters* screen.
 
-## Further Information
+## 추가 정보
 
 * [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
 * [PX4 Setup Video - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
