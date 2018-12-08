@@ -1,19 +1,19 @@
 # CUAV C-RTK
 
-The [CUAV C-RTK GPS receiver](http://doc.cuav.net/gps/c-rtk/en/) is an [RTK GPS module](../gps_compass/rtk_gps.md) module for mass market launched by CUAV. A complete RTK system consists of at least two C-RTK modules \(one for the base station and the others for the aircraft\). Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
+[ CUAV C-RTK ](http://doc.cuav.net/gps/c-rtk/en/)是CUAV面向大众市场推出的[ RTK GPS](../gps_compass/rtk_gps.md)模块。 一个完整的RTK 系统由至少两个 c-rtk 模块 组成(一个用于基站, 另外一个作为移动站用于飞机上)。 使用RTK，PX4控制器可以获取到它的位置，并且这个位置的精度可以达到厘米级的精度，这比普通GPS提供的位置更加精确。
 
 <img src="../../assets/hardware/gps/rtk_c-rtk.jpg" width="500px" title="C-RTK" />
 
-## Purchase
+## 购买
 
-* [cuav taobao](https://item.taobao.com/item.htm?id=565380634341&spm=2014.21600712.0.0)
+* [cuav淘宝店铺](https://item.taobao.com/item.htm?id=565380634341&spm=2014.21600712.0.0)
 * [cuav aliexpress](https://www.aliexpress.com/store/product/CUAV-NEW-Flight-Controller-GPS-C-RTK-differential-positioning-navigation-module-GPS-for-PIX4-Pixhawk-pixhack/3257035_32853894248.html?spm=2114.12010608.0.0.75592fadQKPPEn)
 
-## Configuration
+## 配置
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play \(see [RTK GPS](../advanced_features/rtk-gps.md) for more information\).
+RTK设置和使用在px4上通过 *QGroundControl* 很大程度上可以即插即用 \ (请参阅[RTK GPS](../advanced_features/rtk-gps.md) 更多信息)。
 
-## Wiring and Connections
+## 接线和连接
 
 C-RTK GPS comes with a cable that terminates in a 6-pin connector and 4-pin connector that are compatible with [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/Instructions.html). The 6-pin connector provides the interface for RTK GPS, and should be connected to the flight controller's GPS port. The 4-pin connector is an m8n (standard) GPS interface that is intended for (optional) use as a second GPS.
 
