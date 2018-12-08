@@ -1,13 +1,13 @@
-# Parameter Reference
+# 参数参照表
 
 > **Note** **This list is auto-generated from the source code** (using `make parameters_metadata`) and contains the most recent parameter documentation.
 
-## Attitude Q estimator
+## 姿态 Q 估计器
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -15,15 +15,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -34,7 +34,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Acceleration compensation based on GPS velocity
+        基于 GPS 的加速度补偿 速度
       </p>
     </td>
     
@@ -56,7 +56,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Gyro bias limit
+        陀螺偏置极限值
       </p>
     </td>
     
@@ -80,20 +80,20 @@
     
     <td style="vertical-align: top;">
       <p>
-        External heading usage mode (from Motion capture/Vision) Set to 1 to use heading estimate from vision. Set to 2 to use heading from motion capture
+        外部模块航向使用模式（运动捕捉/视觉）。设置为1则使用视觉模块相关航向数据； 设置为 2则使用从运动捕捉的相关航向数据
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> None
+          <strong>0:</strong> 无外部模块
         </li>
         <li>
-          <strong>1:</strong> Vision
+          <strong>1:</strong> 视觉模块
         </li>
         <li>
-          <strong>2:</strong> Motion Capture
+          <strong>2:</strong> 运动捕捉
         </li>
       </ul>
     </td>
@@ -117,11 +117,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Magnetic declination, in degrees
+        磁偏角，度
       </p>
       
       <p>
-        <strong>Comment:</strong> This parameter is not used in normal operation, as the declination is looked up based on the GPS coordinates of the vehicle.
+        <strong>注释:</strong> 在正常操作中不使用此参数, 因为磁偏角是基于无人机所在GPS坐标位置进行检索得到
       </p>
     </td>
     
@@ -144,7 +144,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Automatic GPS based declination compensation
+        基于GPS的自动磁偏角补偿
       </p>
     </td>
     
@@ -166,7 +166,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Complimentary filter accelerometer weight
+        互补滤波器加速度计权重值
       </p>
     </td>
     
@@ -189,7 +189,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Complimentary filter external heading weight
+        互补过滤器外部航向权重值
       </p>
     </td>
     
@@ -212,7 +212,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Complimentary filter gyroscope bias weight
+        互补过滤器陀螺仪偏置权重值
       </p>
     </td>
     
@@ -235,11 +235,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Complimentary filter magnetometer weight
+        互补滤波器磁罗盘权重值
       </p>
       
       <p>
-        <strong>Comment:</strong> Set to 0 to avoid using the magnetometer.
+        <strong>注意:</strong> 设为0时，不使用磁罗盘数据
       </p>
     </td>
     
@@ -256,12 +256,12 @@
   </tr>
 </table>
 
-## Battery Calibration
+## 电池校准
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -269,15 +269,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -292,7 +292,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. A value of -1 means to use the board default.
+        <strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. 当此值为-1.0时，使用板载默认设定值
       </p>
     </td>
     
@@ -318,7 +318,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> The voltage seen by the 3.3V ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.
+        <strong>Comment:</strong> The voltage seen by the 3.3V ADC multiplied by this factor will determine the battery current. 当此值为-1.0时，使用板载默认设定值
       </p>
     </td>
     
@@ -527,7 +527,7 @@
         <strong>Comment:</strong> Defines the number of cells the attached battery consists of.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -643,7 +643,7 @@
         <strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -710,7 +710,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> This is the divider from battery voltage to 3.3V ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. A value of -1 means to use the board default.
+        <strong>Comment:</strong> This is the divider from battery voltage to 3.3V ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. 当此值为-1.0时，使用板载默认设定值
       </p>
     </td>
     
@@ -816,12 +816,12 @@
   </tr>
 </table>
 
-## Camera Control
+## 相机控制
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -829,15 +829,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -855,7 +855,7 @@
         <strong>Comment:</strong> Sets the camera feedback mode.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -880,12 +880,12 @@
   </tr>
 </table>
 
-## Camera trigger
+## 相机触发
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -893,15 +893,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -975,7 +975,7 @@
         <strong>Comment:</strong> Selects the trigger interface
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -1046,7 +1046,7 @@
         Camera trigger mode
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -1128,7 +1128,7 @@
         <strong>Comment:</strong> This parameter sets the polarity of the trigger (0 = active low, 1 = active high )
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -1153,12 +1153,12 @@
   </tr>
 </table>
 
-## Circuit Breaker
+## 外部模块配置
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1166,15 +1166,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -1494,7 +1494,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1502,15 +1502,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -1796,7 +1796,7 @@
         <strong>Comment:</strong> The default uses the arm switch as real switch. If parameter set button gets handled like stick arming.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -2055,7 +2055,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -2128,7 +2128,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -2201,7 +2201,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -2274,7 +2274,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -2347,7 +2347,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -2420,7 +2420,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -2605,7 +2605,7 @@
         <strong>Comment:</strong> Action the system takes on low battery. Defaults to off
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -2848,7 +2848,7 @@
         <strong>Comment:</strong> The default value of 0 requires a valid RC transmitter setup. Setting this to 1 allows joystick control and disables RC input handling and the associated checks. A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -2986,7 +2986,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -2994,15 +2994,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -3289,7 +3289,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -3297,15 +3297,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -4616,7 +4616,7 @@
         <strong>Comment:</strong> The range sensor option should only be used when for operation over a flat surface as the local NED origin will move up and down with ground level.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -5067,7 +5067,7 @@
         <strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetomer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests controlled by the EKF2_MOVE_TEST parameter indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. Other sources of yaw may be used if selected via the EKF2_AID_MASK parameter.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -5729,7 +5729,7 @@
         <strong>Comment:</strong> If this parameter is enabled then the estimator will make use of the range finder measurements to estimate it's height even if range sensor is not the primary height source. It will only do so if conditions for range measurement fusion are met. This enables the range finder to be used during low speed and low altitude operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX. If vehicle motion causes repeated switching between the primary height sensor and range finder, an offset in the local position origin can accumulate. Also range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -6189,7 +6189,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -6197,15 +6197,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -6275,7 +6275,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -6283,15 +6283,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -6393,7 +6393,7 @@
         <strong>Comment:</strong> For small wings or VTOL without airspeed sensor this parameter can be used to enable flying without an airspeed reading
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -7680,7 +7680,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -7688,15 +7688,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -7877,7 +7877,7 @@
         <strong>Comment:</strong> When set to 0/disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When set to 1/enabled, it is already activated when entering the final loiter-down (loiter-to-alt) WP before the landing approach. This shifts the (often large) altitude and airspeed errors caused by the configuration change away from the ground such that these are not so critical. It also gives the controller enough time to adapt to the new configuration such that the landing approach starts with a cleaner initial state.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -8254,7 +8254,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Idle throttle
+        怠速油门
       </p>
       
       <p>
@@ -8310,7 +8310,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Throttle limit max
+        油门最大值
       </p>
       
       <p>
@@ -8338,7 +8338,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Throttle limit min
+        油门最小值
       </p>
       
       <p>
@@ -8392,7 +8392,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -8400,15 +8400,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -8552,7 +8552,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -8560,15 +8560,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -9138,7 +9138,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -9146,15 +9146,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -9220,7 +9220,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -9228,15 +9228,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -9354,7 +9354,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -9362,15 +9362,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -9610,7 +9610,7 @@
         <strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -9831,7 +9831,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -9839,15 +9839,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -9969,7 +9969,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Idle throttle
+        怠速油门
       </p>
       
       <p>
@@ -9997,7 +9997,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Throttle limit max
+        油门最大值
       </p>
       
       <p>
@@ -10025,7 +10025,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Throttle limit min
+        油门最小值
       </p>
       
       <p>
@@ -10052,7 +10052,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -10060,15 +10060,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -10086,7 +10086,7 @@
         <strong>Comment:</strong> Configure on which serial port to run Main GPS.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -10145,7 +10145,7 @@
         <strong>Comment:</strong> Configure on which serial port to run Secondary GPS.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -10204,7 +10204,7 @@
         <strong>Comment:</strong> If this is set to 1, all GPS communication data will be published via uORB, and written to the log file as gps_dump message.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -10242,7 +10242,7 @@
         <strong>Comment:</strong> u-blox receivers support different dynamic platform models to adjust the navigation engine to the expected application environment.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -10317,7 +10317,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -10325,15 +10325,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -10455,7 +10455,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -10463,15 +10463,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -10489,11 +10489,11 @@
         <strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using a software circuit breaker, which needs to be reset to 0 to really shut down the system.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> None
+          <strong>0:</strong> 无外部模块
         </li>
         <li>
           <strong>1:</strong> Warning
@@ -10536,7 +10536,7 @@
         <strong>Comment:</strong> Select which altitude reference should be used 0 = WGS84, 1 = AMSL
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -10657,7 +10657,7 @@
         <strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -10687,7 +10687,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -10695,15 +10695,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -10721,7 +10721,7 @@
         <strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -10844,7 +10844,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -10852,15 +10852,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -11201,7 +11201,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -11209,15 +11209,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -11290,7 +11290,7 @@
         <strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving: The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -11430,7 +11430,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -11438,15 +11438,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -12442,7 +12442,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -12450,15 +12450,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -12476,7 +12476,7 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -12565,7 +12565,7 @@
         <strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -12653,7 +12653,7 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -12742,7 +12742,7 @@
         <strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -12830,7 +12830,7 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -12919,7 +12919,7 @@
         <strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13007,7 +13007,7 @@
         <strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13148,7 +13148,7 @@
         MAVLink protocol version
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13238,7 +13238,7 @@
         MAVLink airframe type
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13372,7 +13372,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -13380,15 +13380,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -13420,7 +13420,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -13428,15 +13428,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -13450,7 +13450,7 @@
         Low pass filter frequency for Accelerometer
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13501,7 +13501,7 @@
         Low pass filter frequency for Gyro
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13552,7 +13552,7 @@
         Sample rate in Hz
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13587,7 +13587,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -13595,15 +13595,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -13621,7 +13621,7 @@
         <strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13661,7 +13661,7 @@
         <strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13710,7 +13710,7 @@
         <strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13747,7 +13747,7 @@
         <strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13784,7 +13784,7 @@
         <strong>Comment:</strong> 0: the system will follow a zero order hold altitude setpoint 1: the system will follow a first order hold altitude setpoint values follow the definition in enum mission_altitude_mode
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -13906,7 +13906,7 @@
         <strong>Comment:</strong> If enabled, yaw commands will be sent to the mount and the vehicle will follow its heading mode as specified by MIS_YAWMODE. If disabled, the vehicle will yaw towards the ROI.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -14024,7 +14024,7 @@
         <strong>Comment:</strong> Specifies the heading in Auto.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -14096,7 +14096,7 @@
         <strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -14282,7 +14282,7 @@
         <strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -14362,7 +14362,7 @@
         <strong>Comment:</strong> Enabling this will allow the system to respond to transponder data from e.g. ADSB transponders
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -14397,7 +14397,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -14405,15 +14405,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -14449,7 +14449,7 @@
         Auxiliary channel to control pitch (in AUX input or manual mode)
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -14495,7 +14495,7 @@
         Auxiliary channel to control roll (in AUX input or manual mode)
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -14541,7 +14541,7 @@
         Auxiliary channel to control yaw (in AUX input or manual mode)
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -14643,7 +14643,7 @@
         <strong>Comment:</strong> RC uses the AUX input channels (see MNT_MAN_* parameters), MAVLINK_ROI uses the MAV_CMD_DO_SET_ROI Mavlink message, and MAVLINK_DO_MOUNT the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL messages to control a mount.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -14694,7 +14694,7 @@
         <strong>Comment:</strong> AUX uses the mixer output Control Group #2. MAVLINK uses the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL MavLink messages to control a mount (set MNT_MAV_SYSID & MNT_MAV_COMPID)
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -14908,7 +14908,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -14916,15 +14916,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -15980,7 +15980,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -15988,15 +15988,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -16134,7 +16134,7 @@
         <strong>Comment:</strong> Set to 0 to control height relative to the earth frame origin. This origin may move up and down in flight due to sensor drift. Set to 1 to control height relative to estimated distance to ground. The vehicle will move up and down with terrain height variation. Requires a distance to ground sensor. The height controller will revert to using height above origin if the distance to ground estimate becomes invalid as indicated by the local_position.distance_bottom_valid message being false. Set to 2 to control height relative to ground (requires a distance sensor) when stationary and relative to earth frame origin when moving horizontally. The speed threshold is controlled by the MPC_HOLD_MAX_XY parameter.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -16171,7 +16171,7 @@
         Auto sub-mode
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -16621,7 +16621,7 @@
         <strong>Comment:</strong> The supported sub-modes are: 0 Default position control where sticks map to position/velocity directly. Maximum speeds is MPC_VEL_MANUAL. 1 Smooth position control where setpoints are adjusted based on acceleration limits and jerk limits. 2 Sport mode that is the same Default position control but with velocity limits set to the maximum allowed speeds (MPC_XY_VEL_MAX) 3 Smooth position control with maximum acceleration and jerk limits (different algorithm than 1).
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -16664,7 +16664,7 @@
         <strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to commanded thrust in Manual/Stabilized flight mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: in case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -17433,7 +17433,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -17441,15 +17441,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -17467,7 +17467,7 @@
         <strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. ONLY supported for fmu output (Pixracer or Omnibus F4). When changing this, make sure to test the motor response without props first.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -20730,7 +20730,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -20738,15 +20738,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -20922,7 +20922,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -20930,15 +20930,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -21015,7 +21015,7 @@
         <strong>Comment:</strong> Set to 0 if using fake GPS
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -21693,7 +21693,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -21701,15 +21701,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -21886,7 +21886,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -21894,15 +21894,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -21938,7 +21938,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -21946,15 +21946,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -21972,7 +21972,7 @@
         <strong>Comment:</strong> Configure on which serial port to run FastRTPS.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -22031,7 +22031,7 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink + FastRTPS.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -22082,7 +22082,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -22090,15 +22090,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -22199,7 +22199,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -22348,7 +22348,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -22497,7 +22497,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -22646,7 +22646,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -22795,7 +22795,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -22944,7 +22944,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -23093,7 +23093,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -23242,7 +23242,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -23391,7 +23391,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -23541,7 +23541,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -23691,7 +23691,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -23841,7 +23841,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -23991,7 +23991,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -24140,7 +24140,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -24289,7 +24289,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -24438,7 +24438,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -24587,7 +24587,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -24736,7 +24736,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -24913,7 +24913,7 @@
         <strong>Comment:</strong> Default function: Camera pitch
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25002,7 +25002,7 @@
         <strong>Comment:</strong> Default function: Camera roll
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25091,7 +25091,7 @@
         <strong>Comment:</strong> Default function: Camera azimuth / yaw
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25176,7 +25176,7 @@
         AUX4 Passthrough RC channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25261,7 +25261,7 @@
         AUX5 Passthrough RC channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25350,7 +25350,7 @@
         <strong>Comment:</strong> The RC mapping index indicates which channel is used for failsafe If 0, whichever channel is mapped to throttle is used otherwise the value indicates the specific RC channel to use
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25439,7 +25439,7 @@
         <strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 1st parameter channel. Set to 0 to deactivate *
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25528,7 +25528,7 @@
         <strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 2nd parameter channel. Set to 0 to deactivate *
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25617,7 +25617,7 @@
         <strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 3th parameter channel. Set to 0 to deactivate *
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25706,7 +25706,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading pitch inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25795,7 +25795,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading roll inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25884,7 +25884,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading throttle inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -25973,7 +25973,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading yaw inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -26062,7 +26062,7 @@
         <strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -26278,7 +26278,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -26286,15 +26286,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -26524,7 +26524,7 @@
         Acro switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -26613,7 +26613,7 @@
         <strong>Comment:</strong> Use it to arm/disarm via switch instead of default throttle stick. If this is assigned, arming and disarming via stick is disabled.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -26698,7 +26698,7 @@
         Flaps channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -26787,7 +26787,7 @@
         <strong>Comment:</strong> If this parameter is non-zero, flight modes are only selected by this channel and are assigned to six slots.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -26872,7 +26872,7 @@
         Landing gear switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -26957,7 +26957,7 @@
         Kill switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -27042,7 +27042,7 @@
         Loiter switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -27127,7 +27127,7 @@
         Manual switch channel mapping
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -27216,7 +27216,7 @@
         <strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -27301,7 +27301,7 @@
         Offboard switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -27386,7 +27386,7 @@
         Position Control switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -27471,7 +27471,7 @@
         Rattitude switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -27556,7 +27556,7 @@
         Return switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -27641,7 +27641,7 @@
         Stabilize switch channel mapping
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -27726,7 +27726,7 @@
         VTOL transition switch channel mapping
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -27969,7 +27969,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -27977,15 +27977,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -28107,7 +28107,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -28115,15 +28115,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -28141,7 +28141,7 @@
         <strong>Comment:</strong> Fly straight to the home location or planned mission landing and land there or use the planned mission to get to those points.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -28173,7 +28173,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -28181,15 +28181,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -28231,7 +28231,7 @@
         <strong>Comment:</strong> 0: airframe heading, 1: heading towards takeoff waypoint
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -28403,7 +28403,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -28411,15 +28411,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -28468,7 +28468,7 @@
         <strong>Comment:</strong> If enabled, a small additional "mission" log file will be written to the SD card. The log contains just those messages that are useful for tasks like generating flight statistics and geotagging. The different modes can be used to further reduce the logged data (and thus the log file size). For example, choose geotagging mode to only log data required for geotagging. Note that the normal/full log is still created, and contains all the data in the mission log (and more).
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -28512,7 +28512,7 @@
         <strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -28662,7 +28662,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -28670,15 +28670,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -28712,7 +28712,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -28720,15 +28720,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -29912,7 +29912,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -30205,7 +30205,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -30498,7 +30498,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -30791,7 +30791,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -31186,7 +31186,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -31194,15 +31194,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -31220,7 +31220,7 @@
         <strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -31312,7 +31312,7 @@
         <strong>Comment:</strong> DETECT_ORIENTATION_TAIL_DOWN = 1 DETECT_ORIENTATION_NOSE_DOWN = 2 DETECT_ORIENTATION_LEFT = 4 DETECT_ORIENTATION_RIGHT = 8 DETECT_ORIENTATION_UPSIDE_DOWN = 16 DETECT_ORIENTATION_RIGHTSIDE_UP = 32
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -31441,7 +31441,7 @@
         <strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -31684,7 +31684,7 @@
         Lidar-Lite (LL40LS)
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -31777,7 +31777,7 @@
         Lightware Laser Rangefinder hardware model
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -31823,7 +31823,7 @@
         Lightware SF1xx/SF20/LW20 laser rangefinder (i2c)
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -31873,7 +31873,7 @@
         Thermal control of sensor temperature
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -31906,7 +31906,7 @@
         TeraRanger Rangefinder (i2c)
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -31957,7 +31957,7 @@
         <strong>Comment:</strong> This parameter defines the yaw rotation of the PX4FLOW board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle. The recommneded installation default for the PX4FLOW board is with the Y axis forward (270 deg yaw).
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -32112,7 +32112,7 @@
         <strong>Comment:</strong> Configure on which serial port to run LeddarOne Rangefinder.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -32171,7 +32171,7 @@
         <strong>Comment:</strong> Configure on which serial port to run Lightware Laser Rangefinder.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -32252,7 +32252,7 @@
         <strong>Comment:</strong> Configure on which serial port to run Benewake TFmini Rangefinder.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -32311,7 +32311,7 @@
         <strong>Comment:</strong> Configure on which serial port to run uLanding Radar.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -32362,7 +32362,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -32370,15 +32370,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -32396,7 +32396,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the GPS 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -32509,7 +32509,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -32622,7 +32622,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the TELEM 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -32735,7 +32735,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the TELEM 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -32848,7 +32848,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -32961,7 +32961,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the TELEM/SERIAL 4 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -33074,7 +33074,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the UART 6 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -33179,7 +33179,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -33187,15 +33187,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -33239,7 +33239,7 @@
         <strong>Comment:</strong> See esc_model_t enum definition in uart_esc_dev.h for all supported ESC model enum values.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -33359,7 +33359,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -33367,15 +33367,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -33430,7 +33430,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -33438,15 +33438,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -33518,7 +33518,7 @@
         <strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -33780,7 +33780,7 @@
         <strong>Comment:</strong> This parameter is deprecated. Do not change it, use the more generic serial configuration parameters instead.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -33993,7 +33993,7 @@
         <strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -34062,7 +34062,7 @@
         <strong>Comment:</strong> Set by px4io to indicate type of restart
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -34148,7 +34148,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -34156,15 +34156,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -34182,7 +34182,7 @@
         <strong>Comment:</strong> Configure on which serial port to run FrSky Telemetry.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -34241,7 +34241,7 @@
         <strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -34292,7 +34292,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -34300,15 +34300,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -34696,7 +34696,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -34704,15 +34704,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -38025,7 +38025,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -38033,15 +38033,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -38187,7 +38187,7 @@
         <strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -38284,7 +38284,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -38292,15 +38292,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -39120,7 +39120,7 @@
         VTOL Type (Tailsitter=0, Tiltrotor=1, Standard=2)
       </p>
       
-      <strong>Values:</strong>
+      <strong>数值：</strong>
       
       <ul>
         <li>
@@ -39181,7 +39181,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -39189,15 +39189,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -39384,7 +39384,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -39392,15 +39392,15 @@
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
