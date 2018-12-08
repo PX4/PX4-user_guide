@@ -1,16 +1,16 @@
 # Acro Mode (Multicopter)
 
-[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
 *Acro mode* is the RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
-The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+롤, 피치 및 요 스틱은 각 축을 중심으로 한 각도 회전 속도를 제어하고 조절판은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 놓여지면 차량은 회전을 멈추지만 현재 방향 (측면, 반전 등) 과 현재 모멘텀에 따라 움직입니다.
 
 ![MC Manual Acrobatic Flight](../../images/flight_modes/manual_acrobatic_MC.png)
 
 <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
 
-## Technical Description
+## 기술적 설명
 
 RC/manual mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
 
@@ -28,7 +28,7 @@ This roll and pitch input stick response can be tuned using the [MC_ACRO_EXPO](#
 
 > **Note** The mathematical relationship is: $$\mathrm{y} = r(x^3 + x(1-f)) (1-g)/(1-g |x|)$$, where `f = MC_ACRO_EXPO` or `MC_ACRO_EXPO_Y`, `g = MC_ACRO_SUPEXPO` or `MC_ACRO_SUPEXPOY`,and `r` is the maximum rate. You can experiment with the relationships [here](https://www.desmos.com/calculator/yty5kgurmc).
 
-## Parameters
+## 매개 변수
 
 | Parameter                                                                                                 | Description                                                                                                                                                                                                                                                                                       |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
