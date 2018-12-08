@@ -1,33 +1,37 @@
-# Basic Configuration
+# 기본 설정
 
-This section contains *essential* configuration topics, including how to install firmware onto the flight controller hardware, selecting an airframe, and configure the core sensors that PX4 needs to be present on every vehicle (compass, GPS, gyro etc.)
+이 섹션에는 비행 컨트롤러 하드웨어에 펌웨어를 설치하고, 기체를 선택하고, PX4가 모든 차량 (나침반, GPS, 자이로 등)에 있어야하는 핵심 센서를 구성하는 방법을 포함하여 * 필수 </ 0> 구성 항목이 포함되어 있습니다. .)</p> 
 
-The configuration process is executed using QGroundConrol and consists of these major steps:
+구성 프로세스는 QGroundConrol을 사용하여 실행되며 다음 주요 단계로 구성됩니다.
 
-* Selecting the airframe on which the autopilot is installed (plane, multicopter, VTOL, etc.)
-* Specifying the autopilot/sensor orientation and calibrating the vehicle's sensors.
-* Optional: Calibrating the radio control (PX4 can be flown without a radio control using *QGroundControl* on a desktop of mobile ground station).
-* Optional: Selecting which switches of the radio control should switch the system between different [flight modes](../config/flight_mode.md).
-
-Configuration & calibration instructions are linked from the sidebar and/or you can follow the [video guide](#video-guide) below.
-
-> **Tip** Before starting this section you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
+* 자동 조종 장치가 설치된 기체 선택 (비행기, 다기관, VTOL 등)
+* 자동 조종 장치 / 센서 방향 지정 및 차량 센서 교정.
+* 옵션 : 라디오 컨트롤을 교정합니다 (PX4는 모바일 지상국의 데스크톱에서 * QGroundControl </ 0>을 사용하여 라디오 컨트롤없이 비행 할 수 있습니다).</li> 
+    
+    * 옵션 : 라디오 컨트롤의 어떤 스위치가 다른  비행 모드 </ 0> 사이에서 시스템을 전환해야하는지 선택하십시오.</li> </ul> 
+        
+        구성 & amp; 보정 지침이 사이드 바에서 링크되어 있거나 아래의  동영상 가이드 </ 0>를 참조하십시오.</p> 
+        
+        > ** 팁 </ 0>이 섹션을 시작하기 전에  QGroundControl 다운로드 </ 1>를 설치하고 ** 데스크톱 </ 0> 컴퓨터에 설치하십시오 (* QGroundControl </ 2>은 차량을 지원하지 않습니다) 모바일 플랫폼의 구성).</p> </blockquote> 
+        > 
+        > 
 
 <span></span>
 
-> **Note** For a [supported airframe](../config/airframe.md) only this basic configuration is required. If you're creating a new airframe you will additionally need to perform vehicle tuning (see [Advanced Configuration](../advanced_config/README.md)).
-
-## Video Guide
-
-The video below shows the calibration process in detail.
-
-{% youtube %} https://www.youtube.com/watch?v=91VGmdSlbo4 {% endyoutube %}
-
-## Support
-
-If you need help with the configuration you can ask for help on the [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage).
-
-## Further Information
-
-* [QGroundControl > Setup](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
-* [Advanced Configuration](../advanced_config/README.md) (more advanced topics, related to lesser-used sensors and peripherals, and to vehicle/parameter tuning).
+        > 
+        > > ** 참고 </ 0>  지원 기체 </ 1>의 경우이 기본 구성 만 필요합니다 새로운 기체를 만드는 경우 차량 튜닝을 수행해야합니다 ( 고급 구성 </ 0> 참조).</p> </blockquote> 
+        > > 
+        > > ## 비디오 가이드
+        > > 
+        > > 아래 비디오는 보정 프로세스를 자세히 보여줍니다.
+        > > 
+        > > {% youtube %} https://www.youtube.com/watch?v=91VGmdSlbo4 {% endyoutube %} 
+        > > 
+        > > ## 지원
+        > > 
+        > > 구성에 대한 도움이 필요한 경우  QGroundControl 지원 포럼 </ 0>에서 도움을 요청할 수 있습니다</p> 
+        > > 
+        > > ## 추가 정보
+        > > 
+        > > * [QGroundControl> 설정](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
+        > > *  고급 구성 </ 0> (덜 고급 센서 및 주변 장치 및 차량 / 매개 변수 조정 관련 고급 주제).</li> </ul>
