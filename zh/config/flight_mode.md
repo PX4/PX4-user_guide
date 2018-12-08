@@ -123,7 +123,7 @@ This mode is demonstrated in the [autopilot setup video here](https://youtu.be/9
 
 > **Note** This flight mode selection mechanism is relatively complicated due to the way that PX4 works out which mode should be selected. You may be able to gain some insight from this [flow chart](https://dev.px4.io/en/concept/flight_modes.html#flight-mode-evaluation-diagram) (PX4 Developer Guide).
 
-## Further Information
+## 更多信息：
 
 * [Flight Modes Overview](../flight_modes/README.md)
 * [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
