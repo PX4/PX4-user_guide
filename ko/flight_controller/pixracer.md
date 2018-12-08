@@ -2,7 +2,7 @@
 
 The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing quads and planes. In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built Wifi, new sensors, convenient full servo headers, CAN and supports 2M flash.
 
-<img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
+<img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="픽사커 + 8266 회색" />
 
 ## Key Features
 
@@ -49,15 +49,15 @@ One of the main features of the board is its ability to use Wifi for flashing ne
 
 ## Wiring Diagrams
 
-![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
+![그래우 설정 픽사커 상단](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
-![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
+![그래우 설정 픽사커 하단](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
 
 ![setup pixracer GPS](../../assets/flight_controller/pixracer/grau_setup_pixracer_gps.jpg)
 
-![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
+![Grau b Pixracer FrSkyS.포트 연결](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
-![Grau ACSP4 2 roh](../../assets/flight_controller/pixracer/grau_acsp4_2_roh.jpg)
+![그라우 ACSP4 2루](../../assets/flight_controller/pixracer/grau_acsp4_2_roh.jpg)
 
 ![Grau ACSP5 roh](../../assets/flight_controller/pixracer/grau_acsp5_roh.jpg)
 
@@ -108,7 +108,7 @@ RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
 | 4 (blk) | VDD 3V3 | +3.3V |
 | 5 (blk) | GND     | GND   |
 
-CAN
+할수있다
 
 | Pin     | Signal | Volt |
 | ------- | ------ | ---- |
@@ -155,7 +155,7 @@ Dronecode debug port (JST SM06B connector)
 
 ![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
 
-## Schematics
+## 회로도
 
 The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
 
