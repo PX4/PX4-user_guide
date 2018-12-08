@@ -285,7 +285,7 @@ Then click **Apply and Restart**.
 
 > **Note** For additional information see:
 
-- [Autopilot Configuration](../config/README.md)
+- [자동 조종 장치 구성](../config/README.md)
 - [Firmware setup](https://donlakeflyer.gitbooks.io/qgroundcontrol-user-guide/content/SetupView/Firmware.html) (QGroundControl)
 
 ### Vehicle calibration/setup
@@ -324,7 +324,7 @@ There are a number of ways to [configure flight modes](../config/flight_mode.md)
 
 For more information see:
 
-- [Flight Mode Configuration](../config/flight_mode.md)
+- [비행 모드 구성](../config/flight_mode.md)
 - [Flight Modes](../flight_modes/README.md)
 - [Flight Modes](https://donlakeflyer.gitbooks.io/qgroundcontrol-user-guide/content/SetupView/FlightModes.html) (QGroundControl)
 
