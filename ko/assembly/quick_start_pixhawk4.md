@@ -6,7 +6,7 @@ This quick start guide shows how to power the [Pixhawk 4](../flight_controller/p
 
 ## Wiring Chart Overview
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). 우리는 다음 섹션에서 자세히 각을 통해 갈 거 야.
 
 ![Pixhawk 4 Wiring Overview](../../assets/flight_controller/pixhawk4/pixhawk4_wiring_overview.png)
 
@@ -28,7 +28,7 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 
-> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+> **참고 ** GPS 모듈의 통합 안전 스위치는 기본적으로 * *을(를) 활성화합니다(활성화된 경우 PX4는 차량에 무장을 허용하지 않습니다). 안전을 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전을 활성화하고 차량을 해제할 수 있습니다(어떤 이유로든 리모컨이나 접지 스테이션에서 차량을 해제할 수 없는 경우 유용함).
 
 ## Power
 
@@ -115,42 +115,45 @@ The vehicle-based radio should be connected to the **TELEM1** port as shown belo
 
 ![Pixhawk 4/Telemetry Radio](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
 
-## SD Card (Optional)
+## SD 카드(선택 사항)
 
-SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). Insert the card (included in Pixhawk 4 kit) into *Pixhawk 4* as shown below.
+SD 카드는 가장 일반적으로  로그에 사용되며 비행 세부 정보를 분석합니다. Insert the card (included in Pixhawk 4 kit) into *Pixhawk 4* as shown below.</p> 
 
 ![Pixhawk 4/SD Card](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 
-> **Tip** The SanDisk Extreme U3 32GB is [highly recommended](https://dev.px4.io/en/log/logging.html#sd-cards) (Developer Guide).
-
-## Motors
-
-Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
-
-> **Note** This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+> **Tip ** SanDisk Extreme U3 32GB는  높게 권장됩니다(개발자 가이드).</p> </blockquote> 
+> 
+> ## Motors
+> 
+> Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+> 
+> > ** 노트 ** 이 참조는 지원되는 모든 공기 및 접지 프레임에 대한 모터/servo 매핑의 출력 포트를 나열합니다(기준에 프레임이 나열되지 않은 경우 올바른 유형의 "일반" 공기 프레임을 사용합니다).
+> 
+> 
 
 <span></span>
 
-> **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
-
-## Other Peripherals
-
-The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
-
-## Configuration
-
-General configuration information is covered in: [Autopilot Configuration](../config/README.md).
-
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
-
-<!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
-
-<!--## Detailed Wiring Infographic (Copter) 
+> 
+> > **주의** 프레임 간에 매핑이 일관되지 않습니다(예: 모든 평면 프레임에 대해 스로틀이 동일한 출력에 의존할 수 없음). 차량에 대 한 올바른 매핑을 사용할 수 있는지 확인 합니다.
+> 
+> ## Other Peripherals
+> 
+> 옵션/낮은 공통 구성요소의 배선 및 구성은 개별 [ 주변기기 ](../peripherals/README.md)의 항목에서 다룹니다.
+> 
+> ## Configuration
+> 
+> General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+> 
+> QuadPlane 특정 구성 여기 덮여 있다: [QuadPlane VTOL 구성](../config_vtol/vtol_quad_configuration.md)
+> 
+> <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
+> 
+> <!--## Detailed Wiring Infographic (Copter) 
 
 ![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg) -->
-
-## Further information
-
-<!-- - [Pixhawk 4 Quick Start Guide (Holybro)]() Add link-->
-
-- [Pixhawk 4](../flight_controller/pixhawk4.md)
+> 
+> ## Further information
+> 
+> <!-- - [Pixhawk 4 Quick Start Guide (Holybro)]() Add link-->
+> 
+> - [Pixhawk 4](../flight_controller/pixhawk4.md)
