@@ -20,7 +20,7 @@ Connect the motors in the layout and order defined in the [Airframe Reference](.
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
