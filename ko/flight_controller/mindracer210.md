@@ -1,30 +1,33 @@
-## MindRacer 210
+## 마인드레이서 210
 
-![MindRacer 210](../../assets/hardware/hardware-mindracer210.png)
+![마인드레이서 210](../../assets/hardware/hardware-mindracer210.png)
 
-### Summary
+### 요약
 
-A ready-to-fly racing beast running full PX4/MindPX stack. Can reach maximum 10:1 thrust-to-weight ratio!
+PX4/MindPX 스택을 가득 채운 비행 준비가 된 경주용 야수. 최대 10:1 추력 대 중량 비율에 도달할 수 있습니다!
 
-MR210 uses MindRacer as flight controller. MR210 is a fully modularized, stackable RTF racing drone. The soldering-free SEP/WEP sockets allow pilots to quickly replace broken parts without the needs for soldering iron. Pilots can further easily customize the build by adding-to or replacing stacking parts to make a more powerful drone.
+MR210은 MindRacer를 비행 통제기로 사용한다. MR210은 완전히 모듈화된 적층 가능한 RTF 레이싱 드론입니다. 납땜이 필요 없는 SEP/WEP 소켓을 통해 파일럿은 납땜 철 없이 파손된 부품을 신속하게 교체할 수 있습니다. 조종사들은 적층 부품을 추가하거나 교체하여 더욱 강력한 드론을 만들 수 있습니다
 
-### Highlights
+### 하이라이트
 
-1. True 'X', 4mm thick, 210mm diagonal carbon fiber frame.
-2. Stackable SEP/WEP sockets for soldering-free ESC connection and parts replacement.
-3. 30A/4S/OneShot enabled BLHeli ESC.
-4. 5V universal voltage supply for all avionics including camera and VTX.
-5. DroneCode<sup>&reg;</sup> standard compliant JST GH connectors.
-6. Have options for PPM/S.Bus/Specktrum DSM receiver
+1. 참 'X', 두께 4mm, 대각선 탄소 섬유 프레임.
+2. 납땜이 필요 없는 ESC 연결 및 부품 교체를 위한 스택형 SEP/WEP 소켓.
+3. 30A/4S/OneShot 사용 BLHeli Esc.
+4. 카메라 및 VTX를 포함한 모든 항전 장치의 5V 범용 전압 공급
+5. 드론코드<sup>&reg;</sup> 표준 규격 JST GH 커넥터.
+6. PPM/S.Bus/Specktrum DSM 수신기에 대한 옵션이 있습니다.
 
-### User Guide
+### 사용자 설명서
 
-> **Note** The user guide is [here](http://mindpx.net/assets/accessories/MR210usermanual_pdf.pdf).
+> 참고/0> 사용자 가이드는 [](http://mindpx.net/assets/accessories/MR210usermanual_pdf.pdf)입니다.
 
-### Where to buy
+### 구입처
 
-MindRacer 210 is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+MindRacer 210은 [에어민드 스토어 ](http://drupal.xitronet.com/?q=catalog)에서 이용할 수 있습니다. 아마존 <sup> & reg; </ 0> 또는 eBay <sup> & reg; </ 0>에서 MindRacer를 찾을 수 있습니다.</p> 
 
-### Support
+<h3>
+  지원
+</h3>
 
-Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.
+<p>
+  자세한 내용은 http://www.mindpx.org를 방문하십시오. 또는 <a href="mailto:support@mindpx.net"> support@mindpx.net </ 0>으로 전자 메일을 보내어 문의 사항이나 도움을 얻을 수 있습니다.</p>
