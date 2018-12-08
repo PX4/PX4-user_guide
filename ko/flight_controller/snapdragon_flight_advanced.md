@@ -10,7 +10,7 @@ Connect the small debug header shipped with the Snapdragon and the FTDI cable.
 
 On Linux, open a console using:
 
-    screen /dev/ttyUSB0 115200
+    화면 /dev/tyUSB0 115200
     
 
 Change USB0 to whatever it happens to be. Check `/dev/` or `/dev/serial/by-id`.
