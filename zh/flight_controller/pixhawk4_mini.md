@@ -8,18 +8,18 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
 
 ## Quick Summary
 
-* Main FMU Processor: STM32F765 
+* 主处理器：STM32F765 
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-* On-board sensors: 
+* 内置传感器： 
   * Accel/Gyro: ICM-20689
   * Accel/Gyro: BMI055
-  * Magnetometer: IST8310
-  * Barometer: MS5611
+  * 指南针：IST8310
+  * 气压计: MS5611
 * GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 * Interfaces: 
   * 8 PWM outputs
   * 4 dedicated PWM/Capture inputs on FMU
-  * Dedicated R/C input for CPPM
+  * CPPM专用的RC输入
   * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
   * 3 general purpose serial ports
   * 2 I2C ports
@@ -34,12 +34,12 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
   * Max current sensing: 120A
 * Weight and Dimensions: 
   * Dimensions: 38x55x15.5mm
-* Other Characteristics: 
+* 其它特性: 
   * Operating temperature: -40 ~ 85°c
 
 Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
 
-## Purchase
+## 采购
 
 Order from [Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html).
 
@@ -57,18 +57,18 @@ Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_gu
 
 ![Pixhawk 4 Mini Dimensions](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_dimensions.png)
 
-## Voltage Ratings
+## 额定电压
 
 *Pixhawk 4 Mini* can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
 
 > **Note** The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#voltageratings) to one of **POWER** or **USB** or the board will be unpowered.
 
-**Normal Operation Maximum Ratings**
+**正常运行最大额定值**
 
-Under these conditions all power sources will be used in this order to power the system:
+在这些条件下，所有电源将按此顺序用于为系统供电：
 
 1. **POWER** (4.75V to 5.5V)
-2. **USB** input (4.75V to 5.25V)
+2. **USB** 输入电压 (4.75 v 至 5.25 v)
 
 **Absolute Maximum Ratings**
 
@@ -82,7 +82,7 @@ Under these conditions the system will remain intact.
 
 The [*Pixhawk 4 Mini* Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board, etc.
 
-## Building Firmware
+## 编译固件
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
@@ -91,7 +91,7 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
     make make px4_fmu-v5_default
     
 
-## Debug Port
+## Debug调试端口
 
 The system's serial console and SWD interface run on the **FMU Debug** port. In order to access these ports, the user must remove the *Pixhawk 4 Mini* casing.
 
@@ -102,8 +102,8 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 ## Peripherals
 
 * [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [Telemetry Radio Modules](../telemetry/README.md)
-* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+* [遥测无线电模块](../telemetry/README.md)
+* [距离传感器](../sensor/rangefinders.md)
 
 ## Supported Platforms
 
@@ -111,7 +111,7 @@ Motors and servos are connected to the **MAIN OUT** ports in the order specified
 
 > **Warning** *Pixhawk 4 Mini* does not have AUX ports. The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces. It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
 
-## Further info
+## 更多信息
 
 * [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf)
-* [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+* FMUv5 参考设计</0 >。</li> </ul>
