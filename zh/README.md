@@ -12,7 +12,7 @@ PX4 is the *Professional Autopilot*. Developed by world-class developers from in
 
 > **Note** This guide is still a work in progress! It does not yet cover all of PX4.
 
-## How Do I Get Started?
+## 如何开始？
 
 [Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
 
