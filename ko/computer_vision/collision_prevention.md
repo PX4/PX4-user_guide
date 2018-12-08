@@ -6,7 +6,7 @@ It can be enabled for multicopter vehicles in [Position mode](../flight_modes/po
 
 > **Warning** Collision prevention may not prevent a crash if your vehicle is moving too fast! This feature has only been tested (at time of writing) for a vehicle moving at 4 m/s.
 
-## Overview
+## 개요
 
 *Collision Prevention* is enabled/configured on PX4 by setting the parameter for minimum allowed distance ([MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D)).
 
