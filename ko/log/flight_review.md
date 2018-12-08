@@ -290,7 +290,7 @@ They show a vehicle that has low vibration (but not as low as the QAV-R above!):
 
 ![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
-### S500
+### S500 
 
 These charts are all from the same flight of an S500.
 
