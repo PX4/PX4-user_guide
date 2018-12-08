@@ -13,7 +13,7 @@ You can initiate bootloader update on next restart by setting the parameter: [SY
 To update the bootloader:
 
 1. Insert an SD card (enables boot logging to debug any problems.)
-2. [Update the Firmware](../config/firmware.md) to PX4 *master* version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list). *QGroundControl* will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
+2. [Update the Firmware](../config/firmware.md) to PX4 *master* version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list). *QGroundControl* 会自动识别到硬件支持 FMUv2，并安装相应的固件。
     
     ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
     
