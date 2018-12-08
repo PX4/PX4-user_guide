@@ -1,12 +1,12 @@
-# Basic Concepts
+# 기본 개념
 
-This topic provides a basic introduction to drones and using PX4 (it is meant mostly for novice users but is also a good introduction for experienced users).
+이 주제에서는 무인 항공기에 대한 기본적인 소개와 PX4 사용에 대해 설명합니다. (초보자를 위한 것이지만 숙련된 사용자에게도 좋은 소개 자료입니다.)
 
-If you are already familiar with the basic concepts, you can move on to [Basic Assembly](../assembly/README.md) to learn how to wire your specific autopilot hardware. To load firmware and set up the vehicle with *QGroundControl*, see [Basic Configuration](../config/README.md).
+If you are already familiar with the basic concepts, you can move on to [Basic Assembly](../assembly/README.md) to learn how to wire your specific autopilot hardware. *QGroundControl*을 사용하여 펌웨어를 설치하고 이동체를 설정하려면 [기본 구성](../config/README.md)을 참조하십시오.
 
-## What is a Drone?
+## 드론이란 무엇입니까?
 
-A drone is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
+드론은 원격 또는 자율적으로 제어 할 수 있는 무인 "로봇" 이동체입니다.
 
 Drones are used for many consumer, industrial and military [use cases and applications](http://px4.io/applications/). These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
 
@@ -49,7 +49,7 @@ PX4 uses sensors to determine vehicle state (needed for stabilization and to ena
 For more information see:
 
 - [Sensors](../getting_started/sensor_selection.md) 
-- [Peripherals](../peripherals/README.md)
+- [주변 장치](../peripherals/README.md)
 
 ## ESCs & Motors
 
@@ -83,7 +83,7 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 
 ## Data/Telemetry Radios
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. 이를 통해 차량이 비행 중일 때 매개 변수를 조정하고, 실시간으로 원격 측정을 검사하고, 비행 중 임무를 변경하는 등의 작업을 수행 할 수 있습니다.
 
 ## Offboard/Companion Computer
 
