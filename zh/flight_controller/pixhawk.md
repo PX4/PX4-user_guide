@@ -89,11 +89,11 @@ If out of stock the software-compatible but not connector-compatible versions ca
 * Servo rail high-power (max. 10V) and high-current (10A+) ready
 * All peripheral outputs over-current protected, all inputs ESD protected
 
-## Voltage Ratings
+## 额定电压
 
 Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
 
-### Normal Operation Maximum Ratings
+### 正常运行最大额定值
 
 Under these conditions all power sources will be used in this order to power the system
 
@@ -229,7 +229,7 @@ The system's serial console runs on the port labeled SERIAL4/5. The pinout is st
 
 Please refer to the Devguide [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
 
-## Building Firmware
+## 编译固件
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
@@ -261,6 +261,6 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 * [[:peripherals:i2c_splitter|I2C splitter]]
 -->
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。
