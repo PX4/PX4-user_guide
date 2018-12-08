@@ -1,7 +1,7 @@
 # Bootloader Update
 
 Early [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu-versions) flight controllers based on FMUv2 had a hardware issue ([Silicon Errata](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata)) that restricted them to using 1MB of flash memory. 
-The problem was fixed on newer hardware, so it can now (in theory) install FMUv3 Firmware and access all 2Mb available memory.
+The problem was fixed on newer hardware, so it can now (in theory) install FMUv3 Firmware and access all 2MB available memory.
 
 Unfortunately some boards come from the factory with an old bootloader that is unable to detect whether or not the hardware issue is present. 
 As a result, the memory-restricted FMUv2 Firmware must still be used.
