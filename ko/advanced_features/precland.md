@@ -1,111 +1,111 @@
-# Precision Landing
+# 정밀 랜딩
 
-PX4 supports precision landing for *multicopters* (from PX4 v1.7.4) using the [IR-LOCK Sensor](https://irlock.com/products/ir-lock-sensor-precision-landing-kit), an IR beacon (e.g. [IR-LOCK MarkOne](https://irlock.com/collections/markone)), and a downward facing range sensor. This enables landing with a precision of roughly 10 cm (GPS precision, by contrast, may be as large as several meters).
+PX4는 <>IR-LOCK 센서 </a>), IR-LOCK 센서 </em>(PX4 v1.7.4에서)에 대한 정밀 착륙을 지원합니다. 이렇게 하면 약 10cm의 정밀도로 착륙할 수 있습니다(대조적으로 GPS 정밀도는 몇 미터 정도 될 수 있음).
 
-A precision landing can be initiated by entering the *Precision Land* flight mode, or as part of a [mission](#mission).
+정밀 착륙은 * 고정 착륙 * 비행 모드로 들어가거나 [ 조종 장치 ](#mission)의 일부로 시작할 수 있습니다.
 
-## Setup
+## 설치
 
 ### Hardware Setup
 
-Install the IR-LOCK sensor by following the [official guide](https://irlock.readme.io/v2.0/docs). Ensure that the sensor's x axis is aligned with the vehicle's y axis and the sensor's y axis aligned with the vehicle's -x direction (this is the case if the camera is pitched down 90 degrees from facing forward).
+[ 공식 가이드 ](https://irlock.readme.io/v2.0/docs)에 따라 IR-LOCK 센서를 장착하십시오. 센서의 x축이 차량의 y축과 정렬되어 있는지, 센서의 y축이 차량의 -x 방향과 정렬되어 있는지 확인하십시오(카메라에서 전방으로 90도 기울인 경우).
 
-Install a [range/distance sensor](../getting_started/sensor_selection.md#distance) (the *LidarLite v3* has been found to work well).
+[ 범위/거리 센서 ](../getting_started/sensor_selection.md#distance)(* LidarLite v3 *)를 설치해도 문제가 없습니다.
 
-> **Note** Many infrared based range sensors do not perform well in the presence of the IR-LOCK beacon. Refer to the IR-LOCK guide for other compatible sensors.
+> **참고** 많은 적외선 기반 범위 센서는 IR-LOCK 신호기 앞에서 성능이 좋지 않습니다. 호환 가능한 다른 센서는 IR-LOCK 가이드를 참조하십시오.
 
-### Firmware Configuration
+### 펌웨어 구성
 
-Precision landing requires the modules `irlock` and `landing_target_estimator`, which are not included in the PX4 firmware by default. They can be included by adding (or uncommenting) the following lines in the relevant [config](https://github.com/PX4/Firmware/tree/master/cmake/configs) for your flight controller:
+정밀 착륙을 위해서는 기본적으로 PX4 펌웨어에 포함되지 않은 모듈 `` 및 ` 랜딩_타겟_estimator `이 필요합니다. 비행 컨트롤러에 대한 관련 [ 구성 ](https://github.com/PX4/Firmware/tree/master/cmake/configs)에 다음 라인을 추가(또는 조정)하여 포함할 수 있습니다.
 
-    drivers/irlock
-    modules/landing_target_estimator
+    운전자/여객
+    모듈/랜딩_target_estimator
     
 
-The two modules should also be started on system boot. For instructions see: [customizing the system startup](https://dev.px4.io/en/advanced/system_startup.html#starting-additional-applications).
+시스템 부팅 시에도 두 모듈을 시작해야 합니다. 지침은 [ 시스템 시작 사용자 정의](https://dev.px4.io/en/advanced/system_startup.html#starting-additional-applications)를 참조하십시오.
 
-## Software Configuration (Parameters)
+## 소프트웨어 구성(파라미터)
 
-Precision landing is configured with the `landing_target_estimator` and `navigator` parameters, which are found in the "Landing target estimator" and "Precision land" groups, respectively. The most important parameters are discussed below.
+정밀 착륙은 `랜딩_target_estimator ` 및 ` navigator ` 매개 변수를 사용하여 구성됩니다. 그것은 각각 "토지 목표 추정기"와 "정확한 토지" 그룹에서 발견된다. 가장 중요한 파라미터는 아래에 설명되어 있습니다.
 
-The parameter [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE) determines if the beacon is assumed to be stationary or moving. If `LTEST_MODE` is set to moving (e.g. it is installed on a vehicle on which the multicopter is to land), beacon measurements are only used to generate position setpoints in the precision landing controller. If `LTEST_MODE` is set to stationary, the beacon measurements are also used by the vehicle position estimator (EKF2 or LPE).
+매개 변수 [LTEST_MODE ](../advanced_config/parameter_reference.md#LTEST_MODE)에 따라 비컨이 정지 상태이거나 이동 중인 것으로 가정되는지 여부가 결정됩니다. `LTEST_MODE `이 이동으로 설정된 경우(예: 멀티코터가 착륙하는 차량에 설치된 경우), 비컨 측정은 설정 위치에만 사용됩니다. `LTEST_MODE `이 정지 상태로 설정된 경우 차량 위치 추정기(EKF2 또는 LPE)에서도 신호 측정이 사용됩니다.
 
-The parameters [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X) and [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) can be used to scale beacon measurements before they are used to estimate the beacon's position and velocity relative to the vehicle. Measurement scaling may be necessary due to lens distortions of the IR-LOCK sensor. Note that `LTEST_SCALE_X` and `LTEST_SCALE_Y` are considered in the sensor frame, not the vehicle frame.
+매개 변수 [LTEST_SCALE_X ](../advanced_config/parameter_reference.md#LTEST_SCALE_X) 및 [ LTEST_SCALE_Y ](../advanced_config/parameter_reference.md#LTEST_SCALE_Y)를 사용하여 비컨 속도를 추정할 수 있다. IR-LOCK 센서의 렌즈 변형으로 인해 측정 스케일링이 필요할 수 있습니다. 차량 프레임이 아니라 센서 프레임에서 `LTEST_SCALE_X ` 및 ` LTEST_SCALE_Y `을 고려합니다.
 
-To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](https://dev.px4.io/en/log/logging.html#configuration) `landing_target_pose` and `vehicle_local_position`. Then, compare `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel` to `vehicle_local_position.vx` and `vehicle_local_position.vy`, respectively (both measurements are in NED frame). If the estimated beacon velocities are consistently smaller or larger than the vehicle velocities, adjust the scale parameters to compensate.
+이러한 척도 모수를 보정하려면, `LTEST_MODE `을 설정하여 신호등 위로 멀티코터를 날리고 <0t>의 전방 및 좌측 이동을 수행하되, 차량에서는 . 그런 다음 `랜딩_타겟_pose를 비교한다.vx_rel` 및 `랜딩_target_pose.vy_rel` ~ ` kehicle_local_position.vx`과 ` kehicle_local_position.vy` 사이의 측정치는 각각 NED 프레임에 있다(두 측정 단위). 추정된 비컨 속도가 차량 속도보다 일관되게 작거나 크면 스케일 파라미터를 조정하여 보정합니다.</p> 
 
-If you observe slow sideways oscillations of the vehicle while doing a precision landing with `LTEST_MODE` set to stationary, the beacon measurements are likely scaled too high and you should reduce the scale parameter in the relevant direction.
+`정지 상태` 로 설정된 상태에서 정밀 착륙을 수행하는 동안 차량의 느린 횡방향 진동을 관찰할 경우 신호 측정값이 너무 높게 조정되므로 관련 척도 모수를 줄여야 합니다.
 
-## Precision Land Modes
+## 정밀 토지 모드
 
-A precision landing can be configured to either be "required" or "opportunistic". The choice of mode affects how a precision landing is performed.
+정밀 착륙은 "필수" 또는 "기회적"으로 구성할 수 있다. 모드 선택은 정밀 착륙 수행 방법에 영향을 미친다.
 
-### Required Mode
+### 필수 모드
 
-In *Required Mode* the vehicle will search for a beacon if none is visible when landing is initiated. The vehicle will perform a precision landing if a beacon is located.
+* 필수 모드 *에서 착륙 시작 시 아무런 신호도 보이지 않을 경우 차량이 신호등을 검색합니다. 표지판이 장착된 경우 차량이 정밀 착륙을 수행합니다.
 
-The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). If the beacon is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
+검색 절차는 검색 고도까지 상승하는 것으로 구성됩니다([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). 검색 고도에서 여전히 신호등이 보이지 않고 검색 시간 초과([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT) 후에 현재 위치에서 정상 착륙이 시작됩니다.
 
-### Opportunistic Mode
+### 기회주의적 모드
 
-In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the beacon is visible when landing is initiated. If it is not visible the vehicle immediately performs a *normal* landing at the current position.
+* 점성 모드 *에서 *차량은 착지가 시작될 때* 신호등이 보이는 경우에만 정밀 착륙을 사용한다. 차량이 보이지 않으면 즉시 현재 위치에서 * 정상 * 착지를 수행합니다.
 
-## Performing a Precision Landing
+## 정밀 랜딩 수행
 
 > **Note** Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
 
-### Via Command
+### 비아 커맨드
 
-Precision landing can be initiated through the command line interface with
+정밀 계단참은 명령행 인터페이스를 통해 시작할 수 있습니다.
 
-    commander mode auto:precland
+    카시트를 주문하다.
     
 
-In this case, the precision landing is always considered "required".
+이 경우, 정밀 착륙은 항상 "필수"로 간주된다.
 
-### In a Mission {#mission}
+### 미션에서 {#mission}
 
-Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](../advanced_config/parameter_reference.md#MAV_CMD_NAV_LAND) with `param2` set appropriately:
+정밀 착륙은 을 사용하여 [ 변속기의 일부로 시작할 수 있습니다.`param2 `가 적절하게 설정된 MAV_CMD_NAV_LAND ](../flying/missions.md).</p> 
 
 - `param2` = 0: Normal landing without using the beacon.
-- `param2` = 1: *Opportunistic* precision landing.
-- `param2` = 2: *Required* precision landing.
+- `param2` = 0: 표지판을 사용하지 않고 일반 착륙.
+- `param2 ` = 2: * required * 정밀 착륙.
 
-## Simulation
+## 시뮬레이션
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/en/simulation/gazebo.html).
+IR-LOCK 센서와 비컨을 사용한 정밀 착륙은 [SITL Gazebo ](https://dev.px4.io/en/simulation/gazebo.html)에서 시뮬레이션할 수 있다.
 
-To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
+IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 차량을 사용하여 시뮬레이션을 시작하려면 다음을 실행하십시오.
 
     make px4_sitl gazebo_iris_irlock
     
 
-You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42).
+Gazebo GUI에서 이동하거나 [ Gazebo World ](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42)에서 위치를 변경하여 비콘의 위치를 변경할 수 있습니다.
 
-## Operating Principles
+## 작동 원리
 
-### Landing Target Estimator
+### 에스컬레이터의 비교
 
-The `landing_target_estimator` takes measurements from the `irlock` driver as well as the estimated terrain height to estimate the beacon's position relative to the vehicle.
+`랜딩_target_estimator `은 `꽃다발`의 운전자와 예상 지반 높이에서 측정하여 차량에 상대적인 비컨 위치를 추정합니다.
 
-The measurements in `irlock_report` contain the tangent of the angles from the image center to the beacon. In other words, the measurements are the x and y components of the vector pointing towards the beacon, where the z component has length "1". This means that scaling the measurement by the distance from the camera to the beacon results in the vector from the camera to the beacon. This relative position is then rotated into the north-aligned, level body frame using the vehicle's attitude estimate. Both x and y components of the relative position measurement are filtered in separate Kalman Filters, which act as simple low-pass filters that also produce a velocity estimate and allow for outlier rejection.
+` irock_report `의 측정에는 영상 중심에서 비컨으로 각도의 접선이 포함됩니다. 즉, 측정은 z 구성요소의 길이 "1"인 비콘을 가리키는 벡터의 x와 y 성분이다. 즉, 카메라에서 비컨까지의 거리에 따라 측정치를 스케일링하면 벡터가 카메라에서 비컨으로 전환됩니다. 그런 다음 이 상대 위치는 차량의 자세 추정치를 사용하여 북쪽으로 정렬된 수평 차체 프레임으로 회전합니다. 상대 위치 측정의 x와 y 성분 모두 별도의 Kalman 필터로 필터링됩니다. 이 필터는 속도 추정치를 생성하고 특이치 거부를 허용하는 단순한 저역 통과 필터 역할을 합니다.
 
-The `landing_target_estimator` publishes the estimated relative position and velocity whenever a new `irlock_report` is fused into the estimate. Nothing is published if the beacon is not seen or beacon measurements are rejected. The landing target estimate is published in the `landing_target_pose` uORB message.
+`랜딩_타겟_estimator `은 새로운 `월호_보고서 `가 추정치에 퓨전될 때마다 추정 상대 위치와 속도를 발표한다. 비컨이 보이지 않거나 신호 측정이 거부되면 아무 것도 게시되지 않습니다. 착륙 목표 추정치는 `랜딩_target_pose ` uORB 메시지에 기재된다.
 
-### Enhanced Vehicle Position Estimation
+### 향상된 차량 위치 추정
 
-If the beacon is specified to be stationary using the parameter `LTEST_MODE`, the vehicle's position/velocity estimate can be improved with the help of the beacon measurements. This is done by fusing the beacon's velocity as a measurement of the negative velocity of the vehicle.
+매개 변수 ` LTEST_MODE `을 사용하여 비컨을 정지 상태로 지정한 경우, 비컨 측정을 통해 차량의 위치/속도 추정치를 개선할 수 있습니다. 이는 차량의 음속 측정으로 비컨의 속도를 퓨전하여 이루어진다.
 
-### Precision Land Procedure
+### 정밀 토지 절차
 
-The precision land procedure consists of three phases:
+정밀 토지 절차는 3단계로 구성된다.
 
-1. **Horizontal approach:** The vehicle approaches the beacon horizontally while keeping its current altitude. Once the position of the beacon relative to the vehicle is below a threshold ([PLD_HACC_RAD](../advanced_config/parameter_reference.md#PLD_HACC_RAD)), the next phase is entered. If the beacon is lost during this phase (not visible for longer than [PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT)), a search procedure is initiated (during a required precision landing) or the vehicle does a normal landing (during an opportunistic precision landing).
+1. **수평 접근 방식: ** 차량은 현재 고도를 유지하면서 비컨에 수평으로 접근한다. 차량에 대한 비컨 위치가 임계값([PLD_HACC_RAD ](../advanced_config/parameter_reference.md#PLD_HACC_RAD)) 미만인 경우 다음 단계가 입력됩니다. 이 단계에서 ([PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT)보다 오랫동안 볼 수 없는 경우), 검색 절차가 시작되거나(필요한 정밀 착륙 중에) 차량이 정상적인 착지(도착)를 수행한다.
 
-2. **Descent over beacon:** The vehicle descends, while remaining centered over the beacon. If the beacon is lost during this phase (not visible for longer than `PLD_BTOUT`), a search procedure is initiated (during a required precision landing) or the vehicle does a normal landing (during an opportunistic precision landing).
+2. **비콘을 통한 조명: ** 차량이 내리막길인 반면, 표지판 위 중앙에 놓여 있습니다. 이 단계에서 (`PLD_BTOUT`보다 오랫동안 볼 수 없는 경우), 검색 절차가 시작되거나(필요한 정밀 착륙 중에) 차량이 정상적인 착지(도착)를 수행한다.
 
-3. **Final approach:** When the vehicle is close to the ground (closer than [PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)), it descends while remaining centered over the beacon. If the beacon is lost during this phase, the descent is continued independent of the kind of precision landing.
+3. ** 최종 접근 방식: ** 차량이 지면에 가까이 있을 때([보다 가까움)PLD_FAPPR_ALT](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)), 신호기 중앙에 위치하면서 하강한다. 이 단계에서 비콘이 분실되면, 정확한 착지 종류와 무관하게 하강이 지속된다.
 
-Search procedures are initiated in 1. and 2. a maximum of [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH) times.
+검색 절차는 1에서 시작됩니다. 2 최대 0PLD_MAX_SRCH </a>번.
 
-![Precision Landing Flow Diagram](../../assets/precision_land/precland-flow-diagram.png)
+![정밀 랜딩 흐름도](../../assets/precision_land/precland-flow-diagram.png)
