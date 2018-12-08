@@ -1,14 +1,14 @@
-# VTOL Airframes
+# 垂直起降机体
 
-PX4 supports virtually all VTOL configurations (the complete set of supported configurations can be seen in [Airframes Reference > VTOL](../airframes/airframe_reference.md#vtol)):
+PX4支持几乎所有的垂起的配置（支持配置的完整集合可以在[用户指南>垂起](../airframes/airframe_reference.md#vtol)中看到）：
 
-- Tailsitters (duo and quadrotors in X and plus configuration)
-- Tiltrotors (Firefly Y6)
-- QuadPlane VTOL (standard plane plus quad)
+- 立式垂起（双发四旋翼飞行器+和 X结构）
+- 倾转旋翼机(Firefly Y6)
+- 垂直起降机型 (标准四旋翼与固定翼结合) 
 
-The VTOL codebase is the same codebase as for all other airframes and just adds additional control logic, in particular for transitions.
+垂直起降飞机代码库与所有其他机身的代码库相同, 只是添加了额外的控制逻辑, 特别是用于转换。
 
-This section contains build logs and instructions for assembling and configuring a number of VTOL vehicle frames.
+本节包含用于组装和配置多个 垂直起降自驾仪的构建日志和说明。
 
 ## Videos
 
