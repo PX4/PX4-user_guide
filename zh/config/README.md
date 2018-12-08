@@ -27,7 +27,7 @@ The video below shows the calibration process in detail.
 
 If you need help with the configuration you can ask for help on the [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage).
 
-## Further Information
+## 更多信息：
 
 * [QGroundControl > Setup](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
 * [Advanced Configuration](../advanced_config/README.md) (more advanced topics, related to lesser-used sensors and peripherals, and to vehicle/parameter tuning).
