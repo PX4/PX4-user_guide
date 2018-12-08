@@ -1,28 +1,31 @@
-# Level Horizon Calibration
+# 레벨 수평 보정
 
-You can use *Level Horizon Calibration* to compensate for small miss-alignments in controller orientation and to level the horizon in the *QGroundControl* flight view (blue on top and green on bottom).
+* 수평 수평선 보정 </ 0>을 사용하여 컨트롤러 방향의 작은 맞춤 정렬을 보정하고 * QGroundControl </ 0> 비행보기 (상단 파란색과 하단 녹색)에서 수평선을 수평으로 맞출 수 있습니다.</p> 
 
-> **Tip** Leveling the horizon is highly recommended, and will result in the best flight performance. This process can also be repeated if you notice a constant drift during flight.
-
-## Performing the Calibration
-
-To level the horizon:
-
-1. Start *QGroundControl* and connect the vehicle.
-2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-3. Click the **Level Horizon** button. ![Level Horizon calibration](../../images/qgc/setup/sensor_level_horizon.jpg) > **Note** You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here. 
-4. Place the vehicle in its level flight orientation on a level surface: 
-    * For planes this is the position during level flight (planes tend to have their wings slightly pitched up!)
-    * For copters this is the hover position.
-5. Press **OK** to start the calibration process.
-6. Wait until the calibration process is finished.
-
-## Verification
-
-After the orientation is set and level-horizon calibration is complete, check in the flight view that the heading in the compass shows a value around 0 when you point the vehicle towards north and that the horizon is level (blue on top and green on bottom).
-
-## Further Information
-
-* [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#level-horizon)
-* [PX4 Setup Video "Gyroscope" - @1m14s](https://youtu.be/91VGmdSlbo4?t=1m14s) (Youtube)
+> ** 팁 </ 0> 수평선을 수평으로 조정하는 것이 좋습니다. 비행 성능이 가장 좋습니다. 비행 중에 일정한 드리프트가 발생하면이 과정을 반복 할 수 있습니다.</p> </blockquote> 
+> 
+> ## 보정 수행
+> 
+> 지평선을 수평으로 유지하려면
+> 
+> 1. *QGroundControl *을 시작하고 차량을 연결합니다.
+> 2. 상단 툴바에서 ** 기어 </ 0> 아이콘 (차량 설정) 을 선택한 다음 사이드 바에서 ** 센서 </ 0>를 선택하십시오.</li> 
+>     
+>     * ** 수평선 </ 0> 버튼을 클릭하십시오. <0 /> > ** 참고 </ 1> 이미  자동 조종 장치 오리 엔테이션 </ 2>을 설정해야합니다. 그렇지 않은 경우 여기에서 설정할 수도 있습니다. </li> 
+>         
+>         * 수평면에 수평 비행 자세로 차량을 놓습니다 : 
+>             * 비행기의 경우 이것은 수평 비행 중의 위치입니다 (비행기의 날개가 약간 올라간 경향이 있습니다!).
+>             * 헬리콥터의 경우 마우스를 가져 가면됩니다.
+>         * 교정 과정을 시작하려면 ** 확인 </ 0>을 누르십시오.</li> 
+>             
+>             * 보정 과정이 끝날 때까지 기다리십시오.</ol> 
+>             
+>             ## 확인
+>             
+>             방위가 설정되고 수평 - 수평선 보정이 완료된 후, 나침반의 표제가 차량을 북쪽을 향하고 지평선이 수평 일 때 0 근처의 값을 보여 주는지 비행 조망에서 확인하십시오 (위쪽은 파란색, 아래쪽은 녹색입니다 ).
+>             
+>             ## 추가 정보
+>             
+>             * [방향 조정 고급](../advanced_config/advanced_flight_controller_orientation_leveling.md) (고급 사용자만)입니다.
+>             * [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#level-horizon)
+>             *  PX4 설치 비디오 "자이로 스코프"- @ 1m14s </ 0> (Youtube) </li> </ul>
