@@ -1,14 +1,14 @@
-# Airframes Reference
+# 机架参考
 
 > **Note****该列表是从源码自动生成的**。
 > 
-> The **AUX** channels are only available on Pixhawk Boards (labeled with **AUX OUT**).
+> **AUX** 通道仅在Pixhawk飞控板上可用 (标签为 **AUX OUT**)。
 
-This page lists all supported airframes and types including the motor assignment and numbering. The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
+该页列出所有PX4支持的机架型号，包括电机分配和序号。 **绿色**为顺时针转动的电机，**蓝色**为逆时针转动的电机。
 
 ## Copter
 
-### Coaxial Helicopter
+### 共轴双桨直升机
 
 <div>
   <img src="../../assets/airframes/types/HelicopterCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -16,11 +16,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: Left swashplate servomotor, pitch axis</li><li><b>MAIN2</b>: Right swashplate servomotor, roll axis</li><li><b>MAIN3</b>: Upper rotor (CCW)</li><li><b>MAIN4</b>: Lower rotor (CW)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b> MAIN1 </b>: 左旋转斜盘伺服电机, 俯仰轴</li><li><b>MAIN2</b>: 右旋转斜盘伺服电机，滚转轴</li><li><b>MAIN3</b>: 上转子 (CCW)</li><li><b>MAIN4</b>: 下转子 (CW)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -28,7 +28,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -37,12 +37,12 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="copter_coaxial_helicopter_esky_(big)_lama_v4">
  <td style="vertical-align: top;">Esky (Big) Lama v4</td>
- <td style="vertical-align: top;"><p>Maintainer: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
 
 </tr>
 </tbody></table>
 
-### Dodecarotor cox
+### 十二旋翼
 
 <div>
   <img src="../../assets/airframes/types/DodecaRotorXCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -50,11 +50,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: motor 7</li><li><b>AUX2</b>: motor 8</li><li><b>AUX3</b>: motor 9</li><li><b>AUX4</b>: motor 10</li><li><b>AUX5</b>: motor 11</li><li><b>AUX6</b>: motor 12</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>AUX1</b>: 电机 7</li><li><b>AUX2</b>: 电机 8</li><li><b>AUX3</b>: 电机 9</li><li><b>AUX4</b>: 电机 10</li><li><b>AUX5</b>: 电机 11</li><li><b>AUX6</b>: 电机 12</li></ul></td>
 </tr>
   </table>
 </div>
@@ -62,7 +62,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -70,13 +70,13 @@ This page lists all supported airframes and types including the motor assignment
   </tr>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
- <td style="vertical-align: top;">Generic Dodecarotor cox geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: William Peale <develop707@gmail.com></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
+ <td style="vertical-align: top;">通用十二旋翼机架分布</td>
+ <td style="vertical-align: top;"><p>维护者: William Peale <develop707@gmail.com></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
 
 </tr>
 </tbody></table>
 
-### Helicopter
+### 直升机
 
 <div>
   <img src="../../assets/airframes/types/Helicopter.svg" width="29%" style="max-height: 180px;" /> 
@@ -84,11 +84,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: main motor</li><li><b>MAIN2</b>: front swashplate servo</li><li><b>MAIN3</b>: right swashplate servo</li><li><b>MAIN4</b>: left swashplate servo</li><li><b>MAIN5</b>: tail-rotor servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 主电机</li><li><b>MAIN2</b>: 前盘伺服</li><li><b>MAIN3</b>: 右盘伺服</li><li><b>MAIN4</b>: 左盘伺服</li><li><b>MAIN5</b>: 尾旋翼伺服</li></ul></td>
 </tr>
   </table>
 </div>
@@ -96,7 +96,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -105,12 +105,12 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="copter_helicopter_blade_130x">
  <td style="vertical-align: top;">Blade 130X</td>
- <td style="vertical-align: top;"><p>Maintainer: Bart Slinger <bartslinger@gmail.com></p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Bart Slinger <bartslinger@gmail.com></p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
 
 </tr>
 </tbody></table>
 
-### Hexarotor +
+### +型六旋翼
 
 <div>
   <img src="../../assets/airframes/types/HexaRotorPlus.svg" width="29%" style="max-height: 180px;" /> 
@@ -118,11 +118,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor1</li><li><b>MAIN2</b>: motor2</li><li><b>MAIN3</b>: motor3</li><li><b>MAIN4</b>: motor4</li><li><b>MAIN5</b>: motor5</li><li><b>MAIN6</b>: motor6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机2</li><li><b>MAIN3</b>: 电机3</li><li><b>MAIN4</b>: 电机4</li><li><b>MAIN5</b>: 电机5</li><li><b>MAIN6</b>: 电机6</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -130,7 +130,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -138,13 +138,13 @@ This page lists all supported airframes and types including the motor assignment
   </tr>
 <tbody>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
- <td style="vertical-align: top;">Generic Hexarotor + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
+ <td style="vertical-align: top;">通用+型六旋翼机型分布</td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
 
 </tr>
 </tbody></table>
 
-### Hexarotor Coaxial
+### 共轴双浆六旋翼
 
 <div>
   <img src="../../assets/airframes/types/Y6B.svg" width="29%" style="max-height: 180px;" /> 
@@ -152,11 +152,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: front right top, CW; angle:60; direction:CW</li><li><b>MAIN2</b>: front right bottom, CCW; angle:60; direction:CCW</li><li><b>MAIN3</b>: back top, CW; angle:180; direction:CW</li><li><b>MAIN4</b>: back bottom, CCW; angle:180; direction:CCW</li><li><b>MAIN5</b>: front left top, CW; angle:-60; direction:CW</li><li><b>MAIN6</b>: front left bottom, CCW;angle:-60; direction:CCW</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: front right top, CW; angle:60; direction:CW</li><li><b>MAIN2</b>: front right bottom, CCW; angle:60; direction:CCW</li><li><b>MAIN3</b>: back top, CW; angle:180; direction:CW</li><li><b>MAIN4</b>: back bottom, CCW; angle:180; direction:CCW</li><li><b>MAIN5</b>: front left top, CW; angle:-60; direction:CW</li><li><b>MAIN6</b>: front left bottom, CCW;angle:-60; direction:CCW</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -164,7 +164,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -173,7 +173,7 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
  <td style="vertical-align: top;">Generic Hexarotor coaxial geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
 
 </tr>
 </tbody></table>
@@ -186,11 +186,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -198,7 +198,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -207,7 +207,7 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
  <td style="vertical-align: top;">Generic Hexarotor x geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p></td>
 
 </tr>
 </tbody></table>
@@ -220,11 +220,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -232,7 +232,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -254,11 +254,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -266,7 +266,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -275,7 +275,7 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
  <td style="vertical-align: top;">Generic Octocopter + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
 
 </tr>
 </tbody></table>
@@ -288,11 +288,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -300,7 +300,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -309,7 +309,7 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10">
  <td style="vertical-align: top;">Generic 10" Octo coaxial geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
 
 </tr>
 </tbody></table>
@@ -322,11 +322,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -334,7 +334,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -343,7 +343,7 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
  <td style="vertical-align: top;">Generic Octocopter X geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
 
 </tr>
 </tbody></table>
@@ -356,11 +356,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -368,7 +368,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -377,7 +377,7 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="copter_quadrotor_+_generic_10">
  <td style="vertical-align: top;">Generic 10" Quad + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
 
 </tr>
 </tbody></table>
@@ -390,11 +390,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -402,7 +402,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -424,11 +424,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -436,7 +436,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -450,7 +450,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -462,16 +462,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -491,7 +491,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -503,16 +503,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
         </ul>
       </p>
@@ -526,7 +526,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -538,16 +538,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -579,16 +579,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -610,7 +610,7 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
@@ -622,7 +622,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -631,7 +631,7 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="copter_quadrotor_asymmetric_spedix_s250aq">
  <td style="vertical-align: top;"><a href="https://docs.px4.io/en/framebuild_multicopter/spedix_s250_pixracer.html">Spedix S250AQ</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4051</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4051</p></td>
 
 </tr>
 </tbody></table>
@@ -645,7 +645,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -659,7 +659,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -671,16 +671,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -689,13 +689,13 @@ This page lists all supported airframes and types including the motor assignment
             <b>MAIN6</b>: feed-through of RC AUX2 channel
           </li>
           <li>
-            <b>AUX1</b>: feed-through of RC AUX1 channel
+            <b>AUX1</b>: RC遥控器的AUX1反馈通道
           </li>
           <li>
-            <b>AUX2</b>: feed-through of RC AUX2 channel
+            <b>AUX2</b>: RC遥控器的AUX2反馈通道
           </li>
           <li>
-            <b>AUX3</b>: feed-through of RC AUX3 channel
+            <b>AUX3</b>: RC遥控器的AUX3反馈通道
           </li>
           <li>
             <b>AUX4</b>: feed-through of RC FLAPS channel
@@ -724,16 +724,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -797,7 +797,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -813,7 +813,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -829,7 +829,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -877,7 +877,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -925,7 +925,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -941,7 +941,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1033,16 +1033,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
         </ul>
       </p>
@@ -1075,7 +1075,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1084,7 +1084,7 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="copter_simulation_(copter)_hil_quadcopter_x">
  <td style="vertical-align: top;">HIL Quadcopter X</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
 
 </tr>
 </tbody></table>
@@ -1097,11 +1097,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Outer servo motor for rotor 2 arm</li><li><b>AUX2</b>: Outer servo motor for rotor 4 arm</li><li><b>AUX3</b>: Inner servo motor for rotor 2 arm</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>AUX1</b>: Outer servo motor for rotor 2 arm</li><li><b>AUX2</b>: Outer servo motor for rotor 4 arm</li><li><b>AUX3</b>: Inner servo motor for rotor 2 arm</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1109,7 +1109,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1131,11 +1131,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1143,7 +1143,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1165,11 +1165,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1177,7 +1177,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1201,11 +1201,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1213,7 +1213,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1287,7 +1287,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1367,7 +1367,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1385,11 +1385,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1397,7 +1397,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1419,11 +1419,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1431,7 +1431,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1453,7 +1453,7 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
@@ -1465,7 +1465,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1474,7 +1474,7 @@ This page lists all supported airframes and types including the motor assignment
 <tbody>
 <tr id="plane_simulation_(plane)_hilstar_(xplane)">
  <td style="vertical-align: top;">HILStar (XPlane)</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1000</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1000</p></td>
 
 </tr>
 </tbody></table>
@@ -1487,11 +1487,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1499,7 +1499,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1513,7 +1513,7 @@ This page lists all supported airframes and types including the motor assignment
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Lorenz Meier <lorenz@px4.io>
+        维护者: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1603,7 +1603,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1723,7 +1723,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -1761,16 +1761,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
           <li>
             <b>AUX1</b>: Aileron 1
@@ -1811,16 +1811,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
           <li>
             <b>AUX1</b>: Aileron 1
@@ -1861,16 +1861,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
           <li>
             <b>AUX1</b>: Right elevon
@@ -1953,16 +1953,16 @@ This page lists all supported airframes and types including the motor assignment
         
         <ul>
           <li>
-            <b>MAIN1</b>: motor 1
+            <b>MAIN1</b>: 电机 1
           </li>
           <li>
-            <b>MAIN2</b>: motor 2
+            <b>MAIN2</b>: 电机 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 电机 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 电机 4
           </li>
           <li>
             <b>MAIN5</b>: Right elevon
@@ -1990,7 +1990,7 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
@@ -2002,7 +2002,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -2024,11 +2024,11 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 4</li><li><b>MAIN4</b>: motor 5</li><li><b>MAIN5</b>: elevon left</li><li><b>MAIN6</b>: elevon right</li><li><b>MAIN7</b>: canard surface</li><li><b>MAIN8</b>: rudder</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: motor 4</li><li><b>MAIN4</b>: motor 5</li><li><b>MAIN5</b>: elevon left</li><li><b>MAIN6</b>: elevon right</li><li><b>MAIN7</b>: canard surface</li><li><b>MAIN8</b>: rudder</li></ul></td>
 </tr>
   </table>
 </div>
@@ -2036,7 +2036,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
@@ -2084,7 +2084,7 @@ This page lists all supported airframes and types including the motor assignment
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
@@ -2096,7 +2096,7 @@ This page lists all supported airframes and types including the motor assignment
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      名称
     </th>
     
     <th>
