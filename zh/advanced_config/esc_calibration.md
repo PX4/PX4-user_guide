@@ -2,42 +2,42 @@
 
 > **Note** 该说明只针对以PWM为输入的电子调速器（ESC）。
 
-Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on the PWM input value from the flight controller (FC). The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
+电子速度控制器 (ESCs) 根据来自飞行控制器 (FC) 的 PWM 输入值调节电机速度 (和方向)。 ESC 响应的输入范围是可配置的, 甚至同一型号的不同 ESC 之间的默认范围也会有所不同。
 
-This calibration updates all the ESCs with the maximum and minimum PWM input values that will be supplied by the flight controller. Subsequently all the ESCs/motors will respond to flight controller input in the same way (across the whole input range).
+此校准将更新所有 ESCs, 其最大和最小 PWM 输入值将由飞行控制器提供。 继而，所有的ECSs将以同样的方式响应飞控的输入(在完整的输入范围内)。
 
-Calibration is recommended for all ESCs, and in particular for low cost models.
+建议同时校准所有的ESCs，特别是对于低成本的模型机。
 
-## Preconditions
+## 操作前提
 
-The system must include a power module (PX4 uses the measured voltage to determine whether or not a battery is connected).
+系统必须包括一个电源模块 (PX4 使用测量过的电压来确定电池是否连接)。
 
-## Steps
+## 步骤
 
-To calibrate the ESCs:
+校准 ESCs:
 
-1. Remove the propellers.
+1. 卸下螺旋桨。
     
     > **Warning** Never attempt ESC calibration with props on.
     > 
     > The motors should not spin during ESC calibration. However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
 
-2. Disconnect the battery and connect the flight controller via USB (only).
+2. 断开电池并 (仅仅) 通过 USB 连接飞行控制器。
 
-3. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
+3. 打开 * QGroundControl * ** Settings > Power**, 然后按 ** Calibrate** 按钮。
     
     ![ESC Calibration step 1](../../images/qgc_esc_calibration.png)
 
-4. Connect the battery when prompted:
+4. 在出现提示时连接电池:
     
     ![ESC Calibration step 2](../../images/esc_calibration_step_2.png)
     
-    The calibration will begin automatically:
+    校准将自动开始:
     
     ![ESC Calibration step 3](../../images/esc_calibration_step_3.png)
 
-5. Once the calibration complete you will be prompted to disconnect the battery.
+5. 校准完成后, 系统将提示您断开电池的连接。
     
     ![ESC Calibration step 4](../../images/esc_calibration_step_4.png)
 
-> **Note** High-quality controllers come with a factory calibration. In *theory* this means that they can be configured by just setting the [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) and [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) parameters to the values provided in the ESC technical specification. In practice the input range may differ even on high quality controllers, which is why calibration is recommended.
+> ** 注意 **高品质的ESC在出厂时就已经被校准过。 *按理说*，这意味着这些ESC可以仅通过设置 [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)，[PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX)参数来进行配置，这些参数在 ESC technical specification 中提供。 实际上，高品质的飞控也存在着不同的输入范围，因此我们推荐再次校准。
