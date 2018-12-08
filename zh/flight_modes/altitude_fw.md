@@ -1,40 +1,40 @@
-# Altitude Mode (Fixed Wing)
+# 高度模式（固定翼）
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
 
-The *Altitude* flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
+*高度模式*使操纵者更容易控制飞机高度，特别是到达并维持一个固定高度。 该模式不会试图抵抗风扰保持航向。
 
-The climb/descent rate is controlled via the pitch/elevator stick. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed.
+爬升/下沉率通过俯仰/升降舵杆操纵杆来控制。 操纵杆一旦回中，自动驾驶仪就会锁定当前的高度，并在偏航/滚转和任何空速条件下保持高度。
 
-The throttle input controls airspeed. Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
+油门通道输入控制空速。 滚动和俯仰是角度控制的（因此不可能实现飞机滚转或环绕）。
 
-When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
+当所有遥控输入都居中时（无滚动、俯仰、偏航，油门约50％），飞机将恢复直线水平飞行（受风影响）并保持其当前高度。
 
-The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)).
+下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)）。
 
-![Altitude Control FW](../../images/flight_modes/altitude_control_mode_fw.png)
+![固定翼高度控制](../../images/flight_modes/altitude_control_mode_fw.png)
 
-## Technical Summary
+## 技术总结
 
-RC/manual mode like Stabilized mode but with altitude stabilization (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind.
+遥控/手动模式，如稳定模式，但具有高度稳定性（杆回中使飞机进入直线和水平飞行并保持当前高度）。 The vehicle course is not maintained, and can drift due to wind.
 
-* Centered Roll/Pitch/Yaw inputs (inside deadband): 
-  * Autopilot levels vehicle/wings and maintains altitude.
-  * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)), increasing or decreasing throttle as needed to climb or descend).
+* 回中的滚动/俯仰/偏航输入（在死区内）： 
+  * 自动驾驶仪使飞机/机翼水平并且维持高度。
+  * 如果空速传感器已连接，油门杆控制飞机速度。 在没有空速传感器的情况下，用户无法控制油门（在这种情况下，飞机将在巡航油门下([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)) 水平飞行，根据需要增加或减少油门以上升或下降。
 * Outside center: 
   * Pitch stick controls altitude.
-  * Throttle stick controls the airspeed of the aircraft (as for centred Roll/Pitch/Yaw inputs).
-  * Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight). This is same as in [Stabilized mode](#stabilized_fw).
-  * aw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)). This is same as in [Stabilized mode](#stabilized_fw).
+  * 油门杆控制飞机的空速（滚动/俯仰/偏航输入回中）。
+  * Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight). 这和[稳定模式](#stabilized_fw)一样。
+  * 偏航杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持[协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)）。 这和[稳定模式](#stabilized_fw)一样。
 
-> **Note** * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink). * The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
+> **注** *可能需要手动输入（遥控器，或通过MAVLink连接的游戏手柄/拇指杆）。 *海拔高度通常使用气压计测量，在极端天气条件下可能会变得不准确。 带有激光雷达/距离传感器的飞机将能够以更高的可靠性和准确性控制高度。
 
-## Parameters
+## 参数
 
-The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
+该模式受以下参数影响：<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
 
 <td>
-  Max pitch for manual control in attitude stabilized mode. Default: 45 degrees.
+  在高度稳定模式下手动控制的最大俯仰角。 默认：45度
 </td></tr> 
 
 <tr>
@@ -42,7 +42,7 @@ The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href
     <span id="FW_MAN_R_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_R_MAX">FW_MAN_R_MAX</a></td> 
     
     <td>
-      Max roll for manual control in attitude stabilized mode. Default: 45 degrees.
+      在高度稳定模式下手动控制的最大滚转角。 默认：45度
     </td></tr> 
     
     <tr>
@@ -50,7 +50,7 @@ The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href
         <span id="FW_L1_CONTROL"><a href="../advanced_config/parameter_reference.md#fw-l1-control">FW L1 Control</a></td> 
         
         <td>
-          The roll/yaw needed to maintain the commanded altitude and airspeed are also affected by the FW L1 Control parameters.
+          维持指令高度和空速所需的滚转/偏航角也受固定翼L1控制参数的影响。
         </td></tr> </tbody> </table> 
         
         <!-- 
