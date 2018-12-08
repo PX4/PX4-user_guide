@@ -40,7 +40,7 @@ Multicopter:
 
 ## Key
 
-The icons below are used within the document:<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a></td> 
+The icons below are used within the document:<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a></td> 
 
 <td>
   Manual mode. Remote control required.
@@ -85,11 +85,11 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </h2>
             
             <h3 id="position_mc">
-              Position Mode
+              Position 모드
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -111,7 +111,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" /></a>
             </p>
             
             <p>
@@ -137,11 +137,11 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;
             </p>
             
             <p>
-              The <a href="../flight_modes/manual_stabilized_mc.md">Manual/Stabilized</a> mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
+              The <a href="../flight_modes/manual_stabilized_mc.md">Manual/Stabilized</a> mode stabilizes the multicopter when the RC control sticks are centred. 차량을 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 움직입니다.
             </p>
             
             <blockquote>
@@ -155,11 +155,11 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              As soon as you release the control sticks they will return to the centre deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately, and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+              컨트롤 스틱을 놓으면 센터 데드 존으로 돌아갑니다. 롤 포크와 피치 스틱이 중앙에 오면 멀티 피터가 수평을 유지하고 정지합니다. 차량은 적절하게 균형을 잡고, 스로틀이 적절하게 설정되고 외력이 가해지지 않으면 (예 : 바람), 고도에 유지되거나 유지됩니다. 항공기는 바람의 방향으로 표류하고 고도를 유지하기 위해 스로틀을 제어해야합니다.
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_stabilized_MC.png" alt="MC Manual Flight" />
+              <img src="../../images/flight_modes/manual_stabilized_MC.png" alt="MC 수동 비행" />
             </p>
             
             <h3 id="rattitude_mc">
@@ -167,7 +167,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;
             </p>
             
             <p>
@@ -185,7 +185,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;
             </p>
             
             <p>
@@ -193,7 +193,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+              롤, 피치 및 요 스틱은 각 축을 중심으로 한 각도 회전 속도를 제어하고 조절판은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 놓여지면 차량은 회전을 멈추지만 현재 방향 (측면, 반전 등) 과 현재 모멘텀에 따라 움직입니다.
             </p>
             
             <p>
@@ -203,7 +203,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
             
             <h3 id="hold_mc">
-              Hold Mode
+              보류 모드
             </h3>
             
             <p>
@@ -227,7 +227,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <h3 id="mission_mc">
-              Mission Mode
+              미션 모드
             </h3>
             
             <p>
@@ -245,7 +245,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </blockquote>
             
             <h3 id="takeoff_mc">
-              Takeoff Mode
+              이륙 모드
             </h3>
             
             <p>
@@ -303,11 +303,11 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </h2>
             
             <h3 id="position_fw">
-              Position Mode
+              Position 모드
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -333,7 +333,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Barometer, Rangefinder)" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Barometer, Rangefinder)" width="30px" /></a>
             </p>
             
             <p>
@@ -363,7 +363,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;
             </p>
             
             <p>
@@ -393,7 +393,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;
             </p>
             
             <p>
@@ -401,11 +401,11 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
+              롤, 피치 및 요 스틱은 각 축을 중심으로 한 각도 회전 속도를 제어하고 조절판은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 놓여지면 차량은 회전을 멈추지만 현재 방향 (측면, 반전 등) 과 현재 모멘텀에 따라 움직입니다.
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_acrobatic_FW.png" alt="FW Manual Acrobatic Flight" />
+              <img src="../../images/flight_modes/manual_acrobatic_FW.png" alt="FW 수동 곡예 비행" />
             </p>
             
             <h3 id="manual_fw">
@@ -413,7 +413,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" /></a>&nbsp;
             </p>
             
             <p>
@@ -435,101 +435,99 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             
             <blockquote>
               <p>
-                <strong>Note</strong> This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
-              </p>
-            </blockquote>
-            
-            <h3 id="hold_fw">
-              Hold Mode
-            </h3>
-            
-            <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
-            </p>
-            
-            <p>
-              <a href="../flight_modes/hold.md">Hold</a> causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
-            </p>
-            
-            <h3 id="return_fw">
-              Return Mode
-            </h3>
-            
-            <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
-            </p>
-            
-            <p>
-              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly back to its home position (at a safe height) and circle over it. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
-            </p>
-            
-            <h3 id="mission_fw">
-              Mission Mode
-            </h3>
-            
-            <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
-            </p>
-            
-            <p>
-              <a href="../flight_modes/mission.md">Mission mode</a> causes the vehicle to execute a predefined autonomous <a href="../flying/missions.md">mission</a> (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
-            </p>
-            
-            <blockquote>
-              <p>
-                <strong>Tip</strong> The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
-              </p>
-            </blockquote>
-            
-            <h3 id="takeoff_fw">
-              Takeoff Mode
-            </h3>
-            
-            <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;
-            </p>
-            
-            <p>
-              <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff</a> mode initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
-            </p>
-            
-            <h3 id="land_fw">
-              Land Mode
-            </h3>
-            
-            <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;
-            </p>
-            
-            <p>
-              <a href="../flight_modes/land.md">Land mode</a> causes the vehicle to turn and land at the location at which the mode was engaged. Fixed wing landing logic and parameters are explained in the topic: <a href="../flying/fixed_wing_landing.md">Landing (Fixed Wing)</a>.
-            </p>
-            
-            <h2>
-              Vertical Take Off and Landing (VTOL)
-            </h2>
-            
-            <p>
-              A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
-            </p>
-            
-            <p>
-              Generally the flight modes for VTOL vehicles are the same as for <a href="#mc_flight_modes">multicopter</a> when flying in MC mode and <a href="#fw_flight_modes">fixed-wing</a> when flying in FW mode.
-            </p>
-            
-            <p>
-              The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
-            </p>
-            
-            <h2>
-              Further Information
-            </h2>
-            
-            <ul>
-              <li>
-                <a href="../flight_modes/README.md">Flying > Flight Modes</a> - Detailed technical explanation of all modes
-              </li>
-              <li>
-                <a href="../config/flight_mode.md">Basic Configuration > Flight Modes</a> - How to map RC control switches to specific flight modes
-              </li>
-            </ul>
+                <strong> 주/0> 이 모드는 FMU를 재정의하는 유일한 모드입니다(명령은 안전 코프로세서를 통해 전송됩니다). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.</p> </blockquote> 
+                
+                <h3 id="hold_fw">
+                  보류 모드
+                </h3>
+                
+                <p>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                </p>
+                
+                <p>
+                  <a href="../flight_modes/hold.md">Hold</a> causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
+                </p>
+                
+                <h3 id="return_fw">
+                  Return Mode
+                </h3>
+                
+                <p>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                </p>
+                
+                <p>
+                  <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly back to its home position (at a safe height) and circle over it. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
+                </p>
+                
+                <h3 id="mission_fw">
+                  미션 모드
+                </h3>
+                
+                <p>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+                </p>
+                
+                <p>
+                  <a href="../flight_modes/mission.md">Mission mode</a> causes the vehicle to execute a predefined autonomous <a href="../flying/missions.md">mission</a> (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+                </p>
+                
+                <blockquote>
+                  <p>
+                    <strong>Tip</strong> The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
+                  </p>
+                </blockquote>
+                
+                <h3 id="takeoff_fw">
+                  이륙 모드
+                </h3>
+                
+                <p>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;
+                </p>
+                
+                <p>
+                  <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff</a> mode initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
+                </p>
+                
+                <h3 id="land_fw">
+                  Land Mode
+                </h3>
+                
+                <p>
+                  <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;
+                </p>
+                
+                <p>
+                  <a href="../flight_modes/land.md">Land mode</a> causes the vehicle to turn and land at the location at which the mode was engaged. 고정 날개 착륙 논리 및 매개변수는 다음 항목에서 설명합니다.
+                </p>
+                
+                <h2>
+                  Vertical Take Off and Landing (VTOL)
+                </h2>
+                
+                <p>
+                  A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
+                </p>
+                
+                <p>
+                  Generally the flight modes for VTOL vehicles are the same as for <a href="#mc_flight_modes">multicopter</a> when flying in MC mode and <a href="#fw_flight_modes">fixed-wing</a> when flying in FW mode.
+                </p>
+                
+                <p>
+                  The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
+                </p>
+                
+                <h2>
+                  추가 정보
+                </h2>
+                
+                <ul>
+                  <li>
+                    <a href="../flight_modes/README.md">Flying > Flight Modes</a> - Detailed technical explanation of all modes
+                  </li>
+                  <li>
+                    <a href="../config/flight_mode.md">Basic Configuration > Flight Modes</a> - How to map RC control switches to specific flight modes
+                  </li>
+                </ul>
