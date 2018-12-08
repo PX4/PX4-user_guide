@@ -1,7 +1,7 @@
-# Advanced Configuration
+# 高级设置
 
 This section contains advanced configuration topics, covering vehicle-specific tuning, and less-common sensors and peripherals.
 
-> **Tip** The topics are useful if you are creating a new airframe type or significantly modifying a supported frame. Generally if you're using a [supported airframe](../airframes/airframe_reference.md#copter) (e.g. from [QGroundControl > Airframe](../config/airframe.md)) the default tuning and configuration should be acceptable.
+> ** 提示 **如果要创建新的机架类型或大幅度修改已支持的机架, 这些主题将非常有用。 通常, 如果您使用的是 [ 已支持的机型 ](../airframes/airframe_reference.md#copter) (例如, [ QGroundControl ](../config/airframe.md) 中的机架), 则默认的参数和设置应足以安全地飞行。
 
-For the standard configuration appropriate to every vehicle see: [Basic Configuration](../config/README.md).
+对于每个无人机机型的标准配置, 请参阅: [ 基本配置 (Basic Configuration)](../config/README.md)。
