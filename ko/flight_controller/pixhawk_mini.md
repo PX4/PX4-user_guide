@@ -1,6 +1,6 @@
 ---
 Date: 2017-03-01 07:06
-Status: draft
+Status: 초안
 ---
 # Pixhawk Mini Overview
 
