@@ -4,7 +4,7 @@
 
 ![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5.jpg)
 
-## Quick Summary
+## 빠른 요약
 
 * Main FMU Processor: STM32F765 
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
@@ -18,7 +18,7 @@
   * Magnetometer: IST8310
   * Barometer: MS5611
 
-* Interfaces:
+* 인터페이스:
   
   * 8-14 PWM outputs (6 from IO, 8 from FMU)
   * 3 dedicated PWM/Capture inputs on FMU
@@ -31,11 +31,11 @@
   * 4 SPI buses
   * 2 CANBuses with serial ESC
   * Analog inputs for voltage / current of 2 batteries
-* Power System: 
+* 전원 시스템 : 
   * Power: 4.3~5.4V
   * USB Input: 4.75~5.25V
   * Servo Rail Input: 0~36V
-* Weight and Dimensions: 
+* 무게와 크기 : 
   * Weight: 90g
   * Dimensions: 44x84x12mm
 * Other Characteristics: 
@@ -90,7 +90,7 @@ The pinout is as shown.
 | 5   | UART7_TX         |
 | 6   | VCC              |
 
-## Peripherals
+## 주변 장치
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
 * [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
@@ -98,7 +98,7 @@ The pinout is as shown.
 
 ## Supported Platforms / Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. 지원되는 구성의 전체 세트는 [항공프레임 참조 문헌](../airframes/airframe_reference.md)에서 확인할 수 있습니다.
 
 ## Further info
 
