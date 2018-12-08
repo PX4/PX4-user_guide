@@ -21,7 +21,7 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) and the
 
 > **Note** Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
 
-## Hardware setup
+## 하드웨어설정 
 
 ### Rover RTK Module (Vehicle)
 
