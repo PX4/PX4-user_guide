@@ -1,3 +1,3 @@
-# Peripherals
+# 주변 장치
 
-This section contains topics related to external sensors and other optional peripheral hardware that you can use with PX4.
+이 섹션에는 PX4에서 사용할 수있는 외부 센서 및 기타 주변 장치 하드웨어와 관련된 항목이 포함되어 있습니다.
