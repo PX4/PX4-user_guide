@@ -1,32 +1,34 @@
-# AirSpeed Calibration
+# 공기 속도 보정
 
-The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset. Cup your hands over the pitot to block any wind (if calibrating the sensor indoors this is not needed) and then blow into the tube using your mouth (to signal completion of the calibration).
+오프셋을 결정하려면 속도 보정이 0의 안정적인 기준을 읽어야 합니다. 바람(실내 센서를 보정할 필요는 없음)을 막기 위해 피토 위에 손을 얹은 다음 입을 사용하여 튜브를 불어 보정 완료 신호를 보냅니다.
 
-> **Note** Fixed Wing and VTOL vehicles usually have an airspeed sensor.
+> ** 노트 ** 고정 윙 및 VTOL 차량에는 대개 속도 센서가 있습니다.
 
-## Performing the Calibration
+## 보정 수행
 
-To calibrate the airspeed sensor:
+속도 센서를 보정하려면:
 
-1. Start *QGroundControl* and connect the vehicle.
-2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
-3. Click the **Airspeed** sensor button.
+1. *QGroundControl *을 시작하고 차량을 연결합니다.
+2. 상단 툴바에서 ** 기어 </ 0> 아이콘 (차량 설정) 을 선택한 다음 사이드 바에서 ** 센서 </ 0>를 선택하십시오.</li> 
     
-    ![Airspeed calibration](../../images/qgc/setup/sensor_airspeed.jpg)
-
-4. Shield the sensor from the wind (i.e. cup it with your hand). Take care not to block any of its holes.
-
-5. Click **OK** to start the calibration.
-6. Blow into the tip of the pitot tube to signal the end of calibration.
+    * AirSpeed Calibration(공기 속도 보정) </strong> 센서 버튼을 클릭합니다.
+        
+        ![공기 속도 보정](../../images/qgc/setup/sensor_airspeed.jpg)
     
-    > **Tip** Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
-
-7. Wait for 2-3 seconds before removing the covering (calibration completes silently after several seconds)
-
-## Testing
-
-After calibration a quick test is to press your finger against the tip of the pitot and hold it. You should see the system read and hold a positive airspeed until you release.
-
-## Further Information
-
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#airspeed)
+    * 센서를 바람으로부터 보호한다(즉, 손으로 컵으로 감는다). 구멍이 막히지 않도록 주의하십시오.
+    
+    * 보정을 시작하려면 ** 확인 </ 0>을 클릭하십시오.</li> 
+        
+        * 피토 튜브 끝을 불어 보정이 종료되었음을 나타냅니다.
+            
+            > ** Tip** Tip </0> Tube 안으로 불어 넣는 것도 동적 및 정적 포트가 올바르게 장착되었는지 확인하는 기본적인 점검입니다. 센서가 교환되면 튜브에 바람을 불어넣을 때 센서가 큰 음의 차압을 판독하고 오류가 발생하여 보정이 중단됩니다.
+        
+        * 덮개를 제거하기 전에 2-3초간 기다립니다(몇 초 후 보정이 자동으로 완료됨).</ol> 
+        
+        ## 시험
+        
+        보정 후 빠른 테스트는 손가락을 피토 끝에 대고 잡는 것입니다. 시스템이 판독된 후 해제될 때까지 양의 비행 속도를 유지해야 합니다.
+        
+        ## 추가 정보
+        
+        * [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#airspeed)
