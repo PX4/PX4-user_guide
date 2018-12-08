@@ -22,7 +22,7 @@ The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixrace
 - S.BUS / Spektrum / SUMD / PPM input
 - JST GH user-friendly connectors: same connectors and pinouts as Pixracer
 
-## Building Firmware
+## 编译固件
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
