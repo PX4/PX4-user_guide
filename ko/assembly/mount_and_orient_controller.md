@@ -1,23 +1,23 @@
 ---
 Author: HamishWillee
-Status: draft
+Status: 초안
 ---
 # Mounting the Flight Controller
 
-## Orientation
+## 정위
 
-Almost all Flight Controllers have a *heading mark arrow* (shown below). The controller should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle (on all aircraft frames - airplane, multirotor, VTOL, ground vehicles etc.)
+거의 모든 비행 관제사에는 아래에 표시된 표제 표식 화살이 있습니다. 컨트롤러는 화살표가 차량 정면을 향하도록 (비행기, 멀티 로터, VTOL, 지상 차량 등 모든 항공기 프레임에서) 프레임 윗면이 위로 향하도록 놓아야합니다.
 
-![FC Heading Mark](../../images/fc_heading_mark_1.png)
+![FC 표제 표](../../images/fc_heading_mark_1.png)
 
-![FC Orientation](../../images/fc_orientation_1.png)
+![FC 오리엔테이션](../../images/fc_orientation_1.png)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to physical constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+> 참고 제어기를 권장 / 기본 방향 (예 : 물리적 제약으로 인해)으로 장착 할 수없는 경우 자동 조종 소프트웨어를 실제로 사용한 방향 (비행 컨트롤러 방향)으로 구성해야합니다.
 
-## Vibration damping
+## 진동 댐핑
 
-Flight Control boards with in-built accelerometers are sensitive to vibrations. Some boards include in-built vibration-damping, while in other cases the boards come with vibration damping foam that you can use to isolate the controller from the vehicle.
+내장 된 가속도계가있는 비행 제어 보드는 진동에 민감합니다. 일부 보드에는 내장 진동 제동 장치가 포함되어 있고, 다른 보드에는 진동 감쇠 폼이있어 보드를 컨트롤러에서 분리 할 수 ​​있습니다. 
 
-![Pixhawk Mounting foam](../../images/3dr_anti_vibration_mounting_foam.png) - Pixhawk vibration damping foam
+![Pixhawk 장착 폼](../../images/3dr_anti_vibration_mounting_foam.png) - Pixhawk 진동 댐핑 폼
 
-You should use the vibration damping/mounting strategy recommended in your flight controller documentation.
+비행 컨트롤러 설명서에서 권장하는 진동 감쇠 / 장착 전략을 사용해야합니다.
