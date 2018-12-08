@@ -1,6 +1,6 @@
 # RAttitude Mode (Multicopter)
 
-[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
 *Rattitude mode* allows pilots to fly using [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) flight most of the time, but still perform [Acro mode](../flight_modes/acro_mc.md)-style flips and tricks when desired.
 
@@ -8,7 +8,7 @@ The vehicle behaves as in *Manual/Stabilized mode* when the Roll/Pitch stick is 
 
 <!-- Image missing: https://github.com/PX4/px4_user_guide/issues/189 -->
 
-## Technical Description
+## 技术描述
 
 RC mode that allows pilots to fly using [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) flight most of the time, but still perform [Acro mode](../flight_modes/acro_mc.md)-style flips and tricks when desired. Centered sticks level vehicle.
 
@@ -17,7 +17,7 @@ RC mode that allows pilots to fly using [Manual/Stabilized](../flight_modes/manu
 * Sticks outside threshold (like *Acro mode*): 
   * RPY stick inputs control the rate of angular rotation around the respective axes.
 
-## Parameters
+## 参数
 
 | Parameter                                                                                     | Description                                                                                                                                         |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
