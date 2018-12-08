@@ -80,8 +80,8 @@ The outputs of Pixhawk should be wired like this (orientation as seen like "sitt
 | MAIN 2 | Back left motor, CCW   |
 | MAIN 3 | Front left motor, CW   |
 | MAIN 4 | Back right motor, CW   |
-| AUX 1  | Left aileron           |
-| AUX 2  | Right aileron          |
+| AUX 1  | 에일러온                   |
+| AUX 2  | 우로 아일론                 |
 | AUX 3  | Elevator               |
 | AUX 4  | Rudder                 |
 | AUX 5  | Throttle               |
@@ -96,7 +96,7 @@ Configure the frame as shown in QGroundControl below (do not forget to click **A
 
 ![QGC - select firmware for standard VTOL](../../images/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
-## Support
+## 지원
 
 If you have any questions regarding your VTOL conversion or configuration please visit <http://discuss.px4.io/c/vtol>.
 
