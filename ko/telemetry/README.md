@@ -1,15 +1,15 @@
-# Telemetry Radios/Modems
+# 원격측정 라디오 / 모뎀
 
-Telemetry Radios can (optionally) be used to provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+원격 무선 장치는 (임의로) QGroundControl 같은 지상 제어 국과 차량 주행 PX4 MAVLink 간의 무선 접속을 제공하는데 사용될 수있다. 이를 통해 차량이 비행 중일 때 매개 변수를 조정하고, 실시간으로 원격 측정을 검사하고, 비행 중 임무를 변경하는 등의 작업을 수행 할 수 있습니다.
 
-PX4 supports a number of types of telemetry radios:
+PX4는 원격 라디오의 형태를 지원한다 :
 
-* [SiK Radio](../telemetry/sik_radio.md) based firmware (more generally, any radio with a UART interface should work). 
-  * [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
-  * [HKPilot (SIK) Telemetry Radio](../telemetry/hkpilot_sik_radio.md)
-  * [HolyBro (SIK) Telemetry Radio](../telemetry/holybro_sik_radio.md)
-* [Telemetry Wifi](../telemetry/telemetry_wifi.md)
+* [SiK 라디오](../telemetry/sik_radio.md) 기반 펌웨어 (더 일반적으로 UART 인터페이스가있는 모든 라디오가 작동해야 함). 
+  * [RFD900 원격측정 라디오](../telemetry/rfd900_telemetry.md)
+  * [HKPilot (SIK) 원격측정 라디오](../telemetry/hkpilot_sik_radio.md)
+  * [HolyBro (SIK) 원격측정 라디오](../telemetry/holybro_sik_radio.md)
+* [원격측정 Wi-fi](../telemetry/telemetry_wifi.md)
 
-PX4 is protocol compatible with [SiK Radio](../telemetry/sik_radio.md) and will generally work out of the box (though you may need to change/use an appropriate connector).
+PX4는 SiK Radio와 호환되는 프로토콜이며 일반적으로 상자에서 작동합니다 (적절한 커넥터를 변경 / 사용해야 할 수도 있음).
 
-WiFi telemetry typically has shorter range, higher data rates, and makes it easier to support FPV/video feeds. One benefit of WiFi radios is that you only need to purchase a single radio unit for your vehicle (assuming the ground station already has WiFi).
+WiFi 원격 측정은 일반적으로 범위가 짧고 데이터 속도가 빠르며 FPV / 비디오 피드를보다 쉽게 지원할 수 있습니다. WiFi 무선의 한 가지 이점은 차량에 단일 무선 장치 만 구입하면됩니다 (지상국에 이미 WiFi가 있다고 가정).
