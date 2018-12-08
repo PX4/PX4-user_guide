@@ -8,9 +8,9 @@ The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight contro
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
-## Quick Summary
+## 빠른 요약
 
-* Microprocessor: 
+* 마이크로 프로세서: 
   * STM32F427
   * STM32F100 (Failsafe co-processor)
 * Sensors: 
@@ -18,7 +18,7 @@ The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight contro
   * Gyroscopes (3): L3GD20, MPU6000, MPU9250
   * Compass (2): LS303D, MPU9250
   * Barometer (2): MS5611 X2
-* Interfaces: 
+* 인터페이스: 
   * MAVLink UART (2)
   * GPS UART (2)
   * DEBUG UART (1)
@@ -28,10 +28,10 @@ The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight contro
   * CAN BUS (1)
   * ADC IN: 3.3V X1 , 6.6V X1
   * PWM OUT: 8 PWM IO + 4 IO
-* Power System: 
+* 전원 시스템 : 
   * PM POWER IN: 4.5 ~ 5.5 V
   * USB POWER IN: 5.0 V +- 0.25v
-* Weight and Dimensions: 
+* 무게와 크기 : 
   * Weight: 63g
   * Width: 68mm
   * Thickness: 17mm
