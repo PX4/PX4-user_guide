@@ -1,64 +1,64 @@
-# Advanced Flight Controller Orientation Tuning
+# 飞行控制器的朝向的高级调参
 
-The orientation and horizon level may be fine-tuned manually with parameters to correct for sensor board small misalignment or minor calibration errors.
+可以通过手动调参来修正无人机的方向和地平线水准，以校正传感器芯片存在的微小不对准或校准误差。
 
-> **Note** These instructions are not recommended for regular users. For basic settings stick to the instructions linked below:
+> **Note** 不建议普通用户使用该教程.  对于基本设置，请遵循下面链接的说明：
 
-- [Flight Controller Orientation](../config/flight_controller_orientation.md)
-- [Level Horizon Calibration](../config/level_horizon_calibration.md) 
+- [飞行控制器方向](../config/flight_controller_orientation.md)
+- [水平平面校准](../config/level_horizon_calibration.md) 
 
-If there is a persistent drift bias (often seen in multirotors but not limited to them), it is a good strategy to trim it with the help of this fine-tuning offset angle parameters instead of using the trimmers of your RC Transmitter. This way when in fully autonomous flight the aircraft will maintain the trimming.
+如果存在持续的漂移偏差(通常存在于多旋翼中，但不仅限于多旋翼)，一个比较好的方法是可以通过微调偏移角度参数的帮助，去除该偏差，而不是使用RC发射器的修整器。 这样，当完全自主飞行时，飞机将保持去除漂移偏差。
 
-## Setting Orientation Parameters
+## 方向参数设置
 
-To change the orientation parameters:
+为了更改方向参数：
 
-1. Open QGroundControl menu: **Settings > Parameters > Sensor Calibration**.
-2. Change the parameters as shown below: ![FC Orientation QGC v2](../../images/fc_orientation_qgc_v2.png)
+1. 打开 QGroundControl 菜单: **Settings > Parameters > Sensor Calibration**.
+2. 更改以下参数： ![FC Orientation QGC v2](../../images/fc_orientation_qgc_v2.png)
 
-## Parameter information
+## 参数信息
 
-The **SENS_BOARD_ROT** parameter defines the rotation relative to the platform, while the X,Y and Z fine tuning offsets are fixed relative to the board itself. What happens is that the fine tuning offsets are added to the SENS_BOARD_ROT angle in order to get the total offset angles for the Yaw, Pitch and Roll orientation of the flight controller.
+参数**SENS_BOARD_ROT** 定义了相对于平台platform的旋转，而X，Y和Z微调偏移量相对于电路板本身是固定的。 实质上是微调的偏移量被添加到了 SENS_BOARD_ROT 角度中， 为了获得飞行控制器的偏航，俯仰和滚转方向的总偏移角度。
 
 **SENS_BOARD_ROT**
 
-This parameter defines the rotation of the FMU board relative to the platform. Possible values are:
+该参数定义了FMU飞控板相对于飞机平台的旋转角。 可能的值有：
 
-- 0 = No rotation
-- 1 = Yaw 45°
-- 2 = Yaw 90°
-- 3 = Yaw 135°
-- 4 = Yaw 180°
-- 5 = Yaw 225°
-- 6 = Yaw 270°
-- 7 = Yaw 315°
-- 8 = Roll 180°
-- 9 = Roll 180°, Yaw 45°
-- 10 = Roll 180°, Yaw 90°
-- 11 = Roll 180°, Yaw 135°
-- 12 = Pitch 180°
-- 13 = Roll 180°, Yaw 225°
-- 14 = Roll 180°, Yaw 270°
-- 15 = Roll 180°, Yaw 315°
-- 16 = Roll 90°
-- 17 = Roll 90°, Yaw 45°
-- 18 = Roll 90°, Yaw 90°
-- 19 = Roll 90°, Yaw 135°
-- 20 = Roll 270°
-- 21 = Roll 270°, Yaw 45°
-- 22 = Roll 270°, Yaw 90°
-- 23 = Roll 270°, Yaw 135°
-- 24 = Pitch 90°
-- 25 = Pitch 270°
+- 0 = 无旋转
+- 1 = 偏航 45°
+- 2 = 偏航 90°
+- 3 = 偏航 135°
+- 4 = 偏航 180°
+- 5 = 偏航 225°
+- 6 = 偏航 270°
+- 7 = 偏航 315°
+- 8 = 滚转 180°
+- 9 = 滚转 180°, 偏航 45°
+- 10 = 滚转 180°, 偏航 90°
+- 10 = 滚转 180°, 偏航 135°
+- 12 = 俯仰 180°
+- 13 = 滚转 180°, 偏航 225°
+- 14 = 滚转 180°, 偏航 270°
+- 14 = 滚转 180°, 偏航 315°
+- 16 = 滚转 90°
+- 9 = 滚转 90°, 偏航 45°
+- 18 = 滚转 90°, 偏航 90°
+- 19 = 滚转 90°, 偏航 135°
+- 20 = 滚转 270°
+- 21 = 滚转 270°, 偏航 45°
+- 22 = 滚转 270°, 偏航 90°
+- 23 = 滚转 270°, 偏航 135°
+- 24 = 俯仰 90°
+- 25 = 俯仰角 270°
 
 **SENS_BOARD_X_OFF**
 
-Rotation, in degrees, around PX4FMU's X axis or Roll axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+以PX4的FMU的x坐标轴或Z坐标轴（翻滚轴）以度为单位做旋转 角度的正值增加CCW方向，角度的负值增加CW方向
 
 **SENS_BOARD_Y_OFF**
 
-Rotation, in degrees, around PX4FMU's Y axis or Pitch axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+以PX4的FMU的x坐标轴或Z坐标轴（翻滚轴）以度为单位做旋转 角度的正值增加CCW方向，角度的负值增加CW方向
 
 **SENS_BOARD_Z_OFF**
 
-Rotation, in degrees, around PX4FMU's Z axis Yaw axis. Positive angles increase in CCW direction, negative angles increase in CW direction.
+以PX4的FMU的x坐标轴或Z坐标轴（翻滚轴）以度为单位做旋转 角度的正值增加CCW方向，角度的负值增加CW方向
