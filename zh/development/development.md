@@ -1,5 +1,5 @@
-# PX4 Development
+# PX4 开发
 
-This user guide has everything you need to fly, assemble and configure a vehicle that uses one of the *many supported* airframes, flight controllers and peripherals.
+本用户指南包含你飞行，组装和配置使用一个*许多支持的*飞行器机身，飞行控制器和外围设备所需的一切。
 
-Developers who want to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, or contribute to PX4 will need to read the [PX4 Development Guide](http://dev.px4.io/).
+希望修改飞行算法、添加新模式、集成新硬件、从飞行控制器外部 PX4 通信，或者希望为px4贡献的开发人员需要阅读 [ PX4 开发指南 ](http://dev.px4.io/) 。
