@@ -10,7 +10,7 @@
 
 您可以通过设置参数：[SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)，以便在下次重新启动时启动 bootloader 更新。
 
-要更新引导加载程序，请执行以下操作：
+要更新bootloader，请执行以下操作：
 
 1. 插入 SD 卡（启用引导日志记录，便于调试任何可能的问题。）
 2. [更新固件](../config/firmware.md) 至PX4 *master* 版本（当更新固件时，查看 **高级设置** 并从下拉列表选择**Developer Build (master)** ）。 *QGroundControl* 会自动识别到硬件支持 FMUv2，并安装相应的固件。
