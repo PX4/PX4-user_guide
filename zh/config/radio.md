@@ -117,7 +117,7 @@ To map a PARAM tuning channel to a parameter:
 
 > **Tip** You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the *Parameters* screen.
 
-## Further Information
+## 更多信息：
 
 * [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
 * [PX4 Setup Video - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
