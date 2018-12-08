@@ -1,3 +1,3 @@
-# VTOL Configuration
+# VTOL 구성
 
-This section contains topics related to VTOL configuration and tuning.
+이 절에는 VTOL 구성 및 조정과 관련된 항목이 포함되어 있습니다.
