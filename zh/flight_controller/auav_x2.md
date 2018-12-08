@@ -1,6 +1,6 @@
-# AUAV-X2 Autopilot (Discontinued)
+# AUAV-X2 自动驾驶仪 (停产)
 
-> **Warning** This board has been discontinued and is no longer commercially available.
+> **Warning** 这个板子已经停产, 不再有商业用途。
 
 The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
