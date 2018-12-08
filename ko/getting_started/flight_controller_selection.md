@@ -21,7 +21,7 @@ The controller has internal vibration damping and only 8 main outputs (**no AUX 
 | [Pixhawk 2](../flight_controller/pixhawk-2.md)       | Flexible autopilot intended primarily for manufacturers of commercial systems. It is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.                                                                                                  |
 | [Pixhawk 4](../flight_controller/pixhawk4.md)        | Pixhawk 4 is optimized to run PX4 version 1.7 and is suitable for academic and commercial developers. It features more computing power and 2X the RAM than previous versions, additional ports for better integration and expansion, new sensors and integrated vibration isolation.                                     |
 
-## Autopilots for computationally intensive tasks
+## 계산 집약적 인 작업을위한 자동 파일럿
 
 These flight controllers offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
 
@@ -35,7 +35,7 @@ These flight controllers offer on-vehicle "companion computing", enabling comput
 
 PX4 has been ported to a number of popular commercial drone products, as listed below. This allows you to add mission planning and other PX Flight modes to your vehicle.
 
-| Controller                                          | Description                                |
-| --------------------------------------------------- | ------------------------------------------ |
-| [Crazyflie 2.0](../flight_controller/crazyflie2.md) | A micro quad (27g) created by Bitcraze AB. |
-| [Parrot Bebop](../flight_controller/bebop.md)       | A popular lightweight flying camera.       |
+| Controller                                       | Description                                |
+| ------------------------------------------------ | ------------------------------------------ |
+| [크레이지플리 2.0](../flight_controller/crazyflie2.md) | A micro quad (27g) created by Bitcraze AB. |
+| [Parrot Bebop](../flight_controller/bebop.md)    | A popular lightweight flying camera.       |
