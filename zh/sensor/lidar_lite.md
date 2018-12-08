@@ -12,7 +12,7 @@ LIDAR-Lite is a compact, high-performance optical distant measurement sensor sol
 
 The Lidar-Lite (v2, v3) pinout is shown below.
 
-| Pin | Name                | Description                                                                                                                           |
+| Pin | 名称                  | Description                                                                                                                           |
 | --- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | POWER_IN            | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                                                    |
 | 2   | POWER_EN            | Active high, enables operation of the 3.3V micro-controller regulator. Low puts board to sleep, draws <40 μA. (Internal 100K pull-up) |
@@ -62,6 +62,6 @@ The rangefinder/port is enabled using [SENS_EN_LL40LS](../advanced_config/parame
 
 > **Tip** The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`drivers/ll40ls`) to the board configuration.
 
-## Further Information
+## 更多信息：
 
 * [LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf](http://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) (Garmin)
