@@ -217,7 +217,7 @@ The safety switches may be enabled as part of *QGroundControl* [Flight Mode Setu
 
 This section lists the available safety switches.
 
-### Kill Switch {#kill_switch}
+### 킬스위치 {#kill_switch}
 
 A kill switch immediately stops all motor outputs (if flying the vehicle will start to fall). The vehicle is not disarmed, and the motors will restart if the switch is reverted.
 
@@ -247,6 +247,6 @@ For modes that do not support disarming in flight, the switch is ignored during 
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
 
-## Further Information
+## 추가 정보
 
 * [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
