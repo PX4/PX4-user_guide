@@ -6,7 +6,7 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
 
 <img src="../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png" width="350px" title="Pixhawk 4 Mini Iso" />
 
-## Quick Summary
+## 빠른 요약
 
 * Main FMU Processor: STM32F765 
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
@@ -16,7 +16,7 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
   * Magnetometer: IST8310
   * Barometer: MS5611
 * GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
-* Interfaces: 
+* 인터페이스: 
   * 8 PWM outputs
   * 4 dedicated PWM/Capture inputs on FMU
   * Dedicated R/C input for CPPM
@@ -27,12 +27,12 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
   * 1 CANBuses for CAN ESC
   * Analog inputs for voltage / current of battery
   * 2 additional analog input
-* Power System: 
+* 전원 시스템 : 
   * Power Brick Input: 4.75~5.5V
   * USB Power Input: 4.75~5.25V
   * Servo Rail Input: 0~24V
   * Max current sensing: 120A
-* Weight and Dimensions: 
+* 무게와 크기 : 
   * Dimensions: 38x55x15.5mm
 * Other Characteristics: 
   * Operating temperature: -40 ~ 85°c
@@ -99,7 +99,7 @@ The system's serial console and SWD interface run on the **FMU Debug** port. In 
 
 The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. Please refer to the [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
 
-## Peripherals
+## 주변 장치
 
 * [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
 * [Telemetry Radio Modules](../telemetry/README.md)
