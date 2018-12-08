@@ -1,10 +1,10 @@
-# Crazyflie 2.0
+# 크레이지플리 2.0
 
 The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
-## Quick Summary
+## 빠른 요약
 
 > **Note** The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
 
