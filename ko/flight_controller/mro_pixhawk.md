@@ -1,72 +1,183 @@
-# mRo Pixhawk Flight Controller (Pixhawk 1)
+# mRo Pixhawk 비행 컨트롤러 (Pixhawk 1)
 
-The *mRo Pixhawk<sup>&reg;</sup>* is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md). It runs PX4 on the [NuttX](http://nuttx.org) OS.
+* mRo Pixhawk <sup> & reg; </ 1> </ 0>은 원본 <a href="../flight_controller/pixhawk.md"> Pixhawk 1 </ 2>의 하드웨어 호환 버전입니다. 이 프로그램은 <a href="http://nuttx.org"> NuttX </a> OS에서 PX4를 실행합니다.</p> 
 
-> **Tip** The controller can be used as a drop-in replacement for the 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md).
+<blockquote>
+  <p>
+    컨트롤러는 3DR의 드롭 인 대체품으로 사용될 수 있습니다.
+  </p>
+</blockquote>
+
+<p>
+  
 
 <span></span>
 
-> **Note** The main difference is that it is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design, which corrects a bug that limited the original Pixhawk 1 to 1MB of flash.
+</p>
 
-![mRo Pixhawk Image](../../assets/flight_controller/mro/mro_pixhawk.jpg)
-
-Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
-
-## Key Features
-
-* Microprocessor: 
-  * 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
-  * 168 MHz/256 KB RAM/2 MB Flash
-  * 32 bit STM32F103 failsafe co-processor
-* Sensors: 
-  * ST Micro L3GD20 3-axis 16-bit gyroscope
-  * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
-  * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
-  * MEAS MS5611 barometer
-* Interfaces: 
-  * 5x UART (serial ports), one high-power capable, 2x with HW flow control
-  * 2x CAN
-  * Spektrum DSM / DSM2 / DSM-X® Satellite compatible input up to DX8 (DX9 and above not supported)
-  * Futaba<sup>&reg;</sup> S.BUS compatible input and output
-  * PPM sum signal
-  * RSSI (PWM or voltage) input
-  * I2C
-  * SPI
-  * 3.3 and 6.6V ADC inputs
-  * External microUSB port
-
-* Power System:
-  
-  * Ideal diode controller with automatic failover
-  * Servo rail high-power (7 V) and high-current ready
-  * All peripheral outputs over-current protected, all inputs ESD protected
-
-* Weight and Dimensions:
-  
-  * Weight: 38g (1.31oz)
-  * Width: 50mm (1.96")
-  * Thickness: 15.5mm (.613")
-  * Length: 81.5mm (3.21")
-
-## Availability
-
-* [Bare Bones](https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm) - Just the board (useful as a 3DR Pixhawk replacement)
-* [mRo Pixhawk 2.4.6 Essential Kit!](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - Everything except for telemetry radios
-* [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - Everything you need including telemetry radios
-
-## Building Firmware
-
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
-
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
-
-    make px4fmu-v3_default
+<blockquote>
+  <p>
+    가장 큰 차이점은 <a href="https://pixhawk.org/"> Pixhawk 프로젝트 </>> <strong> FMUv3 </ 0> 오픈 하드웨어 디자인을 기반으로한다는 점입니다. 원래의 Pixhawk 1 ~ 1MB의 플래시.</p> </blockquote> 
     
-
-## Pinouts and Schematics
-
-The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
-
-* [FMUv3 schematic](https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF) -- Schematic and layout
-
-> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+    <p>
+      <img src="../../assets/flight_controller/mro/mro_pixhawk.jpg" alt="mRo Pixhawk 이미지" />
+    </p>
+    
+    <p>
+      PX4와 함께 사용하기위한 어셈블리 / 설정 지침은 다음과 같습니다 : <a href="../assembly/quick_start_pixhawk.md"> Pixhawk Wiring Quickstart </ 0></p> 
+      
+      <h2>
+        Key Features
+      </h2>
+      
+      <ul>
+        <li>
+          마이크로 프로세서: <ul>
+            <li>
+              FPU가있는 32 비트 STM32F427 코어 텍스 <sup> & reg; </ 0> M4 코어</li> 
+              
+              <li>
+                168 MHz / 256 KB RAM / 2 MB 플래시
+              </li>
+              
+              <li>
+                32 비트 STM32F103 failsafe 코 프로세서
+              </li></ul></li> 
+              
+              <li>
+                Sensors: <ul>
+                  <li>
+                    ST Micro L3GD20 3-axis 16-bit gyroscope
+                  </li>
+                  <li>
+                    ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
+                  </li>
+                  <li>
+                    Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
+                  </li>
+                  <li>
+                    MEAS MS5611 barometer
+                  </li>
+                </ul>
+              </li>
+              
+              <li>
+                인터페이스: <ul>
+                  <li>
+                    5x UART (serial ports), one high-power capable, 2x with HW flow control
+                  </li>
+                  <li>
+                    2x CAN
+                  </li>
+                  <li>
+                    Spektrum DSM / DSM2 / DSM-X® Satellite compatible input up to DX8 (DX9 and above not supported)
+                  </li>
+                  <li>
+                    Futaba<sup>&reg;</sup> S.BUS compatible input and output
+                  </li>
+                  <li>
+                    PPM sum signal
+                  </li>
+                  <li>
+                    RSSI (PWM or voltage) input
+                  </li>
+                  <li>
+                    I2C
+                  </li>
+                  <li>
+                    SPI
+                  </li>
+                  <li>
+                    3.3 and 6.6V ADC inputs
+                  </li>
+                  <li>
+                    External microUSB port
+                  </li>
+                </ul>
+              </li>
+              
+              <li>
+                <p>
+                  전원 시스템 :
+                </p>
+                <ul>
+                  <li>
+                    자동 페일 오버 기능이있는 이상적인 다이오드 컨트롤러
+                  </li>
+                  <li>
+                    서보 레일 고전력 (7V) 및 고전류 준비
+                  </li>
+                  <li>
+                    모든 주변 장치 출력 과전류 보호, 모든 입력 ESD 보호
+                  </li>
+                </ul>
+              </li>
+              
+              <li>
+                <p>
+                  무게와 크기 :
+                </p>
+                <ul>
+                  <li>
+                    무게 : 38g (1.31oz)
+                  </li>
+                  <li>
+                    너비 : 50mm (1.96 ")
+                  </li>
+                  <li>
+                    두께 : 15.5mm (.613 ")
+                  </li>
+                  <li>
+                    길이 : 81.5mm (3.21")
+                  </li>
+                </ul>
+              </li></ul> 
+              
+              <h2>
+                Availability
+              </h2>
+              
+              <ul>
+                <li>
+                  <a href="https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm"> 베어 본 (Bare Bones) </ 0> - 보드 만 (3DR Pixhawk 대체품으로 유용합니다)</li> 
+                  
+                  <li>
+                    <a href="https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm"> mRo Pixhawk 2.4.6 필수 키트! </ 0> - 원격 측정을 제외한 모든 것</li> 
+                    
+                    <li>
+                      <a href="https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm"> mRo Pixhawk 2.4.6 쿨 키트! (한정판) </ 0> - 텔레 메 트리 라디오를 포함하여 필요한 모든 것</li> </ul> 
+                      
+                      <h2>
+                        Building Firmware
+                      </h2>
+                      
+                      <blockquote>
+                        <p>
+                          <strong>Tip</strong> Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
+                        </p>
+                      </blockquote>
+                      
+                      <p>
+                        To <a href="https://dev.px4.io/en/setup/building_px4.html">build PX4</a> for this target:
+                      </p>
+                      
+                      <pre><code>make px4fmu-v3_default
+</code></pre>
+                      
+                      <h2>
+                        Pinouts and Schematics
+                      </h2>
+                      
+                      <p>
+                        The board is based on the <a href="https://pixhawk.org/">Pixhawk-project</a> <strong>FMUv3</strong> open hardware design.
+                      </p>
+                      
+                      <ul>
+                        <li>
+                          <a href="https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF"> FMUv3 schematic </ 0> - 회로도 및 레이아웃</li> </ul> 
+                          
+                          <blockquote>
+                            <p>
+                              <strong>Note</strong> As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are <a href="https://github.com/PX4/Hardware">available</a>.
+                            </p>
+                          </blockquote>
