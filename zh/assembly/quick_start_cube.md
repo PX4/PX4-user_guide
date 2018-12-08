@@ -29,7 +29,7 @@ The image below shows how to connect the most important sensors and peripherals.
 
 > **Tip** More information about available ports can be found here: [Cube > Ports](../flight_controller/pixhawk-2.md#ports).
 
-## Mount and Orient Controller
+## 飞控的安装和方向
 
 Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the *subtle* arrow marker on top of the cube)
 
