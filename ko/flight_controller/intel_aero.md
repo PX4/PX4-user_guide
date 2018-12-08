@@ -1,10 +1,10 @@
-# Intel Aero Ready to Fly Drone
+# Intel Aero 비행 준비 완료
 
 The [Intel Aero Ready to Fly Drone](https://software.intel.com/en-us/aero/drone-dev-kit)® is a UAV development platform. Part of this is the [Intel Aero Compute Board](https://software.intel.com/en-us/aero/dev-kit), running Linux on a Quad-core CPU. The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX. These are integrated in the same package on the *Intel Aero Ready to Fly Drone*, which also includes the vision accessory kit.
 
 ![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
-## Introduction
+## 소개
 
 The main documentation on the [official wiki](https://github.com/intel-aero/meta-intel-aero/wiki) explains how to setup, update and connect to the board, and how to do development on the Linux side. The instructions in this topic concentrate on updating the firmware on the microcontroller from a development tree.
 
