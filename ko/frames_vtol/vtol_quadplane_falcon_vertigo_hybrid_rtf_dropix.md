@@ -128,8 +128,8 @@ The outputs of Dropix should be wired using the standard QuadPlane configuration
 | MAIN 2 | Back left motor, CCW   |
 | MAIN 3 | Front left motor, CW   |
 | MAIN 4 | Back right motor, CW   |
-| AUX 1  | Left aileron           |
-| AUX 2  | Right aileron          |
+| AUX 1  | 에일러온                   |
+| AUX 2  | 우로 아일론                 |
 | AUX 3  | Elevator               |
 | AUX 4  | Rudder                 |
 | AUX 5  | Throttle               |
@@ -264,6 +264,6 @@ After you finish calibration the VTOL is ready to fly.
 
 {% youtube %} http://www.youtube.com/watch?v=h7OHTigtU0s {% endyoutube %}
 
-## Support
+## 지원
 
 If you have any questions regarding your VTOL conversion or configuration please visit <http://discuss.px4.io/c/vtol>.
