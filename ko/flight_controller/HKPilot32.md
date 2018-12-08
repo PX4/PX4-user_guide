@@ -39,7 +39,7 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 * SPI
 * External microUSB port
 
-### Accessories
+### 악세사리
 
 * [Digital airspeed sensor](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
 * [Hobbyking<sup>&reg;</sup> Wifi Telemetry](http://www.hobbyking.com/hobbyking/store/__87841__APM_Pixhawk_Wireless_Wifi_Radio_Module.html)
