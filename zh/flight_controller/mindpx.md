@@ -66,7 +66,7 @@ MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SB
 
 For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
-### Building Firmware
+### 编译固件
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
