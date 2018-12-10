@@ -22,8 +22,8 @@ Depending on what you want to achieve, the following tips will help you navigate
 
 If you have a Ready To Fly (RTF) vehicle that supports PX4:
 
-* [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
-* [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
+- [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+- [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
 
 **I want to build a supported vehicle from scratch:**
 
@@ -31,10 +31,10 @@ If you have a Ready To Fly (RTF) vehicle that supports PX4:
 
 If you want to build a vehicle from scratch:
 
-* Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
-* Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
-* [Assembly](assembly/README.md) explains how to wire up the important peripherals to your autopilot.
-* [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe. This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+- Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
+- Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
+- [Assembly](assembly/README.md) explains how to wire up the important peripherals to your autopilot.
+- [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe. This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
 
 Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
 
@@ -42,26 +42,34 @@ Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) sec
 
 Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
 
-* [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
-* [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
-* [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+- [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
+- [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
+- [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
 
 **I want to run PX4 on new hardware and extend the platform:**
 
-* [PX4 Developer Guide](http://dev.px4.io/) explains how to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+- [PX4 Developer Guide](http://dev.px4.io/) explains how to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
 ## Forums and Chat {#support}
 
 The core development team and community are active on the following forums and chat channels:
 
-* [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
-* [Slack](http://slack.px4.io) (sign up)
+- [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
+- [Slack](http://slack.px4.io) (sign up)
 
 ## Reporting Bugs & Issues
 
 If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
 
-If directed by the development team, issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+
+## Contributing
+
+Information on how to contribute to code and documentation can be found in the Developer Guide:
+
+- [Code](https://dev.px4.io/en/contribute/)
+- [Documentation](https://dev.px4.io/en/contribute/docs.html)
+- [Translation](https://dev.px4.io/en/contribute/docs.html)
 
 ## License
 
