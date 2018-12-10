@@ -65,9 +65,16 @@ The core development team and community are active on the following forums and c
 
 If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
 
-If directed by the development team, issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). 
+If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). 
 Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
+
+## Contributing
+
+Information on how to contribute to code and documentation can be found in the Developer Guide:
+- [Code](https://dev.px4.io/en/contribute/)
+- [Documentation](https://dev.px4.io/en/contribute/docs.html)
+- [Translation](https://dev.px4.io/en/contribute/docs.html)
 
 ## License
 
