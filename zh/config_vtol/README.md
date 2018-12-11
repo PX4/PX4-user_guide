@@ -1,3 +1,3 @@
 # VTOL Configuration
 
-This section contains topics related to VTOL configuration and tuning.
+该部分包括关于垂直起降飞机的配置和调试。
