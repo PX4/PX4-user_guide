@@ -1,8 +1,8 @@
 # 飞行模式
 
-*飞行模式*定义自动驾驶仪如何响应用户输入并控制飞机移动。 下表总结了固定机翼和直升机的飞行模式([table键在下面](#key))。 Note that this is the "high level" default behaviour, and may vary based on vehicle parameters. The linked topics (sidebar) provide more detailed information about individual modes, including their tuning parameters.
+*飞行模式*定义自动驾驶仪如何响应用户输入并控制飞机移动。 下表总结了固定机翼和直升机的飞行模式([table键在下面](#key))。 请注意, 这是 "高级" 默认行为, 可能因飞机参数而异。 链接的主题(侧边栏)提供了有关各个模式的更详细信息, 包括它们的调优参数。
 
-> **Tip** A *beginner friendly* explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md).
+> **Tip**[开始>航班管理](../getting_started/flight_modes.md)中对所有飞行模式的*初学者友好*解释。
 
 <!-- Styles used for tables below --> 
 
@@ -57,20 +57,20 @@ th {
 
  
 
-## Fixed Wing
+## 固定翼
 
 <table>
   <tr>
     <th class="col_modes">
-      Modes
+      模式
     </th>
     
     <th class="col_r_p">
-      Roll & Pitch
+      横滚和俯仰
     </th>
     
     <th class="col_yaw">
-      Yaw
+      纵转:
     </th>
     
     <th class="col_throttle">
@@ -78,7 +78,7 @@ th {
     </th>
     
     <th class="col_sensor">
-      Position Sensors
+      位置传感器
     </th>
     
     <th class="col_summary">
@@ -88,7 +88,7 @@ th {
   
   <tr id="position_fw">
     <td>
-      <a href="../flight_modes/position_fw.md">Position</a> 
+      <a href="../flight_modes/position_fw.md">位置</a> 
       
       <p>
         <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a>
@@ -412,15 +412,15 @@ th {
                 <table>
                   <tr>
                     <th>
-                      Modes
+                      模式
                     </th>
                     
                     <th>
-                      Roll & Pitch
+                      横滚和俯仰
                     </th>
                     
                     <th>
-                      Yaw
+                      纵转:
                     </th>
                     
                     <th>
@@ -428,7 +428,7 @@ th {
                     </th>
                     
                     <th>
-                      Position Sensors
+                      位置传感器
                     </th>
                     
                     <th class="col_summary">
