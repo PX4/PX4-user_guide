@@ -35,32 +35,32 @@ Px4是*专业飞控*. 它由来自业界和学术界的世界级开发商开发,
 - 选择飞行控制器-请参阅启动 >飞行控制器</0 >和[自驾仪硬件](flight_controller/README.md)。</li> 
     
     - [装配](assembly/README.md)解释了如何将重要的外围设备连接到自动驾驶仪上。
-    - [基础配置](config/README.md)演示如何更新固件, 并使用适合您的机身的设置对其进行配置。 本节还介绍了如何校准主传感器(罗盘、陀螺仪、空速等),并设置遥控器和安全功能。</ul> 
+    - [基本配置](config/README.md)演示如何更新固件, 并使用适合您的机身的设置对其进行配置。 本节还介绍了如何校准主传感器(罗盘、陀螺仪、空速等),并设置遥控器和安全功能。</ul> 
     
     一旦你准备好驾驶你的飞机, 请访问[Flying](flying/README.md)部分。
     
-    **I am modifying a supported vehicle:**
+    **我正在修改支持的飞机:**
     
-    Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+    上面介绍了飞行控制器和基本传感器的修改。 为了使用新的传感器, 或者如果您所做的更改会显著影响飞行特性:
     
-    - [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
-    - [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
-    - [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+    - [外设硬件](peripherals/README.md) 提供了有关使用外部传感器的其他信息。
+    - [基本配置](config/README.md)解释了如何校准主传感器。
+    - 请使用[高级配置](advanced_config/README.md)对机身进行重新微调。
     
-    **I want to run PX4 on new hardware and extend the platform:**
+    **我想在新硬件上运行px4并扩展平台:**
     
-    - [PX4 Developer Guide](http://dev.px4.io/) explains how to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+    - [PX4开发人员指南](http://dev.px4.io/)解释了如何修改飞行算法、添加新模式、集成新硬件、从飞行控制器外部与px4通信, 以及如何为px4做出贡献。
     
     ## 论坛和交流 {#support}
     
-    The core development team and community are active on the following forums and chat channels:
+    核心开发团队和社区活跃与以下论坛和聊天频道。
     
-    - [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
-    - [Slack](http://slack.px4.io) (sign up)
+    - [PX4讨论](http://discuss.px4.io/)(*推荐*)
+    - [Slack](http://slack.px4.io)(注册链接）
     
-    ## Reporting Bugs & Issues
+    ## 报告错误&问题
     
-    If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
+    如果您在使用px4时遇到任何问题, 请先将其发布在[支持频道](#support)上 (因为它们可能是由飞机配置引起的)。
     
     If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
     
