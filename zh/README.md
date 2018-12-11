@@ -4,17 +4,17 @@
 
 [![Releases](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
-PX4 is the *Professional Autopilot*. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
+Px4是*专业飞控*. 它由来自业界和学术界的世界级开发商开发, 并得到活跃的全球社区的支持, 为从赛车和货运无人机到地面车辆和潜水器的各种车辆提供动力。
 
-> **Tip** This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
+> **Tip**本指南包含了组装、配置和安全驾驶基于px4的车辆所需的一切。
 
 <span></span>
 
-> **Note** This guide is still a work in progress! It does not yet cover all of PX4.
+> **Note**本指南将持续更新! 尚未涵盖所有的px4。
 
 ## 如何开始？
 
-[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+所有用户都应阅读[Getting开始](getting_started/README.md)! 它概述了px4, 包括飞行堆栈(飞行模式和安全功能)和支持的硬件(飞行控制器、车辆、机身、遥测系统、远程控制系统)提供的功能。
 
 Depending on what you want to achieve, the following tips will help you navigate through this guide:
 
