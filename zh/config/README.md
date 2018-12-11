@@ -1,6 +1,6 @@
 # Basic Configuration
 
-This section contains *essential* configuration topics, including how to install firmware onto the flight controller hardware, selecting an airframe, and configure the core sensors that PX4 needs to be present on every vehicle (compass, GPS, gyro etc.)
+本节包含*必要*配置主题, 包括如何在飞行控制器硬件上安装固件、选择机身以及配置PX4需要在每辆车上存在的核心传感器 (指南针、gps、陀螺仪等)
 
 The configuration process is executed using QGroundConrol and consists of these major steps:
 
