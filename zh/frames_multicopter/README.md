@@ -1,14 +1,14 @@
-# Multicopter Frame Builds
+# 多旋翼机架构建
 
-PX4 supports numerous types of single- and multi-copters, including helicopters, tricopters, quadcopters, hexarotors, dodecarotors etc, in many different geometries (+, wide, x etc.). The complete set of supported configurations can be seen in [Airframes Reference > Copter](../airframes/airframe_reference.md#copter).
+PX4提供大量单-多旋翼， 包括单旋翼、三旋翼、四旋翼、六旋翼、十二旋翼等多种几何结构。 全部可支持的机型可见[机型参考](../airframes/airframe_reference.md#copter)。
 
-This section contains build logs/instructions for assembling and configuring a number of copter frames.
+本节包含用于组装和配置多个旋翼机架的构建日志和说明。
 
-## Videos
+## 视频
 
 {% youtube %}https://www.youtube.com/watch?v=LnUmYgAINBc&vq=hd720{% endyoutube %}
 
-DJI Flame Wheel 450 with Distance Sensor and RTK GPS (Pixhawk 3 Pro)
+带距离传感器和RTK全球定位系统的大疆F450(Pixhawk 3 Pro)
 
 {% youtube %}https://www.youtube.com/watch?v=JovSwzoTepU{% endyoutube %}
 
@@ -16,7 +16,7 @@ Lumenier QAV250 Pixhawk Mini Build
 
 {% youtube %} http://www.youtube.com/watch?v=MZzo4DMNkug {% endyoutube %}
 
-DJI Matrice 100 (Pixhawk 1)
+大疆Matrice 100 (Pixhawk 1)
 
 {% youtube %}https://www.youtube.com/watch?v=3OGs0ONemGc{% endyoutube %}
 
