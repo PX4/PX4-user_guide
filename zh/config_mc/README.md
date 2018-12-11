@@ -1,3 +1,3 @@
-# Multicopter Configuration
+# 多旋翼配置
 
-This section contains topics related to multicopter configuration and tuning.
+该部分包括关于多旋翼飞机的配置和调试。
