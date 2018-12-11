@@ -7,5 +7,5 @@
 > **提示**快速入门指南仅针对几个控制器. 其它控制器将会有类似的指南链接. 更多信息可在[飞行控制器](../flight_controller/README.md) 页面中获取, 或者厂商的说明文档中.
 
 * 查看[外设](../peripherals/README.md)了解连接传感哭和其它外设的相关信息(比如飞机的空速感应器).
-* See [Airframe Builds](../airframes/README.md) for complete assembly examples on different vehicle frames.
-* See [Multicopter Racer Setup](../config_mc/racer_setup.md) for racer-specific assembly and configuration information.
+* 不同机型完整装配参见[机架建造](../airframes/README.md)。
+* 有关特定于赛用机装配和配置信息, 请参阅[多翼赛用机设置](../config_mc/racer_setup.md) 。
