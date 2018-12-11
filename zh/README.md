@@ -2,7 +2,7 @@
 
 # PX4 自动驾驶仪使用手册
 
-[![版本发布](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![讨论](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
+[![版本发布](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![讨论](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![堆](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
 Px4是*专业飞控*. 它由来自业界和学术界的世界级开发商开发, 并得到活跃的全球社区的支持, 为从赛车和货运无人机到地面车辆和潜水器的各种车辆提供动力。
 
@@ -90,7 +90,7 @@ Px4是*专业飞控*. 它由来自业界和学术界的世界级开发商开发,
     
     
 
-<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
-<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
+<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode徽标" width="110px"/></a>
+<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux基金会徽标" width="80px" /></a>
 
 <div style="padding:10px">&nbsp;</div>
