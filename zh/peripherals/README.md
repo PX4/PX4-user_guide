@@ -1,3 +1,3 @@
-# Peripherals
+# 外设
 
-This section contains topics related to external sensors and other optional peripheral hardware that you can use with PX4.
+本部分包括可用于PX4的相关的外部硬件和其他可选的外设硬件
