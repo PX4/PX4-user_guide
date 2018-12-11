@@ -2,9 +2,9 @@
 
 本节包含*必要*配置主题, 包括如何在飞行控制器硬件上安装固件、选择机身以及配置PX4需要在每辆车上存在的核心传感器 (指南针、gps、陀螺仪等)
 
-The configuration process is executed using QGroundConrol and consists of these major steps:
+该配置过程需要运行QGroundConrol，包括如下主要步骤：
 
-* Selecting the airframe on which the autopilot is installed (plane, multicopter, VTOL, etc.)
+* 选择自驾仪已经装配的机架(固定翼、多旋翼、垂直起降等)
 * Specifying the autopilot/sensor orientation and calibrating the vehicle's sensors.
 * Optional: Calibrating the radio control (PX4 can be flown without a radio control using *QGroundControl* on a desktop of mobile ground station).
 * Optional: Selecting which switches of the radio control should switch the system between different [flight modes](../config/flight_mode.md).
