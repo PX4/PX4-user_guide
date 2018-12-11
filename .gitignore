@@ -11,6 +11,3 @@ _book
 *.epub
 *.mobi
 *.pdf
-
-# Jetbrains
-.idea/*
