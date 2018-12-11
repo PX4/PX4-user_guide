@@ -1,6 +1,6 @@
-# Flight Modes
+# 飞行模式
 
-*Flight Modes* define how the autopilot responds to user input and controls vehicle movement. The tables below summarizes flight modes for fixed wing and copter ([table key is below](#key)). Note that this is the "high level" default behaviour, and may vary based on vehicle parameters. The linked topics (sidebar) provide more detailed information about individual modes, including their tuning parameters.
+*飞行模式*定义自动驾驶仪如何响应用户输入并控制飞机移动。 下表总结了固定机翼和直升机的飞行模式([table键在下面](#key))。 Note that this is the "high level" default behaviour, and may vary based on vehicle parameters. The linked topics (sidebar) provide more detailed information about individual modes, including their tuning parameters.
 
 > **Tip** A *beginner friendly* explanation of all flight modes is provided in [Getting Started > Flight Modes](../getting_started/flight_modes.md).
 
