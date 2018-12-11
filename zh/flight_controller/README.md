@@ -1,4 +1,4 @@
-# Flight Controller (Autopilot) Hardware
+# 飞控(自驾仪)硬件
 
 This section provides information about the different autopilot hardware that can be used to run the PX4 flight stack.
 
