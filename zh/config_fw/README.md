@@ -1,3 +1,3 @@
-# Fixed Wing Vehicle Configuration
+# 混合翼飞机配置
 
-This section contains configuration and tuning topics related to fixed wing vehicles.
+该部分包括关于混合翼飞机的配置和调试。
