@@ -1,10 +1,10 @@
 # Rover Frames (UGVs)
 
-PX4 provides basic support for Unmanned Ground Vehicles (UGVs). The set of validated configurations can be seen in [Airframes Reference > Rover](../airframes/airframe_reference.md#rover).
+PX4提供无人地面载具的基础支持。 全部可支持的机型可见[机型参考](../airframes/airframe_reference.md#rover)。
 
-This section contains build logs/instructions for assembling and configuring a number of UGV frames.
+本节包含用于组装和配置多个UGV机架的构建日志和说明。
 
-## Videos
+## 视频
 
 [Traxxas Stampede](../frames_rover/traxxas_stampede.md)
 
