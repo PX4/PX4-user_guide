@@ -14,20 +14,20 @@ Px4是*专业飞控*. 它由来自业界和学术界的世界级开发商开发,
 
 ## 如何开始？
 
-所有用户都应阅读[Getting开始](getting_started/README.md)! 它概述了px4, 包括飞行堆栈(飞行模式和安全功能)和支持的硬件(飞行控制器、车辆、机身、遥测系统、远程控制系统)提供的功能。
+所有用户都应阅读[Getting开始](getting_started/README.md)! 它概述了px4,包括飞行堆栈(飞行模式和安全功能)和支持的硬件(飞行控制器、车辆、机身、遥测系统、远程遥控系统)提供的功能。
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+根据您想要实现的需求, 以下提示将帮助您浏览本指南:
 
-**I already have a vehicle and I just want to fly:**
+**我已经有了一架飞机, 我只想飞:**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+如果您有支持px4的一切就绪的飞行器(rtf):
 
-- [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
-- [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
+- [Basic配置](config/README.md)解释了如何将固件更新到最新版本, 校准主传感器(罗盘、陀螺仪、空速等), 以及如何设置遥控器和安全功能.
+- [Flying](flying/README.md)教授飞行要领, 包括安全飞行的地点和方式, 以及如何调试武装和飞行问题。 同样提供了关于飞行模式的详细信息。
 
-**I want to build a supported vehicle from scratch:**
+**我想从头开始组建一架飞机：**
 
-> **Tip** The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
+> **Tip**支持的飞行器列举在[机身参考](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
 
 If you want to build a vehicle from scratch:
 
