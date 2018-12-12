@@ -34,13 +34,13 @@ GPS与罗盘的连接说明通常由厂家(至少支持更通用的[自驾仪](.
 
 ## RTK-GPS设备
 
-Information about supported devices and setup/configuration can be found in the sidebar under: [RTK GPS](../gps_compass/rtk_gps.md).
+有关支持的设备和setup/配置的信息, 请参阅边栏下的[RTK gps](../gps_compass/rtk_gps.md)。
 
 ## Configuration
 
 ### GPS
 
-GPS configuration is handled transparently for the user (provided the module GPS connector is connected correctly).
+gps配置为用户透明地处理(前提是模块gps连接器连接正确)。
 
 ### Compass
 
