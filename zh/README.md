@@ -2,7 +2,7 @@
 
 # PX4 自动驾驶仪使用手册
 
-[![版本发布](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![讨论](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![堆](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
+[![版本发布](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![讨论](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
 Px4是一款*专业级飞控*。 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从赛车和货运无人机到地面车辆和潜水器的各种车辆提供动力。
 
@@ -20,14 +20,14 @@ Px4是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 **我已经有了一架飞机, 我只想飞:**
 
-如果您有支持px4的一切就绪的飞行器(rtf):
+如果您有支持 PX4 的到手飞（RTF）的飞行器：
 
 - [Basic配置](config/README.md)解释了如何将固件更新到最新版本, 校准主传感器(罗盘、陀螺仪、空速等), 以及如何设置遥控器和安全功能.
 - [Flying](flying/README.md)教授飞行要领, 包括安全飞行的地点和方式, 以及如何调试武装和飞行问题。 同样提供了关于飞行模式的详细信息。
 
 **我想从头开始组建一架飞机：**
 
-> **Tip**支持的飞行器列举在[机身参考](airframes/airframe_reference.md). 下载使用*QGroundControl*，其中已经有很多测试过和调试好参数的机型。
+> **Tip**支持的飞行器列举在[机架参考](airframes/airframe_reference.md)。 下载使用*QGroundControl*，其中已经有很多测试过和调试好参数的机型。
 
 如果你想自己从头开始组建一架飞机：
 
@@ -82,7 +82,7 @@ Px4是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
     
     <img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> 来自<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>的<a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 制作<em>placeholder</em>图标由<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 by</a>授权。
     
-    <img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>的<a href="http://www.freepik.com" title="Freepik">Freepik</a> 制作的<em>camera-automatic-mode</em>图标由<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 by</a>授权。
+    <img src="../assets/site/automatic_mode.svg" title="自动模式" width="30px" /> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>的<a href="http://www.freepik.com" title="Freepik">Freepik</a> 制作的<em>camera-automatic-mode</em>图标由<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 by</a>授权。
     
     ## 管理
     
