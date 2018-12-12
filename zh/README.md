@@ -4,13 +4,13 @@
 
 [![版本发布](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![讨论](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![堆](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
-Px4是*专业飞控*. 它由来自业界和学术界的世界级开发商开发, 并得到活跃的全球社区的支持, 为从赛车和货运无人机到地面车辆和潜水器的各种车辆提供动力。
+Px4是一款*专业级飞控*。 它由来自业界和学术界的世界级开发商开发，并得到活跃的全球社区的支持，为从赛车和货运无人机到地面车辆和潜水器的各种车辆提供动力。
 
 > **Tip**本指南包含了组装、配置和安全驾驶基于px4的车辆所需的一切。
 
 <span></span>
 
-> **Note**本指南将持续更新! 尚未涵盖所有的px4。
+> **Note** 本指南将持续更新！ 尚未涵盖所有的px4。
 
 ## 如何开始？
 
