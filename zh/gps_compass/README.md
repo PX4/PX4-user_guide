@@ -2,17 +2,17 @@
 
 px4支持全球导航卫星系统(gnss)(包括gps、glonass、galileo、beetou、qzss 和 sbas),使用接收器通过ublox、mtk或ashtech 协议或通过uavcan进行通信。 It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
-PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI).
+px4可用于以下指南针部件(磁强计): 博世bmm 150 mems(通过i2c总线)、hmc5883/hmc5983(i2c或spi)、ist8310(i2c)和 lis3mdl(i2c或spi)。
 
-Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source. The system automatically chooses the best available compass based on their internal priority (external magnetometers have a higher priority). If the primary compass fails in-flight, it will failover to the next one. If it fails before flight, arming will be denied.
+最多可以连接4个内部或外部磁强计, 但实际上只有一个磁强计可用作标题源。 系统根据其内部优先级自动选择可用的最佳罗盘(外部磁强计具有更高的优先级)。 如果主指南针在飞行中失败, 它将跳转到下一个指南针。 如果它在飞行前失败, 将无法起飞。
 
 ![GPS + Compass](../../images/gps_compass.jpg)
 
-> **Tip** When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing). The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
+> **Tip**在使用[Pixhawk-series](../flight_controller/pixhawk_series.md)飞行控制器时, 我们建议使用安装在远离飞机/esc电源线的地方的*整合GPS和罗盘*-通常安装在基座或机翼上(适用于固定翼飞机)。 内部指南针*可能*在较大的机型(如vtol)上有用, 在这些车辆上, 通过安装pixhawk距离电源线很远, 可以减少电磁干扰。 On small vehicles an external compass is almost always required.
 
-## Combined GPS/Compass Options
+## 组合GPS/罗盘选项
 
-Some popular GPS/compass options include:
+一些流行的GSP/指南针选项包括:
 
 - [Ublox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) (Hobbyking)
 - [mRo GPS u-Blox Neo-M8N Dual Compass LIS3MDL+ IST8310](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) (mRo store)
