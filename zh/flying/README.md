@@ -4,7 +4,7 @@
 
 [首航指南](../flying/first_flight_guidelines.md)-确保您的第一次飞行愉快、有教育意义和安全的指南。
 
-[LED含义(Pixhawk)](../flying/led_meanings.md)-从状态led(pixhawk系列)了解状态。
+[LED含义(Pixhawk)](../flying/led_meanings.md)-从状态LED(pixhawk系列)了解状态。
 
 [飞行前检查(Internal)](../flying/pre_flight_checks.md)-解释飞行前错误("为什么我的飞机不能武装好？")。
 
