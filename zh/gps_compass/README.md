@@ -1,14 +1,14 @@
 # GPS&罗盘
 
-px4支持全球导航卫星系统(gnss)(包括gps、glonass、galileo、beetou、qzss 和 sbas),使用接收器通过ublox、mtk或ashtech 协议或通过uavcan进行通信。 It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
+PX4支持全球导航卫星系统(GNSS)(包括GPS、GLONASS、Galileo,、北斗、QZSS和SBAS),使用接收器通过UBlox、MTK或Ashtech协议或通过UAVCAN进行通信。 It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
-px4可用于以下指南针部件(磁强计): 博世bmm 150 mems(通过i2c总线)、hmc5883/hmc5983(i2c或spi)、ist8310(i2c)和 lis3mdl(i2c或spi)。
+PX4可用于以下指南针部件(磁强计): 博世BMM 150 MEMS(通过I2C总线)、HMC5883/HMC5983(I2C或SPI)、IST8310(I2C)和 LIS3MDL(I2C或SPI)。
 
 最多可以连接4个内部或外部磁强计, 但实际上只有一个磁强计可用作标题源。 系统根据其内部优先级自动选择可用的最佳罗盘(外部磁强计具有更高的优先级)。 如果主指南针在飞行中失败, 它将跳转到下一个指南针。 如果它在飞行前失败, 将无法起飞。
 
 ![GPS + Compass](../../images/gps_compass.jpg)
 
-> **Tip**在使用[Pixhawk-series](../flight_controller/pixhawk_series.md)飞行控制器时, 我们建议使用安装在远离飞机/esc电源线的地方的*整合GPS和罗盘*-通常安装在基座或机翼上(适用于固定翼飞机)。 内部指南针*可能*在较大的机型(如vtol)上有用, 在这些车辆上, 通过安装pixhawk距离电源线很远, 可以减少电磁干扰。 On small vehicles an external compass is almost always required.
+> **Tip**在使用[Pixhawk-series](../flight_controller/pixhawk_series.md)飞行控制器时, 我们建议使用安装在远离飞机/esc电源线的地方的*整合GPS和罗盘*-通常安装在基座或机翼上(适用于固定翼飞机)。 内部指南针*可能*在较大的机型(如VTOL)上有用, 在这些车辆上, 通过安装Pixhawk距离电源线很远, 可以减少电磁干扰。 On small vehicles an external compass is almost always required.
 
 ## 组合GPS/罗盘选项
 
