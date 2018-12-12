@@ -14,11 +14,11 @@
   * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
   * [Parrot Bebop](../flight_controller/bebop.md)
 
-## Documented Boards
+## 记录板
 
-The list of boards documented in this library can be found in the sidebar (reproduced below):
+在此库中记录的板列表可在侧边栏中找到 (转载如下):
 
-> **Note** The library does not document all boards that can run PX4 (there are other compatible flight controllers and variants).
+> **Note**库不会记录所有可以运行px4的主板(还有其他兼容的飞行控制器和变体)。
 
 * [Pixhawk Series](../flight_controller/pixhawk_series.md) 
   * [Pixhawk 1](../flight_controller/pixhawk.md)
@@ -34,7 +34,7 @@ The list of boards documented in this library can be found in the sidebar (repro
   * [Pixhack v3](../flight_controller/pixhack_v3.md)
   * [Pixhawk 4](../flight_controller/pixhawk4.md)
   * [Pixhack v5](../flight_controller/pixhack_v5.md)
-  * [AUAV-X2 (Discontinued)](../flight_controller/auav_x2.md)
+  * [Auav-x2 (停产)](../flight_controller/auav_x2.md)
 * [(Air)Mind Series](../flight_controller/mind_series.md) 
   * [MindPX](../flight_controller/mindpx.md)
   * [MindRacer](../flight_controller/mindracer.md)
