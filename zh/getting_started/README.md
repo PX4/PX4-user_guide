@@ -1,6 +1,6 @@
 # 开始使用PX4
 
-This section provides an overview of the basic concepts you need to understand in order to build and fly an unmanned vehicle using PX4.
+本节概述了您需要了解的基本概念, 以便使用PX4构建和驾驶无人飞行器。
 
 [Basic Concepts](../getting_started/px4_basic_concepts.md) — Brief introduction to PX4 and the Dronecode Platform.
 
