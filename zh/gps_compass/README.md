@@ -24,15 +24,15 @@ px4可用于以下指南针部件(磁强计): 博世bmm 150 mems(通过i2c总线
 - [Zubax GNSS 2](https://zubax.com/products/gnss_2) (zubax.com)
 - [3DR uBlox GPS with Compass kit](https://www.getfpv.com/3dr-ublox-gps-with-compass-kit.html) (getfpv) - *Discontinued*
 
-Instructions for connecting the GPS and compass are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)).
+GPS与罗盘的连接说明通常由厂家(至少支持更通用的[自驾仪](../flight_controller/README.md))提供
 
-> **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). The [Zubax GNSS 2](https://zubax.com/products/gnss_2) can also be connected via [UAVCAN](https://dev.px4.io/en/uavcan/).
+> **Note**[Pixhawk series](../flight_controller/pixhawk_series.md)控制器通常有一个标记明确的端口用于连接gps, 指南针连接到i2c或spi portp总线 (取决于设备)。 [Zubax gnss 2](https://zubax.com/products/gnss_2)也可以通过[UAVCAN](https://dev.px4.io/en/uavcan/)连接。
 
 <span></span>
 
-> **Tip** Pay attention to pinout when connecting the GPS module. While these are all software-compatible, there are several different pin orderings.
+> **Tip**连接gps模块时, 请注意引脚。 虽然这些都是软件兼容, 有几个不同的引脚。
 
-## RTK-GPS Devices
+## RTK-GPS设备
 
 Information about supported devices and setup/configuration can be found in the sidebar under: [RTK GPS](../gps_compass/rtk_gps.md).
 
