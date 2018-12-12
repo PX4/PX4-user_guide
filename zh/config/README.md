@@ -5,11 +5,11 @@
 该配置过程需要运行QGroundConrol，包括如下主要步骤：
 
 * 选择自驾仪已经装配的机架(固定翼、多旋翼、垂直起降等)
-* Specifying the autopilot/sensor orientation and calibrating the vehicle's sensors.
-* Optional: Calibrating the radio control (PX4 can be flown without a radio control using *QGroundControl* on a desktop of mobile ground station).
-* Optional: Selecting which switches of the radio control should switch the system between different [flight modes](../config/flight_mode.md).
+* 指定自动驾驶仪/传感器的方向并校准车辆的传感器。
+* 可选: 校准无线电控制(px4可以使用*QGroundControl*移动地面站桌面上的无线电控制即可飞行。
+* 可选: 选择无线电控制的哪些开关应在不同的[飞行模式](../config/flight_mode.md)之间切换系统。
 
-Configuration & calibration instructions are linked from the sidebar and/or you can follow the [video guide](#video-guide) below.
+配置&校准说明从侧边栏链接, 或者您可以按照下面的[视频指南](#video-guide)。
 
 > **Tip** Before starting this section you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
 
