@@ -11,23 +11,23 @@
 
 配置&校准说明从侧边栏链接, 或者您可以按照下面的[视频指南](#video-guide)。
 
-> **Tip** Before starting this section you should [Download QGroundControl](http://qgroundcontrol.com/downloads/) and install it on your **desktop** computer (*QGroundControl* does not support vehicle configuration on mobile platforms).
+> **Tip**在开始本部分之前, 您应该[下载QGroundControl](http://qgroundcontrol.com/downloads/)并将其安装在**桌面**计算机上 (*QGroundControl* 不支持移动平台上的飞机配置)。
 
 <span></span>
 
-> **Note** For a [supported airframe](../config/airframe.md) only this basic configuration is required. If you're creating a new airframe you will additionally need to perform vehicle tuning (see [Advanced Configuration](../advanced_config/README.md)).
+> **Note**对于[支持的机架](../config/airframe.md)只需要这种基本配置。 如果要创建新的机架,还需要执行调整 (请参阅[高级配置](../advanced_config/README.md))。
 
-## Video Guide
+## 视频教程
 
-The video below shows the calibration process in detail.
+下面的视频详细介绍了校准过程。
 
 {% youtube %} https://www.youtube.com/watch?v=91VGmdSlbo4 {% endyoutube %}
 
 ## Support
 
-If you need help with the configuration you can ask for help on the [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage).
+如果您需要有关配置的帮助, 您可以在[QGroundControl支持论坛](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage)上寻求帮助。
 
 ## 更多信息：
 
-* [QGroundControl > Setup](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
-* [Advanced Configuration](../advanced_config/README.md) (more advanced topics, related to lesser-used sensors and peripherals, and to vehicle/parameter tuning).
+* [QGroundControl配置许可证](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
+* [高级配置](../advanced_config/README.md)(更高级的话题，关于小众传感器和外设的使用以及飞机调试)
