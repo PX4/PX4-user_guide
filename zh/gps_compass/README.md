@@ -44,14 +44,14 @@ gps配置为用户透明地处理(前提是模块gps连接器连接正确)。
 
 ### Compass
 
-Compass calibration is covered in: [Compass Configuration](../config/compass.md). The process is straightforward and will calibrate all connected magnetometers.
+指南针校准内容包括在: [罗盘配置](../config/compass.md)中。 该过程非常简单, 将校准所有连接的磁强计。
 
-Additional configuration can be [performed](../advanced_config/parameters.md) using the [CAL*MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_EN) parameters (where `x=0-3`). Generally you will not need to *modify* these as compasses are autodetected, prioritised and are all calibrated at the same time (a possible exception is [CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN) which might be used to disable an internal compass). You may however wish to read them, as they will let you know which magnetometers are internal or external ([CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN)) and which is being uses as the main heading source ([CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME)).
+可以使用[CAL*MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_EN)parameters(`x=0-3`)[performed](../advanced_config/parameters.md)其他配置。 通常, 您不需要*修改*这些, 因为罗盘是自动检测的, 优先排序, 并且都是同时校准的(可能的例外是[CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN)可能用于禁用内部指南针)。 但是, 您可能希望阅读它们, 因为它们会让您知道哪些磁强计是内部或外部([CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN)), 哪些是用作主要标题源 ([CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME))。
 
 ## Developer Information
 
 - GPS/RTK-GPS 
   - [RTK-GPS](https://dev.px4.io/en/advanced/rtk_gps.html) 
-  - [GPS driver](https://dev.px4.io/en/middleware/modules_driver.html#gps)
-  - [UAVCAN Example](https://dev.px4.io/en/uavcan/)
-- [Magnetometer drivers](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) (source code)
+  - [GPS驱动程序](https://dev.px4.io/en/middleware/modules_driver.html#gps)
+  - [UAVCAN示例](https://dev.px4.io/en/uavcan/)
+- [Magnetometer驱动](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer)(源代码)
