@@ -1,16 +1,16 @@
 # 飞控(自驾仪)硬件
 
-This section provides information about the different autopilot hardware that can be used to run the PX4 flight stack.
+本节提供了关于可以运行px4飞行栈的不同自驾仪硬件的信息。
 
-There are a number of options:
+有许多选项:
 
-* [Pixhawk Series](../flight_controller/pixhawk_series.md) - Open hardware flight controllers that run PX4 on NuttX OS. With many form factors, there are versions targeted towards many use cases and market segments 
-* Autopilots for computationally intensive tasks: 
-  * [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) - High-end autopilot with integrated onboard computer.
-  * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) - UAV development platform with high-end autopilot and integrated onboard computer.
-  * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
+* [Pixhawk 系列](../flight_controller/pixhawk_series.md)-在nuttx os上运行px4的开放式硬件飞行控制器。 有许多外形, 有针对许多用例和细分市场的版本 
+* 用于计算密集型任务的自动驾驶仪: 
+  * [高通骁龙](../flight_controller/snapdragon_flight.md)-与集成的机载计算机的高端自动驾驶仪。
+  * [英特尔航空飞行无人机](../flight_controller/intel_aero.md)-无人机开发平台, 配备高端自动驾驶仪和集成的机载计算机。
+  * [树莓派2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
-* Consumer drones that can run PX4: 
+* 可运行px4的消费无人机: 
   * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
   * [Parrot Bebop](../flight_controller/bebop.md)
 
@@ -41,7 +41,7 @@ The list of boards documented in this library can be found in the sidebar (repro
 * [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 * [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
 * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md)
-* [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
+* [树莓派2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
 * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
 * [Parrot Bebop](../flight_controller/bebop.md)
