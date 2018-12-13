@@ -1,8 +1,8 @@
 # 飞行模式
 
-*飞行模式*定义自动驾驶仪如何响应用户输入并控制飞机移动。 下表总结了固定机翼和直升机的飞行模式([table键在下面](#key))。 请注意, 这是 "高级" 默认行为, 可能因飞机参数而异。 链接的主题(侧边栏)提供了有关各个模式的更详细信息, 包括它们的调优参数。
+*飞行模式* 定义自动驾驶仪如何响应用户输入并控制飞机移动。 下表总结了固定机翼和直升机的飞行模式（[table键在下面](#key)）。 请注意，这是 "高级" 默认行为，可能因飞机参数而异。 链接的主题（侧边栏）提供了有关各个模式的更详细信息，包括它们的调优参数。
 
-> **Tip**[开始>航班管理](../getting_started/flight_modes.md)中对所有飞行模式的*初学者友好*解释。
+> **Tip** [开始 > 航班管理](../getting_started/flight_modes.md) 中对所有飞行模式的 *初学者友好* 解释。
 
 <!-- Styles used for tables below --> 
 
@@ -70,7 +70,7 @@ th {
     </th>
     
     <th class="col_yaw">
-      纵转:
+      纵转：
     </th>
     
     <th class="col_throttle">
@@ -82,7 +82,7 @@ th {
     </th>
     
     <th class="col_summary">
-      Summary
+      概览
     </th>
   </tr></tr> 
   
@@ -113,22 +113,22 @@ th {
     
     <td>
       <p>
-        在遥控模式下,回正摇杆会将飞机置于直线和水平飞行,飞机的姿态、高度和直线飞行路径保持抗风(和其他力量)。 
+        在遥控模式下，回正摇杆会将飞机置于直线和水平飞行，飞机的姿态、高度和直线飞行路径保持抗风（和其他力量）。 
         
         <ul>
           <li>
-            回正摇杆使得水平飞行, 沿着直线地面轨道在当前方向抗风。
+            回正摇杆使得水平飞行，沿着直线地面轨道在当前方向抗风。
           </li>
           <li>
-            外部中心: <ul>
+            外部中心： <ul>
               <li>
-                Pitch摇杆控制高度(与<a href="#altitude_fw">Altitude</a>相同)。
+                Pitch摇杆控制高度（与 <a href="#altitude_fw">Altitude</a>相同）。
               </li>
               <li>
-                Roll摇杆控制滚动角度。 自动驾驶仪将保持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>(与<a href="#stabilized_fw">Stabilized</0>相同)。</li> 
+                Roll摇杆控制滚动角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a> （与 <a href="#stabilized_fw">稳定模式</0> 相同）。</li> 
                 
                 <li>
-                  油门设置空速(与<a href="#altitude_fw">姿态</a>相同)。
+                  油门设置空速（与 <a href="#altitude_fw">姿态</a> 相同）。
                 </li>
                 
                 <li>
@@ -136,12 +136,12 @@ th {
                 </li>
                 
                 <li>
-                  Yaw杆操纵会驱动方向舵(指令将被加到自动驾驶仪计算的指令中以维持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>)。 这和<a href="#stabilized_fw">稳定模式</a>一样。
+                  Yaw杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
                 </li></ul></li> </ul> </p> </td> </tr> 
                 
                 <tr id="altitude_fw">
                   <td>
-                    <a href="../flight_modes/altitude_fw.md">Altitude</a> 
+                    <a href="../flight_modes/altitude_fw.md">姿态</a> 
                     
                     <p>
                       <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a>
@@ -150,7 +150,7 @@ th {
                   
                   <td>
                     <p>
-                      S (roll)
+                      S（Roll）
                     </p>
                     
                     <p>
@@ -172,7 +172,7 @@ th {
                   
                   <td>
                     <p>
-                      遥控模式如<a href="#stabilized_fw">Stabilized</a>模式, 但具有<em>altitude稳定</em>(中心棒将飞机置于直线和水平飞行, 并保持当前高度)。 但是飞行过程并不稳定，可能被风吹飘离。 
+                      遥控模式如 <a href="#stabilized_fw">稳定</a> 模式, 但具有 <em>altitude稳定</em> （中心棒将飞机置于直线和水平飞行, 并保持当前高度）。 但是飞行过程并不稳定，可能被风吹飘离。 
                       
                       <ul>
                         <li>
@@ -181,19 +181,19 @@ th {
                               自动驾驶仪保持与翼一直的高度水平。
                             </li>
                             <li>
-                              如果连接了空速传感器, Throttle摇杆控制飞机的空速(如果没有空速传感器, 用户就无法控制)。
+                              如果连接了空速传感器，油门控制飞机的空速（如果没有空速传感器，用户就无法控制）。
                             </li>
                           </ul>
                           <li>
-                            外部中心: <ul>
+                            外部中心： <ul>
                               <li>
                                 Pitch摇杆控制高度。
                               </li>
                               <li>
-                                Throttle摇杆控制着飞机的空速 (如回正的RPY摇杆)。
+                                油门控制着飞机的空速 （如回正的RPY摇杆）。
                               </li>
                               <li>
-                                Yaw杆操纵会驱动方向舵(指令将被加到自动驾驶仪计算的指令中以维持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>)。 这和<a href="#stabilized_fw">稳定模式</a>一样。
+                                Yaw杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
                               </li>
                             </ul>
                           </li></ul> </p> </td> </tr> 
@@ -223,7 +223,7 @@ th {
                             
                             <td>
                               <p>
-                                遥控模式, 其中中心RP棒水平飞机的姿态(滚动和俯仰)。 但是飞行过程和姿态并不稳定，可能被风吹飘离。
+                                遥控模式，其中中心RP棒水平飞机的姿态（滚动和俯仰）。 但是飞行过程和姿态并不稳定，可能被风吹飘离。
                               </p>
                               
                               <ul>
@@ -231,13 +231,13 @@ th {
                                   Pitch摇杆控制俯仰角度。
                                 </li>
                                 <li>
-                                  Roll摇杆控制滚动角度。 自动驾驶仪将保持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>。
+                                  Roll摇杆控制滚动角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>。
                                 </li>
                                 <li>
                                   油门摇杆控制油门。
                                 </li>
                                 <li>
-                                  Yaw杆操纵会驱动方向舵(指令将被加到自动驾驶仪计算的指令中以维持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>)。
+                                  Yaw杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。
                                 </li>
                               </ul>
                             </td>
@@ -245,7 +245,7 @@ th {
                           
                           <tr id="acro_fw">
                             <td>
-                              <a href="../flight_modes/acro_fw.md">Acro</a> 
+                              <a href="../flight_modes/acro_fw.md">特技</a> 
                               
                               <p>
                                 <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a>
@@ -269,11 +269,11 @@ th {
                             
                             <td>
                               <p>
-                                用于执行杂技动作的遥控模式, 例如滚动、翻转、摊位和杂技图形。
+                                用于执行杂技动作的遥控模式，例如滚动、翻转、摊位和杂技图形。
                               </p>
                               
                               <p>
-                                RPY摇杆输入被转换为角速度命令, 通过自动驾驶仪稳定。 油门直接传递到输出混频器。
+                                RPY摇杆输入被转换为角速度命令，通过自动驾驶仪稳定。 油门直接传递到输出混频器。
                               </p>
                             </td>
                           </tr>
@@ -304,11 +304,11 @@ th {
                             
                             <td>
                               <p>
-                                遥控模式, 其中摇杆输入直接发送到输出混频器 (用于 "完全" 手动控制)。
+                                遥控模式，其中摇杆输入直接发送到输出混频器（用于 "完全" 手动控制）。
                               </p>
                               
                               <p>
-                                这是覆盖fmu(命令通过安全协处理器发送)的唯一模式。 它提供了一个安全机制, 允许在FMU固件出现故障时, 通过遥控完全控制油门、电梯、副翼和舵。
+                                这是覆盖FMU（命令通过安全协处理器发送）的唯一模式。 它提供了一个安全机制，允许在FMU固件出现故障时，通过遥控完全控制油门、电梯、副翼和舵。
                               </p>
                             </td>
                           </tr>
@@ -327,13 +327,13 @@ th {
                             </td>
                             
                             <td>
-                              飞机使用<em>弹射/手持发射模式</em>或<em>滑行起飞模式</em>(在当前方向)启动起飞顺序。
+                              飞机使用 <em>弹射/手持发射模式</em> 或 <em>滑行起飞模式</em> （在当前方向）启动起飞顺序。
                             </td>
                           </tr>
                           
                           <tr id="land_fw">
                             <td>
-                              <a href="../flight_modes/land.md">Land</a>
+                              <a href="../flight_modes/land.md">降落</a>
                             </td>
                             
                             <td class="centred" colspan="3">
@@ -345,7 +345,7 @@ th {
                             </td>
                             
                             <td>
-                              飞机启动了<a href="../flying/fixed_wing_landing.md">固定翼着陆</a>序列。
+                              飞机启动了 <a href="../flying/fixed_wing_landing.md">固定翼着陆</a> 序列。
                             </td>
                           </tr>
                           
@@ -416,7 +416,7 @@ th {
                                   </th>
                                   
                                   <th>
-                                    纵转:
+                                    纵转：
                                   </th>
                                   
                                   <th>
@@ -428,7 +428,7 @@ th {
                                   </th>
                                   
                                   <th class="col_summary">
-                                    Summary
+                                    概览
                                   </th>
                                 </tr></tr> 
                                 
@@ -466,7 +466,7 @@ th {
                                           回正的RPT摇杆保持X,Y,Z位置稳定抗风和水平的姿态。
                                         </li>
                                         <li>
-                                          外部中心: <ul>
+                                          外部中心： <ul>
                                             <li>
                                               Roll/Pitch摇杆控制相对于飞机”前部“的左右前后方向的速度。
                                             </li>
@@ -523,7 +523,7 @@ th {
                                             </li>
                                           </ul>
                                           <li>
-                                            外部中心: <ul>
+                                            外部中心： <ul>
                                               <li>
                                                 Roll/Pitch摇杆控制各自方向的倾斜角,导致左右和前后的移动。
                                               </li>
@@ -570,7 +570,7 @@ th {
                                                     回正RP摇杆使飞机水平。
                                                   </li>
                                                   <li>
-                                                    外部中心: <ul>
+                                                    外部中心： <ul>
                                                       <li>
                                                         Roll/Pitch摇杆控制各自方向的倾斜角,导致左右和前后的移动。
                                                       </li>
@@ -690,7 +690,7 @@ th {
                                                   
                                                   <tr id="land_mc">
                                                     <td>
-                                                      <a href="../flight_modes/land.md">Land</a>
+                                                      <a href="../flight_modes/land.md">降落</a>
                                                     </td>
                                                     
                                                     <td colspan="3">
