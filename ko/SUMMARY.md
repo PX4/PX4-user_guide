@@ -132,6 +132,7 @@
   * [ESCs & Motors](peripherals/esc_motors.md) 
     * [PWM ESCs and Servos](peripherals/pwm_escs_and_servo.md)
   * [Camera](peripherals/camera.md)
+  * [Companion Computer Peripherals](peripherals/companion_computer_peripherals.md)
 * [Autopilot Hardware](flight_controller/README.md) 
   * [Pixhawk Series](flight_controller/pixhawk_series.md) 
     * [Pixhawk 1](flight_controller/pixhawk.md)
