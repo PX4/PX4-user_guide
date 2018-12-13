@@ -325,7 +325,7 @@ There are a number of ways to [configure flight modes](../config/flight_mode.md)
 For more information see:
 
 - [Flight Mode Configuration](../config/flight_mode.md)
-- [Flight Modes](../flight_modes/README.md)
+- [飞行模式](../flight_modes/README.md)
 - [Flight Modes](https://donlakeflyer.gitbooks.io/qgroundcontrol-user-guide/content/SetupView/FlightModes.html) (QGroundControl)
 
 **Step 6:** Calibrate ESC
