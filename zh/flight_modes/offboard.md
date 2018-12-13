@@ -1,6 +1,6 @@
 # Offboard Mode
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink. The setpoint may be provided by a MAVLink API (e.g. [Dronecode SDK](https://sdk.dronecode.org/en/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
