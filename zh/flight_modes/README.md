@@ -397,12 +397,12 @@ th {
                                 </td>
                                 
                                 <td>
-                                  Vehicle executes a <a href="../flying/missions.md">predefined mission/flight plan</a> that has been uploaded to the flight controller.
+                                  飞机执行已上传到飞行控制器的<a href="../flying/missions.md">预定义的飞行计划</a>。
                                 </td>
                               </tr></tbody></table> 
                               
                               <h2>
-                                Multicopter
+                                多旋翼
                               </h2>
                               
                               <table>
@@ -434,7 +434,7 @@ th {
                                 
                                 <tr id="position_mc">
                                   <td>
-                                    <a href="../flight_modes/position_mc.md">Position</a> 
+                                    位置 
                                     
                                     <p>
                                       <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a>
@@ -459,11 +459,11 @@ th {
                                   
                                   <td>
                                     <p>
-                                      RC mode where RPT sticks control <em>speed</em> in corresponding directions. Centered sticks level vehicle and hold it to fixed position and altitude against wind. 
+                                      遥控模式, 其中RPT摇杆控制<em>速度</em>在相应的方向。 中心摇杆水平飞机, 并保持它的固定位置和高度逆风。 
                                       
                                       <ul>
                                         <li>
-                                          Centered RPT sticks hold x, y, z position steady against any wind and levels attitude.
+                                          回正的RPT摇杆保持X,Y,Z位置稳定抗风和水平的姿态。
                                         </li>
                                         <li>
                                           外部中心: <ul>
@@ -754,7 +754,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          Vehicle executes a <a href="../flying/missions.md">predefined mission/flight plan</a> that has been uploaded to the flight controller.
+                                                          飞机执行已上传到飞行控制器的<a href="../flying/missions.md">预定义的飞行计划</a>。
                                                         </td>
                                                       </tr>
                                                       
