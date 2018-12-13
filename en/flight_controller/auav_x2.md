@@ -2,7 +2,7 @@
 
 > **Warning** This board has been discontinued and is no longer commercially available.
 
-The [AUAV](http://www.auav.com/) *AUAV-X2 autopilot* is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
+The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 ![AUAVX2_case2](../../images/auavx2_case2.jpg)
 
@@ -43,7 +43,9 @@ The [AUAV](http://www.auav.com/) *AUAV-X2 autopilot* is based on the [Pixhawk-pr
 
 ## Availability
 
-No longer in production
+No longer in production. 
+This has been superceded by the [mRo X2.1](mro_x2.1.md). mRobotics is the  
+distributor for the AUAV Products from August 2017.
 
 ## Key Links
 
@@ -65,4 +67,8 @@ No longer in production
 
 ## Schematics
 
-The board is documented on the [Pixhawk project](https://pixhawk.org/modules/pixhawk) website.
+The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
+
+* [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+
+> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware). 

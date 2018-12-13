@@ -1,13 +1,15 @@
-# Radio Setup
+# Radio (Remote Control) Setup
 
-Radio Setup is used to configure the mapping of your main attitude control sticks (roll, pitch, yaw, throttle) to channels as well as calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
+The *Radio Setup* screen is used to configure the mapping of your remote control unit's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
 ## Binding the Receiver
 
-Before you can calibrate the radio system the receiver and transmitter must be connected/bound. The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions). 
+Before you can calibrate the radio system the receiver and transmitter must be connected/bound. The process for binding a transmitter and receiver pair is hardware specific (see your RC manual for instructions). 
 
 > **Note** If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*, as [shown below](#spektrum_bind).
 
+
+> **Note** If you are using a *FrSky* receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
 
 ## Performing the Calibration 
 
@@ -61,6 +63,8 @@ To bind a Spektrum transmitter/receiver:
 
 This setting is used to copy the manual trim settings from your radio transmitter so that they can be applied automatically within the autopilot. After this is done you will need to remove the manually set trims.
 
+> **Note** Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode). Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. The **Copy Trims** setting here moves the offsets into the autopilot.
+
 To copy the trims:
 
 1. Select **Copy Trims**.
@@ -92,7 +96,7 @@ The flight controller will pass through the unmodified values from the specified
 
 Tuning channels allow you to map a transmitter tuning knob to a parameter (so that you can dynamically modify a parameter from your transmitter). 
 
-> **Tip** This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../advanced_config/pid_tuning_guide_multicopter.md), [Fixedwing PID Tuning Guide](../advanced_config/pid_tuning_guide_fixedwing.md).
+> **Tip** This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md), [Fixedwing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
 
 The channels used for parameter tuning are assigned in the *Radio* setup (here!), while the mapping from each tuning channel to its associated parameter is defined in the *Parameter editor*.
 

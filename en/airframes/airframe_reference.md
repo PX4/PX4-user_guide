@@ -329,6 +329,35 @@ This page lists all supported airframes and types including
 </tr>
 </tbody></table>
 
+### Quadrotor H
+
+<div>
+<img src="../../assets/airframes/types/QuadRotorH.svg" width="29%" style="max-height: 180px;"/>
+<table style="float: right; width: 70%; font-size:1.5rem;">
+ <colgroup><col></colgroup>
+ <thead>
+   <tr><th>Common Outputs</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
+</tr>
+</tbody></table>
+</div>
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
+ <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th></th></tr>
+ </thead>
+<tbody>
+<tr id="copter_quadrotor_h_reaper_500_quad">
+ <td style="vertical-align: top;">Reaper 500 Quad</td>
+ <td style="vertical-align: top;"><p>Maintainer: Blankered</p><p><code>SYS_AUTOSTART</code> = 4040</p></td>
+
+</tr>
+</tbody></table>
+
 ### Quadrotor Wide
 
 <div>
@@ -376,6 +405,7 @@ This page lists all supported airframes and types including
 ### Quadrotor asymmetric
 
 <div>
+<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -405,16 +435,6 @@ This page lists all supported airframes and types including
 
 <div>
 <img src="../../assets/airframes/types/QuadRotorX.svg" width="29%" style="max-height: 180px;"/>
-<table style="float: right; width: 70%; font-size:1.5rem;">
- <colgroup><col></colgroup>
- <thead>
-   <tr><th>Common Outputs</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
-</tr>
-</tbody></table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -425,12 +445,12 @@ This page lists all supported airframes and types including
 <tbody>
 <tr id="copter_quadrotor_x_generic_quadrotor_x">
  <td style="vertical-align: top;">Generic Quadrotor x</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_generic_quadrotor_x_with_mount_(e.g._gimbal)">
  <td style="vertical-align: top;">Generic Quadrotor x with mount (e.g. gimbal)</td>
- <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <thedevleon></p><p><code>SYS_AUTOSTART</code> = 4002</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: Mount pitch</li><li><b>AUX2</b>: Mount roll</li><li><b>AUX3</b>: Mount yaw</li><li><b>AUX4</b>: Mount retract</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <thedevleon></p><p><code>SYS_AUTOSTART</code> = 4002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: Mount pitch</li><li><b>AUX2</b>: Mount roll</li><li><b>AUX3</b>: Mount yaw</li><li><b>AUX4</b>: Mount retract</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_lumenier_qav-r_(raceblade)_5"_arms">
@@ -468,6 +488,11 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Michael Schaeuble</p><p><code>SYS_AUTOSTART</code> = 4013</p></td>
 
 </tr>
+<tr id="copter_quadrotor_x_s500">
+ <td style="vertical-align: top;">S500</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4014</p></td>
+
+</tr>
 <tr id="copter_quadrotor_x_hobbyking_micro_pcb">
  <td style="vertical-align: top;">Hobbyking Micro PCB</td>
  <td style="vertical-align: top;"><p>Maintainer: Thomas Gubler <thomas@px4.io></p><p><code>SYS_AUTOSTART</code> = 4020</p></td>
@@ -483,11 +508,6 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_reaper_500_quad">
- <td style="vertical-align: top;">Reaper 500 Quad</td>
- <td style="vertical-align: top;"><p>Maintainer: Blankered</p><p><code>SYS_AUTOSTART</code> = 4040</p></td>
-
-</tr>
 <tr id="copter_quadrotor_x_generic_250_racer">
  <td style="vertical-align: top;">Generic 250 Racer</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4050</p></td>
@@ -500,7 +520,7 @@ This page lists all supported airframes and types including
 </tr>
 <tr id="copter_quadrotor_x_intel_aero_ready_to_fly_drone">
  <td style="vertical-align: top;">Intel Aero Ready to Fly Drone</td>
- <td style="vertical-align: top;"><p>Maintainer: Lucas de Marchi</p><p><code>SYS_AUTOSTART</code> = 4070</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Beat Kueng <beat@px4.io></p><p><code>SYS_AUTOSTART</code> = 4070</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_zmr250_racer">
@@ -513,8 +533,13 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Henry Zhang <zhanghui629@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4090</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_crazyflie_2.0">
- <td style="vertical-align: top;">Crazyflie 2.0</td>
+<tr id="copter_quadrotor_x_teal_one">
+ <td style="vertical-align: top;">Teal One</td>
+ <td style="vertical-align: top;"><p>Maintainer: Jacob Dahl <jacob.dahl@tealdrones.com></p><p><code>SYS_AUTOSTART</code> = 4250</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+
+</tr>
+<tr id="copter_quadrotor_x_crazyflie_2">
+ <td style="vertical-align: top;">Crazyflie 2</td>
  <td style="vertical-align: top;"><p>Maintainer: Dennis Shtatov <densht@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4900</p></td>
 
 </tr>
@@ -523,6 +548,7 @@ This page lists all supported airframes and types including
 ### Simulation (Copter)
 
 <div>
+<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -534,6 +560,35 @@ This page lists all supported airframes and types including
 <tr id="copter_simulation_(copter)_hil_quadcopter_x">
  <td style="vertical-align: top;">HIL Quadcopter X</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
+
+</tr>
+</tbody></table>
+
+### Tilt-Quad
+
+<div>
+<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
+<table style="float: right; width: 70%; font-size:1.5rem;">
+ <colgroup><col></colgroup>
+ <thead>
+   <tr><th>Common Outputs</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Outer servo motor for rotor 2 arm</li><li><b>AUX2</b>: Outer servo motor for rotor 4 arm</li><li><b>AUX3</b>: Inner servo motor for rotor 2 arm</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
+</tr>
+</tbody></table>
+</div>
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
+ <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th></th></tr>
+ </thead>
+<tbody>
+<tr id="copter_tilt-quad_tilt-quadrotor">
+ <td style="vertical-align: top;"><a href="http://www.alivaero.com/the-project.html">Tilt-Quadrotor</a></td>
+ <td style="vertical-align: top;"><p>Maintainer: Ricardo Marques <marques.ricardo17@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4100</p></td>
 
 </tr>
 </tbody></table>
@@ -626,17 +681,17 @@ This page lists all supported airframes and types including
 
 </tr>
 <tr id="plane_flying_wing_io_camflyer">
- <td style="vertical-align: top;"><a href="https://pixhawk.org/platforms/planes/bormatec_camflyer_q">IO Camflyer</a></td>
+ <td style="vertical-align: top;">IO Camflyer</td>
  <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3030</p></td>
 
 </tr>
 <tr id="plane_flying_wing_phantom_fpv_flying_wing">
- <td style="vertical-align: top;"><a href="https://pixhawk.org/platforms/planes/z-84_wing_wing">Phantom FPV Flying Wing</a></td>
+ <td style="vertical-align: top;"><a href="https://docs.px4.io/en/frames_plane/wing_wing_z84.html">Phantom FPV Flying Wing</a></td>
  <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3031</p></td>
 
 </tr>
 <tr id="plane_flying_wing_skywalker_x5_flying_wing">
- <td style="vertical-align: top;"><a href="https://pixhawk.org/platforms/planes/skywalker_x5">Skywalker X5 Flying Wing</a></td>
+ <td style="vertical-align: top;">Skywalker X5 Flying Wing</td>
  <td style="vertical-align: top;"><p>Maintainer: Julian Oes <julian@px4.io></p><p><code>SYS_AUTOSTART</code> = 3032</p></td>
 
 </tr>
@@ -701,9 +756,39 @@ This page lists all supported airframes and types including
 </tr>
 </tbody></table>
 
+### Plane V-Tail
+
+<div>
+<img src="../../assets/airframes/types/PlaneVTail.svg" width="29%" style="max-height: 180px;"/>
+<table style="float: right; width: 70%; font-size:1.5rem;">
+ <colgroup><col></colgroup>
+ <thead>
+   <tr><th>Common Outputs</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+</tr>
+</tbody></table>
+</div>
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
+ <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th></th></tr>
+ </thead>
+<tbody>
+<tr id="plane_plane_v-tail_x-uav_mini_talon">
+ <td style="vertical-align: top;">X-UAV Mini Talon</td>
+ <td style="vertical-align: top;"><p>Maintainer: Friedrich Beckmann <friedrich.beckmann@hs-augsburg.de></p><p><code>SYS_AUTOSTART</code> = 2200</p></td>
+
+</tr>
+</tbody></table>
+
 ### Simulation (Plane)
 
 <div>
+<img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
 <table style="float: right; width: 70%; font-size:1.5rem;">
  <colgroup><col></colgroup>
  <thead>
@@ -794,28 +879,6 @@ This page lists all supported airframes and types including
 </tr>
 </tbody></table>
 
-## Tool
-
-### custom
-
-<div>
-</div>
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
- <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup>
- <thead>
-   <tr><th>Name</th><th></th></tr>
- </thead>
-<tbody>
-<tr id="tool_custom_passthrough_mode_for_snapdragon">
- <td style="vertical-align: top;">Passthrough mode for Snapdragon</td>
- <td style="vertical-align: top;"><p>Maintainer: Julian Oes <julian@oes.ch>
-This startup can be used on Pixhawk/Pixfalcon/Pixracer for the
-passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000</p></td>
-
-</tr>
-</tbody></table>
-
 ## VTOL
 
 ### Standard VTOL
@@ -830,6 +893,11 @@ passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
+<tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
+ <td style="vertical-align: top;">HIL Standard VTOL QuadPlane</td>
+ <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@auterion.com></p><p><code>SYS_AUTOSTART</code> = 1002</p></td>
+
+</tr>
 <tr id="vtol_standard_vtol_generic_quadplane_vtol">
  <td style="vertical-align: top;">Generic Quadplane VTOL</td>
  <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></p></td>
@@ -860,8 +928,8 @@ passthrough of RC input and PWM output.</p><p><code>SYS_AUTOSTART</code> = 20000
  <td style="vertical-align: top;"><p>Maintainer: Andreas Antener <andreas@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13009</p></td>
 
 </tr>
-<tr id="vtol_standard_vtol_deltaquad">
- <td style="vertical-align: top;">DeltaQuad</td>
+<tr id="vtol_standard_vtol_vertical_technologies_deltaquad">
+ <td style="vertical-align: top;">Vertical Technologies DeltaQuad</td>
  <td style="vertical-align: top;"><p>Maintainer: Sander Smeets <sander@droneslab.com></p><p><code>SYS_AUTOSTART</code> = 13013</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: Right elevon</li><li><b>MAIN6</b>: Left elevon</li><li><b>MAIN7</b>: Pusher motor</li><li><b>MAIN8</b>: Pusher reverse channel</li></ul></p></td>
 
 </tr>

@@ -1,17 +1,25 @@
 {   
     "gitbook": ">= 3.2.2",
     "title": "PX4 User Guide",
+    "variables": {
+        "logo": "./assets/site/logo_pro_small.png"
+    },
     "plugins": [
         "youtube",
-        "richquotes",
+        "richquotes@git+https://github.com/Dronecode/gitbook-plugin-richquotes.git",
         "language-picker",
         "collapsible-menu",
+        "anchors",
         "page-toc-button",
+        "ga",
         "page-footer-ex",
         "custom-favicon",
-        "bulk-redirect",
+        "bulk-redirect@git+https://github.com/Dronecode/gitbook-plugin-bulk-redirect.git",
         "toolbar@git+https://github.com/hamishwillee/gitbook-plugin-toolbar.git",
-        "validate-links"
+        "validate-links",
+        "versions",
+        "mathjax@git+https://github.com/Dronecode/plugin-mathjax.git#update_cdn",
+        "theme-dronecode@git+https://github.com/dronecode/theme-dronecode.git"
     ],
     "pluginsConfig": {
 
@@ -20,11 +28,18 @@
             "update_label":"Updated: ",
             "update_format":"YYYY-MM-DD HH:mm:ss"
         },
+        "ga": {
+            "token": "UA-33658859-3"
+        },
         "richquotes":
         {
             "tip": {
                 "alert": "success",
                 "picto": "fa-thumbs-o-up"
+            },
+            "archived": {
+                "alert": "warning",
+                "picto": "fa-archive"
             }
         },
         "favicon": "favicon.ico",
@@ -54,10 +69,22 @@
                     "url": "https://github.com/PX4/px4_user_guide/edit/master/{{filepath_lang}}"
                 }
             ]
-        }
+        },
         
-    } 
-    
-    
+        "versions": {
+            "gitbookConfigURL": "https://raw.githubusercontent.com/PX4/px4_user_guide/master/book.json",
+            "options": [
+                {
+                    "value": "https://docs.px4.io/en/",
+                    "text": "Master",
+                    "selected": true
+                }
+            ]
+        }
+
+
+    }
+
+
 }
 

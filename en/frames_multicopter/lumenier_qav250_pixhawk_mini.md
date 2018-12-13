@@ -22,8 +22,8 @@ The components used in this build are listed below (along with links to
 where they can be purchased). In general we used hardware recommended by
 the manufacturers for the flight controller and frame.
 
-- **Flight controller:** Pixhawk Mini ([3DR Store](https://store.3dr.com/t/pixhawk))
-- **Power module:** 3DR 10s ([3DR Store](https://store.3dr.com/products/10s-power-module))
+- **Flight controller:** [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md)
+- **Power module:** 3DR 10s Power Module (Discontinued)
 - **ESC:** Lumenier f390 with Blheli ([getfpv.com](http://www.getfpv.com/electronics/electronic-speed-controllers-esc/lumenier-f390-30a-blheli-esc-opto-2-4s.html)). These come with the motors.
 - **Motors:** Lumenier RX2204 -14 2300KV ([getfpv.com](http://www.getfpv.com/motors/lumenier-rx2204-14-2300kv.html))
 - **Propellers:** Lumenier 5x4.5 2 blade ([getfpv.com](http://www.getfpv.com/propellers/lumenier-5x3-5-2-blade-propeller-set-of-4-black.html))
@@ -33,8 +33,7 @@ the manufacturers for the flight controller and frame.
 
 Notes:
 
-- The 4S Power Module that comes with the *Pixhawk Mini* can be used
-  for the battery size above (instead of the 10S Power Module).
+- The 4S Power Module that comes with the *Pixhawk Mini* can be used for the battery size above (instead of the 10S Power Module).
   Assembly is the same with either power module.
 - We also recommend these ESC: Lumenier 12 amp ESC w/ SimonK AutoShot (2-4s N-FET) ([getfpv.com](http://www.getfpv.com/lumenier-12a-esc-w-simonk-autoshot-2-4s-n-fet.html)).
 
@@ -89,13 +88,10 @@ autopilot. This allows you to view in-flight data, change missions on
 the fly, and tune in the vehicle during flight.
 
 PX4/Pixhawk Mini support many different telemetry radios. The radio used
-in this build is the (highly recommended) 
-[3DR Telemetry Radio](https://store.3dr.com/products/915-mhz-telemetry-radio).
+in this build is the (highly recommended) *3DR Telemetry Radio (915MHz)* (Discontinued).
 
-> **Note** Telemetry radios use different frequency bands in
-  order to comply with local regulations. 
-  [Select a version](https://store.3dr.com/products?utf8=%E2%9C%93&keywords=telemetry+radio)
-  appropriate for your region: USA - 915 MHz, Europe/Australia - 433MHz
+> **Note** Telemetry radios use different frequency bands in order to comply with local regulations. 
+  Select a version appropriate for your region: USA - 915 MHz, Europe/Australia - 433MHz
 
 The telemetry kit includes:
 
@@ -228,13 +224,13 @@ Follow the steps described in the Frame assembly section.
 
 **Step 7:** Attach the LEDs to the frame using the Phillips screws provided.
 
-![Attach LEDs to QAV250 frame](../../images/qav250_attach_leds_to_frame.jpg)
+![Attach LEDS to frame](../../images/qav250_attach_LEDs_to_frame.jpg)
 
 > **Warning** The carbon fiber is conductive use silicon to
   avoid the contact with the weld in the frame.
  
   ![Use silicon to isolate LEDs from frame](../../images/qav250_use_silicon_with_leds.jpg)
-  ![Attach LEDS to frame](../../images/qav250_attach_LEDs_to_frame.jpg)
+
 
 **Step 8:** Attach vibration damping foam to the frame as shown (the foam is included in the *Pixhawk Mini* kit).
 
@@ -435,7 +431,7 @@ flight testing.
 
 ![Recommended parameters for QAV250](../../images/qav250_recommended_parameters.jpg)
 
-For general information on tuning see: [Multicopter PID Tuning Guide](../advanced_config/pid_tuning_guide_multicopter.md).
+For general information on tuning see: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md).
 
 ## Video
 

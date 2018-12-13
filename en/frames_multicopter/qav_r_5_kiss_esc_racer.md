@@ -1,11 +1,13 @@
 # QAV-R 5" KISS ESC Racer (Pixracer)
 
-The Lumenier QAV-R 5" FPV Racing Quadcopter is a rigid, light, and fast FPV racer with removable arms. This topic provides full build and configuration instructions for using the frame with the Pixracer flight controller and *KISS 24A Race Edition* ESCs. It also provides information on the (optional) FPV setup.
+The Lumenier QAV-R 5" FPV Racing Quadcopter is a rigid, light, and fast FPV racer with removable arms. This topic provides full build and configuration instructions for using the frame with the *Pixracer* flight controller and *KISS 24A Race Edition* ESCs. It also provides information on the (optional) FPV setup.
 
 Key information:
 
 - **Frame:** Lumenier QAV-R 5"
 - **Flight controller:** [Pixracer](../flight_controller/pixracer.md)
+
+{% youtube %}https://www.youtube.com/watch?v=wMYgqvsNEwQ{% endyoutube %}
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg)
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
@@ -19,14 +21,15 @@ Key information:
 * Motors:  [Lumenier RX2206-11 2350KV](http://www.getfpv.com/lumenier-rx2206-11-2350kv-motor.html)
 * ESCs:  [KISS 24A Race Edition](http://www.getfpv.com/kiss-24a-esc-race-edition-32bit-brushless-motor-ctrl.html)
 * Props: HQProp 5x4.5x3 [CW](http://www.getfpv.com/hqprop-5x4-5x3rg-cw-propeller-3-blade-2-pack-green-nylon-glass-fiber.html) [CCW](http://www.getfpv.com/hqprop-5x4-5x3g-ccw-propeller-3-blade-2-pack-green-nylon-glass-fiber.html)
-* GPS / Ext. Mag.: M8N taken from a [3DR Pixhawk Mini set](https://store.3dr.com/products/3dr-pixhawk) and rewired
+* GPS / Ext. Mag.: M8N taken from a [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md) set and rewired
 * Battery: [TATTU 1800mAh 4s 75c Lipo](http://www.getfpv.com/tattu-1800mah-4s-75c-lipo-battery.html)
 * RC Receiver: [FrSky X4R-SB](http://www.getfpv.com/frsky-x4r-sb-3-16-channel-receiver-w-sbus.html)
-* Remote Control: [FrSky Taranis](http://www.getfpv.com/frsky-taranis-x9d-plus-2-4ghz-accst-radio-w-soft-case-mode-2.html)
+* RC Transmitter: [FrSky Taranis](http://www.getfpv.com/frsky-taranis-x9d-plus-2-4ghz-accst-radio-w-soft-case-mode-2.html)
 * FC dampening: [O-Rings](http://www.getfpv.com/multipurpose-o-ring-set-of-8.html)
 * GPS Mount: [GPS mast](http://www.getfpv.com/folding-aluminum-gps-mast-for-dji.html)
 
 ### FPV (optional)
+
 * Camera: [RunCam Swift RR Edition](http://www.getfpv.com/fpv/cameras/runcam-swift-rotor-riot-special-edition-ir-block-black.html) **includes must-have high quality wide angle lens from GoPro!**
 * Video Tx: [ImmersionRC Tramp HV 5.8GHz 600mW](http://www.getfpv.com/fpv/video-transmitters/immersionrc-tramp-hv-5-8ghz-video-tx.html)
 * Video Antennas: [TBS Triumph 5.8GHz CP](http://www.getfpv.com/fpv/antennas/tbs-triumph-5-8ghz-cp-fpv-antenna-3275.html) (SMA port fits ImmercionRC Tx)
@@ -48,7 +51,7 @@ I mounted the four motors to the frame with the cables coming out towards the ce
 
 The KISS ESCs are known for their good performance but they also come with two disadvantages:
 - The software they use is not open source (unlike BLHeli)
-- There is no hardware package with presoldered wires and/or plugs (to my knowledge)
+- There is no hardware package with pre-soldered wires and/or plugs (to my knowledge)
 
 This means we need to solder at least 6 joints on every ESC but it's still totally worth it.
 
@@ -58,33 +61,35 @@ This means we need to solder at least 6 joints on every ESC but it's still total
 > **Tip** Make sure that you use an appropriate cable gauge for the power connections that transport the high current all the way from the battery to the motors. All signal cables can be very thin in comparison.
 
 <span></span>
-> **Tip** Put heat shrink on the cables before you start soldering! Heatshrinking the ESCs, the power module and the free floating uninsolated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage
+> **Tip** Put heat shrink on the cables before you start soldering! Heatshrinking the ESCs, the power module and the free floating uninsulated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage.
 
 ### Motors
 First I cut all three motor cables to directly fit when the ESCs are mounted on the arms shifted towards the center but still let enough slack to allow easy placement of the parts and not produce any tension on the cables. Then I soldered them in the order they come out of the motor to the output contacts of the ESCs which are oriented with the switching MOS-FETs facing upwards to get good air cooling during flight. Choosing this cable order resulted in all the motors spinning counter-clockwise in my tests and I switched where necessary the direction of rotation by bridging the dedicated [JP1 solder jumper](https://1.bp.blogspot.com/-JZoWC1LjLis/VtMP6XdU9AI/AAAAAAAAAiU/4dygNp0hpwc/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) to conform the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x).
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-motor-connections.jpg)
+![Power motor connections](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-motor-connections.jpg)
 
 ### Power Module
-First I soldered the XT60 connector which comes with the frame to the labeled battery side of the [ACSP5 power module](http://fs5.directupload.net/images/160304/a72l2mbz.jpg) that was shipped with the Pixracer and added the elco capacitor delivered with the power module with the correct polarity to the same side.
+First I soldered the XT60 connector which comes with the frame to the labeled battery side of the *ACSP5 power module* that was shipped with the Pixracer and added the elco capacitor delivered with the power module with the correct polarity to the same side.
+
+![ACSP5 power module](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/acsp5_power_module.jpg)
 
 Now comes the tricky part. I soldered all four ESC voltage source + and - ports to the corresponding pad on the labeled ESC output side of the power module. Make sure to not have any cold solder joint here because the quad will not end up well with a loose connection in flight. Using the additional power distribution board of the frame would make the job a lot easier but also takes too much space on such a small frame...
 
 > **Tip** If you are also including the FPV parts don't forget to also solder your JST male power plug to the output side of the power module. You'll need it for your [FPV setup](#fpv-setup) later on.
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-module.jpg)
+![Power module](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-module.jpg)
 
 ### Signal Cables
 
 I used thin cables with a standardized pin header connector which were cut in half for the ESC signal because this will allow easy plugging on the Pixracer pins later on. Only the labeled `PWM` port on the [KISS ESCs](https://1.bp.blogspot.com/-0huvLXoOygM/VtMNAOGkE5I/AAAAAAAAAiA/eNNuuySFeRY/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) is necessary for flying. They will be connected to the correct motor signal output of the pixracer. The `TLM` port is for ESC telemetry and I soldered them on for future use as the needed protocol is not currently supported by PX4.
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-esc-signals.jpg)
+![Power ESC signals](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/power-esc-signals.jpg)
 
 I tested all ESC motor pairs and their rotation directions using a cheap PWM servo tester before proceeding further.
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/motor-test.jpg)
+![Motor test](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/motor-test.jpg)
 
-## Connecting & Mounting Electronics
+## Connecting & Mounting Electronics {#mounting}
 
 > **Tip**
 > Double check the pin assignment of every component you connect. Sadly not every hardware component out there is plug and play even if it may look like this at first glance.
@@ -98,14 +103,16 @@ I mounted the Pixracer using the nylon spacers and screws that get shipped with 
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/mount-oring.jpg)
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-connections.jpg)
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-overview.jpg)
+![Center connections](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-connections.jpg)
+![Center overview](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/center-overview.jpg)
 
 ### RC Receiver
 
 I hooked up the FrSky S-BUS receiver using the cable shipped with the Pixracer but cut away the unnecessary cable branch.
 
-For the smart telemetry port I used the cable shipping with the receiver. I removed all unnecessary pins from the connector using tweezers and switched the white loose end cable to the correct pin of the connector to have the "smart" signal connected. I then soldered the loose end to a cable fitting the FrSky port following this [schematic](https://docs.px4.io/images/grau_b_pixracer_frskys.port_connection.jpg). I also skipped the ground (GND) pin because like the voltage supply positive pin it is already connected trough the RCin S-BUS cable.
+For the smart telemetry port I used the cable shipping with the receiver. I removed all unnecessary pins from the connector using tweezers and switched the white loose end cable to the correct pin of the connector to have the "smart" signal connected. I then soldered the loose end to a cable fitting the FrSky port following this schematic:
+![schematic](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
+I also skipped the ground (GND) pin because like the voltage supply positive pin it is already connected through the RCin S-BUS cable.
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-receiver-connections.jpg)
 
@@ -119,7 +126,7 @@ For this method you cut the big end with the hole off the zip tie, put the rest 
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-antenna-mount.jpg)
 
-### ESC signal
+### ESC Signal
 
 For the ESC signals I followed the [hardware documentation of the Pixracer](../flight_controller/pixracer.md) and the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x) motor numbering scheme. As we have no ground or positive BEC voltage connections we connect our `PWM` ESC signal cables each to its topmost pins of the corresponding output connector.
 
@@ -171,48 +178,23 @@ The magnificent FPV camera set in the part list comes not only with the best FPV
 
 For general configuration instruction please see [Basic Configuration](../config/README.md).
 
-For this build I pulled the latest PX4 master because it supports the "FMU as task" improvements is [explained just below](#improve-racer-performance) and flashed it to the Pixracer. I used [QGC](http://qgroundcontrol.com/) daily build configure the following:
-- Choose the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x) Airframe
+For this build I pulled the latest PX4 master because it supports the "FMU as task" improvements (included and enabled by default since PX4 v1.7) and flashed it to the Pixracer. I used [QGC](http://qgroundcontrol.com/) daily build to configure the following:
+- Choose the [Generic 250 Racer configuration](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) Airframe
 - Calibrate the sensors
 - Set the battery to 4S (4 cell LiPo) with charged cell voltage 4.15V and empty cell voltage 3.5V
 - Calibrate the voltage devider through typing in the current accurate voltmeter measurement
 - Calibrate the RC cannels with the Taranis already configured for two additional switch inputs. One switch in the top right corner of the Taranis front plate for the mode switch and the other switch in the top left corner of the front plate as arm switch.
+- If you want to use an arming switch, see
+  [here](../config_mc/racer_setup.md#arming_switch) how to set it up.
 
-### Arm switch
-
-To use an arm switch manually set the parameter `RC_MAP_ARM_SW` to the corresponding switch RC channel. The vehicle should from then on immediately arm/disarm whenever your switch is tuned on/off. The state of the switch is not forced to the vehicle and therefore all other arming/disarming methods still work. If the switch positions are reversed just change the sign of the parameter `RC_ARMSWITCH_TH` or also change it's value to alter the threshold value. Make sure to test this under safe conditions!
-
-
-### Improve Racer Performance
-
-This build was done to evaluate and improve PX4 racing quad performance. Recently progress was made in reducing the rate/inner control loop delay and the following options therefore increase the rate controllers performance:
-- **Activate the Oneshot125 protocol** to communicate to the ESCs <br>
-  set `PWM_RATE = 0` (takes effect after the next reboot)
-- **Run the FMU as task** instead of in the work queue <br>
-  set `SYS_FMU_TASK = 1` (takes effect after the next reboot)
 
 ### Tuning
 
-Here's the general [Tuning Guide](../advanced_config/pid_tuning_guide_multicopter.md) with instructions on all the basics. I just add some personal hints here on what I did for this build.
-
-I first made sure `PWM_MIN` is set such that all motors still safely turn idle when arming but with a value as low as possible. For me it was `1075`.
-
-I did first tuning in acro mode with all `MC_ACRO_...` all set to 100 deg/s to have useful hover control. And arrived after the two optimizations from above at the following tuning gains:
-```
-... stands for ROLL and PITCH
-MC_...RATE_P = 0.06
-MC_...RATE_I = 0.1
-MC_...RATE_D = 0.001
-MC_YAWRATE_P = 0.1
-```
-Note that these gains will likely not work well for you but I wanted to give them just as a reference.
-
-After you found a good tuning for the rate controller, flying in manual mode with the default attitude controller gains should already be pretty acceptable and tuning it further isn't very hard anymore.
+Here's the general [Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) with instructions on all the basics.
 
 ### Log Examples
 [Log in FPV acro flight (maximum values: 108km/h speed, 85A total current draw)](https://logs.px4.io/plot_app?log=9c311942-bc7c-4b0c-8be8-eeb64fa8192c)
+
 [Log in (mostly) manual LOS flight for the entire battery](https://logs.px4.io/plot_app?log=6de8b8cd-74f9-4eae-ad2f-76867e916f4f)
 
-## Video
 
-{% youtube %}https://www.youtube.com/watch?v=wMYgqvsNEwQ{% endyoutube %}

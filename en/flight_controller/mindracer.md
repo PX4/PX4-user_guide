@@ -1,14 +1,15 @@
 # MindRacer Hardware
 
-The MindRacer series were created by AirMind. Please refer to: http://mindpx.net
+The AirMind<sup>&reg; [MindRacer](http://mindpx.net) series is a fully stackable flight platform for miniature UAVs.</sup>.
 
-![](../../assets/hardware/hardware-mindracer.png)
+![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
 ## Quick Summary
 
-MindRacer is a fully stackable flight platform for miniature UAVs. Based on MindPX, MindRacer further scales down in formfactor while focused on providing modularity. MindRacer is a platform rather than a flight controller.
+MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. 
+MindRacer is a platform rather than a flight controller.
 
-MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-elimination-protocol) concepts. Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
+MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts. Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
 
 > **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
 
@@ -18,7 +19,7 @@ MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-eliminat
 - Support PPM/SBUS/DSM radio receivers, support D.Port/S.Port/Wifi telemetry
 - On board flight data recorder
 - Support IMU isolation
-- DroneCode standard compliance connector
+- DroneCode<sup>&reg;</sup> standard compliance connector
 
 |Item|Description|
 |:--:|:--:|
@@ -29,7 +30,7 @@ MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-eliminat
 |IMU|10DOF|
 |IMU isolation|YES/Optional|
 |Radio Receiver|S.BUS/PPM/DSM/DSM2/DSMX/SUMD|
-|Telemetry|FrSky D.Port, S.Port, Wifi, 3DR radio|
+|Telemetry|FrSky<sup>&reg;</sup> D.Port, S.Port, Wifi, 3DR radio|
 |On board TF card for flight data recording|YES|
 |OneShot ESC Support|YES|
 |Expansion Slots|2x7(pin)x2|
@@ -38,17 +39,21 @@ MindRacer implements the SEP(soldering-elimination-port) and WEP(wiring-eliminat
 
 ## Quick Start
 
-### Pin out map
+### Pin-out Map
 
-![](../../assets/hardware/hardware-mindracer-pinout.png)
+![Mindracer pinout](../../assets/hardware/hardware-mindracer-pinout.png)
 
-### How to build
+### How to Build
 
-Please follow [Getting Started](https://dev.px4.io/en/setup/getting_started.html) and [Building the Code](https://dev.px4.io/en/setup/building_px4.html).  The target for MindPX is `nuttx_mindpx-v2_default` (it's compatible with MindPX):
+> **Tip** Most users will not need to build this firmware!
+  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-`make nuttx_mindpx-v2_default`
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+```
+make airmind_mindpx-v2_default
+```
 
-### Companion PC connection
+### Companion PC Connection
 
 MindRacer has an attached Adapt IO board. 
 
@@ -62,10 +67,10 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 > **Note** The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
 
-## Where to buy
+## Where to Buy
 
-MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon or eBay.
+MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ## Support
 
-Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::/support@mindpx.net) for any inquiries or help.
+Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::support@mindpx.net) for any inquiries or help.
