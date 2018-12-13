@@ -1,6 +1,6 @@
 # 特技模式（固定翼）
 
-[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
 *Acro模式*是用于执行特技动作的遥控模式，例如滚转，翻转，失速和杂技动作。
 
@@ -10,9 +10,9 @@
 
 ## 技术描述
 
-RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+用于执行杂技动作的遥控模式，例如滚动、翻转、摊位和杂技图形。
 
-RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to the output mixer.
+RPY摇杆输入被转换为角速度命令，通过自动驾驶仪稳定。 油门直接传递到输出混频器。
 
 ## 参数
 
