@@ -516,19 +516,19 @@ th {
                                         <li>
                                           回正摇杆(内带死区): <ul>
                                             <li>
-                                              RPY sticks levels vehicle.
+                                              RPY摇杆使飞机水平。
                                             </li>
                                             <li>
-                                              Throttle (~50%) holds current altitude steady against wind.
+                                              油门(~50%)抗风保持当前姿态。
                                             </li>
                                           </ul>
                                           <li>
                                             外部中心: <ul>
                                               <li>
-                                                Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.
+                                                Roll/Pitch摇杆控制各自方向的倾斜角,导致左右和前后的移动。
                                               </li>
                                               <li>
-                                                Throttle stick controls up/down speed with a predetermined maximum rate (and movement speed in other axes).
+                                                油门摇杆以预定的最大速率(和其他轴上的移动速度)控制上升速度。
                                               </li>
                                               <li>
                                                 YAW摇杆控制水平面上方的角度旋转速率。
@@ -537,7 +537,7 @@ th {
                                           </li></ul> </p> </td> </tr> 
                                           <tr id="manual_stabilized_mc">
                                             <td>
-                                              <a href="../flight_modes/manual_stabilized_mc.md">Manual/ Stabilized</a> 
+                                              <a href="../flight_modes/manual_stabilized_mc.md">手动/稳定</a> 
                                               
                                               <p>
                                                 <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a>
@@ -561,7 +561,7 @@ th {
                                             
                                             <td>
                                               <p>
-                                                RC mode where centered sticks level vehicle (only - position is not stabilized).
+                                                遥控模式,回正摇杆保持飞机水平(仅-位置不稳定)。
                                               </p>
                                               
                                               <p>
