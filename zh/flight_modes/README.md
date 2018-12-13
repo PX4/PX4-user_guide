@@ -91,7 +91,7 @@ th {
       <a href="../flight_modes/position_fw.md">位置</a> 
       
       <p>
-        <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a>
+        <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="20px" /></a>
       </p>
     </td>
     
@@ -108,7 +108,7 @@ th {
     </td>
     
     <td>
-      <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+      <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
     </td>
     
     <td>
@@ -122,21 +122,21 @@ th {
           <li>
             外部中心： <ul>
               <li>
-                Pitch摇杆控制高度（与 <a href="#altitude_fw">Altitude</a>相同）。
+                俯仰摇杆控制高度（与 <a href="#altitude_fw">高度</a>相同）。
               </li>
               <li>
-                Roll摇杆控制滚动角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a> （与 <a href="#stabilized_fw">稳定模式</0> 相同）。</li> 
+                翻滚摇杆控制滚动角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a> （与 <a href="#stabilized_fw">稳定</0> 相同）。</li> 
                 
                 <li>
-                  油门设置空速（与 <a href="#altitude_fw">姿态</a> 相同）。
+                  油门设置空速（与 <a href="#altitude_fw">高度</a> 相同）。
                 </li>
                 
                 <li>
-                  Roll、pitch和yaw是角度控制的（因此不可能实现飞机滚转或环绕）。
+                  翻滚、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。
                 </li>
                 
                 <li>
-                  Yaw杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
+                  偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
                 </li></ul></li> </ul> </p> </td> </tr> 
                 
                 <tr id="altitude_fw">
@@ -144,7 +144,7 @@ th {
                     <a href="../flight_modes/altitude_fw.md">姿态</a> 
                     
                     <p>
-                      <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a>
+                      <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="20px" /></a>
                     </p>
                   </td>
                   
@@ -167,12 +167,12 @@ th {
                   </td>
                   
                   <td>
-                    <a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a>
+                    <a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="所需高度（例如巴罗、测距仪）" width="20px" /></a>
                   </td>
                   
                   <td>
                     <p>
-                      遥控模式如 <a href="#stabilized_fw">稳定</a> 模式, 但具有 <em>altitude稳定</em> （中心棒将飞机置于直线和水平飞行, 并保持当前高度）。 但是飞行过程并不稳定，可能被风吹飘离。 
+                      遥控模式如 <a href="#stabilized_fw">稳定</a> 模式, 但具有 <em>高度稳定</em> （中心棒将飞机置于直线和水平飞行, 并保持当前高度）的功能。 但是飞行过程并不稳定，可能被风吹飘离。 
                       
                       <ul>
                         <li>
@@ -187,13 +187,13 @@ th {
                           <li>
                             外部中心： <ul>
                               <li>
-                                Pitch摇杆控制高度。
+                                俯仰摇杆控制高度。
                               </li>
                               <li>
                                 油门控制着飞机的空速 （如回正的RPY摇杆）。
                               </li>
                               <li>
-                                Yaw杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
+                                偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
                               </li>
                             </ul>
                           </li></ul> </p> </td> </tr> 
@@ -202,7 +202,7 @@ th {
                               <a href="../flight_modes/stabilized_fw.md">稳定</a> 
                               
                               <p>
-                                <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a>
+                                <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="20px" /></a>
                               </p>
                             </td>
                             
@@ -228,16 +228,16 @@ th {
                               
                               <ul>
                                 <li>
-                                  Pitch摇杆控制俯仰角度。
+                                  俯仰摇杆控制俯仰角度。
                                 </li>
                                 <li>
-                                  Roll摇杆控制滚动角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>。
+                                  翻滚摇杆控制滚动角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>。
                                 </li>
                                 <li>
                                   油门摇杆控制油门。
                                 </li>
                                 <li>
-                                  Yaw杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。
+                                  偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。
                                 </li>
                               </ul>
                             </td>
@@ -248,7 +248,7 @@ th {
                               <a href="../flight_modes/acro_fw.md">特技</a> 
                               
                               <p>
-                                <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a>
+                                <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="很难飞" width="20px" /></a>
                               </p>
                             </td>
                             
@@ -283,7 +283,7 @@ th {
                               <a href="../flight_modes/manual_fw.md">手动</a> 
                               
                               <p>
-                                <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a>
+                                <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="很难飞" width="20px" /></a>
                               </p>
                             </td>
                             
@@ -323,7 +323,7 @@ th {
                             </td>
                             
                             <td>
-                              <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                              <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                             </td>
                             
                             <td>
@@ -341,7 +341,7 @@ th {
                             </td>
                             
                             <td>
-                              <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                              <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                             </td>
                             
                             <td>
@@ -358,7 +358,7 @@ th {
                               </td>
                               
                               <td>
-                                <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                               </td>
                               
                               <td>
@@ -375,7 +375,7 @@ th {
                                 </td>
                                 
                                 <td>
-                                  <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                  <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                                 </td>
                                 
                                 <td>
@@ -393,7 +393,7 @@ th {
                                 </td>
                                 
                                 <td>
-                                  <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                  <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                                 </td>
                                 
                                 <td>
@@ -437,7 +437,7 @@ th {
                                     位置 
                                     
                                     <p>
-                                      <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a>
+                                      <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="20px" /></a>
                                     </p>
                                   </td>
                                   
@@ -454,7 +454,7 @@ th {
                                   </td>
                                   
                                   <td>
-                                    <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                    <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                                   </td>
                                   
                                   <td>
@@ -468,13 +468,13 @@ th {
                                         <li>
                                           外部中心： <ul>
                                             <li>
-                                              Roll/Pitch摇杆控制相对于飞机”前部“的左右前后方向的速度。
+                                              翻滚/俯仰摇杆控制相对于飞机”前部“的左右前后方向的速度。
                                             </li>
                                             <li>
                                               油门摇杆控制速度的上升。
                                             </li>
                                             <li>
-                                              YAW摇杆控制水平面上方的角度旋转速率。
+                                              偏航摇杆控制水平面上方的角度旋转速率。
                                             </li>
                                           </ul>
                                         </li>
@@ -485,10 +485,10 @@ th {
                                 
                                 <tr id="altitude_mc">
                                   <td>
-                                    <a href="../flight_modes/altitude_mc.md">姿态</a> 
+                                    <a href="../flight_modes/altitude_mc.md">高度</a> 
                                     
                                     <p>
-                                      <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a>
+                                      <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="20px" /></a>
                                     </p>
                                   </td>
                                   
@@ -505,7 +505,7 @@ th {
                                   </td>
                                   
                                   <td>
-                                    <a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="20px" /></a>
+                                    <a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="所需高度（例如巴罗、测距仪）" width="20px" /></a>
                                   </td>
                                   
                                   <td>
@@ -525,13 +525,13 @@ th {
                                           <li>
                                             外部中心： <ul>
                                               <li>
-                                                Roll/Pitch摇杆控制各自方向的倾斜角，导致左右和前后的移动。
+                                                翻滚/俯仰摇杆控制各自方向的倾斜角，导致左右和前后的移动。
                                               </li>
                                               <li>
                                                 油门摇杆以预定的最大速率（和其他轴上的移动速度）控制上升速度。
                                               </li>
                                               <li>
-                                                YAW摇杆控制水平面上方的角度旋转速率。
+                                                偏航摇杆控制水平面上方的角度旋转速率。
                                               </li>
                                             </ul>
                                           </li></ul> </p> </td> </tr> 
@@ -540,7 +540,7 @@ th {
                                               <a href="../flight_modes/manual_stabilized_mc.md">手动/稳定</a> 
                                               
                                               <p>
-                                                <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a>
+                                                <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="20px" /></a>
                                               </p>
                                             </td>
                                             
@@ -572,13 +572,13 @@ th {
                                                   <li>
                                                     外部中心： <ul>
                                                       <li>
-                                                        Roll/Pitch摇杆控制各自方向的倾斜角，导致左右和前后的移动。
+                                                        翻滚/俯仰摇杆控制各自方向的倾斜角，导致左右和前后的移动。
                                                       </li>
                                                       <li>
                                                         油门摇杆控制上升速度 （和其他轴的移动速度）。
                                                       </li>
                                                       <li>
-                                                        YAW摇杆控制水平面上方的角度旋转速率。
+                                                        偏航摇杆控制水平面上方的角度旋转速率。
                                                       </li>
                                                     </ul>
                                                   </li>
@@ -592,7 +592,7 @@ th {
                                                       <a href="../flight_modes/rattitude_mc.md">Rattitude</a> 
                                                       
                                                       <p>
-                                                        <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a>
+                                                        <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="很难飞" width="20px" /></a>
                                                       </p>
                                                     </td>
                                                     
@@ -619,7 +619,7 @@ th {
                                                           <li>
                                                             在模式阈值（比如 <a href="#manual_stabilized_mc">手动/稳定模式</a>）之内的摇杆。 <ul>
                                                               <li>
-                                                                回正RP摇杆使飞机水平。 Roll/Pitch摇杆控制各自方向的倾斜角，导致左右和前后的移动。
+                                                                回正RP摇杆使飞机水平。 翻滚/俯仰摇杆控制各自方向的倾斜角，导致左右和前后的移动。
                                                               </li>
                                                             </ul>
                                                           </li>
@@ -640,7 +640,7 @@ th {
                                                       <a href="../flight_modes/acro_mc.md">特技</a> 
                                                       
                                                       <p>
-                                                        <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a>
+                                                        <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="很难飞" width="20px" /></a>
                                                       </p>
                                                     </td>
                                                     
@@ -680,7 +680,7 @@ th {
                                                     </td>
                                                     
                                                     <td>
-                                                      <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                                      <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                                                     </td>
                                                     
                                                     <td>
@@ -698,7 +698,7 @@ th {
                                                     </td>
                                                     
                                                     <td>
-                                                      <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                                      <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                                                     </td>
                                                     
                                                     <td>
@@ -715,7 +715,7 @@ th {
                                                       </td>
                                                       
                                                       <td>
-                                                        <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                                        <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                                                       </td>
                                                       
                                                       <td>
@@ -732,7 +732,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                                          <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                                                         </td>
                                                         
                                                         <td>
@@ -750,7 +750,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                                          <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                                                         </td>
                                                         
                                                         <td>
@@ -768,7 +768,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                                          <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                                                         </td>
                                                         
                                                         <td>
@@ -786,7 +786,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                                          <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" /></a>
                                                         </td>
                                                         
                                                         <td>
@@ -877,7 +877,7 @@ th {
                                                         
                                                         <tr>
                                                           <td>
-                                                            <span id="key_position_fixed"></span><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" />
+                                                            <span id="key_position_fixed"></span><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="20px" />
                                                           </td>
                                                           
                                                           <td>
@@ -887,7 +887,7 @@ th {
                                                         
                                                         <tr>
                                                           <td>
-                                                            <span id="altitude_only"></span><img src="../../assets/site/altitude_icon.svg" title="Altitude fix required (e.g. barometer, rangefinder)" width="20px" />
+                                                            <span id="altitude_only"></span><img src="../../assets/site/altitude_icon.svg" title="需要高度修复（例如气压计、测距仪）" width="20px" />
                                                           </td>
                                                           
                                                           <td>
@@ -897,7 +897,7 @@ th {
                                                         
                                                         <tr>
                                                           <td>
-                                                            <span id="key_difficulty"><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></td> 
+                                                            <span id="key_difficulty"><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="20px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="20px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="20px" /></a></td> 
                                                             
                                                             <td>
                                                               飞行模式困难（易/困难）。
@@ -909,9 +909,9 @@ th {
                                                             
                                                             <ul>
                                                               <li>
-                                                                RPY: Roll, Pitch, Yaw
+                                                                RPY: 翻滚、俯仰、偏航
                                                               </li>
                                                               <li>
-                                                                RPT: Roll, Pitch Throttle
+                                                                RPT：翻滚、俯仰、油门
                                                               </li>
                                                             </ul>
