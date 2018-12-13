@@ -6,16 +6,16 @@
 
 * 选择自驾仪已经装配的机架（固定翼、多旋翼、垂直起降等）。
 * 指定自动驾驶仪/传感器的方向并校准飞机的传感器。
-* 可选: 校准无线电控制(px4可以使用*QGroundControl*移动地面站桌面上的无线电控制即可飞行。
-* 可选: 选择无线电控制的哪些开关应在不同的[飞行模式](../config/flight_mode.md)之间切换系统。
+* 可选：校准无线电控制PX4可以使用 *QGroundControl* 移动地面站桌面上的无线电控制即可飞行。
+* 可选：选择无线电控制的哪些开关应在不同的 [飞行模式](../config/flight_mode.md) 之间切换系统。
 
-配置&校准说明从侧边栏链接, 或者您可以按照下面的[视频指南](#video-guide)。
+配置 & 校准说明从侧边栏链接，或者您可以按照下面的 [视频指南](#video-guide)。
 
-> **Tip**在开始本部分之前, 您应该[下载QGroundControl](http://qgroundcontrol.com/downloads/)并将其安装在**桌面**计算机上 (*QGroundControl* 不支持移动平台上的飞机配置)。
+> **Tip** 在开始本部分之前，您应该 [下载QGroundControl](http://qgroundcontrol.com/downloads/) 并将其安装在 **桌面** 计算机上（*QGroundControl* 不支持移动平台上的飞机配置）。
 
 <span></span>
 
-> **Note**对于[支持的机架](../config/airframe.md)只需要这种基本配置。 如果要创建新的机架,还需要执行调整 (请参阅[高级配置](../advanced_config/README.md))。
+> **Note** 对于 [支持的机架](../config/airframe.md) 只需要这种基本配置。 如果要创建新的机架，还需要执行调整 (请参阅 [高级配置](../advanced_config/README.md) )。
 
 ## 视频教程
 
@@ -25,9 +25,9 @@
 
 ## Support
 
-如果您需要有关配置的帮助, 您可以在[QGroundControl支持论坛](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage)上寻求帮助。
+如果您需要有关配置的帮助，您可以在 [QGroundControl支持论坛](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage) 上寻求帮助。
 
 ## 更多信息：
 
 * [QGroundControl配置许可证](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
-* [高级配置](../advanced_config/README.md)(更高级的话题，关于小众传感器和外设的使用以及飞机调试)
+* [高级配置](../advanced_config/README.md) （更高级的话题，关于小众传感器和外设的使用以及飞机调试）。
