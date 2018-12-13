@@ -113,7 +113,7 @@ th {
     
     <td>
       <p>
-        RC mode where centered sticks put vehicle into straight and level flight where vehicle posture/attitude, altitude, and the straight line vehicle path are maintained against wind (and other forces). 
+        在远程遥控模式下,回正摇杆会将飞机置于直线和水平飞行,飞机的姿态、高度和直线飞行路径保持抗风(和其他力量)。 
         
         <ul>
           <li>
