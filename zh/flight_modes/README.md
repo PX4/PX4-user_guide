@@ -613,20 +613,20 @@ th {
                                                     
                                                     <td>
                                                       <p>
-                                                        遥控模式允许飞行员在大多数情况下使用<a href="#manual_stabilized_mc">手动/稳定</a>飞行, 但仍在执行<a href="#acro_mc">杂耍模式</a>-风格的翻转和技巧。 Centered sticks level vehicle. 
+                                                        遥控模式允许飞行员在大多数情况下使用<a href="#manual_stabilized_mc">手动/稳定</a>飞行, 但仍在执行<a href="#acro_mc">杂耍模式</a>-风格的翻转和技巧。 回正摇杆使飞机水平。 
                                                         
                                                         <ul>
                                                           <li>
-                                                            Sticks within mode's threshold (like <a href="#manual_stabilized_mc">Manual/Stabilized mode</a>). <ul>
+                                                            在模式阈值(比如<a href="#manual_stabilized_mc">手动/稳定模式</a>)之内的摇杆。 <ul>
                                                               <li>
                                                                 回正RP摇杆使飞机水平。 Roll/Pitch摇杆控制各自方向的倾斜角,导致左右和前后的移动。
                                                               </li>
                                                             </ul>
                                                           </li>
                                                           <li>
-                                                            Sticks outside threshold (like <a href="#acro_mc">Acro mode</a>): <ul>
+                                                            阈值之外的摇杆(比如<a href="#acro_mc">特技模式</a>)： <ul>
                                                               <li>
-                                                                RPY stick inputs control the rate of angular rotation around the respective axes.
+                                                                RPY摇杆输入控制围绕各自轴的角度旋转速率。
                                                               </li>
                                                             </ul>
                                                           </li>
@@ -661,11 +661,11 @@ th {
                                                     
                                                     <td>
                                                       <p>
-                                                        RC mode for performing acrobatic maneuvers e.g. flips, rolls and loops.
+                                                        用于执行特技动作的遥控模式，例如翻转，滚转和环绕。
                                                       </p>
                                                       
                                                       <p>
-                                                        RC RPY stick inputs control the rate of angular rotation around the respective axes. 油门直接传递到输出混频器。 When sticks are centered the vehicle will stop rotating, but remain in its current orientation (e.g. possibly inverted) and moving according to its current momentum.
+                                                        RPY摇杆输入控制围绕各自轴的角度旋转速率。 油门直接传递到输出混频器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
                                                       </p>
                                                     </td>
                                                   </tr>
@@ -684,7 +684,7 @@ th {
                                                     </td>
                                                     
                                                     <td>
-                                                      Vehicle ascends to takeoff altitude and holds position.
+                                                      飞机上升到起飞高度并保持位置。
                                                     </td>
                                                   </tr>
                                                   
@@ -702,7 +702,7 @@ th {
                                                     </td>
                                                     
                                                     <td>
-                                                      Vehicle lands at the position where the mode was engaged.
+                                                      飞机降落在模式指定的位置。
                                                     </td>
                                                   </tr>
                                                   
@@ -719,7 +719,7 @@ th {
                                                       </td>
                                                       
                                                       <td>
-                                                        Vehicle hovers at the current GPS position and altitude.
+                                                        飞机在当前GPS位置和高度盘旋。
                                                       </td></tr> 
                                                       
                                                       <tr id="return_mc">
@@ -736,7 +736,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          Vehicle ascends to a safe height and then returns to its home position and lands.
+                                                          飞机飞行到一个安全的高度, 然后返回到它起始位置。
                                                         </td>
                                                       </tr>
                                                       
@@ -760,7 +760,7 @@ th {
                                                       
                                                       <tr id="followme_mc">
                                                         <td>
-                                                          <a href="../flight_modes/follow_me.md">Follow Me</a>
+                                                          <a href="../flight_modes/follow_me.md">跟随</a>
                                                         </td>
                                                         
                                                         <td colspan="3">
@@ -772,7 +772,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          Vehicle autonomously follows a user using an Android phone/tablet running QGC.
+                                                          飞机自动跟随运行QGC的Android手机/平板电脑的用户。
                                                         </td>
                                                       </tr>
                                                       
