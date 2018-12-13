@@ -567,15 +567,15 @@ th {
                                               <p>
                                                 <ul>
                                                   <li>
-                                                    Centered RP sticks level vehicle.
+                                                    回正RP摇杆使飞机水平。
                                                   </li>
                                                   <li>
                                                     外部中心: <ul>
                                                       <li>
-                                                        Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
+                                                        Roll/Pitch摇杆控制各自方向的倾斜角,导致左右和前后的移动。
                                                       </li>
                                                       <li>
-                                                        Throttle stick controls up/down speed (and movement speed in other axes).
+                                                        油门摇杆控制上升速度 (和其他轴的移动速度)。
                                                       </li>
                                                       <li>
                                                         YAW摇杆控制水平面上方的角度旋转速率。
@@ -613,13 +613,13 @@ th {
                                                     
                                                     <td>
                                                       <p>
-                                                        RC mode that allows pilots to fly using <a href="#manual_stabilized_mc">Manual/Stabilized</a> flight most of the time, but still perform <a href="#acro_mc">Acro mode</a>-style flips and tricks when desired. Centered sticks level vehicle. 
+                                                        遥控模式允许飞行员在大多数情况下使用<a href="#manual_stabilized_mc">手动/稳定</a>飞行, 但仍在执行<a href="#acro_mc">杂耍模式</a>-风格的翻转和技巧。 Centered sticks level vehicle. 
                                                         
                                                         <ul>
                                                           <li>
                                                             Sticks within mode's threshold (like <a href="#manual_stabilized_mc">Manual/Stabilized mode</a>). <ul>
                                                               <li>
-                                                                Centered RP sticks level vehicle. Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
+                                                                回正RP摇杆使飞机水平。 Roll/Pitch摇杆控制各自方向的倾斜角,导致左右和前后的移动。
                                                               </li>
                                                             </ul>
                                                           </li>
