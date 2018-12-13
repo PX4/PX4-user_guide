@@ -1,6 +1,6 @@
 # Altitude Mode (Multicopter)
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
+[<img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="所需高度（例如巴罗、测距仪）" width="30px" />](../getting_started/flight_modes.md#altitude_only)
 
 *Altitude mode* is a *relatively* easy-to-fly RC mode in which roll and pitch sticks control vehicle movement in the left-right and forward-back directions (relative to the "front" of the vehicle), yaw stick controls rate of rotation over the horizontal plane, and throttle controls speed of ascent-descent.
 
@@ -16,13 +16,13 @@ When the sticks are released/centered the vehicle will level and maintain the cu
 
 RC/manual mode like [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_mc.md) mode but with *altitude stabilization* (centered sticks level vehicle and hold it to fixed altitude).
 
-* Centered sticks (inside deadband): 
-  * RPY sticks levels vehicle.
-  * Throttle (~50%) holds current altitude steady against wind.
-* Outside center: 
-  * Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.
-  * Throttle stick controls up/down speed with a predetermined maximum rate (and movement speed in other axes).
-  * Yaw stick controls rate of angular rotation above the horizontal plane.
+* 回正摇杆（内带死区）： 
+  * RPY摇杆使飞机水平。
+  * 油门（~50%）抗风保持当前姿态。
+* 外部中心： 
+  * 翻滚/俯仰摇杆控制各自方向的倾斜角，导致左右和前后的移动。
+  * 油门摇杆以预定的最大速率（和其他轴上的移动速度）控制上升速度。
+  * 偏航摇杆控制水平面上方的角度旋转速率。
 
 > **注** *可能需要手动输入（遥控器，或通过MAVLink连接的游戏手柄/拇指杆）。 *海拔高度通常使用气压计测量，在极端天气条件下可能会变得不准确。 带有激光雷达/距离传感器的飞机将能够以更高的可靠性和准确性控制高度。
 
