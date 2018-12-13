@@ -468,13 +468,13 @@ th {
                                         <li>
                                           外部中心: <ul>
                                             <li>
-                                              Roll/Pitch sticks control speed over ground in left-right and forward-back directions (respectively) relative to the "front" of the vehicle.
+                                              Roll/Pitch摇杆控制相对于飞机”前部“的左右前后方向的速度。
                                             </li>
                                             <li>
-                                              Throttle stick controls speed of ascent-descent.
+                                              油门摇杆控制速度的上升。
                                             </li>
                                             <li>
-                                              Yaw stick controls rate of angular rotation above the horizontal plane.
+                                              YAW摇杆控制水平面上方的角度旋转速率。
                                             </li>
                                           </ul>
                                         </li>
@@ -485,7 +485,7 @@ th {
                                 
                                 <tr id="altitude_mc">
                                   <td>
-                                    <a href="../flight_modes/altitude_mc.md">Altitude</a> 
+                                    <a href="../flight_modes/altitude_mc.md">姿态</a> 
                                     
                                     <p>
                                       <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a>
@@ -510,11 +510,11 @@ th {
                                   
                                   <td>
                                     <p>
-                                      RC mode like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks level vehicle and hold it to fixed altitude). The horizontal position of the vehicle can move due to wind (or pre-existing momentum). 
+                                      遥控模式如<a href="#manual_stabilized_mc">手动/稳态</a>模式, 但具有<em>姿态稳定</em>(回正摇杆的水平飞机,并将其保持在固定高度)。 水平位置可能会受风的影响(或已经存在的动量)。 
                                       
                                       <ul>
                                         <li>
-                                          Centered sticks (inside deadband): <ul>
+                                          回正摇杆(内带死区): <ul>
                                             <li>
                                               RPY sticks levels vehicle.
                                             </li>
@@ -531,7 +531,7 @@ th {
                                                 Throttle stick controls up/down speed with a predetermined maximum rate (and movement speed in other axes).
                                               </li>
                                               <li>
-                                                Yaw stick controls rate of angular rotation above the horizontal plane.
+                                                YAW摇杆控制水平面上方的角度旋转速率。
                                               </li>
                                             </ul>
                                           </li></ul> </p> </td> </tr> 
@@ -578,7 +578,7 @@ th {
                                                         Throttle stick controls up/down speed (and movement speed in other axes).
                                                       </li>
                                                       <li>
-                                                        Yaw stick controls rate of angular rotation above the horizontal plane.
+                                                        YAW摇杆控制水平面上方的角度旋转速率。
                                                       </li>
                                                     </ul>
                                                   </li>
