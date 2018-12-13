@@ -113,11 +113,11 @@ th {
     
     <td>
       <p>
-        在远程遥控模式下,回正摇杆会将飞机置于直线和水平飞行,飞机的姿态、高度和直线飞行路径保持抗风(和其他力量)。 
+        在遥控模式下,回正摇杆会将飞机置于直线和水平飞行,飞机的姿态、高度和直线飞行路径保持抗风(和其他力量)。 
         
         <ul>
           <li>
-            回正遥控三个运动方向的摇杆使得水平飞行, 沿着直线地面轨道在当前方向对任何风。
+            回正摇杆使得水平飞行, 沿着直线地面轨道在当前方向抗风。
           </li>
           <li>
             外部中心: <ul>
@@ -128,7 +128,7 @@ th {
                 Roll摇杆控制滚动角度。 自动驾驶仪将保持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>(与<a href="#stabilized_fw">Stabilized</0>相同)。</li> 
                 
                 <li>
-                  Throttle设置空速(与<a href="#altitude_fw">Altitude</a>相同)。
+                  油门设置空速(与<a href="#altitude_fw">姿态</a>相同)。
                 </li>
                 
                 <li>
@@ -613,7 +613,7 @@ th {
                                                     
                                                     <td>
                                                       <p>
-                                                        遥控模式允许飞行员在大多数情况下使用<a href="#manual_stabilized_mc">手动/稳定</a>飞行, 但仍在执行<a href="#acro_mc">杂耍模式</a>-风格的翻转和技巧。 回正摇杆使飞机水平。 
+                                                        遥控模式允许飞行员在大多数情况下使用<a href="#manual_stabilized_mc">手动/稳定</a>飞行, 但仍在执行<a href="#acro_mc">特技模式</a>-风格的翻转和技巧。 回正摇杆使飞机水平。 
                                                         
                                                         <ul>
                                                           <li>
@@ -778,7 +778,7 @@ th {
                                                       
                                                       <tr id="offboard_mc">
                                                         <td>
-                                                          <a href="../flight_modes/offboard.md">Offboard</a>
+                                                          <a href="../flight_modes/offboard.md">离板</a>
                                                         </td>
                                                         
                                                         <td colspan="3">
@@ -851,7 +851,7 @@ th {
                                                           </td>
                                                           
                                                           <td>
-                                                            从自动驾驶仪的援助, 以稳定姿态率。 遥控输入是必需的。 摇杆的位置与飞机在该方向上的旋转速度相对应。
+                                                            在自动驾驶仪的帮助下可以稳定姿态率。 遥控输入是必需的。 摇杆的位置与飞机在该方向上的旋转速度相对应。
                                                           </td>
                                                         </tr>
                                                         
