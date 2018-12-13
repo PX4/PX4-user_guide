@@ -176,21 +176,21 @@ th {
                       
                       <ul>
                         <li>
-                          Centered RPY sticks (inside deadband): <ul>
+                          回正RPY摇杆(内带): <ul>
                             <li>
-                              Autopilot maintains altitude with wings also level.
+                              自动驾驶仪保持与翼一直的高度水平。
                             </li>
                             <li>
-                              Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected (without airspeed sensor, the user cannot control throttle).
+                              如果连接了空速传感器, Throttle摇杆控制飞机的空速(如果没有空速传感器, 用户就无法控制)。
                             </li>
                           </ul>
                           <li>
                             外部中心: <ul>
                               <li>
-                                Pitch stick controls altitude.
+                                Pitch摇杆控制高度。
                               </li>
                               <li>
-                                Throttle stick controls the airspeed of the aircraft (as for centred RPY sticks).
+                                Throttle摇杆控制着飞机的空速 (如回正的RPY摇杆)。
                               </li>
                               <li>
                                 Yaw杆操纵会驱动方向舵(指令将被加到自动驾驶仪计算的指令中以维持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>)。 这和<a href="#stabilized_fw">稳定模式</a>一样。
