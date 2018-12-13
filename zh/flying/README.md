@@ -8,8 +8,8 @@
 
 [飞行前检查（内部）](../flying/pre_flight_checks.md) - 解释飞行前错误（"为什么我的飞机不能武装好？"）。
 
-[Flying 101](../flying/basic_flying.md)-如何使用远程遥控器手动驾驶飞机。
+[Flying 101](../flying/basic_flying.md) - 如何使用远程遥控器手动驾驶飞机。
 
-[任务](../flying/missions.md)-如何执行自主任务。
+[任务](../flying/missions.md) - 如何执行自主任务。
 
-[飞行模式](../flight_modes/README.md)-摘要表 + 有关飞行模式的详细信息。
+[飞行模式](../flight_modes/README.md) - 摘要表 + 有关飞行模式的详细信息。
