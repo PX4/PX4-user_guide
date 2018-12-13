@@ -319,7 +319,7 @@ th {
                             </td>
                             
                             <td colspan="3">
-                              Auto
+                              自动
                             </td>
                             
                             <td>
@@ -337,7 +337,7 @@ th {
                             </td>
                             
                             <td class="centred" colspan="3">
-                              Auto
+                              自动
                             </td>
                             
                             <td>
@@ -354,7 +354,7 @@ th {
                               <a href="../flight_modes/hold.md">Hold</td> 
                               
                               <td colspan="3">
-                                Auto
+                                自动
                               </td>
                               
                               <td>
@@ -371,7 +371,7 @@ th {
                                 </td>
                                 
                                 <td colspan="3">
-                                  Auto
+                                  自动
                                 </td>
                                 
                                 <td>
@@ -389,7 +389,7 @@ th {
                                 </td>
                                 
                                 <td colspan="3">
-                                  Auto
+                                  自动
                                 </td>
                                 
                                 <td>
@@ -676,7 +676,7 @@ th {
                                                     </td>
                                                     
                                                     <td colspan="3">
-                                                      Auto
+                                                      自动
                                                     </td>
                                                     
                                                     <td>
@@ -694,7 +694,7 @@ th {
                                                     </td>
                                                     
                                                     <td colspan="3">
-                                                      Auto
+                                                      自动
                                                     </td>
                                                     
                                                     <td>
@@ -711,7 +711,7 @@ th {
                                                       <a href="../flight_modes/hold.md">Hold</td> 
                                                       
                                                       <td colspan="3">
-                                                        Auto
+                                                        自动
                                                       </td>
                                                       
                                                       <td>
@@ -728,7 +728,7 @@ th {
                                                         </td>
                                                         
                                                         <td colspan="3">
-                                                          Auto
+                                                          自动
                                                         </td>
                                                         
                                                         <td>
@@ -746,7 +746,7 @@ th {
                                                         </td>
                                                         
                                                         <td colspan="3">
-                                                          Auto
+                                                          自动
                                                         </td>
                                                         
                                                         <td>
@@ -764,7 +764,7 @@ th {
                                                         </td>
                                                         
                                                         <td colspan="3">
-                                                          Auto
+                                                          自动
                                                         </td>
                                                         
                                                         <td>
@@ -782,7 +782,7 @@ th {
                                                         </td>
                                                         
                                                         <td colspan="3">
-                                                          Auto
+                                                          自动
                                                         </td>
                                                         
                                                         <td>
@@ -867,7 +867,7 @@ th {
                                                         
                                                         <tr>
                                                           <td>
-                                                            Auto
+                                                            自动
                                                           </td>
                                                           
                                                           <td>
