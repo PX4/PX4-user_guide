@@ -1,6 +1,6 @@
 # 特技模式（多旋翼）
 
-[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
 *特技模式*是用于执行特技动作的遥控模式，例如翻转，滚转和环绕。
 
@@ -14,7 +14,7 @@
 
 用于执行特技动作的R遥控/手动模式，例如翻转，滚转和环绕。
 
-RC RPY stick inputs control the rate of angular rotation around the respective axes. 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（不一定是水平）。
+RPY摇杆输入控制围绕各自轴的角度旋转速率。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（不一定是水平）。
 
 ## 杆输入映射
 
