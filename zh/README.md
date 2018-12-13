@@ -79,7 +79,7 @@ Px4是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 此库中使用的以下图标是单独授权的(如下所示):
 
-<img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> 来自<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>的<a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 制作<em>placeholder</em>图标由<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 by</a>授权。
+<img src="../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /> 来自<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>的<a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 制作<em>placeholder</em>图标由<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 by</a>授权。
 
 <img src="../assets/site/automatic_mode.svg" title="自动模式" width="30px" /> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>的<a href="http://www.freepik.com" title="Freepik">Freepik</a> 制作的<em>camera-automatic-mode</em>图标由<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>授权。
 
