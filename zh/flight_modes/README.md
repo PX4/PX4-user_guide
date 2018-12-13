@@ -327,7 +327,7 @@ th {
                             </td>
                             
                             <td>
-                              Vehicle initiates the takeoff sequence using either <em>catapult/hand-launch mode</em> or <em>runway takeoff mode</em> (in the current direction).
+                              飞机使用<em>弹射/手持发射模式</em>或<em>滑行起飞模式</em>(在当前方向)启动起飞顺序。
                             </td>
                           </tr>
                           
@@ -345,13 +345,13 @@ th {
                             </td>
                             
                             <td>
-                              Vehicle initiates the <a href="../flying/fixed_wing_landing.md">fixed-wing landing</a> sequence.
+                              飞机启动了<a href="../flying/fixed_wing_landing.md">固定翼着陆</a>序列。
                             </td>
                           </tr>
                           
                           <tr id="hold_fw">
                             <td>
-                              <a href="../flight_modes/hold.md">Hold</td> 
+                              <a href="../flight_modes/hold.md">保持</td> 
                               
                               <td colspan="3">
                                 自动
@@ -362,12 +362,12 @@ th {
                               </td>
                               
                               <td>
-                                Vehicle circles around the GPS hold position at the current altitude.
+                                飞机在当前高度绕GPS位置旋转。
                               </td></tr> 
                               
                               <tr id="return_fw">
                                 <td>
-                                  <a href="../flight_modes/return.md">Return</a>
+                                  <a href="../flight_modes/return.md">返回</a>
                                 </td>
                                 
                                 <td colspan="3">
@@ -379,13 +379,13 @@ th {
                                 </td>
                                 
                                 <td>
-                                  Vehicle ascends to a safe height and then returns to its home position and circles.
+                                  飞机飞行到一个安全的高度, 然后返回到它起始位置。
                                 </td>
                               </tr>
                               
                               <tr id="mission_fw">
                                 <td>
-                                  <a href="../flight_modes/mission.md">Mission</a>
+                                  <a href="../flight_modes/mission.md">任务</a>
                                 </td>
                                 
                                 <td colspan="3">
@@ -708,7 +708,7 @@ th {
                                                   
                                                   <tr id="hold_mc">
                                                     <td>
-                                                      <a href="../flight_modes/hold.md">Hold</td> 
+                                                      <a href="../flight_modes/hold.md">保持</td> 
                                                       
                                                       <td colspan="3">
                                                         自动
@@ -724,7 +724,7 @@ th {
                                                       
                                                       <tr id="return_mc">
                                                         <td>
-                                                          <a href="../flight_modes/return.md">Return</a>
+                                                          <a href="../flight_modes/return.md">返回</a>
                                                         </td>
                                                         
                                                         <td colspan="3">
@@ -742,7 +742,7 @@ th {
                                                       
                                                       <tr id="mission_mc">
                                                         <td>
-                                                          <a href="../flight_modes/mission.md">Mission</a>
+                                                          <a href="../flight_modes/mission.md">任务</a>
                                                         </td>
                                                         
                                                         <td colspan="3">
