@@ -103,7 +103,6 @@
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [Peripheral Hardware](peripherals/README.md)
-  * [Companion Computer Peripherals](peripherals/companion_computer_peripherals.md)
   * [Serial Port Configuration](peripherals/serial_configuration.md)
   * [GPS/Compass](gps_compass/README.md)
     * [RTK GPS](gps_compass/rtk_gps.md)
@@ -133,6 +132,7 @@
   * [ESCs & Motors](peripherals/esc_motors.md)
     * [PWM ESCs and Servos](peripherals/pwm_escs_and_servo.md)
   * [Camera](peripherals/camera.md)
+  * [Companion Computer Peripherals](peripherals/companion_computer_peripherals.md)
 * [Autopilot Hardware](flight_controller/README.md)
   * [Pixhawk Series](flight_controller/pixhawk_series.md)
     * [Pixhawk 1](flight_controller/pixhawk.md)
@@ -180,4 +180,4 @@
 * [QGroundControl Developer Guide](https://dev.qgroundcontrol.com/en/)
 * [MAVLink Guide](https://mavlink.io/en/)
 * [Dronecode SDK](https://sdk.dronecode.org/en/)
-* [Dronecode Camera Manager](https://came
+* [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/)
