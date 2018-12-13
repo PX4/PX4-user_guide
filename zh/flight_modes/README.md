@@ -379,7 +379,7 @@ th {
                                 </td>
                                 
                                 <td>
-                                  飞机飞行到一个安全的高度, 然后返回到它起始位置。
+                                  飞机飞行到一个安全的高度，然后返回到它起始位置。
                                 </td>
                               </tr>
                               
@@ -397,7 +397,7 @@ th {
                                 </td>
                                 
                                 <td>
-                                  飞机执行已上传到飞行控制器的<a href="../flying/missions.md">预定义的飞行计划</a>。
+                                  飞机执行已上传到飞行控制器的 <a href="../flying/missions.md">预定义的飞行计划</a>。
                                 </td>
                               </tr></tbody></table> 
                               
@@ -459,11 +459,11 @@ th {
                                   
                                   <td>
                                     <p>
-                                      遥控模式, 其中RPT摇杆控制<em>速度</em>在相应的方向。 中心摇杆水平飞机, 并保持它的固定位置和高度逆风。 
+                                      遥控模式，其中RPT摇杆控制 <em>速度</em> 在相应的方向。 中心摇杆水平飞机, 并保持它的固定位置和高度逆风。 
                                       
                                       <ul>
                                         <li>
-                                          回正的RPT摇杆保持X,Y,Z位置稳定抗风和水平的姿态。
+                                          回正的RPT摇杆保持X、Y、Z位置稳定抗风和水平的姿态。
                                         </li>
                                         <li>
                                           外部中心： <ul>
@@ -510,25 +510,25 @@ th {
                                   
                                   <td>
                                     <p>
-                                      遥控模式如<a href="#manual_stabilized_mc">手动/稳态</a>模式, 但具有<em>姿态稳定</em>(回正摇杆的水平飞机,并将其保持在固定高度)。 水平位置可能会受风的影响(或已经存在的动量)。 
+                                      遥控模式如 <a href="#manual_stabilized_mc">手动/稳态</a> 模式, 但具有 <em>姿态稳定</em>（回正摇杆的水平飞机,并将其保持在固定高度）。 水平位置可能会受风的影响（或已经存在的动量）。 
                                       
                                       <ul>
                                         <li>
-                                          回正摇杆(内带死区): <ul>
+                                          回正摇杆（内带死区）： <ul>
                                             <li>
                                               RPY摇杆使飞机水平。
                                             </li>
                                             <li>
-                                              油门(~50%)抗风保持当前姿态。
+                                              油门（~50%）抗风保持当前姿态。
                                             </li>
                                           </ul>
                                           <li>
                                             外部中心： <ul>
                                               <li>
-                                                Roll/Pitch摇杆控制各自方向的倾斜角,导致左右和前后的移动。
+                                                Roll/Pitch摇杆控制各自方向的倾斜角，导致左右和前后的移动。
                                               </li>
                                               <li>
-                                                油门摇杆以预定的最大速率(和其他轴上的移动速度)控制上升速度。
+                                                油门摇杆以预定的最大速率（和其他轴上的移动速度）控制上升速度。
                                               </li>
                                               <li>
                                                 YAW摇杆控制水平面上方的角度旋转速率。
@@ -561,7 +561,7 @@ th {
                                             
                                             <td>
                                               <p>
-                                                遥控模式,回正摇杆保持飞机水平(仅-位置不稳定)。
+                                                遥控模式，回正摇杆保持飞机水平（仅-位置不稳定）。
                                               </p>
                                               
                                               <p>
@@ -572,10 +572,10 @@ th {
                                                   <li>
                                                     外部中心： <ul>
                                                       <li>
-                                                        Roll/Pitch摇杆控制各自方向的倾斜角,导致左右和前后的移动。
+                                                        Roll/Pitch摇杆控制各自方向的倾斜角，导致左右和前后的移动。
                                                       </li>
                                                       <li>
-                                                        油门摇杆控制上升速度 (和其他轴的移动速度)。
+                                                        油门摇杆控制上升速度 （和其他轴的移动速度）。
                                                       </li>
                                                       <li>
                                                         YAW摇杆控制水平面上方的角度旋转速率。
@@ -613,18 +613,18 @@ th {
                                                     
                                                     <td>
                                                       <p>
-                                                        遥控模式允许飞行员在大多数情况下使用<a href="#manual_stabilized_mc">手动/稳定</a>飞行, 但仍在执行<a href="#acro_mc">特技模式</a>-风格的翻转和技巧。 回正摇杆使飞机水平。 
+                                                        遥控模式允许飞行员在大多数情况下使用 <a href="#manual_stabilized_mc">手动/稳定</a> 飞行，但仍在执行 <a href="#acro_mc">特技模式</a> - 风格的翻转和技巧。 回正摇杆使飞机水平。 
                                                         
                                                         <ul>
                                                           <li>
-                                                            在模式阈值(比如<a href="#manual_stabilized_mc">手动/稳定模式</a>)之内的摇杆。 <ul>
+                                                            在模式阈值（比如 <a href="#manual_stabilized_mc">手动/稳定模式</a>）之内的摇杆。 <ul>
                                                               <li>
-                                                                回正RP摇杆使飞机水平。 Roll/Pitch摇杆控制各自方向的倾斜角,导致左右和前后的移动。
+                                                                回正RP摇杆使飞机水平。 Roll/Pitch摇杆控制各自方向的倾斜角，导致左右和前后的移动。
                                                               </li>
                                                             </ul>
                                                           </li>
                                                           <li>
-                                                            阈值之外的摇杆(比如<a href="#acro_mc">特技模式</a>)： <ul>
+                                                            阈值之外的摇杆（比如<a href="#acro_mc">特技模式</a>）： <ul>
                                                               <li>
                                                                 RPY摇杆输入控制围绕各自轴的角度旋转速率。
                                                               </li>
@@ -637,7 +637,7 @@ th {
                                                   
                                                   <tr id="acro_mc">
                                                     <td>
-                                                      <a href="../flight_modes/acro_mc.md">Acro</a> 
+                                                      <a href="../flight_modes/acro_mc.md">特技</a> 
                                                       
                                                       <p>
                                                         <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a>
@@ -736,7 +736,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          飞机飞行到一个安全的高度, 然后返回到它起始位置。
+                                                          飞机飞行到一个安全的高度，然后返回到它起始位置。
                                                         </td>
                                                       </tr>
                                                       
@@ -754,7 +754,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          飞机执行已上传到飞行控制器的<a href="../flying/missions.md">预定义的飞行计划</a>。
+                                                          飞机执行已上传到飞行控制器的 <a href="../flying/missions.md">预定义的飞行计划</a>。
                                                         </td>
                                                       </tr>
                                                       
@@ -790,7 +790,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          飞机服从通过MAVLink提供的位置、速度或姿态设定值(通常来自通过串行电缆或WIFI连接的配套计算机)。
+                                                          飞机服从通过MAVLink提供的位置、速度或姿态设定值（通常来自通过串行电缆或WIFI连接的配套计算机）。
                                                         </td>
                                                       </tr></tbody></table> 
                                                       
@@ -799,11 +799,11 @@ th {
                                                       </h2>
                                                       
                                                       <p>
-                                                        VTOL飞机支持固定翼和多路飞行模式, 根据当前飞机模式(MC或FW)执行这些模式。
+                                                        VTOL飞机支持固定翼和多路飞行模式，根据当前飞机模式（MC或FW）执行这些模式。
                                                       </p>
                                                       
                                                       <p>
-                                                        VTOL支持任一配置中的<a href="../flight_modes/offboard.md">Offboard</a>模式。
+                                                        VTOL支持任一配置中的 <a href="../flight_modes/offboard.md">Offboard</a> 模式。
                                                       </p>
                                                       
                                                       <h2>
@@ -811,7 +811,7 @@ th {
                                                       </h2>
                                                       
                                                       <p>
-                                                        理解该表的关键如下所示:
+                                                        理解该表的关键如下所示：
                                                       </p>
                                                       
                                                       <table>
@@ -871,7 +871,7 @@ th {
                                                           </td>
                                                           
                                                           <td>
-                                                            This mode is automatic (RC control is disabled by default except to change modes).
+                                                            该模式为自动（除非更改模式，否则遥控模式默认关闭）。
                                                           </td>
                                                         </tr>
                                                         
@@ -881,7 +881,7 @@ th {
                                                           </td>
                                                           
                                                           <td>
-                                                            Sensor(s) that measures position/height needed e.g. optical flow, GPS+barometer, visual-inertial odometry.
+                                                            测量位置高度的传感器需要例如光流、GPS + 气压计、视膜惯性静电测量。
                                                           </td>
                                                         </tr>
                                                         
@@ -891,7 +891,7 @@ th {
                                                           </td>
                                                           
                                                           <td>
-                                                            Sensor(s) that measures height/altitude needed e.g. barometer, rangefinder.
+                                                            测量所需高度的传感器，例如气压计、测距仪。
                                                           </td>
                                                         </tr>
                                                         
@@ -900,11 +900,11 @@ th {
                                                             <span id="key_difficulty"><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="20px" /></a></td> 
                                                             
                                                             <td>
-                                                              Flight mode difficulty (easy/medium/hard).
+                                                              飞行模式困难（易/困难）。
                                                             </td></tr> </tbody> </table> 
                                                             
                                                             <p>
-                                                              Abbreviations:
+                                                              缩写
                                                             </p>
                                                             
                                                             <ul>
