@@ -8,7 +8,7 @@ The minimal set of sensors is incorporated into [Pixhawk Series](../flight_contr
 
 Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
 
-## GPS & Compass {#gps_compass}
+## GPS&罗盘 {#gps_compass}
 
 PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
