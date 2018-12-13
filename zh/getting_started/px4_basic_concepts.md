@@ -49,7 +49,7 @@ PX4 uses sensors to determine vehicle state (needed for stabilization and to ena
 For more information see:
 
 - [Sensors](../getting_started/sensor_selection.md) 
-- [Peripherals](../peripherals/README.md)
+- [外设](../peripherals/README.md)
 
 ## ESCs & Motors
 
@@ -83,7 +83,7 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 
 ## Data/Telemetry Radios
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. 这使得飞机飞行时调试、检查数传、更改任务等等成为了可能。
 
 ## Offboard/Companion Computer
 
@@ -102,7 +102,7 @@ PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_rep
 
 A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
 
-## Flight Modes {#flight_modes}
+## 飞行模式 {#flight_modes}
 
 Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
 
