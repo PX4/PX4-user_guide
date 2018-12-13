@@ -117,7 +117,7 @@ th {
         
         <ul>
           <li>
-            回正远程遥控三个运动方向的摇杆使得水平飞行, 沿着直线地面轨道在当前方向对任何风。
+            回正遥控三个运动方向的摇杆使得水平飞行, 沿着直线地面轨道在当前方向对任何风。
           </li>
           <li>
             外部中心: <ul>
@@ -125,18 +125,18 @@ th {
                 Pitch摇杆控制高度(与<a href="#altitude_fw">Altitude</a>相同)。
               </li>
               <li>
-                Roll摇杆控制滚动角度。 自动驾驶仪将保持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated飞行</a>(与<a href="#stabilized_fw">Stabilized</0>相同)。</li> 
+                Roll摇杆控制滚动角度。 自动驾驶仪将保持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>(与<a href="#stabilized_fw">Stabilized</0>相同)。</li> 
                 
                 <li>
-                  Throttle sets airspeed (same as <a href="#altitude_fw">Altitude</a>).
+                  Throttle设置空速(与<a href="#altitude_fw">Altitude</a>相同)。
                 </li>
                 
                 <li>
-                  Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
+                  Roll、pitch和yaw是角度控制的（因此不可能实现飞机滚转或环绕）。
                 </li>
                 
                 <li>
-                  Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.
+                  Yaw杆操纵会驱动方向舵(指令将被加到自动驾驶仪计算的指令中以维持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>)。 这和<a href="#stabilized_fw">稳定模式</a>一样。
                 </li></ul></li> </ul> </p> </td> </tr> 
                 
                 <tr id="altitude_fw">
@@ -172,7 +172,7 @@ th {
                   
                   <td>
                     <p>
-                      RC mode like <a href="#stabilized_fw">Stabilized</a> mode but with <em>altitude stabilization</em> (centered sticks put vehicle into straight and level flight and maintain current altitude). The vehicle course is not maintained, and can drift due to wind. 
+                      遥控模式如<a href="#stabilized_fw">Stabilized</a>模式, 但具有<em>altitude稳定</em>(中心棒将飞机置于直线和水平飞行, 并保持当前高度)。 但是飞行过程并不稳定，可能被风吹飘离。 
                       
                       <ul>
                         <li>
@@ -193,7 +193,7 @@ th {
                                 Throttle stick controls the airspeed of the aircraft (as for centred RPY sticks).
                               </li>
                               <li>
-                                Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.
+                                Yaw杆操纵会驱动方向舵(指令将被加到自动驾驶仪计算的指令中以维持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>)。 这和<a href="#stabilized_fw">稳定模式</a>一样。
                               </li>
                             </ul>
                           </li></ul> </p> </td> </tr> 
@@ -237,7 +237,7 @@ th {
                                   Throttle stick controls throttle.
                                 </li>
                                 <li>
-                                  Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>).
+                                  Yaw杆操纵会驱动方向舵(指令将被加到自动驾驶仪计算的指令中以维持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>)。
                                 </li>
                               </ul>
                             </td>
