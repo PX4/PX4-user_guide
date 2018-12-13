@@ -346,7 +346,7 @@ This is a pattern correlation threshold for filtering bad matches. Lower means o
 | VIDEO_RATE       | 150    | RW     | Time in milliseconds between images of video transmission                                                                                                                                                                                     |
 | VIDEO_ONLY       | 0      | RW     | 1: High resolution video mode is ON, 0: OFF                                                                                                                                                                                                   |
 
-## Modes
+## 模式
 
 ### VIDEO ONLY Mode {#VIDEO_ONLY}
 
