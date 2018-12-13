@@ -790,7 +790,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          Vehicle obeys a position, velocity or attitude setpoint provided over MAVLink (often from a companion computer connected via serial cable or wifi).
+                                                          飞机服从通过MAVLink提供的位置、速度或姿态设定值(通常来自通过串行电缆或WIFI连接的配套计算机)。
                                                         </td>
                                                       </tr></tbody></table> 
                                                       
@@ -799,25 +799,25 @@ th {
                                                       </h2>
                                                       
                                                       <p>
-                                                        VTOL vehicles support both fixed-wing and multicopter flight modes, executing them based on the current vehicle mode (MC or FW).
+                                                        VTOL飞机支持固定翼和多路飞行模式, 根据当前飞机模式(MC或FW)执行这些模式。
                                                       </p>
                                                       
                                                       <p>
-                                                        VTOL supports <a href="../flight_modes/offboard.md">Offboard</a> mode in either configuration.
+                                                        VTOL支持任一配置中的<a href="../flight_modes/offboard.md">Offboard</a>模式。
                                                       </p>
                                                       
                                                       <h2>
-                                                        Key
+                                                        关键字
                                                       </h2>
                                                       
                                                       <p>
-                                                        Key for understanding the table is as follows:
+                                                        理解该表的关键如下所示:
                                                       </p>
                                                       
                                                       <table>
                                                         <tr>
                                                           <th>
-                                                            Symbol
+                                                            符号
                                                           </th>
                                                           
                                                           <th>
@@ -831,7 +831,7 @@ th {
                                                           </td>
                                                           
                                                           <td>
-                                                            Manual control via RC sticks. RC input is sent directly to the output mixer.
+                                                            通过遥控摇杆手动控制。 遥控输入直接发送到输出混频器。
                                                           </td>
                                                         </tr>
                                                         
@@ -841,7 +841,7 @@ th {
                                                           </td>
                                                           
                                                           <td>
-                                                            Assistance from autopilot to stabilize the attitude. RC input is required. Position of RC stick maps to the orientation of vehicle.
+                                                            辅助自动驾驶仪以稳定的态度。 遥控输入是必需的。 遥控摇杆的位置映射到飞机的方向。
                                                           </td>
                                                         </tr>
                                                         
@@ -851,7 +851,7 @@ th {
                                                           </td>
                                                           
                                                           <td>
-                                                            Assistance from autopilot to stabilize the attitude rate. RC input is required. Position of RC stick maps to the rate of rotation of vehicle in that orientation.
+                                                            从自动驾驶仪的援助, 以稳定姿态率。 遥控输入是必需的。 摇杆的位置与飞机在该方向上的旋转速度相对应。
                                                           </td>
                                                         </tr>
                                                         
@@ -861,7 +861,7 @@ th {
                                                           </td>
                                                           
                                                           <td>
-                                                            Assistance from autopilot to hold position or altitude against wind. RC input is required.
+                                                            在自动驾驶仪的帮助下可以保持位置或高度逆风。 遥控输入是必需的。
                                                           </td>
                                                         </tr>
                                                         
