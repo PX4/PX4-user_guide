@@ -4,7 +4,7 @@ The [Intel Aero Ready to Fly Drone](https://software.intel.com/en-us/aero/drone-
 
 ![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
-## Introduction
+## 简介
 
 The main documentation on the [official wiki](https://github.com/intel-aero/meta-intel-aero/wiki) explains how to setup, update and connect to the board, and how to do development on the Linux side. The instructions in this topic concentrate on updating the firmware on the microcontroller from a development tree.
 
