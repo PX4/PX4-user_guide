@@ -199,7 +199,7 @@ th {
                           </li></ul> </p> </td> </tr> 
                           <tr id="stabilized_fw">
                             <td>
-                              <a href="../flight_modes/stabilized_fw.md">Stabilized</a> 
+                              <a href="../flight_modes/stabilized_fw.md">稳定</a> 
                               
                               <p>
                                 <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="20px" /></a>
