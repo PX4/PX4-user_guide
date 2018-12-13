@@ -223,18 +223,18 @@ th {
                             
                             <td>
                               <p>
-                                RC mode where centered RP sticks levels vehicle attitude (roll and pitch). The vehicle course and altitude are not maintained, and can drift due to wind.
+                                遥控模式, 其中中心RP棒水平飞机的姿态(滚动和俯仰)。 但是飞行过程和姿态并不稳定，可能被风吹飘离。
                               </p>
                               
                               <ul>
                                 <li>
-                                  Pitch stick controls pitch angle.
+                                  Pitch摇杆控制俯仰角度。
                                 </li>
                                 <li>
-                                  Roll摇杆控制滚动角度。 Autopilot will maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>.
+                                  Roll摇杆控制滚动角度。 自动驾驶仪将保持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>。
                                 </li>
                                 <li>
-                                  Throttle stick controls throttle.
+                                  油门摇杆控制油门。
                                 </li>
                                 <li>
                                   Yaw杆操纵会驱动方向舵(指令将被加到自动驾驶仪计算的指令中以维持<a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>)。
@@ -269,11 +269,11 @@ th {
                             
                             <td>
                               <p>
-                                RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+                                用于执行杂技动作的遥控模式, 例如滚动、翻转、摊位和杂技图形。
                               </p>
                               
                               <p>
-                                RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to the output mixer.
+                                RPY摇杆输入被转换为角速度命令, 通过自动驾驶仪稳定。 Throttle is passed directly to the output mixer.
                               </p>
                             </td>
                           </tr>
