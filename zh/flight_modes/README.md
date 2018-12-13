@@ -117,10 +117,10 @@ th {
         
         <ul>
           <li>
-            Centered RC RPY sticks – level flight that follows a straight line ground track in the current direction against any wind.
+            回正远程遥控三个运动方向的摇杆使得水平飞行, 沿着直线地面轨道在当前方向对任何风。
           </li>
           <li>
-            Outside center: <ul>
+            外部中心: <ul>
               <li>
                 Pitch stick controls altitude (same as <a href="#altitude_fw">Altitude</a>).
               </li>
@@ -189,7 +189,7 @@ th {
               </li>
             </ul>
             <li>
-              Outside center: <ul>
+              外部中心: <ul>
                 <li>
                   Pitch stick controls altitude.
                 </li>
@@ -470,7 +470,7 @@ th {
                             Centered RPT sticks hold x, y, z position steady against any wind and levels attitude.
                           </li>
                           <li>
-                            Outside center: <ul>
+                            外部中心: <ul>
                               <li>
                                 Roll/Pitch sticks control speed over ground in left-right and forward-back directions (respectively) relative to the "front" of the vehicle.
                               </li>
@@ -527,7 +527,7 @@ th {
                               </li>
                             </ul>
                             <li>
-                              Outside center: <ul>
+                              外部中心: <ul>
                                 <li>
                                   Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.
                                 </li>
@@ -574,7 +574,7 @@ th {
                                       Centered RP sticks level vehicle.
                                     </li>
                                     <li>
-                                      Outside center: <ul>
+                                      外部中心: <ul>
                                         <li>
                                           Roll/Pitch sticks control tilt angle in those orientations, resulting in corresponding left-right and forward-back movement.
                                         </li>
