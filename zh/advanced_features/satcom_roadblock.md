@@ -1,4 +1,4 @@
-# Iridium/RockBlock Satellite Communication System
+# 铱星/RockBlock卫通系统
 
 A satellite communication system can be used to provide long range high latency link between a ground station and a vehicle.
 
