@@ -1,6 +1,6 @@
 # Return Mode
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 The *Return* flight mode causes the vehicle to return to its home position where it may then either wait (hover or circle) or land.
 
