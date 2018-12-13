@@ -5,5 +5,5 @@
 * [RTK GPS](../advanced_features/rtk-gps.md)
 * [Precision Landing](../advanced_features/precland.md)
 * [铱星/RockBlock卫通系统](../advanced_features/satcom_roadblock.md)
-* 自主避障(需要机载计算机)
+* 自主避障（需要机载计算机）
 * [防撞功能](../computer_vision/collision_prevention.md)
