@@ -4,13 +4,13 @@ You should select a board that suits the physical constraints of your vehicle, t
 
 PX4 can run on many flight controller boards and systems (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/Firmware/#supported-hardware)). A *subset* of the available options are listed below.
 
-## Pixhawk Series
+## Pixhawk 系列
 
 [Pixhawk Series](../flight_controller/pixhawk_series.md) open-hardware flight controllers run PX4 on NuttX OS. With many form factors, there are versions targeted towards many use cases and market segments.
 
 > **Tip** If you need computer vision or other computationally intensive tasks then instead consider a [board with companion computing](#autopilots-for-computationally-intensive-tasks).
 
-| Controller                                           | Description                                                                                                                                                                                                                                                                                                              |
+| 控制器                                                  | 描述                                                                                                                                                                                                                                                                                                                       |
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [mRo Pixhawk](../flight_controller/mro_pixhawk.md)   | Popular *general purpose* flight controller (this is a *slightly updated* version of the discontinued 3DR [Pixhawk 1](../flight_controller/pixhawk.md)).   
 Also consider: [HKPilot32](../flight_controller/HKPilot32.md), [Dropix](../flight_controller/dropix.md), [mRobotics-X2.1](../flight_controller/mro_x2.1.md). |
@@ -25,17 +25,17 @@ The controller has internal vibration damping and only 8 main outputs (**no AUX 
 
 These flight controllers offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
 
-| Controller                                                              | Description                                                                                                           |
+| 控制器                                                                     | Description                                                                                                           |
 | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | A high-end autopilot computer that runs PX4 on the DSP (on QuRT RTOS). It includes a camera and WiFi.                 |
 | [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md)    | A UAS development platform that integrates a powerful Linux computer, PX4 on NuttX, and a camera in a single package. |
-| [树莓派2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)            | RaPi can be connected to an autopilot and used as a companion computer.                                               |
+| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)  | RaPi can be connected to an autopilot and used as a companion computer.                                               |
 
 ## Commercial UAVs that can run PX4
 
 PX4 has been ported to a number of popular commercial drone products, as listed below. This allows you to add mission planning and other PX Flight modes to your vehicle.
 
-| Controller                                          | Description                                |
+| 控制器                                                 | Description                                |
 | --------------------------------------------------- | ------------------------------------------ |
 | [Crazyflie 2.0](../flight_controller/crazyflie2.md) | A micro quad (27g) created by Bitcraze AB. |
 | [Parrot Bebop](../flight_controller/bebop.md)       | A popular lightweight flying camera.       |
