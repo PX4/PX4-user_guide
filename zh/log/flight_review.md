@@ -1,4 +1,4 @@
-# Log Analysis using Flight Review
+# 使用 Flight Review 进行日志分析
 
 The [Flight Review](http://logs.px4.io) plots for a flight can be used to analyze general vehicle condition.
 
