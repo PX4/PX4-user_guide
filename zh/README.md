@@ -16,22 +16,22 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 所有用户都应阅读 [入门指南](getting_started/README.md)！ 它概述了 PX4，包括飞行栈（飞行模式和安全功能）和支持的硬件（飞控板、飞机、机架、遥测系统、遥控系统）提供的功能。
 
-根据您想要实现的需求, 以下提示将帮助您浏览本指南:
+根据您想要实现的目标，以下提示将帮助您浏览本指南：
 
-**我已经有了一架飞机, 我只想飞:**
+**我已经有了一架飞机，我想让它飞起来：**
 
 如果您有支持 PX4 的到手飞（RTF）的飞行器：
 
 - [基本配置](config/README.md) 解释了如何将固件更新到最新版本，校准主传感器（罗盘、陀螺仪、空速等），以及如何设置遥控器和安全功能。
-- [飞行](flying/README.md) 教授飞行要领, 包括安全飞行的地点和方式, 以及如何调试武装和飞行问题。 同样提供了关于飞行模式的详细信息。
+- [飞行](flying/README.md) 教授飞行要领，包括安全飞行的地点和方式，以及如何调试解锁和飞行问题。 同样提供了关于飞行模式的详细信息。
 
-**我想从头开始组建一架飞机：**
+**我想从头开始组装一架飞机：**
 
-> **Tip** 支持的飞行器列举在 [机架参考](airframes/airframe_reference.md)。 下载使用 *QGroundControl* ，其中已经有很多测试过和调试好参数的机型。
+> **Tip** 支持的飞行器列举在 [机架参考](airframes/airframe_reference.md)。 下载使用 *QGroundControl*，其中已经有很多测试过和调试好参数的机型。
 
 如果你想自己从头开始组建一架飞机：
 
-- 选择一个机架- [Airframe Builds](airframes/README.md) 列举出了支持的机架，并且提供了详细的说明如何构建。
+- 选择机架 - [Airframe Builds](airframes/README.md) 列举出了支持的机架，并且提供了详细的说明如何组装。
 - 选择飞控板 - 请参阅[入门指南 > 飞控板](getting_started/flight_controller_selection.md)和[自驾仪硬件](flight_controller/README.md)。
 - [装配](assembly/README.md) 解释了如何将重要的外围设备连接到自动驾驶仪上。
 - [基本配置](config/README.md) 演示如何更新固件，并使用适合您的机身的设置对其进行配置。 本节还介绍了如何校准主传感器（罗盘、陀螺仪、空速等），并设置遥控器和安全功能。
@@ -73,13 +73,13 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 ## 许可证
 
-根据许可 [BSD 3 条款许可证](https://opensource.org/licenses/BSD-3-Clause) 的条款，PX4 代码可自由使用和修改。 本文档的许可在 [CC by 4.0](https://creativecommons.org/licenses/by/4.0/) 下。 有关详细信息，请参阅：[PX4 开发指南>许可证](https://dev.px4.io/en/contribute/licenses.html)。
+根据许可[BSD 3 条款许可证](https://opensource.org/licenses/BSD-3-Clause)的细则，PX4 代码可自由使用和修改。 本文档可在 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 下进行许可 。 有关详细信息，请参阅：[PX4 开发指南 > 许可证](https://dev.px4.io/en/contribute/licenses.html)。
 
 ### 图标
 
 此库中使用的以下图标是单独授权的（如下所示）：
 
-<img src="../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" /> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 的 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 制作 <em>placeholder</em> 图标由 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 by</a> 授权。
+<img src="../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" /> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 的 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 制作 <em>placeholder</em> 图标由 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 授权。
 
 <img src="../assets/site/automatic_mode.svg" title="自动模式" width="30px" /> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 的 <a href="http://www.freepik.com" title="Freepik">Freepik</a> 制作的 <em>camera-automatic-mode</em> 图标由 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 授权。
 
