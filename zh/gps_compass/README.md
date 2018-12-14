@@ -39,19 +39,19 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
   
   有关支持的设备和setup/配置的信息，请参阅边栏下的 [RTK GPS](../gps_compass/rtk_gps.md)。
   
-  ## Configuration
+  ## 配置
   
   ### GPS
   
   GPS配置为用户透明地处理（前提是模块GPS连接器连接正确）。
   
-  ### Compass
+  ### 罗盘
   
   指南针校准内容包括在：[罗盘配置](../config/compass.md) 中。 该过程非常简单，将校准所有连接的磁强计。
   
   可以使用 [CAL\ *MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_EN) parameters（`x=0-3`）[performed](../advanced_config/parameters.md) 其他配置。 通常，您不需要 *修改* 这些，因为罗盘是自动检测的，优先排序，并且都是同时校准的（可能的例外是 [CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN) 可能用于禁用内部指南针）。 但是，您可能希望阅读它们，因为它们会让您知道哪些磁强计是内部或外部（[CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN)），哪些是用作主要标题源（[CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME)）。
   
-  ## Developer Information
+  ## 开发人员信息
   
   - GPS/RTK-GPS 
     - [RTK-GPS](https://dev.px4.io/en/advanced/rtk_gps.html) 
