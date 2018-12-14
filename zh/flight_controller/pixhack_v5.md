@@ -7,18 +7,18 @@
 ## 快速预览
 
 * 主处理器：STM32F765 
-  * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-* IO处理器: STM32F100 
-  * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
+  * 32 位 Arm® Cortex®-M7，216MHz，2MB 储存，512KB RAM
+* IO 处理器：STM32F100 
+  * 32 位 Arm® Cortex®-M3，24MHz，8KB SRAM
 
 * 内置传感器：
   
-  * 加速度计/陀螺仪: ICM-20689
-  * 加速度计/陀螺仪: BMI055
-  * 指南针：IST8310
-  * 气压计: MS5611
+  * 加速度计/陀螺仪：ICM-20689
+  * 加速度计/陀螺仪：BMI055
+  * 磁力计：IST8310
+  * 气压计：MS5611
 
-* 接口
+* 接口：
   
   * 14路PWM输出 (6路来自FMU, 8路来自 IO)
   * FMU上有3个专用PWM/Capture输入
@@ -43,7 +43,7 @@
 
 ## 采购
 
-从 [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz)商店采购。
+从 [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz) 官方淘宝店采购。
 
 ## 接口定义 {#connection}
 
@@ -77,9 +77,9 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
 The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector. To access the I/O Debug port, the user must remove the Pixhack v5 shell. Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
 
-The pinout is as shown.
+引脚排列如图所示
 
-![Pixhack v5 debug](../../assets/flight_controller/pixhack_v5/pixhack_v5_debug.jpg)
+![Pixhack v5 调试](../../assets/flight_controller/pixhack_v5/pixhack_v5_debug.jpg)
 
 | 针脚 | Pixhack V5 调试定义 |
 | -- | --------------- |
