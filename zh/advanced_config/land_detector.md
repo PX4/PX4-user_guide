@@ -22,7 +22,7 @@ Other key parameters that you may need to tune in order to improve landing behav
 
 - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system. This should be set to enable a controlled descent.
 
-## Fixed Wing Configuration
+## 固定翼配置
 
 The complete set of relevant parameters is available under the [LNDFW](../advanced_config/parameter_reference.md#land-detector) prefix. These two parameters are sometimes worth tuning:
 
