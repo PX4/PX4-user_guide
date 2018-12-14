@@ -1,10 +1,10 @@
-# 开始使用PX4
+# 开始使用 PX4 自动驾驶仪
 
 本节概述了您需要了解的基本概念, 以便使用PX4构建和驾驶无人飞行器。
 
 [基础概念](../getting_started/px4_basic_concepts.md) - 简要介绍PX4和Dronecode平台。
 
-[飞控](../getting_started/flight_controller_selection.md) - 来自不同的平台和制造商的飞控硬件选择。
+[飞行控制器](../getting_started/flight_controller_selection.md) - 来自不同的平台和制造商的飞控硬件选择。
 
 [飞机/机架](../getting_started/frame_selection.md) - 支持载具类型，包括空中、地面和水上。
 
