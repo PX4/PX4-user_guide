@@ -2,7 +2,7 @@
 
 This quick start guide shows how to power the [*Pixhawk<sup>&reg;</sup> 4 Mini*](../flight_controller/pixhawk4_mini.md) flight controller and connect its most important peripherals.
 
-<img src="../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png" width="350px" title="Pixhawk4 Image" />
+<img src="../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png" width="350px" title="Pixhawk 4 图像" />
 
 ## 接线介绍
 
@@ -28,7 +28,7 @@ Attach the provided GPS with integrated compass, safety switch, buzzer, and LED 
 
 > **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 
-## Power
+## 电源
 
 The Power Management Board (PMB) serves the purpose of a power module as well as a power distribution board. In addition to providing regulated power to *Pixhawk 4 Mini* and the ESCs, it sends information to the autopilot about the battery’s voltage and current draw.
 
@@ -38,7 +38,7 @@ Connect the output of the PMB that comes with the kit to the **POWER** port of t
 
 > **Note** The image above only shows the connection of a single ESC and a single servo. Connect the remaining ESCs and servos similarly.
 
-| Pin(s) or Connector | Function                                                                 |
+| Pin(s) or Connector | 功能                                                                       |
 | ------------------- | ------------------------------------------------------------------------ |
 | B+                  | Connect to ESC B+ to power the ESC                                       |
 | GND                 | Connect to ESC Ground                                                    |
@@ -48,7 +48,7 @@ connect to *Pixhawk 4 Mini* POWER |
 
 The pinout of the *Pixhawk 4 Mini* **POWER** port is shown below. 电流信号应接入0-3.3V 电压且0-120A 电流的模拟信号。 电压信号应接入0-3.3V电压且0-60A 电流的模拟信号。 Vcc 线路必须提供至少持续3A电流, 并应默认为 5.1V电压。 低于5V的电压仍然是可以接受的, 但不推荐。
 
-| Pin      | Signal  | Volt  |
+| 针脚       | 信号      | 电压    |
 | -------- | ------- | ----- |
 | 1(red)   | VCC     | +5V   |
 | 2(black) | VCC     | +5V   |
@@ -65,7 +65,7 @@ The pinout of the *Pixhawk 4 Mini* **POWER** port is shown below. 电流信号�
 
 > **Note** Using the Power Module that comes with the kit you will need to configure the *Number of Cells* in the [Power Settings](https://docs.qgroundcontrol.com/en/SetupView/Power.html) but you won't need to calibrate the *voltage divider*. 如果您使用的是任何其他电源模块 (例如, 来自 pixracer 的电源模块), 则必须更新校准 *voltage divider* 参数。
 
-## Radio Control
+## 无线电遥控
 
 A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
