@@ -71,7 +71,7 @@ The buzzer provides audio signals to that indicate UAV status. This should be co
 
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
-## Radio Control {#rc_control}
+## 无线电遥控 {#rc_control}
 
 A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -95,7 +95,7 @@ Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM**
 
 The Cube cannot directly connect to PPM or PWM receivers that have an *individual wire for each channel*. PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
 
-## Power {#power}
+## 电源 {#power}
 
 Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
