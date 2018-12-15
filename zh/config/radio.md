@@ -21,11 +21,11 @@
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Radio** in the sidebar.
 4. 点击 **OK** 开始。
     
-    ![Radio setup - before starting](../../images/qgc/setup/radio_start_setup.jpg)
+    ![遥控器设置-开始之前](../../images/qgc/setup/radio_start_setup.jpg)
 
 5. 设置和你遥控相匹配的 [发射机模式](../getting_started/rc_transmitter_receiver.md#transmitter_modes)（即左右手）（这个确保在下面的校准中 *QGroundControl* 准确显示摇杆的位置）
     
-    ![Radio setup - move sticks](../../images/qgc/setup/radio_sticks_throttle.jpg)
+    ![遥控器设置-移动摇杆](../../images/qgc/setup/radio_sticks_throttle.jpg)
 
 6. 按照文字（在遥控器的图上）提示移动摇杆的位置。 当摇杆到达位置，点击 **下一步** 。 Repeat for all positions.
 
@@ -39,7 +39,7 @@
 
 As well as calibrating your control sticks and other transmitter controls, there are a number of additional radio setup options that you may find useful on this screen.
 
-<img src="../../images/qgc/setup/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
+<img src="../../images/qgc/setup/radio_additional_radio_setup.jpg" title="遥控器设置-其他设置" width="300px" />
 
 <span id="spektrum_bind"></span>
 
@@ -47,13 +47,13 @@ As well as calibrating your control sticks and other transmitter controls, there
 
 在你校准遥控器之前，遥控器的发射机和接收机需要绑定（对频）。 如果你使用的是 *Spektrum* 的接收机，你可以按照下面的提示，使用 *QGroundControl* 将它设置到 *绑定（对频）模式* （如果你没有简便的物理方式用接收机连接飞控，这个会挺好用）。
 
-To bind a Spektrum transmitter/receiver:
+Spektrum遥控器和接收机的对频
 
 1. 选择 **Spektrum 对频** 的按钮。
 2. 选择接收机上的 “radio” 按钮。
 3. 点击 **OK**。
     
-    ![Spektrum Bind](../../images/qgc/setup/radio_additional_setup_spectrum_bind_select_channels.jpg)
+    ![Spektrum对频](../../images/qgc/setup/radio_additional_setup_spectrum_bind_select_channels.jpg)
 
 4. 按着对频按钮，打开你的Spektrum遥控器。
 
@@ -82,7 +82,7 @@ To use the AUX passthrough channels:
 1. Map up to 2 transmitter controls to separate channels. 
 2. Specify these channels to map to the AUX1 and AUX2 ports respectively, as shown below. Values are saved to the vehicle as soon as they are set.
     
-    ![AUX1 and AUX2 RC passthrough channels](../../images/qgc/setup/radio_additional_setup_aux_passthrough_channels.jpg)
+    ![遥控器的AUX1和AUX2通道](../../images/qgc/setup/radio_additional_setup_aux_passthrough_channels.jpg)
 
 The flight controller will pass through the unmodified values from the specified channels out of AUX1/AUX2 to the connected servos/relays that drive your hardware.
 
@@ -99,7 +99,7 @@ The flight controller will pass through the unmodified values from the specified
 1. 映射3个遥控器通道（旋钮或滑块开关）来分离通道。
 2. 使用选择列表，选择*参数调试*映射到遥控器通道。 Values are saved to the vehicle as soon as they are set.
     
-    ![Map radio channels to tuning channels](../../images/qgc/setup/radio_additional_radio_setup_param_tuning.jpg)
+    ![映射遥控器通道到调试通道](../../images/qgc/setup/radio_additional_radio_setup_param_tuning.jpg)
 
 把一个参数调试通道到一个参数。
 
@@ -108,16 +108,16 @@ The flight controller will pass through the unmodified values from the specified
 3. 选中**高级设置**复选框。
 4. 单击 **将 rc 设置为 param...** 按钮 (这将弹出下面显示的背景对话框)。
     
-    ![Map tuning channels to parameters](../../images/qgc/setup/parameters_radio_channel_mapping.jpg)
+    ![映射调试通道到参数](../../images/qgc/setup/parameters_radio_channel_mapping.jpg)
 
 5. 从 *参数调整 id*选择列表中选择要映射的调整通道 (1、2或 3)。
 
 6. 点击 **OK**定关闭对话框。
 7. 点击**保存**保存修改，关闭*参数编辑器*。
 
-> **Tip** You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the *Parameters* screen.
+> **提示**你可以在右上角的*参数*的在右上角中选择菜单**工具>清除遥控器参数**，清楚所有的参数/调试通道。
 
 ## 更多信息：
 
-* [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
-* [PX4 Setup Video - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
+* [QGroundControl > 远程控制](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
+* [PX4 设置视频 - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
