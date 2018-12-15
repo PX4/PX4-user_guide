@@ -1,4 +1,4 @@
-# Basic Concepts
+# 基本概念
 
 This topic provides a basic introduction to drones and using PX4 (it is meant mostly for novice users but is also a good introduction for experienced users).
 
@@ -49,7 +49,7 @@ PX4 uses sensors to determine vehicle state (needed for stabilization and to ena
 For more information see:
 
 - [Sensors](../getting_started/sensor_selection.md) 
-- [外设](../peripherals/README.md)
+- [外部设备](../peripherals/README.md)
 
 ## ESCs & Motors
 
