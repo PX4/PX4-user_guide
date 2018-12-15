@@ -1,4 +1,4 @@
-# 睿思凯遥测功能
+# 睿思凯（FrSky）数传功能
 
 睿思凯遥测功能允许你在兼容的遥控器发射机上访问载具的 [遥测或状态信息](#messages)。
 
@@ -6,9 +6,9 @@
 
 PX4平台支持睿思凯的 [S.port](#s_port)（新）和D.port（旧）两种类型的遥测数据接口。
 
-## Hardware Setup
+## 硬件安装
 
-一个典型的硬件设置如下所示
+一个典型的硬件安装如下所示
 
 ![FrSky-Taranis-Telemetry](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
 
@@ -48,7 +48,7 @@ PX4平台支持睿思凯的 [S.port](#s_port)（新）和D.port（旧）两种�
 
 主流的可选方案有：
 
-* FrSky Taranis X9D Plus (recommended)
+* FrSky Taranis X9D Plus（推荐）
 * FrSky Taranis X9D
 * FrSky Taranis X9E
 * FrSky Taranis Q X7
@@ -138,8 +138,8 @@ Lua map of flight modes:
 <table>
 <thead>
 <tr>
-  <th>Receiver</th>
-  <th>Range</th>
+  <th>接收机</th>
+  <th>范围</th>
   <th>Combined output</th>
   <th>Digital telemetry input</th>
   <th>Dimensions</th>
@@ -316,7 +316,7 @@ Lua map of flight modes:
     
     <!-- ideally add diagram here -->
 
-<h2>Additional Information</h2>
+<h2>更多信息</h2>
 
 <p>更多其他信息，请访问以下链接</p>
 
