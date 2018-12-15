@@ -90,14 +90,14 @@ The flight controller will pass through the unmodified values from the specified
 
 调试通道是映射一个遥控器调试旋钮到参数（你可以在你的遥控器上动态调整一个参数）。
 
-> **Tip** This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md), [Fixedwing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
+> **提示**这个功能是启动手动飞行调试：[多旋翼PID调试指南](../config_mc/pid_tuning_guide_multicopter.md)，[固定翼PID调试指南](../config_fw/pid_tuning_guide_fixedwing.md)。
 
-The channels used for parameter tuning are assigned in the *Radio* setup (here!), while the mapping from each tuning channel to its associated parameter is defined in the *Parameter editor*.
+用来进行参数调试的通道被放置在了*遥控器*设置中，可以在参数编辑器里设置每一个映射的调试通道对应的参数。
 
-To set up tuning channels:
+设置调试通道
 
-1. Map up to 3 transmitter controls (dials or sliders) to separate channels.
-2. Select the mapping of *PARAM Tuning Id* to radio channels, using the selection lists. Values are saved to the vehicle as soon as they are set.
+1. 映射3个遥控器通道（旋钮或滑块开关）来分离通道。
+2. 使用选择列表，选择*参数调试*映射到遥控器通道。 Values are saved to the vehicle as soon as they are set.
     
     ![Map radio channels to tuning channels](../../images/qgc/setup/radio_additional_radio_setup_param_tuning.jpg)
 
