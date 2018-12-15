@@ -61,7 +61,7 @@ To bind a Spektrum transmitter/receiver:
 
 这个设置是从你的遥控器复制手动微调设置，然后自动应用到自驾仪。 After this is done you will need to remove the manually set trims.
 
-> **提醒**微调设置是当你进行远程遥控，回中遥感时，适应横滚、俯仰、偏航，是你进行平稳或水平飞行（在自稳模式下）。 Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. The **Copy Trims** setting here moves the offsets into the autopilot.
+> **提醒**微调设置是当你进行远程遥控，回中遥感时，适应横滚、俯仰、偏航，是你进行平稳或水平飞行（在自稳模式下）。 一些遥控器有微调旋钮，可以允许你对遥控器发送的每一个摇杆位置的值设置一个偏移量。 这里的**微调设置**将偏移量转移到了自驾仪中。
 
 To copy the trims:
 
