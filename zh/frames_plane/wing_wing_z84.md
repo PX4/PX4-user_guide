@@ -44,7 +44,7 @@ One of these:
 
 The wiring below is valid for Pixhawk and Pixracer. Use the main outputs, not the ones labeled with AUX. The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
 
-| Port   | Connection                  |
+| Port   | 接口定义                        |
 | ------ | --------------------------- |
 | RC IN  | PPM or S.BUS / S.BUS2 input |
 | MAIN 1 | Left Aileron                |
