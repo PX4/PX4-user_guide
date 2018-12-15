@@ -32,7 +32,7 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 如果你想自己从头开始组建一架飞机：
 
 - 选择机架 - [Airframe Builds](airframes/README.md) 列举出了支持的机架，并且提供了详细的说明如何组装。
-- 选择飞控板 - 请参阅[入门指南 > 飞控板](getting_started/flight_controller_selection.md)和[自驾仪硬件](flight_controller/README.md)。
+- 选择飞控板 - 请参阅 [入门指南 > 飞控板](getting_started/flight_controller_selection.md)和 [自驾仪硬件](flight_controller/README.md)。
 - [装配](assembly/README.md) 解释了如何将重要的外围设备连接到自动驾驶仪上。
 - [基本配置](config/README.md) 演示如何更新固件，并使用适合您的机身的设置对其进行配置。 本节还介绍了如何校准主传感器（罗盘、陀螺仪、空速等），并设置遥控器和安全功能。
 
