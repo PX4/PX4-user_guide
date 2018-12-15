@@ -74,7 +74,7 @@ Attach the motor mount to the motor. With another motor mount plate and 4 M3x25
 
 The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
 
-| Port   | Connection             |
+| Port   | 接口定义                   |
 | ------ | ---------------------- |
 | MAIN 1 | Front right motor, CCW |
 | MAIN 2 | Back left motor, CCW   |
