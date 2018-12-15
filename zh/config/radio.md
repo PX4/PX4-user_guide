@@ -101,19 +101,19 @@ The flight controller will pass through the unmodified values from the specified
     
     ![Map radio channels to tuning channels](../../images/qgc/setup/radio_additional_radio_setup_param_tuning.jpg)
 
-To map a PARAM tuning channel to a parameter:
+把一个参数调试通道到一个参数。
 
-1. Open the **Parameters** sidebar. 
-2. Select the parameter to map to your transmitter (this will open the *Parameter Editor*).
-3. Check the **Advanced Settings** checkbox.
-4. Click the **Set RC to Param...** button (this will pop-up the forground dialog displayed below)
+1. 打开侧栏的**参数**。 
+2. 选择参数映射到你的遥控器（这个会打开*参数编辑器*）。
+3. 选中**高级设置**复选框。
+4. 单击 **将 rc 设置为 param...** 按钮 (这将弹出下面显示的背景对话框)。
     
     ![Map tuning channels to parameters](../../images/qgc/setup/parameters_radio_channel_mapping.jpg)
 
-5. Select the tuning channel to map (1, 2 or 3) from the *Parameter Tuning ID* selection list.
+5. 从 *参数调整 id*选择列表中选择要映射的调整通道 (1、2或 3)。
 
-6. Press **OK** to close the dialog.
-7. Press **Save** to save all changes and close the *Parameter Editor*.
+6. 点击 **OK**定关闭对话框。
+7. 点击**保存**保存修改，关闭*参数编辑器*。
 
 > **Tip** You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the *Parameters* screen.
 
