@@ -10,14 +10,14 @@ LeddarOne can be connected to any unused *serial port* (UART), e.g.: TELEM2, TEL
 
 Build a cable following your board and pinout and LeddarOne pinout (shown below). You only will need to connect 5V, TX, RX and GND pins.
 
-| Pin | LeddarOne |
-| --- | --------- |
-| 1   | GND       |
-| 2   | -         |
-| 3   | VCC       |
-| 4   | RX        |
-| 5   | TX        |
-| 6   | -         |
+| 针脚 | LeddarOne |
+| -- | --------- |
+| 1  | GND       |
+| 2  | -         |
+| 3  | VCC       |
+| 4  | RX        |
+| 5  | TX        |
+| 6  | -         |
 
 ## Parameter Setup
 
