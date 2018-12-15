@@ -9,12 +9,12 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
 ## Quick Summary
 
 * 主处理器：STM32F765 
-  * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
+  * 32 位 Arm® Cortex®-M7，216MHz，2MB 储存，512KB RAM
 * 内置传感器： 
   * Accel/Gyro: ICM-20689
   * Accel/Gyro: BMI055
-  * 指南针：IST8310
-  * 气压计: MS5611
+  * 磁力计：IST8310
+  * 气压计：MS5611
 * GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 * Interfaces: 
   * 8 PWM outputs
@@ -99,7 +99,7 @@ The system's serial console and SWD interface run on the **FMU Debug** port. In 
 
 The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. Please refer to the [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
 
-## 外设
+## 外部设备
 
 * [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
 * [遥测无线电模块](../telemetry/README.md)
