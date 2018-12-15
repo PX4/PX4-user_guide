@@ -1,4 +1,4 @@
-# 遥控设置
+# 遥控器（远程控制）设置
 
 *遥控器设置 *界面是用来映射遥控器的摇杆（如横滚、俯仰、偏航以及油门）通道，校准最小值和最大值和遥控器的正反向设置。
 
@@ -75,16 +75,16 @@ Spektrum遥控器和接收机的对频
 
 ### 辅助通道
 
-AUX passthrough channels allow you to control arbitrary optional hardware from your transmitter (for example, a gripper).
+辅助通道可以让你使用遥控器控制任意可选的硬件（例如，一个抓手或收放装置）。
 
-To use the AUX passthrough channels:
+使用辅助通道
 
-1. Map up to 2 transmitter controls to separate channels. 
-2. Specify these channels to map to the AUX1 and AUX2 ports respectively, as shown below. Values are saved to the vehicle as soon as they are set.
+1. 映射2个遥控器控制来隔离通道。 
+2. 如下所示，依次映射这些通道到端口AUX1和AUX2。 设置后，保存到自驾仪。
     
     ![遥控器的AUX1和AUX2通道](../../images/qgc/setup/radio_additional_setup_aux_passthrough_channels.jpg)
 
-The flight controller will pass through the unmodified values from the specified channels out of AUX1/AUX2 to the connected servos/relays that drive your hardware.
+飞控将这些为指定的值通过指定的通道输出到AUX1/AUX2，来驱动连接的舵机/继电器。
 
 ### 参数调试通道
 
@@ -97,7 +97,7 @@ The flight controller will pass through the unmodified values from the specified
 设置调试通道
 
 1. 映射3个遥控器通道（旋钮或滑块开关）来分离通道。
-2. 使用选择列表，选择*参数调试*映射到遥控器通道。 Values are saved to the vehicle as soon as they are set.
+2. 使用选择列表，选择*参数调试*映射到遥控器通道。 设置后，保存到自驾仪。
     
     ![映射遥控器通道到调试通道](../../images/qgc/setup/radio_additional_radio_setup_param_tuning.jpg)
 
