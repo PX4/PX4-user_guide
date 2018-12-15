@@ -36,12 +36,12 @@ The pins on the 28-pin connector are numbered as shown below:
 
 ![MB-Two Pinout](../../assets/hardware/gps/rtk_trimble_two_gnss_pinouts.jpg)
 
-| Pin | 名称       | Description                                          |
-| --- | -------- | ---------------------------------------------------- |
-| 6   | Vcc 3.3V | Power supply                                         |
-| 14  | GND      | Connect to power the supply and GND of the Autopilot |
-| 15  | TXD1     | Connect to RX of the Autopilot                       |
-| 16  | RXD1     | Connect to TX of the Autopilot                       |
+| 针脚 | 名称       | Description                                          |
+| -- | -------- | ---------------------------------------------------- |
+| 6  | Vcc 3.3V | Power supply                                         |
+| 14 | GND      | Connect to power the supply and GND of the Autopilot |
+| 15 | TXD1     | Connect to RX of the Autopilot                       |
+| 16 | RXD1     | Connect to TX of the Autopilot                       |
 
 ## Configuration
 
