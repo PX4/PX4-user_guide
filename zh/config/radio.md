@@ -6,9 +6,9 @@
 
 在你校准遥控器之前，遥控器的发射机和接收机需要绑定（对频）。 发射机和接收机对频的方法各有不同（请参照您使用的遥控器的说明书） 提醒：如果您使用的是 Spektrum 的接收机， 提醒：如果您使用的是 FrSky 的接收机，您可以在发射机上进行绑定（对频），下面是介绍。
 
-> **提醒** 如果您使用的是 *Spektrum* 接收机,，你可以使用 * QGroundControl *将它设置在绑定（对频）模式,，如[下面所示](#spektrum_bind)。
+> **提醒** 如果您使用的是 *Spektrum* 接收机,，你可以使用 * QGroundControl * 将它设置在绑定（对频）模式,，如[下面所示](#spektrum_bind)。
 > 
-> **提醒**：如果您使用的是 *FrSky* 的接收机，您可以在发射机上进行绑定（对频），下面是[介绍](https://www.youtube.com/watch?v=1IYg5mQdLVI)。
+> **提醒**：如果您使用的是 *FrSky * 的接收机，您可以在发射机上进行绑定（对频），下面是[介绍](https://www.youtube.com/watch?v=1IYg5mQdLVI)。
 
 ## 执行校准
 
@@ -18,7 +18,7 @@
 
 1. Turn on your RC transmitter.
 2. Start *QGroundControl* and connect the vehicle.
-3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Radio** in the sidebar.
+3. 在上面的工具条中选择 **齿轮** 按钮，然后在左面的工具条中选择 **遥控器** 按钮。
 4. 点击 **OK** 开始。
     
     ![遥控器设置-开始之前](../../images/qgc/setup/radio_start_setup.jpg)
@@ -27,7 +27,7 @@
     
     ![遥控器设置-移动摇杆](../../images/qgc/setup/radio_sticks_throttle.jpg)
 
-6. 按照文字（在遥控器的图上）提示移动摇杆的位置。 当摇杆到达位置，点击 **下一步** 。 Repeat for all positions.
+6. 按照文字（在遥控器的图上）提示移动摇杆的位置。 当摇杆到达位置，点击 **下一步** 。 重复上述步骤。
 
 7. 当出现提示，移动所有开关和旋钮到最大行程（你可以在 *通道监视器* 上看到他们指示条的移动）。
 
@@ -65,7 +65,7 @@ Spektrum遥控器和接收机的对频
 
 复制微调
 
-1. 选择**微调**。
+1. 选择 **微调**。
 2. 摇杆居中，油门杆最低。 
 3. 点击 **Ok** 。
     
@@ -80,17 +80,17 @@ Spektrum遥控器和接收机的对频
 使用辅助通道
 
 1. 映射2个遥控器控制来隔离通道。 
-2. 如下所示，依次映射这些通道到端口AUX1和AUX2。 设置后，保存到自驾仪。
+2. 如下所示，依次映射这些通道到端口 AUX1 和 AUX2。 设置后，保存到自驾仪。
     
     ![遥控器的AUX1和AUX2通道](../../images/qgc/setup/radio_additional_setup_aux_passthrough_channels.jpg)
 
-飞控将这些为指定的值通过指定的通道输出到AUX1/AUX2，来驱动连接的舵机/继电器。
+飞控将这些为指定的值通过指定的通道输出到 AUX1 / AUX2，来驱动连接的舵机/继电器。
 
 ### 参数调试通道
 
 调试通道是映射一个遥控器调试旋钮到参数（你可以在你的遥控器上动态调整一个参数）。
 
-> **提示**这个功能是启动手动飞行调试：[多旋翼PID调试指南](../config_mc/pid_tuning_guide_multicopter.md)，[固定翼PID调试指南](../config_fw/pid_tuning_guide_fixedwing.md)。
+> **提示**这个功能是启动手动飞行调试：[多旋翼 PID 调试指南](../config_mc/pid_tuning_guide_multicopter.md)，[固定翼 PID 调试指南](../config_fw/pid_tuning_guide_fixedwing.md)。
 
 用来进行参数调试的通道被放置在了*遥控器*设置中，可以在参数编辑器里设置每一个映射的调试通道对应的参数。
 
@@ -112,8 +112,8 @@ Spektrum遥控器和接收机的对频
 
 5. 从 *参数调整 id*选择列表中选择要映射的调整通道 (1、2或 3)。
 
-6. 点击 **OK**定关闭对话框。
-7. 点击**保存**保存修改，关闭*参数编辑器*。
+6. 点击 **OK** 定关闭对话框。
+7. 点击 **保存** 保存修改，关闭*参数编辑器*。
 
 > **提示**你可以在右上角的*参数*的在右上角中选择菜单**工具>清除遥控器参数**，清楚所有的参数/调试通道。
 
