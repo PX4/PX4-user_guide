@@ -37,7 +37,7 @@
 
 ## 其他的遥控器设置
 
-As well as calibrating your control sticks and other transmitter controls, there are a number of additional radio setup options that you may find useful on this screen.
+除了校准你的控制杆和其他遥控，在这个界面还有一些其他游泳的遥控器设置选项。
 
 <img src="../../images/qgc/setup/radio_additional_radio_setup.jpg" title="遥控器设置-其他设置" width="300px" />
 
@@ -73,7 +73,7 @@ Spektrum遥控器和接收机的对频
 
 4. 设置遥控器器微调为0。
 
-### AUX Passthrough Channels
+### 辅助通道
 
 AUX passthrough channels allow you to control arbitrary optional hardware from your transmitter (for example, a gripper).
 
