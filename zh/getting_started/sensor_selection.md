@@ -18,7 +18,7 @@ We recommend the use of an external "combined" compass/GPS module mounted as far
 
 Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/README.md).
 
-![GPS + Compass](../../images/gps_compass.jpg)
+![GPS + 罗盘](../../images/gps_compass.jpg)
 
 ## Airspeed
 
