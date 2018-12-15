@@ -1,8 +1,8 @@
-# Land Detector Configuration
+# 着陆探测器配置
 
 The land detector is a dynamic vehicle model representing key vehicle states from ground contact through to landed. This topic explains the main parameters you may wish to tune in order to improve landing behaviour.
 
-## Auto-Disarming
+## 自动加锁
 
 The land-detector does not auto-disarm the system on landing.
 
@@ -37,7 +37,7 @@ In order to detect landing, the multicopter first has to go through three differ
 
 In order to proceed to the next state, each condition has to be true for some predefined time. If one condition fails, the land detector drops out of the current state immediately.
 
-#### Ground Contact
+#### 地面接触
 
 This state is reached if following conditions are true for 0.35 seconds:
 
