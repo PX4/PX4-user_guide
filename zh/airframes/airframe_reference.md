@@ -110,7 +110,7 @@
 </tr>
 </tbody></table>
 
-### +型六旋翼
+### Hexarotor +
 
 <div>
   <img src="../../assets/airframes/types/HexaRotorPlus.svg" width="29%" style="max-height: 180px;" /> 
@@ -224,7 +224,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -241,7 +241,7 @@
 <tbody>
 <tr id="copter_octo_coax_wide_steadidrone_mavrik">
  <td style="vertical-align: top;">Steadidrone MAVRIK</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 12002</p></td>
+ <td style="vertical-align: top;"><p>维护者：Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 12002</p></td>
 
 </tr>
 </tbody></table>
@@ -258,7 +258,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -292,7 +292,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -326,7 +326,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -567,7 +567,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Simon Wilks <simon@uaventure.com>
+        维护者：Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1239,7 +1239,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Simon Wilks <simon@uaventure.com>
+        维护者：Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1255,7 +1255,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Simon Wilks <simon@uaventure.com>
+        维护者：Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1303,7 +1303,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Simon Wilks <simon@uaventure.com>
+        维护者：Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1319,7 +1319,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Simon Wilks <simon@uaventure.com>
+        维护者：Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1335,7 +1335,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Simon Wilks <simon@uaventure.com>
+        维护者：Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1799,7 +1799,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Simon Wilks <simon@uaventure.com>
+        维护者：Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1849,7 +1849,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Simon Wilks <simon@uaventure.com>
+        维护者：Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
