@@ -22,13 +22,13 @@
 
 > **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
-## Buzzer and Safety Switch
+## 蜂鸣器与安全开关
 
 Connect the included buzzer and safety switch as shown below (these are mandatory).
 
 ![Pixhawk mounting and orientation](../../images/pixhawk_3dr_buzzer_and_safety_switch.jpg)
 
-## GPS + Compass
+## GPS + 罗盘
 
 Attach a GPS (required) to the GPS port using the 6-wire cable supplied in the kit. Optionally attach a compass to the I2C port using a 4-wire cable (the Pixhawk has an internal compass, which can be used if necessary).
 
@@ -36,7 +36,7 @@ Attach a GPS (required) to the GPS port using the 6-wire cable supplied in the k
 
 ![Connect compass/GPS to Pixhawk](../../images/pixhawk_3dr_compass_gps.jpg)
 
-## Power
+## 电源
 
 Connect the output of a *Power module* (PM) to the **POWER** port using a 6-wire cable as shown. The PM input will be connected to your LiPo battery, while the main output will supply vehicle ESCs/motors (possibly via a power distribution board).
 
@@ -50,7 +50,7 @@ For planes and VTOL the output rail will need to be separately powered in order 
 
 <!-- It would be good to have real example of this powering -->
 
-## Radio Control
+## 无线电遥控
 
 A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -66,7 +66,7 @@ The instructions below show how to connect the different types of receivers to P
 
 更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息, 请参阅: 遥控器发射机&接收器 </0 >。</p> 
 
-## Telemetry Radios (Optional)
+## 数传电台（可选）
 
 Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission). One radio must be connected to your vehicle as shown below. The other is connected to your ground station computer or mobile device (usually by USB).
 
@@ -74,7 +74,7 @@ Telemetry radios may be used to communicate and control a vehicle in flight from
 
 <!-- what configuration is required once you've set up a radio) -->
 
-## Motors
+## 电机
 
 The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
 
@@ -90,13 +90,13 @@ The mappings between MAIN/AUX output ports and motor/servos for all supported ai
 
 <!-- INSERT image of the motor AUX/MAIN ports? -->
 
-## Other Peripherals
+## 其它外设
 
 The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
-## Configuration
+## 配置
 
-一般配置信息在以下内容中介绍: Autopilot 配置 </0 >。</p> 
+一般配置信息在以下内容中介绍：[Autopilot 配置](../config/README.md)。
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
@@ -106,7 +106,7 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 ![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg)
 
-## Further information
+## 更多信息
 
 - [Pixhawk Series](../flight_controller/pixhawk_series.md)
 - [3DR Pixhawk](../flight_controller/pixhawk.md)
