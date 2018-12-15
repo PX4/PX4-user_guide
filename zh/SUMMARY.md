@@ -82,7 +82,7 @@
   * [RockBlock SatCom System](advanced_features/satcom_roadblock.md)
   * [Obstacle Avoidance](computer_vision/obstacle_avoidance.md)
   * [防撞功能](computer_vision/collision_prevention.md)
-* [高级设置](advanced_config/README.md) 
+* [高级配置](advanced_config/README.md) 
   * [参数](advanced_config/parameters.md)
   * [Multicopter Config/Tuning](config_mc/README.md) 
     * [Multicopter PID Tuning Guide](config_mc/pid_tuning_guide_multicopter.md)
