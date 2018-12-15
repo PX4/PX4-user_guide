@@ -20,7 +20,7 @@ A lot of PX4 behaviour can be configured/tuned using [parameters](../advanced_co
 
 ![Parameters Screen](../../images/qgc/setup/parameters_px4.jpg)
 
-## Changing a Parameter
+## 更改参数
 
 To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
 
@@ -28,7 +28,7 @@ To change the value of a parameter click on the parameter row in a group or sear
 
 > **Note** When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
 
-## Tools
+## 工具
 
 You can select additional options from the **Tools** menu on the top right hand side of the screen.
 
