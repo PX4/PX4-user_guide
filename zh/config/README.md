@@ -23,11 +23,11 @@
 
 {% youtube %} https://www.youtube.com/watch?v=91VGmdSlbo4 {% endyoutube %}
 
-## Support
+## 支持
 
 如果您需要有关配置的帮助，您可以在 [QGroundControl支持论坛](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage) 上寻求帮助。
 
-## 更多信息：
+## 更多信息
 
 * [QGroundControl配置许可证](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
 * [高级配置](../advanced_config/README.md) （更高级的话题，关于小众传感器和外设的使用以及飞机调试）。
