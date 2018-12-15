@@ -8,7 +8,7 @@ The [E-Flite Convergence](https://www.modelflight.com.au/e-flite-convergence-vto
 
 The convergence needs 7 PWM signals and is connected to a Pixfalcon in the following way (matching the airframe configuration in PX4, left/right seen looking from behind the plane):
 
-| Port   | Connection       |
+| Port   | 接口定义             |
 | ------ | ---------------- |
 | MAIN 1 | Motor right      |
 | MAIN 2 | Motor left       |
