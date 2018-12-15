@@ -51,11 +51,11 @@ To bind a Spektrum transmitter/receiver:
 
 1. Select the **Spektrum Bind** button
 2. Select the radio button for your receiver
-3. Press **OK**
+3. 点击 **OK**。
     
     ![Spektrum Bind](../../images/qgc/setup/radio_additional_setup_spectrum_bind_select_channels.jpg)
 
-4. Power on your Spektrum transmitter while holding down the bind button.
+4. 按着对频按钮，打开你的Spektrum遥控器。
 
 ### Copy Trims
 
