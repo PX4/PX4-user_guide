@@ -45,13 +45,13 @@ This means that MindPX can support more complicated VTOL configurations and more
 
 ![MindPX Wiring 2](../../assets/hardware/hardware-mindpx-wiring2.png)
 
-### Pin
+### 针脚
 
 ![MindPX Pinout](../../assets/hardware/hardware-mindpx-pin.png)
 
 | Num. |        Description         | Num. |      Description       |
 |:----:|:--------------------------:|:----:|:----------------------:|
-|  1   |           Power            |  9   |    I2C2 (MindFLow)     |
+|  1   |             电源             |  9   |    I2C2 (MindFLow)     |
 |  2   | Debug (refresh bootloader) |  10  | USB2 (Serial 2 to USB) |
 |  3   |  USB1 (refresh firmware)   |  11  |        UART4,5         |
 |  4   |           Reset            |  12  |   UART1 (Telemetry)    |
