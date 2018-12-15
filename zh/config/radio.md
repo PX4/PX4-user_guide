@@ -63,15 +63,15 @@ To bind a Spektrum transmitter/receiver:
 
 > **提醒**微调设置是当你进行远程遥控，回中遥感时，适应横滚、俯仰、偏航，是你进行平稳或水平飞行（在自稳模式下）。 一些遥控器有微调旋钮，可以允许你对遥控器发送的每一个摇杆位置的值设置一个偏移量。 这里的**微调设置**将偏移量转移到了自驾仪中。
 
-To copy the trims:
+复制微调
 
-1. Select **Copy Trims**.
-2. Center your sticks and move throttle all the way down. 
-3. Press **Ok**.
+1. 选择**微调**。
+2. 摇杆居中，油门杆最低。 
+3. 点击 **Ok** 。
     
     ![复制微调](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
 
-4. Reset the trims on your transmitter back to zero.
+4. 设置遥控器器微调为0。
 
 ### AUX Passthrough Channels
 
