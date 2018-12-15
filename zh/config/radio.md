@@ -57,11 +57,11 @@ To bind a Spektrum transmitter/receiver:
 
 4. 按着对频按钮，打开你的Spektrum遥控器。
 
-### Copy Trims
+### 复制微调
 
-This setting is used to copy the manual trim settings from your radio transmitter so that they can be applied automatically within the autopilot. After this is done you will need to remove the manually set trims.
+这个设置是从你的遥控器复制手动微调设置，然后自动应用到自驾仪。 After this is done you will need to remove the manually set trims.
 
-> **Note** Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode). Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. The **Copy Trims** setting here moves the offsets into the autopilot.
+> **提醒**微调设置是当你进行远程遥控，回中遥感时，适应横滚、俯仰、偏航，是你进行平稳或水平飞行（在自稳模式下）。 Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. The **Copy Trims** setting here moves the offsets into the autopilot.
 
 To copy the trims:
 
@@ -69,7 +69,7 @@ To copy the trims:
 2. Center your sticks and move throttle all the way down. 
 3. Press **Ok**.
     
-    ![Copy Trims](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
+    ![复制微调](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
 
 4. Reset the trims on your transmitter back to zero.
 
