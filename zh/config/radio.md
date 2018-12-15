@@ -1,4 +1,4 @@
-# Radio (Remote Control) Setup
+# 遥控设置
 
 The *Radio Setup* screen is used to configure the mapping of your remote control unit's main attitude control sticks (roll, pitch, yaw, throttle) to channels, and to calibrate the minimum, maximum, trim and reverse settings for all other transmitter controls/RC channels.
 
@@ -27,15 +27,15 @@ To calibrate the radio:
     
     ![Radio setup - move sticks](../../images/qgc/setup/radio_sticks_throttle.jpg)
 
-6. Move the sticks to the positions indicated in the text (and on the transmitter image). Press **Next** when the sticks are in position. Repeat for all positions.
+6. Move the sticks to the positions indicated in the text (and on the transmitter image). 当摇杆到达位置，点击 **下一步** 。 Repeat for all positions.
 
 7. When prompted, move all other switches and dials through their full range (you will be able to observe them moving on the *Channel Monitor*).
 
-8. Press **Next** to save the settings.
+8. 点击 **下一步** 保存设置。
 
-Radio calibration is demonstrated in the [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=4m30s) (youtube).
+在 [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=4m30s) (youtube) 中有遥控器校准的视频演示。
 
-## Additional Radio Setup
+## 其他的遥控器设置
 
 As well as calibrating your control sticks and other transmitter controls, there are a number of additional radio setup options that you may find useful on this screen.
 
