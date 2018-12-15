@@ -129,14 +129,14 @@ After setting up the PX4 development environment, follow these steps update the 
 
 Connect the [LeddarOne](../sensor/leddar_one.md) to the Aero telemetry port. The pinout for the LeddarOne and Aero telemetry port are as follows.
 
-| Pin | Aerofc TELEMETRY | LeddarOne |
-| --- | ---------------- | --------- |
-| 1   | VCC              | GND       |
-| 2   | TX               | -         |
-| 3   | RX               | VCC       |
-| 4   | SCL              | RX        |
-| 5   | SDA              | TX        |
-| 6   | GND              | -         |
+| 针脚 | Aerofc TELEMETRY | LeddarOne |
+| -- | ---------------- | --------- |
+| 1  | VCC              | GND       |
+| 2  | TX               | -         |
+| 3  | RX               | VCC       |
+| 4  | SCL              | RX        |
+| 5  | SDA              | TX        |
+| 6  | GND              | -         |
 
 To enable the rangefinder set the [SENS_EN_LEDDAR1](../advanced_config/parameter_reference.md#SENS_EN_LEDDAR1) parameter to 1 and reboot the board (instructions for setting parameters [available here](../advanced_config/parameters.md)).
 
@@ -152,14 +152,14 @@ In addition it is recommended to use a electrolytic capacitor for the Lidar Lite
 
 The pinout for the Lidar Lite V3 and Aero telemetry port are as follows
 
-| Pin | Aerofc TELEMETRY | Lidar Lite V3 |
-| --- | ---------------- | ------------- |
-| 1   | VCC              | VCC           |
-| 2   | TX               | -             |
-| 3   | RX               | -             |
-| 4   | SCL              | SCL           |
-| 5   | SDA              | SDA           |
-| 6   | GND              | GND           |
+| 针脚 | Aerofc TELEMETRY | Lidar Lite V3 |
+| -- | ---------------- | ------------- |
+| 1  | VCC              | VCC           |
+| 2  | TX               | -             |
+| 3  | RX               | -             |
+| 4  | SCL              | SCL           |
+| 5  | SDA              | SDA           |
+| 6  | GND              | GND           |
 
 | pin | Aerofc COMPASS | Lidar Lite V3 |
 | --- | -------------- | ------------- |
