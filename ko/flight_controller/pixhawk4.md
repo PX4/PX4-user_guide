@@ -90,7 +90,7 @@ The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides
 
 To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
-    make make px4_fmu-v5_default
+    make px4_fmu-v5_default
     
 
 ## Debug Port
