@@ -55,7 +55,7 @@ Spektrum遥控器和接收机的对频
     
     ![Spektrum对频](../../images/qgc/setup/radio_additional_setup_spectrum_bind_select_channels.jpg)
 
-4. 按着对频按钮，打开你的Spektrum遥控器。
+4. 按着对频按钮，打开你的 Spektrum 遥控器。
 
 ### 复制微调
 
