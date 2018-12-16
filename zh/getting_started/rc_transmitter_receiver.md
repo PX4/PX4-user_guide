@@ -10,7 +10,7 @@ RC 系统有一个地基远程控制单元，需要操作员来命令飞行器�
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-远程控制单元有一个可以和飞机上的无线电模块相互绑定、通信的无线电模块。 飞机上的单元连接到自驾仪上。 The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
+远程控制单元有一个可以和飞机上的无线电模块相互绑定、通信的无线电模块。 飞机上的单元连接到自驾仪上。 自驾仪根据当前飞机的飞行模式和飞机状态来发送命令，正确驱动电机和伺服器。
 
 <!-- image showing the different parts here would be nice -->
 
@@ -20,9 +20,9 @@ An important quality of an RC system is how many "channels" it supports. The num
 
 An aircraft must use a system that supports at least 4 channels (for roll, pitch, yaw, thrust). Ground vehicles need at least two channels (steering + throttle). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot.
 
-## Types of Remote Controls
+## 远程控制的类型
 
-### Remote Control Units for Aircraft {#transmitter_modes}
+### 飞机的远程控制单元 {#transmitter_modes}
 
 The most popular *form* of remote control unit for UAVs is shown below. It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (i.e. aircraft need at least 4 channels).
 
@@ -30,23 +30,23 @@ The most popular *form* of remote control unit for UAVs is shown below. It has s
 
 There are numerous possible layouts for the control sticks, switches, etc. The more common layouts have been given specific "Mode" numbers. *Mode 1* and *Mode 2* (shown below) differ only in the placement of the throttle.
 
-![Mode1-Mode2](../../images/mode1_mode2.png)
+![模式1-模式2](../../images/mode1_mode2.png)
 
 > **Note** The choice of mode is largely one of taste (*Mode 2* is more popular).
 
-## Remote Control Units for Ground Vehicles
+## 地面设备的远程控制单元
 
 An Unmanned Ground Vehicle (UGV)/car minimally requires a 2 channel transmitter in order to send the values for steering and speed. Commonly transmitters set these values using a wheel and trigger, two single-axis control sticks, or a single dual-axis control stick.
 
 There is nothing to stop you using more channels/control mechanisms, and these can be very useful for engaging additional actuators and autopilot modes.
 
-## Choosing RC System Components
+## 选择 RC 系统组件
 
 You will need to select a transmitter/receiver pair that are compatible with each other. In addition, receivers have to be be [compatible with PX4](#compatible_receivers) and the flight controller hardware.
 
 Compatible radio systems are often sold together. For example, [FrSky Taranis X9D and FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us) are a popular combination.
 
-### Transmitter/Receiver Pairs
+### 成对的发射机/接收机
 
 One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
 
@@ -59,7 +59,7 @@ Other popular transmitter/receiver pairs
 * Long range ~900MHz, low latency: "Team Black Sheep Crossfire" or "Crossfire Micro" set with a compatible remote (e.g. Taranis)
 * Long Range ~433MHz: ImmersionRC EzUHF set with a compatible remote (e.g. Taranis)
 
-### PX4-Compatible Receivers {#compatible_receivers}
+### PX4兼容的接收机 {#compatible_receivers}
 
 In addition to the transmitter/receiver pairs being compatible, the receiver must also be compatible with PX4 and the flight controller hardware.
 
@@ -71,7 +71,7 @@ In addition to the transmitter/receiver pairs being compatible, the receiver mus
 * Graupner HoTT
 * All PPM models from other manufacturers
 
-## Connecting Receivers
+## 连接接收机
 
 As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
 
@@ -87,14 +87,14 @@ Instructions for connecting to specific flight controllers are given in the foll
 
 > **Tip** See the manufacturer's flight controller setup guide for additional information.
 
-## Binding Transmitter/Receiver {#binding}
+## 发射机/接收机对频 {#binding}
 
 Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other. The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions).
 
 If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
 
-## Related Topics
+## 相关章节
 
-* [RC System Selection](../getting_started/rc_transmitter_receiver.md) - Choose a compatible RC system.
-* [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
+* [RC 系统选择](../getting_started/rc_transmitter_receiver.md)-选择一个兼容的 RC 系统
+* [遥控器设置](../config/radio.md)-使用 PX4设置你的遥控器
 * [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
