@@ -65,7 +65,7 @@ PX4는 <>IR-LOCK 센서 </a>), IR-LOCK 센서 </em>(PX4 v1.7.4에서)에 대한 
 
 ### 미션에서 {#mission}
 
-정밀 착륙은 을 사용하여 [ 변속기의 일부로 시작할 수 있습니다.`param2 `가 적절하게 설정된 MAV_CMD_NAV_LAND ](../flying/missions.md).</p> 
+Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
 
 - `param2` = 0: Normal landing without using the beacon.
 - `param2` = 0: 표지판을 사용하지 않고 일반 착륙.
