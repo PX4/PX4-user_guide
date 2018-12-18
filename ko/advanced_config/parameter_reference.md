@@ -11334,7 +11334,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.1
+      50.1
     </td>
     
     <td style="vertical-align: top;">
