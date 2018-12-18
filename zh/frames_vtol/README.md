@@ -28,7 +28,7 @@ PX4支持几乎所有的垂起的配置（支持配置的完整集合可以在 [
 
 {% youtube %} https://youtu.be/E61P2f2WPNU {% endyoutube %}
 
-### 四平面VTOL
+### QuadPlane VTOL
 
 [FunCub QuadPlane](../frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
 
