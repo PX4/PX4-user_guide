@@ -74,7 +74,7 @@ In this case, the precision landing is always considered "required".
 
 ### In a Mission {#mission}
 
-Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](../advanced_config/parameter_reference.md#MAV_CMD_NAV_LAND) with `param2` set appropriately:
+Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
 
 - `param2` = 0: Normal landing without using the beacon.
 - `param2` = 1: *Opportunistic* precision landing.
