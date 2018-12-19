@@ -15119,8 +15119,22 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable.
+        <strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.
       </p>
+      
+      <strong>数值：</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>1:</strong> Roll/Pitch
+        </li>
+        <li>
+          <strong>2:</strong> Roll/Pitch/Yaw
+        </li>
+      </ul>
     </td>
     
     <td style="vertical-align: top;">
