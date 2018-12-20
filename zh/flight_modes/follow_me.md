@@ -24,9 +24,9 @@ author: Jimmy Johnson
 - 跟随模式应只用于不受树木、电线、房屋等阻挡的开阔区域。 
     - 将跟随高度设置为远高于任何周围障碍物的值
     - 对于家庭和布防位置，**默认**跟随高度设置为8米（约26英尺）。
-- It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though follow me mode does implement auto take off).
-- Give your vehicle a lot of room to stop, especially when it is moving fast. This is required because most Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate.
-- Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by the Android device. If the GPS is not accurate, this will be reflected in follow me.
+- 在进入跟随模式之前手动飞到安全高度，比着陆时使用跟随模式（即使按照我模式执行自动起飞）*更安全*。
+- 给你的飞机留足够的空间，特别是当它快速移动时。 这是必需的，因为大多数Android设备不会非常频繁地更新其位置，并且自动驾驶仪对速度和方向的估计可能是不准确的。
+- 如果第一次使用跟随模式时，请做好手动遥控准备以应对问题发生。 定位的准确性取决于Android设备使用的GPS的质量。 如果GPS不准确，这将反映在跟随模式中。
 
 ## Getting started
 
