@@ -37,30 +37,30 @@ author: Jimmy Johnson
     - 此设置通常位于以下位置：**设置\>显示**。
     - 将Android设备设置为不进入睡眠状态非常重要，因为这可能导致GPS信号定期停止发射。
 - 将飞机飞至至少2-3米的高度。 
-    - Set the vehicle on the ground, press the safety switch and step back at least 10 meters.
-    - Arm the vehicle and fly to a height of at least 2-3 meters
-- Switch into follow me mode. 
-    - The copter will ascend to the minimum height required (default is 8 meters) and then pause for a moment to assess the radio link. If the link update rate is OK the copter will then yaw to face the user.
+    - 将飞机放在地面上，按下安全开关并向后退至少10米。
+    - 启动飞机并飞到至少2-3米的高度
+- 切换至跟随模式。 
+    - 多旋翼将上升到所需的最小高度（默认为8米），然后暂停片刻以评估数传链路。 如果链接更新率正常，则多旋翼将偏航以面向用户。
 
-At this point you should be able to start moving and the copter should follow your movements.
+此时你应该能够开始移动并且多旋翼应该跟随你的动作。
 
-The default settings for follow me mode are follow from behind the user at a distance of 8 meters, at a height 8 meters above the home/arming position. You can change this behaviour using the parameters described in the following section.
+跟随模式的默认设置是在用户后面8米处，在家庭/布防位置上方8米处跟随。 您可以使用以下部分中描述的参数更改此行为。
 
 ## Configuration
 
-The follow-me behaviour can be configured using the following parameters:
+可以使用以下参数配置跟随的行为：
 
-- **NAV_FT_DST:** Vehicle/ground station separation in the horizontal plane. Minimum distance is 1 meter. Default distance is 8 meters (about 26 ft).
-- **NAV_FT_MIN_HT: **Vehicle follow-me height relative to the home/arming position. Default and minimum height is 8 meters (about 26 ft).
-- **NAV_FT_FS:** Flight position relative to the user when follow-me mode is active. 
-    - 0 = Follow from the front right.
-    - 1 = Follow from behind or trail the user (Default).
-    - 2 = Follow from the front.
-    - 3 = Follow from the front left.
+- **NAV_FT_DST:** 飞机/地面站在水平面上分离。 最小距离为1米。 默认距离为8米（约26英尺）。
+- **NAV_FT_MIN_HT: **相对于家庭/布防位置的跟随高度。默认和最小高度为8米（约26英尺）。
+- **NAV_FT_FS:** 跟随模式激活时相对于用户的飞行位置。 
+    - 0 =从右前方跟随。
+    - 1 =从后面跟随或跟踪用户（默认）。
+    - 2 =从前面跟随。
+    - 3 =从左前方跟随。
 
-## Known Issues
+## 已知的问题
 
-- The SiK 915 Mhz radio is known to interfere with the GPS signal being received by an Android device. Be sure to keep the radio and Android device as far apart as possible when using the follow target mode to avoid interference.
+- 众所周知，SiK 915 Mhz无线电会干扰Android设备接收的GPS信号。 Be sure to keep the radio and Android device as far apart as possible when using the follow target mode to avoid interference.
 
 ## Verified Android Devices
 
