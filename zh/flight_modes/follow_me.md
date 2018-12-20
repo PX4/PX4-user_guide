@@ -28,15 +28,15 @@ author: Jimmy Johnson
 - 给你的飞机留足够的空间，特别是当它快速移动时。 这是必需的，因为大多数Android设备不会非常频繁地更新其位置，并且自动驾驶仪对速度和方向的估计可能是不准确的。
 - 如果第一次使用跟随模式时，请做好手动遥控准备以应对问题发生。 定位的准确性取决于Android设备使用的GPS的质量。 如果GPS不准确，这将反映在跟随模式中。
 
-## Getting started
+## 开始
 
-You will need a USB OTG-capable Android device and two telemetry radios.
+您将需要支持USB OTG的Android设备和两个遥测无线电。
 
-- Connect a telemetry radio to your Android device and another to the vehicle (this allows positioning information to be relayed between the two radios).
-- Disable sleep-mode on your Android device 
-    - This setting can usually be found under: **Settings \> Display**.
-    - It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals.
-- Fly the vehicle to a height of at least 2-3 metres. 
+- 将一个数传无线电连接到Android设备，将另一个连接到飞机（这允许定位信息在两个无线电之间中继）。
+- 在Android设备上禁用睡眠模式 
+    - 此设置通常位于以下位置：**设置\>显示**。
+    - 将Android设备设置为不进入睡眠状态非常重要，因为这可能导致GPS信号定期停止发射。
+- 将飞机飞至至少2-3米的高度。 
     - Set the vehicle on the ground, press the safety switch and step back at least 10 meters.
     - Arm the vehicle and fly to a height of at least 2-3 meters
 - Switch into follow me mode. 
