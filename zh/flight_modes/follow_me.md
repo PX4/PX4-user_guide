@@ -1,29 +1,29 @@
 ---
 author: Jimmy Johnson
 ---
-# Follow-Me Mode
+# 跟随模式
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-*Follow Me* mode allows a multicopter to autonomously follow and track a user on an Android phone/tablet running *QGroundControl*.
+*跟随*模式允许多旋翼飞行器在运行*QGroundControl*的Android手机/平板电脑上自动跟踪和追踪用户。
 
-By using GPS and other positioning information a multicopter is able to automatically yaw to face and follow a user at a specified position and distance. While in this mode no user input is required.
+通过使用GPS和其他定位信息，多旋翼飞行器能够在指定的位置和距离处自动偏航以面向并跟随用户。在此模式下，无需用户输入。
 
-> **Note** * This mode requires GPS. * This mode is currently only supported on multicopter. * This mode only works when using an Android device as the control station.
+> **注** *该模式需要使用GPS。 *该模式目前只支持多旋翼。 *该模式仅可在使用安卓设备作为控制站时使用。
 
 {% youtube %} https://www.youtube.com/watch?v=RxDL4CtkzAQ {% endyoutube %}
 
 <!-- Updated to Follow me 1.4 -->
 
-## Safety precautions
+## 安全须知
 
-> **Warning** **Follow-me mode** does not implement any type of obstacle avoidance. Special care must be taken when this mode is used.
+> **警告****跟随模式**不会实施任何类型的避障。使用此模式时必须特别小心。
 
-The following flight precautions should be observed.
+应遵守以下飞行须知。
 
-- Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc. 
-    - Set the follow-me height to a value that is well above any surrounding obstructions
-    - The **default** follow-me height is set to 8 metres (about 26 feet) relative to the home and arming position.
+- 跟随模式应只用于不受树木、电线、房屋等阻挡的开阔区域。 
+    - 将跟随高度设置为远高于任何周围障碍物的值
+    - 对于家庭和布防位置，**默认**跟随高度设置为8米（约26英尺）。
 - It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though follow me mode does implement auto take off).
 - Give your vehicle a lot of room to stop, especially when it is moving fast. This is required because most Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate.
 - Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by the Android device. If the GPS is not accurate, this will be reflected in follow me.
