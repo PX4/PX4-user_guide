@@ -60,11 +60,11 @@ author: Jimmy Johnson
 
 ## 已知的问题
 
-- 众所周知，SiK 915 Mhz无线电会干扰Android设备接收的GPS信号。 Be sure to keep the radio and Android device as far apart as possible when using the follow target mode to avoid interference.
+- 众所周知，SiK 915 Mhz无线电会干扰Android设备接收的GPS信号。 使用跟随目标模式时，请务必尽可能远离收音机和Android设备，以避免干扰。
 
-## Verified Android Devices
+## 已验证的Android设备
 
-Follow-me has been tested with the following devices:
+跟随模式已通过以下设备测试：
 
 - Nexus 5
 - Nexus 7 Tablet
