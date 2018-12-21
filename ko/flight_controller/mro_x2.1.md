@@ -1,11 +1,11 @@
-# mRo-X2.1 자동 조종 장치 mRo-X2.1 자동 조종 장치는  Pixhawk <sup> & reg; </ 2> -project <strong> FMUv2 </ 3> 오픈 하드웨어 디자인을 기반으로합니다. 이 프로그램은 <a href="http://nuttx.org"> NuttX </a> OS에서 PX4를 실행합니다.</p> 
+# mRo-X2.1 자동 조종 장치 mRo-X2.1 자동 조종 장치는  Pixhawk <sup> & reg; </ 2> -project <strong> FMUv2 </ 3> 오픈 하드웨어 디자인을 기반으로합니다. It runs PX4 on the <a href="http://nuttx.org">NuttX</a> OS.</p> 
 
 <p>
   <img src="../../assets/flight_controller/mro/mro_x2.1.jpg" alt="mRo X2.1" />
 </p>
 
 <h2>
-  빠른 요약
+  Quick Summary
 </h2>
 
 <ul>
@@ -36,10 +36,10 @@
                       크기: 36mm x 50mm (수직, 수평 또는 머리글이없는 상태에서 주문 가능)
                     </li>
                     <li>
-                      장착 지점 : 직경 30.5mm x 30.5mm 3.2mm
+                      Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
                     </li>
                     <li>
-                      무게 : 10.9g
+                      Weight: 10.9g
                     </li>
                   </ul>
                 </li></ul> 
@@ -58,7 +58,7 @@
                 
                 <ul>
                   <li>
-                    2.54mm 헤더 :
+                    2.54mm headers:
                   </li>
                   <li>
                     I2C가 장착 된 GPS (USART4)
@@ -67,37 +67,37 @@
                     CAN Bus
                   </li>
                   <li>
-                    RC 입력
+                    RC input
                   </li>
                   <li>
-                    PPM 입력 
+                    PPM input
                   </li>
                   <li>
-                    Spektrum 입력
+                    Spektrum input
                   </li>
                   <li>
-                    RSSI 입력
+                    RSSI input
                   </li>
                   <li>
-                    sBus 입력
+                    sBus input
                   </li>
                   <li>
-                    sBus 출력
+                    sBus output
                   </li>
                   <li>
-                    전원 입력
+                    Power input
                   </li>
                   <li>
-                    부저 출력
+                    Buzzer output
                   </li>
                   <li>
-                    LED 출력
+                    LED output
                   </li>
                   <li>
-                    8 x Servo 출력
+                    8 x Servo outputs
                   </li>
                   <li>
-                    6 x Aux 출력
+                    6 x Aux outputs
                   </li>
                   <li>
                     오프 보드 microUSB 커넥터
@@ -118,7 +118,7 @@
                     </li>
                     
                     <li>
-                      USART7 (콘솔)
+                      USART7 (Console)
                     </li>
                     
                     <li>
@@ -162,7 +162,7 @@
                                 이 제품은 <a href="https://store.mrobotics.io/mRo-X2-1-Rev-2-p/mro-x2.1rv2-mr.htm"> mRobotics <sup> & reg; </ 1> 상점 </ 0>에서 주문할 수 있습니다.</p> 
                                 
                                 <h2>
-                                  배선 가이드
+                                  Wiring Guide
                                 </h2>
                                 
                                 <p>
@@ -187,7 +187,7 @@
 </code></pre>
                                 
                                 <h2>
-                                  회로도
+                                  Schematics
                                 </h2>
                                 
                                 <p>
