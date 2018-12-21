@@ -1,6 +1,6 @@
 # 特技模式（固定翼）
 
-[<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
 *Acro模式*是用于执行特技动作的遥控模式，例如滚转，翻转，失速和杂技动作。
 
@@ -10,14 +10,14 @@
 
 ## 技术描述
 
-用于执行杂技动作的遥控模式，例如滚动、翻转、摊位和杂技图形。
+RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
 
-RPY摇杆输入被转换为角速度命令，通过自动驾驶仪稳定。 油门直接传递到输出混频器。
+RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to the output mixer.
 
 ## 参数
 
-| Parameter                                                                                           | Description                                            |
-| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| <span id="FW_ACRO_X_MAX"></span>[FW_ACRO_X_MAX](../advanced_config/parameter_reference.md#FW_ACRO_X_MAX) | 机体轴x轴最大速率（用户在acro模式下施加滚转轴满杆操纵时，控制器试图达到的机体轴x轴速率） 默认：90度 |
-| <span id="FW_ACRO_Y_MAX"></span>[FW_ACRO_Y_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Y_MAX) | 机体轴y轴最大速率（用户在acro模式下施加俯仰轴满杆操纵时，控制器试图达到的机体轴y轴速率） 默认：90度 |
-| <span id="FW_ACRO_Z_MAX"></span>[FW_ACRO_Z_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Z_MAX) | 机体轴z轴最大速率（用户在acro模式下施加偏航轴满杆操纵时，控制器试图达到的机体轴z轴速率） 默认：45度 |
+| Parameter                                                                                           | Description                                                          |
+| --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| <span id="FW_ACRO_X_MAX"></span>[FW_ACRO_X_MAX](../advanced_config/parameter_reference.md#FW_ACRO_X_MAX) | 机体轴x轴最大速率（用户在acro模式下施加滚转轴满杆操纵时，控制器试图达到的机体轴x轴速率） 默认：90度               |
+| <span id="FW_ACRO_Y_MAX"></span>[FW_ACRO_Y_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Y_MAX) | 机体轴y轴最大速率（用户在acro模式下施加俯仰轴满杆操纵时，控制器试图达到的机体轴y轴速率） Default: 90 degrees. |
+| <span id="FW_ACRO_Z_MAX"></span>[FW_ACRO_Z_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Z_MAX) | 机体轴z轴最大速率（用户在acro模式下施加偏航轴满杆操纵时，控制器试图达到的机体轴z轴速率） 默认：45度               |
