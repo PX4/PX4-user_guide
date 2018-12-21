@@ -8,7 +8,7 @@ This document provides an overview of the multicopter position-control tuning pa
 
 > **Tip** Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) *before* doing any of the higher-level related control tuning described here. Do not use the advanced position control tuning parameters to fix bad tracking or vibration!
 
-## 개요
+## Overview
 
 The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../config_mc/pid_tuning_guide_multicopter.md) ("Lower level" tuning) aims to reduce the error between the desired setpoint and the estimate of the vehicle state. Poor P/PID Gains can lead to instability.
 
@@ -24,7 +24,7 @@ The position controller ([diagram here](https://dev.px4.io/en/flight_stack/contr
 
 For the remainder of this topic the term **position-control** represents the case where both loops are active while **velocity-control** refers to the case when only the velocity control loop is in use.
 
-## Position 모드 {#position_mode}
+## Position Mode {#position_mode}
 
 In [Position](../flight_modes/position_mc.md) mode the stick inputs are mapped either to **position-control** or **velocity-control**.
 
@@ -63,7 +63,7 @@ These two parameters only have effect during the transition from **velocity-cont
 
 The jerk-parameter controls the rate limit with which the acceleration limit can change to `MPC_ACC_HOR_MAX`. The actual jerk-value is a linear map from velocity speed to jerk where full speed maps to [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) and zero speed to [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN). The smoothing can be turned off by setting `MPC_JERK_MAX` to a value smaller than `MPC_JERK_MIN`.
 
-## 미션 모드 {#mission_mode}
+## Mission Mode {#mission_mode}
 
 In [Mission](../flight_modes/mission.md) mode the vehicle always follows a straight line from the previous waypoint to the current target.
 
