@@ -12,7 +12,7 @@
 
 > **Tip**有关更多可用端口的详细信息, 请参阅此处: Pixhawk 4 > 连接 </1 >。</p> </blockquote> 
 > 
-> ## 飞控的安装和方向
+> ## Mount and Orient Controller
 > 
 > 应使用减震泡沫垫 (包括在配件中) 将 * Pixhawk 4* 安装在机架上。 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
 > 
@@ -30,7 +30,7 @@
 > 
 > > **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 > 
-> ## 电源
+> ## Power
 > 
 > 使用6PIN线材将套件中附带的 *电源管理板* (pm板) 的输出连接到 *Pixhawk 4 * 的其中一个 **POWER** 端口。 电源管理板的 **2~12S** 输入将连接到您的锂电池。 下表解释了电源管理板的连接, 包括动力电源与 esc电调和伺服舵机的信号连接。 请注意, 电源管理板不通过 **FMU wwm-out</0 > 的 + 和-引脚为伺服舵机供电。</p> 
 > 
@@ -87,7 +87,7 @@
 > 
 > > **Note**使用套件中附带的电源模块, 您需要在 "2>电源设置 </2 >中配置" 电池片数 </em>参数，但您不需要校准 *voltage divider* 参数。 如果您使用的是任何其他电源模块 (例如, 来自 pixracer 的电源模块), 则必须更新校准 *voltage divider* 参数。
 > 
-> ## 无线电遥控
+> ## Radio Control
 > 
 > A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 > 
@@ -107,7 +107,7 @@
 >     
 >     更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息, 请参阅: 遥控器发射机&接收器 </0 >。</p> 
 >     
->     ## 数传电台（可选）
+>     ## Telemetry Radios (Optional)
 >     
 >     Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 >     
