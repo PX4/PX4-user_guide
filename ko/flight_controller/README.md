@@ -9,9 +9,9 @@
   * [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) - 온보드 컴퓨터가 통합 된 하이 엔드 자동 조종 장치.
   * [인텔 ® 항공기 비행](../flight_controller/intel_aero.md) - 하이 엔드 자동 조종 장치 및 온보드 컴퓨터가 통합 된 UAV 개발 플랫폼.
   * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
-  * [비글본 블루](../flight_controller/beaglebone_blue.md)
+  * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
 * Consumer drones that can run PX4: 
-  * [크레이지플리 2.0](../flight_controller/crazyflie2.md)
+  * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
   * [Parrot Bebop](../flight_controller/bebop.md)
 
 ## 문서화 된 보드
@@ -39,10 +39,10 @@
   * [MindPX](../flight_controller/mindpx.md)
   * [MindRacer](../flight_controller/mindracer.md)
 * [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
-* [스냅드래곤 비행](../flight_controller/snapdragon_flight.md)
+* [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
 * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md)
 * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
-* [크레이지플리 2.0](../flight_controller/crazyflie2.md)
+* [Crazyflie 2.0](../flight_controller/crazyflie2.md)
 * [Parrot Bebop](../flight_controller/bebop.md)
-* [비글본 블루](../flight_controller/beaglebone_blue.md)
+* [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
