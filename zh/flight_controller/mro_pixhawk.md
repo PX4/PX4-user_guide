@@ -54,7 +54,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 * [mRo Pixhawk 2.4.6 Essential Kit!](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - Everything except for telemetry radios
 * [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - Everything you need including telemetry radios
 
-## 编译固件
+## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
@@ -63,7 +63,7 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
     make px4fmu-v3_default
     
 
-## 引脚和原理图
+## Pinouts and Schematics
 
 The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
 
