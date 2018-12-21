@@ -5,7 +5,7 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 ![MindPX Controller
 ](../../assets/hardware/hardware-mindpx.png)
 
-## 빠른 요약
+## Quick Summary
 
 > ** 참고 </ 0> 주요 하드웨어 문서는 여기에 있습니다 </ 1>.</p> </blockquote> 
 > 
@@ -174,7 +174,7 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 >               </td>
 >               
 >               <td align="center">
->                 811 
+>                 11 
 >               </td>
 >               
 >               <td align="center">
@@ -330,7 +330,7 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 >                 MindRacer는 인터넷 <a href="http://drupal.xitronet.com/?q=catalog"> AirMind Store </ 0>에 있습니다. 아마존 <sup> & reg; </ 0> 또는 eBay <sup> & reg; </ 0>에서 MindRacer를 찾을 수 있습니다.</p> 
 >                 
 >                 <h2>
->                   지원
+>                   Support
 >                 </h2>
 >                 
 >                 <p>
