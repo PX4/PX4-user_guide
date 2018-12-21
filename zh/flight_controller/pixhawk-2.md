@@ -66,11 +66,11 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 - Servo rail high-power (max. 10V) and high-current (10A+) ready
 - All peripheral outputs over-current protected, all inputs ESD protected
 
-### 额定电压
+### Voltage Ratings
 
 Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
 
-#### 正常运行最大额定值
+#### Normal Operation Maximum Ratings
 
 Under these conditions all power sources will be used in this order to power the system
 
@@ -106,7 +106,7 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
-## 编译固件
+## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
