@@ -6,7 +6,7 @@
 
 > **Warning**如果您的飞机速度太快，防撞功能可能无法达到预期效果。 (在编写本文档的阶段) 此功能仅在速度不超过4m/s的飞机上测试过。
 
-## 概述
+## Overview
 
 要在PX4上开启/配置*防撞*功能，请设置参数：最小安全间距（[MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D)）。
 
