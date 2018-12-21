@@ -324,7 +324,7 @@ There are a number of ways to [configure flight modes](../config/flight_mode.md)
 
 For more information see:
 
-- [비행 모드 구성](../config/flight_mode.md)
+- [Flight Mode Configuration](../config/flight_mode.md)
 - [Flight Modes](../flight_modes/README.md)
 - [Flight Modes](https://donlakeflyer.gitbooks.io/qgroundcontrol-user-guide/content/SetupView/FlightModes.html) (QGroundControl)
 
