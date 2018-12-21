@@ -167,6 +167,6 @@ If you need to use a different vehicle you can include the model in its configur
           </axis>
         </joint>
 
-## 更多信息：
+## Further Information
 
 * [Rangefinder](https://pixhawk.org/peripherals/rangefinder) (Pixhawk.org) - Rangefinders supported by Pixhawk
