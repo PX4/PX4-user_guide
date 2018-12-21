@@ -4,31 +4,29 @@
 
 > ** 노트 ** 고정 윙 및 VTOL 차량에는 대개 속도 센서가 있습니다.
 
-## 보정 수행
+## Performing the Calibration
 
 속도 센서를 보정하려면:
 
-1. *QGroundControl *을 시작하고 차량을 연결합니다.
-2. 상단 툴바에서 ** 기어 </ 0> 아이콘 (차량 설정) 을 선택한 다음 사이드 바에서 ** 센서 </ 0>를 선택하십시오.</li> 
+1. Start *QGroundControl* and connect the vehicle.
+2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
+3. AirSpeed Calibration(공기 속도 보정) </strong> 센서 버튼을 클릭합니다.
     
-    * AirSpeed Calibration(공기 속도 보정) </strong> 센서 버튼을 클릭합니다.
-        
-        ![공기 속도 보정](../../images/qgc/setup/sensor_airspeed.jpg)
+    ![공기 속도 보정](../../images/qgc/setup/sensor_airspeed.jpg)
+
+4. 센서를 바람으로부터 보호한다(즉, 손으로 컵으로 감는다). 구멍이 막히지 않도록 주의하십시오.
+
+5. Click **OK** to start the calibration.
+6. 피토 튜브 끝을 불어 보정이 종료되었음을 나타냅니다.
     
-    * 센서를 바람으로부터 보호한다(즉, 손으로 컵으로 감는다). 구멍이 막히지 않도록 주의하십시오.
-    
-    * 보정을 시작하려면 ** 확인 </ 0>을 클릭하십시오.</li> 
-        
-        * 피토 튜브 끝을 불어 보정이 종료되었음을 나타냅니다.
-            
-            > ** Tip** Tip </0> Tube 안으로 불어 넣는 것도 동적 및 정적 포트가 올바르게 장착되었는지 확인하는 기본적인 점검입니다. 센서가 교환되면 튜브에 바람을 불어넣을 때 센서가 큰 음의 차압을 판독하고 오류가 발생하여 보정이 중단됩니다.
-        
-        * 덮개를 제거하기 전에 2-3초간 기다립니다(몇 초 후 보정이 자동으로 완료됨).</ol> 
-        
-        ## 시험
-        
-        보정 후 빠른 테스트는 손가락을 피토 끝에 대고 잡는 것입니다. 시스템이 판독된 후 해제될 때까지 양의 비행 속도를 유지해야 합니다.
-        
-        ## 추가 정보
-        
-        * [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#airspeed)
+    > ** Tip** Tip </0> Tube 안으로 불어 넣는 것도 동적 및 정적 포트가 올바르게 장착되었는지 확인하는 기본적인 점검입니다. 센서가 교환되면 튜브에 바람을 불어넣을 때 센서가 큰 음의 차압을 판독하고 오류가 발생하여 보정이 중단됩니다.
+
+7. 덮개를 제거하기 전에 2-3초간 기다립니다(몇 초 후 보정이 자동으로 완료됨).
+
+## 시험
+
+보정 후 빠른 테스트는 손가락을 피토 끝에 대고 잡는 것입니다. 시스템이 판독된 후 해제될 때까지 양의 비행 속도를 유지해야 합니다.
+
+## Further Information
+
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#airspeed)
