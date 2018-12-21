@@ -264,6 +264,6 @@ After you finish calibration the VTOL is ready to fly.
 
 {% youtube %} http://www.youtube.com/watch?v=h7OHTigtU0s {% endyoutube %}
 
-## 지원
+## Support
 
 If you have any questions regarding your VTOL conversion or configuration please visit <http://discuss.px4.io/c/vtol>.
