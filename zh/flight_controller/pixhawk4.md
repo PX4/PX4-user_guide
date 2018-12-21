@@ -8,11 +8,11 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
 
 ## 总览
 
-* Main FMU Processor: STM32F765 
-  * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-* IO Processor: STM32F100 
-  * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-* On-board sensors: 
+* 主 FMU 处理器：STM32F765 
+  * 32 位 Arm® Cortex®-M7，216MHz，2MB 储存，512KB RAM
+* IO 处理器：STM32F100 
+  * 32 位 Arm® Cortex®-M3，24MHz，8KB SRAM
+* 板载传感器： 
   * Accel/Gyro: ICM-20689
   * Accel/Gyro: BMI055
   * Magnetometer: IST8310
@@ -25,8 +25,8 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
   * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
   * Dedicated S.Bus servo output
   * 5 general purpose serial ports
-  * 3 I2C ports
-  * 4 SPI buses
+  * 3 路 I2C 接口
+  * 4 路 SPI 总线
   * Up to 2 CANBuses for dual CAN with serial ESC
   * Analog inputs for voltage / current of 2 batteries
 * 电源系统： 
@@ -35,9 +35,9 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
   * 舵机轨道输入：0~36V
 * 重量和尺寸： 
   * 重量：15.8g
-  * Dimensions: 44x84x12mm
-* Other Characteristics: 
-  * Operating temperature: -40 ~ 85°c
+  * 尺寸：44x84x12mm
+* 其它特性： 
+  * 工作温度：-40 ~ 85°C
 
 Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
@@ -51,7 +51,7 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
 > **Warning** The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
 
-## Pinouts
+## 针脚定义
 
 Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf).
 
@@ -80,7 +80,7 @@ Under these conditions the system will not draw any power (will not be operation
 2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
 3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
-## Assembly/Setup
+## 组装 / 设置
 
 The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
 
@@ -102,10 +102,10 @@ Both ports have standard serial pinout and can be connected to a standard FTDI c
 ## 外部设备
 
 * [数字空速传感器](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [Telemetry Radio Modules](../telemetry/README.md)
-* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+* [数传电台模块](../telemetry/README.md)
+* [测距仪/距离传感器](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 支持的平台 / 机身
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
