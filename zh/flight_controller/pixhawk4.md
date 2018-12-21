@@ -63,18 +63,18 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
 *Pixhawk 4* 可以实现电源三度冗余。 三个供电轨道为：**POWER1**，**POWER2** 和 **USB**。
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+> **Note** 输出电源轨 **FMU PWM OUT** 和 **IO PWM OUT**（0V至36V）不为飞控板供电（并且不由其供电）。 您必须在 **POWER1**、**POWER2** 或 **USB** 任一接口中接入电源，否则飞控板将会断电。
 
 **正常运行最大额定值**
 
-在这些条件下，所有电源将按此顺序用于为系统供电：
+在以下条件下，所有电源将按此顺序用于为系统供电：
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-2. **USB** input (4.75V to 5.25V)
+1. **POWER1** 和 **POWER2** 输入电压（4.9 v 至 5.5 v）
+2. **USB** 输入电压（4.75 v 至 5.25 v）
 
-**Absolute Maximum Ratings**
+**绝对最大额定值**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+在以下条件下，系统不会获得任何供电（不可运行），但不会损坏。
 
 1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
 2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
@@ -88,7 +88,7 @@ The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make px4_fmu-v5_default
     
