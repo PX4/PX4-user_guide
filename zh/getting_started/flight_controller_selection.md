@@ -25,7 +25,7 @@ The controller has internal vibration damping and only 8 main outputs (**no AUX 
 
 These flight controllers offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
 
-| 控制器                                                                     | Description                                                                                                           |
+| Controller                                                              | Description                                                                                                           |
 | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | A high-end autopilot computer that runs PX4 on the DSP (on QuRT RTOS). It includes a camera and WiFi.                 |
 | [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md)    | A UAS development platform that integrates a powerful Linux computer, PX4 on NuttX, and a camera in a single package. |
@@ -35,7 +35,7 @@ These flight controllers offer on-vehicle "companion computing", enabling comput
 
 PX4 has been ported to a number of popular commercial drone products, as listed below. This allows you to add mission planning and other PX Flight modes to your vehicle.
 
-| 控制器                                                 | Description                                |
+| Controller                                          | Description                                |
 | --------------------------------------------------- | ------------------------------------------ |
 | [Crazyflie 2.0](../flight_controller/crazyflie2.md) | A micro quad (27g) created by Bitcraze AB. |
 | [Parrot Bebop](../flight_controller/bebop.md)       | A popular lightweight flying camera.       |
