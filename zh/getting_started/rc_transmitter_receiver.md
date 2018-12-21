@@ -61,31 +61,31 @@ Other popular transmitter/receiver pairs
 
 ### PX4兼容的接收机 {#compatible_receivers}
 
-In addition to the transmitter/receiver pairs being compatible, the receiver must also be compatible with PX4 and the flight controller hardware.
+另外接收机和发射机需要兼容，接收机也必须和 PX4 和其他控制硬件兼容。
 
 *PX4* and *Pixhawk* have been validated with:
 
-* All Spektrum DSM RC receivers
-* All Futaba S.BUS and S.BUS2 RC receivers
-* All FrSky PPM and S.Bus models
-* Graupner HoTT
-* All PPM models from other manufacturers
+* 所有的 Spektrum 和 DSM 无线接收机。
+* 所有的 Futaba S.BUS 和 S.BUS2 接收机。
+* 所有的 FrSky PPM 和 S.Bus 模块。
+* Graupner HoTT。
+* 所有其他制造商的 PPM 模块。
 
 ## 连接接收机
 
 As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
 
-* Spektrum 和 DSM 接收机使用** SPKT/DSM ** 接口连接.
-* PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
-* PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+* Spektrum 和 DSM 接收机使用** SPKT/DSM ** 接口连接。
+* PPM 和 S.Bus接收机可以直接连接在** RC **的地、正、信号引脚（通常标记为 RC 或 RCIN）。
+* PPM 接收机通过一个 PPM 编码器将每一个通道通过一根线连接到 RCIN 通道上[如这个所示](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)（PPM-Sum 接收机所有通道可以只需要一根信号线）。
 
-特定遥控器的连接可以查阅下面提供的快速指南.
+特定遥控器的连接可以查阅下面提供的快速指南。
 
 * [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
 * [Pixracer](../assembly/quick_start_pixracer.md)
 * [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 
-> **提示**相关信息可以查阅遥控器制造商提供的说明书.
+> **提示**相关信息可以查阅遥控器制造商提供的说明书。
 
 ## 发射机/接收机对频 {#binding}
 
