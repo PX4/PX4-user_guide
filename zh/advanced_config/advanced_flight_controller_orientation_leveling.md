@@ -57,7 +57,7 @@
 
 **SENS_BOARD_Y_OFF**
 
-以PX4的FMU的x坐标轴或Z坐标轴（翻滚轴）以度为单位做旋转。 角度的正值增加CCW方向，角度的负值增加CW方向
+以PX4的FMU的x坐标轴或Z坐标轴（翻滚轴）以度为单位做旋转。 Positive angles increase in CCW direction, negative angles increase in CW direction.
 
 **SENS_BOARD_Z_OFF**
 
