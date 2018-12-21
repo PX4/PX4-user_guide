@@ -41,7 +41,7 @@ The single-channel selection mode allows you to specify a "mode" channel and sel
 
 To configure single-channel flight mode selection:
 
-1. *QGroundControl *을 시작하고 차량을 연결합니다.
+1. Start *QGroundControl* and connect the vehicle.
 2. Turn on your RC transmitter.
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
     
@@ -103,7 +103,7 @@ The multi-channel selection user interface allows you to map one or more modes t
 To configure flight modes using the multi-channel UI:
 
 1. Turn on your RC transmitter.
-2. *QGroundControl *을 시작하고 차량을 연결합니다.
+2. Start *QGroundControl* and connect the vehicle.
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
     
     ![Flight modes multi-channel](../../images/qgc/setup/flight_modes_multi_channel.jpg)
@@ -123,7 +123,7 @@ This mode is demonstrated in the [autopilot setup video here](https://youtu.be/9
 
 > **Note** This flight mode selection mechanism is relatively complicated due to the way that PX4 works out which mode should be selected. You may be able to gain some insight from this [flow chart](https://dev.px4.io/en/concept/flight_modes.html#flight-mode-evaluation-diagram) (PX4 Developer Guide).
 
-## 추가 정보
+## Further Information
 
 * [Flight Modes Overview](../flight_modes/README.md)
 * [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
