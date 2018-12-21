@@ -28,7 +28,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -50,7 +50,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -62,7 +62,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -84,7 +84,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -96,7 +96,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -118,7 +118,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -130,7 +130,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -152,11 +152,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 프론트 우측 탑, CW; 각도:60; 방향:CW</li><li>메인2: 전방 우측 하단, CCW; 각도:60; 방향:CCW</li><li>메인3: 백탑, CW; 각도:180; 방향:CW</li><li>메인4: 백 하단, CCW; 각도:180; 방향:CCW</li><li>메인5: 전방 좌측 상단, CW; 각도:-60; 방향:CW</li><li>메인6: 전방 좌측 하단, CCW, 각도:-60, 방향:CCW</li><li>AUX1: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li>메인1: 프론트 우측 탑, CW; 각도:60; 방향:CW</li><li>메인2: 전방 우측 하단, CCW; 각도:60; 방향:CCW</li><li>메인3: 백탑, CW; 각도:180; 방향:CW</li><li>메인4: 백 하단, CCW; 각도:180; 방향:CCW</li><li>메인5: 전방 좌측 상단, CW; 각도:-60; 방향:CW</li><li>메인6: 전방 좌측 하단, CCW, 각도:-60, 방향:CCW</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -164,7 +164,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -173,7 +173,7 @@
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
  <td style="vertical-align: top;">일반 육각형 모양</td>
- <td style="vertical-align: top;"><p>유지관리자: 로렌츠 마이어 <lorenz@px4.io></p><p>SYS_AUTOSTART = 11001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 11001</p></td>
 
 </tr>
 </tbody></table>
@@ -186,11 +186,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li>메인5: 모터 5</li><li>메인6: 모터 6</li><li>AUX1: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -198,7 +198,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -207,7 +207,7 @@
 <tbody>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
  <td style="vertical-align: top;">일반 16진법 x 지오메트리</td>
- <td style="vertical-align: top;"><p>유지관리자: 로렌츠 마이어 <lorenz@px4.io></p><p>SYS_AUTOSTART = 6001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 6001</p></td>
 
 </tr>
 </tbody></table>
@@ -220,11 +220,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li>메인5: 모터 5</li><li>메인6: 모터 6</li><li>메인7: 모터 7</li><li>메인8: 모터 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li>메인7: 모터 7</li><li>메인8: 모터 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -232,7 +232,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -254,11 +254,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li>메인5: 모터 5</li><li>메인6: 모터 6</li><li>메인7: 모터 7</li><li>메인8: 모터 8</li><li>AUX1: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -266,7 +266,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -275,7 +275,7 @@
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
  <td style="vertical-align: top;">일반 옥토콥터 + 지오메트리</td>
- <td style="vertical-align: top;"><p>유지관리자: 로렌츠 마이어 <lorenz@px4.io></p><p>SYS_AUTOSTART = 9001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 9001</p></td>
 
 </tr>
 </tbody></table>
@@ -288,11 +288,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li>메인5: 모터 5</li><li>메인6: 모터 6</li><li>메인7: 모터 7</li><li>메인8: 모터 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -300,7 +300,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -309,7 +309,7 @@
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10">
  <td style="vertical-align: top;">일반 10" 옥토 동축 지오메트리</td>
- <td style="vertical-align: top;"><p>유지관리자: 로렌츠 마이어 <lorenz@px4.io></p><p>SYS_AUTOSTART = 12001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 12001</p></td>
 
 </tr>
 </tbody></table>
@@ -322,11 +322,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li>메인5: 모터 5</li><li>메인6: 모터 6</li><li>메인7: 모터 7</li><li>메인8: 모터 8</li><li>AUX1: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -334,7 +334,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -343,7 +343,7 @@
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
  <td style="vertical-align: top;">일반 옥토콥터 X 지오메트리</td>
- <td style="vertical-align: top;"><p>유지관리자: 로렌츠 마이어 <lorenz@px4.io></p><p>SYS_AUTOSTART = 8001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 8001</p></td>
 
 </tr>
 </tbody></table>
@@ -356,11 +356,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li>메인5: RC AUX1 채널의 피드스루</li><li>메인6: RC AUX2 채널의 피드스루</li><li>AUX1: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li><li>AUX4: RC FLAPS 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li>메인5: RC AUX1 채널의 피드스루</li><li>메인6: RC AUX2 채널의 피드스루</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li>AUX4: RC FLAPS 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -368,7 +368,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -377,7 +377,7 @@
 <tbody>
 <tr id="copter_quadrotor_+_generic_10">
  <td style="vertical-align: top;">일반 10" 쿼드 + 지오메트리</td>
- <td style="vertical-align: top;"><p>유지관리자: 로렌츠 마이어 <lorenz@px4.io></p><p>SYS_AUTOSTART = 5001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 5001</p></td>
 
 </tr>
 </tbody></table>
@@ -390,11 +390,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li>메인5: RC AUX1 채널의 피드스루</li><li>메인6: RC AUX2 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -402,7 +402,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -424,11 +424,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>AUX1: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li><li>AUX4: RC FLAPS 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -436,7 +436,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -450,7 +450,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -462,22 +462,22 @@
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
-            메인5: RC AUX1 채널의 피드스루
+            <b>MAIN5</b>: feed-through of RC AUX1 channel
           </li>
           <li>
-            메인6: RC AUX2 채널의 피드스루
+            <b>MAIN6</b>: feed-through of RC AUX2 channel
           </li>
         </ul>
       </p>
@@ -491,7 +491,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -499,20 +499,20 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
         </ul>
       </p>
@@ -526,7 +526,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -534,26 +534,26 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
-            메인5: RC AUX1 채널의 피드스루
+            <b>MAIN5</b>: feed-through of RC AUX1 channel
           </li>
           <li>
-            메인6: RC AUX2 채널의 피드스루
+            <b>MAIN6</b>: feed-through of RC AUX2 channel
           </li>
         </ul>
       </p>
@@ -567,7 +567,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 사이먼 윌크스 <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -575,26 +575,26 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
-            메인5: RC AUX1 채널의 피드스루
+            <b>MAIN5</b>: feed-through of RC AUX1 channel
           </li>
           <li>
-            메인6: RC AUX2 채널의 피드스루
+            <b>MAIN6</b>: feed-through of RC AUX2 channel
           </li>
         </ul>
       </p>
@@ -610,11 +610,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터1(프론트 우측: CCW)</li><li>메인2: 모터2(좌측 뒤로: CCW)</li><li>메인3: 모터3(프론트 좌측: CW)</li><li>메인4: 모터4(오른쪽 후면: CW)</li><li>메인5: RC AUX1 채널의 피드스루</li><li>메인6: RC AUX2 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li>메인1: 모터1(프론트 우측: CCW)</li><li>메인2: 모터2(좌측 뒤로: CCW)</li><li>메인3: 모터3(프론트 좌측: CW)</li><li>메인4: 모터4(오른쪽 후면: CW)</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -622,7 +622,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -631,7 +631,7 @@
 <tbody>
 <tr id="copter_quadrotor_asymmetric_spedix_s250aq">
  <td style="vertical-align: top;"><a href="https://docs.px4.io/en/framebuild_multicopter/spedix_s250_pixracer.html">Spedix S250AQ</a></td>
- <td style="vertical-align: top;"><p>유지관리자: 로렌츠 마이어 <lorenz@px4.io></p><p>SYS_AUTOSTART = 4051</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 4051</p></td>
 
 </tr>
 </tbody></table>
@@ -645,7 +645,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -659,7 +659,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -667,38 +667,38 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
-            메인5: RC AUX1 채널의 피드스루
+            <b>MAIN5</b>: feed-through of RC AUX1 channel
           </li>
           <li>
-            메인6: RC AUX2 채널의 피드스루
+            <b>MAIN6</b>: feed-through of RC AUX2 channel
           </li>
           <li>
-            AUX1: RC AUX1 채널의 피드스루
+            <b>AUX1</b>: feed-through of RC AUX1 channel
           </li>
           <li>
-            AUX2: RC AUX2 채널의 피드스루
+            <b>AUX2</b>: feed-through of RC AUX2 channel
           </li>
           <li>
-            AUX3: RC AUX3 채널의 피드스루
+            <b>AUX3</b>: feed-through of RC AUX3 channel
           </li>
           <li>
-            AUX4: RC FLAPS 채널의 피드스루
+            <b>AUX4</b>: feed-through of RC FLAPS channel
           </li>
         </ul>
       </p>
@@ -720,26 +720,26 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
-            메인5: RC AUX1 채널의 피드스루
+            <b>MAIN5</b>: feed-through of RC AUX1 channel
           </li>
           <li>
-            메인6: RC AUX2 채널의 피드스루
+            <b>MAIN6</b>: feed-through of RC AUX2 channel
           </li>
           <li>
             <b>AUX1</b>: Mount pitch
@@ -781,7 +781,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        관리인: 레온 뮬러 <thedevleon>
+        Maintainer: Leon Mueller <thedevleon>
       </p>
       
       <p>
@@ -797,7 +797,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -813,7 +813,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -829,7 +829,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -877,7 +877,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -925,7 +925,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -941,7 +941,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -957,7 +957,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 제임스 고퍼트 <james.goppert@gmail.com>
+        Maintainer: James Goppert <james.goppert@gmail.com>
       </p>
       
       <p>
@@ -1029,20 +1029,20 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
         </ul>
       </p>
@@ -1075,7 +1075,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1084,7 +1084,7 @@
 <tbody>
 <tr id="copter_simulation_(copter)_hil_quadcopter_x">
  <td style="vertical-align: top;">힐 쿼드콥터 X</td>
- <td style="vertical-align: top;"><p>유지관리자: 로렌츠 마이어 <lorenz@px4.io></p><p>SYS_AUTOSTART</code> = 1001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART</code> = 1001</p></td>
 
 </tr>
 </tbody></table>
@@ -1097,11 +1097,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li>AUX1</b>: 로터 2 암용 외부 서보 모터</li><li>AUX2</b>: 로터 4 암용 외부 서보 모터</li><li>AUX3</b>: 로터 2 암용 내부 서보 모터</li><li>AUX4</b>: 로터 4 암용 내부 서보 모터</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li>AUX1</b>: 로터 2 암용 외부 서보 모터</li><li>AUX2</b>: 로터 4 암용 외부 서보 모터</li><li>AUX3</b>: 로터 2 암용 내부 서보 모터</li><li>AUX4</b>: 로터 4 암용 내부 서보 모터</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1109,7 +1109,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1131,11 +1131,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>MAIN4</b>: 요 서보</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li>MAIN4</b>: 요 서보</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1143,7 +1143,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1165,11 +1165,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>MAIN4</b>: 요 서보</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1177,7 +1177,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1186,7 +1186,7 @@
 <tbody>
 <tr id="copter_tricopter_y-_generic_tricopter_y-_geometry">
  <td style="vertical-align: top;">일반 트리클로터 Y- 지오메트리</td>
- <td style="vertical-align: top;"><p>관리인: 트렌트 루카치크<aerialhedgehog@gmail.com></p><p>SYS_AUTOSTART</code> = 14002</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Trent Lukaczyk <aerialhedgehog@gmail.com></p><p>SYS_AUTOSTART</code> = 14002</p></td>
 
 </tr>
 </tbody></table>
@@ -1201,11 +1201,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인원(Main1</b>: 좌측 에이일러론</li><li>메인2</b>: 우측 에일러론</li><li>메인4</b>: 스로틀</li><li>AUX1: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li>메인원(Main1</b>: 좌측 에이일러론</li><li>메인2</b>: 우측 에일러론</li><li>메인4</b>: 스로틀</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1213,7 +1213,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1239,7 +1239,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 사이먼 윌크스 <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1255,7 +1255,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 사이먼 윌크스 <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1287,7 +1287,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1303,7 +1303,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 사이먼 윌크스 <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1319,7 +1319,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 사이먼 윌크스 <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1335,7 +1335,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 사이먼 윌크스 <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1367,7 +1367,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1385,11 +1385,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1</b>: 에일러론 우측</li><li>메인2</b>: 에일러론 왼쪽</li><li>주3</b>: v-테일 우측</li><li>MAIN4</b>: v-테일 왼쪽</li><li>MAIN5</b>: 스로틀</li><li>메인6</b>: 휠</li><li>메인7</b>: 플랩 우측</li><li>메인8</b>: 플랩이 남음</li><li>AUX1: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li>메인1</b>: 에일러론 우측</li><li>메인2</b>: 에일러론 왼쪽</li><li>주3</b>: v-테일 우측</li><li>MAIN4</b>: v-테일 왼쪽</li><li>MAIN5</b>: 스로틀</li><li>메인6</b>: 휠</li><li>메인7</b>: 플랩 우측</li><li>메인8</b>: 플랩이 남음</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1397,7 +1397,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1406,7 +1406,7 @@
 <tbody>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
  <td style="vertical-align: top;">적용된 에어로노틱스 알바트로스</td>
- <td style="vertical-align: top;"><p>유지관리자: Andreas Antener<andreas@uaventure.com></p><p>SYS_AUTOSTART</code> = 2106</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Andreas Antener <andreas@uaventure.com></p><p>SYS_AUTOSTART</code> = 2106</p></td>
 
 </tr>
 </tbody></table>
@@ -1419,11 +1419,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1</b>: 에일러론 우측</li><li>메인2</b>: 에일러론 왼쪽</li><li>주3</b>: v-테일 우측</li><li>MAIN4</b>: v-테일 왼쪽</li><li>MAIN5</b>: 스로틀</li><li>메인6</b>: 휠</li><li>메인7</b>: 플랩 우측</li><li>메인8</b>: 플랩이 남음</li><li>AUX1: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1431,7 +1431,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1453,11 +1453,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: rudder</li><li>메인4</b>: 스로틀</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: rudder</li><li><b>MAIN4</b>: throttle</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1465,7 +1465,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1474,7 +1474,7 @@
 <tbody>
 <tr id="plane_simulation_(plane)_hilstar_(xplane)">
  <td style="vertical-align: top;">HILStar (XPlane)</td>
- <td style="vertical-align: top;"><p>유지관리자: 로렌츠 마이어 <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1000</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1000</p></td>
 
 </tr>
 </tbody></table>
@@ -1487,11 +1487,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>AUX1: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1499,7 +1499,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1513,7 +1513,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 로렌츠 마이어 <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1521,7 +1521,7 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
@@ -1554,7 +1554,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: Andreas Antener<andreas@uaventure.com>
+        Maintainer: Andreas Antener <andreas@uaventure.com>
       </p>
       
       <p>
@@ -1562,7 +1562,7 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
@@ -1578,10 +1578,10 @@
             <b>MAIN4</b>: rudder
           </li>
           <li>
-            MAIN5</b>: 스로틀
+            <b>MAIN5</b>: throttle
           </li>
           <li>
-            메인6</b>: 휠
+            <b>MAIN6</b>: wheel
           </li>
           <li>
             <b>MAIN7</b>: flaps
@@ -1603,7 +1603,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1621,14 +1621,14 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
             <b>MAIN2</b>: steering
           </li>
           <li>
-            메인4</b>: 스로틀
+            <b>MAIN4</b>: throttle
           </li>
         </ul>
       </p>
@@ -1650,7 +1650,7 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
@@ -1697,14 +1697,14 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
             <b>MAIN2</b>: steering
           </li>
           <li>
-            메인4</b>: 스로틀
+            <b>MAIN4</b>: throttle
           </li>
         </ul>
       </p>
@@ -1723,7 +1723,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1757,20 +1757,20 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>AUX1</b>: Aileron 1
@@ -1799,7 +1799,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 사이먼 윌크스 <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1807,20 +1807,20 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>AUX1</b>: Aileron 1
@@ -1849,7 +1849,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 사이먼 윌크스 <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1857,20 +1857,20 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>AUX1</b>: Right elevon
@@ -1925,7 +1925,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: Andreas Antener<andreas@uaventure.com>
+        Maintainer: Andreas Antener <andreas@uaventure.com>
       </p>
       
       <p>
@@ -1949,20 +1949,20 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            메인1: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            메인2: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            메인3: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            메인4: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>MAIN5</b>: Right elevon
@@ -1990,7 +1990,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -2002,7 +2002,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -2024,11 +2024,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터 1</li><li>메인2: 모터 2</li><li><b>MAIN3</b>: motor 4</li><li><b>MAIN4</b>: motor 5</li><li><b>MAIN5</b>: elevon left</li><li><b>MAIN6</b>: elevon right</li><li><b>MAIN7</b>: canard surface</li><li><b>MAIN8</b>: rudder</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 4</li><li><b>MAIN4</b>: motor 5</li><li><b>MAIN5</b>: elevon left</li><li><b>MAIN6</b>: elevon right</li><li><b>MAIN7</b>: canard surface</li><li><b>MAIN8</b>: rudder</li></ul></td>
 </tr>
   </table>
 </div>
@@ -2036,7 +2036,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -2084,7 +2084,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -2096,7 +2096,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -2118,7 +2118,7 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
@@ -2167,7 +2167,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: Andreas Antener<andreas@uaventure.com>
+        Maintainer: Andreas Antener <andreas@uaventure.com>
       </p>
       
       <p>
@@ -2175,7 +2175,7 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
