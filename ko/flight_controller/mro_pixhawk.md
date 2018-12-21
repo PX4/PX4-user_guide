@@ -1,6 +1,6 @@
 # mRo Pixhawk 비행 컨트롤러 (Pixhawk 1)
 
-* mRo Pixhawk <sup> & reg; </ 1> </ 0>은 원본 <a href="../flight_controller/pixhawk.md"> Pixhawk 1 </ 2>의 하드웨어 호환 버전입니다. 이 프로그램은 <a href="http://nuttx.org"> NuttX </a> OS에서 PX4를 실행합니다.</p> 
+* mRo Pixhawk <sup> & reg; </ 1> </ 0>은 원본 <a href="../flight_controller/pixhawk.md"> Pixhawk 1 </ 2>의 하드웨어 호환 버전입니다. It runs PX4 on the <a href="http://nuttx.org">NuttX</a> OS.</p> 
 
 <blockquote>
   <p>
