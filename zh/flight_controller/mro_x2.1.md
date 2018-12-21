@@ -67,7 +67,7 @@ This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://sto
 
 ![mRo_X2.1_Wiring](../../assets/flight_controller/mro/mro_x21_wiring.png)
 
-## 编译固件
+## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
