@@ -1,6 +1,6 @@
 # Position Mode (Fixed Wing)
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *Position mode* is an easy-to-fly RC mode in which, when the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces.
 
@@ -12,11 +12,11 @@ The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](
 
 ![FW Position Mode](../../images/flight_modes/position_FW.png)
 
-## 기술적 설명
+## Technical Description
 
 Centered RC RPY sticks – gives level flight that follows a straight line ground track in the current direction against any wind.
 
-## 매개 변수
+## Parameters
 
 | Parameter | Description |
 | --------- | ----------- |
