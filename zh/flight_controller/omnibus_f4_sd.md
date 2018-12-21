@@ -211,7 +211,7 @@ See the dfuse manual is here: https://www.st.com/resource/en/user_manual/cd00155
 
 Flash the `omnibusf4sd_bl.bin` file.
 
-## 编译固件
+## Building Firmware
 
 To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
