@@ -13140,6 +13140,32 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="MAV_ODOM_LP">MAV_ODOM_LP</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Activate ODOMETRY loopback
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If set, it gets the data from 'vehicle_visual_odometry' instead of 'vehicle_odometry' serving as a loopback of the received ODOMETRY messages on the Mavlink receiver.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MAV_PROTO_VER">MAV_PROTO_VER</strong> (INT32)
     </td>
     
