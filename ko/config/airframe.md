@@ -6,7 +6,7 @@
 
 기체 설정하기
 
-1. *QGroundControl *을 시작하고 차량을 연결합니다.
+1. Start *QGroundControl* and connect the vehicle.
 2. 상단 툴바에서 ** 기어 </ 0> 아이콘 (차량 설정) 을 선택한 다음 사이드 바에서 ** 기체 </ 0>를 선택하십시오. </li> 
     
     * 당신의 기체와 일치하는 넓은 차량 그룹/유형을 선택한 다음 그룹 내의 드롭 다운을 사용하여 자신의 차량과 가장 일치하는 기체를 선택하십시오.
@@ -19,7 +19,7 @@
             
             <img src="../../images/qgc/setup/airframe_px4_apply_prompt.jpg" width="300px" title="기체 선택 명령 적용" /></li> </ol> 
             
-            ## 추가 정보
+            ## Further Information
             
             * [QGroundControl 사용자 안내서 > Airframe](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
             *  PX4 설치 비디오 - @ 37s </ 0> (Youtube)</li> </ul>
