@@ -41,7 +41,7 @@
 * [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 * [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
 * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md)
-* [树莓派2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
+* [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
 * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
 * [Parrot Bebop](../flight_controller/bebop.md)
