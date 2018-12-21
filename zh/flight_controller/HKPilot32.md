@@ -50,7 +50,7 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 * [Hobbyking EU version (433 MHz)](http://www.hobbyking.com/hobbyking/store/__80554__HKPilot32_Autonomous_Vehicle_32Bit_Control_Set_with_Telemetry_and_GPS_433Mhz_.html)
 * [Hobbyking US version (915 MHz)](http://www.hobbyking.com/hobbyking/store/__80555__HKPilot32_Autonomous_Vehicle_32Bit_Control_Set_with_Telemetry_and_GPS_915Mhz_.html)
 
-## 编译固件
+## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
@@ -59,7 +59,7 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
     make px4_fmu-v2_default
     
 
-## 引脚和原理图
+## Pinouts and Schematics
 
 The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
 
