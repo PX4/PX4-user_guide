@@ -4,11 +4,11 @@
 
 > ** 팁 </ 0> 이는 차량을 각 방향으로 움직이지 않고 정지 상태로 유지하는 것을 제외하고는  나침반 보정 </ 1>과 비슷합니다.</p> </blockquote> 
 > 
-> ## 보정 수행
+> ## Performing the Calibration
 > 
 > 보정 단계는 다음과 같습니다:
 > 
-> 1. *QGroundControl *을 시작하고 차량을 연결합니다.
+> 1. Start *QGroundControl* and connect the vehicle.
 > 2. 상단 툴바에서 ** 기어 </ 0> 아이콘 (차량 설정) 을 선택한 다음 사이드 바에서 ** 센서 </ 0>를 선택하십시오.</li> 
 >     
 >     * ** 가속도계 </ 0> 센서 버튼을 클릭하십시오.</p> 
@@ -21,7 +21,7 @@
 >         >     
 >         >     * 화면에 * 이미지 </ 0>가 표시되도록 차량을 배치하십시오. 우선 메시지가 나타나면 (방향 이미지가 노란색으로 바뀝니다) 차량을 정지 상태로 유지하십시오. 현재 방향에 대해 보정이 완료되면 화면의 보정 관련 이미지가 녹색으로 바뀝니다.</p> 
 >         >         
->         >         ![가속도계 보정](../../images/qgc/setup/sensor_accelerometer_positions_px4.jpg)</li> 
+>         >         ![Accelerometer calibration](../../images/qgc/setup/sensor_accelerometer_positions_px4.jpg)</li> 
 >         >         
 >         >         * 차량의 모든 방향에 대해 보정 과정을 반복합니다.</ol> 
 >         >         
