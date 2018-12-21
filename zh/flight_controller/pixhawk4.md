@@ -1,10 +1,10 @@
 # Pixhawk 4
 
-*Pixhawk 4*<sup>&reg;</sup> 是一款高端自驾仪，由 Holybro<sup>&reg;</sup> 与 PX4 团队联合设计打造。 It is optimized to run PX4 version 1.7, suitable for academic and commercial developers.
+*Pixhawk 4*<sup>&reg;</sup> 是一款高端自驾仪，由 Holybro<sup>&reg;</sup> 与 PX4 团队联合设计打造。 它对 PX4 1.8 版作了优化，适用于学术和商业开发者。
 
-It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+它基于 [Pixhawk 项目](https://pixhawk.org/) 的 **FMUv5** 开放硬件设计，在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
 
-<img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk 4 图像" />
+<img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 正侧面图" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk 4 图像" />
 
 ## 总览
 
@@ -13,19 +13,19 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
 * IO 处理器：STM32F100 
   * 32 位 Arm® Cortex®-M3，24MHz，8KB SRAM
 * 板载传感器： 
-  * Accel/Gyro: ICM-20689
-  * Accel/Gyro: BMI055
-  * Magnetometer: IST8310
-  * Barometer: MS5611
-* GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+  * 加速度计 / 陀螺仪：ICM-20689
+  * 加速度计 / 陀螺仪：BMI055
+  * 磁力计：IST8310
+  * 气压计：MS5611
+* GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
 * 接口： 
-  * 8-16 PWM outputs (8 from IO, 8 from FMU)
-  * 3 dedicated PWM/Capture inputs on FMU
-  * Dedicated R/C input for CPPM
+  * 8-16 路PWM输出（8路来自 IO，8路来自 FMU）
+  * FMU 上有 3 路专用 PWM/Capture 输入
+  * 用于 CPPM 的专用遥控输入
   * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
   * Dedicated S.Bus servo output
-  * 5 general purpose serial ports
-  * 3 路 I2C 接口
+  * 5 个通用串行接口
+  * 3 个 I2C 接口
   * 4 路 SPI 总线
   * Up to 2 CANBuses for dual CAN with serial ESC
   * Analog inputs for voltage / current of 2 batteries
@@ -49,7 +49,7 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
 ![Pixhawk 4 连接器](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
-> **Warning** **DSM/SBUS RC** 与 **PPM RC** 接口仅可用于遥控接收机。 这两个接口已经供电！ NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+> **Warning** **DSM/SBUS RC** 与 **PPM RC** 接口仅可用于遥控接收机。 这两个接口已经供电！ 不要把舵机、电源、电池（或是连接了这些设备的接收机）连接到上面。
 
 ## 针脚定义
 
