@@ -35,7 +35,7 @@ These flight controllers offer on-vehicle "companion computing", enabling comput
 
 PX4 has been ported to a number of popular commercial drone products, as listed below. This allows you to add mission planning and other PX Flight modes to your vehicle.
 
-| Controller                                       | Description                                |
-| ------------------------------------------------ | ------------------------------------------ |
-| [크레이지플리 2.0](../flight_controller/crazyflie2.md) | A micro quad (27g) created by Bitcraze AB. |
-| [Parrot Bebop](../flight_controller/bebop.md)    | A popular lightweight flying camera.       |
+| Controller                                          | Description                                |
+| --------------------------------------------------- | ------------------------------------------ |
+| [Crazyflie 2.0](../flight_controller/crazyflie2.md) | A micro quad (27g) created by Bitcraze AB. |
+| [Parrot Bebop](../flight_controller/bebop.md)       | A popular lightweight flying camera.       |
