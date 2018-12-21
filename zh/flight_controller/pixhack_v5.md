@@ -38,7 +38,7 @@
 * 重量和尺寸: 
   * 重量：99g
   * 尺寸：44*84*12mm
-* 其它特性: 
+* Other Characteristics: 
   * 工作温度：-20 ~ 80°C （实测值）
 
 ## 采购
@@ -98,7 +98,7 @@ The system's serial console and SWD interface operate on the **FMU Debug** port.
 
 ## 支持的平台/机身
 
-任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 更多信息
 
