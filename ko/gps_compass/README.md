@@ -42,7 +42,7 @@ Information about supported devices and setup/configuration can be found in the 
 
 GPS configuration is handled transparently for the user (provided the module GPS connector is connected correctly).
 
-### 나침반
+### Compass
 
 Compass calibration is covered in: [Compass Configuration](../config/compass.md). The process is straightforward and will calibrate all connected magnetometers.
 
