@@ -38,7 +38,7 @@
         
         > **팁** *QGroundControl* FMUv2 대상 설치 (설치 하는 동안 콘솔 참조) 하 고 새로운 보드, 비행 컨트롤러에서 모든 메모리를 액세스 하려면 부트 로더를 업데이트 해야 할 수 있습니다. 자세한 내용은 [부트 로더 업데이트](../advanced_config/bootloader_update.md)를 참조 하십시오.
         
-        ## 추가 정보
+        ## Further Information
         
         * [QGroundControl 사용 설명서 > 펌웨어](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
         * [PX4 설정 비디오 ](https://youtu.be/91VGmdSlbo4) (유튜브)
