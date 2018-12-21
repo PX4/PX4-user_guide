@@ -69,7 +69,7 @@ Spektrum遥控器和接收机的对频
 2. 摇杆居中，油门杆最低。 
 3. 点击 **Ok** 。
     
-    ![Copy Trims](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
+    ![复制微调](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
 
 4. 设置遥控器器微调为0。
 
@@ -117,7 +117,7 @@ Spektrum遥控器和接收机的对频
 
 > **提示**你可以在右上角的*参数*的在右上角中选择菜单**工具>清除遥控器参数**，清楚所有的参数/调试通道。
 
-## Further Information
+## 更多信息
 
 * [QGroundControl > 远程控制](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
 * [PX4 设置视频 - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
