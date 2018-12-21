@@ -6,7 +6,7 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
 
-## 빠른 요약
+## Quick Summary
 
 * Main FMU Processor: STM32F765 
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
@@ -18,7 +18,7 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
   * Magnetometer: IST8310
   * Barometer: MS5611
 * GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
-* 인터페이스: 
+* Interfaces: 
   * 8-16 PWM outputs (8 from IO, 8 from FMU)
   * 3 dedicated PWM/Capture inputs on FMU
   * Dedicated R/C input for CPPM
@@ -29,11 +29,11 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
   * 4 SPI buses
   * Up to 2 CANBuses for dual CAN with serial ESC
   * Analog inputs for voltage / current of 2 batteries
-* 전원 시스템 : 
+* Power System: 
   * Power module output: 4.9~5.5V
   * USB Power Input: 4.75~5.25V
   * Servo Rail Input: 0~36V
-* 무게와 크기 : 
+* Weight and Dimensions: 
   * Weight: 15.8g
   * Dimensions: 44x84x12mm
 * Other Characteristics: 
@@ -99,7 +99,7 @@ The system's serial console and SWD interface runs on the **FMU Debug** port, wh
 
 Both ports have standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. Please refer to the [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
 
-## 주변 장치
+## Peripherals
 
 * [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
 * [Telemetry Radio Modules](../telemetry/README.md)
@@ -107,7 +107,7 @@ Both ports have standard serial pinout and can be connected to a standard FTDI c
 
 ## Supported Platforms / Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. 지원되는 구성의 전체 세트는 [항공프레임 참조 문헌](../airframes/airframe_reference.md)에서 확인할 수 있습니다.
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## Further info
 
