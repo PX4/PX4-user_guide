@@ -75,23 +75,23 @@ In addition to the transmitter/receiver pairs being compatible, the receiver mus
 
 As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
 
-* Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
+* Spektrum 和 DSM 接收机使用** SPKT/DSM ** 接口连接.
 * PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
 * PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-Instructions for connecting to specific flight controllers are given in the following quick-start guides:
+特定遥控器的连接可以查阅下面提供的快速指南.
 
 * [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
 * [Pixracer](../assembly/quick_start_pixracer.md)
 * [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 
-> **Tip** See the manufacturer's flight controller setup guide for additional information.
+> **提示**相关信息可以查阅遥控器制造商提供的说明书.
 
 ## 发射机/接收机对频 {#binding}
 
-Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other. The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions).
+在你校准和/使用无线系统之前，你需要先将接收机和发射机*对频*，好让他们之间进行通信。 各种遥控器的对频方法各不相同（参照遥控器说明书）。
 
-If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
+如果你使用* Spektrum *的接收机，你可以使用 *QGroundControl* 的[遥控器设置 > 对频 ](../config/radio.md#spektrum_bind)进行对频.
 
 ## 相关章节
 
