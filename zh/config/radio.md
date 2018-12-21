@@ -45,7 +45,7 @@
 
 ### Spectrum 对频
 
-在你校准遥控器之前，遥控器的发射机和接收机需要绑定（对频）。 如果你使用的是 *Spektrum* 的接收机，你可以按照下面的提示，使用 *QGroundControl* 将它设置到 *绑定（对频）模式* （如果你没有简便的物理方式用接收机连接飞控，这个会挺好用）。
+Before you can calibrate the radio system the receiver and transmitter must be connected/bound. 如果你使用的是 *Spektrum* 的接收机，你可以按照下面的提示，使用 *QGroundControl* 将它设置到 *绑定（对频）模式* （如果你没有简便的物理方式用接收机连接飞控，这个会挺好用）。
 
 Spektrum遥控器和接收机的对频
 
@@ -69,7 +69,7 @@ Spektrum遥控器和接收机的对频
 2. 摇杆居中，油门杆最低。 
 3. 点击 **Ok** 。
     
-    ![复制微调](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
+    ![Copy Trims](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
 
 4. 设置遥控器器微调为0。
 
@@ -97,7 +97,7 @@ Spektrum遥控器和接收机的对频
 设置调试通道
 
 1. 映射3个遥控器通道（旋钮或滑块开关）来分离通道。
-2. 使用选择列表，选择*参数调试*映射到遥控器通道。 设置后，保存到自驾仪。
+2. 使用选择列表，选择*参数调试*映射到遥控器通道。 Values are saved to the vehicle as soon as they are set.
     
     ![映射遥控器通道到调试通道](../../images/qgc/setup/radio_additional_radio_setup_param_tuning.jpg)
 
@@ -117,7 +117,7 @@ Spektrum遥控器和接收机的对频
 
 > **提示**你可以在右上角的*参数*的在右上角中选择菜单**工具>清除遥控器参数**，清楚所有的参数/调试通道。
 
-## 更多信息：
+## Further Information
 
 * [QGroundControl > 远程控制](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
 * [PX4 设置视频 - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
