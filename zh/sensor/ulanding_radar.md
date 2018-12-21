@@ -18,6 +18,6 @@ uLanding can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELE
 
 > **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```drivers/distance_sensor/ulanding```
 
-## 更多信息：
+## Further Information
 
 * [PX4 Development Guide](https://dev.px4.io/en/)
