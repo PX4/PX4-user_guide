@@ -24,7 +24,7 @@ The basic battery settings configure PX4 to use the default method for capacity 
 
 To configure the basic settings:
 
-1. *QGroundControl *을 시작하고 차량을 연결합니다.
+1. Start *QGroundControl* and connect the vehicle.
 2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Power** in the sidebar.
 
 You are presented with the basic settings that characterize your battery. The sections below explain what values to set for each field.
