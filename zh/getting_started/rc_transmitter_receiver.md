@@ -68,7 +68,7 @@ PX4 和 Pixhawk兼容的接收机如下所示：
 * 所有的 Spektrum 和 DSM 无线接收机。
 * 所有的 Futaba S.BUS 和 S.BUS2 接收机。
 * 所有的 FrSky PPM 和 S.Bus 模块。
-* Graupner HoTT。
+* Graupner HoTT。（一种新的2.4 g 无线通信技术，可以语音遥测和搭配大量传感器，可以进行4 km或100 mW 范围内的控制 ）
 * 所有其他制造商的 PPM 模块。
 
 ## 连接接收机
