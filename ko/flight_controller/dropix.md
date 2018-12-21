@@ -32,11 +32,11 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 
 [Dropix Pack](https://drotek.com/shop/en/flight-controllers/494-dropix-flight-controller.html) (drotek.com)
 
-## 주요 링크
+## Key Links
 
 * [DroPix Setup](https://drotek.com/en/documentation/docs-dropix/)
 
-## 배선 가이드
+## Wiring Guides
 
 The following diagrams show the Dropix connector information (for more information see the [drotek documentation](https://drotek.com/en/documentation/docs-dropix/)).
 
