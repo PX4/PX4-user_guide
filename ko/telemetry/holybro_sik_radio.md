@@ -2,7 +2,7 @@
 
 Holybro는 PX4와 함께 사용할 수있는  SiK </ 0> 호환 원격 측정기가 있습니다. 915MHz (미국) 및 433MHz (유럽) 버전을 사용할 수 있습니다.</p> 
 
-![SiK 라디오](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
+![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
 
 ## 구매:
 
