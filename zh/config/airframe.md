@@ -18,7 +18,7 @@
     
     <img src="../../images/qgc/setup/airframe_px4_apply_prompt.jpg" width="300px" title="应用机架选择提示" />
 
-## 更多信息：
+## Further Information
 
 * [QGroundControl 用户手册 > 机架](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
 * [PX4 设置视频 - @37s](https://youtu.be/91VGmdSlbo4?t=35s) (Youtube)
