@@ -17,7 +17,7 @@ For example, the vehicles shown below have rotations around the z-axis (only) co
 To set the orientations:
 
 1. Start *QGroundControl* and connect the vehicle.
-2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
+2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
 3. Select the **Set Orientations** button. <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
 4. Select the **AutoPilot Orientation** (as [calculated above](#calculating-orientation)).
     
@@ -31,7 +31,7 @@ To set the orientations:
 
 You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
 
-## 更多信息：
+## Further Information
 
 * [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
-* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#flight_controller_orientation)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#flight_controller_orientation)
