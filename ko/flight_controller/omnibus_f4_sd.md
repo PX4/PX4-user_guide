@@ -117,7 +117,7 @@ RC is connected to one of the following ports:
   
   ![Omnibus F4 SD UART4 Top](../../assets/flight_controller/omnibus_f4_sd/uart4-top.jpg)
 
-### I2C 
+### I2C
 
 There is one I2C port available via:
 
@@ -158,7 +158,7 @@ On the handheld controller (e.g. Taranis) you will also need a [Transmitter Modu
 
 > **Note** The referenced links above contains the documentation for the TX/RX modules.
 
-#### 설치
+#### Setup
 
 Connect the Nano RX and Omnibus pins as shown:
 
@@ -171,7 +171,7 @@ Nothing else needs to be configured on PX4 flight controller side - the RC proto
 
 Next update the TX/RX modules to use the CRSF protocol and set up telemetry. Instructions for this are provided in the [TBS Crossfire Manual](https://www.team-blacksheep.com/tbs-crossfire-manual.pdf) (search for 'Setting up radio for CRSF').
 
-## 회로도
+## Schematics
 
 The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
