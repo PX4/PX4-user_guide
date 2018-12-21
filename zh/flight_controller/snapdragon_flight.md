@@ -123,56 +123,56 @@ This will cause a problem for any other type of I/O on the same connector, since
 
 #### J9 / GPS
 
-| 针脚 | 2-wire UART + I2C | 4-wire UART | SPI       | Comment       |
-| -- | ----------------- | ----------- | --------- | ------------- |
-| 1  | 3.3V              | 3.3V        | 3.3V      |               |
-| 2  | UART2_TX          | UART2_TX    | SPI2_MOSI | Output (3.3V) |
-| 3  | UART2_RX          | UART2_RX    | SPI2_MISO | Input (3.3V)  |
-| 4  | I2C2_SDA          | UART2_RTS   | SPI2_CS   | (3.3V)        |
-| 5  | GND               | GND         | GND       |               |
-| 6  | I2C2_SCL          | UART2_CTS   | SPI2_CLK  | (3.3V)        |
+| Pin | 2-wire UART + I2C | 4-wire UART | SPI       | Comment       |
+| --- | ----------------- | ----------- | --------- | ------------- |
+| 1   | 3.3V              | 3.3V        | 3.3V      |               |
+| 2   | UART2_TX          | UART2_TX    | SPI2_MOSI | Output (3.3V) |
+| 3   | UART2_RX          | UART2_RX    | SPI2_MISO | Input (3.3V)  |
+| 4   | I2C2_SDA          | UART2_RTS   | SPI2_CS   | (3.3V)        |
+| 5   | GND               | GND         | GND       |               |
+| 6   | I2C2_SCL          | UART2_CTS   | SPI2_CLK  | (3.3V)        |
 
 #### J12 / Gimbal bus
 
-| 针脚 | 2-wire UART + GPIO | 4-wire UART | SPI       | Comment       |
-| -- | ------------------ | ----------- | --------- | ------------- |
-| 1  | 3.3V               | 3.3V        | 3.3V      |               |
-| 2  | UART8_TX           | UART8_TX    | SPI8_MOSI | Output (3.3V) |
-| 3  | UART8_RX           | UART8_RX    | SPI8_MISO | Input (3.3V)  |
-| 4  | APQ_GPIO_47      | UART8_RTS   | SPI8_CS   | (3.3V)        |
-| 5  | GND                | GND         | GND       |               |
-| 6  | APQ_GPIO_48      | UART8_CTS   | SPI8_CLK  | (3.3V)        |
+| Pin | 2-wire UART + GPIO | 4-wire UART | SPI       | Comment       |
+| --- | ------------------ | ----------- | --------- | ------------- |
+| 1   | 3.3V               | 3.3V        | 3.3V      |               |
+| 2   | UART8_TX           | UART8_TX    | SPI8_MOSI | Output (3.3V) |
+| 3   | UART8_RX           | UART8_RX    | SPI8_MISO | Input (3.3V)  |
+| 4   | APQ_GPIO_47      | UART8_RTS   | SPI8_CS   | (3.3V)        |
+| 5   | GND                | GND         | GND       |               |
+| 6   | APQ_GPIO_48      | UART8_CTS   | SPI8_CLK  | (3.3V)        |
 
 #### J13 / ESC bus
 
-| 针脚 | 2-wire UART + GPIO | 4-wire UART | SPI       | Comment     |
-| -- | ------------------ | ----------- | --------- | ----------- |
-| 1  | 5V                 | 5V          | 5V        |             |
-| 2  | UART6_TX           | UART6_TX    | SPI6_MOSI | Output (5V) |
-| 3  | UART6_RX           | UART6_RX    | SPI6_MISO | Input (5V)  |
-| 4  | APQ_GPIO_29      | UART6_RTS   | SPI6_CS   | (5V)        |
-| 5  | GND                | GND         | GND       |             |
-| 6  | APQ_GPIO_30      | UART6_CTS   | SPI6_CLK  | (5V)        |
+| Pin | 2-wire UART + GPIO | 4-wire UART | SPI       | Comment     |
+| --- | ------------------ | ----------- | --------- | ----------- |
+| 1   | 5V                 | 5V          | 5V        |             |
+| 2   | UART6_TX           | UART6_TX    | SPI6_MOSI | Output (5V) |
+| 3   | UART6_RX           | UART6_RX    | SPI6_MISO | Input (5V)  |
+| 4   | APQ_GPIO_29      | UART6_RTS   | SPI6_CS   | (5V)        |
+| 5   | GND                | GND         | GND       |             |
+| 6   | APQ_GPIO_30      | UART6_CTS   | SPI6_CLK  | (5V)        |
 
 #### J14 / Power
 
-| 针脚 | 信号       | Comment     |
-| -- | -------- | ----------- |
-| 1  | 5V DC    | Power input |
-| 2  | GND      |             |
-| 3  | I2C3_SCL | (5V)        |
-| 4  | I2C3_SDA | (5V)        |
+| Pin | Signal   | Comment     |
+| --- | -------- | ----------- |
+| 1   | 5V DC    | Power input |
+| 2   | GND      |             |
+| 3   | I2C3_SCL | (5V)        |
+| 4   | I2C3_SDA | (5V)        |
 
 #### J15 / Radio Receiver / Sensors
 
-| 针脚 | 2-wire UART + I2C | 4-wire UART | SPI       | Comment |
-| -- | ----------------- | ----------- | --------- | ------- |
-| 1  | 3.3V              | 3.3V        | 3.3V      |         |
-| 2  | UART9_TX          | UART9_TX    | SPI9_MOSI | Output  |
-| 3  | UART9_RX          | UART9_RX    | SPI9_MISO | Input   |
-| 4  | I2C9_SDA          | UART9_RTS   | SPI9_CS   |         |
-| 5  | GND               | GND         | GND       |         |
-| 6  | I2C9_SCL          | UART9_CTS   | SPI9_CLK  |         |
+| Pin | 2-wire UART + I2C | 4-wire UART | SPI       | Comment |
+| --- | ----------------- | ----------- | --------- | ------- |
+| 1   | 3.3V              | 3.3V        | 3.3V      |         |
+| 2   | UART9_TX          | UART9_TX    | SPI9_MOSI | Output  |
+| 3   | UART9_RX          | UART9_RX    | SPI9_MISO | Input   |
+| 4   | I2C9_SDA          | UART9_RTS   | SPI9_CS   |         |
+| 5   | GND               | GND         | GND       |         |
+| 6   | I2C9_SCL          | UART9_CTS   | SPI9_CLK  |         |
 
 ## Dimensions
 
