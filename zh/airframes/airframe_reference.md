@@ -28,7 +28,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -50,7 +50,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -62,7 +62,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -84,7 +84,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -96,7 +96,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -118,7 +118,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -130,7 +130,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -152,11 +152,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: front right top, CW; angle:60; direction:CW</li><li><b>MAIN2</b>: front right bottom, CCW; angle:60; direction:CCW</li><li><b>MAIN3</b>: back top, CW; angle:180; direction:CW</li><li><b>MAIN4</b>: back bottom, CCW; angle:180; direction:CCW</li><li><b>MAIN5</b>: front left top, CW; angle:-60; direction:CW</li><li><b>MAIN6</b>: front left bottom, CCW;angle:-60; direction:CCW</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: front right top, CW; angle:60; direction:CW</li><li><b>MAIN2</b>: front right bottom, CCW; angle:60; direction:CCW</li><li><b>MAIN3</b>: back top, CW; angle:180; direction:CW</li><li><b>MAIN4</b>: back bottom, CCW; angle:180; direction:CCW</li><li><b>MAIN5</b>: front left top, CW; angle:-60; direction:CW</li><li><b>MAIN6</b>: front left bottom, CCW;angle:-60; direction:CCW</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -164,7 +164,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -173,7 +173,7 @@
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
  <td style="vertical-align: top;">Generic Hexarotor coaxial geometry</td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
 
 </tr>
 </tbody></table>
@@ -186,11 +186,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -198,7 +198,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -207,7 +207,7 @@
 <tbody>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
  <td style="vertical-align: top;">Generic Hexarotor x geometry</td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p></td>
 
 </tr>
 </tbody></table>
@@ -220,11 +220,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -232,7 +232,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -254,11 +254,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -266,7 +266,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -275,7 +275,7 @@
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
  <td style="vertical-align: top;">Generic Octocopter + geometry</td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
 
 </tr>
 </tbody></table>
@@ -288,11 +288,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -300,7 +300,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -309,7 +309,7 @@
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10">
  <td style="vertical-align: top;">Generic 10" Octo coaxial geometry</td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
 
 </tr>
 </tbody></table>
@@ -322,11 +322,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -334,7 +334,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -343,7 +343,7 @@
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
  <td style="vertical-align: top;">Generic Octocopter X geometry</td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
 
 </tr>
 </tbody></table>
@@ -356,11 +356,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -368,7 +368,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -377,7 +377,7 @@
 <tbody>
 <tr id="copter_quadrotor_+_generic_10">
  <td style="vertical-align: top;">Generic 10" Quad + geometry</td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
 
 </tr>
 </tbody></table>
@@ -390,11 +390,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -402,7 +402,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -424,11 +424,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -436,7 +436,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -450,7 +450,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -462,16 +462,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -491,7 +491,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -503,16 +503,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
         </ul>
       </p>
@@ -526,7 +526,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -538,16 +538,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -567,7 +567,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者：Simon Wilks <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -579,16 +579,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -610,7 +610,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -622,7 +622,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -631,7 +631,7 @@
 <tbody>
 <tr id="copter_quadrotor_asymmetric_spedix_s250aq">
  <td style="vertical-align: top;"><a href="https://docs.px4.io/en/framebuild_multicopter/spedix_s250_pixracer.html">Spedix S250AQ</a></td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4051</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4051</p></td>
 
 </tr>
 </tbody></table>
@@ -645,7 +645,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -659,7 +659,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -671,16 +671,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -689,13 +689,13 @@
             <b>MAIN6</b>: feed-through of RC AUX2 channel
           </li>
           <li>
-            <b>AUX1</b>: RC遥控器的AUX1反馈通道
+            <b>AUX1</b>: feed-through of RC AUX1 channel
           </li>
           <li>
-            <b>AUX2</b>: RC遥控器的AUX2反馈通道
+            <b>AUX2</b>: feed-through of RC AUX2 channel
           </li>
           <li>
-            <b>AUX3</b>: RC遥控器的AUX3反馈通道
+            <b>AUX3</b>: feed-through of RC AUX3 channel
           </li>
           <li>
             <b>AUX4</b>: feed-through of RC FLAPS channel
@@ -724,16 +724,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -797,7 +797,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -813,7 +813,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -829,7 +829,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -877,7 +877,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -925,7 +925,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -941,7 +941,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1033,16 +1033,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
         </ul>
       </p>
@@ -1075,7 +1075,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1084,7 +1084,7 @@
 <tbody>
 <tr id="copter_simulation_(copter)_hil_quadcopter_x">
  <td style="vertical-align: top;">HIL Quadcopter X</td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
 
 </tr>
 </tbody></table>
@@ -1097,11 +1097,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>AUX1</b>: Outer servo motor for rotor 2 arm</li><li><b>AUX2</b>: Outer servo motor for rotor 4 arm</li><li><b>AUX3</b>: Inner servo motor for rotor 2 arm</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Outer servo motor for rotor 2 arm</li><li><b>AUX2</b>: Outer servo motor for rotor 4 arm</li><li><b>AUX3</b>: Inner servo motor for rotor 2 arm</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1109,7 +1109,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1131,11 +1131,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1143,7 +1143,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1165,11 +1165,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1177,7 +1177,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1201,11 +1201,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1213,7 +1213,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1239,7 +1239,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者：Simon Wilks <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1255,7 +1255,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者：Simon Wilks <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1287,7 +1287,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1303,7 +1303,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者：Simon Wilks <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1319,7 +1319,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者：Simon Wilks <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1335,7 +1335,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者：Simon Wilks <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1367,7 +1367,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1385,11 +1385,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1397,7 +1397,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1419,11 +1419,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1431,7 +1431,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1453,7 +1453,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -1465,7 +1465,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1474,7 +1474,7 @@
 <tbody>
 <tr id="plane_simulation_(plane)_hilstar_(xplane)">
  <td style="vertical-align: top;">HILStar (XPlane)</td>
- <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1000</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1000</p></td>
 
 </tr>
 </tbody></table>
@@ -1487,11 +1487,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1499,7 +1499,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1513,7 +1513,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -1603,7 +1603,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1723,7 +1723,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -1761,16 +1761,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>AUX1</b>: Aileron 1
@@ -1799,7 +1799,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者：Simon Wilks <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1811,16 +1811,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>AUX1</b>: Aileron 1
@@ -1849,7 +1849,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        维护者：Simon Wilks <simon@uaventure.com>
+        Maintainer: Simon Wilks <simon@uaventure.com>
       </p>
       
       <p>
@@ -1861,16 +1861,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>AUX1</b>: Right elevon
@@ -1953,16 +1953,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>MAIN5</b>: Right elevon
@@ -1990,7 +1990,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -2002,7 +2002,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -2024,11 +2024,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: motor 4</li><li><b>MAIN4</b>: motor 5</li><li><b>MAIN5</b>: elevon left</li><li><b>MAIN6</b>: elevon right</li><li><b>MAIN7</b>: canard surface</li><li><b>MAIN8</b>: rudder</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 4</li><li><b>MAIN4</b>: motor 5</li><li><b>MAIN5</b>: elevon left</li><li><b>MAIN6</b>: elevon right</li><li><b>MAIN7</b>: canard surface</li><li><b>MAIN8</b>: rudder</li></ul></td>
 </tr>
   </table>
 </div>
@@ -2036,7 +2036,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
@@ -2084,7 +2084,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -2096,7 +2096,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      名称
+      Name
     </th>
     
     <th>
