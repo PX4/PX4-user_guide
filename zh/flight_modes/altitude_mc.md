@@ -1,6 +1,6 @@
 # 高度模式（多旋翼）
 
-[<img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="所需高度（例如巴罗、测距仪）" width="30px" />](../getting_started/flight_modes.md#altitude_only)
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
 
 *高度模式*是一个*相对*容易飞的遥控模式，滚转和俯仰杆控制飞机在左右和前后方向上的运动（相对于飞机的“前部”），偏航杆控制水平面上的旋转速度，油门控制上升 -下降的速度。
 
@@ -8,27 +8,27 @@
 
 > **注意***高度模式*是对于新手而言最安全的非GPS手动模式。 它就像[手动/稳定](../flight_modes/manual_stabilized_mc.md)模式，但额外地在操纵杆回中时锁定飞机高度。
 
-下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)）。
+The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)).
 
 ![高度控制MC - Mode2 RC控制器](../../images/flight_modes/altitude_control_mode_copter.png)
 
-## 技术总结
+## Technical Summary
 
 遥控/手动模式就像[手动/稳定](../flight_modes/manual_stabilized_mc.md)模式但是具有*高度稳定*功能（杆回中使飞机水平并保持固定高度）
 
-* 回正摇杆（内带死区）： 
-  * RPY摇杆使飞机水平。
-  * 油门（~50%）抗风保持当前姿态。
-* 外部中心： 
-  * 翻滚/俯仰摇杆控制各自方向的倾斜角，导致左右和前后的移动。
-  * 油门摇杆以预定的最大速率（和其他轴上的移动速度）控制上升速度。
-  * 偏航摇杆控制水平面上方的角度旋转速率。
+* Centered sticks (inside deadband): 
+  * RPY sticks levels vehicle.
+  * Throttle (~50%) holds current altitude steady against wind.
+* Outside center: 
+  * Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.
+  * Throttle stick controls up/down speed with a predetermined maximum rate (and movement speed in other axes).
+  * Yaw stick controls rate of angular rotation above the horizontal plane.
 
-> **注** *可能需要手动输入（遥控器，或通过MAVLink连接的游戏手柄/拇指杆）。 *海拔高度通常使用气压计测量，在极端天气条件下可能会变得不准确。 带有激光雷达/距离传感器的飞机将能够以更高的可靠性和准确性控制高度。
+> **Note** * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink). * The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
 
-## 参数
+## Parameters
 
-该模式受以下参数影响：
+The mode is affected by the following parameters:
 
 | Parameter                                                                                                   | Description                                                                                                                                                                        |
 | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
