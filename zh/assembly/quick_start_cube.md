@@ -137,7 +137,7 @@ Motors/servos are connected to the **MAIN** and **AUX** ports in the order speci
 
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
-## Configuration
+## 配置
 
 Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
 
@@ -151,7 +151,7 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
-## Further information
+## 更多信息
 
 - [Cube](../flight_controller/pixhawk-2.md) <!-- - [pixhawk2 user manual copy]()  // fold out insert shipped with doc /assets/flight_controller/cube/cube_mount_front/pixhawk2 user manual copy.pdf -->
     
