@@ -12,7 +12,7 @@ CUAV *Pixhack v3* 飞行控制器是一款灵活轻便的自动驾驶仪，主�
 
 * 微处理器： 
   * STM32F427
-  * STM32F100 (Failsafe co-processor)
+  * STM32F100 (故障保护协处理器)
 * 传感器： 
   * 加速度计 (3): LSM303D,MPU6000,MPU6000
   * 陀螺仪 (3): L3GD20, MPU6000, MPU9250
