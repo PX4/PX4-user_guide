@@ -4,13 +4,13 @@
 
 * 이륙 (Takeo) </ 0> 비행 모드는 차량이 지정된 높이로 떨어져 나가고 추가 입력을 기다립니다.</p> 
 
-> **Note** * This mode requires GPS. * 이 모드는 자동 모드입니다(RC 제어는 모드를 변경하는 경우를 제외하고 기본적으로 가 비활성화됩니다). * The vehicle must be armed before this mode can be engaged.</p> </blockquote> 
-> 
-> 각 차량 유형에 대한 구체적인 행동은 아래에 설명되어 있습니다.
-> 
-> ## 멀티 헬기 (MC)
-> 
-> 멀티 로터는  MIS_TAKEOFF_ALT </ 0>에 정의 된 고도까지 상승하고 위치를 유지합니다.</p>
+> **Note** * This mode requires GPS. * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes). * The vehicle must be armed before this mode can be engaged.
+
+The specific behaviour for each vehicle type is described below.
+
+## 멀티 헬기 (MC)
+
+멀티 로터는  MIS_TAKEOFF_ALT </ 0>에 정의 된 고도까지 상승하고 위치를 유지합니다.</p>
 
 <p>이륙은 다음 매개 변수의 영향을받습니다.</p>
 
@@ -35,7 +35,7 @@
 </tbody>
 </table>
 
-<h2 id="fixed_wing">고정 날개(FW)</h2>
+<h2 id="fixed_wing">Fixed Wing (FW)</h2>
 
 <p>항공기는 <em> 투석기 / 발사 모드 </ 0> 또는 <em> 활주로 이륙 모드 </ 0>를 사용하여 현재 방향으로 이륙합니다. 모드는 기본적으로 투석기 / 손발기가되지만, <code> RWTO_TKOFF </ 0>를 사용하여 활주로 이륙으로 설정할 수 있습니다.</p>
 
@@ -58,7 +58,7 @@
  이 단계에서는 롤 및 제목 제한이 제거됩니다.</li>
 </ol>
 
-<p>이륙은 다음 매개 변수의 영향을받습니다.</p>
+<p>Takeoff is affected by the following parameters:</p>
 
 <table>
 <thead>
