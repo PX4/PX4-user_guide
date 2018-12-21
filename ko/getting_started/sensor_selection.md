@@ -22,9 +22,9 @@ Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/
 
 ## Airspeed
 
-고정 회선 및 VTOL 프레임의 경우 속도 센서가 *을 높게 권장합니다.</p> 
+Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
 
-자동 조종 장치에는 실속을 감지 할 수있는 다른 수단이 없으므로이 신호는 매우 중요합니다. 고정익 비행의 경우 지상 속도가 아닌 양력을 보장하는 속도입니다.
+They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
 
 ![Digital airspeed sensor](../../images/digital_airspeed_sensor.jpg)
 
