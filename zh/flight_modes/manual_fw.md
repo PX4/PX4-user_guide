@@ -2,7 +2,7 @@
 
 <!-- this requires review -->
 
-[<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
 *Manual mode* sends RC stick input directly to the output mixer for fully manual control.
 
@@ -10,15 +10,15 @@
 
 <span></span>
 
-> **Note** This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). 它提供了一个安全机制，允许在FMU固件出现故障时，通过遥控完全控制油门、电梯、副翼和舵。
+> **Note** This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
 
-## 技术描述
+## Technical Description
 
-遥控模式，其中摇杆输入直接发送到输出混频器（用于 "完全" 手动控制）。
+RC mode where stick input is sent directly to the output mixer (for "fully" manual control).
 
-这是覆盖FMU（命令通过安全协处理器发送）的唯一模式。 它提供了一个安全机制，允许在FMU固件出现故障时，通过遥控完全控制油门、电梯、副翼和舵。
+This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
 
-## 参数
+## Parameters
 
 | Parameter                                                                                       | Description                                                                                                                                                                                |
 | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
