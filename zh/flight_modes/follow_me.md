@@ -3,7 +3,7 @@ author: Jimmy Johnson
 ---
 # 跟随模式
 
-[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *跟随*模式允许多旋翼飞行器在运行*QGroundControl*的Android手机/平板电脑上自动跟踪和追踪用户。
 
