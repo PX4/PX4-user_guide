@@ -28,12 +28,12 @@
 > 
 > 비행기는 현재 고도에서 GPS 유지 위치를 중심으로 선회한다. 차량이 먼저 `으로 상승합니다.MIS_LTRMIN_ALT` 모드가 이 고도 이하에서 작동할 경우.
 > 
-> 아래 매개 변수를 사용하여 동작을 구성할 수 있습니다.
+> The behaviour can be configured using the parameters below.
 > 
-> | Parameter                                                                    | Description                                      |
-> | ---------------------------------------------------------------------------- | ------------------------------------------------ |
-> | [Na'Vi는 '라 오버랩'](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | 로터 원의 반지름.                                       |
-> | [MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | 정지기 모드의 최소 높이(모드가 더 낮은 고도에서 작동하면 차량이 이 고도로 상승함). |
+> | Parameter                                                                    | Description                                                                                                   |
+> | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+> | [Na'Vi는 '라 오버랩'](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | 로터 원의 반지름.                                                                                                    |
+> | [MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude). |
 > 
 > ## VTOL
 > 
