@@ -140,7 +140,7 @@ MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 
 <table>
 <thead>
 <tr>
-  <th>명령 매개 변수</th>
+  <th>Command Parameter</th>
   <th>Description</th>
 </tr>
 </thead>
