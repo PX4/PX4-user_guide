@@ -1,6 +1,6 @@
 # Altitude Mode (Fixed Wing)
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
 
 The *Altitude* flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
 
@@ -29,12 +29,12 @@ RC/manual mode like Stabilized mode but with altitude stabilization (centered st
 
 > **Note** * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink). * The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
 
-## 매개 변수
+## Parameters
 
 The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_P_MAX">FW_MAN_P_MAX</a></td> 
 
 <td>
-  Max pitch for manual control in attitude stabilized mode. 기본값: 45도.
+  Max pitch for manual control in attitude stabilized mode. Default: 45 degrees.
 </td></tr> 
 
 <tr>
@@ -42,7 +42,7 @@ The mode is affected by the following parameters:<span id="FW_MAN_P_MAX"><a href
     <span id="FW_MAN_R_MAX"><a href="../advanced_config/parameter_reference.md#FW_MAN_R_MAX">FW_MAN_R_MAX</a></td> 
     
     <td>
-      Max roll for manual control in attitude stabilized mode. 기본값: 45도.
+      Max roll for manual control in attitude stabilized mode. Default: 45 degrees.
     </td></tr> 
     
     <tr>
