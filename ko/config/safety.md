@@ -247,6 +247,6 @@ For modes that do not support disarming in flight, the switch is ignored during 
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
 
-## 추가 정보
+## Further Information
 
 * [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
