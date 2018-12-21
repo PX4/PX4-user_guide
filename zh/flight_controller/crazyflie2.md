@@ -181,6 +181,6 @@ To connect to Crazyflie 2.0 via MAVROS:
 * Start MAVROS with command: ```roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"```
 * Restart QGroundControl if it doesn't connect.
 
-## 飞行
+## Flying
 
 {% youtube %}https://www.youtube.com/watch?v=2Bcy3k1h5uc{% endyoutube %}
