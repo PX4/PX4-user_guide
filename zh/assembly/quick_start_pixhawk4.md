@@ -6,13 +6,13 @@
 
 ## 接线图概览
 
-下图展示了如何连接最重要的传感器和外围设备 (电机和伺服舵机输出除外)。 We'll go through each of these in detail in the following sections.
+下图展示了如何连接最重要的传感器和外围设备 (电机和伺服舵机输出除外)。 我们将在下面各节中介绍它们的细节。
 
 ![Pixhawk 4 Wiring Overview](../../assets/flight_controller/pixhawk4/pixhawk4_wiring_overview.png)
 
 > **Tip**有关更多可用端口的详细信息, 请参阅此处: Pixhawk 4 > 连接 </1 >。</p> </blockquote> 
 > 
-> ## Mount and Orient Controller
+> ## 飞控的安装和方向
 > 
 > 应使用减震泡沫垫 (包括在配件中) 将 * Pixhawk 4* 安装在机架上。 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
 > 
@@ -30,7 +30,7 @@
 > 
 > > **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 > 
-> ## Power
+> ## 电源
 > 
 > 使用6PIN线材将套件中附带的 *电源管理板* (pm板) 的输出连接到 *Pixhawk 4 * 的其中一个 **POWER** 端口。 电源管理板的 **2~12S** 输入将连接到您的锂电池。 下表解释了电源管理板的连接, 包括动力电源与 esc电调和伺服舵机的信号连接。 请注意, 电源管理板不通过 **FMU wwm-out</0 > 的 + 和-引脚为伺服舵机供电。</p> 
 > 
@@ -78,7 +78,7 @@
 > 
 > | 针脚       | 信号      | 电压    |
 > | -------- | ------- | ----- |
-> | 1(red)   | VCC     | +5V   |
+> | 1（红）     | VCC     | +5V   |
 > | 2(black) | VCC     | +5V   |
 > | 3(black) | CURRENT | +3.3V |
 > | 4(black) | VOLTAGE | +3.3V |
