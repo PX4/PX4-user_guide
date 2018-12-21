@@ -1,4 +1,4 @@
-# 멀티콥터 PID 튜닝 가이드
+# Multicopter PID Tuning Guide
 
 This tutorial explains how to tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
 
@@ -6,13 +6,13 @@ Generally if you're using a [supported specific configuration](../airframes/airf
 
 > **Warning** This guide is for advanced users. Un- or partially- tuned vehicles are likely to be unstable, and easy to crash. Make sure to have a Kill-switch assigned.
 
-## 소개
+## Introduction
 
 PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers, which are the most widespread control technique.
 
 The controllers are layered, which means a higher-level controller passes its results to a lower-level controller. The lowest-level controller is the the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**. The PID tuning needs to be done in the same order, starting with the rate controller, as it will affect all other controllers.
 
-## 전제 조건
+## Preconditions
 
 - You have selected the closest matching [default airframe configuration](../config/airframe.md) for your vehicle. This should give you a vehicle that already flies.
 - You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
