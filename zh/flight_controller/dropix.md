@@ -44,7 +44,7 @@ The following diagrams show the Dropix connector information (for more informati
 
 <img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" width="500px" />
 
-## 编译固件
+## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
