@@ -24,7 +24,7 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
 
 要启用自主避障功能，只需将PX4的 [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) [设置](../advanced_config/parameters.md)为1即可。 PX4通过MAVLink的[路径规划协议](https://mavlink.io/en/services/trajectory.html)（Trajectory 接口）实现与避障软件的交互，[#详见后文](#mission_avoidance_interface)。 PX4兼容所有符合此接口的避障系统。
 
-功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../flight_controller/intel_aero.md) 。 自主避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
+功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../flight_controller/intel_aero.md) 。 自主避障功能也支持Gazebo仿真测试。 The set up for both is as described in the [Intel Aero > Obstacle Avoidance](../flight_controller/intel_aero.md#obstacle-avoidance) and in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
 
 ### 任务模式的变化
 
@@ -82,15 +82,15 @@ PX4期望在整个任务期间 (不论障碍物是否存在) 都能接收到由`
 
 来自避障软件的消息各字段定义如下：
 
-- `time_usec`: UNIX纪元时间戳
+- `time_usec`: UNIX Epoch time.
 - `valid_points`: 1
 - 当前飞机信息： 
   - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED坐标系下的载具位置设定值
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下速度设定值
+  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED velocity setpoint
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
   - `pos_yaw[0]`: 航向角设定值
   - `vel_yaw[0]`: 偏航速率设定值
-- 所有其它字段都是NaN(未定义)。 
+- All other indices/fields are set as NaN. 
 
 目标期望点的发送频率，由规划软件的能力和用户设置决定。
 
@@ -126,7 +126,7 @@ PX4期望在整个任务期间 (不论障碍物是否存在) 都能接收到由`
   - Velocity: NaN
   - Acceleration: NaN
   - Yaw: 航向设定值
-  - Yaw_speed: 偏航速率设定值
+  - Yaw_speed: yaw speed setpoint
 
 其余index均填充为NaN。
 
@@ -146,7 +146,7 @@ MAVROS 将设定值的坐标系从 ENU 转换到 NED，并将 ROS 消息转换�
 - Velocity: 速度设定值
 - acceleration: NaN（飞控固件暂不支持加速度设定值）
 - Yaw: 航向设定值
-- Yaw_speed: 偏航速率设定值
+- Yaw_speed: yaw speed setpoint
 
 以上设定值将作为飞控位置控制器的跟踪目标。
 
