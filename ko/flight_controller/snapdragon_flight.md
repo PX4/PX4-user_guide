@@ -6,7 +6,7 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 
 ![Snapdragon Hero Doc](../../assets/hardware/hardware-snapdragon.jpg)
 
-## 빠른 요약
+## Quick Summary
 
 * System-on-Chip: [Snapdragon 801](https://www.qualcomm.com/products/snapdragon/processors/801) 
   * CPU: Quad-core 2.26 GHz Krait
@@ -35,7 +35,7 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 * Micro SD card slot
 * Gimbal connector (PWB/GND/BLSP)
 * ESC connector (2W UART)
-* I2C 
+* I2C
 * 60-pin high speed Samtec QSH-030-01-L-D-A-K expansion connector 
   * 2x BLSP ([BAM Low Speed Peripheral](http://www.inforcecomputing.com/public_docs/BLSPs_on_Inforce_6540_6501_Snapdragon_805.pdf))
   * USB
@@ -156,12 +156,12 @@ This will cause a problem for any other type of I/O on the same connector, since
 
 #### J14 / Power
 
-| Pin | Signal   | Comment |
-| --- | -------- | ------- |
-| 1   | 5V DC    | 전원 입력   |
-| 2   | GND      |         |
-| 3   | I2C3_SCL | (5V)    |
-| 4   | I2C3_SDA | (5V)    |
+| Pin | Signal   | Comment     |
+| --- | -------- | ----------- |
+| 1   | 5V DC    | Power input |
+| 2   | GND      |             |
+| 3   | I2C3_SCL | (5V)        |
+| 4   | I2C3_SDA | (5V)        |
 
 #### J15 / Radio Receiver / Sensors
 
