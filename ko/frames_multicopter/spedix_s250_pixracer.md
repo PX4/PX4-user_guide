@@ -20,11 +20,11 @@ Connect the motors in the layout and order defined in the [Airframe Reference](.
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        공통 출력
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터1(프론트 우측: CCW)</li><li>메인2: 모터2(좌측 뒤로: CCW)</li><li>메인3: 모터3(프론트 좌측: CW)</li><li>메인4: 모터4(오른쪽 후면: CW)</li><li>메인5: RC AUX1 채널의 피드스루</li><li>메인6: RC AUX2 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor1 (front right: CCW)</li><li><b>MAIN2</b>: motor2 (back left: CCW)</li><li><b>MAIN3</b>: motor3 (front left: CW)</li><li><b>MAIN4</b>: motor4 (back right: CW)</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
 </tr>
   </table>
 </div>
