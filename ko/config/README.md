@@ -1,4 +1,4 @@
-# 기본 설정
+# Basic Configuration
 
 이 섹션에는 비행 컨트롤러 하드웨어에 펌웨어를 설치하고, 기체를 선택하고, PX4가 모든 차량 (나침반, GPS, 자이로 등)에 있어야하는 핵심 센서를 구성하는 방법을 포함하여 * 필수 </ 0> 구성 항목이 포함되어 있습니다. .)</p> 
 
@@ -27,11 +27,11 @@
         > > 
         > > {% youtube %} https://www.youtube.com/watch?v=91VGmdSlbo4 {% endyoutube %} 
         > > 
-        > > ## 지원
+        > > ## Support
         > > 
         > > 구성에 대한 도움이 필요한 경우  QGroundControl 지원 포럼 </ 0>에서 도움을 요청할 수 있습니다</p> 
         > > 
-        > > ## 추가 정보
+        > > ## Further Information
         > > 
         > > * [QGroundControl> 설정](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
         > > *  고급 구성 </ 0> (덜 고급 센서 및 주변 장치 및 차량 / 매개 변수 조정 관련 고급 주제).</li> </ul>
