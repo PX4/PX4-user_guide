@@ -1,10 +1,10 @@
-# Iridium/RockBlock 위성 통신 체계
+# Iridium/RockBlock Satellite Communication System
 
 위성 통신 시스템은 지상국과 차량 사이에 긴 범위의 높은 대기 시간 링크를 제공하는 데 사용할 수 있습니다.
 
 이 항목에서는 이리듐 SBD 위성 통신 시스템의 서비스 공급자로 RockBlock을 사용하는 시스템을 설정하는 방법을 설명합니다. 신호 품질이 우수할 경우 사용자는 10~15초 사이의 지연 시간을 예상할 수 있습니다.
 
-## 개요
+## Overview
 
 위성 통신 링크에는 다음 구성 요소가 필요합니다.
 
@@ -121,8 +121,8 @@ Other instructions include:
 
 To setup the ground station:
 
-1. 필요한 Python 모듈을 장착하십시오. ```sudo pipe install pica wilist 미래```
-2. SatComInfrarastructure 저장소 복제: ```집요하게```
+1. Install the required python modules: ```sudo pipe install pica wilist 미래```
+2. SatComInfrarastructure 저장소 복제: ```git clone https://github.com/acfloria/SatComInfrastructure.git```
 3. 설정을 반영하도록 **udp2rabbit.cfg** 구성 파일을 편집합니다.
 4. [ *QGroundControl *](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html)(일별 빌드).
 5. 다음 매개 변수를 사용하여 QGC에서 UDP 연결을 추가합니다.
@@ -133,7 +133,7 @@ To setup the ground station:
     
     ![높은 지연 시간 링크 설정](../../assets/satcom/linksettings.png)
 
-### 확인
+### Verification
 
 1. 접지 스테이션 컴퓨터의 단자를 열고 * SatComInfrarastructure * 저장소 위치로 변경합니다. 그런 다음 **udp2rabbit.py** 스크립트를 시작합니다.
     
@@ -152,9 +152,9 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
     
     ![High Latency 링크를 연결합니다.](../../assets/satcom/linkconnect.png)
 
-2. 접지 스테이션 컴퓨터의 단자를 열고 * SatComInfrarastructure * 저장소 위치로 변경합니다. 그런 다음 **udp2rabbit.py** 스크립트를 시작합니다.
+2. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script:
     
-        엷은 껍질
+        ./udp2rabbit.py
         
 
 3. 차량의 전원을 켭니다.
