@@ -63,7 +63,7 @@ Other popular transmitter/receiver pairs
 
 另外接收机和发射机需要兼容，接收机也必须和 PX4 和其他控制硬件兼容。
 
-*PX4* and *Pixhawk* have been validated with:
+PX4 和 Pixhawk兼容的接收机如下所示：
 
 * 所有的 Spektrum 和 DSM 无线接收机。
 * 所有的 Futaba S.BUS 和 S.BUS2 接收机。
@@ -73,7 +73,7 @@ Other popular transmitter/receiver pairs
 
 ## 连接接收机
 
-As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
+另外，接收机连接到飞控还需要合适的波特率。
 
 * Spektrum 和 DSM 接收机使用** SPKT/DSM ** 接口连接。
 * PPM 和 S.Bus接收机可以直接连接在** RC **的地、正、信号引脚（通常标记为 RC 或 RCIN）。
