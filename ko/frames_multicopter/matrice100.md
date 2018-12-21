@@ -7,7 +7,7 @@ Key information:
 * **Frame:** DJI Matrice 100 
 * **Flight controller:** [Pixhawk 1](../flight_controller/pixhawk.md) 
 
-![DJI 마트리스 100](../../assets/airframes/multicopter/matrice100/Matrice100.jpg)
+![DJI Matrice 100](../../assets/airframes/multicopter/matrice100/Matrice100.jpg)
 
 ## Parts List
 
@@ -26,13 +26,11 @@ Key information:
 
 ### Wiring Harness 
 
-![Wiring Harness
-](../../assets/airframes/multicopter/matrice100/WiringHarness.jpg)
+![Wiring Harness](../../assets/airframes/multicopter/matrice100/WiringHarness.jpg)
 
 ### PWM Connections 
 
-![PWM Connections
-](../../assets/airframes/multicopter/matrice100/PwmInput.jpg)
+![PWM Connections](../../assets/airframes/multicopter/matrice100/PwmInput.jpg)
 
 ### Other views 
 
@@ -64,7 +62,7 @@ The autopilot outputs are specified in [Airframe Reference > DJI Matrice 100](..
 | AUX2   | 50 Hz  | RC AUX2          |
 | AUX3   | 50 Hz  | RC AUX3          |
 
-## 매개 변수
+## Parameters
 
 * 높은 스로틀에서 내부 루프는 기본 x 4 배 이득으로 진동을 유발합니다. 저속 스로틀에서는 높은 게인이 더 나은 응답을 제공하므로 스로틀을 기반으로 한 일부 게인 일정 계획이 전체 응답을 향상시킬 수 있으며 이는 mc_att_control에서 구현 될 수 있음을 알 수 있습니다 지금은 낮은 스로틀이나 높은 스로틀에서 진동이 없도록 조정하고 낮은 스로틀에서 대역폭을 맞 춥니 다 
   * MC_PITCHRATE_P: 0.05 
