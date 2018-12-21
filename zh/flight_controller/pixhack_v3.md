@@ -46,7 +46,7 @@ CUAV *Pixhack v3* 飞行控制器是一款灵活轻便的自动驾驶仪，主�
 * [store.cuav.net](http://store.cuav.net/index.php?id_product=8&id_product_attribute=0&rewrite=pixhack-v3-autopilot&controller=product&id_lang=3)
 * [leixun.aliexpress.com/store](https://leixun.aliexpress.com/store)
 
-## 编译固件
+## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
@@ -55,7 +55,7 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
     make px4_fmu-v3_default
     
 
-## 引脚和原理图
+## Pinouts and Schematics
 
 * 开源硬件资料： https://github.com/cuav/CUAV_Hardware/tree/master/Pixhack_V3
 * 文档和接线指南: http://doc.cuav.net/PixHack/pixhack-v3.html
