@@ -89,11 +89,11 @@ If out of stock the software-compatible but not connector-compatible versions ca
 * Servo rail high-power (max. 10V) and high-current (10A+) ready
 * All peripheral outputs over-current protected, all inputs ESD protected
 
-## 额定电压
+## Voltage Ratings
 
 Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
 
-### 正常运行最大额定值
+### Normal Operation Maximum Ratings
 
 Under these conditions all power sources will be used in this order to power the system
 
@@ -125,7 +125,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 TELEM1, TELEM2 ports
 
-| 针脚      | 信号        | 电压    |
+| Pin     | Signal    | Volt  |
 | ------- | --------- | ----- |
 | 1 (red) | VCC       | +5V   |
 | 2 (blk) | TX (OUT)  | +3.3V |
@@ -136,7 +136,7 @@ TELEM1, TELEM2 ports
 
 GPS port
 
-| 针脚      | 信号       | 电压    |
+| Pin     | Signal   | Volt  |
 | ------- | -------- | ----- |
 | 1 (red) | VCC      | +5V   |
 | 2 (blk) | TX (OUT) | +3.3V |
@@ -147,7 +147,7 @@ GPS port
 
 SERIAL 4/5 port - due to space constraints two ports are on one connector.
 
-| 针脚      | 信号      | 电压    |
+| Pin     | Signal  | Volt  |
 | ------- | ------- | ----- |
 | 1 (red) | VCC     | +5V   |
 | 2 (blk) | TX (#4) | +3.3V |
@@ -158,7 +158,7 @@ SERIAL 4/5 port - due to space constraints two ports are on one connector.
 
 ADC 6.6V
 
-| 针脚      | 信号     | 电压          |
+| Pin     | Signal | Volt        |
 | ------- | ------ | ----------- |
 | 1 (red) | VCC    | +5V         |
 | 2 (blk) | ADC IN | up to +6.6V |
@@ -166,7 +166,7 @@ ADC 6.6V
 
 ADC 3.3V
 
-| 针脚      | 信号     | 电压          |
+| Pin     | Signal | Volt        |
 | ------- | ------ | ----------- |
 | 1 (red) | VCC    | +5V         |
 | 2 (blk) | ADC IN | up to +3.3V |
@@ -176,25 +176,25 @@ ADC 3.3V
 
 I2C
 
-| 针脚      | 信号  | 电压             |
-| ------- | --- | -------------- |
-| 1 (red) | VCC | +5V            |
-| 2 (blk) | SCL | +3.3 (pullups) |
-| 3 (blk) | SDA | +3.3 (pullups) |
-| 4 (blk) | GND | GND            |
+| Pin     | Signal | Volt           |
+| ------- | ------ | -------------- |
+| 1 (red) | VCC    | +5V            |
+| 2 (blk) | SCL    | +3.3 (pullups) |
+| 3 (blk) | SDA    | +3.3 (pullups) |
+| 4 (blk) | GND    | GND            |
 
 CAN
 
-| 针脚      | 信号    | 电压   |
-| ------- | ----- | ---- |
-| 1 (red) | VCC   | +5V  |
-| 2 (blk) | CAN_H | +12V |
-| 3 (blk) | CAN_L | +12V |
-| 4 (blk) | GND   | GND  |
+| Pin     | Signal | Volt |
+| ------- | ------ | ---- |
+| 1 (red) | VCC    | +5V  |
+| 2 (blk) | CAN_H  | +12V |
+| 3 (blk) | CAN_L  | +12V |
+| 4 (blk) | GND    | GND  |
 
 SPI
 
-| 针脚      | 信号             | 电压   |
+| Pin     | Signal         | Volt |
 | ------- | -------------- | ---- |
 | 1 (red) | VCC            | +5V  |
 | 2 (blk) | SPI_EXT_SCK  | +3.3 |
@@ -206,7 +206,7 @@ SPI
 
 POWER
 
-| 针脚      | 信号      | 电压    |
+| Pin     | Signal  | Volt  |
 | ------- | ------- | ----- |
 | 1 (red) | VCC     | +5V   |
 | 2 (blk) | VCC     | +5V   |
@@ -217,7 +217,7 @@ POWER
 
 SWITCH
 
-| 针脚      | 信号               | 电压    |
+| Pin     | Signal           | Volt  |
 | ------- | ---------------- | ----- |
 | 1 (red) | VCC              | +3.3V |
 | 2 (blk) | !IO_LED_SAFETY | GND   |
@@ -229,7 +229,7 @@ The system's serial console runs on the port labeled SERIAL4/5. The pinout is st
 
 Please refer to the Devguide [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
 
-## 编译固件
+## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
@@ -261,6 +261,6 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 * [[:peripherals:i2c_splitter|I2C splitter]]
 -->
 
-## 支持的平台/机身
+## Supported Platforms / Airframes
 
 任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。
