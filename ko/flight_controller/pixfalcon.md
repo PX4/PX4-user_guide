@@ -7,7 +7,7 @@ Pixfalcon 자동 조종 장치 ( Holybro <sup> 및 reg; </ 1> </ 0>) 는 공간�
 </p>
 
 <h2>
-  빠른 요약
+  Quick Summary
 </h2>
 
 <pre><code>* 메인 시스템 - 온 - 칩 : [STM32F427] (http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
@@ -87,11 +87,11 @@ Pixfalcon 자동 조종 장치 ( Holybro <sup> 및 reg; </ 1> </ 0>) 는 공간�
 </code></pre>
         
         <h2>
-          주요 링크
+          Key Links
         </h2>
         
         <ul>
           <li>
-            <a href="http://www.holybro.com/manual/pixfalcon.pdf">사용자 매뉴얼</a>
+            <a href="http://www.holybro.com/manual/pixfalcon.pdf">User Manual</a>
           </li>
         </ul>
