@@ -38,7 +38,7 @@ Next you will need to specify the [vehicle airframe](../config/airframe.md) (and
 
 > **Tip** If *QGroundControl* installs the FMUv2 target (see console during installation) and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller. See [Bootloader Update](../advanced_config/bootloader_update.md) for more information.
 
-## 更多信息：
+## Further Information
 
 * [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
 * [PX4 Setup Video](https://youtu.be/91VGmdSlbo4) (Youtube)
