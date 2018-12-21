@@ -59,6 +59,6 @@ You can include the missing driver in firmware by uncommenting (or adding) the d
 
 You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
 
-## 更多信息：
+## Further Information
 
 * [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md)
