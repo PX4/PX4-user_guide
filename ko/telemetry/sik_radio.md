@@ -1,4 +1,4 @@
-# SiK 라디오
+# SiK Radio
 
 [SiK 라디오 ](https://github.com/LorenzMeier/SiK)은 원격측정 라디오용 펌웨어 및 툴 모음입니다.
 
@@ -6,13 +6,13 @@ PX4는 *SiK *을 사용하는 라디오와 프로토콜 호환이 가능합니�
 
 SiK 라디오용 하드웨어는 다양한 범위 및 폼 팩터를 지원하는 다양한 제조업체/스토어에서 구입할 수 있습니다.
 
-![SiK 라디오](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
+![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
 
 ## Vendors {#vendors}
 
-* [RFD900 원격측정 라디오](../telemetry/rfd900_telemetry.md)
-* [HK 텔레프레전](../telemetry/hkpilot_sik_radio.md)
-* [Holybro 전파 원격 측정](../telemetry/holybro_sik_radio.md)
+* [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
+* [HKPilot Telemetry Radio](../telemetry/hkpilot_sik_radio.md)
+* [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
 * <del><em>3DR 원격측정 라디오 </em></del> (계속)
 
 ## 설정/구성
