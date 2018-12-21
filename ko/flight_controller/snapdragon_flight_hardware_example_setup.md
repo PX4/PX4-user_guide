@@ -48,7 +48,7 @@ After the Snapdragon is mounted on the new housing, screw on the two custom prin
 
 Finally, attach the brackets to the frame using double-sided tape. We achieved best performance when using two strips of vibration-dampening foam in between the carbon frame and the custom mounting brackets for the stereo-vision part. Cutting two strips out of the piece provided with the QAV-R frame works well.
 
-![진동 댐핑](../../assets/hardware/snapdragon/snapdragon_vibration_dampening.jpg)
+![Vibration damping](../../assets/hardware/snapdragon/snapdragon_vibration_dampening.jpg)
 
 You can additionally mount the GPS module and TeraRanger module, but they are not required for normal VIO-based flight. More information about range finders can be found [here](../sensor/rangefinders.md#teraranger-rangefinders). You can now attach the Snapdragon module to the QAV frame and connect the ESC and receiver.
 
