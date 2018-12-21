@@ -38,7 +38,7 @@ The outputs of Pixhawk should be wired like this (orientation as seen like "sitt
 
 > **Success** The servo direction can be reversed using the PWM\_REV parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu)
 
-| Port   | 接口定义                    |
+| Port   | Connection              |
 | ------ | ----------------------- |
 | MAIN 1 | Front right motor (CCW) |
 | MAIN 2 | Back left motor (CCW)   |
