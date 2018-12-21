@@ -6,7 +6,7 @@
 
 ![](../../assets/hardware/hardware-ocpoc-zynq-mini.jpg)
 
-## 빠른 요약
+## Quick Summary
 
 - 메인 FPGA + ARM 시스템 - 온 - 칩 : 자일링스 Zynq Z-7010 
     - CPU: 667 MHz Dual-Core ARM A9 
@@ -22,13 +22,13 @@
     - 벤치 테스트를 위해 콘솔 "USB1"포트는 5V
 - 16x Programmable 3-pin GPIOs
 - 다음 인터페이스를 지원하는 JST-GH 커넥터에서 10x 프로그래밍 가능한 I / O : 
-    - I2C 
+    - I2C
     - USB-OTG 
     - USB-UART 
     - SPI
     - CSI 
     - GSI 
-    - 할수있다
+    - CAN
 - 이용 가능 여부 :  Aerotenna Store </ 0></li> </ul> 
     
     ## 핀아웃 및 SD 카드 설정
