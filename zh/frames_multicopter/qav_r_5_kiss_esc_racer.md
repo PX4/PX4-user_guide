@@ -135,18 +135,18 @@ I took the GPS cable which fits the connector of the used GPS and came with the 
 
 #### Pixracer GPS/I2C Port
 
-| 针脚 | Assignment |
-| -- | ---------- |
-| 1  | GND        |
-| 2  | SDA        |
-| 3  | SCL        |
-| 4  | RX         |
-| 5  | TX         |
-| 6  | +5V        |
+| Pin | Assignment |
+| --- | ---------- |
+| 1   | GND        |
+| 2   | SDA        |
+| 3   | SCL        |
+| 4   | RX         |
+| 5   | TX         |
+| 6   | +5V        |
 
 #### M8N 3DR Pixhawk mini GPS Connector
 
-| 针脚      | Assignment | Connect to Pixracer Pin |
+| Pin     | Assignment | Connect to Pixracer Pin |
 | ------- | ---------- | ----------------------- |
 | 1 (red) | SCL        | 3                       |
 | 2       | SDA        | 2                       |
