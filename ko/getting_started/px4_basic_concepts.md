@@ -1,4 +1,4 @@
-# 기본 개념
+# Basic Concepts
 
 이 주제에서는 무인 항공기에 대한 기본적인 소개와 PX4 사용에 대해 설명합니다. (초보자를 위한 것이지만 숙련된 사용자에게도 좋은 소개 자료입니다.)
 
@@ -49,7 +49,7 @@ PX4 uses sensors to determine vehicle state (needed for stabilization and to ena
 For more information see:
 
 - [Sensors](../getting_started/sensor_selection.md) 
-- [주변 장치](../peripherals/README.md)
+- [Peripherals](../peripherals/README.md)
 
 ## ESCs & Motors
 
@@ -83,7 +83,7 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 
 ## Data/Telemetry Radios
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. 이를 통해 차량이 비행 중일 때 매개 변수를 조정하고, 실시간으로 원격 측정을 검사하고, 비행 중 임무를 변경하는 등의 작업을 수행 할 수 있습니다.
+[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
 ## Offboard/Companion Computer
 
