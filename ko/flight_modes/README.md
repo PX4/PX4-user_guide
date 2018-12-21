@@ -82,7 +82,7 @@ th {
     </th>
     
     <th class="col_summary">
-      요약
+      Summary
     </th>
   </tr></tr> 
   
@@ -432,7 +432,7 @@ th {
                     </th>
                     
                     <th class="col_summary">
-                      요약
+                      Summary
                     </th>
                   </tr></tr> 
                   
