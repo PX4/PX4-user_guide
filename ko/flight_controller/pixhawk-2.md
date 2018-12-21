@@ -14,7 +14,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 - 168 MHz / 252 MIPS 
 - 256 KB RAM
 - 2 MB Flash \(fully accessible\)
-- 32 비트 STM32F103 failsafe 코 프로세서
+- 32 bit STM32F103 failsafe co-processor
 - 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
 - Abundant connectivity options for additional peripherals (UART, I2C, CAN)
 - Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply (fixed-wing use)
@@ -41,7 +41,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 - 168 MHz / 252 MIPS 
 - 256 KB RAM
 - 2 MB Flash (fully accessible)
-- 32 비트 STM32F103 failsafe 코 프로세서
+- 32 bit STM32F103 failsafe co-processor
 
 ### Sensors
 
@@ -55,16 +55,16 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 - Futaba S.BUS® compatible input and output
 - PPM sum signal input
 - RSSI (PWM or voltage) input
-- I2C 
+- I2C
 - SPI
 - 3.3 and 6.6V ADC inputs
 - Internal microUSB port and external microUSB port extension
 
 ### Power System and Protection
 
-- 자동 페일 오버 기능이있는 이상적인 다이오드 컨트롤러
+- Ideal diode controller with automatic failover
 - Servo rail high-power (max. 10V) and high-current (10A+) ready
-- 모든 주변 장치 출력 과전류 보호, 모든 입력 ESD 보호
+- All peripheral outputs over-current protected, all inputs ESD protected
 
 ### Voltage Ratings
 
