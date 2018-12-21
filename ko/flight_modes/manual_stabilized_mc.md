@@ -1,6 +1,6 @@
 # 수동 / 안정 모드 (멀티 태스킹)
 
-[<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="수동 / 원격 제어 필요" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
+[<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
 * Manual / Stabilized </ 0> 모드는 RC 컨트롤 스틱이 중앙에있을 때 멀티탭을 안정시킵니다. 차량을 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 움직입니다.</p> 
 
@@ -12,13 +12,13 @@
 > 
 > ![MC 수동 비행](../../images/flight_modes/manual_stabilized_MC.png)
 > 
-> ## 기술적 설명
+> ## Technical Description
 > 
 > 조종사의 입력은 롤 및 피치 각 명령과 요 율 명령으로 전달됩니다. Throttle is rescaled (see [below](#params)) and passed directly to the output mixer. 자동 조종 장치는 자세를 제어합니다. 즉, RC 스틱이 컨트롤러 데드 존 내부에 집중 될 때 롤과 피치 각을 제로로 조절합니다 (결과적으로 태도가 수평이 됨). 자동 조종 장치는 바람 (또는 다른 원인)으로 인한 드리프트를 보상하지 않습니다.
 > 
 > > **Note** * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
 > 
-> ## 매개 변수 {#params}
+> ## Parameters {#params}
 > 
 > | Parameter                                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 > | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
