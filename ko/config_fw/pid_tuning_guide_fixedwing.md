@@ -1,4 +1,4 @@
-# 고정 PID 조정 가이드
+# Fixedwing PID Tuning Guide
 
 > **Warning** This guide is for advanced users / experts only. If you don't understand what a PID tuning is you might crash your aircraft.
 
