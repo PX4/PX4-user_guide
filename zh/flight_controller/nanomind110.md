@@ -2,7 +2,7 @@
 
 ![nanomind 11](../../assets/hardware/hardware-nanomind110.png)
 
-### 概览
+### Summary
 
 Nano size (110mm diagonal) ready-to-fly quad copter for indoor flight/racing. NanoMind uses MindRacer as flight controller, which runs full PX4/MindPX flight stack.
 
