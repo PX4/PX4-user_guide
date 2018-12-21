@@ -4,7 +4,7 @@ The AirMind<sup>&reg; <a href="http://mindpx.net">MindRacer</a> series is a full
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
-## 빠른 요약
+## Quick Summary
 
 MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. MindRacer is a platform rather than a flight controller.
 
@@ -28,7 +28,7 @@ MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimin
 |                PWM Outputs                 |                       maximum 6                       |
 |                    IMU                     |                         10DOF                         |
 |               IMU isolation                |                     YES/Optional                      |
-|                  라디오 수신기                   |             S.BUS/PPM/DSM/DSM2/DSMX/SUMD              |
+|               Radio Receiver               |             S.BUS/PPM/DSM/DSM2/DSMX/SUMD              |
 |                 Telemetry                  | FrSky<sup>&reg;</sup> D.Port, S.Port, Wifi, 3DR radio |
 | On board TF card for flight data recording |                          YES                          |
 |            OneShot ESC Support             |                          YES                          |
@@ -36,7 +36,7 @@ MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimin
 |          On board Real time clock          |                          YES                          |
 |                 Connector                  |      JST GH(compliance with DroneCode standard)       |
 
-## 빠른 시작
+## Quick Start
 
 ### Pin-out Map
 
@@ -59,20 +59,16 @@ MindRacer has an attached Adapt IO board.
 
 MindRacer has a built-in UART-to-USB converter. To connect a companion computer, stack MindRacer on an interface board, and connect the companion computer to the USB port on the interface board.
 
-최대 BAUD 비율은 ​​px4 제품군과 동일하며 최대 921600입니다.
+And the max BAUD rate is the same with px4 family, which is up to 921600.
 
-### 사용자 설명서
+### User Guide
 
 > **Note** The user guide is [here](http://mindpx.net/assets/accessories/mindracer_user_guide_v1.2.pdf)
 
 ## Where to Buy
 
-MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). 아마존 <sup> & reg; </ 0> 또는 eBay <sup> & reg; </ 0>에서 MindRacer를 찾을 수 있습니다.</p> 
+MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
-<h2>
-  지원
-</h2>
+## Support
 
-<p>
-  자세한 내용은 http://www.mindpx.org를 방문하십시오. Or you can send email to <a href="mailto::support@mindpx.net">support@mindpx.net</a> for any inquiries or help.
-</p>
+Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::support@mindpx.net) for any inquiries or help.
