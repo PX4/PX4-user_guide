@@ -33,7 +33,7 @@ On a fixed wing (or VTOL) ESC, the +5V line usually provides the output of a Bat
 - This can be connected to the Pixhawk servo rail and used to power servos for flaps, ailerons etc. > **Note** It is unsafe to power servos or ESCs from the autopilot's avionics power supply. This is why **Pixhawk series** flight controllers do not provide power for the servo rail (the AUX servo rail is unpowered and is limited to 1A).
 - As a rule of thumb you should only connect the *output of only one BEC* to the Pixhawk servo rail. (while it may be possible to connect multiple +5V outputs to the rail, this depends on the ESC model).
 
-### 多旋翼
+### Multicopter
 
 On a multicopter, the +5V line might not be present or (if present) may not be connected.
 
