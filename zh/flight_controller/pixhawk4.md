@@ -22,13 +22,13 @@
   * 8-16 路PWM输出（8路来自 IO，8路来自 FMU）
   * FMU 上有 3 路专用 PWM/Capture 输入
   * 用于 CPPM 的专用遥控输入
-  * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-  * Dedicated S.Bus servo output
+  * 用于 Spektrum / DSM 与 有模拟 / PWM RSSI 的 S.Bus 的专用遥控输入
+  * 专用 S.Bus 舵机输出
   * 5 个通用串行接口
   * 3 个 I2C 接口
   * 4 路 SPI 总线
-  * Up to 2 CANBuses for dual CAN with serial ESC
-  * Analog inputs for voltage / current of 2 batteries
+  * 多达 2 路 CAN 总线用于带串口的电调
+  * 两路电池电压 / 电流模拟输入口
 * 电源系统： 
   * 电源模块输出：4.9~5.5V
   * USB 电源输入：4.75~5.25V
@@ -39,7 +39,7 @@
 * 其它特性： 
   * 工作温度：-40 ~ 85°C
 
-Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
+更多信息可以在 [Pixhawk 4 技术数据表](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)中找到。
 
 ## 采购
 
@@ -61,7 +61,7 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
 ## 额定电压
 
-*Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. 三个供电轨道为：**POWER1**，**POWER2** 和 **USB**。
+*Pixhawk 4* 可以实现电源三度冗余。 三个供电轨道为：**POWER1**，**POWER2** 和 **USB**。
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 
