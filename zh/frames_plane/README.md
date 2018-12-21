@@ -4,6 +4,6 @@ PX4支持各种可以想象到的飞机几何结构，包括普通飞机、飞�
 
 本节包含用于组装和配置多个平面机架的构建日志和说明。
 
-## Videos
+## 视频
 
 {% youtube %}https://www.youtube.com/watch?v=8m4_NpTQn0E&vq=hd720{% endyoutube %}
