@@ -57,7 +57,7 @@ PX4FMU의 X 축 또는 롤 축을 중심으로 각도 단위로 회전합니다.
 
 **SENS_BOARD_Y_OFF**
 
-PX4FMU의 Y 축 또는 피치 축을 중심으로 각도 단위로 회전합니다. 양의 각도는 반시계(CCW) 방향으로 증가하고, 음의 각도는 시계(CW) 방향으로 증가합니다.
+PX4FMU의 Y 축 또는 피치 축을 중심으로 각도 단위로 회전합니다. Positive angles increase in CCW direction, negative angles increase in CW direction.
 
 **SENS_BOARD_Z_OFF**
 
