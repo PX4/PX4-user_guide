@@ -45,13 +45,13 @@ This means that MindPX can support more complicated VTOL configurations and more
 
 ![MindPX Wiring 2](../../assets/hardware/hardware-mindpx-wiring2.png)
 
-### 针脚
+### Pin
 
 ![MindPX Pinout](../../assets/hardware/hardware-mindpx-pin.png)
 
 | Num. |        Description         | Num. |      Description       |
 |:----:|:--------------------------:|:----:|:----------------------:|
-|  1   |             电源             |  9   |    I2C2 (MindFLow)     |
+|  1   |           Power            |  9   |    I2C2 (MindFLow)     |
 |  2   | Debug (refresh bootloader) |  10  | USB2 (Serial 2 to USB) |
 |  3   |  USB1 (refresh firmware)   |  11  |        UART4,5         |
 |  4   |           Reset            |  12  |   UART1 (Telemetry)    |
@@ -66,7 +66,7 @@ MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SB
 
 For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
-### 编译固件
+### Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
