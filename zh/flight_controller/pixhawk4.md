@@ -30,9 +30,9 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
   * Up to 2 CANBuses for dual CAN with serial ESC
   * Analog inputs for voltage / current of 2 batteries
 * 电源系统： 
-  * Power module output: 4.9~5.5V
-  * USB Power Input: 4.75~5.25V
-  * Servo Rail Input: 0~36V
+  * 电源模块输出：4.9~5.5V
+  * USB 电源输入：4.75~5.25V
+  * 舵机轨道输入：0~36V
 * 重量和尺寸： 
   * 重量：15.8g
   * Dimensions: 44x84x12mm
@@ -59,15 +59,15 @@ Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-
 
 ![Pixhawk 4 尺寸](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
-## Voltage Ratings
+## 额定电压
 
-*Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+*Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. 三个供电轨道为：**POWER1**，**POWER2** 和 **USB**。
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 
-**Normal Operation Maximum Ratings**
+**正常运行最大额定值**
 
-Under these conditions all power sources will be used in this order to power the system:
+在这些条件下，所有电源将按此顺序用于为系统供电：
 
 1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
 2. **USB** input (4.75V to 5.25V)
