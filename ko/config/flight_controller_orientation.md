@@ -18,7 +18,7 @@ YAW, PITCH and/or ROLL offsets are calculated relative to the forward-facing-upr
 
 <ol start="1">
 <li><em>QGroundControl </em>을 시작하고 차량을 연결합니다.</li>
-<li>상단 툴바에서 <strong> 기어 </ 0> 아이콘 (차량 설정) 을 선택한 다음 사이드 바에서 <strong> 센서 </ 0>를 선택하십시오.</li>
+<li>Select the <strong>Gear</strong> icon (Vehicle Setup) in the top toolbar and then <strong>Sensors</strong> in the sidebar.</li>
 <li><strong> 방향 설정 </strong> 버튼을 선택합니다.
 <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;"/></li>
 <li><p><strong> AutoPilot Orientation</strong>을 선택합니다(<a href="#calculating-orientation">위에서 계산함</a>으로서).
@@ -34,9 +34,9 @@ YAW, PITCH and/or ROLL offsets are calculated relative to the forward-facing-upr
 
 <p>컨트롤러 방향에 작은 미스-정렬을 보상 하 고 비행 보기에서 수평선을 레벨 <a href="../config/level_horizon_calibration.md">수준 수평선 보정</a>을 사용할 수 있습니다.</p>
 
-<h2>추가 정보</h2>
+<h2>Further Information</h2>
 
 <ul>
 <li><a href="../advanced_config/advanced_flight_controller_orientation_leveling.md">방향 조정 고급</a> (고급 사용자만)입니다.</li>
-<li><a href="https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#flight_controller_orientation">QGroundControl 사용 설명서 > 센서</a></li>
+<li><a href="https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#flight_controller_orientation">QGroundControl User Guide > Sensors</a></li>
 </ul>
