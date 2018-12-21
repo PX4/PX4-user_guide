@@ -122,7 +122,7 @@ This kit includes Dropix flight controller with most of the required electronics
 
 The outputs of Dropix should be wired using the standard QuadPlane configuration (orientation as if "sitting in the plane").
 
-| Port   | 接口定义                   |
+| Port   | Connection             |
 | ------ | ---------------------- |
 | MAIN 1 | Front right motor, CCW |
 | MAIN 2 | Back left motor, CCW   |
