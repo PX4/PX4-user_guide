@@ -99,7 +99,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0>2
+      0 > 2
     </td>
     
     <td style="vertical-align: top;">
@@ -261,7 +261,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -269,15 +269,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -318,7 +318,7 @@
       </p>
       
       <p>
-        <strong> 참고: </strong> 3.3V ADC에 이 계수를 곱하면 배터리 전류가 결정됩니다. -1 값은 보드 기본값을 사용하는 것을 의미합니다.
+        <strong> 참고: </strong> 3.3V ADC에 이 계수를 곱하면 배터리 전류가 결정됩니다. A value of -1 means to use the board default.
       </p>
     </td>
     
@@ -348,7 +348,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -402,7 +402,7 @@
       </p>
       
       <p>
-        <strong> 참고: </strong> 이것은 배터리 전압이 아니라 중간 ADC 전압입니다. -1 값은 보드 기본값이 사용됨을 의미하며, 이는 매우 권장됩니다.
+        <strong> 참고: </strong> 이것은 배터리 전압이 아니라 중간 ADC 전압입니다. A value of -1 signifies that the board defaults are used, which is highly recommended.
       </p>
     </td>
     
@@ -464,7 +464,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -477,7 +477,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -496,7 +496,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -509,7 +509,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -527,7 +527,7 @@
         <strong> 참고: </strong>은 연결된 배터리가 구성하는 셀의 수를 정의합니다.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -581,7 +581,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -612,7 +612,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -643,7 +643,7 @@
         <strong> 참고: </strong> 이 매개 변수는 배터리 데이터 소스를 제어합니다. '전원 모듈' 값은 전원 모듈에서 측정될 것으로 예상됨을 의미합니다. 값이 '외부'로 설정되어 있으면 시스템에서 mavlink 배터리 상태 메시지를 수신하려고 합니다.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -682,7 +682,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -710,7 +710,7 @@
       </p>
       
       <p>
-        <strong> 참고: </strong> 배터리 전압에서 3.3V ADC 전압으로의 분배기입니다. 예를 들어 Mauch 전원 모듈을 사용하는 경우 데이터 시트의 값을 바로 여기에 적용할 수 있습니다. -1 값은 보드 기본값을 사용하는 것을 의미합니다.
+        <strong> 참고: </strong> 배터리 전압에서 3.3V ADC 전압으로의 분배기입니다. 예를 들어 Mauch 전원 모듈을 사용하는 경우 데이터 시트의 값을 바로 여기에 적용할 수 있습니다. A value of -1 means to use the board default.
       </p>
     </td>
     
@@ -740,7 +740,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -772,7 +772,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -821,7 +821,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -829,15 +829,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -855,7 +855,7 @@
         <strong>Comment:</strong> Sets the camera feedback mode.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -885,7 +885,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -893,15 +893,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -975,7 +975,7 @@
         <strong>Comment:</strong> Selects the trigger interface
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -993,7 +993,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1046,7 +1046,7 @@
         Camera trigger mode
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -1067,7 +1067,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1098,7 +1098,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1128,7 +1128,7 @@
         <strong>Comment:</strong> This parameter sets the polarity of the trigger (0 = active low, 1 = active high )
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -1158,7 +1158,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1166,15 +1166,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -1193,7 +1193,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1224,7 +1224,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1255,7 +1255,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1286,7 +1286,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1317,7 +1317,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1348,7 +1348,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1379,7 +1379,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1410,7 +1410,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1441,7 +1441,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1472,7 +1472,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1494,7 +1494,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -1502,15 +1502,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -1728,7 +1728,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      라디안/초
+      rad/s
     </td>
   </tr>
   
@@ -1796,7 +1796,7 @@
         <strong>Comment:</strong> The default uses the arm switch as real switch. If parameter set button gets handled like stick arming.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -1982,7 +1982,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -2055,7 +2055,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -2128,7 +2128,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -2201,7 +2201,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -2274,7 +2274,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -2347,7 +2347,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -2420,7 +2420,7 @@
         <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -2605,7 +2605,7 @@
         <strong>Comment:</strong> Action the system takes on low battery. Defaults to off
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -2674,7 +2674,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -2760,7 +2760,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -2790,7 +2790,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -2848,7 +2848,7 @@
         <strong>Comment:</strong> The default value of 0 requires a valid RC transmitter setup. Setting this to 1 allows joystick control and disables RC input handling and the associated checks. A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -2864,7 +2864,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0>2
+      0 > 2
     </td>
     
     <td style="vertical-align: top;">
@@ -2986,7 +2986,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -2994,15 +2994,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -3289,7 +3289,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -3297,15 +3297,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -3320,7 +3320,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -3381,7 +3381,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      라디안/초
+      rad/s
     </td>
   </tr>
   
@@ -3525,7 +3525,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -3552,7 +3552,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -3628,7 +3628,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -3656,7 +3656,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -3684,7 +3684,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -3882,7 +3882,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -4005,7 +4005,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -4156,7 +4156,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -4243,7 +4243,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -4546,7 +4546,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      라디안/초
+      rad/s
     </td>
   </tr>
   
@@ -4616,7 +4616,7 @@
         <strong>Comment:</strong> The range sensor option should only be used when for operation over a flat surface as the local NED origin will move up and down with ground level.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -4634,7 +4634,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -4729,7 +4729,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -4755,7 +4755,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -4783,7 +4783,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -4811,7 +4811,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -4862,7 +4862,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -4945,7 +4945,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -4960,7 +4960,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -5067,7 +5067,7 @@
         <strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetomer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests controlled by the EKF2_MOVE_TEST parameter indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. Other sources of yaw may be used if selected via the EKF2_AID_MASK parameter.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -5091,7 +5091,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -5126,7 +5126,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      라디안/초
+      rad/s
     </td>
   </tr>
   
@@ -5141,7 +5141,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -5268,7 +5268,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -5337,7 +5337,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      라디안/초
+      rad/s
     </td>
   </tr>
   
@@ -5361,7 +5361,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      라디안/초
+      rad/s
     </td>
   </tr>
   
@@ -5729,7 +5729,7 @@
         <strong>Comment:</strong> If this parameter is enabled then the estimator will make use of the range finder measurements to estimate it's height even if range sensor is not the primary height source. It will only do so if conditions for range measurement fusion are met. This enables the range finder to be used during low speed and low altitude operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX. If vehicle motion causes repeated switching between the primary height sensor and range finder, an offset in the local position origin can accumulate. Also range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -5845,7 +5845,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -6189,7 +6189,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -6197,15 +6197,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -6224,7 +6224,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -6254,7 +6254,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -6275,7 +6275,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -6283,15 +6283,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -6393,7 +6393,7 @@
         <strong>Comment:</strong> For small wings or VTOL without airspeed sensor this parameter can be used to enable flying without an airspeed reading
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -6678,7 +6678,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -6706,7 +6706,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -6730,7 +6730,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -6758,7 +6758,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -6786,7 +6786,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -6814,7 +6814,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -6842,7 +6842,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -6870,7 +6870,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -6898,7 +6898,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -7037,7 +7037,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -7314,7 +7314,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -7680,7 +7680,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -7688,15 +7688,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -7818,7 +7818,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        최소 airspeed scaling factor for landing
+        Min. airspeed scaling factor for landing
       </p>
       
       <p>
@@ -7835,7 +7835,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -7859,7 +7859,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -7877,7 +7877,7 @@
         <strong>Comment:</strong> When set to 0/disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When set to 1/enabled, it is already activated when entering the final loiter-down (loiter-to-alt) WP before the landing approach. This shifts the (often large) altitude and airspeed errors caused by the configuration change away from the ground such that these are not so critical. It also gives the controller enough time to adapt to the new configuration such that the landing approach starts with a cleaner initial state.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -7948,7 +7948,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -7976,7 +7976,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -8132,7 +8132,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -8160,7 +8160,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -8188,7 +8188,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -8243,7 +8243,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -8271,7 +8271,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -8299,7 +8299,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -8327,7 +8327,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -8355,7 +8355,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -8392,7 +8392,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -8400,15 +8400,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -8514,7 +8514,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -8552,7 +8552,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -8560,15 +8560,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -8708,7 +8708,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      라디안/초
+      rad/s
     </td>
   </tr>
   
@@ -8946,7 +8946,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      라디안/초
+      rad/s
     </td>
   </tr>
   
@@ -9138,7 +9138,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -9146,15 +9146,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -9220,7 +9220,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -9228,15 +9228,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -9354,7 +9354,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -9362,15 +9362,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -9424,7 +9424,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -9452,7 +9452,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -9610,7 +9610,7 @@
         <strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -9831,7 +9831,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -9839,15 +9839,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -9958,7 +9958,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -9986,7 +9986,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -10014,7 +10014,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -10042,7 +10042,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
 </table>
@@ -10052,7 +10052,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -10060,15 +10060,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -10086,7 +10086,7 @@
         <strong>Comment:</strong> Configure on which serial port to run Main GPS.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -10116,7 +10116,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -10145,7 +10145,7 @@
         <strong>Comment:</strong> Configure on which serial port to run Secondary GPS.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -10175,7 +10175,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -10204,7 +10204,7 @@
         <strong>Comment:</strong> If this is set to 1, all GPS communication data will be published via uORB, and written to the log file as gps_dump message.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -10242,7 +10242,7 @@
         <strong>Comment:</strong> u-blox receivers support different dynamic platform models to adjust the navigation engine to the expected application environment.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -10263,7 +10263,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -10294,7 +10294,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -10307,7 +10307,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
 </table>
@@ -10317,7 +10317,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -10325,15 +10325,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -10389,7 +10389,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -10417,7 +10417,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -10445,7 +10445,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
 </table>
@@ -10455,7 +10455,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -10463,15 +10463,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -10489,11 +10489,11 @@
         <strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using a software circuit breaker, which needs to be reset to 0 to really shut down the system.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> 없음
+          <strong>0:</strong> None
         </li>
         <li>
           <strong>1:</strong> Warning
@@ -10536,7 +10536,7 @@
         <strong>Comment:</strong> Select which altitude reference should be used 0 = WGS84, 1 = AMSL
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -10657,7 +10657,7 @@
         <strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -10687,7 +10687,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -10695,15 +10695,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -10721,7 +10721,7 @@
         <strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -10751,7 +10751,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -10844,7 +10844,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -10852,15 +10852,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -11201,7 +11201,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -11209,15 +11209,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -11290,7 +11290,7 @@
         <strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving: The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -11430,7 +11430,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -11438,15 +11438,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -11613,7 +11613,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0>2
+      0 > 2
     </td>
     
     <td style="vertical-align: top;">
@@ -11988,7 +11988,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -12060,7 +12060,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -12442,7 +12442,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -12450,15 +12450,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -12476,7 +12476,7 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -12506,7 +12506,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -12565,7 +12565,7 @@
         <strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -12653,7 +12653,7 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -12683,7 +12683,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -12742,7 +12742,7 @@
         <strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -12830,7 +12830,7 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -12860,7 +12860,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -12919,7 +12919,7 @@
         <strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13007,7 +13007,7 @@
         <strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13044,7 +13044,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -13148,7 +13148,7 @@
         MAVLink protocol version
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13212,7 +13212,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -13238,7 +13238,7 @@
         MAVLink airframe type
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13372,7 +13372,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -13380,15 +13380,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -13420,7 +13420,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -13428,15 +13428,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -13450,7 +13450,7 @@
         Low pass filter frequency for Accelerometer
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13501,7 +13501,7 @@
         Low pass filter frequency for Gyro
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13552,7 +13552,7 @@
         Sample rate in Hz
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13587,7 +13587,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -13595,15 +13595,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -13621,7 +13621,7 @@
         <strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13661,7 +13661,7 @@
         <strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13710,7 +13710,7 @@
         <strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13747,7 +13747,7 @@
         <strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13784,7 +13784,7 @@
         <strong>Comment:</strong> 0: the system will follow a zero order hold altitude setpoint 1: the system will follow a first order hold altitude setpoint values follow the definition in enum mission_altitude_mode
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13906,7 +13906,7 @@
         <strong>Comment:</strong> If enabled, yaw commands will be sent to the mount and the vehicle will follow its heading mode as specified by MIS_YAWMODE. If disabled, the vehicle will yaw towards the ROI.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -13978,7 +13978,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -14024,7 +14024,7 @@
         <strong>Comment:</strong> Specifies the heading in Auto.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -14096,7 +14096,7 @@
         <strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -14282,7 +14282,7 @@
         <strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -14362,7 +14362,7 @@
         <strong>Comment:</strong> Enabling this will allow the system to respond to transponder data from e.g. ADSB transponders
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -14397,7 +14397,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -14405,15 +14405,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -14449,7 +14449,7 @@
         Auxiliary channel to control pitch (in AUX input or manual mode)
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -14495,7 +14495,7 @@
         Auxiliary channel to control roll (in AUX input or manual mode)
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -14541,7 +14541,7 @@
         Auxiliary channel to control yaw (in AUX input or manual mode)
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -14643,7 +14643,7 @@
         <strong>Comment:</strong> RC uses the AUX input channels (see MNT_MAN_* parameters), MAVLINK_ROI uses the MAV_CMD_DO_SET_ROI Mavlink message, and MAVLINK_DO_MOUNT the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL messages to control a mount.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -14664,7 +14664,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -14694,7 +14694,7 @@
         <strong>Comment:</strong> AUX uses the mixer output Control Group #2. MAVLINK uses the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL MavLink messages to control a mount (set MNT_MAV_SYSID & MNT_MAV_COMPID)
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -14908,7 +14908,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -14916,15 +14916,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -15122,7 +15122,7 @@
         <strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -15994,7 +15994,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -16002,15 +16002,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -16148,7 +16148,7 @@
         <strong>Comment:</strong> Set to 0 to control height relative to the earth frame origin. This origin may move up and down in flight due to sensor drift. Set to 1 to control height relative to estimated distance to ground. The vehicle will move up and down with terrain height variation. Requires a distance to ground sensor. The height controller will revert to using height above origin if the distance to ground estimate becomes invalid as indicated by the local_position.distance_bottom_valid message being false. Set to 2 to control height relative to ground (requires a distance sensor) when stationary and relative to earth frame origin when moving horizontally. The speed threshold is controlled by the MPC_HOLD_MAX_XY parameter.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -16164,7 +16164,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0>2
+      0 > 2
     </td>
     
     <td style="vertical-align: top;">
@@ -16185,7 +16185,7 @@
         Auto sub-mode
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -16547,7 +16547,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -16571,7 +16571,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -16635,7 +16635,7 @@
         <strong>Comment:</strong> The supported sub-modes are: 0 Default position control where sticks map to position/velocity directly. Maximum speeds is MPC_VEL_MANUAL. 1 Smooth position control where setpoints are adjusted based on acceleration limits and jerk limits. 2 Sport mode that is the same Default position control but with velocity limits set to the maximum allowed speeds (MPC_XY_VEL_MAX) 3 Smooth position control with maximum acceleration and jerk limits (different algorithm than 1).
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -16678,7 +16678,7 @@
         <strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to commanded thrust in Manual/Stabilized flight mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: in case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -16725,7 +16725,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -16753,7 +16753,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -16781,7 +16781,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -16809,7 +16809,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -16837,7 +16837,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -17413,7 +17413,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -17447,7 +17447,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -17455,15 +17455,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -17481,7 +17481,7 @@
         <strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. ONLY supported for fmu output (Pixracer or Omnibus F4). When changing this, make sure to test the motor response without props first.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -17548,7 +17548,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17580,7 +17580,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17612,7 +17612,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17644,7 +17644,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17676,7 +17676,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17708,7 +17708,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17740,7 +17740,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17772,7 +17772,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17804,7 +17804,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17836,7 +17836,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17868,7 +17868,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17900,7 +17900,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17932,7 +17932,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17964,7 +17964,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -17996,7 +17996,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18028,7 +18028,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18060,7 +18060,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18092,7 +18092,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18124,7 +18124,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18156,7 +18156,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18188,7 +18188,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18220,7 +18220,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18252,7 +18252,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18284,7 +18284,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18316,7 +18316,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18348,7 +18348,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18380,7 +18380,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18412,7 +18412,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18444,7 +18444,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18476,7 +18476,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18508,7 +18508,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18540,7 +18540,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18572,7 +18572,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18604,7 +18604,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18636,7 +18636,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -18668,7 +18668,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19124,7 +19124,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19156,7 +19156,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19188,7 +19188,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19220,7 +19220,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19252,7 +19252,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19284,7 +19284,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19316,7 +19316,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19348,7 +19348,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19380,7 +19380,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19412,7 +19412,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19444,7 +19444,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19476,7 +19476,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19508,7 +19508,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19540,7 +19540,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19572,7 +19572,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19604,7 +19604,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19636,7 +19636,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19668,7 +19668,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19700,7 +19700,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19732,7 +19732,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19764,7 +19764,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19796,7 +19796,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19828,7 +19828,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19860,7 +19860,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19892,7 +19892,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19924,7 +19924,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19956,7 +19956,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -19988,7 +19988,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -20020,7 +20020,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -20052,7 +20052,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -20084,7 +20084,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -20116,7 +20116,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -20148,7 +20148,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -20604,7 +20604,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -20636,7 +20636,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -20668,7 +20668,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -20744,7 +20744,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -20752,15 +20752,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -20936,7 +20936,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -20944,15 +20944,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -20971,7 +20971,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -21029,7 +21029,7 @@
         <strong>Comment:</strong> Set to 0 if using fake GPS
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -21707,7 +21707,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -21715,15 +21715,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -21900,7 +21900,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -21908,15 +21908,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -21952,7 +21952,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -21960,15 +21960,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -21986,7 +21986,7 @@
         <strong>Comment:</strong> Configure on which serial port to run FastRTPS.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -22016,7 +22016,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -22045,7 +22045,7 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink + FastRTPS.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -22075,7 +22075,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -22096,7 +22096,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -22104,15 +22104,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -22213,7 +22213,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -22362,7 +22362,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -22511,7 +22511,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -22660,7 +22660,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -22809,7 +22809,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -22958,7 +22958,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -23107,7 +23107,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -23256,7 +23256,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -23405,7 +23405,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -23555,7 +23555,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -23705,7 +23705,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -23855,7 +23855,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -24005,7 +24005,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -24154,7 +24154,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -24303,7 +24303,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -24452,7 +24452,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -24601,7 +24601,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -24750,7 +24750,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -24927,7 +24927,7 @@
         <strong>Comment:</strong> Default function: Camera pitch
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25016,7 +25016,7 @@
         <strong>Comment:</strong> Default function: Camera roll
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25105,7 +25105,7 @@
         <strong>Comment:</strong> Default function: Camera azimuth / yaw
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25190,7 +25190,7 @@
         AUX4 Passthrough RC channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25275,7 +25275,7 @@
         AUX5 Passthrough RC channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25364,7 +25364,7 @@
         <strong>Comment:</strong> The RC mapping index indicates which channel is used for failsafe If 0, whichever channel is mapped to throttle is used otherwise the value indicates the specific RC channel to use
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25453,7 +25453,7 @@
         <strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 1st parameter channel. Set to 0 to deactivate *
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25542,7 +25542,7 @@
         <strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 2nd parameter channel. Set to 0 to deactivate *
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25631,7 +25631,7 @@
         <strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 3th parameter channel. Set to 0 to deactivate *
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25720,7 +25720,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading pitch inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25809,7 +25809,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading roll inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25898,7 +25898,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading throttle inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -25987,7 +25987,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading yaw inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -26076,7 +26076,7 @@
         <strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -26292,7 +26292,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -26300,15 +26300,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -26538,7 +26538,7 @@
         Acro switch channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -26627,7 +26627,7 @@
         <strong>Comment:</strong> Use it to arm/disarm via switch instead of default throttle stick. If this is assigned, arming and disarming via stick is disabled.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -26712,7 +26712,7 @@
         Flaps channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -26801,7 +26801,7 @@
         <strong>Comment:</strong> If this parameter is non-zero, flight modes are only selected by this channel and are assigned to six slots.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -26886,7 +26886,7 @@
         Landing gear switch channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -26971,7 +26971,7 @@
         Kill switch channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -27056,7 +27056,7 @@
         Loiter switch channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -27141,7 +27141,7 @@
         Manual switch channel mapping
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -27230,7 +27230,7 @@
         <strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -27315,7 +27315,7 @@
         Offboard switch channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -27400,7 +27400,7 @@
         Position Control switch channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -27485,7 +27485,7 @@
         Rattitude switch channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -27570,7 +27570,7 @@
         Return switch channel
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -27655,7 +27655,7 @@
         Stabilize switch channel mapping
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -27740,7 +27740,7 @@
         VTOL transition switch channel mapping
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -27983,7 +27983,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -27991,15 +27991,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -28121,7 +28121,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -28129,15 +28129,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -28155,7 +28155,7 @@
         <strong>Comment:</strong> Fly straight to the home location or planned mission landing and land there or use the planned mission to get to those points.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -28187,7 +28187,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -28195,15 +28195,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -28214,7 +28214,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        최소 이륙을위한 속도의 스케일링 계수. Pitch up will be commanded when the following airspeed is reached: FW_AIRSPD_MIN * RWTO_AIRSPD_SCL
+        Min. airspeed scaling factor for takeoff. Pitch up will be commanded when the following airspeed is reached: FW_AIRSPD_MIN * RWTO_AIRSPD_SCL
       </p>
     </td>
     
@@ -28227,7 +28227,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -28245,7 +28245,7 @@
         <strong>Comment:</strong> 0: airframe heading, 1: heading towards takeoff waypoint
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -28289,7 +28289,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -28313,7 +28313,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -28324,7 +28324,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        활주로 이륙 중 최대 스로틀. (Can be used to test taxi on runway)
+        Max throttle during runway takeoff. (Can be used to test taxi on runway)
       </p>
     </td>
     
@@ -28337,7 +28337,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      일반적인 것
+      norm
     </td>
   </tr>
   
@@ -28385,7 +28385,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -28417,7 +28417,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -28425,15 +28425,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -28452,7 +28452,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -28482,7 +28482,7 @@
         <strong>Comment:</strong> If enabled, a small additional "mission" log file will be written to the SD card. The log contains just those messages that are useful for tasks like generating flight statistics and geotagging. The different modes can be used to further reduce the logged data (and thus the log file size). For example, choose geotagging mode to only log data required for geotagging. Note that the normal/full log is still created, and contains all the data in the mission log (and more).
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -28497,7 +28497,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -28526,7 +28526,7 @@
         <strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -28541,7 +28541,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -28600,7 +28600,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -28676,7 +28676,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -28684,15 +28684,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -28726,7 +28726,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -28734,15 +28734,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -29926,7 +29926,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -30013,7 +30013,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -30219,7 +30219,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -30306,7 +30306,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -30512,7 +30512,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -30599,7 +30599,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -30805,7 +30805,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -30892,7 +30892,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31162,7 +31162,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      라디안/초
+      rad/s
     </td>
   </tr>
   
@@ -31200,7 +31200,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -31208,15 +31208,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -31234,7 +31234,7 @@
         <strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31326,7 +31326,7 @@
         <strong>Comment:</strong> DETECT_ORIENTATION_TAIL_DOWN = 1 DETECT_ORIENTATION_NOSE_DOWN = 2 DETECT_ORIENTATION_LEFT = 4 DETECT_ORIENTATION_RIGHT = 8 DETECT_ORIENTATION_UPSIDE_DOWN = 16 DETECT_ORIENTATION_RIGHTSIDE_UP = 32
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31368,7 +31368,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31400,7 +31400,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31455,7 +31455,7 @@
         <strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31566,7 +31566,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31604,7 +31604,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -31631,7 +31631,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -31658,7 +31658,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      도
+      deg
     </td>
   </tr>
   
@@ -31673,7 +31673,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31698,7 +31698,7 @@
         Lidar-Lite (LL40LS)
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31713,12 +31713,12 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      0>2
+      0 > 2
     </td>
     
     <td style="vertical-align: top;">
@@ -31740,7 +31740,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31766,7 +31766,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31791,7 +31791,7 @@
         Lightware Laser Rangefinder hardware model
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31812,7 +31812,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31837,7 +31837,7 @@
         Lightware SF1xx/SF20/LW20 laser rangefinder (i2c)
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31861,7 +31861,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31887,7 +31887,7 @@
         Thermal control of sensor temperature
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31920,7 +31920,7 @@
         TeraRanger Rangefinder (i2c)
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31941,7 +31941,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31971,7 +31971,7 @@
         <strong>Comment:</strong> This parameter defines the yaw rotation of the PX4FLOW board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle. The recommneded installation default for the PX4FLOW board is with the Y axis forward (270 deg yaw).
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32001,7 +32001,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32126,7 +32126,7 @@
         <strong>Comment:</strong> Configure on which serial port to run LeddarOne Rangefinder.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32156,7 +32156,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32185,7 +32185,7 @@
         <strong>Comment:</strong> Configure on which serial port to run Lightware Laser Rangefinder.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32215,7 +32215,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32266,7 +32266,7 @@
         <strong>Comment:</strong> Configure on which serial port to run Benewake TFmini Rangefinder.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32296,7 +32296,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32325,7 +32325,7 @@
         <strong>Comment:</strong> Configure on which serial port to run uLanding Radar.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32355,7 +32355,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32376,7 +32376,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -32384,15 +32384,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -32410,7 +32410,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the GPS 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32494,7 +32494,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32523,7 +32523,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32607,7 +32607,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32636,7 +32636,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the TELEM 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32720,7 +32720,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32749,7 +32749,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the TELEM 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32833,7 +32833,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32862,7 +32862,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32946,7 +32946,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32975,7 +32975,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the TELEM/SERIAL 4 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -33059,7 +33059,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -33088,7 +33088,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the UART 6 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -33172,7 +33172,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -33193,7 +33193,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -33201,15 +33201,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -33253,7 +33253,7 @@
         <strong>Comment:</strong> See esc_model_t enum definition in uart_esc_dev.h for all supported ESC model enum values.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -33373,7 +33373,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -33381,15 +33381,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -33444,7 +33444,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -33452,15 +33452,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -33532,7 +33532,7 @@
         <strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -33571,7 +33571,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -33602,7 +33602,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -33794,7 +33794,7 @@
         <strong>Comment:</strong> This parameter is deprecated. Do not change it, use the more generic serial configuration parameters instead.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -33857,7 +33857,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -33888,7 +33888,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -33918,7 +33918,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -33948,7 +33948,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -33978,7 +33978,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34007,7 +34007,7 @@
         <strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -34019,7 +34019,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34076,7 +34076,7 @@
         <strong>Comment:</strong> Set by px4io to indicate type of restart
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -34092,7 +34092,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0>2
+      0 > 2
     </td>
     
     <td style="vertical-align: top;">
@@ -34140,7 +34140,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34162,7 +34162,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -34170,15 +34170,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -34196,7 +34196,7 @@
         <strong>Comment:</strong> Configure on which serial port to run FrSky Telemetry.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -34226,7 +34226,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34255,7 +34255,7 @@
         <strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -34285,7 +34285,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34301,12 +34301,12 @@
   </tr>
 </table>
 
-## 시험
+## Testing
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -34314,15 +34314,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -34710,7 +34710,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -34718,15 +34718,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -38039,7 +38039,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -38047,15 +38047,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -38170,7 +38170,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -38201,7 +38201,7 @@
         <strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -38219,7 +38219,7 @@
       </ul>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -38246,7 +38246,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -38276,7 +38276,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -38298,7 +38298,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -38306,15 +38306,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -39134,7 +39134,7 @@
         VTOL Type (Tailsitter=0, Tiltrotor=1, Standard=2)
       </p>
       
-      <strong>값:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -39150,7 +39150,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0>2
+      0 > 2
     </td>
     
     <td style="vertical-align: top;">
@@ -39195,7 +39195,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -39203,15 +39203,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
@@ -39278,7 +39278,7 @@
       </p>
       
       <p>
-        <b>재부팅 필요: </b> true
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -39393,12 +39393,12 @@
   </tr>
 </table>
 
-## 여러가지 종류의
+## Miscellaneous
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      성명
+      Name
     </th>
     
     <th>
@@ -39406,15 +39406,15 @@
     </th>
     
     <th>
-      최소 > 최대(흡입)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      기본
+      Default
     </th>
     
     <th>
-      단위
+      Units
     </th>
   </tr>
   
