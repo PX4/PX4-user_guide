@@ -69,7 +69,7 @@ All connectors follow the [Dronecode connector standard](https://wiki.dronecode.
 
 TELEM1, TELEM2+OSD ports
 
-| 针脚      | 信号        | 电压    |
+| Pin     | Signal    | Volt  |
 | ------- | --------- | ----- |
 | 1 (red) | VCC       | +5V   |
 | 2 (blk) | TX (OUT)  | +3.3V |
@@ -80,7 +80,7 @@ TELEM1, TELEM2+OSD ports
 
 GPS port
 
-| 针脚      | 信号       | 电压    |
+| Pin     | Signal   | Volt  |
 | ------- | -------- | ----- |
 | 1 (red) | VCC      | +5V   |
 | 2 (blk) | TX (OUT) | +3.3V |
@@ -91,7 +91,7 @@ GPS port
 
 FrSky Telemetry / SERIAL4
 
-| 针脚      | 信号       | 电压    |
+| Pin     | Signal   | Volt  |
 | ------- | -------- | ----- |
 | 1 (red) | VCC      | +5V   |
 | 2 (blk) | TX (OUT) | +3.3V |
@@ -100,7 +100,7 @@ FrSky Telemetry / SERIAL4
 
 RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
 
-| 针脚      | 信号      | 电压    |
+| Pin     | Signal  | Volt  |
 | ------- | ------- | ----- |
 | 1 (red) | VCC     | +5V   |
 | 2 (blk) | RC IN   | +3.3V |
@@ -110,16 +110,16 @@ RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
 
 CAN
 
-| 针脚      | 信号    | 电压   |
-| ------- | ----- | ---- |
-| 1 (red) | VCC   | +5V  |
-| 2 (blk) | CAN_H | +12V |
-| 3 (blk) | CAN_L | +12V |
-| 4 (blk) | GND   | GND  |
+| Pin     | Signal | Volt |
+| ------- | ------ | ---- |
+| 1 (red) | VCC    | +5V  |
+| 2 (blk) | CAN_H  | +12V |
+| 3 (blk) | CAN_L  | +12V |
+| 4 (blk) | GND    | GND  |
 
 POWER
 
-| 针脚      | 信号      | 电压    |
+| Pin     | Signal  | Volt  |
 | ------- | ------- | ----- |
 | 1 (red) | VCC     | +5V   |
 | 2 (blk) | VCC     | +5V   |
@@ -130,7 +130,7 @@ POWER
 
 SWITCH
 
-| 针脚      | 信号               | 电压    |
+| Pin     | Signal           | Volt  |
 | ------- | ---------------- | ----- |
 | 1 (red) | SAFETY           | GND   |
 | 2 (blk) | !IO_LED_SAFETY | GND   |
@@ -140,7 +140,7 @@ SWITCH
 
 Dronecode debug port (JST SM06B connector)
 
-| 针脚      | 信号               | 电压    |
+| Pin     | Signal           | Volt  |
 | ------- | ---------------- | ----- |
 | 1 (red) | VCC TARGET SHIFT | +3.3V |
 | 2 (blk) | CONSOLE TX (OUT) | +3.3V |
@@ -164,7 +164,7 @@ The following PDF files are provided for *convenience only*:
 * [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
 * [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
 
-## 编译固件
+## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
