@@ -16,9 +16,9 @@ RC 系统有一个地基远程控制单元，需要操作员来命令飞行器�
 
 > **Note** The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The remote control unit and it's included radio module are also referred to as a "transmitter".
 
-RC 系统的一个重要质量是它支持多少个通道。 The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used).
+RC 系统的一个重要质量是它支持多少个通道。 通道的数量是由它可以发送指令到设备的物理控制的数量决定。
 
-An aircraft must use a system that supports at least 4 channels (for roll, pitch, yaw, thrust). Ground vehicles need at least two channels (steering + throttle). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot.
+一个飞行器最少支持4个通道（横滚、俯仰、偏航、油门）。 地面设备最少需要两个通道（转向和油门）。 8或16通道的遥控器可以提供额外的通道，用来控制其他机械结构或激活自驾仪上不同的[飞行模式](../flight_modes/README.md)。
 
 ## 远程控制的类型
 
