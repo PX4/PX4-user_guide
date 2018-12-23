@@ -10,7 +10,7 @@ The vehicle obeys a position, velocity or attitude setpoint provided over MAVLin
 
 > **Note** * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc. * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes). * The vehicle must be armed before this mode can be engaged. * The vehicle must be already be receiving a stream of target setpoints before this mode can be engaged. * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
 
-## Description
+## 描述
 
 Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink commands (more may be supported in future). It can be used to:
 
@@ -29,13 +29,13 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
 
 *Offboard mode* is affected by the following parameters:
 
-| Parameter                                                                                             | Description                                                                                                                                                                                                                                              |
+| 参数                                                                                                    | 描述                                                                                                                                                                                                                                                       |
 | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="COM_OF_LOSS_T"></span>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | Time-out (in seconds) to wait when offboard connection is lost before triggering offboard lost failsafe (`COM_OBL_ACT` and `COM_OBL_RC_ACT`)                                                                                                             |
 | <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | Mode to switch to if offboard control is lost when *not* connected to RC (Values are - 0: [Land](../flight_modes/land.md), 1: [Hold](../flight_modes/hold.md), 2: [Return ](../flight_modes/return.md)).                                                 |
 | <span id="COM_OBL_RC_ACT"></span>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Mode to switch to if offboard control is lost while still connected to RC control (Values are - 0: *Position*, 1: [Altitude](../flight_modes/altitude_mc.md), 2: *Manual*, 3: [Return ](../flight_modes/return.md), 4: [Land](../flight_modes/land.md)). |
 
-## Developer Resources
+## 开发者资源
 
 Typically developers do not directly work at the MAVLink layer, but instead use a robotics API like [Dronecode SDK](https://sdk.dronecode.org/en/) or [ROS](http://www.ros.org/) (these provide a developer friendly API, and take care of managing and maintaining connections, sending messages and monitoring responses - the minutiae of working with *Offboard mode* and MAVLink).
 
