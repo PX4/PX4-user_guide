@@ -48,15 +48,15 @@ RC 系统的一个重要质量是它支持多少个通道。 通道的数量是�
 
 ### 成对的发射机/接收机
 
-*FrSky Taranis X9D*是最受欢迎的 RC 单元之一。 It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
+*FrSky Taranis X9D*是最受欢迎的 RC 单元之一。 它拥有内置的发射机模块和可以配对的*FrSky X4R-SB*（(S-BUS，低延迟）或*X4R*（PPM-Sum，老式）外置接收机。 它还有一个可以自定义的无线发射机模块接口和自定义的OpenTX 开源固件。
 
-> **Note** This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) radio modules.
+> **注意** 使用[ FrSky ](../peripherals/frsky_telemetry.md)的无线模块可以开启遥测功能。
 
-Other popular transmitter/receiver pairs
+其他受欢迎的成对发射机/接收机。
 
 * Turnigy remote using, for example, the FrSky transmitter/receiver modules.
-* Futaba Transmitters and compatible Futaba S-Bus receivers.
-* Long range ~900MHz, low latency: "Team Black Sheep Crossfire" or "Crossfire Micro" set with a compatible remote (e.g. Taranis)
+* Futaba 发射机和兼容 Futaba S-Bus 接收机。
+* 远距离~900MHz，低延迟：“黑羊的Crossfire”或“Crossfire Micro”。（例如，Taranis）。
 * Long Range ~433MHz: ImmersionRC EzUHF set with a compatible remote (e.g. Taranis)
 
 ### PX4兼容的接收机 {#compatible_receivers}
