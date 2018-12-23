@@ -1,12 +1,12 @@
-# 无线控制系统
+# 遥控系统
 
-如果你使用一个手持发射机手动控制你的飞机（车辆），那么你需要一个远程控制系统（简称RC）。 这个章节解释了一些关于 RC 如何工作，如何为你的飞行器（车辆）悬着一个合适的无线电系统和怎么让它和你的飞控控制。
+如果你使用一个手持发射机 *手动* 控制你的飞机，那么你需要一个遥控系统（简称RC）。 这个章节解释了一些关于 RC 如何工作，如何为你的飞行器（车辆）悬着一个合适的无线电系统和怎么让它和你的飞控控制。
 
-> **提示** PX4 在自动飞行模式可以不需要遥控器。 你可以在[参数设置](../advanced_config/parameters.md)里禁用 RC 检查：[COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE)设为1。
+> **Tip** PX4 在自动飞行模式可以不需要遥控器。 你可以在 [参数设置](../advanced_config/parameters.md) 里禁用遥控检查：[COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) 设为 1。
 
 ## 遥控系统是如何工作的？
 
-RC 系统有一个地基远程控制单元，需要操作员来命令飞行器。 遥控器通过物理控制来指定飞机的运动（例如，速度、方向、油门、偏航、俯仰和横滚等），也可以切换自驾仪的飞行模式（例如，起飞、着陆、返航、任务等）。 带有*遥测功能*的 RC系统，远程控制单元也可以接收并显示飞机的信息（例如，电池电量、飞行模式）。
+*遥控系统*有一个地基*远程控制单元*，需要操作员来命令飞行器。 遥控器通过物理控制来指定飞机的运动（例如，速度、方向、油门、偏航、俯仰和横滚等），也可以切换自驾仪的[飞行模式](../flight_modes/README.md)（例如，起飞、着陆、返航、任务等）。 带有*遥测功能*的 遥控系统，远程控制单元也可以接收并显示飞机的信息（例如，电池电量、飞行模式）。
 
 ![Taranis X9D遥控器。](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
@@ -14,9 +14,9 @@ RC 系统有一个地基远程控制单元，需要操作员来命令飞行器�
 
 <!-- image showing the different parts here would be nice -->
 
-> **注意** 地面和空中的无线模块也被称作“发射机”和“接收机”（即使它们支持双向通信），也被称作*成对的发射机/接收机*。 远程控制单元和它包含的无线模块也被称作“发射机”。
+> **Note** 地面和空中的无线模块也被称作“发射机”和“接收机”（即使它们支持双向通信），也被称作*成对的发射机/接收机*。 远程控制单元和它包含的无线模块也被称作“发射机”。
 
-RC 系统的一个重要质量是它支持多少个通道。 通道的数量是由它可以发送指令到设备的物理控制的数量决定。
+遥控系统的一个重要质量指标是它支持多少个通道。 通道的数量是由它可以发送指令到飞机的物理控制的数量决定。
 
 一个飞行器最少支持4个通道（横滚、俯仰、偏航、油门）。 地面设备最少需要两个通道（转向和油门）。 8或16通道的遥控器可以提供额外的通道，用来控制其他机械结构或激活自驾仪上不同的[飞行模式](../flight_modes/README.md)。
 
@@ -26,13 +26,13 @@ RC 系统的一个重要质量是它支持多少个通道。 通道的数量是�
 
 无人机最受欢迎的远程控制单元*形式*如下所示。 横滚/俯仰和油门/偏航的控制分别布置在摇杆上（飞行器最少需要4个通道）。
 
-![RC 基本命令](../../images/rc_basic_commands.png)
+![遥控基本命令](../../images/rc_basic_commands.png)
 
-摇杆、开关等有许多可能的布局。 最常用的布局被给予了特定的“模式”号。 *Mode 1*和* Mode 2*只在油门的位置有差别。
+摇杆、开关等有许多可能的布局。 最常用的布局被给予了特定的“模式”号。 *日本手*和*美国手*只在油门的位置有差别。
 
-![模式1-模式2](../../images/mode1_mode2.png)
+![日本手-美国手](../../images/mode1_mode2.png)
 
-> **注意** 选择什么模式看你的喜好（ Mode 2更受欢迎点）。
+> **Note** 选择什么模式看你的喜好（ 美国手更受欢迎点）。
 
 ## 地面设备的远程控制单元
 
@@ -42,15 +42,15 @@ RC 系统的一个重要质量是它支持多少个通道。 通道的数量是�
 
 ## 选择 RC 系统组件
 
-你需要选择互相兼容的成对发射机/接收机。 另外，接收机必须兼容 PX4和飞行控制器硬件。
+你需要选择互相兼容的成对发射机/接收机。 另外，接收机必须兼容 [PX4](#compatible_receivers)和飞行控制器硬件。
 
 兼容的无线系统通常一起销售。 例如，[FrSky Taranis X9D 和 FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us)是一个受欢迎的选择。
 
 ### 成对的发射机/接收机
 
-*FrSky Taranis X9D*是最受欢迎的 RC 单元之一。 它拥有内置的发射机模块和可以配对的*FrSky X4R-SB*（(S-BUS，低延迟）或*X4R*（PPM-Sum，老式）外置接收机。 它还有一个可以自定义的无线发射机模块接口和自定义的OpenTX 开源固件。
+*FrSky Taranis X9D*是最受欢迎的 RC 单元之一。 它拥有内置的发射机模块和可以配对的*FrSky X4R-SB*（(S-BUS，低延迟）或*X4R*（PPM-Sum，老式）外置接收机。 它还有一个可以自定义的无线发射机模块接口和自定义的 OpenTX 开源固件。
 
-> **注意** 使用[ FrSky ](../peripherals/frsky_telemetry.md)的无线模块可以开启遥测功能。
+> **Note** 使用[ FrSky ](../peripherals/frsky_telemetry.md)的无线模块可以开启遥测功能。
 
 其他受欢迎的成对发射机/接收机。
 
@@ -59,11 +59,11 @@ RC 系统的一个重要质量是它支持多少个通道。 通道的数量是�
 * 远距离~900MHz，低延迟：“黑羊的Crossfire”或“Crossfire Micro”。（例如，Taranis）。
 * 长距离 ~433MHz：ImmersionRC EzUHF(例如，Taranis)。
 
-### PX4兼容的接收机 {#compatible_receivers}
+### PX4 兼容的接收机 {#compatible_receivers}
 
 另外接收机和发射机需要兼容，接收机也必须和 PX4 和其他控制硬件兼容。
 
-PX4 和 Pixhawk兼容的接收机如下所示：
+PX4 和 *Pixhawk*兼容的接收机如下所示：
 
 * 所有的 Spektrum 和 DSM 无线接收机。
 * 所有的 Futaba S.BUS 和 S.BUS2 接收机。
@@ -95,6 +95,6 @@ PX4 和 Pixhawk兼容的接收机如下所示：
 
 ## 相关章节
 
-* [RC 系统选择](../getting_started/rc_transmitter_receiver.md)-选择一个兼容的 RC 系统
-* [遥控器设置](../config/radio.md)-使用 PX4设置你的遥控器
-* [ 飞行 101](../flying/basic_flying.md)-学习如何使用遥控器飞行。
+* [遥控系统选择](../getting_started/rc_transmitter_receiver.md) - 选择一个兼容的遥控系统。
+* [遥控器设置](../config/radio.md) - 使用 PX4设置你的遥控器。
+* [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
