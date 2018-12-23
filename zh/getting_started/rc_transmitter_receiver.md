@@ -24,7 +24,7 @@ RC 系统的一个重要质量是它支持多少个通道。 通道的数量是�
 
 ### 飞机的远程控制单元 {#transmitter_modes}
 
-The most popular *form* of remote control unit for UAVs is shown below. It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (i.e. aircraft need at least 4 channels).
+无人机最受欢迎的远程控制单元*形式*如下所示。 It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (i.e. aircraft need at least 4 channels).
 
 ![RC Basic Commands](../../images/rc_basic_commands.png)
 
@@ -32,7 +32,7 @@ There are numerous possible layouts for the control sticks, switches, etc. The m
 
 ![模式1-模式2](../../images/mode1_mode2.png)
 
-> **Note** The choice of mode is largely one of taste (*Mode 2* is more popular).
+> **注意**选择什么模式看你的喜好（ Mode 2更受欢迎点）。
 
 ## 地面设备的远程控制单元
 
