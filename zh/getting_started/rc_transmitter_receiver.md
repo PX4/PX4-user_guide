@@ -24,19 +24,19 @@ RC 系统的一个重要质量是它支持多少个通道。 通道的数量是�
 
 ### 飞机的远程控制单元 {#transmitter_modes}
 
-无人机最受欢迎的远程控制单元*形式*如下所示。 It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (i.e. aircraft need at least 4 channels).
+无人机最受欢迎的远程控制单元*形式*如下所示。 横滚/俯仰和油门/偏航的控制分别布置在摇杆上（飞行器最少需要4个通道）。
 
 ![RC Basic Commands](../../images/rc_basic_commands.png)
 
-There are numerous possible layouts for the control sticks, switches, etc. The more common layouts have been given specific "Mode" numbers. *Mode 1* and *Mode 2* (shown below) differ only in the placement of the throttle.
+摇杆、开关等有许多可能的布局。 最常用的布局被给予了特定的“模式”号。 *Mode 1*和* Mode 2*只在油门的位置有差别。
 
 ![模式1-模式2](../../images/mode1_mode2.png)
 
-> **注意**选择什么模式看你的喜好（ Mode 2更受欢迎点）。
+> **注意** 选择什么模式看你的喜好（ Mode 2更受欢迎点）。
 
 ## 地面设备的远程控制单元
 
-An Unmanned Ground Vehicle (UGV)/car minimally requires a 2 channel transmitter in order to send the values for steering and speed. Commonly transmitters set these values using a wheel and trigger, two single-axis control sticks, or a single dual-axis control stick.
+一个 UGV/车辆最少需要两个发射机通道来发送转向和速度指令。 常见的发射机使用一个滚轮和扳机、两个单自由度的摇杆、或一个双自由度的摇杆来发射这些指令。
 
 There is nothing to stop you using more channels/control mechanisms, and these can be very useful for engaging additional actuators and autopilot modes.
 
