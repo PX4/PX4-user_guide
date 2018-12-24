@@ -66,16 +66,16 @@
 
 ## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要构建此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make px4_fmu-v5_default
     
 
 ## Debug调试端口
 
-The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector. To access the I/O Debug port, the user must remove the Pixhack v5 shell. Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
+系统的串行控制台和SWD接口在** FMU Debug **端口上运行。 只需将FTDI电缆连接到Debug & F7 SWD连接器。 如需访问IO调试接口，用户必须去除Pixhack v5的外壳。 这两个端口都有标准串行引脚, 可以连接到标准的FTDI电缆(3.3 v,但耐压5v )。
 
 引脚排列如图所示
 
@@ -98,11 +98,11 @@ The system's serial console and SWD interface operate on the **FMU Debug** port.
 
 ## 支持的平台/机身
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
 
 ## 更多信息
 
-* FMUv5 参考设计</0 >。 </li> 
+* FMUv5参考设计</0 >。 </li> 
   
   * [Pixhack v5 文档](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
   * [CUAV Github库](https://github.com/cuav) </ul>
