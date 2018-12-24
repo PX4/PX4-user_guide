@@ -385,18 +385,7 @@
 ### 쿼드로터 H
 
 <div>
-  <img src="../../assets/airframes/types/QuadRotorH.svg" width="29%" style="max-height: 180px;" /> 
-  
-  <table style="float: right; width: 70%; font-size:1.5rem;">
-    <colgroup><col></colgroup> <tr>
-      <th>
-        Common Outputs
-      </th>
-    </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
-</tr>
-  </table>
+<img src="../../assets/airframes/types/QuadRotorH.svg" width="29%" style="max-height: 180px;"/>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -408,13 +397,83 @@
     <th>
     </th>
   </tr>
-<tbody>
-<tr id="copter_quadrotor_h_reaper_500_quad">
- <td style="vertical-align: top;">리퍼 500 쿼드</td>
- <td style="vertical-align: top;"><p>유지관리자: 깜박임</p><p>SYS_AUTOSTART = 4040</p></td>
-
-</tr>
-</tbody></table>
+  
+  <tr id="copter_quadrotor_h_reaper_500_quad">
+    <td style="vertical-align: top;">
+      리퍼 500 쿼드
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        유지관리자: 깜박임
+      </p>
+      
+      <p>
+        SYS_AUTOSTART = 4040
+      </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: motor 1
+          </li>
+          <li>
+            <b>MAIN2</b>: motor 2
+          </li>
+          <li>
+            <b>MAIN3</b>: motor 3
+          </li>
+          <li>
+            <b>MAIN4</b>: motor 4
+          </li>
+          <li>
+            <b>MAIN5</b>: feed-through of RC AUX1 channel
+          </li>
+          <li>
+            <b>MAIN6</b>: feed-through of RC AUX2 channel
+          </li>
+        </ul>
+      </p>
+    </td>
+  </tr>
+  
+  <tr id="copter_quadrotor_h_betafpv_beta75x_2s_brushless_whoop">
+    <td style="vertical-align: top;">
+      BetaFPV Beta75X 2S Brushless Whoop
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Beat Kueng <beat-kueng@gmx.net>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 4041
+      </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: motor 1
+          </li>
+          <li>
+            <b>MAIN2</b>: motor 2
+          </li>
+          <li>
+            <b>MAIN3</b>: motor 3
+          </li>
+          <li>
+            <b>MAIN4</b>: motor 4
+          </li>
+        </ul>
+      </p>
+    </td>
+  </tr>
+</table>
 
 ### 쿼드로터 와이드
 
