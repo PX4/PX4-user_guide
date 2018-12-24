@@ -4,7 +4,7 @@ This topic provides a basic introduction to drones and using PX4 (it is meant mo
 
 If you are already familiar with the basic concepts, you can move on to [Basic Assembly](../assembly/README.md) to learn how to wire your specific autopilot hardware. To load firmware and set up the vehicle with *QGroundControl*, see [Basic Configuration](../config/README.md).
 
-## What is a Drone?
+## 无人机是什么？
 
 A drone is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
 
@@ -18,7 +18,7 @@ The "brain" of the drone is called an autopilot. It consists of *flight stack* s
 
 PX4 is part of the [Dronecode Platform](https://www.dronecode.org/platform/) — a complete end-to-end platform for drone development, delivered under a common industry-friendly open source license. It includes, among other things, the [PX4 flight stack](#autopilot)), [QGroundControl](#qgc) ground control station, the [Dronecode SDK](https://www.dronecode.org/sdk/) and the [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/).
 
-## PX4 Autopilot {#autopilot}
+## PX4 自动驾驶仪 {#autopilot}
 
 [PX4](http://px4.io/) is powerful open source autopilot *flight stack*.
 
@@ -102,7 +102,7 @@ PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_rep
 
 A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
 
-## Flight Modes {#flight_modes}
+## 飞行模式 {#flight_modes}
 
 Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
 
