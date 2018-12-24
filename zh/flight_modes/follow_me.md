@@ -3,7 +3,7 @@ author: Jimmy Johnson
 ---
 # 跟随模式
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *跟随*模式允许多旋翼飞行器在运行*QGroundControl*的Android手机/平板电脑上自动跟踪和追踪用户。
 
@@ -46,7 +46,7 @@ author: Jimmy Johnson
 
 跟随模式的默认设置是在用户后面8米处，在家庭/布防位置上方8米处跟随。 您可以使用以下部分中描述的参数更改此行为。
 
-## Configuration
+## 配置
 
 可以使用以下参数配置跟随的行为：
 
