@@ -15,23 +15,23 @@ RTK设置和使用在px4上通过 *QGroundControl* 很大程度上可以即插�
 
 ## 接线和连接
 
-c-rtk gps 配有一根线材, 可在与 < 0>Pixhack v2/0 > 兼容的6针连接器和4针连接器中使用。 The 6-pin connector provides the interface for RTK GPS, and should be connected to the flight controller's GPS port. The 4-pin connector is an m8n (standard) GPS interface that is intended for (optional) use as a second GPS.
+c-rtk gps 配有一根线材, 可在与 < 0>Pixhack v2/0 > 兼容的6针连接器和4针连接器中使用。 6针连接器提供 rtk gps 的接口, 并应连接到飞行控制器的 gps 接口。 4针连接器是一个 m8n (标准) gps 接口, 可作为第二个 gps(可选)。
 
-> **Tip** At time of writing PX4 does not yet fully support a second GPS. The 4-pin port need not be connected.
+> **Tip**在编写本文时, PX4固件还没有完全支持第二个 gps。 无需连接4针端口。
 
 <img src="../../assets/hardware/gps/rtk_cuav_c-rtk_to_6pin_connector.jpg" width="500px" title="C-RTK_6PIN" />
 
-The cables/connectors may need to be modified in order to connect to other flight controller boards. The pin mappings for *Pixhawk 3 Pro* and *Pixracer* are shown below.
+为了连接到其他飞行控制器板, 可能需要修改连接器。 < 0>Pixhawk 3 pro< a0/0 > 和 *Pixracer* 的引脚分配如下所示。
 
-### Pinout
+### 针脚定义
 
-The C-RTK GPS pinout is provided below. This can be used to help modify the connector for other autopilot boards.
+C-RTK GPS引脚分配如下所示。 这可用于帮助用户修改接口线序以适配其它自动驾驶仪板的连接器。
 
-| pin | C-RTK GPS 6P | pin | Pixhawk 3 Pro GPS | C-RTK GPS 4P |
-| --- | ------------ | --- | ----------------- | ------------ |
-| 1   | SDA          | 1   | VCC               |              |
-| 2   | SCL          | 2   | GPS_TX            |              |
-| 3   | GPS_RX       | 3   | GPS_RX            | GPS_RX       |
-| 4   | GPS_TX       | 4   | SCL               | GPS_TX       |
-| 5   | VCC_5V       | 5   | SDA               | VCC_5v       |
-| 6   | GND          | 6   | GND               | GND          |
+| 引脚 | C-RTK GPS 6P | 引脚 | Pixhawk 3 Pro GPS | C-RTK GPS 4P |
+| -- | ------------ | -- | ----------------- | ------------ |
+| 1  | SDA          | 1  | VCC               |              |
+| 2  | SCL          | 2  | GPS _ TX          |              |
+| 3  | GPS_RX       | 3  | GPS_RX            | GPS_RX       |
+| 4  | GPS_TX       | 4  | SCL               | GPS_TX       |
+| 5  | VCC_5V       | 5  | SDA               | VCC_5v       |
+| 6  | GND          | 6  | GND               | GND          |
