@@ -7,7 +7,9 @@
 ## 购买
 
 * [cuav淘宝店铺](https://item.taobao.com/item.htm?id=565380634341&spm=2014.21600712.0.0)
-* [cuav aliexpress](https://www.aliexpress.com/store/product/CUAV-NEW-Flight-Controller-GPS-C-RTK-differential-positioning-navigation-module-GPS-for-PIX4-Pixhawk-pixhack/3257035_32853894248.html?spm=2114.12010608.0.0.75592fadQKPPEn)
+* [cuav aliexpress](https://www.aliexpress.com/store/product/CUAV-NEW-Flight-Controller-GPS-C-RTK-differential-positioning-navigation-module-GPS-for-PIX4-Pixhawk-pixhack/3257035_32853894248.html?spm=2114.12010608.0.0.75592fadQKPPEn
+ 
+Context)
 
 ## 配置
 
@@ -19,7 +21,7 @@ c-rtk gps 配有一根线材, 可在与 < 0>Pixhack v2/0 > 兼容的6针连接�
 
 > **Tip**在编写本文时, PX4固件还没有完全支持第二个 gps。 无需连接4针端口。
 
-<img src="../../assets/hardware/gps/rtk_cuav_c-rtk_to_6pin_connector.jpg" width="500px" title="C-RTK_6PIN" />
+<img src="../../assets/hardware/gps/rtk_cuav_c-rtk_to_6pin_connector.jpg" width="500px" title="c-RTK_6PIN" />
 
 为了连接到其他飞行控制器板, 可能需要修改连接器。 < 0>Pixhawk 3 pro< a0/0 > 和 *Pixracer* 的引脚分配如下所示。
 
@@ -30,8 +32,8 @@ C-RTK GPS引脚分配如下所示。 这可用于帮助用户修改接口线序�
 | 引脚 | C-RTK GPS 6P | 引脚 | Pixhawk 3 Pro GPS | C-RTK GPS 4P |
 | -- | ------------ | -- | ----------------- | ------------ |
 | 1  | SDA          | 1  | VCC               |              |
-| 2  | SCL          | 2  | GPS _ TX          |              |
+| 2  | SCL          | 2  | GPS_TX            |              |
 | 3  | GPS_RX       | 3  | GPS_RX            | GPS_RX       |
 | 4  | GPS_TX       | 4  | SCL               | GPS_TX       |
-| 5  | VCC_5V       | 5  | SDA               | VCC_5v       |
+| 5  | VCC_5V       | 5  | SDA               | VCC_5V       |
 | 6  | GND          | 6  | GND               | GND          |
