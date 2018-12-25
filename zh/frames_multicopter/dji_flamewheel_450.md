@@ -1,4 +1,4 @@
-# DJI Flame Wheel 450 with Distance Sensor and RTK GPS (Pixhawk 3 Pro)
+# 带距离传感器和RTK全球定位系统的大疆F450(Pixhawk 3 Pro)
 
 The *DJI<sup>&reg;</sup> Flame Wheel F450* Quadcopter is designed for amateur aerial photography, first person view applications, and general flying entertainment. This topic provides full build and configuration instructions for using the frame with the Pixhawk 3 Pro flight controller. Additionally this build includes an RTK GPS and a distance sensor for precision positioning.
 
@@ -34,7 +34,7 @@ The *Pixhawk 3 Pro* can be attached using the double sided tape because the IMU 
 
 In this setup the autopilot is rotated by 180 degrees so that it's easier to access the SD card. But if you rotate the base plate by 180 degrees instead, the flight controller board can be mounted facing forward. Either way works, just make sure to set the board rotation correctly in *QGroundControl* afterwards.
 
-## Wiring and Connections
+## 接线和连接
 
 General pinout for the Pixhawk 3 Pro can be found [here](https://pixhawk.drotek.com/en/inputs-outputs.html).
 
@@ -42,27 +42,27 @@ General pinout for the Pixhawk 3 Pro can be found [here](https://pixhawk.drotek.
 
 The 3DR Telemetry does not come with a JST GH connector which the *Pixhawk 3 Pro* uses. The pinout remains the same and just the plug needs to be changed. Use the Telem 1 port on the *Pixhawk 3 Pro*.
 
-| pin | Pixhawk 3 Pro Telem 1 | 3DR Telemetry |
-| --- | --------------------- | ------------- |
-| 1   | VCC                   | VCC           |
-| 2   | TX                    | RX            |
-| 3   | RX                    | TX            |
-| 4   | CTS                   | CTS           |
-| 5   | RTS                   | RTS           |
-| 6   | GND                   | GND           |
+| 引脚 | Pixhawk 3 Pro Telem 1 | 3DR Telemetry |
+| -- | --------------------- | ------------- |
+| 1  | VCC                   | VCC           |
+| 2  | TX                    | RX            |
+| 3  | RX                    | TX            |
+| 4  | CTS                   | CTS           |
+| 5  | RTS                   | RTS           |
+| 6  | GND                   | GND           |
 
 ### Lidar-Lite V3
 
 The pinout for the *Lidar Lite V3* and the *Pixhawk 3 Pro* I2C 1 port is as follows.
 
-| pin | Pixhawk 3 Pro I2C 1 | Lidar Lite V3    |
-| --- | ------------------- | ---------------- |
-| 1   | VCC                 | VCC              |
-| 2   | SCL                 | - (Power enable) |
-| 3   | SDA                 | - (Mode control) |
-| 4   | GND                 | SCL              |
-| 5   | -                   | SDA              |
-| 6   | -                   | GND              |
+| 引脚 | Pixhawk 3 Pro I2C 1 | Lidar Lite V3    |
+| -- | ------------------- | ---------------- |
+| 1  | VCC                 | VCC              |
+| 2  | SCL                 | - (Power enable) |
+| 3  | SDA                 | - (Mode control) |
+| 4  | GND                 | SCL              |
+| 5  | -                   | SDA              |
+| 6  | -                   | GND              |
 
 ### Here+ RTK GPS
 
@@ -70,22 +70,22 @@ The Here+ GPS comes with an 8 pin connector suited for the Pixhawk 2. In order t
 
 ![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_gps.JPG)
 
-| pin | Here+ GPS  | pin | Pixhawk 3 Pro GPS |
-| --- | ---------- | --- | ----------------- |
-| 1   | VCC_5V     | 1   | VCC               |
-| 2   | GPS_RX     | 2   | GPS_TX            |
-| 3   | GPS_TX     | 3   | GPS_RX            |
-| 4   | SCL        | 4   | SCL               |
-| 5   | SDA        | 5   | SDA               |
-| 6   | BUTTON     | -   | -                 |
-| 7   | BUTTON_LED | -   | -                 |
-| 8   | GND        | 6   | GND               |
+| 引脚 | Here+ GPS  | 引脚 | Pixhawk 3 Pro GPS |
+| -- | ---------- | -- | ----------------- |
+| 1  | VCC_5V     | 1  | VCC               |
+| 2  | GPS_RX     | 2  | GPS_TX            |
+| 3  | GPS_TX     | 3  | GPS_RX            |
+| 4  | SCL        | 4  | SCL               |
+| 5  | SDA        | 5  | SDA               |
+| 6  | BUTTON     | -  | -                 |
+| 7  | BUTTON_LED | -  | -                 |
+| 8  | GND        | 6  | GND               |
 
-## Configuration
+## 配置
 
 General documentation on how to setup your quad in *QGroundControl* can be found in [Basic Configuration](../config/README.md). Specific setup instructions are provided below.
 
-### Airframe
+### 机架
 
 Select the airframe **DJI Flame Wheel 450** in **QGC > Airframe > Quadrotor x**.
 
