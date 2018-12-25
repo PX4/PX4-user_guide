@@ -1,6 +1,6 @@
 # 参数设置
 
-A lot of PX4 behaviour can be configured/tuned using [parameters](../advanced_config/parameter_reference.md) (e.g. [Multicopter PID gains](../config_mc/pid_tuning_guide_multicopter.md), calibration information, etc.).
+很多PX4的功能和基本参数都能在 [ 参数 (Parameters)](../advanced_config/parameter_reference.md)里进行设置 (例如 [ 多轴PID增益(Multicopter PID gains) ](../config_mc/pid_tuning_guide_multicopter.md)、校准信息等).
 
 * QGroundControl Parameter 页面 * 允许您查找和修改与该无人机机型关联的** 任何 **参数 。 通过单击边栏中的顶部菜单 * 齿轮 * 图标, 然后 * 参数(Parameters) *, 就可以访问参数设置的页面。
 
