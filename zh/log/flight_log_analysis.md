@@ -1,4 +1,4 @@
-# Flight Log Analysis
+# 飞行日志分析
 
 This topic outlines approaches and software packages that can be used to analyze PX4 flight logs.
 
@@ -52,7 +52,7 @@ Key features:
   * *ulog2csv*: convert ULog to (several) CSV files.
   * *ulog2kml*: convert ULog to (several) KML files.
 
-All scripts are installed as system-wide applications (i.e. they be called on the command line - provided Python is installed), and support the `-h` flag for getting usage instructions. For example:
+All scripts are installed as system-wide applications (i.e. they be called on the command line - provided Python is installed), and support the `-h` flag for getting usage instructions. 例如：
 
     $ ulog_info -h
     usage: ulog_info [-h] [-v] file.ulg
