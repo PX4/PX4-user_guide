@@ -95,7 +95,7 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
 ## 调试接口
 
-The system's serial console and SWD interface runs on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. In order to access these ports, the user must remove the *Pixhawk 4* casing.
+本系统的串行控制台和 SWD 接口运行在 **FMU 调试** 接口，同时 I/O 控制台与SWD接口可以通过 **I/O 调试** 接口访问。 为了能访问这些接口，用户需要移除 *Pixhawk 4* 的外壳。
 
 Both ports have standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. 有关如何连接此端口的详细信息，请参阅 [接线](https://dev.px4.io/en/debug/system_console.html) 页面。
 
