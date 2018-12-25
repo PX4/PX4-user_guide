@@ -1,4 +1,4 @@
-# ESP8266 WiFi Module
+# ESP8266 WiFi 模块
 
 The ESP8266 is a low-cost and readily available Wi-Fi module with full TCP/IP stack and microcontroller capability. It can be used with any Pixhawk series controller
 
@@ -62,7 +62,7 @@ I built a cable where RX, TX, VCC, and GND are properly wired directly from the 
 
 ![esp8266 flashing](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
 
-## Configuration
+## 配置
 
 Install your ESP8266 to your PixRacer.
 
