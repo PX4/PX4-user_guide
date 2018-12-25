@@ -4,7 +4,7 @@ This topic explains the basics of flying a vehicle using an [RC Transmitter](../
 
 > **Note** Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md).
 
-## Flight Controls/Commands
+## 飞行控制/命令
 
 All flying, including takeoff and landing, is controlled using the 4 basic commands: roll, yaw, pitch and throttle.
 
@@ -48,7 +48,7 @@ The following three modes are highly recommended for new users:
 
 > **Tip** You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen.
 
-## Takeoff and Landing
+## 起飞和降落
 
 The easiest way to takeoff is to use the automatic [Takeoff mode](../flight_modes/takeoff.md) (remembering that you need to arm the vehicle before you can engage the vehicle motors). To land again automatically you can use [Land](../flight_modes/land.md) or [Return](../flight_modes/return.md) modes.
 
