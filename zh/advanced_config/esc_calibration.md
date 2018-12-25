@@ -18,7 +18,7 @@
 
 1. 卸下螺旋桨。
     
-    > **Warning** Never attempt ESC calibration with props on.
+    > ** 警告 **切勿进行 ESC 校准将螺旋桨装上。
     > 
     > The motors should not spin during ESC calibration. However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
 
