@@ -107,7 +107,7 @@ Both ports have standard serial pinout and can be connected to a standard FTDI c
 
 ## 支持的平台 / 机身
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
 
 ## 更多信息
 
