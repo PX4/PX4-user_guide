@@ -44,7 +44,7 @@ Port conflicts are handled by system startup, which ensures that at most one ser
 
 > **Caution** At time of writing there is no user feedback about conflicting ports.
 
-## Troubleshooting
+## 故障处理
 
 ### Configuration Parameter Missing from *QGroundControl* {#parameter_not_in_firmware}
 
@@ -59,6 +59,6 @@ You can include the missing driver in firmware by uncommenting (or adding) the d
 
 You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
 
-## Further Information
+## 更多信息
 
 * [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md)
