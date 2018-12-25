@@ -21,10 +21,10 @@ Recommended digital airspeed sensors include:
 
 All the sensors are connected via the I2C bus/port.
 
-## Configuration
+## 配置
 
 PX4 setup information can be found in: [Basic Configuration > Airspeed](../config/airspeed.md).
 
-## Developer Information
+## 开发人员信息
 
 * [Airspeed drivers](https://github.com/PX4/Firmware/tree/master/src/drivers/differential_pressure) (source code)
