@@ -58,16 +58,16 @@ Many PX4 drones use brushless motors that are driven by the flight controller vi
 For information about what ESC/Motors are supported by PX4 see:
 
 - [电机 & 电调](../peripherals/esc_motors.md)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [电调校准](../advanced_config/esc_calibration.md)
 - [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
-## Battery/Power
+## 电池/电源
 
 PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. The battery is typically connected to the system using a *Power Module* or *Power Management Board*, which provide separate power for the flight controller and to the ESCs (for the motors).
 
 Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
-## Radio Control (RC) {#rc_systems}
+## 无线电控制（遥控） {#rc_systems}
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
@@ -81,7 +81,7 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 - [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
-## Data/Telemetry Radios
+## 数传电台
 
 [Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
