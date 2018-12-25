@@ -1,6 +1,6 @@
 # Mission Mode
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *Mission mode* causes the vehicle to execute a predefined autonomous [mission](../flying/missions.md) (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application like [QGroundControl](https://docs.qgroundcontrol.com/en/) (QGC).
 
@@ -8,7 +8,7 @@
 
 > **Note** * This mode requires 3d position information (e.g. GPS). * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes). * The vehicle must be armed before this mode can be engaged.
 
-## Description
+## 参数描述
 
 Missions are usually created in a ground control station (e.g. [QGroundControl](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)) and uploaded prior to launch. They may also be created by a developer API, and/or uploaded in flight.
 
@@ -39,7 +39,7 @@ For more information about mission planning, see:
 
 ## QGroundControl Support
 
-*QGroundControl* provides additional GCS-level mission handling support (in addition to that provided by the flight controller). For more information see:
+*QGroundControl* provides additional GCS-level mission handling support (in addition to that provided by the flight controller). 有关详细信息，请参阅︰
 
 * [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands) 
 * [Resume mission after Return mode](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#resume-mission)
