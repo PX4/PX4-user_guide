@@ -4,7 +4,7 @@ The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
-## Quick Summary
+## 总览
 
 > **Note** The main hardware documentation is here: https://wiki.bitcraze.io/projects:crazyflie2:index
 
@@ -104,7 +104,7 @@ To connect Crazyflie 2.0 with crazyradio, **launch cfbridge** by following these
 
 ![](../../assets/hardware/joystick-message-frequency.png)
 
-## Hardware Setup
+## 硬件安装
 
 Crazyflie 2.0 is able to fly with precise control in [Stabilized mode](../flight_modes/manual_stabilized_mc.md), [Altitude mode](../flight_modes/altitude_mc.md) and [Position mode](../flight_modes/position_mc.md).
 
@@ -181,6 +181,6 @@ To connect to Crazyflie 2.0 via MAVROS:
 * Start MAVROS with command: ```roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14551" gcs_url:="udp://@127.0.0.1:14557"```
 * Restart QGroundControl if it doesn't connect.
 
-## Flying
+## 飞行
 
 {% youtube %}https://www.youtube.com/watch?v=2Bcy3k1h5uc{% endyoutube %}
