@@ -1,6 +1,6 @@
 # 参数参照表
 
-> **Note** **This list is auto-generated from the source code** (using `make parameters_metadata`) and contains the most recent parameter documentation.
+> **注意：****这个清单是从源代码中自动生成的** (使用`make parameters_metadata`) 并且包含了最新的参数文档.
 
 ## 姿态 Q 估计器
 
@@ -11,7 +11,7 @@
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
@@ -261,23 +261,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -288,11 +288,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Battery ADC Channel
+        电池电压测量ADC通道
       </p>
       
       <p>
-        <strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. 当此值为-1.0时，使用板载默认设定值
+        <strong>注意:</strong>此参数指定用于监视主电源电池电压的 ADC 通道, 当此值为-1.0时，使用板载默认设定值
       </p>
     </td>
     
@@ -314,11 +314,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Battery current per volt (A/V)
+        电池电流和检测电压对应关系(A/V)
       </p>
       
       <p>
-        <strong>Comment:</strong> The voltage seen by the 3.3V ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.
+        <strong>说明:</strong>通过3.3V ADC采样得到的电压值乘以当前设定系数将确定电池电流. 当此值为-1时，使用板载默认设定值.
       </p>
     </td>
     
@@ -340,15 +340,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Battery capacity
+        电池容量
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the capacity of the attached battery.
+        <strong>说明:</strong>参数描述了当前安装的安装的电池的容量.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -372,11 +372,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Scaling from ADC counts to volt on the ADC input (battery current)
+        从ADC输入通道(电池电流测量通道) 得到的原始值转换成电压对应的系数.
       </p>
       
       <p>
-        <strong>Comment:</strong> This is not the battery current, but the intermediate ADC voltage. A value of -1 signifies that the board defaults are used, which is highly recommended.
+        <strong>说明:</strong>这个不是电池电流，而是中间ADC电压。 值为-1 表示使用主板默认值, 这是强烈建议的。
       </p>
     </td>
     
@@ -398,11 +398,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Scaling from ADC counts to volt on the ADC input (battery voltage)
+        从ADC输入通道(电池电压测量通道) 得到的原始值转换成电压对应的系数.
       </p>
       
       <p>
-        <strong>Comment:</strong> This is not the battery voltage, but the intermediate ADC voltage. A value of -1 signifies that the board defaults are used, which is highly recommended.
+        <strong>说明:</strong>这个不是电池电压，而是中间ADC电压。 值为-1 表示使用主板默认值, 这是强烈建议的。
       </p>
     </td>
     
@@ -424,15 +424,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Critical threshold
+        临界阈值
       </p>
       
       <p>
-        <strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.
+        <strong>说明:</strong>设置提示严重低电压报警的阈值. 这个值设置必须低于低电压报警阈值. 此阈值通常会触发 RTL。
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -456,15 +456,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Emergency threshold
+        危险紧急阈值
       </p>
       
       <p>
-        <strong>Comment:</strong> Sets the threshold when the battery will be reported as dangerously low. This has to be lower than the critical threshold. This threshold commonly will trigger landing.
+        <strong>说明:</strong>设置低电压危险报警阈值. 这个值必须低于严重低电压报警阈值. 此阈值一般会触发LAND.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -488,15 +488,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Low threshold
+        低电压阈值
       </p>
       
       <p>
-        <strong>Comment:</strong> Sets the threshold when the battery will be reported as low. This has to be higher than the critical threshold.
+        <strong>说明:</strong>此为触发低电压报警的阈值. 这个值必须高于严重低电压报警阈值.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -520,68 +520,68 @@
     
     <td style="vertical-align: top;">
       <p>
-        Number of cells
+        电芯串联数
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the number of cells the attached battery consists of.
+        <strong>说明:</strong>定义所安装的电池内部包含的串联电芯数量.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Unconfigured
+          <strong>0:</strong>未配置
         </li>
         <li>
-          <strong>2:</strong> 2S Battery
+          <strong>2:</strong>2S电池
         </li>
         <li>
-          <strong>3:</strong> 3S Battery
+          <strong>3:</strong>3S电池
         </li>
         <li>
-          <strong>4:</strong> 4S Battery
+          <strong>4:</strong>4S电池
         </li>
         <li>
-          <strong>5:</strong> 5S Battery
+          <strong>5:</strong>5S电池
         </li>
         <li>
-          <strong>6:</strong> 6S Battery
+          <strong>6:</strong>6S电池
         </li>
         <li>
-          <strong>7:</strong> 7S Battery
+          <strong>7:</strong>7S电池
         </li>
         <li>
-          <strong>8:</strong> 8S Battery
+          <strong>8:</strong>8S电池
         </li>
         <li>
-          <strong>9:</strong> 9S Battery
+          <strong>9:</strong>9S电池
         </li>
         <li>
-          <strong>10:</strong> 10S Battery
+          <strong>10:</strong>10S电池
         </li>
         <li>
-          <strong>11:</strong> 11S Battery
+          <strong>11:</strong>11S电池
         </li>
         <li>
-          <strong>12:</strong> 12S Battery
+          <strong>12:</strong>12S电池
         </li>
         <li>
-          <strong>13:</strong> 13S Battery
+          <strong>13:</strong>13S电池
         </li>
         <li>
-          <strong>14:</strong> 14S Battery
+          <strong>14:</strong>14S电池
         </li>
         <li>
-          <strong>15:</strong> 15S Battery
+          <strong>15:</strong>15S电池
         </li>
         <li>
-          <strong>16:</strong> 16S Battery
+          <strong>16:</strong>16S电池
         </li>
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -604,15 +604,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Explicitly defines the per cell internal resistance
+        明确的定义每节电芯的内部阻抗
       </p>
       
       <p>
-        <strong>Comment:</strong> If non-negative, then this will be used in place of BAT_V_LOAD_DROP for all calculations.
+        <strong>说明:</strong>如果是非负值, 则会用于在所有计算中替换BAT_V_LOAD_DROP.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -636,21 +636,21 @@
     
     <td style="vertical-align: top;">
       <p>
-        Battery monitoring source
+        电池电压检测器源
       </p>
       
       <p>
-        <strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.
+        <strong>说明:</strong>此参数决定了电池监测数据的来源. 参数''0'' 表示测量信号来源于一个电源模块. 参数"1"表示系统从外部接收到的Mavlink消息中获取电池状态信息.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Power Module
+          <strong>0:</strong>电源模块
         </li>
         <li>
-          <strong>1:</strong> External
+          <strong>1:</strong>外部信息
         </li>
       </ul>
     </td>
@@ -674,15 +674,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Full cell voltage (5C load)
+        满电电压(5C 负载)
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered full under a mild load. This will never be the nominal voltage of 4.2V
+        <strong>说明:</strong>定义一个电池单元在轻度负载下被认为是满的电压. 这永远不会是标称电压4.2V.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -706,11 +706,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Battery voltage divider (V divider)
+        电池电压分压器(电压分压器)
       </p>
       
       <p>
-        <strong>Comment:</strong> This is the divider from battery voltage to 3.3V ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. A value of -1 means to use the board default.
+        <strong>说明:</strong>这是电池电压到3.3V ADC电压的分压器。 如果使用Mauch 电源模块，数据表中的值可以在这里直接应用。 参数值为-1表示使用板载默认值。
       </p>
     </td>
     
@@ -732,15 +732,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Empty cell voltage (5C load)
+        空电电压(5C负载)
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.
+        <strong>说明:</strong>定义了单节电池认为为空的时候的电压值. 该电压应该选择设置在陡降至2.8V之前， 一个典型的锂电池只能放电到10%，在它陡降至会损坏电芯的电压之前。
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -764,15 +764,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Voltage drop per cell on full throttle
+        在全油门工作时每节电芯的压降
       </p>
       
       <p>
-        <strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT_R_INTERNAL is set.
+        <strong>说明:</strong>这个隐式定义了对最大电流比的内阻，并假设是线性关系。 比较好的值是测量并计算在5C负载时的压降和20~25C负载时的压降的差值. 当参数BAT_R_INTERNAL被设置的时候会不使用此参数.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -796,11 +796,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Offset in volt as seen by the ADC input of the current sensor
+        电流传感器ADC通道输入电压偏移
       </p>
       
       <p>
-        <strong>Comment:</strong> This offset will be subtracted before calculating the battery current based on the voltage.
+        <strong>说明:</strong>在根据电压计算电池电流之前，这个偏移量将被减去。
       </p>
     </td>
     
@@ -821,23 +821,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -848,21 +848,21 @@
     
     <td style="vertical-align: top;">
       <p>
-        Camera feedback mode
+        相机反馈模式
       </p>
       
       <p>
-        <strong>Comment:</strong> Sets the camera feedback mode.
+        <strong>说明:</strong>设置相机反馈模式
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数说明:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
-          <strong>1:</strong> Feedback on trigger
+          <strong>1:</strong>使用相机快门反馈
         </li>
       </ul>
     </td>
@@ -885,23 +885,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -912,11 +912,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Camera trigger activation time
+        相机触发激活时间
       </p>
       
       <p>
-        <strong>Comment:</strong> This parameter sets the time the trigger needs to pulled high or low.
+        <strong>说明:</strong>此参数设置了快门触发信号需要被拉高或置低的持续时间.
       </p>
     </td>
     
@@ -940,11 +940,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Camera trigger distance
+        相机定距触发的间距
       </p>
       
       <p>
-        <strong>Comment:</strong> Sets the distance at which to trigger the camera.
+        <strong>说明:</strong>设置相隔多远触发一次相机快门.
       </p>
     </td>
     
@@ -968,32 +968,32 @@
     
     <td style="vertical-align: top;">
       <p>
-        Camera trigger Interface
+        相机触发接口
       </p>
       
       <p>
-        <strong>Comment:</strong> Selects the trigger interface
+        <strong>说明:</strong>选择相机触发接口
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>1:</strong> GPIO
+          <strong>1:</strong>使用GPIO触发
         </li>
         <li>
           <strong>2:</strong> Seagull MAP2 (over PWM)
         </li>
         <li>
-          <strong>3:</strong> MAVLink (forward via MAV_CMD_IMAGE_START_CAPTURE)
+          <strong>3:</strong>使用Mavlink消息触发(通过MAV_CMD_IMAGE_START_CAPTURE指令)
         </li>
         <li>
-          <strong>4:</strong> Generic PWM (IR trigger, servo)
+          <strong>4:</strong>使用通用PWM信号触发(红外快门控制器，舵机)
         </li>
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -1015,11 +1015,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Camera trigger interval
+        相机触发间隔
       </p>
       
       <p>
-        <strong>Comment:</strong> This parameter sets the time between two consecutive trigger events
+        <strong>说明:</strong>此参数设置两个连续触发事件之间的时间间隔.
       </p>
     </td>
     
@@ -1043,31 +1043,31 @@
     
     <td style="vertical-align: top;">
       <p>
-        Camera trigger mode
+        相机触发模式
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disable
+          <strong>0:</strong>禁用相机触发功能
         </li>
         <li>
-          <strong>1:</strong> Time based, on command
+          <strong>1:</strong>基于时间, 使用指令控制
         </li>
         <li>
-          <strong>2:</strong> Time based, always on
+          <strong>2:</strong>基于时间, 持续触发
         </li>
         <li>
-          <strong>3:</strong> Distance based, always on
+          <strong>3:</strong>基于距离, 持续触发
         </li>
         <li>
-          <strong>4:</strong> Distance based, on command (Survey mode)
+          <strong>4:</strong>基于距离, 使用指令控制(航测模式)
         </li>
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -1090,15 +1090,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Camera trigger pin
+        相机触发引脚
       </p>
       
       <p>
-        <strong>Comment:</strong> Selects which pin is used, ranges from 1 to 6 (AUX1-AUX6 on px4_fmu-v2 and the rail pins on px4_fmu-v4). The PWM interface takes two pins per camera, while relay triggers on every pin individually. Example: Value 56 would trigger on pins 5 and 6. For GPIO mode Pin 6 will be triggered followed by 5. With a value of 65 pin 5 will be triggered followed by 6. Pins may be non contiguous. I.E. 16 or 61. In GPIO mode the delay pin to pin is < .2 uS.
+        <strong>说明:</strong>选择使用哪一个引脚,范围从1至6(在px4_fmu-V2上对应的是AUX1~AUX6 and the rail pins on px4_fmu-v4) PWM接口在每个摄像机上使用两个引脚，而在每个引脚上分别使用继电器触发器. 例如: 设置参数值56会在pin5和pin6上产生触发信号. 在GPIO模式时, Pin6会在Pin5之后产生触发信号. 设置参数65则表示Pin5会在Pin6之后产生触发信号. 引脚可能是非连续的。 例如:16或61(也是可以的). 在GPIO模式下,两个引脚之间的触发信号时间差＜0.2us.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -1121,21 +1121,21 @@
     
     <td style="vertical-align: top;">
       <p>
-        Camera trigger polarity
+        相机触发极性
       </p>
       
       <p>
-        <strong>Comment:</strong> This parameter sets the polarity of the trigger (0 = active low, 1 = active high )
+        <strong>说明:</strong>此参数设置相机触发的极性(0表示低电平触发, 1表示高电平触发)
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Active low
+          <strong>0:</strong>低电平有效
         </li>
         <li>
-          <strong>1:</strong> Active high
+          <strong>1:</strong>高电平有效
         </li>
       </ul>
     </td>
@@ -1158,23 +1158,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -1185,15 +1185,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Circuit breaker for airspeed sensor
+        空速计检查开关
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>说明:</strong>将此参数设置为162128将禁用空速计检查. 警告: 启用这个开关是有风险的.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -1216,15 +1216,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Circuit breaker for disabling buzzer
+        蜂鸣器使能开关
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>说明: </strong>将此参数设置为782097将禁用蜂鸣器音频通知. 警告: 启用这个开关是有风险的
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -1247,15 +1247,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        Circuit breaker for engine failure detection
+        用于发动机故障检测的断路器
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 284953 will disable the engine failure detection. If the aircraft is in engine failure mode the engine failure flag will be set to healthy WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>说明: </strong>将此参数设置为284953将禁用发送机故障检测. 如果飞机处于引擎故障模式，引擎故障标志将设置为健康状态. 警告: 启用此开关是有风险的.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -1286,7 +1286,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -1313,11 +1313,11 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 240024 will disable the GPS failure detection. If this check is enabled, then the sensor check will fail if the GPS module is missing. It will also check for excessive signal noise on the GPS receiver and warn the user if detected. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>说明:</strong>设置这个参数为240024会关闭GPS失效检测功能 如果打开了这个检查项，那么当GPS模块丢失时，传感器检查功能会失效。 它还会检查GPS接收器上是否有过大的信号噪音，如果发现，它会警告用户。 警告: 启用这个开关是有风险的.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -1344,11 +1344,11 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 22027 will disable IO safety. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>说明:</strong>将这个参数设置为22027会关闭IO安全开关。 警告: 启用这个开关是有风险的.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -1375,11 +1375,11 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 140253 will disable the rate controller uORB publication. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>Comment:</strong> Setting this parameter to 140253 will disable the rate controller uORB publication. 警告: 启用这个开关是有风险的.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -1406,11 +1406,11 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 894281 will disable the power valid checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>Comment:</strong> Setting this parameter to 894281 will disable the power valid checks in the commander. 警告: 启用这个开关是有风险的.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -1437,11 +1437,11 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 197848 will disable the USB connected checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>Comment:</strong> Setting this parameter to 197848 will disable the USB connected checks in the commander. 警告: 启用这个开关是有风险的.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -1468,11 +1468,11 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 201607 will disable the position and velocity accuracy checks in the commander. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>Comment:</strong> Setting this parameter to 201607 will disable the position and velocity accuracy checks in the commander. 警告: 启用这个开关是有风险的.
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -1494,23 +1494,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -1691,7 +1691,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maximum accelerometer inconsistency between IMU units that will allow arming
+        解锁允许的各个IMU单元之间最大的加速度不一致性.
       </p>
     </td>
     
@@ -1715,7 +1715,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maximum rate gyro inconsistency between IMU units that will allow arming
+        解锁允许的各个IMU单元之间最大的陀螺仪不一致性.
       </p>
     </td>
     
@@ -1739,7 +1739,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maximum magnetic field inconsistency between units that will allow arming
+        解锁允许的各个IMU单元之间最大的磁罗盘不一致性.
       </p>
     </td>
     
@@ -1763,11 +1763,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Require valid mission to arm
+        需要有效的任务才能解锁
       </p>
       
       <p>
-        <strong>Comment:</strong> The default allows to arm the vehicle without a valid mission.
+        <strong>说明:</strong>默认允许不需要一个有效任务也可以解锁.
       </p>
     </td>
     
@@ -1796,7 +1796,7 @@
         <strong>Comment:</strong> The default uses the arm switch as real switch. If parameter set button gets handled like stick arming.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -1827,11 +1827,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Allow arming without GPS
+        允许在无GPS的状态下解锁
       </p>
       
       <p>
-        <strong>Comment:</strong> The default allows to arm the vehicle without GPS signal.
+        <strong>说明: </strong>默认允许在无GPS信号的状态下解锁自驾仪.
       </p>
     </td>
     
@@ -1853,7 +1853,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Time-out for auto disarm after landing
+        降落后自动锁定超时时间
       </p>
       
       <p>
@@ -1881,11 +1881,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Datalink loss time threshold
+        数据链路失效时间阈值
       </p>
       
       <p>
-        <strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers
+        <strong>说明: </strong>超过此设定参数对应的时间没有数据传输时会启动数据链路失效模式.
       </p>
     </td>
     
@@ -1909,7 +1909,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Datalink regain time threshold
+        数据链路重连时间阈值
       </p>
       
       <p>
@@ -2048,36 +2048,36 @@
     
     <td style="vertical-align: top;">
       <p>
-        First flightmode slot (1000-1160)
+        飞行模式1(1000-1160)
       </p>
       
       <p>
-        <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
+        <strong>说明: </strong>如果主开关控制通道值在此范围内 (1000-1160) 则应用此参数对应的飞行模式.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值</strong>
       
       <ul>
         <li>
-          <strong>-1:</strong> Unassigned
+          <strong>-1: </strong>未定义
         </li>
         <li>
-          <strong>0:</strong> Manual
+          <strong>0: </strong>手动
         </li>
         <li>
-          <strong>1:</strong> Altitude
+          <strong>1: </strong>定高
         </li>
         <li>
-          <strong>2:</strong> Position
+          <strong>2: </strong>定点
         </li>
         <li>
-          <strong>3:</strong> Mission
+          <strong>3: </strong>自动任务
         </li>
         <li>
           <strong>4:</strong> Hold
         </li>
         <li>
-          <strong>5:</strong> Return
+          <strong>5: </strong>返航
         </li>
         <li>
           <strong>6:</strong> Acro
@@ -2086,19 +2086,19 @@
           <strong>7:</strong> Offboard
         </li>
         <li>
-          <strong>8:</strong> Stabilized
+          <strong>8: </strong>自稳
         </li>
         <li>
           <strong>9:</strong> Rattitude
         </li>
         <li>
-          <strong>10:</strong> Takeoff
+          <strong>10: </strong>起飞
         </li>
         <li>
-          <strong>11:</strong> Land
+          <strong>11: </strong>降落
         </li>
         <li>
-          <strong>12:</strong> Follow Me
+          <strong>12: </strong>跟随
         </li>
       </ul>
     </td>
@@ -2121,36 +2121,36 @@
     
     <td style="vertical-align: top;">
       <p>
-        Second flightmode slot (1160-1320)
+        飞行模式2 (1160-1320)
       </p>
       
       <p>
-        <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
+        <strong>说明: </strong>如果主开关控制通道值在此范围内 (1160-1320) 则应用此参数对应的飞行模式.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>-1:</strong> Unassigned
+          <strong>-1: </strong>未定义
         </li>
         <li>
-          <strong>0:</strong> Manual
+          <strong>0: </strong>手动
         </li>
         <li>
-          <strong>1:</strong> Altitude
+          <strong>1: </strong>定高
         </li>
         <li>
-          <strong>2:</strong> Position
+          <strong>2: </strong>定点
         </li>
         <li>
-          <strong>3:</strong> Mission
+          <strong>3: </strong>自动任务
         </li>
         <li>
           <strong>4:</strong> Hold
         </li>
         <li>
-          <strong>5:</strong> Return
+          <strong>5: </strong>返航
         </li>
         <li>
           <strong>6:</strong> Acro
@@ -2159,19 +2159,19 @@
           <strong>7:</strong> Offboard
         </li>
         <li>
-          <strong>8:</strong> Stabilized
+          <strong>8: </strong>自稳
         </li>
         <li>
           <strong>9:</strong> Rattitude
         </li>
         <li>
-          <strong>10:</strong> Takeoff
+          <strong>10: </strong>起飞
         </li>
         <li>
-          <strong>11:</strong> Land
+          <strong>11: </strong>降落
         </li>
         <li>
-          <strong>12:</strong> Follow Me
+          <strong>12: </strong>跟随
         </li>
       </ul>
     </td>
@@ -2194,36 +2194,36 @@
     
     <td style="vertical-align: top;">
       <p>
-        Third flightmode slot (1320-1480)
+        飞行模式3(1320-1480)
       </p>
       
       <p>
-        <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
+        <strong>说明: </strong>如果主开关控制通道值在此范围内 (1320-1480) 则应用此参数对应的飞行模式.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>-1:</strong> Unassigned
+          <strong>-1: </strong>未定义
         </li>
         <li>
-          <strong>0:</strong> Manual
+          <strong>0: </strong>手动
         </li>
         <li>
-          <strong>1:</strong> Altitude
+          <strong>1: </strong>定高
         </li>
         <li>
-          <strong>2:</strong> Position
+          <strong>2: </strong>定点
         </li>
         <li>
-          <strong>3:</strong> Mission
+          <strong>3: </strong>自动任务
         </li>
         <li>
           <strong>4:</strong> Hold
         </li>
         <li>
-          <strong>5:</strong> Return
+          <strong>5: </strong>返航
         </li>
         <li>
           <strong>6:</strong> Acro
@@ -2232,19 +2232,19 @@
           <strong>7:</strong> Offboard
         </li>
         <li>
-          <strong>8:</strong> Stabilized
+          <strong>8: </strong>自稳
         </li>
         <li>
           <strong>9:</strong> Rattitude
         </li>
         <li>
-          <strong>10:</strong> Takeoff
+          <strong>10: </strong>起飞
         </li>
         <li>
-          <strong>11:</strong> Land
+          <strong>11: </strong>降落
         </li>
         <li>
-          <strong>12:</strong> Follow Me
+          <strong>12: </strong>跟随
         </li>
       </ul>
     </td>
@@ -2267,36 +2267,36 @@
     
     <td style="vertical-align: top;">
       <p>
-        Fourth flightmode slot (1480-1640)
+        飞行模式4(1480-1640)
       </p>
       
       <p>
-        <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
+        <strong>说明: </strong>如果主开关控制通道值在此范围内 (1480-1640) 则应用此参数对应的飞行模式.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>-1:</strong> Unassigned
+          <strong>-1: </strong>未定义
         </li>
         <li>
-          <strong>0:</strong> Manual
+          <strong>0: </strong>手动
         </li>
         <li>
-          <strong>1:</strong> Altitude
+          <strong>1: </strong>定高
         </li>
         <li>
-          <strong>2:</strong> Position
+          <strong>2: </strong>定点
         </li>
         <li>
-          <strong>3:</strong> Mission
+          <strong>3: </strong>自动任务
         </li>
         <li>
           <strong>4:</strong> Hold
         </li>
         <li>
-          <strong>5:</strong> Return
+          <strong>5: </strong>返航
         </li>
         <li>
           <strong>6:</strong> Acro
@@ -2305,19 +2305,19 @@
           <strong>7:</strong> Offboard
         </li>
         <li>
-          <strong>8:</strong> Stabilized
+          <strong>8: </strong>自稳
         </li>
         <li>
           <strong>9:</strong> Rattitude
         </li>
         <li>
-          <strong>10:</strong> Takeoff
+          <strong>10: </strong>起飞
         </li>
         <li>
-          <strong>11:</strong> Land
+          <strong>11: </strong>降落
         </li>
         <li>
-          <strong>12:</strong> Follow Me
+          <strong>12: </strong>跟随
         </li>
       </ul>
     </td>
@@ -2340,36 +2340,36 @@
     
     <td style="vertical-align: top;">
       <p>
-        Fifth flightmode slot (1640-1800)
+        飞行模式5(1640-1800)
       </p>
       
       <p>
-        <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
+        <strong>说明: </strong>如果主开关控制通道值在此范围内 (1640-1800) 则应用此参数对应的飞行模式.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>-1:</strong> Unassigned
+          <strong>-1: </strong>未定义
         </li>
         <li>
-          <strong>0:</strong> Manual
+          <strong>0: </strong>手动
         </li>
         <li>
-          <strong>1:</strong> Altitude
+          <strong>1: </strong>定高
         </li>
         <li>
-          <strong>2:</strong> Position
+          <strong>2: </strong>定点
         </li>
         <li>
-          <strong>3:</strong> Mission
+          <strong>3: </strong>自动任务
         </li>
         <li>
           <strong>4:</strong> Hold
         </li>
         <li>
-          <strong>5:</strong> Return
+          <strong>5: </strong>返航
         </li>
         <li>
           <strong>6:</strong> Acro
@@ -2378,19 +2378,19 @@
           <strong>7:</strong> Offboard
         </li>
         <li>
-          <strong>8:</strong> Stabilized
+          <strong>8: </strong>自稳
         </li>
         <li>
           <strong>9:</strong> Rattitude
         </li>
         <li>
-          <strong>10:</strong> Takeoff
+          <strong>10: </strong>起飞
         </li>
         <li>
-          <strong>11:</strong> Land
+          <strong>11: </strong>降落
         </li>
         <li>
-          <strong>12:</strong> Follow Me
+          <strong>12: </strong>跟随
         </li>
       </ul>
     </td>
@@ -2413,36 +2413,36 @@
     
     <td style="vertical-align: top;">
       <p>
-        Sixth flightmode slot (1800-2000)
+        飞行模式6(1800-2000)
       </p>
       
       <p>
-        <strong>Comment:</strong> If the main switch channel is in this range the selected flight mode will be applied.
+        <strong>说明: </strong>如果主开关控制通道值在此范围内 (1800-2000) 则应用此参数对应的飞行模式.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>-1:</strong> Unassigned
+          <strong>-1: </strong>未定义
         </li>
         <li>
-          <strong>0:</strong> Manual
+          <strong>0: </strong>手动
         </li>
         <li>
-          <strong>1:</strong> Altitude
+          <strong>1: </strong>定高
         </li>
         <li>
-          <strong>2:</strong> Position
+          <strong>2: </strong>定点
         </li>
         <li>
-          <strong>3:</strong> Mission
+          <strong>3: </strong>自动任务
         </li>
         <li>
           <strong>4:</strong> Hold
         </li>
         <li>
-          <strong>5:</strong> Return
+          <strong>5: </strong>返航
         </li>
         <li>
           <strong>6:</strong> Acro
@@ -2451,19 +2451,19 @@
           <strong>7:</strong> Offboard
         </li>
         <li>
-          <strong>8:</strong> Stabilized
+          <strong>8: </strong>自稳
         </li>
         <li>
           <strong>9:</strong> Rattitude
         </li>
         <li>
-          <strong>10:</strong> Takeoff
+          <strong>10: </strong>起飞
         </li>
         <li>
-          <strong>11:</strong> Land
+          <strong>11: </strong>降落
         </li>
         <li>
-          <strong>12:</strong> Follow Me
+          <strong>12: </strong>跟随
         </li>
       </ul>
     </td>
@@ -2486,11 +2486,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        High Latency Datalink loss time threshold
+        高延迟数据链路丢失时间阈值
       </p>
       
       <p>
-        <strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers
+        <strong>说明: </strong>在数据连接断开时间超过此参数对应的秒数后就会触发数据链丢失模式.
       </p>
     </td>
     
@@ -2514,7 +2514,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        High Latency Datalink regain time threshold
+        高延迟数据链恢复时间阈值
       </p>
       
       <p>
@@ -2542,11 +2542,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Home set horizontal threshold
+        Home点水平阈值
       </p>
       
       <p>
-        <strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.
+        <strong>说明:</strong>如果估计的定位精度低于阈值，则设置home位置。
       </p>
     </td>
     
@@ -2570,11 +2570,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Home set vertical threshold
+        Home点垂直阈值
       </p>
       
       <p>
-        <strong>Comment:</strong> The home position will be set if the estimated positioning accuracy is below the threshold.
+        <strong>说明:</strong>如果估计的定位精度低于阈值，则设置home位置。
       </p>
     </td>
     
@@ -2598,27 +2598,27 @@
     
     <td style="vertical-align: top;">
       <p>
-        Battery failsafe mode
+        低电安全保护模式
       </p>
       
       <p>
-        <strong>Comment:</strong> Action the system takes on low battery. Defaults to off
+        <strong>说明: </strong>系统在低电状态时采取的策略. 默认关闭.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Warning
+          <strong>0: </strong>报警
         </li>
         <li>
-          <strong>1:</strong> Return mode
+          <strong>1: </strong>返航模式
         </li>
         <li>
-          <strong>2:</strong> Land mode
+          <strong>2: </strong>降落模式
         </li>
         <li>
-          <strong>3:</strong> Return mode at critically low level, Land mode at current position if reaching dangerously low levels
+          <strong>3: </strong>低于严重低电量阈值时进入返航模式, 低于危险低电量阈值时进入降落模式.
         </li>
       </ul>
     </td>
@@ -2674,7 +2674,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -2760,7 +2760,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -2790,7 +2790,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -2814,11 +2814,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        RC input arm/disarm command duration
+        遥控器输入 解锁/锁定 指令的持续时间
       </p>
       
       <p>
-        <strong>Comment:</strong> The default value of 1000 requires the stick to be held in the arm or disarm position for 1 second.
+        <strong>说明: </strong>默认值1000表示摇杆需要保持解锁或锁定动作状态持续1秒钟.
       </p>
     </td>
     
@@ -2841,14 +2841,14 @@
     
     <td style="vertical-align: top;">
       <p>
-        RC control input mode
+        遥控器信号输入模式
       </p>
       
       <p>
-        <strong>Comment:</strong> The default value of 0 requires a valid RC transmitter setup. Setting this to 1 allows joystick control and disables RC input handling and the associated checks. A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.
+        <strong>说明: </strong>默认值0表示需要安装一个可用的遥控器. 设置为1允许操纵杆控制(连接到地面站软件的游戏摇杆) 和禁用RC输入处理和相关检查。 A value of 2 will generate RC control data from manual input received via MAVLink instead of directly forwarding the manual input data.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -2882,11 +2882,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        RC loss time threshold
+        遥控器失效时间阈值
       </p>
       
       <p>
-        <strong>Comment:</strong> After this amount of seconds without RC connection the rc lost flag is set to true
+        <strong>说明: </strong>超过这个参数对应的时间没有接收到遥控信号, 那么遥控器失联标志会被置位.
       </p>
     </td>
     
@@ -2986,23 +2986,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -3289,23 +3289,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -3320,7 +3320,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -3525,7 +3525,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -3552,7 +3552,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -3628,7 +3628,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -3656,7 +3656,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -3684,7 +3684,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -3882,7 +3882,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -4005,7 +4005,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -4156,7 +4156,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -4243,7 +4243,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -4616,7 +4616,7 @@
         <strong>Comment:</strong> The range sensor option should only be used when for operation over a flat surface as the local NED origin will move up and down with ground level.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -4629,12 +4629,12 @@
           <strong>2:</strong> Range sensor
         </li>
         <li>
-          <strong>3:</strong> Vision
+          <strong>3:</strong>使用视觉模块数据
         </li>
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -4729,7 +4729,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -4755,7 +4755,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -4783,7 +4783,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -4811,7 +4811,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -4862,7 +4862,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -4960,7 +4960,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -5067,7 +5067,7 @@
         <strong>Comment:</strong> Integer controlling the type of magnetometer fusion used - magnetic heading or 3-component vector. The fuson of magnetomer data as a three component vector enables vehicle body fixed hard iron errors to be learned, but requires a stable earth field. If set to 'Automatic' magnetic heading fusion is used when on-ground and 3-axis magnetic field fusion in-flight with fallback to magnetic heading fusion if there is insufficient motion to make yaw or magnetic field states observable. If set to 'Magnetic heading' magnetic heading fusion is used at all times If set to '3-axis' 3-axis field fusion is used at all times. If set to 'VTOL custom' the behaviour is the same as 'Automatic', but if fusing airspeed, magnetometer fusion is only allowed to modify the magnetic field states. This can be used by VTOL platforms with large magnetic field disturbances to prevent incorrect bias states being learned during forward flight operation which can adversely affect estimation accuracy after transition to hovering flight. If set to 'MC custom' the behaviour is the same as 'Automatic, but if there are no earth frame position or velocity observations being used, the magnetometer will not be used. This enables vehicles to operate with no GPS in environments where the magnetic field cannot be used to provide a heading reference. Prior to flight, the yaw angle is assumed to be constant if movement tests controlled by the EKF2_MOVE_TEST parameter indicate that the vehicle is static. This allows the vehicle to be placed on the ground to learn the yaw gyro bias prior to flight. If set to 'None' the magnetometer will not be used under any circumstance. Other sources of yaw may be used if selected via the EKF2_AID_MASK parameter.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -5086,12 +5086,12 @@
           <strong>4:</strong> MC custom
         </li>
         <li>
-          <strong>5:</strong> None
+          <strong>5:</strong>无
         </li>
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -5141,7 +5141,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -5268,7 +5268,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -5729,7 +5729,7 @@
         <strong>Comment:</strong> If this parameter is enabled then the estimator will make use of the range finder measurements to estimate it's height even if range sensor is not the primary height source. It will only do so if conditions for range measurement fusion are met. This enables the range finder to be used during low speed and low altitude operation, eg takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. It is intended to be used where a vertical takeoff and landing is performed, and horizontal flight does not occur until above EKF2_RNG_A_HMAX. If vehicle motion causes repeated switching between the primary height sensor and range finder, an offset in the local position origin can accumulate. Also range finder measurements are less reliable and can experience unexpected errors. For these reasons, if accurate control of height relative to ground is required, it is recommended to use the MPC_ALT_MODE parameter instead, unless baro errors are severe enough to cause problems with landing and takeoff.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -5845,7 +5845,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -6189,23 +6189,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -6224,7 +6224,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -6254,7 +6254,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -6275,23 +6275,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -6393,7 +6393,7 @@
         <strong>Comment:</strong> For small wings or VTOL without airspeed sensor this parameter can be used to enable flying without an airspeed reading
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -7680,23 +7680,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -7877,7 +7877,7 @@
         <strong>Comment:</strong> When set to 0/disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When set to 1/enabled, it is already activated when entering the final loiter-down (loiter-to-alt) WP before the landing approach. This shifts the (often large) altitude and airspeed errors caused by the configuration change away from the ground such that these are not so critical. It also gives the controller enough time to adapt to the new configuration such that the landing approach starts with a cleaner initial state.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -8392,23 +8392,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -8552,23 +8552,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -9138,23 +9138,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -9220,23 +9220,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -9354,23 +9354,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -9610,7 +9610,7 @@
         <strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -9831,23 +9831,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -9969,7 +9969,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Idle throttle
+        怠速油门
       </p>
       
       <p>
@@ -9997,7 +9997,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Throttle limit max
+        油门最大值
       </p>
       
       <p>
@@ -10025,7 +10025,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Throttle limit min
+        油门最小值
       </p>
       
       <p>
@@ -10052,23 +10052,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -10086,11 +10086,11 @@
         <strong>Comment:</strong> Configure on which serial port to run Main GPS.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -10116,7 +10116,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -10145,11 +10145,11 @@
         <strong>Comment:</strong> Configure on which serial port to run Secondary GPS.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -10175,7 +10175,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -10204,11 +10204,11 @@
         <strong>Comment:</strong> If this is set to 1, all GPS communication data will be published via uORB, and written to the log file as gps_dump message.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disable
+          <strong>0:</strong>禁用相机触发功能
         </li>
         <li>
           <strong>1:</strong> Enable
@@ -10242,7 +10242,7 @@
         <strong>Comment:</strong> u-blox receivers support different dynamic platform models to adjust the navigation engine to the expected application environment.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -10263,7 +10263,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -10294,7 +10294,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -10317,23 +10317,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -10455,23 +10455,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -10489,20 +10489,20 @@
         <strong>Comment:</strong> Note: Setting this value to 4 enables flight termination, which will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using a software circuit breaker, which needs to be reset to 0 to really shut down the system.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> None
+          <strong>0:</strong>无
         </li>
         <li>
-          <strong>1:</strong> Warning
+          <strong>1: </strong>报警
         </li>
         <li>
           <strong>2:</strong> Hold mode
         </li>
         <li>
-          <strong>3:</strong> Return mode
+          <strong>3: </strong>返航模式
         </li>
         <li>
           <strong>4:</strong> Terminate
@@ -10536,7 +10536,7 @@
         <strong>Comment:</strong> Select which altitude reference should be used 0 = WGS84, 1 = AMSL
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -10657,7 +10657,7 @@
         <strong>Comment:</strong> Select which position source should be used. Selecting GPS instead of global position makes sure that there is no dependence on the position estimator 0 = global position, 1 = GPS
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -10687,23 +10687,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -10721,11 +10721,11 @@
         <strong>Comment:</strong> Configure on which serial port to run Iridium (with MAVLink).
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -10751,7 +10751,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -10844,23 +10844,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -11201,23 +11201,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -11290,7 +11290,7 @@
         <strong>Comment:</strong> Configure the mode of the landing target. Depending on the mode, the landing target observations are used differently to aid position estimation. Mode Moving: The landing target may be moving around while in the field of view of the vehicle. Landing target measurements are not used to aid positioning. Mode Stationary: The landing target is stationary. Measured velocity w.r.t. the landing target is used to aid velocity estimation.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -11430,23 +11430,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -12442,23 +12442,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -12476,11 +12476,11 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -12506,7 +12506,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -12565,7 +12565,7 @@
         <strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -12653,11 +12653,11 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -12683,7 +12683,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -12742,7 +12742,7 @@
         <strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -12830,11 +12830,11 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -12860,7 +12860,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -12919,7 +12919,7 @@
         <strong>Comment:</strong> The MAVLink Mode defines the set of streamed messages (for example the vehicle's attitude) and their sending rates.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -13007,7 +13007,7 @@
         <strong>Comment:</strong> This allows a ground control station to automatically find the drone on the local network.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -13044,7 +13044,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -13174,7 +13174,7 @@
         MAVLink protocol version
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -13238,7 +13238,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -13264,7 +13264,7 @@
         MAVLink airframe type
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -13398,23 +13398,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -13446,23 +13446,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -13476,7 +13476,7 @@
         Low pass filter frequency for Accelerometer
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -13527,7 +13527,7 @@
         Low pass filter frequency for Gyro
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -13578,7 +13578,7 @@
         Sample rate in Hz
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -13608,28 +13608,28 @@
   </tr>
 </table>
 
-## Mission
+## 任务
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -13647,17 +13647,17 @@
         <strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Land mode
+          <strong>0: </strong>降落模式
         </li>
         <li>
           <strong>1:</strong> Hold mode
         </li>
         <li>
-          <strong>2:</strong> Return mode
+          <strong>2: </strong>返航模式
         </li>
       </ul>
     </td>
@@ -13687,7 +13687,7 @@
         <strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -13697,13 +13697,13 @@
           <strong>1:</strong> Altitude mode
         </li>
         <li>
-          <strong>2:</strong> Manual
+          <strong>2: </strong>手动
         </li>
         <li>
-          <strong>3:</strong> Return mode
+          <strong>3: </strong>返航模式
         </li>
         <li>
-          <strong>4:</strong> Land mode
+          <strong>4: </strong>降落模式
         </li>
         <li>
           <strong>5:</strong> Hold mode
@@ -13736,7 +13736,7 @@
         <strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -13773,7 +13773,7 @@
         <strong>Comment:</strong> The mode transition after TAKEOFF has completed successfully.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -13810,7 +13810,7 @@
         <strong>Comment:</strong> 0: the system will follow a zero order hold altitude setpoint 1: the system will follow a first order hold altitude setpoint values follow the definition in enum mission_altitude_mode
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -13932,11 +13932,11 @@
         <strong>Comment:</strong> If enabled, yaw commands will be sent to the mount and the vehicle will follow its heading mode as specified by MIS_YAWMODE. If disabled, the vehicle will yaw towards the ROI.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disable
+          <strong>0:</strong>禁用相机触发功能
         </li>
         <li>
           <strong>1:</strong> Enable
@@ -14050,7 +14050,7 @@
         <strong>Comment:</strong> Specifies the heading in Auto.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -14122,20 +14122,20 @@
         <strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>1:</strong> Hold mode
         </li>
         <li>
-          <strong>2:</strong> Return mode
+          <strong>2: </strong>返航模式
         </li>
         <li>
-          <strong>3:</strong> Land mode
+          <strong>3: </strong>降落模式
         </li>
         <li>
           <strong>4:</strong> Data Link Auto Recovery (CASA Outback Challenge rules)
@@ -14308,20 +14308,20 @@
         <strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>1:</strong> Hold mode
         </li>
         <li>
-          <strong>2:</strong> Return mode
+          <strong>2: </strong>返航模式
         </li>
         <li>
-          <strong>3:</strong> Land mode
+          <strong>3: </strong>降落模式
         </li>
         <li>
           <strong>4:</strong> RC Auto Recovery (CASA Outback Challenge rules)
@@ -14388,20 +14388,20 @@
         <strong>Comment:</strong> Enabling this will allow the system to respond to transponder data from e.g. ADSB transponders
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>1:</strong> Warn only
         </li>
         <li>
-          <strong>2:</strong> Return mode
+          <strong>2: </strong>返航模式
         </li>
         <li>
-          <strong>3:</strong> Land mode
+          <strong>3: </strong>降落模式
         </li>
       </ul>
     </td>
@@ -14423,23 +14423,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -14475,11 +14475,11 @@
         Auxiliary channel to control pitch (in AUX input or manual mode)
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disable
+          <strong>0:</strong>禁用相机触发功能
         </li>
         <li>
           <strong>1:</strong> AUX1
@@ -14521,11 +14521,11 @@
         Auxiliary channel to control roll (in AUX input or manual mode)
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disable
+          <strong>0:</strong>禁用相机触发功能
         </li>
         <li>
           <strong>1:</strong> AUX1
@@ -14567,11 +14567,11 @@
         Auxiliary channel to control yaw (in AUX input or manual mode)
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disable
+          <strong>0:</strong>禁用相机触发功能
         </li>
         <li>
           <strong>1:</strong> AUX1
@@ -14669,7 +14669,7 @@
         <strong>Comment:</strong> RC uses the AUX input channels (see MNT_MAN_* parameters), MAVLINK_ROI uses the MAV_CMD_DO_SET_ROI Mavlink message, and MAVLINK_DO_MOUNT the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL messages to control a mount.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -14690,7 +14690,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -14720,7 +14720,7 @@
         <strong>Comment:</strong> AUX uses the mixer output Control Group #2. MAVLINK uses the MAV_CMD_DO_MOUNT_CONFIGURE and MAV_CMD_DO_MOUNT_CONTROL MavLink messages to control a mount (set MNT_MAV_SYSID & MNT_MAV_COMPID)
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -14934,23 +14934,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -15148,11 +15148,11 @@
         <strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>1:</strong> Roll/Pitch
@@ -16020,23 +16020,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -16174,7 +16174,7 @@
         <strong>Comment:</strong> Set to 0 to control height relative to the earth frame origin. This origin may move up and down in flight due to sensor drift. Set to 1 to control height relative to estimated distance to ground. The vehicle will move up and down with terrain height variation. Requires a distance to ground sensor. The height controller will revert to using height above origin if the distance to ground estimate becomes invalid as indicated by the local_position.distance_bottom_valid message being false. Set to 2 to control height relative to ground (requires a distance sensor) when stationary and relative to earth frame origin when moving horizontally. The speed threshold is controlled by the MPC_HOLD_MAX_XY parameter.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -16211,7 +16211,7 @@
         Auto sub-mode
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -16661,7 +16661,7 @@
         <strong>Comment:</strong> The supported sub-modes are: 0 Default position control where sticks map to position/velocity directly. Maximum speeds is MPC_VEL_MANUAL. 1 Smooth position control where setpoints are adjusted based on acceleration limits and jerk limits. 2 Sport mode that is the same Default position control but with velocity limits set to the maximum allowed speeds (MPC_XY_VEL_MAX) 3 Smooth position control with maximum acceleration and jerk limits (different algorithm than 1).
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -16704,7 +16704,7 @@
         <strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to commanded thrust in Manual/Stabilized flight mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: in case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -17473,23 +17473,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -17507,7 +17507,7 @@
         <strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. ONLY supported for fmu output (Pixracer or Omnibus F4). When changing this, make sure to test the motor response without props first.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -17574,7 +17574,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -17606,7 +17606,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -17638,7 +17638,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -17670,7 +17670,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -17702,7 +17702,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -17734,7 +17734,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -17766,7 +17766,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -17798,7 +17798,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -17830,7 +17830,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -17862,7 +17862,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -17894,7 +17894,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -17926,7 +17926,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -17958,7 +17958,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -17990,7 +17990,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -18022,7 +18022,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -18054,7 +18054,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18086,7 +18086,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18118,7 +18118,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -18150,7 +18150,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18182,7 +18182,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18214,7 +18214,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18246,7 +18246,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18278,7 +18278,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18310,7 +18310,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -18342,7 +18342,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -18374,7 +18374,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -18406,7 +18406,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18438,7 +18438,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18470,7 +18470,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18502,7 +18502,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18534,7 +18534,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18566,7 +18566,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18598,7 +18598,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -18630,7 +18630,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -18662,7 +18662,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -18694,7 +18694,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19150,7 +19150,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19182,7 +19182,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19214,7 +19214,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19246,7 +19246,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19278,7 +19278,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19310,7 +19310,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19342,7 +19342,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19374,7 +19374,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19406,7 +19406,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19438,7 +19438,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19470,7 +19470,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19502,7 +19502,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19534,7 +19534,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19566,7 +19566,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19598,7 +19598,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19630,7 +19630,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19662,7 +19662,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19694,7 +19694,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19726,7 +19726,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19758,7 +19758,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19790,7 +19790,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19822,7 +19822,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19854,7 +19854,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -19886,7 +19886,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19918,7 +19918,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19950,7 +19950,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -19982,7 +19982,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -20014,7 +20014,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -20046,7 +20046,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -20078,7 +20078,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -20110,7 +20110,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -20142,7 +20142,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -20174,7 +20174,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -20630,7 +20630,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -20662,7 +20662,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -20694,7 +20694,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -20770,23 +20770,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -20962,23 +20962,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -20997,7 +20997,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -21055,7 +21055,7 @@
         <strong>Comment:</strong> Set to 0 if using fake GPS
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -21733,23 +21733,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -21926,23 +21926,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -21978,23 +21978,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -22012,11 +22012,11 @@
         <strong>Comment:</strong> Configure on which serial port to run FastRTPS.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -22042,7 +22042,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -22071,11 +22071,11 @@
         <strong>Comment:</strong> Configure on which serial port to run MAVLink + FastRTPS.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -22101,7 +22101,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -22122,23 +22122,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -22239,7 +22239,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -22388,7 +22388,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -22537,7 +22537,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -22686,7 +22686,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -22835,7 +22835,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -22984,7 +22984,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -23133,7 +23133,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -23282,7 +23282,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -23431,7 +23431,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -23581,7 +23581,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -23731,7 +23731,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -23881,7 +23881,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -24031,7 +24031,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -24180,7 +24180,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -24329,7 +24329,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -24478,7 +24478,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -24627,7 +24627,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -24776,7 +24776,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -24953,7 +24953,7 @@
         <strong>Comment:</strong> Default function: Camera pitch
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -25042,7 +25042,7 @@
         <strong>Comment:</strong> Default function: Camera roll
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -25131,7 +25131,7 @@
         <strong>Comment:</strong> Default function: Camera azimuth / yaw
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -25216,7 +25216,7 @@
         AUX4 Passthrough RC channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -25301,7 +25301,7 @@
         AUX5 Passthrough RC channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -25390,7 +25390,7 @@
         <strong>Comment:</strong> The RC mapping index indicates which channel is used for failsafe If 0, whichever channel is mapped to throttle is used otherwise the value indicates the specific RC channel to use
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -25479,7 +25479,7 @@
         <strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 1st parameter channel. Set to 0 to deactivate *
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -25568,7 +25568,7 @@
         <strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 2nd parameter channel. Set to 0 to deactivate *
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -25657,7 +25657,7 @@
         <strong>Comment:</strong> Can be used for parameter tuning with the RC. This one is further referenced as the 3th parameter channel. Set to 0 to deactivate *
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -25746,7 +25746,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading pitch inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -25835,7 +25835,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading roll inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -25924,7 +25924,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading throttle inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -26013,7 +26013,7 @@
         <strong>Comment:</strong> The channel index (starting from 1 for channel 1) indicates which channel should be used for reading yaw inputs from. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -26102,7 +26102,7 @@
         <strong>Comment:</strong> 0: do not read RSSI from input channel 1-18: read RSSI from specified input channel Specify the range for RSSI input with RC_RSSI_PWM_MIN and RC_RSSI_PWM_MAX parameters.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -26318,23 +26318,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -26564,7 +26564,7 @@
         Acro switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -26653,7 +26653,7 @@
         <strong>Comment:</strong> Use it to arm/disarm via switch instead of default throttle stick. If this is assigned, arming and disarming via stick is disabled.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -26738,7 +26738,7 @@
         Flaps channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -26827,7 +26827,7 @@
         <strong>Comment:</strong> If this parameter is non-zero, flight modes are only selected by this channel and are assigned to six slots.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -26912,7 +26912,7 @@
         Landing gear switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -26997,7 +26997,7 @@
         Kill switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -27082,7 +27082,7 @@
         Loiter switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -27167,7 +27167,7 @@
         Manual switch channel mapping
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -27256,7 +27256,7 @@
         <strong>Comment:</strong> This is the main flight mode selector. The channel index (starting from 1 for channel 1) indicates which channel should be used for deciding about the main mode. A value of zero indicates the switch is not assigned.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -27341,7 +27341,7 @@
         Offboard switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -27426,7 +27426,7 @@
         Position Control switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -27511,7 +27511,7 @@
         Rattitude switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -27596,7 +27596,7 @@
         Return switch channel
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -27681,7 +27681,7 @@
         Stabilize switch channel mapping
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -27766,7 +27766,7 @@
         VTOL transition switch channel mapping
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -28009,23 +28009,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -28147,23 +28147,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -28181,7 +28181,7 @@
         <strong>Comment:</strong> Fly straight to the home location or planned mission landing and land there or use the planned mission to get to those points.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -28213,23 +28213,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -28271,7 +28271,7 @@
         <strong>Comment:</strong> 0: airframe heading, 1: heading towards takeoff waypoint
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -28443,23 +28443,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -28478,7 +28478,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -28508,11 +28508,11 @@
         <strong>Comment:</strong> If enabled, a small additional "mission" log file will be written to the SD card. The log contains just those messages that are useful for tasks like generating flight statistics and geotagging. The different modes can be used to further reduce the logged data (and thus the log file size). For example, choose geotagging mode to only log data required for geotagging. Note that the normal/full log is still created, and contains all the data in the mission log (and more).
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>1:</strong> All mission messages
@@ -28523,7 +28523,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -28552,7 +28552,7 @@
         <strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -28567,7 +28567,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -28626,7 +28626,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -28697,28 +28697,28 @@
   </tr>
 </table>
 
-## SITL
+## 软件在环仿真
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -28752,23 +28752,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -29952,7 +29952,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -30039,7 +30039,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -30245,7 +30245,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -30332,7 +30332,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -30538,7 +30538,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -30625,7 +30625,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -30831,7 +30831,7 @@
         <strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -30918,7 +30918,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -31226,23 +31226,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -31260,7 +31260,7 @@
         <strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -31352,7 +31352,7 @@
         <strong>Comment:</strong> DETECT_ORIENTATION_TAIL_DOWN = 1 DETECT_ORIENTATION_NOSE_DOWN = 2 DETECT_ORIENTATION_LEFT = 4 DETECT_ORIENTATION_RIGHT = 8 DETECT_ORIENTATION_UPSIDE_DOWN = 16 DETECT_ORIENTATION_RIGHTSIDE_UP = 32
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -31394,7 +31394,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -31426,7 +31426,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -31481,7 +31481,7 @@
         <strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -31592,7 +31592,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -31699,7 +31699,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -31724,11 +31724,11 @@
         Lidar-Lite (LL40LS)
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>1:</strong> PWM
@@ -31739,7 +31739,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -31766,7 +31766,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -31792,7 +31792,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -31817,7 +31817,7 @@
         Lightware Laser Rangefinder hardware model
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -31838,7 +31838,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -31863,11 +31863,11 @@
         Lightware SF1xx/SF20/LW20 laser rangefinder (i2c)
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>1:</strong> SF10/a
@@ -31887,7 +31887,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -31913,7 +31913,7 @@
         Thermal control of sensor temperature
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -31946,11 +31946,11 @@
         TeraRanger Rangefinder (i2c)
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>1:</strong> Autodetect
@@ -31967,7 +31967,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -31997,7 +31997,7 @@
         <strong>Comment:</strong> This parameter defines the yaw rotation of the PX4FLOW board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle. The recommneded installation default for the PX4FLOW board is with the Y axis forward (270 deg yaw).
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -32027,7 +32027,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -32152,11 +32152,11 @@
         <strong>Comment:</strong> Configure on which serial port to run LeddarOne Rangefinder.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -32182,7 +32182,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -32211,11 +32211,11 @@
         <strong>Comment:</strong> Configure on which serial port to run Lightware Laser Rangefinder.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -32241,7 +32241,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -32292,11 +32292,11 @@
         <strong>Comment:</strong> Configure on which serial port to run Benewake TFmini Rangefinder.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -32322,7 +32322,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -32351,11 +32351,11 @@
         <strong>Comment:</strong> Configure on which serial port to run uLanding Radar.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -32381,7 +32381,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -32402,23 +32402,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -32429,14 +32429,14 @@
     
     <td style="vertical-align: top;">
       <p>
-        Baudrate for the GPS 1 Serial Port
+        GPS1串口波特率
       </p>
       
       <p>
-        <strong>Comment:</strong> Configure the Baudrate for the GPS 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
+        <strong>说明:</strong>配置GPS1串口的波特率. 注意: 某些驱动程序，如GPS，可以自动确定波特率
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -32520,7 +32520,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -32542,14 +32542,14 @@
     
     <td style="vertical-align: top;">
       <p>
-        Baudrate for the GPS 2 Serial Port
+        GPS2串口波特率
       </p>
       
       <p>
-        <strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
+        <strong>说明:</strong>配置GPS2串口的波特率. 注意: 某些驱动程序，如GPS，可以自动确定波特率
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -32633,7 +32633,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -32655,14 +32655,14 @@
     
     <td style="vertical-align: top;">
       <p>
-        Baudrate for the TELEM 1 Serial Port
+        TELE1串口波特率参数
       </p>
       
       <p>
-        <strong>Comment:</strong> Configure the Baudrate for the TELEM 1 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
+        <strong>Comment:</strong> Configure the Baudrate for the TELEM 1 Serial Port. 注意: 某些驱动程序，如GPS，可以自动确定波特率
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -32746,7 +32746,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -32768,14 +32768,14 @@
     
     <td style="vertical-align: top;">
       <p>
-        Baudrate for the TELEM 2 Serial Port
+        TELE2串口波特率参数
       </p>
       
       <p>
-        <strong>Comment:</strong> Configure the Baudrate for the TELEM 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
+        <strong>Comment:</strong> Configure the Baudrate for the TELEM 2 Serial Port. 注意: 某些驱动程序，如GPS，可以自动确定波特率
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -32859,7 +32859,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -32881,14 +32881,14 @@
     
     <td style="vertical-align: top;">
       <p>
-        Baudrate for the TELEM 3 Serial Port
+        TELE3串口波特率参数
       </p>
       
       <p>
-        <strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
+        <strong>Comment:</strong> Configure the Baudrate for the TELEM 3 Serial Port. 注意: 某些驱动程序，如GPS，可以自动确定波特率
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -32972,7 +32972,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -32994,14 +32994,14 @@
     
     <td style="vertical-align: top;">
       <p>
-        Baudrate for the TELEM/SERIAL 4 Serial Port
+        TELE4串口波特率参数
       </p>
       
       <p>
-        <strong>Comment:</strong> Configure the Baudrate for the TELEM/SERIAL 4 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
+        <strong>Comment:</strong> Configure the Baudrate for the TELEM/SERIAL 4 Serial Port. 注意: 某些驱动程序，如GPS，可以自动确定波特率
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -33085,7 +33085,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -33107,14 +33107,14 @@
     
     <td style="vertical-align: top;">
       <p>
-        Baudrate for the UART 6 Serial Port
+        UART6串口波特率参数
       </p>
       
       <p>
-        <strong>Comment:</strong> Configure the Baudrate for the UART 6 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
+        <strong>说明:</strong>配置UART6串行口的波特率 注意: 某些驱动程序，如GPS，可以自动确定波特率
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -33198,7 +33198,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -33219,23 +33219,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -33279,7 +33279,7 @@
         <strong>Comment:</strong> See esc_model_t enum definition in uart_esc_dev.h for all supported ESC model enum values.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -33399,23 +33399,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -33470,23 +33470,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -33558,7 +33558,7 @@
         <strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -33597,7 +33597,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -33628,7 +33628,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -33820,11 +33820,11 @@
         <strong>Comment:</strong> This parameter is deprecated. Do not change it, use the more generic serial configuration parameters instead.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>10:</strong> FrSky Telemetry
@@ -33883,7 +33883,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -33914,7 +33914,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -33944,7 +33944,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -33974,7 +33974,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -34004,7 +34004,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -34033,7 +34033,7 @@
         <strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -34045,7 +34045,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -34102,7 +34102,7 @@
         <strong>Comment:</strong> Set by px4io to indicate type of restart
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -34166,7 +34166,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -34188,23 +34188,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -34222,11 +34222,11 @@
         <strong>Comment:</strong> Configure on which serial port to run FrSky Telemetry.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -34252,7 +34252,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -34281,11 +34281,11 @@
         <strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -34311,7 +34311,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -34327,28 +34327,28 @@
   </tr>
 </table>
 
-## Testing
+## 测试
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -34736,23 +34736,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -36084,7 +36084,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Barometer calibration maximum temperature
+        气压计校准最高温度
       </p>
     </td>
     
@@ -36106,7 +36106,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Barometer calibration minimum temperature
+        气压计校准最低温度
       </p>
     </td>
     
@@ -36128,7 +36128,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Barometer calibration reference temperature
+        气压计校准参考温度
       </p>
     </td>
     
@@ -36326,7 +36326,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Barometer calibration maximum temperature
+        气压计校准最高温度
       </p>
     </td>
     
@@ -36348,7 +36348,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Barometer calibration minimum temperature
+        气压计校准最低温度
       </p>
     </td>
     
@@ -36370,7 +36370,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Barometer calibration reference temperature
+        气压计校准参考温度
       </p>
     </td>
     
@@ -36568,7 +36568,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Barometer calibration maximum temperature
+        气压计校准最高温度
       </p>
     </td>
     
@@ -36590,7 +36590,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Barometer calibration minimum temperature
+        气压计校准最低温度
       </p>
     </td>
     
@@ -36612,7 +36612,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Barometer calibration reference temperature
+        气压计校准参考温度
       </p>
     </td>
     
@@ -36877,7 +36877,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Gyro calibration maximum temperature
+        陀螺仪校准最高温度
       </p>
     </td>
     
@@ -36899,7 +36899,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Gyro calibration minimum temperature
+        陀螺仪校准最低温度
       </p>
     </td>
     
@@ -36921,7 +36921,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Gyro calibration reference temperature
+        陀螺仪校准的参考温度
       </p>
     </td>
     
@@ -37295,7 +37295,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Gyro calibration maximum temperature
+        陀螺仪校准最高温度
       </p>
     </td>
     
@@ -37317,7 +37317,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Gyro calibration minimum temperature
+        陀螺仪校准最低温度
       </p>
     </td>
     
@@ -37339,7 +37339,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Gyro calibration reference temperature
+        陀螺仪校准的参考温度
       </p>
     </td>
     
@@ -37713,7 +37713,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Gyro calibration maximum temperature
+        陀螺仪校准最高温度
       </p>
     </td>
     
@@ -37735,7 +37735,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Gyro calibration minimum temperature
+        陀螺仪校准最低温度
       </p>
     </td>
     
@@ -37757,7 +37757,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Gyro calibration reference temperature
+        陀螺仪校准的参考温度
       </p>
     </td>
     
@@ -38065,23 +38065,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -38196,7 +38196,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -38227,11 +38227,11 @@
         <strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Disabled
+          <strong>0:</strong>禁用相机反馈
         </li>
         <li>
           <strong>1:</strong> Sensors Manual Config
@@ -38245,7 +38245,7 @@
       </ul>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -38272,7 +38272,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -38302,7 +38302,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -38324,23 +38324,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -39160,7 +39160,7 @@
         VTOL Type (Tailsitter=0, Tiltrotor=1, Standard=2)
       </p>
       
-      <strong>Values:</strong>
+      <strong>参数对照:</strong>
       
       <ul>
         <li>
@@ -39221,23 +39221,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
@@ -39304,7 +39304,7 @@
       </p>
       
       <p>
-        <b>Reboot required:</b> true
+        <b>重启要求: </b>是
       </p>
     </td>
     
@@ -39424,23 +39424,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
