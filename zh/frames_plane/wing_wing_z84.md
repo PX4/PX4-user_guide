@@ -40,11 +40,11 @@ One of these:
 - 1 cm diameter O-ring for prop saver ([Hobbyking International Warehouse](http://www.hobbyking.com/hobbyking/store/__27339__Wing_Wing_Z_84_O_Ring_10pcs_.html))
 - 125x110 mm propellers ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
 
-## Wiring
+## 布线
 
 The wiring below is valid for Pixhawk and Pixracer. Use the main outputs, not the ones labeled with AUX. The motor controller needs to have an in-built BEC, as the autopilot is not powering the servo rail.
 
-| Port   | Connection                  |
+| Port   | 接口定义                        |
 | ------ | --------------------------- |
 | RC IN  | PPM or S.BUS / S.BUS2 input |
 | MAIN 1 | Left Aileron                |
