@@ -1,4 +1,4 @@
-# Pixhawk Series
+# Pixhawk 系列
 
 [Pixhawk<sup>&reg;</sup>](https://pixhawk.org/) is an independent open-hardware project providing readily-available, low-cost, and high-end, *autopilot hardware designs* to the academic, hobby and industrial communities. "Pixhawk-series" boards run PX4 on the [NuttX](http://nuttx.org) OS.
 
@@ -80,7 +80,7 @@ Product names/brands can also be trademarked. Trademarked names may not be used 
 
 > **Tip** *Pixhawk* is a trademark, and cannot be used in product names without permission.
 
-## Additional Information
+## 附加信息
 
 ### LEDs
 
