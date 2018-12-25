@@ -2,7 +2,7 @@
 
 此快速入门指南演示如何为 * 3DR Pixhawk * 飞行控制器供电并连接其最重要的外围配件设备。
 
-![Pixhawk Image](../../images/pixhawk_logo_view.jpg)
+![Pixhawk  图像](../../images/pixhawk_logo_view.jpg)
 
 > **注意** 3DR不再提供[3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html) 可以使用其他公司基于 [ Pixhawk FMUv2 原理图 ](../flight_controller/pixhawk_series.md) 设计的飞行控制器配件 (他们采用相同的连接器、输出、功能等，例如 它们使用相同的连线线材）。
 
@@ -64,7 +64,7 @@ The instructions below show how to connect the different types of receivers to P
 
 - PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-For more information about selecting a radio system, receiver compatibility, and binding your transmitter/receiver pair, see: [Remote Control Transmitters & Receivers](../getting_started/rc_transmitter_receiver.md).
+更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息, 请参阅: 遥控器发射机&接收器 </0 >。</p> 
 
 ## 数传电台（可选）
 
@@ -108,5 +108,5 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 ## 更多信息
 
-- [Pixhawk Series](../flight_controller/pixhawk_series.md)
+- [Pixhawk 系列](../flight_controller/pixhawk_series.md)
 - [3DR Pixhawk](../flight_controller/pixhawk.md)
