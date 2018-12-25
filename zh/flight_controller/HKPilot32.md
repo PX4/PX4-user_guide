@@ -8,21 +8,21 @@ The Hobbyking<sup>&reg;</sup> *HKPilot32 autopilot* is based on the [Pixhawk<sup
 
 As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files should be [available here](https://github.com/PX4/Hardware).
 
-## Key Features
+## 主要特性
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
   * CPU: 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
   * RAM: 168 MHz/256 KB 
   * Flash: 2 MB
 * Failsafe System-on-Chip: STM32F103
-* Sensors: 
+* 传感器： 
   * ST Micro L3GD20 3-axis 16-bit gyroscope
   * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
   * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
   * MEAS MS5611 barometer
 * Dimensions/Weight 
   * Size: 81x44x15mm
-  * Weight: 33.1g
+  * 重量: 33.1g
 * GPS: U-blox<sup>&reg;</sup> super precision Neo-7M with compass
 * Input Voltage: 2~10s (7.4~37V)
 
@@ -45,21 +45,21 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 * [Hobbyking<sup>&reg;</sup> Wifi Telemetry](http://www.hobbyking.com/hobbyking/store/__87841__APM_Pixhawk_Wireless_Wifi_Radio_Module.html)
 * [Hobbyking OSD + EU Telemetry (433 MHz)](http://www.hobbyking.com/hobbyking/store/__74650__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_433MHz_.html)
 
-## Availability
+## 访问链接
 
 * [Hobbyking EU version (433 MHz)](http://www.hobbyking.com/hobbyking/store/__80554__HKPilot32_Autonomous_Vehicle_32Bit_Control_Set_with_Telemetry_and_GPS_433Mhz_.html)
 * [Hobbyking US version (915 MHz)](http://www.hobbyking.com/hobbyking/store/__80555__HKPilot32_Autonomous_Vehicle_32Bit_Control_Set_with_Telemetry_and_GPS_915Mhz_.html)
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make px4_fmu-v2_default
     
 
-## Pinouts and Schematics
+## 引脚和原理图
 
 The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
 
