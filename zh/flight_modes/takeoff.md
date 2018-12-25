@@ -1,6 +1,6 @@
 # Takeoff Mode
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 The *Takeoff* flight mode causes the vehicle to take off to a specified height and wait for further input.
 
@@ -14,7 +14,7 @@ A multi rotor ascends to the altitude defined in `MIS_TAKEOFF_ALT` and holds po
 
 Takeoff is affected by the following parameters:
 
-| Parameter                                                                      | Description                                    |
+| 参数                                                                             | 描述                                             |
 | ------------------------------------------------------------------------------ | ---------------------------------------------- |
 | [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | Target altitude during takeoff (default: 2.5m) |
 | [MPC_TKO_SPEED](../advanced_config/parameter_reference.md#MPC_TKO_SPEED)     | Speed of ascent (default: 1.5m/s)              |
@@ -35,7 +35,7 @@ The *runway takeoff mode* has the following phases:
 
 Takeoff is affected by the following parameters:
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                          |
+| 参数                                                                                                      | 参数描述                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="RWTO_TKOFF"></span>[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF)             | Runway takeoff with landing gear. Default: disabled.                                                                                                                                                                                                                                                                                                                 |
 | <span id="RWTO_MAX_THR"></span>[RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR)       | Max throttle during runway takeoff.                                                                                                                                                                                                                                                                                                                                  |
@@ -46,7 +46,7 @@ Takeoff is affected by the following parameters:
 
 > **Note** The vehicle always respects normal FW max/min throttle settings during takeoff ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX)).
 
-## VTOL
+## 垂直起降（VTOL）
 
 A VTOL follows the TAKEOFF behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
 
