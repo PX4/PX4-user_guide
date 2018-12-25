@@ -4,7 +4,7 @@ The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing qu
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
-## Key Features
+## 主要特性
 
 * Main System-on-Chip: [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
   * CPU: 180 MHz ARM Cortex<sup>&reg;</sup> M4 with single-precision FPU
@@ -61,15 +61,15 @@ One of the main features of the board is its ability to use Wifi for flashing ne
 
 ![Grau ACSP5 roh](../../assets/flight_controller/pixracer/grau_acsp5_roh.jpg)
 
-## Connectors
+## 连接器
 
 All connectors follow the [Dronecode connector standard](https://wiki.dronecode.org/workgroup/connectors/start). Unless noted otherwise all connectors are JST GH.
 
-## Pinouts
+## 针脚定义
 
 TELEM1, TELEM2+OSD ports
 
-| Pin     | Signal    | Volt  |
+| 针脚      | 信号        | 电压    |
 | ------- | --------- | ----- |
 | 1 (red) | VCC       | +5V   |
 | 2 (blk) | TX (OUT)  | +3.3V |
@@ -80,7 +80,7 @@ TELEM1, TELEM2+OSD ports
 
 GPS port
 
-| Pin     | Signal   | Volt  |
+| 针脚      | 信号       | 电压    |
 | ------- | -------- | ----- |
 | 1 (red) | VCC      | +5V   |
 | 2 (blk) | TX (OUT) | +3.3V |
@@ -91,7 +91,7 @@ GPS port
 
 FrSky Telemetry / SERIAL4
 
-| Pin     | Signal   | Volt  |
+| 针脚      | 信号       | 电压    |
 | ------- | -------- | ----- |
 | 1 (red) | VCC      | +5V   |
 | 2 (blk) | TX (OUT) | +3.3V |
@@ -100,7 +100,7 @@ FrSky Telemetry / SERIAL4
 
 RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
 
-| Pin     | Signal  | Volt  |
+| 针脚      | 信号      | 电压    |
 | ------- | ------- | ----- |
 | 1 (red) | VCC     | +5V   |
 | 2 (blk) | RC IN   | +3.3V |
@@ -110,16 +110,16 @@ RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
 
 CAN
 
-| Pin     | Signal | Volt |
-| ------- | ------ | ---- |
-| 1 (red) | VCC    | +5V  |
-| 2 (blk) | CAN_H  | +12V |
-| 3 (blk) | CAN_L  | +12V |
-| 4 (blk) | GND    | GND  |
+| 针脚      | 信号    | 电压   |
+| ------- | ----- | ---- |
+| 1 (red) | VCC   | +5V  |
+| 2 (blk) | CAN_H | +12V |
+| 3 (blk) | CAN_L | +12V |
+| 4 (blk) | GND   | GND  |
 
 POWER
 
-| Pin     | Signal  | Volt  |
+| 针脚      | 信号      | 电压    |
 | ------- | ------- | ----- |
 | 1 (red) | VCC     | +5V   |
 | 2 (blk) | VCC     | +5V   |
@@ -130,7 +130,7 @@ POWER
 
 SWITCH
 
-| Pin     | Signal           | Volt  |
+| 针脚      | 信号               | 电压    |
 | ------- | ---------------- | ----- |
 | 1 (red) | SAFETY           | GND   |
 | 2 (blk) | !IO_LED_SAFETY | GND   |
@@ -140,7 +140,7 @@ SWITCH
 
 Dronecode debug port (JST SM06B connector)
 
-| Pin     | Signal           | Volt  |
+| 针脚      | 信号               | 电压    |
 | ------- | ---------------- | ----- |
 | 1 (red) | VCC TARGET SHIFT | +3.3V |
 | 2 (blk) | CONSOLE TX (OUT) | +3.3V |
@@ -164,15 +164,15 @@ The following PDF files are provided for *convenience only*:
 * [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
 * [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make px4_fmu-v4_default
     
 
-## Credits
+## 鸣谢
 
 This design was created by Nick Arsov and Phillip Kocmoud and architected by Lorenz Meier, David Sidrane and Leonard Hall.
