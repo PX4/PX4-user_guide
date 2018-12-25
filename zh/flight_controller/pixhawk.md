@@ -25,7 +25,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 * High-power, multi-tone piezo audio indicator
 * microSD card for high-rate logging over extended periods of time
 
-Connectivity
+连接性
 
 * 1x I2C
 * 1x CAN (2x optional)
@@ -37,7 +37,7 @@ Connectivity
 * S.BUS / PPM / Spektrum input
 * S.BUS output
 
-# Where to Buy
+# 在哪里买
 
 Originally manufactured by 3DR&reg; this board was the original standard microcontroller platform for PX4&reg;. While the board is no longer manufactured by 3DR, you can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
 
@@ -51,9 +51,9 @@ If out of stock the software-compatible but not connector-compatible versions ca
 
 * [HKPilot32](http://www.hobbyking.com/hobbyking/store/__55561__HKPilot32_Autonomous_Vehicle_32Bit_Control_Set_w_Power_Module.html)
 
-## Specifications
+## 产品规格
 
-### Processor
+### 处理器
 
 * 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4) core with FPU
 * 168 MHz
@@ -61,14 +61,14 @@ If out of stock the software-compatible but not connector-compatible versions ca
 * 2 MB Flash
 * 32 bit STM32F103 failsafe co-processor
 
-### Sensors
+### 传感器
 
 * ST Micro L3GD20H 16 bit gyroscope
 * ST Micro LSM303D 14 bit accelerometer / magnetometer
 * Invensense MPU 6000 3-axis accelerometer/gyroscope
 * MEAS MS5611 barometer
 
-### Interfaces
+### 接口
 
 * 5x UART (serial ports), one high-power capable, 2x with HW flow control
 * 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
@@ -109,7 +109,7 @@ Under these conditions all power sources will be used in this order to power the
 * Servo rail input (4.1V to 5.7V, 0V to 20V)
 * USB power input (4.1V to 5.7V, 0V to 6V) 
 
-## Schematics
+## 原理图
 
 [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
 
