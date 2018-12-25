@@ -4,11 +4,11 @@ The [E-Flite Convergence](https://www.modelflight.com.au/e-flite-convergence-vto
 
 {% youtube %} http://www.youtube.com/watch?v=E61P2f2WPNU {% endyoutube %}
 
-## Hardware setup
+## 硬件设置
 
 The convergence needs 7 PWM signals and is connected to a Pixfalcon in the following way (matching the airframe configuration in PX4, left/right seen looking from behind the plane):
 
-| Port   | Connection       |
+| Port   | 接口定义             |
 | ------ | ---------------- |
 | MAIN 1 | Motor right      |
 | MAIN 2 | Motor left       |
@@ -31,7 +31,7 @@ For the GPS we cut out a section of foam inside the "cockpit". That way the GPS 
 
 ![](../../images/eflight_convergence_gps_mounting.jpg)
 
-## Configuration
+## 配置
 
 Before the autopilot is configured normally (radio, sensors, flight modes), select the airframe configuration "E-flite Convergence" under "VTOL Tiltrotor" in QGC and restart.
 
@@ -40,7 +40,7 @@ If the airframe is not yet visible in QGC, set the following parameters and rest
 - SYS\_AUTOSTART: 13012
 - SYS\_AUTOCONFIG: 1
 
-Notes:
+备注：
 
 - Remember to assign the transition switch for switching to fixed-wing.
 - By default permanent stabilization is enabled. If you like fully manual flying in fixed-wing, set VT\_FW\_PERM\_STAB to 0.
