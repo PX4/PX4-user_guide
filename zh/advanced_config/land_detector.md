@@ -8,7 +8,7 @@ The land-detector does not auto-disarm the system on landing.
 
 You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (auto-disarming is disabled if this is zero).
 
-## Multicopter Configuration
+## 多旋翼配置
 
 The complete set of relevant landing detector parameters are listed in the parameter reference with the prefix [LNDMC](../advanced_config/parameter_reference.md#land-detector) (these can be edited in QGroundControl via the [parameter editor](../advanced_config/parameters.md)).
 
