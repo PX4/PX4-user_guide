@@ -46,10 +46,10 @@ For more information see: [Flight Controller Selection](flight_controller_select
 
 PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
-For more information see:
+有关详细信息，请参阅︰
 
 - [Sensors](../getting_started/sensor_selection.md) 
-- [Peripherals](../peripherals/README.md)
+- [外部设备](../peripherals/README.md)
 
 ## ESCs & Motors
 
@@ -73,17 +73,17 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 
 > **Note** PX4 does not require a remote control system for autonomous flight modes.
 
-![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
+![Taranis X9D遥控器。](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
 [RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
 
 - [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in *QGroundControl*.
-- [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
+- [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
 ## 数传电台
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. 这使得飞机飞行时调试、检查数传、更改任务等等成为了可能。
 
 ## Offboard/Companion Computer
 
