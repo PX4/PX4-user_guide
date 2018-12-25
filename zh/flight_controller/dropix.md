@@ -6,7 +6,7 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 
 ![Dropix](../../assets/flight_controller/dropix/dropix_flight_controller_hero.jpg)
 
-## Key Features
+## 主要特性
 
 * Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
 * 14 PWM/servo outputs (8 with failsafe and manual override, 5 auxiliary, high-power compatible)
@@ -24,11 +24,11 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
   * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
   * MEAS MS5611 barometer
 * Standard MK style mounting holes 45 mm x 45 mm (M3 holes)
-* Dimensions 
+* 尺寸 
   * Size: 67*50*6 mm
   * Weight: 15g (without connectors)
 
-## Availability
+## 访问链接
 
 [Dropix Pack](https://drotek.com/shop/en/flight-controllers/494-dropix-flight-controller.html) (drotek.com)
 
@@ -44,10 +44,10 @@ The following diagrams show the Dropix connector information (for more informati
 
 <img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" width="500px" />
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make px4_fmu-v2_default
