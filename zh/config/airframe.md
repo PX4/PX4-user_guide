@@ -6,7 +6,7 @@
 
 机架设置步骤如下：
 
-1. Start *QGroundControl* and connect the vehicle.
+1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏上选择**齿轮**图标 (载具设置)，然后在侧边栏选择 **机架**。 
 3. 先选择你的机架符合的大致分类，然后在下拉菜单中选择最匹配的机架类型。
     
@@ -18,7 +18,7 @@
     
     <img src="../../images/qgc/setup/airframe_px4_apply_prompt.jpg" width="300px" title="应用机架选择提示" />
 
-## Further Information
+## 更多信息：
 
 * [QGroundControl 用户手册 > 机架](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
 * [PX4 设置视频 - @37s](https://youtu.be/91VGmdSlbo4?t=35s) (Youtube)
