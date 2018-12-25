@@ -4,7 +4,7 @@ The [Intel Aero Ready to Fly Drone](https://software.intel.com/en-us/aero/drone-
 
 ![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
-## Introduction
+## 简介
 
 The main documentation on the [official wiki](https://github.com/intel-aero/meta-intel-aero/wiki) explains how to setup, update and connect to the board, and how to do development on the Linux side. The instructions in this topic concentrate on updating the firmware on the microcontroller from a development tree.
 
@@ -79,7 +79,7 @@ Next install ROS, by following the [instructions here](https://github.com/intel-
         roslaunch realsense2_camera rs_camera.launch
         
 
-### Obstacle Avoidance
+### 自主避障
 
 To run the PX4 obstacle avoidance software, install catkin first:
 
@@ -129,14 +129,14 @@ After setting up the PX4 development environment, follow these steps update the 
 
 Connect the [LeddarOne](../sensor/leddar_one.md) to the Aero telemetry port. The pinout for the LeddarOne and Aero telemetry port are as follows.
 
-| Pin | Aerofc TELEMETRY | LeddarOne |
-| --- | ---------------- | --------- |
-| 1   | VCC              | GND       |
-| 2   | TX               | -         |
-| 3   | RX               | VCC       |
-| 4   | SCL              | RX        |
-| 5   | SDA              | TX        |
-| 6   | GND              | -         |
+| 针脚 | Aerofc TELEMETRY | LeddarOne |
+| -- | ---------------- | --------- |
+| 1  | VCC              | GND       |
+| 2  | TX               | -         |
+| 3  | RX               | VCC       |
+| 4  | SCL              | RX        |
+| 5  | SDA              | TX        |
+| 6  | GND              | -         |
 
 To enable the rangefinder set the [SENS_EN_LEDDAR1](../advanced_config/parameter_reference.md#SENS_EN_LEDDAR1) parameter to 1 and reboot the board (instructions for setting parameters [available here](../advanced_config/parameters.md)).
 
@@ -152,23 +152,23 @@ In addition it is recommended to use a electrolytic capacitor for the Lidar Lite
 
 The pinout for the Lidar Lite V3 and Aero telemetry port are as follows
 
-| Pin | Aerofc TELEMETRY | Lidar Lite V3 |
-| --- | ---------------- | ------------- |
-| 1   | VCC              | VCC           |
-| 2   | TX               | -             |
-| 3   | RX               | -             |
-| 4   | SCL              | SCL           |
-| 5   | SDA              | SDA           |
-| 6   | GND              | GND           |
+| 针脚 | Aerofc TELEMETRY | Lidar Lite V3 |
+| -- | ---------------- | ------------- |
+| 1  | VCC              | VCC           |
+| 2  | TX               | -             |
+| 3  | RX               | -             |
+| 4  | SCL              | SCL           |
+| 5  | SDA              | SDA           |
+| 6  | GND              | GND           |
 
-| pin | Aerofc COMPASS | Lidar Lite V3 |
-| --- | -------------- | ------------- |
-| 1   | VCC            | VCC           |
-| 2   | SCL            | -             |
-| 3   | SDA            | -             |
-| 4   | GND            | SCL           |
-| 5   | -              | SDA           |
-| 6   | -              | GND           |
+| 引脚 | Aerofc COMPASS | Lidar Lite V3 |
+| -- | -------------- | ------------- |
+| 1  | VCC            | VCC           |
+| 2  | SCL            | -             |
+| 3  | SDA            | -             |
+| 4  | GND            | SCL           |
+| 5  | -              | SDA           |
+| 6  | -              | GND           |
 
 ![Aero I2C splitter](../../assets/hardware/intel_aero/aero_i2c_splitter.jpg)
 
@@ -190,7 +190,7 @@ If you want to start the optical flow binary at boot, use
 
 In addition, the following parameter values should be set in the flight controller.
 
-| Parameter                                                                  | Value |
+| 参数                                                                         | Value |
 | -------------------------------------------------------------------------- | ----- |
 | [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) | 2     |
 | [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) | 2     |
