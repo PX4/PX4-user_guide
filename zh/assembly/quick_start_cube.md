@@ -14,7 +14,7 @@ The exception is that some kits do not include a GPS, which will have to be purc
 
 ## Wiring Overview
 
-The image below shows how to connect the most important sensors and peripherals. We'll go through each of these in detail in the following sections.
+The image below shows how to connect the most important sensors and peripherals. 我们将在下面各节中介绍它们的细节。
 
 ![Cube - Wiring Overview](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
 
@@ -29,7 +29,7 @@ The image below shows how to connect the most important sensors and peripherals.
 
 > **Tip** More information about available ports can be found here: [Cube > Ports](../flight_controller/pixhawk-2.md#ports).
 
-## Mount and Orient Controller
+## 飞控的安装和方向
 
 Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the *subtle* arrow marker on top of the cube)
 
@@ -71,7 +71,7 @@ The buzzer provides audio signals to that indicate UAV status. This should be co
 
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
-## Radio Control {#rc_control}
+## 无线电遥控 {#rc_control}
 
 A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
@@ -95,7 +95,7 @@ Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM**
 
 The Cube cannot directly connect to PPM or PWM receivers that have an *individual wire for each channel*. PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
 
-## Power {#power}
+## 电源 {#power}
 
 Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
@@ -113,7 +113,7 @@ The communication channel is via [Telemetry Radios](../telemetry/README.md). The
 
 ![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
-## SD Card (Optional)
+## SD 卡（可选）
 
 SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). Insert the Micro-SD card into Cube as shown (if not already present).
 
@@ -121,7 +121,7 @@ SD cards are most commonly used to [log and analyse flight details](../getting_s
 
 > **Tip** The SanDisk Extreme U3 32GB is [highly recommended](https://dev.px4.io/en/log/logging.html#sd-cards) (Developer Guide).
 
-## Motors
+## 电机
 
 Motors/servos are connected to the **MAIN** and **AUX** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
@@ -133,7 +133,7 @@ Motors/servos are connected to the **MAIN** and **AUX** ports in the order speci
 
 > **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 
-## Other Peripherals
+## 其它外设
 
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
