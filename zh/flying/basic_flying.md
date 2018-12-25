@@ -8,7 +8,7 @@ This topic explains the basics of flying a vehicle using an [RC Transmitter](../
 
 All flying, including takeoff and landing, is controlled using the 4 basic commands: roll, yaw, pitch and throttle.
 
-![RC Basic Commands](../../images/rc_basic_commands.png)
+![遥控基本命令](../../images/rc_basic_commands.png)
 
 In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space. This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
 
