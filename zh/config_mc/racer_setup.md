@@ -29,7 +29,7 @@ There are however some benefits in adding GPS, particularly for beginners:
 
 > **Note** During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. If you switch into position mode during that time, altitude mode will be used instead until the position becomes valid again.
 
-## Hardware Setup
+## 硬件安装
 
 The following paragraphs describe a few important points when building the vehicle. If you need complete build instructions, you can follow the [QAV-R 5" KISS ESC Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) build log.
 
