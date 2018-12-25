@@ -6,7 +6,7 @@ The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixrace
 
 > **Note** The main hardware documentation is here: https://pixhawk.drotek.com/en/
 
-## Quick Summary
+## 总览
 
 - Microcontroller: **STM32F469**; Flash size is **2MiB**, RAM size is **384KiB**
 - **ICM-20608-G** gyro / accelerometer
@@ -22,10 +22,10 @@ The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixrace
 - S.BUS / Spektrum / SUMD / PPM input
 - JST GH user-friendly connectors: same connectors and pinouts as Pixracer
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make px4_fmu-v4pro_default
