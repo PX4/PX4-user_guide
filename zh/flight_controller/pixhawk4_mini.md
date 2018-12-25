@@ -17,7 +17,7 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
   * 气压计：MS5611
 * GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
 * 接口： 
-  * 8 PWM outputs
+  * 8 路 PWM 输出
   * FMU上有4个专用PWM/Capture输入
   * CPPM专用的RC输入
   * 用于 Spektrum / DSM 与 有模拟 / PWM RSSI 的 S.Bus 的专用遥控输入
@@ -30,7 +30,7 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
 * 电源系统： 
   * Power Brick Input: 4.75~5.5V
   * USB 电源输入：4.75~5.25V
-  * 伺服导轨输入电压：0~24V
+  * 舵机轨道输入：0~24V
   * Max current sensing: 120A
 * 重量和尺寸: 
   * 尺寸：38*55*15.5mm
@@ -41,13 +41,13 @@ Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Shee
 
 ## 采购
 
-Order from [Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html).
+中国大陆用户请从官方代理商“思动智能”的淘宝店“地面售货站”购买。境外用户从 [Holybro](https://shop.holybro.com/pixhawk4-mini_p1120.html) 购买。
 
-## Interfaces
+## 接口
 
 ![Pixhawk 4 Mini interfaces](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_interfaces.png)
 
-> **Warning** The **RC IN** and **PPM** ports are for RC receivers only. 这两个接口已经供电！ 不要把舵机、电源、电池（或是连接了这些设备的接收机）连接到上面。
+> **Warning** **RC IN** 与 **PPM** 接口仅可用于遥控接收机。 这两个接口已经供电！ 不要把舵机、电源、电池（或是连接了这些设备的接收机）连接到上面。
 
 ## 针脚定义
 
