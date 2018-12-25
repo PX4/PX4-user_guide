@@ -21,7 +21,7 @@ The flight controller (autopilot) can be purchased from the [3DR Store](https://
 - **Main Processor​:** STM32F427 Rev 3
 - **IO Processor​:** STM32F103
 
-**Sensors:**
+**传感器：**
 
 - **Accel/Gyro/Mag:** MPU9250
 - **Accel/Gyro:** ICM20608
@@ -105,8 +105,8 @@ Component | Image \--- | \--- Pixhawk Mini Autopilot | ![Pixhawk Mini](../../ima
 
 - [10S Power Module](https://store.3dr.com/products/10s-power-module)
 
-- [WiFi Telemetry Radio](https://store.3dr.com/products/wifi-telemetry-radio)
-- [Digital Airspeed Sensor](https://store.3dr.com/products/digital-airspeed-sensor)
+- [WiFi 数传电台](https://store.3dr.com/products/wifi-telemetry-radio)
+- [数字空速传感器](https://store.3dr.com/products/digital-airspeed-sensor)
 
 ## Compatibility
 
