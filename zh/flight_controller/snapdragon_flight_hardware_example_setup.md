@@ -22,7 +22,7 @@ This guide shows a Lumenier QAV-R 250 frame build with *Qualcomm Snapdragon Flig
 
 ![Snapdragon components](../../assets/hardware/snapdragon/snapdragon_components.jpg)
 
-## Wiring
+## 布线
 
 > **Warning** Although the Snapdragon uses DF13 connectors, the [pinout](../flight_controller/snapdragon_flight.md#pinouts) is different from Pixhawk.
 
