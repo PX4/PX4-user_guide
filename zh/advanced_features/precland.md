@@ -6,7 +6,7 @@ A precision landing can be initiated by entering the *Precision Land* flight mod
 
 ## Setup
 
-### Hardware Setup
+### 硬件安装
 
 Install the IR-LOCK sensor by following the [official guide](https://irlock.readme.io/v2.0/docs). Ensure that the sensor's x axis is aligned with the vehicle's y axis and the sensor's y axis aligned with the vehicle's -x direction (this is the case if the camera is pitched down 90 degrees from facing forward).
 
@@ -71,7 +71,7 @@ Precision landing can be initiated as part of a [mission](../flying/missions.md)
 - `param2` = 1: *Opportunistic* precision landing.
 - `param2` = 2: *Required* precision landing.
 
-## Simulation
+## 仿真
 
 Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/en/simulation/gazebo.html).
 
