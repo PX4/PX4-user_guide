@@ -17,7 +17,7 @@
 遥控器校准
 
 1. Turn on your RC transmitter.
-2. Start *QGroundControl* and connect the vehicle.
+2. 打开 *QGroundControl* 并连接上飞机。
 3. 在上面的工具条中选择 **齿轮** 按钮，然后在左面的工具条中选择 **遥控器** 按钮。
 4. 点击 **OK** 开始。
     
@@ -45,7 +45,7 @@
 
 ### Spectrum 对频
 
-Before you can calibrate the radio system the receiver and transmitter must be connected/bound. 如果你使用的是 *Spektrum* 的接收机，你可以按照下面的提示，使用 *QGroundControl* 将它设置到 *绑定（对频）模式* （如果你没有简便的物理方式用接收机连接飞控，这个会挺好用）。
+在你校准遥控器之前，遥控器的发射机和接收机需要绑定（对频）。 如果你使用的是 *Spektrum* 的接收机，你可以按照下面的提示，使用 *QGroundControl* 将它设置到 *绑定（对频）模式* （如果你没有简便的物理方式用接收机连接飞控，这个会挺好用）。
 
 Spektrum遥控器和接收机的对频
 
@@ -97,7 +97,7 @@ Spektrum遥控器和接收机的对频
 设置调试通道
 
 1. 映射3个遥控器通道（旋钮或滑块开关）来分离通道。
-2. 使用选择列表，选择*参数调试*映射到遥控器通道。 Values are saved to the vehicle as soon as they are set.
+2. 使用选择列表，选择*参数调试*映射到遥控器通道。 设置后，保存到自驾仪。
     
     ![映射遥控器通道到调试通道](../../images/qgc/setup/radio_additional_radio_setup_param_tuning.jpg)
 
