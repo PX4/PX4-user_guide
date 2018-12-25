@@ -4,20 +4,20 @@
 
 <img src="../../assets/hardware/sensors/leddar_one.jpg" alt="LeddarOne Lidar rangefinder" width="200px" />
 
-## Hardware Setup
+## 硬件安装
 
 LeddarOne can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
 Build a cable following your board and pinout and LeddarOne pinout (shown below). You only will need to connect 5V, TX, RX and GND pins.
 
-| Pin | LeddarOne |
-| --- | --------- |
-| 1   | GND       |
-| 2   | -         |
-| 3   | VCC       |
-| 4   | RX        |
-| 5   | TX        |
-| 6   | -         |
+| 针脚 | LeddarOne |
+| -- | --------- |
+| 1  | GND       |
+| 2  | -         |
+| 3  | VCC       |
+| 4  | RX        |
+| 5  | TX        |
+| 6  | -         |
 
 ## Parameter Setup
 
@@ -29,6 +29,6 @@ Build a cable following your board and pinout and LeddarOne pinout (shown below)
 
 The LeddarOne is the recommended rangefinder for the *Intel® Aero Ready to Fly Drone*. For more information on hardware setup and configuration see: [The Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md#leddarone).
 
-## Further Information
+## 更多信息
 
 * [LeddarOne Spec sheet](https://leddartech.com/app/uploads/dlm_uploads/2017/05/Spec-Sheets-LeddarOne-27octobre2017-web.pdf)
