@@ -55,7 +55,7 @@ More detailed information for how to interpret the LEDs is given below (where "x
 | --------- | ---- | ----- | ----------------------------------------------------------- |
 | 10Hz      | x    | x     | Overload CPU load > 80%, or RAM usage > 98%                 |
 | OFF       | x    | x     | Overload CPU load <= 80%, or RAM usage <= 98%               |
-| NA        | OFF  | 4 Hz  | actuator_armed->armed && failsafe                           |
-| NA        | ON   | 4 Hz  | actuator_armed->armed && !failsafe                          |
-| NA        | OFF  | 1 Hz  | !actuator_armed-> armed && actuator_armed->ready_to_arm |
-| NA        | OFF  | 10 Hz | !actuator_armed->armed && !actuator_armed->ready_to_arm |
+| 不可用       | OFF  | 4 Hz  | actuator_armed->armed && failsafe                           |
+| 不可用       | ON   | 4 Hz  | actuator_armed->armed && !failsafe                          |
+| 不可用       | OFF  | 1 Hz  | !actuator_armed-> armed && actuator_armed->ready_to_arm |
+| 不可用       | OFF  | 10 Hz | !actuator_armed->armed && !actuator_armed->ready_to_arm |
