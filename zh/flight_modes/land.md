@@ -14,10 +14,10 @@ The vehicle will land at the location at which the mode was engaged. The vehicl
 
 Landing is affected by the following parameters:
 
-| Parameter                                                                      | Description                                                                                                |
+| 参数                                                                             | 描述                                                                                                         |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
 | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | The rate of descent during landing. This should be kept fairly low as the ground conditions are not known. |
-| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Time-out for auto disarm after landing. By default this is 0 (vehicle will not auto-disarm after landing). |
+| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 降落后自动锁定超时时间. By default this is 0 (vehicle will not auto-disarm after landing).                            |
 
 ## Fixed Wing (FW)
 
@@ -27,10 +27,10 @@ The vehicle will turn and lands at the location at which the mode was engaged. F
 
 Landing is affected by the following parameters (also see [Landing (Fixed Wing)](../flying/fixed_wing_landing.md)):
 
-| Parameter                                                                      | Description                                                                                                |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
-| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Time-out for auto disarm after landing. By default this is 0 (vehicle will not auto-disarm after landing). |
+| 参数                                                                             | 参数描述                                                                            |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 降落后自动锁定超时时间. By default this is 0 (vehicle will not auto-disarm after landing). |
 
-## VTOL
+## 垂直起降（VTOL）
 
 A VTOL follows the LAND behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode. When [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) is set (default: on) a VTOL in FW mode will transition back to MC just before landing.
