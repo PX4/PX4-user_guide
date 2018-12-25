@@ -1,4 +1,4 @@
-# SiK Radio
+# SiK 电台
 
 [SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
@@ -6,11 +6,11 @@ PX4 is protocol-compatible with radios that use *SiK*. SiK Radios often come wit
 
 Hardware for the SiK radio can be obtained from various manufacturers/stores in variants that support different range and form factors.
 
-![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
+![SiK 电台](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
 
 ## Vendors {#vendors}
 
-* [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
+* [RFD900 遥测无线电](../telemetry/rfd900_telemetry.md)
 * [HKPilot Telemetry Radio](../telemetry/hkpilot_sik_radio.md)
 * [Holybro Telemetry Radio](../telemetry/holybro_sik_radio.md)
 * <del><em>3DR Telemetry Radio</em></del> (Discontinued)
