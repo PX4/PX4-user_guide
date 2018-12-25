@@ -6,19 +6,19 @@ The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on
 
 ![AUAVX2_case2](../../images/auavx2_case2.jpg)
 
-## Quick Summary
+## 总览
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
   * CPU: STM32F427VIT6 ARM microcontroller - Revision 3
   * IO: STM32F100C8T6 ARM microcontroller
-* Sensors: 
+* 传感器： 
   * Invensense MPU9250 9DOF
   * Invensense ICM-20608 6DOF
   * MEAS MS5611 barometer
 * Dimensions/Weight 
   * Size: 36mm x 50mm
   * Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
-  * Weight: 10.9g
+  * 重量: 10.9g
 * Power OR-ing schematic with reverse voltage protection. 5V power module is required!
 
 ## Connectivity
@@ -40,7 +40,7 @@ The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on
 * USART7 (Console)
 * USART8 (OSD)
 
-## Availability
+## 访问链接
 
 No longer in production. This has been superceded by the [mRo X2.1](mro_x2.1.md). mRobotics is the  
 distributor for the AUAV Products from August 2017.
