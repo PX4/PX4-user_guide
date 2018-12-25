@@ -1,4 +1,4 @@
-# DJI Matrice 100 (Pixhawk 1)
+# 大疆Matrice 100 (Pixhawk 1)
 
 The DJI<sup>&reg;</sup> Matrice quadcopter is a fully customizable and programmable flight platform. This build log provides build and configuration instructions for using the frame with the *3DR Pixhawk* flight controller.
 
@@ -56,7 +56,7 @@ The autopilot outputs are specified in [Airframe Reference > DJI Matrice 100](..
 | AUX2   | 50 Hz  | RC AUX2          |
 | AUX3   | 50 Hz  | RC AUX3          |
 
-## Parameters
+## 参数
 
 * At high throttle the inner loop causes oscillations with default x quad gains. At low throttle, higher gains give a better response, this suggests that some gain scheduling based on the throttle may improve the overall response and this could be implemented in mc_att_control. For now we will just tune it so that there are no oscillations at low or high throttle, and take the bandwidth hit at low throttle. 
   * MC_PITCHRATE_P: 0.05
