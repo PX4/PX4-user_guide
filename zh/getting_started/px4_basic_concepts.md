@@ -57,7 +57,7 @@ Many PX4 drones use brushless motors that are driven by the flight controller vi
 
 For information about what ESC/Motors are supported by PX4 see:
 
-- [ESC & Motors](../peripherals/esc_motors.md)
+- [电机 & 电调](../peripherals/esc_motors.md)
 - [ESC Calibration](../advanced_config/esc_calibration.md)
 - [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
