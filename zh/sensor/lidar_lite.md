@@ -8,20 +8,20 @@ LIDAR-Lite is a compact, high-performance optical distant measurement sensor sol
 
 * [LIDAR-Lite v3](https://buy.garmin.com/en-AU/AU/p/557294) (5cm - 40m)
 
-## Pinouts
+## 针脚定义
 
 The Lidar-Lite (v2, v3) pinout is shown below.
 
-| Pin | Name                | Description                                                                                                                           |
-| --- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | POWER_IN            | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                                                    |
-| 2   | POWER_EN            | Active high, enables operation of the 3.3V micro-controller regulator. Low puts board to sleep, draws <40 μA. (Internal 100K pull-up) |
-| 3   | Mode Select Control | Provides trigger (high-low edge) PWM out (high)                                                                                       |
-| 4   | SCL                 | I2C Clock                                                                                                                             |
-| 5   | SDA                 | I2C Data                                                                                                                              |
-| 6   | GND                 | Signal/power ground.                                                                                                                  |
+| 针脚 | 参数名                 | 参数描述                                                                                                                                  |
+| -- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| 1  | POWER_IN            | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                                                    |
+| 2  | POWER_EN            | Active high, enables operation of the 3.3V micro-controller regulator. Low puts board to sleep, draws <40 μA. (Internal 100K pull-up) |
+| 3  | Mode Select Control | Provides trigger (high-low edge) PWM out (high)                                                                                       |
+| 4  | SCL                 | I2C Clock                                                                                                                             |
+| 5  | SDA                 | I2C Data                                                                                                                              |
+| 6  | GND                 | Signal/power ground.                                                                                                                  |
 
-## Wiring
+## 布线
 
 The *Lidar-Lite v3* can be used with either PWM or I2C. PWM is recommended if using an older model. The rangefinder must be separately powered via some ESC/BEC (whether connected via PWM or I2C).
 
@@ -35,14 +35,14 @@ The standard wiring instructions for Lidar-Lite 3 (from the [Operation Manual](h
 
 The pin connections for wiring LidarLite to the *Pixhawk 1* AUX ports (PWM interface) are shown below.
 
-| Pin | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | Comment                                                                                            |
-| --- | ------------------- | ----------------- | -------------------------------------------------------------------------------------------------- |
-| 1   | VCC                 | AUX 6 (center)    | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                 |
-| 2   | RESET               | AUX 6 (bottom)    | Reset line of the sensor                                                                           |
-| 3   | PWM                 | AUX 5 (bottom)    | PWM input of the Lidar Lite. **Needs a 470 Ohm pull-down (to GND), Do not use a 1 K0hm resistor.** |
-| 4   | SCL                 | -                 | Not connected                                                                                      |
-| 5   | SDA                 | -                 | Not connected                                                                                      |
-| 6   | GND                 | AUX 6 (top)       | Ground                                                                                             |
+| 针脚 | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | Comment                                                                                            |
+| -- | ------------------- | ----------------- | -------------------------------------------------------------------------------------------------- |
+| 1  | VCC                 | AUX 6 (center)    | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                 |
+| 2  | RESET               | AUX 6 (bottom)    | Reset line of the sensor                                                                           |
+| 3  | PWM                 | AUX 5 (bottom)    | PWM input of the Lidar Lite. **Needs a 470 Ohm pull-down (to GND), Do not use a 1 K0hm resistor.** |
+| 4  | SCL                 | -                 | Not connected                                                                                      |
+| 5  | SDA                 | -                 | Not connected                                                                                      |
+| 6  | GND                 | AUX 6 (top)       | Ground                                                                                             |
 
 The wiring for LidarLite v2 is shown below. Lidar-Lite v3 is wired similarly, except that the pin-numbering on the connector is reversed.
 
@@ -62,6 +62,6 @@ The rangefinder/port is enabled using [SENS_EN_LL40LS](../advanced_config/parame
 
 > **Tip** The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`drivers/ll40ls`) to the board configuration.
 
-## Further Information
+## 更多信息
 
 * [LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf](http://static.garmin.com/pumac/LIDAR_Lite_v3_Operation_Manual_and_Technical_Specifications.pdf) (Garmin)
