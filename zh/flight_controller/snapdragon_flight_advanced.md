@@ -90,7 +90,7 @@ The Snapdragon Flight board has a downward facing gray-scale camera which can be
 
 Besides a camera, optical flow requires a downward facing distance sensor. Here, the use of the TeraRanger One is discussed.
 
-### Optical Flow
+### 光流
 
 The optical flow is computed on the application processor and sent to PX4 through MAVLink. Clone and compile the [snap_cam](https://github.com/PX4/snap_cam) repo according to the instructions in its README.
 
@@ -168,7 +168,7 @@ Timer functions, for example, are available with the `qurt_timer` prefix and are
 Using the HAP functions provided by the Hexagon SDK, it is possible to set the power level of the aDSP.  
 This will often lead to reduced I/O latencies. More information on these API's is available in the **HAP_power.h** header file available in the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools).
 
-## Troubleshooting
+## 故障处理
 
 ### adb does not work
 
