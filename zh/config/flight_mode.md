@@ -41,7 +41,7 @@ The single-channel selection mode allows you to specify a "mode" channel and sel
 
 To configure single-channel flight mode selection:
 
-1. Start *QGroundControl* and connect the vehicle.
+1. 打开 *QGroundControl* 并连接上飞机。
 2. Turn on your RC transmitter.
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
     
@@ -103,7 +103,7 @@ The multi-channel selection user interface allows you to map one or more modes t
 To configure flight modes using the multi-channel UI:
 
 1. Turn on your RC transmitter.
-2. Start *QGroundControl* and connect the vehicle.
+2. 打开 *QGroundControl* 并连接上飞机。
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
     
     ![Flight modes multi-channel](../../images/qgc/setup/flight_modes_multi_channel.jpg)
@@ -112,7 +112,7 @@ To configure flight modes using the multi-channel UI:
 
 4. Select the modes you want to assign to your switches and select the associated channel (selected modes will *move* in the user interface to be grouped by channel). There are a number of complications on the mode to channel assignments:
     
-    * Some modes cannot be manually edited (are grayed out) because their channel and threshold level are automatically defined based on the values of other mode settings. For example: 
+    * Some modes cannot be manually edited (are grayed out) because their channel and threshold level are automatically defined based on the values of other mode settings. 例如： 
         * *Mission* mode - is automatically assigned the same channel number as *Hold* (if the channel for *Hold* is defined by the user). If the channel for *Hold* is not defined, *Mission* mode is automatically assigned the same channel as *Stabilized/Main* mode. This, for example, prevents the user from defining *Stabilized/Main* and *Mission* mode on different channels, to ensure that the user cannot switch both modes ON at the same time. 
         * *Altitude* mode - is automatically assigned the same channel number as *Position Control* (if it is defined), or otherwise the same channel as *Stabilized/Main* mode.
     * *Assist* mode - This mode is added to the same channel as *Stabilized/Main* mode if (and only if) *Position Control* is enabled and defined on a different channel than *Stabilized/Main*.
@@ -123,7 +123,7 @@ This mode is demonstrated in the [autopilot setup video here](https://youtu.be/9
 
 > **Note** This flight mode selection mechanism is relatively complicated due to the way that PX4 works out which mode should be selected. You may be able to gain some insight from this [flow chart](https://dev.px4.io/en/concept/flight_modes.html#flight-mode-evaluation-diagram) (PX4 Developer Guide).
 
-## Further Information
+## 更多信息
 
 * [Flight Modes Overview](../flight_modes/README.md)
 * [QGroundControl > Flight Modes](https://docs.qgroundcontrol.com/en/SetupView/FlightModes.html#px4-pro-flight-mode-setup)
