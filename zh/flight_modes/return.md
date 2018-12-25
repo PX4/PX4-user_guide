@@ -1,6 +1,6 @@
 # Return Mode
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 The *Return* flight mode causes the vehicle to return to its home position where it may then either wait (hover or circle) or land.
 
@@ -22,7 +22,7 @@ When it arrives at the home/launch position it will rapidly descend to the [RTL_
 
 The RTL behaviour can be configured using the parameters below.
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                                        |
+| 参数                                                                                                      | 描述                                                                                                                                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | <span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | Minimum RTL return altitude in meters (default: 60m). The vehicle will ascend to this altitude before returning. If already above this value the vehicle will return at its current altitude.                                                                      |
 | <span id="RTL_DESCEND_ALT"></span>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | Altitude at which the vehicle will slow or stop its initial descent (default: 30m)                                                                                                                                                                                 |
@@ -35,10 +35,10 @@ A fixed-wing aircraft behaves the same as a multicopter on the return trip (resp
 
 The following additional parameters affect return mode on fixed wing:
 
-| Parameter                                                                                             | Description                      |
+| 参数                                                                                                    | 参数描述                             |
 | ----------------------------------------------------------------------------------------------------- | -------------------------------- |
 | <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The radius of the loiter circle. |
 
-## VTOL
+## 垂直起降（VTOL）
 
 A VTOL follows the return behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode. A VTOL in FW mode will *always* transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
