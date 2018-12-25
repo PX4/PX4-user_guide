@@ -24,18 +24,18 @@ The components used in this build are listed below (along with links to where th
 - **Receiver:** FR SKY D4R-II ([getfpv.com](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html))
 - **Battery:** Lumenier 4S 1300 mAh ([getfpv.com](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html))
 
-Notes:
+备注：
 
 - The 4S Power Module that comes with the *Pixhawk Mini* can be used for the battery size above (instead of the 10S Power Module). Assembly is the same with either power module.
 - We also recommend these ESC: Lumenier 12 amp ESC w/ SimonK AutoShot (2-4s N-FET) ([getfpv.com](http://www.getfpv.com/lumenier-12a-esc-w-simonk-autoshot-2-4s-n-fet.html)).
 
-## Hardware
+## 硬件
 
 This section lists all hardware for the frame and the autopilot installation.
 
 ### Frame QAV250
 
-| Description                   | Quantity |
+| 参数描述                          | Quantity |
 | ----------------------------- | -------- |
 | Unibody frame plate           | 1        |
 | Flight controller cover plate | 1        |
@@ -55,7 +55,7 @@ This section lists all hardware for the frame and the autopilot installation.
 
 ### Electronics
 
-| Description                        | Quantity |
+| 参数描述                               | Quantity |
 | ---------------------------------- | -------- |
 | Motors lumenier Rx2204-14 2300KV   | 4        |
 | ESC lumenier 30A                   | 4        |
@@ -325,12 +325,12 @@ There are a number of ways to [configure flight modes](../config/flight_mode.md)
 For more information see:
 
 - [Flight Mode Configuration](../config/flight_mode.md)
-- [Flight Modes](../flight_modes/README.md)
+- [飞行模式](../flight_modes/README.md)
 - [Flight Modes](https://donlakeflyer.gitbooks.io/qgroundcontrol-user-guide/content/SetupView/FlightModes.html) (QGroundControl)
 
 **Step 6:** Calibrate ESC
 
-1. Remove propellers.
+1. 卸下螺旋桨.
     
     > **Warning** Propellers must be removed from vehicle prior to performing ESC calibration!
 
