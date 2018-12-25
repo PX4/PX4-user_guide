@@ -77,7 +77,7 @@ PX4平台支持睿思凯的 [S.port](#s_port)（新）和D.port（旧）两种�
 
 S-Port接收机从 PX4传输以下信息 (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
 
-* **AccX, AccY, AccZ:** Accelerometer values.
+* **AccX, accy, accz:**加速度计数值。
 * **Alt:**基于气压计的高度, 初始化水平为零。
 * **Curr:**实际电流消耗 (安培)。
 * **Fuel:**当`电池容量`参数和 smartport_fuel_percent = on</1 >参数设置好了, 则剩余电池剩余容量百分比，否则显示电池消耗容量时, 。</li>
@@ -113,17 +113,17 @@ Lua map of flight modes:
 <li><strong>AccX, accy, accz:</strong>加速度计数值。</li>
 <li><strong>Alt:</strong>基于气压计的高度, 初始化水平为零。</li>
 <li><strong>Cels:</strong>平均电池电压值 (电池电压除以电池片数)。</li>
-<li><strong>Curr:</strong> Actual current consumption (Amps).</li>
+<li><strong>Curr:</strong>实际电流消耗 (安培)。</li>
 <li><strong>Fuel:</strong>如果设置了容量, 则剩余电池百分比, 否则显示消耗电量。</li>
 <li><strong>Date:</strong>通电后运行时间。</li>
-<li><strong>GAlt:</strong> GPS altitude, sea level is zero.</li>
-<li><strong>GPS:</strong> GPS coordinates.</li>
+<li><strong>Alt:</strong>基于气压计的高度, 初始化水平为零。</li>
+<li><strong>GPS:</strong>gps 坐标。</li>
 <li><strong>GSpd:</strong>当前速度, 由 gps 计算。</li>
-<li><strong>Hdg:</strong> Heading (degrees - North is 0°).</li>
+<li><strong>Hdg:</strong>机头朝向 (正北为 0°)。</li>
 <li><strong>RPM:</strong>解锁后为油门数值, 否则为电池容量。 请注意, 在Taranis上，电池片数需要设置为12。</li>
 <li><strong>Tmp1:</strong>飞行模式 (适用于 s-port)。</li>
 <li><strong>Tmp2:</strong>gps 信息 (适用于 s-port)。</li>
-<li><strong>VFAS:</strong> Actual battery voltage value (Voltage FrSky Ampere Sensor).</li>
+<li><strong>VFAS:</strong>实际电池电压值 (电压 frsky 安培传感器)。</li>
 <li><strong>Vspd:</strong>垂直速度 (cm/s)。</li>
 </ul>
 
@@ -142,7 +142,7 @@ Lua map of flight modes:
   <th>范围</th>
   <th>Combined output</th>
   <th>Digital telemetry input</th>
-  <th>Dimensions</th>
+  <th>尺寸</th>
   <th>Weight</th>
 </tr>
 </thead>
@@ -166,7 +166,7 @@ Lua map of flight modes:
 <tr>
   <td>D8R-II Plus</td>
   <td>1.5km</td>
-  <td>no</td>
+  <td>否</td>
   <td>D.Port</td>
   <td>55x25x14mm</td>
   <td>12.4g</td>
@@ -310,7 +310,7 @@ Lua map of flight modes:
 
 <p>大部分其他型号飞控板是通过TELEM2端口连接到接收机，从而使用睿思凯的遥测功能， 这其中包括了：Pixhawk 1, mRo Pixhawk, Pixhawk2。</p>
 
-<p>You will need to connect via a UART to S.PORT adapter board, or a <a href="#ready_made_cable">ready-made cable</a>.</p>
+<p>您将需要通过一个UART-S.PORT适配器进行连接，或者一个成品转接线缆。</p>
 
 
     
