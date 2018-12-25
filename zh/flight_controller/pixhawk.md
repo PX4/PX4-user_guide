@@ -4,11 +4,11 @@ The *Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight co
 
 > **Tip** Originally manufactured by 3DR<sup>&reg;</sup> this board was the original standard microcontroller platform for PX4. While the board is no longer manufactured by 3DR, you can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
 
-![Pixhawk Image](../../assets/hardware/hardware-pixhawk.png)
+![Pixhawk  图像](../../assets/hardware/hardware-pixhawk.png)
 
 Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
 
-## Key Features
+## 主要特性
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
   * CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
@@ -89,11 +89,11 @@ If out of stock the software-compatible but not connector-compatible versions ca
 * Servo rail high-power (max. 10V) and high-current (10A+) ready
 * All peripheral outputs over-current protected, all inputs ESD protected
 
-## Voltage Ratings
+## 额定电压
 
 Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
 
-### Normal Operation Maximum Ratings
+### 正常运行最大额定值
 
 Under these conditions all power sources will be used in this order to power the system
 
@@ -101,9 +101,9 @@ Under these conditions all power sources will be used in this order to power the
 * Servo rail input (4.8V to 5.4V) **UP TO 10V FOR MANUAL OVERRIDE, BUT AUTOPILOT PART WILL BE UNPOWERED ABOVE 5.7V IF POWER MODULE INPUT IS NOT PRESENT**
 * USB power input (4.8V to 5.4V)
 
-### Absolute Maximum Ratings
+### 绝对最大额定值
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+在以下条件下，系统不会获得任何供电（不可运行），但不会损坏。
 
 * Power module input (4.1V to 5.7V, 0V to 20V undamaged)
 * Servo rail input (4.1V to 5.7V, 0V to 20V)
@@ -115,17 +115,17 @@ Under these conditions the system will not draw any power (will not be operation
 
 > **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 
-## Connectors
+## 连接器
 
 > **Tip** The RC IN port is for RC receivers only and provides power. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
 
 ![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
 
-## Pinouts
+## 针脚定义
 
 TELEM1, TELEM2 ports
 
-| Pin     | Signal    | Volt  |
+| 针脚      | 信号        | 电压    |
 | ------- | --------- | ----- |
 | 1 (red) | VCC       | +5V   |
 | 2 (blk) | TX (OUT)  | +3.3V |
@@ -136,7 +136,7 @@ TELEM1, TELEM2 ports
 
 GPS port
 
-| Pin     | Signal   | Volt  |
+| 针脚      | 信号       | 电压    |
 | ------- | -------- | ----- |
 | 1 (red) | VCC      | +5V   |
 | 2 (blk) | TX (OUT) | +3.3V |
@@ -147,7 +147,7 @@ GPS port
 
 SERIAL 4/5 port - due to space constraints two ports are on one connector.
 
-| Pin     | Signal  | Volt  |
+| 针脚      | 信号      | 电压    |
 | ------- | ------- | ----- |
 | 1 (red) | VCC     | +5V   |
 | 2 (blk) | TX (#4) | +3.3V |
@@ -158,7 +158,7 @@ SERIAL 4/5 port - due to space constraints two ports are on one connector.
 
 ADC 6.6V
 
-| Pin     | Signal | Volt        |
+| 针脚      | 信号     | 电压          |
 | ------- | ------ | ----------- |
 | 1 (red) | VCC    | +5V         |
 | 2 (blk) | ADC IN | up to +6.6V |
@@ -166,7 +166,7 @@ ADC 6.6V
 
 ADC 3.3V
 
-| Pin     | Signal | Volt        |
+| 针脚      | 信号     | 电压          |
 | ------- | ------ | ----------- |
 | 1 (red) | VCC    | +5V         |
 | 2 (blk) | ADC IN | up to +3.3V |
@@ -176,25 +176,25 @@ ADC 3.3V
 
 I2C
 
-| Pin     | Signal | Volt           |
-| ------- | ------ | -------------- |
-| 1 (red) | VCC    | +5V            |
-| 2 (blk) | SCL    | +3.3 (pullups) |
-| 3 (blk) | SDA    | +3.3 (pullups) |
-| 4 (blk) | GND    | GND            |
+| 针脚      | 信号  | 电压             |
+| ------- | --- | -------------- |
+| 1 (red) | VCC | +5V            |
+| 2 (blk) | SCL | +3.3 (pullups) |
+| 3 (blk) | SDA | +3.3 (pullups) |
+| 4 (blk) | GND | GND            |
 
 CAN
 
-| Pin     | Signal | Volt |
-| ------- | ------ | ---- |
-| 1 (red) | VCC    | +5V  |
-| 2 (blk) | CAN_H  | +12V |
-| 3 (blk) | CAN_L  | +12V |
-| 4 (blk) | GND    | GND  |
+| 针脚      | 信号    | 电压   |
+| ------- | ----- | ---- |
+| 1 (red) | VCC   | +5V  |
+| 2 (blk) | CAN_H | +12V |
+| 3 (blk) | CAN_L | +12V |
+| 4 (blk) | GND   | GND  |
 
 SPI
 
-| Pin     | Signal         | Volt |
+| 针脚      | 信号             | 电压   |
 | ------- | -------------- | ---- |
 | 1 (red) | VCC            | +5V  |
 | 2 (blk) | SPI_EXT_SCK  | +3.3 |
@@ -206,7 +206,7 @@ SPI
 
 POWER
 
-| Pin     | Signal  | Volt  |
+| 针脚      | 信号      | 电压    |
 | ------- | ------- | ----- |
 | 1 (red) | VCC     | +5V   |
 | 2 (blk) | VCC     | +5V   |
@@ -217,7 +217,7 @@ POWER
 
 SWITCH
 
-| Pin     | Signal           | Volt  |
+| 针脚      | 信号               | 电压    |
 | ------- | ---------------- | ----- |
 | 1 (red) | VCC              | +3.3V |
 | 2 (blk) | !IO_LED_SAFETY | GND   |
@@ -229,11 +229,11 @@ The system's serial console runs on the port labeled SERIAL4/5. The pinout is st
 
 Please refer to the Devguide [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make px4_fmu-v2_default
     
@@ -261,6 +261,6 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 * [[:peripherals:i2c_splitter|I2C splitter]]
 -->
 
-## Supported Platforms / Airframes
+## 支持的平台/机身
 
 任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。
