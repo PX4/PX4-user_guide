@@ -6,7 +6,7 @@ Main documentation is available on [Aerotenna's User Hub](https://aerotenna.read
 
 ![](../../assets/hardware/hardware-ocpoc-zynq-mini.jpg)
 
-## Quick Summary
+## 总览
 
 - Main FPGA+ARM System-on-Chip: Xilinx Zynq Z-7010 
     - CPU: 667 MHz Dual-Core ARM A9
