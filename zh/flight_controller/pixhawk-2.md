@@ -1,6 +1,6 @@
 # Cube Flight Controller
 
-The [Cube](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+The [Cube](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 它基于 [Pixhawk 项目](https://pixhawk.org/) 的 **FMUv3** 开放硬件设计，在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
 
 <img src="../../assets/flight_controller/cube/pixhawk2_cube_hero.png" width="400px" />
 
@@ -8,7 +8,7 @@ The controller is designed to be used with a domain-specific carrier board in or
 
 Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as a reference / Backup.
 
-## Key Features
+## 主要特性
 
 - 32bit STM32F427 [Cortex-M4F](http://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M4)<sup>&reg;</sup> core with FPU
 - 168 MHz / 252 MIPS 
@@ -66,11 +66,11 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 - Servo rail high-power (max. 10V) and high-current (10A+) ready
 - All peripheral outputs over-current protected, all inputs ESD protected
 
-### Voltage Ratings
+### 额定电压
 
 Pixhawk can be triple-redundant on the power supply if three power sources are supplied. The three rails are: Power module input, servo rail input, USB input.
 
-#### Normal Operation Maximum Ratings
+#### 正常运行最大额定值
 
 Under these conditions all power sources will be used in this order to power the system
 
@@ -78,9 +78,9 @@ Under these conditions all power sources will be used in this order to power the
 - Servo rail input (4.8V to 5.4V) **UP TO 10V FOR MANUAL OVERRIDE, BUT AUTOPILOT PART WILL BE UNPOWERED ABOVE 5.7V IF POWER MODULE INPUT IS NOT PRESENT**
 - USB power input (4.8V to 5.4V)
 
-#### Absolute Maximum Ratings
+#### 绝对最大额定值
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+在以下条件下，系统不会获得任何供电（不可运行），但不会损坏。
 
 - Power module input (4.1V to 5.7V, 0V to 20V undamaged)
 - Servo rail input (4.1V to 5.7V, 0V to 20V)
@@ -106,11 +106,11 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make px4_fmu-v3_default
     
