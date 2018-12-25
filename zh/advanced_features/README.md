@@ -6,4 +6,4 @@
 * [Precision Landing](../advanced_features/precland.md)
 * [铱星/RockBlock卫通系统](../advanced_features/satcom_roadblock.md)
 * [自主避障](../computer_vision/obstacle_avoidance.md)（需要机载计算机）
-* [Collision Prevention](../computer_vision/collision_prevention.md)
+* [防撞功能](../computer_vision/collision_prevention.md)
