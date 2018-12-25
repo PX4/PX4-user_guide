@@ -19,7 +19,7 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 
 <img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
 
-## Key Features
+## 主要特性
 
 * Main System-on-Chip: [STM32F405RGT6](https://www.st.com/en/microcontrollers/stm32f405rg.html) 
   * CPU: 168 MHz ARM Cortex M4 with single-precision FPU
@@ -65,7 +65,7 @@ Accessories include:
 
 * [ESP8266 WiFi Module](../telemetry/esp8266_wifi_module.md) for MAVLink telemetry. You need to connect these pins: GND, RX, TX, VCC and CH-PD (CH-PD to 3.3V). The baud rate is 921600.
 
-## Connectors
+## 连接器
 
 Boards from different vendors (based on this design) can have significantly different layout. Layouts/Silkscreens for various versions are shown below.
 
@@ -81,7 +81,7 @@ Below are silkscreens for the Hobbywing XRotor Flight Controller F4.
 
 ![Hobbywing XRotor Flight Controller F4 Silkscreen](../../assets/flight_controller/omnibus_f4_sd/hobbywing_xrotor_silk.png)
 
-## Pinouts
+## 针脚定义
 
 ### Radio Control
 
@@ -211,9 +211,9 @@ See the dfuse manual is here: https://www.st.com/resource/en/user_manual/cd00155
 
 Flash the `omnibusf4sd_bl.bin` file.
 
-## Building Firmware
+## 编译固件
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make omnibus_f4sd_default
     
@@ -226,13 +226,13 @@ If you later on want to switch back to *Betaflight*, you can easily do that:
 * Keep the **bootloader** button pressed while attaching the USB cable
 * Then flash *Betaflight* as usual with the *Betaflight-configurator*
 
-## Configuration
+## 配置
 
 > **Note** Make sure to insert an SD card as the parameters are stored there.
 
 In addition to the [basic configuration](../config/README.md), the following parameters are important:
 
-| Parameter                                                                | Setting                                                                                                                 |
+| 参数                                                                       | Setting                                                                                                                 |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 | [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.                                                                   |
