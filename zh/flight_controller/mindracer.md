@@ -4,7 +4,7 @@ The AirMind<sup>&reg; <a href="http://mindpx.net">MindRacer</a> series is a full
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
-## Quick Summary
+## 总览
 
 MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. MindRacer is a platform rather than a flight controller.
 
@@ -20,7 +20,7 @@ MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimin
 - Support IMU isolation
 - DroneCode<sup>&reg;</sup> standard compliance connector
 
-|                    Item                    |                      Description                      |
+|                    Item                    |                          描述                           |
 |:------------------------------------------:|:-----------------------------------------------------:|
 |        Flight controller/Processor         |                       F427VIT6                        |
 |                   Weight                   |                          ~6g                          |
@@ -44,9 +44,9 @@ MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimin
 
 ### How to Build
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make airmind_mindpx-v2_default
     
@@ -69,6 +69,6 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
-## Support
+## 技术支持
 
 Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::support@mindpx.net) for any inquiries or help.
