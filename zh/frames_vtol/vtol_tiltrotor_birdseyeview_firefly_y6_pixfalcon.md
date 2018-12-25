@@ -55,7 +55,7 @@ Should the airframe not be available you could set the following parameters and 
 
 After the reboot the configuration values will match the Standard Power Pack. The following table serves as a guide when using the high efficiency setup.
 
-| Parameter                                                                      | Standard | High-Efficiency |
+| 参数                                                                             | Standard | High-Efficiency |
 | ------------------------------------------------------------------------------ | -------- | --------------- |
 | [MC_PITCHRATE_FF](../advanced_config/parameter_reference.md#MC_PITCHRATE_FF) | 0.0      | 0.0             |
 | [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D)   | 0.004    | 0.005           |
@@ -76,7 +76,7 @@ After the reboot the configuration values will match the Standard Power Pack. Th
 
 The system should now be ready for sensor calibration, at the end of which it should allow arming.
 
-Notes:
+备注：
 
 - Remember to assign the transition switch for switching to fixed-wing.
 - By default permanent stabilization is enabled. If you like fully manual flying in fixed-wing, set [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB) to 0.
