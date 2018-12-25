@@ -10,14 +10,14 @@
 
 ## 技术描述
 
-RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+用于执行杂技动作的遥控模式，例如滚动、翻转、摊位和杂技图形。
 
-RPY stick inputs are translated to angular rate commands that are stabilized by autopilot. Throttle is passed directly to the output mixer.
+RPY摇杆输入被转换为角速度命令，通过自动驾驶仪稳定。 油门直接传递到输出混频器。
 
 ## 参数
 
-| Parameter                                                                                           | Description                                                          |
-| --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| <span id="FW_ACRO_X_MAX"></span>[FW_ACRO_X_MAX](../advanced_config/parameter_reference.md#FW_ACRO_X_MAX) | 机体轴x轴最大速率（用户在acro模式下施加滚转轴满杆操纵时，控制器试图达到的机体轴x轴速率） 默认：90度               |
-| <span id="FW_ACRO_Y_MAX"></span>[FW_ACRO_Y_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Y_MAX) | 机体轴y轴最大速率（用户在acro模式下施加俯仰轴满杆操纵时，控制器试图达到的机体轴y轴速率） Default: 90 degrees. |
-| <span id="FW_ACRO_Z_MAX"></span>[FW_ACRO_Z_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Z_MAX) | 机体轴z轴最大速率（用户在acro模式下施加偏航轴满杆操纵时，控制器试图达到的机体轴z轴速率） 默认：45度               |
+| Parameter                                                                                           | Description                                            |
+| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| <span id="FW_ACRO_X_MAX"></span>[FW_ACRO_X_MAX](../advanced_config/parameter_reference.md#FW_ACRO_X_MAX) | 机体轴x轴最大速率（用户在acro模式下施加滚转轴满杆操纵时，控制器试图达到的机体轴x轴速率） 默认：90度 |
+| <span id="FW_ACRO_Y_MAX"></span>[FW_ACRO_Y_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Y_MAX) | 机体轴y轴最大速率（用户在acro模式下施加俯仰轴满杆操纵时，控制器试图达到的机体轴y轴速率） 默认：90度 |
+| <span id="FW_ACRO_Z_MAX"></span>[FW_ACRO_Z_MAX](../advanced_config/parameter_reference.md#FW_ACRO_Z_MAX) | 机体轴z轴最大速率（用户在acro模式下施加偏航轴满杆操纵时，控制器试图达到的机体轴z轴速率） 默认：45度 |
