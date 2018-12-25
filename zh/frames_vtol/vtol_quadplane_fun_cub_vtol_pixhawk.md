@@ -32,13 +32,13 @@ The structure is made out of aluminum booms as shown below.
 
 ![quad_frame](../../images/fun_cub_aluminium_frame_for_vtol.jpg) ![Fun Cub -frame for vtol mounted](../../images/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
 
-## Wiring
+## 布线
 
 The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
 
 > **Success** The servo direction can be reversed using the PWM\_REV parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu)
 
-| Port   | Connection              |
+| Port   | 接口定义                    |
 | ------ | ----------------------- |
 | MAIN 1 | Front right motor (CCW) |
 | MAIN 2 | Back left motor (CCW)   |
@@ -62,6 +62,6 @@ Configure the frame as shown in QGroundControl below (do not forget to click **A
 
 {% youtube %} http://www.youtube.com/watch?v=4K8yaa6A0ks {% endyoutube %}
 
-## Support
+## 技术支持
 
 If you have any questions regarding your VTOL conversion or configuration please visit <http://discuss.px4.io/c/vtol>.
