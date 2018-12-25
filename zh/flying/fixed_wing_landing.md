@@ -12,7 +12,7 @@ In a mission, [Return mode](../flight_modes/return.md), or if the vehicle has a 
 
 Landing is further affected by the following parameters:
 
-| Parameter                                                                                                 | Description                                                                                                                                                                                          |
+| 参数                                                                                                        | 描述                                                                                                                                                                                                   |
 | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="FW_LND_ANG"></span>[FW_LND_ANG](../advanced_config/parameter_reference.md#FW_LND_ANG)             | Landing slope angle prior to flaring                                                                                                                                                                 |
 | <span id="FW_LND_HVIRT"></span>[FW_LND_HVIRT](../advanced_config/parameter_reference.md#FW_LND_HVIRT)         | Virtual horizontal line/altitude used to calculate the flare trajectory.  
