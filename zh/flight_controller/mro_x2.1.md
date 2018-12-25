@@ -4,19 +4,19 @@ The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>
 
 ![mRo X2.1](../../assets/flight_controller/mro/mro_x2.1.jpg)
 
-## Quick Summary
+## 总览
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
   * CPU: STM32F427VIT6 ARM<sup>&reg;</sup> microcontroller - Revision 3
   * IO: STM32F100C8T6 ARM<sup>&reg;</sup> microcontroller
-* Sensors: 
+* 传感器： 
   * Invensense<sup>&reg;</sup> MPU9250 9DOF
   * Invensense ICM-20602 6DOF
   * MEAS MS5611 barometer
 * Dimensions/Weight 
   * Size: 36mm x 50mm (Can be ordered with vertical, horizontal or no headers installed)
   * Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
-  * Weight: 10.9g
+  * 重量: 10.9g
 
 The diagram below provides a side-by-side comparison with a Pixhawk 1. The mRo features almost identical hardware and connectivity but has a much smaller footprint. Major differences are updated sensors and Rev 3 FMU.
 
@@ -59,7 +59,7 @@ The update steps are:
 3. Copy these files to your micro SD card's root directory and insert it into the mRO x2.1
 4. Power on the mRO x2.1 Wait for it to boot and then reboot 1 time.
 
-## Availability
+## 访问链接
 
 This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://store.mrobotics.io/mRo-X2-1-Rev-2-p/mro-x2.1rv2-mr.htm).
 
@@ -67,11 +67,11 @@ This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://sto
 
 ![mRo_X2.1_Wiring](../../assets/flight_controller/mro/mro_x21_wiring.png)
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make auav_x21_default
     
