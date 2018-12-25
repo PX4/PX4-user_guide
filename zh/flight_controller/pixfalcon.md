@@ -4,7 +4,7 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybr
 
 ![](../../assets/hardware/hardware-pixfalcon.png)
 
-## Quick Summary
+## 总览
 
     * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
       * CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
@@ -23,7 +23,7 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybr
     * S.BUS / PPM input
     
 
-## Availability:
+## 访问链接:
 
 From manufacturer: [Holybro](http://www.holybro.com/product/8) or from distributor [Hobbyking<sup>&reg;</sup>](http://www.hobbyking.com/hobbyking/store/__86437__PixFalcon_Micro_PX4_Autopilot_plus_Micro_M8N_GPS_and_Mega_PBD_Power_Module.html)
 
@@ -38,11 +38,11 @@ Optional hardware:
   * [Hobbyking EU Micro Telemetry (433 MHz)](http://www.hobbyking.com/hobbyking/store/__74647__Micro_HKPilot_Telemetry_radio_Set_With_Integrated_PCB_Antenna_433Mhz.html)
   * [Hobbyking US Micro Telemetry (915 MHz)](http://www.hobbyking.com/hobbyking/store/__74648__Micro_HKPilot_Telemetry_radio_Set_With_Integrated_PCB_Antenna_915Mhz.html)
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make px4_fmu-v2_default
     
