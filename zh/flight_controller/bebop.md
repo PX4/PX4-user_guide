@@ -10,7 +10,7 @@ The [Parrot Bebop 2](http://global.parrot.com/au/products/bebop2/) is a popular 
 
 {% youtube %}https://www.youtube.com/watch?v=hTVNHlqxWBk{% endyoutube %}
 
-## Advanced Topics
+## 高级主题
 
 ### FTDI connection
 
@@ -32,5 +32,5 @@ Follow the instructions to connect to the Parrot Bebop 2 via FTDI.
 
 Instructions on how to build the code and use PX4 with Bebop 2 available in the Developer Guide here:
 
-* [Building the Code](https://dev.px4.io/en/setup/building_px4.html#parrot-bebop)
+* [构建代码](https://dev.px4.io/en/setup/building_px4.html#parrot-bebop)
 * [Airframe Reference](../airframes/airframe_reference.md#copter_quadrotor_x_parrot_bebop_frame)
