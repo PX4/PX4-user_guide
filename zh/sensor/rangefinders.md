@@ -84,7 +84,7 @@ The rangefinder can be enabled in two ways:
         * distance to ground < [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX)
     * Other parameters affecting "Range aid" are prefixed with `EKF2\_RNG\_A\_`.
 
-## Testing
+## 测试
 
 The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4. The sections below show some approaches to getting the measured range.
 
@@ -114,7 +114,7 @@ listener distance_sensor 5
 
 For more information see: [Sensor/Topic Debugging using the Listener Command](https://dev.px4.io/en/debug/sensor_uorb_topic_debugging.html) (PX4 Development Guide).
 
-## Simulation
+## 仿真
 
 Lidar and sonar rangefinders can be used in the [Gazebo Simulator](https://dev.px4.io/en/simulation/gazebo.html) (PX4 Development Guide). To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
@@ -167,6 +167,6 @@ If you need to use a different vehicle you can include the model in its configur
           </axis>
         </joint>
 
-## Further Information
+## 更多信息：
 
 * [Rangefinder](https://pixhawk.org/peripherals/rangefinder) (Pixhawk.org) - Rangefinders supported by Pixhawk
