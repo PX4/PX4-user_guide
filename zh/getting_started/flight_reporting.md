@@ -28,7 +28,7 @@ The logging system is configured by default to collect sensible logs for use wit
 
 Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters. The parameters you are most likely to change are listed below.
 
-| Parameter                                                                | Description                                                                                                                                                                     |
+| 参数                                                                       | 描述                                                                                                                                                                              |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | Logging Mode defines when logging starts and stops.  
 - `0`: log when armed until disarm (default).  
