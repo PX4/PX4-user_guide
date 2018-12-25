@@ -4,7 +4,7 @@ The [Benewake TFmini LiDAR](http://www.benewake.com/en/tfmini.html) is a tiny, l
 
 ![TFmini LiDAR](../../assets/hardware/sensors/tfmini/tfmini_hero.jpg)
 
-## Hardware Setup
+## 硬件安装
 
 TFmini can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
