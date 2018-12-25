@@ -76,8 +76,8 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
 在以下条件下，系统不会获得任何供电（不可运行），但不会损坏。
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
+1. **POWER1** 与 **POWER2** 输入（可运行范围 4.1V 至 5.7V，0V 至 10V 不会损坏）
+2. **USB** 输入（可运行范围 4.1V 至 5.7V，0V 至 6V 不会损坏）
 3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
 ## 组装 / 设置
