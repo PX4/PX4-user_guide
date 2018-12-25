@@ -1,63 +1,63 @@
-# Advanced Multicopter Position Control Tuning
+# 高级版多旋翼位置控制调校
 
-This document provides an overview of the multicopter position-control tuning parameters that affect the value of a desired setpoint (as contrasted with those parameters that affect how well the vehicle tracks the setpoint).
+本文档概述了 影响期望设定值的多旋翼位置控制调整参数（与影响车辆跟踪设定点精度的的参数形成对比）
 
-> **Warning** This guide is for advanced users/experts.
+> <警告>本指南适用于高级用户/专家
 
 <span></span>
 
-> **Tip** Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) *before* doing any of the higher-level related control tuning described here. Do not use the advanced position control tuning parameters to fix bad tracking or vibration!
+> **Tip** 在做任何该文档中描述的多旋翼高级相关控制调校*之前*，请先按照文档 [多旋翼 PID 调节指南](../config_mc/pid_tuning_guide_multicopter.md)进行相应操作。 请不要尝试使用高级位置控制参数调整来修复飞行器的追踪或飞行抖动。
 
-## Overview
+## 综述
 
-The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../config_mc/pid_tuning_guide_multicopter.md) ("Lower level" tuning) aims to reduce the error between the desired setpoint and the estimate of the vehicle state. Poor P/PID Gains can lead to instability.
+P/PID控制器的输入是飞行器尝试跟踪的*期望设定值<0>。 [PID调参](../config_mc/pid_tuning_guide_multicopter.md) ("低级"调参) 的目标是减小设定值和估计值之间的误差。 较小的PID增益将导致飞行器的不稳定</p> 
 
-The *desired* setpoint passed to the P/PID controller is itself calculated from a *demanded* setpoint based on a stick position (in RC modes) or from a mission command. Setpoint value ("higher level") tuning is used to specify the mapping between the demanded setpoint and the desired setpoint. Poorly tuned setpoint values cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
+传递给P / PID控制器的所需设定值本身是根据杆位置（在RC模式下）或从任务指令的要求设定值计算的。 设定值（“更高级别”）调整用于指定所需设定值和所需设定值之间的映射。 较差的的设定值不会导致不稳定，但可能导致对设定值变化的响应速度变慢。
 
-> **Tip** The demanded setpoint can change very quickly (e.g. if a user moves stick from zero to maximum value as a "step"). Vehicle flight characteristics are better if the corresponding desired setpoint changes as a "ramp".
+> < 提示 >所要求的设定值可能会很快改变 (例如, 如果用户一下子从零设置为到最大价值)。 如果缓慢调整相应的目标设定值, 飞行器的特性就会更好。
 
-The setpoint-value tuning parameters can be split into two groups: tuning parameters for [Position](#position_mode) mode and tuning parameters for [Mission](#mission_mode) mode. Some parameters will have an effect on both modes.
+设定值调整参数可分为两组: 飞行器[位置](#position_mode)模式相关的参数和飞行器[任务](#mission_mode)模式相关的参数。 某些参数将同时对两种模式产生影响。
 
-### Definitions
+### 定义
 
-The position controller ([diagram here](https://dev.px4.io/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop. Depending on the control (flight) mode either both loops are active or just the velocity control loop.
+位置控制器 ([ diagram here ](https://dev.px4.io/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) 由外环的** P ** 位置控制回路和内环的 ** PID ** 速度控制回路组成。 根据 飞行模式, 两个回路都是活动的, 或者只有速度控制回路是活动的。
 
-For the remainder of this topic the term **position-control** represents the case where both loops are active while **velocity-control** refers to the case when only the velocity control loop is in use.
+对于本文档的其余部分，** 位置控制 ** 代表两个控制回路都有效的情况，而 ** 速度控制 ** 指的是仅使用速度控制回路的情况。
 
-## Position Mode {#position_mode}
+## 位置控制模式 {#position_mode}
 
-In [Position](../flight_modes/position_mc.md) mode the stick inputs are mapped either to **position-control** or **velocity-control**.
+在[位置控制](../flight_modes/position_mc.md)模式中， 摇杆的输入映射要么为 **位置-控制**，要么为 **速度-控制**.
 
-Position-control is active when the stick inputs are within the deadzone [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ), and velocity-control otherwise. All the parameters below are tuning parameters and cannot be mapped directly to the physical quantity.
+当摇杆输入在死区 [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)内时，位置控制被激活，否则是速度控制。 以下参数都是可调节参数，并且不能被直接映射为物理量。
 
 #### MPC_ACC_HOR_MAX
 
-This parameter is used for position-control in the horizontal direction, where the vehicle is supposed to stay at the current location. The limit for the rate of change of the velocity setpoint is defined by [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX). This parameter should be set larger than any of the other acceleration related parameters in the horizontal direction.
+该参数用于水平方向的位置控制，即飞机理应停留的当前位置。 设定速度的变化速率由[MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX)来限定。 此参数应设置为大于水平方向上任何其他加速度相关参数。
 
-#### MPC_ACC_HOR and MPC_DEC_HOR_SLOW
+#### MPC_ACC_HOR 和 MPC_DEC_HOR_SLOW
 
-In velocity-control the rate limit for the velocity setpoint is extracted from a linear map from stick input to acceleration limit with maximum [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) and minimum [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW). For example, if the stick input is at `MPC_HOLD_DZ`, the limiting acceleration is `MPC_DEC_HOR_SLOW`. If the stick input is at maximum (=`1`), the limiting acceleration is `MPC_ACC_HOR` and any stick input in between is mapped linearly between the two parameters. In addition, `MPC_DEC_HOR_SLOW` also limits the change in velocity setpoint when the user demands a deceleration in the current flight direction. For instance, if the stick input changes from maximum (=`1`) to `0.5`, the velocity setpoint change will be limited by `MPC_DEC_HOR_SLOW`.
+在速度控制中，速度设定点的速率限制从线性图从摇杆输入提取到加速度极限，最大值为[MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR), 最小值为[MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW). 例如，若摇杆输入在 `MPC_HOLD_DZ`，加速度的限定为 `MPC_DEC_HOR_SLOW`. 如果摇杆输入在最大值 (=`1`), 则加速度限定值为 `MPC_ACC_HOR`，并且任意的摇杆输入都将线性映射到这两个参数之间。 此外，当用户需要沿当前飞行方向减速时，`MPC_DEC_HOR_SLOW` 也会限制速度设定的变化。 例如，当摇杆的输入量从最大值 (=`1`) 变化到 `0.5`时，速度设定的变化将由`MPC_DEC_HOR_SLOW`限定。
 
-During transition from **velocity-control** to **position-control**, there is a hard switch from from `MPC_ACC_HOR` to `MPC_ACC_HOR_MAX` and a reset of the velocity setpoint to the current vehicle velocity. The reset and the hard switch can both introduce a jerky flight performance during stopping. Nonetheless, the reset is required because the smoothing parameters introduce a delay to the setpoint, which can lead to unexpected flight maneuvers.
+当由 **速度-控制** 转为 **位置-控制**时，将会发生一个由 `MPC_ACC_HOR` 到 `MPC_ACC_HOR_MAX` 的强制转变， 并且当前飞行器的速度设定将会被重置。 这种重置和强制转变在飞行器试图停止时都可能会引起抖动。 尽管如此，重置也是必需的，因为平滑参数对设定值会引入延迟，这可能导致意外的飞行操纵。
 
-A simple example explaining why the reset is needed is given below.
+下面给出一个简单例子解释为什么需要重置。
 
-Consider the case where a user demands full speed from hover followed by a stop request. This is equivalent to full stick input with maximum value of `1` followed by zero stick input. To simplify the example, assume that `MPC_ACC_HOR_MAX` is equal to `MPC_ACC_HOR` and therefore there is no hard switch in acceleration limit when switching from **velocity-control** to **position-control**. In addition, let's assume the maximum speed that can be demanded is `4 m/s`.
+考虑这样一种情况: 用户要求从悬停中到全速飞行，紧接着一个停止请求。 这等效于摇杆以最大值`1`满输入，然后紧跟着一个零摇杆输入。 为了简化这个例子，假设参数`MPC_ACC_HOR_MAX`等于`MPC_ACC_HOR`，因此当从**速度控制**转为**位置控制**时，加速限制没有硬切换。 此外，我们假设需求的最大速度为`4 m/s`。
 
-During full stick input, the velocity setpoint will not change directly from `0 m/s` to `4 m/s` (aka step input) - instead the velocity setpoint follows a ramp with slope `MPC_ACC_HOR`. The actual velocity of the vehicle, however, will not track the setpoint perfectly, but rather will lag behind. The lag will be more significant the larger the value of `MPC_ACC_HOR`.
+摇杆满输入时，速度设定值不会直接从`0 m/s`变到`4 m/s`(即阶跃输入)，而是根据参数`MPC_ACC_HOR`的斜率渐变。 然而，飞行器的实际速度不会完美地跟上设定值，而是会稍微滞后。 `MPC_ACC_HOR`的值越大，这个滞后就会越明显。
 
 ![Slewrate Reset](../../images/slewrate_reset.svg)
 
-Without the reset (the top graph), at the moment of the stop demand (stick equal 0) the velocity setpoint will ramp down with the maximum rate given by `MPC_ACC_HOR_MAX`. Due to the lag the vehicle will first continue to accelerate in the direction previous to the stop demand followed by slowly decelerating towards zero. With the reset of the velocity setpoint to the current velocity, the delay due to the lag during stop demand can be overcome.
+如果没有复位(如顶部图示)，在停止指令的时刻(摇杆输入等于0)，速度设定值将以` MPC_ACC_HOR_MAX `给出的最大速率下降。 由于滞后，飞机将首先在停止指令之前的方向上继续加速，然后缓慢减速至零。 通过将速度设定点重置为当前速度，可以克服在停止指令期间的滞后引起的延迟。
 
-#### MPC_ACC_UP_MAX and MPC_ACC_DOWN_MAX
+#### MPC_ACC_UP_MAX 和 MPC_ACC_DOWN_MAX
 
-`MPC_ACC_UP_MAX` >= `MPC_ACC_DOWN_MAX`, otherwise the firmware will overwrite the given values.
+`MPC_ACC_UP_MAX` >= `MPC_ACC_DOWN_MAX`，否则固件将覆盖给定值。
 
-- **position-control:** the limit in velocity setpoint change in z-direction is given by [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX).
-- **velocity-control:** the limit in velocity setpoint change for stick input is `MPC_ACC_UP_MAX` for upward and [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) for downward direction. 
+- **位置控制:** 速度设定值在z方向的改变限度由参数[MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX)给出。
+- **速度控制:**摇杆输入改变速度设定值的限定由两个参数给出， `MPC_ACC_UP_MAX`限制向上的方向， [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX)限制向下的方向。 
 
-#### MPC_JERK_MAX and MPC_JERK_MIN
+#### MPC_JERK_MAX 和 MPC_JERK_MIN
 
 These two parameters only have effect during the transition from **velocity-control** to **position-control**. The purpose of these two parameters are to minimize the jerk introduced from forward flight to hover (please see [MPC_ACC_HOR and MPC_DEC_HOR_SLOW](#mpc_acc_hor-and-mpc_dec_hor_slow)).
 
