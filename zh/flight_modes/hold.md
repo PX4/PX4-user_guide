@@ -1,6 +1,6 @@
 # Hold Mode
 
-[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 The *Hold* flight mode (a.k.a. "Loiter") causes the vehicle to stop and maintain its current GPS position and altitude (MC vehicles will hover at the GPS position, while FW vehicles will circle around it).
 
@@ -18,7 +18,7 @@ A multicopter hovers at the current position and altitude.
 
 The behaviour can be configured using the parameters below.
 
-| Parameter                                                                                             | Description                                                                                                   |
+| 参数                                                                                                    | 描述                                                                                                            |
 | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | <span id="MIS_LTRMIN_ALT"></span>[MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude). |
 
@@ -30,12 +30,12 @@ The aircraft circles around the GPS hold position at the current altitude. The v
 
 The behaviour can be configured using the parameters below.
 
-| Parameter                                                                    | Description                                                                                                   |
+| 参数                                                                           | 参数描述                                                                                                          |
 | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The radius of the loiter circle.                                                                              |
 | [MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude). |
 
-## VTOL
+## 垂直起降（VTOL）
 
 A VTOL follows the HOLD behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
 
