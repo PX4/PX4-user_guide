@@ -70,11 +70,11 @@ Attach the motor mount to the motor. With another motor mount plate and 4 M3x25
 
 ![QuadRanger motor and esc](../../images/quadranger_vtol_motor_and_esc.jpg)
 
-## Wiring
+## 布线
 
 The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
 
-| Port   | Connection             |
+| Port   | 接口定义                   |
 | ------ | ---------------------- |
 | MAIN 1 | Front right motor, CCW |
 | MAIN 2 | Back left motor, CCW   |
@@ -90,13 +90,13 @@ The outputs of Pixhawk should be wired like this (orientation as seen like "sitt
 
 For further instructions on wiring and configurations please see: [Standard VTOL Wiring and Configuration](../config_vtol/vtol_quad_configuration.md)
 
-## Configuration
+## 配置
 
 Configure the frame as shown in QGroundControl below (do not forget to click **Apply and Restart** in the top).
 
 ![QGC - select firmware for standard VTOL](../../images/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
-## Support
+## 技术支持
 
 If you have any questions regarding your VTOL conversion or configuration please visit <http://discuss.px4.io/c/vtol>.
 
