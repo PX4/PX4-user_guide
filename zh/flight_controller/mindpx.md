@@ -4,7 +4,7 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 
 ![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
 
-## Quick Summary
+## 总览
 
 > **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
 
@@ -39,19 +39,19 @@ This means that MindPX can support more complicated VTOL configurations and more
 
 ![MindPX Mounting](../../assets/hardware/hardware-mindpx-mounting.png)
 
-### Wiring
+### 布线
 
 ![MindPX Wiring 1](../../assets/hardware/hardware-mindpx-wiring1.png)
 
 ![MindPX Wiring 2](../../assets/hardware/hardware-mindpx-wiring2.png)
 
-### Pin
+### 针脚
 
 ![MindPX Pinout](../../assets/hardware/hardware-mindpx-pin.png)
 
-| Num. |        Description         | Num. |      Description       |
+| Num. |             描述             | Num. |          参数描述          |
 |:----:|:--------------------------:|:----:|:----------------------:|
-|  1   |           Power            |  9   |    I2C2 (MindFLow)     |
+|  1   |             电源             |  9   |    I2C2 (MindFLow)     |
 |  2   | Debug (refresh bootloader) |  10  | USB2 (Serial 2 to USB) |
 |  3   |  USB1 (refresh firmware)   |  11  |        UART4,5         |
 |  4   |           Reset            |  12  |   UART1 (Telemetry)    |
@@ -66,11 +66,11 @@ MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SB
 
 For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
-### Building Firmware
+### 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
 
     make airmind_mindpx-v2_default
     
@@ -89,6 +89,6 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
-## Support
+## 技术支持
 
 Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.
