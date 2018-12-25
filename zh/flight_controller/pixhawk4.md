@@ -43,7 +43,7 @@
 
 ## 采购
 
-Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
+中国大陆用户请从官方代理商“思动智能”的淘宝店“地面售货站”购买。境外用户从 [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html) 购买。
 
 ## 连接器
 
@@ -97,7 +97,7 @@ Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
 本系统的串行控制台和 SWD 接口运行在 **FMU 调试** 接口，同时 I/O 控制台与SWD接口可以通过 **I/O 调试** 接口访问。 为了能访问这些接口，用户需要移除 *Pixhawk 4* 的外壳。
 
-Both ports have standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. 有关如何连接此端口的详细信息，请参阅 [接线](https://dev.px4.io/en/debug/system_console.html) 页面。
+这两个端口都有标准的串口针脚，可以连接到标准的 FTDI 连接线上（3.3V，但它有5V 耐受性），或连接到 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) 上。 针脚定义使用标准的 Dronecode 调试连接器针脚定义。 有关如何连接此端口的详细信息，请参阅 [接线](https://dev.px4.io/en/debug/system_console.html) 页面。
 
 ## 外部设备
 
@@ -107,7 +107,7 @@ Both ports have standard serial pinout and can be connected to a standard FTDI c
 
 ## 支持的平台 / 机身
 
-任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
+任何可用普通遥控舵机系统或 Futaba S-Bus 舵机系统控制的多旋翼、固定翼、无人车、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
 
 ## 更多信息
 
