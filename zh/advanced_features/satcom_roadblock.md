@@ -1,10 +1,10 @@
-# Iridium/RockBlock Satellite Communication System
+# 铱星/RockBlock卫通系统
 
 A satellite communication system can be used to provide long range high latency link between a ground station and a vehicle.
 
 This topic describes how to set up a system that uses RockBlock as the service provider for the Iridium SBD Satellite Communication System. Given good signal quality, users can expect a latency between 10 to 15 seconds.
 
-## Overview
+## 综述
 
 The following components are needed for the satellite communication link:
 
@@ -32,7 +32,7 @@ Refer to the [RockBlock Documentation](https://docs.rockblock.rock7.com/docs) fo
 
 ## Vehicle Setup
 
-### Wiring
+### 布线
 
 Connect the RockBlock module to a serial port of the Pixhawk. Due to the power requirements of the module it can only be powered over a high-power serial port as a maximum of 0.5 A at 5 V are required. If none is available/free then another power source which has the same ground level as the Pixhawk and can provide required power has to be setup. The details of the [connectors](https://docs.rockblock.rock7.com/docs/connectors) and the [power requirements](https://docs.rockblock.rock7.com/docs/power-supply) can be found in the RockBlock documentation.
 
@@ -133,7 +133,7 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
 ## Running the System
 
-1. Start *QGroundControl*. Manually connect the high latency link first, then the regular telemetry link:
+1. 开启 *QGroundControl*。 Manually connect the high latency link first, then the regular telemetry link:
     
     ![Connect the High Latency link](../../assets/satcom/linkconnect.png)
 
@@ -157,7 +157,7 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
         
         ![Prioritylink Selection](../../assets/satcom/linkselection.png)
 
-## Troubleshooting
+## 故障处理
 
 * Satellite communication messages from the airplane are received but no commands can be transmitted (the vehicle does not react)
     
