@@ -6,7 +6,7 @@ The *Aerotenna* [uLanding](https://aerotenna.com/sensors/#ulanding) altimeter is
 
 The rangefinder is not automatically included in most firmware, and hence cannot be used just by setting a parameter through *QGroundControl* (as is possible with some other rangefinders). To use it you will need to add the driver to firmware and update a configuration file to start the driver on boot. The sections below explain how.
 
-## Hardware Setup
+## 硬件安装
 
 The rangefinder is supported by any hardware which runs a NuttX or Posix OS and which can offer a serial port for the interface. Minimally this will include most, if not all, [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers.
 
@@ -18,6 +18,6 @@ uLanding can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELE
 
 > **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```drivers/distance_sensor/ulanding```
 
-## Further Information
+## 更多信息
 
-* [PX4 Development Guide](https://dev.px4.io/en/)
+* [PX4 开发指南](https://dev.px4.io/en/)
