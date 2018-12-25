@@ -8,7 +8,7 @@ The minimal set of sensors is incorporated into [Pixhawk Series](../flight_contr
 
 Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
 
-## GPS & Compass {#gps_compass}
+## GPS&罗盘 {#gps_compass}
 
 PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
@@ -38,7 +38,7 @@ PX4 supports many affordable distance sensors, using different technologies, and
 
 <img src="../../images/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
 
-## Optical Flow
+## 光流
 
 [PX4Flow](../sensor/px4flow.md) is an optical flow smart camera that can track motion, and has as integrated sonar sensor. PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. This sensor can be used indoors, when no GPS signal is available.
 
