@@ -1,43 +1,43 @@
 # Multicopter PID Tuning Guide
 
-This tutorial explains how to tune the PID loops on PX4 for all [multicopter setups](../airframes/airframe_reference.md#copter) (Quads, Hexa, Octo etc).
+本教程介绍如何在 PX4 上整定 [ 多旋翼 ](../airframes/airframe_reference.md#copter) (四、六、八旋翼等) 的 PID 参数 。
 
-Generally if you're using a [supported specific configuration](../airframes/airframe_reference.md#copter) (e.g. using an airframe in [QGroundControl > Airframe](../config/airframe.md)) the default tuning should be sufficient to fly the vehicle safely. To get the very best performance it is usually good to tune a new vehicle. For example, different ESCs or motors require different tuning gains for optimal flight.
+通常, 如果您使用的是 [ 已经支持的机型 ](../airframes/airframe_reference.md#copter) (例如, [ QGroundControl ](../config/airframe.md) 中的机身), 则默认参数应足以安全地飞行。 为了获得最好的性能, 最好能整定新飞机的 PID 参数。 例如, 不同的电调或电机需要不同的控制增益, 才能获得最佳飞行效果。
 
-> **Warning** This guide is for advanced users. Un- or partially- tuned vehicles are likely to be unstable, and easy to crash. Make sure to have a Kill-switch assigned.
+> ** 警告 **本指南仅适用于高级用户。 不合适的参数可能会导致飞行器不稳定，甚至炸机。 确保预先指定保护开关 ( Kill-switch ) 。
 
-## Introduction
+## 简介
 
-PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers, which are the most widespread control technique.
+PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是使用最广泛的控制技术。
 
-The controllers are layered, which means a higher-level controller passes its results to a lower-level controller. The lowest-level controller is the the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**. The PID tuning needs to be done in the same order, starting with the rate controller, as it will affect all other controllers.
+控制器是分级的, 这意味着外环的控制器将其结果传递给内环的控制器。 最内环的控制器是 ** 角速率控制器 **, 然后是 ** 姿态控制器 **, 然后 ** 速度 & 位置控制器 **。 PID 调参需要按相同的顺序进行, 从角速率控制器开始, 因为它将影响其他所有控制器。
 
-## Preconditions
+## 前置条件
 
-- You have selected the closest matching [default airframe configuration](../config/airframe.md) for your vehicle. This should give you a vehicle that already flies.
-- You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
-- [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) is set correctly. It needs to be set low, but such that the **motors never stop** when the vehicle is armed.
+- 您已为您的飞行器选择了最接近的 [ 默认机型配置 ](../config/airframe.md)。 这应该可以让你的飞行器飞起来。
+- 您应该已经执行过 [ 电调（ESC）校准 ](../advanced_config/esc_calibration.md)。
+- [ PWM_MIN ](../advanced_config/parameter_reference.md#PWM_MIN) 正确设置。 它需要设置一个小值, 但当飞行器解锁时, 需要保证 ** 电机不停转 **。
   
-  This can be tested in [Acro mode](../flight_modes/acro_mc.md) or in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
+  可以在 [ "Acro 模式" ](../flight_modes/acro_mc.md) 或 [ 手动/自稳模式 ](../flight_modes/manual_stabilized_mc.md) 中进行测试:
   
-  - Remove propellers
-  - Arm the vehicle and lower the throttle to the minimum
-  - Tilt the vehicle to all directions, about 60 degrees
-  - Check that no motors turn off
-- Optionally enable the high-rate logging profile with the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter so you can use the log to evaluate the rate and attitude tracking performance (the option can be disabled afterwards).
+  - 卸下螺旋桨
+  - 解锁，并将油门杆拉到最低
+  - 把飞行器倾斜到各个方向, 大约60度
+  - 确保没有电机停转
+- 可以通过 [ SDLOG_PROFILE ](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 参数，启用高速率日志记录配置文件, 以便使用日志来查看角速率和姿态跟踪性能 (之后可以禁用该选项) 。
 
-> **Warning** Always disable [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) when tuning a vehicle.
+> **警告** 在调参过程中，禁用 [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)。
 
-## Tuning Steps
+## 调参步骤
 
-> **Note** For safety reasons, the default gains are set to low values.  
-> You must increase the gains before you can expect good control responses. 
+> ** 注意 **出于安全原因, 所有的增益都默认设置为低值.   
+> 如果想获得良好的控制响应，必须相应的增加增益值。 
 
-Here are some general points to follow when tuning:
+以下是做PID调参时要遵循的一些常规:
 
-- All gains should be increased very slowly as large gains may cause dangerous oscillations! Typically increase gains by 20-30% per iteration, reducing to 5-10% for final fine tuning.
-- Land before changing a parameter. Slowly increase the throttle and check for oscillations.
-- Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter or TPA](#thrust_curve) to account for thrust non-linearities or high-thrust oscillations.
+- 调整增益时，所有的增益值都应该慢慢增加, 因为增益过大可能会导致危险的振荡! 一般情况下，每次增益值的调整幅度大约在20%到30%，获得最优增益值后，基于最优值再下调5%到10%。
+- 在修改参数之前务必先着陆。 慢慢增加油门，观察振荡的现象。
+- 调参时的油门值应该在无人机的悬停油门, 并使用 [ 推力曲线参数（Thrust Curve Parameter 或 TPA) ](#thrust_curve) 来观察或判断推力非线性或高推力振荡现象。
 
 ### Rate Controller
 
