@@ -21,13 +21,13 @@ If a log file ends mid-air, two main causes are possible: a power failure *or* a
 
 On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169), hard faults of the operating system are logged to the SD card. These are located on the top level of the SD card and named *fault\_date.log*, e.g. **fault\_2017\_04\_03\_00\_26\_05.log**. Please always check for the presence of this file if a flight log ends abruptly.
 
-## Analysis Tools
+## 分析工具
 
-### Flight Review (Online Tool)
+### Flight Review（在线工具）
 
 [Flight Review](http://logs.px4.io) is the successor of *Log Muncher*. It is used in combination with the new [ULog](http://dev.px4.io/en/log/ulog_file_format.html) logging format.
 
-Key features:
+主要特性：
 
 * Web based, great for end-users.
 * User can upload, load and then share report with others.
@@ -60,11 +60,11 @@ All scripts are installed as system-wide applications (i.e. they be called on th
     Display information from an ULog file
     
     positional arguments:
-      file.ulg       ULog input file
+      file.ulg       ULog 输入文件
     
     optional arguments:
-      -h, --help     show this help message and exit
-      -v, --verbose  Verbose output
+      -h, --help     显示这个帮助信息然后退出
+      -v, --verbose  详细输出
     
 
 Below we see the kind of information exported from a sample file using *ulog_info*.
@@ -109,7 +109,7 @@ Key features:
 
 ![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
-### FlightPlot (Desktop)
+### FlightPlot（桌面）
 
 [FlightPlot](https://github.com/PX4/FlightPlot) is a desktop based tool for log analysis. It can be downloaded from [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).
 
