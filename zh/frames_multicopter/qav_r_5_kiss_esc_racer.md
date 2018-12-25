@@ -65,7 +65,7 @@ This means we need to solder at least 6 joints on every ESC but it's still total
 
 > **Tip** Put heat shrink on the cables before you start soldering! Heatshrinking the ESCs, the power module and the free floating uninsulated wire soldering joints after a successful function test will protect them from dirt, moisture and physical damage.
 
-### Motors
+### 电机
 
 First I cut all three motor cables to directly fit when the ESCs are mounted on the arms shifted towards the center but still let enough slack to allow easy placement of the parts and not produce any tension on the cables. Then I soldered them in the order they come out of the motor to the output contacts of the ESCs which are oriented with the switching MOS-FETs facing upwards to get good air cooling during flight. Choosing this cable order resulted in all the motors spinning counter-clockwise in my tests and I switched where necessary the direction of rotation by bridging the dedicated [JP1 solder jumper](https://1.bp.blogspot.com/-JZoWC1LjLis/VtMP6XdU9AI/AAAAAAAAAiU/4dygNp0hpwc/s640/KISS-ESC-2-5S-24A-race-edition-32bit-brushless-motor-ctrl.jpg) to conform the [Quadrotor x configuration](../airframes/airframe_reference.md#quadrotor-x).
 
@@ -135,18 +135,18 @@ I took the GPS cable which fits the connector of the used GPS and came with the 
 
 #### Pixracer GPS/I2C Port
 
-| Pin | Assignment |
-| --- | ---------- |
-| 1   | GND        |
-| 2   | SDA        |
-| 3   | SCL        |
-| 4   | RX         |
-| 5   | TX         |
-| 6   | +5V        |
+| 针脚 | Assignment |
+| -- | ---------- |
+| 1  | GND        |
+| 2  | SDA        |
+| 3  | SCL        |
+| 4  | RX         |
+| 5  | TX         |
+| 6  | +5V        |
 
 #### M8N 3DR Pixhawk mini GPS Connector
 
-| Pin     | Assignment | Connect to Pixracer Pin |
+| 针脚      | Assignment | Connect to Pixracer Pin |
 | ------- | ---------- | ----------------------- |
 | 1 (red) | SCL        | 3                       |
 | 2       | SDA        | 2                       |
