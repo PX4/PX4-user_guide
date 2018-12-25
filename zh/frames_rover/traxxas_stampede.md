@@ -9,7 +9,7 @@ This vehicle was chosen to understand how a Pixhawk could be used for wheeled pl
 ## Parts List
 
 - [Traxxas Stampede](https://traxxas.com/products/models/electric/stampede-vxl-tsm) All of this is used except for the top plastic cover.
-- [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md) 
+- [Pixhawk Mini （停产）](../flight_controller/pixhawk_mini.md) 
     - 3DR 10S Power Module
     - [3DR 433MHz Telemetry Module (EU)
 - [Spektrum Dxe Controller](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) or other PX4-compatible remotes
@@ -45,7 +45,7 @@ For this particular mounting we chose to use the clip supplied with the rover to
 
 > **Note** As documented in the [Airframe reference here](../airframes/airframe_reference.md#rover_rover_traxxas_stampede_vxl_2wd).
 
-## Configuration
+## 配置
 
 Rovers are configured using *QGroundControl* in the same way as any other vehicle.
 
@@ -56,9 +56,9 @@ The main rover-specific configuration is setting the correct frame:
 3. Scroll down the list to find the **Rover** icon. 
 4. Choose **Traxxas stampede vxl 2wd** from the drop down list.
 
-![Select Airframe](../../images/qgc/setup/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
+![选择机架](../../images/qgc/setup/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
 
-## Usage
+## 用法
 
 At the current time, PX4 only supports [MISSION](../flight_modes/mission.md) and MANUAL modes when a RC remote is connected. To use the mission mode, first upload a new mission to the vehicle with QGC. Then, BEFORE ARMING, select `MISSION` and then arm.
 
