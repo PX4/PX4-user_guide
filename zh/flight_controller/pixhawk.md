@@ -119,7 +119,7 @@ Under these conditions all power sources will be used in this order to power the
 
 > **Tip** The RC IN port is for RC receivers only and provides power. **NEVER** connect any servos, power supplies or batteries to it or to the receiver connected to it.
 
-![Pixhawk Connectors](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
+![Pixhawk 连接器](../../assets/flight_controller/pixhawk1/pixhawk_connectors.png)
 
 ## 针脚定义
 
