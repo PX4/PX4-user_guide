@@ -24,7 +24,7 @@ The lidars can be connected to I2C or serial ports, depending on their type (see
 
 The following models can be connected to the I2C port:
 
-### Hardware {#i2c_hardware_setup}
+### 硬件 {#i2c_hardware_setup}
 
 Connect the Lidar the autopilot I2C port as shown below (in this case, for the [Pixhawk 1](../flight_controller/mro_pixhawk.md)).
 
@@ -45,7 +45,7 @@ Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX)
 
 ## Serial Setup
 
-### Hardware {#serial_hardware_setup}
+### 硬件 {#serial_hardware_setup}
 
 The lidar can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
