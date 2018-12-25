@@ -1,4 +1,4 @@
-# Pixhawk 1 Flight Controller
+# Pixhawk 1 飞控
 
 The *Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
@@ -123,23 +123,23 @@ Under these conditions all power sources will be used in this order to power the
 
 ## 针脚定义
 
-TELEM1, TELEM2 ports
+TELEM1，TELEM2 接口
 
-| 针脚      | 信号        | 电压    |
-| ------- | --------- | ----- |
-| 1 (red) | VCC       | +5V   |
-| 2 (blk) | TX (OUT)  | +3.3V |
-| 3 (blk) | RX (IN)   | +3.3V |
-| 4 (blk) | CTS (IN)  | +3.3V |
-| 5 (blk) | RTS (OUT) | +3.3V |
-| 6 (blk) | GND       | GND   |
+| 针脚   | 信号        | 电压    |
+| ---- | --------- | ----- |
+| 1（红） | VCC       | +5V   |
+| 2（黑） | TX (OUT)  | +3.3V |
+| 3（黑） | RX (IN)   | +3.3V |
+| 4（黑） | CTS (IN)  | +3.3V |
+| 5（黑） | RTS (OUT) | +3.3V |
+| 6（黑） | GND       | GND   |
 
-GPS port
+GPS 接口
 
 | 针脚      | 信号       | 电压    |
 | ------- | -------- | ----- |
-| 1 (red) | VCC      | +5V   |
-| 2 (blk) | TX (OUT) | +3.3V |
+| 1（红）    | VCC      | +5V   |
+| 2（黑）    | TX (OUT) | +3.3V |
 | 3 (blk) | RX (IN)  | +3.3V |
 | 4 (blk) | CAN2 TX  | +3.3V |
 | 5 (blk) | CAN2 RX  | +3.3V |
@@ -263,4 +263,4 @@ Please refer to the Devguide [wiring](https://dev.px4.io/en/debug/system_console
 
 ## 支持的平台/机身
 
-任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。
+所有可用普通遥控舵机系统或 Futaba S-Bus 舵机系统控制的多旋翼、固定翼、无人车、无人船。
