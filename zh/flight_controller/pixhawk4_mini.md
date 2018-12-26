@@ -4,7 +4,7 @@
 
 *Pixhawk 4 Mini* 由 Holybro<sup>&reg;</sup> 和 Auterion<sup>&reg;</sup> 合作设计开发。 它基于 [Pixhawk](https://pixhawk.org/) **FMUv5** 设计标准，并为 PX4 飞行控制软件优化。
 
-<img src="../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png" width="350px" title="Pixhawk 4 Mini Iso" />
+<img src="../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png" width="350px" title="Pixhawk 4 Mini" />
 
 ## 总览
 
@@ -107,9 +107,9 @@
 
 ## 支持的平台
 
-Motors and servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+电机和舵机按照 [机架参考](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN OUT** 端口。 本参考列出了所有支持的空中和地面机架的接口和电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用（generic）”机架）。
 
-> **Warning** *Pixhawk 4 Mini* 没有 AUX 接口。 The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces. It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
+> **Warning** *Pixhawk 4 Mini* 没有 AUX 接口。 该飞控不能用于接口多余 8 个或使用 AUX 接口的电机或舵面的机架。 It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
 
 ## 更多信息
 
