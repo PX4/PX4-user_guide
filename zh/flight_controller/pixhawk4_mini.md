@@ -61,7 +61,7 @@
 
 *Pixhawk 4 Mini* 可以有电源冗余 — 如果提供了两个电源。 供电轨道为：**POWER** 和 **USB**。
 
-> **Note** The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#voltageratings) to one of **POWER** or **USB** or the board will be unpowered.
+> **Note** **MAIN OUT** 电源输出轨并不会为飞控板供电（而且不由其供电）。 你必须在 **POWER** 或 **USB** 之一 [提供电源](../assembly/quick_start_pixhawk4_mini.md#voltageratings)，否则飞控板将不会供电。
 
 **正常运行最大额定值**
 
@@ -76,11 +76,11 @@
 
 1. **POWER** 输入（0V 至 6V 不会损坏）
 2. **USB** 输入（0V 至 6V 不会损坏）
-3. Servo input: VDD_SERVO pin of **MAIN OUT** (0V to 24V undamaged)
+3. 舵机输入：**MAIN OUT** 的 VDD_SERVO 针脚 （0V 至 24V 不会损坏）
 
 ## 组装 / 设置
 
-The [*Pixhawk 4 Mini* Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board, etc.
+[*Pixhawk 4 Mini* 快速接线指南](../assembly/quick_start_pixhawk4_mini.md) 提供如何组装所需的/重要的外设包含 GPS，电源管理板等的说明。
 
 ## 编译固件
 
@@ -93,11 +93,11 @@ The [*Pixhawk 4 Mini* Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.
 
 ## 调试接口
 
-The system's serial console and SWD interface run on the **FMU Debug** port. In order to access these ports, the user must remove the *Pixhawk 4 Mini* casing.
+系统的串行控制台和SWD接口在** FMU Debug **端口上运行。 为了能访问这些接口，用户需要移除 *Pixhawk 4 Mini* 的外壳。
 
 ![Pixhawk 4 Mini FMU 调试](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_fmu_debug.png)
 
-The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. 有关如何连接此端口的详细信息，请参阅 [接线](https://dev.px4.io/en/debug/system_console.html) 页面。
+端口使用标准的串口针脚，可以连接到标准的 FTDI 连接线上（3.3V，但它有5V 耐受性），或连接到 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) 上。 针脚定义使用标准的 Dronecode 调试连接器针脚定义。 有关如何连接此端口的详细信息，请参阅 [接线](https://dev.px4.io/en/debug/system_console.html) 页面。
 
 ## 外部设备
 
