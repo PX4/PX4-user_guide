@@ -23,16 +23,16 @@ Offboard模式主要用于控制飞机运动和姿态，目前仅支持MAVLink�
 
 要启用或保持该模式, 飞机必须先接收到一个提供设定值的消息流 (如果消息速率低于 2Hz 飞机将退出该模式)。 如果要在此模式下做位置保持，必须向飞机提供一个包含当前位置设定值的消息流。
 
-Offboard mode requires an active connection to a remote MAVLink system (e.g. companion computer or GCS). If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+Offboard模式需要主动连接到远程 MAVLink 系统 (例如配套计算机或GCS)。 如果连接丢失, 在超时 ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) 后, 飞机将尝试降落或执行其他故障保护操作。 故障保护操作在参数 [COM_OBL_ACT](#COM_OBL_ACT) 和 [COM_OBL_RC_ACT](#COM_OBL_RC_ACT) 中定义。
 
-## Offboard Parameters
+## Offboard参数
 
-*Offboard mode* is affected by the following parameters:
+*Offboard模式*受以下参数影响：
 
 | 参数                                                                                                    | 描述                                                                                                                                                                                                                                                       |
 | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="COM_OF_LOSS_T"></span>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | Time-out (in seconds) to wait when offboard connection is lost before triggering offboard lost failsafe (`COM_OBL_ACT` and `COM_OBL_RC_ACT`)                                                                                                             |
-| <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | Mode to switch to if offboard control is lost when *not* connected to RC (Values are - 0: [Land](../flight_modes/land.md), 1: [Hold](../flight_modes/hold.md), 2: [Return ](../flight_modes/return.md)).                                                 |
+| <span id="COM_OF_LOSS_T"></span>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | 在丢失Offboard连接时的等待超时 (以秒为单位), 然后将触发offboard丢失的故障保护措施 (`COM_OBL_ACT` 和 `COM_OBL_RC_ACT`)                                                                                                                                                                   |
+| <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | 如果 *没有* 连接到遥控器时, 丢失offboard连接后切换到的模式 (取值为- 0: [Land](../flight_modes/land.md), 1: [Hold](../flight_modes/hold.md), 2: [Return ](../flight_modes/return.md))。                                                                                             |
 | <span id="COM_OBL_RC_ACT"></span>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Mode to switch to if offboard control is lost while still connected to RC control (Values are - 0: *Position*, 1: [Altitude](../flight_modes/altitude_mc.md), 2: *Manual*, 3: [Return ](../flight_modes/return.md), 4: [Land](../flight_modes/land.md)). |
 
 ## 开发者资源
