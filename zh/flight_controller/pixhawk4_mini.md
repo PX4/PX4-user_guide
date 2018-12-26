@@ -1,6 +1,6 @@
 # Pixhawk 4 Mini
 
-The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hobbyists who are looking to tap into the power of *Pixhawk 4* but are working with smaller drones. *Pixhawk 4 Mini* takes the FMU processor and memory resources from the *Pixhawk 4* while eliminating interfaces that are normally unused. This allows the *Pixhawk 4 Mini* to be small enough to fit in a 250mm racer drone.
+*Pixhawk<sup>&reg;</sup> 4 Mini* 自动驾驶仪是为想办法利用 *Pixhawk 4* 的力量，但是使用的是较小的无人机的工程师和爱好者而设计的。 *Pixhawk 4 Mini* takes the FMU processor and memory resources from the *Pixhawk 4* while eliminating interfaces that are normally unused. This allows the *Pixhawk 4 Mini* to be small enough to fit in a 250mm racer drone.
 
 *Pixhawk 4 Mini* was designed and developed in collaboration with Holybro<sup>&reg;</sup> and Auterion<sup>&reg;</sup>. It is based on the [Pixhawk](https://pixhawk.org/) **FMUv5** design standard and is optimized to run PX4 flight control software.
 
@@ -18,13 +18,13 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
 * GPS：ublox Neo-M8N GPS/GLONASS 接收器；集成磁力计 IST8310
 * 接口： 
   * 8 路 PWM 输出
-  * FMU上有4个专用PWM/Capture输入
-  * CPPM专用的RC输入
+  * FMU 上有 4 路专用 PWM/Capture 输入
+  * 用于 CPPM 的专用遥控输入
   * 用于 Spektrum / DSM 与 有模拟 / PWM RSSI 的 S.Bus 的专用遥控输入
   * 3个通用串行口
-  * 2路I2C总线
-  * 3路SPI总线
-  * 1 CANBuses for CAN ESC
+  * 2 路 I2C 总线
+  * 3 路 SPI 总线
+  * 1 路 CAN 总线用于 CAN 电调
   * Analog inputs for voltage / current of battery
   * 2 additional analog input
 * 电源系统： 
