@@ -19,7 +19,7 @@ Offboard模式主要用于控制飞机运动和姿态，目前仅支持MAVLink�
   * PX4 支持坐标系指定 (`coordinate_frame` 字段): [MAV_FRAME_LOCAL_NED](http://mavlink.org/messages/common#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](http://mavlink.org/messages/common#MAV_FRAME_BODY_NED)。
 * 控制飞机姿态/方位 ([SET_ATTITUDE_TARGET](http://mavlink.org/messages/common#SET_ATTITUDE_TARGET))。
 
-Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
+其他操作, 如起飞、降落、返回起飞点，最好使用其它适当的模式来处理。 上传、下载任务等操作可以在任何模式下执行。
 
 A stream of setpoint commands must be received by the vehicle prior to engaging the mode, and in order to remain in the mode (if the message rate falls below 2Hz the vehicle will stop). In order to hold position while in this mode, the vehicle must receive a stream of setpoints for the current position.
 
