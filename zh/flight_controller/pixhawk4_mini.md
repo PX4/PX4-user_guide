@@ -59,7 +59,7 @@
 
 ## 额定电压
 
-*Pixhawk 4 Mini* can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
+*Pixhawk 4 Mini* 可以有电源冗余 — 如果提供了两个电源。 供电轨道为：**POWER** 和 **USB**。
 
 > **Note** The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#voltageratings) to one of **POWER** or **USB** or the board will be unpowered.
 
@@ -72,7 +72,7 @@
 
 **绝对最大额定值**
 
-Under these conditions the system will remain intact.
+在这些情况下，系统将保持完整。
 
 1. **POWER** input (0V to 6V undamaged)
 2. **USB** input (0V to 6V undamaged)
