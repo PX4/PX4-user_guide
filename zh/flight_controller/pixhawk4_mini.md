@@ -74,8 +74,8 @@
 
 在这些情况下，系统将保持完整。
 
-1. **POWER** input (0V to 6V undamaged)
-2. **USB** input (0V to 6V undamaged)
+1. **POWER** 输入（0V 至 6V 不会损坏）
+2. **USB** 输入（0V 至 6V 不会损坏）
 3. Servo input: VDD_SERVO pin of **MAIN OUT** (0V to 24V undamaged)
 
 ## 组装 / 设置
