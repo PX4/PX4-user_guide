@@ -8,16 +8,16 @@
 
 <span></span>
 
-> **Note** * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc. * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes). * The vehicle must be armed before this mode can be engaged. * The vehicle must be already be receiving a stream of target setpoints before this mode can be engaged. * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
+> **Note** * 此模式需要位置或位/姿信息-例如 GPS、光流、视觉惯性里程计、mocap 等。 * 此模式是自动的 (遥控器 [默认](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) 被禁用，仅能用于切换模式)。 * 使用此模式前飞机必须先被激活。 * 在能够使用此模式之前飞机必须已经能够接收到目标设定点的消息流。 * 如果没能以 > 2Hz 的速率接收目标设定值飞机将退出该模式。
 
 ## 描述
 
-Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink commands (more may be supported in future). It can be used to:
+Offboard模式主要用于控制飞机运动和姿态，目前仅支持MAVLink命令的一个有限子集 (未来将支持更多)。 此模式可用于：
 
-* Control vehicle position, velocity, or thrust ([SET_POSITION_TARGET_LOCAL_NED](http://mavlink.org/messages/common#SET_POSITION_TARGET_LOCAL_NED)). 
-  * Acceleration setpoints are combined to create a 'thrust' setpoint.
-  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](http://mavlink.org/messages/common#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](http://mavlink.org/messages/common#MAV_FRAME_BODY_NED).
-* Control vehicle attitude/orientation ([SET_ATTITUDE_TARGET](http://mavlink.org/messages/common#SET_ATTITUDE_TARGET)).
+* 控制飞机位置、速度或油门 ([SET_POSITION_TARGET_LOCAL_NED](http://mavlink.org/messages/common#SET_POSITION_TARGET_LOCAL_NED))。 
+  * 加速度设定值将被综合计算出一个“油门”设定值。
+  * PX4 支持坐标系指定 (`coordinate_frame` 字段): [MAV_FRAME_LOCAL_NED](http://mavlink.org/messages/common#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](http://mavlink.org/messages/common#MAV_FRAME_BODY_NED)。
+* 控制飞机姿态/方位 ([SET_ATTITUDE_TARGET](http://mavlink.org/messages/common#SET_ATTITUDE_TARGET))。
 
 Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
 
