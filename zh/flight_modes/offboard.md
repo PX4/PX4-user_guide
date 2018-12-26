@@ -2,9 +2,9 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-飞机按照远端控制器通过MAVLink给出的位置，速度或姿态设定值来运行。 The setpoint may be provided by a MAVLink API (e.g. [Dronecode SDK](https://sdk.dronecode.org/en/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
+飞机按照远端控制器通过MAVLink给出的位置，速度或姿态设定值来运行。 设定值可以由运行在配套计算机 (一般通过串口线或wifi与飞孔连接) 上的MAVLink API (如[Dronecode SDK](https://sdk.dronecode.org/en/) 或者 [MAVROS](https://github.com/mavlink/mavros)) 提供。
 
-> **Note** Offboard mode is not supported by Fixed Wing vehicles. It is supported for Copter and VTOL vehicles.
+> **Note**固定翼飞机不支持Offboard模式。 仅支持多旋翼和VTOL机型。
 
 <span></span>
 
