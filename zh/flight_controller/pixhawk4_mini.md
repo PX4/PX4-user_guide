@@ -28,7 +28,7 @@
   * 电池电压 / 电流模拟输入口
   * 2 个模拟输入接口
 * 电源系统： 
-  * Power Brick Input: 4.75~5.5V
+  * Power 接口输入：4.75~5.5V
   * USB 电源输入：4.75~5.25V
   * 舵机轨道输入：0~24V
   * 最大电流感应：120A
@@ -37,7 +37,7 @@
 * 其它特性: 
   * 工作温度：-40 ~ 85°C
 
-Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf).
+更多信息可以在 [*Pixhawk 4 Mini* 技术数据表](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_technical_data_sheet.pdf)中找到。
 
 ## 采购
 
@@ -45,17 +45,17 @@ Additional information can be found in the [*Pixhawk 4 Mini* Technical Data Shee
 
 ## 接口
 
-![Pixhawk 4 Mini interfaces](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_interfaces.png)
+![Pixhawk 4 Mini 接口](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_interfaces.png)
 
 > **Warning** **RC IN** 与 **PPM** 接口仅可用于遥控接收机。 这两个接口已经供电！ 不要把舵机、电源、电池（或是连接了这些设备的接收机）连接到上面。
 
 ## 针脚定义
 
-Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf).
+[在此下载](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4mini/pixhawk4mini_pinouts.pdf) *Pixhawk 4 Mini* 的 pinout。
 
 ## 尺寸
 
-![Pixhawk 4 Mini Dimensions](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_dimensions.png)
+![Pixhawk 4 Mini 尺寸](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_dimensions.png)
 
 ## 额定电压
 
@@ -67,7 +67,7 @@ Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_gu
 
 在以下条件下，所有电源将按此顺序用于为系统供电：
 
-1. **POWER** (4.75V to 5.5V)
+1. **POWER**（4.75V 至 5.5V）
 2. **USB** 输入电压（4.75 v 至 5.25 v）
 
 **绝对最大额定值**
@@ -109,7 +109,7 @@ The port has a standard serial pinout and can be connected to a standard FTDI ca
 
 Motors and servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 
-> **Warning** *Pixhawk 4 Mini* does not have AUX ports. The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces. It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
+> **Warning** *Pixhawk 4 Mini* 没有 AUX 接口。 The board cannot be used with frames that require more than 8 ports or which use AUX ports for motors or control surfaces. It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
 
 ## 更多信息
 
