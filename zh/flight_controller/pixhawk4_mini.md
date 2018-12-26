@@ -109,7 +109,7 @@
 
 电机和舵机按照 [机架参考](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN OUT** 端口。 本参考列出了所有支持的空中和地面机架的接口和电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用（generic）”机架）。
 
-> **Warning** *Pixhawk 4 Mini* 没有 AUX 接口。 该飞控不能用于接口多余 8 个或使用 AUX 接口的电机或舵面的机架。 It can be used for airframes that use AUX for non-essential peripherals (e.g. "feed-through of RC AUX1 channel").
+> **Warning** *Pixhawk 4 Mini* 没有 AUX 接口。 该飞控不能用于接口多余 8 个或使用 AUX 接口的电机或舵面的机架。 它可用于 AUX 分配给了非必要外设的机架（如遥控AUX1直通）。
 
 ## 更多信息
 
