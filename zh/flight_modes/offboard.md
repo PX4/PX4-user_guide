@@ -37,9 +37,9 @@ Offboard模式需要主动连接到远程 MAVLink 系统 (例如配套计算机�
 
 ## 开发者资源
 
-Typically developers do not directly work at the MAVLink layer, but instead use a robotics API like [Dronecode SDK](https://sdk.dronecode.org/en/) or [ROS](http://www.ros.org/) (these provide a developer friendly API, and take care of managing and maintaining connections, sending messages and monitoring responses - the minutiae of working with *Offboard mode* and MAVLink).
+通常, 开发人员不会直接在 MAVLink 层工作, 而是使用像 [Dronecode SDK](https://sdk.dronecode.org/en/) 或 [ROS](http://www.ros.org/) (这些技术提供了对开发人员友好的 API, 并负责管理和维护连接、发送消息和监视响应——类似这样的使用 *Offboard模式</2 > 和MAVLink的细节问题)。</p> 
 
-The following resources may be useful for a developer audience:
+以下资源可能对开发者有用:
 
-* [Offboard Control from Linux](https://dev.px4.io/en/ros/offboard_control.html) (PX4 Devguide)
-* [MAVROS Offboard control example](https://dev.px4.io/en/ros/mavros_offboard.html) (PX4 Devguide)
+* [基于Linux的Offboard控制](https://dev.px4.io/en/ros/offboard_control.html) (PX4 Devguide)
+* [MAVROS Offboard控制示例](https://dev.px4.io/en/ros/mavros_offboard.html) (PX4 Devguide)
