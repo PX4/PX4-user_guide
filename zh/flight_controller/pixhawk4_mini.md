@@ -2,7 +2,7 @@
 
 *Pixhawk<sup>&reg;</sup> 4 Mini* 自动驾驶仪是为想办法利用 *Pixhawk 4* 的力量，但是使用的是较小的无人机的工程师和爱好者而设计的。 *Pixhawk 4 Mini* 使用 *Pixhawk 4* 相同的 FMU 处理器与储存资源，同时砍掉了通常不会使用的接口。 这使得 *Pixhawk 4 Mini* 足够小，可以装到 250mm 的穿越机上。
 
-*Pixhawk 4 Mini* 由 Holybro<sup>&reg;</sup> 和 Auterion<sup>&reg;</sup> 合作设计开发。 It is based on the [Pixhawk](https://pixhawk.org/) **FMUv5** design standard and is optimized to run PX4 flight control software.
+*Pixhawk 4 Mini* 由 Holybro<sup>&reg;</sup> 和 Auterion<sup>&reg;</sup> 合作设计开发。 它基于 [Pixhawk](https://pixhawk.org/) **FMUv5** 设计标准，并为 PX4 飞行控制软件优化。
 
 <img src="../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png" width="350px" title="Pixhawk 4 Mini Iso" />
 
@@ -25,13 +25,13 @@
   * 2 路 I2C 总线
   * 3 路 SPI 总线
   * 1 路 CAN 总线用于 CAN 电调
-  * Analog inputs for voltage / current of battery
-  * 2 additional analog input
+  * 电池电压 / 电流模拟输入口
+  * 2 个模拟输入接口
 * 电源系统： 
   * Power Brick Input: 4.75~5.5V
   * USB 电源输入：4.75~5.25V
   * 舵机轨道输入：0~24V
-  * Max current sensing: 120A
+  * 最大电流感应：120A
 * 重量和尺寸: 
   * 尺寸：38*55*15.5mm
 * 其它特性: 
