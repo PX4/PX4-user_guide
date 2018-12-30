@@ -570,12 +570,12 @@ th {
                                                     回正RP摇杆使飞机水平。
                                                   </li>
                                                   <li>
-                                                    外部中心： <ul>
+                                                    中心以外： <ul>
                                                       <li>
-                                                        翻滚/俯仰摇杆控制各自方向的倾斜角，导致左右和前后的移动。
+                                                        滚转/俯仰摇杆控制各自方向的倾斜角，导致左右和前后的移动。
                                                       </li>
                                                       <li>
-                                                        油门摇杆控制上升速度 （和其他轴的移动速度）。
+                                                        油门摇杆控制上升/下降速度 （和其他轴的移动速度）。
                                                       </li>
                                                       <li>
                                                         偏航摇杆控制水平面上方的角度旋转速率。
@@ -589,7 +589,7 @@ th {
                                                   
                                                   <tr id="rattitude_mc">
                                                     <td>
-                                                      <a href="../flight_modes/rattitude_mc.md">Rattitude</a> 
+                                                      <a href="../flight_modes/rattitude_mc.md">半自稳</a> 
                                                       
                                                       <p>
                                                         <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="很难飞" width="20px" /></a>
@@ -597,7 +597,7 @@ th {
                                                     </td>
                                                     
                                                     <td>
-                                                      S or S<sub>rate</sub>
+                                                      S 或 S<sub>rate</sub>
                                                     </td>
                                                     
                                                     <td>
@@ -613,18 +613,18 @@ th {
                                                     
                                                     <td>
                                                       <p>
-                                                        遥控模式允许飞行员在大多数情况下使用 <a href="#manual_stabilized_mc">手动/稳定</a> 飞行，但仍在执行 <a href="#acro_mc">特技模式</a> - 风格的翻转和技巧。 回正摇杆使飞机水平。 
+                                                        遥控模式，允许飞行员在大多数情况下使用 <a href="#manual_stabilized_mc">手动/稳定</a> 飞行，但仍在执行 <a href="#acro_mc">特技模式</a> - 风格的翻转和技巧。 回正摇杆使飞机水平。 
                                                         
                                                         <ul>
                                                           <li>
-                                                            在模式阈值（比如 <a href="#manual_stabilized_mc">手动/稳定模式</a>）之内的摇杆。 <ul>
+                                                            摇杆在模式阈值（比如 <a href="#manual_stabilized_mc">手动/稳定模式</a>）之内。 <ul>
                                                               <li>
-                                                                回正RP摇杆使飞机水平。 翻滚/俯仰摇杆控制各自方向的倾斜角，导致左右和前后的移动。
+                                                                回正RP摇杆使飞机水平。 滚转/俯仰摇杆控制各自方向的倾斜角，导致左右和前后的移动。
                                                               </li>
                                                             </ul>
                                                           </li>
                                                           <li>
-                                                            阈值之外的摇杆（比如<a href="#acro_mc">特技模式</a>）： <ul>
+                                                            摇杆位于阈值之外（比如<a href="#acro_mc">特技模式</a>）： <ul>
                                                               <li>
                                                                 RPY摇杆输入控制围绕各自轴的角度旋转速率。
                                                               </li>
@@ -665,7 +665,7 @@ th {
                                                       </p>
                                                       
                                                       <p>
-                                                        RPY摇杆输入控制围绕各自轴的角度旋转速率。 油门直接传递到输出混频器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
+                                                        遥控 RPY摇杆输入控制围绕各自轴的角度旋转速率。 油门直接传递到输出混频器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
                                                       </p>
                                                     </td>
                                                   </tr>
@@ -690,7 +690,7 @@ th {
                                                   
                                                   <tr id="land_mc">
                                                     <td>
-                                                      <a href="../flight_modes/land.md">降落 Land</a>
+                                                      <a href="../flight_modes/land.md">降落</a>
                                                     </td>
                                                     
                                                     <td colspan="3">
@@ -708,7 +708,7 @@ th {
                                                   
                                                   <tr id="hold_mc">
                                                     <td>
-                                                      <a href="../flight_modes/hold.md">保持 Hold</td> 
+                                                      <a href="../flight_modes/hold.md">保持</td> 
                                                       
                                                       <td colspan="3">
                                                         自动
