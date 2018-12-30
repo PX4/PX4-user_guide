@@ -12,31 +12,29 @@
 
 下面描述每种类型飞机的具体行为。
 
-## 多旋翼飞机（MC）
+## 多旋翼（MC）
 
-A multicopter hovers at the current position and altitude.
+多旋翼飞行器在当前位置和高度盘旋。
 
-The behaviour can be configured using the parameters below.
+可以使用以下参数配置此行为。
 
-| 参数                                                                                                    | 描述                                                                                                            |
-| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| <span id="MIS_LTRMIN_ALT"></span>[MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude). |
+| 参数                                                                                                    | 描述                                   |
+| ----------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| <span id="MIS_LTRMIN_ALT"></span>[MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | 留待模式的最小高度（如果模式在较低的高度进行，则飞行器将上升到此高度）。 |
 
 <!-- Code for this here: https://github.com/PX4/Firmware/blob/master/src/modules/navigator/loiter.cpp#L61 -->
 
-## Fixed Wing (FW)
+## 固定翼飞行器（FW）
 
-The aircraft circles around the GPS hold position at the current altitude. The vehicle will first ascend to `MIS_LTRMIN_ALT` if the mode is engaged below this altitude.
+飞机在当前高度的GPS保持位置周围旋转。 如果模式低于该高度，则飞机将首先上升到`MIS_LTRMIN_ALT`。
 
-The behaviour can be configured using the parameters below.
+可以使用以下参数配置此行为。
 
-| 参数                                                                           | 参数描述                                                                                                          |
-| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The radius of the loiter circle.                                                                              |
-| [MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | Minimum height for loiter mode (vehicle will ascend to this altitude if mode is engaged at a lower altitude). |
+| 参数                                                                           | 描述                                  |
+| ---------------------------------------------------------------------------- | ----------------------------------- |
+| [NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | 留待圈的半径。                             |
+| [MIS_LTRMIN_ALT](../advanced_config/parameter_reference.md#MIS_LTRMIN_ALT) | 留待模式的最小高度（如果模式在较低的高度进行，则飞机将上升到此高度）。 |
 
 ## 垂直起降（VTOL）
 
-A VTOL follows the HOLD behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
-
-<!-- this maps to AUTO_LOITER in flight mode state machine -->
+当处于FW模式时，VTOL遵循HOLD行为和固定翼</ 0>的参数，而当处于MC模式时，VTOL遵循多旋翼</ 1>的参数。</p> <!-- this maps to AUTO_LOITER in flight mode state machine -->
