@@ -56,7 +56,7 @@
   PX4在任务模式下“接受”以下MAVLink任务命令（注意：下面列出的警告）。 除非另有说明，否则实现方式与MAVLink规范中的定义相同。
   
   * [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT) 
-    * *参数3*（飞越）被忽略。 Flythrough is always enabled if *param 1* (time_inside) > 0.
+    * *参数3*（飞越）被忽略。 如果*参数1*（time_inside）> 0，则始终启用飞越。
   * [MAV_CMD_NAV_LOITER_UNLIM](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_UNLIM)
   * [MAV_CMD_NAV_LOITER_TIME](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LOITER_TIME)
   * [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) 
@@ -97,11 +97,12 @@
   * [MAV_CMD_DO_SET_ROI_WPNEXT_OFFSET](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ROI_WPNEXT_OFFSET)
   * [MAV_CMD_DO_SET_ROI_NONE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ROI_NONE)
   
-  Note:
+  注：
   
-  * PX4 parses the above messages, but they are not necessary *acted* on. For example, some messages are vehicle-type specific.
-  * PX4 generally does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
-  * Not all messages/commands are exposed via *QGroundControl*.
-  * The list may be [out of date](#out_of_date) as messages are added. You can check the current set by inspecting the code. Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp) (list generated in [this git changelist](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)).
+  * PX4解析上述消息，但它们不是必须*操作</ 0>。 例如，某些消息是特定于飞机类型的。</li> 
     
-    > **Note** Please add an bug fix or PR if you find a missing/incorrect message.
+    * 对于任务命令，PX4通常不支持本地坐标系（例如，[MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)）。
+    * 并非所有消息/命令都通过*QGroundControl*公开。
+    * 添加消息时，列表可能过时</ 0>。 您可以通过检查代码来检查当前设置。 在[/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp)中支持`MavlinkMissionManager:: parse_mavlink_mission_item` （在[此git变更列表](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)中生成的列表）。</p> 
+      
+      > **Note** Please add an bug fix or PR if you find a missing/incorrect message.</li> </ul>
