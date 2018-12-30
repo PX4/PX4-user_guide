@@ -1,8 +1,8 @@
-# Manual/Stabilized Mode (Multicopter)
+# 手动/稳定模式（多旋翼）
 
 [<img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-The *Manual/Stabilized* mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
+*手动/稳定*模式在当遥控杆居中时可稳定多旋翼飞行器。 要手动移动/飞行飞机，您可以移动杆使其偏离居中位置。
 
 > **Note** This multicopter mode is enabled if you set either *Manual* or *Stabilized* modes.
 
