@@ -1,8 +1,8 @@
-# Return Mode
+# 返航模式
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The *Return* flight mode causes the vehicle to return to its home position where it may then either wait (hover or circle) or land.
+*返回</ 0>飞行模式使飞机返回其原始位置，然后它可以等待（悬停或循环）或降落。</p> 
 
 > **Note** This mode is also known as *Return to Launch* (RTL) and *Return to Home* (RTH)
 
