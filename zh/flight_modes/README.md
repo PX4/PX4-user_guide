@@ -113,35 +113,35 @@ th {
     
     <td>
       <p>
-        在遥控模式下，回正摇杆会将飞机置于直线和水平飞行，飞机的姿态、高度和直线飞行路径保持抗风（和其他力量）。 
+        在遥控模式下，回中摇杆会使飞机定直平飞，保持飞机的姿态、高度和直线飞行路径并抗风（和其他力）。 
         
         <ul>
           <li>
-            回正摇杆使得水平飞行，沿着直线地面轨道在当前方向抗风。
+            回中摇杆使飞机沿着直线地面轨道在当前方向水平飞行并抗风。
           </li>
           <li>
-            外部中心： <ul>
+            中心以外： <ul>
               <li>
                 俯仰摇杆控制高度（与 <a href="#altitude_fw">高度</a>相同）。
               </li>
               <li>
-                翻滚摇杆控制滚动角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a> （与 <a href="#stabilized_fw">稳定</0> 相同）。</li> 
+                滚转摇杆控制滚转角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a> （与 <a href="#stabilized_fw">稳定</0> 相同）。</li> 
                 
                 <li>
                   油门设置空速（与 <a href="#altitude_fw">高度</a> 相同）。
                 </li>
                 
                 <li>
-                  翻滚、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。
+                  滚转、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。
                 </li>
                 
                 <li>
-                  偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
+                  偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
                 </li></ul></li> </ul> </p> </td> </tr> 
                 
                 <tr id="altitude_fw">
                   <td>
-                    <a href="../flight_modes/altitude_fw.md">姿态</a> 
+                    <a href="../flight_modes/altitude_fw.md">高度</a> 
                     
                     <p>
                       <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="20px" /></a>
@@ -172,20 +172,20 @@ th {
                   
                   <td>
                     <p>
-                      遥控模式如 <a href="#stabilized_fw">稳定</a> 模式, 但具有 <em>高度稳定</em> （中心棒将飞机置于直线和水平飞行, 并保持当前高度）的功能。 但是飞行过程并不稳定，可能被风吹飘离。 
+                      遥控模式，类似 <a href="#stabilized_fw">稳定</a> 模式, 但具有 <em>高度稳定</em> （杆回中将使飞机定直平飞 并保持当前高度）。 但是飞行航向并不稳定，可能被风吹飘离。 
                       
                       <ul>
                         <li>
-                          回正RPY摇杆(内带): <ul>
+                          回中RPY摇杆(在死区内): <ul>
                             <li>
-                              自动驾驶仪保持与翼一直的高度水平。
+                              自动驾驶仪保持高度稳定和机翼水平。
                             </li>
                             <li>
-                              如果连接了空速传感器，油门控制飞机的空速（如果没有空速传感器，用户就无法控制）。
+                              如果连接了空速传感器，油门控制飞机的空速（如果没有空速传感器，用户就无法控制油门）。
                             </li>
                           </ul>
                           <li>
-                            外部中心： <ul>
+                            中心以外： <ul>
                               <li>
                                 俯仰摇杆控制高度。
                               </li>
@@ -193,7 +193,7 @@ th {
                                 油门控制着飞机的空速 （如回中的RPY摇杆）。
                               </li>
                               <li>
-                                偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
+                                偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
                               </li>
                             </ul>
                           </li></ul> </p> </td> </tr> 
@@ -223,7 +223,7 @@ th {
                             
                             <td>
                               <p>
-                                遥控模式，其中杆回中可以改平飞机的姿态（滚动和俯仰）。 但是飞行过程和姿态并不稳定，可能被风吹飘离。
+                                遥控模式，其中杆回中可以改平飞机的姿态（滚动和俯仰）。 但是飞行航向和姿态并不稳定，可能被风吹飘离。
                               </p>
                               
                               <ul>
@@ -231,7 +231,7 @@ th {
                                   俯仰摇杆控制俯仰角度。
                                 </li>
                                 <li>
-                                  翻滚摇杆控制滚动角度。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>。
+                                  滚转摇杆控制滚转角。 自动驾驶仪将保持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">协调飞行</a>。
                                 </li>
                                 <li>
                                   油门摇杆控制油门。
