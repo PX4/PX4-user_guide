@@ -1,6 +1,6 @@
 # 着陆模式
 
-[<img src="../../assets/site/position_fixed.svg" title="Position estimate required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/position_fixed.svg" title="需要定位估计（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 *着陆*飞行模式使飞机降落在指定点。
 
@@ -23,14 +23,14 @@
 
 飞机将转弯并降落在模式所指定的位置。 固定机翼着陆逻辑和参数在主题：[着陆（固定翼）](../flying/fixed_wing_landing.md)中解释。
 
-> **注**通常，固定翼飞机将遵循固定的着陆轨迹到地面（它不会尝试拉平着陆）。 This is because in LAND mode the vehicle may not know ground altitude and will assume it is at sea level. As ground level may be much higher, a vehicle will often reach the ground at an altitude above where flare logic would be engaged.
+> **注**通常，固定翼飞机将遵循固定的着陆轨迹到地面（它不会尝试拉平着陆）。 这是因为在着陆模式下，飞机可能不知道地面高度并且将假设它处于海平面。 由于地面高度可能会高得多，因此飞机通常会在高于拉平辑逻辑的高度处到达地面。
 
-Landing is affected by the following parameters (also see [Landing (Fixed Wing)](../flying/fixed_wing_landing.md)):
+着陆受以下参数影响（另见[着陆（固定翼）](../flying/fixed_wing_landing.md)）：
 
-| 参数                                                                             | 参数描述                                                                            |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
-| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 降落后自动锁定超时时间. By default this is 0 (vehicle will not auto-disarm after landing). |
+| 参数                                                                             | 描述                                       |
+| ------------------------------------------------------------------------------ | ---------------------------------------- |
+| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 降落后自动锁定超时时间. 默认情况下, 这是 0 (飞机在着陆后不会自动锁定)。 |
 
 ## 垂直起降（VTOL）
 
-A VTOL follows the LAND behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode. When [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT) is set (default: on) a VTOL in FW mode will transition back to MC just before landing.
+当处于FW模式时，VTOL遵循LAND行为和固定翼</ 0>的参数，而当处于MC模式时，VTOL遵循多旋翼</ 1>的参数。 当设置[NAV_FORCE_VT ](../advanced_config/parameter_reference.md#NAV_FORCE_VT)（默认值为开）时，FW模式下的VTOL将在着陆前转换回MC模式。</p>
