@@ -70,11 +70,11 @@ th {
     </th>
     
     <th class="col_yaw">
-      纵转：
+      偏航：
     </th>
     
     <th class="col_throttle">
-      Throttle
+      油门
     </th>
     
     <th class="col_sensor">
@@ -150,11 +150,11 @@ th {
                   
                   <td>
                     <p>
-                      S（Roll）
+                      S（滚转）
                     </p>
                     
                     <p>
-                      S<sup>+</sup>(pitch)
+                      S<sup>+</sup>(俯仰)
                     </p>
                   </td>
                   
@@ -190,7 +190,7 @@ th {
                                 俯仰摇杆控制高度。
                               </li>
                               <li>
-                                油门控制着飞机的空速 （如回正的RPY摇杆）。
+                                油门控制着飞机的空速 （如回中的RPY摇杆）。
                               </li>
                               <li>
                                 偏航摇杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持 <a href="https://en.wikipedia.org/wiki/Coordinated_flight">配合飞行</a>）。 这和 <a href="#stabilized_fw">稳定模式</a> 一样。
@@ -223,7 +223,7 @@ th {
                             
                             <td>
                               <p>
-                                遥控模式，其中中心RP棒水平飞机的姿态（滚动和俯仰）。 但是飞行过程和姿态并不稳定，可能被风吹飘离。
+                                遥控模式，其中杆回中可以改平飞机的姿态（滚动和俯仰）。 但是飞行过程和姿态并不稳定，可能被风吹飘离。
                               </p>
                               
                               <ul>
