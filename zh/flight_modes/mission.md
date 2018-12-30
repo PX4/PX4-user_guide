@@ -47,9 +47,9 @@
   
   ## 任务参数
   
-  任务行为受许多参数的影响。 These cover, for example, how the vehicle will behave if it looses connection to its remote control during a mission ([NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)), the fixed-wing loiter radius ([NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)), acceptance radius for reaching a waypoint etc.
+  任务行为受许多参数的影响。 这些内容涵盖了，例如，在任务期间（ NAV_RCL_ACT </ 0>）失去与遥控器的连接时飞机的行为方式，固定翼留待半径（ NAV_LOITER_RAD </ 1>），到达航路点的接收半径等。</p> 
   
-  These are documented here: [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission)
+  这些记录在此处：[参数参考>任务](../advanced_config/parameter_reference.md#mission)
   
   ## Supported Mission Commands {#mission_commands}
   
