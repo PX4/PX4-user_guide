@@ -8,13 +8,13 @@
 
 在手动控制下，滚转和俯仰杆控制绕各个轴的飞机的*角度*（姿态），偏航杆控制水平面上方的旋转速度，油门控制高度/速度。
 
-As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately (see [below](#params)), and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+一旦释放操纵杆，它们就会返回中心死区。 一旦滚转和俯仰杆居中，多旋翼飞行器将平稳并停止运动。 然后飞机将悬停在适当的位置/保持高度——前提是它正确地配平，油门处于适当位置（参见[下面](#params)），并且不施加外力（例如风）。 飞行器将朝着任何风的方向漂移，你必须控制油门以保持高度。
 
 ![MC Manual Flight](../../images/flight_modes/manual_stabilized_MC.png)
 
 ## 技术描述
 
-The pilot's inputs are passed as roll and pitch angle commands and a yaw rate command. Throttle is rescaled (see [below](#params)) and passed directly to the output mixer. The autopilot controls the attitude, meaning it regulates the roll and pitch angles to zero when the RC sticks are centered inside the controller deadzone (consequently leveling-out the attitude). The autopilot does not compensate for drift due to wind (or other sources).
+飞行员的输入将作为滚转、俯仰角度指令和一个偏航角速度指令传递给自动驾驶仪， 油门被重新调节（参见[下面的](#params)）并直接传递到输出混频器。 自动驾驶仪控制着飞机的姿态角，这意味着当 RC 摇杆居中时自驾仪调整飞机的滚转和俯仰角为零（从而实现飞机姿态的改平）。 自动驾驶仪不能补偿由于风（或其他来源）引起的漂移。
 
 > **注** *可能需要手动输入（遥控器，或通过MAVLink连接的游戏手柄/拇指杆）。
 
