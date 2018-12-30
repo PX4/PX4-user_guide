@@ -26,10 +26,10 @@
   * 如果没有存储任务，或者PX4已完成所有任务命令： 
     * 如果正在飞行，飞机将会留待。
     * 如果已着陆，飞机将“等待”。
-  * 您可以通过在*QGroundControl*中选择它来手动更改当前任务命令。 > **Note** If you have a *Jump to item* command in the mission, moving to another item will **not** reset the loop counter. One implication is that if you change the current mission command to 1 this will not "fully restart" the mission.
-  * The mission will only reset when the vehicle is disarmed or when a new mission is uploaded. > **Tip** To automatically disarm the vehicle after it lands, in *QGroundControl* go to [Vehicle Setup > Safety](https://docs.qgroundcontrol.com/en/SetupView/Safety.html), navigate to *Land Mode Settings* and check the box labeled *Disarm after*. Enter the time to wait after landing before disarming the vehicle.</ol> 
+  * 您可以通过在*QGroundControl*中选择它来手动更改当前任务命令。 **注**如果在任务中有*跳转到项目*命令，则移动到另一个项目将**不**重置循环计数器。 也就意味着，如果将当前任务命令更改为1，则不会“完全重启”任务。
+  * 该任务仅在飞机锁定或上传新任务时重置。 要在飞机着陆后自动锁定，请在*QGroundControl*中转到[飞机设置>安全](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)，导航至*着陆模式设置*并选中标有*之后锁定*的框。 在锁定飞机之前输入着陆后等待的时间。</ol> 
   
-  Missions can be paused by activating [HOLD mode](../flight_modes/hold.md). The mission will then continue from the current mission command when you reactivate the MISSION flight mode. While flying in mission mode, if you decide to discontinue the mission and switch to any other mode e.g. position mode, fly the vehicle elsewhere with RC, and then switch back to mission mode, the vehicle will continue the mission from its current position and will fly to the next mission waypoint not visited yet.
+  可以通过激活[HOLD模式](../flight_modes/hold.md)暂停任务。 当您重新激活MISSION飞行模式时，任务将从当前任务命令继续。 在任务模式下飞行时，如果您决定停止任务并切换到任何其他模式，例如位置模式，用遥控器将飞机转移到其他地方，然后切换回任务模式，飞机将从当前位置继续执行任务，并将飞往尚未访问的下一个任务点。
   
   > **Warning** Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).We recommend you centre the control sticks before switching to any other mode.
   
