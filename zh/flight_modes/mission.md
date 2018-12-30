@@ -105,4 +105,4 @@
     * 并非所有消息/命令都通过*QGroundControl*公开。
     * 添加消息时，列表可能过时</ 0>。 您可以通过检查代码来检查当前设置。 在[/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp)中支持`MavlinkMissionManager:: parse_mavlink_mission_item` （在[此git变更列表](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)中生成的列表）。</p> 
       
-      > **Note** Please add an bug fix or PR if you find a missing/incorrect message.</li> </ul>
+      > 如果您发现丢失/不正确的消息，请添加错误修复或PR。</li> </ul>
