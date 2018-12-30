@@ -1,18 +1,18 @@
-# Hold Mode
+# 保持模式
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The *Hold* flight mode (a.k.a. "Loiter") causes the vehicle to stop and maintain its current GPS position and altitude (MC vehicles will hover at the GPS position, while FW vehicles will circle around it).
+*保持*飞行模式（也就是“留待”模式）使飞机停止运动并保持其当前的GPS位置和高度（多旋翼将悬停在GPS位置，而固定翼飞机将围绕它旋转）。
 
-> **Tip** *Hold mode* can be used to pause a mission or to help you regain control of a vehicle in an emergency. It is usually activated with a pre-programmed switch.
+> **注***保持模式*可用于暂停任务或帮助您在紧急情况下重新获得对飞机的控制权。 它通常通过预编程开关激活。
 
 <span></span>
 
-> **Note** * This mode requires GPS. * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes).
+> **注** 该模式需要GPS。 *此模式为自动模式（默认情况下，RC控制被禁用，除了用于更改模式外）。
 
-The specific behaviour for each vehicle type is described below.
+下面描述每种类型飞机的具体行为。
 
-## Multi-Copter (MC)
+## 多旋翼飞机（MC）
 
 A multicopter hovers at the current position and altitude.
 
