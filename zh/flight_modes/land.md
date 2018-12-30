@@ -1,8 +1,8 @@
-# Land Mode
+# 着陆模式
 
 [<img src="../../assets/site/position_fixed.svg" title="Position estimate required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The *Land* flight mode causes the vehicle to land at the position where the mode was engaged.
+*着陆*飞行模式使飞机降落在指定点。
 
 > **Note** * This mode requires a valid position estimate unless the mode is entered due to a failsafe, in which case only altitude is required (typically a barometer is built into the flight controller). * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes).
 
