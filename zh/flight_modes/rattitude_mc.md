@@ -1,8 +1,8 @@
-# RAttitude Mode (Multicopter)
+# 半自稳模式（多旋翼）
 
 [<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-*Rattitude mode* allows pilots to fly using [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) flight most of the time, but still perform [Acro mode](../flight_modes/acro_mc.md)-style flips and tricks when desired.
+*半自稳模式*允许飞行员在大多数时间使用[手动/稳定](../flight_modes/manual_stabilized_mc.md)飞行，但在需要时仍然执行[ Acro模式](../flight_modes/acro_mc.md)的翻转和技巧。
 
 The vehicle behaves as in *Manual/Stabilized mode* when the Roll/Pitch stick is moved within the central area and like *Acro mode* when the stick is moved in the outer circumference (by default Manual/Stabilized mode occupies about 80% of the range). When the sticks are centered the multicopter will level out (but will still drift in the direction of any wind and with any pre-existing momentum).
 
