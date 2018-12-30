@@ -4,9 +4,9 @@
 
 *手动/稳定*模式在当遥控杆居中时可稳定多旋翼飞行器。 要手动移动/飞行飞机，您可以移动杆使其偏离居中位置。
 
-> **Note** This multicopter mode is enabled if you set either *Manual* or *Stabilized* modes.
+> 如果设置*手动*或*稳定*模式，则启用此多旋翼模式。
 
-When under manual control the roll and pitch sticks control the *angle* of the vehicle (attitude) around the respective axes, the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
+在手动控制下，滚转和俯仰杆控制绕各个轴的飞机的*角度*（姿态），偏航杆控制水平面上方的旋转速度，油门控制高度/速度。
 
 As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately (see [below](#params)), and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
 
