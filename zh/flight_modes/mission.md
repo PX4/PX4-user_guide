@@ -31,23 +31,23 @@
   
   可以通过激活[HOLD模式](../flight_modes/hold.md)暂停任务。 当您重新激活MISSION飞行模式时，任务将从当前任务命令继续。 在任务模式下飞行时，如果您决定停止任务并切换到任何其他模式，例如位置模式，用遥控器将飞机转移到其他地方，然后切换回任务模式，飞机将从当前位置继续执行任务，并将飞往尚未访问的下一个任务点。
   
-  > **Warning** Ensure that the throttle stick is non-zero before switching to any RC mode (otherwise the vehicle will crash).We recommend you centre the control sticks before switching to any other mode.
+  > **警告**在切换到任何RC模式之前确保油门不为零（否则飞机会坠毁）。我们建议您在切换到任何其他模式之前将控制杆回中。
   
-  For more information about mission planning, see:
+  有关任务规划的更多信息，请参阅：
   
-  * [Mission Planning](../flying/missions.md)
-  * [Plan View](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html) (*QGroundControl* User Guide)
+  * [任务规划](../flying/missions.md)
+  * [计划概览](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html)（*QGroundControl*用户手册）
   
-  ## QGroundControl Support
+  ## QGroundControl支持
   
-  *QGroundControl* provides additional GCS-level mission handling support (in addition to that provided by the flight controller). 有关详细信息，请参阅︰
+  *QGroundControl*提供额外的GCS级任务处理支持（除了飞行控制器提供的支持）。 有关详细信息，请参阅︰
   
-  * [Remove mission after vehicle lands](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands) 
-  * [Resume mission after Return mode](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#resume-mission)
+  * [飞机降落后解除任务](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#remove-mission-after-vehicle-lands) 
+  * [返回模式后恢复任务](https://docs.qgroundcontrol.com/en/releases/stable_v3.2_long.html#resume-mission)
   
-  ## Mission Parameters
+  ## 任务参数
   
-  Mission behaviour is affected by a number of parameters. These cover, for example, how the vehicle will behave if it looses connection to its remote control during a mission ([NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)), the fixed-wing loiter radius ([NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)), acceptance radius for reaching a waypoint etc.
+  任务行为受许多参数的影响。 These cover, for example, how the vehicle will behave if it looses connection to its remote control during a mission ([NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)), the fixed-wing loiter radius ([NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)), acceptance radius for reaching a waypoint etc.
   
   These are documented here: [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission)
   
