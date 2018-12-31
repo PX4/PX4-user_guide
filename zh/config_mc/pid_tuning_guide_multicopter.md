@@ -121,19 +121,19 @@ I 增益一般在0.3~0.5之间，俯仰角的一般要大一点。
 
 - 最大滚转角速度 ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
 - 最大俯仰角速度 ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX)
-- Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
+- 最大偏航角速度 ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
-### Thrust Curve / Throttle PID Attenuation (TPA) {#thrust_curve}
+### 推力曲线 / 大油门 PID 衰减(Throttle PID Attenuation) {#thrust_curve}
 
-The tuning above optimises performance around the hover throttle. But it can be that you start to see oscillations when going towards full throttle.
+以上的调整都是在悬停油门的基础上的。 但当你增大油门的时候，你可能会看到控制性能又不太好了，机体又开始振荡了。
 
-There are two ways to counteract that:
+有两种方法可以搞定这种问题：
 
-- Adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter (preferred method). The thrust to PWM mapping is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5. You can start off with 0.3 and then increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values.
+- 用 **THR_MDL_FAC**参数来调整[推力曲线](../advanced_config/parameter_reference.md#THR_MDL_FAC)(推荐的方式)。 默认情况下的PWM - 推力 对应关系是线性的。 — 你可以把参数`THR_MDL_FAC`设为1来让这种关系变成二次的。 0~1之间的值表示线性和二次之间的一个插值。 这个参数一般在0.3~0.5之间，你可以每次增加0.1。 如果该参数太大，你可以看到低油门下的振荡现象。
   
-  > **Note** The rate controller must be re-tuned if you change this parameter.
+  > **注** 如果你改变这个参数的话，必须要重新调整角速度控制器。
 
-- Enable **Throttle PID Attenuation** (TPA), which is used to linearly reduce the PID gains when the throttle is above a threshold (<span style="color:#6383B0">breakpoint</span>, `MC_TPA_BREAK_*` parameters). The <span style="color:#8D6C9C">attenuation rate</span> is controlled via `MC_TPA_RATE_*` parameters. TPA should generally not be needed, but it can be used in addition to the thrust curve parameter. The following illustration shows the thrust in relationship to the attenuated PID values:
+- 使用「**大油门PID衰减**」(TPA)，它会在油门大于某个值的时候线性地降低PID增益。(衰减率由<span style="color:#6383B0">breakpoint</span>和`MC_TPA_RATE_*`这样的一组参数决定)。 <span style="color:#8D6C9C">衰减率</span>可以通过参数 `MC_TPA_RATE_*` 来控制. 我们一般不会用到TPA，但它确实是除了改变推力曲线之外解决大油门振荡的一种方法。 下图是这种方法的图示，显示了推力和PID值之间的关系。
   
   ![TPA](../../images/mc_pid_tuning/MC_PID_tuning-TPA.svg) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
      On the second Tab
@@ -167,11 +167,11 @@ turn off all [higher-level position controller tuning gains](../config_mc/advanc
 - [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN) : 1
  -->
 
-### Airmode & Mixer Saturation {#airmode}
+### Airmode & 混控器饱和 {#airmode}
 
-The rate controller outputs torque commands for all three axis (roll, pitch and yaw) and a scalar thrust value, which need to be converted into individual motor thrust commands. This step is called mixing.
+角速度控制器输出三个轴的扭矩和推力(滚转、俯仰和偏航) ，而这些输出需要被转换为每个电机的推力命令。 这种转换被称为混控。
 
-It can happen that one of the motor commands becomes negative, for example for a low thrust and large roll command (and similarly it can go above 100%). This is a mixer saturation. It is physically impossible for the vehicle to execute these commands (except for reversible motors). PX4 has two modes to resolve this:
+可以想象，转化后某个电机的推力命令可能会为负，或者超过100%。 This is a mixer saturation. It is physically impossible for the vehicle to execute these commands (except for reversible motors). PX4 has two modes to resolve this:
 
 - Either by reducing the commanded torque for roll such that none of the motor commands is below zero (Airmode disabled). In the extreme case where the commanded thrust is zero, it means that no attitude correction is possible anymore, which is why a minimum thrust is always required for this mode.
 - Or by increasing (boosting) the commanded thrust, such that none of the motor commands is negative (Airmode enabled). This has the big advantage that the attitude/rates can be tracked correctly even at low or zero throttle. It generally improves the flight performance.
