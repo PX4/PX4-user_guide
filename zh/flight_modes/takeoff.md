@@ -37,7 +37,7 @@
 
 <blockquote>
   <p>
-    <strong>Note</strong> The vehicle always respects normal FW max/min throttle settings during takeoff (<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>, <a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>).
+    在起飞期间飞机总是遵守标准的固定翼最大/最小油门设置（<a href="../advanced_config/parameter_reference.md#FW_THR_MIN"> FW_THR_MIN </a>，<a href="../advanced_config/parameter_reference.md#FW_THR_MAX"> FW_THR_MAX </a>）。
   </p>
 </blockquote>
 
@@ -46,7 +46,4 @@
 </h2>
 
 <p>
-  A VTOL follows the TAKEOFF behavior and parameters of <a href="#fixed-wing-fw">Fixed Wing</a> when in FW mode, and of <a href="#multi-copter-mc">Multicopter</a> when in MC mode.
-</p>
-
-<!-- this maps to AUTO_TAKEOFF in dev -->
+  当处于FW模式时，VTOL遵循TAKEOFF行为和<a href="#fixed-wing-fw">固定翼</ 0>的参数，而当处于MC模式时，VTOL遵循<a href="#multi-copter-mc">多旋翼</ 1>的参数。</p> <!-- this maps to AUTO_TAKEOFF in dev -->
