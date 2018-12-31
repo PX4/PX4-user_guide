@@ -101,7 +101,7 @@ I 增益一般在0.3~0.5之间，俯仰角的一般要大一点。
 
 看看日志有助于你看看你调的参咋样。 下面是一份调得比较好的滚转和偏航角速度的日志。
 
-![roll rate tracking](../../images/mc_pid_tuning/roll_rate_tracking.png) ![yaw rate tracking](../../images/mc_pid_tuning/yaw_rate_tracking.png)
+![滚转角速度跟踪](../../images/mc_pid_tuning/roll_rate_tracking.png) ![偏航角速度跟踪](../../images/mc_pid_tuning/yaw_rate_tracking.png)
 
 下面这份日志显示了滚转角速度对阶跃输入和脉冲输入的一个比较好的反应。 你可以看到飞行器的超调量非常小。 ![roll rate tracking flips](../../images/mc_pid_tuning/roll_rate_tracking_flip.png)
 
@@ -178,10 +178,7 @@ turn off all [higher-level position controller tuning gains](../config_mc/advanc
   
   然而在这种模式下会增加总推力，因此也可能会出现问题：即使油门减到零了，飞行器还是在往上跑。 对一个调参调的比较好的飞行器来说，这种问题一般不太会存在。然而在调参调的不好的飞行器上，这个问题就会显现出来，比如因为P调的太大而剧烈振荡的飞行器上，这种问题可能就会比较严重。
 
-下面是这两种模式的示意图（由左右两个电机产生力矩，而期望力矩是 <span style="color:#9673A6">r</span>。 On the left motor
-<span style="color:#9673A6">r</span> is added to the commanded thrust, while on the right motor it is substracted from it. The motor thrusts are in <span style="color:#6A9153">green</span>. With Airmode enabled, the commanded thrust is increased by
-<span style="color:#B85450">b</span>. When it is disabled,
-<span style="color:#9673A6">r</span> is reduced.
+下面是这两种模式的示意图（由左右两个电机产生力矩，而期望力矩是 <span style="color:#9673A6">r</span>。 对左边的电机而言，推力增加了<span style="color:#9673A6">r</span>，而右边的电机则减去r。 电机的推力用<span style="color:#6A9153">绿色</span>表示。 在打开Airmode的时候，期望总推力会增加<span style="color:#B85450">b</span>来避免负的力矩。 而当关掉这种模式的时候，我们减小期望力矩<span style="color:#9673A6">r</span>来避免负的推力出现。
 
     ![Airmode](../../images/mc_pid_tuning/MC_PID_tuning-Airmode.svg)
     
@@ -190,6 +187,6 @@ turn off all [higher-level position controller tuning gains](../config_mc/advanc
      On the first Tab
 -->
 
-If mixing becomes saturated towards the upper bound the commanded thrust is reduced to ensure that no motor is commanded to deliver more than 100% thrust. This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
+如果在混控过程中，某个电机的期望拉力超过了100%，飞控就会减小两个电机的期望总拉力，来满足期望力矩。 这点和「Airmode逻辑」是相同的，并且飞控在Airmode打开和关闭的时候都会这么干。
 
-Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
+如果你觉得你的旋翼飞行器已经飞的很好了，可以通过参数[MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)来启用Airmode。
