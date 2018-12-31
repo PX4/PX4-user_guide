@@ -25,29 +25,28 @@
 
 在*弹射器/手动发射模式*中，飞机将执行全油门爬升（在大约2秒内上升到` RWTO_MAX_THR `）。 一旦高度错误[ FW_CLMBOUT_DIFF ](#FW_CLMBOUT_DIFF)，将继续常规导航。
 
-> 除了上面讨论的行为之外，还有一个启动检测器可以阻止启动程序开始直到满足某些条件。 For catapult launch this is some acceleration threshold.
+> 除了上面讨论的行为之外，还有一个启动检测器可以阻止启动程序开始直到满足某些条件。 对于弹射器发射，这是一些加速度阈值。
 
-The *runway takeoff mode* has the following phases:
+*跑道起飞模式*具有以下阶段：
 
-1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)) 
-2. **Takeoff**: Increase pitch and continue until vehicle altitude > navigation altitude ([RWTO_NAV_ALT](#RWTO_NAV_ALT)).
-3. **Climbout**: Climb until altitude above ground level > [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF). In this phase roll and heading restrictions are removed.
+1. **油门斜坡**：飞机依附在跑道上（俯仰固定，无滚转，航向保持），直到达到起最小起飞空速（[ FW_AIRSPD_MIN ](#FW_AIRSPD_MIN) x [ RWTO_AIRSPD_SCL ](#RWTO_AIRSPD_SCL)） 
+2. **起飞**：增加俯仰直到飞机高度>导航高度（[ RWTO_NAV_ALT ](#RWTO_NAV_ALT)）。
+3. ** 爬出**：爬升至地面以上的高度> [ FW_CLMBOUT_DIFF ](#FW_CLMBOUT_DIFF)。 在此阶段中, 将移除滚转和航向限制。
 
-Takeoff is affected by the following parameters:
+起飞受以下参数影响：高于地平面（AGL）的高度，留有足够的离地间隙以允许一些滚转。 在达到` RWTO_NAV_ALT `之前，飞机保持水平，并且仅使用方向舵来保持航向（参见<span id="RWTO_HDG"> </ 1> <a href="../advanced_config/parameter_reference.md#RWTO_HDG"> RWTO_HDG </a>）。 如果<code> FW_CLMBOUT_DIFF </code>> 0，则应低于<code> FW_CLMBOUT_DIFF </code>。</td> </tr> </tbody> </table> 
 
-| 参数                                                                                                      | 参数描述                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="RWTO_TKOFF"></span>[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF)             | Runway takeoff with landing gear. Default: disabled.                                                                                                                                                                                                                                                                                                                 |
-| <span id="RWTO_MAX_THR"></span>[RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR)       | Max throttle during runway takeoff.                                                                                                                                                                                                                                                                                                                                  |
-| <span id="FW_CLMBOUT_DIFF"></span>[FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF) | Climbout Altitude difference.                                                                                                                                                                                                                                                                                                                                        |
-| <span id="FW_AIRSPD_MIN"></span>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN)     | Minimum Airspeed, below which the TECS controller will try to increase airspeed more aggressively.                                                                                                                                                                                                                                                                   |
-| <span id="RWTO_AIRSPD_SCL"></span>[RWTO_AIRSPD_SCL](../advanced_config/parameter_reference.md#RWTO_AIRSPD_SCL) | Min. airspeed scaling factor for takeoff. Pitch is increased when the airspeed reaches: `FW_AIRSPD_MIN` * `RWTO_AIRSPD_SCL`                                                                                                                                                                                                                                          |
-| <span id="RWTO_NAV_ALT"></span>[RWTO_NAV_ALT](../advanced_config/parameter_reference.md#RWTO_NAV_ALT)       | Altitude above ground level (AGL) at which we have enough ground clearance to allow some roll. Until `RWTO_NAV_ALT` is reached the plane is held level and only rudder is used to keep the heading (see <span id="RWTO_HDG"></span>[RWTO_HDG](../advanced_config/parameter_reference.md#RWTO_HDG)). This should be below `FW_CLMBOUT_DIFF` if `FW_CLMBOUT_DIFF` > 0. |
+<blockquote>
+  <p>
+    <strong>Note</strong> The vehicle always respects normal FW max/min throttle settings during takeoff (<a href="../advanced_config/parameter_reference.md#FW_THR_MIN">FW_THR_MIN</a>, <a href="../advanced_config/parameter_reference.md#FW_THR_MAX">FW_THR_MAX</a>).
+  </p>
+</blockquote>
 
-> **Note** The vehicle always respects normal FW max/min throttle settings during takeoff ([FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN), [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX)).
+<h2>
+  垂直起降（VTOL）
+</h2>
 
-## 垂直起降（VTOL）
-
-A VTOL follows the TAKEOFF behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
+<p>
+  A VTOL follows the TAKEOFF behavior and parameters of <a href="#fixed-wing-fw">Fixed Wing</a> when in FW mode, and of <a href="#multi-copter-mc">Multicopter</a> when in MC mode.
+</p>
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
