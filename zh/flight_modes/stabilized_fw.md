@@ -12,14 +12,14 @@
 
 下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)）。
 
-![FW Manual Flight](../../images/flight_modes/manual_stabilized_FW.png)
+![固定翼手动飞行](../../images/flight_modes/manual_stabilized_FW.png)
 
 ## 技术描述
 
 遥控/手动模式，杆回中使飞机改平。
 
-* 杆回中会使飞机进入定直平飞。 但是飞行过程和姿态并不稳定，可能被风吹飘离。
-* If roll/pitch sticks are non-zero the vehicle does a coordinated turn (manual yaw input is added to rudder control input to control sideslip).
+* 杆回中会使飞机进入定直平飞。 但是飞行航向和高度并不稳定，可能被风吹飘离。
+* 如果滚转/俯仰杆输入非零，则飞机进行协调转弯（手动偏航输入被添加到方向舵控制输入以控制侧滑）。
 
 ## 参数
 
