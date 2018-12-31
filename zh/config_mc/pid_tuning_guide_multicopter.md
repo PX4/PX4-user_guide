@@ -62,14 +62,14 @@ PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是
 - 如果你发现首次起飞有严重的振荡（严重到根本没法飞），那你可以减小所有的**P**和**D**参数，直到它能够正常起飞。
 - 但如果你的飞行器对遥控器的所有指令都没什么反应的话，可以增加**P**增益试试。
 
-The actual tuning is roughly the same in *Manual mode* or *Acro mode*: You iteratively tune the **P** and **D** gains for roll and pitch, and then the **I** gain. Initially you can use the same values for roll and pitch, and once you have good values, you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed). For yaw it is very similar, except that **D** can be left at 0.
+在实际中，*手动模式*和*特技模式*的调参套路差不多：一步步地迭代调整滚转和俯仰的**P**和**D**增益，然后再调**I**增益。 一开始你的ROLL和PITCH可以用相同的值，等调的差不多了，细调的时候可以分别再调整滚转和俯仰（如果你的飞行器绕X，Y轴的质量分布差不多一样，那就不用再细调了。） 偏航那就很简单了，四旋翼对偏航角不是很敏感，我们甚至可以直接把偏航的D设为0。
 
-#### P Gain
+#### P增益
 
-The **P** (proportional) gain is used to minimize the tracking error. It is responsible for a quick response and thus should be set as high as possible, but without introducing oscillations.
+**P**增益(比例增益) 用来减小误差。 它可以加快响应速度，因此应该在不引入震荡的前提下设的尽量的高。
 
-- If the **P** gain is too high: you will see high-frequency oscillations.
-- If the **P** gain is too low: 
+- 如果**P**增益太高了，会有高频率的振荡。
+- 如果 **P** 增益太低了: 
   - the vehicle will react slowly to input changes. 
   - In *Acro mode* the vehicle will drift, and you will constantly need to correct to keep it level.
 
