@@ -70,22 +70,22 @@ PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是
 
 - 如果**P**增益太高了，会有高频率的振荡。
 - 如果 **P** 增益太低了: 
-  - the vehicle will react slowly to input changes. 
-  - In *Acro mode* the vehicle will drift, and you will constantly need to correct to keep it level.
+  - 飞行器会对遥控器的输入很迟钝。 
+  - 如果是在*特技模式*下，飞行器会漂移，你会一直要矫正它来让它水平。
 
-#### D Gain
+#### D 增益
 
-The **D** (derivative) gain is used for dampening. It is required but should be set only as high as needed to avoid overshoots.
+**D增益**(微分增益) 用来增加阻尼，可以防止超调。 同样地，这个值应该尽量设大一些来避免超调。
 
-- If the **D** gain is too high: the motors become twitchy (and maybe hot), because the **D** term amplifies noise.
-- If the **D** gain is too low: you see overshoots after a step-input.
+- **D增益**太大，电机可能会抽搐、发热(也有可能不会) 。这是因为**D**项同时也会放大震动等带来的噪声。
+- **D增益**太低会导致超调，即相比设定的值「冲过头了」。
 
-#### I Gain
+#### I增益
 
-The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time. It is important (especially when flying *Acro mode*), but it should not be set too high.
+**I**(积分增益) 可以「记住误差」。 如果你发现过了一段时间了，角速度还是达不到设定值，那就该增加** I **了。 它很重要(尤其在*特技模式*下) ，但我们不应该把它设得太高。
 
-- If the I gain is too high: you will see slow oscillations.
-- If the I gain is too low: this is best tested in *Acro mode*, by tilting the vehicle to one side about 45 degrees, and keeping it like that. It should keep the same angle. If it drifts back, increase the **I** gain. A low **I** gain is also visible in a log, when there is an offset between the desired and the actual rate over a longer time.
+- 如果积分增益太高：你会看到缓慢的振荡。
+- 如果积分增益太低——我们可以在*特技模式*下很好地看到这一点，让飞行器朝一个方向转45度，并保持一会。 他应该始终保持相同的角度。 If it drifts back, increase the **I** gain. A low **I** gain is also visible in a log, when there is an offset between the desired and the actual rate over a longer time.
 
 Typical values are between 0.3 and 0.5, and the pitch gain usually needs to be a bit higher.
 
