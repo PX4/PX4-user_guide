@@ -22,23 +22,23 @@
 
 可以使用以下参数配置RTL行为。
 
-| 参数                                                                                                      | 描述                                                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 最小RTL返回高度 (默认值: 60 米)。 飞机将上升到这个高度, 然后返回。 如果已经超过这个值, 飞机将返回当前的高度。                                                                                                                                       |
-| <span id="RTL_DESCEND_ALT"></span>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 飞机减速或停止初始下降的高度 (默认值: 30 米)                                                                                                                                                                            |
-| <span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 着陆前在 `RTL_DESCEND_ALT` 悬停的时间 (默认值: 0.5 s)。 如果设置为-1, 系统将在 `RTL_DESCEND_ALT` 徘徊, 而不是降落。                                                                                                                 |
-| <span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)       | 从起始位置到触发上升到安全高度的最小水平距离 (RTL_RETURN_ALT)。 If the vehicle is horizontally closer than this distance to home, it will return at its current altitude (instead of first ascending to RTL_RETURN_ALT). |
+| 参数                                                                                                      | 描述                                                                                                |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| <span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 最小RTL返回高度 (默认值: 60 米)。 飞机将上升到这个高度, 然后返回。 如果已经超过这个值, 飞机将返回当前的高度。                                   |
+| <span id="RTL_DESCEND_ALT"></span>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 飞机减速或停止初始下降的高度 (默认值: 30 米)                                                                        |
+| <span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 着陆前在 `RTL_DESCEND_ALT` 悬停的时间 (默认值: 0.5 s)。 如果设置为-1, 系统将在 `RTL_DESCEND_ALT` 徘徊, 而不是降落。             |
+| <span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)       | 从起始位置到触发上升到安全高度的最小水平距离 (RTL_RETURN_ALT)。 如果飞机离起点的水平距离比这个更近，它将以当前高度返回（而不是首先上升到RTL_RETURN_ALT）。 |
 
-## Fixed Wing (FW)
+## 固定翼（FW）
 
-A fixed-wing aircraft behaves the same as a multicopter on the return trip (respecting the same parameters). The only difference is that on arrival the vehicle will, by default, circle above the home position rather than hover/land. If [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1 the vehicle will land as described in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
+固定翼飞机往返行程的行为与多旋翼飞行器相同（遵循相同的参数）。 唯一的区别是，在到达时，飞机默认情况下会绕起点旋转而不是悬停/着陆。 如果 [RTL_LAND_DELAY](#RTL_LAND_DELAY) 设置为-1, 飞机将降落, 如主题 "降落 (固定翼)</1 > 中所述。</p> 
 
-The following additional parameters affect return mode on fixed wing:
+以下附加参数会影响固定翼的返回模式:
 
-| 参数                                                                                                    | 参数描述                             |
-| ----------------------------------------------------------------------------------------------------- | -------------------------------- |
-| <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | The radius of the loiter circle. |
+| 参数                                                                                                    | 参数描述    |
+| ----------------------------------------------------------------------------------------------------- | ------- |
+| <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD) | 留待圈的半径。 |
 
 ## 垂直起降（VTOL）
 
-A VTOL follows the return behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode. A VTOL in FW mode will *always* transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
+当处于FW模式时，VTOL遵循返回行为和[固定翼](#fixed-wing-fw)的参数，而当处于MC模式时，VTOL遵循[多旋翼](#multi-copter-mc)的参数。 FW模式下的VTOL将在着陆之前*始终*转换回MC（忽略[ NAV_FORCE_VT ](../advanced_config/parameter_reference.md#NAV_FORCE_VT)）。
