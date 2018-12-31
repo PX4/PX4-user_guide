@@ -4,30 +4,30 @@
 
 *返回</ 0>飞行模式使飞机返回其原始位置，然后它可以等待（悬停或循环）或降落。</p> 
 
-> **Note** This mode is also known as *Return to Launch* (RTL) and *Return to Home* (RTH)
+> 此模式也称为*返回启动*（RTL）和*返回起点*（RTH）
 
 <span></span>
 
-> **Note** * This mode requires GPS. * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes).
+> **注** 该模式需要GPS。 *此模式为自动模式（[默认](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE)情况下，RC控制被禁用，除了用于更改模式外）。
 
-The specific behaviour for each vehicle type is described below.
+下面描述每种类型飞机的具体行为。
 
-## Multi-Copter (MC)
+## 多旋翼（MC）
 
-A copter/multi-rotor will first ascend to the `RTL_RETURN_ALT` altitude and then fly to the home position in a straight line (if already above `RTL_RETURN_ALT` it will return at its current altitude).
+直升机/多旋翼将首先上升到` RTL_RETURN_ALT `高度，然后以直线飞到原点位置（如果已经高于` RTL_RETURN_ALT `，它将以当前高度返回）。
 
-When it arrives at the home/launch position it will rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude. It will then hover for the period defined in [RTL_LAND_DELAY](#RTL_LAND_DELAY) before landing.
+当它到达起点/起飞位置时，它将迅速下降到[ RTL_DESCEND_ALT ](#RTL_DESCEND_ALT)高度。 然后它会在着陆前悬停，悬停时间在 RTL_LAND_DELAY </ 0>中定义。</p> 
 
-> **Note** The `RTL_LAND_DELAY` is provided to allow time for landing gear to be deployed (this is triggered automatically). By default this period is short so that the vehicle will simply slow and then land immediately. The parameter can also be set so that the vehicle will hover indefinitely.
+> **注**提供` RTL_LAND_DELAY `以允许部署起落架（这是自动触发的）。 默认情况下，这段时间很短，因此飞机会减速然后立即降落。 也可以设置该参数，以使飞机无限期地悬停。
 
-The RTL behaviour can be configured using the parameters below.
+可以使用以下参数配置RTL行为。
 
-| 参数                                                                                                      | 描述                                                                                                                                                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | Minimum RTL return altitude in meters (default: 60m). The vehicle will ascend to this altitude before returning. If already above this value the vehicle will return at its current altitude.                                                                      |
-| <span id="RTL_DESCEND_ALT"></span>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | Altitude at which the vehicle will slow or stop its initial descent (default: 30m)                                                                                                                                                                                 |
-| <span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | Time to hover at `RTL_DESCEND_ALT` before landing (default: 0.5s). If set to -1 the system will loiter at `RTL_DESCEND_ALT` rather than landing.                                                                                                                   |
-| <span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)       | Minimum horizontal distance from home position to trigger ascent to a safe altitude (RTL_RETURN_ALT). If the vehicle is horizontally closer than this distance to home, it will return at its current altitude (instead of first ascending to RTL_RETURN_ALT). |
+| 参数                                                                                                      | 描述                                                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 最小RTL返回高度 (默认值: 60 米)。 飞机将上升到这个高度, 然后返回。 如果已经超过这个值, 飞机将返回当前的高度。                                                                                                                                       |
+| <span id="RTL_DESCEND_ALT"></span>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 飞机减速或停止初始下降的高度 (默认值: 30 米)                                                                                                                                                                            |
+| <span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 着陆前在 `RTL_DESCEND_ALT` 悬停的时间 (默认值: 0.5 s)。 如果设置为-1, 系统将在 `RTL_DESCEND_ALT` 徘徊, 而不是降落。                                                                                                                 |
+| <span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)       | 从起始位置到触发上升到安全高度的最小水平距离 (RTL_RETURN_ALT)。 If the vehicle is horizontally closer than this distance to home, it will return at its current altitude (instead of first ascending to RTL_RETURN_ALT). |
 
 ## Fixed Wing (FW)
 
