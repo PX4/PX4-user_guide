@@ -2,30 +2,30 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The *Takeoff* flight mode causes the vehicle to take off to a specified height and wait for further input.
+*起飞*飞行模式使飞机起飞到指定高度并等待进一步指令。
 
-> **Note** * This mode requires GPS. * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes). * The vehicle must be armed before this mode can be engaged.
+> **注** 该模式需要GPS。 *此模式为自动模式（[默认](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE)情况下，RC控制被禁用，除了用于更改模式外）。 * 使用此模式前飞机必须先被激活。
 
-The specific behaviour for each vehicle type is described below.
+下面描述每种类型飞机的具体行为。
 
-## Multi-copter (MC)
+## 多旋翼（MC）
 
-A multi rotor ascends to the altitude defined in `MIS_TAKEOFF_ALT` and holds position.
+多旋翼上升到` MIS_TAKEOFF_ALT `中定义的高度并保持位置。
 
-Takeoff is affected by the following parameters:
+起飞受以下参数影响：
 
-| 参数                                                                             | 描述                                             |
-| ------------------------------------------------------------------------------ | ---------------------------------------------- |
-| [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | Target altitude during takeoff (default: 2.5m) |
-| [MPC_TKO_SPEED](../advanced_config/parameter_reference.md#MPC_TKO_SPEED)     | Speed of ascent (default: 1.5m/s)              |
+| 参数                                                                             | 描述                     |
+| ------------------------------------------------------------------------------ | ---------------------- |
+| [MIS_TAKEOFF_ALT](../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT) | 起飞期间的目标高度 (默认值: 2.5 米) |
+| [MPC_TKO_SPEED](../advanced_config/parameter_reference.md#MPC_TKO_SPEED)     | 上升速度 (默认值: 1.5 m/s)    |
 
-## Fixed Wing (FW) {#fixed_wing}
+## 固定翼（FW） {#fixed_wing}
 
-The aircraft takes off in the current direction using either *catapult/hand-launch mode* or *runway takeoff mode*. The mode defaults to catapult/hand launch, but can be set to runway takeoff using `RWTO_TKOFF`.
+飞机使用*弹射器/手动启动模式*或*跑道起飞模式*在当前方向上起飞。 模式默认为弹射/手动发射，但可以使用` RWTO_TKOFF `设置为跑道起飞。
 
-In *catapult/hand launch mode* the vehicle will perform a full throttle climbout (ramp up to `RWTO_MAX_THR` in about 2 seconds). Once the altitude error < [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF), regular navigation will proceed.
+在*弹射器/手动发射模式*中，飞机将执行全油门爬升（在大约2秒内上升到` RWTO_MAX_THR `）。 一旦高度错误[ FW_CLMBOUT_DIFF ](#FW_CLMBOUT_DIFF)，将继续常规导航。
 
-> **Note** In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met. For catapult launch this is some acceleration threshold.
+> 除了上面讨论的行为之外，还有一个启动检测器可以阻止启动程序开始直到满足某些条件。 For catapult launch this is some acceleration threshold.
 
 The *runway takeoff mode* has the following phases:
 
