@@ -171,14 +171,14 @@ turn off all [higher-level position controller tuning gains](../config_mc/advanc
 
 角速度控制器输出三个轴的扭矩和推力(滚转、俯仰和偏航) ，而这些输出需要被转换为每个电机的推力命令。 这种转换被称为混控。
 
-可以想象，转化后某个电机的推力命令可能会为负，或者超过100%。 This is a mixer saturation. It is physically impossible for the vehicle to execute these commands (except for reversible motors). PX4 has two modes to resolve this:
+可以想象，转化后某个电机的推力命令可能会为负，或者超过100%。 这就是混控器饱和。 对于电机来说执行这样的命令是不可能的(除了可逆式电动机) 。 PX4有两种办法来解决混控器饱和。
 
-- Either by reducing the commanded torque for roll such that none of the motor commands is below zero (Airmode disabled). In the extreme case where the commanded thrust is zero, it means that no attitude correction is possible anymore, which is why a minimum thrust is always required for this mode.
-- Or by increasing (boosting) the commanded thrust, such that none of the motor commands is negative (Airmode enabled). This has the big advantage that the attitude/rates can be tracked correctly even at low or zero throttle. It generally improves the flight performance.
+- 通过减小沿旋转轴的力矩命令，来让转换后的电机命令都大于零。（关闭Airmode的情况下） 在极端情况下，输出的拉力命令会为零，这意味着不能做任何的姿态调整，这也是为什么我们为什么在这种模式下我们要设一个最小拉力。
+- 通过增加拉力命令来让各个电机的拉力不小于零。（启动 Airmode 的情况下）。 这样做的好处是即使在零油门下我们也可以很好地跟踪 角度 / 角速度 的误差。 这种模式一般会提高飞行的性能。
   
-  However it increases the total thrust which can lead to situations where the vehicle continues to ascend even though the throttle is reduced to zero. For a well-tuned, correctly functioning vehicle it is not the case, but for example it can happen when the vehicle strongly oscillates due to too high P tuning gains.
+  然而在这种模式下会增加总推力，因此也可能会出现问题：即使油门减到零了，飞行器还是在往上跑。 对一个调参调的比较好的飞行器来说，这种问题一般不太会存在。然而在调参调的不好的飞行器上，这个问题就会显现出来，比如因为P调的太大而剧烈振荡的飞行器上，这种问题可能就会比较严重。
 
-Both modes are shown below with a 2D illustration for two motors and a torque command for roll <span style="color:#9673A6">r</span>. On the left motor
+下面是这两种模式的示意图（由左右两个电机产生力矩，而期望力矩是 <span style="color:#9673A6">r</span>。 On the left motor
 <span style="color:#9673A6">r</span> is added to the commanded thrust, while on the right motor it is substracted from it. The motor thrusts are in <span style="color:#6A9153">green</span>. With Airmode enabled, the commanded thrust is increased by
 <span style="color:#B85450">b</span>. When it is disabled,
 <span style="color:#9673A6">r</span> is reduced.
