@@ -60,7 +60,7 @@ PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是
 万一你的飞行器完全飞不起来，我们给你以下几点建议：
 
 - 如果你发现首次起飞有严重的振荡（严重到根本没法飞），那你可以减小所有的**P**和**D**参数，直到它能够正常起飞。
-- If on the other hand you hardly get any reaction at all to your RC commands, increase the **P** gains.
+- 但如果你的飞行器对遥控器的所有指令都没什么反应的话，可以增加**P**增益试试。
 
 The actual tuning is roughly the same in *Manual mode* or *Acro mode*: You iteratively tune the **P** and **D** gains for roll and pitch, and then the **I** gain. Initially you can use the same values for roll and pitch, and once you have good values, you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed). For yaw it is very similar, except that **D** can be left at 0.
 
