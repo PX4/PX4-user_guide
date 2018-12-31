@@ -51,15 +51,15 @@ PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是
 
 角速度控制器可以在[特技模式](../flight_modes/acro_mc.md)或者[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)中调整。
 
-- *我们更推荐特技模式，* is preferred, but is harder to fly. If you choose this mode, disable all stick expo: 
+- *我们更推荐特技模式，* 但这种模式比较难飞。 If you choose this mode, disable all stick expo: 
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
-- *Manual/Stabilized mode* is simpler to fly, but it is also more difficult to see if the attitude or the rate controller needs more tuning.
+- *手动/自稳模式*更好飞，但这种模式也比较难观察姿态和角速度控制器到底调好了没。
 
-In case your vehicle does not fly at all:
+万一你的飞行器完全飞不起来，我们给你以下几点建议：
 
-- If you notice strong oscillations when first trying to takeoff (to the point where it does not fly), decrease all **P** and **D** gains until it takes off.
+- 如果你发现首次起飞有严重的振荡（严重到根本没法飞），那你可以减小所有的**P**和**D**参数，直到它能够正常起飞。
 - If on the other hand you hardly get any reaction at all to your RC commands, increase the **P** gains.
 
 The actual tuning is roughly the same in *Manual mode* or *Acro mode*: You iteratively tune the **P** and **D** gains for roll and pitch, and then the **I** gain. Initially you can use the same values for roll and pitch, and once you have good values, you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed). For yaw it is very similar, except that **D** can be left at 0.
