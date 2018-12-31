@@ -1,4 +1,4 @@
-# Multicopter PID Tuning Guide
+# 旋翼飞行器调参指南
 
 本教程介绍如何在 PX4 上整定 [ 多旋翼 ](../airframes/airframe_reference.md#copter) (四、六、八旋翼等) 的 PID 参数 。
 
@@ -51,7 +51,7 @@ PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是
 
 角速度控制器可以在[特技模式](../flight_modes/acro_mc.md)或者[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)中调整。
 
-- *我们更推荐特技模式，* 但这种模式比较难飞。 If you choose this mode, disable all stick expo: 
+- *我们更推荐特技模式，* 但这种模式比较难飞。 如果你选择特技模式，记得把把特技模式指数因子都禁用了： 
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
