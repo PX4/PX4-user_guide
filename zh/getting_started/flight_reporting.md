@@ -10,7 +10,7 @@ Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/) (v3.2 
 
 ![Flight Log Download](../../assets/qgc/analyze/log_download.jpg)
 
-## Analyzing the Logs
+## 分析日志
 
 Upload the log file to the online [Flight Review](http://logs.px4.io) tool (http://logs.px4.io).
 
