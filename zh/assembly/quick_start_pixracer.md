@@ -24,18 +24,18 @@
 
 下面介绍如何连接不同的接收机：
 
-- FrSky receivers connect via the port shown, and can use the provided I/O Connector.
+- Frsky 的接收机通过所示的端口连接, 并可以使用提供的 I/o 连接器。
     
     ![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
     
-    ![Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png)
+    ![Pixracer FrSkyS接口连接](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png)
 
-- PPM-SUM and S.BUS receivers connect to the **RCIN** port.
+- PPM-SUM 和 S.BUS 接收机连接到 **RCIN** 端口。
     
-    ![Radio Connection](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg)
+    ![电台连接](../../assets/flight_controller/pixracer/grau_setup_pixracer_radio.jpg)
 
 - PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RCIN** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-### Power Module (ACSP4)
+### 电源模块 (ASCP4)
 
 ![Grau ACSP4 2 roh](../../assets/flight_controller/pixracer/grau_acsp4_2_roh.jpg)
