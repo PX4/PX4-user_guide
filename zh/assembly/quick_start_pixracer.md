@@ -18,11 +18,11 @@
 
 ### 电台/远程 控制
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+如果你想手动控制你的飞机，你需要一个遥控器（PX4在自动飞行模式可以不需要遥控器）。
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+你需要[一个兼容的发射/接收机](../getting_started/rc_transmitter_receiver.md)，并对*好频*（对频方法参考说明书）。
 
-The instructions below show how to connect the different types of receivers:
+下面介绍如何连接不同的接收机：
 
 - FrSky receivers connect via the port shown, and can use the provided I/O Connector.
     
