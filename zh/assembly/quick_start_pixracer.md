@@ -1,22 +1,22 @@
-# Pixracer Wiring Quick Start
+# Pixracer接线指南
 
-> **Warning** Under construction.
+> **Warning**
 
-This quick start guide shows how to power the [Pixracer](../flight_controller/pixracer.md) flight controller and connect its most important peripherals.
+这个快速指南会告诉你如何给[Pixracer](../flight_controller/pixracer.md)飞控供电和连接跟它配合的组件。
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
-## Wiring Guides
+## 接线指南
 
 ![Grau pixracer double](../../assets/flight_controller/pixracer/grau_pixracer_double.jpg)
 
-### Main Setup
+### 主要设置
 
 ![Grau setup pixracer top](../../assets/flight_controller/pixracer/grau_setup_pixracer_top.jpg)
 
 ![Grau setup pixracer bottom](../../assets/flight_controller/pixracer/grau_setup_pixracer_bottom.jpg)
 
-### Radio/Remote Control
+### 电台/远程 控制
 
 A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
