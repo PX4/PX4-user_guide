@@ -1,8 +1,8 @@
 # Pixracer接线指南
 
-> **Warning**建设中
+> **Warning** 建设中。
 
-这个快速指南会告诉你如何给[Pixracer](../flight_controller/pixracer.md)飞控供电和连接跟它配合的组件。
+这个快速指南会告诉你如何给 [Pixracer](../flight_controller/pixracer.md) 飞控供电和连接跟它配合的组件。
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
