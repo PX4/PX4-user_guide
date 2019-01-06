@@ -24,7 +24,7 @@ The [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
 
 > **Tip** For the rate controller in particular, it is useful to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to get more details when zooming in.
 
-## Vibration
+## 振动
 
 Vibration is one of the most common problems for multirotor vehicles. High vibration levels can lead to:
 
@@ -43,7 +43,7 @@ The following paragraphs and sections provide information about what plots to us
 
 > **Tip** It is worth looking at multiple charts when analyzing vibration (different charts can better highlight some issues).
 
-### Actuator Controls FFT
+### FFT 制动器控制
 
 > **Note** You need to enable the high-rate logging profile ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) to see this plot.
 
@@ -51,7 +51,7 @@ This graph shows a frequency plot for the roll, pitch and yaw axis based on the 
 
 Note that the y-axis scaling is different for different vehicles, but logs from the same vehicle can be directly compared to each other.
 
-#### Examples: Good Vibration
+#### 例子：良好的振动
 
 [QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
 
@@ -69,19 +69,19 @@ S500 frame:
 
 > **Note** While the plot above looks good, the [Raw Acceleration graph for the same flight](#raw_acc_s500) shows that the vibration levels are a bit high for x and y. This is a good example of why it is worth checking several graphs!
 
-#### Examples: Bad Vibration
+#### 例子：不好的振动
 
 This example shows a peak in frequency close to 50 Hz (in this case due to "loose" landing gear).
 
 ![Vibrations in landing gear - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_actuator_controls_fft.png)
 
-### Acceleration Power Spectral Density
+### 加速度功率谱密度
 
 This is a 2D frequency plot showing the frequency response of the raw accelerometer data over time (it displays the sum for the x, y and z axis). The more yellow an area is, the higher the frequency response at that time and frequency.
 
 Ideally only the lowest part up to a few Hz is yellow, and the rest is mostly green or blue.
 
-#### Examples: Good Vibration
+#### 例子：良好的振动
 
 [QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
 
@@ -93,7 +93,7 @@ DJI F450 frame (good vibration). ![Low vibration DJI F450 - spectral density plo
 
 S500 frame: ![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
 
-#### Examples: Bad Vibration
+#### 例子：不好的振动
 
 The strong yellow lines at around 100Hz indicate a potential issue that requires further investigation (starting with a review of the other charts).
 
@@ -111,7 +111,7 @@ Extremely high (unsafe) vibration! Note that the graph is almost completely yell
 
 ![Exceedingly high vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_spectral.png)
 
-### Raw Acceleration
+### 原始加速度
 
 This graph shows the raw accelerometer measurements for the x, y and z axis. Ideally each line is thin and clearly shows the vehicle's accelerations.
 
@@ -119,7 +119,7 @@ As a rule of thumb if the z-axis graph is touching the x/y-axis graph during hov
 
 > **Tip** The best way to use this graph is to zoom in a bit to a part where the vehicle is hovering.
 
-#### Examples: Good Vibration
+#### 例子：良好的振动
 
 [QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
 
@@ -129,7 +129,7 @@ DJI F450 frame (good vibration). ![Low vibration DJI F450 - raw accel. plot](../
 
 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-#### Examples: Bad Vibration
+#### 例子：不好的振动
 
 <span id="raw_acc_s500"></span>
 S500 frame. Borderline vibration levels - a bit high for x and y (which is typical for an S500 airframe). This is at the limit where it starts to negatively affect flight performance.
@@ -150,7 +150,7 @@ Very high (unsafe) vibration levels.
 
 ![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
-### Solutions
+### 解决方案
 
 Often a source of vibration cannot be identified from a log alone and the vehicle needs to be inspected. There can be a combination of multiple sources.
 
@@ -164,7 +164,7 @@ Solutions and steps to reduce vibrations include:
 
 <!-- TODO: write a separate vibration setup page in more depth, move some of this there and link to it from here -->
 
-## Actuator Outputs
+## 制动器输出
 
 The *Actuator Outputs* graph shows the signals that are sent to the individual actuators (motors/servos). Generally it is in the range between the minimum and maximum configured PWM values (e.g. from 1000 to 2000).
 
@@ -180,7 +180,7 @@ The plot can help to identify different problems:
 
 - If the signals look very **noisy** (with high amplitudes), it can have two causes: sensor noise or vibrations passing through the controller (this shows up in other plots as well, see previous section) or too high PID gains. This is an extreme example: ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
 
-## GPS Uncertainty
+## GPS 不确定性
 
 The *GPS Uncertainty* plot shows information from the GPS device:
 
@@ -189,7 +189,7 @@ The *GPS Uncertainty* plot shows information from the GPS device:
 - Vertical position accuracy (should be below 2 meters)
 - GPS fix: this is 3 for a 3D GPS fix, 5 for RTK float and 6 for RTK fixed type
 
-## GPS Noise & Jamming
+## GPS 噪声和干扰
 
 The GPS Noise & Jamming plot is useful to check for GPS signal interferences and jamming. The GPS signal is very weak and thus it can easily be disturbed/jammed by components transmitting (via cable) or radiating in a frequency used by the GPS.
 
@@ -201,7 +201,7 @@ This is an example without any interference:
 
 ![GPS jamming - good plot](../../assets/flight_log_analysis/flight_review/gps_jamming_good.png)
 
-## Thrust and Magnetic Field
+## 推力和磁场字段
 
 The *Thrust and Magnetic Field* plot shows the thrust and the norm of the magnetic sensor measurement vector.
 
@@ -218,7 +218,7 @@ If the norm is uncorrelated but not constant, most likely it is not properly cal
 
 This example shows that the norm is non-constant, but it does not correlate with the thrust: ![Uncorrelated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
 
-## Estimator Watchdog
+## 估计器看门狗
 
 The *Estimator Watchdog* plot shows the health report of the estimator. It should be constant zero.
 
@@ -228,7 +228,7 @@ If one of the flags is non-zero, the estimator detected a problem that needs to 
 
 Here is an example with magnetometer problems: ![Estimator watchdog with magnetometer problems](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
 
-## Sampling Regularity of Sensor Data
+## 传感器数据的采样规律性
 
 The sampling regularity plot provides insights into problems with the logging system and scheduling.
 
@@ -246,7 +246,7 @@ The following example contains too many dropouts, the quality of the used SD car
 
 ![Many Dropouts](../../assets/flight_log_analysis/flight_review/sampling_regularity_many_drops.png)
 
-## Logged Messages
+## 日志报文
 
 This is a table with system error and warning messages. For example they show when a task becomes low on stack size.
 
