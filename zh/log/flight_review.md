@@ -4,7 +4,7 @@ The [Flight Review](http://logs.px4.io) plots for a flight can be used to analyz
 
 The plots are meant to be self-explanatory, but it takes some experience to know what ranges are acceptable and what a plot should look like. This page explains how to interpret the plots and identify common problems.
 
-## General Usage
+## 一般用法
 
 Features that are common to many plots:
 
@@ -14,7 +14,7 @@ Features that are common to many plots:
 - Mouse scrolling on a particular plot axis zooms that axis (horizontally or vertically).
 - Mouse scrolling inside the plot zooms both axes.
 
-## PID Tracking Performance {#tracking}
+## PID 性能跟踪 {#tracking}
 
 Depending on the flight mode, the vehicle controllers may attempt to track position, velocity, altitude or rate setpoints (the tracked setpoints depend on the mode, e.g.: in Stabilized mode there is no velocity setpoint).
 
