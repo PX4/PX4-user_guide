@@ -1,10 +1,10 @@
-# Flight Reporting
+# 飞行报告
 
 PX4 logs detailed aircraft performance data once the system has been armed until it is disarmed. These flight logs can also be used to analyze performance issues.
 
 > **Tip** Keeping flight logs is a legal requirement in some jurisdictions.
 
-## Downloading Logs from the Flight Controller
+## 从飞行控制器下载日志
 
 Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/) (v3.2 or later): **[Analyze View > Log Download](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)**.
 
@@ -18,11 +18,11 @@ Upload the log file to the online [Flight Review](http://logs.px4.io) tool (http
 
 > **Note** [Flight Log Analysis](../log/flight_log_analysis.md) contains links to information about many other useful logging tools.
 
-## Sharing the Log Files for Review by PX4 Developers
+## 给PX4开发人员共享日志文件
 
 After uploading a file to [Flight Review](http://logs.px4.io), the log file link can be shared for discussion in the [support forums](../README.md#support) or a [Github issue](../README.md#reporting-bugs--issues).
 
-## Additional Configuration
+## 额外的配置
 
 The logging system is configured by default to collect sensible logs for use with [Flight Review](http://logs.px4.io).
 
