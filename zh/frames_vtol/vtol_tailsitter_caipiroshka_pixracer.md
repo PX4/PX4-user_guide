@@ -39,7 +39,7 @@ Print the motor mount (2 times) of which the link to the STL file was specified 
 
 ### 电调:
 
-The motor controllers can be directly mounted on a flat surface of the motor mounts using glue or a cable binder. You will have to route the power cables to the battery bay. You can use an old soldering iron to melt channels into the foam. Connect the power cables of both motor controllers in the battery bay and solder a plug to the end. This will enable you to connect both the motor controllers to the power module. If you don't have motor controllers which can provide 5V for the output rail of the autopilot then you will have to use an external power supply (BEC).
+电调可以用胶水或扎带绑在电机架周围平整的地方上。 You will have to route the power cables to the battery bay. You can use an old soldering iron to melt channels into the foam. Connect the power cables of both motor controllers in the battery bay and solder a plug to the end. This will enable you to connect both the motor controllers to the power module. If you don't have motor controllers which can provide 5V for the output rail of the autopilot then you will have to use an external power supply (BEC).
 
 ### GPS
 
@@ -51,13 +51,13 @@ Attach the pitot tube close to the outside edge of one of the wing sides. Make s
 
 ### 连接传感器到 I2C 接口
 
-Both the airspeed sensor and the external magnetometer (located in the gps housing) need to be connected to the I2C bus of the autopilot. Therefore, you will have to use an I2C splitter like the one indicated in the part list. Connect the splitter board with the I2C bus of the autopilot. Then connect both the external magnetometer and the airspeed sensor to the splitter board with a standard I2C cable. In the upper picture the splitter board is located on the left side of the GPS unit.
+空速计和磁罗盘都要连接到飞控的 I2C 接口。 因此，你需要一个部件清单里的 I2C 扩展板。 把扩展板连接到飞控的 I2C 接口。 然后用 I2C 连接线，连接空速计和磁罗盘到扩展板上。 上面的图片中，扩展板在 GPS 单元旁边。
 
 ### 升降副翼
 
-The elevons can be attached to the back side of the wing using transparent tape. You can follow the instructions provided by Team Blacksheep in the build manual for the TBS Caiprinha airframe.
+升降副翼可以用透明胶带粘在上面。 你也可以查看黑羊团队提供的TBS Caiprinha 安装手册。
 
-### General assembly rules
+### 普通安装规则
 
 在你安装机翼的所有组件之前，可以使用胶带固定它们在安装位置，然后检查重心是否在要求的位置。 根据你增加的设备重量（例如，GoPro 或更大的电池），然后改变部件的位置来匹配重心。
 
