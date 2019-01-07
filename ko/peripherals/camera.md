@@ -37,7 +37,7 @@ MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 
 <p><a href="../advanced_config/parameter_reference.md#TRIG_PINS"> TRIG_PINS </ 0> 매개 변수를 사용하여 트리거링에 사용할 AUX 핀을 선택할 수 있습니다. 기본값은 56이며, 이는 트리거가 AUX 5 및 AUX 6에서 작동 함을 의미합니다.</p>
 
 <blockquote>
-  <p><strong> 경고 </ 0> <code> TRIG_PINS </ 1>의 <strong> 기본 </ 0> 값을 56으로 설정하면 AUX 핀 1, 2, 3 및 4를 액추에이터 출력으로 사용할 수 있습니다 (서보/ESC용). 하드웨어 타이머가 처리되는 방식으로 인해 (1234는 2 개의 다른 그룹이 2 개의 타이머로 처리됩니다), 이것은 카메라 트리거와 FMU 액추에이터 출력을 동시에 사용할 수있는 유일한 조합입니다. <strong> 액추에이터 출력이 필요한 경우 <code> TRIG_PINS </ 1>의 기본 값을 변경하지 마십시오. </ 0></p>
+  <p><strong> 경고 </ 0> <code> TRIG_PINS </ 1>의 <strong> 기본 </ 0> 값을 56으로 설정하면 AUX 핀 1, 2, 3 및 4를 액추에이터 출력으로 사용할 수 있습니다 (서보/ESC용). Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs. <strong> 액추에이터 출력이 필요한 경우 <code> TRIG_PINS </ 1>의 기본 값을 변경하지 마십시오. </ 0></p>
 </blockquote>
 
 <h2>트리거 인터페이스 백엔드</h2>
