@@ -53,13 +53,13 @@ Attach the pitot tube close to the outside edge of one of the wing sides. Make s
 
 Both the airspeed sensor and the external magnetometer (located in the gps housing) need to be connected to the I2C bus of the autopilot. Therefore, you will have to use an I2C splitter like the one indicated in the part list. Connect the splitter board with the I2C bus of the autopilot. Then connect both the external magnetometer and the airspeed sensor to the splitter board with a standard I2C cable. In the upper picture the splitter board is located on the left side of the GPS unit.
 
-### Elevons
+### 升降副翼
 
 The elevons can be attached to the back side of the wing using transparent tape. You can follow the instructions provided by Team Blacksheep in the build manual for the TBS Caiprinha airframe.
 
 ### General assembly rules
 
-Before mounting all the components to the wing, use tape to hold them in the approximate position and check if the CG of the wing is in the recommended range specified in the build manual for the TBS Caipirinha. Depending on the additional components you want to have onboard (e.g. GoPro in front or bigger battery) you will need to shift the location of components.
+在你安装机翼的所有组件之前，可以使用胶带固定它们在安装位置，然后检查重心是否在要求的位置。 根据你增加的设备重量（例如，GoPro 或更大的电池），然后改变部件的位置来匹配重心。
 
 ## 机架设置
 
