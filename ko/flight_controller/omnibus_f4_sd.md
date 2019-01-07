@@ -11,10 +11,6 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 * Same board dimensions as a *Pixracer*, but slightly smaller form factor (because it has less connectors)
 * Integrated OSD (not yet implemented in software)
 
-> **Note** Note that an SD card is required for parameter storage.
-
-<span></span>
-
 > **Tip** All the usual PX4 features can still be used for your racer!
 
 <img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
@@ -222,13 +218,11 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
 If you later on want to switch back to *Betaflight*, you can easily do that:
 
-* Backup the parameters by copying the **params** file on the SD card (or use another SD card)
+* Backup the parameters, e.g. by [exporting](https://dev.px4.io/master/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters) them to an SD card
 * Keep the **bootloader** button pressed while attaching the USB cable
 * Then flash *Betaflight* as usual with the *Betaflight-configurator*
 
 ## Configuration
-
-> **Note** Make sure to insert an SD card as the parameters are stored there.
 
 In addition to the [basic configuration](../config/README.md), the following parameters are important:
 
