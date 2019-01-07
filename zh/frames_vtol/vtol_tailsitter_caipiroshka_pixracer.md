@@ -35,7 +35,7 @@ Caipiroshka VTOL是由 TBS Caipirinha轻度改装而来。
 
 ### 安装电机
 
-Print the motor mount (2 times) of which the link to the STL file was specified in the part list. Attach one motor mount on each wing side such that the motor axis will be roughly going through the center of the elevons (see picture). In the upper picture the horizontal distance between the two motor mounts is 56cm. Once you have marked the correct position on the wing you can cover the area which will be in contact with the mount with standard transparent tape on both the upper and lower wing side. Then apply a layer of hot glue onto this area and glue the motor mount onto the wing. The reason for having tape in between the wing surface and the hot glue is that you can very easily remove the motor mount by ripping of the tape from the wing without any damage. This is useful when trying to replace a damaged motor mount.
+使用上面清单列表中的STL文件，打印电机架。 在每一边的机翼上各安装一个电机，并让电机轴处在升降副翼的中心。 上面图片中电机之间的水平距离的 56cm。 找到正确位置后，就可以使用透明胶带从机翼上部到机翼下面进行固定。 然后在电机架和机翼接触的部分打上适量热熔胶。 贴胶带和打热熔胶是为了方便拆除电机机时，不损伤机翼。 在你更换损坏的电机时是非常有用的。
 
 ### 电调:
 
