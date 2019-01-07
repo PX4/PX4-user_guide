@@ -47,7 +47,7 @@ GPS 可以安装在飞机后部中间的位置。 因为电机 、相机和电�
 
 ### 空速传感器
 
-Attach the pitot tube close to the outside edge of one of the wing sides. Make sure that the pitot is not affected by the airflow of the propeller. You should be fine if the horizontal distance from the tube to the axis of the motors is larger than the radius of the propeller. Use e.g. an old soldering iron to create a recess for the pitot tube, the tubing and the actual sensor (see picture). Create a channel for routing the cable across the wing to the other components.
+将空速管安装在一侧机翼靠近外测的地方。 确保空速管不会受到螺旋桨尾流的影响。 空速管到电机轴的距离比螺旋桨的半径大会比较好。 使用电烙铁可以给空速管和传感器烫出几个槽来进行安装。 也可以给线缆开出合适的槽来进行安装。
 
 ### 连接传感器到 I2C 接口
 
@@ -63,13 +63,13 @@ Attach the pitot tube close to the outside edge of one of the wing sides. Make s
 
 ## 机架设置
 
-连接传感器 Scroll down the list to find the *VTOL Duo Tailsitter* icon. Select the *Caipiroshka Duo Tailsitter* from the drop-down list.
+连接传感器 下拉列表，找到* VTOL Duo Tailsitter *图标， 选择下拉列表里的 *Caipiroshka Duo Tailsitter*。
 
 ![](../../images/qgc/setup/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
 
 ## 连接舵机
 
-The descriptions in the table below are referring to the user facing the front of the vehicle when it lies flat on its belly on a table.
+下面的描述需要将飞机平放在桌子上、机头朝你进行。
 
 | 输出    | 频率     | 执行器  |
 | ----- | ------ | ---- |
