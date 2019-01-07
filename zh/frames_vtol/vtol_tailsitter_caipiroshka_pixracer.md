@@ -39,11 +39,11 @@ Print the motor mount (2 times) of which the link to the STL file was specified 
 
 ### 电调:
 
-电调可以用胶水或扎带绑在电机架周围平整的地方上。 You will have to route the power cables to the battery bay. You can use an old soldering iron to melt channels into the foam. Connect the power cables of both motor controllers in the battery bay and solder a plug to the end. This will enable you to connect both the motor controllers to the power module. If you don't have motor controllers which can provide 5V for the output rail of the autopilot then you will have to use an external power supply (BEC).
+电调可以用胶水或扎带绑在电机架周围平整的地方上。 将电池线绑在电池托架上。 你也可以用电烙铁在泡沫上烫出一条线槽。 将电源线连接到电调上，然后焊上插头。 你也可以连接电调到电源模块上。 如果你没有能提供5V 输出的电源模块，你可以使用外置的电源供给设备（BEC）。
 
 ### GPS
 
-The GPS can be mounted in the middle at the very back of the airframe. This helps shifting the weight of the plane to the back since the two motors, a camera and a potentially bigger battery can make it quite nose heavy. Also the large distance to the 12V power cables is beneficial for reducing magnetic interference of the external magnetometer.
+GPS 可以安装在飞机后部中间的位置。 因为电机 、相机和电池装在前面，Gps 装在后面方便调节重心。 加长了 12V供电线的长度，也可以减轻对外置的磁罗盘的干扰。
 
 ### 空速传感器
 
