@@ -71,11 +71,11 @@ Before mounting all the components to the wing, use tape to hold them in the app
 
 The descriptions in the table below are referring to the user facing the front of the vehicle when it lies flat on its belly on a table.
 
-| 输出    | Rate   | 执行器                             |
-| ----- | ------ | ------------------------------- |
-| MAIN1 | 400 赫兹 | 右侧电机                            |
-| MAIN2 | 400 Hz | Left (port) motor controller    |
-| MAIN3 | 400 Hz | Empty                           |
-| MAIN4 | 400 Hz | Empty                           |
-| MAIN5 | 50 Hz  | Right (starboard) aileron servo |
-| MAIN6 | 50 Hz  | Left (port) aileron servo       |
+| 输出    | 频率     | 执行器  |
+| ----- | ------ | ---- |
+| MAIN1 | 400 Hz | 右侧电机 |
+| MAIN2 | 400 Hz | 左侧电机 |
+| MAIN3 | 400 Hz | 空    |
+| MAIN4 | 400 Hz | 空    |
+| MAIN5 | 50 Hz  | 右副翼  |
+| MAIN6 | 50 Hz  | 左副翼  |
