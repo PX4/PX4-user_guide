@@ -91,7 +91,7 @@
 >     
 >     机载端的无线数传模块应连接到 **TELEM1** 端口，如下所示 (如果连接到此端口, 则无需进一步配置)。 另一个匹配的地面端数传电台应该连接到您的地面站电脑或者移动设备上(通常是通过USB接口)。
 >     
->     ![Pixhawk 4 mini 遥测](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
+>     ![Pixhawk 4 mini 遥测电台](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
 >     
 >     ## SD卡（可选）
 >     
