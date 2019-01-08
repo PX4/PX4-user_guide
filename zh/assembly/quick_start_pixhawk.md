@@ -20,11 +20,11 @@
 
 ![Pixhawk mounting and orientation](../../images/pixhawk_3dr_mounting_and_foam.jpg)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+> **注意** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)参数。
 
 ## 蜂鸣器与安全开关
 
-Connect the included buzzer and safety switch as shown below (these are mandatory).
+连接附带的蜂鸣器和安全开关, 如下所示 (这些都是强制性的)。
 
 ![Pixhawk mounting and orientation](../../images/pixhawk_3dr_buzzer_and_safety_switch.jpg)
 
