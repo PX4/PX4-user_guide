@@ -10195,13 +10195,6 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;">C</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="SENS_IMU_TEMP_FF">SENS_IMU_TEMP_FF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>IMU heater controller feedforward value</p>   </td>
- <td style="vertical-align: top;">0 > 1.0 </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;">microseconds</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="SENS_IMU_TEMP_I">SENS_IMU_TEMP_I</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>IMU heater controller integrator gain value</p>   </td>
  <td style="vertical-align: top;">0 > 1.0 </td>
@@ -10211,8 +10204,8 @@ is less than 50% of this value</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_IMU_TEMP_P">SENS_IMU_TEMP_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>IMU heater controller proportional gain value</p>   </td>
- <td style="vertical-align: top;">0 > 1.0 </td>
- <td style="vertical-align: top;">0.25 </td>
+ <td style="vertical-align: top;">0 > 2.0 </td>
+ <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">microseconds/C</td>
 </tr>
 <tr>
