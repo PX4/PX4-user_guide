@@ -8,7 +8,7 @@
 
 下图展示了如何连接最重要的传感器和外围设备 (电机和伺服舵机输出除外)。
 
-![*Pixhawk 4 Mini* Wiring Overview](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_wiring_overview.png)
+![*Pixhawk 4 Mini* 接线概览](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_wiring_overview.png)
 
 > **Tip** 有关更多可用端口的详细信息, 请参阅此处: [*Pixhawk 4 Mini* > 端口](../flight_controller/pixhawk4_mini.md#interfaces)。
 
@@ -16,7 +16,7 @@
 
 应使用减震泡沫垫 (包括在配件中) 将 * Pixhawk 4 Mini * 安装在机架上。 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
 
-![*Pixhawk 4 Mini* Orientation](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_orientation.png)
+![*Pixhawk 4 Mini* 方向](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_orientation.png)
 
 > **Note** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)。
 
@@ -24,7 +24,7 @@
 
 将所提供的集成指南针、安全开关、蜂鸣器和 led的GPS模块连接到 **GPS moulle</0 > 端口。 GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, 方向标记朝向载具的前面 (将指南针与其他电子设备分离将有助于减少干扰)。</p> 
 
-![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_gps.png)
+![将 Compassas/GPS 连接到 Pixhawk 4](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_gps.png)
 
 > **Note** GPS模块内集成的安全开关*默认情况下 *是启用的 (启用后, PX4不会让您解锁飞控)。 如需关闭安全开关，请按住安全开关1秒钟。 你可以在完成任务后再次按下安全开关以启用并锁定载具 (因为这是处于安全考虑的机制，无论出于何种原因，您将无法通过遥控器或地面站来远程解锁您的载具。)
 
@@ -34,9 +34,9 @@ The Power Management Board (PMB) serves the purpose of a power module as well as
 
 Connect the output of the PMB that comes with the kit to the **POWER** port of the *Pixhawk 4 Mini* using a 6-wire cable. The connections of the PMB, including power supply and signal connections to the ESCs and servos, are explained in the image below.
 
-![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_power_management.png)
+![Pixhawk 4 - 电源管理板](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_power_management.png)
 
-> **Note**上图仅展示了单个 ESC 和单个伺服舵机的连接方式。 以类似方式连接剩余的 ESC 和伺服舵机。
+> **注意** 上图仅展示了单个 ESC 和单个伺服舵机的连接方式。 以类似方式连接剩余的 ESC 和伺服舵机。
 
 | Pin(s) or Connector | 功能                                                                       |
 | ------------------- | ------------------------------------------------------------------------ |
@@ -75,11 +75,11 @@ connect to *Pixhawk 4 Mini* POWER |
 > 
 > - Spektrum/DSM 或者 S.BUS 接收机连接到 **DSM/SBUS RC** 输入端口。
 >     
->     ![Pixhawk 4 Mini - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_dsmsbus.png)
+>     ![Pixhawk 4 Mini - Spektrum接收机的信号接口](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_dsmsbus.png)
 > 
 > - PPM 接收机连接到 **PPM RC</0 > 输入端口。</p> 
 >     
->     ![Pixhawk 4 Mini - Radio port for PPM receivers](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_ppm.png)</li> 
+>     ![Pixhawk 4 Mini - PPM接收机的信号接口](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_ppm.png)</li> 
 >     
 >     - PWM 接收机为每个独立的通道配备了独立的连接线，需要通过一个*PPM编码器, 连接到 **PPM RC** 输入端口 *[ ，比如这个](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)。</ul> 
 >     
@@ -91,13 +91,13 @@ connect to *Pixhawk 4 Mini* POWER |
 >     
 >     机载端的无线数传模块应连接到 **TELEM1** 端口，如下所示 (如果连接到此端口, 则无需进一步配置)。 另一个匹配的地面端数传电台应该连接到您的地面站电脑或者移动设备上(通常是通过USB接口)。
 >     
->     ![Pixhawk 4 Mini Telemetry](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
+>     ![Pixhawk 4 mini 遥测](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
 >     
 >     ## SD卡（可选）
 >     
 >     SD卡通常是用来 [记录并分析飞行数据](../getting_started/flight_reporting.md). 将内存卡 (包含在套件中) 插入 *Pixhawk 4 Mini * 中，如下所示。
 >     
->     ![Pixhawk 4 Mini SD Card](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
+>     ![Pixhawk 4 Mini SD卡](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
 >     
 >     > **Tip** 闪迪至尊 U3 32GB 是 [强烈推荐 ](https://dev.px4.io/en/log/logging.html#sd-cards)的 (开发人员指南)。
 >     
