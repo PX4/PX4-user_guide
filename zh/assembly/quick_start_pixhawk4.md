@@ -61,7 +61,7 @@
 > | PWR2        | 5V 3A输出, 连接到 *Pixhawk 4 * 的POWER 2                                     |
 > | 2~12S       | 电源输入，连接到12~S的LiPo电池                                                    |
 > 
-> > **注意** 根据您所使用的机身类型，参考 [Airframe Reference](../airframes/airframe_reference.md) 连接*Pixhawk 4* 的 **I/O PWM OUT** 和 **FMU PWM OUT** 接口到电源管理板。 PX4 固件中的 **MAIN** 输出映射到 *Pixhawk 4 * 的 **I/O PWM OUT </0 > 端口，而PX4 固件中的 **AUX outputs** 输出映射到*Pixhawk 4 * 的 **FMU PWM OUT </0 > 端口。 例如, **MAIN1** 映射到 **I/O PWM OUT </0 > 的IO_CH1 引脚， **AUX1** 映射到 ** FMU PWM OUT </0 > 的FMU_CH1引脚。 PMB电源管理版的 **FMU PWM-IN** 内部是连接到 **FMU PWM-OUT**的，为了独立供电方便驱动伺服舵机 (e.g. 副翼, 升降, 航向, 补助翼, 起落架, 襟翼, 云台, 转向). **I/O PWM-IN** of PM board is internally connected to **M1-8**, which is used to drive motors (e.g. throttle in Plane, VTOL and Rover).</p> </blockquote> 
+> > **注意** 根据您所使用的机身类型，参考 [Airframe Reference](../airframes/airframe_reference.md) 连接*Pixhawk 4* 的 **I/O PWM OUT** 和 **FMU PWM OUT** 接口到电源管理板。 PX4 固件中的 **MAIN** 输出映射到 *Pixhawk 4 * 的 **I/O PWM OUT </0 > 端口，而PX4 固件中的 **AUX outputs** 输出映射到*Pixhawk 4 * 的 **FMU PWM OUT </0 > 端口。 例如, **MAIN1** 映射到 **I/O PWM OUT </0 > 的IO_CH1 引脚， **AUX1** 映射到 ** FMU PWM OUT </0 > 的FMU_CH1引脚。 PMB电源管理板的 **FMU PWM-IN** 内部是连接到 **FMU PWM-OUT**的，为了独立供电方便驱动伺服舵机 (e.g. 副翼, 升降, 航向, 补助翼, 起落架, 襟翼, 云台, 转向). PMB电源管理板的 **I/O PWM-IN** 内部是连接到 **M1-8**，用于驱动电机 (e.g. Plane, VTOL 或者Rover中的油门通道).</p> </blockquote> 
 > > 
 > > 下表总结了如何将 *Pixhawk 4* 的pwm-out 端口连接到电源管理板的 pwm-in 端口, 具体取决于机身参考。
 > > 
