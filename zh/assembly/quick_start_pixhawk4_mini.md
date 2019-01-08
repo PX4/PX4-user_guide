@@ -85,17 +85,17 @@ The instructions below show how to connect the different types of receivers to *
     
     更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息, 请参阅: 遥控器发射机&接收器 </0 >。</p> 
     
-    ## Telemetry Radio (Optional)
+    ## 数传电台（可选）
     
-    Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+    遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
     
     机载端的无线数传模块应连接到 **TELEM1** 端口，如下所示 (如果连接到此端口, 则无需进一步配置)。 另一个匹配的地面端数传电台应该连接到您的地面站电脑或者移动设备上(通常是通过USB接口)。
     
     ![Pixhawk 4 Mini Telemetry](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
     
-    ## microSD Card (Optional)
+    ## SD卡（可选）
     
-    SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). 将内存卡 (包含在套件中) 插入 *Pixhawk 4 Mini * 中，如下所示。
+    SD卡通常是用来 [记录并分析飞行数据](../getting_started/flight_reporting.md). 将内存卡 (包含在套件中) 插入 *Pixhawk 4 Mini * 中，如下所示。
     
     ![Pixhawk 4 Mini SD Card](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
     
