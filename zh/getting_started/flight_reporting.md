@@ -26,15 +26,15 @@ PX4记录详细的飞机性能数据，从系统一开始被解锁直到加锁�
 
 日志系统默认配置为使用 [Flight Review](http://logs.px4.io) 收集日志。
 
-Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters. The parameters you are most likely to change are listed below.
+日志将来可以使用 [SD Logging](../advanced_config/parameter_reference.md#sd-logging) 参数配置。 下面列出了您最可能更改的参数。
 
 | 参数                                                                       | 描述                                                                                                                                                                              |
 | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | Logging Mode defines when logging starts and stops.  
-- `0`: log when armed until disarm (default).  
-- `1`: log from boot until disarm.  
-- `2`: log from boot until shutdown. |
-| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).            |
+| [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE)       | 日志模式定义日志何时开始和停止。  
+- `0`: 解锁时开始记录直到加锁 (默认)。  
+- `1`: 系统启动开始记录直到加锁。  
+- `2`: 系统启动时开始记录直到断电。                                                                                      |
+| [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | 日志配置文件。 Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).                     |
 | [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".  
 This log can *not* be used with *Flight Review*, but is useful when you need a small log for geotagging or regulatory compliance. |
 
