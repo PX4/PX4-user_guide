@@ -18,7 +18,7 @@
 
 ![*Pixhawk 4 Mini* 方向](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_orientation.png)
 
-> **Note** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)。
+> **Note** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)参数。
 
 ## Gps + 指南针 + 蜂鸣器 + 安全开关 + led
 
@@ -57,7 +57,7 @@
 | 5（黑） | GND | GND   |
 | 6（黑） | GND | GND   |
 
-> **Note** If using a plane or rover, the 8 pin power (+) rail of **MAIN OUT** will need to be separately powered in order to drive servos for rudders, elevons, etc. To do this, the power rail needs to be connected to a BEC equipped ESC, a standalone 5V BEC, or a 2S LiPo battery. Be careful with the voltage of servo you are going to use here.
+> **注意** 如果配置为固定翼或无人车, 飞控**MAIN OUT**8个输出端口的 power (+) 正极线束将要进行独立供电 ，以保障方向舵、升降舵等伺服舵机的正常驱动。 为此，独立供电的正极线束需要连接到一个BEC，如具备BEC独立5V输出的ESC电调或者一个2SLiPo电池。 请注意你要在这里使用的伺服舵机的工作电压。
 
 <!--  -->
 
