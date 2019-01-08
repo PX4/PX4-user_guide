@@ -1,18 +1,18 @@
 # 飞行报告
 
-PX4 logs detailed aircraft performance data once the system has been armed until it is disarmed. These flight logs can also be used to analyze performance issues.
+PX4记录详细的飞机性能数据，从系统一开始被解锁直到加锁。 这些飞行日志还可以用来分析性能问题。
 
-> **Tip** Keeping flight logs is a legal requirement in some jurisdictions.
+> **提示** 在一些司法管辖区，保留飞行日志是一项法律规定。
 
 ## 从飞行控制器下载日志
 
-Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/) (v3.2 or later): **[Analyze View > Log Download](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)**.
+日志数据可以使用 [QGroundControl](http://qgroundcontrol.com/) (v3.2 or later) 下载：**[Analyze View > Log Download](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)**.
 
 ![Flight Log Download](../../assets/qgc/analyze/log_download.jpg)
 
 ## 分析日志
 
-Upload the log file to the online [Flight Review](http://logs.px4.io) tool (http://logs.px4.io).
+上传日志到 [Flight Review](http://logs.px4.io) (http://logs.px4.io) 在线工具。
 
 [Log Analysis using Flight Review](../log/flight_review.md) explains how to interpret the plots, and can help you to verify/reject the causes of common problems: excessive vibration, poor PID tuning, saturated controllers, imbalanced vehicles, GPS noise, etc.
 
