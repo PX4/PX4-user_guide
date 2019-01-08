@@ -1,20 +1,20 @@
-# *Pixhawk 4 Mini* Wiring Quick Start
+# *Pixhawk 4 mini </0 >接线快速入门</h1> 
 
-This quick start guide shows how to power the [*Pixhawk<sup>&reg;</sup> 4 Mini*](../flight_controller/pixhawk4_mini.md) flight controller and connect its most important peripherals.
+本快速入门指南演示如何为 [*Pixhawk<sup>&reg;</sup> 4 Mini*](../flight_controller/pixhawk4_mini.md) 飞行控制器供电, 并连接其最重要的外围设备。
 
 <img src="../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png" width="350px" title="Pixhawk 4 图像" />
 
 ## 接线图概览
 
-The image below shows where to connect the most important sensors and peripherals (except for motors and servos).
+下图展示了如何连接最重要的传感器和外围设备 (电机和伺服舵机输出除外)。
 
 ![*Pixhawk 4 Mini* Wiring Overview](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_wiring_overview.png)
 
-> **Tip** More information about available ports can be found here: [*Pixhawk 4 Mini* > Interfaces](../flight_controller/pixhawk4_mini.md#interfaces).
+> **Tip** 有关更多可用端口的详细信息, 请参阅此处: [*Pixhawk 4 Mini* > 端口](../flight_controller/pixhawk4_mini.md#interfaces)。
 
 ## 飞控的安装和方向
 
-*Pixhawk 4 Mini* should be mounted on your frame using vibration-damping foam pads (included in the kit). 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
+应使用减震泡沫垫 (包括在配件中) 将 * Pixhawk 4 Mini * 安装在机架上。 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
 
 ![*Pixhawk 4 Mini* Orientation](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_orientation.png)
 
