@@ -32,55 +32,55 @@ PX4平台支持睿思凯的 [S.port](#s_port)（新）和D.port（旧）两种�
 
 ## PX4配置
 
-睿思凯遥控器使用[TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG)运行的[串口配置](../peripherals/serial_configuration.md). There is no need to set the baud rate for the port, as this is configured by the driver.
+睿思凯遥控器使用[TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG)运行的[串口配置](../peripherals/serial_configuration.md). 无需设置端口的波特率, 因为这是由驱动程序配置的。
 
 > **Note**您可以使用任何可用的 uart, 但通常 `TELEM 2 ` 用于 frsky 遥测 ([Pixracer](../flight_controller/pixracer.md) 除外, 默认情况下, 它被预先配置为使用 *FrSky* 端口)。
 
 <span></span>
 
-> **Tip** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```drivers/telemetry/frsky_telemetry```
-
-至此，不需要进一步的配置; frsky 遥测在连接时自动启动, 并检测d 或 s 模式的接收机。
-
-## 兼容遥控发射机 {#transmitters}
-
-您将需要一个可以接收遥测数据流的遥控发射机，并且绑定到了睿思凯的接收机。
-
-主流的可选方案有：
-
-* FrSky Taranis X9D Plus（推荐）
-* FrSky Taranis X9D
-* FrSky Taranis X9E
-* FrSky Taranis Q X7
-* Turnigy 9XR Pro
-
-上面这些发射机无需任何进一步的配置即可显示遥测数据。 以下部分将解释如何自定义遥测显示界面（例如，创建更友好的UI/UX）。
-
-### Taranis脚本设置(LuaPilot) 
-
-运行OpenTX 2.1.6或更新版本的兼容Taranis发射机(例如X9D Plus)，可以使用LuaPilot脚本修改显示的遥测数据(如下面的截图所示)。
-
-![Telemetry Screen on the Taranis](../../images/taranis_telemetry.jpg)
-
-这里可以找到安装脚本的说明: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 or newer](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
-
-如果您使用文本编辑工具打开`LuaPilot脚本`，您可以进行编辑配置。 建议修改包括：
-
-* `local BattLevelmAh = -1` 使用载机计算的电池信息；
-* `local SayFlightMode = 0 `没有可供PX4飞行模式使用的WAV音频文件 遥测信息
-
-## 遥测信息 {#messages}
-
-睿思凯遥测技术可以从PX4传输大部分有用的状态信息回来。 S. port和D. port接收机传输不同的消息集，如下所示。
-
-### S-Port {#s_port}
-
-S-Port接收机从 PX4传输以下信息 (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
-
-* **AccX, accy, accz:**加速度计数值。
-* **Alt:**基于气压计的高度, 初始化水平为零。
-* **Curr:**实际电流消耗 (安培)。
-* **Fuel:**当`电池容量`参数和 smartport_fuel_percent = on</1 >参数设置好了, 则剩余电池剩余容量百分比，否则显示电池消耗容量时, 。</li>
+> **Tip** 如果配置参数在 *QGroundControl* 中不可用, 则可能需要 添加驱动程序到固件 </1 >: ```drivers/telemetry/frsky_telemetry```</p> </blockquote> 
+> 
+> 至此，不需要进一步的配置; frsky 遥测在连接时自动启动, 并检测d 或 s 模式的接收机。
+> 
+> ## 兼容遥控发射机 {#transmitters}
+> 
+> 您将需要一个可以接收遥测数据流的遥控发射机，并且绑定到了睿思凯的接收机。
+> 
+> 主流的可选方案有：
+> 
+> * FrSky Taranis X9D Plus（推荐）
+> * FrSky Taranis X9D
+> * FrSky Taranis X9E
+> * FrSky Taranis Q X7
+> * Turnigy 9XR Pro
+> 
+> 上面这些发射机无需任何进一步的配置即可显示遥测数据。 以下部分将解释如何自定义遥测显示界面（例如，创建更友好的UI/UX）。
+> 
+> ### Taranis脚本设置(LuaPilot) 
+> 
+> 运行OpenTX 2.1.6或更新版本的兼容Taranis发射机(例如X9D Plus)，可以使用LuaPilot脚本修改显示的遥测数据(如下面的截图所示)。
+> 
+> ![Telemetry Screen on the Taranis](../../images/taranis_telemetry.jpg)
+> 
+> 这里可以找到安装脚本的说明: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 or newer](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
+> 
+> 如果您使用文本编辑工具打开`LuaPilot脚本`，您可以进行编辑配置。 建议修改包括：
+> 
+> * `local BattLevelmAh = -1` 使用载机计算的电池信息；
+> * `local SayFlightMode = 0 `没有可供PX4飞行模式使用的WAV音频文件 遥测信息
+> 
+> ## 遥测信息 {#messages}
+> 
+> 睿思凯遥测技术可以从PX4传输大部分有用的状态信息回来。 S. port和D. port接收机传输不同的消息集，如下所示。
+> 
+> ### S-Port {#s_port}
+> 
+> S-Port接收机从 PX4传输以下信息 (from [here](https://github.com/iNavFlight/inav/blob/master/docs/Telemetry.md#available-smartport-sport-sensors)):
+> 
+> * **AccX, accy, accz:**加速度计数值。
+> * **Alt:**基于气压计的高度, 初始化水平为零。
+> * **Curr:**实际电流消耗 (安培)。
+> * **Fuel:**当`电池容量`参数和 smartport_fuel_percent = on</1 >参数设置好了, 则剩余电池剩余容量百分比，否则显示电池消耗容量时, 。</li>
 <li><strong>Alt:</strong>基于气压计的高度, 初始化水平为零。</li>
 <li><strong>GPS:</strong>gps 坐标。</li>
 <li><strong>GSpd:</strong>当前相对水平地面速度, 由 gps 计算。</li>
@@ -299,8 +299,8 @@ Lua map of flight modes:
 <p>将Pixracer中FrSky端口的TX（FS out）连接到接收机的RX, 将Pixracer中FrSky端口的RX（FS out）连接到接收机的TX。 GND不需要连接，因为这将在连接RC/Subs时完成。</p>
 
 
-    
-    <!-- Image would be nice -->
+>     
+>     <!-- Image would be nice -->
 
 <h3>Pixhawk Pro</h3>
 
@@ -313,8 +313,8 @@ Lua map of flight modes:
 <p>您将需要通过一个UART-S.PORT适配器进行连接，或者一个成品转接线缆。</p>
 
 
-    
-    <!-- ideally add diagram here -->
+>     
+>     <!-- ideally add diagram here -->
 
 <h2>更多信息</h2>
 
