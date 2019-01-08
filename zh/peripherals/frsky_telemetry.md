@@ -18,7 +18,7 @@ PX4平台支持睿思凯的 [S.port](#s_port)（新）和D.port（旧）两种�
 * 一个[睿思凯遥测接收机](#receivers)，比如XSR和X8R；
 * 一根连接飞控遥测端口与睿思凯接收机的线缆（这与连接到RC通道的是分开的）
 
-除了[Pixracer](../flight_controller/pixracer.md)之外，其他Pixhawk系列飞控的UART接口与接收机遥测接口是不兼容的，必须通过一个适配器进行连接。
+除了 [Pixracer](../flight_controller/pixracer.md) 之外，其他Pixhawk系列飞控的 UART 接口与接收机遥测接口是不兼容的，必须通过一个适配器进行连接。
 
 > **Tip** 通常购买一个[成品转接线缆](#ready_made_cable)会更加实惠方便，它包含了一个适配器，并且有合适连接自驾仪与接收机的接头。 自制一个[DIY转接线缆](#diy_cables)需要专业的电子装配技术。
 
