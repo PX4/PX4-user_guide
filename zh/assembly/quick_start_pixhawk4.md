@@ -8,7 +8,7 @@
 
 下图展示了如何连接最重要的传感器和外围设备 (电机和伺服舵机输出除外)。 我们将在下面各节中介绍它们的细节。
 
-![Pixhawk 4 Wiring Overview](../../assets/flight_controller/pixhawk4/pixhawk4_wiring_overview.png)
+![Pixhawk 4 接线概览](../../assets/flight_controller/pixhawk4/pixhawk4_wiring_overview.png)
 
 > **Tip**有关更多可用端口的详细信息, 请参阅此处: Pixhawk 4 > 连接 </1 >。</p> </blockquote> 
 > 
@@ -26,9 +26,9 @@
 > 
 > GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, 方向标记朝向载具的前面 (将指南针与其他电子设备分离将有助于减少干扰)。
 > 
-> ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
+> ![将 Compassas/GPS 连接到 Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_compass_gps.jpg)
 > 
-> > **Note** GPS模块内集成的安全开关*默认情况下 *是启用的 (启用后, PX4不会让您解锁飞控)。 如需关闭安全开关，请按住安全开关1秒钟。 You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+> > **Note** GPS模块内集成的安全开关*默认情况下 *是启用的 (启用后, PX4不会让您解锁飞控)。 如需关闭安全开关，请按住安全开关1秒钟。 你可以在完成任务后再次按下安全开关以启用并锁定载具 (因为这是处于安全考虑的机制，无论出于何种原因，您将无法通过遥控器或地面站来远程解锁您的载具。)
 > 
 > ## 电源
 > 
@@ -36,9 +36,9 @@
 > 
 > 下图显示了 *Pixhawk 4 * 所提供的电源管理板接线方式。
 > 
-> ![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4/pixhawk4_power_management_board.png)
+> ![Pixhawk 4 - 电源管理板](../../assets/flight_controller/pixhawk4/pixhawk4_power_management_board.png)
 > 
-> > **Note** If using a plane or rover, the 8 pin power (+) rail of **FMU PWM-OUT** will need to be separately powered in order to drive servos for rudders, elevons etc. To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery. Be careful with the voltage of servo you are going to use here.
+> > **注意** 如果配置为固定翼或无人车, 飞控**FMU MAIN OUT**8个输出端口的 power (+) 正极线束将要进行独立供电 ，以保障方向舵、升降舵等伺服舵机的正常驱动。 为此，独立供电的正极线束需要连接到一个BEC，如具备BEC独立5V输出的ESC电调或者一个2SLiPo电池。 请注意你要在这里使用的伺服舵机的工作电压。
 > 
 > | 针脚&连接器      | 功能                                                                                                          |
 > | ----------- | ----------------------------------------------------------------------------------------------------------- |
@@ -59,49 +59,49 @@
 > | GND         | connect to ESC Ground                                                                                       |
 > | PWR1        | 5v output 3A, connect to *Pixhawk 4* POWER 1                                                                |
 > | PWR2        | 5v output 3A, connect to *Pixhawk 4* POWER 2                                                                |
-> | 2~12S       | Power Input, connect to 12S LiPo Battery                                                                    |
+> | 2~12S       | 电源输入，连接到12~S的LiPo电池                                                                                         |
 > 
 > > **Note** Depending on your airframe type, refer to [Airframe Reference](../airframes/airframe_reference.md) to connect **I/O PWM OUT** and **FMU PWM OUT** ports of *Pixhawk 4* to PM board. **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of *Pixhawk 4* whereas **AUX outputs** map to **FMU PWM OUT** of *Pixhawk 4*. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**, which is used to drive servos (e.g. aileron, elevator, rudder, elevon, gear, flaps, gimbal, steering). **I/O PWM-IN** of PM board is internally connected to **M1-8**, which is used to drive motors (e.g. throttle in Plane, VTOL and Rover).
 > 
 > 下表总结了如何将 *Pixhawk 4* 的pwm-out 端口连接到电源管理板的 pwm-in 端口, 具体取决于机身参考。
 > 
-> | Airframe Reference | Connection between *Pixhawk 4* --> PM board |
-> | ------------------ | ------------------------------------------- |
-> | **MAIN**: motor    | I/O PWM OUT --> I/O PWM IN                  |
-> | **MAIN**: servo    | I/O PWM OUT --> FMU PWM IN                  |
-> | **AUX**: motor     | FMU PWM OUT --> I/O PWM IN                  |
-> | **AUX**: servo     | FMU PWM OUT --> FMU PWM IN                  |
+> | 机架参考            | *Pixhawk 4 *-> 电源管理板之间的连接  |
+> | --------------- | -------------------------- |
+> | **MAIN**: motor | I/O PWM OUT --> I/O PWM IN |
+> | **MAIN**: servo | I/O PWM OUT --> FMU PWM IN |
+> | **AUX**: motor  | FMU PWM OUT --> I/O PWM IN |
+> | **AUX**: servo  | FMU PWM OUT --> FMU PWM IN |
 > 
 > <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 > 
 > *Pixhawk 4* 的电源端口针脚定义如下所示。 电流信号应接入0-3.3V 电压且0-120A 电流的模拟信号。 电压信号应接入0-3.3V电压且0-60A 电流的模拟信号。 Vcc 线路必须提供至少持续3A电流, 并应默认为 5.1V电压。 低于5V的电压仍然是可以接受的, 但不推荐。
 > 
-> | 针脚       | 信号      | 电压    |
-> | -------- | ------- | ----- |
-> | 1（红）     | VCC     | +5V   |
-> | 2(black) | VCC     | +5V   |
-> | 3(black) | CURRENT | +3.3V |
-> | 4(black) | VOLTAGE | +3.3V |
-> | 5(black) | GND     | GND   |
-> | 6(black) | GND     | GND   |
+> | 针脚   | 信号  | 电压    |
+> | ---- | --- | ----- |
+> | 1（红） | VCC | +5V   |
+> | 2（黑） | VCC | +5V   |
+> | 3（黑） | 电流  | +3.3V |
+> | 4（黑） | 电压  | +3.3V |
+> | 5（黑） | GND | GND   |
+> | 6（黑） | GND | GND   |
 > 
 > > **Note**使用套件中附带的电源模块, 您需要在 "2>电源设置 </2 >中配置" 电池片数 </em>参数，但您不需要校准 *voltage divider* 参数。 如果您使用的是任何其他电源模块 (例如, 来自 pixracer 的电源模块), 则必须更新校准 *voltage divider* 参数。
 > 
 > ## 无线电遥控
 > 
-> A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+> 如果你想*手动* 控制你的飞行器，你需要一个遥控器（PX4在自动飞行模式可以不需要遥控器）。
 > 
-> You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+> 你需要[一个兼容的发射/接收机](../getting_started/rc_transmitter_receiver.md)，并*对好频*（对频方法参考说明书）。
 > 
 > 下面的说明演示如何将不同类型的接收机连接到 *Pixhawk 4 *:
 > 
 > - Spektrum/DSM 或者 S.BUS 接收机连接到 **DSM/SBUS RC** 输入端口。
 >     
->     ![Pixhawk 4 - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk4/pixhawk4_receiver_sbus.png)
+>     ![Pixhawk 4 - Spektrum接收机的信号接口](../../assets/flight_controller/pixhawk4/pixhawk4_receiver_sbus.png)
 > 
 > - PPM 接收机连接到 **PPM RC</0 > 输入端口。</p> 
 >     
->     ![Pixhawk 4 - Radio port for PPM receivers](../../images/pixhawk_4_receiver_ppm.png)</li> 
+>     ![Pixhawk 4 - PPM接收机的信号接口](../../images/pixhawk_4_receiver_ppm.png)</li> 
 >     
 >     - PWM 接收机为每个独立的通道配备了独立的连接线，需要通过一个*PPM编码器, 连接到 **PPM RC** 输入端口 *[ ，比如这个](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)。</ul> 
 >     
@@ -109,11 +109,11 @@
 >     
 >     ## 数传电台（可选）
 >     
->     Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+>     遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
 >     
 >     机载端的无线数传模块应连接到 **TELEM1** 端口，如下所示 (如果连接到此端口, 则无需进一步配置)。 另一个匹配的地面端数传电台应该连接到您的地面站电脑或者移动设备上(通常是通过USB接口)。
 >     
->     ![Pixhawk 4/Telemetry Radio](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
+>     ![Pixhawk 4遥测电台](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
 >     
 >     ## SD 卡（可选）
 >     
@@ -125,26 +125,26 @@
 >     
 >     ## 电机
 >     
->     Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
+>     电机和舵机按照 [机架参考列表](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **I/O PWM OUT** (**MAIN**) 和 **FMU PWM OUT** (**AUX**) 端口。
 >     
->     > **Note** This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
+>     > 本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用”机架）。
 >     
 >     
 
 <span></span>
 
 >     
->     > **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+>     > **注意** 该参考列表并不是与机架类型完全匹配的。(e.g.您不能依赖于所有的飞机类型都能够有相同的油门值输出。) 请确保为您的载具使用正确的配置方式。
 >     
 >     ## 其它外设
 >     
->     The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+>     针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
 >     
 >     ## 配置
 >     
 >     一般配置信息在以下内容中介绍: Autopilot 配置 </0 >。</p> 
 >     
->     QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+>     QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 >     
 >     <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 >     
