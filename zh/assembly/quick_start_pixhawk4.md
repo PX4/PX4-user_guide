@@ -40,26 +40,26 @@
 > 
 > > **注意** 如果配置为固定翼或无人车, 飞控**FMU MAIN OUT**8个输出端口的 power (+) 正极线束将要进行独立供电 ，以保障方向舵、升降舵等伺服舵机的正常驱动。 为此，独立供电的正极线束需要连接到一个BEC，如具备BEC独立5V输出的ESC电调或者一个2SLiPo电池。 请注意你要在这里使用的伺服舵机的工作电压。
 > 
-> | 针脚&连接器      | 功能                                                                                                          |
-> | ----------- | ----------------------------------------------------------------------------------------------------------- |
-> | I/O PWM-IN  | See note below for connection to *Pixhawk 4*                                                                |
-> | M1          | I/O PWM OUT 1: connect signal wire to ESC of motor 1 here                                                   |
-> | M2          | I/O PWM OUT 2: connect signal wire to ESC of motor 2 here                                                   |
-> | M3          | I/O PWM OUT 3: connect signal wire to ESC of motor 3 here                                                   |
-> | M4          | I/O PWM OUT 4: connect signal wire to ESC of motor 4 here                                                   |
-> | M5          | I/O PWM OUT 5: connect signal wire to ESC of motor 5 here                                                   |
-> | M6          | I/O PWM OUT 6: connect signal wire to ESC of motor 6 here                                                   |
-> | M7          | I/O PWM OUT 7: connect signal wire to ESC of motor 7 here                                                   |
-> | M8          | I/O PWM OUT 8: connect signal wire to ESC of motor 8 here                                                   |
-> | FMU PWM-IN  | See note below for connection to *Pixhawk 4*                                                                |
-> | FMU PWM-OUT | If FMU PWM-IN is connected to *Pixhawk 4*, connect signal wires to ESC or signal, +, - wires to servos here |
-> | CAP&ADC-OUT | connect to CAP & ADC IN port of *Pixhawk 4*                                                                 |
-> | CAP&ADC-IN  | CAP&ADC input: Pinouts are printed on the back side of the board                                            |
-> | B+          | connect to ESC B+ to power the ESC                                                                          |
-> | GND         | connect to ESC Ground                                                                                       |
-> | PWR1        | 5v output 3A, connect to *Pixhawk 4* POWER 1                                                                |
-> | PWR2        | 5v output 3A, connect to *Pixhawk 4* POWER 2                                                                |
-> | 2~12S       | 电源输入，连接到12~S的LiPo电池                                                                                         |
+> | 针脚&连接器      | 功能                                                                     |
+> | ----------- | ---------------------------------------------------------------------- |
+> | I/O PWM-IN  | 参考下面*Pixhawk 4*的连接                                                     |
+> | M1          | I/O PWM OUT 1: 将信号线连接到到 motor 1 的ESC电调信号                               |
+> | M2          | I/O PWM OUT 2: 将信号线连接到到 motor 2 的ESC电调信号                               |
+> | M3          | I/O PWM OUT 3: 将信号线连接到到 motor 3 的ESC电调信号                               |
+> | M4          | I/O PWM OUT 4: 将信号线连接到到 motor 4 的ESC电调信号                               |
+> | M5          | I/O PWM OUT 5: 将信号线连接到到 motor 5 的ESC电调信号                               |
+> | M6          | I/O PWM OUT 6: 将信号线连接到到 motor 6 的ESC电调信号                               |
+> | M7          | I/O PWM OUT 7: 将信号线连接到到 motor 7 的ESC电调信号                               |
+> | M8          | I/O PWM OUT 8: 将信号线连接到到 motor 8 的ESC电调信号                               |
+> | FMU PWM-IN  | 参考下面*Pixhawk 4*的连接                                                     |
+> | FMU PWM-OUT | 如果 FMU PWM-IN连接到 < 0>Pixhawk 4 </em>, 则将信号线连接到 ESC电调或将信号，+，-线路连接到伺服舵机。 |
+> | CAP&ADC-OUT | 连接到*Pixhawk 4*的CAP & ADC IN端口。                                         |
+> | CAP&ADC-IN  | CAP&ADC 输入: 针脚打印显示在电路板的背面                                              |
+> | B+          | 连接到 ESC电调B+以为 ESC电调供电                                                  |
+> | GND         | 连接到 ESC电调负极                                                            |
+> | PWR1        | 5V 3A输出, 连接到 *Pixhawk 4 * 的POWER 1                                     |
+> | PWR2        | 5V 3A输出, 连接到 *Pixhawk 4 * 的POWER 2                                     |
+> | 2~12S       | 电源输入，连接到12~S的LiPo电池                                                    |
 > 
 > > **Note** Depending on your airframe type, refer to [Airframe Reference](../airframes/airframe_reference.md) to connect **I/O PWM OUT** and **FMU PWM OUT** ports of *Pixhawk 4* to PM board. **MAIN** outputs in PX4 firmware map to **I/O PWM OUT** port of *Pixhawk 4* whereas **AUX outputs** map to **FMU PWM OUT** of *Pixhawk 4*. For example, **MAIN1** maps to IO_CH1 pin of **I/O PWM OUT** and **AUX1** maps to FMU_CH1 pin of **FMU PWM OUT**. **FMU PWM-IN** of PM board is internally connected to **FMU PWM-OUT**, which is used to drive servos (e.g. aileron, elevator, rudder, elevon, gear, flaps, gimbal, steering). **I/O PWM-IN** of PM board is internally connected to **M1-8**, which is used to drive motors (e.g. throttle in Plane, VTOL and Rover).
 > 
