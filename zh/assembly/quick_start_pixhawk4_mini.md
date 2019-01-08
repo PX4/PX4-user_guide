@@ -38,13 +38,13 @@
 
 > **注意** 上图仅展示了单个 ESC 和单个伺服舵机的连接方式。 以类似方式连接剩余的 ESC电调和伺服舵机。
 
-| Pin(s) or Connector | 功能                                                                       |
-| ------------------- | ------------------------------------------------------------------------ |
-| B+                  | Connect to ESC B+ to power the ESC                                       |
-| GND                 | Connect to ESC Ground                                                    |
-| PWR                 | JST-GH 6-pin Connector, 5V 3A output  
-connect to *Pixhawk 4 Mini* POWER |
-| BAT                 | Power Input, connect to 2~12s LiPo Battery                               |
+| Pin(s) 或连接器 | 功能                                                       |
+| ----------- | -------------------------------------------------------- |
+| B+          | 连接到 ESC电调B+以为 ESC电调供电                                    |
+| GND         | 连接到 ESC电调负极                                              |
+| PWR         | JST-GH 6-pin 接头, 5V 3A 输出  
+连接到*Pixhawk 4 Mini* 的POWER接口 |
+| BAT         | 电源输入，连接到2~12S的LiPo电池                                     |
 
 *Pixhawk 4 Mini* 的**电源**输出针脚如下表所示。 电流信号应接入0-3.3V 电压且0-120A 电流的模拟信号。 电压信号应接入0-3.3V电压且0-60A 电流的模拟信号。 Vcc 线路必须提供至少持续3A电流, 并应默认为 5.1V电压。 低于5V的电压仍然是可以接受的, 但不推荐。
 
