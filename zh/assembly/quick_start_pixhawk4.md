@@ -1,6 +1,6 @@
 # Pixhawk 4 接线快速入门
 
-本快速入门指南演示如何为 [Pixhawk 4 ](../flight_controller/pixhawk4.md)飞行控制器供电, 并连接其最重要的外围设备。
+本快速入门指南演示如何为 [Pixhawk 4](../flight_controller/pixhawk4.md) 飞行控制器供电，并连接其最重要的外围设备。
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk 4 图像" />
 
@@ -10,19 +10,19 @@
 
 ![Pixhawk 4 接线概览](../../assets/flight_controller/pixhawk4/pixhawk4_wiring_overview.png)
 
-> **Tip**有关更多可用端口的详细信息, 请参阅此处: Pixhawk 4 > 连接 </1 >。</p> </blockquote> 
+> **Tip** 有关更多可用端口的详细信息, 请参阅此处: Pixhawk 4 > 连接 </1 >。</p> </blockquote> 
 > 
 > ## 飞控的安装和方向
 > 
-> 应使用减震泡沫垫 (包括在配件中) 将 * Pixhawk 4* 安装在机架上。 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
+> 应使用减震泡沫垫 (包括在配件中) 将 *Pixhawk 4* 安装在机架上。 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
 > 
 > <img src="../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png" align="center" />
 > 
-> > **注意** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)参数。
+> > **Note** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)参数。
 > 
-> ## Gps + 指南针 + 蜂鸣器 + 安全开关 + led
+> ## GPS + 指南针 + 蜂鸣器 + 安全开关 + LED
 > 
-> 将所提供的集成指南针、安全开关、蜂鸣器和 led的GPS模块连接到 **GPS moulle</0 > 端口。</p> 
+> 将所提供的集成指南针、安全开关、蜂鸣器和 LED 的 GPS 模块连接到 **GPS MODULE** 接口。
 > 
 > GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, 方向标记朝向载具的前面 (将指南针与其他电子设备分离将有助于减少干扰)。
 > 
@@ -32,18 +32,18 @@
 > 
 > ## 电源
 > 
-> 使用6PIN线材将套件中附带的 *电源管理板* (pm板) 的输出连接到 *Pixhawk 4 * 的其中一个 **POWER** 端口。 电源管理板的 **2~12S** 输入将连接到您的锂电池。 下表解释了电源管理板的连接, 包括动力电源与 esc电调和伺服舵机的信号连接。 请注意, 电源管理板不通过 **FMU wwm-out</0 > 的 + 和-引脚为伺服舵机供电。</p> 
+> 使用6PIN线材将套件中附带的 *电源管理板* (pm板) 的输出连接到 *Pixhawk 4 * 的其中一个 **POWER** 端口。 电源管理板的 **2~12S** 输入将连接到您的锂电池。 下表解释了电源管理板的连接, 包括动力电源与 esc电调和伺服舵机的信号连接。 请注意，电源管理板不通过 **FMU PWM-OUT</0 > 的 + 和 - 引脚为伺服舵机供电。</p> 
 > 
-> 下图显示了 *Pixhawk 4 * 所提供的电源管理板接线方式。
+> 下图显示了 *Pixhawk 4* 所提供的电源管理板接线方式。
 > 
 > ![Pixhawk 4 - 电源管理板](../../assets/flight_controller/pixhawk4/pixhawk4_power_management_board.png)
 > 
-> > **注意** 如果配置为固定翼或无人车, 飞控**FMU MAIN OUT**8个输出端口的 power (+) 正极线束将要进行独立供电 ，以保障方向舵、升降舵等伺服舵机的正常驱动。 为此，独立供电的正极线束需要连接到一个BEC，如具备BEC独立5V输出的ESC电调或者一个2SLiPo电池。 请注意你要在这里使用的伺服舵机的工作电压。
+> > **Note** 如果配置为固定翼或无人车, 飞控 **FMU MAIN OUT** 8个输出端口的 power (+) 正极线束将要进行独立供电 ，以保障方向舵、升降舵等伺服舵机的正常驱动。 为此，独立供电的正极线束需要连接到一个BEC，如具备BEC独立5V输出的ESC电调或者一个2SLiPo电池。 请注意你要在这里使用的伺服舵机的工作电压。
 > 
 > | 针脚&连接器      | 功能                                                                     |
 > | ----------- | ---------------------------------------------------------------------- |
 > | I/O PWM-IN  | 参考下面*Pixhawk 4*的连接                                                     |
-> | M1          | I/O PWM OUT 1: 将信号线连接到到 motor 1 的ESC电调信号                               |
+> | M1          | I/O PWM OUT 1：将信号线连接到到电机 1 的电调信号                                       |
 > | M2          | I/O PWM OUT 2: 将信号线连接到到 motor 2 的ESC电调信号                               |
 > | M3          | I/O PWM OUT 3: 将信号线连接到到 motor 3 的ESC电调信号                               |
 > | M4          | I/O PWM OUT 4: 将信号线连接到到 motor 4 的ESC电调信号                               |
@@ -51,7 +51,7 @@
 > | M6          | I/O PWM OUT 6: 将信号线连接到到 motor 6 的ESC电调信号                               |
 > | M7          | I/O PWM OUT 7: 将信号线连接到到 motor 7 的ESC电调信号                               |
 > | M8          | I/O PWM OUT 8: 将信号线连接到到 motor 8 的ESC电调信号                               |
-> | FMU PWM-IN  | 参考下面*Pixhawk 4*的连接                                                     |
+> | FMU PWM-IN  | 参考下面 *Pixhawk 4* 的连接                                                   |
 > | FMU PWM-OUT | 如果 FMU PWM-IN连接到 < 0>Pixhawk 4 </em>, 则将信号线连接到 ESC电调或将信号，+，-线路连接到伺服舵机。 |
 > | CAP&ADC-OUT | 连接到*Pixhawk 4*的CAP & ADC IN端口。                                         |
 > | CAP&ADC-IN  | CAP&ADC 输入: 针脚打印显示在电路板的背面                                              |
@@ -65,12 +65,12 @@
 > > 
 > > 下表总结了如何将 *Pixhawk 4* 的pwm-out 端口连接到电源管理板的 pwm-in 端口, 具体取决于机身参考。
 > > 
-> > | 机架参考            | *Pixhawk 4 *-> 电源管理板之间的连接  |
-> > | --------------- | -------------------------- |
-> > | **MAIN**: motor | I/O PWM OUT --> I/O PWM IN |
-> > | **MAIN**: servo | I/O PWM OUT --> FMU PWM IN |
-> > | **AUX**: motor  | FMU PWM OUT --> I/O PWM IN |
-> > | **AUX**: servo  | FMU PWM OUT --> FMU PWM IN |
+> > | 机架参考        | *Pixhawk 4 *-> 电源管理板之间的连接  |
+> > | ----------- | -------------------------- |
+> > | **MAIN**：电机 | I/O PWM OUT --> I/O PWM IN |
+> > | **MAIN**：舵机 | I/O PWM OUT --> FMU PWM IN |
+> > | **AUX**：电机  | FMU PWM OUT --> I/O PWM IN |
+> > | **AUX**：舵机  | FMU PWM OUT --> FMU PWM IN |
 > > 
 > > <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 > > 
