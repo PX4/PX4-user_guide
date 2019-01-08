@@ -32124,30 +32124,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="SENS_IMU_TEMP_FF">SENS_IMU_TEMP_FF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        IMU heater controller feedforward value
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      microseconds
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="SENS_IMU_TEMP_I">SENS_IMU_TEMP_I</strong> (FLOAT)
     </td>
     
@@ -32182,11 +32158,11 @@
     </td>
     
     <td style="vertical-align: top;">
-      0 > 1.0
+      0 > 2.0
     </td>
     
     <td style="vertical-align: top;">
-      0.25
+      1.0
     </td>
     
     <td style="vertical-align: top;">
