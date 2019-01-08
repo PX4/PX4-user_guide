@@ -42,7 +42,7 @@
 > 
 > | 针脚&连接器      | 功能                                                                     |
 > | ----------- | ---------------------------------------------------------------------- |
-> | I/O PWM-IN  | 参考下面*Pixhawk 4*的连接                                                     |
+> | I/O PWM-IN  | 参考下面 *Pixhawk 4* 的连接                                                   |
 > | M1          | I/O PWM OUT 1：将信号线连接到到电机 1 的电调信号                                       |
 > | M2          | I/O PWM OUT 2: 将信号线连接到到 motor 2 的ESC电调信号                               |
 > | M3          | I/O PWM OUT 3: 将信号线连接到到 motor 3 的ESC电调信号                               |
@@ -57,7 +57,7 @@
 > | CAP&ADC-IN  | CAP&ADC 输入: 针脚打印显示在电路板的背面                                              |
 > | B+          | 连接到 ESC电调B+以为 ESC电调供电                                                  |
 > | GND         | 连接到 ESC电调负极                                                            |
-> | PWR1        | 5V 3A输出, 连接到 *Pixhawk 4 * 的POWER 1                                     |
+> | PWR1        | 5V 3A 输出，连接到 *Pixhawk 4* 的POWER 1                                      |
 > | PWR2        | 5V 3A输出, 连接到 *Pixhawk 4 * 的POWER 2                                     |
 > | 2~12S       | 电源输入，连接到12~S的LiPo电池                                                    |
 > 
