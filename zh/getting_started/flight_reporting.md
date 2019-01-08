@@ -2,7 +2,7 @@
 
 PX4记录详细的飞机性能数据，从系统一开始被解锁直到加锁。 这些飞行日志还可以用来分析性能问题。
 
-> **提示** 在一些司法管辖区，保留飞行日志是一项法律规定。
+> **Tip** 在一些司法管辖区，保留飞行日志是一项法律规定。
 
 ## 从飞行控制器下载日志
 
@@ -14,17 +14,17 @@ PX4记录详细的飞机性能数据，从系统一开始被解锁直到加锁�
 
 上传日志到 [Flight Review](http://logs.px4.io) (http://logs.px4.io) 在线工具。
 
-[Log Analysis using Flight Review](../log/flight_review.md) explains how to interpret the plots, and can help you to verify/reject the causes of common problems: excessive vibration, poor PID tuning, saturated controllers, imbalanced vehicles, GPS noise, etc.
+[Log Analysis using Flight Review](../log/flight_review.md) 解释了怎样分析图形，这可以帮你确认/排除一些常见的问题：过大的震动、很差的PID调优、控制器饱和、车辆不平衡、GPS 噪声、等等。
 
-> **Note** [Flight Log Analysis](../log/flight_log_analysis.md) contains links to information about many other useful logging tools.
+> **Note** [Flight Log Analysis](../log/flight_log_analysis.md) 包含很多好用的日志工具。
 
 ## 给PX4开发人员共享日志文件
 
-After uploading a file to [Flight Review](http://logs.px4.io), the log file link can be shared for discussion in the [support forums](../README.md#support) or a [Github issue](../README.md#reporting-bugs--issues).
+上传日志到 [Flight Review](http://logs.px4.io) 后，这个日志链接可以在 [support forums](../README.md#support) 或者 [Github issue](../README.md#reporting-bugs--issues) 中分享。
 
 ## 额外的配置
 
-The logging system is configured by default to collect sensible logs for use with [Flight Review](http://logs.px4.io).
+日志系统默认配置为使用 [Flight Review](http://logs.px4.io) 收集日志。
 
 Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters. The parameters you are most likely to change are listed below.
 
