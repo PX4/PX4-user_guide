@@ -32124,30 +32124,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="SENS_IMU_TEMP_FF">SENS_IMU_TEMP_FF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        IMU heater controller feedforward value
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      microseconds
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="SENS_IMU_TEMP_I">SENS_IMU_TEMP_I</strong> (FLOAT)
     </td>
     
@@ -32182,11 +32158,11 @@
     </td>
     
     <td style="vertical-align: top;">
-      0 > 1.0
+      0 > 2.0
     </td>
     
     <td style="vertical-align: top;">
-      0.25
+      1.0
     </td>
     
     <td style="vertical-align: top;">
@@ -32208,11 +32184,11 @@
         <strong>Comment:</strong> Configure on which serial port to run LeddarOne Rangefinder.
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong> Disabled
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -32238,7 +32214,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32348,11 +32324,11 @@
         <strong>Comment:</strong> Configure on which serial port to run Benewake TFmini Rangefinder.
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong> Disabled
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -32378,7 +32354,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
