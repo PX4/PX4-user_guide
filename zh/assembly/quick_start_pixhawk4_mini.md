@@ -36,7 +36,7 @@ Connect the output of the PMB that comes with the kit to the **POWER** port of t
 
 ![Pixhawk 4 - Power Management Board](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_power_management.png)
 
-> **Note** The image above only shows the connection of a single ESC and a single servo. Connect the remaining ESCs and servos similarly.
+> **Note**上图仅展示了单个 ESC 和单个伺服舵机的连接方式。 以类似方式连接剩余的 ESC 和伺服舵机。
 
 | Pin(s) or Connector | 功能                                                                       |
 | ------------------- | ------------------------------------------------------------------------ |
@@ -103,7 +103,7 @@ connect to *Pixhawk 4 Mini* POWER |
 >     
 >     ## 电机
 >     
->     Motors/servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). See [*Pixhawk 4 Mini* > Supported Platforms](../flight_controller/pixhawk4_mini.md#supportedplatforms) for more information.
+>     电机和舵机按照 [机架参考列表](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN OUT** 端口。 有关更多的详细信息，请参阅[*Pixhawk 4 Mini* > 所支持的平台](../flight_controller/pixhawk4_mini.md#supportedplatforms)。
 >     
 >     > 本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用”机架）。
 >     
@@ -112,11 +112,11 @@ connect to *Pixhawk 4 Mini* POWER |
 <span></span>
 
 >     
->     > **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+>     > **注意** 该参考列表并不是与机架类型完全匹配的。(e.g.您不能依赖于所有的飞机类型都能够有相同的油门值输出。) 请确保为您的载具使用正确的配置方式。
 >     
 >     ## 其它外设
 >     
->     The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+>     针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
 >     
 >     ## 配置
 >     
