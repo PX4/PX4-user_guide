@@ -10,7 +10,7 @@ PX4平台支持睿思凯的 [S.port](#s_port)（新）和D.port（旧）两种�
 
 一个典型的硬件安装如下所示
 
-![FrSky-Taranis-Telemetry](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
+![FrSky-Taranis-遥测](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
 
 它包括：
 
@@ -28,7 +28,7 @@ PX4平台支持睿思凯的 [S.port](#s_port)（新）和D.port（旧）两种�
 
 * [Craft and Theory](http://www.craftandtheoryllc.com/telemetry-cable). 以下版本是可用的，DF-13 兼容*PicoBlade 接头* (for FMUv2/3DR Pixhawk, FMUv2/HKPilot32) 和*JST-GH 接头* (for FMUv3/Pixhawk 2 "The Cube" /FMUv4/PixRacer v1).
     
-    [![Purchase cable here from Craft and Theory](../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg)](http://www.craftandtheoryllc.com/telemetry-cable)
+    [![从 Craft and Theory 购买转接线材。](../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg)](http://www.craftandtheoryllc.com/telemetry-cable)
 
 ## PX4配置
 
@@ -60,7 +60,7 @@ PX4平台支持睿思凯的 [S.port](#s_port)（新）和D.port（旧）两种�
 > 
 > 运行OpenTX 2.1.6或更新版本的兼容Taranis发射机(例如X9D Plus)，可以使用LuaPilot脚本修改显示的遥测数据(如下面的截图所示)。
 > 
-> ![Telemetry Screen on the Taranis](../../images/taranis_telemetry.jpg)
+> ![Taranis 遥控器上的遥测回传界面](../../images/taranis_telemetry.jpg)
 > 
 > 这里可以找到安装脚本的说明: [LuaPilot Taranis Telemetry script > Taranis Setup OpenTX 2.1.6 or newer](http://ilihack.github.io/LuaPilot_Taranis_Telemetry/)
 > 
@@ -87,7 +87,7 @@ PX4平台支持睿思凯的 [S.port](#s_port)（新）和D.port（旧）两种�
 <li><strong>Hdg:</strong>机头朝向 (正北为 0°)。</li>
 <li><strong>VFAS:</strong>实际电池电压值 (电压 frsky 安培传感器)。</li>
 <li><strong>Vspd:</strong>垂直速度 (cm/s)。</li>
-<li><strong>Tmp1:</strong><a href="../getting_started/flight_modes.md">Flight modede</a>, 作为整数发送: 18-手动, 23-定高, 22-定位, 27-任务, 26-保持, 28-返航, 19-特技, 24 0 离线, 20-自稳, 21-速率, 25-起飞, 29-下降, 30-跟随。</li>
+<li><strong>Tmp1:</strong><a href="../getting_started/flight_modes.md">飞行模式</a>, 作为整数发送: 18-手动, 23-定高, 22-定位, 27-任务, 26-保持, 28-返航, 19-特技, 24 0 离线, 20-自稳, 21-速率, 25-起飞, 29-下降, 30-跟随。</li>
 <li><strong>Tmp2:</strong>gps 信息。 最右边的数字是 gps 定位类型 (0 = 无, 2 = 2d, 3 = 3d)。 其他数字是卫星的数量。</li>
 <li><strong> 0420: </strong>与 gps 返航点定位的距离(米) 。</li>
 </ul>
@@ -140,10 +140,10 @@ Lua map of flight modes:
 <tr>
   <th>接收机</th>
   <th>范围</th>
-  <th>Combined output</th>
-  <th>Digital telemetry input</th>
+  <th>集成输出</th>
+  <th>数字遥测输入</th>
   <th>尺寸</th>
-  <th>Weight</th>
+  <th>重量</th>
 </tr>
 </thead>
 <tbody>
@@ -286,9 +286,9 @@ Lua map of flight modes:
 
 <p>	S. port的连接方式如下图所示，使用提供的I/O连接头。</p>
 
-<p><img src="../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg" alt="Grau b Pixracer FrSkyS.Port Connection" /></p>
+<p><img src="../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg" alt="Grau b Pixracer FrSky S.Port 连接" /></p>
 
-<p><img src="../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png" alt="Pixracer FrSkyS.Port Connection" /></p>
+<p><img src="../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png" alt="Pixracer FrSky S.Port 连接" /></p>
 
 <h3>Pixracer to D-port 接收机</h3>
 
@@ -321,7 +321,7 @@ Lua map of flight modes:
 <p>更多其他信息，请访问以下链接</p>
 
 <ul>
-<li><a href="https://github.com/Clooney82/MavLink_FrSkySPort/wiki/1.2.-FrSky-Taranis-Telemetry">FrSky Taranis Telemetry</a></li>
-<li><a href="https://www.youtube.com/watch?v=x14DyvOU0Vc">Taranis X9D: Setting Up Telemetry</a> (Video Tutorial)</li>
-<li><a href="http://discuss.px4.io/t/px4-frsky-telemetry-setup-with-pixhawk2-and-x8r-receiver/6362">Px4 FrSky Telemetry Setup with Pixhawk2 and X8R Receiver</a> (DIY Cables)</li>
+<li><a href="https://github.com/Clooney82/MavLink_FrSkySPort/wiki/1.2.-FrSky-Taranis-Telemetry">FrSky Taranis 遥测回传</a></li>
+<li><a href="https://www.youtube.com/watch?v=x14DyvOU0Vc">Taranis X9D: 遥测回传设置</a> (视频教程)</li>
+<li><a href="http://discuss.px4.io/t/px4-frsky-telemetry-setup-with-pixhawk2-and-x8r-receiver/6362">使用Pixhawk2 和 X8R 接收机进行Px4 FrSky 遥测回传设置 </a> (DIY 转接线)</li>
 </ul>
