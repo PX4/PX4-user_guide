@@ -10,7 +10,7 @@
 
 下面的图片显示标准的 Pixhawk 连接 (除了马达和控制信号输出)。 我们将在下面各节中介绍每个主要部分。
 
-![Pixhawk Wiring Overview](../../images/pixhawk_wiring_overview.jpg)  
+![Pixhawk 接线概览](../../images/pixhawk_wiring_overview.jpg)  
 
 > ** 注意 **更详细的接线信息 [ 如下所示 ](#detailed-wiring-infographic-copter)。
 
@@ -52,11 +52,11 @@ For planes and VTOL the output rail will need to be separately powered in order 
 
 ## 无线电遥控
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+如果你想*手动* 控制你的飞行器，你需要一个遥控器（PX4在自动飞行模式可以不需要遥控器）。
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+你需要[选择一个兼容的发射机/接收机](../getting_started/rc_transmitter_receiver.md)，并*对好频* 以便它们能够正常通信（对频方法参考您的特定遥控器与接收机附带的说明书）。
 
-The instructions below show how to connect the different types of receivers to Pixhawk:
+下面的说明演示如何将不同类型的接收机连接到 Pixhawk:
 
 - Spektrum and DSM receivers connect to the **SPKT/DSM** input. ![Pixhawk - Radio port for Spektrum receivers](../../images/pixhawk_3dr_receiver_spektrum.jpg)
 
@@ -68,7 +68,7 @@ The instructions below show how to connect the different types of receivers to P
 
 ## 数传电台（可选）
 
-Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission). One radio must be connected to your vehicle as shown below. The other is connected to your ground station computer or mobile device (usually by USB).
+遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。 One radio must be connected to your vehicle as shown below. The other is connected to your ground station computer or mobile device (usually by USB).
 
 ![Pixhawk/Telemetry Radio](../../images/pixhawk_3dr_telemetry_radio.jpg)
 
@@ -92,13 +92,13 @@ The mappings between MAIN/AUX output ports and motor/servos for all supported ai
 
 ## 其它外设
 
-The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
+针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
 
 ## 配置
 
 一般配置信息在以下内容中介绍：[Autopilot 配置](../config/README.md)。
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
