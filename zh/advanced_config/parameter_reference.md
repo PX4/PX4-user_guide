@@ -1151,6 +1151,62 @@
     <td style="vertical-align: top;">
     </td>
   </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="TRIG_PWM_NEUTRAL">TRIG_PWM_NEUTRAL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PWM neutral output on trigger pin
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1000 > 2000
+    </td>
+    
+    <td style="vertical-align: top;">
+      1500
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="TRIG_PWM_SHOOT">TRIG_PWM_SHOOT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PWM output to trigger shot
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1000 > 2000
+    </td>
+    
+    <td style="vertical-align: top;">
+      1900
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
 </table>
 
 ## 外部模块配置
