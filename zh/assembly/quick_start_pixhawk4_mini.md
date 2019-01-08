@@ -26,7 +26,7 @@
 
 ![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_gps.png)
 
-> **Note** GPS模块内集成的安全开关*默认情况下 *是启用的 (启用后, PX4不会让您解锁飞控)。 如需关闭安全开关，请按住安全开关1秒钟。 You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+> **Note** GPS模块内集成的安全开关*默认情况下 *是启用的 (启用后, PX4不会让您解锁飞控)。 如需关闭安全开关，请按住安全开关1秒钟。 你可以在完成任务后再次按下安全开关以启用并锁定载具 (因为这是处于安全考虑的机制，无论出于何种原因，您将无法通过遥控器或地面站来远程解锁您的载具。)
 
 ## 电源
 
@@ -48,14 +48,14 @@ connect to *Pixhawk 4 Mini* POWER |
 
 *Pixhawk 4 Mini* 的**电源**输出针脚如下表所示。 电流信号应接入0-3.3V 电压且0-120A 电流的模拟信号。 电压信号应接入0-3.3V电压且0-60A 电流的模拟信号。 Vcc 线路必须提供至少持续3A电流, 并应默认为 5.1V电压。 低于5V的电压仍然是可以接受的, 但不推荐。
 
-| 针脚       | 信号      | 电压    |
-| -------- | ------- | ----- |
-| 1（红）     | VCC     | +5V   |
-| 2(black) | VCC     | +5V   |
-| 3(black) | CURRENT | +3.3V |
-| 4(black) | VOLTAGE | +3.3V |
-| 5(black) | GND     | GND   |
-| 6(black) | GND     | GND   |
+| 针脚   | 信号  | 电压    |
+| ---- | --- | ----- |
+| 1（红） | VCC | +5V   |
+| 2（黑） | VCC | +5V   |
+| 3（黑） | 电流  | +3.3V |
+| 4（黑） | 电压  | +3.3V |
+| 5（黑） | GND | GND   |
+| 6（黑） | GND | GND   |
 
 > **Note** If using a plane or rover, the 8 pin power (+) rail of **MAIN OUT** will need to be separately powered in order to drive servos for rudders, elevons, etc. To do this, the power rail needs to be connected to a BEC equipped ESC, a standalone 5V BEC, or a 2S LiPo battery. Be careful with the voltage of servo you are going to use here.
 
@@ -95,11 +95,11 @@ The instructions below show how to connect the different types of receivers to *
     
     ## microSD Card (Optional)
     
-    SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). Insert the card (included in the kit) into *Pixhawk 4 Mini* as shown below.
+    SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). 将内存卡 (包含在套件中) 插入 *Pixhawk 4 Mini * 中，如下所示。
     
     ![Pixhawk 4 Mini SD Card](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
     
-    > **Tip** The SanDisk Extreme U3 32GB is [highly recommended](https://dev.px4.io/en/log/logging.html#sd-cards) (Developer Guide).
+    > **Tip** 闪迪至尊 U3 32GB 是 [强烈推荐 ](https://dev.px4.io/en/log/logging.html#sd-cards)的 (开发人员指南)。
     
     ## 电机
     
@@ -122,7 +122,7 @@ The instructions below show how to connect the different types of receivers to *
     
     一般配置信息在以下内容中介绍：[Autopilot 配置](../config/README.md)。
     
-    QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+    QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
     
     <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
     
