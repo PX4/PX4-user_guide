@@ -30,13 +30,13 @@
 
 ## 电源
 
-The Power Management Board (PMB) serves the purpose of a power module as well as a power distribution board. In addition to providing regulated power to *Pixhawk 4 Mini* and the ESCs, it sends information to the autopilot about the battery’s voltage and current draw.
+电源管理板（PMB）提供了电源模块与电源分电板的作用。 除了为 *Pixhawk 4 mini*和 ESC 电调提供稳压电源外, 它还向自动驾驶仪发送电池电压和电流的相关信息。
 
-Connect the output of the PMB that comes with the kit to the **POWER** port of the *Pixhawk 4 Mini* using a 6-wire cable. The connections of the PMB, including power supply and signal connections to the ESCs and servos, are explained in the image below.
+使用6PIN线材将套件附带的PMB模块的输出接口连接到*Pixhawk 4 mini* 的 **POWER** 端口。 下表解释了电源管理板的连接, 包括动力电源与 ESC电调和伺服舵机的信号连接。
 
 ![Pixhawk 4 - 电源管理板](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_power_management.png)
 
-> **注意** 上图仅展示了单个 ESC 和单个伺服舵机的连接方式。 以类似方式连接剩余的 ESC 和伺服舵机。
+> **注意** 上图仅展示了单个 ESC 和单个伺服舵机的连接方式。 以类似方式连接剩余的 ESC电调和伺服舵机。
 
 | Pin(s) or Connector | 功能                                                                       |
 | ------------------- | ------------------------------------------------------------------------ |
