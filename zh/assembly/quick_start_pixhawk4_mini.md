@@ -63,73 +63,73 @@ connect to *Pixhawk 4 Mini* POWER |
 
 <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 
-> **Note** Using the Power Module that comes with the kit you will need to configure the *Number of Cells* in the [Power Settings](https://docs.qgroundcontrol.com/en/SetupView/Power.html) but you won't need to calibrate the *voltage divider*. 如果您使用的是任何其他电源模块 (例如, 来自 pixracer 的电源模块), 则必须更新校准 *voltage divider* 参数。
-
-## 无线电遥控
-
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
-
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
-
-The instructions below show how to connect the different types of receivers to *Pixhawk 4 Mini*:
-
-- Spektrum/DSM 或者 S.BUS 接收机连接到 **DSM/SBUS RC** 输入端口。
-    
-    ![Pixhawk 4 Mini - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_dsmsbus.png)
-
-- PPM 接收机连接到 **PPM RC</0 > 输入端口。</p> 
-    
-    ![Pixhawk 4 Mini - Radio port for PPM receivers](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_ppm.png)</li> 
-    
-    - PWM 接收机为每个独立的通道配备了独立的连接线，需要通过一个*PPM编码器, 连接到 **PPM RC** 输入端口 *[ ，比如这个](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)。</ul> 
-    
-    更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息, 请参阅: 遥控器发射机&接收器 </0 >。</p> 
-    
-    ## 数传电台（可选）
-    
-    遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
-    
-    机载端的无线数传模块应连接到 **TELEM1** 端口，如下所示 (如果连接到此端口, 则无需进一步配置)。 另一个匹配的地面端数传电台应该连接到您的地面站电脑或者移动设备上(通常是通过USB接口)。
-    
-    ![Pixhawk 4 Mini Telemetry](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
-    
-    ## SD卡（可选）
-    
-    SD卡通常是用来 [记录并分析飞行数据](../getting_started/flight_reporting.md). 将内存卡 (包含在套件中) 插入 *Pixhawk 4 Mini * 中，如下所示。
-    
-    ![Pixhawk 4 Mini SD Card](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
-    
-    > **Tip** 闪迪至尊 U3 32GB 是 [强烈推荐 ](https://dev.px4.io/en/log/logging.html#sd-cards)的 (开发人员指南)。
-    
-    ## 电机
-    
-    Motors/servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). See [*Pixhawk 4 Mini* > Supported Platforms](../flight_controller/pixhawk4_mini.md#supportedplatforms) for more information.
-    
-    > **Note** This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
-    
-    
+> **Note** 使用套件中附带的电源模块, 您需要在 电源设置 </2 >中配置 *电池片数 *参数，但您不需要校准 *voltage divider* 参数。 如果您使用的是任何其他电源模块 (例如, 来自 Pixracer 的电源模块), 则必须更新校准 *voltage divider* 参数。</p> </blockquote> 
+> 
+> ## 无线电遥控
+> 
+> 如果你想*手动* 控制你的飞行器，你需要一个遥控器（PX4在自动飞行模式可以不需要遥控器）。
+> 
+> 你需要[选择一个兼容的发射机/接收机](../getting_started/rc_transmitter_receiver.md)，并*对好频* 以便它们能够正常通信（对频方法参考您的特定遥控器与接收机附带的说明书）。
+> 
+> 下面的说明将演示如何将不同类型的接收机连接到 *Pixhawk 4 Mini*:
+> 
+> - Spektrum/DSM 或者 S.BUS 接收机连接到 **DSM/SBUS RC** 输入端口。
+>     
+>     ![Pixhawk 4 Mini - Radio port for Spektrum receivers](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_dsmsbus.png)
+> 
+> - PPM 接收机连接到 **PPM RC</0 > 输入端口。</p> 
+>     
+>     ![Pixhawk 4 Mini - Radio port for PPM receivers](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_rc_ppm.png)</li> 
+>     
+>     - PWM 接收机为每个独立的通道配备了独立的连接线，需要通过一个*PPM编码器, 连接到 **PPM RC** 输入端口 *[ ，比如这个](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)。</ul> 
+>     
+>     更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息, 请参阅: 遥控器发射机&接收器 </0 >。</p> 
+>     
+>     ## 数传电台（可选）
+>     
+>     遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
+>     
+>     机载端的无线数传模块应连接到 **TELEM1** 端口，如下所示 (如果连接到此端口, 则无需进一步配置)。 另一个匹配的地面端数传电台应该连接到您的地面站电脑或者移动设备上(通常是通过USB接口)。
+>     
+>     ![Pixhawk 4 Mini Telemetry](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_telemetry.png)
+>     
+>     ## SD卡（可选）
+>     
+>     SD卡通常是用来 [记录并分析飞行数据](../getting_started/flight_reporting.md). 将内存卡 (包含在套件中) 插入 *Pixhawk 4 Mini * 中，如下所示。
+>     
+>     ![Pixhawk 4 Mini SD Card](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_sdcard.png)
+>     
+>     > **Tip** 闪迪至尊 U3 32GB 是 [强烈推荐 ](https://dev.px4.io/en/log/logging.html#sd-cards)的 (开发人员指南)。
+>     
+>     ## 电机
+>     
+>     Motors/servos are connected to the **MAIN OUT** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). See [*Pixhawk 4 Mini* > Supported Platforms](../flight_controller/pixhawk4_mini.md#supportedplatforms) for more information.
+>     
+>     > 本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用（generic）”机架）。
+>     
+>     
 
 <span></span>
 
-    
-    > **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
-    
-    ## 其它外设
-    
-    The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
-    
-    ## 配置
-    
-    一般配置信息在以下内容中介绍：[Autopilot 配置](../config/README.md)。
-    
-    QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
-    
-    <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
-    
-    <!--## Detailed Wiring Infographic (Copter)
+>     
+>     > **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
+>     
+>     ## 其它外设
+>     
+>     The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+>     
+>     ## 配置
+>     
+>     一般配置信息在以下内容中介绍：[Autopilot 配置](../config/README.md)。
+>     
+>     QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+>     
+>     <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
+>     
+>     <!--## Detailed Wiring Infographic (Copter)
 
 ![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg) -->
-    
-    ## 更多信息
-    
-    - [*Pixhawk 4 Mini*](../flight_controller/pixhawk4_mini.md)
+>     
+>     ## 更多信息
+>     
+>     - [*Pixhawk 4 Mini*](../flight_controller/pixhawk4_mini.md)
