@@ -40,31 +40,31 @@
 
 注意一旦加速阶段结束，油门会达到设定值并且会保持这个值直到飞机飞到转换空速。
 
-#### Blending Airspeed
+#### 混合控制空速
 
 参数: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
 默认情况下，当空速接近转换控诉的时候，多旋翼的姿态控制会减弱，而固定翼的控制则会开始增加，直到转换完成。
 
-Disable blending by setting this parameter to 0 which will keep full multirotor control and zero fixed wing control until the transition occurs.
+把这个值设为0，在转换之前将完全使用多旋翼控制，完全不使用固定翼控制，直到转换完成。
 
-#### Transition Airspeed
+#### 转换空速
 
-Parameter: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
+参数: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
 
-This is the airspeed which, when reached, will trigger the transition out of multirotor mode into fixed wing mode. It is critical that you have properly calibrated your airspeed sensor. It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check FW\_AIRSPD\_MIN) as this is currently not checked.
+当达到这个空速的时候，飞机将会从多旋翼模式转换到固定翼模式。 把空速计调好是非常重要的。 你是否选择了一个高于你飞机失速速度（检查一下参数FW\_AIRSPD\_MIN）的转换空速也是非常重要的，因为这一点目前还没法自动检查。
 
 #### Fixed Wing Permanent Stabilisation
 
-Parameter: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
+参数: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
 
-Activating permanent stabilisation will result in fixed wing flight being stabilised by the autopilot at all times. As soon as a transition to fixed wing occurs it will be stabilised.
+打开永久稳定模式将会使固定翼一直在自稳模式下飞行。 只要转换到固定翼模式，他就会自动自稳。
 
-Note that if you have not yet tuned your fixed wing mode you should leave this off until you are sure it behaves well in this mode.
+注意如果你还没有调过你的固定翼，你应该把这个模式关掉，直到你确定了你能在这种模式下飞得很好。
 
-### Transitioning Tips {#transitioning_tips.sectionedit9}
+### 过渡模式小提示 {#transitioning_tips.sectionedit9}
 
-As already mentioned make sure you have a well tuned multirotor mode. If during a transition something goes wrong you will switch back to this mode and it should be quite smooth.
+正如之前已经说过的，确保你的多旋翼模式已经调好了。 If during a transition something goes wrong you will switch back to this mode and it should be quite smooth.
 
 Before you fly have a plan for what you will do in each of the three phases (multirotor, transition, fixed wing) when you are in any of them and something goes wrong.
 
