@@ -1,14 +1,14 @@
-# QuadPlane VTOL Configuration & Tuning
+# 垂直起降固定翼配置 & 调参
 
-This is the configuration documentation for a QuadPlane VTOL setup (Plane combined with Quadcopter). For airframe specific documentation and build instructions see [VTOL Framebuilds](../frames_vtol/README.md).
+这是一份垂直起降固定翼飞行器的的配置文档（固定翼+四旋翼）。 对于具体的机型和构建指南请看[VTOL Framebuilds](../frames_vtol/README.md)。
 
-## Firmware & Basic Settings
+## 固件 & 基础设置
 
-1. Run *QGroundControl*
-2. Flash the master firmware
-3. In the Setup tab select the appropriate VTOL airframe, if your airframe is not listed select the Fun Cub VTOL airframe. 
+1. 运行 *QGroundControl*
+2. 刷固件
+3. 再启动界面选择合适的VTOL机型，如果你的机型没有列出的话，请选择Fun Cub VTOL机型。 
 
-### Flight / Transition Mode Switch
+### 飞行模式/模式转换
 
 In *QGroundControl* assign a switch of your remote to the transition function during the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
 
