@@ -90,15 +90,15 @@
 
 当你后转换到多旋翼模式时让你的飞机以一种直线水平的方式飞行并且减小它的速度，按下转换开关，他就会立刻开启所有的多旋翼电机并且关掉固定翼电机，这个转换应该是很顺滑的。
 
-Consider that the throttle value you have when you transition will command the amount of thrust your multirotor has at the moment of the switch. Because the wing will still be flying you’ll find you have plenty of time to adjust your throttle to achieve/hold a hover.
+Consider that the throttle value you have when you transition will command the amount of thrust your multirotor has at the moment of the switch. 由于飞机仍然在飞，你会发现你有很多时间来把飞机调整到悬停。
 
-For advanced tuning of the back-transition please refer to the [Back-transition Tuning Guide](vtol_back_transition_tuning.md)
+对于更多得后转换配置，请看 [后转换调参指南](vtol_back_transition_tuning.md)
 
-#### Aborting a Transition {#aborting_a_transition}
+#### 紧急切出过渡模式 {#aborting_a_transition}
 
-It’s important to know what to expect when you revert a transition command *during* a transition.
+知道如何在过渡模式的 * 过程中 * 改出过渡模式是很重要的。
 
-When transitioning from **multirotor to fixed wing** (transition switch is on/fixed wing) then reverting the switch back (off/multirotor position) *before* the transition happens it will immediately return to multirotor mode.
+当你正在进行**多旋翼到固定翼模式** 的过渡(过渡按钮正在固定翼模式下) ，那么只要把过渡按钮打回去(关闭/四旋翼模式) 在过渡完成*之前*，它就会立刻回到多旋翼模式。
 
 When transitioning from **fixed wing to multirotor** for this type of VTOL the switch is immediate so there isn’t really a backing out option here, unlike for tilt rotor VTOLs. If you want it to go back into fixed wing you will need to go through the full transition. If it’s still travelling fast this should happen quickly.
 
