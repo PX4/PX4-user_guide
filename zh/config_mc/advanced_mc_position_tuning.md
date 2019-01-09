@@ -69,12 +69,12 @@ The jerk-parameter controls the rate limit with which the acceleration limit can
 
 ![Mission Logic](../../images/autologic.png)
 
-$$\mathbf{wp}_{prev}$$ is the previous waypoint that either was already passed or is the position at the time when the new target waypoint was received, but no previous waypoint provided.
+$$\mathbf{wp}_{prev}$$ 是上一个目标航点，如果没有上一个目标航点，那就是收到第一个航点时飞行器的位置。
 
-The setpoint during line tracking can be split into two components:
+追踪航线过程中的设定点可以分为两部分：
 
 - position setpoint $$\mathbf{p}_{sp}$$: it is the pose on the track closest to vehicle position 
-- velocity setpoint $$\mathbf{v}_{cruise}$$: it the desired velocity along the track
+- 速度设定值 $$\mathbf{v}_{cruise}$$: 在追踪期间的期望速度。
 
 The cruise speed of $$\mathbf{v}*{cruise}$$ is by default [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE). However, if the target waypoint (red circle) is close to the previous waypoint, the cruise speed will be adjusted accordingly. To reach the cruise speed, $$\mathbf{v}*{cruise}$$ will accelerate with `MPC_ACC_HOR`.
 
