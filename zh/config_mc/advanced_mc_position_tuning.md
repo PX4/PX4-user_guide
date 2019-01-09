@@ -1,4 +1,4 @@
-# 高级版多旋翼位置控制调校
+# 高级多旋翼位置控制调校
 
 本文档概述了 影响期望设定值的多旋翼位置控制调整参数（与影响车辆跟踪设定点精度的的参数形成对比）
 
@@ -46,7 +46,7 @@ P/PID控制器的输入是飞行器尝试跟踪的*期望设定值<0>。 [PID调
 
 摇杆满输入时，速度设定值不会直接从`0 m/s`变到`4 m/s`(即阶跃输入)，而是根据参数`MPC_ACC_HOR`的斜率渐变。 然而，飞行器的实际速度不会完美地跟上设定值，而是会稍微滞后。 `MPC_ACC_HOR`的值越大，这个滞后就会越明显。
 
-![Slewrate Reset](../../images/slewrate_reset.svg)
+![转向速度重设](../../images/slewrate_reset.svg)
 
 如果没有复位(如顶部图示)，在停止指令的时刻(摇杆输入等于0)，速度设定值将以` MPC_ACC_HOR_MAX `给出的最大速率下降。 由于滞后，飞机将首先在停止指令之前的方向上继续加速，然后缓慢减速至零。 通过将速度设定点重置为当前速度，可以克服在停止指令期间的滞后引起的延迟。
 
@@ -61,26 +61,26 @@ P/PID控制器的输入是飞行器尝试跟踪的*期望设定值<0>。 [PID调
 
 这两个参数仅在从**速度控制</ 0>到**位置控制</ 0>的转换期间有效。 这两个参数的目的是让从前飞到悬停引入的加速度尽可能地小（请参阅 MPC_ACC_HOR和MPC_DEC_HOR_SLOW </ 0>）。</p> 
 
-The jerk-parameter controls the rate limit with which the acceleration limit can change to `MPC_ACC_HOR_MAX`. 实际的“刹车加速度”和飞行器刹车前的速度大小呈线性关系。 最大速度映射到[MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) 而最小速度映射到 [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN)。 你可以通过把 `MPC_JERK_MAX`设的比`MPC_JERK_MIN`更小来关掉“平滑刹车”。
+这一类的加速度参数 通过控制最大加速度`MPC_ACC_HOR_MAX`来控制最大速度。 实际的“刹车加速度”和飞行器刹车前的速度大小呈线性关系。 最大速度映射到[MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) 而最小速度映射到 [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN)。 你可以通过把 `MPC_JERK_MAX`设的比`MPC_JERK_MIN`更小来关掉“平滑刹车”。
 
 ## 任务模式 {#mission_mode}
 
 在[任务模式](../flight_modes/mission.md) 中飞行器总会从上一个航点直线行驶到当前的目标航点。
 
-![Mission Logic](../../images/autologic.png)
+![任务逻辑](../../images/autologic.png)
 
 $$\mathbf{wp}_{prev}$$ 是上一个目标航点，如果没有上一个目标航点，那就是收到第一个航点时飞行器的位置。
 
 追踪航线过程中的设定点可以分为两部分：
 
-- position setpoint $$\mathbf{p}_{sp}$$: it is the pose on the track closest to vehicle position 
+- 位置设定值 $$\mathbf{p}_{sp}$$: 距离飞行器最近的航线上的点。 
 - 速度设定值 $$\mathbf{v}_{cruise}$$: 在追踪期间的期望速度。
 
-巡航速度 $$\mathbf{v}*{cruise}$$ 的默认设定为 [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)。 然而，如果目标航点（小红圈）离前一个航点很近的话，巡航速度也会相应地进行调整。 To reach the cruise speed, $$\mathbf{v}*{cruise}$$ will accelerate with `MPC_ACC_HOR`.
+巡航速度 $$\mathbf{v}*{cruise}$$ 的默认设定为 [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)。 然而，如果目标航点（小红圈）离前一个航点很近的话，巡航速度也会相应地进行调整。 为了到达巡航速度$$\mathbf{v}*{cruise}$$ ，飞行器会以加速度`MPC_ACC_HOR`进行加速。
 
 当飞行器距离目标航点还有 `1.5 x MPC_XY_CRUISE` 的时候, 飞行器会减速到一个特定的速度（该速度取决于转折角度$$\alpha$$）。 用于计算这个特定速度的函数是一个指数函数。 $$a \times b^{x} + c$$:
 
-![Speed Angle](../../images/speed_from_angle.png)
+![速度 角度](../../images/speed_from_angle.png)
 
 在角度为 `180 度`的时候，对应从上一个航点$$\mathbf{wp}*{prev}$$ 到下一个航点之间的线段上$$\mathbf{wp}*{next}$$ 有一个目标航点的情况，在这个目标航点的速度就会是 `MPC_XY_CRUISE`。 角度是 `0 度`，对应于下一个航点$$\mathbf{wp}*{next}$$ 在上一个航点$$\mathbf{wp}*{prev}$$和当前目标航点组成的线段上，这种情况下目标速度就会被设为最小速度`1 m/s`. 如果角度是 `90 degrees`，那么目标速度就会被设为 [MPC_CRUISE_90](../advanced_config/parameter_reference.md#MPC_CRUISE_90)。 所有其他可能的角度也都会通过这个指数函数来映射到一个特定的速度。 如果当前没有收到下一个航点 $$\mathbf{wp}_{next}$$ ，那么飞行器的速度就会将巡航速度减小到零。
 
