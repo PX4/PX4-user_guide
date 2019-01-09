@@ -76,9 +76,9 @@ $$\mathbf{wp}_{prev}$$ 是上一个目标航点，如果没有上一个目标航
 - position setpoint $$\mathbf{p}_{sp}$$: it is the pose on the track closest to vehicle position 
 - 速度设定值 $$\mathbf{v}_{cruise}$$: 在追踪期间的期望速度。
 
-The cruise speed of $$\mathbf{v}*{cruise}$$ is by default [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE). However, if the target waypoint (red circle) is close to the previous waypoint, the cruise speed will be adjusted accordingly. To reach the cruise speed, $$\mathbf{v}*{cruise}$$ will accelerate with `MPC_ACC_HOR`.
+巡航速度 $$\mathbf{v}*{cruise}$$ 的默认设定为 [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)。 然而，如果目标航点（小红圈）离前一个航点很近的话，巡航速度也会相应地进行调整。 To reach the cruise speed, $$\mathbf{v}*{cruise}$$ will accelerate with `MPC_ACC_HOR`.
 
-When the vehicle is `1.5 x MPC_XY_CRUISE` in front of the target waypoint, the vehicle will start to decelerate to a target speed that depends on the angle $$\alpha$$. The function used for the mapping from angle to target speed is an exponential function of the form $$a \times b^{x} + c$$:
+当飞行器距离目标航点还有 `1.5 x MPC_XY_CRUISE` 的时候, 飞行器会减速到一个特定的速度（该速度取决于角度$$\alpha$$）。 用于计算这个特定速度的函数是一个指数函数。 $$a \times b^{x} + c$$:
 
 ![Speed Angle](../../images/speed_from_angle.png)
 
