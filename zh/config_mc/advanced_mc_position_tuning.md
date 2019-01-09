@@ -84,6 +84,6 @@ $$\mathbf{wp}_{prev}$$ 是上一个目标航点，如果没有上一个目标航
 
 在角度为 `180 度`的时候，对应从上一个航点$$\mathbf{wp}*{prev}$$ 到下一个航点之间的线段上$$\mathbf{wp}*{next}$$ 有一个目标航点的情况，在这个目标航点的速度就会是 `MPC_XY_CRUISE`。 角度是 `0 度`，对应于下一个航点$$\mathbf{wp}*{next}$$ 在上一个航点$$\mathbf{wp}*{prev}$$和当前目标航点组成的线段上，这种情况下目标速度就会被设为最小速度`1 m/s`. 如果角度是 `90 degrees`，那么目标速度就会被设为 [MPC_CRUISE_90](../advanced_config/parameter_reference.md#MPC_CRUISE_90)。 所有其他可能的角度也都会通过这个指数函数来映射到一个特定的速度。 如果当前没有收到下一个航点 $$\mathbf{wp}_{next}$$ ，那么飞行器的速度就会将巡航速度减小到零。
 
-A target waypoint is considered reached once the vehicle is within the acceptance radius $$r_{rad}$$ that is parametrized by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD).
+只有当飞行器的位置小于可达半径$$r_{rad}$$时，飞行器才会往目标航点飞（最大可达半径可以通过调参数[NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)来调整。）
 
-In addition, the vehicle also has to reach the desired altitude (threshold [NAV_MC_ALT_RAD](../advanced_config/parameter_reference.md#NAV_MC_ALT_RAD)) and the desired yaw (threshold [MIS_YAW_ERR](../advanced_config/parameter_reference.md#MIS_YAW_ERR)). Once the vehicle enters that circle, the waypoints will update. $$\mathbf{wp}*{next}$$ will become the new target waypoint, $$\mathbf{wp}*{prev}$$ will assume the old target waypoint and a new $$\mathbf{wp}_{next}$$ will be added.
+除此之外，飞行器 必须要到达设定的高度（阈值[NAV_MC_ALT_RAD](../advanced_config/parameter_reference.md#NAV_MC_ALT_RAD)）和正确的偏航(阈值 [MIS_YAW_ERR](../advanced_config/parameter_reference.md#MIS_YAW_ERR)). 一旦飞行器进入代表航点的小圈圈，航点就会更新。 $$\mathbf{wp}*{next}$$会变成新的目标航点， $$\mathbf{wp}*{prev}$$ 会被设为刚刚达到的那个航点。同时还会把新的$$\mathbf{wp}_{next}$$ 加进来。
