@@ -64,21 +64,21 @@
 
 ### 过渡模式小提示 {#transitioning_tips.sectionedit9}
 
-正如之前已经说过的，确保你的多旋翼模式已经调好了。 If during a transition something goes wrong you will switch back to this mode and it should be quite smooth.
+正如之前已经说过的，确保你的多旋翼模式已经调好了。 如果在转换的时候出了一些问题，你可以调回多旋翼模式，转换应该是很顺滑的。
 
-Before you fly have a plan for what you will do in each of the three phases (multirotor, transition, fixed wing) when you are in any of them and something goes wrong.
+在飞行之前制定以下计划：在多旋翼、过渡、固定翼三个模式下，如果出了问题你该怎么办。
 
-Battery levels: leave enough margin for a multirotor transition for landing at the end of your flight. Don’t run your batteries too low as you will need more power in multirotor mode to land. Be conservative.
+电池电量：给多旋翼模式留足够的着陆电量。 别把电池电量用得太低，因为你在多旋翼模式下会需要更多的能量来着陆。 稳住，不要浪。
 
-#### Transition: Getting Ready
+#### 过渡模式：
 
-Make sure you are at least 20 meters above ground and have enough room to complete a transition. It could be that your VTOL will lose height when it switches to fixed wing mode, especially if the airspeed isn’t high enough.
+确保你离地面至少有20米高，并且有足够的空间来完成本次转换。 你的垂起固定翼在过渡阶段很可能会掉高，尤其是如果空速不够大的话。
 
-Transition into the wind, whenever possible otherwise it will travel further from you before it transitions.
+如果有条件的话，尽量迎风进行转换，否则它在转换之前可能会飘得很远。
 
-Make sure the VTOL is in a stable hover before you start the transition.
+确保你的垂起固定翼在开始转换之前悬停得很稳。
 
-#### Transition: Multirotor to Fixed Wing (Front-transition)
+#### 过渡：从多旋翼过渡到固定翼模式（前过渡）
 
 Start your transition. It should transition within 50 – 100 meters. If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. Try increasing the transition throttle (`VT_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`).
 
