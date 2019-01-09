@@ -10,15 +10,15 @@
 
 ### 飞行模式/模式转换
 
-In *QGroundControl* assign a switch of your remote to the transition function during the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
+在 *QGroundControl* 地面站中在进行RC遥控器校准的时候给你的遥控器设置一个四旋翼-固定翼模式转换按钮，或者通过调整参数 [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW)来设置这个按钮也行。
 
-This allows you to switch between the multicopter- and fixed wing mode. The switch in the off-position means that you are flying in multicopter mode.
+这个按钮可以让你在固定翼和多旋翼两个模式进行切换。 这个按钮在关闭的时候是多旋翼模式。
 
-### Multirotor / Fixed Wing Tuning
+### 多旋翼/固定翼调参
 
-Before you attempt your first transition to fixed wing flight you need to make absolutely sure that your VTOL is well tuned in multirotor mode. One reason is this is the mode you will return to if something goes wrong with a transition and it could be it will be moving fairly quickly already. If it isn’t well tuned bad things might happen.
+在你尝试着第一次从多旋翼模式转换到固定翼模式之前，你需要先确保你的VTOL飞机在多旋翼模式已经调好了。 这样做的原因之一是，如果转换出了问题 ，它可以安全地以多旋翼模式返航。 如果你多旋翼模式没调好的话，可能会炸机。
 
-If you have a runway available and the total weight isn’t too high you will also want to tune fixed wing flight as well. If not then you will be attempting this when it switches to fixed wing mode. If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
+如果你有跑道并且起飞重量不是太大的话，你最好也把固定翼模式调好。 如果你还没调好的话，你可以把它调到固定翼模式来搞这个。 如果出了什么问题，你要随时准备切换回多旋翼模式。
 
 Follow the the respective tuning guides on how to tune multirotors and fixed wings.
 
