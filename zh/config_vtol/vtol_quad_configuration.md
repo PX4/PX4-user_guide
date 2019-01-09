@@ -26,25 +26,25 @@
 
 尽管你看起来好像是在玩一个可以在两种模式下飞行的飞机（多旋翼模式起降、固定翼模式前飞），但实际上你还有一个中间状态要调整：转换状态。 把转换模式调好对于安全地切入固定翼模式是很重要的，举个例子，如果你的空速太低的话在转换时飞机有可能会失速。
 
-#### 转换油门
+#### 过渡阶段油门
 
 参数: [VT_TRANS_THR](../advanced_config/parameter_reference.md#VT_TRANS_THR)
 
-转换油门定义了在转换过程中的最大油门。 这个值不要设的太低，否则你可能会永远达不到转换空速。 如果你把这个值设得太高的话，飞机可能会使用比你预计的更多的能量。 对于你的第一次转换来说，这个值高了要比低了好。
+过渡油门定义了在过渡过程中的最大油门。 这个值不要设的太低，否则你可能会永远达不到转换空速。 如果你把这个值设得太高的话，飞机可能会使用比你预计的更多的能量。 对于你的第一次模式切换来说，这个值高了要比低了好。
 
 #### 前转换时间
 
 参数: [VT_F_TRANS_DUR](../advanced_config/parameter_reference.md#VT_F_TRANS_DUR)
 
-前转换指的是从多旋翼模式转换到固定翼模式。 This is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_TRANS_THR`). A value of 0 will result in commanding the transition throttle value being set immediately. If you wish to smooth the throttling up you can increase this to a larger value, such as 3.
+前转换指的是从多旋翼模式转换到固定翼模式。 这个参数是你从转换到到达最大油门所用的秒数。（用 `VT_TRANS_THR`来定义） 设为0意味着转换时的油门立刻达到设定值。 如果你希望这个过程平滑一点的话你可以设一个大一点的值，比如说3.
 
-Note that once the ramp up period ends throttle will be at its target setting and will remain there until (hopefully) the transition speed is reached.
+注意一旦加速阶段结束，油门会达到设定值并且会保持这个值直到飞机飞到转换空速。
 
 #### Blending Airspeed
 
-Parameter: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
+参数: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
-By default, as the airspeed gets close to the transition speed, multirotor attitude control will be reduced and fixed wing control will start increasing continuously until the transition occurs.
+默认情况下，当空速接近转换控诉的时候，多旋翼的姿态控制会减弱，而固定翼的控制则会开始增加，直到转换完成。
 
 Disable blending by setting this parameter to 0 which will keep full multirotor control and zero fixed wing control until the transition occurs.
 
