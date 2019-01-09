@@ -78,11 +78,11 @@ $$\mathbf{wp}_{prev}$$ 是上一个目标航点，如果没有上一个目标航
 
 巡航速度 $$\mathbf{v}*{cruise}$$ 的默认设定为 [MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)。 然而，如果目标航点（小红圈）离前一个航点很近的话，巡航速度也会相应地进行调整。 To reach the cruise speed, $$\mathbf{v}*{cruise}$$ will accelerate with `MPC_ACC_HOR`.
 
-当飞行器距离目标航点还有 `1.5 x MPC_XY_CRUISE` 的时候, 飞行器会减速到一个特定的速度（该速度取决于角度$$\alpha$$）。 用于计算这个特定速度的函数是一个指数函数。 $$a \times b^{x} + c$$:
+当飞行器距离目标航点还有 `1.5 x MPC_XY_CRUISE` 的时候, 飞行器会减速到一个特定的速度（该速度取决于转折角度$$\alpha$$）。 用于计算这个特定速度的函数是一个指数函数。 $$a \times b^{x} + c$$:
 
 ![Speed Angle](../../images/speed_from_angle.png)
 
-在角度为 `180 度`的时候，对应从上一个航点$$\mathbf{wp}*{prev}$$ 到下一个航点之间的线段上$$\mathbf{wp}*{next}$$ 有一个目标航点的情况，在这个目标航点的速度就会是 `MPC_XY_CRUISE`。 If the angle is `0 degrees`, which corresponds to having $$\mathbf{wp}*{next}$$ on the line $$\mathbf{wp}*{prev}$$ to target waypoint, then the target speed is set to a minimum speed of `1 m/s`. If the angle is `90 degrees`, the target speed is set to [MPC_CRUISE_90](../advanced_config/parameter_reference.md#MPC_CRUISE_90). All other possible angles are mapped to the target speed from the same exponential function. If there is no $$\mathbf{wp}_{next}$$ present, then the vehicle will just decelerate to zero cruise speed.
+在角度为 `180 度`的时候，对应从上一个航点$$\mathbf{wp}*{prev}$$ 到下一个航点之间的线段上$$\mathbf{wp}*{next}$$ 有一个目标航点的情况，在这个目标航点的速度就会是 `MPC_XY_CRUISE`。 角度是 `0 度`，对应于下一个航点$$\mathbf{wp}*{next}$$ 在上一个航点$$\mathbf{wp}*{prev}$$和当前目标航点组成的线段上，这种情况下目标速度就会被设为最小速度`1 m/s`. 如果角度是 `90 degrees`，那么目标速度就会被设为 [MPC_CRUISE_90](../advanced_config/parameter_reference.md#MPC_CRUISE_90)。 所有其他可能的角度也都会通过这个指数函数来映射到一个特定的速度。 如果当前没有收到下一个航点 $$\mathbf{wp}_{next}$$ ，那么飞行器的速度就会将巡航速度减小到零。
 
 A target waypoint is considered reached once the vehicle is within the acceptance radius $$r_{rad}$$ that is parametrized by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD).
 
