@@ -80,15 +80,15 @@
 
 #### 过渡：从多旋翼过渡到固定翼模式（前过渡）
 
-Start your transition. It should transition within 50 – 100 meters. If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. Try increasing the transition throttle (`VT_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`).
+开始你的过渡。 飞机应该在50~100m之间进行过渡。 如果感觉飞机飞的不太稳的话，就放弃这次过渡然后着陆或者飞回初始点悬停然后着陆。 试着增加过渡油门(`VT_TRANS_THR`). 同时你还应该减少过渡时间(`VT_F_TRANS_DUR`).
 
-As soon as you notice the transition happen be ready to handle height loss which may include throttling up quickly.
+一旦你看到转换开始进行了，要准备处理掉高和迅速增大的油门。
 
-> **Caution** The following feature has been discussed but not implemented yet: Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
+> **Caution** 我们讨论了以下的特性，但是具体代码还没搞： 在转换时，多旋翼电机将会停转，而固定翼电机将会保持`VT_TRANS_THR` 不变，直到你移动油门杆（这里假设你在手动模式下。）
 
-#### Transition: Fixed Wing to Multirotor (Back-transition)
+#### 过渡：从固定翼模式过渡到多旋翼模式（后转换）
 
-When you transition back to multirotor mode bring your aircraft in on a straight level approach and reduce its speed, flip the transition switch and it will start the multirotor motors and stop the pusher/puller prop immediately and should result in a fairly smooth gliding transition.
+当你后转换到多旋翼模式时让你的飞机以一种直线水平的方式飞行并且减小它的速度，按下转换开关，他就会立刻开启所有的多旋翼电机并且关掉固定翼电机，这个转换应该是很顺滑的。
 
 Consider that the throttle value you have when you transition will command the amount of thrust your multirotor has at the moment of the switch. Because the wing will still be flying you’ll find you have plenty of time to adjust your throttle to achieve/hold a hover.
 
