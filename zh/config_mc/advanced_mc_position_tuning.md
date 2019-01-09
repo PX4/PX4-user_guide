@@ -82,7 +82,7 @@ $$\mathbf{wp}_{prev}$$ 是上一个目标航点，如果没有上一个目标航
 
 ![Speed Angle](../../images/speed_from_angle.png)
 
-At an angle of `180 degrees`, which corresponds to a straight line from $$\mathbf{wp}*{prev}$$ to $$\mathbf{wp}*{next}$$ with the target waypoint somewhere in between, the target speed at the target waypoint will be `MPC_XY_CRUISE`. If the angle is `0 degrees`, which corresponds to having $$\mathbf{wp}*{next}$$ on the line $$\mathbf{wp}*{prev}$$ to target waypoint, then the target speed is set to a minimum speed of `1 m/s`. If the angle is `90 degrees`, the target speed is set to [MPC_CRUISE_90](../advanced_config/parameter_reference.md#MPC_CRUISE_90). All other possible angles are mapped to the target speed from the same exponential function. If there is no $$\mathbf{wp}_{next}$$ present, then the vehicle will just decelerate to zero cruise speed.
+在角度为 `180 度`的时候，对应从上一个航点$$\mathbf{wp}*{prev}$$ 到下一个航点之间的线段上$$\mathbf{wp}*{next}$$ 有一个目标航点的情况，在这个目标航点的速度就会是 `MPC_XY_CRUISE`。 If the angle is `0 degrees`, which corresponds to having $$\mathbf{wp}*{next}$$ on the line $$\mathbf{wp}*{prev}$$ to target waypoint, then the target speed is set to a minimum speed of `1 m/s`. If the angle is `90 degrees`, the target speed is set to [MPC_CRUISE_90](../advanced_config/parameter_reference.md#MPC_CRUISE_90). All other possible angles are mapped to the target speed from the same exponential function. If there is no $$\mathbf{wp}_{next}$$ present, then the vehicle will just decelerate to zero cruise speed.
 
 A target waypoint is considered reached once the vehicle is within the acceptance radius $$r_{rad}$$ that is parametrized by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD).
 
