@@ -61,11 +61,11 @@ P/PID控制器的输入是飞行器尝试跟踪的*期望设定值<0>。 [PID调
 
 这两个参数仅在从**速度控制</ 0>到**位置控制</ 0>的转换期间有效。 这两个参数的目的是让从前飞到悬停引入的加速度尽可能地小（请参阅 MPC_ACC_HOR和MPC_DEC_HOR_SLOW </ 0>）。</p> 
 
-The jerk-parameter controls the rate limit with which the acceleration limit can change to `MPC_ACC_HOR_MAX`. 实际的“刹车加速度”和飞行器刹车前的速度大小呈线性关系。 最大速度映射到[MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) 而最小速度映射到 [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN)。 The smoothing can be turned off by setting `MPC_JERK_MAX` to a value smaller than `MPC_JERK_MIN`.
+The jerk-parameter controls the rate limit with which the acceleration limit can change to `MPC_ACC_HOR_MAX`. 实际的“刹车加速度”和飞行器刹车前的速度大小呈线性关系。 最大速度映射到[MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) 而最小速度映射到 [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN)。 你可以通过把 `MPC_JERK_MAX`设的比`MPC_JERK_MIN`更小来关掉“平滑刹车”。
 
-## Mission Mode {#mission_mode}
+## 任务模式 {#mission_mode}
 
-In [Mission](../flight_modes/mission.md) mode the vehicle always follows a straight line from the previous waypoint to the current target.
+在[任务模式](../flight_modes/mission.md) 中飞行器总会从上一个航点直线行驶到当前的目标航点。
 
 ![Mission Logic](../../images/autologic.png)
 
