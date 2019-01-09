@@ -20,23 +20,23 @@
 
 如果你有跑道并且起飞重量不是太大的话，你最好也把固定翼模式调好。 如果你还没调好的话，你可以把它调到固定翼模式来搞这个。 如果出了什么问题，你要随时准备切换回多旋翼模式。
 
-Follow the the respective tuning guides on how to tune multirotors and fixed wings.
+请遵循固定翼和多旋翼的调参指南分别把两种模式的参数调好。
 
-### Transition Tuning
+### 转换调参
 
-While it might seem that you are dealing with a vehicle that can fly in two modes (multirotor for vertical takeoffs and landings and fixed wing for forwards flight) there is an additional state you also need to tune: transition. Getting your transition tuning right is important for obtaining a safe entry into fixed wing mode, for example, if your airspeed is too slow when it transitions it might stall.
+尽管你看起来好像是在玩一个可以在两种模式下飞行的飞机（多旋翼模式起降、固定翼模式前飞），但实际上你还有一个中间状态要调整：转换状态。 把转换模式调好对于安全地切入固定翼模式是很重要的，举个例子，如果你的空速太低的话在转换时飞机有可能会失速。
 
-#### Transition Throttle
+#### 转换油门
 
-Parameter: [VT_TRANS_THR](../advanced_config/parameter_reference.md#VT_TRANS_THR)
+参数: [VT_TRANS_THR](../advanced_config/parameter_reference.md#VT_TRANS_THR)
 
-Transition throttle defines the maximum throttle to use during the transition. Don’t set this too low otherwise you will never reach the transition airspeed. If you set it too high it will just use more power than you may want. For your first transition you are better off higher than lower here.
+转换油门定义了在转换过程中的最大油门。 这个值不要设的太低，否则你可能会永远达不到转换空速。 如果你把这个值设得太高的话，飞机可能会使用比你预计的更多的能量。 对于你的第一次转换来说，这个值高了要比低了好。
 
-#### Forward Transition Duration
+#### 前转换时间
 
-Parameter: [VT_F_TRANS_DUR](../advanced_config/parameter_reference.md#VT_F_TRANS_DUR)
+参数: [VT_F_TRANS_DUR](../advanced_config/parameter_reference.md#VT_F_TRANS_DUR)
 
-A forward transition refers to the transition from multirotor to fixed wing mode. This is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_TRANS_THR`). A value of 0 will result in commanding the transition throttle value being set immediately. If you wish to smooth the throttling up you can increase this to a larger value, such as 3.
+前转换指的是从多旋翼模式转换到固定翼模式。 This is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_TRANS_THR`). A value of 0 will result in commanding the transition throttle value being set immediately. If you wish to smooth the throttling up you can increase this to a larger value, such as 3.
 
 Note that once the ramp up period ends throttle will be at its target setting and will remain there until (hopefully) the transition speed is reached.
 
