@@ -20,24 +20,24 @@
     
     > ** 警告 **切勿进行 ESC 校准将螺旋桨装上。
     > 
-    > The motors should not spin during ESC calibration. However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
+    > ESC校准期间电机不应旋转 但是，如果ESC没有正确的进入校准程序，它将通过以最大的速度运行电机来响应pwm输入。
 
 2. 断开电池并 (仅仅) 通过 USB 连接飞行控制器。
 
 3. 打开 * QGroundControl * ** Settings > Power**, 然后按 ** Calibrate** 按钮。
     
-    ![ESC Calibration step 1](../../images/qgc_esc_calibration.png)
+    ![ESC校准步骤1](../../images/qgc_esc_calibration.png)
 
 4. 在出现提示时连接电池:
     
-    ![ESC Calibration step 2](../../images/esc_calibration_step_2.png)
+    ![ESC校准步骤2](../../images/esc_calibration_step_2.png)
     
     校准将自动开始:
     
-    ![ESC Calibration step 3](../../images/esc_calibration_step_3.png)
+    ![ESC校准步骤3](../../images/esc_calibration_step_3.png)
 
 5. 校准完成后, 系统将提示您断开电池的连接。
     
-    ![ESC Calibration step 4](../../images/esc_calibration_step_4.png)
+    ![ESC校准步骤4](../../images/esc_calibration_step_4.png)
 
 > ** 注意 **高品质的ESC在出厂时就已经被校准过。 *按理说*，这意味着这些ESC可以仅通过设置 [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)，[PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX)参数来进行配置，这些参数在 ESC technical specification 中提供。 实际上，高品质的飞控也存在着不同的输入范围，因此我们推荐再次校准。
