@@ -10,17 +10,17 @@
 
 ## 操作前提
 
-系统必须包括一个电源模块 (PX4 使用测量过的电压来确定电池是否连接)。
+系统必须包括一个电源模块（PX4 使用测量过的电压来确定电池是否连接）。
 
 ## 步骤
 
-校准 ESCs:
+校准电调：
 
 1. 卸下螺旋桨。
     
-    > ** 警告 **切勿进行 ESC 校准将螺旋桨装上。
+    > **Warning** 切勿进行电调校准时将螺旋桨装上。
     > 
-    > ESC校准期间电机不应旋转 但是，如果ESC没有正确的进入校准程序，它将通过以最大的速度运行电机来响应pwm输入。
+    > 电调校准期间电机不应旋转。 但是，如果ESC没有正确的进入校准程序，它将通过以最大的速度运行电机来响应pwm输入。
 
 2. 断开电池并 (仅仅) 通过 USB 连接飞行控制器。
 
@@ -40,4 +40,4 @@
     
     ![ESC校准步骤4](../../images/esc_calibration_step_4.png)
 
-> ** 注意 **高品质的ESC在出厂时就已经被校准过。 *按理说*，这意味着这些ESC可以仅通过设置 [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)，[PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX)参数来进行配置，这些参数在 ESC technical specification 中提供。 实际上，高品质的飞控也存在着不同的输入范围，因此我们推荐再次校准。
+> **Note** 高品质的ESC在出厂时就已经被校准过。 *按理说*，这意味着这些ESC可以仅通过设置 [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)，[PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX)参数来进行配置，这些参数在 ESC technical specification 中提供。 实际上，高品质的飞控也存在着不同的输入范围，因此我们推荐再次校准。
