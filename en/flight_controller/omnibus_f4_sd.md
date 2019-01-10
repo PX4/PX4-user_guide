@@ -171,12 +171,19 @@ Instructions for this are provided in the [TBS Crossfire Manual](https://www.tea
 
 The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
-## Build & Upload Instructions
+## Build & Upload Instructions{#upload}
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). 
-Before PX4 firmware can be installed, the PX4 bootloader needs to be built and uploaded.
+Before the PX4 firmware can be installed, the PX4 bootloader needs to be flashed.
 
-### Download
+There are two options for flashing the bootloader, via Betaflight Configuator (easier), or building from source (guaranteed to work).
+
+### Via Betaflight Configurator
+First download the pre-built bootloader binary [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex).
+Then flash it via Betaflight Configurator.
+
+### From Source
+#### Download
 
 Download and build the [Bootloader](https://github.com/PX4/Bootloader) via:
 ```
@@ -185,17 +192,17 @@ cd Bootloader
 make omnibusf4sd_bl
 ```
 
-### Flash
+#### Flash
 
 You can flash the PX4 bootloader via the [dfu-util](http://dfu-util.sourceforge.net/) or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) tool on windows.
 
 Don't be afraid to try flashing using any of the below methods. The STM32 MCU cannot be bricked. DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
 
-#### Enter DFU mode
+##### Enter DFU mode
 
 Both methods require the board to be in DFU mode. To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. The button can be released after the board is powered up.
 
-#### dfu-util
+##### dfu-util
 
 ```
 dfu-util -a 0 --dfuse-address 0x08000000 -D  build/omnibusf4sd_bl/omnibusf4sd_bl.bin
@@ -203,7 +210,7 @@ dfu-util -a 0 --dfuse-address 0x08000000 -D  build/omnibusf4sd_bl/omnibusf4sd_bl
 
 Reboot the flight controller and it let it boot without holding the boot button.
 
-#### dfuse
+##### dfuse
 
 See the dfuse manual is here: https://www.st.com/resource/en/user_manual/cd00155676.pdf
 
