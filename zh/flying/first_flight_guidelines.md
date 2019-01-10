@@ -1,18 +1,18 @@
-# First Flight Guidelines
+# 首次飞行指南
 
-[Learning to fly](../flying/basic_flying.md) is a lot of fun! These guidelines are designed to ensure that your first flight experience is enjoyable, educational, and safe.
+学习飞行 </0 > 是一个很大的乐趣! 这些指南旨在确保您的第一次飞行体验是愉快的、有教育意义的和安全的。</p> 
 
-## Select a Good Location
+## 选择合适的地点
 
-Selecting the right location for your first flight is critical. The main things to look for are:
+为您的第一次飞行选择正确的位置至关重要。 要注意的主要事项是:
 
-- Make sure the space is open. No high trees, hills or buildings next to it, because it will impair the GPS reception.
-- Make sure no people are within 100 m / 300 feet.
-- Make sure there is nothing that you shouldn't crash onto within 100 m / 300 feet: No houses, structures, cars, water, corn fields (hard to find drones in).
+- 确保空间是宽敞的。 周围没有高的树, 丘陵或建筑物, 因为它会影响 gps 接收。
+- 确保100米/300 英尺内没有人。
+- 确保周围（100米/300 英尺内）没有房子, 建筑, 汽车, 水域, 玉米地 (很难找到无人机)。
 
-## Bring a Pro
+## 带一个专家
 
-Bring someone with experience for your first flight. Get them to help you to run through the pre-flight checks and let them intervene if something goes wrong!
+在您的第一次飞行时，带一个有经验的人。 Get them to help you to run through the pre-flight checks and let them intervene if something goes wrong!
 
 ## Plan the Flight
 
