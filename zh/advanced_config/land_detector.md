@@ -4,7 +4,7 @@ The land detector is a dynamic vehicle model representing key vehicle states fro
 
 ## 自动加锁
 
-The land-detector does not auto-disarm the system on landing.
+着陆探测器在着陆时不会自动锁定电机。
 
 You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (auto-disarming is disabled if this is zero).
 
