@@ -1,4 +1,4 @@
-# 垂直起降固定翼配置 & 调参
+# QuadPlane VTOL 配置 & 调参
 
 这是一份垂直起降固定翼飞行器的的配置文档（固定翼+四旋翼）。 对于具体的机型和构建指南请看[VTOL Framebuilds](../frames_vtol/README.md)。
 
@@ -54,7 +54,7 @@
 
 当达到这个空速的时候，飞机将会从多旋翼模式转换到固定翼模式。 把空速计调好是非常重要的。 你是否选择了一个高于你飞机失速速度（检查一下参数FW\_AIRSPD\_MIN）的转换空速也是非常重要的，因为这一点目前还没法自动检查。
 
-#### Fixed Wing Permanent Stabilisation
+#### 固定翼永久稳定模式
 
 参数: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
 
