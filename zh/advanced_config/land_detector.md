@@ -20,29 +20,29 @@ The land detector is a dynamic vehicle model representing key vehicle states fro
     
     > **Note**不正确地设置 `MPC_THR_HOVER` 可能会导致飞行器停留在地面或在空中时产生不正确的降落检测 (特别是飞行器在 [Position mode](../flight_modes/position_mc.md) 或 [Altitude mode](../flight_modes/altitude_mc.md) 下降时)。 这将导致载具 "抽搐" (关闭电机, 然后立即将其重新打开)。
 
-- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system. This should be set to enable a controlled descent.
+- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)-系统的全局最小油门。 这应被设置是飞行器能够被控制下降
 
 ## 固定翼配置
 
-The complete set of relevant parameters is available under the [LNDFW](../advanced_config/parameter_reference.md#land-detector) prefix. These two parameters are sometimes worth tuning:
+完整的相关参数集可在 [LNDFW](../advanced_config/parameter_reference.md#land-detector) 前缀下查阅。 这两个参数有时需要调整:
 
-- [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) - the maximum airspeed allowed for the system still to be considered landed. The default of 8 m/s is a reliable tradeoff between airspeed sensing accuracy and triggering fast enough. Better airspeed sensors should allow lower values of this parameter.
+- [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX)\----飞机降落时允许的最大空速。 默认值 8 m 时一个可靠的在空速传感器精度和足够快的触发速度之间的权衡。 越好的空速传感器允许此参数的值越低。
 - [LNDFW_VELI_MAX](../advanced_config/parameter_reference.md#LNDFW_VELI_MAX) - the maximum velocity for the system to be still considered landed. This parameter can be adjusted to ensure a sooner or later land detection on throwing the airframe for hand-launches.
 
-## Land Detector States {#states}
+## 地面探测器的状态 {#states}
 
-### Multicopter Land Detection
+### 多旋翼的地面检测
 
-In order to detect landing, the multicopter first has to go through three different states, where each state contains the conditions from the previous states plus tighter constraints. If a condition cannot be reached because of missing sensors, then the condition is true by default. For instance, in [Acro mode](../flight_modes/acro_mc.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time.
+为了检测着陆，多旋翼飞行器首先必须经历三种不同的状态，其中每个状态包含来自先前状态的条件加上更严格的约束。 如果由于缺少传感器而无法达到条件，则默认情况下该条件为真。 例如，在[ Acro模式 ](../flight_modes/acro_mc.md)中并且除了陀螺仪传感器之外没有传感器处于活动状态，则检测仅依赖于推力输出和时间。
 
-In order to proceed to the next state, each condition has to be true for some predefined time. If one condition fails, the land detector drops out of the current state immediately.
+为了进入下一个状态，每个条件必须在某个预定义的时间内为真。 如果一个条件失败，则陆地探测器立即退出当前状态。
 
 #### 地面接触
 
-This state is reached if following conditions are true for 0.35 seconds:
+如果以下条件在0.35秒以内为真，则达到此状态：
 
-- no vertical movement ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
-- no horizontal movement ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
+- 没有垂直运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
+- 没有水平运动 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
 - low thrust `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.3` or velocity setpoint is 0.9 of land speed but vehicle has no vertical movement.
 
 If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
