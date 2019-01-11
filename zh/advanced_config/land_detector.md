@@ -43,7 +43,7 @@ The land detector is a dynamic vehicle model representing key vehicle states fro
 
 - 没有垂直运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 没有水平运动 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
-- low thrust `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.3` or velocity setpoint is 0.9 of land speed but vehicle has no vertical movement.
+- 低推力 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.3` 或速度设定点是陆地速度的0.9但载具没有垂直运动。
 
 If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
 
