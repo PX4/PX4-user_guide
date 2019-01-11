@@ -517,7 +517,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>特定的输出：</b>
         
         <ul>
           <li>
