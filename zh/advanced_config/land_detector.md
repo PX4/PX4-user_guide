@@ -10,15 +10,15 @@ The land detector is a dynamic vehicle model representing key vehicle states fro
 
 ## 多旋翼配置
 
-The complete set of relevant landing detector parameters are listed in the parameter reference with the prefix [LNDMC](../advanced_config/parameter_reference.md#land-detector) (these can be edited in QGroundControl via the [parameter editor](../advanced_config/parameters.md)).
+完整的相关着陆检测器参数集在参数参考中列出，带有前缀 [LNDMC](../advanced_config/parameter_reference.md#land-detector) （可以通过参数[编辑器](../advanced_config/parameters.md)在QGroundControl中编辑这些参数）。
 
-> **Tip** Information about how the parameters affect landing can be found below in [Land Detector States](#states).
+> **Tip**有关参数如何影响着陆的信息, 请参阅下面的 [Land 检测器状态](#states)。
 
-Other key parameters that you may need to tune in order to improve landing behaviour on particular airframes are:
+为了改善特定机架上的着陆, 您可能需要调整的其他关键参数包括:
 
-- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - the hover throttle of the system (default is 50%). It is important to set this correctly as it makes altitude control more accurate and ensures correct land detection. A racer or a big camera drone without payload mounted might need a much lower setting (e.g. 35%).
+- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)-系统的悬停油门 (默认值为 50%)。 正确设置这一点是很重要的, 因为它使高度控制更加准确, 并确保正确的地面检测。 没有安装有效载荷的穿越机或大型相机的无人机可能需要更低的悬停油门 (例如 35%)。
     
-    > **Note** Incorrectly setting `MPC_THR_HOVER` may result in ground-contact or maybe-landed detection while still in air (in particular, while descending in [Position mode](../flight_modes/position_mc.md) or [Altitude mode](../flight_modes/altitude_mc.md)). This causes the vehicle to "twitch" (turn down the motors, and then immediately turn them back up).
+    > **Note**不正确地设置 `MPC_THR_HOVER` 可能会导致飞行器停留在地面或在空中时产生不正确的降落检测 (特别是飞行器在 [Position mode](../flight_modes/position_mc.md) 或 [Altitude mode](../flight_modes/altitude_mc.md) 下降时)。 这将导致载具 "抽搐" (关闭电机, 然后立即将其重新打开)。
 
 - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system. This should be set to enable a controlled descent.
 
