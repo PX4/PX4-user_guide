@@ -171,18 +171,26 @@ Instructions for this are provided in the [TBS Crossfire Manual](https://www.tea
 
 The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
-## Build & Upload Instructions{#upload}
+## Build & Upload Instructions {#upload}
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). 
 Before the PX4 firmware can be installed, the PX4 bootloader needs to be flashed.
 
-There are two options for flashing the bootloader, via Betaflight Configuator (easier), or building from source (guaranteed to work).
+There are two options for flashing the bootloader: via *Betaflight Configurator* (easier), or building from source (guaranteed to work).
 
-### Via Betaflight Configurator
-First download the pre-built bootloader binary [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex).
-Then flash it via Betaflight Configurator.
+### Setup PX4 using Betaflight Configurator {#betaflight_configurator}
 
-### From Source
+To setup PX4 using the *Betaflight Configurator*:
+1. Download the pre-built bootloader binary: [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex).
+1. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform.
+1. Connect the board to your PC and start the Configurator.
+1. Press the **Load Firmware [Local]** button
+   ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
+1. Select the bootloader binary from the file system and then flash the board.
+
+
+### Setup PX4 using Source
+
 #### Download
 
 Download and build the [Bootloader](https://github.com/PX4/Bootloader) via:
