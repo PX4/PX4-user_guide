@@ -7,12 +7,14 @@
 * [Pixhawk系列](../flight_controller/pixhawk_series.md) - 在Nuttx OS上运行PX4的开放式硬件飞行控制器。 有许多外形，有针对许多用例和细分市场的版本。 
 * 用于计算密集型任务的自动驾驶仪： 
   * [高通骁龙](../flight_controller/snapdragon_flight.md) - 与集成的机载计算机的高端自动驾驶仪。
-  * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) - 无人机开发平台，配备高端自动驾驶仪和集成的机载计算机。
   * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
-* 可运行PX4的消费无人机: 
+* Complete Vehicles - consumer drones and reference platforms that can run PX4: 
+  * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) - UAV development platform with high-end autopilot and integrated onboard computer.
   * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
   * [Parrot Bebop](../flight_controller/bebop.md)
+  * BetaFPV Beta75X 2S Brushless Whoop
+  * Teal One
 
 ## 记录板
 
