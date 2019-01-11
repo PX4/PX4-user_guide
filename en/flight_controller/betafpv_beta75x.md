@@ -26,3 +26,8 @@ Once the firmware is flashed, you should be able to connect QGC via USB cable.
 
 Go through the initial setup, start with setting the [Airframe](../config/airframe.md) to *BetaFPV Beta75X 2S Brushless Whoop*, and continue with sensor calibrations and radio setup.
 
+## Video
+
+{% youtube %}
+https://youtu.be/_-O0kv0Qsh4
+{% endyoutube %}
