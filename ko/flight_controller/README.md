@@ -7,12 +7,14 @@
 * [Pixhawk Series](../flight_controller/pixhawk_series.md) - NuttX OS에서 PX4를 실행하는 개방형 하드웨어 비행 컨트롤러. 다양한 폼 팩터를 통해 많은 유스 케이스 및 시장 부문을 대상으로 한 버전이 있습니다. 
 * Autopilots for computationally intensive tasks: 
   * [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) - 온보드 컴퓨터가 통합 된 하이 엔드 자동 조종 장치.
-  * [인텔 ® 항공기 비행](../flight_controller/intel_aero.md) - 하이 엔드 자동 조종 장치 및 온보드 컴퓨터가 통합 된 UAV 개발 플랫폼.
   * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
-* Consumer drones that can run PX4: 
+* Complete Vehicles - consumer drones and reference platforms that can run PX4: 
+  * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) - UAV development platform with high-end autopilot and integrated onboard computer.
   * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
   * [Parrot Bebop](../flight_controller/bebop.md)
+  * BetaFPV Beta75X 2S Brushless Whoop
+  * Teal One
 
 ## 문서화 된 보드
 
