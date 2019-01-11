@@ -39,28 +39,28 @@ The land detector is a dynamic vehicle model representing key vehicle states fro
 
 #### 地面接触
 
-如果以下条件在0.35秒以内为真，则达到此状态：
+如果以下条件在 0.35 秒以内为真，则达到此状态：
 
 - 没有垂直运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 没有水平运动 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
 - 低推力 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.3` 或速度设定点是陆地速度的0.9但载具没有垂直运动。
 
-If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
+如果车辆处于位置或速度控制并且检测到地面接触， 位置控制器将沿主体x-y轴的推力矢量设置为零。
 
-#### Maybe Landed
+#### 可能性着陆
 
-This state is reached if following conditions are true for 0.25 seconds:
+如果以下条件在 0.25 秒以内为真，则达到此状态：
 
-- all conditions of ground contact are true
-- is not rotating ([LNDMC_ROT_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
-- has low thrust `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
+- 地面接触的所有条件都是真
+- 没有滚动运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
+- 具有低推力 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
 
 If the vehicle only has knowledge of thrust and angular rate, in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds.
 
-If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero.
+如果载具处于位置或速度控制并且检测到地面接触， 位置控制器将沿主体x-y轴的推力矢量设置为零。
 
-#### Landed
+#### 降落完成
 
-This state is reached if following conditions are true for 0.3 seconds:
+如果以下条件在 0.3 秒以内为真，则达到此状态：
 
-- all conditions of maybe landed are true
+- 可能降落的所有条件都是真
