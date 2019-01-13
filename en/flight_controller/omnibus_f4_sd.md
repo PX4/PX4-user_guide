@@ -183,10 +183,12 @@ There are two options for flashing the bootloader: via *Betaflight Configurator*
 To setup PX4 using the *Betaflight Configurator*:
 1. Download the pre-built bootloader binary: [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex).
 1. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform.
+   > **Tip** If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here]( https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao). 
 1. Connect the board to your PC and start the Configurator.
 1. Press the **Load Firmware [Local]** button
    ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
 1. Select the bootloader binary from the file system and then flash the board.
+
 
 
 ### Setup PX4 using Source
