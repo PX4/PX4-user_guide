@@ -2,17 +2,17 @@
 
 基于 PX4 的系统使用传感器来确定飞行器状态（稳定和实现自主控制所需）。 车辆状态包括：位置/高度，航向，速度，空速，方向（姿态），不同方向的旋转速率，电池电量等。
 
-The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+系统 *最低要求* 陀螺仪，加速度计，磁力计（罗盘）和气压计。 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 固定翼和 VTOL 飞行器还应包括空速传感器（特别推荐）。
 
-The minimal set of sensors is incorporated into [Pixhawk Series](../flight_controller/pixhawk_series.md) flight controllers (and may also be in other controller platforms). Additional/external sensors can be attached to the controller.
+最小的传感器组合集成在 [Pixhawk 系列](../flight_controller/pixhawk_series.md) 飞行控制器上（并且也能存在其他控制器平台中）。 附加/外部传感器可以连接到控制器。
 
-Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
+下面我们介绍一些传感器。 At the end there are links to information about [sensor wiring](#wiring).
 
 ## GPS&罗盘 {#gps_compass}
 
-PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
+PX4 支持许多全球导航卫星系统（GNSS）接收器和指南针（磁力计）。 它还支持 [实时动态（RTK）GPS接收器](../gps_compass/rtk_gps.md) ，它将 GPS 系统扩展到厘米级精度。
 
-> **Tip** [Pixhawk-series](../flight_controller/pixhawk_series.md) controllers include an *internal* compass. This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
+> **Tip** [ Pixhawk 系列](../flight_controller/pixhawk_series.md) 控制器包括 *内部* 指南针。 This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
 
 We recommend the use of an external "combined" compass/GPS module mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
 
