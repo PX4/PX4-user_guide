@@ -48,28 +48,28 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 ### 随机的模式
 
-In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the beacon is visible when landing is initiated. If it is not visible the vehicle immediately performs a *normal* landing at the current position.
+在 *随机的模式* 中，*如果*（并且仅当）在启动着陆时信标可见，则飞行器将使用精准着陆<0>。 如果此时不可见，则飞行器立即在当前位置执行正常着陆。
 
-## Performing a Precision Landing
+## 执行精准着陆
 
-> **Note** Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
+> **Note**由于位置控制器的当前实施方式的限制，只有具有有效的全局位置时才能实现精准着陆。
 
-### Via Command
+### 通过命令
 
-Precision landing can be initiated through the command line interface with
+精准着陆可以通过命令行接口启动：
 
     commander mode auto:precland
     
 
-In this case, the precision landing is always considered "required".
+在这种情况下，精准着陆始终被视为“必需的”。
 
-### In a Mission {#mission}
+### 在任务中 {#mission}
 
-Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
+精准着陆可以作为 [任务](../flying/missions.md) 的一部分启动，使用 [ MAV_CMD_NAV_LAND ](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) 并适当设置 ` param2 ` ：
 
-- `param2` = 0: Normal landing without using the beacon.
-- `param2` = 1: *Opportunistic* precision landing.
-- `param2` = 2: *Required* precision landing.
+- `param2` = 0: 正常着陆而不使用信标。
+- ` param2 ` = 1：*随机的* 精准着陆。
+- ` param2 ` = 2：*必需的* 精准着陆。
 
 ## 仿真
 
