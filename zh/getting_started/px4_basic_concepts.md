@@ -34,7 +34,7 @@ Dronecode地面控制站称为[ QGroundControl ](http://qgroundcontrol.com/)。 
 
 * QGroundControl *在 Windows，Android，MacOS 或 Linux 上运行。 从[这里](http://qgroundcontrol.com/downloads/)下载并安装。
 
-![QGC Main Screen](../../images/qgc_main_screen.jpg)
+![QGC 主屏幕](../../images/qgc_main_screen.jpg)
 
 ## 设备/飞行控制板 {#vehicle_controller}
 
@@ -116,31 +116,31 @@ PX4 使用 SD 存储卡存储[飞行日志](../getting_started/flight_reporting.
 
 PX4 具有可配置的故障安全系统，可在出现问题时保护和恢复您的飞行器！ 这些允许您指定可以安全飞行的区域和条件，以及触发故障保护时将执行的操作（例如，着陆，保持位置或返回指定点）。
 
-> **Note**您只能为 *第一个* 故障保护事件指定操作。 Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+> **Note**您只能为 *第一个* 故障保护事件指定操作。 一旦发生故障保护，系统将执行特殊处理代码，以便后续故障保护触发器由单独的系统层级和飞行器特定代码管理。
 
-The main failsafe areas are listed below:
+主要的故障保护事件如下：
 
-- Low Battery
-- Remote Control (RC) Loss
-- Position Loss (global position estimate quality is too low).
-- Offboard Loss (e.g. lose connection to companion computer)
-- Data Link Loss (e.g. lose telemetry connection to GCS).
-- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
-- Mission Failsafe (prevent a previous mission being run at a new takeoff location).
-- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
+- 低电量
+- 遥控(RC) 信号丢失
+- 位置信息丢失（全局位置估计质量太低）
+- 机载计算机控制指令丢失（如与机载计算机失去连接）
+- 数传信号丢失（如失去与 GCS 的遥测连接）
+- 超出地理围栏 (限制飞行器在虚拟圆柱体内飞行)。
+- 任务故障保护（防止先前的任务在新的起飞地点运行）。
+- 交通避障（由来自如 ADS-B 转发器的数据触发）。
 
-For more information see: [Safety](../config/safety.md) (Basic Configuration).
+有关详细信息，请参阅：[安全](../config/safety.md)（基本配置）。
 
-## Heading and Directions
+## 机头和运动方向
 
-All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+所有车辆，船只和飞机都具有机头方向或基于其前进运动的方向。
 
-![Frame Heading](../../images/frame_heading.png)
+![机架机头方向](../../images/frame_heading.png)
 
-It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
+知道设备机头方向，以使自驾仪与设备运动矢量对齐是重要的。 即使多旋翼从各个方向都对称，但其也有机头方向。 通常制造商使用彩色螺旋桨或带颜色的机臂来表示机头方向。
 
-![Frame Heading TOP](../../images/frame_heading_top.png)
+![机架机头方向 TOP](../../images/frame_heading_top.png)
 
-In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+在我们的插图中，我们将使用红色的前螺旋桨来显示多旋翼的机头方向。
 
-You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
+您可以在 [飞行控制器方向](../config/flight_controller_orientation.md) 中深入了解机头朝向。
