@@ -35,7 +35,7 @@
 多旋翼:
 
 * 手动-简单： [位置](#position_mc), [高度](#altitude_mc), [手动/自稳](#manual_stabilized_mc)
-* 手动-特技： [半自稳](#rattitude_mc), [特技](#acro_mc)
+* 手动-特技： [半自动](#rattitude_mc), [特技](#acro_mc)
 * 自主：[保持](#hold_mc), [返航](#return_mc), [任务](#mission_mc), [起飞](#takeoff_mc), [降落](#land_mc), [跟随我](#followme_mc), [板外](#offboard_mc)
 
 ## 键
