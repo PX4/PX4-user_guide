@@ -16,7 +16,7 @@ PX4 支持许多全球导航卫星系统（GNSS）接收器和罗盘（磁力计
 
 我们建议使用安装在尽可能远离 电机/电调 电源线的外部“组合” 罗盘 / GPS 模块 - 通常在支座或机翼（固定翼）上。
 
-常见的 GPS/罗盘硬件选项列于：[GPS/指南针](../gps_compass/README.md) 。
+常见的 GPS/罗盘硬件选项列于：[GPS/罗盘](../gps_compass/README.md)。
 
 ![GPS + 罗盘](../../images/gps_compass.jpg)
 
@@ -40,21 +40,21 @@ PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不�
 
 ## 光流
 
-[ PX4Flow ](../sensor/px4flow.md)是一款可以跟踪运动的光流智能相机，并具有集成的声纳传感器。 PX4 将光流传感器输出与来自其他定位源（例如 GPS）的信息融合，以提供更准确的位置锁定。 当没有 GPS 信号时，该传感器可以在室内使用。
+[PX4Flow](../sensor/px4flow.md) 是可以跟踪运动的光流智能相机，并具有集成的声纳传感器。 PX4 将光流传感器输出与来自其他定位源（例如 GPS）的信息融合，以提供更准确的位置锁定。 该传感器可以用于没有 GPS 信号的室内。
 
 ![px4flow-底面](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
 
 一些选项包括：
 
 * [ 3DR PX4Flow 智能相机（光流传感器）](https://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/)
-* [HK Pilot32 带声呐的光流套件](https://hobbyking.com/en_us/hk-pilot32-optical-flow-kit-with-sonar.html) (好盈) - 软件兼容, 但连接器不兼容。
+* [HK Pilot32 带声呐的光流套件](https://hobbyking.com/en_us/hk-pilot32-optical-flow-kit-with-sonar.html) (好盈) - 软件兼容, 但接口不兼容。
 
 ## 传感器接线 {#wiring}
 
-传感器接线信息通常在飞行控制器和传感器本身的制造商文档中提供。
+传感器接线信息通常在飞控和传感器本身的制造商文档中提供。
 
 另外，请参阅：
 
-* [基本组件](../assembly/README.md)包含飞行控制器快速入门指南。 其包括核心传感器到特定飞行控制器硬件的接线。
-* [飞行控制器](../flight_controller/README.md) 主题通常包含接线信息。
+* [基本组件](../assembly/README.md)包含飞控快速入门指南。 其包括核心传感器到特定飞控硬件的接线。
+* [飞控](../flight_controller/README.md) 主题通常包含接线信息。
 * [外设硬件](../peripherals/README.md)包含其他传感器的文档。
