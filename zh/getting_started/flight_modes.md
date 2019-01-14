@@ -223,11 +223,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to return (at a safe height) to its home position and land. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
+              <a href="../flight_modes/return.md">返航模式</a> 使飞行器（在安全高度）返回其原始位置并着陆。 该模式可手动（通过预编程的 RC 开关）或自动（如在 failsafe 被触发的事件中）激活。
             </p>
             
             <h3 id="mission_mc">
-              Mission Mode
+              任务模式
             </h3>
             
             <p>
@@ -235,17 +235,17 @@
             </p>
             
             <p>
-              <a href="../flight_modes/mission.md">Mission mode</a> causes the vehicle to execute a predefined autonomous <a href="../flying/missions.md">mission</a> (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+              <a href="../flight_modes/mission.md">任务模式</a>使飞行器执行上传到飞行控制器的预定义自主<a href="../flying/missions.md">任务</a> (飞行规划) 。 通常使用地面站(GCS) 来创建和上传任务。
             </p>
             
             <blockquote>
               <p>
-                <strong>Tip</strong> The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
+                <strong>Tip</strong> PX4 GCS 称为 <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>。 <em>QGroundControl</em>是我们用来 <a href="../config/README.md">配置 PX4</a>的相同的应用程序。
               </p>
             </blockquote>
             
             <h3 id="takeoff_mc">
-              Takeoff Mode
+              起飞模式
             </h3>
             
             <p>
