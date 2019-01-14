@@ -8,25 +8,25 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 ### 硬件安装
 
-按照官方指南安装 IR-LOCK 传感器。 Ensure that the sensor's x axis is aligned with the vehicle's y axis and the sensor's y axis aligned with the vehicle's -x direction (this is the case if the camera is pitched down 90 degrees from facing forward).
+按照官方指南安装 IR-LOCK 传感器。 确保传感器的 x 轴与飞行器的 y 轴对齐，并且传感器的 y 轴与飞行器的 x 方向对齐（如果摄像头从正面朝下倾斜 90 度，则会出现这种情况）。
 
-Install a [range/distance sensor](../getting_started/sensor_selection.md#distance) (the *LidarLite v3* has been found to work well).
+安装 [范围/距离传感器](../getting_started/sensor_selection.md#distance)（已发现 * LidarLite v3 * 效果良好）。
 
-> **Note** Many infrared based range sensors do not perform well in the presence of the IR-LOCK beacon. Refer to the IR-LOCK guide for other compatible sensors.
+> **Note**许多基于红外线的距离传感器在 IR-LOCK 信标存在的情况下表现不佳。 有关其他兼容传感器，请参阅 IR-LOCK 指南。
 
-### Firmware Configuration
+### 固件配置
 
-Precision landing requires the modules `irlock` and `landing_target_estimator`, which are not included in the PX4 firmware by default. They can be included by adding (or uncommenting) the following lines in the relevant [config](https://github.com/PX4/Firmware/tree/master/cmake/configs) for your flight controller:
+精确着陆需要模块 ` irlock ` 和 ` landing_target_estimator ` ，默认情况下不包含在 PX4 固件中。 可以通过在飞行控制器的相关[配置](https://github.com/PX4/Firmware/tree/master/cmake/configs)，即 编译脚本 和 启动脚本 中添加（或取消注释）以下行来包含它们：
 
     drivers/irlock
     modules/landing_target_estimator
     
 
-The two modules should also be started on system boot. For instructions see: [customizing the system startup](https://dev.px4.io/en/advanced/system_startup.html#starting-additional-applications).
+这两个模块也应该在系统启动时启动。 有关说明，请参阅：[自定义系统启动](https://dev.px4.io/en/advanced/system_startup.html#starting-additional-applications)。
 
-## Software Configuration (Parameters)
+## 软件配置（参数）
 
-Precision landing is configured with the `landing_target_estimator` and `navigator` parameters, which are found in the "Landing target estimator" and "Precision land" groups, respectively. The most important parameters are discussed below.
+使用` landing_target_estimator `和` navigator `参数配置精准着陆，这些参数分别在“Landing target estimator”和“Precision land”组中找到。 最重要的参数将在下面讨论。
 
 The parameter [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE) determines if the beacon is assumed to be stationary or moving. If `LTEST_MODE` is set to moving (e.g. it is installed on a vehicle on which the multicopter is to land), beacon measurements are only used to generate position setpoints in the precision landing controller. If `LTEST_MODE` is set to stationary, the beacon measurements are also used by the vehicle position estimator (EKF2 or LPE).
 
