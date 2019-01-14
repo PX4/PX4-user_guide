@@ -87,24 +87,24 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 ## 机载计算机
 
-PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the Dronecode SDK or MAVROS.
+PX4 可以通过串行电缆或 wifi 由独立的机载计算机进行控制。 机载计算机通常使用 MAVLink API（如 Dronecode SDK 或 MAVROS）进行通信。
 
-> **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
+> **Note**使用 Robotics API 需要软件开发技能，并且超出了本指南的范围。
 
-- [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
-- [Robotics APIs](https://dev.px4.io/en/robotics/) (PX4 Developer Guide)
+- [板外控制模式](../flight_modes/offboard.md) - 用于从 GCS 或机载计算机对 PX4 进行板外控制的飞行模式。 
+- [Robotics APIs ](https://dev.px4.io/en/robotics/)（PX4开发人员指南）
 
-## Removable Memory/Logging
+## 可移动内存/日志记录
 
-PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md) (SD support may not be present on every flight controller).
+PX4 使用 SD 存储卡存储[飞行日志](../getting_started/flight_reporting.md)（并不是每个飞行控制器都支持 SD 卡）。
 
-> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB.
+> **Tip** Pixhawk 主板支持的最大 SD 卡大小为 32 GB 。
 
-A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
+许多推荐的 SD 卡列在：开发人员指南>日志记录</ 0>中</p> 
 
 ## 飞行模式 {#flight_modes}
 
-Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
+飞行模式为用户（飞行员）提供不同类型/级别的飞行器自动化和自动驾驶辅助。 自主模式完全由自驾仪控制，无需飞行员/遥控输入。 例如，它们用于自动执行诸如起飞，返回原位和着陆等常见任务。 其他自主模式执行预编程任务，跟随 GPS 信标，或接受来自机载计算机或地面站的命令。
 
 *Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
 
