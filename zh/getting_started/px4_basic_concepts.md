@@ -69,23 +69,23 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 ## 无线电控制（遥控） {#rc_systems}
 
-[无线电控制（RC ）](../getting_started/rc_transmitter_receiver.md)系统用于*手动 *控制飞行器。 It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
+[无线电控制（RC ）](../getting_started/rc_transmitter_receiver.md)系统用于*手动 *控制飞行器。 它由一个遥控装置组成，该遥控装置利用发射机来与飞行器上的接收机通信。 一些 RC 系统还可以从自动驾驶仪接收遥测信息。
 
-> **Note** PX4 does not require a remote control system for autonomous flight modes.
+> **Note** PX4 在自主飞行模式中不需要遥控系统。
 
 ![Taranis X9D遥控器。](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-[RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
+[ RC系统选择](../getting_started/rc_transmitter_receiver.md)说明如何选择 RC 系统。 其他相关主题包括：
 
-- [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in *QGroundControl*.
+- [无线电/远程控制设置](../config/radio.md) - * QGroundControl *中的遥控配置。
 - [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
-- [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
+- [ FrSky遥测](../peripherals/frsky_telemetry.md) - 设置 RC 发射机以从 PX4 接收遥测/状态更新。
 
 ## 数传电台
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. 这使得飞机飞行时调试、检查数传、更改任务等等成为了可能。
+[数据/遥测无线电](../telemetry/README.md)可以在诸如* QGroundControl *的地面控制站与运行 PX4 的飞行器之间提供无线 MAVLink 连接。 这使得飞机飞行时调试、检查数传、更改任务等等成为了可能。
 
-## Offboard/Companion Computer
+## 机载计算机
 
 PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the Dronecode SDK or MAVROS.
 
