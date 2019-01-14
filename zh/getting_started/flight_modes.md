@@ -189,11 +189,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/acro_mc.md">Acro mode</a> is the RC mode for performing acrobatic maneuvers e.g. rolls and loops.
+              <a href="../flight_modes/acro_mc.md">特技模式</a>是用于执行特技动作的 RC 模式，如滚转和环绕。
             </p>
             
             <p>
-              滚动、俯仰和偏航杆控制围绕相应轴的旋转角速率，并且油门直接传递到输出混合器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
+              滚转、俯仰和偏航杆控制绕相应轴的旋转角速率，并且油门直接传递到输出混控器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
             </p>
             
             <p>
@@ -203,7 +203,7 @@
             <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
             
             <h3 id="hold_mc">
-              Hold Mode
+              保持模式
             </h3>
             
             <p>
@@ -211,11 +211,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/hold.md">Hold mode</a> causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
+              <a href="../flight_modes/hold.md">保持模式</a>使多旋翼飞行器制动并悬停在其当前位置和高度（保持位置并抵抗风和其它力）。 该模式可用于暂停任务或帮助在紧急情况下重新获得飞行器的控制。 它可以使用预编程的 RC 开关或 QGroundControl 的 Pause 暂停按钮来激活。
             </p>
             
             <h3 id="return_mc">
-              Return Mode
+              返航模式
             </h3>
             
             <p>
