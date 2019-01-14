@@ -472,17 +472,17 @@
             </p>
             
             <p>
-              <a href="../flight_modes/mission.md">任务模式</a> 使飞行器执行已经上传到飞行控制器的预定义自主<a href="../flying/missions.md">任务 </a>（飞行规划）。 The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+              <a href="../flight_modes/mission.md">任务模式</a> 使飞行器执行已经上传到飞行控制器的预定义自主<a href="../flying/missions.md">任务 </a>（飞行规划）。 通常使用地面站 (GCS) 来创建和上传任务。
             </p>
             
             <blockquote>
               <p>
-                <strong>Tip</strong> The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
+                <strong>Tip</strong> PX4 GCS 称为 <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>。 我们同样使用<em>QGroundControl</em>来配置 PX4。
               </p>
             </blockquote>
             
             <h3 id="takeoff_fw">
-              Takeoff Mode
+              起飞模式
             </h3>
             
             <p>
@@ -490,11 +490,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff</a> mode initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
+              <a href="../flight_modes/takeoff.md#fixed_wing">起飞 </a>模式启动飞行器起飞序列。 具体的起飞行为取决于被配置的起飞模式（弹射/手抛模式或跑道起飞模式）。
             </p>
             
             <h3 id="land_fw">
-              Land Mode
+              着陆模式
             </h3>
             
             <p>
@@ -502,7 +502,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/land.md">Land mode</a> causes the vehicle to turn and land at the location at which the mode was engaged. Fixed wing landing logic and parameters are explained in the topic: <a href="../flying/fixed_wing_landing.md">Landing (Fixed Wing)</a>.
+              <a href="../flight_modes/land.md">着陆模式</a> 使飞行器转弯并降落在该模式启动的位置。 这个主题解释了固定翼着陆逻辑和参数： <a href="../flying/fixed_wing_landing.md">着陆 (固定翼)</a>。
             </p>
             
             <h2>
@@ -510,7 +510,7 @@
             </h2>
             
             <p>
-              A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
+              VTOL 飞行器可以作为多旋翼飞行器或固定翼飞行器飞行。 多旋翼飞行模式主要用于起飞和着陆，而固定翼模式用于高效运动和/或执行任务。
             </p>
             
             <p>
