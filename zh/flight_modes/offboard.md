@@ -1,10 +1,10 @@
-# Offboard模式
+# Offboard 模式
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 飞机按照远端控制器通过MAVLink给出的位置，速度或姿态设定值来运行。 设定值可以由运行在配套计算机 (一般通过串口线或wifi与飞孔连接) 上的MAVLink API (如[Dronecode SDK](https://sdk.dronecode.org/en/) 或者 [MAVROS](https://github.com/mavlink/mavros)) 提供。
 
-> **Note**固定翼飞机不支持Offboard模式。 仅支持多旋翼和VTOL机型。
+> **Note** 固定翼飞机不支持 Offboard 模式。 仅支持多旋翼和 VTOL 机型。
 
 <span></span>
 
@@ -12,7 +12,7 @@
 
 ## 描述
 
-Offboard模式主要用于控制飞机运动和姿态，目前仅支持MAVLink命令的一个有限子集 (未来将支持更多)。 此模式可用于：
+Offboard 模式主要用于控制飞机运动和姿态，目前仅支持 MAVLink 命令的一个有限子集（未来将支持更多）。 此模式可用于：
 
 * 控制飞机位置、速度或油门 ([SET_POSITION_TARGET_LOCAL_NED](http://mavlink.org/messages/common#SET_POSITION_TARGET_LOCAL_NED))。 
   * 加速度设定值将被综合计算出一个“油门”设定值。
