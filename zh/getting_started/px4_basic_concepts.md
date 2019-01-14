@@ -2,47 +2,47 @@
 
 本主题提供了无人机和使用 PX4 的基本介绍（主要面向新手用户，但对有经验的用户也是一个很好的介绍）。
 
-如果你已经熟悉了基本概念，你可以转到[基本组件](../assembly/README.md)以了解如何连接特定的自驾仪硬件。 To load firmware and set up the vehicle with *QGroundControl*, see [Basic Configuration](../config/README.md).
+如果你已经熟悉了基本概念，你可以转到[基本组件](../assembly/README.md)以了解如何连接特定的自驾仪硬件。 要加载固件并使用 *QGroundControl*设置飞行器，请查看[基本配置](../config/README.md)。
 
 ## 无人机是什么？
 
-A drone is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
+无人机是无人驾驶的 ”机器人“ 设备，可以远程或自动控制。
 
-Drones are used for many consumer, industrial and military [use cases and applications](http://px4.io/applications/). These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
+无人机可应用在消费、工业、军事领域[使用情形和应用案例](http://px4.io/applications/)。 这包括（非详尽）：航空摄影/录像，载货，竞速，搜索和测绘等。
 
-> **Tip** Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
+> **Tip**存在用于空中、地面、海洋和水下各种不同类型的无人机。 这些（更正式地）被称为无人驾驶飞行器（UAV），无人驾驶飞行器系统（UAS），无人驾驶地面车辆（UGV），无人驾驶水面船只（USV），无人驾驶水下潜航器（UUV）。
 
-The "brain" of the drone is called an autopilot. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
+无人机的 ”大脑“ 被称为自动驾驶仪。 它由在*设备控制器</ 0>（“飞行控制器”）硬件上运行的*飞行堆栈</ 0>软件组成。</p> 
 
 ## Dronecode 平台 {#dronecode}
 
-PX4 is part of the [Dronecode Platform](https://www.dronecode.org/platform/) — a complete end-to-end platform for drone development, delivered under a common industry-friendly open source license. It includes, among other things, the [PX4 flight stack](#autopilot)), [QGroundControl](#qgc) ground control station, the [Dronecode SDK](https://www.dronecode.org/sdk/) and the [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/).
+PX4 是[ Dronecode平台](https://www.dronecode.org/platform/)的一部分 - 一个完整的无人机开发端到端平台，在一个通用的行业友好型开源许可下提供。 其中包括[PX4 飞行堆栈](#autopilot)，[QGroundControl ](#qgc)地面控制站，[ Dronecode SDK ](https://www.dronecode.org/sdk/)和[ Dronecode相机管理器](https://camera-manager.dronecode.org/en/)。
 
 ## PX4 自动驾驶仪 {#autopilot}
 
-[PX4](http://px4.io/) is powerful open source autopilot *flight stack*.
+[ PX4 ](http://px4.io/)是强大的开源自动驾驶仪*飞行堆栈*。
 
-Some of PX4's key features are:
+PX4 的一些主要功能包括：
 
-- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed wing aircraft and VTOLs), ground vehicles and underwater vehicles. 
-- Great choice of hardware for [vehicle controller](#vehicle_controller), sensors and other peripherals.
-- Flexible and powerful [flight modes](#flight_modes) and [safety features](#safety).
+- 可控制[许多不同的设备机架/类型](../airframes/airframe_reference.md)，包括：飞机（多旋翼，固定翼和垂直起降），地面车辆和水下潜航器。 
+- 适用于[设备控制器](#vehicle_controller)，传感器和其他外围设备的硬件选择。
+- 灵活而强大的[飞行模式](#flight_modes)和[安全功能](#safety)。
 
 ## QGroundControl {#qgc}
 
-The Dronecode ground control station is called [QGroundControl](http://qgroundcontrol.com/). You can use *QGroundControl* to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+Dronecode地面控制站称为[ QGroundControl ](http://qgroundcontrol.com/)。 您可以使用* QGroundControl *将（闪存）PX4 加载到[飞行器控制硬件上](flight_controller_selection.md)，您可以设置飞行器，更改不同参数，获取实时航班信息以及创建和执行完全自主的任务。
 
-*QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/).
+* QGroundControl *在 Windows，Android，MacOS 或 Linux 上运行。 从[这里](http://qgroundcontrol.com/downloads/)下载并安装。
 
 ![QGC Main Screen](../../images/qgc_main_screen.jpg)
 
-## Vehicle/Flight Controller Board {#vehicle_controller}
+## 设备/飞行控制板 {#vehicle_controller}
 
-PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers, but can now run on Linux computers and other hardware. You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
+PX4最初设计为在 [ Pixhawk Series ](../flight_controller/pixhawk_series.md)控制器上运行，但现在可以在 Linux 计算机和其他硬件上运行。 选择飞行控制板时，您应当考虑飞行器的物理尺寸限制，想要执行的活动，还有必不可少的成本。
 
-For more information see: [Flight Controller Selection](flight_controller_selection.md).
+有关更多信息，请参阅：[飞行控制器选择](flight_controller_selection.md)。
 
-## Sensors
+## 传感器
 
 PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
