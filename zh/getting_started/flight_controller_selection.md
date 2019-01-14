@@ -25,15 +25,15 @@ PX4 能够在很多飞控板和系统上运行（见 [自驾仪硬件](../flight
 
 这些飞行控制器提供机载＂伴随计算＂，可以实现计算机视觉和其它计算密集型任务。
 
-| 控制器                                                                     | 参数描述                                                                                                                  |
-| ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | 在 DSP 上运行 PX4 的高端自驾仪计算机（ QuRT RTOS）。 It includes a camera and WiFi.                                                   |
-| [Intel® Aero 到手飞无人机](../flight_controller/intel_aero.md)                | A UAS development platform that integrates a powerful Linux computer, PX4 on NuttX, and a camera in a single package. |
-| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)  | RaPi can be connected to an autopilot and used as a companion computer.                                               |
+| 控制器                                                                     | 参数描述                                                  |
+| ----------------------------------------------------------------------- | ----------------------------------------------------- |
+| [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | 在 DSP 上运行 PX4 的高端自驾仪计算机（ QuRT RTOS）。 它包含一个摄像头和 Wifi 。 |
+| [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md)    | UAS 开发平台，集成了功能强大的 Linux 计算机，Nuttx 上的 PX4 和单个软件包中的摄像头。 |
+| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)  | 树莓派可以连接到自驾仪并作为记载计算机                                   |
 
-## Commercial UAVs that can run PX4
+## 可运行 PX4 的商业无人机
 
-PX4 has been ported to a number of popular commercial drone products, as listed below. This allows you to add mission planning and other PX Flight modes to your vehicle.
+PX4 已经被移植到许多流行的商用无人机产品中，如下所列。 This allows you to add mission planning and other PX Flight modes to your vehicle.
 
 | 控制器                                                 | 参数描述                                       |
 | --------------------------------------------------- | ------------------------------------------ |
