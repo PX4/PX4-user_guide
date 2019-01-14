@@ -4,9 +4,9 @@
 
 系统 *最低要求* 陀螺仪，加速度计，磁力计（罗盘）和气压计。 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 固定翼和 VTOL 飞行器还应包括空速传感器（特别推荐）。
 
-最小的传感器组合集成在 [Pixhawk 系列](../flight_controller/pixhawk_series.md) 飞行控制器上（并且也能存在其他控制器平台中）。 附加/外部传感器可以连接到控制器。
+最小的传感器组合集成在 [Pixhawk 系列](../flight_controller/pixhawk_series.md) 飞控上（并且也能存在其他飞控平台上）。 附加/外部传感器可以连接到控制器。
 
-下面我们介绍一些传感器。 最后有关于 [传感器接线](#wiring) 的信息。
+下面我们介绍一些传感器。 最后有链接到关于 [传感器接线](#wiring) 的信息。
 
 ## GPS&罗盘 {#gps_compass}
 
