@@ -315,12 +315,12 @@
             </p>
             
             <p>
-              The throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed). Pitch is used to ascend/descend. 翻滚、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。
+              油门决定空速（在 50% 油门时，飞机将以预设的巡航速度保持其当前高度）。 俯仰被用来升降。 翻滚、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。
             </p>
             
             <blockquote>
               <p>
-                <strong>Tip</strong> Position mode is the safest fixed-wing manual mode for new fliers.
+                <strong>Tip</strong>位置模式是新飞手最安全的固定翼手动模式。
               </p>
             </blockquote>
             
@@ -329,7 +329,7 @@
             </p>
             
             <h3 id="altitude_fw">
-              Altitude Mode
+              高度模式
             </h3>
             
             <p>
