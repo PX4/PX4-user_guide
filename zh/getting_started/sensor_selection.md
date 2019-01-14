@@ -10,9 +10,9 @@
 
 ## GPS&罗盘 {#gps_compass}
 
-PX4 支持许多全球导航卫星系统（GNSS）接收器和指南针（磁力计）。 它还支持 [实时动态（RTK）GPS接收器](../gps_compass/rtk_gps.md) ，它将 GPS 系统扩展到厘米级精度。
+PX4 支持许多全球导航卫星系统（GNSS）接收器和罗盘（磁力计）。 它还支持 [实时动态（RTK）GPS接收器](../gps_compass/rtk_gps.md) ，它将 GPS 系统扩展到厘米级精度。
 
-> **Tip** [ Pixhawk 系列](../flight_controller/pixhawk_series.md) 控制器包括 *内部* 指南针。 其 *可能* 在较大飞行器上发挥作用，因为可以通过远离电源线安装Pixhawk 来减少电磁干扰。 在小型飞行器上，几乎总是需要外部罗盘。
+> **Tip** [ Pixhawk 系列](../flight_controller/pixhawk_series.md) 控制器包括 *内置* 罗盘。 其 *可能* 在较大飞行器上发挥作用，因为可以通过远离电源线安装Pixhawk 来减少电磁干扰。 在小型飞行器上，几乎总是需要外部罗盘。
 
 我们建议使用安装在尽可能远离 电机/ESC 电源线的外部“组合” 指南针/GPS 模块 - 通常在支座或机翼上（固定翼）。
 
