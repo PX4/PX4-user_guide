@@ -32,21 +32,21 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 参数[ LTEST_SCALE_X ](../advanced_config/parameter_reference.md#LTEST_SCALE_X) 和 [ LTEST_SCALE_Y ](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) 可用于在估计信标相对于飞行器的位置和速度之前对信标测量结果进行缩放。 由于 IR-LOCK 传感器的镜头失真，可能需要进行测量缩放。 注意，在传感器坐标系中考虑` LTEST_SCALE_X `和` LTEST_SCALE_Y `，而不是飞行器坐标系。
 
-To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](https://dev.px4.io/en/log/logging.html#configuration) `landing_target_pose` and `vehicle_local_position`. Then, compare `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel` to `vehicle_local_position.vx` and `vehicle_local_position.vy`, respectively (both measurements are in NED frame). If the estimated beacon velocities are consistently smaller or larger than the vehicle velocities, adjust the scale parameters to compensate.
+要校准这些缩放参数，请将` LTEST_MODE `设置为移动，将多旋翼飞行器飞行在信标上方，并使飞行器执行前后和左右运动，同时[记录](https://dev.px4.io/en/log/logging.html#configuration) ` landing_target_pose `和` vehicle_local_position `的日志。 然后，将 ` landing_target_pose.vx_rel ` 和 ` landing_target_pose.vy_rel ` 分别与` vehicle_local_position.vx ` 和 ` vehicle_local_position.vy ` 进行比较（均在NED坐标系中测量）。 如果估计的信标速度始终小于或大于飞行器速度，则调整缩放参数以进行补偿。
 
-If you observe slow sideways oscillations of the vehicle while doing a precision landing with `LTEST_MODE` set to stationary, the beacon measurements are likely scaled too high and you should reduce the scale parameter in the relevant direction.
+如果在 <LT> LTEST_MODE </code> 设置为静止的情况下进行精准着陆时观察到飞行器缓慢侧向振荡，则信标测量可能会缩放得太高，您应该减小相关方向上的缩放参数。
 
-## Precision Land Modes
+## 精准降落模式
 
-A precision landing can be configured to either be "required" or "opportunistic". The choice of mode affects how a precision landing is performed.
+精确着陆可以配置为“必需的”或“随机的”。 模式的选择会影响精准着陆的执行方式。
 
-### Required Mode
+### 必须的模式
 
-In *Required Mode* the vehicle will search for a beacon if none is visible when landing is initiated. The vehicle will perform a precision landing if a beacon is located.
+在 *必须的模式* 中，如果在启动着陆时信标不可见，则飞行器将搜索信标。 如果找到信标，飞行器将执行精准着陆。
 
-The search procedure consists of climbing to the search altitude ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). If the beacon is still not visible at the search altitude and after a search timeout ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)), a normal landing is initiated at the current position.
+搜索过程包括爬到搜索高度（[ PLD_SRCH_ALT ](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)）。 如果信标在搜索高度仍然不可见并且在搜索超时（[ PLD_SRCH_TOUT ](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT)）之后，则在当前位置启动正常着陆。
 
-### Opportunistic Mode
+### 随机的模式
 
 In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the beacon is visible when landing is initiated. If it is not visible the vehicle immediately performs a *normal* landing at the current position.
 
