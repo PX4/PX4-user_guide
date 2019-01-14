@@ -10,24 +10,24 @@ PX4 能够在很多飞控板和系统上运行（见 [自驾仪硬件](../flight
 
 > **Tip** 如果你需要计算机视觉或其他计算密集型任务，那么请考虑将飞控板连接至 [机载计算机](#autopilots-for-computationally-intensive-tasks)。
 
-| 控制器                                                  | 描述                                                                                                                                                                                                                                                                                   |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 控制器                                                  | 描述                                                                                                                                                                                                                 |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [mRo Pixhawk](../flight_controller/mro_pixhawk.md)   | 流行的通用飞行控制器（这是已停产的 3DR Pixhawk 的略微更新版本）。   
-也可以考虑： [HKPilot32](../flight_controller/HKPilot32.md), [Dropix](../flight_controller/dropix.md), [mRobotics-X2.1](../flight_controller/mro_x2.1.md)。                                                                                      |
+也可以考虑： [HKPilot32](../flight_controller/HKPilot32.md), [Dropix](../flight_controller/dropix.md), [mRobotics-X2.1](../flight_controller/mro_x2.1.md)。                    |
 | [Pixracer](../flight_controller/pixracer.md)         | 非常小／轻型自驾仪，专为 FPV 竞速而优化。 它适用于任何需要不超过 6 个 PWM 的小型机架。   
-也可以考虑：[Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md), [MindRacer](../flight_controller/mindracer.md), [Pixfalcon](../flight_controller/pixfalcon.md)。                                                                   |
+也可以考虑：[Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md), [MindRacer](../flight_controller/mindracer.md), [Pixfalcon](../flight_controller/pixfalcon.md)。 |
 | [Pixhawk Mini](../flight_controller/pixhawk_mini.md) | 小型*通用*自驾仪已针对易于设置进行了优化。  
-控制器具有内部减震和仅8个主输出（**没有 AUX 端口**），使其更容易安装和连接。 它不适用于 *需要* AUX 端口的设备／功能。                                                                                                                                                                                        |
-| [Pixhawk 2](../flight_controller/pixhawk-2.md)       | 主要针对商业系统制造商的灵活自驾仪。 它被设计为与特定领域的载板同时使用，以减少布线，提高可靠性，和易于装配。                                                                                                                                                                                                                              |
-| [Pixhawk 4](../flight_controller/pixhawk4.md)        | Pixhawk 4 is optimized to run PX4 version 1.7 and is suitable for academic and commercial developers. It features more computing power and 2X the RAM than previous versions, additional ports for better integration and expansion, new sensors and integrated vibration isolation. |
+控制器具有内部减震和仅8个主输出（**没有 AUX 端口**），使其更容易安装和连接。 它不适用于 *需要* AUX 端口的设备／功能。                                                                                                                      |
+| [Pixhawk 2](../flight_controller/pixhawk-2.md)       | 主要针对商业系统制造商的灵活自驾仪。 它被设计为与特定领域的载板同时使用，以减少布线，提高可靠性，和易于装配。                                                                                                                                                            |
+| [Pixhawk 4](../flight_controller/pixhawk4.md)        | Pixhawk 4 is optimized to run PX4 version 1.7 and is suitable for academic and commercial developers. 与之前版本相比，具有更高的计算能力和 2 倍的 RAM ，额外端口以利于集成和扩展，新的传感器和集成的震动隔离。                                                     |
 
-## Autopilots for computationally intensive tasks
+## 用于计算密集型任务的自驾仪
 
-These flight controllers offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
+这些飞行控制器提供机载＂伴随计算＂，可以实现计算机视觉和其它计算密集型任务。
 
 | 控制器                                                                     | 参数描述                                                                                                                  |
 | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | A high-end autopilot computer that runs PX4 on the DSP (on QuRT RTOS). It includes a camera and WiFi.                 |
+| [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | 在 DSP 上运行 PX4 的高端自驾仪计算机（ QuRT RTOS）。 It includes a camera and WiFi.                                                   |
 | [Intel® Aero 到手飞无人机](../flight_controller/intel_aero.md)                | A UAS development platform that integrates a powerful Linux computer, PX4 on NuttX, and a camera in a single package. |
 | [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)  | RaPi can be connected to an autopilot and used as a companion computer.                                               |
 
