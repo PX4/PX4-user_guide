@@ -397,11 +397,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/acro_fw.md">Acro mode</a> is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
+              <a href="../flight_modes/acro_fw.md">特技模式</a>是用于执行特技动作的 RC 模式，如连续翻滚，筋斗，失速和其它特技动作。
             </p>
             
             <p>
-              滚动、俯仰和偏航杆控制围绕相应轴的旋转角速率，并且油门直接传递到输出混合器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
+              滚转、俯仰和偏航杆控制围绕相应轴的旋转角速率，并且油门直接传递到输出混控器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
             </p>
             
             <p>
@@ -409,7 +409,7 @@
             </p>
             
             <h3 id="manual_fw">
-              Manual Mode
+              手动模式
             </h3>
             
             <p>
@@ -417,12 +417,12 @@
             </p>
             
             <p>
-              <a href="../flight_modes/manual_fw.md">Manual mode</a> sends RC stick input directly to the output mixer for "fully" manual control.
+              <a href="../flight_modes/manual_fw.md">手动模式</a>发送 RC 摇杆输入直接发送到输出混控器，以进行 ”完全“ 手动控制。
             </p>
             
             <blockquote>
               <p>
-                <strong>Tip</strong> This is the hardest mode to fly, because nothing is stabilised. Unlike <a href="#acro_fw">Acro Mode</a> if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
+                <strong>Tip</strong>这是最难飞行的模式，因为没有什么是稳定的。 Unlike <a href="#acro_fw">Acro Mode</a> if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
               </p>
             </blockquote>
             
