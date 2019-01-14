@@ -115,7 +115,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/altitude_mc.md">Altitude mode</a> is a <em>relatively</em> easy-to-fly RC mode in which roll and pitch sticks control vehicle movement in the left-right and forward-back directions (relative to the "front" of the vehicle), yaw stick controls rate of rotation over the horizontal plane, and throttle controls speed of ascent-descent.
+              <a href="../flight_modes/altitude_mc.md">高度模式</a>是一个 <em>相对</em> 容易飞行的 RC 模式，其中滚转和俯仰摇杆控制飞行器在左右和前后方向（相对飞行器的”前面“）的运动，偏航摇杆控制水平面的旋转速率，油门摇杆控制升降的速度。
             </p>
             
             <p>
@@ -124,7 +124,7 @@
             
             <blockquote>
               <p>
-                <strong>Tip</strong> <em>Attitude mode</em> is the safest non-GPS manual mode for new fliers. It is just like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but additionally stabilizes the vehicle altitude when the sticks are released.
+                <strong>Tip</strong><em>高度模式</em> 是新飞手在没有 GPS 的手动模式中最安全的模式。 它就像 <a href="#manual_stabilized_mc">手动/自稳</a> 模式，但在释放摇杆时还额外可以稳定飞行器高度。
               </p>
             </blockquote>
             
@@ -133,7 +133,7 @@
             </p>
             
             <h3 id="manual_stabilized_mc">
-              Manual/Stabilized Mode
+              手动／自稳模式
             </h3>
             
             <p>
@@ -141,12 +141,12 @@
             </p>
             
             <p>
-              The <a href="../flight_modes/manual_stabilized_mc.md">Manual/Stabilized</a> mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
+              <a href="../flight_modes/manual_stabilized_mc.md">手动/自稳</a> 模式在 RC 摇杆居中时稳定多旋翼飞行器。 要手动移动／飞行飞行器，您可以拨动摇杆离开中心。
             </p>
             
             <blockquote>
               <p>
-                <strong>Note</strong> This multicopter mode is enabled if you set either <em>Manual</em> or <em>Stabilized</em> modes for an MC vehicle.
+                <strong>Note</strong>如果为 MC 飞行器设置 <em>手动</em>　或 <em>自稳</em>　模式，则启用此多旋翼模式。
               </p>
             </blockquote>
             
