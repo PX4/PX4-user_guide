@@ -33,9 +33,9 @@ PX4 能够在很多飞控板和系统上运行（见 [自驾仪硬件](../flight
 
 ## 可运行 PX4 的商业无人机
 
-PX4 已经被移植到许多流行的商用无人机产品中，如下所列。 This allows you to add mission planning and other PX Flight modes to your vehicle.
+PX4 已经被移植到许多流行的商用无人机产品中，如下所列。 这允许您在飞行器中添加任务规划和其它 PX 飞行模式。
 
-| 控制器                                                 | 参数描述                                       |
-| --------------------------------------------------- | ------------------------------------------ |
-| [Crazyflie 2.0](../flight_controller/crazyflie2.md) | A micro quad (27g) created by Bitcraze AB. |
-| [Parrot Bebop](../flight_controller/bebop.md)       | A popular lightweight flying camera.       |
+| 控制器                                                 | 参数描述                         |
+| --------------------------------------------------- | ---------------------------- |
+| [Crazyflie 2.0](../flight_controller/crazyflie2.md) | 由 Bitcraze AB 创建的微型四旋翼（27g）。 |
+| [Parrot Bebop](../flight_controller/bebop.md)       | 流行的轻型飞行相机。                   |
