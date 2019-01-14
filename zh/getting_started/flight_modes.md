@@ -36,14 +36,14 @@
 
 * 手动-简单： [位置](#position_mc), [高度](#altitude_mc), [手动/自稳](#manual_stabilized_mc)
 * 手动-特技： [半自稳](#rattitude_mc), [特技](#acro_mc)
-* Autonomous: [Hold](#hold_mc), [Return](#return_mc), [Mission](#mission_mc), [Takeoff](#takeoff_mc), [Land](#land_mc), [Follow Me](#followme_mc), [Offboard](#offboard_mc)
+* 自主：[保持](#hold_mc), [返航](#return_mc), [任务](#mission_mc), [起飞](#takeoff_mc), [降落](#land_mc), [跟随我](#followme_mc), [板外](#offboard_mc)
 
 ## 键
 
-The icons below are used within the document:<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a></td> 
+本文档中使用下列的图标在<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a></td> 
 
 <td>
-  Manual mode. Remote control required.
+  手动模式 需要遥控
 </td></tr> 
 
 <tr>
