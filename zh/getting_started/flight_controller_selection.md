@@ -1,6 +1,6 @@
-# 选择飞控硬件
+# 选择飞控控制器
 
-在选择飞控板时你应当考虑飞机的物理尺寸限制、想要进行的活动以及当然要考虑的成本。
+在选择飞控板时你应当考虑飞机的物理尺寸限制、想要进行的活动以及必不可少的成本。
 
 PX4 能够在很多飞控板和系统上运行（见 [自驾仪硬件](../flight_controller/README.md)，或 [Github](https://github.com/PX4/Firmware/#supported-hardware) 上的受支持的飞控板列表）。 下面是其中一部分可供你选择的硬件
 
@@ -8,7 +8,7 @@ PX4 能够在很多飞控板和系统上运行（见 [自驾仪硬件](../flight
 
 [Pixhawk系列](../flight_controller/pixhawk_series.md) - 在Nuttx OS上运行PX4的开放式硬件飞行控制器。 有许多外形，有针对许多用例和细分市场的版本。
 
-> **Tip** If you need computer vision or other computationally intensive tasks then instead consider a [board with companion computing](#autopilots-for-computationally-intensive-tasks).
+> **Tip** 如果你需要计算机视觉或其他计算密集型任务，那么请考虑使用使用带有[机载计算机](#autopilots-for-computationally-intensive-tasks)的飞行控制器。
 
 | 控制器                                                  | 描述                                                                                                                                                                                                                                                                                                                       |
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
