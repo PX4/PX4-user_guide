@@ -14,47 +14,47 @@ PX4 支持许多全球导航卫星系统（GNSS）接收器和指南针（磁力
 
 > **Tip** [ Pixhawk 系列](../flight_controller/pixhawk_series.md) 控制器包括 *内部* 指南针。 其 *可能* 在较大飞行器上发挥作用，因为可以通过远离电源线安装Pixhawk 来减少电磁干扰。 在小型飞行器上，几乎总是需要外部罗盘。
 
-We recommend the use of an external "combined" compass/GPS module mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
+我们建议使用安装在尽可能远离 电机/ESC 电源线的外部“组合” 指南针/GPS 模块 - 通常在支座或机翼上（固定翼）。
 
-Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/README.md).
+常见的 GPS/罗盘硬件选项列于：[GPS/指南针](../gps_compass/README.md) 。
 
 ![GPS + Compass](../../images/gps_compass.jpg)
 
-## Airspeed
+## 空速计
 
-Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
+对于固定翼和 VTOL 机架，*强烈建议* 使用空速传感器。
 
-They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
+它们非常重要，因为自驾仪没有其他方法来检测失速。 对于固定翼飞行，是空速，而不是地速提供升力。
 
 ![Digital airspeed sensor](../../images/digital_airspeed_sensor.jpg)
 
-For more information and recommended hardware see: [Airspeed Sensors](../sensor/airspeed.md).
+有关更多信息和推荐的硬件，请参阅：[空速传感器](../sensor/airspeed.md)。
 
-## Distance
+## 距离传感器
 
-Distance sensors are used for precision landing, object avoidance and terrain following.
+距离传感器用于精准着陆，物体避让和地形跟随。
 
-PX4 supports many affordable distance sensors, using different technologies, and supporting different ranges and features. For more information see: [Distance Sensors](../sensor/rangefinders.md).
+PX4 支持许多经济实惠的距离传感器，其使用不同的技术，并支持不同的范围和功能。 有关更多信息，请参阅：[距离传感器](../sensor/rangefinders.md)。
 
 <img src="../../images/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
 
 ## 光流
 
-[PX4Flow](../sensor/px4flow.md) is an optical flow smart camera that can track motion, and has as integrated sonar sensor. PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. This sensor can be used indoors, when no GPS signal is available.
+[ PX4Flow ](../sensor/px4flow.md)是可以跟踪运动的光流智能相机，并具有集成的声纳传感器。 PX4 将光流传感器输出与来自其他位置源（例如 GPS）的信息混合，以提供更准确的位置锁定。 当没有 GPS 信号时，该传感器可以在室内使用。
 
 ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
 
-Some options include:
+一些选项包括：
 
-* [3DR PX4Flow Smart Camera (Optical Flow Sensor)](https://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/) (unmannedtechshop)
-* [HK Pilot32 Optical Flow Kit With Sonar](https://hobbyking.com/en_us/hk-pilot32-optical-flow-kit-with-sonar.html) (Hobbyking) - Software-compatible, but not connector-compatible.
+* [ 3DR PX4Flow 智能相机（光流传感器）](https://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/)
+* [HK Pilot32 带声呐的光流套件](https://hobbyking.com/en_us/hk-pilot32-optical-flow-kit-with-sonar.html) (好盈) - 软件兼容, 但连接器不兼容。
 
-## Sensor Wiring {#wiring}
+## 传感器接线 {#wiring}
 
-Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.
+传感器接线信息通常在飞行控制器和传感器本身的制造商文档中提供。
 
-In addition, see:
+另外，请参阅：
 
-* [Basic Assembly](../assembly/README.md) contains flight controller quick start guides. These cover wiring of the core sensors to specific flight controller hardware.
+* [基本组件](../assembly/README.md)包含飞行控制器快速入门指南。 其包括核心传感器到特定飞行控制器硬件的接线。
 * [Flight Controller](../flight_controller/README.md) topics often contain wiring information.
 * [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors.
