@@ -2,11 +2,11 @@
 
 > **Warning** 该主题正在建设中。 它尚未完整，尚未经过全面审核。
 
-Flight modes define how the autopilot responds to remote control input, and how it manages vehicle movement during fully autonomous flight.
+飞行模式定义了自驾仪如何响应遥控输入，以及在完全自主飞行期间管理飞行器运动。
 
-The modes provide different types/levels of autopilot assistance to the user (pilot), ranging from automation of common tasks like takeoff and landing, through to mechanisms that make it easier to regain level flight, hold the vehicle to a fixed path or position, etc.
+这些模式为用户（飞行员）提供不同类型／级别的自动驾驶辅助，包括从起飞和着陆等常见任务的自动化，到更容易重新获得水平飞行及将飞行器保持在固定路径或位置的机制，等等。
 
-This topic provides an overview of the available the flight modes, and the (mostly minor) differences in their default behaviour in multicopter (MC), fixed-wing (FW) and VTOL frames.
+这一主题概述了可用的飞行模式，以及多旋翼飞行器（MC）、固定翼（FW）和 VTOL 默认行为中的（大部分情况下很小）差异。
 
 > **Tip** More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
 
