@@ -1,6 +1,6 @@
 # PX4 飞行模式概述
 
-> **Warning** This topic is under construction. It is not complete and has not been fully reviewed.
+> **Warning** 该主题正在建设中。 它尚未完整，尚未经过全面审核。
 
 Flight modes define how the autopilot responds to remote control input, and how it manages vehicle movement during fully autonomous flight.
 
