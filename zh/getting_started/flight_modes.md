@@ -155,7 +155,7 @@
             </p>
             
             <p>
-              一旦释放摇杆，它们将会返回中心死区。 一旦滚转和俯仰摇杆居中，多旋翼飞行器将会水平并停止。 The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately, and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+              一旦释放摇杆，它们将会返回中心死区。 一旦滚转和俯仰摇杆居中，多旋翼飞行器将会水平并停止。 假如被合适的平衡，油门被合适的设定，并且没有施加外部力（如风），飞行器将会悬停在适当位置／保持高度。 The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
             </p>
             
             <p>
