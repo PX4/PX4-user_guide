@@ -155,7 +155,7 @@
             </p>
             
             <p>
-              一旦释放摇杆，它们将会返回中心死区。 一旦滚转和俯仰摇杆居中，多旋翼飞行器将会水平并停止。 假如被合适的平衡，油门被合适的设定，并且没有施加外部力（如风），飞行器将会悬停在适当位置／保持高度。 The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+              一旦释放摇杆，它们将会返回中心死区。 一旦滚转和俯仰摇杆居中，多旋翼飞行器将会水平并停止。 假如被合适的平衡，油门被合适的设定，并且没有施加外部力（如风），飞行器将会悬停在适当位置／保持高度。 飞行器将会朝着风的方向飘移，并且必须控制油门以保持高度。
             </p>
             
             <p>
@@ -163,7 +163,7 @@
             </p>
             
             <h3 id="rattitude_mc">
-              Rattitude
+              半自稳
             </h3>
             
             <p>
@@ -171,17 +171,17 @@
             </p>
             
             <p>
-              <a href="../flight_modes/rattitude_mc.md">Rattitude mode</a> allows pilots to fly using <a href="#manual_stabilized_mc">Manual/Stabilized</a> flight most of the time, but still perform <a href="#acro_mc">Acro mode</a>-style flips and tricks when desired.
+              <a href="../flight_modes/rattitude_mc.md">半自稳模式</a> 允许飞行员在大多数时间使用<a href="#manual_stabilized_mc">手动/自稳</a>飞行，但在需要时仍然可以执行 <a href="#acro_mc">特技模式</a>式的翻转和其它技巧。
             </p>
             
             <p>
-              The vehicle behaves as in <em>Manual/Stabilized mode</em> when the Roll/Pitch stick is moved within the central area and like <em>Acro mode</em> when the stick is moved in the outer circumference (by default Manual/Stabilized mode occupies about 80% of the range). When the sticks are centered the multicopter will level out (but will still drift in the direction of any wind and with any pre-existing momentum).
+              当滚转／俯仰摇杆在中心区域移动时，飞行器表现为 <em>手动/自稳 模式</em>；当摇杆在外围区域移动时，飞行器表现为特技模式（默认情况下，手动／自稳模式占据摇杆范围的 80%）。 当摇杆居中时，多旋翼飞行器将会水平（但是仍然在会在风和预先存在的动量方向上漂移）。
             </p>
             
             <!-- Image missing: https://github.com/PX4/px4_user_guide/issues/189 -->
             
             <h3 id="acro_mc">
-              Acro Mode
+              特技模式
             </h3>
             
             <p>
