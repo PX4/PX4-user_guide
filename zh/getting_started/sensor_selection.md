@@ -36,7 +36,7 @@ PX4 支持许多全球导航卫星系统（GNSS）接收器和罗盘（磁力计
 
 PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不同的范围和功能。 有关更多信息，请参阅：[距离传感器](../sensor/rangefinders.md)。
 
-<img src="../../images/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
+<img src="../../images/lidar_lite_1.png" title="激光测距仪" width="500px" />
 
 ## 光流
 
