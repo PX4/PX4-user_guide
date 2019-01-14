@@ -2,25 +2,25 @@
 
 本主题提供了无人机和使用 PX4 的基本介绍（主要面向新手用户，但对有经验的用户也是一个很好的介绍）。
 
-如果你已经熟悉了基本概念，你可以转到[基本组件](../assembly/README.md)以了解如何连接特定的自驾仪硬件。 要加载固件并使用 *QGroundControl*设置飞行器，请查看[基本配置](../config/README.md)。
+如果你已经熟悉了基本概念，你可以转到[基本组件](../assembly/README.md)以了解如何连接特定的自驾仪硬件。 要加载固件并使用 *QGroundControl* 设置飞行器，请查看[基本配置](../config/README.md)。
 
 ## 无人机是什么？
 
 无人机是无人驾驶的 ”机器人“ 设备，可以远程或自动控制。
 
-无人机可应用在消费、工业、军事领域[使用情形和应用案例](http://px4.io/applications/)。 这包括（非详尽）：航空摄影/录像，载货，竞速，搜索和测绘等。
+无人机可应用在消费、工业、军事等领域的[诸多使用情形和应用案例](http://px4.io/applications/)。 这包括（非详尽）：航空摄影/录像，载货，竞速，搜索和测绘等。
 
 > **Tip**存在用于空中、地面、海洋和水下各种不同类型的无人机。 这些（更正式地）被称为无人驾驶飞行器（UAV），无人驾驶飞行器系统（UAS），无人驾驶地面车辆（UGV），无人驾驶水面船只（USV），无人驾驶水下潜航器（UUV）。
 
-无人机的 ”大脑“ 被称为自动驾驶仪。 它由在*设备控制器</ 0>（“飞行控制器”）硬件上运行的*飞行堆栈</ 0>软件组成。</p> 
+无人机的 ”大脑“ 被称为自动驾驶仪。 它由在 *设备控制器</ 0>（“飞行控制器”）硬件上运行的 *飞行堆栈* 软件组成。</p> 
 
 ## Dronecode 平台 {#dronecode}
 
-PX4 是[ Dronecode平台](https://www.dronecode.org/platform/)的一部分 - 一个完整的无人机开发端到端平台，在一个通用的行业友好型开源许可下提供。 其中包括[PX4 飞行堆栈](#autopilot)，[QGroundControl ](#qgc)地面控制站，[ Dronecode SDK ](https://www.dronecode.org/sdk/)和[ Dronecode相机管理器](https://camera-manager.dronecode.org/en/)。
+PX4 是 [Dronecode平台](https://www.dronecode.org/platform/) 的一部分 - 一个在通用的行业友好型开源许可下提供的完整无人机开发端到端平台。 其中包括 [PX4飞行堆栈](#autopilot)，[QGroundControl ](#qgc)地面控制站，[ Dronecode SDK ](https://www.dronecode.org/sdk/) 和 [Dronecode相机管理器](https://camera-manager.dronecode.org/en/)。
 
 ## PX4 自动驾驶仪 {#autopilot}
 
-[ PX4 ](http://px4.io/)是强大的开源自动驾驶仪*飞行堆栈*。
+[ PX4 ](http://px4.io/)是强大的开源自动驾驶仪 *飞行堆栈*。
 
 PX4 的一些主要功能包括：
 
@@ -131,16 +131,16 @@ PX4 具有可配置的故障安全系统，可在出现问题时保护和恢复�
 
 有关详细信息，请参阅：[安全](../config/safety.md)（基本配置）。
 
-## 机头和运动方向
+## 航向和运动方向
 
-所有车辆，船只和飞机都具有机头方向或基于其前进运动的方向。
+所有车辆，船只和飞机都具有航向（机头朝向）或基于其前进运动的方向。
 
 ![机架机头方向](../../images/frame_heading.png)
 
-知道设备机头方向，以使自驾仪与设备运动矢量对齐是重要的。 即使多旋翼从各个方向都对称，但其也有机头方向。 通常制造商使用彩色螺旋桨或带颜色的机臂来表示机头方向。
+知道设备航向，以使自驾仪与设备运动矢量对齐是重要的。 即使多旋翼从各个方向都对称，但其也有航向。 通常制造商使用彩色螺旋桨或带颜色的机臂来表示航向。
 
 ![机架机头方向 TOP](../../images/frame_heading_top.png)
 
-在我们的插图中，我们将使用红色的前螺旋桨来显示多旋翼的机头方向。
+在我们的插图中，我们将使用红色的前螺旋桨来显示多旋翼的航向。
 
-您可以在 [飞行控制器方向](../config/flight_controller_orientation.md) 中深入了解机头朝向。
+您可以在 [飞行控制器方向](../config/flight_controller_orientation.md) 中深入了解航向。
