@@ -337,11 +337,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/altitude_fw.md">Altitude mode</a> makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. 该模式不会试图抵抗风扰保持航向。
+              <a href="../flight_modes/altitude_fw.md">高度模式</a>使用户更容易控制飞行器高度，特别是达到并保持固定高度。 该模式不会试图抵抗风扰保持航向。
             </p>
             
             <p>
-              爬升/下沉率通过俯仰/升降舵杆操纵杆来控制。 操纵杆一旦回中，自动驾驶仪就会锁定当前的高度，并在偏航/滚转和任何空速条件下保持高度。 油门通道输入控制空速。 滚动和俯仰是角度控制的（因此不可能实现飞机滚转或环绕）。
+              爬升/下降速率通过俯仰/升降舵杆操纵杆来控制。 操纵杆一旦回中，自动驾驶仪就会锁定当前的高度，并在偏航/滚转和任何空速条件下保持高度。 油门通道输入控制空速。 滚动和俯仰是角度控制的（因此不可能实现飞机滚转或环绕）。
             </p>
             
             <p>
@@ -350,7 +350,7 @@
             
             <blockquote>
               <p>
-                <strong>Tip</strong> <em>Altitude mode</em> is the safest non GPS guided mode appropriate for beginners learning how to fly. It is just like <a href="#manual_fw">Manual</a> mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
+                <strong>Tip</strong> <em>高度模式</em> 是最安全的非 GPS 引导模式，适合初学者学习如何飞行。 这就像 <a href="#manual_fw">手动</a>模式，但当俯仰摇杆被释放，额外稳定飞行器的高度。
               </p>
             </blockquote>
             
@@ -359,7 +359,7 @@
             </p>
             
             <h3 id="stabilized_fw">
-              Stabilized Mode
+              自稳模式
             </h3>
             
             <p>
@@ -367,7 +367,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/stabilized_fw.md">Stabilized mode</a> mode puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
+              当 RC 摇杆居中时，<a href="../flight_modes/stabilized_fw.md">自稳模式</a>使飞行器进入直线和水平飞行，抵抗风来保持水平姿态（但不包括飞行器航向和高度）。
             </p>
             
             <p>
@@ -506,7 +506,7 @@
             </p>
             
             <h2>
-              Vertical Take Off and Landing (VTOL)
+              垂直起降（VTOL）
             </h2>
             
             <p>
