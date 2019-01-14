@@ -371,12 +371,12 @@
             </p>
             
             <p>
-              The vehicle climb/descends based on pitch input and performs a coordinated turn if the roll/pitch sticks are non-zero. Roll and pitch are angle controlled (you can't roll upside down or loop).
+              飞行器基于俯仰输入进行爬升/下降并在滚转/俯仰摇杆非零时，进行协调转弯。 滚转和俯仰是角度控制的（您不能翻转至倒置或循环）。
             </p>
             
             <blockquote>
               <p>
-                <strong>Tip</strong> <em>Stabilized mode</em> is much easier to fly than <a href="#manual_fw">Manual mode</a> because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
+                <strong>Tip</strong> <em>自稳模式 </em>比 <a href="#manual_fw">手动模式 </a>更容易飞行，因为您不能翻转它，并且很容易通过居中摇杆来使飞行器水平。
               </p>
             </blockquote>
             
