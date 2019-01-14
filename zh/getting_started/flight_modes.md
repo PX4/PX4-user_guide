@@ -51,7 +51,7 @@
     <span id="key_automatic"><a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a></td> 
     
     <td>
-      自动模式. RC control is disabled by default except to change modes.
+      自动模式. 除非切换模式，否则 RC 控制被默认失能。
     </td></tr> 
     
     <tr>
@@ -59,7 +59,7 @@
         <span id="key_position_fixed"><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a></td> 
         
         <td>
-          Position fix required (e.g. GPS, VIO, or some other positioning system).
+          需要定位（如 GPS，VIO， 或其它定位系统）。
         </td></tr> 
         
         <tr>
@@ -68,7 +68,7 @@
           </td>
           
           <td>
-            Altitude required (e.g. from barometer, rangefinder).
+            需要高度（如来自气压计、测距仪）。
           </td>
         </tr>
         
@@ -77,7 +77,7 @@
             <span id="key_difficulty"><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" />&nbsp;<img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="30px" />&nbsp;<img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" /></a></td> 
             
             <td>
-              Flight mode difficulty (Easy to Hard)
+              飞行模式难度（简单到困难）
             </td></tr> </tbody> </table> 
             
             <h2 id="mc_flight_modes">
