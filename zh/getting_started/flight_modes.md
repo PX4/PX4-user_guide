@@ -93,12 +93,12 @@
             </p>
             
             <p>
-              <a href="../flight_modes/position_mc.md">Position mode</a> is an easy-to-fly RC mode in which roll and pitch sticks control speed over ground in the left-right and forward-back directions (relative to the "front" of the vehicle), and throttle controls speed of ascent-descent. When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
+              <a href="../flight_modes/position_mc.md">位置模式</a> 是一种容易飞行的 RC 模式，其中滚转和俯仰摇杆在左右和前后方向控制相对地面的速度。 当摇杆被释放／居中时，车辆将主动制动，保持水平，并锁定到 3D 空间的某个位置-消除风和其它力的影响。
             </p>
             
             <blockquote>
               <p>
-                <strong>Tip</strong> Position mode is the safest manual mode for new fliers. Unlike <a href="#altitude_mc">Altitude</a> and <a href="#manual_stabilized_mc">Manual/Stabilized</a> modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance.
+                <strong>Tip</strong>位置模式是新飞手最安全的手动模式。 与 <a href="#altitude_mc">高度</a> 和 <a href="#manual_stabilized_mc">手动/自稳</a> 模式不同，当摇杆居中时，飞行器将会制动，而不是继续运动直到风阻使其减速。
               </p>
             </blockquote>
             
@@ -107,7 +107,7 @@
             </p>
             
             <h3 id="altitude_mc">
-              Altitude Mode
+              高度模式
             </h3>
             
             <p>
