@@ -12,7 +12,7 @@
 
 PX4 支持许多全球导航卫星系统（GNSS）接收器和指南针（磁力计）。 它还支持 [实时动态（RTK）GPS接收器](../gps_compass/rtk_gps.md) ，它将 GPS 系统扩展到厘米级精度。
 
-> **Tip** [ Pixhawk 系列](../flight_controller/pixhawk_series.md) 控制器包括 *内部* 指南针。 This *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
+> **Tip** [ Pixhawk 系列](../flight_controller/pixhawk_series.md) 控制器包括 *内部* 指南针。 其 *可能* 在较大飞行器上发挥作用，因为可以通过远离电源线安装Pixhawk 来减少电磁干扰。 在小型飞行器上，几乎总是需要外部罗盘。
 
 We recommend the use of an external "combined" compass/GPS module mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
 
