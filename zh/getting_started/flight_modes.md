@@ -422,7 +422,7 @@
             
             <blockquote>
               <p>
-                <strong>Tip</strong>这是最难飞行的模式，因为没有什么是稳定的。 Unlike <a href="#acro_fw">Acro Mode</a> if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
+                <strong>Tip</strong>这是最难飞行的模式，因为没有什么是稳定的。 与<a href="#acro_fw">特技模式</a>不同，如果 RP 摇杆居中，飞行器将不会自动停止绕轴转动-飞行员实际上必须移动摇杆以向另一个方向施加力。
               </p>
             </blockquote>
             
@@ -435,12 +435,12 @@
             
             <blockquote>
               <p>
-                <strong>Note</strong> This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). 它提供了一个安全机制，允许在FMU固件出现故障时，通过遥控完全控制油门、电梯、副翼和舵。
+                <strong>Note</strong> 这是唯一忽略 FMU 的模式（即命令通过安全协处理器发送）。 它提供了一个安全机制，允许在 FMU 固件出现故障时，通过遥控完全控制油门、升降舵、副翼和方向舵。
               </p>
             </blockquote>
             
             <h3 id="hold_fw">
-              Hold Mode
+              保持模式
             </h3>
             
             <p>
@@ -448,11 +448,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/hold.md">Hold</a> causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
+              <a href="../flight_modes/hold.md">保持 </a>使固定翼飞行器在当前高度围绕当前位置盘旋。 该模式可用于暂停任务或帮助在紧急情况下重新获得对飞行器的控制。 它可以通过预编程的 RC 开关或<em>QGroundControl</em> <strong>Pause</strong> 按钮激活。
             </p>
             
             <h3 id="return_fw">
-              Return Mode
+              返航模式
             </h3>
             
             <p>
@@ -460,11 +460,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly back to its home position (at a safe height) and circle over it. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
+              <a href="../flight_modes/return.md">返航模式</a>使飞行器（在安全高度）飞回其原始位置并在其上方环绕。 该模式可以手动（通过预编程的 RC 开关）或者自动（如故障保护被触发的事件）激活。
             </p>
             
             <h3 id="mission_fw">
-              Mission Mode
+              任务模式
             </h3>
             
             <p>
@@ -472,7 +472,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/mission.md">Mission mode</a> causes the vehicle to execute a predefined autonomous <a href="../flying/missions.md">mission</a> (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
+              <a href="../flight_modes/mission.md">任务模式</a> 使飞行器执行已经上传到飞行控制器的预定义自主<a href="../flying/missions.md">任务 </a>（飞行规划）。 The mission is typically created and uploaded with a Ground Control Station (GCS) application.
             </p>
             
             <blockquote>
