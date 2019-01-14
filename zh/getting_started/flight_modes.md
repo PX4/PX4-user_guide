@@ -16,13 +16,13 @@
 
 并非所有飞行器都可以使用所有飞行模式，并且某些模式在不同飞行器类型上表现不同。
 
-一些飞行模式仅在飞行前和飞行中某些特定条件下起作用（如 GPS 锁定，空速传感器，某个轴的姿态感测）。 PX4 will not allow transitions to those modes until the right conditions are met.
+一些飞行模式仅在飞行前和飞行中某些特定条件下起作用（如 GPS 锁定，空速传感器，某个轴的姿态感测）。 除非满足合适的条件，否则 PX4 不会允许切换到这些模式。
 
-## Autonomous and Manual Modes {#categories}
+## 自主和手动模式 {#categories}
 
-Flight Modes are either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and require no pilot/remote control input.
+飞行模式可以是 *手动的* 或 *自主的*。 手动模式是用户通过 RC 控制杆（或操纵杆）控制飞行器运动的模式，然而 *自主*模式完全由自驾仪控制，并且不需要驾驶员／遥控输入。
 
-> **Tip** Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight. For example, most modes will level out the vehicle when the RC sticks are centered.
+> **Tip**某些手动模式可能具有自驾辅助机制，以便更容易获得或恢复受控飞行。 如当 RC 摇杆居中时，大部分飞行模式将使飞行器水平。
 
 Manual modes may further be divided into "easy" and "acrobatic" modes. In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively). Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip. In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis). Vehicles can flip, and while more maneuverable, are harder to fly.
 
