@@ -1,6 +1,6 @@
-# Sensors
+# 传感器
 
-PX4-based systems use sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The vehicle states include: position/altitude, heading, speed, airspeed, orientation (attitude), rates of rotation in different directions, battery level, etc.
+基于 PX4 的系统使用传感器来确定飞行器状态（稳定和实现自主控制所需）。 车辆状态包括：位置/高度，航向，速度，空速，方向（姿态），不同方向的旋转速率，电池电量等。
 
 The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
 
