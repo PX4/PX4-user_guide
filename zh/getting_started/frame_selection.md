@@ -1,10 +1,10 @@
-# Frame Selection
+# 机架选择
 
-## Air Vehicles
+## 空中飞行器
 
-If you plan using PX4 for flying aircraft the most important question you should answer is, what will be the application. Is it for fun or for work, what is the planned flight times and coverage.
+如果您计划使用 PX4 来飞行飞机，您应该回答的最重要的问题是，应用将会是什么。 是为了娱乐还是工作，计划的飞行时间和覆盖范围是多少。
 
-- If you need precision hovering and you don't mind shorter flight times then focus on **Multicopters**.
+- 如果你需要精确的悬停，并不介意更短的飞行时间，那么请关注 **多旋翼**。
 - For longer flights and larger areas of coverage you will need fixed wing aircraft i.e. **Airplanes**.
 - There is even mixed type of aircraft called **VTOL** - Vertical Takeoff and Landing aircraft. It can take off in vertical mode like Multicopter and then transition in forward flight like Airplane.
 
