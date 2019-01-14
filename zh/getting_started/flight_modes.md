@@ -36,7 +36,7 @@
 
 * 手动-简单： [位置](#position_mc), [高度](#altitude_mc), [手动/自稳](#manual_stabilized_mc)
 * 手动-特技： [半自动](#rattitude_mc), [特技](#acro_mc)
-* 自主：[保持](#hold_mc), [返航](#return_mc), [任务](#mission_mc), [起飞](#takeoff_mc), [降落](#land_mc), [跟随我](#followme_mc), [板外](#offboard_mc)
+* 自主：[保持](#hold_mc), [返航](#return_mc), [任务](#mission_mc), [起飞](#takeoff_mc), [降落](#land_mc), [跟随我](#followme_mc), [Offboard](#offboard_mc)
 
 ## 键
 
@@ -514,11 +514,11 @@
             </p>
             
             <p>
-              Generally the flight modes for VTOL vehicles are the same as for <a href="#mc_flight_modes">multicopter</a> when flying in MC mode and <a href="#fw_flight_modes">fixed-wing</a> when flying in FW mode.
+              通常，VTOL 飞行器的飞行模式，在 MC 模式下飞行时和<a href="#mc_flight_modes">多旋翼 </a>相同 ，在固定翼模式飞行时和 <a href="#fw_flight_modes">固定翼 </a>相同。
             </p>
             
             <p>
-              The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
+              模式之间的切换由飞行员使用 RC 开关启动，或自主模式下在需要时自动启动。
             </p>
             
             <h2>
@@ -527,9 +527,9 @@
             
             <ul>
               <li>
-                <a href="../flight_modes/README.md">Flying > Flight Modes</a> - Detailed technical explanation of all modes
+                <a href="../flight_modes/README.md">飞行> 飞行模式 </a> - 所有模式的详细技术说明。
               </li>
               <li>
-                <a href="../config/flight_mode.md">Basic Configuration > Flight Modes</a> - How to map RC control switches to specific flight modes
+                <a href="../config/flight_mode.md">基本配置 > 飞行模式 </a> - 如何将 RC 控制开关映射到特定飞行模式。
               </li>
             </ul>
