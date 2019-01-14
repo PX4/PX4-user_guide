@@ -44,32 +44,32 @@ PX4最初设计为在 [ Pixhawk Series ](../flight_controller/pixhawk_series.md)
 
 ## 传感器
 
-PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4 使用传感器来确定飞行器状态（稳定和启用自动控制所需）。 系统*最低要求 *陀螺仪，加速度计，磁力计（罗盘）和气压计。 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 固定翼和 VTOL 飞行器还应包括空速传感器（特别推荐）。
 
 有关详细信息，请参阅︰
 
-- [Sensors](../getting_started/sensor_selection.md) 
-- [外部设备](../peripherals/README.md)
+- [传感器](../getting_started/sensor_selection.md) 
+- [外设](../peripherals/README.md)
 
-## ESCs & Motors
+## 电调 & 电机
 
-Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
+许多 PX4 无人机使用无刷电机，其由飞行控制器通过电子调速器（ESC）驱动（ESC将来自飞行控制器的信号转换为传递给电动机的合适功率水平）。
 
-For information about what ESC/Motors are supported by PX4 see:
+有关 PX4 支持的 ESC/Motors 的信息，请参阅：
 
-- [电机 & 电调](../peripherals/esc_motors.md)
+- [电调 & 电机](../peripherals/esc_motors.md)
 - [电调校准](../advanced_config/esc_calibration.md)
-- [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
+- [ESC 固件和协议概述](https://oscarliang.com/esc-firmware-protocols/)（oscarliang.com）
 
 ## 电池/电源
 
-PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. The battery is typically connected to the system using a *Power Module* or *Power Management Board*, which provide separate power for the flight controller and to the ESCs (for the motors).
+PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*电源模块 *或*电源管理板 *连接到系统，它为飞行控制器和 ESC（用于电动机）提供单独的动力。
 
-Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
+有关电池和电池配置的信息，请参见[电池配置](../config/battery.md)和[基本组件](../assembly/README.md)（例如[ Pixhawk 4 接线快速入门>电源](../assembly/quick_start_pixhawk4.md#power)）。
 
 ## 无线电控制（遥控） {#rc_systems}
 
-A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
+[无线电控制（RC ）](../getting_started/rc_transmitter_receiver.md)系统用于*手动 *控制飞行器。 It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
 > **Note** PX4 does not require a remote control system for autonomous flight modes.
 
