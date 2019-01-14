@@ -19,7 +19,7 @@ PX4 能够在很多飞控板和系统上运行（见 [自驾仪硬件](../flight
 | [Pixhawk Mini](../flight_controller/pixhawk_mini.md) | 小型*通用*自驾仪已针对易于设置进行了优化。  
 控制器具有内部减震和仅8个主输出（**没有 AUX 端口**），使其更容易安装和连接。 它不适用于 *需要* AUX 端口的设备／功能。                                                                                                                      |
 | [Pixhawk 2](../flight_controller/pixhawk-2.md)       | 主要针对商业系统制造商的灵活自驾仪。 它被设计为与特定领域的载板同时使用，以减少布线，提高可靠性，和易于装配。                                                                                                                                                            |
-| [Pixhawk 4](../flight_controller/pixhawk4.md)        | Pixhawk 4 is optimized to run PX4 version 1.7 and is suitable for academic and commercial developers. 与之前版本相比，具有更高的计算能力和 2 倍的 RAM ，额外端口以利于集成和扩展，新的传感器和集成的震动隔离。                                                     |
+| [Pixhawk 4](../flight_controller/pixhawk4.md)        | Pixhawk 4 为运行 PX4 1.7 版本而优化并且适用于学术和商业开发者。 与之前版本相比，具有更高的计算能力和 2 倍的 RAM ，额外端口以利于集成和扩展，新的传感器和集成的震动隔离。                                                                                                                 |
 
 ## 用于计算密集型任务的自驾仪
 
