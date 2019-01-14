@@ -1,6 +1,6 @@
-# 飞控选择
+# 选择飞控硬件
 
-You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
+在选择飞控板时你应当考虑飞机的物理尺寸限制、想要进行的活动以及当然要考虑的成本。
 
 PX4 can run on many flight controller boards and systems (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/Firmware/#supported-hardware)). A *subset* of the available options are listed below.
 
