@@ -2,7 +2,7 @@
 
 > **Warning** 该主题正在建设中。 它尚未完整，尚未经过全面审核。
 
-飞行模式定义了自驾仪如何响应遥控输入，以及在完全自主飞行期间管理飞行器运动。
+飞行模式定义了自驾仪如何响应遥控输入，以及它如何在全自主飞行期间管理飞行器运动。
 
 这些模式为用户（飞行员）提供不同类型／级别的自动驾驶辅助，包括从起飞和着陆等常见任务的自动化，到更容易重新获得水平飞行及将飞行器保持在固定路径或位置的机制，等等。
 
@@ -381,7 +381,7 @@
             </blockquote>
             
             <p>
-              The vehicle will glide if the throttle is lowered to 0% (motor stops). In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
+              如果油门低于 0% （电机停转），飞行器将会滑翔。 为了执行转弯，必须在整个操纵过程中保持命令，因为如果滚转摇杆被释放，飞机将会停止转弯并自行调平（对于俯仰和偏航命令也是如此）。
             </p>
             
             <p>
@@ -389,7 +389,7 @@
             </p>
             
             <h3 id="acro_fw">
-              Acro Mode
+              特技模式
             </h3>
             
             <p>
