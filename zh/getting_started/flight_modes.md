@@ -103,7 +103,7 @@
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/position_MC.png" alt="MC Position Mode" />
+              <img src="../../images/flight_modes/position_MC.png" alt="多旋翼位置模式" />
             </p>
             
             <h3 id="altitude_mc">
@@ -129,7 +129,7 @@
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/altitude_MC.png" alt="MC Altitude Mode" />
+              <img src="../../images/flight_modes/altitude_MC.png" alt="多旋翼高度模式" />
             </p>
             
             <h3 id="manual_stabilized_mc">
@@ -159,7 +159,7 @@
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_stabilized_MC.png" alt="MC Manual Flight" />
+              <img src="../../images/flight_modes/manual_stabilized_MC.png" alt="多旋翼手动飞行" />
             </p>
             
             <h3 id="rattitude_mc">
@@ -325,7 +325,7 @@
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/position_FW.png" alt="FW Position Mode" />
+              <img src="../../images/flight_modes/position_FW.png" alt="固定翼位置模式" />
             </p>
             
             <h3 id="altitude_fw">
@@ -333,7 +333,7 @@
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Barometer, Rangefinder)" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="需要高度（如气压计，测距仪）" width="30px" /></a>
             </p>
             
             <p>
@@ -355,7 +355,7 @@
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/altitude_FW.png" alt="FW Altitude Mode" />
+              <img src="../../images/flight_modes/altitude_FW.png" alt="固定翼高度模式" />
             </p>
             
             <h3 id="stabilized_fw">
@@ -385,7 +385,7 @@
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_stabilized_FW.png" alt="FW Manual Flight" />
+              <img src="../../images/flight_modes/manual_stabilized_FW.png" alt="固定翼手动飞行" />
             </p>
             
             <h3 id="acro_fw">
