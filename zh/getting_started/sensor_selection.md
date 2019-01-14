@@ -1,12 +1,12 @@
 # 传感器
 
-基于 PX4 的系统使用传感器来确定飞行器状态（稳定和实现自主控制所需）。 车辆状态包括：位置/高度，航向，速度，空速，方向（姿态），不同方向的旋转速率，电池电量等。
+基于 PX4 的系统使用传感器来确定飞行器状态（自稳和启用自主控制所需）。 飞行器状态包括：位置/高度，航向，速度，空速，方向（姿态），不同方向的旋转速率，电池电量等。
 
 系统 *最低要求* 陀螺仪，加速度计，磁力计（罗盘）和气压计。 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 固定翼和 VTOL 飞行器还应包括空速传感器（特别推荐）。
 
 最小的传感器组合集成在 [Pixhawk 系列](../flight_controller/pixhawk_series.md) 飞行控制器上（并且也能存在其他控制器平台中）。 附加/外部传感器可以连接到控制器。
 
-下面我们介绍一些传感器。 At the end there are links to information about [sensor wiring](#wiring).
+下面我们介绍一些传感器。 最后有关于 [传感器接线](#wiring) 的信息。
 
 ## GPS&罗盘 {#gps_compass}
 
@@ -18,7 +18,7 @@ PX4 支持许多全球导航卫星系统（GNSS）接收器和指南针（磁力
 
 常见的 GPS/罗盘硬件选项列于：[GPS/指南针](../gps_compass/README.md) 。
 
-![GPS + Compass](../../images/gps_compass.jpg)
+![GPS + 罗盘](../../images/gps_compass.jpg)
 
 ## 空速计
 
@@ -26,7 +26,7 @@ PX4 支持许多全球导航卫星系统（GNSS）接收器和指南针（磁力
 
 它们非常重要，因为自驾仪没有其他方法来检测失速。 对于固定翼飞行，是空速，而不是地速提供升力。
 
-![Digital airspeed sensor](../../images/digital_airspeed_sensor.jpg)
+![数字空速传感器](../../images/digital_airspeed_sensor.jpg)
 
 有关更多信息和推荐的硬件，请参阅：[空速传感器](../sensor/airspeed.md)。
 
@@ -42,7 +42,7 @@ PX4 支持许多经济实惠的距离传感器，其使用不同的技术，并�
 
 [ PX4Flow ](../sensor/px4flow.md)是可以跟踪运动的光流智能相机，并具有集成的声纳传感器。 PX4 将光流传感器输出与来自其他位置源（例如 GPS）的信息混合，以提供更准确的位置锁定。 当没有 GPS 信号时，该传感器可以在室内使用。
 
-![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
+![px4flow-底面](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
 
 一些选项包括：
 
@@ -56,5 +56,5 @@ PX4 支持许多经济实惠的距离传感器，其使用不同的技术，并�
 另外，请参阅：
 
 * [基本组件](../assembly/README.md)包含飞行控制器快速入门指南。 其包括核心传感器到特定飞行控制器硬件的接线。
-* [Flight Controller](../flight_controller/README.md) topics often contain wiring information.
-* [Peripheral Hardware](../peripherals/README.md) contains documentation for other sensors.
+* [飞行控制器](../flight_controller/README.md) 主题通常包含接线信息。
+* [外设硬件](../peripherals/README.md)包含其他传感器的文档。
