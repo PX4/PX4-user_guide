@@ -34,13 +34,13 @@ PX4 支持许多全球导航卫星系统（GNSS）接收器和罗盘（磁力计
 
 距离传感器用于精准着陆，避障和地形跟随。
 
-PX4 支持许多经济实惠的距离传感器，其使用不同的技术，并支持不同的范围和功能。 有关更多信息，请参阅：[距离传感器](../sensor/rangefinders.md)。
+PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不同的范围和功能。 有关更多信息，请参阅：[距离传感器](../sensor/rangefinders.md)。
 
 <img src="../../images/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
 
 ## 光流
 
-[ PX4Flow ](../sensor/px4flow.md)是可以跟踪运动的光流智能相机，并具有集成的声纳传感器。 PX4 将光流传感器输出与来自其他位置源（例如 GPS）的信息混合，以提供更准确的位置锁定。 当没有 GPS 信号时，该传感器可以在室内使用。
+[ PX4Flow ](../sensor/px4flow.md)是一款可以跟踪运动的光流智能相机，并具有集成的声纳传感器。 PX4 将光流传感器输出与来自其他定位源（例如 GPS）的信息融合，以提供更准确的位置锁定。 当没有 GPS 信号时，该传感器可以在室内使用。
 
 ![px4flow-底面](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
 
