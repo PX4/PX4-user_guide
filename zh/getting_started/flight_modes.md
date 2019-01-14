@@ -253,11 +253,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/takeoff.md">Takeoff</a> mode causes the multicopter to climb vertically to takeoff altitude and hover in position.
+              <a href="../flight_modes/takeoff.md">起飞</a> 模式使多旋翼飞行器垂直爬升至起飞高度并悬停在适当位置。
             </p>
             
             <h3 id="land_mc">
-              Land Mode
+              着陆模式
             </h3>
             
             <p>
@@ -265,11 +265,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/land.md">Land mode</a> causes the multicopter to land at the location at which the mode was engaged.
+              <a href="../flight_modes/land.md">着陆模式</a> 使多旋翼飞行器降落在模式被启用的位置。
             </p>
             
             <h3 id="followme_mc">
-              Follow Me Mode
+              跟随我模式
             </h3>
             
             <p>
@@ -277,7 +277,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/follow_me.md">Follow Me mode</a> causes a multicopter to autonomously follow and track a user providing their current position setpoint. Position setpoints might come from an Android phone/tablet running <em>QGroundControl</em> or from a Dronecode SDK app.
+              <a href="../flight_modes/follow_me.md">跟随我模式</a>使多旋翼飞行器自动跟踪提供其当前位置设定点的用户。 位置设定点可以来自运行<em>QGroundControl</em> Android 手机/平板或者来自Dronecode SDK 应用。
             </p>
             
             <h3 id="offboard_mc">
@@ -289,21 +289,21 @@
             </p>
             
             <p>
-              <a href="../flight_modes/offboard.md">Offboard mode</a> causes the multicopter to obey a position, velocity or attitude setpoint provided over MAVLink.
+              <a href="../flight_modes/offboard.md">Offboard 模式</a>使多旋翼飞行器服从 MAVLink 提供的位置，速度或姿态设定值。
             </p>
             
             <blockquote>
               <p>
-                <strong>Note</strong> This mode is intended for companion computers and ground stations!
+                <strong>Note</strong> 此模式适用于机载计算机和地面站。
               </p>
             </blockquote>
             
             <h2 id="fw_flight_modes">
-              Fixed-Wing
+              固定翼
             </h2>
             
             <h3 id="position_fw">
-              位置控制模式
+              位置模式
             </h3>
             
             <p>
@@ -311,7 +311,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/position_fw.md">Position mode</a> is an easy-to-fly RC mode in which, when the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces.
+              <a href="../flight_modes/position_fw.md">位置模式</a> 是一种易于飞行的 RC 模式，当摇杆被释放/居中时，飞行器将会保持水平，并在当前方向上以直线地面轨迹飞行-补偿风和其它力。
             </p>
             
             <p>
