@@ -12,7 +12,7 @@
 
 选择并购买或组装您的机架后，您必须在 [初始设置过程 ](../config/README.md)期间使用 QGroundControl 中相应机架模板预设机架类型。
 
-![Frame Selection](../../images/frame_selection.png)
+![机架选择](../../images/frame_selection.png)
 
 <!-- 
 ### Types of VTOL
@@ -29,4 +29,4 @@ Depending on the way the VTOL flies in copter mode or how it makes the transitio
 
 ## 地面车辆
 
-## Sea Vehicles
+## 海洋船只
