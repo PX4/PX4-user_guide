@@ -171,16 +171,16 @@ Instructions for this are provided in the [TBS Crossfire Manual](https://www.tea
 
 The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
-## Build & Upload Instructions {#upload}
+## PX4 Bootloader Update {#upload}
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). 
-Before the PX4 firmware can be installed, the PX4 bootloader needs to be flashed.
+Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed.
 
 There are two options for flashing the bootloader: via *Betaflight Configurator* (easier), or building from source (guaranteed to work).
 
-### Setup PX4 using Betaflight Configurator {#betaflight_configurator}
+### Bootloader Update using Betaflight Configurator {#betaflight_configurator}
 
-To setup PX4 using the *Betaflight Configurator*:
+To install the PX4 bootloader using the *Betaflight Configurator*:
 1. Download the pre-built bootloader binary: [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex).
 1. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform.
    > **Tip** If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here]( https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao). 
@@ -189,11 +189,11 @@ To setup PX4 using the *Betaflight Configurator*:
    ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
 1. Select the bootloader binary from the file system and then flash the board.
 
+You should now be able to install PX4 firmware on the board.
 
+### Bootloader Update using Source
 
-### Setup PX4 using Source
-
-#### Download
+#### Download Bootloader Source
 
 Download and build the [Bootloader](https://github.com/PX4/Bootloader) via:
 ```
@@ -202,15 +202,19 @@ cd Bootloader
 make omnibusf4sd_bl
 ```
 
-#### Flash
+#### Flash Bootloader
 
-You can flash the PX4 bootloader via the [dfu-util](http://dfu-util.sourceforge.net/) or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) tool on windows.
+You can flash the PX4 bootloader using the [dfu-util](http://dfu-util.sourceforge.net/) or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) tool on windows.
 
-Don't be afraid to try flashing using any of the below methods. The STM32 MCU cannot be bricked. DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
+Don't be afraid to try flashing using any of the below methods. 
+The STM32 MCU cannot be bricked. 
+DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
 
 ##### Enter DFU mode
 
-Both methods require the board to be in DFU mode. To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. The button can be released after the board is powered up.
+Both methods require the board to be in DFU mode. 
+To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. 
+The button can be released after the board is powered up.
 
 ##### dfu-util
 
@@ -226,6 +230,7 @@ See the dfuse manual is here: https://www.st.com/resource/en/user_manual/cd00155
 
 Flash the `omnibusf4sd_bl.bin` file.
 
+
 ## Building Firmware
 
 To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
@@ -233,12 +238,15 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 make omnibus_f4sd_default
 ```
 
-### Installing other firmwares
+## Installing PX4 Firmware
 
-If you later on want to switch back to *Betaflight*, you can easily do that:
-- Backup the parameters, e.g. by [exporting](https://dev.px4.io/master/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters) them to an SD card
-- Keep the **bootloader** button pressed while attaching the USB cable
-- Then flash *Betaflight* as usual with the *Betaflight-configurator*
+The firmware can be installed in either of the normal ways: 
+- Build and upload the source
+  ```
+  make omnibus_f4sd_default upload
+  ```
+- [Load the firmware](../config/firmware.md) using *QGroundControl* (you will need to use *Advanced Settings* and load it as a *Custom firmware file*).
+
 
 ## Configuration
 
@@ -250,9 +258,16 @@ Parameter | Setting
 [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.
 [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.
 
+
+## Reinstall Betaflight
+
+In order to switch back to *Betaflight*:
+- Backup the PX4 parameters, e.g. by [exporting](https://dev.px4.io/master/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters) them to an SD card
+- Keep the **bootloader** button pressed while attaching the USB cable
+- Then flash *Betaflight* as usual with the *Betaflight-configurator*
+
 ## Further Info
 
 A review with further information of the board can be found [here](https://nathan.vertile.com/blog/2016/10/12/omnibusf4/).
 
 [This page](https://blog.dronetrest.com/omnibus-f4-flight-controller-guide/) also provides a nice overview with pinouts and setup instructions.
-

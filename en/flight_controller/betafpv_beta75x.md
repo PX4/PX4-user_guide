@@ -22,13 +22,13 @@ The *Beta75X* comes preinstalled with Betaflight.
 
 To install the PX4 bootloader and firmware follow the [Omnibus F4 instructions](omnibus_f4_sd.md#betaflight_configurator) (this is the flight controller board on the *Beta75X*).
 
-> **Note** After following these instructions to install PX4, you can use *QGroundControl* for subsequent updates.
+## Configuration
 
-## Connecting QGroundControl
+Once the firmware is loaded, you should be able to connect the vehicle to *QGroundControl* via a USB cable.
 
-Once the firmware is flashed, you should be able to connect QGC via USB cable.
-
-Go through the initial setup, start with setting the [Airframe](../config/airframe.md) to *BetaFPV Beta75X 2S Brushless Whoop*, and continue with sensor calibrations and radio setup.
+To configure PX4:
+- [Set the Airframe](../config/airframe.md) to *BetaFPV Beta75X 2S Brushless Whoop*.
+- Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.
 
 ## Video
 
