@@ -2,13 +2,13 @@
 
 px4 包含校准和补偿速率陀螺仪、加速度计和气压传感器的功能, 以纠正传感器温度对传感器偏差的影响。
 
-This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation).
+本主题详细介绍了 [测试环境](#test_setup) 和 [校准过程](#calibration_procedures)。 最后是 [实施过程](#implementation) 的描述。
 
-## Test Setup/Best Practice {#test_setup}
+## 测试设置/最佳实践 {#test_setup}
 
-The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
+以下部分中描述的 [校准程序](#calibration_procedures) 是在理想的 *环境室*（温度和湿度受控的环境）中进行的，因为电路板被从最低温度加热到最高运行/校准温度。 在开始校准之前，首先将电路板 *冷却*（冷却至最低温度并使其达到平衡）。
 
-For the cold soak you can use a regular home freezer to achieve -20C, and commercial freezers can achieve of the order of -40C. The board should be placed in a ziplock/anti-static bag containing a silica packet, with a power lead coming out through a sealed hole. After the cold soak the bag can be moved to the test environment and the test continued in the same bag.
+对于冷却，您可以使用普通的家用冰箱达到 -20C，商用冰箱可以达到 -40C 的量级。 The board should be placed in a ziplock/anti-static bag containing a silica packet, with a power lead coming out through a sealed hole. After the cold soak the bag can be moved to the test environment and the test continued in the same bag.
 
 > **Note** The bag/silica is to prevent condensation from forming on the board.
 
