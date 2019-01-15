@@ -31746,6 +31746,65 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="SENS_CM8JL65_CFG">SENS_CM8JL65_CFG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Serial Configuration for Lanbao PSK-CM8JL65-CC5
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure on which serial port to run Lanbao PSK-CM8JL65-CC5.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>6:</strong> UART 6
+        </li>
+        <li>
+          <strong>101:</strong> TELEM 1
+        </li>
+        <li>
+          <strong>102:</strong> TELEM 2
+        </li>
+        <li>
+          <strong>103:</strong> TELEM 3
+        </li>
+        <li>
+          <strong>104:</strong> TELEM/SERIAL 4
+        </li>
+        <li>
+          <strong>201:</strong> GPS 1
+        </li>
+        <li>
+          <strong>202:</strong> GPS 2
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="SENS_EN_BATT">SENS_EN_BATT</strong> (INT32)
     </td>
     
@@ -31780,11 +31839,11 @@
         Lidar-Lite (LL40LS)
       </p>
       
-      <strong>参数值:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong> Disabled
         </li>
         <li>
           <strong>1:</strong> PWM
@@ -31795,7 +31854,7 @@
       </ul>
       
       <p>
-        <b>重启要求: </b>是
+        <b>要求重启:</b>是
       </p>
     </td>
     
@@ -31873,7 +31932,7 @@
         Lightware Laser Rangefinder hardware model
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>参数值:</strong>
       
       <ul>
         <li>
@@ -31923,7 +31982,7 @@
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong> Disabled
         </li>
         <li>
           <strong>1:</strong> SF10/a
@@ -31943,7 +32002,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32006,7 +32065,7 @@
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong> Disabled
         </li>
         <li>
           <strong>1:</strong> Autodetect
@@ -32023,7 +32082,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32053,7 +32112,7 @@
         <strong>Comment:</strong> This parameter defines the yaw rotation of the PX4FLOW board relative to the vehicle body frame. Zero rotation is defined as X on flow board pointing towards front of vehicle. The recommneded installation default for the PX4FLOW board is with the Y axis forward (270 deg yaw).
       </p>
       
-      <strong>参数值:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -32083,7 +32142,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32184,65 +32243,6 @@
         <strong>Comment:</strong> Configure on which serial port to run LeddarOne Rangefinder.
       </p>
       
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> Disabled
-        </li>
-        <li>
-          <strong>6:</strong> UART 6
-        </li>
-        <li>
-          <strong>101:</strong> TELEM 1
-        </li>
-        <li>
-          <strong>102:</strong> TELEM 2
-        </li>
-        <li>
-          <strong>103:</strong> TELEM 3
-        </li>
-        <li>
-          <strong>104:</strong> TELEM/SERIAL 4
-        </li>
-        <li>
-          <strong>201:</strong> GPS 1
-        </li>
-        <li>
-          <strong>202:</strong> GPS 2
-        </li>
-      </ul>
-      
-      <p>
-        <b>Reboot required:</b> true
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SENS_SF0X_CFG">SENS_SF0X_CFG</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Serial Configuration for Lightware Laser Rangefinder
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Configure on which serial port to run Lightware Laser Rangefinder.
-      </p>
-      
       <strong>参数对照:</strong>
       
       <ul>
@@ -32274,6 +32274,65 @@
       
       <p>
         <b>要求重启:</b>是
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_SF0X_CFG">SENS_SF0X_CFG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Serial Configuration for Lightware Laser Rangefinder
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure on which serial port to run Lightware Laser Rangefinder.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>6:</strong> UART 6
+        </li>
+        <li>
+          <strong>101:</strong> TELEM 1
+        </li>
+        <li>
+          <strong>102:</strong> TELEM 2
+        </li>
+        <li>
+          <strong>103:</strong> TELEM 3
+        </li>
+        <li>
+          <strong>104:</strong> TELEM/SERIAL 4
+        </li>
+        <li>
+          <strong>201:</strong> GPS 1
+        </li>
+        <li>
+          <strong>202:</strong> GPS 2
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32324,65 +32383,6 @@
         <strong>Comment:</strong> Configure on which serial port to run Benewake TFmini Rangefinder.
       </p>
       
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> Disabled
-        </li>
-        <li>
-          <strong>6:</strong> UART 6
-        </li>
-        <li>
-          <strong>101:</strong> TELEM 1
-        </li>
-        <li>
-          <strong>102:</strong> TELEM 2
-        </li>
-        <li>
-          <strong>103:</strong> TELEM 3
-        </li>
-        <li>
-          <strong>104:</strong> TELEM/SERIAL 4
-        </li>
-        <li>
-          <strong>201:</strong> GPS 1
-        </li>
-        <li>
-          <strong>202:</strong> GPS 2
-        </li>
-      </ul>
-      
-      <p>
-        <b>Reboot required:</b> true
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SENS_ULAND_CFG">SENS_ULAND_CFG</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Serial Configuration for uLanding Radar
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Configure on which serial port to run uLanding Radar.
-      </p>
-      
       <strong>参数对照:</strong>
       
       <ul>
@@ -32414,6 +32414,65 @@
       
       <p>
         <b>要求重启:</b>是
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_ULAND_CFG">SENS_ULAND_CFG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Serial Configuration for uLanding Radar
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure on which serial port to run uLanding Radar.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>6:</strong> UART 6
+        </li>
+        <li>
+          <strong>101:</strong> TELEM 1
+        </li>
+        <li>
+          <strong>102:</strong> TELEM 2
+        </li>
+        <li>
+          <strong>103:</strong> TELEM 3
+        </li>
+        <li>
+          <strong>104:</strong> TELEM/SERIAL 4
+        </li>
+        <li>
+          <strong>201:</strong> GPS 1
+        </li>
+        <li>
+          <strong>202:</strong> GPS 2
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
       </p>
     </td>
     
