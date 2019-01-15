@@ -8,26 +8,26 @@
 
 ## 总览
 
-* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
-  * CPU: STM32F427VIT6 ARM microcontroller - Revision 3
-  * IO: STM32F100C8T6 ARM microcontroller
+* 主片上系统：[STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+  * CPU：STM32F427VIT6 ARM 微控制器-版本 3
+  * IO：STM32F100C8T6 ARM 微控制器
 * 传感器： 
   * Invensense MPU9250 9DOF
   * Invensense ICM-20608 6DOF
-  * MEAS MS5611 barometer
-* Dimensions/Weight 
-  * Size: 36mm x 50mm
-  * Mounting Points: 30.5mm x 30.5mm 3.2mm diameter
+  * MEAS MS5611 气压计
+* 尺寸/重量 
+  * 尺寸：36mm x 50mm
+  * 安装点：30.5mm x 30.5mm 直径 3.2mm
   * 重量: 10.9g
-* Power OR-ing schematic with reverse voltage protection. 5V power module is required!
+* 具有反向电压保护的电源 OR-ing 原理图。 需要 5V 电源模块！
 
-## Connectivity
+## 连接
 
-* 2.54mm headers:
+* 2.54 毫米头：
 * GPS (USART4)
-* i2c
-* RC input
-* PPM input
+* I2C
+* 遥控输入
+* PPM 输入
 * Spektrum input
 * RSSI input
 * sBus input
