@@ -12,30 +12,30 @@ px4 包含校准和补偿速率陀螺仪、加速度计和气压传感器的功�
 
 > **Note**硅胶干燥剂包是为了防止水蒸气在电路板上冷凝。
 
-可以在没有商业级环境室的情况下执行校准。 可以使用具有非常小的内部空气体积的泡沫塑料盒来创造一个简单的环境容器。 This allows the autopilot to self-heat the air relatively quickly (be sure that the box has a small hole to equalize to ambient room pressure, but still be able to heat up inside).
+可以在没有商业级环境室的情况下执行校准。 可以使用具有非常小的内部空气体积的泡沫塑料盒来创造一个简单的环境容器。 这允许自驾仪将空气相对快速地自加热（确保盒子有一个小孔以平衡容器内外压力，但仍然能够在容器内加热）。
 
-Using this sort of setup it is possible to heat a board to ~70C. Anecdotal evidence suggests that many common boards can be heated to this temperature without adverse side effects. If in doubt, check the safe operating range with your manufacturer.
+使用这种设置可以将电路板加热到约 70C 。 轶事证据表明，许多普通板可以加热到这个温度而没有不良副作用。 如有疑问，请与制造商核实安全操作的温度范围。
 
-> **Tip** To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor.
+> **Tip**要检查板载热校准的状态，请使用 MAVlink console（或 NuttX console）检查传感器报告的内部温度。
 
-## Calibration Procedures {#calibration_procedures}
+## 校准过程 {#calibration_procedures}
 
-PX4 supports two calibration procedures:
+PX4 支持两种校准过程：
 
-* [onboard](#onboard_calibration) - calibration is run on the board itself. This method requires knowledge of the amount of temperature rise that is achievable with the test setup.
-* [offboard](#offboard_calibration) - compensation parameters are calculated on a development computer based on log information collected during the calibration procedure. This method allows users to visually check the quality of the data and curve-fit.
+* [板载校准](#onboard_calibration) - 校准在电路板上运行。 该方法需要知道测试设置中可实现的温升量。
+* [板外校准](#offboard_calibration) - 基于在校准过程期间收集的日志信息在计算机上计算补偿参数。 该方法允许用户可视地检查数据和曲线拟合的质量。
 
-The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate.
+板外校准更复杂，速度更慢，但需要更少的测试设置知识，更容易验证。
 
-### Onboard Calibration Procedure {#onboard_calibration}
+### 板载校准过程 {#onboard_calibration}
 
-Onboard calibration is run entirely on the device. It require knowledge of the amount of temperature rise that is achievable with the test setup.
+板载校准完全在设备上运行。 它需要知道测试设置中可达到的温升量。
 
-To perform and onboard calibration:
+执行板载校准：
 
-1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-2. Power the board and set the `SYS_CAL_*` parameters to 1 to enable calibration of the required sensors at the next startup. [^1]
-3. Set the [SYS_CAL_TDEL](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) parameter to the number of degrees of temperature rise required for the onboard calibrator to complete. If this parameter is too small, then the calibration will complete early and the temperature range for the calibration will not be sufficient to compensate when the board is fully warmed up. If this parameter is set too large, then the onboard calibrator will never complete. allowance should be made for the rise in temperature due to the boards self heating when setting this parameter. If the amount of temperature rise at the sensors is unknown, then the off-board method should be used.
+1. 确保在校准前设置机架类型，否则在设置飞控板时校准参数将丢失。
+2. 为电路板供电并将 ` SYS_CAL _ * `参数设置为 1，以便在下次启动时启用所需传感器的校准。 [^1]
+3. 将[ SYS_CAL_TDEL ](../advanced_config/parameter_reference.md#SYS_CAL_TDEL) 参数设置为板载校准器完成所需的温升度数。 如果此参数太小，则校准将提前完成，并且校准的温度范围将不足以在电路板完全预热时进行补偿。 如果此参数设置得太大，则板载校准器将永远不会完成。 allowance should be made for the rise in temperature due to the boards self heating when setting this parameter. If the amount of temperature rise at the sensors is unknown, then the off-board method should be used.
 4. Set the [SYS_CAL_TMIN](../advanced_config/parameter_reference.md#SYS_CAL_TMIN) parameter to the lowest temperature data that you want the calibrator to use. This enables a lower cold soak ambient temperature to be used to reduce the cold soak time whilst maintaining control over the calibration minimum temperature. The data for a sensor will not be used by the calibrator if it is below the value set by this parameter.
 5. Set the [SYS_CAL_TMAX](../advanced_config/parameter_reference.md#SYS_CAL_TMAX) parameter to the highest starting sensor temperature that should be accepted by the calibrator. If the starting temperature is higher than the value set by this parameter, the calibration will exit with an error. Note that if the variation in measured temperature between different sensors exceeds the gap between `SYS_CAL_TMAX` and `SYS_CAL_TMIN`, then it will be impossible for the calibration to start.
 6. Remove power and cold soak the board to below the starting temperature specified by the `SYS_CAL_TMIN` parameter. Note that there is a 10 second delay on startup before calibration starts to allow any sensors to stabilise and the sensors will warm internally during this period.
