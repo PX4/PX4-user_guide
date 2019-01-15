@@ -42,19 +42,19 @@ PX4 支持两种校准过程：
 7. 保持电路板静止[^2]，接通电源并加热到足够高的温度，以达到由` SYS_CAL_TDEL `参数指定的温升。 校准期间，完成百分比将打印到系统控制台。 [^3]
 8. 校准完成后，断开电源，让电路板冷却到校准范围内的温度，然后再执行下一步。
 9. 通过系统控制台使用 `commander calibrate accel` 指令或通过* QGroundControl *，执行6点加速度校准。 如果首次设置电路板，则还需要执行陀螺仪和磁力计校准。
-10. The board should always be re-powered before flying after any sensor calibration, because sudden offset changes from calibration can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup. 
+10. 在任何传感器校准之后的首次飞行之前，电路板必须重新上电，因为校准带来的突然的偏移变化可能会扰乱导航估计器，并且某些参数直到下次启动时才会被使用它们的算法加载。 
 
-### Offboard Calibration Procedure {#offboard_calibration}
+### 板外校准过程 {#offboard_calibration}
 
-Offboard calibration is run on a development computer using data collected during the calibration test. This method provides a way to visually check the quality of data and curve fit.
+使用在校准测试期间收集的数据在开发计算机上运行板外校准。 该方法提供了一种可视化检查数据和曲线拟合质量的方法。
 
-To perform an offboard calibration:
+执行板外校准：
 
-1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-2. Power up the board and set the `TC_A_ENABLE`, `TC_B_ENABLE` and `TC_G_ENABLE` parameters to 1.
-3. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_EN) parameters to defaults.
-4. Set the [SYS_LOGGER](../advanced_config/parameter_reference.md#SYS_LOGGER) parameter to 1 to use the new system logger.
-5. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot. 
+1. 确保在校准前设置机架类型，否则在设置飞控板时校准参数将丢失。
+2. 上电并将参数 ` TC_A_ENABLE `，` TC_B_ENABLE ` 和 ` TC_G_ENABLE ` 设置为1。
+3. 将所有 [ CAL_GYRO * ](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) 和 [ CAL_ACC * ](../advanced_config/parameter_reference.md#CAL_ACC0_EN)参数设置为默认值。
+4. 将 [ SYS_LOGGER ](../advanced_config/parameter_reference.md#SYS_LOGGER) 参数设置为 1 以使用新的系统日志。
+5. 将 [ SDLOG_MODE ](../advanced_config/parameter_reference.md#SDLOG_MODE) 参数设置为 2 以从系统启动时就开始记录日志。 
 6. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
 7. Cold soak the board to the minimum temperature it will be required to operate in.
 8. Apply power and keeping the board still <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>, warm it slowly to the maximum required operating temperature. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
