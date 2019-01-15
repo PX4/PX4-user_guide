@@ -27,13 +27,13 @@ PX4 支持[u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) 和[Trimble MB
 
 连接飞机上的移动站到飞控的 GPS 端口上（其他的 GPS模块同理）。
 
-The actual cables/connectors required will depend on the flight controller and selected RTK module (see [documentation for the selected device](#supported-rtk-devices) for more information).
+实际的接线可能因飞控和 RTK 而有所差异（详情参看所[选设备的说明书](#supported-rtk-devices)）。
 
 ### Base RTK Module (Ground)
 
-Connect the base module to *QGroundControl* via USB. The base module must not be moved while it is being used.
+使用 USB 连接基站到*QGroundControl*。 基站在使用中必须保持不动。
 
-> **Tip** Choose a position where it won't need to be moved, has a clear view of the sky, and is well separated from any buildings. Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof.
+> **Tip**选择一个不会移动的地方，上方开阔，最好避开建筑物。 Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof.
 
 ### Telemetry Radio/WiFi
 
