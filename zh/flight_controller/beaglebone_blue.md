@@ -1,25 +1,25 @@
 # BeagleBone Blue
 
-[BeagleBone Blue](https://beagleboard.org/blue) 是一台基于 Linux 的一体机。 Although it is optimized for robotics, this compact and inexpensive board has all necessary sensors and peripherals needed by a flight controller. This topic shows how to set up the board to run PX4 with [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) robotics package.
+[BeagleBone Blue](https://beagleboard.org/blue) 是一台基于 Linux 的一体机。 虽然它针对机器人技术进行了优化，但这种紧凑且便宜的电路板具有飞行控制器所需的所有必要传感器和外围设备。 本主题说明如何设置电路板以使用 [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) 机器人软件包运行 PX4。
 
 ![BeagleBone - labelled diagram](../../assets/hardware/BeagleBone_Blue_balloons.png)
 
-## OS Image
+## 操作系统映像
 
-*BeagleBone Blue* images can be found here:
+可以在这里找到 *BeagleBone Blue* 图像：
 
-- [Latest stable OS image](https://beagleboard.org/latest-images).
-- [Test OS images](https://rcn-ee.net/rootfs/bb.org/testing/) (updated frequently).
+- [最新的稳定 OS 映像](https://beagleboard.org/latest-images)。
+- [测试 OS 映像](https://rcn-ee.net/rootfs/bb.org/testing/)（经常更新）。
 
-Information about flashing OS images can be found on [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware). Other useful information can be found in the [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;).
+有关闪存操作系统映像的信息可以在 [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware) 上找到。 其他有用的信息可以在 [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;) 中找到。
 
-## Robot Control Library
+## 机器人控制库文件
 
-On [BeagleBone Blue](https://beagleboard.org/blue), PX4 requires [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) version 1.0.0 or higher.
+在 [BeagleBone Blue](https://beagleboard.org/blue) 上，PX4 需要 [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) 版本 1.0.0 或更高版本。
 
-BeagleBoard OS images come with *librobotcontrol* preinstalled, but it may not work properly in all OS images.
+BeagleBoard 操作系统映像预装了 *librobotcontrol*，但在所有操作系统映像中可能无法正常工作。
 
-One way to check if *librobotcontrol* works properly is to run *rc_test_drivers* which comes with *librobotcontrol*. As shown in the following example, all tests should pass. Optionally run other tests such as *rc_test_bmp*, *rc_test_mpu*, etc.
+检查 *librobotcontrol* 是否正常工作的一种方法是运行 *librobotcontrol* 附带的 *rc_test_drivers*。 如以下示例所示，所有测试都应通过。 可选择运行其他测试，例如 *rc_test_bmp*，*rc_test_mpu* 等。
 
 ```sh
 debian@beaglebone:~$ rc_test_drivers
@@ -54,15 +54,15 @@ Robot Control library Version:
 1.0.0
 ```
 
-> **Tip** Optionally you can update to a realtime kernel, and if you do, re-check if *librobotcontrol* works properly with the realtime kernel.
+> **Tip**您可以选择更新到实时内核，如果这样做，请重新检查 *librobotcontrol* 是否与实时内核一起正常工作。
 
-The latest OS images in which *librobotcontrol* works properly (at time of writing) is [bone-debian-9.5-iot-armhf-2018-07-22-4gb.img.xz](https://rcn-ee.net/rootfs/bb.org/testing/2018-07-22/stretch-iot/bone-debian-9.5-iot-armhf-2018-07-22-4gb.img.xz).
+*librobotcontrol* 正常工作（编写时）的最新操作系统映像是 [bone-debian-9.5-iot-armhf-2018-07-22-4gb.img.xz](https://rcn-ee.net/rootfs/bb.org/testing/2018-07-22/stretch-iot/bone-debian-9.5-iot-armhf-2018-07-22-4gb.img.xz)。
 
-### Setup Robot Control Library
+### 设置机器人控制库
 
-If you want to build PX4, there are additional setup steps for this library.
+如果要构建 PX4，则此库还有其他设置步骤。
 
-At time of writing, without modifying its build files to add cross compile support, the *librobotcontrol* debian package is only available on BeagleBoard products including BeagleBone Blue. Here are the ways to obtain the *librobotcontrol* on BeagleBone Blue:
+在编写本文时，无需修改其构建文件以添加交叉编译支持，*librobotcontrol* debian 软件包仅适用于 BeagleBoard 产品，包括 BeagleBone Blue。 以下是在 BeagleBone Blue 上获取 *librobotcontrol* 的方法：
 
 1. Use the one pre-installed in BeagleBoard images.
 2. Install from debian package or repository: 
