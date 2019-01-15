@@ -29,7 +29,7 @@ PX4 支持[u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) 和[Trimble MB
 
 实际的接线可能因飞控和 RTK 而有所差异（详情参看所[选设备的说明书](#supported-rtk-devices)）。
 
-### Base RTK Module (Ground)
+### RTK 基站（地面端）
 
 使用 USB 连接基站到*QGroundControl*。 基站在使用中必须保持不动。
 
