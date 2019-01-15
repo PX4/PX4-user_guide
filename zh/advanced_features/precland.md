@@ -88,13 +88,13 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 `landing_target_estimator` 从 ` irlock ` 驱动中获取测量结果以及估计的地形高度，来估计信标相对于飞行器的位置。
 
-`irlock_report ` 中的测量值包含从图像中心到信标的角度的正切值。 换句话说，测量值是指向信标的矢量的 x 和 y 分量，其中 z 分量具有长度“1”。 This means that scaling the measurement by the distance from the camera to the beacon results in the vector from the camera to the beacon. This relative position is then rotated into the north-aligned, level body frame using the vehicle's attitude estimate. Both x and y components of the relative position measurement are filtered in separate Kalman Filters, which act as simple low-pass filters that also produce a velocity estimate and allow for outlier rejection.
+`irlock_report ` 中的测量值包含从图像中心到信标的角度的正切值。 换句话说，测量值是指向信标的矢量的 x 和 y 分量，其中 z 分量具有长度“1”。 这意味着将测量结果缩放从摄像头到信标的距离这么多倍，将得到从摄像头到信标的（方向）矢量。 然后根据飞机的姿态估计将相对位置旋转到北对齐，机身水平的坐标系中。 相对位置测量的 x 和 y 分量都在单独的卡尔曼滤波器中滤波，卡尔曼滤波器用作简单的低通滤波器，其也产生速度估计并允许异常值剔除。
 
-The `landing_target_estimator` publishes the estimated relative position and velocity whenever a new `irlock_report` is fused into the estimate. Nothing is published if the beacon is not seen or beacon measurements are rejected. The landing target estimate is published in the `landing_target_pose` uORB message.
+每当新的` irlock_report `融合到估计中时，` landing_target_estimator `就发布估计的相对位置和速度。 如果未看到信标或信标测量结果被拒绝，则不会发布任何内容。 着陆目标估计发布在` landing_target_pose ` uORB 消息中。
 
-### Enhanced Vehicle Position Estimation
+### 改进的飞行器位置估计
 
-If the beacon is specified to be stationary using the parameter `LTEST_MODE`, the vehicle's position/velocity estimate can be improved with the help of the beacon measurements. This is done by fusing the beacon's velocity as a measurement of the negative velocity of the vehicle.
+如果使用参数` LTEST_MODE `将信标指定为静止，则可以借助信标测量来改善飞行器的位置/速度估计。 This is done by fusing the beacon's velocity as a measurement of the negative velocity of the vehicle.
 
 ### Precision Land Procedure
 
