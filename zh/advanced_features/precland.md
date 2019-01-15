@@ -73,9 +73,9 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 ## 仿真
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/en/simulation/gazebo.html).
+在 [SITL Gazebo](https://dev.px4.io/en/simulation/gazebo.html) 中可以使用 IR-LOCK 传感器和信标进行精准着陆仿真。
 
-To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
+可以运行下列命令来开启拥有 IR-LOCK 信标，带测距传感器的飞行器，IR-LOCK 摄像头的仿真世界：
 
     make px4_sitl gazebo_iris_irlock
     
