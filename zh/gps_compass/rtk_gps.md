@@ -1,31 +1,31 @@
 # RTK GPS
 
-[Real Time Kinematic (RTK)](https://en.wikipedia.org/wiki/Real_Time_Kinematic) increases the accuracy of GNSS/GPS systems to centimeter-level. RTK allows PX4 to be used in applications like precision surveying, where pinpoint accuracy is essential.
+实时差分可以将 GNSS/GPS 的精度提高到厘米级。 装备 RTK 后可以将 PX4 应用到需要精确定位的精确测绘中。
 
-You will need:
+你需要：
 
-- A pair of (supported) [RTK GPS devices](#supported-rtk-devices) (a "base" for the ground station and a "rover" for the vehicle)
-- A *laptop/PC* with QGroundControl (QGroundControl for Android/iOS do not support RTK)
-- A vehicle with a WiFi or Telemetry radio link to the laptop
+- 一对[RTK GPS 设备](#supported-rtk-devices)（地面站和移动站）
+- 一台装有 QGroundControl 的 *PC 或笔记本*（Android/iOS 的 QGroundControl 地面站不支持 RTK）
+- 一架连接有 WiFi 或数传的飞机
 
-> **Note** *QGroundControl* can theoretically enable RTK GPS for multiple vehicles (provided they each have a rover module). At time of writing this use case has not been tested.
+> **Note***QGroundControl*理论上可以在多台飞机启用 RTK GPS（每台设备上都安装一个移动站）。 在编写本文时, 此用发还未进行测试。
 
-## Supported RTK Devices
+## 支持的 RTK 设备
 
-PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS and products that incorporate it. The following RTK-compatible devices have been tested.
+PX4 支持[u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) 和[Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) 以及纳入的GPS产品。 下面的 RTK 设备已经经过测试。
 
 - [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)
 - [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)
 - [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
 - [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
 
-> **Note** Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
+> **Note**有一些 RTK 模块只能作为基站或移动站，有的则可以两用。
 
 ## 硬件安装
 
-### Rover RTK Module (Vehicle)
+### RTK 移动站（飞机）
 
-Connect the vehicle-based module to the flight controller's GPS port (in the same way as any other GPS module).
+连接飞机上的移动站到飞控的 GPS 端口上（其他的 GPS模块同理）。
 
 The actual cables/connectors required will depend on the flight controller and selected RTK module (see [documentation for the selected device](#supported-rtk-devices) for more information).
 
