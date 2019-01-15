@@ -2,7 +2,7 @@
 
 > **Warning** 这个板子已经停产, 不再有商业用途。
 
-The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
+[AUAV<sup>&reg;</sup> ](http://www.auav.com/) *AUAV-X2 autopilot* 基于[Pixhawk<sup>&reg;</sup>-项目](https://pixhawk.org/) ** FMUv2** 开放硬件设计。 它在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
 
 ![AUAVX2_case2](../../images/auavx2_case2.jpg)
 
