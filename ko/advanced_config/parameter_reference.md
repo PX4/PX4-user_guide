@@ -31746,6 +31746,65 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="SENS_CM8JL65_CFG">SENS_CM8JL65_CFG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Serial Configuration for Lanbao PSK-CM8JL65-CC5
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure on which serial port to run Lanbao PSK-CM8JL65-CC5.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>6:</strong> UART 6
+        </li>
+        <li>
+          <strong>101:</strong> TELEM 1
+        </li>
+        <li>
+          <strong>102:</strong> TELEM 2
+        </li>
+        <li>
+          <strong>103:</strong> TELEM 3
+        </li>
+        <li>
+          <strong>104:</strong> TELEM/SERIAL 4
+        </li>
+        <li>
+          <strong>201:</strong> GPS 1
+        </li>
+        <li>
+          <strong>202:</strong> GPS 2
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="SENS_EN_BATT">SENS_EN_BATT</strong> (INT32)
     </td>
     
