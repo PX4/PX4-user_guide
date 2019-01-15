@@ -1,4 +1,4 @@
-# 热校准和补偿
+# 温度校准和补偿
 
 px4 包含校准和补偿速率陀螺仪、加速度计和气压传感器的功能, 以纠正传感器温度对传感器偏差的影响。
 
@@ -55,20 +55,20 @@ PX4 支持两种校准过程：
 3. 将所有 [ CAL_GYRO * ](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) 和 [ CAL_ACC * ](../advanced_config/parameter_reference.md#CAL_ACC0_EN)参数设置为默认值。
 4. 将 [ SYS_LOGGER ](../advanced_config/parameter_reference.md#SYS_LOGGER) 参数设置为 1 以使用新的系统日志。
 5. 将 [ SDLOG_MODE ](../advanced_config/parameter_reference.md#SDLOG_MODE) 参数设置为 2 以从系统启动时就开始记录日志。 
-6. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
-7. Cold soak the board to the minimum temperature it will be required to operate in.
-8. Apply power and keeping the board still <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>, warm it slowly to the maximum required operating temperature. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
-9. Remove power and extract the .ulog file.
-10. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script script file: 
+6. 为 *thermal calibration*（位2）设置 [ SDLOG_PROFILE ](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 复选框，以记录校准所需的原始传感器数据。
+7. 将电路板冷却到操作所需的最低温度。
+8. 接通电源并保持电路板静止<sup id="fnref2:2"><a href="#fn:2" class="footnote-ref"> 2 </a></sup>，将其缓慢加热至所需的最高工作温度。 <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
+9. 断开电源并取出 .ulog 文件。
+10. 在** Firmware / Tools **目录中打开一个终端窗口并运行 python 校准脚本文件： 
         sh
-        python process_sensor_caldata.py <full path name to .ulog file> This will generate a 
+        python process_sensor_caldata.py &lt;full path name to .ulog file&gt; 这将生成 
     
-    **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
-11. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
-12. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
-13. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
+    **.pdf ** 文件，其显示每个传感器的测量数据和拟合曲线，以及包含校准参数的 **.params ** 文件。
+11. 给电路板上电，连接 * QGroundControl * 并使用 * QGroundControl * 将生成的**.params **文件中的参数加载到电路板上。 由于参数的数量，加载它们可能需要一些时间。
+12. 参数完成加载后，将` SDLOG_MODE `设置为 1 以重新启用常规日志并断开电源。
+13. 为电路板供电并使用 * QGroundControl * 执行常规加速计传感器校准。 重要的是，此步骤在飞控板处于校准温度范围内进行。 此步骤后的首次飞行之前，应重新启动电路板，因为突然的偏置变化会扰乱导航估计器，并且某些参数直到下次启动时才会被使用它们的算法加载。
 
-## Implementation Detail {#implementation}
+## 实施细节 {#implementation}
 
 Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
 
