@@ -33,11 +33,11 @@ PX4 支持[u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) 和[Trimble MB
 
 使用 USB 连接基站到*QGroundControl*。 基站在使用中必须保持不动。
 
-> **Tip**选择一个不会移动的地方，上方开阔，最好避开建筑物。 Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof.
+> **Tip**选择一个不会移动的地方，上方开阔，最好避开建筑物。 使用三脚架或安装在屋顶，效果更好。
 
-### Telemetry Radio/WiFi
+### 电台/WiFi
 
-The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../assembly/quick_start_pixhawk.md#telemetry-radios-optional). <!-- this should be a link to a telemetry topic, but we don't have one yet -->
+飞机和地面站之间必须使用 [wifi 或电台](../assembly/quick_start_pixhawk.md#telemetry-radios-optional)连接。 <!-- this should be a link to a telemetry topic, but we don't have one yet -->
 
 The link *must* use the MAVLink2 protocol as it makes more efficient use of the channel. This should be set by default, but if not, follow the [MAVLink2 configuration instructions](#mavlink2) below.
 
@@ -68,11 +68,11 @@ The RTK GPS connection is essentially plug and play:
     
     ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
 
-## Optional PX4 Configuration
+## PX4 可用的设置
 
-The following settings may need to be changed (using *QGroundControl*).
+下面的设置可能需要设置。（使用*QGroundControl*）。
 
-### RTK GPS settings
+### RTK GPS 设置
 
 The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk-gps) (**SettingsView > General Settings**).
 
