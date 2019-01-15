@@ -94,13 +94,13 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 ### 改进的飞行器位置估计
 
-如果使用参数` LTEST_MODE `将信标指定为静止，则可以借助信标测量来改善飞行器的位置/速度估计。 This is done by fusing the beacon's velocity as a measurement of the negative velocity of the vehicle.
+如果使用参数` LTEST_MODE `将信标指定为静止，则可以借助信标测量来改善飞行器的位置/速度估计。 这是通过融合信标的速度为飞行器负速度的测量来完成的。
 
-### Precision Land Procedure
+### 精准着陆过程
 
-The precision land procedure consists of three phases:
+精准着陆由三个阶段组成：
 
-1. **Horizontal approach:** The vehicle approaches the beacon horizontally while keeping its current altitude. Once the position of the beacon relative to the vehicle is below a threshold ([PLD_HACC_RAD](../advanced_config/parameter_reference.md#PLD_HACC_RAD)), the next phase is entered. If the beacon is lost during this phase (not visible for longer than [PLD_BTOUT](../advanced_config/parameter_reference.md#PLD_BTOUT)), a search procedure is initiated (during a required precision landing) or the vehicle does a normal landing (during an opportunistic precision landing).
+1. **水平接近：**飞行器在保持其当前高度的同时水平接近信标。 一旦信标相对于车辆的位置差异低于阈值（[ PLD_HACC_RAD ](../advanced_config/parameter_reference.md#PLD_HACC_RAD)），就进入下一阶段。 如果信标在此阶段丢失（不可见超过时长[ PLD_BTOUT ](../advanced_config/parameter_reference.md#PLD_BTOUT)），则启动搜索程序（在必须的精准降落模式）或飞行器正常着陆（在随机的精准降落模式）。
 
 2. **Descent over beacon:** The vehicle descends, while remaining centered over the beacon. If the beacon is lost during this phase (not visible for longer than `PLD_BTOUT`), a search procedure is initiated (during a required precision landing) or the vehicle does a normal landing (during an opportunistic precision landing).
 
