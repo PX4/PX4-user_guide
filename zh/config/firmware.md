@@ -1,16 +1,16 @@
-# Loading Firmware
+# 加载固件
 
-*QGroundControl* **desktop** versions can be used to install PX4 firmware onto [Pixhawk-series](../getting_started/flight_controller_selection.md) flight-controller boards.
+*QGroundControl* **桌面** 版本可用于在 [Pixhawk-系列](../getting_started/flight_controller_selection.md) 飞控板上安装 PX4 固件。
 
-> **Caution** **Before you start installing Firmware** all USB connections to you vehicle must be *disconnected* (both direct or through a telemetry radio). The vehicle must *not be* powered by a battery.
+> **注意** **在开始安装固件前** 到您的飞行器的所有USB连接必须是*断开* 的 (直接或通过遥测无线电)。 飞行器必须 *不能* 由电池供电。
 
-To install the latest firmware update:
+安装最新固件更新:
 
-1. First select the **Gear** icon (*Vehicle Setup*) in the top toolbar and then **Firmware** in the sidebar.
+1. 首先在顶部工具栏中选择 **齿轮** 图标 (*Vehicle Setup*) ，然后在侧边栏中选择 **Firmware** 。
     
     ![Firmware disconnected](../../assets/qgc/setup/firmware/firmware_disconnected.jpg)
 
-2. Connect the flight controller directly to your computer via USB.
+2. 通过 USB 将飞行控制器直接连接到您的计算机。
     
     > **Note** Connect directly to a powered USB port on your machine (do not connect through a USB hub).
 
