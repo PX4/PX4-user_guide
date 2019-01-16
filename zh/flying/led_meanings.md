@@ -33,13 +33,13 @@ The image below shows the relationship between LED and vehicle status.
 
 * **[Blinking Red] Error / Setup Required:** Indicates that your autopilot needs to be configured or calibrated before flying. Attach your autopilot to a Ground Control Station to verify what the problem is. If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
 
-## Status LED {#status_led}
+## 状态 LED {#status_led}
 
-Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). They indicate power, bootloader mode and activity, and errors.
+三个*状态LED*提供 FMU SoC 的状态，另外三个提供 PX4IO 的状态（如果存在）。 他们表示电源，bootLoader 模式和活动以及错误等状态。
 
 ![Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_status_leds.jpg)
 
-From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the application (APP). The table below shows how the Bootloader and then APP use the LEDs to indicate condition.
+从上电开始，FMU 和 PX4IO CPU 首先运行引导加载程序（BL），然后运行应用程序（APP）。 下表显示了 BL 和 APP 如何使用 LED 指示条件。
 
 | Color    | 标签                | BL 用法           | APP 用法  |
 | -------- | ----------------- | --------------- | ------- |
