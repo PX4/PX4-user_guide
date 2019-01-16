@@ -34,7 +34,7 @@ ESP8266固件具有以下 *工厂* 设置：
 
 ### 下载固件
 
-在下载之前，请确保以 *Flash Mode* 启动 ESP8266，如下所述。 如果您克隆了 [MavESP8266](https://github.com/dogmaphobic/mavesp8266)存储库，您可以使用提供的 [PlatformIO](http://platformio.org) 工具和环境编译和下载固件。 如果下载了上面预先编译的固件，请下载 [esptool](https://github.com/espressif/esptool) 实用程序，并使用下面的命令行：
+在下载之前，请确保在 *Flash Mode* 中启动 ESP8266，如下所述。 如果您克隆了 [MavESP8266](https://github.com/dogmaphobic/mavesp8266)存储库，您可以使用提供的 [PlatformIO](http://platformio.org) 工具和环境编译和下载固件。 如果下载了上面预先编译的固件，请下载 [esptool](https://github.com/espressif/esptool) 实用程序，并使用下面的命令行：
 
     esptool.py --baud 921600 --port /dev/your_serial_port write_flash 0x00000 firmware_xxxxx.bin
     
@@ -48,17 +48,17 @@ ESP8266固件具有以下 *工厂* 设置：
 
 > **Warning** ESP8266 必须仅以 3.3 伏特供电。
 
-将 ESP8266 设置为 *Flash Mode* 有多种方法，但并非所有 USB/UART 适配器都为自动模式切换提供了所有必要的引脚。 In order to boot the ESP8266 in *Flash Mode*, the GPIO-0 pin must be set low (GND) and the CH_PD pin must be set high (VCC). This is what my own setup looks like:
+将 ESP8266 设置为 *Flash Mode* 有多种方法，但并非所有 USB/UART 适配器都为自动模式切换提供了所有必要的引脚。 为了以 *Flash Mode* 启动 ESP8266，必须将 GPIO-0 引脚设置为低(GND)，必须将 CH_PD 引脚设置为高(VCC)。 这就是我自己的设置：
 
 ![esp8266 flashing rig](../../assets/hardware/telemetry/esp8266_flashing_rig.jpg)
 
-I built a cable where RX, TX, VCC, and GND are properly wired directly from the FTDI adapter to the ESP8266. From the ESP8266, I left two wires connected to GPIO-0 and CH_PD free so I can boot it either normally or in flash mode by connecting them to GND and VCC respectively.
+我制作了一条电缆，其中 RX、TX、VCC 和 GND 可以从 FTDI 适配器直接连接到 ESP8266。 我为 ESP8266 留下了两条空闲线，并连接到 GPIO-0 和 CH_PD ，这样我可以通过把它们分别连接到 GND 和 VCC 而在正常或在 Flash Mode 下启动 ESP8266。
 
-### ESP8266 (ESP-01) Pinout
+### ESP8266 (ESP-01) 引脚图
 
 ![esp8266 wifi module pinout](../../assets/hardware/telemetry/esp8266_pinout.jpg)
 
-### Flashing diagram using a FTDI USB/UART adapter
+### 使用 FTDI USB/UART 适配器下载图
 
 ![esp8266 flashing](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
 
