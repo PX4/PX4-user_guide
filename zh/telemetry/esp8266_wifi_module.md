@@ -1,26 +1,26 @@
 # ESP8266 WiFi 模块
 
-The ESP8266 is a low-cost and readily available Wi-Fi module with full TCP/IP stack and microcontroller capability. It can be used with any Pixhawk series controller
+ESP8266 是一款低成本且易于使用的 Wi-Fi 模块，具有完整的 TCP/IP 协议栈和微控制器功能。 它可以与任何 Pixhawk 系列控制器一起使用。
 
-> **Tip** ESP8266 is the *defacto* default WiFi module for use with [Pixracer](../flight_controller/pixracer.md) (and is usually bundled with it).
+> **Tip** ESP8266是 *事实上的* 默认WiFi模块，用于 [Pixracer](../flight_controller/pixracer.md) (通常与其捆绑在一起)。
 
-## Where to Buy
+## 购买地点
 
-The module is readily available. A few vendors are listed below.
+该模块是现成的。 下面列出了一些供应商。
 
 * [Sparkfun](https://www.sparkfun.com/products/13678)
 * [GearBeast](https://us.gearbest.com/esp8266-wifi-module-_gear/)
 
-## Module Setup
+## 模块设置
 
-The ESP8266 firmware has these *factory* settings:
+ESP8266固件具有以下 *工厂* 设置：
 
 * SSID: PixRacer
 * Password: pixracer
 * WiFi Channel: 11
 * UART speed 921600
 
-### Build From Sources
+### 从源文件编译
 
 The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains instructions and all the tools needed for building and flashing the firmware.
 
