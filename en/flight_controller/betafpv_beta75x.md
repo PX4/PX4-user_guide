@@ -16,17 +16,23 @@ In addition you will need:
 - FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd3-core-fpv-goggles/).
   > **Note** FPV support is completely independent of PX4/flight controller.
 
-## Flashing PX4
+## Flashing PX4 Bootloader
 
 The *Beta75X* comes preinstalled with Betaflight.
 
-To install the PX4 bootloader and firmware follow the [Omnibus F4 instructions](omnibus_f4_sd.md#betaflight_configurator) (this is the flight controller board on the *Beta75X*).
+Before loading PX4 firmware you must first install the PX4 bootloader.
+Instructions for installing the bootloader can be found in the [Omnibus F4](omnibus_f4_sd.md#betaflight_configurator) topic (this is the flight controller board on the *Beta75X*).
 
-## Configuration
+> **Tip** You can always [reinstall Betaflight](omnibus_f4_sd.md#reinstall_betaflight) later if you want!
 
-Once the firmware is loaded, you should be able to connect the vehicle to *QGroundControl* via a USB cable.
+## Installation/Configuration
 
-To configure PX4:
+Once the bootloader is installed, you should be able to connect the vehicle to *QGroundControl* via a USB cable.
+
+> **Note** At time of writing *Omnibus F4* is supported on the QGroundControl *Daily Build*, and prebuilt firmware is provided for the master branch only (stable releases are not yet available).
+
+To install and configure PX4:
+- [Load PX4 Firmware](../config/firmware.md). 
 - [Set the Airframe](../config/airframe.md) to *BetaFPV Beta75X 2S Brushless Whoop*.
 - Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.
 

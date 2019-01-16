@@ -240,12 +240,13 @@ make omnibus_f4sd_default
 
 ## Installing PX4 Firmware
 
-The firmware can be installed in either of the normal ways: 
+The firmware can be installed in any of the normal ways: 
 - Build and upload the source
   ```
   make omnibus_f4sd_default upload
   ```
-- [Load the firmware](../config/firmware.md) using *QGroundControl* (you will need to use *Advanced Settings* and load it as a *Custom firmware file*).
+- [Load the firmware](../config/firmware.md) using *QGroundControl*.
+  You can use either pre-built firmware or your own custom firmware.
 
 
 ## Configuration
@@ -259,7 +260,7 @@ Parameter | Setting
 [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.
 
 
-## Reinstall Betaflight
+## Reinstall Betaflight {#reinstall_betaflight}
 
 In order to switch back to *Betaflight*:
 - Backup the PX4 parameters, e.g. by [exporting](https://dev.px4.io/master/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters) them to an SD card
