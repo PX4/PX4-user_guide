@@ -1,4 +1,4 @@
-# Companion Computer Peripherals
+# 机载计算机外设
 
 This section contains information about peripherals for connecting Pixhawk (PX4) to a companion computer, and peripherals that might be connected to such a companion computer (and potentially triggered/accessed by PX4).
 
