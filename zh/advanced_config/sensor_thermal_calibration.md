@@ -118,16 +118,16 @@ PX4 支持两种校准过程：
     offset = X0 + X1*delta + X2*delta**2 + ... + Xn*delta**n
     
 
-The offset and temperature scale factor are then used to correct the sensor measurement where:
+然后使用偏移量和温度比例（缩放）系数来校正传感器的测量，其中：
 
     corrected_measurement = (raw_measurement - offset) * scale_factor
     
 
-If the temperature is above the test range set by the `*_TMIN` and `*_TMAX` parameters, then the measured temperature will be clipped to remain within the limits.
+如果温度超过 `*_TMIN` 和 `*_TMAX` 参数设置的测试范围，则所测温度将被裁剪以保持在限制范围内。
 
-Correction of the accelerometer, barometers or rate gyroscope data is enabled by setting [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) or [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to 1 respectively.
+通过分别将 [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE)、[TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) 或 [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) 参数设置为 1，可以对加速度计、气压计或速率陀螺仪数据进行校正。
 
-### Compatibility with legacy `CAL_*` parameters and commander controlled calibration
+### 与遗留 `CAL*` 参数和 commander 控制校准的兼容性
 
 The legacy temperature-agnostic PX4 rate gyro and accelerometer sensor calibration is performed by the commander module and involves adjusting offset, and in the case of accelerometer calibration, scale factor calibration parameters. The offset and scale factor parameters are applied within the driver for each sensor. These parameters are found in the [CAL parameter group](../advanced_config/parameter_reference.md#sensor-calibration).
 
