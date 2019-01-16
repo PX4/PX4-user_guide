@@ -19,15 +19,15 @@
 
 ![LED 含义](../../images/led_meanings.gif)
 
-* **[蓝色常亮] 解锁，没有GPS锁定：**表示飞行器已经解锁且没有 GPS 装置的位置锁定 当飞行器已解锁，PX4 将解锁对电机的控制，允许你驾驶无人机。 一如既往，解锁时要小心，因为大型螺旋桨在高速旋转时会很危险。 在此模式下，飞行器无法执行引导任务。
+* **[蓝色常亮] 解锁，GPS 未锁定：**表示飞行器已经解锁且没有 GPS 装置的位置锁定 当飞行器已解锁，PX4 将解锁对电机的控制，允许你驾驶无人机。 一如既往，解锁时要小心，因为大型螺旋桨在高速旋转时会很危险。 在此模式下，飞行器无法执行引导任务。
 
-* **[蓝色慢闪] 未解锁，没有 GPS 锁定：**与上面相似，但飞行器是未解锁的。 这意味这你将无法控制电机，但所有其他子系统都在工作。
+* **[蓝色慢闪] 未解锁，GPS 未锁定：**与上面相似，但飞行器是未解锁的。 这意味这你将无法控制电机，但所有其他子系统都在工作。
 
-* **[Solid Green] Armed, GPS Lock:** Indicates vehicle has been armed and has a valid position lock from a GPS unit. When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone. As always, exercise caution when arming, as large propellers can be dangerous at high revolutions. In this mode, vehicle can perform guided missions.
+* **[绿色常亮] 已解锁，GPS 锁定：**表示飞行器已经解锁且 GPS 装置的位置锁定。 当飞行器已解锁，PX4 将会解锁对电机的控制，允许你驾驶无人机。 一如既往，解锁时要小心，因为大型螺旋桨在高速旋转时会很危险。 在此模式下，飞行器可以执行引导任务。
 
-* **[Pulsing Green] Disarmed, GPS Lock:** Similar to above, but your vehicle is disarmed. This means you will not be able to control motors, but all other subsystems including GPS position lock are working.
+* **[绿色慢闪] 未解锁，GPS 锁定：**与上面相似，但飞行器是未解锁的。 这意味这你将无法控制电机，但所有其他子系统，包括位置锁定都在工作。
 
-* **[Solid Purple] Failsafe Mode:** This mode will activate whenever vehicle encounters an issue during flight, such as losing manual control, a critically low battery, or an internal error. During failsafe mode, vehicle will attempt to return to its takeoff location, or may simply descend where it currently is.
+* **[紫色常亮] 故障保护模式：**每当飞行器在飞行中遇到问题时，此模式将激活，例如丢失手动控制，电池电量严重不足或者内部出错。 在故障保护模式期间，飞行器将尝试返回至起飞位置或者可以简单地下降到当前的位置。
 
 * **[Solid Amber] Low Battery Warning:** Indicates your vehicle's battery is running dangerously low. After a certain point, vehicle will go into failsafe mode. However, this mode should signal caution that it's time to end this flight.
 
