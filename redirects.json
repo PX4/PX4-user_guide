@@ -1,7 +1,38 @@
 {
     "redirects": [
 
-
+            {
+                "from": "en/flight_controller/complete_vehicles.html",
+                "to": "en/complete_vehicles/"
+            },
+            {
+                "from": "en/flight_controller/intel_aero.html",
+                "to": "en/complete_vehicles/intel_aero.html"
+            },
+            {
+                "from": "en/flight_controller/crazyflie2.html",
+                "to": "en/complete_vehicles/crazyflie2.html"
+            },
+            {
+                "from": "en/flight_controller/bebop.html",
+                "to": "en/complete_vehicles/bebop.html"
+            },
+            {
+                "from": "en/flight_controller/mindracer_BNF_RTF.html",
+                "to": "en/complete_vehicles/mindracer_BNF_RTF.html"
+            },
+            {
+                "from": "en/flight_controller/mindracer210.html",
+                "to": "en/complete_vehicles/mindracer210.html"
+            },
+            {
+                "from": "en/flight_controller/nanomind110.html",
+                "to": "en/complete_vehicles/nanomind110.html"
+            },
+            {
+                "from": "en/flight_controller/betafpv_beta75x.html",
+                "to": "en/complete_vehicles/betafpv_beta75x.html"
+            },
             {
                 "from": "en/advanced_config/pid_tuning_guide_multicopter.html",
                 "to": "en/config_mc/pid_tuning_guide_multicopter.html"
