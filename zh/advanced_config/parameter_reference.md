@@ -1338,7 +1338,7 @@
       </p>
       
       <p>
-        <strong>说明：</strong>将参数设置为121212，表示禁用飞行终止行动 --> The IO driver will not do flight termination if requested by the FMU WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>说明：</strong>将参数设置为121212，表示禁用飞行终止行动 如果 FMU 请求，IO 设备将不再执行飞行终止命令 警告：启用此断路器是自负风险
       </p>
       
       <p>
@@ -1365,7 +1365,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Circuit breaker for GPS failure detection
+        用于GPS故障检测的断路器
       </p>
       
       <p>
@@ -1458,7 +1458,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Circuit breaker for power supply check
+        用于电源检查的断路器
       </p>
       
       <p>
@@ -1520,7 +1520,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Circuit breaker for position error check
+        用于位置错误检查的断路器
       </p>
       
       <p>
