@@ -22,33 +22,33 @@ ESP8266固件具有以下 *工厂* 设置：
 
 ### 从源文件编译
 
-The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains instructions and all the tools needed for building and flashing the firmware.
+[固件仓库](https://github.com/dogmaphobic/mavesp8266) 包含编译和下载固件所需的所有指令和工具。
 
-### Pre Built Binaries
+### 预编译二进制文件
 
 [MavLink ESP8266 Firmware V 1.1.1](http://www.grubba.com/mavesp8266/firmware-1.1.1.bin)
 
-### Updating the Firmware
+### 更新固件
 
-If you have firmware 1.0.4 or greater installed, you can do the update using the ESP's *Over The Air Update* feature. Just connect to its AP WiFi link and browse to: http://192.168.4.1/update. You can then select the firmware file you downloaded above and upload it to the WiFi Module.
+如果您安装了 1.0.4 或更高版本的固件，则可以通过使用 ESP 的 *Over The Air Update* 特性进行更新。 只需连接到其 AP WiFi 链接并浏览：http：//192.168.4.1/update 。 然后，您可以选择上面下载的固件文件，并将其上传到 WiFi 模块。
 
-### Flashing the Firmware
+### 下载固件
 
-Before flashing, make sure you boot the ESP8266 in *Flash Mode* as described below. If you cloned the [MavESP8266](https://github.com/dogmaphobic/mavesp8266) repository, you can build and flash the firmware using the provided [PlatformIO](http://platformio.org) tools and environment. If you downloaded the pre-built firmware above, download the [esptool](https://github.com/espressif/esptool) utility and use the command line below:
+在下载之前，请确保以 *Flash Mode* 启动 ESP8266，如下所述。 如果您克隆了 [MavESP8266](https://github.com/dogmaphobic/mavesp8266)存储库，您可以使用提供的 [PlatformIO](http://platformio.org) 工具和环境编译和下载固件。 如果下载了上面预先编译的固件，请下载 [esptool](https://github.com/espressif/esptool) 实用程序，并使用下面的命令行：
 
     esptool.py --baud 921600 --port /dev/your_serial_port write_flash 0x00000 firmware_xxxxx.bin
     
 
-Where:
+其中：
 
-* **firmware_xxxxx.bin** is the firmware you downloaded above
-* **your_serial_port** is the name of the serial port where the ESP8266 is connected to (`/dev/cu.usbmodem` for example)
+* **firmware_xxxxx.bin** 是您上面下载的固件
+* **your_serial_port** 是ESP 8266连接到的串行端口的名称 (例如 `/dev/cu.usbmodem`) 。
 
-### Wiring for Flashing the Firmware
+### 下载固件接线
 
-> **Warning** ESP8266 must be powered with 3.3 volts only.
+> **Warning** ESP8266 必须仅以 3.3 伏特供电。
 
-There are various methods for setting the ESP8266 into *Flash Mode* but not all USB/UART adapters provide all the necessary pins for automatic mode switching. In order to boot the ESP8266 in *Flash Mode*, the GPIO-0 pin must be set low (GND) and the CH_PD pin must be set high (VCC). This is what my own setup looks like:
+将 ESP8266 设置为 *Flash Mode* 有多种方法，但并非所有 USB/UART 适配器都为自动模式切换提供了所有必要的引脚。 In order to boot the ESP8266 in *Flash Mode*, the GPIO-0 pin must be set low (GND) and the CH_PD pin must be set high (VCC). This is what my own setup looks like:
 
 ![esp8266 flashing rig](../../assets/hardware/telemetry/esp8266_flashing_rig.jpg)
 
