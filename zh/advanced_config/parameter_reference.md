@@ -1334,11 +1334,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Circuit breaker for flight termination
+        飞行终止断路器
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 121212 will disable the flight termination action. --> The IO driver will not do flight termination if requested by the FMU WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>说明：</strong>将参数设置为121212，表示禁用飞行终止行动 --> The IO driver will not do flight termination if requested by the FMU WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
       </p>
       
       <p>
