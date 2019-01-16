@@ -2,43 +2,43 @@
 
 *QGroundControl* **桌面** 版本可用于在 [Pixhawk-系列](../getting_started/flight_controller_selection.md) 飞控板上安装 PX4 固件。
 
-> **注意** **在开始安装固件前** 到您的飞行器的所有USB连接必须是*断开* 的 (直接或通过遥测无线电)。 飞行器必须 *不能* 由电池供电。
+> **Caution** **在开始安装固件前** 到您的飞行器的所有USB连接必须是*断开* 的 (直接或通过遥测无线电)。 飞行器必须 *不能* 由电池供电。
 
 安装最新固件更新:
 
 1. 首先在顶部工具栏中选择 **齿轮** 图标 (*Vehicle Setup*) ，然后在侧边栏中选择 **Firmware** 。
     
-    ![Firmware disconnected](../../assets/qgc/setup/firmware/firmware_disconnected.jpg)
+    ![固件未连接](../../assets/qgc/setup/firmware/firmware_disconnected.jpg)
 
 2. 通过 USB 将飞行控制器直接连接到您的计算机。
     
-    > **Note** Connect directly to a powered USB port on your machine (do not connect through a USB hub).
+    > **Note** 直接连接到计算机上的 USB 端口 (不要通过 USB 集线器连接)。
 
-3. Once the controller is connected you can choose which firmware to load (*QGroundControl* presents sensible options based on the connected hardware).
+3. 一旦连接到控制器，您就可以选择要加载的固件( *QGroundControl* 根据连接的硬件显示合理的选项)。
 
-* Select the **PX4 Flight Stack XXX Release** option to install the latest stable version of PX4 *for your hardware* (autodetected).
+* 选择 **PX4 Flight Stack XXX Release** 选项， *为您的硬件* (自动检测) 安装最新稳定版本的 PX4 。
     
-    ![Install PX4 default](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
+    ![默认安装 PX4](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
     
-    > **Tip** To install a different version of PX4, check **Advanced settings** and select the version from the dropdown list.
+    > **Tip** 要安装不同版本的 PX4，请查看 **Advanced settings** 并从下拉列表中选择版本。
     > 
-    > ![Install PX4 version](../../assets/qgc/setup/firmware/qgc_choose_firmware.jpg)
+    > ![安装 PX4 版本](../../assets/qgc/setup/firmware/qgc_choose_firmware.jpg)
     > 
-    > * If you select **Custom firmware file** you will need to choose the custom firmware from the file system in the next step.
+    > * 如果选择 **Custom firmware file** ，则需要在下一步中从文件系统中选择自定义固件。
 
-1. Click the **OK** button to start the update.
+1. 点击 **OK** 按钮开始更新固件。
     
-    The firmware will then proceed through a number of upgrade steps (downloading new firmware, erasing old firmware etc.). Each step is printed to the screen and overall progress is displayed on a progress bar.
+    然后，固件将进行一系列升级步骤 (下载新固件，删除旧固件等)。 每个步骤都打印到屏幕上，整个进度显示在进度条上。
     
-    ![Firmware upgrade complete](../../assets/qgc/setup/firmware/firmware_upgrade_complete.jpg)
+    ![固件升级完成](../../assets/qgc/setup/firmware/firmware_upgrade_complete.jpg)
     
-    Once the firmware has completed loading, the device/vehicle will reboot and reconnect.
+    一旦固件完成加载，设备/飞行器将重新启动和重新连接。
 
-Next you will need to specify the [vehicle airframe](../config/airframe.md) (and then sensors, radio, etc.)
+接下来，您需要指定 [飞行器机架](../config/airframe.md) (然后是传感器、无线电等等)。
 
-> **Tip** If *QGroundControl* installs the FMUv2 target (see console during installation) and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller. See [Bootloader Update](../advanced_config/bootloader_update.md) for more information.
+> **Tip** 如果 *QGroundControl* 安装 FMUv2 目标(请参阅安装期间的控制台)，并且你有一个更新的飞控板，则可能需要更新 bootloader，以访问飞行控制器上的所有内存。 有关更多信息，请参见[Bootloader更新](../advanced_config/bootloader_update.md)。
 
 ## 更多信息：
 
-* [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
-* [PX4 Setup Video](https://youtu.be/91VGmdSlbo4) (Youtube)
+* [QGroundControl 用户指南>固件](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)。
+* [PX4 设置视频](https://youtu.be/91VGmdSlbo4) (Youtube)
