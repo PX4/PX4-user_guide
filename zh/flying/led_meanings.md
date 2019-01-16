@@ -11,11 +11,11 @@
 
 下图显示了 LED 与飞行器状态之间的关系。
 
-> **Warning** It is possible to have a GPS lock (Green LED) and still not be able to arm the vehicle because PX4 has not yet [passed preflight checks](../flying/pre_flight_checks.md). **A valid global position estimate is required to takeoff!**
+> **Warning**由于 PX4 尚未[通过飞行前检查](../flying/pre_flight_checks.md)，因此可能有 GPS 锁定（LED指示灯为绿色）并且仍然无法解锁飞行器。 **起飞需要有效的全球位置估算**
 
 <span></span>
 
-> **Tip** In the event of an error (blinking red), or if the vehicle can't achieve GPS lock (change from blue to green), check for more detailed status information in *QGroundControl* including calibration status, and errors messages reported by the [Preflight Checks (Internal)](../flying/pre_flight_checks.md). Also check that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
+> **Tip**如果出现错误（红色快闪），或者飞行器无法实现 GPS 锁定（指示灯从蓝色变为绿色），在*QGroundControl*中查找更加详细的状态信息，包括校准状态和[飞行前检查（内部）](../flying/pre_flight_checks.md)报告的错误消息。 还要检查 GPS 模块是否正确连接，Pixhawk 正在正确读取 GPS，并且确定 GPS 是否正在发送正确的 GPS 位置。
 
 ![LED 含义](../../images/led_meanings.gif)
 
