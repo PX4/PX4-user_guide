@@ -2,11 +2,11 @@
 
 PX4 允许自动驾驶控制固定翼 (FW) 在 [任务模式](../flying/missions.md)、[着陆模式](../flight_modes/land.md) 和 [返航模式](../flight_modes/return.md) 中着陆。
 
-着陆逻辑有几个阶段，如下所示。 在第一阶段，飞行器将遵循固定的轨道 ([FW_LND_ANG](#FW_LND_ANG)) 朝向地面。 At the flare landing altitude ([FW_LND_FLALT](#FW_LND_FLALT)) the vehicle will start to follow a flare path (the curve is based on the value of [FW_LND_HVIRT](#FW_LND_HVIRT)).
+着陆逻辑有几个阶段，如下所示。 在第一阶段，飞行器将遵循固定的轨道 ([FW_LND_ANG](#FW_LND_ANG)) 朝向地面。 在 flare 着陆高度 ([FW_LND_FLALT](#FW_LND_FLALT)) ，飞行器将开始遵循 flare 路径(曲线基于 [FW_LND_HVIRT](#FW_LND_HVIRT) 的值)。
 
 ![Fixed Wing - Landing Path](../../assets/flying/fw_landing_path.png)
 
-The flare landing altitude is relative to the altitude that the FW vehicle "thinks" is ground level. In [Land mode](../flight_modes/land.md) the ground altitude is not known and the vehicle will use assume it is at 0m (sea level). Often the ground level will be much higher than sea level, so the vehicle will land in the first phase (it will land on the ground before it reaches the flare altitude).
+Flare 着陆高度是相对于固定翼“认为”的地平面高度而言的。 在 [着陆模式](../flight_modes/land.md) 地面高度是未知的，飞行器将假定地面高度在 0 米(海平面)。 通常情况下，地面高度将远远高于海平面，因此飞行器将在第一阶段着陆(在到达 flare 高度之前它将降落在地面上)。
 
 In a mission, [Return mode](../flight_modes/return.md), or if the vehicle has a range sensor fitted then ground level can be accurately estimated and landing behaviour will be as shown in the preceding diagram.
 
