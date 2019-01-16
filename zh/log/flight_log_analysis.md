@@ -137,14 +137,14 @@ Key features:
 
 ### MAVGCL
 
-[MAVGCL](https://github.com/ecmnet/MAVGCL) is an in-flight log analyzer for PX4. It can also be used in offline mode with downloaded uLog files.
+[ MAVGCL ](https://github.com/ecmnet/MAVGCL)是 PX4 在飞行中的日志分析器。 它还可以与下载的 uLog 文件一起在离线模式下使用。
 
-Key features:
+关键特性：
 
-* Realtime data acquisition (50ms sampling, 100ms rolling display) based on MAVLink messages or ULOG data over MAVLink
-* Timechart annotated by messages (MAVLink and ULog) and parameter changes (MAVLink only)
-* XY Analysis for selected key-figures
-* 3D View (vehicle and observer perspective)
+* 基于 MAVLink 消息或 MAVLink 上 ULOG 数据的实时数据采集( 50 ms 采样，100 ms 滚动显示)
+* 由消息( MAVLink 和 ULog) 和参数更改(仅 MAVLink) 注释的时间图
+* 选定的关键指标的 XY 分析
+* 3D 视图 (飞行器和观察者视角)
 * MAVLink inspector (reporting raw MAVLink messages)
 * Offline-mode: Import of key-figures from PX4Log/ULog (file or last log from device via WiFi)
 * Java based. Known to work on macOS and Ubuntu.
