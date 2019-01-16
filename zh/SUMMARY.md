@@ -171,6 +171,7 @@
     * [Intel® Aero Ready to Fly Drone](flight_controller/intel_aero.md)
     * [Crazyflie 2.0](flight_controller/crazyflie2.md)
     * [Parrot Bebop](flight_controller/bebop.md)
+    * [BetaFPV Beta75X 2S Brushless Whoop](flight_controller/betafpv_beta75x.md)
 * [开发信息](development/development.md)
 
 ## Dronecode 相关资源
