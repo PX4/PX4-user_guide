@@ -19,9 +19,9 @@
 
 ![LED 含义](../../images/led_meanings.gif)
 
-* **[Solid Blue] Armed, No GPS Lock:** Indicates vehicle has been armed and has no position lock from a GPS unit. When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone. As always, exercise caution when arming, as large propellers can be dangerous at high revolutions. Vehicle cannot perform guided missions in this mode.
+* **[蓝色常亮] 解锁，没有GPS锁定：**表示飞行器已经解锁且没有 GPS 装置的位置锁定 当飞行器已解锁，PX4 将解锁对电机的控制，允许你驾驶无人机。 一如既往，解锁时要小心，因为大型螺旋桨在高速旋转时会很危险。 在此模式下，飞行器无法执行引导任务。
 
-* **[Pulsing Blue] Disarmed, No GPS Lock:** Similar to above, but your vehicle is disarmed. This means you will not be able to control motors, but all other subsystems are working.
+* **[蓝色慢闪] 未解锁，没有 GPS 锁定：**与上面相似，但飞行器是未解锁的。 这意味这你将无法控制电机，但所有其他子系统都在工作。
 
 * **[Solid Green] Armed, GPS Lock:** Indicates vehicle has been armed and has a valid position lock from a GPS unit. When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone. As always, exercise caution when arming, as large propellers can be dangerous at high revolutions. In this mode, vehicle can perform guided missions.
 
