@@ -50,28 +50,28 @@ ESP8266固件具有以下 *工厂* 设置：
 
 将 ESP8266 设置为 *Flash Mode* 有多种方法，但并非所有 USB/UART 适配器都为自动模式切换提供了所有必要的引脚。 为了以 *Flash Mode* 启动 ESP8266，必须将 GPIO-0 引脚设置为低(GND)，必须将 CH_PD 引脚设置为高(VCC)。 这就是我自己的设置：
 
-![esp8266 flashing rig](../../assets/hardware/telemetry/esp8266_flashing_rig.jpg)
+![eSP8266 下载图](../../assets/hardware/telemetry/esp8266_flashing_rig.jpg)
 
 我制作了一条电缆，其中 RX、TX、VCC 和 GND 可以从 FTDI 适配器直接连接到 ESP8266。 我为 ESP8266 留下了两条空闲线，并连接到 GPIO-0 和 CH_PD ，这样我可以通过把它们分别连接到 GND 和 VCC 而在正常或在 Flash Mode 下启动 ESP8266。
 
 ### ESP8266 (ESP-01) 引脚图
 
-![esp8266 wifi module pinout](../../assets/hardware/telemetry/esp8266_pinout.jpg)
+![eSP8266 无线模块引脚图](../../assets/hardware/telemetry/esp8266_pinout.jpg)
 
 ### 使用 FTDI USB/UART 适配器下载图
 
-![esp8266 flashing](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
+![eSP8266 下载](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
 
 ## 配置
 
-Install your ESP8266 to your PixRacer.
+安装 ESP8266 到你的 PixRacer 。
 
-Flash PX4 master (a current copy or via QGroundControl) to your Pixracer.
+下载 PX4 master (当前副本或通过 QGroundControl) 到您的 Pixracer。
 
-Using a computer or tablet with WiFi, find the open wireless network for your ESP8266. By default, it will be named **PixRacer**. Connect to this network. The default password is **pixracer**.
+使用带有 WiFi 的计算机或平板电脑，并找到到 ESP8266的开放无线网络。 默认情况下，它将被命名为 **Pixracer**。 连接到这个网络。 默认密码是 **pixracer** 。
 
-## Using QGC
+## 使用 QGC
 
-QGC automatically starts its UDP link on boot. Once your computer/tablet is connected to the **PixRacer** WiFi Access Point, it will automatically make the connection.
+QGC 在启动时自动启动其 UDP 连接。 一旦您的计算机/平板连接到 **Pixracer** WiFi ，它将自动进行连接。
 
-You should now see HUD movement on your QGC computer via wireless link and if using the latest QGC, you will be able to access the setup panel for the ESP8266 WiFi Bridge.
+现在您应该可以通过无线链接在 QGC 计算机上看到 HUD 移动，如果使用最新的 QGC，您将能够访问 ESP8266 WiFi 桥的设置面板。
