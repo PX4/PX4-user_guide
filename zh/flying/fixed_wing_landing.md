@@ -1,8 +1,8 @@
-# Fixed Wing Landing
+# 固定翼着陆
 
-PX4 enables autopilot-controlled fixed-wing (FW) landing in [Missions](../flying/missions.md), [Land mode](../flight_modes/land.md), and [Return mode](../flight_modes/return.md).
+PX4 允许自动驾驶控制固定翼 (FW) 在 [任务模式](../flying/missions.md)、[着陆模式](../flight_modes/land.md) 和 [返航模式](../flight_modes/return.md) 中着陆。
 
-The landing logic has several phases, as shown below. In the first phase the vehicle will follow a fixed trajectory ([FW_LND_ANG](#FW_LND_ANG)) towards the ground. At the flare landing altitude ([FW_LND_FLALT](#FW_LND_FLALT)) the vehicle will start to follow a flare path (the curve is based on the value of [FW_LND_HVIRT](#FW_LND_HVIRT)).
+着陆逻辑有几个阶段，如下所示。 在第一阶段，飞行器将遵循固定的轨道 ([FW_LND_ANG](#FW_LND_ANG)) 朝向地面。 At the flare landing altitude ([FW_LND_FLALT](#FW_LND_FLALT)) the vehicle will start to follow a flare path (the curve is based on the value of [FW_LND_HVIRT](#FW_LND_HVIRT)).
 
 ![Fixed Wing - Landing Path](../../assets/flying/fw_landing_path.png)
 
