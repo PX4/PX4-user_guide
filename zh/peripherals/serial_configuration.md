@@ -34,9 +34,9 @@ Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (�
 以下步骤提供了如何在 *QGroundControl* 中配置端口的实例。 它展示了如何在 `TELEM 2` 端口上运行第二个 GPS (`GPS_2_CONFIG`) 。
 
 1. 转到飞行器参数设置中的 **参数** 部分。
-2. 选择 **GPS** 选项卡(1)，然后打开 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 参数(2)，并从下拉列表(3) 中选择 *TELEM 2*。 ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
+2. 选择 **GPS** 选项卡(1)，然后打开 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 参数(2)，并从下拉列表(3) 中选择 *TELEM 2*。 ![QGC 串口实例](../../assets/peripherals/qgc_serial_config_example.png)
 3. 重启飞行器，以便其他参数显示。
-4. 选择 **串口** 选项卡，并打开 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) 参数 (`TELEM 2`端口波特率)：将其设置为 *Auto*。 ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
+4. 选择 **串口** 选项卡，并打开 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) 参数 (`TELEM 2`端口波特率)：将其设置为 *Auto*。 ![QGC 串口波特率实例](../../assets/peripherals/qgc_serial_baudrate_example.png)
 
 ## 处理端口冲突
 
@@ -57,8 +57,8 @@ Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (�
     #drivers/distance_sensor/leddar_one
     
 
-You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
+然后，您需要为平台编译固件，如 [编译 PX4 软件](https://dev.px4.io/en/setup/building_px4.html) (PX4 开发指南) 中所述。
 
 ## 更多信息
 
-* [MAVLink Peripherals (OSD/GCS/Companion Computers/etc.)](../peripherals/mavlink_peripherals.md)
+* [MAVLink 外设 (OSD/GCS/机载计算机/等等)](../peripherals/mavlink_peripherals.md)
