@@ -1,10 +1,10 @@
 # 串口配置
 
-Most serial (UART) ports on a Pixhawk board can be fully configured via parameters (exceptions are ports that are used for a very specific purpose like RC input, or which are not configurable like `SERIAL 5`).
+Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (用于非常特定目的的端口除外，如RC输入，或不可配置的串口，如 `SERIAL 5`)。
 
-The configuration makes it easy to (for example):
+通过配置，可以轻松地(例如)：
 
-* change the baudrate on a port.
+* 更改端口上的波特率。
 * run MAVLink on a different port, or change the streamed messages.
 * setup dual GPS.
 * enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
