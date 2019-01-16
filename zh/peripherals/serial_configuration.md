@@ -1,4 +1,4 @@
-# Serial Port Configuration
+# 串口配置
 
 Most serial (UART) ports on a Pixhawk board can be fully configured via parameters (exceptions are ports that are used for a very specific purpose like RC input, or which are not configurable like `SERIAL 5`).
 
