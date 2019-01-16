@@ -70,9 +70,9 @@ PX4 支持两种校准过程：
 
 ## 实施细节 {#implementation}
 
-Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
+校准是指在一系列内部温度范围内测量传感器值的变化，并对数据进行多项式拟合以计算可用于校正传感器数据的一组系数（存储为参数）的过程。 补偿是指使用内部温度来计算偏移量，传感器读数将减去这个偏移量，以校正随温度变化的偏移量的过程。
 
-The inertial rate gyro and accelerometer sensor offsets are calculated using a 3rd order polynomial, whereas the barometric pressure sensor offset is calculated using a 5th order polynomial. Example fits are show below:
+使用三阶多项式计算惯性速率陀螺仪和加速度计传感器偏移，而使用五阶多项式计算气压传感器偏移。 示例拟合如下所示：
 
 ![Thermal calibration gyro](../../assets/calibration/thermal_calibration_gyro.png)
 
@@ -80,16 +80,16 @@ The inertial rate gyro and accelerometer sensor offsets are calculated using a 3
 
 ![Thermal calibration barometer](../../assets/calibration/thermal_calibration_baro.png)
 
-### Calibration Parameter Storage
+### 校准参数存储
 
-With the existing parameter system implementation we are limited to storing each value in the struct as a separate entry. To work around this limitation the following logical naming convention is used for the [thermal compensation parameters](../advanced_config/parameter_reference.md#thermal-compensation):
+对于现有的参数系统实现，我们仅限于将结构中的每个值作为单独的条目存储。 为了解决这一限制，对 [热补偿参数](../advanced_config/parameter_reference.md#thermal-compensation) 使用了以下逻辑命名约定：
 
     TC_[type][instance]_[cal_name]_[axis]
     
 
-Where:
+其中：
 
-* `type`: is a single character indicating the type of sensor where `G` = rate gyroscope, `A` = accelerometer and `B` = barometer.
+* `type`：表示 `G`=速率陀螺仪、`A`=加速度计和 `B`=气压计的传感器类型。
 * `instance`: is an integer 0,1 or 2 allowing for calibration of up to three sensors of the same `type`.
 * `cal_name`: is a string identifying the calibration value. It has the following possible values:
     
