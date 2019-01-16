@@ -34,7 +34,7 @@ There is no need to set the baud rate for the port, as this is configured by the
 
 ## Intel Aero {#aero}
 
-The LeddarOne is the recommended rangefinder for the *Intel® Aero Ready to Fly Drone*. For more information on hardware setup and configuration see: [The Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md#leddarone).
+The LeddarOne is the recommended rangefinder for the *Intel® Aero Ready to Fly Drone*. For more information on hardware setup and configuration see: [The Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md#leddarone).
 
 
 ## Further Information

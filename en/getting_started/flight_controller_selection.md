@@ -2,7 +2,8 @@
 
 You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
 
-PX4 can run on many flight controller boards and systems (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/Firmware/#supported-hardware)). A *subset* of the available options are listed below. 
+PX4 can run on many flight controller boards (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/Firmware/#supported-hardware)). 
+A *subset* of the available options are listed below. 
 
 ## Pixhawk Series
 
@@ -20,22 +21,20 @@ Controller | Description
 
 
 
-## Autopilots for computationally intensive tasks
+## Autopilots for Computationally Intensive Tasks
 
-These flight controllers offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
+These flight controllers (and development platforms) offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
 
 Controller | Description
 --- | ---
 [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | A high-end autopilot computer that runs PX4 on the DSP (on QuRT RTOS). It includes a camera and WiFi.
-[Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) | A UAS development platform that integrates a powerful Linux computer, PX4 on NuttX, and a camera in a single package.
+[Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) | A UAS development platform that integrates a Linux computer, PX4 on NuttX, and a camera in a single package.
 [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RaPi can be connected to an autopilot and used as a companion computer.
 
 
 ## Commercial UAVs that can run PX4
 
-PX4 has been ported to a number of popular commercial drone products, as listed below. This allows you to add mission planning and other PX Flight modes to your vehicle. 
+PX4 is available on many popular commercial drone products, including some that ship with PX4 and others that can be updated with PX4 (allowing you to add mission planning and other PX4 Flight modes to your vehicle).
 
-Controller | Description
---- | ---
-[Crazyflie 2.0](../flight_controller/crazyflie2.md) | A micro quad (27g) created by Bitcraze AB. 
-[Parrot Bebop](../flight_controller/bebop.md) | A popular lightweight flying camera.
+For more information see [Complete Vehicles](../complete_vehicles/README.md).
+

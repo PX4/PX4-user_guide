@@ -9,12 +9,9 @@ There are a number of options:
   * [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) - High-end autopilot with integrated onboard computer.
   * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
-* Complete Vehicles - consumer drones and reference platforms that can run PX4:
-  * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) - UAV development platform with high-end autopilot and integrated onboard computer.
-  * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
-  * [Parrot Bebop](../flight_controller/bebop.md)
-  * BetaFPV Beta75X 2S Brushless Whoop
-  * Teal One
+  
+> **Tip** You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (consumer drones and reference platforms that can run PX4).
+
 
 ## Documented Boards
 
@@ -42,9 +39,6 @@ The list of boards documented in this library can be found in the sidebar (repro
   * [MindRacer](../flight_controller/mindracer.md)
 * [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 * [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
-* [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md)
 * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
-* [Crazyflie 2.0](../flight_controller/crazyflie2.md)
-* [Parrot Bebop](../flight_controller/bebop.md)
-* [BeagleBone Blue](../flight_controller/beaglebone_blue.md) 
+* [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
