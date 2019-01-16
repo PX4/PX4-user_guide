@@ -29,9 +29,9 @@
 
 * **[紫色常亮] 故障保护模式：**每当飞行器在飞行中遇到问题时，此模式将激活，例如丢失手动控制，电池电量严重不足或者内部出错。 在故障保护模式期间，飞行器将尝试返回至起飞位置或者可以简单地下降到当前的位置。
 
-* **[Solid Amber] Low Battery Warning:** Indicates your vehicle's battery is running dangerously low. After a certain point, vehicle will go into failsafe mode. However, this mode should signal caution that it's time to end this flight.
+* **[琥珀色常亮] 低电压警告：**表示飞行器电池电量处于危险线。 在某一点之后，飞行器将进入故障保护模式。 不管怎样，该模式应该警告说是时候结束这次飞行了。
 
-* **[Blinking Red] Error / Setup Required:** Indicates that your autopilot needs to be configured or calibrated before flying. Attach your autopilot to a Ground Control Station to verify what the problem is. If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
+* **[红色快闪] 错误 / 需求设置：**表示飞行前需要配置或者校准自驾仪。 将自驾仪连接到地面站以检验问题所在。 如果你已经完成设置过程并且自驾仪仍然显示为红色闪烁，则可能存在其他原因。
 
 ## 状态 LED 指示灯 {#status_led}
 
