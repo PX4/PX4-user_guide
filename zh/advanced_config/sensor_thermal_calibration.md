@@ -74,11 +74,11 @@ PX4 支持两种校准过程：
 
 使用三阶多项式计算惯性速率陀螺仪和加速度计传感器偏移，而使用五阶多项式计算气压传感器偏移。 示例拟合如下所示：
 
-![Thermal calibration gyro](../../assets/calibration/thermal_calibration_gyro.png)
+![热校准陀螺](../../assets/calibration/thermal_calibration_gyro.png)
 
-![Thermal calibration accel](../../assets/calibration/thermal_calibration_accel.png)
+![热校准加速度计](../../assets/calibration/thermal_calibration_accel.png)
 
-![Thermal calibration barometer](../../assets/calibration/thermal_calibration_baro.png)
+![热校准气压计](../../assets/calibration/thermal_calibration_baro.png)
 
 ### 校准参数存储
 
@@ -139,12 +139,12 @@ PX4 支持两种校准过程：
 
 ### 局限
 
-由于在不同温度下测量比例系数存在困难，因此假定比例系数是不随温度变化的。 This limits the usefulness of the accelerometer calibration to those sensor models with stable scale factors. In theory with a thermal chamber or IMU heater capable of controlling IMU internal temperature to within a degree, it would be possible to perform a series of 6 sided accelerometer calibrations and correct the accelerometers for both offset and scale factor. Due to the complexity of integrating the required board movement with the calibration algorithm, this capability has not been included.
+由于在不同温度下测量比例系数存在困难，因此假定比例系数是不随温度变化的。 这就限制了加速度计校准对于具有不稳定比例系数的传感器模型的适用性。 理论上，在热室或 IMU 加热器中能够将 IMU 内部温度控制在一定程度内的情况下，可以进行一系列 6 面加速度计的校准，并对加速度计进行偏移和比例修正。 由于集成所需的电路板硬件变动与校准算法的复杂性，这一功能还没有包括在内。
 
 * * *
 
-[^1]: The [SYS_CAL_ACCEL](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL), [SYS_CAL_BARO](../advanced_config/parameter_reference.md#SYS_CAL_BARO) and [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) parameters are reset to 0 when the calibration is started.
+[^1]: 当校准开始时，[SYS_CAL_Accel](../advanced_config/parameter_reference.md#SYS_CAL_ACCEL)、[SYS_CAL_Baro](../advanced_config/parameter_reference.md#SYS_CAL_BARO) 和 [SYS_CAL_GYRO](../advanced_config/parameter_reference.md#SYS_CAL_GYRO) 参数重置为 0。
 
-[^2]: Calibration of the barometric pressure sensor offsets requires a stable air pressure environment. The air pressure will change slowly due to weather and inside buildings can change rapidly due to external wind fluctuations and HVAC system operation.[&#8617;](#fnref2:2){.footnote-backref}
+[^2]: 气压传感器偏置的校准需要一个稳定的气压环境。 由于天气的原因，空气压力变化缓慢，建筑物内部的气压会因室外风的波动和暖通空调系统的运行而迅速变化。
 
-[^3]: Care must be taken when warming a cold soaked board to avoid formation of condensation on the board that can cause board damage under some circumstances.[&#8617;](#fnref2:3){.footnote-backref}
+[^3]: 在加热冷却板时必须小心，以避免在某些情况下在板上形成凝结物，导致电路板损坏。[&#8617;](#fnref2:3){.footnote-backref}
