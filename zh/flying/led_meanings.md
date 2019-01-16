@@ -1,4 +1,4 @@
-# LED Meanings (Pixhawk Series)
+# LED 含义（Pixhawk 系列）
 
 [Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use LEDs to indicate the current status of the vehicle.
 
