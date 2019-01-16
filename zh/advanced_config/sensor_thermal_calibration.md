@@ -90,30 +90,30 @@ PX4 支持两种校准过程：
 其中：
 
 * `type`：表示 `G`=速率陀螺仪、`A`=加速度计和 `B`=气压计的传感器类型。
-* `instance`: is an integer 0,1 or 2 allowing for calibration of up to three sensors of the same `type`.
-* `cal_name`: is a string identifying the calibration value. It has the following possible values:
+* `instance`：是一个整数 0、1或2 ，允许至多校准三个相同 `type` 的传感器。
+* `cal_name`：是标识校准值的字符串。 它具有可能的值如下：
     
-    * `Xn`: Polynomial coefficient where n is the order of the coefficient, e.g. `X3 * (temperature - reference temperature)**3`.
-    * `SCL`: scale factor.
-    * `TREF`: reference temperature (deg C).
-    * `TMIN`: minimum valid temperature (deg C).
-    * `TMAX`: maximum valid temperature (deg C).
+    * `Xn`：多项式系数，其中n是系数的阶数，例如 `X3* (temperature - reference temperature)**3` 。
+    * `SCL`：比例（缩放）系数
+    * `TREF`：参考温度(deg C)。
+    * `TMIN`：最低有效温度(deg C)。
+    * `TMAX`：最高有效温度(deg C)。
 
-* `axis`: is an integer 0,1 or 2 indicating that the calibration data is for X,Y or Z axis in the board frame of reference. For the barometric pressure sensor, the `axis` suffix is omitted.
+* `axis`：是一个整数0，1或2，指示校准数据为飞控板参照系的 X，Y 或 Z 轴。 对于气压传感器，省略 `axis` 后缀。
 
 示例:
 
-* [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) is the `^3` coefficient for the first gyro x-axis.
-* [TC_A1_TREF](../advanced_config/parameter_reference.md#TC_A1_TREF) is the reference temperature for the second accelerometer.
+* [TC_G0_X3_0](../advanced_config/parameter_reference.md#TC_G0_X3_0) 是第一个陀螺 x 轴的 `^3` 系数。
+* [TC_A1_TREF](../advanced_config/parameter_reference.md#TC_A1_TREF) 是第二个加速度计的参考温度。
 
-### Calibration Parameter Usage
+### 校准参数使用
 
-The correction for thermal offsets (using the calibration parameters) is performed in the [sensors module](https://dev.px4.io/en/middleware/modules_system.html#sensors). The reference temperature is subtracted from the measured temperature to obtain a delta temperature where:
+热偏差校正(使用校准参数) 在 [sensors module](https://dev.px4.io/en/middleware/modules_system.html#sensors) 中执行。 测量温度中减去参考温度，得到一个 delta 温度，其中：
 
     delta = measured_temperature - reference_temperature
     
 
-The delta temperature is then used to calculate a offset, where:
+然后使用 delta 温度来计算偏移量，其中：
 
     offset = X0 + X1*delta + X2*delta**2 + ... + Xn*delta**n
     
