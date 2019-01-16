@@ -9,18 +9,14 @@
   * [高通骁龙](../flight_controller/snapdragon_flight.md) - 与集成的机载计算机的高端自动驾驶仪。
   * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
-* Complete Vehicles - consumer drones and reference platforms that can run PX4: 
-  * [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) - UAV development platform with high-end autopilot and integrated onboard computer.
-  * [Crazyflie 2.0](../flight_controller/crazyflie2.md)
-  * [Parrot Bebop](../flight_controller/bebop.md)
-  * BetaFPV Beta75X 2S Brushless Whoop
-  * Teal One
+
+> **Tip** You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (consumer drones and reference platforms that can run PX4).
 
 ## 记录板
 
 在此库中记录的板列表可在侧边栏中找到（转载如下）：
 
-> **Note** 库不会记录所有可以运行PX4的主板（还有其他兼容的飞行控制器和变体）。
+> **Note** The library does not document all boards that can run PX4 (there are other compatible flight controllers and variants).
 
 * [Pixhawk 系列](../flight_controller/pixhawk_series.md) 
   * [Pixhawk 1](../flight_controller/pixhawk.md)
@@ -42,9 +38,6 @@
   * [MindRacer](../flight_controller/mindracer.md)
 * [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 * [高通骁龙飞控（Snapdragon Flight）](../flight_controller/snapdragon_flight.md)
-* [Intel® Aero 到手飞无人机](../flight_controller/intel_aero.md)
 * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
-* [Crazyflie 2.0](../flight_controller/crazyflie2.md)
-* [Parrot Bebop](../flight_controller/bebop.md)
 * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
