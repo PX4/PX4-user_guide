@@ -17,7 +17,7 @@ The image below shows the relationship between LED and vehicle status.
 
 > **Tip** In the event of an error (blinking red), or if the vehicle can't achieve GPS lock (change from blue to green), check for more detailed status information in *QGroundControl* including calibration status, and errors messages reported by the [Preflight Checks (Internal)](../flying/pre_flight_checks.md). Also check that the GPS module is properly attached, Pixhawk is reading your GPS properly, and that the GPS is sending a proper GPS position.
 
-![LED meanings](../../images/led_meanings.gif)
+![LED 含义](../../images/led_meanings.gif)
 
 * **[Solid Blue] Armed, No GPS Lock:** Indicates vehicle has been armed and has no position lock from a GPS unit. When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone. As always, exercise caution when arming, as large propellers can be dangerous at high revolutions. Vehicle cannot perform guided missions in this mode.
 
@@ -41,21 +41,21 @@ Three *Status LEDs* provide status for the FMU SoC, and three more provide statu
 
 From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the application (APP). The table below shows how the Bootloader and then APP use the LEDs to indicate condition.
 
-| Color     | Label                       | Bootloader usage                               | APP usage               |
-| --------- | --------------------------- | ---------------------------------------------- | ----------------------- |
-| Blue      | ACT (Activity)              | Flutters when the bootloader is receiving data | Indication of ARM state |
-| Red/Amber | B/E (In Bootloader / Error) | Flutters when in the bootloader                | Indication of an ERROR  |
-| Green     | PWR (Power)                 | Not used by bootloader                         | Indication of ARM state |
+| Color    | 标签                | BL 用法           | APP 用法  |
+| -------- | ----------------- | --------------- | ------- |
+| 蓝色       | ACT（激活）           | 引导加载程序正在接受数据时抖动 | 表示ARM状态 |
+| 红色 / 琥珀色 | B/E（在引导加载程序 / 错误） | 在引导加载程序中抖动      | 表示错误状态  |
+| 绿色       | PWR （电源）          | 引导加载程序不使用       | 表示ARM状态 |
 
-> **Note** The LED labels shown above are commonly used, but might differ on some boards.
+> **Note**上面显示的 LED 标签是常用的，但在某些电路板上可能有所不同。
 
-More detailed information for how to interpret the LEDs is given below (where "x" means "any state")
+下面给出了有关如何解释 LED 的更多详细信息（其中“x”表示“任何状态”）
 
-| Red/Amber | Blue | Green | Meaning                                                     |
-| --------- | ---- | ----- | ----------------------------------------------------------- |
-| 10Hz      | x    | x     | Overload CPU load > 80%, or RAM usage > 98%                 |
-| OFF       | x    | x     | Overload CPU load <= 80%, or RAM usage <= 98%               |
-| 不可用       | OFF  | 4 Hz  | actuator_armed->armed && failsafe                           |
-| 不可用       | ON   | 4 Hz  | actuator_armed->armed && !failsafe                          |
-| 不可用       | OFF  | 1 Hz  | !actuator_armed-> armed && actuator_armed->ready_to_arm |
-| 不可用       | OFF  | 10 Hz | !actuator_armed->armed && !actuator_armed->ready_to_arm |
+| 红色/琥珀色 | 蓝色 | 绿色    | 含义                                                         |
+| ------ | -- | ----- | ---------------------------------------------------------- |
+| 10 赫兹  | x  | x     | 过载 CPU 负载 > 80%，或者内存使用率 > 98%                              |
+| 关闭     | x  | x     | 过载 CPU 负载 <= 80%，或者内存使用率 <= 98%<= 80%, or RAM usage <= 98% |
+| 不可用    | 关闭 | 4 赫兹  | 电机解锁并且故障保护                                                 |
+| 不可用    | 打开 | 4 赫兹  | 电机解锁并且未故障保护                                                |
+| 不可用    | 关闭 | 1 赫兹  | 电机未解锁并且电机准备解锁                                              |
+| 不可用    | 关闭 | 10 赫兹 | 电机未解锁并且电机未准备解锁                                             |
