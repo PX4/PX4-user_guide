@@ -129,17 +129,17 @@ PX4 支持两种校准过程：
 
 ### 与遗留 `CAL*` 参数和 commander 控制校准的兼容性
 
-The legacy temperature-agnostic PX4 rate gyro and accelerometer sensor calibration is performed by the commander module and involves adjusting offset, and in the case of accelerometer calibration, scale factor calibration parameters. The offset and scale factor parameters are applied within the driver for each sensor. These parameters are found in the [CAL parameter group](../advanced_config/parameter_reference.md#sensor-calibration).
+传统的不知道温度的 PX4 速率陀螺和加速度计传感器的校准是由 commander 模块进行的，包括调整偏移量，在加速度计校准的情况下，比例（缩放）系数校准参数。 偏移量和比例系数参数被应用在每个传感器的驱动程序中。 这些参数出现在 [CAL parameter group](../advanced_config/parameter_reference.md#sensor-calibration) 中。
 
-Onboard temperature calibration is controlled by the events module and the corrections are applied within the sensors module before the sensor combined uORB topic is published. This means that if thermal compensation is being used, all of the corresponding legacy offset and scale factor parameters must be set to defaults of zero and unity before a thermal calibration is performed. If an on-board temperature calibration is performed, this will be done automatically, however if an offboard calibration is being performed it is important that the legacy `CAL*OFF` and `CAL*SCALE` parameters be reset before calibration data is logged.
+板载温度校准由 events 模块控制，在 sensor combined 的 uORB 主题发布之前，在传感器模块内进行校正。 这意味着，如果使用热补偿，在执行热校准之前所有相应的遗留偏移量和比例系数参数必须设置为默认值（零或单位 1）。 如果执行板载温度校准，这将自动完成，但是，如果正在执行板外校准，则重要的是在记录校准数据之前重新设置遗留的 `CAL*OFF` 和 `CAL*Scale` 参数。
 
-If gyro thermal compensation has been enabled by setting the `TC_G_ENABLE` parameter to 1, then the commander controlled gyro calibration can still be performed, however it will be used to shift the compensation curve up or down by the amount required to zero the angular rate offset. It achieves this by adjusting the X0 coefficients.
+陀螺热补偿是通过将 `TC_G_Enable` 参数设置为 1 来实现的，此时仍可进行 commander 控制的陀螺标定，但它将用于将补偿曲线上下偏移，使角速度偏移为零。 它通过调整 X0 系数来实现这一点。
 
-If accel thermal compensation has been enabled by setting the `TC_A_ENABLE` parameter to 1, then the commander controlled 6-point accel calibration can still be performed, however instead of adjusting the `*OFF` and `*SCALE` parameters in the `CAL` parameter group, these parameters are set to defaults and the thermal compensation `X0` and `SCL` parameters are adjusted instead.
+如果已通过将 `TC_A_ENABLE` 参数设置为 1 启用加速度热补偿，则仍可以执行 commander 控制的 6 点加速度校准，但是，并非调整 `CAL` 参数组中的 `*OFF` 和 `*Scale` 参数，这些参数被设置为默认值，而热补偿 `X0` 和 `SCL` 参数将被调整。
 
-### Limitations
+### 局限
 
-Scale factors are assumed to be temperature invariant due to the difficulty associated with measuring these at different temperatures. This limits the usefulness of the accelerometer calibration to those sensor models with stable scale factors. In theory with a thermal chamber or IMU heater capable of controlling IMU internal temperature to within a degree, it would be possible to perform a series of 6 sided accelerometer calibrations and correct the accelerometers for both offset and scale factor. Due to the complexity of integrating the required board movement with the calibration algorithm, this capability has not been included.
+由于在不同温度下测量比例系数存在困难，因此假定比例系数是不随温度变化的。 This limits the usefulness of the accelerometer calibration to those sensor models with stable scale factors. In theory with a thermal chamber or IMU heater capable of controlling IMU internal temperature to within a degree, it would be possible to perform a series of 6 sided accelerometer calibrations and correct the accelerometers for both offset and scale factor. Due to the complexity of integrating the required board movement with the calibration algorithm, this capability has not been included.
 
 * * *
 
