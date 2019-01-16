@@ -145,9 +145,9 @@ Key features:
 * 由消息( MAVLink 和 ULog) 和参数更改(仅 MAVLink) 注释的时间图
 * 选定的关键指标的 XY 分析
 * 3D 视图 (飞行器和观察者视角)
-* MAVLink inspector (reporting raw MAVLink messages)
-* Offline-mode: Import of key-figures from PX4Log/ULog (file or last log from device via WiFi)
-* Java based. Known to work on macOS and Ubuntu.
-* And many more ...
+* MAVLink inspector 面板(报告原始 MAVLink 消息)
+* 离线模式：从 PX4Log/ULog 导入关键指标(通过 WiFi 从设备上获取文件或最后一次日志)
+* 基于 Java 在 MacOS 和 Ubuntu 上运行。
+* 更多……
 
 ![MAVGCL](../../assets/flight_log_analysis/mavgcl/time_series.png)
