@@ -4,30 +4,30 @@ Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (�
 
 通过配置，可以轻松地(例如)：
 
-* 更改端口上的波特率。
-* run MAVLink on a different port, or change the streamed messages.
-* setup dual GPS.
-* enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
+* 更改端口上的波特率
+* 在其他端口上运行 MAVLink ，或更改流消息
+* 设置双 GPS
+* 启用在串口上运行的传感器，例如某些 [距离传感器](../sensor/rangefinders.md) 。
 
-## Pre-configured Ports {#default_port_mapping}
+## 端口预配置 {#default_port_mapping}
 
-The following functions are typically mapped to the same specific serial ports on all boards, and are hence mapped by default:
+以下功能通常映射到所有板上的相同的特定串口，默认情况下映射为：
 
-* MAVLink is mapped to the `TELEM 1` port with baudrate 57600 (for a [telemetry module](../telemetry/README.md)).
-* GPS 1 ([gps driver](https://dev.px4.io/en/middleware/modules_driver.html#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
+* MAVLink 被映射到 `Telem 1` 端口，端口的波特率为 57600 (对于[遥测模块](../telemetry/README.md))。
+* GPS 1 ([gps driver](https://dev.px4.io/en/middleware/modules_driver.html#gps)) 映射到 `GPS 1` 端口，端口具有*自动* 波特率(在此设置下，GPS 将自动检测波特率-除了 Trimble MB-2，它需要115200的波特率)。
 
-All other ports have no assigned functions by default (are disabled).
+默认情况下，所有其他端口都没有指定的功能(禁用)。
 
-> **Tip** The ports mappings above can be disabled by setting [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) and [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) to *Disabled*, respectively.
+> **Tip** 通过分别将 [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) 和 [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) 设置为 *Disabled*，可以禁用上述端口映射。
 
-## How to Configure a Port
+## 如何配置端口
 
-All the serial drivers/ports are configured in the same way:
+所有串行驱动程序/端口都以相同的方式配置：
 
-1. Set the configuration parameter for the service/peripheral to the port it will use.
-2. Reboot the vehicle.
-3. Set the baud rate parameter for the selected port to the desired value.
-4. Configure module-specific parameters (i.e. MAVLink streams and data rate configuration).
+1. 将 service/peripheral 的配置参数设置为它将使用的端口
+2. 重启飞行器
+3. 将所选端口的波特率设置为所需值。
+4. 配置特定于模块的参数 (如 MAVLink 流和数据速率配置)。
 
 > **Note** Configuration parameter names follow the pattern `\*\_CONFIG` or `\*\_CFG` (*QGroundControl* only displays the parameters for services/drivers that are present in firmware). At time of writing the current set is: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [RTPS_CONFIG](../advanced_config/parameter_reference.md#RTPS_CONFIG), [RTPS_MAV_CONFIG](../advanced_config/parameter_reference.md#RTPS_MAV_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG).
 
