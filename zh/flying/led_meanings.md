@@ -1,11 +1,11 @@
 # LED 含义（Pixhawk 系列）
 
-[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use LEDs to indicate the current status of the vehicle.
+[Pixhawk 系列飞行控制器](../flight_controller/pixhawk_series.md)使用LED表示飞行器当前状态
 
-* The [UI LED](#ui_led) provides user-facing status information related to *readiness for flight*.
-* The [Status LEDs](#status_led) provide status for the PX4IO and FMU SoC. They indicate power, bootloader mode and activity, and errors.
+* [LED 界面](#ui_led)提供与飞行准备相关的面向用户的状态信息。
+* [状态 LED 指示灯](#status_led)提供 PX4IO 和 FMU SoC（主控板 系统芯片）。 他们表示电源，bootLoader 模式和活动以及错误等状态。
 
-## UI LED {#ui_led}
+## LED 界面 {#ui_led}
 
 The RGB *UI LED* indicates the current *readiness for flight* status of the vehicle. This is typically a superbright I2C peripheral, which may or may not be mounted on the flight controller board (i.e. FMUv4 does not have one on board, and typically uses an LED mounted on the GPS).
 
@@ -33,7 +33,7 @@ The image below shows the relationship between LED and vehicle status.
 
 * **[Blinking Red] Error / Setup Required:** Indicates that your autopilot needs to be configured or calibrated before flying. Attach your autopilot to a Ground Control Station to verify what the problem is. If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
 
-## 状态 LED {#status_led}
+## 状态 LED 指示灯 {#status_led}
 
 三个*状态LED*提供 FMU SoC 的状态，另外三个提供 PX4IO 的状态（如果存在）。 他们表示电源，bootLoader 模式和活动以及错误等状态。
 
