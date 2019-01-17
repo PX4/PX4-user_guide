@@ -6,9 +6,9 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 
 以下部分列出了错误，可能的原因和解决方案，以及影响飞行前检查运行方式的所有参数。
 
-## EKF Preflight Checks/Errors
+## EKF 飞行前检查 / 错误
 
-The following errors (with associated checks and parameters) are reported by the [EKF](https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html) (and propagate to *QGroundControl*):
+[EKF](https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html)报告以下错误（带有相关的检查和参数）（并传播到*QGroundControl*）：
 
 `PREFLIGHT FAIL: EKF HGT ERROR`:
 
