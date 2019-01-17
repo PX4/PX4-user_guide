@@ -60,9 +60,9 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 
 - 如果水平 GPS 速度、偏航角、垂直 GPS 速度或者垂直位置传感器（气压计默认情况下可以使测距仪或 GPS ，如果使用非标准参数）其中之一新息过多，会产生此错误消息。 新息指的是惯性导航计算预测值与传感器测量值之间的差异。
 - 用户应检查日志文件中新息级别以确定原因。 这些可以在`ekf2_innovations`消息下找到。 常见问题 / 解决方案包括： 
-    - IMU 启动时漂移。 May be resolved by restarting the autopilot. May require an IMU accel and gyro calibration.
-    - Adjacent magnetic interference combined with vehicle movement. Resolve my moving vehicle and waiting or re-powering.
-    - Bad magnetometer calibration combined with vehicle movement. Resolve by recalibrating.
+    - IMU 启动时漂移。 可以通过重启自驾仪来解决。 可能需要 IMU 加速度计和陀螺仪校准。
+    - 相邻磁干扰在飞行器运动中。 通过等待或者重新上电解决。
+    - 磁力计校准不良在飞行器运动中。。 通过重新校准解决。
     - Initial shock or rapid movement on startup that caused a bad inertial nav solution. Resolve by restarting the vehicle and minimising movement for the first 5 seconds.
 
 ## Other Parameters
