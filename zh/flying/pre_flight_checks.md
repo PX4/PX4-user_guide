@@ -10,23 +10,23 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 
 [EKF](https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html)报告以下错误（带有相关的检查和参数）（并传播到*QGroundControl*）：
 
-`PREFLIGHT FAIL: EKF HGT ERROR`:
+`PREFLIGHT FAIL: EKF HGT ERROR`：
 
-- This error is produced when the IMU and height measurement data are inconsistent.
-- Perform an accel and gyro calibration and restart the vehicle. If the error persists, check the height sensor data for problems.
-- The check is controlled by the [COM_ARM_EKF_HGT](../advanced_config/parameter_reference.md#COM_ARM_EKF_HGT) parameter.
+- 当 IMU 和高度测量数据不一致时会产生此错误。
+- 执行加速度计和陀螺仪校准并重新启动飞行器。 如果错误仍然存在，请检查高度传感器数据是否存在问题。
+- 检查由[COM_ARM_EKF_HGT](../advanced_config/parameter_reference.md#COM_ARM_EKF_HGT)参数控制。
 
 `PREFLIGHT FAIL: EKF VEL ERROR`:
 
-- This error is produced when the IMU and GPS velocity measurement data are inconsistent. 
-- Check the GPS velocity data for un-realistic data jumps. If GPS quality looks OK, perform an accel and gyro calibration and restart the vehicle.
-- The check is controlled by the [COM_ARM_EKF_VEL](../advanced_config/parameter_reference.md#COM_ARM_EKF_VEL) parameter.
+- 当 IMU 和 GPS 速度测量数据不一致时会产生此错误。 
+- 检查 GPS 速度数据是否存在不真实的数据跳转。 如果 GPS 质量看起来没有问题，请执行加速度计和陀螺仪校准并重新启动飞行器。
+- 检查由[COM_ARM_EKF_VEL](../advanced_config/parameter_reference.md#COM_ARM_EKF_VEL)参数控制。
 
 `PREFLIGHT FAIL: EKF HORIZ POS ERROR`:
 
-- This error is produced when the IMU and position measurement data (either GPS or external vision) are inconsistent. 
-- Check the position sensor data for un-realistic data jumps. If data quality looks OK, perform an accel and gyro calibration and restart the vehicle.
-- The check is controlled by the [COM_ARM_EKF_POS](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS) parameter.
+- 当 IMU 和位置测量数据（GPS 或外部视觉）不一致时会产生此问题。 
+- 检查位置传感器数据是否存在不真实的数据跳转。 如果数据质量看起来不错，请执行加速度计和陀螺仪校准并重新启动飞行器。
+- 检查由[COM_ARM_EKF_POS](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS)参数控制。
 
 `PREFLIGHT FAIL: EKF YAW ERROR`:
 
