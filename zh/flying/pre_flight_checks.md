@@ -63,15 +63,15 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
     - IMU 启动时漂移。 可以通过重启自驾仪来解决。 可能需要 IMU 加速度计和陀螺仪校准。
     - 相邻磁干扰在飞行器运动中。 通过等待或者重新上电解决。
     - 磁力计校准不良在飞行器运动中。。 通过重新校准解决。
-    - Initial shock or rapid movement on startup that caused a bad inertial nav solution. Resolve by restarting the vehicle and minimising movement for the first 5 seconds.
+    - 启动时的初始冲击或快速移动导致惯性导航失败。 通过重新启动飞行器并在前 5 秒内最大限度地减少移动来解决此问题。
 
-## Other Parameters
+## 其他参数
 
-The following parameters also affect preflight checks.
+一下参数也会影响飞行前检查。
 
 ### COM_ARM_WO_GPS
 
-The [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) parameter controls whether or not arming is allowed without a global position estimate.
+[COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS)参数控制是否允许在没有全球位置估计的情况下进行解锁。
 
 - `1` (default): Arming *is* allowed without a position estimate for flight modes that do not require position information (only).
 - `0`: Arming is allowed only if EKF is providing a global position estimate and EFK GPS quality checks are passing
