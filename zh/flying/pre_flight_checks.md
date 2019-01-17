@@ -58,7 +58,7 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 
 `PREFLIGHT FAIL: EKF INTERNAL CHECKS`:
 
-- This error message is generated if the innovation magnitudes of either the horizontal GPS velocity, magnetic yaw, vertical GPS velocity or vertical position sensor (Baro by default but could be range finder or GPS if non-standard parameters are being used) are excessive. Innovations are the difference between the value predicted by the inertial navigation calculation and measured by the sensor.
+- 如果水平 GPS 速度、偏航角、垂直 GPS 速度或者垂直位置传感器（气压计默认情况下可以使测距仪或 GPS ，如果使用非标准参数）其中之一新息过多，会产生此错误消息。 Innovations are the difference between the value predicted by the inertial navigation calculation and measured by the sensor.
 - Users should check the innovation levels in the log file to determine the cause. These can be found under the `ekf2_innovations` message. Common problems/solutions include: 
     - IMU drift on warmup. May be resolved by restarting the autopilot. May require an IMU accel and gyro calibration.
     - Adjacent magnetic interference combined with vehicle movement. Resolve my moving vehicle and waiting or re-powering.
