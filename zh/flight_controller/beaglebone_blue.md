@@ -77,27 +77,27 @@ Robot Control library Version:
 
 获得预建的库之后，
 
-1. Select the *librobotcontrol* installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
-2. Install **robotcontrol.h** and **rc/\*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
-3. Install pre-built native (ARM) version of librobotcontrol.\* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
+1. 选择 *librobotcontrol* 安装目录，并将其设置在 `LIBROBOTCONTROL_INSTALL_DIR` 环境变量中，以便不包含其他不需要的标头
+2. 将 **robotcontrol.h** 和 **rc/\*** 安装到 `$LIBROBOTCONTROL_INSTALL_DIR/include`
+3. 将预先构建的本机（ARM）版本的 librobotcontrol.\* 安装到 `$LIBROBOTCONTROL_INSTALL_DIR/lib` 中
 
-At this point the BeagleBone Blue target can be built on both cross compile host system and native build system, i.e.,
+此时，BeagleBone Blue 目标可以在交叉编译主机系统和本机构建系统上构建，即，
 
 ```sh
 make beaglebone_blue_cross [upload]
 ```
 
-## Cross Compiler Build
+## 交叉编译器构建
 
-The recommended way to build PX4 for *BeagleBone Blue* is to compile on a development computer and upload the PX4 executable binary directly to the BeagleBone Blue.
+为 *BeagleBone Blue* 构建 PX4 的推荐方法是在开发计算机上进行编译，并将PX4可执行二进制文件直接上载到 BeagleBone Blue。
 
-> **Tip** This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
+> 由于构建速度快和使用方便，建议在 [native build](#native_builds) 上使用此方法。
 
-### Cross Compiler Setup
+### 交叉编译器设置
 
-ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/). The following is an example setup on development host.
+可以在 [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/) 中可以找到 *BeagleBone Blue* 的 ARM 交叉编译器。 以下是开发主机上的示例设置。
 
-1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*. Here is an example of using soft link to select which version of the toolchain you want to use:
+1. 首先将工具链安装到 */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf* 中。 Here is an example of using soft link to select which version of the toolchain you want to use:
     
     ```sh
     ...@ubuntu:/opt/bbblue_toolchain$ ls -l
