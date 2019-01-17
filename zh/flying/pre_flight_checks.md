@@ -30,13 +30,13 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 
 `PREFLIGHT FAIL: EKF YAW ERROR`:
 
-- This error is produced when the yaw angle estimated using gyro data and the yaw angle from the magnetometer or external vision system are inconsistent.
-- Check the IMU data for large yaw rate offsets and check the magnetometer alignment and calibration.
-- The check is controlled by the [COM_ARM_EKF_POS](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS) parameter
+- 当使用陀螺仪数据估计的偏航角和来自磁力计或外部视觉系统的偏航角不一致时，产生该误差。
+- 检查 IMU 数据是否存在较大的偏航率漂洗，并检查磁力计的对准和校准。
+- 检查由[COM_ARM_EKF_POS](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS)参数控制。
 
 `PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS`:
 
-- This error is produced when the IMU accelerometer bias estimated by the EKF is excessive. 
+- 当 EKF 估计的 IMU 加速度计偏差过大时，会产生此错误。 
 - The check is controlled by the [COM_ARM_EKF_AB](../advanced_config/parameter_reference.md#COM_ARM_EKF_AB) parameter.
 
 `PREFLIGHT FAIL: EKF HIGH IMU GYRO BIAS`:
