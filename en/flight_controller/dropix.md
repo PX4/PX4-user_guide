@@ -29,18 +29,21 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
   * Size: 67*50*6 mm
   * Weight: 15g (without connectors)
   
-## Availability
+## Where to buy
 
-[Dropix Pack](https://drotek.com/shop/en/flight-controllers/494-dropix-flight-controller.html) (drotek.com)
+[DroPix Autopilot OEM Pack](https://store.drotek.com/autopilots/889-dropix-flight-controller.html)
 
+[DroPix Autopilot Only (No connectors / No case)](https://store.drotek.com/autopilots/888-706-dropix-flight-controller.html#/148-dropix_option-without_connectors_without_case)
 
-## Key Links
+[DroPix Autopilot spare case](https://store.drotek.com/accessories/672-dropix-case-8944595425041.html)
 
-* [DroPix Setup](https://drotek.com/en/documentation/docs-dropix/)
+## Documentation
+
+[DroPix User's Guide](https://drotek.gitbooks.io/dropix-user-guide/content/)
 
 ## Wiring Guides
 
-The following diagrams show the Dropix connector information (for more information see the [drotek documentation](https://drotek.com/en/documentation/docs-dropix/)).
+The following diagrams show the Dropix connector information (for more information see the [drotek documentation](https://drotek.gitbooks.io/dropix-user-guide/content/)).
 
 <img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" width="500px" />
 
