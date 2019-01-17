@@ -37,18 +37,18 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 `PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS`:
 
 - 当 EKF 估计的 IMU 加速度计偏差过大时，会产生此错误。 
-- The check is controlled by the [COM_ARM_EKF_AB](../advanced_config/parameter_reference.md#COM_ARM_EKF_AB) parameter.
+- 检查由[COM_ARM_EKF_AB](../advanced_config/parameter_reference.md#COM_ARM_EKF_AB)参数控制。
 
 `PREFLIGHT FAIL: EKF HIGH IMU GYRO BIAS`:
 
-- This error is produced when the IMU gyro bias estimated by the EKF is excessive.
-- The check is controlled by the [COM_ARM_EKF_GB](../advanced_config/parameter_reference.md#COM_ARM_EKF_GB) parameter.
+- 当由 EKF 估计的 IMU 陀螺仪偏差过大时会产生该错误。
+- 检查由[COM_ARM_EKF_GB](../advanced_config/parameter_reference.md#COM_ARM_EKF_GB)参数控制。
 
 `PREFLIGHT FAIL: ACCEL SENSORS INCONSISTENT - CHECK CALIBRATION`:
 
-- This error message is produced when the acceleration measurements from different IMU units are inconsistent.
-- This check only applies to boards with more than one IMU.
-- The check is controlled by the [COM_ARM_IMU_ACC](../advanced_config/parameter_reference.md#COM_ARM_IMU_ACC) parameter.
+- 当来自不同 IMU 单元的加速度测量值不一致时，会产生此错误消息。
+- 此检查仅适用于具有多个 IMU 的板。
+- 检查由[COM_ARM_IMU_ACC](../advanced_config/parameter_reference.md#COM_ARM_IMU_ACC)参数控制。
 
 `PREFLIGHT FAIL: GYRO SENSORS INCONSISTENT - CHECK CALIBRATION`:
 
