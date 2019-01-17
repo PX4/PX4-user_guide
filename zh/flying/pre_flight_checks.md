@@ -73,9 +73,9 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 
 [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS)参数控制是否允许在没有全球位置估计的情况下进行解锁。
 
-- `1` (default): Arming *is* allowed without a position estimate for flight modes that do not require position information (only).
-- `0`: Arming is allowed only if EKF is providing a global position estimate and EFK GPS quality checks are passing
+- `1`( 默认)：*仅*对于不需要位置信息的飞行模式，是可以解锁的，且不需要进行位置及估计。
+- </code>0</0>：只有当 EKF 提供全球位置估计并且 EKF GPS 质量检查正在通过时，才允许解锁。
 
 ### COM_ARM_EKF_YAW
 
-The [COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) parameter determines the maximum difference (in radians) between the navigation yaw angle and magnetic yaw angle (magnetometer or external vision) allowed before preflight checks fail. The default value of 0.5 allows the differences to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences. It can fail if the yaw gyro has a large offset or if the vehicle is moved or rotated in the presence of a bad magnetic interference or magnetometer calibration.
+[COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW)参数确定了预检失败前允许的导航偏航角和磁偏航角（磁力计或外部视觉）之间的最大差异（以弧度表示）。 默认值 0.5 允许差异不超过 EKF 允许的最大值的 50%，并且在飞行开始时为误差增加提供一些余量。 如果偏航陀螺仪有较大的偏移量，或者飞行器在存在磁干扰或者磁力计校准的情况下移动或者旋转，则可能会校准失败。
