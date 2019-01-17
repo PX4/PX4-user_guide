@@ -113,7 +113,7 @@ make beaglebone_blue_cross [upload]
     export CrossCompiler=/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
     ```
 
-> **Tip** GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
+> 工具链中的 GCC 应与 *BeagleBone Blue* 中的内核兼容。 General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
 
 ### Cross Compile and Upload
 
