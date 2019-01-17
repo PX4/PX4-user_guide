@@ -16,7 +16,7 @@ PX4在 [Offboard模式](../flight_modes/offboard.md) 中支持避障功能。
 
 > **Note** 唯一需要PX4这边的设置是将PX4切换到 *Offboard 模式* 。 PX4飞控并不知道发送 `SET_POSITION_TARGET_LOCAL_NED` 消息的信息源来自哪一个MAVLink系统。
 
-The tested hardware/software platform is [Intel Aero](../complete_vehicles/intel_aero.md) running either the *local_planner* or *global_planner*. 自主避障功能也支持Gazebo仿真测试。 The set up for both is as described in the [Intel Aero > Obstacle Avoidance](../complete_vehicles/intel_aero.md#obstacle-avoidance) and in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../complete_vehicles/intel_aero.md) 。 自主避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../complete_vehicles/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
 
 ## 任务模式避障 {#mission_mode}
 
@@ -24,7 +24,7 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
 
 要启用自主避障功能，只需将PX4的 [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) [设置](../advanced_config/parameters.md)为1即可。 PX4通过MAVLink的[路径规划协议](https://mavlink.io/en/services/trajectory.html)（Trajectory 接口）实现与避障软件的交互，[#详见后文](#mission_avoidance_interface)。 PX4兼容所有符合此接口的避障系统。
 
-The tested companion computer platform is [Intel Aero](../complete_vehicles/intel_aero.md) running either the *local_planner* or *global_planner* avoidance software. 自主避障功能也支持Gazebo仿真测试。 The set up for both is as described in the [Intel Aero > Obstacle Avoidance](../complete_vehicles/intel_aero.md#obstacle-avoidance) and in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../complete_vehicles/intel_aero.md) 。 自主避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../complete_vehicles/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
 
 ### 任务模式的变化
 
