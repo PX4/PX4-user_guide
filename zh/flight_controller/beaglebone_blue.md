@@ -65,17 +65,17 @@ Robot Control library Version:
 在编写本文时，无需修改其构建文件以添加交叉编译支持，*librobotcontrol* debian 软件包仅适用于 BeagleBoard 产品，包括 BeagleBone Blue。 以下是在 BeagleBone Blue 上获取 *librobotcontrol* 的方法：
 
 1. 使用在 BeagleBoard 映像中预装的映像。
-2. Install from debian package or repository: 
+2. 从 debian 软件包或存储库安装： 
         sh
         sudo apt update && sudo apt install librobotcontrol
 
-3. Install from source 
+3. 从源代码安装 
         sh
         git clone https://github.com/StrawsonDesign/librobotcontrol.git
         cd librobotcontrol
         sudo make install
 
-After acquiring the pre-built library,
+获得预建的库之后，
 
 1. Select the *librobotcontrol* installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
 2. Install **robotcontrol.h** and **rc/\*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
