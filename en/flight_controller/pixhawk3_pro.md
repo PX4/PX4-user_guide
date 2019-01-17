@@ -23,6 +23,11 @@ and additional features. The board was designed by [Drotek<sup>&reg;</sup>](http
   * microSD (logging)
   * S.BUS / Spektrum / SUMD / PPM input
   * JST GH user-friendly connectors: same connectors and pinouts as Pixracer
+  
+## Where to buy
+Pixhawk 3 Pro [Pack] : https://store.drotek.com/autopilots/844-pixhawk-3-pro-pack.html
+
+Pixhawk 3 Pro [only] : https://store.drotek.com/autopilots/821-pixhawk-pro-autopilot-8944595120557.html
 
 ## Building Firmware
 
