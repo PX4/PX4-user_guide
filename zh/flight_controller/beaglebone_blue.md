@@ -97,7 +97,7 @@ make beaglebone_blue_cross [upload]
 
 可以在 [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/) 中可以找到 *BeagleBone Blue* 的 ARM 交叉编译器。 以下是开发主机上的示例设置。
 
-1. 首先将工具链安装到 */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf* 中。 Here is an example of using soft link to select which version of the toolchain you want to use:
+1. 首先将工具链安装到 */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf* 中。 下面是一个使用软链接选择工具链的版本的例子：
     
     ```sh
     ...@ubuntu:/opt/bbblue_toolchain$ ls -l
@@ -106,7 +106,7 @@ make beaglebone_blue_cross [upload]
         drwxr-xr-x 8 root root 4096 Nov 19 03:51 gcc-linaro-6.4.1-2017.11-x86_64_arm-linux-gnueabihf
     ```
 
-2. Add it to the PATH in ~/.profile as shown below
+2. 将它添加到 〜/.profile 中的 PATH，如下所示
     
     ```sh
     export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/bin
