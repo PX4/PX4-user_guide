@@ -59,7 +59,7 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 `PREFLIGHT FAIL: EKF INTERNAL CHECKS`:
 
 - 如果水平 GPS 速度、偏航角、垂直 GPS 速度或者垂直位置传感器（气压计默认情况下可以使测距仪或 GPS ，如果使用非标准参数）其中之一新息过多，会产生此错误消息。 新息指的是惯性导航计算预测值与传感器测量值之间的差异。
-- Users should check the innovation levels in the log file to determine the cause. These can be found under the `ekf2_innovations` message. Common problems/solutions include: 
+- 用户应检查日志文件中新息级别以确定原因。 这些可以在`ekf2_innovations`消息下找到。 常见问题 / 解决方案包括： 
     - IMU drift on warmup. May be resolved by restarting the autopilot. May require an IMU accel and gyro calibration.
     - Adjacent magnetic interference combined with vehicle movement. Resolve my moving vehicle and waiting or re-powering.
     - Bad magnetometer calibration combined with vehicle movement. Resolve by recalibrating.
