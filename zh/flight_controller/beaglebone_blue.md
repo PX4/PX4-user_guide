@@ -2,7 +2,7 @@
 
 [BeagleBone Blue](https://beagleboard.org/blue) 是一台基于 Linux 的一体机。 它针对机器人技术进行了优化，这种紧凑且便宜的电路板具有飞行控制器所需的所有必要传感器和外围设备。 本主题说明如何设置电路板以使用 [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) 机器人软件包运行 PX4。
 
-![BeagleBone - labelled diagram](../../assets/hardware/BeagleBone_Blue_balloons.png)
+![BeagleBone - 标记图](../../assets/hardware/BeagleBone_Blue_balloons.png)
 
 ## 操作系统映像
 
@@ -218,4 +218,4 @@ BeagleBone Blue 具有一些独特的功能，例如多种 WiFi 接口选择 和
 
 2. 因此，如果可以匹配到 dsm2 端口就将上述转换的 SBUS 信号连接到 dsm2 端口，否则将其连接到任何其他可用的连接器 UART 端口并更改 **/home/debian/px4/px4.config** 中的相应端口。
 
-3. 将 GPS 模块的信号连接到 BeagleBone Blue 上的 GPS 端口。 Note that the signal pins of the GPS port on the BeagleBone Blue are only 3.3V tolerant, so choose your GPS module accordingly.
+3. 将 GPS 模块的信号连接到 BeagleBone Blue 上的 GPS 端口。 BeagleBone Blue 上 GPS 端口的信号引脚的最大值为 3.3V，所以需要选择相应的 GPS 模块。
