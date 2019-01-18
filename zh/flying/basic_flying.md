@@ -29,14 +29,14 @@
 
 ![Basic Movements Forward](../../images/basic_movements_forward.png)
 
-* Pitch => Up/down.
-* Roll => Left/right and a turn.
-* Yaw => Left/right tail rotation and turn.
-* Throttle => Changed forward speed.
+* 俯仰 => 上 / 下升降舵。
+* 横滚 => 左 / 右副翼。
+* 偏航 => 左 / 右方向舵。
+* 油门 => 改变前飞速度。
 
-> **Note** The best turn for airplanes is called a coordinated turn, and is performed using roll and little yaw at the same time. This maneuver requires experience!
+> **Note**飞机最好的转弯被称为协调转弯，需同时执行横滚和小幅度偏航。 这种策略需要经验！
 
-## Assisted Flight
+## 辅助飞行
 
 Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving. New users should [configure their transmitter](../config/flight_mode.md) to use flight modes where the autopilot automatically compensates for erratic user input or environmental factors.
 
