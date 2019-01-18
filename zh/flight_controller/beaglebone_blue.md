@@ -147,7 +147,7 @@ sudo ./bin/px4 -s px4.config
 2. 将 PX4 固件直接克隆到 BeagleBone Blue 上。
 3. 继续 [标准构建系统安装](https://dev.px4.io/en/setup/dev_env_linux.html)。
 
-## Autostart During Boot
+## 引导期间自动启动
 
 Here is an example [/etc/rc.local]:
 
