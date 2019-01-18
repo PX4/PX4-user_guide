@@ -46,7 +46,7 @@
 * 高度模式 - 爬升和降落由最大速率控制。
 * 位置模式 - 当摇杆被释放飞行器将保持飞行（位置定点，不会随风漂移）。
 
-> **Tip** You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen.
+> **Tip**你也可以通过*QGroundControl*主飞行界面底部的按钮访问自动模式。
 
 ## 起飞和降落
 
