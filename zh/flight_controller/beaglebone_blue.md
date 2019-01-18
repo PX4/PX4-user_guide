@@ -115,9 +115,9 @@ make beaglebone_blue_cross [upload]
 
 > 工具链中的 GCC 应与 *BeagleBone Blue* 中的内核兼容。 一般的经验法则是选择工具链    其中 GCC 版本不高于 *BeagleBone Blue* 上的 OS 映像附带的 GCC 版本。
 
-### Cross Compile and Upload
+### 交叉编译和上传
 
-1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). 
+1. 首先设置 *rsync*（这用于通过网络将文件从开发计算机传输到目标板 - WiFi 或以太网）。 
     - For *rsync* over SSH with key authentication, follow steps similar to those for [Raspberry Pi/Navio](../flight_controller/raspberry_pi_navio2.md)
     - On the development computer, define the BeagleBone Blue board as `BBBluePX4` in **/etc/hosts**
 2. Run the following command to build and upload files: 
