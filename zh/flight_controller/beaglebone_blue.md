@@ -149,7 +149,7 @@ sudo ./bin/px4 -s px4.config
 
 ## 引导期间自动启动
 
-Here is an example [/etc/rc.local]:
+这是一个例子 [/etc/rc.local]：
 
 ```sh
 #!/bin/sh -e
@@ -175,7 +175,7 @@ cd /home/debian/px4
 exit 0
 ```
 
-Below is a *systemd* service example [/lib/systemd/system/px4-quad-copter.service]:
+下面是一个 *systemd* 服务示例 [/lib/systemd/system/px4-quad-copter.service]：
 
 ```sh
 [Unit]
