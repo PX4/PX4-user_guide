@@ -50,13 +50,13 @@
 
 ## 起飞和降落
 
-The easiest way to takeoff is to use the automatic [Takeoff mode](../flight_modes/takeoff.md) (remembering that you need to arm the vehicle before you can engage the vehicle motors). To land again automatically you can use [Land](../flight_modes/land.md) or [Return](../flight_modes/return.md) modes.
+最简单的起飞方式是用自动[起飞模式](../flight_modes/takeoff.md)（记住在你启用电机之前你需要对飞行器解锁）。 要自动降落，你可以用[降落](../flight_modes/land.md)或者[返航](../flight_modes/return.md)模式。
 
-> **Tip** The automatic takeoff/landing modes are highly recommended, in particular for Fixed Wing vehicles.
+> **Tip**强烈建议采用自动起飞或降落模式，特别对于固定翼。
 
-For multicopter (and VTOL in multicopter mode) pilots can:
+对于多旋翼（以及垂起的多旋翼模式），飞行员可以：
 
-* Take off manually by enabling [position mode](../flight_modes/README.md#assisted-modes), arming the vehicle, and then raising the throttle stick above 62.5%. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+* 通过启用[位置模式](../flight_modes/README.md#assisted-modes)手动起飞，解锁飞行器，然后将油门摇杆打到 62.5% 以上。 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 * Land manually by pressing the throttle stick down until the vehicle lands and disarms (or set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) > 0 to disarm automatically on landing).
 
 > **Note** If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
