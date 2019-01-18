@@ -1,12 +1,12 @@
 # 飞行 101
 
-This topic explains the basics of flying a vehicle using an [RC Transmitter](../getting_started/rc_transmitter_receiver.md) in a manual or autopilot-assisted flight mode (for autonomous flight see: [Missions](../flying/missions.md)).
+该主题介绍了用[遥控器](../getting_started/rc_transmitter_receiver.md)以手动或者自动-辅助飞行模式（自主飞行请参阅：[任务](../flying/missions.md)）来控制飞行器的基本飞行。
 
 > **Note**在你首飞之前应该阅读我们的[首飞指南](../flying/first_flight_guidelines.md)
 
 ## 飞行控制/命令
 
-All flying, including takeoff and landing, is controlled using the 4 basic commands: roll, yaw, pitch and throttle.
+所有的飞行，包括起飞和降落，都是由 4 个基本命令进行控制：横滚，偏航，俯仰和油门。
 
 ![遥控基本命令](../../images/rc_basic_commands.png)
 
