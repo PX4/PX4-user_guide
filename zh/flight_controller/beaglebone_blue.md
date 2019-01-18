@@ -118,8 +118,8 @@ make beaglebone_blue_cross [upload]
 ### 交叉编译和上传
 
 1. 首先设置 *rsync*（这用于通过网络将文件从开发计算机传输到目标板 - WiFi 或以太网）。 
-    - For *rsync* over SSH with key authentication, follow steps similar to those for [Raspberry Pi/Navio](../flight_controller/raspberry_pi_navio2.md)
-    - On the development computer, define the BeagleBone Blue board as `BBBluePX4` in **/etc/hosts**
+    - 对于带有密钥身份验证的 SSH 上的 *rsync*，请执行与 [Raspberry Pi/Navio](../flight_controller/raspberry_pi_navio2.md) 类似的步骤
+    - 在开发计算机上，将 BeagleBone Blue 板定义为 **/etc/hosts** 中的 `BBBluePX4`
 2. Run the following command to build and upload files: 
         sh
         make beaglebone_blue_cross upload
