@@ -42,9 +42,9 @@
 
 强烈建议新手使用以下三种模式：
 
-* Stabilized - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
-* Altitude - Climb and drop are controlled to have a maximum rate.
-* Position - When sticks are released the vehicle will stop (and hold position against wind drift)
+* 自稳模式-飞行器很难侧翻，并且如果摇杆被释放飞行器将趋于平稳（但不是位置定点）。
+* 高度模式 - 爬升和降落由最大速率控制。
+* 位置模式 - 当摇杆被释放飞行器将保持飞行（位置定点，不会随风漂移）。
 
 > **Tip** You can also access automatic modes through the buttons on the bottom of the *QGroundControl* main flight screen.
 
