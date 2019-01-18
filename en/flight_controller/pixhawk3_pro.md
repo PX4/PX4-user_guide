@@ -25,9 +25,12 @@ and additional features. The board was designed by [Drotek<sup>&reg;</sup>](http
   * JST GH user-friendly connectors: same connectors and pinouts as Pixracer
   
 ## Where to buy
-Pixhawk 3 Pro [Pack] : https://store.drotek.com/autopilots/844-pixhawk-3-pro-pack.html
+From [Drotek store](https://store.drotek.com/) (EU) :
+  * [Pixhawk 3 Pro (Pack)] : https://store.drotek.com/autopilots/844-pixhawk-3-pro-pack.html
+  * [Pixhawk 3 Pro] : https://store.drotek.com/autopilots/821-pixhawk-pro-autopilot-8944595120557.html
 
-Pixhawk 3 Pro [only] : https://store.drotek.com/autopilots/821-pixhawk-pro-autopilot-8944595120557.html
+From [readymaderc](www.readymaderc.com) (USA) :
+  * [Pixhawk 3 Pro] : https://www.readymaderc.com/products/details/pixhawk-3-pro-flight-controller
 
 ## Building Firmware
 
