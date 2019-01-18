@@ -40,7 +40,7 @@
 
 即是了解了飞行器是如何控制的，全手动模式的飞行也是不行的。 新手应该[设置遥控器](../config/flight_mode.md)为使用飞行模式，其中自驾仪会自动补偿不稳定的遥控输入或环境因素。
 
-The following three modes are highly recommended for new users:
+强烈建议新手使用以下三种模式：
 
 * Stabilized - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position)
 * Altitude - Climb and drop are controlled to have a maximum rate.
