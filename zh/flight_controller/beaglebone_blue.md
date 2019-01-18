@@ -120,32 +120,32 @@ make beaglebone_blue_cross [upload]
 1. 首先设置 *rsync*（这用于通过网络将文件从开发计算机传输到目标板 - WiFi 或以太网）。 
     - 对于带有密钥身份验证的 SSH 上的 *rsync*，请执行与 [Raspberry Pi/Navio](../flight_controller/raspberry_pi_navio2.md) 类似的步骤
     - 在开发计算机上，将 BeagleBone Blue 板定义为 **/etc/hosts** 中的 `BBBluePX4`
-2. Run the following command to build and upload files: 
+2. 运行以下命令以构建和上载文件： 
         sh
         make beaglebone_blue_cross upload
 
-To test the uploaded files, run the following commands on the *BeagleBone Blue* board:
+要测试上载的文件，请在 *BeagleBone Blue* 板上运行以下命令：
 
 ```sh
 cd /home/debian/px4 
 sudo ./bin/px4 -s px4.config 
 ```
 
-> **Note** Currently *librobotcontrol* requires root access.
+> 目前，*librobotcontrol* 需要 root 访问权限。
 
-## Native Builds (optional) {#native_builds}
+## 本机构建（可选） {#native_builds}
 
-You can also natively build PX4 builds directly on the BeagleBone Blue.
+您也可以直接在 BeagleBone Blue 上本地构建 PX4 版本。
 
-Run the following commands on the BeagleBone Blue (i.e. via SSH):
+在 BeagleBone Blue 上运行以下命令（即通过 SSH）：
 
-1. Install dependencies: 
+1. 安装 dependencies： 
         sh
         sudo apt-get update
         sudo apt-get install cmake python-empy
 
-2. Clone the PX4 Firmware directly onto the BeagleBone Blue.
-3. Continue with the [standard build system installation](https://dev.px4.io/en/setup/dev_env_linux.html).
+2. 将 PX4 固件直接克隆到 BeagleBone Blue 上。
+3. 继续 [标准构建系统安装](https://dev.px4.io/en/setup/dev_env_linux.html)。
 
 ## Autostart During Boot
 
