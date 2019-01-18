@@ -38,7 +38,7 @@
 
 ## 辅助飞行
 
-Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving. New users should [configure their transmitter](../config/flight_mode.md) to use flight modes where the autopilot automatically compensates for erratic user input or environmental factors.
+即是了解了飞行器是如何控制的，全手动模式的飞行也是不行的。 新手应该[设置遥控器](../config/flight_mode.md)为使用飞行模式，其中自驾仪会自动补偿不稳定的遥控输入或环境因素。
 
 The following three modes are highly recommended for new users:
 
