@@ -2,7 +2,7 @@
 
 This topic explains the basics of flying a vehicle using an [RC Transmitter](../getting_started/rc_transmitter_receiver.md) in a manual or autopilot-assisted flight mode (for autonomous flight see: [Missions](../flying/missions.md)).
 
-> **Note** Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md).
+> **Note**在你首飞之前应该阅读我们的[首飞指南](../flying/first_flight_guidelines.md)
 
 ## 飞行控制/命令
 
