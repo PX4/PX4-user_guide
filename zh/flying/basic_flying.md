@@ -16,7 +16,7 @@
 
 悬停飞机（旋翼机，垂起机的悬停模式）响应移动命令，如下所示：
 
-![Basic Movements Multicopter](../../images/basic_movements_multicopter.png)
+![多轴飞行器的基本运动](../../images/basic_movements_multicopter.png)
 
 * 俯仰 => 往前 / 往后。
 * 横滚 => 往左 / 往右。
@@ -27,7 +27,7 @@
 
 前飞飞机（plane，垂起的前飞模式）响应移动命令，如下所示：
 
-![Basic Movements Forward](../../images/basic_movements_forward.png)
+![向前的基本运动](../../images/basic_movements_forward.png)
 
 * 俯仰 => 上 / 下升降舵。
 * 横滚 => 左 / 右副翼。
@@ -56,7 +56,7 @@
 
 对于多旋翼（以及垂起的多旋翼模式），飞行员可以：
 
-* 通过启用[位置模式](../flight_modes/README.md#assisted-modes)手动起飞，解锁飞行器，然后将油门摇杆打到 62.5% 以上。 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
-* Land manually by pressing the throttle stick down until the vehicle lands and disarms (or set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) > 0 to disarm automatically on landing).
+* 通过启用[位置模式](../flight_modes/README.md#assisted-modes)手动起飞，解锁飞行器，然后将油门摇杆打到 62.5% 以上。 高于此值，所有控制器都可以启用，飞行器进入悬停所需的油门量（[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)）.
+* 通过打低油门杆手动降落，直到飞行器着陆并上锁（或者设置[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)为0以在着陆时自动上锁）。
 
-> **Note** If you see the vehicle "twitch" during landing (turn down the motors, and then immediately turn them back up) this is probably caused by a poor [Land Detector Configuration](../advanced_config/land_detector.md) (specifically, a poorly set [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
+> **Note**如果你看见飞行器在降落时“抖动”（关闭电机之后，立即向上翻），这可能是由于[着陆检测器](../advanced_config/land_detector.md)配置不佳（特别是[MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)参数设置不当）造成的。
