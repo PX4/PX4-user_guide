@@ -10,20 +10,20 @@
 
 ![遥控基本命令](../../images/rc_basic_commands.png)
 
-为了控制你的飞行器，你就需要知道基本的横滚，偏航，俯仰和油门等命令是如何在三维空间里影响飞行运动的。 This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
+为了控制你的飞行器，你就需要知道基本的横滚，偏航，俯仰和油门等命令是如何在三维空间里影响飞行运动的。 这取决于你是控制的是 plane 那样的前飞飞机，还是旋翼机那样的 “悬停飞机”。
 
-### Hover Aircraft
+### 悬停飞机
 
-Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as shown below:
+悬停飞机（旋翼机，垂起机的悬停模式）响应移动命令，如下所示：
 
 ![Basic Movements Multicopter](../../images/basic_movements_multicopter.png)
 
-* Pitch => Forward/Back.
-* Roll => Left/right.
-* Yaw => Left/right rotation around the centre of the frame.
-* Throttle => Changed altitude/speed.
+* 俯仰 => 往前 / 往后。
+* 横滚 => 往左 / 往右。
+* 偏航 => 围绕机身中心左 / 右旋转。
+* 油门 => 改变高度 / 速度。
 
-### Forward-flying Aircraft
+### 前飞飞机
 
 Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement commands as shown below:
 
