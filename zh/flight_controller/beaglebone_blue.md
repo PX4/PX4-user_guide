@@ -204,11 +204,11 @@ PX4 启动时，会自动为伺服电源供电。
 
 #### 特殊功能
 
-BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
+BeagleBone Blue 具有一些独特的功能，例如多种 WiFi 接口选择 和电源。 请参阅 **/home/debian/px4/px4.config** 中的注释以供使用 这些功能。
 
-#### SBUS Signal Converter
+#### SBUS 信号转换器
 
-SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](https://dev.px4.io/en/tutorials/linux_sbus.html) contains a SBUS signal inverter circuit.
+来自接收器（例如，FrSky X8R）的 SBUS 信号是反相信号。 UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](https://dev.px4.io/en/tutorials/linux_sbus.html) contains a SBUS signal inverter circuit.
 
 #### Typical Connections
 
