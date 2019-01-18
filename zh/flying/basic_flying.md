@@ -25,7 +25,7 @@
 
 ### 前飞飞机
 
-Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement commands as shown below:
+前飞飞机（plane，垂起的前飞模式）响应移动命令，如下所示：
 
 ![Basic Movements Forward](../../images/basic_movements_forward.png)
 
