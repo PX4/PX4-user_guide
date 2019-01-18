@@ -196,13 +196,13 @@ RestartSec=1
 WantedBy=multi-user.target
 ```
 
-### Miscellaneous
+### 其它选项
 
-#### Power Servo Rail
+#### 动力伺服导轨
 
-When PX4 starts, it automatically applies power to servos.
+PX4 启动时，会自动为伺服电源供电。
 
-#### Unique Features
+#### 特殊功能
 
 BeagleBone Blue has some unique features such as multiple choices of WiFi interfaces and power sources. Refer to comments in **/home/debian/px4/px4.config** for usage of these features.
 
