@@ -10,7 +10,7 @@
 
 ![遥控基本命令](../../images/rc_basic_commands.png)
 
-In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space. This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
+为了控制你的飞行器，你就需要知道基本的横滚，偏航，俯仰和油门等命令是如何在三维空间里影响飞行运动的。 This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
 
 ### Hover Aircraft
 
