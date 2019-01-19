@@ -2908,13 +2908,13 @@
       
       <ul>
         <li>
-          <strong>0:</strong> RC Transmitter
+          <strong>0:</strong> RC 遥控器
         </li>
         <li>
-          <strong>1:</strong> Joystick/No RC Checks
+          <strong>1:</strong> 游戏手柄/不进行RC遥控器检查
         </li>
         <li>
-          <strong>2:</strong> Virtual RC by Joystick
+          <strong>2:</strong> 通过游戏手柄输入RC遥控器输入值
         </li>
       </ul>
     </td>
@@ -2966,7 +2966,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Enable RC stick override of auto modes
+        启用RC摇杆覆盖自动模式
       </p>
     </td>
     
