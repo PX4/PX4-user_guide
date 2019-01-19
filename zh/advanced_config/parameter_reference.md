@@ -14368,7 +14368,7 @@
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong>禁用
         </li>
         <li>
           <strong>1:</strong> Hold mode
@@ -14451,7 +14451,7 @@
           <strong>0:</strong>禁用相机反馈
         </li>
         <li>
-          <strong>1:</strong> Warn only
+          <strong>1:</strong> 只是警告
         </li>
         <li>
           <strong>2: </strong>返航模式
@@ -14535,7 +14535,7 @@
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机触发功能
+          <strong>0:</strong>禁用
         </li>
         <li>
           <strong>1:</strong> AUX1
