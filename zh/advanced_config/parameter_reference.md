@@ -14581,7 +14581,7 @@
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机触发功能
+          <strong>0:</strong>禁用
         </li>
         <li>
           <strong>1:</strong> AUX1
@@ -15509,7 +15509,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Roll rate D gain
+        横滚速率微分感度
       </p>
       
       <p>
@@ -15563,7 +15563,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Roll rate I gain
+        横滚速率积分感度
       </p>
       
       <p>
