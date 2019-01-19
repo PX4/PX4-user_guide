@@ -1,14 +1,14 @@
 # 飞行日志分析
 
-This topic outlines approaches and software packages that can be used to analyze PX4 flight logs.
+本主题概述了用于 PX4 飞行日志分析的方法和软件包。
 
-## Reporting Flights
+## 飞行报告
 
-[Flight Reporting](../getting_started/flight_reporting.md) explains how to download a log and report/discuss issues about a flight with the development team.
+[飞行报告](../getting_started/flight_reporting.md) 说明了如何下载日志并与开发团队报告/讨论有关飞行的问题。
 
-## Structured Analysis
+## 结构化分析
 
-Before analyzing a flight log it is important to establish its context:
+在分析飞行日志之前，重要的是建立它的上下文：
 
 * If the analysis is done after a malfunction, did the log capture the crash or did it stop mid-air?
 * Did all controllers track their references? The easiest way to establish this is to compare attitude roll and pitch rates to their set points.
