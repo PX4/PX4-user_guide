@@ -13,13 +13,13 @@
 * 如果分析分析是在故障发生之后进行的，那么日志是捕捉到了这次故障还是在半空中停止了记录呢？
 * 所有的控制器都跟踪到了它的设定值吗？ 最简单的方法是将的横滚和俯仰的角速度与它们的设定值进行比较。
 * 传感器数据看起来有效吗？ 是否有非常强的震动（一个合理的判断强烈震动的阈值是所有的峰峰值是否超过 2-3m/s/s）。
-* If the root cause is not specific to the vehicle make sure to report it with a link to the log file \(and video if one exists\) on the [PX4 issue tracker](https://github.com/px4/firmware/issues/new).
+* 如果根本原因不针对于特定车辆，请确保在 [PX4问题跟踪器](https://github.com/px4/firmware/issues/new) 的报告中有日志文件的链接（以及视频如果有的话）。
 
-## Ruling Out Power Failures
+## 排除电力故障
 
-If a log file ends mid-air, two main causes are possible: a power failure *or* a hard fault of the operating system.
+如果日志文件在半空中结束了，可能有两个主要原因：电源故障 *或* 操作系统的硬故障。
 
-On autopilots based on the [STM32 series](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169), hard faults of the operating system are logged to the SD card. These are located on the top level of the SD card and named *fault\_date.log*, e.g. **fault\_2017\_04\_03\_00\_26\_05.log**. Please always check for the presence of this file if a flight log ends abruptly.
+在基于 [STM32系列](http://www.st.com/en/microcontrollers/stm32-32-bit-arm-cortex-mcus.html?querycriteria=productId=SC1169) 的自动驾驶仪上，会将操作系统的硬故障记录到SD卡上。 它位于SD卡的顶层目录且被命名为 *fault\_date.log* 比如 **fault\_2017\_04\_03\_00\_26\_05.log**。 如果飞行日志突然终止，请一直检查此文件是否存在。
 
 ## 分析工具
 
