@@ -35,21 +35,21 @@
 
 ![Flight Review Charts](../../assets/flight_log_analysis/flight_review/flight-review-example.png)
 
-See [Log Analysis using Flight Review](flight_review.md) for an introduction.
+关于介绍，请参阅 [Log Analysis using Flight Review](flight_review.md)。
 
 ### pyulog
 
-[pyulog](https://github.com/PX4/pyulog) is a python package to parse ULog files, along with a set of command-line scripts to extract/display ULog information and convert them to other file formats.
+[pyulog](https://github.com/PX4/pyulog) 是用于分析 ulog 文件的 python 包，以及一组用于提取/显示 ulog 信息并转换为其他文件格式的命令行脚本。
 
-Key features:
+主要特性：
 
-* Python library for parsing ULog files. Base library used by a number of other ULog analysis and visualisation tools.
-* Scripts to extract/display ULog information: 
-  * *ulog_info*: display information from an ULog file.
-  * *ulog_messages*: display logged messages from an ULog file.
-  * *ulog_params*: extract parameters from an ULog file.
-* Scripts to convert ULog files to other formats: 
-  * *ulog2csv*: convert ULog to (several) CSV files.
+* 用于分析 ulog 文件的 python 库。 许多其他 ULog 分析和可视化工具使用的基本库。
+* 提取/显示 ulog 信息的脚本： 
+  * *ulog_info*: 显示 ulog 文件中的信息。
+  * *ulog_messages*: 显示从 ulog 文件中加载的日志报文。
+  * *ulog_params*: 从 ulog 文件中提取参数。
+* 转换 ulog 文件为其他格式的脚本： 
+  * *ulog2csv* : 转换 ulog 为 CSV 文件（多个）。
   * *ulog2kml*: convert ULog to (several) KML files.
 
 All scripts are installed as system-wide applications (i.e. they be called on the command line - provided Python is installed), and support the `-h` flag for getting usage instructions. 例如：
@@ -67,7 +67,7 @@ All scripts are installed as system-wide applications (i.e. they be called on th
       -v, --verbose  详细输出
     
 
-Below we see the kind of information exported from a sample file using *ulog_info*.
+下面我们将看到使用 *ulog_info* 从示例文件导出的信息类型。
 
     $ ulog_info sample.ulg
     Logging start time: 0:01:52, duration: 0:01:08
