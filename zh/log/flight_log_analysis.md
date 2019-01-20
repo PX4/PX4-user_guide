@@ -50,9 +50,9 @@
   * *ulog_params*: 从 ulog 文件中提取参数。
 * 转换 ulog 文件为其他格式的脚本： 
   * *ulog2csv* : 转换 ulog 为 CSV 文件（多个）。
-  * *ulog2kml*: convert ULog to (several) KML files.
+  * *ulog2kml* : 转换 ulog 为 KML 文件（多个）。
 
-All scripts are installed as system-wide applications (i.e. they be called on the command line - provided Python is installed), and support the `-h` flag for getting usage instructions. 例如：
+所有脚本都作为系统范围的应用程序安装 (例如，在命令行上调用它们-前提是安装了 Python)，并支持 `-h` 标志来获取使用说明。 例如：
 
     $ ulog_info -h
     usage: ulog_info [-h] [-v] file.ulg
@@ -98,25 +98,25 @@ All scripts are installed as system-wide applications (i.e. they be called on th
 
 ### pyFlightAnalysis
 
-[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) is a cross-platform PX4 flight log (ULog) visual analysis tool, inspired by [FlightPlot](https://github.com/DrTon/FlightPlot).
+[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) 是一个跨平台的 PX4 飞行日志 (ulog) 可视化分析工具，灵感来源于 [FlightPlot](https://github.com/DrTon/FlightPlot)。
 
-Key features:
+主要特性：
 
-* Dynamic filter for displaying data
-* 3D visualization for attitude and position of drone
-* Easily replay with pyqtgraph's ROI (Region Of Interest)
-* Python based, cross-platform.
+* 用于显示数据的动态筛选器
+* 无人机姿态和位置三维可视化
+* 使用 pyqtgraph 的 ROI (感兴趣的区域) 轻松回放
+* 基于 Python 的，跨平台的。
 
 ![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
 ### FlightPlot（桌面）
 
-[FlightPlot](https://github.com/PX4/FlightPlot) is a desktop based tool for log analysis. It can be downloaded from [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).
+[FlightPlot](https://github.com/PX4/FlightPlot) 是一个基于桌面的日志分析工具。 可以从 [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows) 下载。
 
-Key features:
+主要特性：
 
-* Java based, cross-platform.
-* Intuitive GUI, no programming knowledge required.
+* 基于 Java 的，跨平台的
+* 直观的图形用户界面，不需要编程知识
 * Supports both new and old PX4 log formats (.ulg, .px4log, .bin)
 * Allows saving plots as images.
 
