@@ -23,15 +23,15 @@
 
 ## 分析工具
 
-### 飞行回顾（在线工具）
+### Flight Review（在线工具）
 
-[Flight Review](http://logs.px4.io) is the successor of *Log Muncher*. It is used in combination with the new [ULog](http://dev.px4.io/en/log/ulog_file_format.html) logging format.
+[Flight Review](http://logs.px4.io) 是 *Log Muncher* 的继承者。 他能与新的 [ULog](http://dev.px4.io/en/log/ulog_file_format.html) 日志格式结合使用。
 
 主要特性：
 
-* Web based, great for end-users.
-* User can upload, load and then share report with others.
-* Interactive plots.
+* 基于 web，非常适合终端用户。
+* 用户可以上传、下载、并且与他人分享报告。
+* 交互式绘图。
 
 ![Flight Review Charts](../../assets/flight_log_analysis/flight_review/flight-review-example.png)
 
