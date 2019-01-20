@@ -117,21 +117,21 @@
 
 * 基于 Java 的，跨平台的
 * 直观的图形用户界面，不需要编程知识
-* Supports both new and old PX4 log formats (.ulg, .px4log, .bin)
-* Allows saving plots as images.
+* 支持新的和旧的 PX4 日志格式 (比如 .px4log，.ulg，.bin)
+* 允许保存图形为图像
 
 ![FlightPlot Charts](../../assets/flight_log_analysis/flightplot_0.2.16.png)
 
 ### PX4Tools
 
-[PX4Tools](https://github.com/dronecrew/px4tools) is a log analysis toolbox for the PX4 autopilot written in Python. The recommended installation procedure is to use [anaconda3](https://conda.io/docs/index.html). See [px4tools github page](https://github.com/dronecrew/px4tools) for details.
+[PX4Tools](https://github.com/dronecrew/px4tools) 是一个用 Python 编写的 PX4 autopilot 的日志分析工具箱。 推荐的安装过程是使用 [anaconda3](https://conda.io/docs/index.html)。 详见 [px4tools github 页面](https://github.com/dronecrew/px4tools)。
 
-Key features:
+主要特性：
 
-* Easy to share, users can view notebooks on Github \(e.g. [https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30 Kabir Log.ipynb)\)
-* Python based, cross platform, works witn anaconda 2 and anaconda3
-* iPython/ jupyter notebooks can be used to share analysis easily
-* Advanced plotting capabilities to allow detailed analysis
+* 易于分享，用户可以查看笔记本电脑上的 Github (比如：[https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30%20Kabir%20Log.ipynb](https://github.com/jgoppert/lpe-analysis/blob/master/15-09-30 Kabir Log.ipynb))
+* 基于Python的，跨平台的，与 anaconda2 和 anaconda3 一起使用。
+* 使用 iPython/jupyter notebooks 可以方便地共享分析
+* 高级绘图功能，允许进行详细分析
 
 ![PX4Tools-based analysis](../../assets/flight_log_analysis/px4tools.png)
 
