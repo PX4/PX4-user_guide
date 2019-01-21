@@ -32387,7 +32387,7 @@
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong>禁用
         </li>
         <li>
           <strong>6:</strong> UART 6
