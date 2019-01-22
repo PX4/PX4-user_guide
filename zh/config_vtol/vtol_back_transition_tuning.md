@@ -22,7 +22,7 @@
 
 > **注意** 一般的固定翼螺旋桨不会优化反转的性能，所以如果如果把螺旋桨的反向推力设的太高的话可能会失速。
 
-一般来讲一个有反向功能的电调可以通过li'ang'zhong'f两种方式来实现反向推力。
+一般来讲一个有反向功能的电调可以通过两种方式来实现反向推力。
 
 ### 用油门缩放功能
 
@@ -32,15 +32,15 @@
 
 > **警告** 后转换期间对3D油门缩放的支持需要在机型内有相应的*代码* 。
 
-The amount of negative thrust during back transition can then be configured using the [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) parameter (set to a negative value between 0 and -1).
+通过设置参数 [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)（设置为0到-1之间的一个负值），可以设置后转换期间的负推力。
 
-### On a control channel
+### 用一个通道来控制
 
-ESCs that use a separate control channel to control the motor direction (e.g. [Hobbywing Platinum series](http://www.hobbywing.com/category.php?id=44&filter_attr=6345.6346)) can use the airbrakes channel to apply reverse thrust during back-transition.
+用一个单独的控制频道来控制电机转向的电调(例如 [Hobbywing Platinum series](http://www.hobbywing.com/category.php?id=44&filter_attr=6345.6346))可以用在后转换期间用空气刹车频道来进行后转换。
 
-Airframes that have been configured to support this behavior (like the DeltaQuad airframe) can be configured to do so by setting both [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT) to 1 and [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) to the desired throttle level to apply for active breaking. The values scale from 0 to 1, so a value of 0.7 equals 70% throttle.
+已经配置好支持这种方法的机型(比如DeltaQuad 机型) 可以通过把[VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT) 设置为1，并把[VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)设置到你想要的油门上来激活反向推力功能。 这是一个从0到1的值，0.7代表70%油门
 
-## Typical setup
+## 典型设置
 
 An example of a setup that employs most features listed above would be the following:
 
