@@ -28,9 +28,9 @@
 
 一般来讲油门杆是只用于前向推力的。
 
-3D ESCs assume 0 thrust at 50% throttle, positive (forward) thrust above 50% and negative thrust (reverse) below 50%. The airframe can be modified to implement this behaviour *only* during back transition, allowing reverse thrust to be applied during the transition.
+电调可以把0推力设为50%油门，把前向推力设到50%油门以上而把反向推力设到50%以下。 我们可以对机型进行设置来让它*只*在后转换期间进行这样的油门缩放，这样我们在转换期间就可以实现反向推力了。
 
-> **Warning** Support for 3D throttle scaling during back-transition requires *code support* in the airframe.
+> **警告** 后转换期间对3D油门缩放的支持需要在机型内有相应的*代码* 。
 
 The amount of negative thrust during back transition can then be configured using the [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR) parameter (set to a negative value between 0 and -1).
 
