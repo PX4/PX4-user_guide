@@ -8,11 +8,11 @@
 
 把后转换持续时间设长一点 ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) 可以给飞行器更长的时间来减速。 在这期间VTOL将会关掉它的固定翼电机并且在滑翔时逐渐打开四个旋翼电机。 这个时间设的越大，飞行器尝试通过滑翔来减速的时间就会越长。 要注意的是，这段时间飞行器会只控高度，不控位置，所以可能有会漂移现象。
 
-## 设置你期望的减速加速度
+## 设置期望的减速加速度
 
-在用任务模式飞航点的时候，自驾仪会试着计算启动后转换的适当距离。 It does this by looking at the current velocity (comparable to ground speed) and the expected deceleration. To get the vehicle to come out of back-transition very close to its landing point you can tune the expected deceleration ([VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)) parameter. Make sure you have a large enough back-transition duration to allow the vehicle to reach its intended position before this timeout kicks in.
+在用任务模式飞航点的时候，自驾仪会试着计算启动后转换的适当距离。 它通过当前速度（取自地速）和期望减速加速度来计算这个距离。 要让飞行器在后转换时更加接近降落点，你可以调整期望减速加速度（[VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)）参数 确保你的后转换持续时间足够长，可以让飞行器在超时前达到预期的位置。
 
-## Applying airbrakes
+## 应用空气制动
 
 If your vehicle is equipped with airbrakes, and your selected airframe supports them (in code), you can set the airbrake position during back-transition in [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT). The values scale from 0 to 1, so a value of 0.7 equals 70% output.
 
