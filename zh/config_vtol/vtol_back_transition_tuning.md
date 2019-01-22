@@ -42,11 +42,11 @@
 
 ## 典型设置
 
-An example of a setup that employs most features listed above would be the following:
+下面这个例子用了上述的大多数功能：
 
-- Airframe: Any VTOL supporting reverse thrust (e.g. DeltaQuad)
-- ESC: A fixed wing ESC that supports motor reversing (e.g. Hobbywing Platinum Pro 60A)
-- Estimated deceleration value in m/s/s `VT_B_DEC_MSS`: 2.5
-- Back-transition duration timeout in seconds `VT_B_TRANS_DUR`: 10
-- Set reverse channel high during back-transition `VT_B_REV_OUT`: 1.0
-- Apply 70% thrust during back-transition `VT_B_TRANS_THR`: 0.7
+- 机型: 任何支持反向推力的VTOL机型 (例如 DeltaQuad)
+- 电调: 支持推力反向的固定翼电调(例如 Hobbywing Platinum Pro 60A)
+- 估计减速加速度 （单位m/s/s） `VT_B_DEC_MSS`: 2.5
+- 后转换持续时间，（单位是秒） `VT_B_TRANS_DUR`: 10
+- 激活后转换的推力反向控制通道 `VT_B_REV_OUT`: 1.0
+- 在推力反向时使用70%的推力 `VT_B_TRANS_THR`: 0.7
