@@ -14,19 +14,19 @@
 
 ## 应用空气制动
 
-If your vehicle is equipped with airbrakes, and your selected airframe supports them (in code), you can set the airbrake position during back-transition in [VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT). The values scale from 0 to 1, so a value of 0.7 equals 70% output.
+如果你的飞行器支持空气制动，并且你选的机型也支持空气制动，那么你就可以选择后转换的空气制动位置（[VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT))。 这个值的范围是从0到1，因此0.7也就代表了70%的输出。
 
-## Applying reverse thrust on your fixed wing motor
+## 用固定翼电机进行反向推力
 
-To get the shortest possible back-transition, PX4 supports active breaking by reversing the fixed wing motor direction. To use this feature you will require an ESC that supports motor rotation reversing.
+为了获得尽可能短的后转换距离，PX4支持通过反转固定翼电机lai'jin'xing'sha'che来进行刹车。 要使用这一特性，我么首先需要一个支持电机反转的电调。
 
-> **Note** A typical fixed wing propeller is not optimized to spin in reverse, when the throttle during reverse thrust is set too high the propeller can stall.
+> **注意** 一般的固定翼螺旋桨不会优化反转的性能，所以如果如果把螺旋桨的反向推力设的太高的话可能会失速。
 
-Generally there are 2 ways a reverse-capable ESC can implement reverse thrust.
+一般来讲一个有反向功能的电调可以通过li'ang'zhong'f两种方式来实现反向推力。
 
-### Using throttle scaling (3D)
+### 用油门缩放功能
 
-Normally the throttle stick is used purely for forward thrust.
+一般来讲油门杆是只用于前向推力的。
 
 3D ESCs assume 0 thrust at 50% throttle, positive (forward) thrust above 50% and negative thrust (reverse) below 50%. The airframe can be modified to implement this behaviour *only* during back transition, allowing reverse thrust to be applied during the transition.
 
