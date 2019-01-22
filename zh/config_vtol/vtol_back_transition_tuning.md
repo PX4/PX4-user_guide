@@ -6,7 +6,7 @@
 
 ## 后转换持续时间
 
-把后转换持续时间设长一点 ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) 可以给飞行器更长的时间来减速。 During this period the VTOL will shut down its fixed wing motor and slowly ramp up its MC motors while gliding. The higher this time is set the longer the vehicle will glide in an attempt to slow down. The caveat of this behavior is that the vehicle will only control altitude and not position during this period, so some drift can occur.
+把后转换持续时间设长一点 ([VT_B_TRANS_DUR](../advanced_config/parameter_reference.md#VT_B_TRANS_DUR)) 可以给飞行器更长的时间来减速。 在这期间VTOL将会关掉它的固定翼电机并且在滑翔时逐渐打开四个旋翼电机。 这个时间设的越大，飞行器尝试通过滑翔来减速的时间就会越长。 The caveat of this behavior is that the vehicle will only control altitude and not position during this period, so some drift can occur.
 
 ## Setting expected deceleration
 
