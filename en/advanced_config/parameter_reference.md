@@ -4232,7 +4232,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MIS_MNT_YAW_CTL">MIS_MNT_YAW_CTL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable yaw control of the mount. (Only affects multicopters and ROI mission items)</p><p><strong>Comment:</strong> If enabled, yaw commands will be sent to the mount and the vehicle will follow its heading mode as specified by MIS_YAWMODE. If disabled, the vehicle will yaw towards the ROI.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Enable yaw control of the mount. (Only affects multicopters and ROI mission items)</p><p><strong>Comment:</strong> If enabled, yaw commands will be sent to the mount and the vehicle will follow its heading towards the flight direction. If disabled, the vehicle will yaw towards the ROI.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disable</li> 
 
 <li><strong>1:</strong> Enable</li> 
