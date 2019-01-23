@@ -10838,30 +10838,6 @@ is less than 50% of this value</p>   </td>
 </tr>
 </tbody></table>
 
-## Subscriber Example
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="SUB_INTERV">SUB_INTERV</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Interval of one subscriber in the example in ms</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">100 </td>
- <td style="vertical-align: top;">ms</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SUB_TESTF">SUB_TESTF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Float Demonstration Parameter in the Example</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">3.14 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-</tbody></table>
-
 ## System
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
