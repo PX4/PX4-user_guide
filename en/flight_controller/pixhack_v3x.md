@@ -1,6 +1,6 @@
 # Pixhack V3
 
-CUAV * Pixhack V3x * Flight Controller Board is a flexible autopilot that is a modified version of PIXHACK V3, primarily for commercial system manufacturers.
+CUAV ** Pixhack V3x **Flight Controller Board is a flexible autopilot and an alternative to PIXHACK V3 for commercial system manufacturers.
 
 >**tip**Because Pixhack v3 part of the chip is discontinued, the led driver chip has been changed to NCP5623C, and hmc5983 has been removed. For the sake of distinction, it has been named Pixhack v3x. Please do not use firmware below 1.80 version (it will Make your led not work)
 
