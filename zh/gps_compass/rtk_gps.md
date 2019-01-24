@@ -88,11 +88,11 @@ RTK GPS 的设置在*QGroundControl*[普通设置](https://docs.qgroundcontrol.c
 
 - 将遥测模块固件更新到最新版本 (请参阅 QGroundControl> 设置 > 固件 </a0 >)。</li> 
     
-    - Set [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) to 2 (see [QGroundControl Setup > Parameters](https://docs.qgroundcontrol.com/en/SetupView/Parameters.html))</ul> 
+    - 将 [MAV_PROTO_VER](../advanced_config/parameter_reference.md#MAV_PROTO_VER) 设置为 2 (请参阅 < 1>QGroundControl 设置 > 参数 </1 >)</ul> 
     
-    ### Tuning
+    ### 调试
     
-    You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters. For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) and [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) to 0.2.
+    您可能还需要调整一些参数, 因为默认参数是在假定 GPS 精度为米 (而不是厘米) 的情况下进行调整的。 例如, 您可以减少 [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE), 并将 [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) 到0.2。
     
     <!-- 
 
@@ -100,6 +100,6 @@ RTK GPS 的设置在*QGroundControl*[普通设置](https://docs.qgroundcontrol.c
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey. 
 -->
     
-    ## Vehicle Setup Example
+    ## 飞机设置示例
     
     The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](https://dev.px4.io/en/airframes_multicopter/dji_flamewheel_450.html) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
