@@ -28,7 +28,7 @@ The following products in the series are recommended/regularly tested with PX4:
 * [Pixfalcon](../flight_controller/pixfalcon.md)
 * [DroPix](../flight_controller/dropix.md)
 * [Pixracer](../flight_controller/pixracer.md)
-* [Pixhack v3](../flight_controller/pixhack_v3.md)
+* [Pixhack v3x](../flight_controller/pixhack_v3x.md)
 * [Pixhawk 2](../flight_controller/pixhawk-2.md)
 * [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
 * [Pixhawk 4](../flight_controller/pixhawk4.md)
