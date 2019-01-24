@@ -50,21 +50,21 @@ RTK GPS 是即插即用的。
     
     > **Tip**当 RTK GPS 设备连接上，在上面工具栏的正常显示GPS的位置，会显示 RTK GPS 的状态。 当 RTK 正在被设置，会显示为红色，RTK GPS 激活后会变为白色。 点击图标，可以查看当前状态和 RTK 的精度。
 
-3. *QGroundControl* then starts the RTK setup process (known as "Survey-In").
+3. 然后 *QGroundControl* 开始设置 RTK (称为 "测量")。
     
-    Survey-In is a startup procedure to get an accurate position estimate of the base station. The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
+    测量是一个获得基站准确位置的设置过程。 这个过程通常会需要几分钟（在达到[RTK 设置](#rtk-gps-settings)中指定的最小时间和精度后结束）。
     
-    You can track the progress by clicking the RTK GPS status icon.
+    你也可以点击 RTK状态按钮查看。
     
     <img src="../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png" width="200px" title="survey-in" />
 
-4. Once Survey-in completes:
+4. 测量完成：
 
-- The RTK GPS icon changes to white and *QGroundControl* starts to stream position data to the vehicle:
+- RTK GPS 图标变为白色，*QGroundControl*开始传送位置数据到飞机。
     
     <img src="../../assets/qgc/setup/rtk/qgc_rtk_streaming.png" width="200px" title="RTK streaming" />
 
-- Vehicle GPS switches to RTK mode. The new mode is displayed in the *normal* GPS status icon (`3D RTK GPS Lock`):
+- 飞机的 GPS 切换到 RTK 模式。 新的模式会显示在*普通*GPS 状态按钮的位置（` 3D RTK GPS 锁定`）：
     
     ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
 
