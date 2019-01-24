@@ -144,7 +144,7 @@
     * [Pixracer](flight_controller/pixracer.md)
     * [Cube (Pixhawk 2)](flight_controller/pixhawk-2.md)
     * [Pixhawk 3 Pro](flight_controller/pixhawk3_pro.md)
-    * [Pixhack v3](flight_controller/pixhack_v3.md)
+    * [Pixhack v3x](flight_controller/pixhack_v3x.md)
     * [Pixhawk 4](flight_controller/pixhawk4.md)
     * [Pixhawk 4 Mini](flight_controller/pixhawk4_mini.md)
     * [Pixhack v5](flight_controller/pixhack_v5.md)
