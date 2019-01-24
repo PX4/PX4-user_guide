@@ -56,17 +56,17 @@ RTK GPS 是即插即用的。
     
     你也可以点击 RTK状态按钮查看。
     
-    <img src="../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png" width="200px" title="survey-in" />
+    <img src="../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png" width="200px" title="测量" />
 
 4. 测量完成：
 
 - RTK GPS 图标变为白色，*QGroundControl*开始传送位置数据到飞机。
     
-    <img src="../../assets/qgc/setup/rtk/qgc_rtk_streaming.png" width="200px" title="RTK streaming" />
+    <img src="../../assets/qgc/setup/rtk/qgc_rtk_streaming.png" width="200px" title="RTK数据流" />
 
 - 飞机的 GPS 切换到 RTK 模式。 新的模式会显示在*普通*GPS 状态按钮的位置（` 3D RTK GPS 锁定`）：
     
-    ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
+    ![RTK GPS状态](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
 
 ## PX4 可用的设置
 
@@ -74,9 +74,9 @@ RTK GPS 是即插即用的。
 
 ### RTK GPS 设置
 
-RTK GPS 的设置在*QGroundControl*[普通设置](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk-gps)（**SettingsView > 普通设置**）。
+RTK GPS 的设置在*QGroundControl*[普通设置](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk-gps)（**设置 > 普通设置**）。
 
-![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
+![RTK GPS 设置](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
 这些设置定义了 RTK GPS 设置过程（称为“测量”）完成的最小持续时间和最小精度。
 
@@ -102,4 +102,4 @@ RTK GPS 的设置在*QGroundControl*[普通设置](https://docs.qgroundcontrol.c
     
     ## 飞机设置示例
     
-    The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](https://dev.px4.io/en/airframes_multicopter/dji_flamewheel_450.html) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
+    飞机配置版块的"0>带有距离传感器和 RTK GPS的DJI F450和 RTK GPS< a0/0 > 介绍了一个带有RTK GPS 和 Pixhawk 3 3 pro的飞机配置。
