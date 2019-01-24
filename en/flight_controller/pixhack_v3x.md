@@ -6,7 +6,7 @@ The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight contro
 
 *Pixhack V3* has significant improvements with respect to the original design, including better interface layout and the addition of vibration damping and a thermostat system.
 
-![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
+![Pixhack v3x](../../assets/flight_controller/pixhack_v3x/pixhack_v3x.png)
 
 
 ## Quick Summary
