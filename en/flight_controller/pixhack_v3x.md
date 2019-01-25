@@ -1,4 +1,4 @@
-# Pixhack V3
+# Pixhack V3X
 
 CUAV ** Pixhack V3x **Flight Controller Board is a flexible autopilot and an alternative to PIXHACK V3 for commercial system manufacturers.
 
