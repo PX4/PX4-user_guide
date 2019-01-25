@@ -13,7 +13,7 @@
   * [Mounting the Flight Controller](assembly/mount_and_orient_controller.md)
   * [Pixhawk 4 Wiring Quickstart](assembly/quick_start_pixhawk4.md)
   * [Pixhawk 4 Mini Wiring Quickstart](assembly/quick_start_pixhawk4_mini.md)
-  * [pixhack v3 Wiring Quickstart](assembly/quick_start_pixhack_v3x.md)
+  * [Pixhack v3 Wiring Quickstart](assembly/quick_start_pixhack_v3x.md)
   * [Cube Wiring Quickstart](assembly/quick_start_cube.md)
   * [Pixracer Wiring Quickstart](assembly/quick_start_pixracer.md)
   * [Pixhawk Wiring Quickstart](assembly/quick_start_pixhawk.md)
