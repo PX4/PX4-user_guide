@@ -2,7 +2,8 @@
 
 The quick start guide shows how to power the Pixhack V2/V3 flight controller and connect its most important peripherals.
 
-![Pixhack v3x](../../assets/flight_controller/pixhack_v3x/pixhack_v3_157_large_default.jpg)
+
+![Pixhack v3x](../../assets/flight_controller/pixhack_v3x/pixhack_v3x.png)
 
 ###Mount and Orient Controller
 
