@@ -4980,13 +4980,6 @@ is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</str
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_IDLE_TKO">MPC_IDLE_TKO</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Delay from idle state to arming state</p><p><strong>Comment:</strong> For altitude controlled modes, the transition from idle to armed state is delayed by MPC_IDLE_TKO time to ensure that the propellers have reached idle speed before attempting a takeoff. This delay is particularly useful for vehicles with large propellers.</p>   </td>
- <td style="vertical-align: top;">0 > 10 </td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;">sec</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum jerk limit</p><p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: this is only used when MPC_POS_MODE is set to a smoothing mode.</p>   </td>
  <td style="vertical-align: top;">0.5 > 500.0 (1)</td>
@@ -5065,6 +5058,13 @@ Temporary Parameter to enable interface testing</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPC_SPOOLUP_TIME">MPC_SPOOLUP_TIME</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Enforced delay between arming and takeoff</p><p><strong>Comment:</strong> For altitude controlled modes the time from arming the motors until a takeoff is possible gets forced to be at least MPC_SPOOLUP_TIME seconds to ensure the motors and propellers can sppol up and reach idle speed before getting commanded to spin faster. This delay is particularly useful for vehicles with slow motor spin-up e.g. because of large propellers.</p>   </td>
+ <td style="vertical-align: top;">0 > 10 </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_THR_CURVE">MPC_THR_CURVE</strong> (INT32)</td>
