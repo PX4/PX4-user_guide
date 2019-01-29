@@ -5,7 +5,7 @@ is a small but fully functional FPV multicopter frame. This topic provides
 build guidance for using the frame with the *Pixhawk* and AUAV-X2 flight
 controllers.
 
-> **Note** Our [Lumenier QAV250 Pixhawk Mini Build](lumenier_qav250_pixhawk_mini.md) contains
+> **Note** Our [HolyBro QAV250 Pixhawk4-Mini Build](holybro_qav250_pixhawk4_mini.md) contains
   more complete build instructions for working with the QAV250.
 
 Key information:
