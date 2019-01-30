@@ -20,7 +20,7 @@ Pixhack V2/V3/V3X should be mounted on the frame using vibration-damping foam pa
 
 The image below shows how to connect the most important sensors and peripherals. We'll go through each of these in detail in the following sections.
 
-<img src="../../assets/flight_controller/pixhack_v3x/pixhack_v3_wiring_overvie.jpg" align="center"/>
+<img src="../../assets/flight_controller/pixhack_v3x/pixhack_v3_wiring_overview.jpg" align="center"/>
 
 ### GPS + Compass
 
