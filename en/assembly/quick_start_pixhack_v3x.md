@@ -32,7 +32,7 @@ The GPS/Compass should be connected to the pixhack v3  GPS interface and placed 
 
 The **CUAV** safety switch is an integrated safety switch and buzzer and should be connected to the pixhack v3 safe interface;Power module should connect to pixhack v3 power interface.
 
-![Connect bazzer and safety switch to Pixhack v3](../../assets/flight_controller/pixhack_v3x/pixhack_v3_power_and_safe.jpg) 
+![Connect buzzer and safety switch to Pixhack v3](../../assets/flight_controller/pixhack_v3x/pixhack_v3_power_and_safe.jpg) 
 
 ### Telemetry radio
 
