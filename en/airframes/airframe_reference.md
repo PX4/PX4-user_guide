@@ -508,6 +508,11 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4050</p></td>
 
 </tr>
+<tr id="copter_quadrotor_x_holybro_qav250">
+ <td style="vertical-align: top;"><a href="https://docs.px4.io/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html">HolyBro QAV250</a></td>
+ <td style="vertical-align: top;"><p>Maintainer: Beat Kueng <beat-kueng@gmx.net></p><p><code>SYS_AUTOSTART</code> = 4052</p></td>
+
+</tr>
 <tr id="copter_quadrotor_x_dji_matrice_100">
  <td style="vertical-align: top;">DJI Matrice 100</td>
  <td style="vertical-align: top;"><p>Maintainer: James Goppert <james.goppert@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4060</p></td>
