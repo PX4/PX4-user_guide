@@ -23,12 +23,9 @@ This section contains information about complete vehicles that run PX4.
     * [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
     * [Airlango Mystic](https://px4.io/portfolio/airlango-mystic/)
     * [Airdog II](https://px4.io/portfolio/airdog-ii/)
-    * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/) *I don't know*
+    * [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
   * Fixed Wing:
     * [Sentera PXH](https://px4.io/portfolio/sentera-phx/)
   * VTOL
     * [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
     * [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
-    * [AeroSense VTOL](https://px4.io/portfolio/aerosense-aerobo/)
-
-    
