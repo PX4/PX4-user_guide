@@ -4,7 +4,9 @@
 
 *Altitude mode* is a *relatively* easy-to-fly RC mode in which roll and pitch sticks control vehicle movement in the left-right and forward-back directions (relative to the "front" of the vehicle), yaw stick controls rate of rotation over the horizontal plane, and throttle controls speed of ascent-descent.
 
-When the sticks are released/centered the vehicle will level and maintain the current *altitude*. If moving in the horizontal plane the vehicle will continue until any momentum is dissipated by wind resistance. If the wind blows the aircraft will drift in the direction of the wind.
+When the sticks are released/centered the vehicle will level and maintain the current *altitude*. 
+If moving in the horizontal plane the vehicle will continue until any momentum is dissipated by wind resistance. 
+If the wind blows the aircraft will drift in the direction of the wind.
 
 > **Tip** *Altitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode but additionally locks the vehicle altitude when the sticks are released.
 
@@ -23,7 +25,8 @@ RC/manual mode like [Manual/Stabilized (MC)](../flight_modes/manual_stabilized_m
   * Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.
   * Throttle stick controls up/down speed with a predetermined maximum rate (and movement speed in other axes).
   * Yaw stick controls rate of angular rotation above the horizontal plane.
-
+* Takeoff:
+  * When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
 
 > **Note**
 >  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).

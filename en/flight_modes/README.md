@@ -245,6 +245,11 @@ th {
        <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li>
       </ul>
     </li>
+    <li>Takeoff:
+      <ul>
+       <li>When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).</li>
+      </ul>
+    </li>
     </ul>
   </li>
   </ul>
@@ -272,8 +277,13 @@ th {
        <li>Roll/Pitch sticks control tilt angle in respective orientations, resulting in corresponding left-right and forward-back movement.</li>
        <li>Throttle stick controls up/down speed with a predetermined maximum rate (and movement speed in other axes).</li> 
        <li>Yaw stick controls rate of angular rotation above the horizontal plane.</li> 
-    </ul>
-  </li>
+      </ul>
+    </li>
+    <li>Takeoff:
+      <ul>
+       <li>When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).</li>
+      </ul>
+    </li>
   </ul>
  </p>
  </td>
