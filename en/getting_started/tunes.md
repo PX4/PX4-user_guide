@@ -27,7 +27,7 @@ Your browser does not support the audio element.
 Your browser does not support the audio element.
 </audio>
 
-- Hard fault when mounting microSD card or no microSD card.
+- Hard fault has caused a system reboot.
 - System set to use PX4IO but no IO present.
 - UAVCAN is enabled but driver can't start.
 - SITL/HITL enabled but *pwm_out_sim* driver can't start.
@@ -43,6 +43,7 @@ Your browser does not support the audio element.
 
 - Formatting microSD card. 
 - Mounting failed (if formatting succeeds boot sequence will try to mount again).
+- No microSD card.
 
 
 #### Format Failed
