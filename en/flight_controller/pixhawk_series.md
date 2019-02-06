@@ -93,4 +93,4 @@ All *Pixhawk-series* flight controllers support:
 * A user facing RGB *UI LED* to indicate the current *readiness to fly* status of the vehicle. This is typically a superbright I2C peripheral, which may or may not be mounted on the board (i.e. FMUv4 does not have one on board and typically uses an LED mounted on the GPS).
 * Three *Status LED*s that provide lower level power status, bootloader mode and activity, and error information.
 
-To interpret the LEDs see: [LED Meanings](../flying/led_meanings.md).
+To interpret the LEDs see: [LED Meanings](../getting_started/led_meanings.md).
