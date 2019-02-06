@@ -1,6 +1,6 @@
 # Tune Meanings (Pixhawk Series)
 
-[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes and [LEDs](../flying/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
+[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes and [LEDs](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
 
 The set of standard sounds are listed below.
 

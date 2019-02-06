@@ -7,6 +7,6 @@ In addition, PX4 provides more fine-grained information about readiness to fly i
 
 The LED, tune and GCS notifications are linked below:
 
-* [LED Meanings](../flying/led_meanings.md)
-* [Tune/Sound Meanings](../flying/tunes.md)
+* [LED Meanings](../getting_started/led_meanings.md)
+* [Tune/Sound Meanings](../getting_started/tunes.md)
 * [Preflight Checks (Internal)](../flying/pre_flight_checks.md)
