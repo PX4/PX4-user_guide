@@ -1,6 +1,7 @@
 # GPS & Compass
 
-PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the UBlox, MTK Ashtech or Emlid protocols, or via UAVCAN. It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
+PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the UBlox, MTK Ashtech or Emlid protocols, or via UAVCAN. 
+It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
 PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI).
 
@@ -15,8 +16,11 @@ If it fails before flight, arming will be denied.
   The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines.
   On small vehicles an external compass is almost always required.
 
-## GPS Options
+## GPS (Only) Options
+
 * [Emlid Reach M+](https://emlid.com/reach/) (emlid.com)
+  > **Note** At time of writing PX4 does not support RTK GPS with this module (only "ordinary" GPS).
+    Support is expected in the near future.
 
 ## Combined GPS/Compass Options
 
