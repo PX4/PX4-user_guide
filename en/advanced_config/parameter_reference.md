@@ -253,6 +253,23 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 </tbody></table>
 
+## Camera Capture
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAM_CAP_DELAY">CAM_CAP_DELAY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Camera strobe delay</p><p><strong>Comment:</strong> This parameter sets the delay between image integration start and strobe firing</p>   </td>
+ <td style="vertical-align: top;">0.0 > 100.0 </td>
+ <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">ms</td>
+</tr>
+</tbody></table>
+
 ## Camera Control
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -262,14 +279,38 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="CAM_FBACK_MODE">CAM_FBACK_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Camera feedback mode</p><p><strong>Comment:</strong> Sets the camera feedback mode.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
+ <td style="vertical-align: top;"><strong id="CAM_CAP_EDGE">CAM_CAP_EDGE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Camera capture edge</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Falling edge</li> 
 
-<li><strong>1:</strong> Feedback on trigger</li> 
+<li><strong>1:</strong> Rising edge</li> 
 </ul>
-  </td>
- <td style="vertical-align: top;">0 > 1 </td>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAM_CAP_FBACK">CAM_CAP_FBACK</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Camera capture feedback</p><p><strong>Comment:</strong> Enables camera capture feedback</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAM_CAP_MODE">CAM_CAP_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Camera capture timestamping mode</p><p><strong>Comment:</strong> Change time measurement</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Get absolute timestamp</li> 
+
+<li><strong>1:</strong> Get timestamp of mid exposure (active high)</li> 
+
+<li><strong>2:</strong> Get timestamp of mid exposure (active low)</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
