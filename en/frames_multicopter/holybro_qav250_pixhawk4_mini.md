@@ -114,8 +114,8 @@ The following tools are used in this assembly:
    ![QAV250 Add flight controller plate](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/6_flight_controller_plate.jpg)
 1. Attach the motors. The motors have an arrow indicating the direction of rotation.
    ![QAV250 Add motors](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/7_motors.jpg)
-1. Paste the damping foam on the pixhawk and paste on the flight controller plate
-   ![QAV250 Add damping foam](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/8_damping_foam.jpg)
+1. Use double sided tape from kit to attach the *Pixhawk 4 Mini* to the flight controller plate.
+   ![QAV250 Add doublesided tape](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/8_double_sided_tape_controller.jpg)
 1. Connect the power module's "power" cable to *Pixhawk 4 mini*.
    ![QAV250 Power Pixhawk](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/9_power_module_power_pixhawk.jpg)
 1. Attach the aluminium standoffs to the button plate
@@ -195,9 +195,9 @@ The steps to install the kit are:
 First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md)
-  > **Note** You will need to select the *Lumenier QAV250* airframe (**Quadrotor x > Lumenier QAV250**).
+  > **Note** You will need to select the *HolyBro QAV250* airframe (**Quadrotor x > HolyBro QAV250**).
 
-   ![QGroundControl - Select firmware to update](../../images/qav250_qgc_firmware.png)
+   ![QGroundControl - Select HolyBro QAV250 airframe](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/select_airframe.png)
 
 Then perform the mandatory setup/calibration:
 * [Sensor Orientation](../config/flight_controller_orientation.md)
