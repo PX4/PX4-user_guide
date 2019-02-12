@@ -100,6 +100,7 @@
     * [VTOL w/o Airspeed Sensor](config_vtol/vtol_without_airspeed_sensor.md)
     * [VTOL Weather Vane](config_vtol/vtol_weathervane.md)
   * [ESC Calibration](advanced_config/esc_calibration.md)
+  * [ECL/EKF Overview & Tuning](advanced_config/tuning_the_ecl_ekf.md)
   * [Bootloader Update (FMUv2)](advanced_config/bootloader_update.md)
   * [Land Detector Configuration](advanced_config/land_detector.md)
   * [Sensor Thermal Compensation](advanced_config/sensor_thermal_calibration.md)
