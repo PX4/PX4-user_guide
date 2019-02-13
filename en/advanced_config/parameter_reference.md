@@ -5156,8 +5156,8 @@ Temporary Parameter to enable interface testing</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TKO_RAMP_T">MPC_TKO_RAMP_T</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Position control smooth takeoff ramp time constant</p><p><strong>Comment:</strong> Increasing this value will make automatic and manual takeoff slower. If it's too slow the drone might scratch the ground and tip over.</p>   </td>
- <td style="vertical-align: top;">0.1 > 1 </td>
+ <td style="vertical-align: top;"><p>Position control smooth takeoff ramp time constant</p><p><strong>Comment:</strong> Increasing this value will make automatic and manual takeoff slower. If it's too slow the drone might scratch the ground and tip over. A time constant of 0 disables the ramp</p>   </td>
+ <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.4 </td>
  <td style="vertical-align: top;"></td>
 </tr>
