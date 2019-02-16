@@ -26,22 +26,22 @@
 
 ## 振动
 
-Vibration is one of the most common problems for multirotor vehicles. High vibration levels can lead to:
+振动是多旋翼飞机中最常见的问题之一。 高振动可能导致：
 
-- less efficient flight and reduced flight time
-- the motors can heat up
-- increased material wearout
-- inability to tune the vehicle tightly, resulting in degraded flight performance.
-- sensor clipping
-- position estimation failures, potentially resulting in fly-aways.
+- 飞行效率低, 飞行时间缩短
+- 电机温度升高
+- 增加材料磨损
+- 无法严格调整车辆，导致飞行性能下降。
+- 传感器接线
+- 位置估计失败，可能偏离飞行。
 
-It is therefore important to keep an eye on the vibration levels and improve the setup if needed.
+因此，必须对振动水平保持警惕，并在必要时改进设置。
 
-There is a point where vibration levels are clearly too high, and generally lower vibration levels are better. However there is a broad range between 'everything is ok' and 'the levels are too high'. This range depends on a number of factors, including vehicle size - as larger vehicles have higher inertia, allowing for more software filtering (at the same time the vibrations on larger vehicles are of lower frequency).
+有一个时刻的振动明显过高，但是总体而言震动小更好。 然而在 "一切都好" 和 "水平太高" 之间有很大的差距。 这个范围取决于许多因素, 包括车辆的大小 - 因为较大的车辆有更高的惯性, 允许更多的软件过滤 (同时较大的车辆上的振动是较低的频率)。
 
-The following paragraphs and sections provide information about what plots to use for checking vibration levels, and how to analyse them.
+下面的段落和部分提供了关于使用什么图来检查振动水平以及如何分析它们的信息。
 
-> **Tip** It is worth looking at multiple charts when analyzing vibration (different charts can better highlight some issues).
+> **Tip** 在分析振动时, 值得查看多个图表 (不同的图表可以更好地突出显示一些问题)。
 
 ### FFT 制动器控制
 
