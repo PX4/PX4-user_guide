@@ -1,15 +1,15 @@
 # 使用 Flight Review 进行日志分析
 
-The [Flight Review](http://logs.px4.io) plots for a flight can be used to analyze general vehicle condition.
+[飞行复查](http://logs.px4.io)可以绘制图表来分析一般的车辆状况。
 
-The plots are meant to be self-explanatory, but it takes some experience to know what ranges are acceptable and what a plot should look like. This page explains how to interpret the plots and identify common problems.
+这些图是不言自明的，但是需要一些经验来了解哪些范围是可以接受的，以及一个图应该是什么样的。 本页介绍如何解释这些情节并识别常见问题。
 
 ## 一般用法
 
-Features that are common to many plots:
+许多图形共有的功能:
 
-- Plot background color is used to indicate flight mode during recording (where graphs depend on mode): ![飞行模式](../../assets/flight_log_analysis/flight_review/flight_modes.png) 
-    - **Flight mode:** Background colour on the body of the plot indicates flight mode. Hovering with the mouse over a plot shows the flight mode labels.
+- 绘图背景色用于指示录制过程中的飞行模式 (其中图形取决于模式): ![飞行模式](../../assets/flight_log_analysis/flight_review/flight_modes.png) 
+    - **飞行模式：** 绘图主体背景颜色显示飞行模式。 将鼠标悬停在绘图上将显示飞行模式标签。
     - **VTOL flight mode:** VTOL vehicles additionally show the VTOL mode as background colour in the bottom part of the plot (blue for multicopter, yellow for fixed wing, and red for transition).
 - Mouse scrolling on a particular plot axis zooms that axis (horizontally or vertically).
 - Mouse scrolling inside the plot zooms both axes.
