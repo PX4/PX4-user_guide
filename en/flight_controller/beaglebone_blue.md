@@ -62,27 +62,24 @@ Robot Control library Version:
 
 > **Tip** Optionally you can update to a realtime kernel, and if you do, re-check if *librobotcontrol* works properly with the realtime kernel.
 
-The latest OS images in which *librobotcontrol* works properly (at time of writing) is [bone-debian-9.5-iot-armhf-2018-07-22-4gb.img.xz](https://rcn-ee.net/rootfs/bb.org/testing/2018-07-22/stretch-iot/bone-debian-9.5-iot-armhf-2018-07-22-4gb.img.xz).
+The latest OS images at time of updating this document is [bone-debian-9.5-iot-armhf-2018-10-07-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.5-iot-armhf-2018-10-07-4gb.img.xz).
 
 
 ### Setup Robot Control Library
 
 If you want to build PX4, there are additional setup steps for this library.
 
-At time of writing, without modifying its build files to add cross compile support, the *librobotcontrol* debian package is only available on BeagleBoard products including BeagleBone Blue. 
-Here are the ways to obtain the *librobotcontrol* on BeagleBone Blue:
+Here are steps to build the *librobotcontrol* with PX4 extensions natively on a BeagleBone board:
 
-1. Use the one pre-installed in BeagleBoard images.
-1. Install from debian package or repository:
-   ```sh
-   sudo apt update && sudo apt install librobotcontrol
-   ```
-1. Install from source
    ```sh
    git clone https://github.com/StrawsonDesign/librobotcontrol.git
    cd librobotcontrol
+   make EXT_CFLAGS=-DRC_AUTOPILOT_EXT
    sudo make install
    ```
+
+> **Tip** EXT_CFLAGS was added after version 1.0.4. If it's not in your version of librobotcontrol/library/Makefile, insert it to CLFAGS, e.g., CFLAGS := $(EXT_CFLAGS) -g -fPIC -I $(INCLUDEDIR)
+
 
 After acquiring the pre-built library,
 
@@ -92,7 +89,7 @@ After acquiring the pre-built library,
 
 At this point the BeagleBone Blue target can be built on both cross compile host system and native build system, i.e., 
 ```sh
-make beaglebone_blue_cross [upload]
+make posix_bbblue_cross [upload]
 ```
 
 ## Cross Compiler Build
@@ -130,7 +127,7 @@ where version of GCC is not higher than version of GCC which comes with the OS i
    - On the development computer, define the BeagleBone Blue board as `BBBluePX4` in **/etc/hosts**
 1. Run the following command to build and upload files:
    ```sh
-   make beaglebone_blue_cross upload
+   make posix_bbblue_cross upload
    ```
 
 To test the uploaded files, run the following commands on the *BeagleBone Blue* board:
