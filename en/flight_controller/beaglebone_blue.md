@@ -78,7 +78,7 @@ Here are steps to build the *librobotcontrol* with PX4 extensions natively on a 
    sudo make install
    ```
 
-> **Tip** EXT_CFLAGS was added after version 1.0.4. If it's not in your version of librobotcontrol/library/Makefile, insert it to CLFAGS, e.g., CFLAGS := $(EXT_CFLAGS) -g -fPIC -I $(INCLUDEDIR)
+> **Tip** `EXT_CFLAGS` was added after version 1.0.4. If it's not in your version of **librobotcontrol/library/Makefile**, add it to `CLFAGS`, e.g., `CFLAGS := $(EXT_CFLAGS) -g -fPIC -I $(INCLUDEDIR)`
 
 
 After acquiring the pre-built library,
