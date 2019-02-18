@@ -8,9 +8,9 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 > **Note** 您必须已经配置好了您的 [遥控器](../config/radio.md) 以便设定飞行模式。
 
-## What Flight Modes Should I Set?
+## 我应该设置什么飞行模式呢？
 
-You can set any (or none) of the flight modes [described here](../flight_modes/README.md).
+你可以设置任何（或者不设置） [这里](../flight_modes/README.md) 描述的飞行模式。
 
 New users should consider setting one or more of the following modes, which make the vehicle much easier to fly:
 
