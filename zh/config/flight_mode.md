@@ -15,8 +15,8 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 新手可以考虑设置一个或者多个下面的这些使得飞机更容易控制的飞行模式：
 
 * **自稳模式** - 飞行器很难侧翻，并且如果遥控器摇杆释放的话飞行器会趋于水平（但无法保持位置定点）。
-* **Position** - When sticks are released the vehicle will stop (and hold position against wind drift).
-* **Altitude** - Climb and drop are controlled to have a maximum rate.
+* **位置模式** - 如果遥控器摇杆释放的话飞行器会停下来保持位置定点（并且不会随风飘移）。
+* **定高模式** - 飞行器的爬升和降落被限制了一个最大的速率。飞机会保持高度稳定（但仍无法保持位置定点）。
 
 It is also common to map switches to:
 
