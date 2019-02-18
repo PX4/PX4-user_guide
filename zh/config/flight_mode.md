@@ -37,7 +37,7 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 单通道选择模式允许您指定一个 "飞行模式" 通道，最多选择 6 种飞行模式，依赖于该通道的 PWM 值来被激活。 您也可以单独的指定特定的通道来映射 Kill Switch，自动返航和机外控制（offboard）模式。
 
-> **Note** In order to use this approach you will first need to configure your *transmitter* to encode the physical positions of your mode switch(es) into a single channel. We provide a video guide of how this is done for the popular *Taranis* transmitter [below](#taranis_setup) (check your documentation if you use a different transmitter).
+> **Note** 为了使用单通道飞行模式选择的方式，你首先需要配置你的 *遥控器* 来映射遥控器上开关的物理位置到一个单个通道中去。 We provide a video guide of how this is done for the popular *Taranis* transmitter [below](#taranis_setup) (check your documentation if you use a different transmitter).
 
 To configure single-channel flight mode selection:
 
