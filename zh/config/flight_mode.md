@@ -22,9 +22,9 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 * [返航模式](../flight_modes/return.md) - 这个模式会把飞行器升高到安全的高度并且返回起飞点。
 * [任务模式](../flight_modes/mission.md) - 这个模式将会运行地面站发送的预先编写好的任务。
-* <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
+* <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - 立即停止所有电机的输出（飞行器可能会摔坏，这在某些紧急情况下比允许其继续飞行更为可取）。
 
-## Multi Channel vs Single Channel Mode Selection
+## 多通道模式选择 vs 单通道模式选择
 
 *PX4* (*QGroundControl*) supports two modes for mapping flight modes to transmitter switches/dials:
 
