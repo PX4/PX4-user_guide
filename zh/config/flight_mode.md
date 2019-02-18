@@ -18,10 +18,10 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 * **位置模式** - 如果遥控器摇杆释放的话飞行器会停下来保持位置定点（并且不会随风飘移）。
 * **定高模式** - 飞行器的爬升和降落被限制了一个最大的速率。飞机会保持高度稳定（但仍无法保持位置定点）。
 
-It is also common to map switches to:
+通常也在遥控器上映射这些开关：
 
-* [Return](../flight_modes/return.md) - This mode raises the vehicle to a safe height and returns to the launch position.
-* [Mission](../flight_modes/mission.md) - This mode runs a pre-programmed mission sent by the ground control station.
+* [返航模式](../flight_modes/return.md) - 这个模式会把飞行器升高到安全的高度并且返回起飞点。
+* [任务模式](../flight_modes/mission.md) - 这个模式将会运行地面站发送的预先编写好的任务。
 * <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - Immediately stops all motor outputs (the vehicle will crash, which may in some circumstances be more desirable than allowing it to continue flying).
 
 ## Multi Channel vs Single Channel Mode Selection
