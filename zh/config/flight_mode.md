@@ -24,18 +24,18 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 * [任务模式](../flight_modes/mission.md) - 这个模式将会运行地面站发送的预先编写好的任务。
 * <span id="kill_switch"></span> [Kill Switch](../config/safety.md#kill_switch) - 立即停止所有电机的输出（飞行器可能会摔坏，这在某些紧急情况下比允许其继续飞行更为可取）。
 
-## 多通道模式选择 vs 单通道模式选择
+## 多通道飞行模式选择 vs 单通道飞行模式选择
 
 *PX4* (*QGroundControl*) 支持两种方式来映射飞行模式到遥控器开关/表盘：
 
 * **单通道模式选择：** 单通道编码模式下最多分配 6 个飞行模式到遥控器的不同开关位置上。
-* **多通道模式选择：** 把不同飞行模式分配到不同的遥控器开关位置，来使用一个或者多个通道的编码。 Some modes are hard coded to share channels, or are defined/set automatically based on other mode selections (the behaviour of multi-channel mode selection can sometimes be confusing). 
+* **多通道模式选择：** 把不同飞行模式分配到不同的遥控器开关位置，来使用一个或者多个通道的编码。 一些模式被硬编码以共享通道，或者是根据其他选择的模式被自动指定（多通道模式选择的方式很多时候会导致困惑）。 
 
-> **Tip** The recommended approach is use *Single Channel Mode Selection* because it easy to understand and configure.
+> **Tip** 推荐使用 *单通道模式选择* 的方式，因为它更容易被理解和配置。
 
-## Single-Channel Flight Mode Selection {#single_channel}
+## 单通道飞行模式选择 {#single_channel}
 
-The single-channel selection mode allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
+单通道选择模式允许您指定一个 "飞行模式" 通道，最多选择 6 种飞行模式，依赖于该通道的 PWM 值来被激活。 您也可以单独的指定特定的通道来映射 Kill Switch，自动返航和机外控制（offboard）模式。
 
 > **Note** In order to use this approach you will first need to configure your *transmitter* to encode the physical positions of your mode switch(es) into a single channel. We provide a video guide of how this is done for the popular *Taranis* transmitter [below](#taranis_setup) (check your documentation if you use a different transmitter).
 
