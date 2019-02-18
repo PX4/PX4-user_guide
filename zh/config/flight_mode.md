@@ -26,10 +26,10 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 ## 多通道模式选择 vs 单通道模式选择
 
-*PX4* (*QGroundControl*) supports two modes for mapping flight modes to transmitter switches/dials:
+*PX4* (*QGroundControl*) 支持两种方式来映射飞行模式到遥控器开关/表盘：
 
-* **Single Channel Mode Selection:** Assign up to 6 flight modes to switch positions encoded in a single channel.
-* **Multi Channel Mode Selection:** Assign modes to switch positions encoded in one or more channels. Some modes are hard coded to share channels, or are defined/set automatically based on other mode selections (the behaviour of multi-channel mode selection can sometimes be confusing). 
+* **单通道模式选择：** 单通道编码模式下最多分配 6 个飞行模式到遥控器的不同开关位置上。
+* **多通道模式选择：** 把不同飞行模式分配到不同的遥控器开关位置，来使用一个或者多个通道的编码。 Some modes are hard coded to share channels, or are defined/set automatically based on other mode selections (the behaviour of multi-channel mode selection can sometimes be confusing). 
 
 > **Tip** The recommended approach is use *Single Channel Mode Selection* because it easy to understand and configure.
 
