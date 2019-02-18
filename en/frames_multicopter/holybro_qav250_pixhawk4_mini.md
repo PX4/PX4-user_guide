@@ -178,7 +178,7 @@ The steps to install the kit are:
    - Connect the Video Transmitter (VTX) connector
    ![Video Transmitter Connection](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_video_transmitter_connection.jpg)
      The wires are: yellow=video out, black=ground, red=+voltage.
-1. Secure the Video Transmitter and ??? board to the ??? using ?????.
+1. Secure the Video Transmitter and OSD board to the frame using tape.
 
 > **Note** If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module:
   ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
@@ -211,7 +211,6 @@ Ideally you should also do:
 * [ESC Calibration](../advanced_config/esc_calibration.md)
 * [Battery](../config/battery.md)
 * [Safety](../config/safety.md)
-
 
 
 ## Tuning
