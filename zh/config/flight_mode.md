@@ -12,9 +12,9 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 你可以设置任何（或者不设置） [这里](../flight_modes/README.md) 描述的飞行模式。
 
-New users should consider setting one or more of the following modes, which make the vehicle much easier to fly:
+新手可以考虑设置一个或者多个下面的这些使得飞机更容易控制的飞行模式：
 
-* **Stabilized** - Vehicle hard to flip, and will level-out if the sticks are released (but not hold position).
+* **自稳模式** - 飞行器很难侧翻，并且如果遥控器摇杆释放的话飞行器会趋于水平（但无法保持位置定点）。
 * **Position** - When sticks are released the vehicle will stop (and hold position against wind drift).
 * **Altitude** - Climb and drop are controlled to have a maximum rate.
 
