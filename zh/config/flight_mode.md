@@ -6,7 +6,7 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 这个话题说明了如何在你的遥控器开关上映射飞行模式设置。
 
-> **Note** You must already have [configured your radio](../config/radio.md) in order to set flight modes.
+> **Note** 您必须已经配置好了您的 [遥控器](../config/radio.md) 以便设定飞行模式。
 
 ## What Flight Modes Should I Set?
 
