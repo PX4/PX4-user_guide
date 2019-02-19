@@ -103,3 +103,10 @@ For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_re
 
 The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](https://dev.px4.io/en/airframes_multicopter/dji_flamewheel_450.html) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
 
+## Use of RTK GPS for yaw
+
+If you are using a GPS unit that uses multiple antennas to output a yaw angle, this can be used instead of the magnetic compass. To enable this, set bit position 7 in [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to 1 (add 128 to the parameter value).
+
+## Dual Receivers
+
+A second receiver, either RTK or non RTK can be used as a backup. See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#GPS) section.

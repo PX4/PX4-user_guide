@@ -70,12 +70,28 @@ When tilt and yaw alignment is complete, the EKF can then transition to other mo
 
 ### GPS
 
+#### Position and Velocity Measurements
 GPS measurements will be used for position and velocity if the following conditions are met:
 
 * GPS use is enabled via setting of the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
 * GPS quality checks have passed. 
   These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters. 
 * GPS height can be used directly by the EKF via setting of the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
+
+#### Yaw Measurements
+Some GPS receivers such as the [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) can be use to provide a heading measurement that replaces the use of magnetomer data. This can be a significant advantage when operating in an environment where large magnetic anomalies are present or at latitudes here the earths magnetic field has a high inclination. Use of GPS yaw measurements is enabled by setting bit position 7 to 1 (adding 128) in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
+
+#### Dual Receivers
+Data from GPS receivers can be blended using an algorithm that weights data based on reported accuracy and also provides automatic failover if data froma  receiver is lost. This is controlled by the [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter. This works best if both receivers output at the same data rate and use the same accuracy, however it is also enables a standard GPS to be used as a backup to a more accurate RTK receiver. 
+
+The [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter is set by default to disable blending and always use the first receiver, so it will have to be set to select which receiver accuracvy metrics are used to decide how much each receiver output contributes to the blended solutiohn. Where different receiver models are used, it is important that the [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter is set to a value that uses accuracy metrics that are supported by both receivers. For example do not set bit position 0 to true unless the driver for both receivers publish values in the s_variance_m_s field of the vehicle_gps_position message that are comparable. This can be difficult with receivers from different manufacturers due to the different way that accuracy is defined, eg CEP vs 1-sigma, etc. 
+
+The following items should be checked during setup:
+
+* Verfiy that data for the second receiver is present. This will be logged as vehicle_gps_position_1 and can also be checked when connected via  nsh concole using the 'listener' command.
+* Check the 's_variance_m_s', 'eph' and 'epv' data from each receiver and decide which accuracy metrics can be used. If both receivers output sensible 's_variance_m_s' and 'eph' data and GPS vertical positon is not being used directly for navigation, then setting [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 3 is recommmeded. Where only 'eph' data is available and both receivers do not output 's_variance_m_s' data, set [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 2. Bit position 2 would only be set if the GPS had been selected as a primary height source with the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter and both receivers output sensible 'epv' data.
+* The output from the blended receiver data is logged as vehicle_gps_position_2 and should be checked.
+* Where receivers output at different rates, the blended output will be at the rate of slower receiver. Where possible receivers should be configured to output at the same rate.
 
 ### Range Finder
 
