@@ -17651,6 +17651,76 @@
   </tr>
 </table>
 
+## OSD
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      参数名
+    </th>
+    
+    <th>
+      参数描述
+    </th>
+    
+    <th>
+      最小最大值 (增量)
+    </th>
+    
+    <th>
+      默认值
+    </th>
+    
+    <th>
+      单位
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="OSD_ATXXXX_CFG">OSD_ATXXXX_CFG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable/Disable the ATXXX OSD Chip
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure the ATXXXX OSD Chip (mounted on the OmnibusF4SD board) and select the transmission standard.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>1:</strong> NTSC
+        </li>
+        <li>
+          <strong>2:</strong> PAL
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
 ## PWM Outputs
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -22571,7 +22641,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>参数值:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -22720,7 +22790,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>参数值:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -22869,7 +22939,7 @@
         <strong>Comment:</strong> Set to -1 to reverse channel.
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -28454,7 +28524,7 @@
         <strong>Comment:</strong> 0: airframe heading, 1: heading towards takeoff waypoint
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31443,7 +31513,7 @@
         <strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.
       </p>
       
-      <strong>参数值:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31535,7 +31605,7 @@
         <strong>Comment:</strong> DETECT_ORIENTATION_TAIL_DOWN = 1 DETECT_ORIENTATION_NOSE_DOWN = 2 DETECT_ORIENTATION_LEFT = 4 DETECT_ORIENTATION_RIGHT = 8 DETECT_ORIENTATION_UPSIDE_DOWN = 16 DETECT_ORIENTATION_RIGHTSIDE_UP = 32
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -31577,7 +31647,7 @@
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31609,7 +31679,7 @@
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32767,7 +32837,7 @@
         <strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -33705,7 +33775,7 @@
         <strong>Comment:</strong> Set to 1 to reset parameters on next system startup (setting defaults). Platform-specific values are used if available. RC* parameters are preserved.
       </p>
       
-      <strong>参数值:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -33744,7 +33814,7 @@
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -33775,7 +33845,7 @@
       </p>
       
       <p>
-        <b>重启要求: </b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -33967,11 +34037,11 @@
         <strong>Comment:</strong> This parameter is deprecated and will be removed after 1.9.0. Use the generic serial configuration parameters instead (e.g. MAV_0_CONFIG, MAV_0_MODE, etc.).
       </p>
       
-      <strong>参数值:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong> Disabled
         </li>
         <li>
           <strong>10:</strong> FrSky Telemetry
@@ -34030,7 +34100,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34061,7 +34131,7 @@
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34091,7 +34161,7 @@
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34121,7 +34191,7 @@
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34151,7 +34221,7 @@
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34180,7 +34250,7 @@
         <strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -34192,7 +34262,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34249,7 +34319,7 @@
         <strong>Comment:</strong> Set by px4io to indicate type of restart
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -34313,7 +34383,7 @@
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34369,11 +34439,11 @@
         <strong>Comment:</strong> Configure on which serial port to run FrSky Telemetry.
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong> Disabled
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -34399,7 +34469,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34428,11 +34498,11 @@
         <strong>Comment:</strong> Configure on which serial port to run HoTT Telemetry.
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong> Disabled
         </li>
         <li>
           <strong>6:</strong> UART 6
@@ -34458,7 +34528,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -34474,7 +34544,7 @@
   </tr>
 </table>
 
-## 测试
+## Testing
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
@@ -36231,7 +36301,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        气压计校准最高温度
+        Barometer calibration maximum temperature
       </p>
     </td>
     
@@ -36253,7 +36323,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        气压计校准最低温度
+        Barometer calibration minimum temperature
       </p>
     </td>
     
@@ -36275,7 +36345,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        气压计校准参考温度
+        Barometer calibration reference temperature
       </p>
     </td>
     
@@ -36473,7 +36543,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        气压计校准最高温度
+        Barometer calibration maximum temperature
       </p>
     </td>
     
@@ -36495,7 +36565,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        气压计校准最低温度
+        Barometer calibration minimum temperature
       </p>
     </td>
     
@@ -36517,7 +36587,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        气压计校准参考温度
+        Barometer calibration reference temperature
       </p>
     </td>
     
@@ -36715,7 +36785,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        气压计校准最高温度
+        Barometer calibration maximum temperature
       </p>
     </td>
     
@@ -36737,7 +36807,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        气压计校准最低温度
+        Barometer calibration minimum temperature
       </p>
     </td>
     
@@ -36759,7 +36829,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        气压计校准参考温度
+        Barometer calibration reference temperature
       </p>
     </td>
     
@@ -37024,7 +37094,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        陀螺仪校准最高温度
+        Gyro calibration maximum temperature
       </p>
     </td>
     
@@ -37046,7 +37116,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        陀螺仪校准最低温度
+        Gyro calibration minimum temperature
       </p>
     </td>
     
@@ -37068,7 +37138,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        陀螺仪校准的参考温度
+        Gyro calibration reference temperature
       </p>
     </td>
     
@@ -37442,7 +37512,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        陀螺仪校准最高温度
+        Gyro calibration maximum temperature
       </p>
     </td>
     
@@ -37464,7 +37534,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        陀螺仪校准最低温度
+        Gyro calibration minimum temperature
       </p>
     </td>
     
@@ -37486,7 +37556,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        陀螺仪校准的参考温度
+        Gyro calibration reference temperature
       </p>
     </td>
     
@@ -37860,7 +37930,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        陀螺仪校准最高温度
+        Gyro calibration maximum temperature
       </p>
     </td>
     
@@ -37882,7 +37952,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        陀螺仪校准最低温度
+        Gyro calibration minimum temperature
       </p>
     </td>
     
@@ -37904,7 +37974,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        陀螺仪校准的参考温度
+        Gyro calibration reference temperature
       </p>
     </td>
     
@@ -38343,7 +38413,7 @@
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -38374,11 +38444,11 @@
         <strong>Comment:</strong> 0 - UAVCAN disabled. 1 - Enables support for UAVCAN sensors without dynamic node ID allocation and firmware update. 2 - Enables support for UAVCAN sensors with dynamic node ID allocation and firmware update. 3 - Enables support for UAVCAN sensors and actuators with dynamic node ID allocation and firmware update. Also sets the motor control outputs to UAVCAN.
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong>禁用相机反馈
+          <strong>0:</strong> Disabled
         </li>
         <li>
           <strong>1:</strong> Sensors Manual Config
@@ -38392,7 +38462,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -38419,7 +38489,7 @@
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -38449,7 +38519,7 @@
       </p>
       
       <p>
-        <b>重启要求: </b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -39307,7 +39377,7 @@
         VTOL Type (Tailsitter=0, Tiltrotor=1, Standard=2)
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -39451,7 +39521,7 @@
       </p>
       
       <p>
-        <b>重启要求: </b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -39571,23 +39641,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      参数名
+      Name
     </th>
     
     <th>
-      参数描述
+      Description
     </th>
     
     <th>
-      最小最大值 (增量)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      默认值
+      Default
     </th>
     
     <th>
-      单位
+      Units
     </th>
   </tr>
   
