@@ -1,0 +1,81 @@
+# TBS Caipiroshka
+
+Caipiroshka VTOL是由 TBS Caipirinha轻度改装而来。
+
+{% youtube %}https://www.youtube.com/watch?v=acG0aTuf3f8&vq=hd720{% endyoutube %}
+
+## 配件列表
+
+* TBS Caipirinha 机翼（[Eflight 商城](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19638&Kategorie_ID=110923)）
+* 3D 打印的左右电机安装架（<a href="https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">设计文件 </a>）
+* CW 8045螺旋桨（[Eflight 商城](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19532&Kategorie_ID=288)）
+* CCW 8045螺旋桨（[Eflight商店](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19533&Kategorie_ID=288)）
+* 2 x 1800kv 120-180W电机 
+  * [Quanum MT2208 1800 kV](http://www.hobbyking.com/hobbyking/store/__67014__Quanum_MT_Series_2208_1800KV_Brushless_Multirotor_Motor_Built_by_DYS.html)
+  * [ePower 2208](http://www.eflight.ch/pi/ePower-X-22081.html)
+* 2 x 20-30S 电调 
+  * [Eflight 商城](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19713&Kategorie_ID=36077)
+* BEC（3A，5-5.3V）（如果你的电调不能提供5V的输出，可以用这个）
+* 3S 2200 mA锂电池 
+  * Team Orion 3S 11.1V 50 C（[Hobbyshop 商城](https://www.hobbyshop.ch/modellbau-elektronik/akku/team-orion-lipo-2200-3s-11-1v-50c-xt60-ori60163.html)）
+* [Pixracer 飞控 + 电源模块](../flight_controller/pixracer.md)
+* [数字空速传感器](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
+
+## 组装
+
+下面有一种装好的 Caipiroshka 的照片。
+
+![Caipiroshka](../../assets/airframes/vtol/caipiroshka/caipiroshka.jpg)
+
+下面有一些如何装机的小技巧。
+
+### 飞控
+
+在靠近飞机重心的地方安装飞控。
+
+### 安装电机
+
+使用上面清单列表中的STL文件，打印电机架。 在每一边的机翼上各安装一个电机，并让电机轴处在升降副翼的中心。 上面图片中电机之间的水平距离的 56cm。 找到正确位置后，就可以使用透明胶带从机翼上部到机翼下面进行固定。 然后在电机架和机翼接触的部分打上适量热熔胶。 贴胶带和打热熔胶是为了方便拆除电机机时，不损伤机翼。 在你更换损坏的电机时是非常有用的。
+
+### 电调:
+
+电调可以用胶水或扎带绑在电机架周围平整的地方上。 将电池线绑在电池托架上。 你也可以用电烙铁在泡沫上烫出一条线槽。 将电源线连接到电调上，然后焊上插头。 你也可以连接电调到电源模块上。 如果你没有能提供5V 输出的电源模块，你可以使用外置的电源供给设备（BEC）。
+
+### GPS
+
+GPS 可以安装在飞机后部中间的位置。 因为电机 、相机和电池装在前面，Gps 装在后面方便调节重心。 加长了 12V供电线的长度，也可以减轻对外置的磁罗盘的干扰。
+
+### 空速传感器
+
+将空速管安装在一侧机翼靠近外测的地方。 确保空速管不会受到螺旋桨尾流的影响。 空速管到电机轴的距离比螺旋桨的半径大会比较好。 使用电烙铁可以给空速管和传感器烫出几个槽来进行安装。 也可以给线缆开出合适的槽来进行安装。
+
+### 连接传感器到 I2C 接口
+
+空速计和磁罗盘都要连接到飞控的 I2C 接口。 因此，你需要一个部件清单里的 I2C 扩展板。 把扩展板连接到飞控的 I2C 接口。 然后用 I2C 连接线，连接空速计和磁罗盘到扩展板上。 上面的图片中，扩展板在 GPS 单元旁边。
+
+### 升降副翼
+
+升降副翼可以用透明胶带粘在上面。 你也可以查看黑羊团队提供的TBS Caiprinha 安装手册。
+
+### 普通安装规则
+
+在你安装机翼的所有组件之前，可以使用胶带固定它们在安装位置，然后检查重心是否在要求的位置。 根据你增加的设备重量（例如，GoPro 或更大的电池），然后改变部件的位置来匹配重心。
+
+## 机架设置
+
+连接传感器 下拉列表，找到* VTOL Duo Tailsitter *图标， 选择下拉列表里的 *Caipiroshka Duo Tailsitter*。
+
+![](../../images/qgc/setup/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
+
+## 连接舵机
+
+下面的描述需要将飞机平放在桌子上、机头朝你进行。
+
+| 输出    | 频率     | 执行器  |
+| ----- | ------ | ---- |
+| MAIN1 | 400 Hz | 右侧电机 |
+| MAIN2 | 400 Hz | 左侧电机 |
+| MAIN3 | 400 Hz | 空    |
+| MAIN4 | 400 Hz | 空    |
+| MAIN5 | 50 Hz  | 右副翼  |
+| MAIN6 | 50 Hz  | 左副翼  |
