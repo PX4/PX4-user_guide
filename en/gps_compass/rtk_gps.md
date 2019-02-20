@@ -93,6 +93,17 @@ To ensure MAVLink2 is used:
 You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters. 
 For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) and [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) to 0.2.
 
+
+### Use RTK GPS for Yaw
+
+Some RTK GPS units (i.e. with multiple antennas) can output a yaw angle, which can be used instead of the heading from the magnetic compass.
+To enable this, set bit position 7 in [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to 1 (add 128 to the parameter value).
+
+### Dual Receivers
+
+A second GPS receiver can be used as a backup (either RTK or non RTK). 
+See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#GPS) section.
+
 <!-- 
 - Video demonstration would be nice.
 - something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey. 
@@ -103,10 +114,3 @@ For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_re
 
 The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](https://dev.px4.io/en/airframes_multicopter/dji_flamewheel_450.html) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
 
-## Use of RTK GPS for yaw
-
-If you are using a GPS unit that uses multiple antennas to output a yaw angle, this can be used instead of the magnetic compass. To enable this, set bit position 7 in [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) to 1 (add 128 to the parameter value).
-
-## Dual Receivers
-
-A second receiver, either RTK or non RTK can be used as a backup. See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#GPS) section.
