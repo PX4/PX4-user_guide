@@ -27247,7 +27247,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Kill switch channel
+        Emergency Kill switch channel
       </p>
       
       <strong>Values:</strong>
