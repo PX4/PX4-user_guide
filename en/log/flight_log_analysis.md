@@ -99,7 +99,7 @@ Name (multi id, message size in bytes)    number of data points, total bytes
 
 ### pyFlightAnalysis
 
-[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) is a cross-platform PX4 flight log (ULog) visual analysis tool, inspired by [FlightPlot](https://github.com/DrTon/FlightPlot).
+[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) is a cross-platform PX4 flight log (ULog) visual analysis tool, inspired by [FlightPlot](#flightplot).
 
 Key features:
 * Dynamic filter for displaying data
@@ -110,7 +110,7 @@ Key features:
 ![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
 
-### FlightPlot (Desktop)
+### FlightPlot {#flightplot}
 
 [FlightPlot](https://github.com/PX4/FlightPlot) is a desktop based tool for log analysis. It can be downloaded from [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).
 
