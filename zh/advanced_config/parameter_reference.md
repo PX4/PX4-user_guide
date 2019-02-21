@@ -12772,6 +12772,9 @@
         <li>
           <strong>7:</strong> Minimal
         </li>
+        <li>
+          <strong>8:</strong> External Vision
+        </li>
       </ul>
       
       <p>
@@ -12949,6 +12952,9 @@
         <li>
           <strong>7:</strong> Minimal
         </li>
+        <li>
+          <strong>8:</strong> External Vision
+        </li>
       </ul>
       
       <p>
@@ -13125,6 +13131,9 @@
         </li>
         <li>
           <strong>7:</strong> Minimal
+        </li>
+        <li>
+          <strong>8:</strong> External Vision
         </li>
       </ul>
       
