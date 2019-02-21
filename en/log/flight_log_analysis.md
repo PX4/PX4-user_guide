@@ -157,7 +157,7 @@ Key features:
 
 ### PlotJuggler
 
-[PlotJuggler]()https://github.com/facontidavide/PlotJuggler is a Qt5 desktop application 
+[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a Qt5 desktop application 
 that allows users to easily visualize and analyze data expressed in the form of time series.
 
 It supports __ULog files__ (.ulg) since version 2.1.4.
@@ -169,7 +169,9 @@ Key features:
 * Once you arranged your data, save it into a "Layout" file and reload it multiple times.
 * Process your data inside PlotJuggler itself, using custom "data transformations".
 
-For more information, source code and downloads, visit [www.plotjuggler.io](https://www.plotjuggler.io).
+Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
+
+For more information visit [www.plotjuggler.io](https://www.plotjuggler.io). 
 
 ![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
 
