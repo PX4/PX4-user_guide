@@ -3786,6 +3786,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>5:</strong> Config</li> 
 
 <li><strong>7:</strong> Minimal</li> 
+
+<li><strong>8:</strong> External Vision</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -3850,6 +3852,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>5:</strong> Config</li> 
 
 <li><strong>7:</strong> Minimal</li> 
+
+<li><strong>8:</strong> External Vision</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
@@ -3914,6 +3918,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>5:</strong> Config</li> 
 
 <li><strong>7:</strong> Minimal</li> 
+
+<li><strong>8:</strong> External Vision</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
