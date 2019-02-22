@@ -63,4 +63,4 @@ Typically the companion will use a VPN system to connect to an already known GCS
 
 Some USB modules that are known to work include:
 - [Huawei E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) and [Huawei E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/) 
-  > **Tip** The *E8372* includes WiFi which you can use to configure the SIM while it is plugged into the companion (making the development workflow a little easier). The *E3372* annd lacks WiFi, so you have to configure it by plugging the stick into a laptop.
+  > **Tip** The *E8372* includes WiFi which you can use to configure the SIM while it is plugged into the companion (making the development workflow a little easier). The *E3372* lacks WiFi, so you have to configure it by plugging the stick into a laptop.
