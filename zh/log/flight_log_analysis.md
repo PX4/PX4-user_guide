@@ -98,7 +98,7 @@
 
 ### pyFlightAnalysis
 
-[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) 是一个跨平台的 PX4 飞行日志 (ulog) 可视化分析工具，灵感来源于 [FlightPlot](https://github.com/DrTon/FlightPlot)。
+[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) is a cross-platform PX4 flight log (ULog) visual analysis tool, inspired by [FlightPlot](#flightplot).
 
 主要特性：
 
@@ -109,7 +109,7 @@
 
 ![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
-### FlightPlot（桌面）
+### FlightPlot {#flightplot}
 
 [FlightPlot](https://github.com/PX4/FlightPlot) 是一个基于桌面的日志分析工具。 可以从 [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows) 下载。
 
