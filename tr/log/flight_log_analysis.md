@@ -98,7 +98,7 @@ Below we see the kind of information exported from a sample file using *ulog_inf
 
 ### pyFlightAnalysis
 
-[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) is a cross-platform PX4 flight log (ULog) visual analysis tool, inspired by [FlightPlot](https://github.com/DrTon/FlightPlot).
+[pyFlightAnalysis](https://github.com/Marxlp/pyFlightAnalysis) is a cross-platform PX4 flight log (ULog) visual analysis tool, inspired by [FlightPlot](#flightplot).
 
 Key features:
 
@@ -109,7 +109,7 @@ Key features:
 
 ![pyFlightAnalysis 1.0.1b1](../../assets/flight_log_analysis/pyflightanalysis.png)
 
-### FlightPlot (Desktop)
+### FlightPlot {#flightplot}
 
 [FlightPlot](https://github.com/PX4/FlightPlot) is a desktop based tool for log analysis. It can be downloaded from [FlightPlot Downloads](https://github.com/PX4/FlightPlot/releases) (Linux, MacOS, Windows).
 
