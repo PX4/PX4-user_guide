@@ -67,39 +67,39 @@ S500 框架：
 
 ![低振动S500启动器控制 - FFFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
-> **Note** While the plot above looks good, the [Raw Acceleration graph for the same flight](#raw_acc_s500) shows that the vibration levels are a bit high for x and y. This is a good example of why it is worth checking several graphs!
+> **Note** 虽然上面的图看起来不错，但[同一次飞行的原始加速度图](#raw_acc_s500)显示，x 和 y 的振动水平有点高。 这是一个很好的例子，说明为什么值得对比几个图！
 
 #### 例子：不好的振动
 
-This example shows a peak in frequency close to 50 Hz (in this case due to "loose" landing gear).
+这个例子显示了频率峰值接近 50 Hz (这是由于“松动”起落架引起的情况)。
 
 ![在着陆设备中振动 - FFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_actuator_controls_fft.png)
 
 ### 加速度功率谱密度
 
-This is a 2D frequency plot showing the frequency response of the raw accelerometer data over time (it displays the sum for the x, y and z axis). The more yellow an area is, the higher the frequency response at that time and frequency.
+这是一个二的维频率图，显示原始加速度计数据随时间的频率响应 (它显示 x、y 和 z 轴的和) 。 面积越黄，此时的频率响应和频率就越高。
 
-Ideally only the lowest part up to a few Hz is yellow, and the rest is mostly green or blue.
+理想的情况是，只有少数赫兹的最低部分是黄色，其余部分大多为绿色或蓝色。
 
 #### 例子：良好的振动
 
-[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
+[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 框架 (极好的振动)。
 
 ![低振动 QAV-R 5 Racer - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png) <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-DJI F450 frame (good vibration). ![低振动DJI F450 - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
+DJI F450 框架 (良好振动)。 ![低振动DJI F450 - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
-> **Note** Above you can see the blade passing frequency of the propellers at around 100 Hz.
+> **注意** 您可以在大约 100 Hz 上看到双向旋转频率。
 
-S500 frame: ![低振动DJI F500 - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
+S500 框架： ![低振动DJI F500 - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
 
 #### 例子：不好的振动
 
-The strong yellow lines at around 100Hz indicate a potential issue that requires further investigation (starting with a review of the other charts).
+100Hz 左右的强黄线表明了一个潜在的问题，需要进一步研究 (首先查看其他图表)。
 
 ![光谱密度图中的高振动](../../assets/flight_log_analysis/flight_review/vibrations_too_high_spectral.png)
 
-This plot below shows a peak in frequency close to 50 Hz (in this case due to "loose" landing gear).
+这个例子显示了频率峰值接近 50 Hz (这是由于起落架“松动“”引起的情况)。
 
 > **Tip** This indicates a possible problem because it is a strong single low frequency that is close to the vehicle dynamics. With the default filter settings of 80 Hz vibrations at 50 Hz will not be filtered.
 
