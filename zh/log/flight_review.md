@@ -132,23 +132,23 @@ DJI F450 框架 (良好振动)。 ![低振动 DJI F450 - FFT 绘图. 绘图](../
 #### 例子：不好的振动
 
 <span id="raw_acc_s500"></span>
-S500 框架： Borderline vibration levels - a bit high for x and y (which is typical for an S500 airframe). This is at the limit where it starts to negatively affect flight performance.
+S500 框架： x 和 y 轴的边界振动水平有点高 (这是典型的S500机身)。 这是它开始对飞行性能产生负面影响的极限。
 
 ![Borderline 振动 S500 x, y - 原始加速。 绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
 
-Vibration too high. Note how the graph of the z-axis overlaps with the x/y-axis graph:
+振动太高。 注意 z 轴与 x/y 轴重叠的图形：
 
 ![在着陆设备中振动 - FFT 绘图. 绘图](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_accel.png)
 
-Vibration levels are too high. Note how the graph of the z-axis overlaps with the x/y-axis graph:
+振动太高。 注意 z 轴与 x/y 轴重叠的图形：
 
 ![初始加速度震动大 绘图](../../assets/flight_log_analysis/flight_review/vibrations_too_high_accel.png)
 
-Very high (unsafe) vibration levels.
+高度（不安全）振动。
 
-> **Warning** You should not fly with such high vibration levels.
+> **警告** 如此高的振动下不能飞行。
 
-![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
+![初始加速度振动极高 绘图](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
 ### 解决方案
 
@@ -168,7 +168,7 @@ Solutions and steps to reduce vibrations include:
 
 The *Actuator Outputs* graph shows the signals that are sent to the individual actuators (motors/servos). Generally it is in the range between the minimum and maximum configured PWM values (e.g. from 1000 to 2000).
 
-This is an example for a quadrotor where everything is OK (all of the signals are within the range, approximately overlap each other, and are not too noisy): ![Good actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
+This is an example for a quadrotor where everything is OK (all of the signals are within the range, approximately overlap each other, and are not too noisy): ![好的制动器输出](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
 
 The plot can help to identify different problems:
 
@@ -176,9 +176,9 @@ The plot can help to identify different problems:
 - For a multicopter the plot can be a good indication if the vehicle is **imbalanced**. It shows in the plot that one or more neighboring motors (two in case of a quadrotor) need to run at higher thrust on average. Note that this can also be the case if some motors provide more thrust than others or the ESCs are not calibrated. An imbalanced vehicle is generally not a big problem as the autopilot will automatically account for it. However it reduces the maximum achievable thrust and puts more strain on some motors, so it is better to balance the vehicle.
 - An imbalance can also come from the yaw axis. The plot will look similar as in the previous case, but opposite motors will run higher or lower respectively. The cause is likely that one or more motors are tilted.
     
-    This is an example from a hexarotor: motors 1, 3 and 6 run at higher thrust: ![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
+    This is an example from a hexarotor: motors 1, 3 and 6 run at higher thrust: ![十六进制致动器输出不平衡](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
 
-- If the signals look very **noisy** (with high amplitudes), it can have two causes: sensor noise or vibrations passing through the controller (this shows up in other plots as well, see previous section) or too high PID gains. This is an extreme example: ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
+- If the signals look very **noisy** (with high amplitudes), it can have two causes: sensor noise or vibrations passing through the controller (this shows up in other plots as well, see previous section) or too high PID gains. This is an extreme example: ![嘈杂的致动器输出 - 极端情况](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
 
 ## GPS 不确定性
 
@@ -199,15 +199,15 @@ The **jamming indicator** should be around or below 40. Values around 80 or high
 
 This is an example without any interference:
 
-![GPS jamming - good plot](../../assets/flight_log_analysis/flight_review/gps_jamming_good.png)
+![GPS 干扰 - 好的绘图](../../assets/flight_log_analysis/flight_review/gps_jamming_good.png)
 
 ## 推力和磁场字段
 
 The *Thrust and Magnetic Field* plot shows the thrust and the norm of the magnetic sensor measurement vector.
 
-The norm should be constant over the whole flight and uncorrelated with the thrust. This is a good example where the norm is very close to constant: ![Thrust and mag close to constant](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
+The norm should be constant over the whole flight and uncorrelated with the thrust. This is a good example where the norm is very close to constant: ![红色和磁力接近常量](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
 
-*If it is correlated*, it means that the current drawn by the motors (or other consumers) is influencing the magnetic field. This must be avoided as it leads to incorrect yaw estimation. The following plot shows a strong correlation between the thrust and the norm of the magnetometer: ![Correlated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
+*If it is correlated*, it means that the current drawn by the motors (or other consumers) is influencing the magnetic field. This must be avoided as it leads to incorrect yaw estimation. The following plot shows a strong correlation between the thrust and the norm of the magnetometer: ![相关推力和重力](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
 
 Solutions to this are:
 
@@ -216,17 +216,17 @@ Solutions to this are:
 
 If the norm is uncorrelated but not constant, most likely it is not properly calibrated. However it could also be due to external disturbances (for example when flying close to metal constructs).
 
-This example shows that the norm is non-constant, but it does not correlate with the thrust: ![Uncorrelated thrust and mag](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
+This example shows that the norm is non-constant, but it does not correlate with the thrust: ![不相关推力和重力](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
 
 ## 估计器看门狗
 
 The *Estimator Watchdog* plot shows the health report of the estimator. It should be constant zero.
 
-This is what it should look like if there are no problems: ![Estimator watchdog - good](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
+This is what it should look like if there are no problems: ![估计或观察员 - 良好](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
 
 If one of the flags is non-zero, the estimator detected a problem that needs to be further investigated. Most of the time it is an issue with a sensor, for example magnetometer interferences. It usually helps to look at the plots of the corresponding sensor. <!-- TODO: separate page for estimator issues? -->
 
-Here is an example with magnetometer problems: ![Estimator watchdog with magnetometer problems](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
+Here is an example with magnetometer problems: ![带有磁强计问题的估计或监视器](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
 
 ## 传感器数据的采样规律性
 
@@ -240,17 +240,17 @@ The **delta t** shows the time difference between two logged IMU samples. It sho
 
 The **estimator timeslip** shows the difference between the current time and the time of the integrated sensor intervals up to that time. If it changes it means either the estimator missed sensor data or the driver publishes incorrect integration intervals. It should stay at zero, but it can increase slightly for in-flight parameter changes, which is generally not an issue.
 
-This is a good example: ![Sampling regularity good](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
+This is a good example: ![采样规范良好](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
 
 The following example contains too many dropouts, the quality of the used SD card was too low in that case (see [here](http://dev.px4.io/en/log/logging.html#sd-cards) for good SD cards):
 
-![Many Dropouts](../../assets/flight_log_analysis/flight_review/sampling_regularity_many_drops.png)
+![太多丢帧](../../assets/flight_log_analysis/flight_review/sampling_regularity_many_drops.png)
 
 ## 日志报文
 
 This is a table with system error and warning messages. For example they show when a task becomes low on stack size.
 
-The messages need to be examined individually, and not all of them indicate a problem. For example the following shows a kill-switch test: ![Logged Messages](../../assets/flight_log_analysis/flight_review/logged_messages.png)
+The messages need to be examined individually, and not all of them indicate a problem. For example the following shows a kill-switch test: ![日志和消息](../../assets/flight_log_analysis/flight_review/logged_messages.png)
 
 ## Flight/Frame Log Review Examples
 
@@ -268,11 +268,11 @@ They show a vehicle that has very low vibration:
 - Spectral density is mostly green, with only a little yellow at the low frequencies.
 - Raw Acceleration has z-axis trace well separated from the x/y-axis traces.
 
-![Low vibration QAV-R 5 Racer - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
+![低振动 QAV-R 5 Racer - FFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
-![Low vibration QAV-R 5 Racer - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png)
+![低振动 QAV-R 5 Racer - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png)
 
-![Low vibration QAV-R 5 Racer - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
+![低振动 QAV-R 5 Racer - 原始加速。 绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
 
 ### DJI F450
 
@@ -284,11 +284,11 @@ They show a vehicle that has low vibration (but not as low as the QAV-R above!):
 - Spectral density is mostly green. The blade passing frequency is again visible.
 - Raw Acceleration has z-axis trace well separated from the x/y-axis traces.
 
-![Low vibration DJI F450 - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
+![低振动 DJI F450 - FFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
 
-![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
+![低振动DJI F450 - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
-![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
+![低振动 DJI F450 - 原始加速。 绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
 ### S500
 
@@ -300,7 +300,7 @@ They show a vehicle that has borderline-acceptable vibration:
 - Spectral density is mostly green, but more yellow than for the DJI F450 at 100Hz.
 - Raw Acceleration has z-axis trace fairly close to the x/y-axis traces. This is at the limit where it starts to negatively affect flight performance.
 
-![Low vibration S500 actuator controls - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
+![低振动S500启动器控制 - FFFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
 ![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
 
