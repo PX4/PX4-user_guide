@@ -101,38 +101,38 @@ S500 框架： ![低振动DJI F500 - 光谱密度绘图](../../assets/flight_log
 
 这个例子显示了频率峰值接近 50 Hz (这是由于起落架“松动“”引起的情况)。
 
-> **Tip** This indicates a possible problem because it is a strong single low frequency that is close to the vehicle dynamics. With the default filter settings of 80 Hz vibrations at 50 Hz will not be filtered.
+> **Tip** 这可能是一个问题，因为它是一个与车辆动力学强相关的低频信息。 由于默认过滤器设置，50 到 80 Hz 的振动将不会被过滤。
 
 ![在着陆设备中振动 - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_spectral.png)
 
-Extremely high (unsafe) vibration! Note that the graph is almost completely yellow.
+非常高（不安全）振动！ 注意图表几乎完全黄色。
 
-> **Warning** You should not fly with such high vibration levels.
+> **警告** 如此高的振动下不能飞行。
 
 ![光谱密度图中的高振动](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_spectral.png)
 
 ### 原始加速度
 
-This graph shows the raw accelerometer measurements for the x, y and z axis. Ideally each line is thin and clearly shows the vehicle's accelerations.
+此图展示了x、y 和 z 轴的原加速计测量。 理想情况下，每条线都很细，能清楚地显示车辆的加速度。
 
-As a rule of thumb if the z-axis graph is touching the x/y-axis graph during hover or slow flight, the vibration levels are too high.
+根据经验，如果 z 轴图形在悬停或低速飞行时接触 x/y轴 图形，则振动水平太高。
 
-> **Tip** The best way to use this graph is to zoom in a bit to a part where the vehicle is hovering.
+> **Tip** 使用此图的最佳方法是将图像放大一点，使其显示飞行器悬停的部分。
 
 #### 例子：良好的振动
 
-[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
+[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 框架 (极好的振动)。
 
 ![低振动 QAV-R 5 Racer - 原始加速。 绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
 
-DJI F450 frame (good vibration). ![低振动 DJI F450 - FFT 绘图. 绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
+DJI F450 框架 (良好振动)。 ![低振动 DJI F450 - FFT 绘图. 绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
 #### 例子：不好的振动
 
 <span id="raw_acc_s500"></span>
-S500 frame. Borderline vibration levels - a bit high for x and y (which is typical for an S500 airframe). This is at the limit where it starts to negatively affect flight performance.
+S500 框架： Borderline vibration levels - a bit high for x and y (which is typical for an S500 airframe). This is at the limit where it starts to negatively affect flight performance.
 
 ![Borderline 振动 S500 x, y - 原始加速。 绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
 
