@@ -203,34 +203,34 @@ GPS 噪声与放大器干扰图是检测 GPS 信号干扰和干扰的有效手�
 
 ## 推力和磁场
 
-The *Thrust and Magnetic Field* plot shows the thrust and the norm of the magnetic sensor measurement vector.
+*阈值和磁力字段* 图给出了磁传感器测量矢量的推力和范数。
 
-The norm should be constant over the whole flight and uncorrelated with the thrust. This is a good example where the norm is very close to constant: ![红色和磁力接近常量](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
+在整个飞行过程中，标准应该是恒定的，与推力无关。 这是一个很好的例子，范数非常接近于常数： ![红色和磁力接近常量](../../assets/flight_log_analysis/flight_review/thrust_and_mag_good.png)
 
-*If it is correlated*, it means that the current drawn by the motors (or other consumers) is influencing the magnetic field. This must be avoided as it leads to incorrect yaw estimation. The following plot shows a strong correlation between the thrust and the norm of the magnetometer: ![相关推力和重力](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
+*如果相关*，这意味着电机(或其他用户) 所吸引的电流正在影响磁场。 必须避免这种情况，因为这会导致不正确的偏航估计。 下图显示了推力与磁强计范数之间的强相关性: ![相关推力和重力](../../assets/flight_log_analysis/flight_review/thrust_and_mag_correlated.png)
 
-Solutions to this are:
+解决办法是：
 
-- Use an external magnetometer (avoid using the internal magnetometer)
-- If using an external magnetometer, move it further away from strong currents (i.e. by using a (longer) GPS mast).
+- 使用外部磁强计 (避免使用内部磁强计)
+- 如果使用外部磁强计，将其移到离强电流较远的地方(例如，使用 (较长的) GPS 天线)。
 
-If the norm is uncorrelated but not constant, most likely it is not properly calibrated. However it could also be due to external disturbances (for example when flying close to metal constructs).
+如果标准是不相关的，但不是恒定的，很可能它没有被正确校准。 然而，这也可能是由于外部动乱造成的（例如，在靠近金属结构时)。
 
-This example shows that the norm is non-constant, but it does not correlate with the thrust: ![不相关推力和重力](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
+这个例子表明范数不是常量，但它与推力无关: ![不相关推力和重力](../../assets/flight_log_analysis/flight_review/thrust_and_mag_uncorrelated_problem.png)
 
 ## 估计器看门狗
 
-The *Estimator Watchdog* plot shows the health report of the estimator. It should be constant zero.
+*估计或观察狗* 绘图显示了估计器的健康报告。 它应该是零常量。
 
-This is what it should look like if there are no problems: ![估计或观察员 - 良好](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
+如果没有问题，它应该是这样的: ![估计或观察员 - 良好](../../assets/flight_log_analysis/flight_review/estimator_watchdog_good.png)
 
-If one of the flags is non-zero, the estimator detected a problem that needs to be further investigated. Most of the time it is an issue with a sensor, for example magnetometer interferences. It usually helps to look at the plots of the corresponding sensor. <!-- TODO: separate page for estimator issues? -->
+如果其中一个标志是非零的，则估计器将检测到需要进一步研究的问题。 其中大多数时间是由传感器引起的问题，例如磁强计干扰。 它通常有助于观察相应传感器的图形。 <!-- TODO: separate page for estimator issues? -->
 
-Here is an example with magnetometer problems: ![带有磁强计问题的估计或监视器](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
+这里是一个包含磁强计问题的例子： ![带有磁强计问题的估计或监视器](../../assets/flight_log_analysis/flight_review/estimator_watchdog_mag_problem.png)
 
 ## 传感器数据的采样规律性
 
-The sampling regularity plot provides insights into problems with the logging system and scheduling.
+采样规律性图为测井系统和调度问题提供了深入的见解。
 
 The amount of **logging dropouts** start to increase if the log buffer is too small, the logging rate is too high or a low-quality SD card is used.
 
