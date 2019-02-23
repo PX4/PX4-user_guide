@@ -187,21 +187,21 @@ The plot can help to identify different problems:
 - 使用卫星的数目 (应大约或多余 12 个)
 - 水平位置精确度（应小于 1 米）
 - 垂直位置精确度 (应小于 2 米)
-- GPS fix: this is 3 for a 3D GPS fix, 5 for RTK float and 6 for RTK fixed type
+- GPS 校正：3D GPS 校正值是 3，浮动 RTK 是 5，固定 RTK 是 6
 
 ## GPS 噪声和干扰
 
-The GPS Noise & Jamming plot is useful to check for GPS signal interferences and jamming. The GPS signal is very weak and thus it can easily be disturbed/jammed by components transmitting (via cable) or radiating in a frequency used by the GPS.
+GPS 噪声与放大器干扰图是检测 GPS 信号干扰和干扰的有效手段。 GPS 信号非常弱，因此很容易被 (通过电缆) 发射或以 GPS 使用的频率辐射的组件干扰/拥塞。
 
-> **Tip** USB 3 is [known to be](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html) an effective GPS jamming source.
+> **Tip** USB 3 是[已知](https://www.intel.com/content/www/us/en/io/universal-serial-bus/usb3-frequency-interference-paper.html)的 GPS 干扰源。
 
-The **jamming indicator** should be around or below 40. Values around 80 or higher are too high and the setup must be inspected. Signal interference is also noticeable as reduced accuracy and lower number of satellites up to the point where no GPS fix is possible.
+**干扰指标** 应在 40 以下左右。 当约为 80 或者更高的值时，必须检查设置。 信号干扰也很明显，因为精度降低，卫星数量减少，直到无法进行 GPS 定位。
 
-This is an example without any interference:
+这是一个没有任何干扰的例子：
 
 ![GPS 干扰 - 好的绘图](../../assets/flight_log_analysis/flight_review/gps_jamming_good.png)
 
-## 推力和磁场字段
+## 推力和磁场
 
 The *Thrust and Magnetic Field* plot shows the thrust and the norm of the magnetic sensor measurement vector.
 
