@@ -152,21 +152,21 @@ S500 框架： x 和 y 轴的边界振动水平有点高 (这是典型的S500机
 
 ### 解决方案
 
-Often a source of vibration cannot be identified from a log alone and the vehicle needs to be inspected. There can be a combination of multiple sources.
+通常情况下，单靠计程仪无法识别振动源，需要对车辆进行检查。 可以结合多种来源。
 
-Solutions and steps to reduce vibrations include:
+减少振动的解决办法和步骤包括：
 
-- Make sure everything is firmly attached on the vehicle (landing gear, GPS mast, etc.)
-- Use balanced propellers.
-- Make sure to use high-quality components for the propellers, motors, ESC and airframe. Each of these components can make a big difference.
-- Use a vibration-isolation method to mount the autopilot.
-- As a *last* measure, adjust the software filters (see [here](../config_mc/racer_setup.md#filters)). It is better to reduce the source of vibrations, rather than filtering them out in software.
+- 确保所有东西都牢固地附着在飞机上 (起落架、GPS 天线等)。
+- 使用平衡螺旋桨。
+- 确保使用高质量的螺旋桨、发动机、ESC 和机身。 这些组成部分中的每一个都有很大的不同。
+- 使用隔振方法安装自动驾驶仪。
+- *最后* 一个措施，调整软件过滤器 (见[ 这里](../config_mc/racer_setup.md#filters))。 最好是减少振动源，而不是在软件中过滤。
 
 <!-- TODO: write a separate vibration setup page in more depth, move some of this there and link to it from here -->
 
 ## 制动器输出
 
-The *Actuator Outputs* graph shows the signals that are sent to the individual actuators (motors/servos). Generally it is in the range between the minimum and maximum configured PWM values (e.g. from 1000 to 2000).
+*执行器输出*图显示发送到各个执行器 (电机/伺服) 的信号。 Generally it is in the range between the minimum and maximum configured PWM values (e.g. from 1000 to 2000).
 
 This is an example for a quadrotor where everything is OK (all of the signals are within the range, approximately overlap each other, and are not too noisy): ![好的制动器输出](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
 
@@ -236,13 +236,13 @@ GPS 噪声与放大器干扰图是检测 GPS 信号干扰和干扰的有效手�
 
 > **注意** 在中质量卡上预计会出现偶然丢帧。
 
-The **delta t** shows the time difference between two logged IMU samples. It should be close to 4 ms because the data publishing rate is 250Hz. If there are spikes that are a multiple of that (and the estimator time slip does not increase), it means the logger skipped some samples. Occasionally this can happen because the logger runs at lower priority. If there are spikes that are not a multiple, it indicates an irregular sensor driver scheduling, which needs to be investigated.
+**delta t** 表示两个记录 IMU 样本之间的时间差。 它应该接近 4 毫秒，因为数据发布率为 250Hz。 如果峰值是该值的倍数(并且估计器时间滑移不增加)，则意味着记录器跳过了一些样本。 有时会发生这种情况，因为日志程序以较低的优先级运行。 如果峰值不是多个，则表示传感器驱动程序调度不规律，需要进行研究。
 
-The **estimator timeslip** shows the difference between the current time and the time of the integrated sensor intervals up to that time. If it changes it means either the estimator missed sensor data or the driver publishes incorrect integration intervals. It should stay at zero, but it can increase slightly for in-flight parameter changes, which is generally not an issue.
+由 **估计器时间戳** 可以看出在此时间之前，当前时间与集成传感器间隔时间的差异。 如果它改变了，这意味着要么估计器遗漏了传感器数据，要么驱动程序发布了不正确的集成间隔。 它应该保持在零，但它可以稍微增加飞行参数的变化，这通常不是一个问题。
 
-This is a good example: ![采样规范良好](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
+这是一个很好的例子： ![采样规范良好](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
 
-The following example contains too many dropouts, the quality of the used SD card was too low in that case (see [here](http://dev.px4.io/en/log/logging.html#sd-cards) for good SD cards):
+下面的例子中有太多的掉帧，这种情况下使用的 SD 卡质量太低了 (高质量 SD 卡的例子看[这里](http://dev.px4.io/en/log/logging.html#sd-cards)):
 
 ![太多丢帧](../../assets/flight_log_analysis/flight_review/sampling_regularity_many_drops.png)
 
