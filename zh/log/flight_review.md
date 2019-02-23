@@ -260,7 +260,7 @@ The section below groups a few (previously presented) charts by flight/vehicle.
 
 ### QAV-R 5" Racer
 
-These charts are all from the same flight of a [QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md). <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
+这些图表都来自同一架 [QAV-R 5"Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 的飞行。 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
 They show a vehicle that has very low vibration:
 
@@ -276,13 +276,13 @@ They show a vehicle that has very low vibration:
 
 ### DJI F450
 
-These charts are all from the same flight of a *DJI F450*. <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
+这些图表都来自同一架 *DJI F450* 的飞行。 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-They show a vehicle that has low vibration (but not as low as the QAV-R above!):
+他们展示了一种低振动的车辆（但不像上面的 QAV-R 那么低！）
 
-- Actuator Controls FFT shows a peak at the lowest end. Most of the rest is flat, except for a bump at around 100Hz (this is the blade passing frequency of the propellers).
-- Spectral density is mostly green. The blade passing frequency is again visible.
-- Raw Acceleration has z-axis trace well separated from the x/y-axis traces.
+- 致动器控制FFT在最底层显示峰值。 其余的大部分是平的，除了在 100Hz 左右有一个凸起 (这是螺旋桨的叶片通过频率) 。
+- 光谱密度大多为绿色。 叶片通过频率再次可见。
+- 原始加速度的 z 轴轨迹与 x/y 轴轨迹很好地分离开了。
 
 ![低振动 DJI F450 - FFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
 
@@ -292,16 +292,16 @@ They show a vehicle that has low vibration (but not as low as the QAV-R above!):
 
 ### S500
 
-These charts are all from the same flight of an S500.
+这些图表都来自同一架 S500 的飞行。
 
-They show a vehicle that has borderline-acceptable vibration:
+它们显示这些飞机的边界振动可以接受：
 
-- Actuator Controls FFT shows a peak at the lowest end. Most of the rest is flat, except for a bump at around 100Hz.
-- Spectral density is mostly green, but more yellow than for the DJI F450 at 100Hz.
-- Raw Acceleration has z-axis trace fairly close to the x/y-axis traces. This is at the limit where it starts to negatively affect flight performance.
+- 致动器控制FFT在最底层显示峰值。 其余大部分都是平的，除了在 100Hz 左右有一个突起。
+- 光谱密度大多为绿色，但比DJI F450 在 100Hz 时更黄。
+- 原始加速度的 z 轴轨迹与 x/y 轴轨迹非常接近。 这是它开始对飞行性能产生负面影响的极限。
 
 ![低振动S500启动器控制 - FFFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
-![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
+![振动 S500 - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
 
-![Borderline vibration S500 x, y - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
+![Borderline 振动 S500 x, y - 原始加速。 绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
