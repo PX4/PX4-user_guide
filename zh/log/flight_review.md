@@ -182,11 +182,11 @@ The plot can help to identify different problems:
 
 ## GPS 不确定性
 
-The *GPS Uncertainty* plot shows information from the GPS device:
+*GPS 不确定性* 图显示 GPS 设备信息:
 
-- Number of used satellites (should be around 12 or higher)
-- Horizontal position accuracy (should be below 1 meter)
-- Vertical position accuracy (should be below 2 meters)
+- 使用卫星的数目 (应大约或多余 12 个)
+- 水平位置精确度（应小于 1 米）
+- 垂直位置精确度 (应小于 2 米)
 - GPS fix: this is 3 for a 3D GPS fix, 5 for RTK float and 6 for RTK fixed type
 
 ## GPS 噪声和干扰
@@ -248,25 +248,25 @@ The following example contains too many dropouts, the quality of the used SD car
 
 ## 日志报文
 
-This is a table with system error and warning messages. For example they show when a task becomes low on stack size.
+这是一个带有系统错误和预警信息的表格。 例如，当一个任务的堆栈大小变小时，它们就会显示出来。
 
-The messages need to be examined individually, and not all of them indicate a problem. For example the following shows a kill-switch test: ![日志和消息](../../assets/flight_log_analysis/flight_review/logged_messages.png)
+需要单独审查这些信息，而不是所有这些信息都显示了一个问题。 例如，以下显示了安全开关的测试： ![日志和消息](../../assets/flight_log_analysis/flight_review/logged_messages.png)
 
-## Flight/Frame Log Review Examples
+## 飞行/帧 日志审查实例
 
-It is often worth looking at multiple charts for a particular flight when analyzing vehicle condition (different charts can better highlight some issues). This is particularly important when reviewing for possible vibration problems.
+在分析车辆状况时，通常值得查看多个飞行图表(不同的图表可以更好地突出某些问题)。 在审查可能的振动问题时，这一点尤其重要。
 
-The section below groups a few (previously presented) charts by flight/vehicle.
+下一节按飞行/车辆将一些（以前提出的）图表分组。
 
 ### QAV-R 5" Racer
 
 这些图表都来自同一架 [QAV-R 5"Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 的飞行。 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-They show a vehicle that has very low vibration:
+它们展示了一种振动很低的飞行器:
 
-- Actuator Controls FFT shows only a single peak at the lowest end, with the rest low and flat.
-- Spectral density is mostly green, with only a little yellow at the low frequencies.
-- Raw Acceleration has z-axis trace well separated from the x/y-axis traces.
+- 致动器控制 FFT 显示，只在结束部分有一个最低的峰值，剩下的地方都很低且平坦。
+- 谱密度大多为绿色，低频率只有很小的黄色。
+- 原始加速度的 z 轴轨迹与 x/y 轴轨迹很好地分离开了。
 
 ![低振动 QAV-R 5 Racer - FFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
