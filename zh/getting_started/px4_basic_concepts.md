@@ -30,9 +30,9 @@ PX4 的一些主要功能包括：
 
 ## QGroundControl {#qgc}
 
-Dronecode地面控制站称为[ QGroundControl ](http://qgroundcontrol.com/)。 您可以使用* QGroundControl *将（闪存）PX4 加载到[飞行器控制硬件上](flight_controller_selection.md)，您可以设置飞行器，更改不同参数，获取实时航班信息以及创建和执行完全自主的任务。
+Dronecode地面控制站称为[ QGroundControl ](http://qgroundcontrol.com/)。 您可以使用* QGroundControl *将（闪存）PX4 加载到[飞行器控制硬件上](flight_controller_selection.md)，您可以设置飞行器，更改不同参数，获取实时飞行信息以及创建和执行完全自主的任务。
 
-* QGroundControl *在 Windows，Android，MacOS 或 Linux 上运行。 从[这里](http://qgroundcontrol.com/downloads/)下载并安装。
+* QGroundControl *可以在 Windows，Android，MacOS 或 Linux 上运行。 从[这里](http://qgroundcontrol.com/downloads/)下载并安装。
 
 ![QGC 主屏幕](../../images/qgc_main_screen.jpg)
 
@@ -40,11 +40,11 @@ Dronecode地面控制站称为[ QGroundControl ](http://qgroundcontrol.com/)。 
 
 PX4最初设计为在 [ Pixhawk Series ](../flight_controller/pixhawk_series.md)控制器上运行，但现在可以在 Linux 计算机和其他硬件上运行。 选择飞行控制板时，您应当考虑飞行器的物理尺寸限制，想要执行的活动，还有必不可少的成本。
 
-有关更多信息，请参阅：[飞行控制器选择](flight_controller_selection.md)。
+更多信息，请参阅：[飞行控制器选择](flight_controller_selection.md)。
 
 ## 传感器
 
-PX4 使用传感器来确定飞行器状态（稳定和启用自动控制所需）。 系统*最低要求 *陀螺仪，加速度计，磁力计（罗盘）和气压计。 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 固定翼和 VTOL 飞行器还应包括空速传感器（特别推荐）。
+PX4 使用传感器来确定飞行器状态（稳定和启用自动控制所需）。 系统*最低要求 *陀螺仪，加速度计，磁力计（罗盘）和气压计。 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 固定翼和 VTOL 飞行器还应包括空速传感器（强烈推荐）。
 
 有关详细信息，请参阅︰
 
