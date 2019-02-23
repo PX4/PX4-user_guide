@@ -232,9 +232,9 @@ GPS 噪声与放大器干扰图是检测 GPS 信号干扰和干扰的有效手�
 
 采样规律性图为测井系统和调度问题提供了深入的见解。
 
-The amount of **logging dropouts** start to increase if the log buffer is too small, the logging rate is too high or a low-quality SD card is used.
+如果日志缓冲区太小，日志速度太高，或者使用低质量的 SD 卡，则**日志丢失**的数量会增加。
 
-> **Note** Occasional dropouts can be expected on medium quality cards.
+> **注意** 在中质量卡上预计会出现偶然丢帧。
 
 The **delta t** shows the time difference between two logged IMU samples. It should be close to 4 ms because the data publishing rate is 250Hz. If there are spikes that are a multiple of that (and the estimator time slip does not increase), it means the logger skipped some samples. Occasionally this can happen because the logger runs at lower priority. If there are spikes that are not a multiple, it indicates an irregular sensor driver scheduling, which needs to be investigated.
 
