@@ -166,19 +166,19 @@ S500 框架： x 和 y 轴的边界振动水平有点高 (这是典型的S500机
 
 ## 制动器输出
 
-*执行器输出*图显示发送到各个执行器 (电机/伺服) 的信号。 Generally it is in the range between the minimum and maximum configured PWM values (e.g. from 1000 to 2000).
+*执行器输出*图显示发送到各个执行器 (电机/伺服) 的信号。 一般来说，它在最小和最大配置 PWM 值之间(例如，从 1000 到 2000)。
 
-This is an example for a quadrotor where everything is OK (all of the signals are within the range, approximately overlap each other, and are not too noisy): ![好的制动器输出](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
+这是一个四旋翼的例子，一切正常 (所有信号都在范围内，近似重叠，没有太大的噪声): ![好的制动器输出](../../assets/flight_log_analysis/flight_review/actuator_outputs_good.png)
 
-The plot can help to identify different problems:
+这个图可以帮助识别不同的问题:
 
-- If one or more of the signals is at the maximum over a longer time, it means the controller runs into **saturation**. It is not necessarily a problem, for example when flying at full throttle this is expected. But if it happens for example during a mission, it's an indication that the vehicle is overweight for the amount of thrust that it can provide.
-- For a multicopter the plot can be a good indication if the vehicle is **imbalanced**. It shows in the plot that one or more neighboring motors (two in case of a quadrotor) need to run at higher thrust on average. Note that this can also be the case if some motors provide more thrust than others or the ESCs are not calibrated. An imbalanced vehicle is generally not a big problem as the autopilot will automatically account for it. However it reduces the maximum achievable thrust and puts more strain on some motors, so it is better to balance the vehicle.
-- An imbalance can also come from the yaw axis. The plot will look similar as in the previous case, but opposite motors will run higher or lower respectively. The cause is likely that one or more motors are tilted.
+- 如果一个或多个信号在较长时间内处于最大值，则意味着控制器运行到**饱和**。 这并不一定是一个问题，例如在全速飞行时，这是意料之中的。 但如果它发生了，例如在一次任务中，这是一个信号，表明飞行器超重，无法提供足够的推力。
+- 对于多机来说，如果飞行器**不平衡**，这张图可以很好地显示。 它在图中显示，一个或多个相邻的电机 (一个四旋翼的情况下是两个) 平均需要以更高的推力运行。 请注意，如果某些电机提供的推力大于其他电机，或者 ESCs 没有经过校准，也可能出现这种情况。 一个不平衡的车辆通常不是一个大问题，因为自动驾驶仪将自动解释它。 然而，它减少了最大的可实现的推力，并会给一些电机带来更大的压力，因此，飞机最好是平衡的。
+- 不平衡也有可能来自偏航的轴心。 这图与前一种情况类似，但是相反的电机将分别运行得更高或更低。 原因可能是一个或多个电机倾斜。
     
-    This is an example from a hexarotor: motors 1, 3 and 6 run at higher thrust: ![十六进制致动器输出不平衡](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
+    这是一个六轴电机的例子：电机 1、3 和 6 运行的推力更高： ![十六进制致动器输出不平衡](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
 
-- If the signals look very **noisy** (with high amplitudes), it can have two causes: sensor noise or vibrations passing through the controller (this shows up in other plots as well, see previous section) or too high PID gains. This is an extreme example: ![嘈杂的致动器输出 - 极端情况](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
+- 如果信号看起来非常**嘈杂** (具有高振幅) ，它可能有两个原因: 传感器噪声或通过控制器的振动 (这在其他图中也显示出来，见上一节) 或 PID 增益过高。 这是一个极端的例子： ![嘈杂的致动器输出 - 极端情况](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
 
 ## GPS 不确定性
 
