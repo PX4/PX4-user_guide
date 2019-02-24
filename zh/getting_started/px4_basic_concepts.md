@@ -38,7 +38,7 @@ Dronecode地面控制站称为[ QGroundControl ](http://qgroundcontrol.com/)。 
 
 ## 设备/飞行控制板 {#vehicle_controller}
 
-PX4最初设计为在 [ Pixhawk Series ](../flight_controller/pixhawk_series.md)控制器上运行，但现在可以在 Linux 计算机和其他硬件上运行。 选择飞行控制板时，您应当考虑飞行器的物理尺寸限制，想要执行的活动，还有必不可少的成本。
+PX4最初设计为在 [Pixhawk Series](../flight_controller/pixhawk_series.md) 控制器上运行，但现在可以在 Linux 计算机和其他硬件上运行。 选择飞行控制板时，您应当考虑飞行器的物理尺寸限制，想要执行的活动，还有必不可少的成本。
 
 更多信息，请参阅：[飞行控制器选择](flight_controller_selection.md)。
 
