@@ -18,14 +18,14 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 根据您想要实现的目标，以下提示将帮助您浏览本指南：
 
-**I already have a drone and I just want to fly:**
+**我已经有了一架飞机，我想让它飞起来：**
 
 如果您有支持 PX4 的到手飞（RTF）的飞行器：
 
 - [基本配置](config/README.md) 解释了如何将固件更新到最新版本，校准主传感器（罗盘、陀螺仪、空速等），以及如何设置遥控器和安全功能。
 - [飞行](flying/README.md) 教授飞行要领，包括安全飞行的地点和方式，以及如何调试解锁和飞行问题。 同样提供了关于飞行模式的详细信息。
 
-**I want to build a drone with PX4 from scratch:**
+**我想从头开始组装一架使用 PX4 的飞机：**
 
 > **Tip** 支持的飞行器列举在 [机架参考](airframes/airframe_reference.md)。 下载使用 *QGroundControl*，其中已经有很多测试过和调试好参数的机型。
 
