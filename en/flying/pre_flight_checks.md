@@ -48,6 +48,13 @@ The following errors (with associated checks and parameters) are reported by the
 * This check only applies to boards with more than one IMU.
 * The check is controlled by the [COM_ARM_IMU_GYR](../advanced_config/parameter_reference.md#COM_ARM_IMU_GYR) parameter.
 
+`PREFLIGHT FAIL: COMPASS SENSORS INCONSISTENT - CHECK CALIBRATION`:
+* This error message is produced when measurments from different compass sensors is too great.
+* It indicates bad calibration, orientation or magnetic interference.
+* This check only applies to when more than one compass/magnetometer is connected.
+* The check is controlled by the [COM_ARM_MAG](../advanced_config/parameter_reference.md#COM_ARM_MAG) parameter.
+* In addition to calibration, you might disable the internal compass using [CAL_MAG0_EN](https://docs.px4.io/en/advanced_config/parameter_reference.html#CAL_MAG0_EN).
+
 `PREFLIGHT FAIL: EKF INTERNAL CHECKS`:
 * This error message is generated if the innovation magnitudes of either the horizontal GPS velocity, magnetic yaw, vertical GPS velocity or vertical position sensor (Baro by default but could be range finder or GPS if non-standard parameters are being used) are excessive. Innovations are the difference between the value predicted by the inertial navigation calculation and measured by the sensor.
 * Users should check the innovation levels in the log file to determine the cause. These can be found under the `ekf2_innovations` message. 
