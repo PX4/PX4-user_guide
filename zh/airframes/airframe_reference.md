@@ -1280,7 +1280,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1304,6 +1304,22 @@
       <p>
         <code>SYS_AUTOSTART</code> = 3000
       </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: left aileron
+          </li>
+          <li>
+            <b>MAIN2</b>: right aileron
+          </li>
+          <li>
+            <b>MAIN4</b>: throttle
+          </li>
+        </ul>
+      </p>
     </td>
   </tr>
   
@@ -1319,6 +1335,22 @@
       
       <p>
         <code>SYS_AUTOSTART</code> = 3030
+      </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: left aileron
+          </li>
+          <li>
+            <b>MAIN2</b>: right aileron
+          </li>
+          <li>
+            <b>MAIN4</b>: throttle
+          </li>
+        </ul>
       </p>
     </td>
   </tr>
@@ -1336,6 +1368,22 @@
       <p>
         <code>SYS_AUTOSTART</code> = 3031
       </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: left aileron
+          </li>
+          <li>
+            <b>MAIN2</b>: right aileron
+          </li>
+          <li>
+            <b>MAIN4</b>: throttle
+          </li>
+        </ul>
+      </p>
     </td>
   </tr>
   
@@ -1351,6 +1399,22 @@
       
       <p>
         <code>SYS_AUTOSTART</code> = 3032
+      </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: left aileron
+          </li>
+          <li>
+            <b>MAIN2</b>: right aileron
+          </li>
+          <li>
+            <b>MAIN4</b>: throttle
+          </li>
+        </ul>
       </p>
     </td>
   </tr>
@@ -1368,6 +1432,22 @@
       <p>
         <code>SYS_AUTOSTART</code> = 3033
       </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: left aileron
+          </li>
+          <li>
+            <b>MAIN2</b>: right aileron
+          </li>
+          <li>
+            <b>MAIN4</b>: throttle
+          </li>
+        </ul>
+      </p>
     </td>
   </tr>
   
@@ -1383,6 +1463,22 @@
       
       <p>
         <code>SYS_AUTOSTART</code> = 3034
+      </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: right aileron
+          </li>
+          <li>
+            <b>MAIN2</b>: left aileron
+          </li>
+          <li>
+            <b>MAIN4</b>: throttle
+          </li>
+        </ul>
       </p>
     </td>
   </tr>
@@ -1400,6 +1496,22 @@
       <p>
         <code>SYS_AUTOSTART</code> = 3035
       </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: left aileron
+          </li>
+          <li>
+            <b>MAIN2</b>: right aileron
+          </li>
+          <li>
+            <b>MAIN4</b>: throttle
+          </li>
+        </ul>
+      </p>
     </td>
   </tr>
   
@@ -1415,6 +1527,22 @@
       
       <p>
         <code>SYS_AUTOSTART</code> = 3036
+      </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: left aileron
+          </li>
+          <li>
+            <b>MAIN2</b>: right aileron
+          </li>
+          <li>
+            <b>MAIN4</b>: throttle
+          </li>
+        </ul>
       </p>
     </td>
   </tr>
@@ -1432,6 +1560,22 @@
       <p>
         <code>SYS_AUTOSTART</code> = 3037
       </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: left aileron
+          </li>
+          <li>
+            <b>MAIN2</b>: right aileron
+          </li>
+          <li>
+            <b>MAIN4</b>: throttle
+          </li>
+        </ul>
+      </p>
     </td>
   </tr>
   
@@ -1447,6 +1591,22 @@
       
       <p>
         <code>SYS_AUTOSTART</code> = 3100
+      </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: left aileron
+          </li>
+          <li>
+            <b>MAIN2</b>: right aileron
+          </li>
+          <li>
+            <b>MAIN4</b>: throttle
+          </li>
+        </ul>
       </p>
     </td>
   </tr>
