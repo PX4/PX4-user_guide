@@ -2,7 +2,7 @@
 
 [ BeagleBone Blue ](https://beagleboard.org/blue)은 일체형 Linux 기반 시스템입니다. 로봇 공학용으로 최적화되었지만, 작고 저렴한 이 보드에는 비행 조종사가 필요로 하는 모든 필요한 센서와 주변 장치가 있습니다. 이 항목에서는 [librobotcontrol ](https://github.com/StrawsonDesign/librobotcontrol) 로보틱 패키지로 PX4를 실행하도록 보드를 설정하는 방법을 설명합니다.
 
-![비글본 - 라벨로 표시된 다이어그램](../../assets/hardware/BeagleBone_Blue_balloons.png)
+![비글본 - 라벨로 표시된 다이어그램](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
 
 ## OS Image
 
