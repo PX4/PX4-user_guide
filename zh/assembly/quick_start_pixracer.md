@@ -28,7 +28,7 @@
     
     ![Grau b Pixracer FrSkyS接口连接](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
     
-    ![Pixracer FrSkyS接口连接](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png)
+    ![Pixracer FrSkyS接口连接](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg)
 
 - PPM-SUM 和 S.BUS 接收机连接到 **RCIN** 端口。
     
