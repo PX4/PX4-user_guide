@@ -23,7 +23,7 @@ The Caipiroshka VTOL is a slightly modified TBS Caipirinha.
 
 ## Assembly
 
-The picture below shows an example of how a fully assembled Caipiroshka could look like.
+The picture below shows what a fully assembled Caipiroshka could look like.
 
 ![Caipiroshka](../../assets/airframes/vtol/caipiroshka/caipiroshka.jpg)
 
