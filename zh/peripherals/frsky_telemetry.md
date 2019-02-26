@@ -268,9 +268,10 @@ Lua map of flight modes:
 
 <h2 id="diy_cables">自制转接线缆</h2>
 
-<p>自制连接线缆也是可行的。 您将需要适合你的自驾仪的连接头。比如<em>JST-GH 接头</em>（FMUv3/Pixhawk 2 "The Cube" / FMUv4/PixRacer v1)，以及DF-13兼容<em>PicoBlade接头</em>(FMUv2/3DR Pixhawk, FMUv2/HKPilot32）。</p>
+<p>自制连接线缆也是可行的。
+您将需要适合你的自驾仪的连接头。比如<em>JST-GH 接头</em>（FMUv3/Pixhawk 2 "The Cube" / FMUv4/PixRacer v1)，以及DF-13兼容<em>PicoBlade接头</em>(FMUv2/3DR Pixhawk, FMUv2/HKPilot32）。</p>
 
-<p>Pixracer飞控内置了S.port与UART之间的信号转换电路，但是对于其他型号的飞控，您将需要一个UART&S.port的适配器。 
+<p>The Pixracer includes electronics for converting between S.PORT and UART signals, but for other boards you will need a UART to S.PORT adapter. 
 他们可以从以下渠道获取：</p>
 
 <ul>
@@ -282,13 +283,14 @@ Lua map of flight modes:
 
 <h3>Pixracer to S-port 接收机</h3>
 
-<p>将Pixracer中的FrSky端口的TX和RX连接到一起，再连接到X系列接收机的S.port端口。 GND不需要连接，因为这将在连接Subs时完成（常规遥控器连接）。</p>
+<p>将Pixracer中的FrSky端口的TX和RX连接到一起，再连接到X系列接收机的S.port端口。 
+GND不需要连接，因为这将在连接Subs时完成（常规遥控器连接）。</p>
 
 <p>	S. port的连接方式如下图所示，使用提供的I/O连接头。</p>
 
 <p><img src="../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg" alt="Grau b Pixracer FrSky S.Port 连接" /></p>
 
-<p><img src="../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png" alt="Pixracer FrSky S.Port 连接" /></p>
+<p><img src="../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg" alt="Pixracer FrSky S.Port 连接" /></p>
 
 <h3>Pixracer to D-port 接收机</h3>
 
@@ -296,7 +298,9 @@ Lua map of flight modes:
   <p><strong>Tip</strong> 绝大多数用户现在更倾向于使用S.port。</p>
 </blockquote>
 
-<p>将Pixracer中FrSky端口的TX（FS out）连接到接收机的RX, 将Pixracer中FrSky端口的RX（FS out）连接到接收机的TX。 GND不需要连接，因为这将在连接RC/Subs时完成。</p>
+<p>将Pixracer中FrSky端口的TX（FS out）连接到接收机的RX,
+将Pixracer中FrSky端口的RX（FS out）连接到接收机的TX。
+GND不需要连接，因为这将在连接RC/Subs时完成。</p>
 
 
 >     
@@ -304,11 +308,13 @@ Lua map of flight modes:
 
 <h3>Pixhawk Pro</h3>
 
-<p>Piahawk 3 Pro可以连接到TELEM4端口，无需额外的软件配置。 您将需要通过一个UART-S.PORT适配器进行连接，或者一个成品转接线缆。</p>
+<p>Piahawk 3 Pro可以连接到TELEM4端口，无需额外的软件配置。
+您将需要通过一个UART-S.PORT适配器进行连接，或者一个成品转接线缆。</p>
 
 <h3 id="pixhawk_v2">其他飞控板</h3>
 
-<p>大部分其他型号飞控板是通过TELEM2端口连接到接收机，从而使用睿思凯的遥测功能， 这其中包括了：Pixhawk 1, mRo Pixhawk, Pixhawk2。</p>
+<p>大部分其他型号飞控板是通过TELEM2端口连接到接收机，从而使用睿思凯的遥测功能， 
+这其中包括了：Pixhawk 1, mRo Pixhawk, Pixhawk2。</p>
 
 <p>您将需要通过一个UART-S.PORT适配器进行连接，或者一个成品转接线缆。</p>
 
