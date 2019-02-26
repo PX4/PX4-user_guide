@@ -23,7 +23,7 @@ Caipiroshka VTOL是由 TBS Caipirinha轻度改装而来。
 
 ## 组装
 
-下面有一种装好的 Caipiroshka 的照片。
+The picture below shows what a fully assembled Caipiroshka could look like.
 
 ![Caipiroshka](../../assets/airframes/vtol/caipiroshka/caipiroshka.jpg)
 
@@ -35,7 +35,7 @@ Caipiroshka VTOL是由 TBS Caipirinha轻度改装而来。
 
 ### 安装电机
 
-使用上面清单列表中的STL文件，打印电机架。 在每一边的机翼上各安装一个电机，并让电机轴处在升降副翼的中心。 上面图片中电机之间的水平距离的 56cm。 找到正确位置后，就可以使用透明胶带从机翼上部到机翼下面进行固定。 然后在电机架和机翼接触的部分打上适量热熔胶。 贴胶带和打热熔胶是为了方便拆除电机机时，不损伤机翼。 在你更换损坏的电机时是非常有用的。
+使用上面清单列表中的STL文件，打印电机架。 在每一边的机翼上各安装一个电机，并让电机轴处在升降副翼的中心。 上面图片中电机之间的水平距离的 56cm。 Once you have marked the correct position on the wing you can cover the area which will be in contact with the mount with standard transparent tape on both the upper and lower wing side. Then apply a layer of hot glue onto this area and glue the motor mount onto the wing. The reason for having tape in between the wing surface and the hot glue is that you can very easily remove the motor mount by ripping of the tape from the wing without any damage. 在你更换损坏的电机时是非常有用的。
 
 ### 电调:
 
@@ -43,7 +43,7 @@ Caipiroshka VTOL是由 TBS Caipirinha轻度改装而来。
 
 ### GPS
 
-GPS 可以安装在飞机后部中间的位置。 因为电机 、相机和电池装在前面，Gps 装在后面方便调节重心。 加长了 12V供电线的长度，也可以减轻对外置的磁罗盘的干扰。
+GPS 可以安装在飞机后部中间的位置。 This helps shifting the weight of the plane to the back since the two motors, a camera and a potentially bigger battery can make it quite nose heavy. 加长了 12V供电线的长度，也可以减轻对外置的磁罗盘的干扰。
 
 ### 空速传感器
 
@@ -59,7 +59,7 @@ GPS 可以安装在飞机后部中间的位置。 因为电机 、相机和电�
 
 ### 普通安装规则
 
-在你安装机翼的所有组件之前，可以使用胶带固定它们在安装位置，然后检查重心是否在要求的位置。 根据你增加的设备重量（例如，GoPro 或更大的电池），然后改变部件的位置来匹配重心。
+Before mounting all the components to the wing, use tape to hold them in the approximate position and check if the CG of the wing is in the recommended range specified in the build manual for the TBS Caipirinha. 根据你增加的设备重量（例如，GoPro 或更大的电池），然后改变部件的位置来匹配重心。
 
 ## 机架设置
 
