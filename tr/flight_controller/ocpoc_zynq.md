@@ -4,7 +4,7 @@ The [OcPoC-Zynq Mini](https://aerotenna.com/ocpoc-zynq/) is a FPGA+ARM SoC based
 
 Main documentation is available on [Aerotenna's User Hub](https://aerotenna.readme.io/docs/ocpoc-mini-zynq-specifications) for hardware setup, FAQs, and various tutorials including FPGA and kernel development.
 
-![](../../assets/hardware/hardware-ocpoc-zynq-mini.jpg)
+![ocpoc-zynq-mini](../../assets/hardware/hardware-ocpoc-zynq-mini.jpg)
 
 ## Quick Summary
 
