@@ -92,19 +92,19 @@ This is controlled by the [EKF2_GPS_MASK](../advanced_config/parameter_reference
 
 The [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter is set by default to disable blending and always use the first receiver, so it will have to be set to select which receiver accuracy metrics are used to decide how much each receiver output contributes to the blended solution. 
 Where different receiver models are used, it is important that the [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter is set to a value that uses accuracy metrics that are supported by both receivers. 
-For example do not set bit position 0 to `true` unless the drivers for both receivers publish values in the `s_variance_m_s` field of the `vehicle_gps_position` message that are comparable. 
+For example do not set bit position 0 to `true` unless the drivers for both receivers publish values in the `s_variance_m_s` field of the `vehicle_gps_position` message that are comparable.
 This can be difficult with receivers from different manufacturers due to the different way that accuracy is defined, e.g. CEP vs 1-sigma, etc.
 
 The following items should be checked during setup:
 
-* Verfiy that data for the second receiver is present. 
-This will be logged as vehicle_gps_position_1 and can also be checked when connected via the nsh console using the 'listener vehicle_gps_position -i 1' command. 
+* Verify that data for the second receiver is present. 
+  This will be logged as `vehicle_gps_position_1` and can also be checked when connected via the *nsh console* using the command `listener vehicle_gps_position -i 1`. 
 The [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter will need to be set correctly.
-* Check the `s_variance_m_s`, `eph` and `epv` data from each receiver and decide which accuracy metrics can be used. 
-  If both receivers output sensible `s_variance_m_s` and `eph` data, and GPS vertical position is not being used directly for navigation, then setting [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 3 is recommmeded. 
-  Where only `eph` data is available and both receivers do not output `s_variance_m_s` data, set [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 2. 
+* Check the `s_variance_m_s`, `eph` and `epv` data from each receiver and decide which accuracy metrics can be used.
+  If both receivers output sensible `s_variance_m_s` and `eph` data, and GPS vertical position is not being used directly for navigation, then setting [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 3 is recommended.
+  Where only `eph` data is available and both receivers do not output `s_variance_m_s` data, set [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 2.
   Bit position 2 would only be set if the GPS had been selected as a primary height source with the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter and both receivers output sensible `epv` data.
-* The output from the blended receiver data is logged as `ekf_gps_position` and can be  checked whilst connect via nsh terminal using the 'listener ekf_gps_position' command.
+* The output from the blended receiver data is logged as `ekf_gps_position`, and can be checked whilst connect via the nsh terminal using the command `listener ekf_gps_position`.
 * Where receivers output at different rates, the blended output will be at the rate of slower receiver. 
   Where possible receivers should be configured to output at the same rate.
 
@@ -178,7 +178,7 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 ## How do I check the EKF performance?
 
 EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. 
-The following guide assumes that data has been logged using the .ulog file format. To use the .ulog format, set the SYS\_LOGGER parameter to 1.
+The following guide assumes that data has been logged using the *.ulog file format*. To use the *.ulog* format, set the SYS\_LOGGER parameter to 1.
 
 The .ulog format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
@@ -186,7 +186,7 @@ Most of the EKF data is found in the [ekf2_innovations](https://github.com/PX4/F
 
 A python script that automatically generates analysis plots and metadata can be found [here](https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/process_logdata_ekf.py). 
 To use this script file, cd to the `Tools/ecl_ekf` directory and enter `python process_logdata_ekf.py <log_file.ulg>`. 
-This saves performance metadata in a csv file named `<log_file>.mdat.csv` and plots in a pdf file named `<log_file>.pdf`.
+This saves performance metadata in a csv file named **<log_file>.mdat.csv** and plots in a pdf file named `<log_file>.pdf`.
 
 Multiple log files in a directory can be analysed using the [batch\_process\_logdata\_ekf.py](https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/batch_process_logdata_ekf.py) script. 
 When this has been done, the performance metadata files can be processed to provide a statistical assessment of the estimator performance across the population of logs using the [batch\_process\_metadata\_ekf.py](https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/batch_process_metadata_ekf.py) script.
@@ -437,4 +437,3 @@ Note the NED velocity innovations and NE position innovations 'flat-line' after 
 Note that after 10 seconds without GPS data, the EKF reverts back to a static position mode using the last known position and the NE position innovations start to change again.
 
 ![GPS Data Loss - in SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
-
