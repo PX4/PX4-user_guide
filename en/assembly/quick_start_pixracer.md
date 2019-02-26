@@ -30,7 +30,7 @@ The instructions below show how to connect the different types of receivers:
   
   ![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
-  ![Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png)
+  ![Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg)
 
 - PPM-SUM and S.BUS receivers connect to the **RCIN** port.
 

@@ -2,7 +2,8 @@
 
 FrSky telemetry allows you to access vehicle [telemetry/status](#messages) information on a compatible RC transmitter.
 
-Available [telemetry is listed here](#messages), and includes: flight mode, battery level, RC signal strength, speed, altitude etc. Some transmitters can additionally provide audible and vibration feedback, which is particularly useful for low battery and other failsafe warnings.
+Available [telemetry is listed here](#messages), and includes: flight mode, battery level, RC signal strength, speed, altitude etc. 
+Some transmitters can additionally provide audible and vibration feedback, which is particularly useful for low battery and other failsafe warnings.
 
 PX4 supports both [S.Port](#s_port) (new) and D (old) FrSky telemetry ports. 
 
@@ -21,7 +22,8 @@ It includes:
 
 With the exception of [Pixracer](../flight_controller/pixracer.md), Pixhawk-series UART ports and receiver telemetry ports are incompatible, and must (usually) be connected via an adapter. 
 
-> **Tip** Usually it is cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
+> **Tip** Usually it is cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
+  Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
 
 
 ### Ready-Made Cables {#ready_made_cable}
@@ -76,7 +78,8 @@ If you open the `LuaPil.lua` script with a text editor, you can edit the configu
 
 ## Telemetry Messages {#messages}
 
-FrySky Telemetry can transmit most of the more useful status information from PX4. S-Port and D-Port receivers transmit different sets of messages, as listed in the following sections.
+FrySky Telemetry can transmit most of the more useful status information from PX4.
+S-Port and D-Port receivers transmit different sets of messages, as listed in the following sections.
 
 ### S-Port {#s_port}
 
@@ -158,10 +161,10 @@ R9 slim | 10km | S.Bus (16) | Smart Port | 43.3x26.8x13.9mm | 15.8g
 
 ## DIY Cables {#diy_cables}
 
-It is possible to create your own cables. You will need connectors that are appropriate for your autopilot (e.g. *JST-GH connectors* for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1, and DF-13 compatible *PicoBlade connectors* for older autopilots).
+It is possible to create your own cables.
+You will need connectors that are appropriate for your autopilot (e.g. *JST-GH connectors* for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1, and DF-13 compatible *PicoBlade connectors* for older autopilots).
 
-The Pixracer includes electronics for converting between S.PORT and UART signals, 
-but for other boards you will need a UART to S.PORT adapter. 
+The Pixracer includes electronics for converting between S.PORT and UART signals, but for other boards you will need a UART to S.PORT adapter. 
 These can be sourced from:
 * [FrSky FUL-1](https://www.frsky-rc.com/product/ful-1/): [unmannedtech.co.uk](https://www.unmannedtechshop.co.uk/frsky-transmitter-receiver-upgrade-adapter-ful-1/)
 * SPC: [getfpv.com](http://www.getfpv.com/frsky-smart-port-converter-cable.html), [unmannedtechshop.co.uk](https://www.unmannedtechshop.co.uk/frsky-smart-port-converter-spc/) 
@@ -171,31 +174,36 @@ More information about the connections for different boards is given below.
 
 ### Pixracer to S-port Receivers
 
-Connect the Pixracer FrSky TX and RX lines together (solder the wires together) to the X series receiver's S.port pin. GND need not be attached as this will have been done when attaching to S.Bus (normal RC connection).
+Connect the Pixracer FrSky TX and RX lines together (solder the wires together) to the X series receiver's S.port pin. 
+GND need not be attached as this will have been done when attaching to S.Bus (normal RC connection).
 
 The S-port connection is shown below (using the provided I/O Connector).
 
 ![Grau b Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 
-![Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png)
+![Pixracer FrSkyS.Port Connection](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg)
 
 ### Pixracer to D-port Receivers
 
 > **Tip** The vast majority of users now prefer to use S.PORT.
 
-Connect the Pixracer FrSky TX line (FS out) to the receiver's RX line. Connect the Pixracer FrSky RX line (FS in) to the receivers TX line. GND need not be connected as this will have been done when attaching to RC/SBus (for normal RC). 
+Connect the Pixracer FrSky TX line (FS out) to the receiver's RX line.
+Connect the Pixracer FrSky RX line (FS in) to the receivers TX line.
+GND need not be connected as this will have been done when attaching to RC/SBus (for normal RC).
 
 <!-- Image would be nice -->
 
 
 ### Pixhawk Pro
 
-[Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) can be connected to TELEM4 (no additional software configuration is needed). You will need to connect via a UART to S.PORT adapter board, or a [ready-made cable](#ready_made_cable).
+[Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) can be connected to TELEM4 (no additional software configuration is needed).
+You will need to connect via a UART to S.PORT adapter board, or a [ready-made cable](#ready_made_cable).
 
 
 ### Other Boards {#pixhawk_v2}
 
-Most other boards connect to the receiver for FrSky telemetry via the TELEM2 UART. This includes, for example: [Pixhawk 1](../flight_controller/pixhawk.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), Pixhawk2. 
+Most other boards connect to the receiver for FrSky telemetry via the TELEM2 UART. 
+This includes, for example: [Pixhawk 1](../flight_controller/pixhawk.md), [mRo Pixhawk](../flight_controller/mro_pixhawk.md), Pixhawk2. 
 
 You will need to connect via a UART to S.PORT adapter board, or a [ready-made cable](#ready_made_cable).
 

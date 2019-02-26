@@ -190,49 +190,43 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
    ./udp2rabbit.py
    ```
 1. Power up the vehicle.
-1. Wait until the first `HIGH_LATENCY2` message is received on QGC. 
-  This can be checked either using the *MAVLink Inspector* widget or on the toolbar with the *LinkIndicator*. 
+1. Wait until the first `HIGH_LATENCY2` message is received on QGC.
+   This can be checked either using the *MAVLink Inspector* widget or on the toolbar with the *LinkIndicator*. 
    If more than one link is connected to the active vehicle the *LinkIndicator* shows all of them by clicking on the name of the shown link:
 
-   ![Link Toolbar](../../assets/satcom/linkindicator.png)
+   ![Link Toolbar](../../assets/satcom/linkindicator.jpg)
 
    The link indicator always shows the name of the priority link.
 1. The satellite communication system is now ready to use. 
    The priority link, which is the link over which commands are send, is determined the following ways:
-    * If no link is commanded by the user a regular radio telemetry link is preferred over the high latency link.
-    * The autopilot and QGC will fall back from the regular radio telemetry to the high latency link if the vehicle is armed and the radio telemetry link is lost (no MAVLink messages received for a certain time). 
-      As soon as the radio telemetry link is regained QGC and the autopilot will switch back to it.
-    * The user can select a priority link over the `LinkIndicator` on the toolbar. 
-      This link is kept as the priority link as long as this link is active or the user selects another priority link:
+   * If no link is commanded by the user a regular radio telemetry link is preferred over the high latency link.
+   * The autopilot and QGC will fall back from the regular radio telemetry to the high latency link if the vehicle is armed and the radio telemetry link is lost (no MAVLink messages received for a certain time). 
+   As soon as the radio telemetry link is regained QGC and the autopilot will switch back to it.
+   * The user can select a priority link over the `LinkIndicator` on the toolbar. 
+     This link is kept as the priority link as long as this link is active or the user selects another priority link:
 
      ![Prioritylink Selection](../../assets/satcom/linkselection.png)
 
 ## Troubleshooting
 
 * Satellite communication messages from the airplane are received but no commands can be transmitted (the vehicle does not react)
-
   * Check the settings of the relay server and make sure that they are correct, especially the IMEI.
-  
 * No satellite communication messages from the airplane arrive on the ground station:
-
   * Check using the system console if the *iridiumsbd* driver started and if it did that a signal from any satellite is received by the module:
-  ```
-  iridiumsbd status
-  ```
+    ```
+    iridiumsbd status
+    ```
   * Make sure using the verification steps from above that the relay server, the delivery group and the `udp2rabbit.py` script are set up correctly.
   * Check if the link is connected and that its settings are correct.
   
 * The IridiumSBD driver does not start:
-
   * Reboot the vehicle. 
     If that helps increase the sleep time in the `extras.txt` before the driver is started. 
     If that does not help make sure that the Pixhawk and the module have the same ground level. Confirm also that the baudrate of the module is set to 115200.
 
 * A first message is received on the ground but as soon as the vehicle is flying no message can be transmitted or the latency is significantly larger (in the order of minutes)
-
   * Check the signal quality after the flight. 
     If it is decreasing during the flight and you are using the internal antenna consider using an external antenna. 
-    If you are already using the external antenna try moving the antenna as far away as possible from any electronics or anything which might disturb the signal. 
+    If you are already using the external antenna try moving the antenna as far away as possible from any electronics or anything which might disturb the signal.
     Also make sure that the antenna is is not damaged.
 
-    
