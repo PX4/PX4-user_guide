@@ -4,7 +4,7 @@
 
 주요 문서는 하드웨어 설정, FAQ 및 FPGA 및 커널 개발을 포함한 다양한 자습서에 대한  Aerotenna의 사용자 허브 </ 0>에서 사용할 수 있습니다.</p> 
 
-![](../../assets/hardware/hardware-ocpoc-zynq-mini.jpg)
+![ocpoc-zynq-mini](../../assets/hardware/hardware-ocpoc-zynq-mini.jpg)
 
 ## Quick Summary
 
