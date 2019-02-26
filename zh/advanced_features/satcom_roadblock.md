@@ -18,8 +18,10 @@ The full system architecture is shown below:
 
 > **Note** The setup was tested with the current release of *QGroundControl* running on Ubuntu 14.04 and 16.04.
 
-* It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
-* The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
+    - It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
+    - The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. 
+      The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
+    
 
 ## Costs
 
@@ -69,32 +71,30 @@ Set up a delivery group for the message relay server and add the module to that 
 The relay server should be run on either Ubuntu 16.04 or 14.04 OS.
 
 1. The server working as a message relay should have a static IP address and two publicly accessible, open, TCP ports:
+  
+  * `5672` for the *RabbitMQ* message broker (can be changed in the *rabbitmq* settings)
+  * `45679` for the HTTP POST interface (can be changed in the **relay.cfg** file)
 
-* `5672` for the *RabbitMQ* message broker (can be changed in the *rabbitmq* settings)
-* `45679` for the HTTP POST interface (can be changed in the **relay.cfg** file)
+2. Install the required python modules: 
+  
+      bash
+       sudo pip install pika tornado future
 
-1. Install the required python modules: 
-        bash
-        sudo pip install pika tornado future
+3. Install the `rabbitmq` message broker: ```sudo apt install rabbitmq-server```
+4. Configure the broker's credentials (change PWD to your preferred password): 
+      bash
+       sudo rabbitmqctl add_user iridiumsbd PWD
+       sudo rabbitmqctl set_permissions iridiumsbd ".*" ".*" ".*"
 
-2. Install the `rabbitmq` message broker: ```sudo apt install rabbitmq-server```
-3. Configure the broker's credentials (change PWD to your preferred password): 
-        bash
-        sudo rabbitmqctl add_user iridiumsbd PWD
-        sudo rabbitmqctl set_permissions iridiumsbd ".*" ".*" ".*"
+5. Clone the [SatComInfrastructure](https://github.com/acfloria/SatComInfrastructure.git) repository: ```git clone https://github.com/acfloria/SatComInfrastructure.git```
+6. Go to the location of the *SatComInfrastructure* repo and configure the broker's queues: ```./setup_rabbit.py localhost iridiumsbd PWD```
+7. Verify the setup: ```sudo rabbitmqctl list_queues```
+  
+  This should give you a list of 4 queues: `MO`, `MO_LOG`, `MT`, `MT_LOG`
 
-4. Clone the [SatComInfrastructure](https://github.com/acfloria/SatComInfrastructure.git) repository: ```git clone https://github.com/acfloria/SatComInfrastructure.git```
-5. Go to the location of the *SatComInfrastructure* repo and configure the broker's queues: ```./setup_rabbit.py localhost iridiumsbd PWD```
-6. Verify the setup:
-    
-        sudo rabbitmqctl list_queues
-        
-    
-    This should give you a list of 4 queues: `MO`, `MO_LOG`, `MT`, `MT_LOG`
+8. Edit the `relay.cfg` configuration file to reflect your settings.
 
-7. Edit the `relay.cfg` configuration file to reflect your settings.
-
-8. Start the relay script in the detached mode: ```screen -dm bash -c 'cd SatcomInfrastructure/; ./relay.py```
+9. Start the relay script in the detached mode: ```screen -dm bash -c 'cd SatcomInfrastructure/; ./relay.py```
 
 Other instructions include:
 
@@ -111,19 +111,16 @@ To setup the ground station:
 3. Edit the **udp2rabbit.cfg** configuration file to reflect your settings.
 4. [Install *QGroundControl*](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (daily build).
 5. Add a UDP connection in QGC with the parameters:
-
-* Listening port: 10000
-* Target hosts: 127.0.0.1:10001
-* High Latency: checked
+  
+  * Listening port: 10000
+  * Target hosts: 127.0.0.1:10001
+  * High Latency: checked
     
     ![High Latency Link Settings](../../assets/satcom/linksettings.png)
 
 ### Verification
 
-1. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script:
-    
-        ./udp2rabbit.py
-        
+1. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script: ```./udp2rabbit.py```
 
 2. Send a test message from [RockBlock Account](https://rockblock.rock7.com/Operations) to the created delivery group in the `Test Delivery Groups` tab.
 
@@ -133,49 +130,42 @@ If in the terminal where the `udp2rabbit.py` script is running within a couple o
 
 ## Running the System
 
-1. 开启 *QGroundControl*。 Manually connect the high latency link first, then the regular telemetry link:
-    
-    ![Connect the High Latency link](../../assets/satcom/linkconnect.png)
+1. Start *QGroundControl*. Manually connect the high latency link first, then the regular telemetry link:
+  
+  ![Connect the High Latency link](../../assets/satcom/linkconnect.png)
 
-2. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script:
-    
-        ./udp2rabbit.py
-        
+2. Open a terminal on the ground station computer and change to the location of the *SatComInfrastructure* repository. Then start the **udp2rabbit.py** script: ```./udp2rabbit.py```
 
 3. Power up the vehicle.
 4. Wait until the first `HIGH_LATENCY2` message is received on QGC. This can be checked either using the *MAVLink Inspector* widget or on the toolbar with the *LinkIndicator*. If more than one link is connected to the active vehicle the *LinkIndicator* shows all of them by clicking on the name of the shown link:
-    
-    ![Link Toolbar](../../assets/satcom/linkindicator.png)
-    
-    The link indicator always shows the name of the priority link.
+  
+  ![Link Toolbar](../../assets/satcom/linkindicator.jpg)
+  
+  The link indicator always shows the name of the priority link.
 
 5. The satellite communication system is now ready to use. The priority link, which is the link over which commands are send, is determined the following ways:
+  
+  * If no link is commanded by the user a regular radio telemetry link is preferred over the high latency link.
+  * The autopilot and QGC will fall back from the regular radio telemetry to the high latency link if the vehicle is armed and the radio telemetry link is lost (no MAVLink messages received for a certain time). As soon as the radio telemetry link is regained QGC and the autopilot will switch back to it.
+  * The user can select a priority link over the `LinkIndicator` on the toolbar. This link is kept as the priority link as long as this link is active or the user selects another priority link:
     
-    * If no link is commanded by the user a regular radio telemetry link is preferred over the high latency link.
-    * The autopilot and QGC will fall back from the regular radio telemetry to the high latency link if the vehicle is armed and the radio telemetry link is lost (no MAVLink messages received for a certain time). As soon as the radio telemetry link is regained QGC and the autopilot will switch back to it.
-    * The user can select a priority link over the `LinkIndicator` on the toolbar. This link is kept as the priority link as long as this link is active or the user selects another priority link:
-        
-        ![Prioritylink Selection](../../assets/satcom/linkselection.png)
+    ![Prioritylink Selection](../../assets/satcom/linkselection.png)
 
 ## 故障处理
 
-* Satellite communication messages from the airplane are received but no commands can be transmitted (the vehicle does not react)
-    
-    * Check the settings of the relay server and make sure that they are correct, especially the IMEI.
+* Satellite communication messages from the airplane are received but no commands can be transmitted (the vehicle does not react) 
+  * Check the settings of the relay server and make sure that they are correct, especially the IMEI.
 
 * No satellite communication messages from the airplane arrive on the ground station:
-    
-    * Check using the system console if the *iridiumsbd* driver started and if it did that a signal from any satellite is received by the module:
-        iridiumsbd status
-        
-    
-    * Make sure using the verification steps from above that the relay server, the delivery group and the `udp2rabbit.py` script are set up correctly.
-    * Check if the link is connected and that its settings are correct.
+  
+  * Check using the system console if the *iridiumsbd* driver started and if it did that a signal from any satellite is received by the module: ```iridiumsbd status```
+  * Make sure using the verification steps from above that the relay server, the delivery group and the `udp2rabbit.py` script are set up correctly.
+  * Check if the link is connected and that its settings are correct.
 
 * The IridiumSBD driver does not start:
-    
-    * Reboot the vehicle. If that helps increase the sleep time in the `extras.txt` before the driver is started. If that does not help make sure that the Pixhawk and the module have the same ground level. Confirm also that the baudrate of the module is set to 115200.
+  
+  * Reboot the vehicle. If that helps increase the sleep time in the `extras.txt` before the driver is started. If that does not help make sure that the Pixhawk and the module have the same ground level. Confirm also that the baudrate of the module is set to 115200.
 
 * A first message is received on the ground but as soon as the vehicle is flying no message can be transmitted or the latency is significantly larger (in the order of minutes)
-    
-    * Check the signal quality after the flight. If it is decreasing during the flight and you are using the internal antenna consider using an external antenna. If you are already using the external antenna try moving the antenna as far away as possible from any electronics or anything which might disturb the signal. Also make sure that the antenna is is not damaged.
+  
+  * Check the signal quality after the flight. If it is decreasing during the flight and you are using the internal antenna consider using an external antenna. If you are already using the external antenna try moving the antenna as far away as possible from any electronics or anything which might disturb the signal. Also make sure that the antenna is is not damaged.
