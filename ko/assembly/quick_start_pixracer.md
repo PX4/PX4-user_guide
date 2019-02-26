@@ -28,7 +28,7 @@
 >     
 >     ![Grau b Pixracer FrSkyS.포트 연결](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
 >     
->     ![픽사커 프르스키스포트 연결](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.png)
+>     ![픽사커 프르스키스포트 연결](../../assets/flight_controller/pixracer/pixracer_FrSkyTelemetry.jpg)
 > 
 > - PPM-SUM과 S.버스 수신기는 **RCIN ** 포트에 연결합니다.
 >     
