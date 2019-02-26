@@ -104,7 +104,7 @@ The [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) param
   If both receivers output sensible `s_variance_m_s` and `eph` data, and GPS vertical position is not being used directly for navigation, then setting [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 3 is recommmeded. 
   Where only `eph` data is available and both receivers do not output `s_variance_m_s` data, set [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 2. 
   Bit position 2 would only be set if the GPS had been selected as a primary height source with the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter and both receivers output sensible `epv` data.
-* The output from the blended receiver data is logged as `vehicle_gps_position_` and should be checked.
+* The output from the blended receiver data is logged as `ekf_gps_position` and can be  checked whilst connect via nsh terminal using the 'listener ekf_gps_position' command.
 * Where receivers output at different rates, the blended output will be at the rate of slower receiver. 
   Where possible receivers should be configured to output at the same rate.
 
