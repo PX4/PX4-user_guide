@@ -1,6 +1,6 @@
 # Raspberry Pi 2/3 Navio2 Autopilot
 
-![](../../assets/hardware/hardware-rpi2.jpg)
+![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
 ## Developer Quick Start
 
@@ -8,7 +8,7 @@
 
 Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/Navio-APM/configuring-raspberry-pi/). The default image will have most of the setup procedures shown below already done.
 
-**Important**: make sure not to upgrade the system (more specifically the kernel). By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
+> **Important** Make sure not to upgrade the system (more specifically the kernel). By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
 
 ### Setting up access
 
@@ -17,8 +17,6 @@ The Raspbian image has SSH setup already. Username is "pi" and password is "rasp
 To setup the RPi2/3 to join your local wifi, follow [this guide](https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md).
 
 Find the IP address of your Pi from your network, and then you can proceed to connect to it using SSH.
-
-<div class="host-code"></div>
 
 ```sh
 ssh pi@<IP-ADDRESS>
@@ -45,7 +43,7 @@ Edit the hostname file:
 sudo nano /etc/hostname
 ```
 
-Change ```raspberry``` to whatever hostname you want (one word with limited characters apply)
+Change `raspberry` to whatever hostname you want (one word with limited characters apply)
 
 Next you need to change the hosts file:
 
@@ -53,7 +51,7 @@ Next you need to change the hosts file:
 sudo nano /etc/hosts
 ```
 
-Change the entry ```127.0.1.1 raspberry``` to ```127.0.1.1 <YOURNEWHOSTNAME>```
+Change the entry `127.0.1.1 raspberry` to `127.0.1.1 <YOURNEWHOSTNAME>`
 
 Reboot the Pi after this step is completed to allow it to re-associate with your network.
 
@@ -116,7 +114,7 @@ ssh-keygen -t rsa -C pi@px4autopilot
 
 Upon entering this command, you'll be asked where to save the key. We suggest you save it in the default location ($HOME/.ssh/id_rsa) by just hitting Enter.
 
-Now you should see the files ```id_rsa``` and ```id_rsa.pub``` in your ```.ssh``` directory in your home folder:
+Now you should see the files `id_rsa` and `id_rsa.pub` in your `.ssh` directory in your home folder:
 
 ```sh
 ls ~/.ssh
@@ -133,15 +131,15 @@ cat ~/.ssh/id_rsa.pub | ssh pi@px4autopilot 'cat >> .ssh/authorized_keys'
 
 Note that this time you will have to authenticate with your password ("raspberry" by default).
 
-Now try ```ssh pi@px4autopilot``` and you should connect without a password prompt.
+Now try `ssh pi@px4autopilot` and you should connect without a password prompt.
 
-If you see a message "```Agent admitted failure to sign using the key.```" then add your RSA or DSA identities to the authentication agent, ssh-agent and the execute the following command:
+If you see a message "`Agent admitted failure to sign using the key.`" then add your RSA or DSA identities to the authentication agent, ssh-agent and the execute the following command:
 
 ```sh
 ssh-add
 ```
 
-If this did not work, delete your keys with ```rm ~/.ssh/id*``` and follow the instructions again.
+If this did not work, delete your keys with `rm ~/.ssh/id*` and follow the instructions again.
 
 ### Testing file transfer
 
