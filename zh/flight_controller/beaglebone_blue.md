@@ -2,7 +2,7 @@
 
 [BeagleBone Blue](https://beagleboard.org/blue) 是一台基于 Linux 的一体机。 它针对机器人技术进行了优化，这种紧凑且便宜的电路板具有飞行控制器所需的所有必要传感器和外围设备。 本主题说明如何设置电路板以使用 [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) 机器人软件包运行 PX4。
 
-![BeagleBone - 标记图](../../assets/hardware/BeagleBone_Blue_balloons.png)
+![BeagleBone - 标记图](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
 
 ## 操作系统映像
 
