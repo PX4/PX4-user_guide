@@ -197,7 +197,7 @@ vibration-damping foam pads (included in the kit). It should be
 positioned as close to your vehicle’s center of gravity as possible, oriented top-side up 
 with the arrow points towards the front of the vehicle.
 
-<img src="../../images/pixhawk_mini_mounting_arrow.png" width="300px" title="Pixhawk Mini recommended orientation"/>
+![Pixhawk Mini recommended orientation](../../assets/flight_controller/pixhawk_mini/pixhawk_mini_mounting_arrow.jpg)
 
 ![Mounting foam](../../images/3dr_anti_vibration_mounting_foam.png)
 
