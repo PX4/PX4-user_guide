@@ -97,7 +97,7 @@ In order to ensure good optical flow quality, it is important to focus the camer
 
 > **Note** If you fly above 3m, the camera will be focused at infinity and won't need to be changed for higher flight.
 
-![Flow Focus Book](../../assets/hardware/sensors/px4flow/flow_focus_book.png)
+![Flow Focus Book](../../assets/hardware/sensors/px4flow/flow_focus_book.jpg)
 
 *Figure: Use a text book to focus the flow camera at the height you want to fly, typically 1-3 meters. Above 3 meters the camera should be focused at infinity and work for all higher altitudes.*
 
