@@ -61,34 +61,34 @@
 - 指令接收（例如，接收MAVlink命令协议）。
 - 安全开关关闭（飞行器已经解锁）。
 
-#### Notify Neutral Tone<audio controls> <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 中立通知声音<audio controls> <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Mission is valid and has no warnings.
-- Airspeed calibration: supply more air pressure, or calibration complete.
-- Safety switch turned on/disarmed (safe to approach vehicle).
+- 任务有效，没有警告。
+- 空速校准：提供更多气压或校准完成。
+- 安全开关打开/未解锁（可以安全靠近飞行器）。
 
-#### Notify Negative Tone<audio controls> <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 负面通知声音<audio controls> <source src="../../assets/tunes/5_notify_negative_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Calibration failed.
-- Calibration already completed.
-- Mission is invalid.
-- Command denied, failed, temporarily rejected (e.g. from MAVLink command protocol).
-- Arming/disarming transition denied (e.g. pre-flight checks failed, safety not disabled, system not in manual mode).
-- Reject mode transition.
+- 校准失败。
+- 校准已经完成。
+- 任务无效。
+- 指令拒绝，失败，暂时拒绝（例如，来自MAVLink命令协议）。
+- 解锁/加锁过程被拒绝（例如，起飞前检查失败，安全未禁用，系统不在手动模式）。
+- 拒绝模式过渡。
 
-#### Arming Warning<audio controls> <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 加锁警告<audio controls> <source src="../../assets/tunes/6_arming_warning.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Vehicle is now armed.
+- 飞行器正在加锁。
 
-#### Arming Failure Tune<audio controls> <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 加锁失败声音<audio controls> <source src="../../assets/tunes/10_arming_failure_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-#### Battery Warning Slow<audio controls> <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 电池低电量警告<audio controls> <source src="../../assets/tunes/7_battery_warning_slow.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- 低电量警告（[保护模式](../config/safety.md#low-battery-failsafe)）。
 
-#### Battery Warning Fast<audio controls> <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 电量消耗过快警告<audio controls> <source src="../../assets/tunes/8_battery_warning_fast.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Critical low battery warning ([failsafe](../config/safety.md#low-battery-failsafe)).
+- 严重低电量警告（[保护模式](../config/safety.md#low-battery-failsafe)）。
 
 #### GPS Warning Slow<audio controls> <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
