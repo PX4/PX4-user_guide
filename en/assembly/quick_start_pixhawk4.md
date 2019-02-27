@@ -86,7 +86,7 @@ Airframe Reference | Connection between *Pixhawk 4* --> PM board
 
 The pinout of *Pixhawk 4*’s power ports is shown below. 
 The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default. 
-The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60A as default. 
+The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default. 
 The VCC lines have to offer at least 3A continuous and should default to 5.1V. 
 A lower voltage of 5V is still acceptable, but discouraged.
 
