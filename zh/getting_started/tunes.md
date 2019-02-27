@@ -90,24 +90,24 @@
 
 - 严重低电量警告（[保护模式](../config/safety.md#low-battery-failsafe)）。
 
-#### GPS Warning Slow<audio controls> <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### GPS信号弱警告<audio controls> <source src="../../assets/tunes/9_gps_warning_slow.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-#### Parachute Release<audio controls> <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 降落伞释放<audio controls> <source src="../../assets/tunes/11_parachute_release.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
 <!-- Does not appear to be used: TONE_PARACHUTE_RELEASE_TUNE -->
 
-#### EKF Warning<audio controls> <source src="../../assets/tunes/12_ekf_warning.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### EKF警告<audio controls> <source src="../../assets/tunes/12_ekf_warning.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
 <!-- Does not appear to be used: TONE_EKF_WARNING_TUNE -->
 
-#### Baro Warning<audio controls> <source src="../../assets/tunes/13_baro_warning.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 气压警告<audio controls> <source src="../../assets/tunes/13_baro_warning.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
 <!-- Does not appear to be used: TONE_BARO_WARNING_TUNE -->
 
-#### Single Beep<audio controls> <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 蜂鸣器响一声<audio controls> <source src="../../assets/tunes/14_single_beep.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Magnetometer/Compass calibration: Notify user to start rotating vehicle.
+- 地磁计/罗盘校准：提示使用者开始旋转飞行器。
 
 #### Home Set Tune<audio controls> <source src="../../assets/tunes/15_home_set_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Home position initialised (first time only).
+- 初始化起飞位置（只在第一次）。
