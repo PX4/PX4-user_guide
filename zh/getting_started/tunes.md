@@ -25,41 +25,41 @@
 #### 创建文件系统<audio controls> <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
 - 格式化SD卡。 
-- Mounting failed (if formatting succeeds boot sequence will try to mount again).
-- No microSD card.
+- 挂载失败（如果格式化成功，启动程序将尝试再次挂载）。
+- 未安装SD卡。
 
-#### Format Failed<audio controls> <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 格式化失败<audio controls> <source src="../../assets/tunes/17_format_failed.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Formatting microSD card failed (following previous attempt to mount card).
+- 格式化SD卡失败（曾经试图挂载SD卡）。
 
-#### Program PX4IO<audio controls> <source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 执行PX4IO<audio controls> <source src="../../assets/tunes/18_program_px4io.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Starting to program PX4IO.
+- 开始执行PX4IO程序。
 
-#### Program PX4IO Success<audio controls> <source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### PX4IO执行成功<audio controls> <source src="../../assets/tunes/19_program_px4io_success.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- PX4IO programming succeeded.
+- PX4IO程序执行成功。
 
-#### Program PX4IO Fail<audio controls> <source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### PX4IO程序执行失败<audio controls> <source src="../../assets/tunes/20_program_px4io_fail.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- PX4IO programming failed.
-- PX4IO couldn't start.
-- AUX Mixer not found.
+- PX4IO程序执行失败。
+- PX4IO无法执行。
+- 未找到AUX混控器。
 
-## Operational
+## 操作过程中
 
-These tones/tunes are emitted during normal operation.
+在正常操作期间发出如下声音。
 
-#### Error Tune {#error_tune_operational}<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 错误声音 {#error_tune_operational}<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- RC Loss
+- 遥控丢失
 
-#### Notify Positive Tone<audio controls> <source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 正常通知声音<audio controls> <source src="../../assets/tunes/3_notify_positive_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Calibration succeeded.
-- Successful mode change.
-- Command accepted (e.g. from MAVLink command protocol).
-- Safety switch off (vehicle can be armed).
+- 校准成功。
+- 飞行模式成功改变。
+- 指令接收（例如，接收MAVlink命令协议）。
+- 安全开关关闭（飞行器已经解锁）。
 
 #### Notify Neutral Tone<audio controls> <source src="../../assets/tunes/4_notify_neutral_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
