@@ -139,7 +139,7 @@
 
 [ MAVGCL ](https://github.com/ecmnet/MAVGCL)是 PX4 在飞行中的日志分析器。 它还可以与下载的 uLog 文件一起在离线模式下使用。
 
-关键特性：
+主要特性：
 
 * 基于 MAVLink 消息或 MAVLink 上 ULOG 数据的实时数据采集( 50 ms 采样，100 ms 滚动显示)
 * 由消息( MAVLink 和 ULog) 和参数更改(仅 MAVLink) 注释的时间图
@@ -156,17 +156,17 @@
 
 [PlotJugler](https://github.com/facontidavide/PlotJuggler) 是一个 Qt5 桌面应用程序 ，允许用户很容易地显示和分析以时间序列形式表示的数据。
 
-It supports **ULog files** (.ulg) since version 2.1.4.
+它支持 2.1.4 版本以后的 **Ulog 文件** (.ulg)。
 
-Key features:
+主要特性：
 
-* Intuitive drag&drop interface.
-* Arrange your data in multiple plots, tabs or windows.
-* Once you arranged your data, save it into a "Layout" file and reload it multiple times.
-* Process your data inside PlotJuggler itself, using custom "data transformations".
+* 直观的拖放界面。
+* 可以将数据安排在多个图表、选项卡或窗口中。
+* 整理好数据后，将其保存到“布局”文件中，这样支持多次重新加载。
+* 可以在 PlotJuggler 里处理你的数据，使用定制的“数据转换”。
 
-Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
+源代码和下载在 [Github](https://github.com/facontidavide/PlotJuggler)上。
 
-For more information visit [www.plotjuggler.io](https://www.plotjuggler.io).
+详情访问[www.pleptjugler.io](https://www.plotjuggler.io)。
 
-![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
+![PlotJugler](../../assets/flight_log_analysis/plotjuggler.png)
