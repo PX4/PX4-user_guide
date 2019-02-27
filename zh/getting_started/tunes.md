@@ -6,25 +6,25 @@
 
 > **开发者备注：** 声音被定义在 [/lib/tunes/tune_definition.desc](https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc)使用 [tunecontrol](https://dev.px4.io/en/middleware/modules_system.html#tunecontrol) 模块可以进行测试。
 
-## Boot/Startup
+## 启动
 
-These tunes are played during the boot sequence. <!-- https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/rcS -->
+在启动场景播放如下音乐。 <!-- https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/rcS -->
 
-#### Startup Tone<audio controls> <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 启动声音<audio controls> <source src="../../assets/tunes/1_startup_tone.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- microSD card successfully mounted (during boot).
+- SD卡成功挂载（启动过程）。
 
-#### Error Tune<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 错误声音<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Hard fault has caused a system reboot.
-- System set to use PX4IO but no IO present.
-- UAVCAN is enabled but driver can't start.
-- SITL/HITL enabled but *pwm_out_sim* driver can't start.
-- FMU startup failed.
+- 硬件错误导致系统重启。
+- 系统设置使用PX4IO但IO不存在。
+- UAVCAN已启用，但驱动无法启动。
+- SITL/HITL已启用，但是 *pwm仿真输出* 驱动无法启动。
+- FMU启动失败。
 
-#### Make File System<audio controls> <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+#### 创建文件系统<audio controls> <source src="../../assets/tunes/16_make_fs.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
-- Formatting microSD card. 
+- 格式化SD卡。 
 - Mounting failed (if formatting succeeds boot sequence will try to mount again).
 - No microSD card.
 
