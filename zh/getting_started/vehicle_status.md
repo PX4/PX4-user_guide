@@ -4,8 +4,8 @@ PX4提供基于机载视觉（LED）和声音（蜂鸣器）的高级飞行状�
 
 此外，PX4在地面站的起飞前检查中提供更详细的关于起飞准备的信息。
 
-The LED, tune and GCS notifications are linked below:
+LED，蜂鸣器声音和GCS提示如下：
 
-* [LED Meanings](../getting_started/led_meanings.md)
-* [Tune/Sound Meanings](../getting_started/tunes.md)
-* [Preflight Checks (Internal)](../flying/pre_flight_checks.md)
+* [LED含义](../getting_started/led_meanings.md)
+* [蜂鸣器声音含义](../getting_started/tunes.md)
+* [飞行前检查（内部）](../flying/pre_flight_checks.md)
