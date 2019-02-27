@@ -74,7 +74,7 @@
 > > 
 > > <!--In the future, when Pixhawk 4 kit is available, add wiring images/videos for different airframes.-->
 > > 
-> > *Pixhawk 4* 的电源端口针脚定义如下所示。 电流信号应接入0-3.3V 电压且0-120A 电流的模拟信号。 电压信号应接入0-3.3V电压且0-60A 电流的模拟信号。 Vcc 线路必须提供至少持续3A电流, 并应默认为 5.1V电压。 低于5V的电压仍然是可以接受的, 但不推荐。
+> > *Pixhawk 4* 的电源端口针脚定义如下所示。 电流信号应接入0-3.3V 电压且0-120A 电流的模拟信号。 The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default. Vcc 线路必须提供至少持续3A电流, 并应默认为 5.1V电压。 低于5V的电压仍然是可以接受的, 但不推荐。
 > > 
 > > | 针脚   | 信号  | 电压    |
 > > | ---- | --- | ----- |
