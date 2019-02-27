@@ -1,10 +1,10 @@
-# Tune Meanings (Pixhawk Series)
+# 蜂鸣器含义（Pixhawk系列）
 
-[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use audible tones/tunes and [LEDs](../getting_started/led_meanings.md) to indicate vehicle state and events (e.g. arming success and failure, low battery warnings).
+[Pixhawk系列飞控](../flight_controller/pixhawk_series.md) 使用蜂鸣器 [LED](../getting_started/led_meanings.md) 来显示飞机的飞行状态和飞行事件（比如，解锁是否成功，低电量警告）。
 
-The set of standard sounds are listed below.
+下面列出一组标准蜂鸣器声音。
 
-> **Note** **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tunecontrol](https://dev.px4.io/en/middleware/modules_system.html#tunecontrol) module.
+> **开发者备注：** 声音被定义在 [/lib/tunes/tune_definition.desc](https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc)使用 [tunecontrol](https://dev.px4.io/en/middleware/modules_system.html#tunecontrol) 模块可以进行测试。
 
 ## Boot/Startup
 
