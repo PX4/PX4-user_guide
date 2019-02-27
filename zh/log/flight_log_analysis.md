@@ -152,9 +152,9 @@
 
 ![MAVGCL](../../assets/flight_log_analysis/mavgcl/time_series.png)
 
-### PlotJuggler
+### PlotJugler
 
-[PlotJuggler](https://github.com/facontidavide/PlotJuggler) is a Qt5 desktop application that allows users to easily visualize and analyze data expressed in the form of time series.
+[PlotJugler](https://github.com/facontidavide/PlotJuggler) 是一个 Qt5 桌面应用程序 ，允许用户很容易地显示和分析以时间序列形式表示的数据。
 
 It supports **ULog files** (.ulg) since version 2.1.4.
 
