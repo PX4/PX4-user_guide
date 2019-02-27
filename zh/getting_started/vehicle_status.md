@@ -1,6 +1,6 @@
-# Vehicle Status Notifications
+# 飞行状态注意事项
 
-PX4 provides vehicle-based visual (LED) and audible (Buzzer) notifications of "high level" vehicle status and readiness to fly. These notifications indicate, for example, whether or not the vehicle is properly calibrated, has an SD card, has position lock, is safe to approach, whether or not it is armed, when it is ready to fly, etc.
+PX4提供基于机载视觉（LED）和声音（蜂鸣器）的高级飞行状态和飞行准备提示。 These notifications indicate, for example, whether or not the vehicle is properly calibrated, has an SD card, has position lock, is safe to approach, whether or not it is armed, when it is ready to fly, etc.
 
 In addition, PX4 provides more fine-grained information about readiness to fly in GCS notifications resulting from pre-flight checks.
 
