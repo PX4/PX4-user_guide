@@ -21,9 +21,9 @@ PX4 能够在很多飞控板上运行（见 [自驾仪硬件](../flight_controll
 | [Pixhawk 2](../flight_controller/pixhawk-2.md)       | 主要针对商业系统制造商的灵活自驾仪。 它被设计为与特定领域的载板同时使用，以减少布线，提高可靠性，和易于装配。                                                                                                                                                          |
 | [Pixhawk 4](../flight_controller/pixhawk4.md)        | Pixhawk 4 为运行 PX4 1.7 版本而优化并且适用于学术和商业开发者。 与之前版本相比，具有更高的计算能力和 2 倍的 RAM ，额外端口以利于集成和扩展，新的传感器和集成的震动隔离。                                                                                                               |
 
-## Autopilots for Computationally Intensive Tasks
+## 用于计算密集型任务的无人机
 
-These flight controllers (and development platforms) offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
+这些飞行控制器（和开发平台）提供无人机“同伴计算”，实现计算机视觉和其他计算密集型任务。
 
 | 控制器                                                                     | 参数描述                                                  |
 | ----------------------------------------------------------------------- | ----------------------------------------------------- |
@@ -33,6 +33,6 @@ These flight controllers (and development platforms) offer on-vehicle "companion
 
 ## 可运行 PX4 的商业无人机
 
-PX4 is available on many popular commercial drone products, including some that ship with PX4 and others that can be updated with PX4 (allowing you to add mission planning and other PX4 Flight modes to your vehicle).
+PX4 适用于许多流行的商用无人机产品，包括 PX4 附带的一些产品以及可以使用 PX4 更新的其他产品（允许您添加任务规划和其他 PX4 飞行模式到您的无人机）。
 
-For more information see [Complete Vehicles](../complete_vehicles/README.md).
+详情见 [Complete Vehicles](../complete_vehicles/README.md)。
