@@ -53,15 +53,15 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
     
     * 选择 **Mode channel** （上面显示的是 Channel 5 ，但是这是取决于你遥控器的设置的）。 
     * 最多可以选择 6 个 **飞行模式** 。
-5. 进行 *遥控器开关设置* : 
-    * Select the channels that you want to map to specific actions - e.g.: *Return* mode, *Kill switch*, *offboard* mode, etc. (if you have spare switches and channels on your transmitter).
-6. Test that the modes are mapped to the right transmitter switches: 
-    * Check the *Channel Monitor* to confirm that the expected channel is changed by each switch.
-    * Select each mode switch on your transmitter in turn, and check that the desired flight mode is activated (the text turns yellow on *QGroundControl* for the active mode).
+5. 进行 *遥控器开关设置* ： 
+    * 选择你想要映射的特点飞行模式的通道 - 例如：*自动返航*，*Kill switch*，*机外控制（offboard）* 等模式。 （如果你的遥控器发射机上有空闲的开关或者通道的话）。
+6. 测试模式是否映射到正确的发射器开关： 
+    * 检查 *Channel Monitor* 以确认改变每个开关可以改变预期的通道。
+    * 拨动你遥控器上刚刚映射的飞行模式有关的开关，并检查对应的飞行模式已被激活（ *QGroundeControl* 上对应的通道的字体在被激活的情况下变为黄色 ）
 
-All values are automatically saved as they are changed.
+所有被更改的值都会自动保存。
 
-### Single-Channel Setup Video Example (including Transmitter Setup) {#taranis_setup}
+### 单通道模式配置的视频演示（包括遥控器相关设置） {#taranis_setup}
 
 It is common to use the positions of a 2- and a 3-position switch on the transmitter to represent the 6 flight modes, and encode each combination of switches as a particular PWM value for the mode that will be sent on a single channel.
 
