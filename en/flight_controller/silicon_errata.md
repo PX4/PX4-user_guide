@@ -12,7 +12,7 @@ Silicon revisions up to rev 2 (revision 3 is the first not affected) can produce
 Since USB is needed to program the device, Pixhawk revisions built with silicon revisions < rev 3 can only use up to 1MB of the 2MB flash of the microprocessor.
 
 > **Tip** The errata is fixed in later versions, but this may not be detected if you are using an older bootloader. 
-  See [Bootloader Update](../advanced_config/bootloader_update.md) for more information.
+  See [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader) for more information.
 
 
 ## FMUv1 / Pixhawk Silicon Errata
