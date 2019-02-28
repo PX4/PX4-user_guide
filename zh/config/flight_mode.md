@@ -76,9 +76,9 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 * A 3-way switch to choose between flight modes using the single-channel mode setting approach (Manual, Altitude, Acro).
 * A 2-way switch that invokes some function (arm/disarm) (via a [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameter).
 
-> **Note** This example shows how to set up the popular *FrSky Taranis* transmitter. Configuration will be slightly different for other transmitters.
+> **Note** 本示例演示如何设置常用的 *FrSky taranis* 遥控器。 对于其他遥控器，配置可能会稍有不同。
 
-First set up your transmitter. Below we show how to map the Taranis "SD" switch to channel 5. This is done in the Taranis UI 'mixer' page, as shown below:
+首先设置您的遥控器发射机。 下面我们将演示如何将 Taranis 的 "SD" 开关映射到通道 5 。 This is done in the Taranis UI 'mixer' page, as shown below:
 
 ![Taranis - Map channel to switch](../../images/qgc/setup/single_channel_mode_selection_1.png)
 
