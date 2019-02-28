@@ -43,17 +43,17 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 打开您的 RC 遥控器发射机。
-3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
+3. 点击上方工具栏的 **Gear** 图标（飞行器设置），然后在左侧边栏选择 **Flight Modes** 。
     
     ![Flight modes single-channel](../../images/qgc/setup/flight_modes_single_channel.jpg)
     
-    > **Tip** If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode Selection** button to change screen.
+    > **Tip** 如果界面中显示的是 *Multi Channel Mode*，点击 **Use Single Channel Mode Selection** 按钮来切换成单通道模式。
 
-4. Specify *Flight Mode Settings*:
+4. 进行 *飞行模式设置* :
     
-    * Select the **Mode channel** (above this shown as Channel 5, but this will depend on your transmitter configuration). 
-    * Select up to six **Flight Modes**.
-5. Specify *Switch Settings*: 
+    * 选择 **Mode channel** （上面显示的是 Channel 5 ，但是这是取决于你遥控器的设置的）。 
+    * 最多可以选择 6 个 **飞行模式** 。
+5. 进行 *遥控器开关设置* : 
     * Select the channels that you want to map to specific actions - e.g.: *Return* mode, *Kill switch*, *offboard* mode, etc. (if you have spare switches and channels on your transmitter).
 6. Test that the modes are mapped to the right transmitter switches: 
     * Check the *Channel Monitor* to confirm that the expected channel is changed by each switch.
