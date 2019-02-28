@@ -63,15 +63,15 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 ### 单通道模式配置的视频演示（包括遥控器相关设置） {#taranis_setup}
 
-It is common to use the positions of a 2- and a 3-position switch on the transmitter to represent the 6 flight modes, and encode each combination of switches as a particular PWM value for the mode that will be sent on a single channel.
+通常使用遥控器上的 2 级和 3 位开关的位置来表示 6 个飞行模式，并将每一个开关组合作为一个特定的 PWM 值，使用单一通道发送。
 
-The video below shows how this is done with the *FrSky Taranis* transmitter (a very popular and highly recommended RC transmitter). The process involves assigning a "logical switch" to each combination of positions of the two real switches. Each logical switch is then assigned to a different PWM value on the same channel.
+下面视频演示了如何使用 *FrSky Tarais* 遥控器（一款非常受欢迎、高推荐度的 RC 发射器）。 这个过程涉及到为两个真正的开关的每个位置组合分配一个 "逻辑开关"。 然后，每个逻辑开关都被分配给同一频道的不同 PWM 值。
 
-The video then shows how to use *QGroundControl* to specify the mode channel and map modes to each of the 6 "slots". {% youtube %} http://www.youtube.com/watch?v=scqO7vbH2jo {% endyoutube %}
+然后视频显示如何使用 *QGrounderControl* 指定模式通道并且映射到 6 个 “信号槽” 中的每一个。 {% youtube %} http://www.youtube.com/watch?v=scqO7vbH2jo {% endyoutube %}
 
-### Single-Channel Setup Instructional Example
+### 单通道模式设置示例
 
-This example shows how you can configure a transmitter and PX4 with:
+此示例显示您将如何配置发射器和 PX4 ：
 
 * A 3-way switch to choose between flight modes using the single-channel mode setting approach (Manual, Altitude, Acro).
 * A 2-way switch that invokes some function (arm/disarm) (via a [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameter).
