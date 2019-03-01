@@ -58,17 +58,22 @@ They are in no way guaranteed to be plug and play with your companion computer.
 
 An LTE USB module can be attached to a companion computer and used to route MAVLink traffic between the flight controller and the Internet.
 
-There is no "standard method" for a ground station and companion to connect over the Internet (i.e. for the GCS to discover the vehicle IP address, and visa versa).
-Depending on your mobile network, it is likely that you won't be able to just directly connect to the remote QGC computer IP over the Internet.
+There is no "standard method" for a ground station and companion to connect over the Internet.
+Generally you can't connect them directly because neither of them will have a public/static IP on the Internet.
 
-A common approach is to set up a virtual private network between the companion and GCS computer (i.e. install a VPN system on both computers).
-The companion then uses [mavlink-router](https://github.com/intel/mavlink-router) to route traffic between the serial interface (flight controller) and the VPN UDP broadcast address/standard QGC listener port (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system).
+> **Note** Typically your router (or the mobile network) has a public IP address, and your GCS computer/vehicle are on a *local* network.
+  The router uses network address translation (NAT) to map *outgoing* requests from your local network to the Internet, and can use the map to route the *responses* back to requesting system.
+  However NAT has no way to know where to direct the traffic from an arbitrary external system, so there is no way to *initiate* a connection to a GCS or vehicle running in the local network.
 
-> **Note** Using the VPN broadcast address means that you do not need to know the IP address of the QGC computer - all computers in your VPN will get the message
-   (although if you do know the address you can route to that computer).
-   Either way, this method has the benefit that the QGC computer address can be static within the VPN, so the configuration of the *mavlink router* does not need to change over time.
+A common approach is to set up a virtual private network between the companion and GCS computer (i.e. install a VPN system like [zerotier](https://www.zerotier.com/) on both computers).
+The companion then uses [mavlink-router](https://github.com/intel/mavlink-router) to route traffic between the serial interface (flight controller) and GCS computer on the VPN network.
+
+This method has the benefit that the GCS computer address can be static within the VPN, so the configuration of the *mavlink router* does not need to change over time.
+
+> **Note** You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system).
+  This approach means that you do not need to know the IP address of the QGC computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
 
 
 Some USB modules that are known to work include:
 - [Huawei E8372](https://consumer.huawei.com/en/mobile-broadband/e8372/) and [Huawei E3372](https://consumer.huawei.com/en/mobile-broadband/e3372/) 
-  > **Tip** The *E8372* includes WiFi which you can use to configure the SIM while it is plugged into the companion (making the development workflow a little easier). The *E3372* lacks WiFi, so you have to configure it by plugging the stick into a laptop.
+  - The *E8372* includes WiFi which you can use to configure the SIM while it is plugged into the companion (making the development workflow a little easier). The *E3372* lacks WiFi, so you have to configure it by plugging the stick into a laptop.
