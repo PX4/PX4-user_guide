@@ -2,9 +2,15 @@
 
 *QGroundControl* **桌面** 版本可用于在 [Pixhawk-系列](../getting_started/flight_controller_selection.md) 飞控板上安装 PX4 固件。
 
-> **Caution** **在开始安装固件前** 到您的飞行器的所有USB连接必须是*断开* 的 (直接或通过遥测无线电)。 飞行器必须 *不能* 由电池供电。
+> **Caution** **Before you start installing Firmware** all USB connections to the vehicle must be *disconnected* (both direct or through a telemetry radio). 飞行器必须 *不能* 由电池供电。
 
-安装最新固件更新:
+## Install Stable PX4
+
+Generally you should use the most recent *released* version of PX4, in order to benefit from bug fixes and get the latest and greatest features.
+
+> **Tip** This is the version that is installed by default.
+
+To install PX4:
 
 1. 首先在顶部工具栏中选择 **齿轮** 图标 (*Vehicle Setup*) ，然后在侧边栏中选择 **Firmware** 。
     
@@ -14,31 +20,62 @@
     
     > **Note** 直接连接到计算机上的 USB 端口 (不要通过 USB 集线器连接)。
 
-3. 一旦连接到控制器，您就可以选择要加载的固件( *QGroundControl* 根据连接的硬件显示合理的选项)。
-
-* 选择 **PX4 Flight Stack XXX Release** 选项， *为您的硬件* (自动检测) 安装最新稳定版本的 PX4 。
+3. Select the **PX4 Flight Stack X.x.x Release** option to install the latest stable version of PX4 *for your hardware* (autodetected).
     
-    ![默认安装 PX4](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
+    ![Install PX4 default](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
+
+4. Click the **OK** button to start the update.
     
-    > **Tip** 要安装不同版本的 PX4，请查看 **Advanced settings** 并从下拉列表中选择版本。
-    > 
-    > ![安装 PX4 版本](../../assets/qgc/setup/firmware/qgc_choose_firmware.jpg)
-    > 
-    > * 如果选择 **Custom firmware file** ，则需要在下一步中从文件系统中选择自定义固件。
-
-1. 点击 **OK** 按钮开始更新固件。
+    The firmware will then proceed through a number of upgrade steps (downloading new firmware, erasing old firmware etc.). Each step is printed to the screen and overall progress is displayed on a progress bar.
     
-    然后，固件将进行一系列升级步骤 (下载新固件，删除旧固件等)。 每个步骤都打印到屏幕上，整个进度显示在进度条上。
+    ![Firmware upgrade complete](../../assets/qgc/setup/firmware/firmware_upgrade_complete.jpg)
     
-    ![固件升级完成](../../assets/qgc/setup/firmware/firmware_upgrade_complete.jpg)
+    Once the firmware has completed loading, the device/vehicle will reboot and reconnect.
     
-    一旦固件完成加载，设备/飞行器将重新启动和重新连接。
+    > **Tip** If *QGroundControl* installs the FMUv2 target (see console during installation) and you have a newer board, you may need to [update the bootloader](#bootloader) in order to access all the memory on your flight controller.
 
-接下来，您需要指定 [飞行器机架](../config/airframe.md) (然后是传感器、无线电等等)。
+Next you will need to specify the [vehicle airframe](../config/airframe.md) (and then sensors, radio, etc.)
 
-> **Tip** 如果 *QGroundControl* 安装 FMUv2 目标(请参阅安装期间的控制台)，并且你有一个更新的飞控板，则可能需要更新 bootloader，以访问飞行控制器上的所有内存。 有关更多信息，请参见[Bootloader更新](../advanced_config/bootloader_update.md)。
+## Installing PX4 Master, Beta or Custom Firmware {#custom}
 
-## 更多信息：
+To install a different version of PX4:
 
-* [QGroundControl 用户指南>固件](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)。
-* [PX4 设置视频](https://youtu.be/91VGmdSlbo4) (Youtube)
+1. Connect the vehicle as above, and select **PX4 Flight Stack vX.x.x Stable Release** ![Install PX4 version](../../assets/qgc/setup/firmware/qgc_choose_firmware.jpg)
+2. Check **Advanced settings** and select the version from the dropdown list: 
+    * **Standard Version (stable):** The default version (i.e. no need to use advanced settings to install this!)
+    * **Beta Testing (beta):** A beta/candidate release. Only available when a new release is being prepared.
+    * **Developer Build (master):** The latest build of PX4/Firmware.
+    * **Custom Firmware file...:** A custom firmware file (e.g. that you have built locally). If you select this you will have to choose the custom firmware from the file system in the next step.
+
+Firmware update then continues as before.
+
+## FMUv2 Bootloader Update {#bootloader}
+
+If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+
+> **Note** Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu-versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
+
+To update the bootloader:
+
+1. Insert an SD card (enables boot logging to debug any problems).
+2. [Update the Firmware](../config/firmware.md) to PX4 *master* version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list). *QGroundControl* will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
+    
+    ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
+    
+    Wait for the vehicle to reboot.
+
+3. [Find and enable](../advanced_config/parameters.md#parameter-configuration) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+
+4. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
+5. Then [Update the Firmware](../config/firmware.md) again. This time *QGroundControl* should autodetect the hardware as FMUv3 and update the Firmware appropriately.
+    
+    ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
+    
+    > **Note** If the hardware has the *Silicon Errata* it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). In this case you will not be able to install FMUv3 hardware.
+
+> **Tip** For more information see [Bootloader Update](../advanced_config/bootloader_update.md).
+
+## Further Information
+
+* [QGroundControl User Guide > Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
+* [PX4 Setup Video](https://youtu.be/91VGmdSlbo4) (Youtube)
