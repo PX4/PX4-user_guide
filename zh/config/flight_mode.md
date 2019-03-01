@@ -78,17 +78,17 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 > **Note** 本示例演示如何设置常用的 *FrSky taranis* 遥控器。 对于其他遥控器，配置可能会稍有不同。
 
-首先设置您的遥控器发射机。 下面我们将演示如何将 Taranis 的 "SD" 开关映射到通道 5 。 This is done in the Taranis UI 'mixer' page, as shown below:
+首先设置您的遥控器发射机。 下面我们将演示如何将 Taranis 的 "SD" 开关映射到通道 5 。 这是在 Taranis 的 'mixer' 的界面中，如下所示：
 
 ![Taranis - Map channel to switch](../../images/qgc/setup/single_channel_mode_selection_1.png)
 
 ![Taranis - Configure channel](../../images/qgc/setup/single_channel_mode_selection_2.png)
 
-You can then select the channel and the flight modes in single channel mode selection option in *QGroundControl*:
+然后, 您可以在 *QGroundControl* 选择单通道模式选项中选择通道和飞行模式：
 
 ![QGC - Set mode channel](../../images/qgc/setup/single_channel_mode_selection_3.png)
 
-The [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameters map a particular function to a channel. Assuming you have already mapped a channel in your transmitter you can assign the channel by [setting the parameter](../advanced_config/parameters.md).
+[Radio switch](../advanced_config/parameter_reference.md#radio-switches) 参数将特定功能映射到该通道。 Assuming you have already mapped a channel in your transmitter you can assign the channel by [setting the parameter](../advanced_config/parameters.md).
 
 For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter in *QGroundControl*
 
