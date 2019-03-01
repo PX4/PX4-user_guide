@@ -13,6 +13,8 @@ This topic explains several methods for updating the Pixhawk bootloader.
 The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. 
 You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
+> **Note** This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
+
 The steps are:
 
 1. Insert an SD card (enables boot logging to debug any problems).
