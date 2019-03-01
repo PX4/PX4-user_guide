@@ -1,29 +1,81 @@
 # Bootloader 更新
 
-早期的 [Pixhawk系列](../flight_controller/pixhawk_series.md#fmu-versions) 基于 FMUv2 的飞行控制器有一个硬件问题（[芯片勘误表](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata)），这导致限制它们只能使用 1MB 的闪存空间。 这个问题已经在新版本的硬件中被修正了，所以它现在（理论上）可以安装 FMUv3 固件，并访问全部的 2MB 可用储存空间。
+The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO) and [PX4FLOW](../sensor/px4flow.md).
 
-但不行的是，一些厂商生产的飞控板仍在使用旧版的bootloader，导致无法检测硬件问题是否依然存在。 因此，FMUv2 固件仍然必须对储存空间做限制。
+This topic explains several methods for updating the Pixhawk bootloader.
 
-本篇将介绍，怎样将 bootloader 更新至最新版，以便在兼容的飞控板上使用FMUv3固件。
+> **Note** Hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 
-### 主要步骤
+## QGroundControl Bootloader Update {#qgc_bootloader_update}
 
-您可以通过设置参数：[SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)，以便在下次重新启动时启动 bootloader 更新。
+The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
-要更新bootloader，请执行以下操作：
+> **Note** This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
 
-1. 插入 SD 卡（启用引导日志记录，便于调试任何可能的问题。）
-2. [更新固件](../config/firmware.md) 至PX4 *master* 版本（当更新固件时，查看 **高级设置** 并从下拉列表选择**Developer Build (master)** ）。 *QGroundControl* 会自动识别到硬件支持 FMUv2，并安装相应的固件。
+The steps are:
+
+1. Insert an SD card (enables boot logging to debug any problems).
+2. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader.
+    
+    > **Tip** The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
     
     ![FMUv2 更新](../../assets/qgc/setup/firmware/bootloader_update.jpg)
-    
-    等待飞控重启。
 
-3. [找到并启用](../advanced_config/parameters.md#parameter-configuration) 参数 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)。
+3. Wait for the vehicle to reboot.
 
-4. 重新启动（断开/重新连接飞控板）。 bootloader更新只需要几秒钟即可完成。
-5. 然后再重新 [更新固件](../config/firmware.md) 。 这一次 *QGroundControl* 会自动识别到硬件支持 FMUv3，并相应地安装固件。
+4. [Find and enable](../advanced_config/parameters.md#parameter-configuration) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+5. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
+
+Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
+
+### Dronecode Probe Bootloader Update {#dronecode_probe}
+
+The following steps explain how you can "manually" update the bootloader using the dronecode probe:
+
+1. Get a binary containing the bootloader (either from dev team or build it yourself).
+2. Connect the Dronecode probe to your PC via USB. 
+3. Go into the directory containing the binary and run the following command in the terminal: 
+        cmd
+        arm-none-eabi-gdb px4fmuv5_bl.elf
+
+4. The *gdb terminal* appears and it should display the following output: 
+        cmd
+        GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
+        Copyright (C) 2017 Free Software Foundation, Inc.
+        License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+        This is free software: you are free to change and redistribute it.
+        There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+        and "show warranty" for details.
+        This GDB was configured as "--host=x86_64-linux-gnu --target=arm-none-eabi".
+        Type "show configuration" for configuration details.
+        For bug reporting instructions, please see:
+        <http://www.gnu.org/software/gdb/bugs/>.
+        Find the GDB manual and other documentation resources online at:
+        <http://www.gnu.org/software/gdb/documentation/>.
+        For help, type "help".
+        Type "apropos word" to search for commands related to "word"...
+        Reading symbols from px4fmuv5_bl.elf...done.
+
+5. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
+6. Now connect to the Dronecode probe with the following command: ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
+7. Power on the Pixhawk with another USB cable and connect the Dronecode probe to the FMU-DEBUG port.
     
-    ![FMUv3 更新](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
+    > **Note** To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+
+8. Use the following command to scan for the Pixhawk’s swd and connect to it:
     
-    > **Note** 如果硬件有 *芯片错误*，它仍将被检测为 FMUv2，你将会（在控制台）看到 FMUv2 被重新安装。 在这种情况下，你将不能安装 FMUv3 固件。
+        (gdb) mon swdp_scan
+        (gdb) attach 1
+        
+
+9. Load the binary into the Pixhawk: ```(gdb) load```
+
+After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
+
+## Other Boards (Non-Pixhawk) {#non-pixhawk}
+
+Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
+
+These will be documented (where relevant) with the board:
+
+- [Omnibus F4 SD > PX4 Bootloader Update](../flight_controller/omnibus_f4_sd.md#upload)
