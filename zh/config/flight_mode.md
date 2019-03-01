@@ -88,21 +88,21 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 ![QGC - Set mode channel](../../images/qgc/setup/single_channel_mode_selection_3.png)
 
-[Radio switch](../advanced_config/parameter_reference.md#radio-switches) 参数将特定功能映射到该通道。 Assuming you have already mapped a channel in your transmitter you can assign the channel by [setting the parameter](../advanced_config/parameters.md).
+[Radio switch](../advanced_config/parameter_reference.md#radio-switches) 参数将特定功能映射到该通道。 假设你已经在您的发射器中映射了一个通道，您可以通过 [setting the parameter](../advanced_config/parameters.md) 来分配通道。
 
-For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter in *QGroundControl*
+例如，我们在 *QGroundControl* 中把通道 6 映射到 [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) 参数上去。
 
 ![QGC - Map ARM switch to channel](../../images/qgc/setup/single_channel_mode_selection_4.png)
 
-## Multi-Channel Flight Mode Selection {#multi_channel}
+## 多通道飞行模式选择 {#multi_channel}
 
-> **Tip** We recommend you use [Single Channel Flight Mode](#single_channel) selection because the Multi Channel selection user interface can be confusing. If you do choose to use this method, then the best approach is to start assigning channels and take note of information displayed by *QGroundControl* following your selection.
+> **Tip** 我们建议您使用 [单通道飞行模式](#single_channel) 选择，因为多通道飞行模式选择下很可能会造成用户您比较混乱和疑惑。 如果您选择使用此方法，那么最好的办法是开始分配频道时注意到您选择后显示的 *QGroundeControl* 报出的信息。
 
-The multi-channel selection user interface allows you to map one or more modes to one or more channels. There are some modes (and hence switches) that must always be defined, and the channel to which they must be allocated.
+多通道飞行模式选择下，允许用户您将一个或多个飞行模式映射到一个或多个通道。 有一些飞行模式（同对应开关）必须被定义，对应的通道也同样被分配。
 
-To configure flight modes using the multi-channel UI:
+使用多通道分配飞行模式界面来配置飞行模式：
 
-1. Turn on your RC transmitter.
+1. 打开您的 RC 遥控器发射机。
 2. 打开 *QGroundControl* 并连接上飞机。
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
     
