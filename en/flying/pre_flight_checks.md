@@ -49,7 +49,7 @@ The following errors (with associated checks and parameters) are reported by the
 * The check is controlled by the [COM_ARM_IMU_GYR](../advanced_config/parameter_reference.md#COM_ARM_IMU_GYR) parameter.
 
 `PREFLIGHT FAIL: COMPASS SENSORS INCONSISTENT - CHECK CALIBRATION`:
-* This error message is produced when measurments from different compass sensors is too great.
+* This error message is produced when the difference in measurments from different compass sensors is too great.
 * It indicates bad calibration, orientation or magnetic interference.
 * This check only applies to when more than one compass/magnetometer is connected.
 * The check is controlled by the [COM_ARM_MAG](../advanced_config/parameter_reference.md#COM_ARM_MAG) parameter.
