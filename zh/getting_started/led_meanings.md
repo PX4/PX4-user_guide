@@ -39,11 +39,11 @@ RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个
 
 ![Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_status_leds.jpg)
 
-从上电开始，FMU和PX4IO的CPU首先运行引导程序(BL) 然后运行程序(APP)。 The table below shows how the Bootloader and then APP use the LEDs to indicate condition.
+从上电开始，FMU和PX4IO的CPU首先运行引导程序(BL) 然后运行程序(APP)。 下表显示引导程序和APP使用如何使用LED来显示状态。
 
-| Color     | Label                       | Bootloader usage                               | APP usage               |
+| 颜色        | 标签                          | 引导程序使用                                         | APP使用                   |
 | --------- | --------------------------- | ---------------------------------------------- | ----------------------- |
-| Blue      | ACT (Activity)              | Flutters when the bootloader is receiving data | Indication of ARM state |
+| 蓝色        | ACT(激活)                     | Flutters when the bootloader is receiving data | Indication of ARM state |
 | Red/Amber | B/E (In Bootloader / Error) | Flutters when in the bootloader                | Indication of an ERROR  |
 | Green     | PWR (Power)                 | Not used by bootloader                         | Indication of ARM state |
 
