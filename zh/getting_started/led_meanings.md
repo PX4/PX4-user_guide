@@ -1,9 +1,9 @@
-# LED Meanings (Pixhawk Series)
+# LED灯含义（Pixhawk系列）
 
-[Pixhawk-series flight controllers](../flight_controller/pixhawk_series.md) use LEDs to indicate the current status of the vehicle.
+[Pixhawk系列飞行控制器](../flight_controller/pixhawk_series.md) 使用LED来显示当前飞行器的状态。
 
-* The [UI LED](#ui_led) provides user-facing status information related to *readiness for flight*.
-* The [Status LEDs](#status_led) provide status for the PX4IO and FMU SoC. They indicate power, bootloader mode and activity, and errors.
+* [UI LED](#ui_led) 提供了与 *起飞准备*相关的面向用户的状态信息。
+* [LEDs状态](#status_led) 提供PX4IO 和 FMU SoC的状态。 它们表示电量、驱动模式和活动以及错误。
 
 ## UI LED {#ui_led}
 
