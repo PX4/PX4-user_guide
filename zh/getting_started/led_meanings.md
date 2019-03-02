@@ -7,11 +7,11 @@
 
 ## UI LED {#ui_led}
 
-The RGB *UI LED* indicates the current *readiness for flight* status of the vehicle. This is typically a superbright I2C peripheral, which may or may not be mounted on the flight controller board (i.e. FMUv4 does not have one on board, and typically uses an LED mounted on the GPS).
+RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个超亮的I2C外设，可能安装在飞控板上（例如，FMUv4飞控板上没有，通常使用安装在GPS上的LED）。
 
-The image below shows the relationship between LED and vehicle status.
+下图显示LED和飞行器状态的关系。
 
-> **Warning** It is possible to have a GPS lock (Green LED) and still not be able to arm the vehicle because PX4 has not yet [passed preflight checks](../flying/pre_flight_checks.md). **A valid global position estimate is required to takeoff!**
+> **警告** 可能有GPS锁 (LED指示灯为绿色) 并且无法解锁飞机，因为PX4还没有 [通过起飞前检测](../flying/pre_flight_checks.md)。 **起飞需要有效的全球位置估计!**
 
 <span></span>
 
