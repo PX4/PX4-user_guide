@@ -23,15 +23,15 @@ RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个
 
 * **[蓝色LED闪烁] 未解锁, 没有GPS锁：** 与之前类似，但是你的飞行器没有解锁。 这意味着你将不能控制电机，但是其他子系统正在工作。
 
-* **[Solid Green] Armed, GPS Lock:** Indicates vehicle has been armed and has a valid position lock from a GPS unit. When vehicle is armed, PX4 will unlock control of the motors, allowing you to fly your drone. As always, exercise caution when arming, as large propellers can be dangerous at high revolutions. In this mode, vehicle can perform guided missions.
+* **[绿色LED常亮] 解锁，GPS锁定：** 表示飞行器已经解锁，但是GPS模块有位置锁。 当飞行器解锁，PX4将会解锁对电机的控制，允许你操纵无人机飞行。 像往常一样，在解锁时要小心，因为大型螺旋桨在高速旋转时可能很危险。 在这种模式下，飞行器可以执行引导任务。
 
-* **[Pulsing Green] Disarmed, GPS Lock:** Similar to above, but your vehicle is disarmed. This means you will not be able to control motors, but all other subsystems including GPS position lock are working.
+* **[绿色LED闪烁] 未解锁，GPS锁定：** 与之前类似，但是你的飞行器没有解锁。 这意味着你讲无法控制电机，但是其他子系统包括GPS位置锁正在工作。
 
-* **[Solid Purple] Failsafe Mode:** This mode will activate whenever vehicle encounters an issue during flight, such as losing manual control, a critically low battery, or an internal error. During failsafe mode, vehicle will attempt to return to its takeoff location, or may simply descend where it currently is.
+* **[紫色LED闪烁] 故障保护模式：** 当你的飞行器在飞行时遇到问题，此模式将激活，比如飞行器失去手动控制、电量过低或内部错误。 在故障保护模式时，飞行器将试图返回起飞位置，或者降落在当前位置。
 
-* **[Solid Amber] Low Battery Warning:** Indicates your vehicle's battery is running dangerously low. After a certain point, vehicle will go into failsafe mode. However, this mode should signal caution that it's time to end this flight.
+* **[黄褐色LED常亮] 低电量警告：** 表示飞行器电量极低。 在某一点之后，飞行器将进入故障保护模式。 但是，此模式警告此次飞行应该结束。
 
-* **[Blinking Red] Error / Setup Required:** Indicates that your autopilot needs to be configured or calibrated before flying. Attach your autopilot to a Ground Control Station to verify what the problem is. If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
+* **[红色LED闪烁] 错误/设置需要：** 表示飞行器在飞行前需要配置或校准。 Attach your autopilot to a Ground Control Station to verify what the problem is. If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
 
 ## Status LED {#status_led}
 
