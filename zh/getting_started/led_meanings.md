@@ -31,15 +31,15 @@ RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个
 
 * **[黄褐色LED常亮] 低电量警告：** 表示飞行器电量极低。 在某一点之后，飞行器将进入故障保护模式。 但是，此模式警告此次飞行应该结束。
 
-* **[红色LED闪烁] 错误/设置需要：** 表示飞行器在飞行前需要配置或校准。 Attach your autopilot to a Ground Control Station to verify what the problem is. If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
+* **[红色LED闪烁] 错误/设置需要：** 表示飞行器在飞行前需要配置或校准。 将飞行器连接到地面站以找出问题所在。 如果您已经完成设置过程，飞行器仍然闪烁红色，这表明还有其他错误。
 
-## Status LED {#status_led}
+## LED状态 {#status_led}
 
-Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). They indicate power, bootloader mode and activity, and errors.
+三种*LED状态* 提供FMU SoC的状态，另外三个提供 PX4IO 的状态(如果存在)。 它们它们表示电量、驱动模式和活动以及错误。
 
 ![Pixhawk 4](../../assets/flight_controller/pixhawk4/pixhawk4_status_leds.jpg)
 
-From power on, the FMU and PX4IO CPUs first run the bootloader (BL) and then the application (APP). The table below shows how the Bootloader and then APP use the LEDs to indicate condition.
+从上电开始，FMU和PX4IO的CPU首先运行引导程序(BL) 然后运行程序(APP)。 The table below shows how the Bootloader and then APP use the LEDs to indicate condition.
 
 | Color     | Label                       | Bootloader usage                               | APP usage               |
 | --------- | --------------------------- | ---------------------------------------------- | ----------------------- |
