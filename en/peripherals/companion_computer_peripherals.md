@@ -69,9 +69,10 @@ A common approach is to set up a virtual private network between the companion a
 The companion then uses [mavlink-router](https://github.com/intel/mavlink-router) to route traffic between the serial interface (flight controller) and GCS computer on the VPN network.
 
 This method has the benefit that the GCS computer address can be static within the VPN, so the configuration of the *mavlink router* does not need to change over time.
+In addition, the communication link is secure because all VPN traffic is encrypted (MAVLink 2 itself does not support encryption).
 
 > **Note** You can also choose to route to the VPN broadcast address (i.e. `x.x.x.255:14550`, where 'x' depends on the VPN system).
-  This approach means that you do not need to know the IP address of the QGC computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
+  This approach means that you do not need to know the IP address of the GCS computer, but may result in more traffic than desired (since packets are broadcast to every computer on the VPN network).
 
 
 Some USB modules that are known to work include:
