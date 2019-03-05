@@ -29,4 +29,4 @@ After calibration a quick test is to press your finger against the tip of the pi
 
 ## Further Information
 
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#airspeed)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)
