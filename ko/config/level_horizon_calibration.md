@@ -26,5 +26,5 @@
 >         ## Further Information
 >         
 >         * [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
->         * [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#level-horizon)
+>         * [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#level-horizon)
 >         *  PX4 설치 비디오 "자이로 스코프"- @ 1m14s </ 0> (Youtube) </li> </ul>
