@@ -34,4 +34,4 @@ You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) 
 ## 更多信息
 
 * [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
-* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#flight_controller_orientation)
+* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation)
