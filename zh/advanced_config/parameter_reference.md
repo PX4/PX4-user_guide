@@ -28451,32 +28451,6 @@
       m
     </td>
   </tr>
-</table>
-
-## Return To Land
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
-  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
-    <th>
-      参数名
-    </th>
-    
-    <th>
-      参数描述
-    </th>
-    
-    <th>
-      最小最大值 (增量)
-    </th>
-    
-    <th>
-      默认值
-    </th>
-    
-    <th>
-      单位
-    </th>
-  </tr>
   
   <tr>
     <td style="vertical-align: top;">
@@ -39699,23 +39673,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      Name
+      参数名
     </th>
     
     <th>
-      Description
+      参数描述
     </th>
     
     <th>
-      Min > Max (Incr.)
+      最小最大值 (增量)
     </th>
     
     <th>
-      Default
+      默认值
     </th>
     
     <th>
-      Units
+      单位
     </th>
   </tr>
   
