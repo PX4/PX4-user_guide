@@ -29,4 +29,4 @@ After calibration a quick test is to press your finger against the tip of the pi
 
 ## 更多信息
 
-* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#airspeed)
+* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)
