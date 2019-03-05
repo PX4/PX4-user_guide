@@ -12,7 +12,7 @@ The calibration steps are:
 2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
 3. Click the **Accelerometer** sensor button.
     
-    ![Accelerometer calibration](../../images/qgc/setup/sensor_accelerometer.jpg)
+    ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer.jpg)
     
     > **Note** You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
 
@@ -20,7 +20,7 @@ The calibration steps are:
 
 5. Position the vehicle as guided by the *images* on the screen. Once prompted (the orientation-image turns yellow) hold the vehicle still. Once the calibration is complete for the current orientation the associated image on the screen will turn green.
     
-    ![Accelerometer calibration](../../images/qgc/setup/sensor_accelerometer_positions_px4.jpg)
+    ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer_positions_px4.jpg)
 
 6. Repeat the calibration process for all vehicle orientations.
 
@@ -28,5 +28,5 @@ Once you've calibrated the vehicle in all the positions *QGroundControl* will di
 
 ## Further Information
 
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#px4-accelerometer-calibration)
+* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#accelerometer)
 * [PX4 Setup Video - @1m46s](https://youtu.be/91VGmdSlbo4?t=1m46s) (Youtube)
