@@ -4,7 +4,7 @@ Air flowing over an enclosed vehicle can cause the *static pressure* to change w
 Depending on the location of holes/leaks in the hull, you can end up with under or overpressure (similar to a wing).
 
 The change in pressure can affect barometer measurements, leading to an inaccurate altitude estimate.
-This might manifest as the vehicle losing altitude during [Altitude Mode](../flight_modes/altitude_mc.md) (because the static pressure drops when it is no longer moving, the sensor reports a higher altitude, so the vehicle compensates by descending).
+This might manifest as the vehicle losing altitude when it stops moving in [Altitude](../flight_modes/altitude_mc.md), [Position](../flight_modes/position_mc.md) or [Mission](../flight_modes/mission.md) modes (when the vehicle stops moving the static pressure drops, the sensor reports a higher altitude. and the vehicle compensates by descending).
 
 One solution is to use foam-filled venting holes to reduce the buildup (as much as possible) and then attempt dynamic calibration to remove any remaining effects.
 
@@ -18,7 +18,7 @@ One solution is to use foam-filled venting holes to reduce the buildup (as much 
 
 You can modify the hull by drilling holes or filling them with foam.
 
-One way to analyse the effects of these changes is to mount the drone on a car and drive around with the hull exposed to air/wind.
+One way to analyse the effects of these changes is to mount the drone on a car and drive around (on a relatively level surface) with the hull exposed to air/wind.
 By looking at the ground station you can review the effects of movement-induced static pressure changes on the measured altitude (using the road as "ground truth).
 
 This process allows rapid iteration without draining batteries: modify drone, drive/review, repeat!
