@@ -24,5 +24,5 @@ After the orientation is set and level-horizon calibration is complete, check in
 ## 更多信息
 
 * [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
-* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#level-horizon)
+* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#level-horizon)
 * [PX4 Setup Video "Gyroscope" - @1m14s](https://youtu.be/91VGmdSlbo4?t=1m14s) (Youtube)
