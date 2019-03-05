@@ -13,7 +13,7 @@
 >     
 >     * ** 가속도계 </ 0> 센서 버튼을 클릭하십시오.</p> 
 >         
->         ![가속도계 보정](../../images/qgc/setup/sensor_accelerometer.jpg)
+>         ![가속도계 보정](../../assets/qgc/setup/sensor/accelerometer.jpg)
 >         
 >         > ** 참고 </ 0> 미리  자동 조종 방향 </ 1>을 설정해야합니다. 그렇지 않은 경우 여기에서 설정할 수도 있습니다.</p> </blockquote></li> 
 >         > 
@@ -21,7 +21,7 @@
 >         >     
 >         >     * 화면에 * 이미지 </ 0>가 표시되도록 차량을 배치하십시오. 우선 메시지가 나타나면 (방향 이미지가 노란색으로 바뀝니다) 차량을 정지 상태로 유지하십시오. 현재 방향에 대해 보정이 완료되면 화면의 보정 관련 이미지가 녹색으로 바뀝니다.</p> 
 >         >         
->         >         ![Accelerometer calibration](../../images/qgc/setup/sensor_accelerometer_positions_px4.jpg)</li> 
+>         >         ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer_positions_px4.jpg)</li> 
 >         >         
 >         >         * 차량의 모든 방향에 대해 보정 과정을 반복합니다.</ol> 
 >         >         
@@ -29,5 +29,5 @@
 >         >         
 >         >         ## 추가 정보
 >         >         
->         >         * [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#px4-accelerometer-calibration)
+>         >         * [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#accelerometer)
 >         >         *  PX4 설치 비디오 - @ 1m46s </ 0> (Youtube)</li> </ul>
