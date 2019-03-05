@@ -38,5 +38,5 @@ YAW, PITCH and/or ROLL offsets are calculated relative to the forward-facing-upr
 
 <ul>
 <li><a href="../advanced_config/advanced_flight_controller_orientation_leveling.md">방향 조정 고급</a> (고급 사용자만)입니다.</li>
-<li><a href="https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#flight_controller_orientation">QGroundControl User Guide > Sensors</a></li>
+<li><a href="https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation">QGroundControl User Guide > Sensors</a></li>
 </ul>
