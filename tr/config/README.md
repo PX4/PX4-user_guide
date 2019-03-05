@@ -10,6 +10,7 @@ This section contains *essential* configuration topics:
 * [Airframe](../config/airframe.md)
 * [Sensor Orientation](../config/flight_controller_orientation.md)
 * [Compass](../config/compass.md)
+* [Gyroscope](../config/gyroscope.md)
 * [Accelerometer](../config/accelerometer.md)
 * [Airspeed](../config/airspeed.md) (fixed-wing/VTOL)
 * [Level Horizon Calibration](../config/level_horizon_calibration.md)
