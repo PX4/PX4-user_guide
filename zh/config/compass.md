@@ -28,5 +28,5 @@ The compass calibration process configures all connected internal and external [
 
 ## 更多信息：
 
-* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html#px4-compass-calibration)
+* [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#compass)
 * [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)
