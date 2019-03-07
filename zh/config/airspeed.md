@@ -10,22 +10,22 @@
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
-3. Click the **Airspeed** sensor button.
+3. 点击 **空速** 传感器按钮。
     
-    ![Airspeed calibration](../../images/qgc/setup/sensor_airspeed.jpg)
+    ![空速校准](../../images/qgc/setup/sensor_airspeed.jpg)
 
-4. Shield the sensor from the wind (i.e. cup it with your hand). Take care not to block any of its holes.
+4. 将传感器与风隔离（即用手盖住传感器）。 注意不要阻挡任何孔。
 
-5. 点击**确定**开始标定。
-6. Blow into the tip of the pitot tube to signal the end of calibration.
+5. 点击**确定**开始校准。
+6. 向皮托管的尖端内吹气以指示校准结束。
     
-    > **Tip** Blowing into the tube is also a basic check that the dynamic and static ports are installed correctly. If they are swapped then the sensor will read a large negative differential pressure when you blow into the tube, and the calibration will abort with an error.
+    > **提示**向管内吹气也是对动态和静态端口是否正确安装的基本检查。 如果它们被交换，那么当您吹气入管时，传感器将读取较大的负压差，并且校准将中止并出现错误。
 
-7. Wait for 2-3 seconds before removing the covering (calibration completes silently after several seconds)
+7. 等待 2-3秒钟, 然后取出覆盖物 (几秒钟后, 校准以静默方式完成)
 
 ## 测试
 
-After calibration a quick test is to press your finger against the tip of the pitot and hold it. You should see the system read and hold a positive airspeed until you release.
+校准后, 快速测试是将手指按在皮托的尖端上并按住它。 你应该看到系统读取并保持一个正空速, 直到你释放手指。
 
 ## 更多信息
 
