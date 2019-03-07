@@ -1,12 +1,12 @@
-# AirSpeed Calibration
+# 空速校准
 
-The airspeed calibration needs to read a stable baseline with 0 airspeed in order to determine an offset. Cup your hands over the pitot to block any wind (if calibrating the sensor indoors this is not needed) and then blow into the tube using your mouth (to signal completion of the calibration).
+空速校准需要读取零空速的稳定基础数据以确定偏移量。 将手放在皮托管上以阻挡风（如果在室内校准传感器则不需要），然后用嘴向管中吹气（表示完成校准）。
 
-> **Note** Fixed Wing and VTOL vehicles usually have an airspeed sensor.
+> **注**固定翼和VTOL飞机通常有一个空速传感器。
 
 ## 执行校准
 
-To calibrate the airspeed sensor:
+校准空速传感器
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
