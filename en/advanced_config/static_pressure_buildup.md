@@ -27,7 +27,7 @@ This process allows rapid iteration without draining batteries: modify drone, dr
 
 ## Dynamic Calibration
 
-After modifying the hardware, you can then use the [EKF2_PCOEF_*](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN) parameters to tune for expected barometer variation based on relative air velocity.
+After modifying the hardware, you can then use the [EKF2\_PCOEF\_*](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN) parameters to tune for expected barometer variation based on relative air velocity.
 
 > **Note** The approach works well if the relationship between the error due to static pressure and the velocity varies linearly. 
   If the vehicle has a more complex aerodynamic model it will be less effective.
