@@ -17,7 +17,7 @@ RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个
 
 > **建议** 在遇到错误 (红色LED闪烁), 或者飞行器无法解除GPS锁 (LED从蓝色变为绿色) 时， 查看*QGroundControl*中详细的状态信息包括校准状态，在 [飞行前检查(内部)](../flying/pre_flight_checks.md)时会报告错误信息。 还要检查GPS模块是否正确连接，Pixhawk是否正确读取GPS信息，GPS是否发送正确的GPS位置。
 
-![LED meanings](../../images/led_meanings.gif)
+![LED灯含义](../../images/led_meanings.gif)
 
 * **[蓝色LED常亮] 解锁， GPS未锁定：** 表上飞行器已经解锁并且GPS模块没有位置锁。 当飞行器已经解锁，PX4会解锁对电机的控制，允许你操纵无人机飞行。 像往常一样，在解锁时要小心，因为大型螺旋桨在高速旋转时可能很危险。 飞行器在这种模式下无法执行引导任务。
 
@@ -47,15 +47,15 @@ RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个
 | 红色/琥珀色 | B/E(在引导加载程序/错误) | 在引导加载程序时闪烁      | 表示错误状态  |
 | 绿色     | PWR(电源)         | 引导加载程序不使用       | 表示ARM状态 |
 
-> **Note** The LED labels shown above are commonly used, but might differ on some boards.
+> **注意** 上面所列的LED标签是常用的，但是在一些飞控板上有所不同。
 
-More detailed information for how to interpret the LEDs is given below (where "x" means "any state")
+下面给出了LED更详细的信息(“x”表示任意状态)
 
-| Red/Amber | Blue | Green | Meaning                                                     |
-| --------- | ---- | ----- | ----------------------------------------------------------- |
-| 10Hz      | x    | x     | Overload CPU load > 80%, or RAM usage > 98%                 |
-| OFF       | x    | x     | Overload CPU load <= 80%, or RAM usage <= 98%               |
-| NA        | OFF  | 4 Hz  | actuator_armed->armed && failsafe                           |
-| NA        | ON   | 4 Hz  | actuator_armed->armed && !failsafe                          |
-| NA        | OFF  | 1 Hz  | !actuator_armed-> armed && actuator_armed->ready_to_arm |
-| NA        | OFF  | 10 Hz | !actuator_armed->armed && !actuator_armed->ready_to_arm |
+| 红色/琥珀色 | 蓝色  | 绿色    | 含义                                                          |
+| ------ | --- | ----- | ----------------------------------------------------------- |
+| 10Hz   | x   | x     | Overload CPU load > 80%, or RAM usage > 98%                 |
+| OFF    | x   | x     | Overload CPU load <= 80%, or RAM usage <= 98%               |
+| NA     | OFF | 4 Hz  | actuator_armed->armed && failsafe                           |
+| NA     | ON  | 4 Hz  | actuator_armed->armed && !failsafe                          |
+| NA     | OFF | 1 Hz  | !actuator_armed-> armed && actuator_armed->ready_to_arm |
+| NA     | OFF | 10 Hz | !actuator_armed->armed && !actuator_armed->ready_to_arm |
