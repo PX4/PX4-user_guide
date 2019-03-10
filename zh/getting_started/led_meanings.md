@@ -41,11 +41,11 @@ RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个
 
 从上电开始，FMU和PX4IO的CPU首先运行引导程序(BL) 然后运行程序(APP)。 下表显示引导程序和APP使用如何使用LED来显示状态。
 
-| 颜色        | 标签                          | 引导程序使用                                         | APP使用                   |
-| --------- | --------------------------- | ---------------------------------------------- | ----------------------- |
-| 蓝色        | ACT(激活)                     | Flutters when the bootloader is receiving data | Indication of ARM state |
-| Red/Amber | B/E (In Bootloader / Error) | Flutters when in the bootloader                | Indication of an ERROR  |
-| Green     | PWR (Power)                 | Not used by bootloader                         | Indication of ARM state |
+| 颜色     | 标签              | 引导加载程序使用        | APP使用   |
+| ------ | --------------- | --------------- | ------- |
+| 蓝色     | ACT(激活)         | 引导加载程序接收数据的时候闪烁 | 表示ARM状态 |
+| 红色/琥珀色 | B/E(在引导加载程序/错误) | 在引导加载程序时闪烁      | 表示错误状态  |
+| 绿色     | PWR(电源)         | 引导加载程序不使用       | 表示ARM状态 |
 
 > **Note** The LED labels shown above are commonly used, but might differ on some boards.
 
