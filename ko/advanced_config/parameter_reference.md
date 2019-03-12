@@ -2087,34 +2087,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="COM_DL_REG_T">COM_DL_REG_T</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Datalink regain time threshold
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> After a data link loss: after this this amount of seconds with a healthy datalink the 'datalink loss' flag is set back to false
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 3 (0.5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-      s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="COM_EF_C2T">COM_EF_C2T</strong> (FLOAT)
     </td>
     
@@ -13939,6 +13911,28 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_OBS_AVOID">COM_OBS_AVOID</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Flag to enable obstacle avoidance Temporary Parameter to enable interface testing
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)
     </td>
     
@@ -16835,28 +16829,6 @@
     
     <td style="vertical-align: top;">
       deg/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_OBS_AVOID">MPC_OBS_AVOID</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Flag to enable obstacle avoidance Temporary Parameter to enable interface testing
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
     </td>
   </tr>
   
