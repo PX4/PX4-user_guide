@@ -10,19 +10,19 @@ PX4는 *전문가용 오토파일럿*입니다. 산업계 및 학계의 세계�
 
 <span></span>
 
-> **참고** 이 안내서는 아직 작업 중입니다! It does not yet cover all of PX4.
+> **참고** 이 안내서는 아직 작업 중입니다! 아직 PX4의 모두 다루지는 않습니다.
 
-## How Do I Get Started?
+## 시작하려면 어떻게 해야 합니까?
 
-[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+[시작하기](getting_started/README.md)는 모든 사용자가 읽어야 합니다! 비행 스택(비행 모드 및 안전 기능을 일컬음) 과 지원되는 하드웨어 (비행 컨트롤러, 이동체, 항공기, 원격 측정 시스템, RC 제어 시스템) 를 통해 제공되는 기능을 포함하여 PX4에 대한 개요를 제공합니다.
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+달성하려는 목표에 따라, 다음의 팁을 통해 이 가이드를 탐색하는데 도움이 됩니다.
 
-**I already have a drone and I just want to fly:**
+**이미 무인 항공기를 가지고 있으며 단지 비행하기를 원하는 경우:**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+PX4를 지원하는 Ready To Fly (RTF) 이동체가 있는 경우:
 
-- [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+- [기본 구성](config/README.md)에서는 펌웨어를 최신 버전으로 업데이트하고, 기본 센서(나침반, 자이로/IMU, 대기 속도 등) 를 보정하고 원격 제어 및 안전 기능을 설정하는 방법에 대해 설명합니다.
 - [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
 
 **I want to build a drone with PX4 from scratch:**
