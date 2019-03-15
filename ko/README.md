@@ -4,13 +4,13 @@
 
 [![Releases](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![Discuss](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
-PX4 is the *Professional Autopilot*. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.
+PX4는 *전문가용 오토파일럿*입니다. 산업계 및 학계의 세계적 수준의 개발자에 의해 개발되고 활발한 전세계 커뮤니티에 의해 지원되며, 레이싱 및 카고 드론에서 지상 차량 및 잠수정에 이르기까지 모든 종류의 이동체에 적용됩니다.
 
-> **Tip** This guide contains everything you need to assemble, configure, and safely fly a PX4-based vehicle.
+> **팁** 이 가이드에는 PX4 기반의 이동체를 조립, 구성 및 안전하게 비행하는 데 필요한 모든 것이 포함되어 있습니다.
 
 <span></span>
 
-> **Note** This guide is still a work in progress! It does not yet cover all of PX4.
+> **참고** 이 안내서는 아직 작업 중입니다! It does not yet cover all of PX4.
 
 ## How Do I Get Started?
 
