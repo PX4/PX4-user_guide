@@ -1,14 +1,14 @@
-# Basic Concepts
+# 기본 개념
 
 이 주제에서는 무인 항공기에 대한 기본적인 소개와 PX4 사용에 대해 설명합니다. (초보자를 위한 것이지만 숙련된 사용자에게도 좋은 소개 자료입니다.)
 
-If you are already familiar with the basic concepts, you can move on to [Basic Assembly](../assembly/README.md) to learn how to wire your specific autopilot hardware. *QGroundControl*을 사용하여 펌웨어를 설치하고 이동체를 설정하려면 [기본 구성](../config/README.md)을 참조하십시오.
+기본 개념을 이미 잘 알고 있다면 [기본 조립](../assembly/README.md)으로 이동하여 특정 자동 조종 장치 하드웨어를 연결하는 방법을 배울 수 있습니다. *QGroundControl*을 사용하여 펌웨어를 설치하고 이동체를 설정하려면 [기본 설정](../config/README.md)을 참조하십시오.
 
-## 드론이란 무엇입니까?
+## 드론이란?
 
-드론은 원격 또는 자율적으로 제어 할 수 있는 무인 "로봇" 이동체입니다.
+드론은 원격 또는 자율적으로 제어될 수 있는 무인 "로봇" 이동체입니다.
 
-Drones are used for many consumer, industrial and military [use cases and applications](http://px4.io/applications/). These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
+드론은 많은 소비자 그리고 산업 및 군사적 목적으로 [활용](http://px4.io/applications/)됩니다. 여기에는 (대략) 항공 사진/비디오, 화물 운송, 레이싱, 검색 및 측량 등 내용이 포함됩니다.
 
 > **Tip** Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
 
