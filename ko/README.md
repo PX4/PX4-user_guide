@@ -25,26 +25,26 @@ PX4를 지원하는 Ready To Fly (RTF) 이동체가 있는 경우:
 - [기본 구성](config/README.md)에서는 펌웨어를 최신 버전으로 업데이트하고, 기본 센서(나침반, 자이로/IMU, 대기 속도 등) 를 보정하고 원격 제어 및 안전 기능을 설정하는 방법에 대해 설명합니다.
 - [ Flying](flying/README.md)은 안전하게 비행 할 수 있는 장소와 방법 그리고 아밍 및 비행 문제를 디버깅하는 방법을 포함하여 비행 요령을 가르칩니다. 또한 비행 모드에 대한 자세한 정보를 제공합니다.
 
-**I want to build a drone with PX4 from scratch:**
+**처음부터 사전 지식 없이 PX4로 드론을 만들고 싶은 경우:**
 
-> **Tip** The "supported" vehicles are listed in the [Airframes Reference](airframes/airframe_reference.md). These are vehicles that have tested and tuned configurations that you can download using *QGroundControl*.
+> ** Tip ** "지원되는" 기체는 [기체프레임 참조](airframes/airframe_reference.md)에 나열되어 있습니다. 이 프레임들은 * QGroundControl*을 사용하여 다운로드 할 수 있는 구성을 테스트하고 조정한 기체입니다.
 
-If you want to build a vehicle from scratch:
+사전 지식 없이 처음부터 기체를 제작하려는 경우:
 
-- Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
-- Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
-- [Assembly](assembly/README.md) explains how to wire up the important peripherals to your autopilot.
-- [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe. This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+- 프레임 선택 - [기체프레임 제작](airframes/README.md)은 지원되는 프레임을 나열하고 기체의 하위 요소를 구성하는 방법에 대한 자세한 지침을 제공합니다.
+- 비행 컨트롤러를 선택하십시오 - [시작하기 > 비행 컨트롤러](getting_started/flight_controller_selection.md)와 [ 자동 조종 장치 하드웨어](flight_controller/README.md)를 보십시오.
+- [조립](assembly/README.md)은 중요한 주변 장치를 자동 조종 장치에 연결하는 방법을 설명합니다.
+- [기초 설정](config/README.md)은 펌웨어를 업데이트하고 기체프레임에 적합한 설정으로 펌웨어를 구성하는 방법을 보여줍니다. 또한 이 섹션에서는 주요 센서(나침반, 자이로/IMU, 대기 속도 등)를 보정하고 리모콘 및 안전 기능을 설정하는 방법에 대해서도 설명합니다.
 
-Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
+기체를 날릴 준비가되면 [비행](flying/README.md) 섹션을 방문하십시오.
 
-**I am modifying a supported vehicle:**
+**지원되는 기체를 수정하려는 경우:**
 
-Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+비행 컨트롤러 및 기본 센서의 수정은 위에 설명되어 있습니다. 새로운 센서를 사용하거나 비행 특성에 중대한 영향을 주는 변경을 한 경우:
 
-- [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
-- [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
-- [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+- [ 주변 장치 하드웨어](peripherals/README.md)는 외부 센서 사용에 대한 추가 정보를 제공합니다.
+- [ 기본 설정](config/README.md)은 기본 센서를 보정하는 방법을 설명합니다.
+- [ 고급 설정](advanced_config/README.md)을 사용하여 기체를 재조정/미세 조정을 해야합니다.
 
 **I want to run PX4 on new hardware and extend the platform:**
 
