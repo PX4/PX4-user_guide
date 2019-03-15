@@ -1,4 +1,4 @@
-# 고급 비행 컨트롤러 방향 튜닝
+# 고급 비행 컨트롤러 방향 조정
 
 방향 및 수평선 레벨은 센서 보드의 작은 오정렬 또는 사소한 보정 오류를 수정하기 위한 매개 변수를 사용하여 수동으로 미세 조정할 수 있습니다.
 
@@ -57,7 +57,7 @@ PX4FMU의 X 축 또는 롤 축을 중심으로 각도 단위로 회전합니다.
 
 **SENS_BOARD_Y_OFF**
 
-PX4FMU의 Y 축 또는 피치 축을 중심으로 각도 단위로 회전합니다. Positive angles increase in CCW direction, negative angles increase in CW direction.
+PX4FMU의 Y 축 또는 피치 축을 중심으로 각도 단위로 회전합니다. 양의 각은 반시계방향으로 증가하고, 음의 각은 시계 방향으로 증가합니다.
 
 **SENS_BOARD_Z_OFF**
 
