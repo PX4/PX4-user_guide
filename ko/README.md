@@ -23,7 +23,7 @@ PX4는 *전문가용 오토파일럿*입니다. 산업계 및 학계의 세계�
 PX4를 지원하는 Ready To Fly (RTF) 이동체가 있는 경우:
 
 - [기본 구성](config/README.md)에서는 펌웨어를 최신 버전으로 업데이트하고, 기본 센서(나침반, 자이로/IMU, 대기 속도 등) 를 보정하고 원격 제어 및 안전 기능을 설정하는 방법에 대해 설명합니다.
-- [ Flying](flying/README.md)은 안전하게 비행 할 수 있는 장소와 방법 그리고 아밍 및 비행 문제를 디버깅하는 방법을 포함하여 비행 요령을 가르칩니다. It also provides detailed information about flight modes.
+- [ Flying](flying/README.md)은 안전하게 비행 할 수 있는 장소와 방법 그리고 아밍 및 비행 문제를 디버깅하는 방법을 포함하여 비행 요령을 가르칩니다. 또한 비행 모드에 대한 자세한 정보를 제공합니다.
 
 **I want to build a drone with PX4 from scratch:**
 
