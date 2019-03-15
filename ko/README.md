@@ -44,34 +44,34 @@ PX4를 지원하는 Ready To Fly (RTF) 이동체가 있는 경우:
 
 - [ 주변 장치 하드웨어](peripherals/README.md)는 외부 센서 사용에 대한 추가 정보를 제공합니다.
 - [ 기본 설정](config/README.md)은 기본 센서를 보정하는 방법을 설명합니다.
-- [ 고급 설정](advanced_config/README.md)을 사용하여 기체를 재조정/미세 조정을 해야합니다.
+- [ 고급 설정](advanced_config/README.md)을 사용하여 기체의 재조정/미세 조정을 해야합니다.
 
-**I want to run PX4 on new hardware and extend the platform:**
+**새 하드웨어에서 PX4를 실행하고 플랫폼을 확장하고 싶은 경우:**
 
-- [PX4 Developer Guide](http://dev.px4.io/) explains how to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+- [ PX4 개발자 가이드](http://dev.px4.io/)에서는 비행 알고리즘 수정, 새 모드 추가, 새 하드웨어 통합, 비행 컨트롤러 외부에서 PX4와의 통신 및 PX4에 기여하는 방법에 대해 설명합니다.
 
-## Forums and Chat {#support}
+## 포럼 및 채팅 {#support}
 
-The core development team and community are active on the following forums and chat channels:
+핵심 개발 팀과 커뮤니티는 다음 포럼 및 채팅 채널에서 활발하게 활동합니다.
 
-- [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
-- [Slack](http://slack.px4.io) (sign up)
+- [ PX4 토론](http://discuss.px4.io/)(*권장 *)
+- [Slack](http://slack.px4.io)(등록)
 
-## Reporting Bugs & Issues
+## 버그와 문제점 보고
 
-If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
+PX4를 사용하는 데 문제가 있으면 먼저 [위의 지원 채널](#support)에 게시하십시오 (기체 설정으로 인해 발생할 수 있습니다).
 
-If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+개발 팀에 의해 발생되었다면 여기 [Github](https://github.com/PX4/Firmware/issues)에서 코드 문제를 제기할 수 있습니다. 가능한 경우, 문제 템플릿에 [비행 기록](getting_started/flight_reporting.md)과 기타 정보를 제공해 주십시오.
 
-## Contributing
+## 기여하기
 
-Information on how to contribute to code and documentation can be found in the Developer Guide:
+코드 및 설명서에 기여하는 방법에 대한 정보는 개발자 가이드에서 확인할 수 있습니다.
 
-- [Code](https://dev.px4.io/en/contribute/)
-- [Documentation](https://dev.px4.io/en/contribute/docs.html)
-- [Translation](https://dev.px4.io/en/contribute/docs.html)
+- [코드](https://dev.px4.io/en/contribute/)
+- [문서](https://dev.px4.io/en/contribute/docs.html)
+- [번역](https://dev.px4.io/en/contribute/docs.html)
 
-## License
+## 라이센스
 
 PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/en/contribute/licenses.html).
 
