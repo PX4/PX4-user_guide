@@ -85,7 +85,7 @@ PX4 코드는 자유롭게 사용하고 [ BSD 3절의 라이센스](https://open
 
 ## 관리
 
-PX4 비행 스택은 [드론코드 프로젝트](https://www.dronecode.org/)의 관리하에 주관됩니다.
+PX4 비행 스택은 [드론코드 프로젝트](https://www.dronecode.org/) 주관으로 관리됩니다.
 
 <a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="드론코드 로고" width="110px"/></a>
 <a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="리눅스 재단 로고" width="80px" /></a>
