@@ -100,25 +100,25 @@ PX4는 [ 비행 기록 ](../getting_started/flight_reporting.md)을 저장하기
 
 > ** 팁 ** Pixhawk 보드에서 지원되는 최대 SD 카드 크기는 32GB입니다.
 
-A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
+권장되는 카드는 [ 개발자 가이드 > 로깅](http://dev.px4.io/en/log/logging.html#sd-cards)에 목록화되어 있습니다.
 
 ## 비행 모드 {#flight_modes}
 
 비행 모드는 사용자(조종사)에게 다른 종류/수준의 기체 자동화 및 자동 조종 보조 기능을 제공합니다. * 자율 모드*는 자동 조종 장치에 의해 완전히 제어되며 파일럿/원격 제어 입력이 필요하지 않습니다. 예를 들어 이륙과 같은 일반적인 작업을 자동화하고 홈 위치로 돌아가고 착륙하는 데 사용됩니다. 다른 자율 모드는 사전 프로그래밍 된 임무를 수행하거나, GPS 신호를 따르거나, 외부 컴퓨터 또는 지상 관제소에서 명령을 수락합니다.
 
-*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
+* 수동 모드*는 오토파일럿의 도움으로 사용자가럿(RC 조종 스틱/조이스틱을 통해) 제어합니다. 다른 수동 모드는 다른 비행 특성을 가능하게 합니다. 예를 들어, 어떤 모드는 곡예 비행을 가능하게 하고, 다른 모드는 뒤집기가 불가능하고 바람에 대한 위치/코스를 유지합니다.
 
-> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+> ** 팁 ** 모든 기체 유형에서 모든 비행 모드를 사용할 수 있는 것은 아니며, 일부 모드는 특정 조건이 충족 된 경우에만 사용할 수 있습니다 (예: 많은 모드가 GPS 위치 추정 필요).
 
-An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+사용 가능한 비행 모드에 대한 개요는 [여기에서 확인](../getting_started/flight_modes.md)할 수 있습니다. 다른 비행 모드를 켜기 위해 원격 제어 스위치를 설정하는 방법은 [ 비행 모드 구성](../config/flight_mode.md)에 나와 있습니다.
 
-## Safety Settings (Failsafe) {#safety}
+## 안전 설정(Failsafe) {#safety}
 
-PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+PX4는 장애가 발생할 경우 기체을 보호하고 복구할 수 있도록 구성 가능한 장애 안전 시스템을 갖추고 있습니다! 이를 통해 안전하게 비행할 수 있는 지역 및 조건을 지정하고, 안전 장치가 작동(예: 착륙, 위치 유지 또는 지정된 지점으로 복귀)될 경우 수행할 작업을 지정할 수 있습니다.
 
-> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+> ** 참고 ** *첫 번째* failsafe 이벤트에 대해서만 작업을 지정할 수 있습니다. 이벤트가 발생하면 시스템은 특별한 처리 코드를 입력하는데, 이 코드는 후속 안전 장치 트리거가 별도의 시스템 수준과 차량 별 코드에 의해 관리되도록 합니다.
 
-The main failsafe areas are listed below:
+주요 안전 장치 영역은 다음과 같습니다.
 
 - Low Battery
 - Remote Control (RC) Loss
