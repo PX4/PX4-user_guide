@@ -44,9 +44,9 @@
 
 ![Pixhawk - Power Module](../../images/pixhawk_3dr_power_module.jpg)
 
-> **Warning** The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail). For copter this does not matter because the motors are separately powered.
+> **警告**电源模块只能向飞行控制器供电，不能连接到飞行控制器的其他输出端口向电机和其他硬件供电。 对于直升飞机没有影响，因为电机是分开供电的。
 
-For planes and VTOL the output rail will need to be separately powered in order to drive servos for rudders, elevons etc. Often the main pusher/puller motor uses an ESC with an integrated [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) that can be connected to the Pixhawk output rail. If not, you will need to setup a 5V BEC to connect to one of the free Pixhawk ports (without power, the servos will not work).
+对于飞机和VTOL，输出电路需要单独供电为了驱动电机的方向和升降。 通常主要的推拉电机使用集成 [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) 的ESC控制，ESC可以连接到Pixhawk的输出电路。 如果没有，您需要将一个5V BEC连接到Pixhawk的空闲端口(没有电源，伺服电机将不会工作)。
 
 <!-- It would be good to have real example of this powering -->
 
@@ -58,9 +58,9 @@ For planes and VTOL the output rail will need to be separately powered in order 
 
 下面的说明演示如何将不同类型的接收机连接到 Pixhawk:
 
-- Spektrum and DSM receivers connect to the **SPKT/DSM** input. ![Pixhawk - Radio port for Spektrum receivers](../../images/pixhawk_3dr_receiver_spektrum.jpg)
+- Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。 ![Pixhawk - Radio port for Spektrum receivers](../../images/pixhawk_3dr_receiver_spektrum.jpg)
 
-- PPM-SUM and S.BUS receivers connect to the **RC** ground, power and signal pins as shown. ![Pixhawk - Radio port for PPM/S.BUS receivers](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
+- PPM-SUM and S.BUS 接收机连接到如图所示的 **RC** 地线、电源线和信号线。 ![Pixhawk - Radio port for PPM/S.BUS receivers](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
 
 - PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
