@@ -53,21 +53,21 @@ PX4는 센서를 사용하여 차량 상태를 결정합니다(안정화에 필�
 
 ## ESC(전자속도제어기)와 모터
 
-Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
+많은 PX4 드론은 전자 속도 컨트롤러(Electronic Speed Controller, ESC)를 통해 비행 컨트롤러에 의해 구동되는 브러시리스 모터를 사용합니다(ESC는 비행 컨트롤러의 신호를 모터로 전해지는 적절한 수준의 전력으로 변환합니다).
 
-For information about what ESC/Motors are supported by PX4 see:
+PX4가 지원하는 ESC/모터에 관한 정보는 여기를 보세요.
 
-- [ESC & Motors](../peripherals/esc_motors.md)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
+- [ESC와 모터](../peripherals/esc_motors.md)
+- [ESC 캘리브레이션](../advanced_config/esc_calibration.md)
+- [ESC 펌웨어와 프로토콜 개요](https://oscarliang.com/esc-firmware-protocols/)(oscarliang.com)
 
-## Battery/Power
+## 배터리/전원
 
-PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. The battery is typically connected to the system using a *Power Module* or *Power Management Board*, which provide separate power for the flight controller and to the ESCs (for the motors).
+PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배터리는 일반적으로 비행 컨트롤러 및 ESC(모터 용)에 별도의 전원을 제공하는 * 전원 모듈 * 또는 * 전원 관리 보드*를 사용하여 시스템에 연결됩니다.
 
-Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
+배터리 및 배터리 구성에 대한 정보는 [ 배터리 구성 ](../config/battery.md) 및 [ 기본 어셈블리](../assembly/README.md)(예: [ Pixhawk 4 배선 빠른 시작> 전원 ](../assembly/quick_start_pixhawk4.md#power)) 가이드를 참조하십시오.
 
-## Radio Control (RC) {#rc_systems}
+## 라디오 컨트롤러(RC) {#rc_systems}
 
 A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
 
