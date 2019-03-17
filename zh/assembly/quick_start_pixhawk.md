@@ -18,7 +18,7 @@
 
 应使用减震泡沫垫 (包括在配件中) 将 * Pixhawk * 安装在机架上。 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
 
-![Pixhawk mounting and orientation](../../images/pixhawk_3dr_mounting_and_foam.jpg)
+![Pixhawk安装和朝向](../../images/pixhawk_3dr_mounting_and_foam.jpg)
 
 > **注意** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)参数。
 
@@ -26,7 +26,7 @@
 
 连接附带的蜂鸣器和安全开关, 如下所示 (这些都是强制性的)。
 
-![Pixhawk mounting and orientation](../../images/pixhawk_3dr_buzzer_and_safety_switch.jpg)
+![Pixhawk安装和朝向](../../images/pixhawk_3dr_buzzer_and_safety_switch.jpg)
 
 ## GPS + 罗盘
 
@@ -34,7 +34,7 @@
 
 > **注意** 下图显示GPS和罗盘的接线方式。 GPS/罗盘在安装时应尽可能远离其他电子元器件，方向标记朝向飞行器前方(将罗盘和其他电子元器件分开可以减少干扰)。
 
-![Connect compass/GPS to Pixhawk](../../images/pixhawk_3dr_compass_gps.jpg)
+![将罗盘/GPS连接到Pixhawk](../../images/pixhawk_3dr_compass_gps.jpg)
 
 ## 电源
 
@@ -42,7 +42,7 @@
 
 电源模块为飞行控制器提供电源，并通过模块发送电流和电压信息(包括向飞行控制器和电机等供电)。
 
-![Pixhawk - Power Module](../../images/pixhawk_3dr_power_module.jpg)
+![Pixhawk - 电源模块](../../images/pixhawk_3dr_power_module.jpg)
 
 > **警告**电源模块只能向飞行控制器供电，不能连接到飞行控制器的其他输出端口向电机和其他硬件供电。 对于直升飞机没有影响，因为电机是分开供电的。
 
@@ -58,17 +58,17 @@
 
 下面的说明演示如何将不同类型的接收机连接到 Pixhawk:
 
-- Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。 ![Pixhawk - Radio port for Spektrum receivers](../../images/pixhawk_3dr_receiver_spektrum.jpg)
+- Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。 ![Pixhawk - 输出端口和无线接收机](../../images/pixhawk_3dr_receiver_spektrum.jpg)
 
 - PPM-SUM and S.BUS 接收机连接到如图所示的 **RC** 地线、电源线和信号线。 ![Pixhawk - Radio port for PPM/S.BUS receivers](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
 
-- PPM and PWM receivers that have an *individual wire for each channel* must connect to the **RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+- PPM and PWM 接收机有 *每个通道单独的连接线* 必须连接在 **RC** 端口，*通过一个[类似这样的](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) PPM 编码器* (PPM-Sum 接收机每个通道使用单独的信号线).
 
 更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息, 请参阅: 遥控器发射机&接收器 </0 >。</p> 
 
 ## 数传电台（可选）
 
-遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。 One radio must be connected to your vehicle as shown below. The other is connected to your ground station computer or mobile device (usually by USB).
+数传电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。 如下图所示是数传连接到飞行器的方式。 另一个数传连接到你的地面站电脑或移动设备(通常使用USB)。
 
 ![Pixhawk/Telemetry Radio](../../images/pixhawk_3dr_telemetry_radio.jpg)
 
@@ -76,23 +76,23 @@
 
 ## 电机
 
-The mappings between MAIN/AUX output ports and motor/servos for all supported air and ground frames are listed in the [Airframe Reference](../airframes/airframe_reference.md).
+在[Airframe Reference](../airframes/airframe_reference.md)中列出了支持所有飞行或地面机型的MAIN/AUX 输出端口映射和电机/伺服电机。
 
-> **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
-
-<span></span>
-
-> **Tip** If your frame is not listed in the reference then use a "generic" airframe of the correct type.
+> **注意** 不同机型间的映射不是完全一致的 (比如，您不能将油门输出应用在其他机型相同的输出上)。 请确保为您的飞行器使用正确的映射。
 
 <span></span>
 
-> **Note** The output rail must be separately powered, as discussed in the [Power](#power) section above.
+> **建议** 如果您的机型没有列入参考机型中那么使用正确类型中的"generic"一般机型。
+
+<span></span>
+
+> **注意** 外部电路必须单独供电，如上文中的 [Power](#power) 部分所述。
 
 <!-- INSERT image of the motor AUX/MAIN ports? -->
 
 ## 其它外设
 
-针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
+针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 主题中有详细的内容介绍。
 
 ## 配置
 
@@ -102,7 +102,7 @@ QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
-## Detailed Wiring Infographic (Copter)
+## 详细接线示意图(直升机)。
 
 ![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg)
 
