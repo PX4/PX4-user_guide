@@ -58,9 +58,9 @@
 
 下面的说明演示如何将不同类型的接收机连接到 Pixhawk:
 
-- Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。 ![Pixhawk - 输出端口和无线接收机](../../images/pixhawk_3dr_receiver_spektrum.jpg)
+- Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。 ![Pixhawk - Spektrum接收机数传端口](../../images/pixhawk_3dr_receiver_spektrum.jpg)
 
-- PPM-SUM and S.BUS 接收机连接到如图所示的 **RC** 地线、电源线和信号线。 ![Pixhawk - Radio port for PPM/S.BUS receivers](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
+- PPM-SUM and S.BUS 接收机连接到如图所示的 **RC** 地线、电源线和信号线。 ![Pixhawk` - PPM/S.BUS接收机数传端口](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
 
 - PPM and PWM 接收机有 *每个通道单独的连接线* 必须连接在 **RC** 端口，*通过一个[类似这样的](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) PPM 编码器* (PPM-Sum 接收机每个通道使用单独的信号线).
 
@@ -70,7 +70,7 @@
 
 数传电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。 如下图所示是数传连接到飞行器的方式。 另一个数传连接到你的地面站电脑或移动设备(通常使用USB)。
 
-![Pixhawk/Telemetry Radio](../../images/pixhawk_3dr_telemetry_radio.jpg)
+![Pixhawk/数传](../../images/pixhawk_3dr_telemetry_radio.jpg)
 
 <!-- what configuration is required once you've set up a radio) -->
 
@@ -104,7 +104,7 @@ QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration
 
 ## 详细接线示意图(直升机)。
 
-![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg)
+![四旋翼Pixhawk接线图](../../images/pixhawk_infographic2.jpg)
 
 ## 更多信息
 
