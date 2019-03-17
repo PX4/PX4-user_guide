@@ -16,21 +16,21 @@
 
 ## 드론코드 플랫폼 {#dronecode}
 
-PX4는 일반 산업 친화적 오픈 소스 라이선스에 따라 제공되는 드론 개발을 위한 완벽한 플랫폼인 [ 드론코드 플랫폼(Dronecode Platform)](https://www.dronecode.org/platform/)의 일부입니다. It includes, among other things, the [PX4 flight stack](#autopilot)), [QGroundControl](#qgc) ground control station, the [Dronecode SDK](https://www.dronecode.org/sdk/) and the [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/).
+PX4는 일반 산업 친화적 오픈 소스 라이선스에 따라 제공되는 드론 개발을 위한 완벽한 플랫폼인 [ Dronecode 플랫폼](https://www.dronecode.org/platform/)의 일부입니다. Dronecode는 [ PX4 비행 스택 ](#autopilot), [ QGroundControl ](#qgc) 지상 제어 스테이션, [ Dronecode SDK ](https://www.dronecode.org/sdk/) 및 [ Dronecode Camera Manager](https://camera-manager.dronecode.org/en/)를 포함합니다.
 
-## PX4 Autopilot {#autopilot}
+## PX4 오토파일럿 {#autopilot}
 
-[PX4](http://px4.io/) is powerful open source autopilot *flight stack*.
+[ PX4](http://px4.io/)는 강력한 오픈 소스 오토파일럿 * 비행 스택 *입니다. (역주: 비행 스택이란 여러 기능을 갖는 모듈들의 집합체를 의미합니다.)
 
-Some of PX4's key features are:
+몇 가지 PX4의 주요 특징은 다음과 같습니다:
 
-- Controls [many different vehicle frames/types](../airframes/airframe_reference.md), including: aircraft (multicopters, fixed wing aircraft and VTOLs), ground vehicles and underwater vehicles. 
-- Great choice of hardware for [vehicle controller](#vehicle_controller), sensors and other peripherals.
-- Flexible and powerful [flight modes](#flight_modes) and [safety features](#safety).
+- 항공기 (멀티콥터, 고정익 항공기 및 VTOL), 지상 차량 및 수중함을 포함하여 [ 많은 다양한 차량 프레임/유형](../airframes/airframe_reference.md)을 제어합니다. 
+- [ 이동체 컨트롤러](#vehicle_controller), 센서 및 기타 주변 장치 하드웨어 선택 시 가장 좋습니다.
+- 유연하고 강력한 [ 비행 모드 ](#flight_modes) 및 [ 안전 기능](#safety)을 갖고 있습니다.
 
 ## QGroundControl {#qgc}
 
-The Dronecode ground control station is called [QGroundControl](http://qgroundcontrol.com/). You can use *QGroundControl* to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+Dronecode 지상 관제소는 [ QGroundControl](http://qgroundcontrol.com/)이라고 합니다. You can use *QGroundControl* to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
 
 *QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/).
 
