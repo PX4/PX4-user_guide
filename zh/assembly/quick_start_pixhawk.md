@@ -30,17 +30,17 @@
 
 ## GPS + 罗盘
 
-使用套件中提供的6线电缆连接GPS(必须) 到GPS端口。 Optionally attach a compass to the I2C port using a 4-wire cable (the Pixhawk has an internal compass, which can be used if necessary).
+使用套件中提供的6线电缆连接GPS(必须) 到GPS端口。 可以选择将使用4线电缆将罗盘连接到I2C端口(Pixhawk有外部罗盘，必要时可以使用)。
 
-> **Note** The diagram shows a combined GPS and Compass. The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
+> **注意** 下图显示GPS和罗盘的接线方式。 GPS/罗盘在安装时应尽可能远离其他电子元器件，方向标记朝向飞行器前方(将罗盘和其他电子元器件分开可以减少干扰)。
 
 ![Connect compass/GPS to Pixhawk](../../images/pixhawk_3dr_compass_gps.jpg)
 
 ## 电源
 
-Connect the output of a *Power module* (PM) to the **POWER** port using a 6-wire cable as shown. The PM input will be connected to your LiPo battery, while the main output will supply vehicle ESCs/motors (possibly via a power distribution board).
+使用6线电缆将连接 *Power module* (PM) 电源模块连接到 **POWER**电源接口。 PM输入连接到您的锂电池，电池输出主要为飞行器ESCs/电机供电(可能通过分线板)。
 
-The power module supplies the flight controller with power from the battery and also sends information about the analog current and voltage supplied via the module (including both power to the flight controller and to motors etc).
+电源模块为飞行控制器提供电源，并通过模块发送电流和电压信息(包括向飞行控制器和电机等供电)。
 
 ![Pixhawk - Power Module](../../images/pixhawk_3dr_power_module.jpg)
 
