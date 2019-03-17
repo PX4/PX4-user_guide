@@ -1,24 +1,24 @@
-# Cube Wiring Quick Start
+# 接线指南
 
-This quick start guide shows how to power the [Cube](../flight_controller/pixhawk-2.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
+本快速入门指南演示如何为 [Cube](../flight_controller/pixhawk-2.md)<sup>&reg;</sup> 飞行控制器供电以及如何连接中央的外部设备。
 
 <img src="../../assets/flight_controller/cube/pixhawk2_cube_hero.png" width="400px" />
 
-## Accessories
+## 配件
 
-Cube comes with most (or all) of the accessories you will need when [purchased](../flight_controller/pixhawk-2.md#stores).
+Cube在[购买时](../flight_controller/pixhawk-2.md#stores)提供大多数(所有) 您需要的配件。
 
 ![Cube Accessories](../../assets/flight_controller/cube/cube_accessories.jpg)
 
-The exception is that some kits do not include a GPS, which will have to be purchased separately ([see below](#gps)).
+一些套件不包括GPS，需要您单独购买 ([如下所示](#gps))。
 
-## Wiring Overview
+## 接线图概览
 
-The image below shows how to connect the most important sensors and peripherals. 我们将在下面各节中介绍它们的细节。
+下图显示如何连接重要的传感器和外设。 我们将在下面各节中介绍它们的细节。
 
 ![Cube - Wiring Overview](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
 
-1. [Telemetry System](#telemetry) — Allows you to plan/run missions, and control and monitor the vehicle in real time. Typically includes telemetry radios, tablet/PC and ground station software.
+1. [数传系统](#telemetry) — 允许您计划/运行任务，实时控制和监控飞行器状态。 典型的包括数传、平板电脑/PC、地面站软件。
 2. [Buzzer](#buzzer) — Provides audio signals that indicate what the UAV is doing
 3. [Remote Control Receiver System](#rc_control) — Connects to a hand-held transmitter that an operator can use to manually fly the vehicle (shown is a PWM receiver with PWM->PPM converter).
 4. (Dedicated) [Safety switch](#safety_switch) — Press and hold to lock and unlock motors. Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
