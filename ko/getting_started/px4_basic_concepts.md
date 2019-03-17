@@ -91,20 +91,20 @@ PX4는 직렬 케이블 또는 wifi를 통해 별도의 기체용 보조 컴퓨�
 
 > ** 참고 ** Robotics API를 사용하려면 소프트웨어 개발 기술이 필요하며 이 가이드의 범위를 벗어납니다.
 
-- [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
-- [Robotics APIs](https://dev.px4.io/en/robotics/) (PX4 Developer Guide)
+- [ 외부 보드 모드 ](../flight_modes/offboard.md) - 지상 제어 스테이션 또는 보조 컴퓨터와 같은 PX4의 외부에서의 제어를 위한 비행 모드입니다. 
+- [ Robotics API ](https://dev.px4.io/en/robotics/) (PX4 개발자 가이드)
 
-## Removable Memory/Logging
+## 이동식 메모리/로깅
 
-PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md) (SD support may not be present on every flight controller).
+PX4는 [ 비행 기록 ](../getting_started/flight_reporting.md)을 저장하기 위해 SD 메모리 카드를 사용합니다 (SD의 지원은 모든 비행 컨트롤러에 있는 것은 아닙니다).
 
-> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB.
+> ** 팁 ** Pixhawk 보드에서 지원되는 최대 SD 카드 크기는 32GB입니다.
 
 A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
 
-## Flight Modes {#flight_modes}
+## 비행 모드 {#flight_modes}
 
-Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
+비행 모드는 사용자(조종사)에게 다른 종류/수준의 기체 자동화 및 자동 조종 보조 기능을 제공합니다. * 자율 모드*는 자동 조종 장치에 의해 완전히 제어되며 파일럿/원격 제어 입력이 필요하지 않습니다. 예를 들어 이륙과 같은 일반적인 작업을 자동화하고 홈 위치로 돌아가고 착륙하는 데 사용됩니다. 다른 자율 모드는 사전 프로그래밍 된 임무를 수행하거나, GPS 신호를 따르거나, 외부 컴퓨터 또는 지상 관제소에서 명령을 수락합니다.
 
 *Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
 
