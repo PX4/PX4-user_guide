@@ -30,28 +30,28 @@ PX4는 일반 산업 친화적 오픈 소스 라이선스에 따라 제공되는
 
 ## QGroundControl {#qgc}
 
-Dronecode 지상 관제소는 [ QGroundControl](http://qgroundcontrol.com/)이라고 합니다. You can use *QGroundControl* to load (flash) PX4 onto the [vehicle control hardware](flight_controller_selection.md), you can setup the vehicle, change different parameters, get real-time flight information and create and execute fully autonomous missions.
+Dronecode 지상 관제소는 [ QGroundControl](http://qgroundcontrol.com/)이라고 합니다. * QGroundControl*을 사용하여 PX4를 [ 차량 제어 하드웨어](flight_controller_selection.md)에 로드(플래시)하여 차량을 설정하고 다른 매개 변수를 변경하고 실시간 비행 정보를 얻고 완전 자율 임무를 생성 및 실행할 수 있습니다.
 
-*QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/).
+* QGroundControl*은 Windows, Android, MacOS 또는 Linux에서 실행됩니다. [ 여기에서 다운로드하여 설치하십시오](http://qgroundcontrol.com/downloads/). 
 
 ![QGC Main Screen](../../images/qgc_main_screen.jpg)
 
-## Vehicle/Flight Controller Board {#vehicle_controller}
+## 차량/비행 제어 보드 {#vehicle_controller}
 
-PX4 was initially designed to run on [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers, but can now run on Linux computers and other hardware. You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
+PX4는 초기에 [ Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에서 실행되도록 설계되었지만 Linux 컴퓨터 및 기타 하드웨어에서도 실행될 수 있습니다. 비행기의 물리적 제한, 수행하려는 활동 그리고 당연히 비용에도 적합한 보드를 선택해야 합니다.
 
-For more information see: [Flight Controller Selection](flight_controller_selection.md).
+자세한 내용은 [ 비행 컨트롤러 선택](flight_controller_selection.md)을 참조하십시오.
 
-## Sensors
+## 센서
 
-PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4는 센서를 사용하여 차량 상태를 결정합니다(안정화에 필요 및 자율 제어 가능). 시스템은 자이로 스코프, 가속도계, 자력계(나침반) 및 기압계가 * 최소로 필요합니다. * 모든 자동 [ 모드 ](../getting_started/flight_modes.md#categories) 및 일부 보조 모드를 사용하려면 GPS 또는 기타 위치 확인 시스템이 필요합니다. 고정익 및 VTOL- 기체에는 속도 센서가 추가로 포함되어야 합니다(매우 권장 됨).
 
-For more information see:
+더 많은 정보는 여기를 보세요.
 
-- [Sensors](../getting_started/sensor_selection.md) 
-- [Peripherals](../peripherals/README.md)
+- [센서](../getting_started/sensor_selection.md) 
+- [주변장치](../peripherals/README.md)
 
-## ESCs & Motors
+## ESC(전자속도제어기)와 모터
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
 
