@@ -19,9 +19,9 @@ Cube在[购买时](../flight_controller/pixhawk-2.md#stores)提供大多数(所�
 ![Cube - Wiring Overview](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
 
 1. [数传系统](#telemetry) — 允许您计划/运行任务，实时控制和监控飞行器状态。 典型的包括数传、平板电脑/PC、地面站软件。
-2. [Buzzer](#buzzer) — Provides audio signals that indicate what the UAV is doing
-3. [Remote Control Receiver System](#rc_control) — Connects to a hand-held transmitter that an operator can use to manually fly the vehicle (shown is a PWM receiver with PWM->PPM converter).
-4. (Dedicated) [Safety switch](#safety_switch) — Press and hold to lock and unlock motors. Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
+2. [蜂鸣器](#buzzer) — 提供声音信号显示UAV目前的状态。
+3. [远程控制接收系统](#rc_control) — 连接手持发射器能够手动操控飞行 (如图所述是一个PWM 接收器能包括 PWM->PPM 转换器)。
+4. (专用) [安全开关](#safety_switch) — 按下以解锁和锁定电机。 Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
 5. [GPS, Compass, LED, Safety Switch](#gps) — The recommended GPS module contains GPS, Compass, LED and Safety Switch. 
 6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level). 
 
