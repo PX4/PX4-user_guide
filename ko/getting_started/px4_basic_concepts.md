@@ -118,14 +118,14 @@ PX4는 장애가 발생할 경우 기체을 보호하고 복구할 수 있도록
 
 > ** 참고 ** *첫 번째* failsafe 이벤트에 대해서만 작업을 지정할 수 있습니다. 이벤트가 발생하면 시스템은 특별한 처리 코드를 입력하는데, 이 코드는 후속 안전 장치 트리거가 별도의 시스템 수준과 차량 별 코드에 의해 관리되도록 합니다.
 
-주요 안전 장치 영역은 다음과 같습니다.
+주요 장애 안전 영역은 다음과 같습니다.
 
-- Low Battery
-- Remote Control (RC) Loss
-- Position Loss (global position estimate quality is too low).
-- Offboard Loss (e.g. lose connection to companion computer)
-- Data Link Loss (e.g. lose telemetry connection to GCS).
-- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
+- Low Batter(배터리 부족)
+- Remote Control (RC, 원격 제어 신호 상실)
+- Position Loss(위치 상실, 전체 위치 추정 품질이 너무 낮음)
+- Offboard Loss(외부 보드 연결 손실, 예: 보조 컴퓨터와의 연결이 끊어짐)
+- Data Link Loss(데이터 링크 손실, 예: GCS에 대한 텔레메트리 연결이 끊어짐)
+- Geofence Breach(지리적 경계 위반, 가상 실린더 모양의 경계 내에서 기체 비행을 제한).
 - Mission Failsafe (prevent a previous mission being run at a new takeoff location).
 - Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
 
