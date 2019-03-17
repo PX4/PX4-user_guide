@@ -34,7 +34,7 @@ Dronecode 지상 관제소는 [ QGroundControl](http://qgroundcontrol.com/)이�
 
 * QGroundControl*은 Windows, Android, MacOS 또는 Linux에서 실행됩니다. [ 여기에서 다운로드하여 설치하십시오](http://qgroundcontrol.com/downloads/). 
 
-![QGC Main Screen](../../images/qgc_main_screen.jpg)
+![QGC 메인 화면](../../images/qgc_main_screen.jpg)
 
 ## 차량/비행 제어 보드 {#vehicle_controller}
 
@@ -73,7 +73,7 @@ PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배
 
 > ** 참고 ** PX4에는 자율 비행 모드를 위한 원격 제어 시스템이 필요하지 않습니다.
 
-![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
+![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
 [ RC 시스템 선택 ](../getting_started/rc_transmitter_receiver.md)은 RC 시스템을 선택하는 방법을 설명합니다. 다른 관련 주제는 다음과 같습니다.
 
@@ -127,20 +127,20 @@ PX4는 장애가 발생할 경우 기체을 보호하고 복구할 수 있도록
 - Data Link Loss(데이터 링크 손실, 예: GCS에 대한 텔레메트리 연결이 끊어짐)
 - Geofence Breach(지리적 경계 위반, 가상 실린더 모양의 경계 내에서 기체 비행을 제한).
 - Mission Failsafe (prevent a previous mission being run at a new takeoff location).
-- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
+- Traffic avoidance(트래픽 회피, 예를 들어 ADSB 응답기로부터 응답기 데이터에 의해 작동됨)
 
-For more information see: [Safety](../config/safety.md) (Basic Configuration).
+자세한 내용은 [ 안전](../config/safety.md)(기본 설정)을 참조하십시오.
 
-## Heading and Directions
+## 방향
 
-All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+모든 차량, 보트 및 항공기는 전진 방향에 따라 지향 방향이 있습니다.
 
-![Frame Heading](../../images/frame_heading.png)
+![프레임 방향](../../images/frame_heading.png)
 
-It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
+오토파일럿을 기체의 이동 벡터와 정렬시키기 위해서는 기체 진행 방향을 아는 것이 중요합니다. 멀티콥터는 모든 면에서 대칭이라도 진행 방향이 있습니다! 일반적으로 제조업체는 진행 방향을 표시하기 위해 색상이 입혀진 프로펠러나 팔(프레임)을 사용합니다.
 
 ![Frame Heading TOP](../../images/frame_heading_top.png)
 
-In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+삽화에서 우리는 진행 방향을 보여주기 위해 멀티콥터의 전방 프로펠러에 붉은 색을 칠할 것입니다.
 
-You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
+[ 비행 제어기 방향](../config/flight_controller_orientation.md)에서 방향성에 대해 자세히 읽을 수 있습니다.
