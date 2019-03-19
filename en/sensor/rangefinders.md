@@ -68,31 +68,43 @@ PX4 also supports the Bebop rangefinder.
 ## Configuration/Setup {#configuration}
 
 Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter.
-The hardware and software setup that is specific to each rangefinder is covered in their respective topics.
+The hardware and software setup that is *specific to each rangefinder* is covered in their respective topics.
 
-The generic rangefinder configuration, covering both the physical setup and usage is covered below.
+The generic configuration that is *common to all distance sensors*, covering both the physical setup and usage, is given below.
 
 
 ### Generic Configuration
 
-The generic rangefinder configuration is specified using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_AID) parameters:
+The common rangefinder configuration is specified using [EKF2\_RNG\_*](../advanced_config/parameter_reference.md#EKF2_RNG_AID) parameters.
 These include (non exhaustively):
-- [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - Offset of the rangefinder from the centre of the vehicle body. 
+- [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - offset of the rangefinder from the centre of the vehicle body. 
 - [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - approximate delay of data reaching the estimator from the sensor.
 - [EKF2\_RNG\_A\_\*](../advanced_config/parameter_reference.md#EKF2_RNG_AID) - limits and consistency checks when using the sensor for the [range aid feature](../advanced_config/parameter_reference.md#feature).
 
 
 ### Usage/Features {#features}
 
-Rangefinders can be enabled to support flight in two ways:
-1. Set [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) to *Range finder* (`2`). 
-   This makes the rangefinder the primary source of height estimation (the default altitude sensor is the barometer).
-1. Set [EKF2_RNG_AID](../advanced_config/parameter_reference.md#EKF2_RNG_AID) to `1`. 
-   This makes the vehicle use the rangefinder as the primary source when it is safe to use, but will otherwise use the sensor specified in `EKF2_HGT_MODE`.
-   * Specifically, the rangefinder is enabled when:
-     * velocity < [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX)
-     * distance to ground < [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX)
-   * Other parameters affecting "Range aid" are prefixed with `EKF2\_RNG\_A\_`.
+Distance sensors can be enabled to support flight in several ways:
+1. Enable the *Range sensor* as the primary source of height estimation by setting [EKF2_HGT_MODE=2](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) (the default altitude sensor is the barometer). 
+   - This setting should only be used when for operation over a flat surface as the local NED origin will move up and down with ground level.
+   
+1. Enable *Range Aid* by setting [EKF2_RNG_AID=1](../advanced_config/parameter_reference.md#EKF2_RNG_AID). 
+   - This makes the vehicle use the rangefinder as the primary source of height estimation *when it is safe to use* (during low speed/low altitude operation), but will otherwise use the sensor specified in `EKF2_HGT_MODE`.
+   - It is primarily intended for takeoff and landing, where baro interference from rotor wash is excessive and can corrupt EKF state estimates. 
+   - Specifically, the rangefinder is enabled when:
+     - velocity < [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX)
+     - distance to ground < [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX)
+   - Other parameters affecting "Range aid" are prefixed with `EKF2_RNG_A_`.
+
+1. Enable rangefinder-supported *terrain following* by setting [MPC_ALT_MODE=1](../advanced_config/parameter_reference.md#MPC_ALT_MODE).
+   - In this mode the vehicle altitude moves up and down with terrain height variation.
+   - At altitudes above the distance sensor effective range the vehicle reverts to using height above the home position (as provided by the primary altitude source defined in `EKF2_HGT_MODE`).
+
+1. Enable rangefinder-supported *terrain holding* by setting [MPC_ALT_MODE=2](../advanced_config/parameter_reference.md#MPC_ALT_MODE).
+   - In this mode, when the vehicle is stationary its altitude is obtained from a distance sensor.
+   - When the vehicle is moving horizontally (`speed > MPC_HOLD_MAX_XY`) the altitude is provided relative to earth origin.
+   - At altitudes above the distance sensor effective range the vehicle reverts to always using height above the home position (as provided by the primary altitude source defined in `EKF2_HGT_MODE`).
+
 
 ## Testing {#testing}
 
