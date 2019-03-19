@@ -67,3 +67,7 @@ Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF
 * `3`: SF10/b
 * `4`: SF10/c
 * `5`: SF11/c
+
+## Further Information
+
+- [Modules Reference: Distance Sensor (Driver) : sf1xx](https://dev.px4.io/en/middleware/modules_driver_distance_sensor.html#sf1xx) (PX4 Dev Guide)
