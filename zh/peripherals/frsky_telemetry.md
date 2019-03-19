@@ -89,7 +89,6 @@ PX4平台支持睿思凯的 [S.port](#s_port)（新）和D.port（旧）两种�
 <li><strong>Vspd:</strong>垂直速度 (cm/s)。</li>
 <li><strong>Tmp1:</strong><a href="../getting_started/flight_modes.md">飞行模式</a>, 作为整数发送: 18-手动, 23-定高, 22-定位, 27-任务, 26-保持, 28-返航, 19-特技, 24 0 离线, 20-自稳, 21-速率, 25-起飞, 29-下降, 30-跟随。</li>
 <li><strong>Tmp2:</strong>gps 信息。 最右边的数字是 gps 定位类型 (0 = 无, 2 = 2d, 3 = 3d)。 其他数字是卫星的数量。</li>
-<li><strong> 0420: </strong>与 gps 返航点定位的距离(米) 。</li>
 </ul>
 
 <blockquote>
