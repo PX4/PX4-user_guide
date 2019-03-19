@@ -108,7 +108,9 @@
   * [고급 컨트롤러 방향 표정](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [정적 압력 만들기](advanced_config/static_pressure_buildup.md)
   * [전체 파라미터 참조](advanced_config/parameter_reference.md)
-* [주변 기기](peripherals/README.md) 
+
+* [Peripheral Hardware](peripherals/README.md)
+  
   * [시리얼 포트 설정](peripherals/serial_configuration.md)
   * [GPS/나침반](gps_compass/README.md) 
     * [RTK GPS](gps_compass/rtk_gps.md) 
@@ -126,13 +128,17 @@
       * [3DR Telemetry Wifi (단종)](telemetry/3dr_telemetry_wifi.md)
   * [MAVLink 텔레메트리 (OSD/GCS)](peripherals/mavlink_peripherals.md)
   * [FrSky 텔레메트리](peripherals/frsky_telemetry.md)
-  * [거리 센서(Rangefinders)](sensor/rangefinders.md) 
+  * [Distance Sensors (Rangefinders)](sensor/rangefinders.md)
+    
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
     * [LeddarOne Lidar](sensor/leddar_one.md)
     * [Benewake TFmini Lidar](sensor/tfmini.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
-  * [에어스피드 센서](sensor/airspeed.md)
+    * [TeraRanger](sensor/teraranger.md)
+  
+  * [Airspeed Sensors](sensor/airspeed.md)
+  
   * [옵티컬 플로우](sensor/optical_flow.md) 
     * [PX4FLOW](sensor/px4flow.md)
   * [ESC와 모터](peripherals/esc_motors.md) 
