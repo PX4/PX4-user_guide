@@ -21,17 +21,17 @@ Cube在[购买时](../flight_controller/pixhawk-2.md#stores)提供大多数(所�
 1. [数传系统](#telemetry) — 允许您计划/运行任务，实时控制和监控飞行器状态。 典型的包括数传、平板电脑/PC、地面站软件。
 2. [蜂鸣器](#buzzer) — 提供声音信号显示UAV目前的状态。
 3. [远程控制接收系统](#rc_control) — 连接手持发射器能够手动操控飞行 (如图所述是一个PWM 接收器能包括 PWM->PPM 转换器)。
-4. (专用) [安全开关](#safety_switch) — 按下以解锁和锁定电机。 Only required if you are not using the recommended [GPS](#gps) with inbuilt safety switch.
-5. [GPS, Compass, LED, Safety Switch](#gps) — The recommended GPS module contains GPS, Compass, LED and Safety Switch. 
-6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level). 
+4. (专用) [安全开关](#safety_switch) — 按下以解锁和锁定电机。 如果您没有使用推荐的内置安全开关的 [GPS](#gps) 时，安全开关是必须的。
+5. [GPS、罗盘、LED、安全开关](#gps) — 推荐的GPS模块包括GPS、罗盘、LED 和安全开关。 
+6. [电源系统](#power) — 电源线和电机ESC。 包括锂电池、电源模块和可选的电源报警系统(如果电池电量低于预定时发出警报)。 
 
 <span></span>
 
-> **Tip** More information about available ports can be found here: [Cube > Ports](../flight_controller/pixhawk-2.md#ports).
+> **建议** 有关更多可用端口的详细信息，请参阅 [Cube > Ports](../flight_controller/pixhawk-2.md#ports)。
 
 ## 飞控的安装和方向
 
-Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the *subtle* arrow marker on top of the cube)
+安装电路时尽可能靠近飞行器的重心， 理想情况是安装方向向上箭头指向飞行器前方 (注意电路上的 *微小的*箭头)。
 
 ![Cube Mount - Direction of Front](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
