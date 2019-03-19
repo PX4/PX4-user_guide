@@ -2,9 +2,7 @@
 
 Distance sensors provide distance measurement that can be used for terrain following, precision hovering (e.g. for photography), warning of regulatory height limits, collision avoidance etc.
 
-The sensors can usually be connected to either a serial (PWM) or I2C port (depending on the device driver), and is enabled on the port by setting a particular parameter.
-
-This section lists the distance sensors supported by PX4 (linked to more detailed documentation), the [generic configuration](#configuration) required for all rangefinders, testing, and simulation information.
+This section lists the distance sensors supported by PX4 (linked to more detailed documentation), the [generic configuration](#configuration) required for all rangefinders, [testing](#testing), and [simulation](#simulation) information. More detailed setup and configuration information is provided in the topics linked below (and sidebar).
 
 <img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg" alt="Lidar Lite V3" width="200px" /><img src="../../assets/hardware/sensors/sf11c_120_m.jpg" alt="LightWare SF11/C Lidar" width="200px" /><img src="../../assets/hardware/sensors/uLanding_lite_1.jpg" alt="Aerotenna uLanding" width="200px" />
 
@@ -35,21 +33,9 @@ Drivers exist for both I2C and serial ports (not all devices are supported for b
 
 ### TeraRanger Rangefinders
 
-TeraRanger provide a number of lightweight distance measurement sensor based on infrared Time-of-Flight (ToF) technology. They are typically faster and have greater range than sonar, and smaller and lighter than laser-based systems. PX4 supports:
+[TeraRanger](../sensor/teraranger.md) provide a number of lightweight distance measurement sensors based on infrared Time-of-Flight (ToF) technology. They are typically faster and have greater range than sonar, and smaller and lighter than laser-based systems.
 
-* [TeraRanger One](http://www.teraranger.com/products/teraranger-one/) (0.2 - 14 m) (Requires an [I2C adapter](http://www.teraranger.com/product/teraranger-i2c-adapter/))
-* [TeraRanger Evo 60m](https://www.terabee.com/portfolio-item/teraranger-evo-infrared-distance-sensor/) (0.5 – 60 m)
-* TeraRanger Evo 600Hz (0.75 - 8 m)
-
-All TeraRanger sensors must be connected via the I2C bus. While TeraRanger One requires an [I2C adapter](http://www.teraranger.com/product/teraranger-i2c-adapter/) any sensor from TeraRanger Evo series can be connected directly to the autopilot.
-
-The sensors are enabled using the parameter [SENS_EN_TRANGER](../advanced_config/parameter_reference.md#SENS_EN_TRANGER) (you can set the type of sensor or that PX4 should auto-detect the type).
-
-> **Note** If using auto-detect for Evo sensors the minimum and maximum values for the range are set to the lowest and highest possible readings across the Evo family (currently 0.5 - 60 m). In order to use the correct max/min values the appropriate model of the Evo sensor should be set in the parameter (instead of using autodetect).
-
-<span></span>
-
-> **Info** The *Terranger One* is used in the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md).
+PX4 supports the following models connected via the I2C bus: TeraRanger One, TeraRanger Evo 60m and TeraRanger Evo 600Hz.
 
 ### uLanding Radar
 
@@ -67,15 +53,23 @@ The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low po
 
 PX4 also supports the Bebop rangefinder.
 
-## Rangefinder Configuration {#configuration}
+## Configuration/Setup {#configuration}
 
-### Setup
+Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter. The hardware and software setup that is specific to each rangefinder is covered in their respective topics.
 
-The rangefinder is configured using [EKF2*RNG**](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X) parameters. These configure information about the offset of the rangefinder from the centre of the vehicle body, the approximate delay of data reaching the estimator from the sensor, etc.
+The generic rangefinder configuration, covering both the physical setup and usage is covered below.
 
-### Enable/Use
+### Generic Configuration
 
-The rangefinder can be enabled in two ways:
+The generic rangefinder configuration is specified using [EKF2*RNG**](../advanced_config/parameter_reference.md#EKF2_RNG_AID) parameters: These include (non exhaustively):
+
+* [EKF2_RNG_PITCH](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_X](../advanced_config/parameter_reference.md#EKF2_RNG_POS_X), [EKF2_RNG_POS_Y](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Y), [EKF2_RNG_POS_Z](../advanced_config/parameter_reference.md#EKF2_RNG_POS_Z) - Offset of the rangefinder from the centre of the vehicle body. 
+* [EKF2_RNG_DELAY](../advanced_config/parameter_reference.md#EKF2_RNG_DELAY) - approximate delay of data reaching the estimator from the sensor.
+* [EKF2*RNG\_A*\*](../advanced_config/parameter_reference.md#EKF2_RNG_AID) - limits and consistency checks when using the sensor for the [range aid feature](../advanced_config/parameter_reference.md#feature).
+
+### Usage/Features {#features}
+
+Rangefinders can be enabled to support flight in two ways:
 
 1. Set [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) to *Range finder* (`2`). This makes the rangefinder the primary source of height estimation (the default altitude sensor is the barometer).
 2. Set [EKF2_RNG_AID](../advanced_config/parameter_reference.md#EKF2_RNG_AID) to `1`. This makes the vehicle use the rangefinder as the primary source when it is safe to use, but will otherwise use the sensor specified in `EKF2_HGT_MODE`. 
@@ -84,7 +78,7 @@ The rangefinder can be enabled in two ways:
         * distance to ground < [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX)
     * Other parameters affecting "Range aid" are prefixed with `EKF2\_RNG\_A\_`.
 
-## Testing
+## Testing {#testing}
 
 The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4. The sections below show some approaches to getting the measured range.
 
@@ -114,7 +108,7 @@ listener distance_sensor 5
 
 For more information see: [Sensor/Topic Debugging using the Listener Command](https://dev.px4.io/en/debug/sensor_uorb_topic_debugging.html) (PX4 Development Guide).
 
-## Simulation
+## Simulation {#simulation}
 
 Lidar and sonar rangefinders can be used in the [Gazebo Simulator](https://dev.px4.io/en/simulation/gazebo.html) (PX4 Development Guide). To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
