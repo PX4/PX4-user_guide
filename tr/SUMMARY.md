@@ -108,7 +108,9 @@
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
-* [Peripheral Hardware](peripherals/README.md) 
+
+* [Peripheral Hardware](peripherals/README.md)
+  
   * [Serial Port Configuration](peripherals/serial_configuration.md)
   * [GPS/Compass](gps_compass/README.md) 
     * [RTK GPS](gps_compass/rtk_gps.md) 
@@ -126,13 +128,17 @@
       * [3DR Telemetry Wifi (Discontinued)](telemetry/3dr_telemetry_wifi.md)
   * [MAVLink Telemetry (OSD/GCS)](peripherals/mavlink_peripherals.md)
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)
-  * [Distance Sensors (Rangefinders)](sensor/rangefinders.md) 
+  * [Distance Sensors (Rangefinders)](sensor/rangefinders.md)
+    
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
     * [LeddarOne Lidar](sensor/leddar_one.md)
     * [Benewake TFmini Lidar](sensor/tfmini.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
+    * [TeraRanger](sensor/teraranger.md)
+  
   * [Airspeed Sensors](sensor/airspeed.md)
+  
   * [Optical Flow](sensor/optical_flow.md) 
     * [PX4FLOW](sensor/px4flow.md)
   * [ESCs & Motors](peripherals/esc_motors.md) 
