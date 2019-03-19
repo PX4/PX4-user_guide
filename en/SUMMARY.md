@@ -132,6 +132,8 @@
     * [LeddarOne Lidar](sensor/leddar_one.md)
     * [Benewake TFmini Lidar](sensor/tfmini.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
+    * [TeraRanger](sensor/teraranger.md)
+    
   * [Airspeed Sensors](sensor/airspeed.md)
   * [Optical Flow](sensor/optical_flow.md)
     * [PX4FLOW](sensor/px4flow.md)
