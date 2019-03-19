@@ -89,7 +89,6 @@ S-Port receivers transmit the following messages from PX4 (from [here](https://g
 * **VSpd:** Vertical speed (cm/s).
 * **Tmp1:** [Flight mode](../getting_started/flight_modes.md), sent as an integer: 18 - Manual, 23 - Altitude, 22 - Position, 27 - Mission, 26 - Hold, 28 - Return, 19 - Acro, 24 0 Offboard, 20 - Stabilized, 21 - Rattitude, 25 - Takeoff, 29 - Land, 30 - Follow Me.
 * **Tmp2:** GPS information. Right-most digit is GPS fix type (0 = none, 2 = 2D, 3 = 3D). Other digits are number of satellites.
-* **0420:** Distance to GPS home fix (metres).
 
 > **Note** The following "standard" S-Port messages are not supported by PX4: **ASpd**, **A4**.
 
