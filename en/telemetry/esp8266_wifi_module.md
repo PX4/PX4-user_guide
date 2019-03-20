@@ -37,7 +37,7 @@ If you have firmware 1.0.4 or greater installed, you can do the update using the
 Just connect to its AP WiFi link and browse to: http://192.168.4.1/update. 
 You can then select the firmware file you downloaded above and upload it to the WiFi Module.
 
-### Flashing the Firmware
+### Flashing the ESP8266 Firmware
 
 Before flashing, make sure you boot the ESP8266 in *Flash Mode* as described below. If you cloned the [MavESP8266](https://github.com/dogmaphobic/mavesp8266) repository, you can build and flash the firmware using the provided [PlatformIO](http://platformio.org) tools and environment. If you downloaded the pre-built firmware above, download the [esptool](https://github.com/espressif/esptool) utility and use the command line below:
 
@@ -70,19 +70,21 @@ I built a cable where RX, TX, VCC, and GND are properly wired directly from the 
 ![esp8266 flashing](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
 
 
-## Setup/Configuration
+## Pixhawk/PX4 Setup & Configuration {#px4_config}
 
-Connect your ESP8266 to your Pixhawk-series flight controller (e.g. Pixracer).
-Typically the TELEM1 port is used, but you can connect any free UART.
+> **Tip** If using PX4 1.8.2 (and earlier) you should connect the ESP8266 to TELEM2 and configure the port by [setting the parameter](../advanced_config/parameters.md) `SYS_COMPANION` to 1921600.
+  The following instructions assume you are using PX4 versions after 1.8.x
+
+Connect your ESP8266 to your Pixhawk-series flight controller (e.g. Pixracer) on any free UART.
 
 Connect the flight controller to your ground station via USB (as WiFi is not yet fully set up).
 
 Using *QGroundControl*:
 - [Load recent PX4 firwmare](../config/firmware.md)
 - [Configure the serial port](../peripherals/serial_configuration.md) used to connect the ESP8266.
-  Remember to set the baud rate to 921600 in order to match the value set for the ESP8266
+  Remember to set the baud rate to 921600 in order to match the value set for the ESP8266.
 
-Once the firmware (port) is set up you can remove the physical connection between the ground station and the vehicle.
+Once the firmware (port) is set up you can remove the physical USB connection between the ground station and the vehicle.
 
 ## Connect via ESP8266 to QGC
 
