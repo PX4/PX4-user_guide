@@ -194,8 +194,3 @@ https://github.com/PX4/sitl_gazebo/blob/master/models/typhoon_h480/typhoon_h480.
       </axis>
     </joint>
   ```
-
-
-## Further Information
-
-* [Rangefinder](https://pixhawk.org/peripherals/rangefinder) (Pixhawk.org) - Rangefinders supported by Pixhawk

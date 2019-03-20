@@ -78,6 +78,7 @@
     * [Mission](flight_modes/mission.md)
     * [Follow Me](flight_modes/follow_me.md)
     * [Offboard](flight_modes/offboard.md)
+  * [Terrain Following/Holding](flying/terrain_following_holding.md)
 * [Flight Log Analysis](log/flight_log_analysis.md)
   * [Log Analysis using Flight Review](log/flight_review.md)
 * [Advanced Features](advanced_features/README.md)
@@ -133,7 +134,6 @@
     * [Benewake TFmini Lidar](sensor/tfmini.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
     * [TeraRanger](sensor/teraranger.md)
-    
   * [Airspeed Sensors](sensor/airspeed.md)
   * [Optical Flow](sensor/optical_flow.md)
     * [PX4FLOW](sensor/px4flow.md)

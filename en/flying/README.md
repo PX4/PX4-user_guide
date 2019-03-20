@@ -11,5 +11,6 @@ It covers both (autopilot-assisted) manual flight and mission planning for fully
 
 [Flight Modes](../flight_modes/README.md) — Summary table + detailed information about flight modes.
 
-
+[Terrain Follow/Hold & Range Assistance](../flying/terrain_following_holding.md) — How to enable terrain following.
+  
 > **Tip** [Vehicle Status Notifications](../getting_started/vehicle_status.md) can help you work out when your vehicle is ready to fly (and if not, why not).
