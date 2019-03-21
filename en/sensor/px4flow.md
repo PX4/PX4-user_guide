@@ -341,7 +341,7 @@ The PX4FLOW module outputs [MAVLink](https://mavlink.io/en/) packets on USB and 
 
 The following list gives a short explanation of the current available parameters in the PX4FLOW firmware.
 
-> **Caution** Parameters are currently not written to ROM (reset at power loss).
+> **Caution** Parameters are currently not written to ROM (reset at power loss). But if you want to change them you can build your own version of firmware using instruction `PX4FLOW Developer Guide` mentioned  above. Code with parameters you can find [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
 
 ### BFLOW_F_THRD
 This parameter is a feature threshold and limits the quality of patterns that are used to calculate the bottom flow. For low values (e.g. 10) almost every pattern is taken, for higher values (e.g. 100) only significant patters are taken.
