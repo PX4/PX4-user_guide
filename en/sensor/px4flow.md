@@ -358,7 +358,7 @@ Name | Default | Access| Comment
 BFLOW_F_THLD    | 30     | RW      | This parameter is a feature threshold and limits the quality of patterns that are used to calculate the bottom flow. For low values (e.g. 10) almost every pattern is taken, for higher values (e.g. 100) only significant patters are taken.
 BFLOW_V_THLD    | 5000       | RW      | This is a pattern correlation threshold for filtering bad matches. Lower means only strong correlations are accepted.
 BFLOW_HIST_FIL  | 0        | RW      | 1: Flow histogram filter is ON, 0: OFF
-BFLOW_GYRO_COM  | 1        | RW      | 1: Gyro compensation is ON, 0: OFF
+BFLOW_GYRO_COM  | 0        | RW      | 1: Gyro compensation is ON, 0: OFF
 BFLOW_LP_FIL    | 0        | RW      | 1: Lowpass filter on flow output is ON, 0: OFF
 BFLOW_W_NEW     | 0.3      | RW      | Flow lowpass filter gain
 DEBUG           | 1        | RW      | 1: Debug messages ON, 0: OFF
