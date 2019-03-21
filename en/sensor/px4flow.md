@@ -50,7 +50,7 @@ If out of stock the software-compatible, but not connector-compatible version ca
 
 In order to use the PX4Flow board, just connect it with I2C. 
 
-> **Note** Applies to all PX4 FMU versions, including all versions of Pixhawk.
+> **Caution** Applies to all PX4 FMU versions, including all versions of Pixhawk. But it doesn't work with FMUv5 (Pixhawk 4) with firmware version less than **1.9.0**.
 
 - Update the firmware on PX4Flow using *QGroundControl* (in the top left menu, click on CONFIG, then on Firmware Upgrade)
 - Connect PX4Flow I2C to the Pixhawk I2C
