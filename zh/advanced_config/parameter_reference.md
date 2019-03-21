@@ -28813,6 +28813,9 @@
       
       <ul>
         <li>
+          <strong>-1:</strong> disabled
+        </li>
+        <li>
           <strong>0:</strong> when armed until disarm (default)
         </li>
         <li>
