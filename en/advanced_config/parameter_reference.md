@@ -9000,6 +9000,8 @@ to takeoff is reached</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="SDLOG_MODE">SDLOG_MODE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Logging Mode</p><p><strong>Comment:</strong> Determines when to start and stop logging. By default, logging is started when arming the system, and stopped when disarming.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> disabled</li> 
+
 <li><strong>0:</strong> when armed until disarm (default)</li> 
 
 <li><strong>1:</strong> from boot until disarm</li> 
