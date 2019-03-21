@@ -459,3 +459,17 @@ Note the NED velocity innovations and NE position innovations 'flat-line' after 
 Note that after 10 seconds without GPS data, the EKF reverts back to a static position mode using the last known position and the NE position innovations start to change again.
 
 ![GPS Data Loss - in SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
+
+### Barometer ground effect compensation
+If the vehicle has the tendency to climb back into the air when getting close to the ground during the landing phase the reason is most likely barometer ground effect.
+Air pushed down by the propellers hits the ground and creates a high pressure zone below the drone which causes a lower reading of pressure altitude. As a result an unwanted climb is commanded.
+The figure below shows a typical situation where the ground effect is present. Note how at the beginning and at the end of the flight the barometer signal dips.
+
+![Baromter ground effect](../../assets/ecl/gnd_effect.png)
+
+If you encouter this situation you can enable ground effect compensation. From the plot above try to read the magnitude of the baromter dip during takeoff or landing.
+Then set the parameter [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) to that value and add a 20 percent margin.
+
+If a terrain estimate is available (e.g. the vehicle is equipped with a range finder) then you can additionally specify the distance to the ground below which ground effect compensation should be activated.
+You can specify the minimum distance using the EKF2_GND_MAX_HGT [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT) parameter.
+If no terrain estimate is available this parameter will have no effect and the system will use heuristics to determine if ground effect compensation should be activated.
