@@ -4330,6 +4330,62 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="EKF2_GND_EFF_DZ">EKF2_GND_EFF_DZ</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Baro deadzone range for height fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the value of deadzone applied to negative baro innovations. Deadzone is enabled when EKF2_GND_EFF_DZ > 0.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 10.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      M
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="EKF2_GND_MAX_HGT">EKF2_GND_MAX_HGT</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Height above ground level for ground effect zone
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the maximum distance to the ground level where negative baro innovations are expected.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.5
+    </td>
+    
+    <td style="vertical-align: top;">
+      M
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="EKF2_GPS_CHECK">EKF2_GPS_CHECK</strong> (INT32)
     </td>
     
