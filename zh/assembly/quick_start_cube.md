@@ -93,7 +93,7 @@ Spektrum DSM, DSM2, and DSM-X Satellite RC 接收机连接到 **SPKT/DSM** 端�
 
 ### PWM 接收机
 
-Cube 不能之间连接 PPM or PWM 接收机， *每个通道有独立的连接线*。 PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
+Cube 不能之间连接 PPM or PWM 接收机， *每个通道有独立的连接线*。 因此PWM 接收机必须连接到 **RCIN** 端口 *通过* 一个 PPM 解码模块，可以在 hex.aero 或者proficnc.com 网站购买。
 
 ## 电源 {#power}
 
