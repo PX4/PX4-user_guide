@@ -35,13 +35,13 @@ Cube在[购买时](../flight_controller/pixhawk-2.md#stores)提供大多数(所�
 
 ![Cube Mount - Direction of Front](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+> **注意** 如飞行控制器不能被安装在推荐/默认的方向 (例如，由于空间限制) 你需要更改自动驾驶仪软件来配置实际的安装方向： [飞行控制器方向](../config/flight_controller_orientation.md)。
 
-The Cube can be mounted using either vibration-damping foam pads (included in the kit) or mounting screws. The mounting screws in the Cube accessories are designed for a 1.8mm thick frameboard. Customized screws are supposed to be M2.5 with thread length inside Cube in range 6mm~7.55mm.
+Cube可以使用减振泡沫板安装(包括在套件中) 或者用螺钉安装。 在Cube的附件中有安装螺钉，是为1.8mm厚的框架板设计的。 用户定制螺钉应该是M2.5，长度6mm~7.55mm。
 
 ![Cube Mount - Mounting Plate](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
-## GPS + Compass + Safety Switch + LED {#gps}
+## GPS + 罗盘 + 安全开关 + LED {#gps}
 
 The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md).
 
