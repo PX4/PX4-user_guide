@@ -43,23 +43,23 @@ Cube可以使用减振泡沫板安装(包括在套件中) 或者用螺钉安装�
 
 ## GPS + 罗盘 + 安全开关 + LED {#gps}
 
-The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md).
+推荐的 GPS 在 *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md)，其中都包含一个GPS模块、罗盘、安全开关和 [LEDs](../getting_started/led_meanings.md)。
 
-> **Note** The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../advanced_features/rtk-gps.md). Otherwise they are used/connected in the same way.
+> **注意** 模块之间的差别是 *Here+* 支持通过 [RTK](../advanced_features/rtk-gps.md) 实现厘米级定位。 除此以外在使用/安装是相同的。
 
-The module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference). It must be connected to the `GPS1` port using the supplied 8-pin cable.
+模块在安装时应尽可能远离其他电子元器件，方向标记朝向飞行器前方(将罗盘和其他电子元器件分开可以减少干扰)。 它必须使用8-针电缆连接到 `GPS1` 端口。
 
-The diagram below shows a schematic view of the module and its connections.
+下图显示了模块及其连接方式。
 
 ![Here+ Connector Diagram](../../assets/flight_controller/cube/here_plus_connector.png)
 
-> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+> **注意** GPS模块内集成的安全开关 *默认是启用的* (当启用时，PX4将不会让您解锁飞行器)。 如需关闭安全开关，请按住安全开关1秒钟。 您可以在完成任务后再次按下安全开关以启用并锁定飞行器 (因为这是出于安全考虑的机制，无论出于何种原因，您将无法通过遥控器或地面站来远程解锁您的载具)。
 
 <span></span>
 
-> **Tip** If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety_switch).
+> **建议** 如果您想要使用旧的6-线GPS模块，套件将使用电缆来连接GPS和 [安全开关](#safety_switch)。
 
-## Safety Switch {#safety_switch}
+## 安全开关 {#safety_switch}
 
 The *dedicated* safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
 
