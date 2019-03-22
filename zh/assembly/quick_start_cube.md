@@ -61,39 +61,39 @@ Cube可以使用减振泡沫板安装(包括在套件中) 或者用螺钉安装�
 
 ## 安全开关 {#safety_switch}
 
-The *dedicated* safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
+*专用的* Cube 安全开关只有在您使用推荐的 [GPS](#gps) 时是必须的(包含一个内部的安全开关)。
 
-If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (or via a supplied cable if using an old-style 6-pin GPS).
+如果您在没有GPS的情况下飞行，您必须将安全开关连接到 `GPS1` 端口为了能解锁和起飞飞行器(或者如果使用旧的6-GPS时通过提供的电缆)。
 
-## Buzzer
+## 蜂鸣器
 
-The buzzer provides audio signals to that indicate UAV status. This should be connected to the USB port as shown (no further configuration is required).
+蜂鸣器提供声音信号显示无人机状态。 它应该按照如图所示的方式连接到USB端口(不需要进一步的配置)。
 
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
 ## 无线电遥控 {#rc_control}
 
-A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
+如果您想要 *手动* 控制您的飞行器，需要使用[remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) (PX4在自动飞行模式下可以不需要遥控器)。
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+您需要 [选择一个兼容的发射/接收机](../getting_started/rc_transmitter_receiver.md) 并 *对频* 使它们能够通信 (对频方法参考发射/接收机的说明书)。
 
-The instructions below show how to connect the different types of receivers.
+下面介绍如何连接不同种类的接收机。
 
-### PPM-SUM / Futaba S.Bus receivers
+### PPM-SUM / Futaba S.Bus 接收机
 
-Connect the ground(-),power(+),and signal(S) wires to the RC pins using the provided 3-wire servo cable.
+使用提供的3-线电缆，连接 ground(-),power(+),and signal(S) wires 到 RC 针。
 
 ![Cube - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
 
-### Spektrum Satellite Receivers
+### Spektrum Satellite 接收机
 
-Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM** port.
+Spektrum DSM, DSM2, and DSM-X Satellite RC 接收机连接到 **SPKT/DSM** 端口。
 
 ![Cube - Spektrum](../../assets/flight_controller/cube/cube_rc_spektrum.jpg)
 
-### PWM Receivers
+### PWM 接收机
 
-The Cube cannot directly connect to PPM or PWM receivers that have an *individual wire for each channel*. PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
+Cube 不能之间连接 PPM or PWM 接收机， *每个通道有独立的连接线*。 PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
 
 ## 电源 {#power}
 
