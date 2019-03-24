@@ -50,11 +50,11 @@ PX4提供了许多（逐步更有效）的方法，可用于估计容量：
 > 
 > ### Full Voltage (per cell)
 > 
-> This sets the *nominal* maximum voltage of each cell (the lowest voltage at which the cell will be considered "full").
+> 这设置每个电池单元的*标称</ 0>最大电压（电池单元状态是“满”的最低电压）。</p> 
 > 
-> The value should be set slightly lower that the nominal maximum cell voltage for the battery (4.2V for LiPo), but not so low that the estimated capacity is still 100% after a few minutes of flight. The default value is usually appropriate for LiPo batteries.
+> 该值应设置为略低于电池的标称最大电压（LiPo为4.2V），但不能太低，以至于飞行几分钟后估计的容量仍为100％。 默认值通常适用于LiPo电池。
 > 
-> > **Note** The voltage of a full battery may drop a small amount over time after charging. Setting a slightly-lower than maximum value compensates for this drop.
+> > **注**充电后，满电池的电压可能会随着时间的推移而下降一小部分。 设置略低于最大值可以补偿此下降。
 > 
 > ### Empty Voltage (per cell)
 > 
