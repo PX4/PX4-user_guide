@@ -12,22 +12,22 @@ PX4提供了许多（逐步更有效）的方法，可用于估计容量：
 
 1. [基本电池设置](#basic_settings)（默认值）：将原始测量电压与“空”和“满”电压之间的范围进行比较。 这样的估计较为粗略，因为测量的电压（及其相应的容量）将在负载下产生波动。
 2. [基于电压的负载补偿估计](#load_compensation)：抵消负载对电池容量计算的影响。
-3. [Voltage-based Estimation with Current Integration](#current_integration): Fuses the load-compensated voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. This results in a capacity estimate that is comparable to that of a smart battery.
+3. [基于电流积分的电压估计](#current_integration)：通过基于电流的已消耗电荷估计，对基于负载补偿电压的估计出的可用容量进行补充。 这样的容量估计相当于智能电池的容量估计。
 
-Later methods build on preceding methods. The approach you use will depend on whether the vehicle's power module can measure current.
+后来的方法建立在前面的方法上。 您使用的方法取决于飞机的电源模块是否可以测量电流。
 
-## Basic Battery Settings (default) {#basic_settings}
+## 基本电池设置(默认) {#basic_settings}
 
-> **Note** This default/basic power configuration results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+> **注**当测量电压在负载下变化时，由于估计电压的波动，该默认/基本功率配置会导致相对粗略的估计。
 
-The basic battery settings configure PX4 to use the default method for capacity estimate. This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells).
+基本电池设置将PX4配置为使用默认方法进行容量估算。 该方法将测量的原始电池电压与“空”和“满”状态电池电压之间的范围进行比较（按电池数量换算）。
 
-To configure the basic settings:
+要配置基本设置, 请执行以下操作:
 
 1. 打开 *QGroundControl* 并连接上飞机。
-2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Power** in the sidebar.
+2. 在上面的工具条中选择 **齿轮** 按钮，然后在左面的工具条中选择 **电源** 按钮。
 
-You are presented with the basic settings that characterize your battery. The sections below explain what values to set for each field.
+您将看到表征电池的基本设置。 The sections below explain what values to set for each field.
 
 ![QGC Power Setup](../../assets/qgc/qgc_setup_power_px4.jpg)
 
