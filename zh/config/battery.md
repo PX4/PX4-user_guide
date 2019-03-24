@@ -1,6 +1,6 @@
-# Battery and Power Module Setup
+# 电池电源模块设置
 
-This topic explains how to configure power settings.
+该主题解释了如何进行电源设置
 
 > **Note** The battery monitoring features of PX4 can only be used if you have compatible hardware. In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
 
