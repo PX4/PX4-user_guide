@@ -2,16 +2,16 @@
 
 该主题解释了如何进行电源设置
 
-> **Note** The battery monitoring features of PX4 can only be used if you have compatible hardware. In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
+> **注**只有兼容的硬件才能使用PX4的电池监控功能。 在大多数情况下，这意味着测量电池电压的电源模块，并且还可以测量电池和飞机之间的电流。
 
 ## 概述
 
-The goal of the power setup is to provide a good estimate of remaining battery percentage (and capacity), so that the vehicle is not used to the point that it runs out of power and crashes (or the battery is damaged due to deep-discharge).
+电源设置的目标是提供对剩余电池百分比（和容量）的良好估计，以便飞机不会电力耗尽和坠毁（或电池因深度放电而损坏）。
 
-PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
+PX4提供了许多（逐步更有效）的方法，可用于估计容量：
 
-1. [Basic Battery Settings](#basic_settings) (default): raw measured voltage is compared to the range between "empty" and "full" voltages. This results in coarse estimates because measured voltage (and its corresponding capacity) will fluctuate under load.
-2. [Voltage-based Estimation with Load Compensation](#load_compensation): Counteracts the effects of loading on the capacity calculation.
+1. [基本电池设置](#basic_settings)（默认值）：将原始测量电压与“空”和“满”电压之间的范围进行比较。 这样的估计较为粗略，因为测量的电压（及其相应的容量）将在负载下产生波动。
+2. [基于电压的负载补偿估计](#load_compensation)：抵消负载对电池容量计算的影响。
 3. [Voltage-based Estimation with Current Integration](#current_integration): Fuses the load-compensated voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. This results in a capacity estimate that is comparable to that of a smart battery.
 
 Later methods build on preceding methods. The approach you use will depend on whether the vehicle's power module can measure current.
