@@ -56,21 +56,21 @@ PX4提供了许多（逐步更有效）的方法，可用于估计容量：
 > 
 > > **注**充电后，满电池的电压可能会随着时间的推移而下降一小部分。 设置略低于最大值可以补偿此下降。
 > 
-> ### Empty Voltage (per cell)
+> ### 空电电压（每个电芯）
 > 
-> This sets the nominal minimum safe voltage of each cell (use below this voltage may damage the battery).
+> 这设置了每个电池的标称最小安全电压（低于此电压使用可能会损坏电池）。
 > 
-> > **Note** There is no single value at which a battery is said to be empty. If you choose a value that is too low the battery may be damaged due to deep discharge (and/or the vehicle may crash). If you choose a value that is too high you may unnecessarily curtail your flight.
+> > **注**没有单个值表示电池是空的。 如果选择的值太低，电池可能会因深度放电而损坏（和/或飞机可能会坠毁）。 如果您选择的值太高，可能会不必要地限制您的飞行。
 > 
-> A rule of thumb for LiPo batteries:
+> LiPo电池的经验法则：
 > 
-> * 3.7V without load is a conservative minimum value.
-> * 3.5 V under load (while flying) is closer to the true minimum. At this voltage you should land immediately. 
-> * 3.2V under load will cause damage to the battery. 
+> * 无负载3.7V是保守的最小值。
+> * 负载下3.5 V（飞行时）接近真实最小值。 在这个电压下, 你应该立即降落。 
+> * 负载下3.2V将对电池造成损坏。 
 > 
-> > **Tip** Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
+> > **提示**低于保守范围，越早给电池充电越好 - 它会持续更长时间并且更慢地减少容量。
 > 
-> ### Voltage divider
+> ### 分压器
 > 
 > If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
 > 
