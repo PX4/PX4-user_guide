@@ -22,7 +22,7 @@ The lidars can be connected to I2C or serial ports, depending on their type (see
 
 ## I2C Setup
 
-The following models can be connected to the I2C port:
+The following models can be connected to the I2C port: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20
 
 ### Hardware {#i2c_hardware_setup}
 
