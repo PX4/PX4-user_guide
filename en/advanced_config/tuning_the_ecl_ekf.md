@@ -460,16 +460,20 @@ Note that after 10 seconds without GPS data, the EKF reverts back to a static po
 
 ![GPS Data Loss - in SITL](../../assets/ecl/gps_data_loss_-_velocity_innovations.png)
 
-### Barometer ground effect compensation
-If the vehicle has the tendency to climb back into the air when getting close to the ground during the landing phase the reason is most likely barometer ground effect.
-Air pushed down by the propellers hits the ground and creates a high pressure zone below the drone which causes a lower reading of pressure altitude. As a result an unwanted climb is commanded.
-The figure below shows a typical situation where the ground effect is present. Note how at the beginning and at the end of the flight the barometer signal dips.
+### Barometer Ground Effect Compensation
 
-![Baromter ground effect](../../assets/ecl/gnd_effect.png)
+If the vehicle has the tendency during landing to climb back into the air when close to the ground, the most likely cause is barometer ground effect.
 
-If you encouter this situation you can enable ground effect compensation. From the plot above try to read the magnitude of the baromter dip during takeoff or landing.
-Then set the parameter [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) to that value and add a 20 percent margin.
+This is caused when air pushed down by the propellers hits the ground and creates a high pressure zone below the drone.
+The result is a lower reading of pressure altitude, leading to an unwanted climb being commanded.
+The figure below shows a typical situation where the ground effect is present. 
+Note how the barometer signal dips at the beginning and end of the flight.
 
-If a terrain estimate is available (e.g. the vehicle is equipped with a range finder) then you can additionally specify the distance to the ground below which ground effect compensation should be activated.
-You can specify the minimum distance using the EKF2_GND_MAX_HGT [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT) parameter.
+![Barometer ground effect](../../assets/ecl/gnd_effect.png)
+
+You can enable *ground effect compensation* to fix this problem:
+- From the plot (like the one above) estimate the magnitude of the barometer dip during takeoff or landing.
+- Then set the parameter [EKF2_GND_EFF_DZ](../advanced_config/parameter_reference.md#EKF2_GND_EFF_DZ) to that value and add a 20 percent margin.
+
+If a terrain estimate is available (e.g. the vehicle is equipped with a range finder) then you can additionally specify [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT), the above ground-level altitude below which ground effect compensation should be activated.
 If no terrain estimate is available this parameter will have no effect and the system will use heuristics to determine if ground effect compensation should be activated.
