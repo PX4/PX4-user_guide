@@ -923,6 +923,13 @@ Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_OA_BOOT_T">COM_OA_BOOT_T</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Set avoidance system bootup timeout</p><p><strong>Comment:</strong> The avoidance system running on the companion computer is expected to boot within this time and start providing trajectory points. If no avoidance system is detected a MAVLink warning message is sent.</p>   </td>
+ <td style="vertical-align: top;">0 > 200 </td>
+ <td style="vertical-align: top;">100 </td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_OF_LOSS_T">COM_OF_LOSS_T</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Time-out to wait when offboard connection is lost before triggering offboard lost action.
 See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
@@ -4238,8 +4245,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_OBS_AVOID">COM_OBS_AVOID</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Flag to enable obstacle avoidance
-Temporary Parameter to enable interface testing</p>   </td>
+ <td style="vertical-align: top;"><p>Flag to enable obstacle avoidance</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
