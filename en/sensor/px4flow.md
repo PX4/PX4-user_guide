@@ -1,7 +1,7 @@
 # PX4FLOW Smart Camera
 
-PX4FLOW is an [optical flow](../sensor/optical_flow.md) smart camera. 
-It has a native resolution of 752x480 pixels and calculates optical flow on a 4x binned and cropped area at 400 Hz, giving it a very high light sensitivity. 
+PX4FLOW is an [optical flow](../sensor/optical_flow.md) smart camera.
+It has a native resolution of 752x480 pixels and calculates optical flow on a 4x binned and cropped area at 400 Hz, giving it a very high light sensitivity.
 
 ![PX4Flow v1.0](../../assets/hardware/sensors/px4flow/px4flow_v1.0_top_generated.png)
 
@@ -48,15 +48,16 @@ If out of stock the software-compatible, but not connector-compatible version ca
 
 ## Pixhawk Setup
 
-In order to use the PX4Flow board, just connect it with I2C. 
+In order to use the PX4Flow board, just connect it with I2C (on any Pixhawk series controller). 
 
-> **Caution** Applies to all PX4 FMU versions, including all versions of Pixhawk. But it doesn't work with FMUv5 (Pixhawk 4) with firmware version less than **1.9.0**.
+> **Warning** This does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**.
+  All other PX4/Firmware versions should work.
 
 - Update the firmware on PX4Flow using *QGroundControl* (in the top left menu, click on CONFIG, then on Firmware Upgrade)
 - Connect PX4Flow I2C to the Pixhawk I2C
 
 The module will be detected on boot.
-Flow data should be coming through at 10Hz if the autopilot is connected via **USB**. 
+Flow data should be coming through at 10Hz if the autopilot is connected via **USB**.
 Flow data is transmitted via wireless at a lower rate.
 
 
@@ -66,7 +67,7 @@ The recommended mounting orientation (meaning: zero rotation) is defined as Y on
 
 ![PX4Flow align with Pixhawk](../../assets/hardware/sensors/px4flow/px4flowalignwithpixhawk.jpg)
 
-On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT). 
+On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT).
 The above orientation maps to `SENS_FLOW_ROT`=270 degrees (the default). 
 
 Make sure the the PX4Flow board is well dampened.
@@ -77,8 +78,8 @@ Make sure the the PX4Flow board is well dampened.
 
 ### Connecting
 
-The PX4flow is connected to the I2C bus. 
-If you are connecting multiple devices to the same bus you will need to set each with a unique address. 
+The PX4flow is connected to the I2C bus.
+If you are connecting multiple devices to the same bus you will need to set each with a unique address.
 The next section explains how.
 
 
@@ -87,7 +88,7 @@ The next section explains how.
 The default I2C address of the PX4Flow is 0x42, but it can be incremented using the three solder jumpers labeled "I2C BUS ADDR". 
 This is useful if another device has the same address.
 
-The address increment is equal to the 3-bit value encoded by the jumpers. 
+The address increment is equal to the 3-bit value encoded by the jumpers.
 For example if jumper 0 and 1 are soldered and jumper 2 is unsoldered, the address is incremented by 1\*1 + 1\*2 + 0\*4 = 3, which gives address 0x45.
 If all jumpers are unsoldered, the camera will be automatically discovered by the autopilot firmware.
  
@@ -114,8 +115,8 @@ px4flow start -a 0x45          # address=0x45
 
 ## Focusing the Lens
 
-In order to ensure good optical flow quality, it is important to focus the camera on the PX4Flow to the desired height of flight. 
-To focus the camera, put an object with text on (e. g. a book) and plug in the PX4Flow into USB and run *QGroundControl*. 
+In order to ensure good optical flow quality, it is important to focus the camera on the PX4Flow to the desired height of flight.
+To focus the camera, put an object with text on (e. g. a book) and plug in the PX4Flow into USB and run *QGroundControl*.
 Under the settings menu, select the PX4Flow and you should see a camera image.
 Focus the lens by unscrewing the set screw and loosening and tightening the lens to find where it is in focus.
 
@@ -134,8 +135,9 @@ Above 3 meters the camera should be focused at infinity and work for all higher 
 
 ## Accuracy
 
-The ortho photo below shows that a flight on the park roads is accurately measured. 
-This was done with a PX4FMU on a 7" quad flying at about 1.6 m altitude in manual flight. No GPS, only PX4FLOW integration of position.
+The ortho photo below shows that a flight on the park roads is accurately measured.
+This was done with a PX4FMU on a 7" quad flying at about 1.6 m altitude in manual flight.
+No GPS, only PX4FLOW integration of position.
 
 ![PX4FLOW trajectory](../../assets/hardware/sensors/px4flow/px4flow_trajectory.jpg)
 
@@ -218,14 +220,16 @@ max_vel = 4/(1/400)*grounddistance/(focallength/0.000024)
 
 ## Configuration: Image Quality and Output 
 
-PX4FLOW is not designed as a camera, but does all processing on-chip. You can configure the image quality and output (the image output is only intended for focusing the lens).
+PX4FLOW is not designed as a camera, but does all processing on-chip.
+You can configure the image quality and output (the image output is only intended for focusing the lens).
 
 ![Video Downlink](../../assets/hardware/sensors/px4flow/qgc_video_downlink_px4flow.jpg)
 
   - Download [QGroundControl](http://qgroundcontrol.com/#downloads)
   - Unplug your flow sensor
   - In *QGroundControl*, click on **Configuration > Firmware Update**. Hit the big green **Scan** button.
-  - Connect the flow sensor. Click on upgrade once its detected (leave the default to “stable”)
+  - Connect the flow sensor.
+    Click on upgrade once its detected (leave the default to “stable”)
   - Maximize the *QGroundControl* window. Click on **Tool Widgets > Video Downlink**
   - Enjoy the live view and **focus the camera by loosening the locking screw and turning the lens at an object at 3m distance**.
   - If you want to get higher res to focus the sensor, go to **Config > Advanced Config** and set the [VIDEO_ONLY](#VIDEO_ONLY) parameter to 1.
@@ -240,7 +244,9 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
   * Flash the stable firmware
 * Click on **Advanced Config** in the left menu to see the parameters
 * Display the video stream with QGroundControl (**Tool Widgets > Video Downlink**)
-  * Check that there are no stripes on the stream. If you get stripes, set `IMAGE_TEST_PAT` to 1. It should look like the examples above. If you have stripes in the image but no stripes when this mode is enabled, right-click into the image once in both modes and save and send an image of each mode to the manufacturer's support team.
+  * Check that there are no stripes on the stream. If you get stripes, set `IMAGE_TEST_PAT` to 1.
+    It should look like the examples above.
+    If you have stripes in the image but no stripes when this mode is enabled, right-click into the image once in both modes and save and send an image of each mode to the manufacturer's support team.
   * Check that you get a clear image (its a tele / zoom lens, so the visible area will be small)
 * Set the `VIDEO_ONLY` parameter to 1 to obtain a higher resolution image.
 * Check that the image is sharp at the operating distance (the typical flight altitude)
@@ -324,13 +330,16 @@ Now a new Unmanned System should appear and Onboard Parameters are loaded (click
 
 Change Parameter `VIDEO_ONLY` to 1 and press Set.
 
-The Widget Video Downlink shows now the Image in full resolution. Focus the lens on 1.5m. Fix the lens position and switch `VIDEO_ONLY` Mode off.
-
+The Widget Video Downlink shows now the Image in full resolution.
+Focus the lens on 1.5m. Fix the lens position and switch `VIDEO_ONLY` Mode off.
 
 
 ## Data Output
 
-The PX4FLOW module outputs [MAVLink](https://mavlink.io/en/) packets on USB and serial port. Use [QGroundControl](http://qgroundcontrol.com/) to read data from the module. An I2C interface for sensor data reading is offered as well. Third party [libraries](#libraries) are available to connect and integrate PX4FLOW data in your projects.
+The PX4FLOW module outputs [MAVLink](https://mavlink.io/en/) packets on USB and serial port.
+Use [QGroundControl](http://qgroundcontrol.com/) to read data from the module.
+An I2C interface for sensor data reading is offered as well.
+Third party [libraries](#libraries) are available to connect and integrate PX4FLOW data in your projects.
 
 * USART3: MAVLink at 115200, 8N1 baud: [OPTICAL_FLOW](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW) message, [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD), [HEARTBEAT](https://mavlink.io/en/messages/common.html#HEARTBEAT) message
 * USB: Baud rate is not relevant (USB ignores it): `OPTICAL_FLOW` message, `OPTICAL_FLOW_RAD`, `HEARTBEAT` message, image.
@@ -341,12 +350,16 @@ The PX4FLOW module outputs [MAVLink](https://mavlink.io/en/) packets on USB and 
 
 The following list gives a short explanation of the current available parameters in the PX4FLOW firmware.
 
-> **Caution** Parameters are currently not written to ROM (reset at power loss). But if you want to change them you can build your own version of firmware using instruction `PX4FLOW Developer Guide` mentioned  above. Code with parameters you can find [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
+> **Warning** Parameters are currently not written to ROM (they reset at power loss).
+  To change them permanently build your own version of firmware using instructions in the *PX4FLOW Developer Guide* mentioned above.
+  Relevant parameters can be found [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
 
 ### BFLOW_F_THRD
+
 This parameter is a feature threshold and limits the quality of patterns that are used to calculate the bottom flow. For low values (e.g. 10) almost every pattern is taken, for higher values (e.g. 100) only significant patters are taken.
 
 ### BFLOW_V_THRD 
+
 This is a pattern correlation threshold for filtering bad matches. Lower means only strong correlations are accepted.
 
 
@@ -397,16 +410,19 @@ VIDEO_ONLY      | 0        | RW      | 1: High resolution video mode is ON, 0: O
 
 ### VIDEO ONLY Mode {#VIDEO_ONLY}
 
-Set `VIDEO_ONLY` to 1 for high resolution mode. In this mode the camera image is transmitted at a higher resolution to ease the lens focus process. No flow values are calculated in this mode.
+Set `VIDEO_ONLY` to 1 for high resolution mode.
+In this mode the camera image is transmitted at a higher resolution to ease the lens focus process.
+No flow values are calculated in this mode.
 
 ###  Low Light Mode
+
 If `IMAGE_L_LIGHT` is set to 1, the sensor operates in low light mode.
 
 > **Note** This mode is under construction, and results are more noisy
 
 ###  Test Pattern Mode
 
-If the parameter IMAGE_TEST_PAT is set to 1, the sensor inserts a vertical gray-shaded test pattern in the signal chain. 
+If the parameter `IMAGE_TEST_PAT` is set to 1, the sensor inserts a vertical gray-shaded test pattern in the signal chain. 
 * Test Pattern 64x64 (VIDEO ONLY Mode is OFF)
   ![test_pattern_64x64](../../assets/hardware/sensors/px4flow/test_pattern_64x64.png)
 * Test Pattern 376x240 (VIDEO ONLY Mode is ON)
