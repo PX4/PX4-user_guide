@@ -127,7 +127,6 @@ Focus the lens by unscrewing the set screw and loosening and tightening the lens
 *Figure: Use a text book to focus the flow camera at the height you want to fly, typically 1-3 meters. 
 Above 3 meters the camera should be focused at infinity and work for all higher altitudes.*
 
-
 ![Flow Focusing](../../assets/hardware/sensors/px4flow/flow_focusing.png)
 
 *Figure: The QGroundControl px4flow interface that can be used for focusing the camera*
@@ -351,7 +350,7 @@ Third party [libraries](#libraries) are available to connect and integrate PX4FL
 The following list gives a short explanation of the current available parameters in the PX4FLOW firmware.
 
 > **Warning** Parameters are currently not written to ROM (they reset at power loss).
-  To change them permanently build your own version of firmware using instructions in the *PX4FLOW Developer Guide* mentioned above.
+  To change them permanently build your own version of firmware using instructions in the [PX4FLOW Developer Guide](#developer_guide) above.
   Relevant parameters can be found [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
 
 ### BFLOW_F_THRD
@@ -364,7 +363,6 @@ This is a pattern correlation threshold for filtering bad matches. Lower means o
 
 
 ### Others
-
 
 Name | Default | Access| Comment
 --- | --- | --- | ---
@@ -405,7 +403,6 @@ VIDEO_RATE      | 150      | RW      | Time in milliseconds between images of vi
 VIDEO_ONLY      | 0        | RW      | 1: High resolution video mode is ON, 0: OFF
 
 
-
 ## Modes
 
 ### VIDEO ONLY Mode {#VIDEO_ONLY}
@@ -427,4 +424,3 @@ If the parameter `IMAGE_TEST_PAT` is set to 1, the sensor inserts a vertical gra
   ![test_pattern_64x64](../../assets/hardware/sensors/px4flow/test_pattern_64x64.png)
 * Test Pattern 376x240 (VIDEO ONLY Mode is ON)
   ![test_pattern_376x240](../../assets/hardware/sensors/px4flow/test_pattern_376x240.png)
-
