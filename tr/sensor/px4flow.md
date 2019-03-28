@@ -297,7 +297,7 @@ The PX4FLOW module outputs [MAVLink](https://mavlink.io/en/) packets on USB and 
 
 The following list gives a short explanation of the current available parameters in the PX4FLOW firmware.
 
-> **Warning** Parameters are currently not written to ROM (they reset at power loss). To change them permanently build your own version of firmware using instructions in the *PX4FLOW Developer Guide* mentioned above. Relevant parameters can be found [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
+> **Warning** Parameters are currently not written to ROM (they reset at power loss). To change them permanently build your own version of firmware using instructions in the [PX4FLOW Developer Guide](#developer_guide) above. Relevant parameters can be found [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
 
 ### BFLOW_F_THRD
 
