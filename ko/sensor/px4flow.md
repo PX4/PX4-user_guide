@@ -42,9 +42,9 @@ If out of stock the software-compatible, but not connector-compatible version ca
 
 ## Pixhawk Setup
 
-In order to use the PX4Flow board, just connect it with I2C.
+In order to use the PX4Flow board, just connect it with I2C (on any Pixhawk series controller).
 
-> **Caution** Applies to all PX4 FMU versions, including all versions of Pixhawk. But it doesn't work with FMUv5 (Pixhawk 4) with firmware version less than **1.9.0**.
+> **Warning** This does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/Firmware versions should work.
 
 - Update the firmware on PX4Flow using *QGroundControl* (in the top left menu, click on CONFIG, then on Firmware Upgrade)
 - Connect PX4Flow I2C to the Pixhawk I2C
@@ -189,7 +189,8 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
     - Download [QGroundControl](http://qgroundcontrol.com/#downloads)
     - Unplug your flow sensor
     - In *QGroundControl*, click on **Configuration > Firmware Update**. Hit the big green **Scan** button.
-    - Connect the flow sensor. Click on upgrade once its detected (leave the default to “stable”)
+    - Connect the flow sensor.
+      Click on upgrade once its detected (leave the default to “stable”)
     - Maximize the *QGroundControl* window. Click on **Tool Widgets > Video Downlink**
     - Enjoy the live view and **focus the camera by loosening the locking screw and turning the lens at an object at 3m distance**.
     - If you want to get higher res to focus the sensor, go to **Config > Advanced Config** and set the [VIDEO_ONLY](#VIDEO_ONLY) parameter to 1.
@@ -296,7 +297,7 @@ The PX4FLOW module outputs [MAVLink](https://mavlink.io/en/) packets on USB and 
 
 The following list gives a short explanation of the current available parameters in the PX4FLOW firmware.
 
-> **Caution** Parameters are currently not written to ROM (reset at power loss). But if you want to change them you can build your own version of firmware using instruction `PX4FLOW Developer Guide` mentioned above. Code with parameters you can find [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
+> **Warning** Parameters are currently not written to ROM (they reset at power loss). To change them permanently build your own version of firmware using instructions in the *PX4FLOW Developer Guide* mentioned above. Relevant parameters can be found [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
 
 ### BFLOW_F_THRD
 
@@ -360,7 +361,7 @@ If `IMAGE_L_LIGHT` is set to 1, the sensor operates in low light mode.
 
 ### Test Pattern Mode
 
-If the parameter IMAGE_TEST_PAT is set to 1, the sensor inserts a vertical gray-shaded test pattern in the signal chain.
+If the parameter `IMAGE_TEST_PAT` is set to 1, the sensor inserts a vertical gray-shaded test pattern in the signal chain.
 
 - Test Pattern 64x64 (VIDEO ONLY Mode is OFF) ![test_pattern_64x64](../../assets/hardware/sensors/px4flow/test_pattern_64x64.png)
 - Test Pattern 376x240 (VIDEO ONLY Mode is ON) ![test_pattern_376x240](../../assets/hardware/sensors/px4flow/test_pattern_376x240.png)
