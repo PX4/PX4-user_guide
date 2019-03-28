@@ -1,32 +1,36 @@
 # 飞行报告
 
-PX4记录详细的飞机性能数据，从系统一开始被解锁直到加锁。 这些飞行日志还可以用来分析性能问题。
+PX4 logs detailed aircraft state and sensor data, which can be used to analyze performance issues. This topic explains how you can download and analyse logs, and share them with the development team for review.
 
 > **Tip** 在一些司法管辖区，保留飞行日志是一项法律规定。
 
 ## 从飞行控制器下载日志
 
-日志数据可以使用 [QGroundControl](http://qgroundcontrol.com/) (v3.2 or later) 下载：**[Analyze View > Log Download](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)**.
+Logs can be downloaded using [QGroundControl](http://qgroundcontrol.com/): **[Analyze View > Log Download](https://docs.qgroundcontrol.com/en/analyze_view/log_download.html)**.
 
 ![飞行日志下载](../../assets/qgc/analyze/log_download.jpg)
 
 ## 分析日志
 
-上传日志到 [Flight Review](http://logs.px4.io)（http://logs.px4.io）在线工具。
+Upload the log file to the online *Flight Review* tool (http://logs.px4.io). After upload you'll emailed a link to the analysis page for the log.
 
 [Log Analysis using Flight Review](../log/flight_review.md) 解释了怎样分析图形，这可以帮你确认/排除一些常见的问题：过大的震动、很差的PID调优、控制器饱和、车辆不平衡、GPS 噪声、等等。
 
-> **Note** [Flight Log Analysis](../log/flight_log_analysis.md) 包含很多好用的日志工具。
+> **Note** There are many other great tools for visualising and analysing PX4 Logs. For more information see: [Flight Analysis](../log/flight_log_analysis.md).
+
+<span></span>
+
+> **Tip** If you have a constant high-rate MAVLink connection to the vehicle (not just a telemetry link) then you can use *QGroundControl* to automatically upload logs directly to *Flight Review*. For more information see [Settings > MAVLink Settings > MAVLink 2 Logging (PX4 only)](https://docs.qgroundcontrol.com/en/SettingsView/MAVLink.html#logging).
 
 ## 给 PX4 开发人员共享日志文件
 
-上传日志到 [Flight Review](http://logs.px4.io) 后，这个日志链接可以在 [support forums](../README.md#support) 或者 [Github issue](../README.md#reporting-bugs--issues) 中分享。
+The [Flight Review](http://logs.px4.io) log file link can be shared for discussion in the [support forums](../README.md#support) or a [Github issue](../README.md#reporting-bugs--issues).
 
-## 额外的配置
+## Log Configuration
 
-日志系统默认配置为使用 [Flight Review](http://logs.px4.io) 收集日志。
+The logging system is configured by default to collect sensible logs for use with [Flight Review](http://logs.px4.io).
 
-日志将来可以使用 [SD Logging](../advanced_config/parameter_reference.md#sd-logging) 参数配置。 下面列出了您最可能更改的参数。
+Logging may further be configured using the [SD Logging](../advanced_config/parameter_reference.md#sd-logging) parameters. The parameters you are most likely to change are listed below.
 
 | 参数                                                                       | 描述                                                                                      |
 | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
@@ -38,4 +42,10 @@ PX4记录详细的飞机性能数据，从系统一开始被解锁直到加锁�
 | [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | 创建非常小的额外“任务日志”。  
 此日志*不* 能使用 *Flight Review*，但当您需要一个用于地理标记或法规遵从性的小日志时，该日志非常有用。          |
 
-> **Note** * 开发人员* 可以通过 [logger](https://dev.px4.io/en/middleware/modules_system.html#logger) 模块选择记录需要的信息 (例如，如果你想记录自己的主题，可以使用这个模块)。 更多信息参考： [Logging](https://dev.px4.io/en/log/logging.html) (PX4 开发者手册)。
+> **Note** *Developers* can further configure what information is logged via the [logger](https://dev.px4.io/en/middleware/modules_system.html#logger) module (you would use this, for example, if you want to log your own topics). For more information see: [Logging](https://dev.px4.io/en/log/logging.html) (PX4 Developer Guide).
+
+## Key Links
+
+- [Flight Review](http://logs.px4.io)
+- [Log Analysis using Flight Review](../log/flight_review.md)
+- [Flight Log Analysis](../log/flight_log_analysis.md)
