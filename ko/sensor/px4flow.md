@@ -44,7 +44,7 @@ If out of stock the software-compatible, but not connector-compatible version ca
 
 In order to use the PX4Flow board, just connect it with I2C.
 
-> **Note** Applies to all PX4 FMU versions, including all versions of Pixhawk.
+> **Caution** Applies to all PX4 FMU versions, including all versions of Pixhawk. But it doesn't work with FMUv5 (Pixhawk 4) with firmware version less than **1.9.0**.
 
 - Update the firmware on PX4Flow using *QGroundControl* (in the top left menu, click on CONFIG, then on Firmware Upgrade)
 - Connect PX4Flow I2C to the Pixhawk I2C
@@ -296,7 +296,7 @@ The PX4FLOW module outputs [MAVLink](https://mavlink.io/en/) packets on USB and 
 
 The following list gives a short explanation of the current available parameters in the PX4FLOW firmware.
 
-> **Caution** Parameters are currently not written to ROM (reset at power loss).
+> **Caution** Parameters are currently not written to ROM (reset at power loss). But if you want to change them you can build your own version of firmware using instruction `PX4FLOW Developer Guide` mentioned above. Code with parameters you can find [here](https://github.com/PX4/Flow/blob/master/src/modules/flow/settings.c).
 
 ### BFLOW_F_THRD
 
@@ -313,7 +313,7 @@ This is a pattern correlation threshold for filtering bad matches. Lower means o
 | BFLOW_F_THLD   | 30      | RW     | This parameter is a feature threshold and limits the quality of patterns that are used to calculate the bottom flow. For low values (e.g. 10) almost every pattern is taken, for higher values (e.g. 100) only significant patters are taken. |
 | BFLOW_V_THLD   | 5000    | RW     | This is a pattern correlation threshold for filtering bad matches. Lower means only strong correlations are accepted.                                                                                                                         |
 | BFLOW_HIST_FIL | 0       | RW     | 1: Flow histogram filter is ON, 0: OFF                                                                                                                                                                                                        |
-| BFLOW_GYRO_COM | 1       | RW     | 1: Gyro compensation is ON, 0: OFF                                                                                                                                                                                                            |
+| BFLOW_GYRO_COM | 0       | RW     | 1: Gyro compensation is ON, 0: OFF                                                                                                                                                                                                            |
 | BFLOW_LP_FIL   | 0       | RW     | 1: Lowpass filter on flow output is ON, 0: OFF                                                                                                                                                                                                |
 | BFLOW_W_NEW    | 0.3     | RW     | Flow lowpass filter gain                                                                                                                                                                                                                      |
 | DEBUG            | 1       | RW     | 1: Debug messages ON, 0: OFF                                                                                                                                                                                                                  |
