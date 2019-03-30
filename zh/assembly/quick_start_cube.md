@@ -97,25 +97,25 @@ Cube 不能之间连接 PPM or PWM 接收机， *每个通道有独立的连接�
 
 ## 电源 {#power}
 
-Cube 通常通过电源模块使用锂电池供电 (LiPo) (随套件提供)，连接在 **POWER1** 端口。 The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle.
+Cube 通常通过电源模块使用锂电池供电 (LiPo) (随套件提供)，连接在 **POWER1** 端口。 电源模块提供可靠的供应和电压/电流显示，并可单独为在多旋翼飞行器驱动电机的ESCs供电。
 
-A typical power setup for a Multicopter vehicle is shown below.
+下图显示了一种典型多旋翼飞行器的电源设置。
 
 ![Power Setup - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
 <!-- HOw is the power rail powered for servos - power rail? Plane/Vtol would be cool to show here too -->
 
-## Telemetry System (Optional) {#telemetry}
+## 数传系统(可选) {#telemetry}
 
-A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
+数传系统允许您通过地面站对飞行器进行通信、监控和控制 (例如，您可以指定无人机飞行到指定位置或上传新的任务)。
 
-The communication channel is via [Telemetry Radios](../telemetry/README.md). The vehicle-based radio should be connected to the **TELEM1** port (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
+通信通道通过 [数传电台](../telemetry/README.md)。 机载无线数传模块应该连接到 **TELEM1** 端口 (如果连接在这个端口，则无需进一步配置)。 另一个数传模块连接到您的地面站电脑或移动设备 (通常通过USB连接)。
 
 ![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
 ## SD 卡（可选）
 
-SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). Insert the Micro-SD card into Cube as shown (if not already present).
+SD卡通常用来 [记录并分析飞行数据](../getting_started/flight_reporting.md)。 下图显示将SD卡插入Cube (如果尚未插入)。
 
 ![Cube - Mount SDCard](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
