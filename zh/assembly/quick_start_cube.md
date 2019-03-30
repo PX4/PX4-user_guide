@@ -8,7 +8,7 @@
 
 Cube在[购买时](../flight_controller/pixhawk-2.md#stores)提供大多数（所有）您需要的配件。
 
-![Cube Accessories](../../assets/flight_controller/cube/cube_accessories.jpg)
+![Cube 附件](../../assets/flight_controller/cube/cube_accessories.jpg)
 
 一些套件不包括GPS，需要您单独购买（[如下所示](#gps)）。
 
@@ -16,7 +16,7 @@ Cube在[购买时](../flight_controller/pixhawk-2.md#stores)提供大多数（�
 
 下图显示如何连接重要的传感器和外设。 我们将在下面各节中介绍它们的细节。
 
-![Cube - Wiring Overview](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
+![Cube - 接线概述](../../assets/flight_controller/cube/cube_wiring_overview.jpg)
 
 1. [数传系统](#telemetry) — 允许您计划/运行任务，实时控制和监控飞行器状态。 典型的包括数传、平板电脑/PC、地面站软件。
 2. [蜂鸣器](#buzzer) — 提供声音信号显示UAV目前的状态。
@@ -33,13 +33,13 @@ Cube在[购买时](../flight_controller/pixhawk-2.md#stores)提供大多数（�
 
 安装电路时尽可能靠近飞行器的重心， 理想情况是安装方向向上箭头指向飞行器前方 （注意电路上的 *微小的*箭头）。
 
-![Cube Mount - Direction of Front](../../assets/flight_controller/cube/cube_mount_front.jpg)
+![Cube 安装 - 朝向](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
 > **注意** 如飞行控制器不能被安装在推荐/默认的方向（例如，由于空间限制） 你需要更改自动驾驶仪软件来配置实际的安装方向： [飞行控制器方向](../config/flight_controller_orientation.md)。
 
 Cube可以使用减振泡沫板安装（包括在套件中）或者用螺钉安装。 在Cube的附件中有安装螺钉，是为1.8mm厚的框架板设计的。 用户定制螺钉应该是M2.5，长度6mm~7.55mm。
 
-![Cube Mount - Mounting Plate](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
+![Cube 安装 - 安装板](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
 ## GPS + 罗盘 + 安全开关 + LED {#gps}
 
@@ -51,7 +51,7 @@ Cube可以使用减振泡沫板安装（包括在套件中）或者用螺钉安�
 
 下图显示了模块及其连接方式。
 
-![Here+ Connector Diagram](../../assets/flight_controller/cube/here_plus_connector.png)
+![Cube 连接图](../../assets/flight_controller/cube/here_plus_connector.png)
 
 > **注意** GPS模块内集成的安全开关 *默认是启用的* （当启用时，PX4将不会让您解锁飞行器）。 如需关闭安全开关，请按住安全开关1秒钟。 您可以在完成任务后再次按下安全开关以启用并锁定飞行器 （因为这是出于安全考虑的机制，无论出于何种原因，您将无法通过遥控器或地面站来远程解锁您的载具）。
 
@@ -69,7 +69,7 @@ Cube可以使用减振泡沫板安装（包括在套件中）或者用螺钉安�
 
 蜂鸣器提供声音信号显示无人机状态。 它应该按照如图所示的方式连接到USB端口（不需要进一步的配置）。
 
-![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
+![Cube 蜂鸣器](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
 ## 无线电遥控 {#rc_control}
 
@@ -101,7 +101,7 @@ Cube 通常通过电源模块使用锂电池供电 (LiPo) (随套件提供)，�
 
 下图显示了一种典型多旋翼飞行器的电源设置。
 
-![Power Setup - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
+![Power 设置 - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
 <!-- HOw is the power rail powered for servos - power rail? Plane/Vtol would be cool to show here too -->
 
@@ -111,13 +111,13 @@ Cube 通常通过电源模块使用锂电池供电 (LiPo) (随套件提供)，�
 
 通信通道通过 [数传电台](../telemetry/README.md)。 机载无线数传模块应该连接到 **TELEM1** 端口（如果连接在这个端口，则无需进一步配置）。 另一个数传模块连接到您的地面站电脑或移动设备 （通常通过USB连接）。
 
-![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
+![数传电台](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
 ## SD 卡（可选）
 
 SD卡通常用来 [记录并分析飞行数据](../getting_started/flight_reporting.md)。 下图显示将SD卡插入Cube（如果尚未插入）。
 
-![Cube - Mount SDCard](../../assets/flight_controller/cube/cube_sdcard.jpg)
+![Cube - 安装SD卡](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
 > **建议** [强烈推荐使用](https://dev.px4.io/en/log/logging.html#sd-cards)SanDisk Extreme U3 32GB (开发者指南)。
 
@@ -125,7 +125,7 @@ SD卡通常用来 [记录并分析飞行数据](../getting_started/flight_report
 
 电机和舵机按照 [机架参考列表](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN** 和 **AUX** 端口。
 
-![Cube - Motor Connections](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
+![Cube - 电机连接](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
 > **注意**本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果您的机架没有在参考列表里，您可以使用对应类型的“通用”机架）。
 
@@ -143,11 +143,11 @@ SD卡通常用来 [记录并分析飞行数据](../getting_started/flight_report
 
 下载、安装和运行 *QGroundControl* 后，按照如图所示的方式将您的电脑和飞控连接。
 
-![Cube - USB Connection to Computer](../../assets/flight_controller/cube/cube_usb_connection.jpg)
+![Cube - USB 连接到电脑](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 
 一般配置信息在以下内容中介绍：Autopilot Configuration</0 >。</p> 
 
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)。
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
