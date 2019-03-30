@@ -97,7 +97,7 @@ Cube 不能之间连接 PPM or PWM 接收机， *每个通道有独立的连接�
 
 ## 电源 {#power}
 
-Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle.
+Cube 通常通过电源模块使用锂电池供电 (LiPo) (随套件提供)，连接在 **POWER1** 端口。 The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
 A typical power setup for a Multicopter vehicle is shown below.
 
