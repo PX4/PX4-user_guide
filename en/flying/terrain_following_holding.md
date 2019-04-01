@@ -1,40 +1,81 @@
-# Terrain Following/Holding
+# Terrain Following/Holding & Range Aid
 
-PX4 supports *Terrain Following* and *Terrain Hold* on **multicopters** that have a [distance sensor](../sensor/rangefinders.md).
+PX4 supports [Terrain Following](#terrain_following) and [Terrain Hold](#terrain_hold) in [Position](../flight_modes/position_mc.md) and [Altitude modes](../flight_modes/altitude_mc.md), on *multicopters* and *VTOL vehicles in MC mode* that have a [distance sensor](../sensor/rangefinders.md).
 
-The features are available in manual altitude-control modes: [Position](../flight_modes/position_mc.md), [Altitude](../flight_modes/altitude_mc.md).
-They are not available in acrobatic modes or automatic modes (e.g. Return, Land, Mission, etc.).
+PX4 also supports [using a distance sensor as the primary source of altitude data](#distance_sensor_primary_altitude_source) in any mode, either all the time, or just when flying at low altitudes ([Range Aid](#range_aid)).
 
-## Terrain Following
 
-Terrain-following allows a low-flying vehicle to automatically maintain a (relatively) constant altitude above ground level.
-It is useful for avoiding obstacles when traveling over varied terrain, and for maintaining constant height for aerial photography.
+## Terrain Following {#terrain_following}
 
-In this mode:
-- At low altitude the vehicle moves up and down with terrain height variation (using the distance sensor for altitude data while within its effective range).
-- At higher altitudes the vehicle will typically fly at a near-constant height above mean sea level (AMSL) using the barometer for altitude data.
-  > **Note** More precisely, the vehicle will use the *primary source of altitude data* as defined in [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE).
+When *terrain following* is enabled, a vehicle will automatically maintain a relatively constant height above *ground level* if traveling at low altitudes.
+This is useful for avoiding obstacles and for maintaining constant height (e.g. for aerial photography) when flying over varied terrain.
+
+*Terrain following* uses the output of the EKF estimator to provide the altitude estimate, and the estimated terrain altitude (calculated from distance sensor measurements using another estimator) to provide the altitude setpoint.
+As the distance to ground changes, the altitude setpoint adjusts to keep the height above ground constant.
+
+At higher altitudes (when the estimator reports that the distance sensor data is invalid) the vehicle switches to *altitude following*, and will typically fly at a near-constant height above mean sea level (AMSL) using the barometer for altitude data.
+
+> **Note** More precisely, the vehicle will use the *primary source of altitude data* as defined in [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE).
     This is, by default, the barometer.
 
-## Terrain Hold
-
-Terrain-holding helps a vehicle to better hold/track altitude in [Position](../flight_modes/position_mc.md) or [Altitude](../flight_modes/altitude_mc.md) modes when horizontally stationary at low altitude.
-This allows a vehicle to avoid altitude changes due to barometer drift or excessive baro interference from rotor wash.
-
-In this mode:
-- When stationary (horizontally) the vehicle uses the distance sensor for altitude data (while within its effective range).
-- When moving (`speed > MPC_HOLD_MAX_XY`) or at higher altitudes the vehicle gets altitude data from the *primary source of altitude data* ( [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)).
+Terrain following is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `1`.
 
 
-> **Tip** *Range Aid* ([EKF2_RNG_AID=1](../advanced_config/parameter_reference.md#EKF2_RNG_AID)) has similar behaviour to terrain hold, but operates in all flight modes.
+## Terrain Hold {#terrain_hold}
+
+Terrain holding uses a distance sensor to help a vehicle to better maintain a constant height above ground in [position](../flight_modes/position_mc.md) or [altitude](../flight_modes/altitude_mc.md) modes, when horizontally stationary at low altitude.
+This allows a vehicle to avoid altitude changes due to barometer drift or excessive barometer interference from rotor wash.
+
+> **Note** Terrain hold is enabled only in *multicopters* and *VTOL vehicles in MC mode*, and can be used in [position](../flight_modes/position_mc.md) and [altitude modes](../flight_modes/altitude_mc.md).
+
+When moving horizontally (`speed >` [MPC_HOLD_MAX_XY](../advanced_config/parameter_reference.md#MPC_HOLD_MAX_XY), or above the altitude where the distance sensor is providing valid data, the vehicle will instead use the *primary source of altitude data* ([EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)).
+Typically this is the barometer.
+
+Terrain holding is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `2`.
+
+> **Note** *Terrain hold* is implemented similarly to *terrain following.
+  It uses the output of the EKF estimator to provide the altitude estimate, and the estimated terrain altitude (calculated from distance sensor measurements using another estimator) to provide the altitude setpoint.
+  As the distance to ground changes due to external forces, the altitude setpoint adjusts to keep the height above ground constant.
 
 
-## Setup
+## Distance Sensor as Primary Source of Height {#distance_sensor_primary_altitude_source}
 
-Both terrain following and hold features require a [distance sensor](../sensor/rangefinders.md).
-Set up and activation/enabling of the sensor depends on the specific device (see docs for each sensor).
-The generic configuration that is common to all rangefinders (e.g. setting the position offset relative to the frame) is covered in [Distance Sensor > Configuration/Setup](../sensor/rangefinders.md#configuration).
+PX4 allows you to make a distance sensor the *primary source of altitude data*.
+This may be useful when no barometer is available, or for applications when the vehicle is *guaranteed* to only fly over a near-flat surface (e.g. indoors).
 
-Terrain following and holding are then enabled using [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE):
-- `MPC_ALT_MODE=1` - Terrain Following enabled
-- `MPC_ALT_MODE=2` - Terrain Holding enabled
+> **Tip** The default and preferred altitude sensor for most use cases is the barometer (when available).
+
+When using a distance sensor as the primary source of height, fliers should be aware:
+- Flying over obstacles can lead to the estimator rejecting data (due to internal data consistency checks).
+  This will result in TBD.
+  > **Note** A scenario where this can occur is when the vehicle is ascending a slope at a near-constant height above ground;
+    The measured/estimated altitude does not change, but consistency checks show an error against the barometer measurements.
+- The local NED origin will move up and down with ground level.
+- Rangefinder performance over uneven surfaces (e.g. trees) can be very poor, resulting in noisy and inconsistent data.
+
+The feature is enabled by setting: [EKF2_HGT_MODE=2](../advanced_config/parameter_reference.md#EKF2_HGT_MODE).
+
+
+## Range Aid {#range_aid}
+
+*Range Aid* uses a distance sensor as the primary source of height estimation during low speed/low altitude operation, but will otherwise use the primary source of altitude data defined in [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) - typically the barometer.
+It is primarily intended for *takeoff and landing*, in cases where the barometer setup is such that interference from rotor wash is excessive and can corrupt EKF state estimates.
+
+Range aid may also be used to improve altitude hold when the vehicle is stationary.
+
+> **Tip** [Terrain Hold](#terrain_hold) is recommended over *Range Aid* for terrain holding.
+  This is because terrain hold uses the normal ECL/EKF estimator for determining height, and this is generally more reliable than a distance sensor in most conditions.
+
+*Range Aid* is enabled by setting [EKF2_RNG_AID=1](../advanced_config/parameter_reference.md#EKF2_RNG_AID) (when the primary source of altitude data ([EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)) is *not* the rangefinder).
+
+Range aid is further configured using the `EKF2_RNG_A_` parameters:
+- [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Maximum horizonatal speed, above which range aid is disabled.
+- [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Maximum height, above which range aid is disabled.
+- [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
+
+
+   <!-- 
+If vehicle motion causes repeated switching between the primary height sensor and range finder, an offset in the local position origin can accumulate. 
+Also range finder measurements are less reliable and can experience unexpected errors.
+
+-->
