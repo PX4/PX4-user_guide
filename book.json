@@ -77,8 +77,15 @@
             "options": [
                 {
                     "value": "https://docs.px4.io/en/",
-                    "text": "Master",
-                    "selected": true
+                    "text": "stable (v1.8.2)"
+                },
+                {
+                    "value": "https://docs.px4.io/master/en/",
+                    "text": "master"
+                },
+                {
+                    "value": "https://docs.px4.io/v1.8.2/en/",
+                    "text": "v1.8.2"
                 }
             ]
         }
