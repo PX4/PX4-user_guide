@@ -14843,6 +14843,9 @@
         <li>
           <strong>5:</strong> AUX5
         </li>
+        <li>
+          <strong>6:</strong> AUX6
+        </li>
       </ul>
     </td>
     
@@ -14889,6 +14892,9 @@
         <li>
           <strong>5:</strong> AUX5
         </li>
+        <li>
+          <strong>6:</strong> AUX6
+        </li>
       </ul>
     </td>
     
@@ -14934,6 +14940,9 @@
         </li>
         <li>
           <strong>5:</strong> AUX5
+        </li>
+        <li>
+          <strong>6:</strong> AUX6
         </li>
       </ul>
     </td>
@@ -25694,6 +25703,91 @@
     <td style="vertical-align: top;">
       <p>
         AUX5 Passthrough RC channel
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Unassigned
+        </li>
+        <li>
+          <strong>1:</strong> Channel 1
+        </li>
+        <li>
+          <strong>2:</strong> Channel 2
+        </li>
+        <li>
+          <strong>3:</strong> Channel 3
+        </li>
+        <li>
+          <strong>4:</strong> Channel 4
+        </li>
+        <li>
+          <strong>5:</strong> Channel 5
+        </li>
+        <li>
+          <strong>6:</strong> Channel 6
+        </li>
+        <li>
+          <strong>7:</strong> Channel 7
+        </li>
+        <li>
+          <strong>8:</strong> Channel 8
+        </li>
+        <li>
+          <strong>9:</strong> Channel 9
+        </li>
+        <li>
+          <strong>10:</strong> Channel 10
+        </li>
+        <li>
+          <strong>11:</strong> Channel 11
+        </li>
+        <li>
+          <strong>12:</strong> Channel 12
+        </li>
+        <li>
+          <strong>13:</strong> Channel 13
+        </li>
+        <li>
+          <strong>14:</strong> Channel 14
+        </li>
+        <li>
+          <strong>15:</strong> Channel 15
+        </li>
+        <li>
+          <strong>16:</strong> Channel 16
+        </li>
+        <li>
+          <strong>17:</strong> Channel 17
+        </li>
+        <li>
+          <strong>18:</strong> Channel 18
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 18
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RC_MAP_AUX6">RC_MAP_AUX6</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        AUX6 Passthrough RC channel
       </p>
       
       <strong>Values:</strong>
