@@ -3357,6 +3357,13 @@ Value 0 turns the functionality off</p>   </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="LNDMC_LOW_T_THR">LNDMC_LOW_T_THR</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Low throttle detection threshold</p><p><strong>Comment:</strong> Defines the commanded throttle value below which the land detector considers the vehicle to have "low thrust". This is one condition that is used to detect the ground contact state. The value is calculated as val = (MPC_THR_HOVER - MPC_THR_MIN) * LNDMC_LOW_T_THR + MPC_THR_MIN Increase this value if the system takes long time to detect landing.</p>   </td>
+ <td style="vertical-align: top;">0.1 > 0.9 </td>
+ <td style="vertical-align: top;">0.3 </td>
+ <td style="vertical-align: top;">norm</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="LNDMC_ROT_MAX">LNDMC_ROT_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Multicopter max rotation</p><p><strong>Comment:</strong> Maximum allowed angular velocity around each axis allowed in the landed state.</p>   </td>
  <td style="vertical-align: top;"></td>
