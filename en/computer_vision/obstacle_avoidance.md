@@ -29,7 +29,7 @@ The set up for both is as described in the [Intel Aero > Obstacle Avoidance](../
 
 PX4 supports obstacle avoidance in [Mission mode](../flight_modes/mission.md), using avoidance software running on a separate companion computer. 
 
-Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) to 1.
+Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
 PX4 communicates with the obstacle avoidance software using an implementation of the MAVLink [Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) (Trajectory Interface) which is [#described below](#mission_avoidance_interface).
 Provided an avoidance system complies with this interface it can be used with PX4.
 
@@ -58,7 +58,7 @@ If PX4 stops receiving setpoint updates then obstacle avoidance will be disabled
 
 ###  Mission Mode Avoidance Interface {#mission_avoidance_interface}
 
-Mission mode is enabled on PX4 by setting `MPC_OBS_AVOID` to `1`.
+Mission mode is enabled on PX4 by setting `COM_OBS_AVOID` to `1`.
 
 PX4 sends the desired trajectory to the companion computer in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
 
@@ -109,7 +109,7 @@ The paragraphs below describe the behaviour in greater detail, covering the inte
 
 #### Mission Mode Detailed Behaviour
 
-When a mission is uploaded from QGC and the parameter `MPC_OBS_AVOID` is set to `1`, PX4 fills the uORB message `vehicle_trajectory_waypoint_desired` as described below: 
+When a mission is uploaded from QGC and the parameter `COM_OBS_AVOID` is set to `1`, PX4 fills the uORB message `vehicle_trajectory_waypoint_desired` as described below: 
 
 Array `waypoints`:
 - _index 0 :_
