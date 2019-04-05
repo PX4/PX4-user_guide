@@ -2,13 +2,13 @@
 
 *QGroundControl* **桌面** 版本可用于在 [Pixhawk-系列](../getting_started/flight_controller_selection.md) 飞控板上安装 PX4 固件。
 
-> **注意** **在开始安装固件前** 飞行器的所有USB连接必须 *断开* （包括直接连接或通过数传连接）。 飞行器必须 *不能* 由电池供电。
+> **Caution** **在开始安装固件前** 飞行器的所有USB连接必须 *断开* （包括直接连接或通过数传连接）。 飞行器必须 *不能* 由电池供电。
 
 ## 安装稳定的PX4版本
 
-Generally you should use the most recent *released* version of PX4, in order to benefit from bug fixes and get the latest and greatest features.
+通常您应该使用最新 *发布* PX4版本，以便修复错误并获得最新的功能。
 
-> **Tip** This is the version that is installed by default.
+> **Tip** 这是默认安装的版本。
 
 To install PX4:
 
