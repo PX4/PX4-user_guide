@@ -4,7 +4,7 @@
 
 ![Pixhawk  图像](../../images/pixhawk_logo_view.jpg)
 
-> **注意** 3DR不再提供[3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html) 可以使用其他公司基于 [ Pixhawk FMUv2 原理图 ](../flight_controller/pixhawk_series.md) 设计的飞行控制器配件 (他们采用相同的连接器、输出、功能等，例如 它们使用相同的连线线材）。
+> **Note** 3DR不再提供[3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html)。 可以使用其他公司基于 [ Pixhawk FMUv2 原理图 ](../flight_controller/pixhawk_series.md) 设计的飞行控制器配件 (他们采用相同的连接器、输出、功能等，例如 它们使用相同的连线线材）。
 
 ## 接线介绍
 
@@ -12,7 +12,7 @@
 
 ![Pixhawk 接线概览](../../images/pixhawk_wiring_overview.jpg)  
 
-> ** 注意 **更详细的接线信息 [ 如下所示 ](#detailed-wiring-infographic-copter)。
+> ** Note **更详细的接线信息 [ 如下所示 ](#detailed-wiring-infographic-copter)。
 
 ## 飞控的安装和方向
 
@@ -20,7 +20,7 @@
 
 ![Pixhawk安装和朝向](../../images/pixhawk_3dr_mounting_and_foam.jpg)
 
-> **注意** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)参数。
+> **Note** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)参数。
 
 ## 蜂鸣器与安全开关
 
@@ -32,7 +32,7 @@
 
 使用套件中提供的6线电缆连接GPS(必须) 到GPS端口。 可以选择将使用4线电缆将罗盘连接到I2C端口(Pixhawk有外部罗盘，必要时可以使用)。
 
-> **注意** 下图显示GPS和罗盘的接线方式。 GPS/罗盘在安装时应尽可能远离其他电子元器件，方向标记朝向飞行器前方(将罗盘和其他电子元器件分开可以减少干扰)。
+> **Note** 下图显示GPS和罗盘的接线方式。 GPS/罗盘在安装时应尽可能远离其他电子元器件，方向标记朝向飞行器前方(将罗盘和其他电子元器件分开可以减少干扰)。
 
 ![将罗盘/GPS连接到Pixhawk](../../images/pixhawk_3dr_compass_gps.jpg)
 
@@ -44,7 +44,7 @@
 
 ![Pixhawk - 电源模块](../../images/pixhawk_3dr_power_module.jpg)
 
-> **警告**电源模块只能向飞行控制器供电，不能连接到飞行控制器的其他输出端口向电机和其他硬件供电。 对于直升飞机没有影响，因为电机是分开供电的。
+> **Warning**电源模块只能向飞行控制器供电，不能连接到飞行控制器的其他输出端口向电机和其他硬件供电。 对于直升飞机没有影响，因为电机是分开供电的。
 
 对于飞机和VTOL，输出电路需要单独供电为了驱动电机的方向和升降。 通常主要的推拉电机使用集成 [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) 的ESC控制，ESC可以连接到Pixhawk的输出电路。 如果没有，您需要将一个5V BEC连接到Pixhawk的空闲端口(没有电源，伺服电机将不会工作)。
 
