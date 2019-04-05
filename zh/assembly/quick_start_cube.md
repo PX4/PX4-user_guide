@@ -27,7 +27,7 @@ Cube在[购买时](../flight_controller/pixhawk-2.md#stores)提供大多数（�
 
 <span></span>
 
-> **建议** 有关更多可用端口的详细信息，请参阅 [Cube > Ports](../flight_controller/pixhawk-2.md#ports)。
+> **Tip** 有关更多可用端口的详细信息，请参阅 [Cube > Ports](../flight_controller/pixhawk-2.md#ports)。
 
 ## 飞控的安装和方向
 
@@ -35,7 +35,7 @@ Cube在[购买时](../flight_controller/pixhawk-2.md#stores)提供大多数（�
 
 ![Cube 安装 - 朝向](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
-> **注意** 如飞行控制器不能被安装在推荐/默认的方向（例如，由于空间限制） 你需要更改自动驾驶仪软件来配置实际的安装方向： [飞行控制器方向](../config/flight_controller_orientation.md)。
+> **Note** 如飞行控制器不能被安装在推荐/默认的方向（例如，由于空间限制）你需要更改自动驾驶仪软件来配置实际的安装方向： [飞行控制器方向](../config/flight_controller_orientation.md)。
 
 Cube可以使用减振泡沫板安装（包括在套件中）或者用螺钉安装。 在Cube的附件中有安装螺钉，是为1.8mm厚的框架板设计的。 用户定制螺钉应该是M2.5，长度6mm~7.55mm。
 
@@ -45,7 +45,7 @@ Cube可以使用减振泡沫板安装（包括在套件中）或者用螺钉安�
 
 推荐的 GPS 在 *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md)，其中都包含一个GPS模块、罗盘、安全开关和 [LEDs](../getting_started/led_meanings.md)。
 
-> **注意** 模块之间的差别是 *Here+* 支持通过 [RTK](../advanced_features/rtk-gps.md) 实现厘米级定位。 除此以外在使用/安装是相同的。
+> **Note** 模块之间的差别是 *Here+* 支持通过 [RTK](../advanced_features/rtk-gps.md) 实现厘米级定位。 除此以外在使用/安装是相同的。
 
 模块在安装时应尽可能远离其他电子元器件，方向标记朝向飞行器前方（将罗盘和其他电子元器件分开可以减少干扰）。 它必须使用8-针电缆连接到 `GPS1` 端口。
 
@@ -53,11 +53,11 @@ Cube可以使用减振泡沫板安装（包括在套件中）或者用螺钉安�
 
 ![Cube 连接图](../../assets/flight_controller/cube/here_plus_connector.png)
 
-> **注意** GPS模块内集成的安全开关 *默认是启用的* （当启用时，PX4将不会让您解锁飞行器）。 如需关闭安全开关，请按住安全开关1秒钟。 您可以在完成任务后再次按下安全开关以启用并锁定飞行器 （因为这是出于安全考虑的机制，无论出于何种原因，您将无法通过遥控器或地面站来远程解锁您的载具）。
+> **Note** GPS模块内集成的安全开关 *默认是启用的*（当启用时，PX4将不会让您解锁飞行器）。 如需关闭安全开关，请按住安全开关1秒钟。 您可以在完成任务后再次按下安全开关以启用并锁定飞行器 （因为这是出于安全考虑的机制，无论出于何种原因，您将无法通过遥控器或地面站来远程解锁您的载具）。
 
 <span></span>
 
-> **建议** 如果您想要使用旧的6-线GPS模块，套件将使用电缆来连接GPS和 [安全开关](#safety_switch)。
+> **Tip** 如果您想要使用旧的6-线GPS模块，套件将使用电缆来连接GPS和 [安全开关](#safety_switch)。
 
 ## 安全开关 {#safety_switch}
 
@@ -119,7 +119,7 @@ SD卡通常用来 [记录并分析飞行数据](../getting_started/flight_report
 
 ![Cube - 安装SD卡](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
-> **建议** [强烈推荐使用](https://dev.px4.io/en/log/logging.html#sd-cards)SanDisk Extreme U3 32GB (开发者指南)。
+> **Tip** [强烈推荐使用](https://dev.px4.io/en/log/logging.html#sd-cards)SanDisk Extreme U3 32GB（开发者指南）。
 
 ## 电机
 
@@ -127,11 +127,11 @@ SD卡通常用来 [记录并分析飞行数据](../getting_started/flight_report
 
 ![Cube - 电机连接](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
-> **注意**本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果您的机架没有在参考列表里，您可以使用对应类型的“通用”机架）。
+> **Note**本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果您的机架没有在参考列表里，您可以使用对应类型的“通用”机架）。
 
 <span></span>
 
-> **注意** 该参考列表并不是与机架类型完全匹配的（例如，您不能将油门应用在其他所有机型的输出端口上）。 请确保为您的飞行器使用正确的映射。
+> **Caution** 该参考列表并不是与机架类型完全匹配的（例如，您不能将油门应用在其他所有机型的输出端口上）。 请确保为您的飞行器使用正确的映射。
 
 ## 其它外设
 
