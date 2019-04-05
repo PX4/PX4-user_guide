@@ -10,7 +10,7 @@
 
 > **Tip** 这是默认安装的版本。
 
-To install PX4:
+如何安装PX4：
 
 1. 首先在顶部工具栏中选择 **齿轮** 图标 (*Vehicle Setup*) ，然后在侧边栏中选择 **Firmware** 。
     
@@ -20,21 +20,21 @@ To install PX4:
     
     > **Note** 直接连接到计算机上的 USB 端口 (不要通过 USB 集线器连接)。
 
-3. Select the **PX4 Flight Stack X.x.x Release** option to install the latest stable version of PX4 *for your hardware* (autodetected).
+3. 选择 **PX4 飞行栈 X.x.x Release** *为您的硬件*（自动检测）安装最新版的PX4。
     
     ![Install PX4 default](../../assets/qgc/setup/firmware/firmware_connected_default_px4.jpg)
 
-4. Click the **OK** button to start the update.
+4. 点击 **OK** 按钮开始更新固件。
     
-    The firmware will then proceed through a number of upgrade steps (downloading new firmware, erasing old firmware etc.). Each step is printed to the screen and overall progress is displayed on a progress bar.
+    然后，固件将进行一系列升级步骤 (下载新固件，删除旧固件等)。 每个步骤都打印到屏幕上，整个进度显示在进度条上。
     
     ![Firmware upgrade complete](../../assets/qgc/setup/firmware/firmware_upgrade_complete.jpg)
     
-    Once the firmware has completed loading, the device/vehicle will reboot and reconnect.
+    一旦固件完成加载，设备/飞行器将重新启动和重新连接。
     
-    > **Tip** If *QGroundControl* installs the FMUv2 target (see console during installation) and you have a newer board, you may need to [update the bootloader](#bootloader) in order to access all the memory on your flight controller.
+    > **Tip** 如果 *QGroundControl* 安装 FMUv2 固件（请参阅安装期间的控制台），并且您有一个更新的飞控板，则可能需要更新[ bootloader](#bootloader)，以访问飞行控制器上的所有内存。
 
-Next you will need to specify the [vehicle airframe](../config/airframe.md) (and then sensors, radio, etc.)
+接下来，您需要指定 [飞行器机架](../config/airframe.md) (然后是传感器、数传等)。
 
 ## Installing PX4 Master, Beta or Custom Firmware {#custom}
 
