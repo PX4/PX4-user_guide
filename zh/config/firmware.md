@@ -36,44 +36,44 @@
 
 接下来，您需要指定 [飞行器机架](../config/airframe.md) (然后是传感器、数传等)。
 
-## Installing PX4 Master, Beta or Custom Firmware {#custom}
+## 安装PX4 Master, Beta或自定义固件 {#custom}
 
-To install a different version of PX4:
+安装不同版本的PX4：
 
-1. Connect the vehicle as above, and select **PX4 Flight Stack vX.x.x Stable Release** ![Install PX4 version](../../assets/qgc/setup/firmware/qgc_choose_firmware.jpg)
-2. Check **Advanced settings** and select the version from the dropdown list: 
-    * **Standard Version (stable):** The default version (i.e. no need to use advanced settings to install this!)
-    * **Beta Testing (beta):** A beta/candidate release. Only available when a new release is being prepared.
-    * **Developer Build (master):** The latest build of PX4/Firmware.
-    * **Custom Firmware file...:** A custom firmware file (e.g. that you have built locally). If you select this you will have to choose the custom firmware from the file system in the next step.
+1. 如上所述连接飞行器，并选择 **PX4 飞行栈 vX.x.x Stagable Release** ![Install PX4 version](../../assets/qgc/setup/firmware/qgc_choose_firmware.jpg)
+2. 检查 **高级设置** 并从下拉列表中选择版本： 
+    * **标准版本 (稳定)** 默认版本 (即不需要使用高级设置来安装!)
+    * **Beta 测试(beta)：** 测试/候选版本。 只有当新版本准备完毕时才可用。
+    * **开发者构建 (master)** 最新的PX4/固件。
+    * **自定义固件文件..:** 自定义固件文件 (例如，您在本地构建)。 如果选择 Custom firmware file ，您需要在下一步中从文件系统中选择自定义固件。
 
-Firmware update then continues as before.
+固件更新和之前一样正常进行。
 
-## FMUv2 Bootloader Update {#bootloader}
+## FMUv2 Bootloader 更新 {#bootloader}
 
-If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
+如果 *QGroundControl* 安装FMUv2 固件（请参阅安装过程中的控制台），并且您有一个更新的飞控板，则可能需要更新bootloader，以访问飞行控制器上的所有内存。
 
-> **Note** Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu-versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
+> **Note** 早期FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu-versions) 飞行控制器有一个[硬件问题](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata)，这限制它们只能使用 1MB 的闪存空间。 这一问题已在更新的板上修复，但是您可能需要更新工厂提供的bootloader，以便安装FMUv3 固件，并访问所有 2MB 内存。
 
-To update the bootloader:
+要更新bootloader，请执行以下操作：
 
-1. Insert an SD card (enables boot logging to debug any problems).
-2. [Update the Firmware](../config/firmware.md) to PX4 *master* version (when updating the firmware, check **Advanced settings** and then select **Developer Build (master)** from the dropdown list). *QGroundControl* will automatically detect that the hardware supports FMUv2 and install the appropriate Firmware.
+1. 插入 SD 卡（启用引导日志记录，便于调试任何可能的问题。）
+2. [更新固件](../config/firmware.md) 至PX4 *master* 版本（当更新固件时，查看 **高级设置** 并从下拉列表选择**Developer Build (master)** ）。 *QGroundControl* 会自动识别到硬件支持 FMUv2，并安装相应的固件。
     
     ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
     
-    Wait for the vehicle to reboot.
+    等待飞控重启。
 
-3. [Find and enable](../advanced_config/parameters.md#parameter-configuration) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+3. [找到并启用](../advanced_config/parameters.md#parameter-configuration) 参数 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)。
 
-4. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
-5. Then [Update the Firmware](../config/firmware.md) again. This time *QGroundControl* should autodetect the hardware as FMUv3 and update the Firmware appropriately.
+4. 重新启动（断开/重新连接飞控板）。 The bootloader update will only take a few seconds.
+5. 然后再重新 [更新固件](../config/firmware.md) 。 这一次 *QGroundControl* 会自动识别到硬件支持 FMUv3，并相应地安装固件。
     
     ![FMUv3 update](../../assets/qgc/setup/firmware/bootloader_fmu_v3_update.jpg)
     
-    > **Note** If the hardware has the *Silicon Errata* it will still be detected as FMUv2 and you will see that FMUv2 was re-installed (in console). In this case you will not be able to install FMUv3 hardware.
+    > **Note** 如果硬件有 *芯片错误*，它仍将被检测为 FMUv2，你将会（在控制台）看到 FMUv2 被重新安装。 在这种情况下，你将不能安装 FMUv3 固件。
 
-> **Tip** For more information see [Bootloader Update](../advanced_config/bootloader_update.md).
+> **Tip** 更多信息见 [Bootloader Update](../advanced_config/bootloader_update.md)。
 
 ## Further Information
 
