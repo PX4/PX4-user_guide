@@ -1,10 +1,10 @@
 # 基本配置
 
-*QGroundControl* is used to install [firmware](../config/firmware.md) onto the flight controller hardware, specify an [airframe](../config/airframe.md), and configure the core sensors that PX4 needs to be present on every vehicle (compass, GPS, gyro etc.).
+*QGroundControl* 被用来在飞行控制器硬件上安装 [固件](../config/firmware.md) 、 选择 [机型](../config/airframe.md)，以及配置PX4在飞行器上需要的核心传感器 (罗盘、GPS、陀螺仪等)。
 
 > **Tip** 在开始本部分之前，您应该 [下载QGroundControl](http://qgroundcontrol.com/downloads/) 并将其安装在 **桌面** 计算机上（*QGroundControl* 不支持移动平台上的飞机配置）。
 
-This section contains *essential* configuration topics:
+本节包含的 *重要* 配置如下：
 
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md)
@@ -23,13 +23,13 @@ This section contains *essential* configuration topics:
 
 ## 视频教程
 
-The video below shows the calibration process in detail.
+下面的视频详细介绍了校准过程。
 
 {% youtube %} https://www.youtube.com/watch?v=91VGmdSlbo4 {% endyoutube %}
 
 ## 支持
 
-If you need help with the configuration you can ask for help on the [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage).
+如果您需要有关配置信息的帮助，请在 [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage)上寻求帮助。
 
 ## 更多信息
 
