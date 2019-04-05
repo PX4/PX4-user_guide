@@ -12,7 +12,7 @@ Status: draft
 
 ![飞行控制器朝向](../../images/fc_orientation_1.png)
 
-> **注意**如果飞行控制器不能安装在推荐/默认的方向 (例如，受空间限制) ，你需要根据实际安装的方向来配置飞控软件： [Flight Controller Orientation](../config/flight_controller_orientation.md).
+> **Note**如果飞行控制器不能安装在推荐/默认的方向 (例如，受空间限制) ，你需要根据实际安装的方向来配置飞控软件：[Flight Controller Orientation](../config/flight_controller_orientation.md)。
 
 ## 减振
 
