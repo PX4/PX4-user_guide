@@ -11044,9 +11044,11 @@ is less than 50% of this value</p>   </td>
 <li><strong>0:</strong> Keep parameters</li> 
 
 <li><strong>1:</strong> Reset parameters</li> 
+
+<li><strong>2:</strong> Reload airframe parameters</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11202,7 +11204,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_PARAM_VER">SYS_PARAM_VER</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Parameter version</p><p><strong>Comment:</strong> This monotonically increasing number encodes the parameter compatibility set. whenever it increases parameters might not be backwards compatible and ground control stations should suggest a fresh configuration.</p>   </td>
+ <td style="vertical-align: top;"><p>Parameter version</p><p><strong>Comment:</strong> This is used internally only: an airframe configuration might set an expected parameter version value via PARAM_DEFAULTS_VER. This is checked on bootup against SYS_PARAM_VER, and if they do not match, parameters from the airframe configuration are reloaded.</p>   </td>
  <td style="vertical-align: top;">0 > ? </td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
