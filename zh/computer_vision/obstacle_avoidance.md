@@ -22,7 +22,7 @@ PX4在 [Offboard模式](../flight_modes/offboard.md) 中支持避障功能。
 
 PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台独立的运行避障软件的机载计算机配合。
 
-要启用自主避障功能，只需将PX4的 [MPC_OBS_AVOID](../advanced_config/parameter_reference.md#MPC_OBS_AVOID) [设置](../advanced_config/parameters.md)为1即可。 PX4通过MAVLink的[路径规划协议](https://mavlink.io/en/services/trajectory.html)（Trajectory 接口）实现与避障软件的交互，[#详见后文](#mission_avoidance_interface)。 PX4兼容所有符合此接口的避障系统。
+Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1. PX4通过MAVLink的[路径规划协议](https://mavlink.io/en/services/trajectory.html)（Trajectory 接口）实现与避障软件的交互，[#详见后文](#mission_avoidance_interface)。 PX4兼容所有符合此接口的避障系统。
 
 功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../complete_vehicles/intel_aero.md) 。 自主避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../complete_vehicles/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
 
@@ -46,7 +46,7 @@ PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台
 
 ### 任务模式避障接口 {#mission_avoidance_interface}
 
-将`MPC_OBS_AVOID` 设置为 `1` 即会在PX4上开启任务模式。
+Mission mode is enabled on PX4 by setting `COM_OBS_AVOID` to `1`.
 
 PX4将期望轨迹封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息中，以 5Hz 的频率发送给机载计算机。
 
@@ -100,7 +100,7 @@ PX4期望在整个任务期间 (不论障碍物是否存在) 都能接收到由`
 
 #### 任务模式更详细的行为描述
 
-当QGC向飞控上传一个任务并将 `MPC_OBS_AVOID` 设置为 `1`，PX4将uORB消息 `vehicle_trajectory_waypoint_desired` 填充如下：
+When a mission is uploaded from QGC and the parameter `COM_OBS_AVOID` is set to `1`, PX4 fills the uORB message `vehicle_trajectory_waypoint_desired` as described below:
 
 数组 `waypoints`：
 
