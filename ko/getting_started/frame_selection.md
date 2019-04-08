@@ -12,7 +12,7 @@ PX4 오토파일럿으로 완벽한 비행을 위해 튜닝된 기체들로 계�
 
 일단 기체를 선택하고 구입하여 조립하면, [초기 설정 과정](../config/README.md) 동안 QGroundControl에서 템플릿으로 미리 설정해야 할 것입니다.
 
-![Frame Selection](../../images/frame_selection.png)
+![프레임 선택](../../images/frame_selection.png)
 
 <!-- 
 ### Types of VTOL
@@ -29,4 +29,4 @@ Depending on the way the VTOL flies in copter mode or how it makes the transitio
 
 ## 지상 이동체
 
-## 바다 이동체
+## 해양 이동체
