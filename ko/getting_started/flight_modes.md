@@ -8,17 +8,17 @@
 
 이 항목에서는 비행 모드에 대한 개요와 MC (multicopter), FW (fixed-wing) 및 VTOL 프레임에서의 기본 동작의 차이점(대부분 사소한 차이점)을 설명합니다.
 
-> **Tip** More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
+> ** 팁 ** 특정 비행 모드에 대한 자세한 정보는 [ 비행 > 비행 모드](../flight_modes/README.md)에서 확인할 수 있습니다.
 
-## Switching Between Modes
+## 모드 간 전환
 
-Pilots can transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
+사용자는 원격 제어기 또는 지상 관제소의 스위치를 사용하여 비행 모드를 전환할 수 있습니다. ([비행 모드 구성](../config/flight_mode.md) 참조).
 
-Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types.
+모든 비행기 유형에서 모든 비행 모드를 사용할 수 있는 것은 아니며 일부 모드는 다른 비행기 유형에 따라 다르게 작동합니다.
 
-Some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis). PX4 will not allow transitions to those modes until the right conditions are met.
+일부 비행 모드는 특정 비행 전 및 비행 중 상태(예 : GPS 잠금 장치, 속도 센서, 축을 따라 비행기의 자세 감지)에서만 의미가 있습니다. PX4는 적절한 조건이 충족될 때까지 해당 모드로의 전환을 허용하지 않습니다.
 
-## Autonomous and Manual Modes {#categories}
+## 자율 모드 및 수동 모드 {#categories}
 
 Flight Modes are either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and require no pilot/remote control input.
 
