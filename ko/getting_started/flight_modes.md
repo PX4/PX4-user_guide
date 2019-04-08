@@ -1,12 +1,12 @@
-# PX4 Flight Modes Overview
+# PX4 비행 모드 개요
 
-> **Warning** This topic is under construction. It is not complete and has not been fully reviewed.
+> **경고** 이 항목은 공사중입니다. 이 항목은 불완전하고 완벽하게 검토되지 않았습니다.
 
-Flight modes define how the autopilot responds to remote control input, and how it manages vehicle movement during fully autonomous flight.
+비행 모드는 자동 조종 장치가 원격 제어 입력에 응답하는 방법과 완전한 자율 비행 중 차량 이동을 관리하는 방법을 정의합니다.
 
-The modes provide different types/levels of autopilot assistance to the user (pilot), ranging from automation of common tasks like takeoff and landing, through to mechanisms that make it easier to regain level flight, hold the vehicle to a fixed path or position, etc.
+이 모드는 이륙 및 착륙과 같은 일반적인 작업의 자동화에서 다시 수평 비행을 하기 쉽도록 고정된 경로 또는 위치로 차량을 유지하는 메커니즘에 이르기까지 사용자(조종사)에게 다양한 유형/수준의 자동 조종을 도와줍니다.
 
-This topic provides an overview of the available the flight modes, and the (mostly minor) differences in their default behaviour in multicopter (MC), fixed-wing (FW) and VTOL frames.
+이 항목에서는 비행 모드에 대한 개요와 MC (multicopter), FW (fixed-wing) 및 VTOL 프레임에서의 기본 동작의 차이점(대부분 사소한 차이점)을 설명합니다.
 
 > **Tip** More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
 
