@@ -20,9 +20,9 @@
 
 ## 자율 모드 및 수동 모드 {#categories}
 
-Flight Modes are either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and require no pilot/remote control input.
+비행 모드는 *수동* 또는 *자동* 중 하나입니다. 수동 모드는 사용자가 RC 컨트롤 스틱(또는 조이스틱)을 통해 비행기의 움직임을 제어하는 ​​모드이며 자율 모드는 자동 조종 장치로 완전히 제어되며 파일럿/원격 제어 입력은 필요하지 않습니다.
 
-> **Tip** Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight. For example, most modes will level out the vehicle when the RC sticks are centered.
+> **팁** 일부 수동 모드에는 자동 조종 보조 기능이 있어 제어 비행을 보다 쉽게 하거나 복원할 수 있습니다. For example, most modes will level out the vehicle when the RC sticks are centered.
 
 Manual modes may further be divided into "easy" and "acrobatic" modes. In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively). Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip. In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis). Vehicles can flip, and while more maneuverable, are harder to fly.
 
