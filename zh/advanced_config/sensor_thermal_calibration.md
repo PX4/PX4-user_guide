@@ -53,20 +53,19 @@ PX4 支持两种校准过程：
 1. 确保在校准前设置机架类型，否则在设置飞控板时校准参数将丢失。
 2. 上电并将参数 ` TC_A_ENABLE `，` TC_B_ENABLE ` 和 ` TC_G_ENABLE ` 设置为1。
 3. 将所有 [ CAL_GYRO * ](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) 和 [ CAL_ACC * ](../advanced_config/parameter_reference.md#CAL_ACC0_EN)参数设置为默认值。
-4. 将 [ SYS_LOGGER ](../advanced_config/parameter_reference.md#SYS_LOGGER) 参数设置为 1 以使用新的系统日志。
-5. 将 [ SDLOG_MODE ](../advanced_config/parameter_reference.md#SDLOG_MODE) 参数设置为 2 以从系统启动时就开始记录日志。 
-6. 为 *thermal calibration*（位2）设置 [ SDLOG_PROFILE ](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 复选框，以记录校准所需的原始传感器数据。
-7. 将电路板冷却到操作所需的最低温度。
-8. 接通电源并保持电路板静止<sup id="fnref2:2"><a href="#fn:2" class="footnote-ref"> 2 </a></sup>，将其缓慢加热至所需的最高工作温度。 <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
-9. 断开电源并取出 .ulog 文件。
-10. 在** Firmware / Tools **目录中打开一个终端窗口并运行 python 校准脚本文件： 
+4. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot. 
+5. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
+6. Cold soak the board to the minimum temperature it will be required to operate in.
+7. Apply power and keeping the board still <sup id="fnref2:2"><a href="#fn:2" class="footnote-ref">2</a></sup>, warm it slowly to the maximum required operating temperature. <sup id="fnref2:3"><a href="#fn:3" class="footnote-ref">3</a></sup>
+8. Remove power and extract the .ulog file.
+9. Open a terminal window in the **Firmware/Tools** directory and run the python calibration script script file: 
         sh
-        python process_sensor_caldata.py &lt;full path name to .ulog file&gt; 这将生成 
+        python process_sensor_caldata.py <full path name to .ulog file> This will generate a 
     
-    **.pdf ** 文件，其显示每个传感器的测量数据和拟合曲线，以及包含校准参数的 **.params ** 文件。
-11. 给电路板上电，连接 * QGroundControl * 并使用 * QGroundControl * 将生成的**.params **文件中的参数加载到电路板上。 由于参数的数量，加载它们可能需要一些时间。
-12. 参数完成加载后，将` SDLOG_MODE `设置为 1 以重新启用常规日志并断开电源。
-13. 为电路板供电并使用 * QGroundControl * 执行常规加速计传感器校准。 重要的是，此步骤在飞控板处于校准温度范围内进行。 此步骤后的首次飞行之前，应重新启动电路板，因为突然的偏置变化会扰乱导航估计器，并且某些参数直到下次启动时才会被使用它们的算法加载。
+    **.pdf** file showing the measured data and curve fits for each sensor, and a **.params** file containing the calibration parameters.
+10. Power the board, connect *QGroundControl* and load the parameter from the generated **.params** file onto the board using *QGroundControl*. Due to the number of parameters, loading them may take some time.
+11. After parameters have finished loading, set `SDLOG_MODE` to 1 to re-enable normal logging and remove power.
+12. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
 
 ## 实施细节 {#implementation}
 
