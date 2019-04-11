@@ -202,9 +202,7 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 ## How do I check the EKF performance?
 
 EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. 
-The following guide assumes that data has been logged using the *.ulog file format*. To use the *.ulog* format, set the SYS\_LOGGER parameter to 1.
-
-The .ulog format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
+The following guide assumes that data has been logged using the *.ulog file format*. The .ulog format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
 Most of the EKF data is found in the [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
 
