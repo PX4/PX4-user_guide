@@ -1156,13 +1156,39 @@
     <th>
     </th>
   </tr>
-<tbody>
-<tr id="copter_simulation_(copter)_hil_quadcopter_x">
- <td style="vertical-align: top;">힐 쿼드콥터 X</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART</code> = 1001</p></td>
-
-</tr>
-</tbody></table>
+  
+  <tr id="copter_simulation_(copter)_hil_quadcopter_x">
+    <td style="vertical-align: top;">
+      힐 쿼드콥터 X
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
+      </p>
+      
+      <p>
+        SYS_AUTOSTART</code> = 1001
+      </p>
+    </td>
+  </tr>
+  
+  <tr id="copter_simulation_(copter)_sih_quadcopter_x">
+    <td style="vertical-align: top;">
+      SIH Quadcopter X
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Romain Chiappinelli <romain.chiap@gmail.com>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 1100
+      </p>
+    </td>
+  </tr>
+</table>
 
 ### 틸트-쿼드
 
