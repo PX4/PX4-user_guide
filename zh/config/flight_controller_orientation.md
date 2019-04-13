@@ -10,7 +10,7 @@
 
 例如，下面显示的飞行器只有Z轴的旋转，对应`ROTATION_NONE`，`ROTATION_YAW_90`，`ROTATION_YAW_180`，`ROTATION_YAW_270`。
 
-![Yaw Rotation](../../images/yaw_rotation.png)
+![Yaw 旋转](../../images/yaw_rotation.png)
 
 ## 设置朝向
 
@@ -29,9 +29,9 @@
 
 ## 微调
 
-You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
+您可以使用 [Level Horizon Calibration](../config/level_horizon_calibration.md) 补偿飞行控制器方向中小错点并稳定飞行视图中的地平线。
 
 ## 更多信息
 
-* [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
+* [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md)（仅高级用户）。
 * [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation)
