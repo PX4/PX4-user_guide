@@ -13,16 +13,16 @@
 3. 点击 **Level Horizon** 按钮。 ![Level Horizon calibration](../../images/qgc/setup/sensor_level_horizon.jpg) > **Note** 您应该已经设置好 [Autopilot Orientation](../config/flight_controller_orientation.md)。 如果没有，也可以在这里设置。 
 4. 将飞行器放置于水平方向： 
     * 这是飞行器在水平飞行时的位置（飞行器通常会向上轻微翘起！）
-    * For copters this is the hover position.
-5. Press **OK** to start the calibration process.
-6. Wait until the calibration process is finished.
+    * 对于旋翼机，这是悬停位置。
+5. 点击 **OK** 开始校准。
+6. 等待校准过程结束。
 
-## Verification
+## 验证
 
-After the orientation is set and level-horizon calibration is complete, check in the flight view that the heading in the compass shows a value around 0 when you point the vehicle towards north and that the horizon is level (blue on top and green on bottom).
+在方向设置和水平校准完成后，检查飞行视图，当飞行器朝向北方时罗盘朝向值为0，地平线是水平的（上部为蓝色，下部为绿色）。
 
 ## 更多信息
 
-* [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
+* [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md)（仅高级用户）。
 * [QGroundControl 用户手册 > 传感器](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#level-horizon)
-* [PX4 Setup Video "Gyroscope" - @1m14s](https://youtu.be/91VGmdSlbo4?t=1m14s) (Youtube)
+* [PX4 Setup Video - @1m14s](https://youtu.be/91VGmdSlbo4?t=1m14s) (Youtube)
