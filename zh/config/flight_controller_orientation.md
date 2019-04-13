@@ -1,33 +1,33 @@
 # 飞行控制器/传感器方向
 
-默认的飞行器（如果具有外部罗盘）应该向上安装在机架上部，箭头朝向飞行器的前方。 If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
+默认的飞行器（如果具有外部罗盘）应该向上安装在机架上部，箭头朝向飞行器的前方。 如果板载或外部罗盘被安装在其他方向，您需要在固件中配置。
 
-## Calculating Orientation
+## 计算朝向
 
-YAW, PITCH and/or ROLL offsets are calculated relative to the forward-facing-upright orientation (clock-wise rotation around the Z, Y and X axis, respectively). This frame is referred to as the *body frame* and the default orientation as `ROTATION_NONE`.
+偏航、俯仰和滚转偏移按照相对前向垂直方向计算（分别围绕Z、Y、X轴顺时针方向旋转）。 这一框架被称为 *body frame* 默认的朝向是 `ROTATION_NONE`。
 
 <img src="../../images/fc_orientation_1.png" style="width: 600px;" />
 
-For example, the vehicles shown below have rotations around the z-axis (only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
+例如，下面显示的飞行器只有Z轴的旋转，对应`ROTATION_NONE`，`ROTATION_YAW_90`，`ROTATION_YAW_180`，`ROTATION_YAW_270`。
 
 ![Yaw Rotation](../../images/yaw_rotation.png)
 
-## Setting the Orientation
+## 设置朝向
 
-To set the orientations:
+设置朝向步骤如下：
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
-3. Select the **Set Orientations** button. <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
-4. Select the **AutoPilot Orientation** (as [calculated above](#calculating-orientation)).
+3. 选择 **Set Orientations** 按钮。 <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
+4. 选择 **AutoPilot Orientation** (如 [calculated above](#calculating-orientation))。
     
     <img src="../../images/qgc/setup/sensor_orientation_selector_values.jpg" style="width: 200px;" />
 
-5. Select the **External Compass Orientation** in the same way (this option will only be displayed if your vehicle has an external compass).
+5. 同样的选择 **External Compass Orientation**（只有当您的飞行器有外部罗盘时，才会显示此选项）。
 
-6. Press **OK**.
+6. 点击 **OK**。
 
-## Fine Tuning
+## 微调
 
 You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
 
