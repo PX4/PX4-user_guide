@@ -1,18 +1,18 @@
 # 水平平面校准
 
-You can use *Level Horizon Calibration* to compensate for small miss-alignments in controller orientation and to level the horizon in the *QGroundControl* flight view (blue on top and green on bottom).
+您可以使用 *Level Horizon Calibration* 补偿飞行控制器方向中小错点，在 *QGroundControl* 飞行视图中（上部为蓝色，下部为绿色）稳定飞行视图中的地平线。
 
-> **Tip** Leveling the horizon is highly recommended, and will result in the best flight performance. This process can also be repeated if you notice a constant drift during flight.
+> **Tip** 非常建议校准水平面，从而获得最佳的飞行性能。 如果您注意到飞行期间发生恒定漂移，也可以重复这个过程。
 
 ## 执行校准
 
-To level the horizon:
+执行校准步骤：
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
-3. Click the **Level Horizon** button. ![Level Horizon calibration](../../images/qgc/setup/sensor_level_horizon.jpg) > **Note** You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). 如果没有，也可以在这里设置。 
-4. Place the vehicle in its level flight orientation on a level surface: 
-    * For planes this is the position during level flight (planes tend to have their wings slightly pitched up!)
+3. 点击 **Level Horizon** 按钮。 ![Level Horizon calibration](../../images/qgc/setup/sensor_level_horizon.jpg) > **Note** 您应该已经设置好 [Autopilot Orientation](../config/flight_controller_orientation.md)。 如果没有，也可以在这里设置。 
+4. 将飞行器放置于水平方向： 
+    * 这是飞行器在水平飞行时的位置（飞行器通常会向上轻微翘起！）
     * For copters this is the hover position.
 5. Press **OK** to start the calibration process.
 6. Wait until the calibration process is finished.
