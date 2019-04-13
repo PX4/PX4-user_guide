@@ -1,8 +1,8 @@
-# Compass Calibration
+# 罗盘校准
 
-The compass calibration process configures all connected internal and external [magnetometers](../gps_compass/README.md). *QGroundControl* will guide you to position the vehicle in a number of set orientations and rotate the vehicle about the specified axis.
+罗盘校准过程配置了所有连接的外部和内部 [magnetometers](../gps_compass/README.md)。 *QGroundControl* 将指定您把飞行器定位在一系列方向并在指定轴上旋转飞行器。
 
-> **Note** If you are using an external magnetometer/compass (e.g. a compass integrated into a GPS module) make sure you mount the external compass on your vehicle properly and connect it to the autopilot hardware. Instructions for connecting your GPS+compass can be found in [Basic Assembly](../assembly/README.md) for your specific autopilot hardware. Once connected, QGroundControl will automatically detect the external magnetometer.
+> **Note** 如果您使用外部地磁计/罗盘（例如，集成GPS模块的罗盘），请确保正确安装外部罗盘并连接到飞行控制器硬件。 连接特定飞行器的 GPS 和罗盘的指南可以在 [Basic Assembly](../assembly/README.md) 中找到。 连接后， QGroundControl 将自动检测外部罗盘。
 
 ## 执行校准
 
@@ -10,17 +10,17 @@ The compass calibration process configures all connected internal and external [
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
-3. Click the **Compass** sensor button.
+3. 点击 **Compass** 传感器按钮。
     
-    ![Select Compass calibration PX4](../../images/qgc/setup/sensor_compass_select_px4.jpg)
+    ![选择 Compass 校准 PX4](../../images/qgc/setup/sensor_compass_select_px4.jpg)
     
     > **注意** 你必须首先设置好 [自动驾驶仪坐标系](../config/flight_controller_orientation.md)。 如果没有，也可以在这里设置。
 
 4. 点击**确定**开始标定。
 
-5. Place the vehicle in any of the orientations shown in red (incomplete) and hold it still. Once prompted (the orientation-image turns yellow) rotate the vehicle around the specified axis in either/both directions. 该位置标定完成后，屏幕上的相应图示将变成绿色。
+5. 把你的飞机放置在下面显示的某一个方向，并保持静止。 随后提示（方向图像变为黄色）在指定方向旋转飞行器。 该位置标定完成后，屏幕上的相应图示将变成绿色。
     
-    ![Compass calibration steps on PX4](../../images/qgc/setup/sensor_compass_calibrate_px4.jpg)
+    ![PX4 上的罗盘校准步骤](../../images/qgc/setup/sensor_compass_calibrate_px4.jpg)
 
 6. 在所有标定位置重复步骤5。
 
