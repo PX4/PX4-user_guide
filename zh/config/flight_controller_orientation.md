@@ -1,6 +1,6 @@
-# Flight Controller/Sensor Orientation
+# 飞行控制器/传感器方向
 
-By default the flight controller (and external compass(es), if present) should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle. If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
+默认的飞行器（如果具有外部罗盘）应该向上安装在机架上部，箭头朝向飞行器的前方。 If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
 
 ## Calculating Orientation
 
