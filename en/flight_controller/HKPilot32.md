@@ -39,6 +39,7 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 * RSSI (PWM or voltage) input
 * SPI
 * External microUSB port
+* Molex PicoBlade connectors
 
 ### Accessories
 
