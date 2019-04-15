@@ -8199,26 +8199,15 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> When set to 0/disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When set to 1/enabled, it is already activated when entering the final loiter-down (loiter-to-alt) WP before the landing approach. This shifts the (often large) altitude and airspeed errors caused by the configuration change away from the ground such that these are not so critical. It also gives the controller enough time to adapt to the new configuration such that the landing approach starts with a cleaner initial state.
+        <strong>Comment:</strong> When disabled, the landing configuration (flaps, landing airspeed, etc.) is only activated on the final approach to landing. When enabled, it is already activated when entering the final loiter-down (loiter-to-alt) waypoint before the landing approach. This shifts the (often large) altitude and airspeed errors caused by the configuration change away from the ground such that these are not so critical. It also gives the controller enough time to adapt to the new configuration such that the landing approach starts with a cleaner initial state.
       </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> Disable early land configuration deployment
-        </li>
-        <li>
-          <strong>1:</strong> Enable early land configuration deployment
-        </li>
-      </ul>
     </td>
     
     <td style="vertical-align: top;">
     </td>
     
     <td style="vertical-align: top;">
-      1
+      0
     </td>
     
     <td style="vertical-align: top;">
