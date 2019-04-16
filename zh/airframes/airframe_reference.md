@@ -2241,6 +2241,53 @@
       </p>
     </td>
   </tr>
+  
+  <tr id="vtol_standard_vtol_babyshark_vtol">
+    <td style="vertical-align: top;">
+      BabyShark VTOL
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Silvan Fuhrer <silvan@auterion.com>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 13014
+      </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN1</b>: Ailerons
+          </li>
+          <li>
+            <b>MAIN2</b>: A-tail left
+          </li>
+          <li>
+            <b>MAIN3</b>: Pusher motor
+          </li>
+          <li>
+            <b>MAIN4</b>: A-tail right
+          </li>
+          <li>
+            <b>MAIN5</b>: motor 1
+          </li>
+          <li>
+            <b>MAIN6</b>: motor 2
+          </li>
+          <li>
+            <b>MAIN7</b>: motor 3
+          </li>
+          <li>
+            <b>MAIN8</b>: motor 4
+          </li>
+        </ul>
+      </p>
+    </td>
+  </tr>
 </table>
 
 ### VTOL Duo Tailsitter
