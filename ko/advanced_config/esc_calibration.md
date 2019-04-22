@@ -24,20 +24,20 @@ ESC를 보정하려면 다음을 수행하십시오.
 
 2. 배터리를 분리하고 USB만을 통해 비행 컨트롤러를 연결하십시오.(다른 전원 소스를 입력하지 마십시오.)
 
-3. QGroundControl 설정> 전원을 연 다음 보정 버튼을 누릅니다.
+3. *QGroundControl* **설정 > 전원**을 연 다음 **캘리브레이션 시작** 버튼을 누릅니다.
     
-    ![ESC 교정 단계 1](../../images/qgc_esc_calibration.png)
+    ![ESC 캘리브레이션 단계 1](../../images/qgc_esc_calibration.png)
 
 4. 메시지가 나타나면 배터리를 연결하십시오.
     
-    ![ESC 교정 단계 2](../../images/esc_calibration_step_2.png)
+    ![ESC 캘리브레이션 단계 2](../../images/esc_calibration_step_2.png)
     
     보정이 자동으로 시작됩니다.
     
-    ![ESC 교정 단계 3](../../images/esc_calibration_step_3.png)
+    ![ESC 캘리브레이션 단계 3](../../images/esc_calibration_step_3.png)
 
 5. 보정이 완료되면 배터리를 분리하라는 메시지가 표시됩니다. 
     
-    ![ESC 교정 단계 4](../../images/esc_calibration_step_4.png)
+    ![ESC 캘리브레이션 단계 4](../../images/esc_calibration_step_4.png)
 
 > 참고 고품질 컨트롤러는 출고시 캘리브레이션과 함께 제공됩니다. 이론적으로 이는 PWM_MIN 및 PWM_MAX 매개 변수를 ESC 기술 사양에서 제공된 값으로 설정하여 구성 할 수 있음을 의미합니다. 실제로 입력 범위는 고품질 컨트롤러에서도 다를 수 있으므로 교정이 권장되는 이유입니다.
