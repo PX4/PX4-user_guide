@@ -1,8 +1,8 @@
-# ESC Calibration
+# ESC 캘리브레이션
 
-> 참고 이 지침은 PWM 입력을 사용하는 ESC에만 관련됩니다.
+> **참고** 이 지침은 PWM 입력 신호를 사용하는 ESC와 관련이 있습니다.
 
-전자 속도 컨트롤러 (ESC)는 비행 컨트롤러 (FC)의 PWM 입력 값을 기반으로 모터 속도 (및 방향)를 조절합니다. ESC가 응답 할 입력 범위는 구성 가능하며 동일한 모델의 ESC간에 기본 범위가 다를 수 있습니다.
+전자 속도 제어기(ESC)는 비행 제어기(FC)의 PWM 입력 값을 기반으로 모터 속도(및 방향)를 조절합니다. ESC가 응답 할 입력 범위는 구성 가능하며 동일한 모델의 ESC간에 기본 범위가 다를 수 있습니다.
 
 이 보정은 모든 ESC를 비행 컨트롤러가 제공하는 최대 및 최소 PWM 입력 값으로 업데이트합니다. 결과적으로 모든 ESC / 모터는 (전체 입력 범위에서) 동일한 방식으로 비행 컨트롤러 입력에 응답합니다.
 
@@ -18,9 +18,9 @@ ESC를 보정하려면 다음을 수행하십시오.
 
 1. 프로펠러를 분리하십시오.
     
-    > **Warning** Never attempt ESC calibration with props on.
+    > **경고** 절대로 프로펠러를 장착하고 ESC 캘리브레이션을 하지 마십시오.
     > 
-    > The motors should not spin during ESC calibration. However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
+    > 모터는 ESC 캘리브레이션 동안 돌지 않습니다. 그러나 만약 ESC가 캘리브레이션 시퀀스를 적절히 지원하거나 탐지하지 않는다면, ESC는 모터를 최대 속도로 회전시키면서 PWM 신호에 응답하게 됩니다.
 
 2. 배터리를 분리하고 USB를 통해 비행 컨트롤러를 연결하십시오 (전용).
 
