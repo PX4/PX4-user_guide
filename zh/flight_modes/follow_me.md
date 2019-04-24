@@ -1,6 +1,7 @@
 ---
 author: Jimmy Johnson
 ---
+
 # 跟随模式
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
