@@ -2,6 +2,7 @@
 Author: Hamish Willee
 Status: draft
 ---
+
 # 安装飞行控制器
 
 ## 朝向
