@@ -16341,34 +16341,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_YAWRAUTO_MAX">MC_YAWRAUTO_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Max yaw rate in auto mode
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Limit for yaw rate, has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 360.0 (5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      45.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      deg/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_YAW_P">MC_YAW_P</strong> (FLOAT)
     </td>
     
@@ -16419,6 +16391,34 @@
     </td>
     
     <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Max yaw rate in auto mode
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Limit the rate of change of the yaw setpoint in autonomous mode to avoid large control output and mixer saturation.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 360.0 (5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      45.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      deg/s
     </td>
   </tr>
 </table>
