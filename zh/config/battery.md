@@ -90,18 +90,18 @@ PX4提供了许多（逐步更有效）的方法，可用于估计容量：
 > 
 > > **Note** 负载参数配置良好时，电池容量估计的电压更加稳定，在上升和下降过程中变化较小。
 > 
-> Load compensation attempts to counteract the fluctuation in measured voltage/estimated capacity under load that occur when using the [basic configuration](#basic_settings). This works by estimating what the voltage would be for the *unloaded* battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity.
+> 负载补偿尝试抵消，使用 [basic configuration](#basic_settings) 时，负载中测量电压/估计容量的波动。 通过估计 *卸载* 电压，使用这一电压（而不是测量电压）估计剩余电量。
 > 
-> > **Note** To use the load compensation you will still need to set the [basic configuration](#basic_settings). The *Empty Voltage* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
+> > **Note** 使用负载补偿，您仍然需要配置 [basic configuration](#basic_settings) 。 *空载电压* （[BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)） 应该设置更高（高于没有补偿时）因为补偿电压被用来估计（通常低于空载时预期的休眠电池电压）。
 > 
-> PX4 supports two load compensation methods, which are enabled by [setting](../advanced_config/parameters.md) either of the two parameters below:
+> PX4支持两种负载补偿方法，这些方法是由 [setting](../advanced_config/parameters.md) 下面两个参数启用：
 > 
-> * [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
-> * [BAT_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
+> * [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) （推荐）。
+> * [BAT_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation)。
 > 
-> ### Current-based Load Compensation (recommended) {#current_based_load_compensation}
+> ### 基于电流的负载补偿（推荐） {#current_based_load_compensation}
 > 
-> This load compensation method relies on current measurement to determine load. It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
+> 这种负载补偿方式基于电流测量来确定负载。 It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
 > 
 > To enable this feature:
 > 
