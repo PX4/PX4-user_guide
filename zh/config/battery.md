@@ -72,23 +72,23 @@ PX4提供了许多（逐步更有效）的方法，可用于估计容量：
 > 
 > ### 分压器
 > 
-> If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
+> 如果您通过电源模块或飞行控制器的模数转换器测量飞行器的电压，您应该每次检查并校准测量模块。 为了校准您需要一个万用表。
 > 
-> The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
+> 校准分压器最简单的方法是使用*QGroundControl* 按照 [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) 一步步完成校准（QGroundControl User Guide）。
 > 
-> > **Note** This setting corresponds to parameter: [BAT_A_PER_V](../advanced_config/parameter_reference.md#BAT_A_PER_V).
+> > **Note** 此设置对应于参数 [BAT_A_PER_V](../advanced_config/parameter_reference.md#BAT_A_PER_V)。
 > 
-> ### Amps per volt {#current_divider}
+> ### 安培/伏特 {#current_divider}
 > 
-> > **Tip** This setting is not needed if you are using the basic configuration (without load compensation etc.)
+> > **Tip** 如果您使用基本配置，此设置不需要（没有负载补偿等）。
 > 
-> If you are using [Current-based Load Compensation](#current_based_load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
+> 如果您使用 [ Current-based Load Compensation ](#current_based_load_compensation) 或 [ Current Integration ](#current_integration) 安培/伏特分压器必须校准。
 > 
-> The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
+> 校准分压器最简单的方法是使用*QGroundControl* 按照 [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) 一步步完成校准（QGroundControl User Guide）。
 > 
-> ## Voltage-based Estimation with Load Compensation {#load_compensation}
+> ## 基于电压估计的负载补偿 {#load_compensation}
 > 
-> > **Note** With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
+> > **Note** 负载参数配置良好时，电池容量估计的电压更加稳定，在上升和下降过程中变化较小。
 > 
 > Load compensation attempts to counteract the fluctuation in measured voltage/estimated capacity under load that occur when using the [basic configuration](#basic_settings). This works by estimating what the voltage would be for the *unloaded* battery, and using that voltage (instead of the measured voltage) for estimating the remaining capacity.
 > 
