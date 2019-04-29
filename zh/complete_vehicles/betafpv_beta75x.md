@@ -33,10 +33,10 @@ BetaFPV的这款Beta75X 小型四旋翼穿越机, 可以进行室内或室外的
 
 安装和配置 PX4:
 
-- [加载PX4 固件](../config/firmware.md)。 
-- [Set the Airframe](../config/airframe.md) to *BetaFPV Beta75X 2S Brushless Whoop*.
-- Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.
+- [首先更新PX4 固件目录](../config/firmware.md)。 
+- [选择](../config/airframe.md)飞行器为*Betata Fpv Betavo 75X 2S Brushnon Whoot*。
+- 再继续进行一些[基本配置](../config/README.md)，包括传感器校准和电台设置。
 
-## Video
+## 视频
 
 {% youtube %} https://youtu.be/_-O0kv0Qsh4 {% endyoutube %}
