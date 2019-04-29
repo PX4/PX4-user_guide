@@ -1,19 +1,19 @@
 # BetaFPV Beta75X 2S Brushless Whoop
 
-The [BetaFPV Beta75X](https://betafpv.com/products/beta75x-2s-whoop-quadcopter) is a very small quadrotor that can be flown indoors or outdoors, FPV or line-of-sight.
+BetaFPV的这款Beta75X 小型四旋翼穿越机, 可以进行室内或室外的FPV飞行或者是肉眼直飞。
 
 ![BetaFPV Beta75X](../../assets/hardware/betafpv_beta75x.jpg)
 
-## Where to Buy
+## 购买渠道
 
-The *Beta75X* can be bought from a number of vendors, including:
+*Beta75X*可以从以下的供应商购买，包括：
 
 - [GetFPV](https://www.getfpv.com/beta75x-2s-brushless-whoop-micro-quadcopter-xt30-frsky.html)
 - [Amazon](https://www.amazon.com/BETAFPV-Beta75X-Brushless-Quadcopter-Smartaudio/dp/B07H86XSPW)
 
-In addition you will need:
+另外你还需要一些其它的配件：
 
-- An RC transmitter. *Beta75X* can ship with a number of receivers. PX4 is compatible with all of them, but make sure to select the version that matches your transmitter.
+- 一个遥控器以及接收机 *Beta75X* 可以多个和多种接收机一起购买。 PX4 能够兼容这些版本的接收机, 但请务必选择与您的遥控器 匹配的版本。
 - LiPo battery charger (vehicle ships with one battery, but you may want spares).
 - FPV goggles if you want to fly FPV. There are many compatible options, including these ones from [Fatshark](https://www.fatshark.com/product/dominator-hd3-core-fpv-goggles/). > **Note** FPV support is completely independent of PX4/flight controller.
 
