@@ -17,23 +17,23 @@ BetaFPV的这款Beta75X 小型四旋翼穿越机, 可以进行室内或室外的
 - 锂电池充电器 (飞机发货时包含一块电池, 但你可能想要额外备用的)。
 - 如果你想进行 FPV飞行, 那你则需要一副 FPV眼镜。 除了[Fatshark](https://www.fatshark.com/product/dominator-hd3-core-fpv-goggles/) 以外，还有许多兼容的备选方案。 >**注意** FPV支持是完全独立于PX4或者是其它的飞行控制器的。
 
-## Flashing PX4 Bootloader
+## 刷写 Bootloader
 
-The *Beta75X* comes preinstalled with Betaflight.
+*Beta75X*预装的是Betaflight。
 
-Before loading PX4 firmware you must first install the PX4 bootloader. Instructions for installing the bootloader can be found in the [Omnibus F4](../flight_controller/omnibus_f4_sd.md#betaflight_configurator) topic (this is the flight controller board on the *Beta75X*).
+在刷 PX4 固件之前，您必须先安装 PX4 的bootloader。 安装引导程序的说明可以在 [Omnibus F4](../flight_controller/omnibus_f4_sd.md#betaflight_configurator)主题中找到 (这是 基于*Beta 75X*的飞行控制)。
 
-> **Tip** You can always [reinstall Betaflight](../flight_controller/omnibus_f4_sd.md#reinstall_betaflight) later if you want!
+> **提示** 如果您愿意的话，您可以在后续重新安装Betaflight！
 
-## Installation/Configuration
+## 安装配置
 
-Once the bootloader is installed, you should be able to connect the vehicle to *QGroundControl* via a USB cable.
+一旦安装了bootloader引导程序之后，您就可以通过USB接口连接 *QGroundControl*地面站
 
 > **Note** At time of writing *Omnibus F4* is supported on the QGroundControl *Daily Build*, and prebuilt firmware is provided for the master branch only (stable releases are not yet available).
 
-To install and configure PX4:
+安装和配置 PX4:
 
-- [Load PX4 Firmware](../config/firmware.md). 
+- [加载PX4 固件](../config/firmware.md)。 
 - [Set the Airframe](../config/airframe.md) to *BetaFPV Beta75X 2S Brushless Whoop*.
 - Continue with [basic configuration](../config/README.md), including sensor calibration and radio setup.
 
