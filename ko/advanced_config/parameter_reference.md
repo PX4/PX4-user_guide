@@ -35093,10 +35093,10 @@
       
       <ul>
         <li>
-          <strong>1:</strong> local_position_estimator, attitude_estimator_q
+          <strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)
         </li>
         <li>
-          <strong>2:</strong> ekf2
+          <strong>2:</strong> ekf2 (recommended)
         </li>
       </ul>
       
