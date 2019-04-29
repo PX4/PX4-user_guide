@@ -11337,9 +11337,9 @@ is less than 50% of this value</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_MC_EST_GROUP">SYS_MC_EST_GROUP</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set multicopter estimator group</p><p><strong>Comment:</strong> Set the group of estimators used for multicopters and VTOLs</p> <strong>Values:</strong><ul>
-<li><strong>1:</strong> local_position_estimator, attitude_estimator_q</li> 
+<li><strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)</li> 
 
-<li><strong>2:</strong> ekf2</li> 
+<li><strong>2:</strong> ekf2 (recommended)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
