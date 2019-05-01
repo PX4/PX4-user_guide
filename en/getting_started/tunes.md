@@ -4,7 +4,7 @@
 
 The set of standard sounds are listed below.
 
-> **Note** **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tunecontrol](https://dev.px4.io/en/middleware/modules_system.html#tunecontrol) module.
+> **Note** **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tune_control](https://dev.px4.io/master/en/middleware/modules_system.html#tunecontrol) module.
 
 ## Boot/Startup
 
