@@ -4,7 +4,7 @@
 
 下面列出一组标准蜂鸣器声音。
 
-> **开发者备注：** 声音被定义在 [/lib/tunes/tune_definition.desc](https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc)使用 [tunecontrol](https://dev.px4.io/en/middleware/modules_system.html#tunecontrol) 模块可以进行测试。
+> **Note** **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tune_control](https://dev.px4.io/master/en/middleware/modules_system.html#tunecontrol) module.
 
 ## 启动
 
