@@ -356,6 +356,19 @@ th {
 </tr>
 
 
+<tr id="orbit_mc">
+ <td><a href="../flight_modes/orbit.md">Orbit</a>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
+ </td>
+ <td>-</td>
+ <td>-</td>
+ <td>-</td>
+ <td></td>
+ <td><p>GCS/RC mode for flying a circle, always facing the centre.</p> 
+  <p>Mode must be started from GCS, specifying centre point and initial radius and altitude. RC control can then optionally be used to set the orbit altitude, radius, speed, and direction. Altitude control is the same as for Position Mode.</p>
+ </td>
+</tr>
+
 <tr id="takeoff_mc">
  <td><a href="../flight_modes/takeoff.md">Takeoff</a></td>
  <td colspan="3">Auto</td>

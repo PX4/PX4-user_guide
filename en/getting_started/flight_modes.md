@@ -22,7 +22,8 @@ Some flight modes make sense only under specific pre-flight and in-flight condit
 
 ## Autonomous and Manual Modes {#categories}
 
-Flight Modes are either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and require no pilot/remote control input.
+Flight Modes are, generally speaking, either *manual* or *autonomous*. 
+Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and require no pilot/remote control input.
 
 > **Tip** Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight. For example, most modes will level out the vehicle when the RC sticks are centered.
 
@@ -35,7 +36,7 @@ Fixed Wing:
 * Autonomous: [Hold](#hold_fw), [Return](#return_fw), [Mission](#mission_fw), [Takeoff](#takeoff_fw), [Land](#land_fw)
 
 Multicopter: 
-* Manual-Easy: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc)
+* Manual-Easy: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc), [Orbit](#orbit_mc)
 * Manual-Acrobatic: [Rattitude](#rattitude_mc), [Acro](#acro_mc)
 * Autonomous: [Hold](#hold_mc), [Return](#return_mc), [Mission](#mission_mc), [Takeoff](#takeoff_mc), [Land](#land_mc), [Follow Me](#followme_mc), [Offboard](#offboard_mc)
 
@@ -118,6 +119,20 @@ The roll, pitch and yaw sticks control the rate of angular rotation around the r
 ![MC Manual Acrobatic Flight](../../images/flight_modes/manual_acrobatic_MC.png)
 
 <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
+
+
+### Orbit Mode {#orbit_mc}
+
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
+
+[Orbit mode](../flight_modes/orbit.md) allows you to fly a multicopter (or VTOL in multicopter mode) in a circle, yawing so that it always faces towards the centre.
+
+A GCS is *required* to enable the mode, and to set the centre position and initial radius of the orbit.
+By default the vehicle will then perform a slow ongoing orbit around the centre position (1m/s) in a clockwise direction.
+RC control can be used to change the orbit altitude, radius, speed, and direction.
+
+![Orbit Mode - MC](../../images/flight_modes/orbit_MC.png)
+
 
 
 ### Hold Mode {#hold_mc}
