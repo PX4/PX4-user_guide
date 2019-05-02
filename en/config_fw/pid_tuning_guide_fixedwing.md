@@ -1,4 +1,4 @@
-# Fixedwing PID Tuning Guide
+# Fixed-wing PID Tuning Guide
 
 > **Warning** This guide is for advanced users / experts only.  If you don't understand what a PID tuning is you might crash your aircraft.
 
@@ -119,48 +119,10 @@ To tune this gain, set the other gains to zero.
 
 The overall softness / hardness of the control loop can be adjusted by
 the time constant. The default of 0.5 seconds should be fine for normal
-fixed wing setups and usually does not require adjustment.
+fixed-wing setups and usually does not require adjustment.
 
 - [FW_P_TC](../advanced_config/parameter_reference.md#FW_P_TC) - set to a default of 0.5 seconds, increase to make the
   Pitch response softer, decrease to make the response harder.
 - [FW_R_TC](../advanced_config/parameter_reference.md#FW_R_TC) - set to a default of 0.5 seconds, increase to make the
   Roll response softer, decrease to make the response harder.
 
-## L1 Controller Tuning (Position)
-
-All L1 parameters are described [here](../advanced_config/parameter_reference.md#fw-l1-control).
-
-- [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD) - This is the L1 distance and defines the tracking
-  point ahead of the aircraft it's following. A value of 25 meters
-  works for most aircraft. A value of 16-18 will still work, and
-  provide a sharper response. Shorten slowly during tuning until
-  response is sharp without oscillation.
-
-
-## TECS Tuning (Altitude)
-
-The total energy control system almost always can use the default gains,
-but needs some information about the main airframe properties to perform
-correctly.
-
-- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - set to the airspeed on a manual level flight
-- [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) - set to the airspeed on a manual climb
-- [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - set to the airspeed on a manual descend
-- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE) - set to the throttle (stick position between 0 and
-  1.0) on a manual level flight at [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) airspeed
-- [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) - set to the throttle on the manual descend
-- [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) - set to the throttle on the manual climb
-- [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - set to the climb rate in meters on the manual climb
-- [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) - set to the descend rate in the manual descend
-- [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - This is the sink rate of the aircraft with the
-  throttle set to [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) and flown at the same airspeed as used
-  to measure [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX)
-
-Once these parameters are set, make the system follow a figure 8 pattern
-with waypoints and observe the altitude hold and airspeed hold
-performance. The default gains are “soft” and gentle. To improve
-altitude hold (but also make the throttle response more twitchy),
-decrease the time constant:
-
-- [FW_T_TIME_CONST](../advanced_config/parameter_reference.md#FW_T_TIME_CONST) - decrease to improve altitude hold performance,
-  but reduces efficiency and increases wear.
