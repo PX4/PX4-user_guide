@@ -2,7 +2,7 @@
 
 PX4 supports [Terrain Following](#terrain_following) and [Terrain Hold](#terrain_hold) in [Position](../flight_modes/position_mc.md) and [Altitude modes](../flight_modes/altitude_mc.md), on *multicopters* and *VTOL vehicles in MC mode* that have a [distance sensor](../sensor/rangefinders.md).
 
-PX4 also supports [using a distance sensor as the primary source of altitude data](#distance_sensor_primary_altitude_source) in any mode, either all the time, or just when flying at low altitudes ([Range Aid](#range_aid)).
+PX4 also supports [using a distance sensor as the primary source of altitude data](#distance_sensor_primary_altitude_source) in any mode, either all the time, or just when flying at low altitudes at low velocities ([Range Aid](#range_aid)).
 
 
 ## Terrain Following {#terrain_following}
@@ -28,13 +28,12 @@ This allows a vehicle to avoid altitude changes due to barometer drift or excess
 
 > **Note** Terrain hold is enabled only in *multicopters* and *VTOL vehicles in MC mode*, and can be used in [position](../flight_modes/position_mc.md) and [altitude modes](../flight_modes/altitude_mc.md).
 
-When moving horizontally (`speed >` [MPC_HOLD_MAX_XY](../advanced_config/parameter_reference.md#MPC_HOLD_MAX_XY), or above the altitude where the distance sensor is providing valid data, the vehicle will instead use the *primary source of altitude data* ([EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE)).
-Typically this is the barometer.
+When moving horizontally (`speed >` [MPC_HOLD_MAX_XY](../advanced_config/parameter_reference.md#MPC_HOLD_MAX_XY), or above the altitude where the distance sensor is providing valid data, the vehicle will switch into *altitude following*.
 
 Terrain holding is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `2`.
 
 > **Note** *Terrain hold* is implemented similarly to *terrain following.
-  It uses the output of the EKF estimator to provide the altitude estimate, and the estimated terrain altitude (calculated from distance sensor measurements using another estimator) to provide the altitude setpoint.
+  It uses the output of the EKF estimator to provide the altitude estimate, and the estimated terrain altitude (calculated from distance sensor measurements using separate, single state terrain estimator) to provide the altitude setpoint.
   As the distance to ground changes due to external forces, the altitude setpoint adjusts to keep the height above ground constant.
 
 
