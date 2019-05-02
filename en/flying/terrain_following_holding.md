@@ -45,10 +45,10 @@ This may be useful when no barometer is available, or for applications when the 
 > **Tip** The default and preferred altitude sensor for most use cases is the barometer (when available).
 
 When using a distance sensor as the primary source of height, fliers should be aware:
-- Flying over obstacles can lead to the estimator rejecting data (due to internal data consistency checks).
-  This will result in TBD.
+- Flying over obstacles can lead to the estimator rejecting rangefinder data (due to internal data consistency checks), which can result in poor altitude holding while the estimator 
+  is relying purely on accelerometer estimates. 
   > **Note** A scenario where this can occur is when the vehicle is ascending a slope at a near-constant height above ground;
-    The measured/estimated altitude does not change, but consistency checks show an error against the barometer measurements.
+    The altitude measured/estimated from the rangefinder does not change while that from the accelerometer does (i.e. they are not consistent).
 - The local NED origin will move up and down with ground level.
 - Rangefinder performance over uneven surfaces (e.g. trees) can be very poor, resulting in noisy and inconsistent data.
 
