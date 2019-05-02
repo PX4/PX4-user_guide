@@ -26,7 +26,7 @@ Terrain following is enabled by setting [MPC_ALT_MODE](../advanced_config/parame
 Terrain holding uses a distance sensor to help a vehicle to better maintain a constant height above ground in [position](../flight_modes/position_mc.md) or [altitude](../flight_modes/altitude_mc.md) modes, when horizontally stationary at low altitude.
 This allows a vehicle to avoid altitude changes due to barometer drift or excessive barometer interference from rotor wash.
 
-> **Note** Terrain hold is enabled only in *multicopters* and *VTOL vehicles in MC mode*, and can be used in [position](../flight_modes/position_mc.md) and [altitude modes](../flight_modes/altitude_mc.md).
+> **Note** Terrain hold is enabled only in *multicopters* and *VTOL vehicles in MC mode*.
 
 When moving horizontally (`speed >` [MPC_HOLD_MAX_XY](../advanced_config/parameter_reference.md#MPC_HOLD_MAX_XY), or above the altitude where the distance sensor is providing valid data, the vehicle will switch into *altitude following*.
 
@@ -46,7 +46,7 @@ This may be useful when no barometer is available, or for applications when the 
 
 When using a distance sensor as the primary source of height, fliers should be aware:
 - Flying over obstacles can lead to the estimator rejecting rangefinder data (due to internal data consistency checks), which can result in poor altitude holding while the estimator 
-  is relying purely on accelerometer estimates. 
+  is relying purely on accelerometer estimates.
   > **Note** A scenario where this can occur is when the vehicle is ascending a slope at a near-constant height above ground;
     The altitude measured/estimated from the rangefinder does not change while that from the accelerometer does (i.e. they are not consistent).
 - The local NED origin will move up and down with ground level.
@@ -72,10 +72,3 @@ Range aid is further configured using the `EKF2_RNG_A_` parameters:
 - [EKF2_RNG_A_VMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_VMAX): Maximum horizonatal speed, above which range aid is disabled.
 - [EKF2_RNG_A_HMAX](../advanced_config/parameter_reference.md#EKF2_RNG_A_HMAX): Maximum height, above which range aid is disabled.
 - [EKF2_RNG_A_IGATE](../advanced_config/parameter_reference.md#EKF2_RNG_A_IGATE): Range aid consistency checks "gate" (a measure of the error before range aid is disabled).
-
-
-   <!-- 
-If vehicle motion causes repeated switching between the primary height sensor and range finder, an offset in the local position origin can accumulate. 
-Also range finder measurements are less reliable and can experience unexpected errors.
-
--->
