@@ -51,6 +51,7 @@ When using a distance sensor as the primary source of height, fliers should be a
     The altitude measured/estimated from the rangefinder does not change while that from the accelerometer does (i.e. they are not consistent).
 - The local NED origin will move up and down with ground level.
 - Rangefinder performance over uneven surfaces (e.g. trees) can be very poor, resulting in noisy and inconsistent data.
+  This again leads to poor altitude hold.
 
 The feature is enabled by setting: [EKF2_HGT_MODE=2](../advanced_config/parameter_reference.md#EKF2_HGT_MODE).
 
