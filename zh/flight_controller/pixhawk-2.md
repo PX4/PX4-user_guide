@@ -57,7 +57,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 - RSSI (PWM or voltage) input
 - I2C
 - SPI
-- 3.3 and 6.6V ADC inputs
+- 3.3v ADC input
 - Internal microUSB port and external microUSB port extension
 
 ### Power System and Protection
