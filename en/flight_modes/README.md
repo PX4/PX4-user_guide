@@ -364,8 +364,8 @@ th {
  <td>-</td>
  <td>-</td>
  <td></td>
- <td><p>GCS/RC mode for flying a circle, always facing the center.</p> 
-  <p>Mode must be started from GCS, specifying center point and initial radius and altitude. RC control can then optionally be used to set the orbit altitude, radius, speed, and direction. Altitude control is the same as for Position Mode.</p>
+ <td><p>GCS-initiated guided mode for flying a circle, always facing the center.</p> 
+  <p>Mode must be started from GCS, specifying center point and initial radius and altitude. RC control is optional, and can be used to set the orbit altitude, radius, speed, and direction. Altitude control is the same as for <a href="#position_mc">Position Mode</a>.</p>
  </td>
 </tr>
 

@@ -1,8 +1,8 @@
 # Orbit (MC)
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The *Orbit* flight mode allows you to fly a multicopter (or VTOL in multicopter mode) in a circle, yawing so that it always faces towards the centre.
+The *Orbit* guided flight mode allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle, yawing so that it always faces towards the center.
 
 ![Orbit Mode - MC](../../assets/flying/orbit.jpg)
 
@@ -10,22 +10,19 @@ The *Orbit* flight mode allows you to fly a multicopter (or VTOL in multicopter 
 Once enabled the vehicle will fly as fast as possible to the closest point on the commanded circle trajectory and do a slow (1m/s) clockwise orbit on the planned circle, facing the center.
 Instructions on how to start an orbit can be found here: [FlyView > Orbit Location](https://docs.qgroundcontrol.com/en/FlyView/FlyView.html#orbit) (*QGroundControl* guide).
 
-> **Note** RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
-
-Once orbit mode is active, the RC controller can be used to change the orbit altitude, radius, speed, and orbit direction:
+> **Note** The use of an RC control is *optional*.
+  If no RC control is present the orbit will proceed as described above.
+  RC control cannot be used to start the mode (if you switch to the mode via RC it will sit idle).
+  
+RC control can be used to change the orbit altitude, radius, speed, and orbit direction:
 - **Left stick:** up/down for altitude change as in [Position mode](../flight_modes/position_mc.md).
-- **Right stick:** right/left controls speed and direction (counter-clockwise/clockwise), up/down controls orbit radius (smaller/bigger).
+- **Right stick:** right/left controls speed in a particular direction (counter-clockwise/clockwise), up/down controls orbit radius (smaller/bigger).
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)).
 
 ![Orbit Mode - MC](../../images/flight_modes/orbit_MC.png)
 
 The mode can be stopped by switching to any other flight mode (using RC or QGC).
-
-<!--
-## Technical Summary
-
--->
 
 
 ## Parameters/Limits
@@ -42,5 +39,5 @@ The following limits are hard coded:
 
 Orbit mode uses the following MAVLink commands:
 
-- [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) - Start an orbit with specified centre point, radius, direction, altitude, speed.
+- [MAV_CMD_DO_ORBIT](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_ORBIT) - Start an orbit with specified center point, radius, direction, altitude, speed.
 - [ORBIT_EXECUTION_STATUS](https://mavlink.io/en/messages/common.html#ORBIT_EXECUTION_STATUS) - Orbit status emitted during orbit to update GCS of current orbit parameters (these may be changed by the RC controller).

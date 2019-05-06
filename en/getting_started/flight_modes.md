@@ -138,16 +138,15 @@ When sticks are centered the vehicle will stop rotating, but remain in its curre
 
 ### Orbit Mode {#orbit_mc}
 
-[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](#key_manual)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
+[<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](#key_difficulty)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Orbit mode](../flight_modes/orbit.md) allows you to fly a multicopter (or VTOL in multicopter mode) in a circle, yawing so that it always faces towards the center.
+The [Orbit mode](../flight_modes/orbit.md) allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle, yawing so that it always faces towards the center.
 
 A GCS is *required* to enable the mode, and to set the center position and initial radius of the orbit.
 By default the vehicle will then perform a slow ongoing orbit around the center position (1m/s) in a clockwise direction.
-RC control can be used to change the orbit altitude, radius, speed, and direction.
+RC control is optional, and can be used to change the orbit altitude, radius, speed, and direction.
 
 ![Orbit Mode - MC](../../images/flight_modes/orbit_MC.png)
-
 
 
 ### Hold Mode {#hold_mc}
