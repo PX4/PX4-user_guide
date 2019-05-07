@@ -78,6 +78,7 @@
     * [Mission](flight_modes/mission.md)
     * [Follow Me](flight_modes/follow_me.md)
     * [Offboard](flight_modes/offboard.md)
+  * [Terrain Following/Holding](flying/terrain_following_holding.md)
 * [飞行日志分析](log/flight_log_analysis.md) 
   * [使用 Flight Review 进行日志分析](log/flight_review.md)
 * [高级功能](advanced_features/README.md) 
@@ -108,9 +109,7 @@
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
-
-* [Peripheral Hardware](peripherals/README.md)
-  
+* [Peripheral Hardware](peripherals/README.md) 
   * [Serial Port Configuration](peripherals/serial_configuration.md)
   * [GPS/Compass](gps_compass/README.md) 
     * [RTK GPS](gps_compass/rtk_gps.md) 
@@ -128,17 +127,14 @@
       * [3DR Wifi 数传（已停产）](telemetry/3dr_telemetry_wifi.md)
   * [MAVLink Telemetry (OSD/GCS)](peripherals/mavlink_peripherals.md)
   * [睿思凯（FrSky）遥测功能](peripherals/frsky_telemetry.md)
-  * [Distance Sensors (Rangefinders)](sensor/rangefinders.md)
-    
+  * [Distance Sensors (Rangefinders)](sensor/rangefinders.md) 
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
     * [LeddarOne Lidar](sensor/leddar_one.md)
     * [Benewake TFmini Lidar](sensor/tfmini.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
     * [TeraRanger](sensor/teraranger.md)
-  
   * [Airspeed Sensors](sensor/airspeed.md)
-  
   * [光流](sensor/optical_flow.md) 
     * [PX4FLOW](sensor/px4flow.md)
   * [ESCs & Motors](peripherals/esc_motors.md) 
