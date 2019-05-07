@@ -10,4 +10,6 @@ This section contains topics about flying your (fully configured) autopilot cont
 
 [Flight Modes](../flight_modes/README.md) — Summary table + detailed information about flight modes.
 
+[Terrain Follow/Hold & Range Assistance](../flying/terrain_following_holding.md) — How to enable terrain following.
+
 > **Tip** [Vehicle Status Notifications](../getting_started/vehicle_status.md) can help you work out when your vehicle is ready to fly (and if not, why not).
