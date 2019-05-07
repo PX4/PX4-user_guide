@@ -4834,7 +4834,7 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><strong id="MC_DTERM_CUTOFF">MC_DTERM_CUTOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Cutoff frequency for the low pass filter on the D-term in the rate controller</p><p><strong>Comment:</strong> The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to decrease the driver-level filtering, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.</p>   </td>
  <td style="vertical-align: top;">0 > 1000 (10)</td>
- <td style="vertical-align: top;">30. </td>
+ <td style="vertical-align: top;">0. </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
@@ -10175,7 +10175,7 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"><p>Driver level cutoff frequency for gyro</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the gyro driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 </td>
- <td style="vertical-align: top;">80.0 </td>
+ <td style="vertical-align: top;">30.0 </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
