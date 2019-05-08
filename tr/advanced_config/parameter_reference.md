@@ -40468,6 +40468,10 @@
           <strong>2:</strong> Standard
         </li>
       </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
     </td>
     
     <td style="vertical-align: top;">
