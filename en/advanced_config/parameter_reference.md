@@ -13032,7 +13032,8 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
 
 <li><strong>2:</strong> Standard</li> 
 </ul>
-  </td>
+  <p><b>Reboot required:</b> true</p>
+</td>
  <td style="vertical-align: top;">0 > 2 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
