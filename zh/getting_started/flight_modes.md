@@ -20,7 +20,7 @@
 
 ## 自主和手动模式 {#categories}
 
-飞行模式可以是 *手动的* 或 *自主的*。 手动模式是用户通过 RC 控制杆（或操纵杆）控制飞行器运动的模式，然而 *自主*模式完全由自驾仪控制，并且不需要驾驶员／遥控输入。
+Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模式是用户通过 RC 控制杆（或操纵杆）控制飞行器运动的模式，然而 *自主*模式完全由自驾仪控制，并且不需要驾驶员／遥控输入。
 
 > **Tip** 某些手动模式可能具有自驾辅助机制，以便更容易获得或恢复受控飞行。 如当遥控摇杆居中时，大部分飞行模式将使飞行器水平。
 
@@ -34,7 +34,7 @@
 
 多旋翼:
 
-* 手动-简单： [位置](#position_mc), [高度](#altitude_mc), [手动/自稳](#manual_stabilized_mc)
+* Manual-Easy: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc), [Orbit](#orbit_mc)
 * 手动-特技： [半自动](#rattitude_mc), [特技](#acro_mc)
 * 自主：[保持](#hold_mc), [返航](#return_mc), [任务](#mission_mc), [起飞](#takeoff_mc), [降落](#land_mc), [跟随我](#followme_mc), [Offboard](#offboard_mc)
 
@@ -141,7 +141,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/manual_stabilized_mc.md">手动/自稳</a> 模式在 RC 摇杆居中时稳定多旋翼飞行器。 要手动移动／飞行飞行器，您可以拨动摇杆离开中心。
+              The <a href="../flight_modes/manual_stabilized_mc.md">Manual/Stabilized</a> mode stabilizes the multicopter when the RC control sticks are centered. To manually move/fly the vehicle you move the sticks outside of the center.
             </p>
             
             <blockquote>
@@ -155,7 +155,7 @@
             </p>
             
             <p>
-              一旦释放摇杆，它们将会返回中心死区。 一旦滚转和俯仰摇杆居中，多旋翼飞行器将会水平并停止。 假如被合适的平衡，油门被合适的设定，并且没有施加外部力（如风），飞行器将会悬停在适当位置／保持高度。 飞行器将会朝着风的方向飘移，并且必须控制油门以保持高度。
+              As soon as you release the control sticks they will return to the center deadzone. 一旦滚转和俯仰摇杆居中，多旋翼飞行器将会水平并停止。 假如被合适的平衡，油门被合适的设定，并且没有施加外部力（如风），飞行器将会悬停在适当位置／保持高度。 飞行器将会朝着风的方向飘移，并且必须控制油门以保持高度。
             </p>
             
             <p>
@@ -202,8 +202,28 @@
             
             <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
             
+            <h3 id="orbit_mc">
+              Orbit Mode
+            </h3>
+            
+            <p>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+            </p>
+            
+            <p>
+              The <a href="../flight_modes/orbit.md">Orbit mode</a> allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle, yawing so that it always faces towards the center.
+            </p>
+            
+            <p>
+              A GCS is <em>required</em> to enable the mode, and to set the center position and initial radius of the orbit. By default the vehicle will then perform a slow ongoing orbit around the center position (1m/s) in a clockwise direction. RC control is optional, and can be used to change the orbit altitude, radius, speed, and direction.
+            </p>
+            
+            <p>
+              <img src="../../images/flight_modes/orbit_MC.png" alt="Orbit Mode - MC" />
+            </p>
+            
             <h3 id="hold_mc">
-              保持模式
+              Hold Mode
             </h3>
             
             <p>
@@ -211,11 +231,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/hold.md">保持模式</a>使多旋翼飞行器制动并悬停在其当前位置和高度（保持位置并抵抗风和其它力）。 该模式可用于暂停任务或帮助在紧急情况下重新获得飞行器的控制。 它可以使用预编程的 RC 开关或 QGroundControl 的 Pause 暂停按钮来激活。
+              <a href="../flight_modes/hold.md">Hold mode</a> causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
             </p>
             
             <h3 id="return_mc">
-              返航模式
+              Return Mode
             </h3>
             
             <p>
@@ -223,11 +243,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/return.md">返航模式</a> 使飞行器（在安全高度）返回其原始位置并着陆。 该模式可手动（通过预编程的 RC 开关）或自动（如在 failsafe 被触发的事件中）激活。
+              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to return (at a safe height) to its home position and land. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
             </p>
             
             <h3 id="mission_mc">
-              任务模式
+              Mission Mode
             </h3>
             
             <p>
@@ -235,7 +255,7 @@
             </p>
             
             <p>
-              <a href="../flight_modes/mission.md">任务模式</a>使飞行器执行上传到飞行控制器的预定义自主<a href="../flying/missions.md">任务</a> (飞行规划) 。 通常使用地面站(GCS) 来创建和上传任务。
+              <a href="../flight_modes/mission.md">Mission mode</a> causes the vehicle to execute a predefined autonomous <a href="../flying/missions.md">mission</a> (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
             </p>
             
             <blockquote>
@@ -245,7 +265,7 @@
             </blockquote>
             
             <h3 id="takeoff_mc">
-              起飞模式
+              Takeoff Mode
             </h3>
             
             <p>
@@ -253,11 +273,11 @@
             </p>
             
             <p>
-              <a href="../flight_modes/takeoff.md">起飞</a> 模式使多旋翼飞行器垂直爬升至起飞高度并悬停在适当位置。
+              <a href="../flight_modes/takeoff.md">Takeoff</a> mode causes the multicopter to climb vertically to takeoff altitude and hover in position.
             </p>
             
             <h3 id="land_mc">
-              着陆模式
+              Land Mode
             </h3>
             
             <p>
@@ -265,31 +285,31 @@
             </p>
             
             <p>
-              <a href="../flight_modes/land.md">着陆模式</a> 使多旋翼飞行器降落在模式被启用的位置。
+              <a href="../flight_modes/land.md">Land mode</a> causes the multicopter to land at the location at which the mode was engaged.
             </p>
             
             <h3 id="followme_mc">
-              跟随我模式
+              Follow Me Mode
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
-              <a href="../flight_modes/follow_me.md">跟随我模式</a>使多旋翼飞行器自动跟踪提供其当前位置设定点的用户。 位置设定点可以来自运行<em>QGroundControl</em> Android 手机/平板或者来自Dronecode SDK 应用。
+              <a href="../flight_modes/follow_me.md">Follow Me mode</a> causes a multicopter to autonomously follow and track a user providing their current position setpoint. Position setpoints might come from an Android phone/tablet running <em>QGroundControl</em> or from a Dronecode SDK app.
             </p>
             
             <h3 id="offboard_mc">
-              Offboard模式
+              Offboard Mode
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
-              <a href="../flight_modes/offboard.md">Offboard 模式</a>使多旋翼飞行器服从 MAVLink 提供的位置，速度或姿态设定值。
+              <a href="../flight_modes/offboard.md">Offboard mode</a> causes the multicopter to obey a position, velocity or attitude setpoint provided over MAVLink.
             </p>
             
             <blockquote>
@@ -303,19 +323,19 @@
             </h2>
             
             <h3 id="position_fw">
-              位置模式
+              Position Mode
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
-              <a href="../flight_modes/position_fw.md">位置模式</a> 是一种易于飞行的 RC 模式，当摇杆被释放/居中时，飞行器将会保持水平，并在当前方向上以直线地面轨迹飞行-补偿风和其它力。
+              <a href="../flight_modes/position_fw.md">Position mode</a> is an easy-to-fly RC mode in which, when the sticks are released/centered, the vehicle will level and fly a straight line ground track in the current direction — compensating for wind and other forces.
             </p>
             
             <p>
-              油门决定空速（在 50% 油门时，飞机将以预设的巡航速度保持其当前高度）。 俯仰被用来升降。 翻滚、俯仰和偏航是角度控制的（因此不可能实现飞机滚转或环绕）。
+              The throttle determines airspeed (at 50% throttle the aircraft will hold its current altitude with a preset cruise speed). Pitch is used to ascend/descend. Roll, pitch and yaw are all angle-controlled (so it is impossible to roll over or loop the vehicle).
             </p>
             
             <blockquote>
@@ -325,27 +345,27 @@
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/position_FW.png" alt="固定翼位置模式" />
+              <img src="../../images/flight_modes/position_FW.png" alt="FW Position Mode" />
             </p>
             
             <h3 id="altitude_fw">
-              高度模式
+              Altitude Mode
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="需要高度（如气压计，测距仪）" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Barometer, Rangefinder)" width="30px" /></a>
             </p>
             
             <p>
-              <a href="../flight_modes/altitude_fw.md">高度模式</a>使用户更容易控制飞行器高度，特别是达到并保持固定高度。 该模式不会试图抵抗风扰保持航向。
+              <a href="../flight_modes/altitude_fw.md">Altitude mode</a> makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
             </p>
             
             <p>
-              爬升/下降速率通过俯仰/升降舵杆操纵杆来控制。 操纵杆一旦回中，自动驾驶仪就会锁定当前的高度，并在偏航/滚转和任何空速条件下保持高度。 油门通道输入控制空速。 滚动和俯仰是角度控制的（因此不可能实现飞机滚转或环绕）。
+              The climb/descent rate is controlled via the pitch/elevator stick. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed. The throttle input controls airspeed. Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
             </p>
             
             <p>
-              当所有遥控输入都居中时（无滚动、俯仰、偏航，油门约50％），飞机将恢复直线水平飞行（受风影响）并保持其当前高度。
+              When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
             </p>
             
             <blockquote>
@@ -355,23 +375,23 @@
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/altitude_FW.png" alt="固定翼高度模式" />
+              <img src="../../images/flight_modes/altitude_FW.png" alt="FW Altitude Mode" />
             </p>
             
             <h3 id="stabilized_fw">
-              自稳模式
+              Stabilized Mode
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
             </p>
             
             <p>
-              当 RC 摇杆居中时，<a href="../flight_modes/stabilized_fw.md">自稳模式</a>使飞行器进入直线和水平飞行，抵抗风来保持水平姿态（但不包括飞行器航向和高度）。
+              <a href="../flight_modes/stabilized_fw.md">Stabilized mode</a> mode puts the vehicle into straight and level flight when the RC sticks are centered, maintaining the horizontal posture against wind (but not vehicle heading and altitude).
             </p>
             
             <p>
-              飞行器基于俯仰输入进行爬升/下降并在滚转/俯仰摇杆非零时，进行协调转弯。 滚转和俯仰是角度控制的（您不能翻转至倒置或循环）。
+              The vehicle climb/descends based on pitch input and performs a coordinated turn if the roll/pitch sticks are non-zero. Roll and pitch are angle controlled (you can't roll upside down or loop).
             </p>
             
             <blockquote>
@@ -381,15 +401,15 @@
             </blockquote>
             
             <p>
-              如果油门低于 0% （电机停转），飞行器将会滑翔。 为了执行转弯，必须在整个操纵过程中保持命令，因为如果滚转摇杆被释放，飞机将会停止转弯并自行调平（对于俯仰和偏航命令也是如此）。
+              The vehicle will glide if the throttle is lowered to 0% (motor stops). In order to perform a turn the command must beheld throughout the maneuver because if the roll is released the plane will stop turning and level itself (the same is true for pitch and yaw commands).
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_stabilized_FW.png" alt="固定翼手动飞行" />
+              <img src="../../images/flight_modes/manual_stabilized_FW.png" alt="FW Manual Flight" />
             </p>
             
             <h3 id="acro_fw">
-              特技模式
+              Acro Mode
             </h3>
             
             <p>
@@ -397,27 +417,27 @@
             </p>
             
             <p>
-              <a href="../flight_modes/acro_fw.md">特技模式</a>是用于执行特技动作的 RC 模式，如连续翻滚，筋斗，失速和其它特技动作。
+              <a href="../flight_modes/acro_fw.md">Acro mode</a> is the RC mode for performing acrobatic maneuvers e.g. rolls, flips, stalls and acrobatic figures.
             </p>
             
             <p>
-              滚转、俯仰和偏航杆控制围绕相应轴的旋转角速率，并且油门直接传递到输出混控器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
+              The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_acrobatic_FW.png" alt="固定翼手动特技飞行" />
+              <img src="../../images/flight_modes/manual_acrobatic_FW.png" alt="FW Manual Acrobatic Flight" />
             </p>
             
             <h3 id="manual_fw">
-              手动模式
+              Manual Mode
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
             </p>
             
             <p>
-              <a href="../flight_modes/manual_fw.md">手动模式</a>发送 RC 摇杆输入直接发送到输出混控器，以进行 ”完全“ 手动控制。
+              <a href="../flight_modes/manual_fw.md">Manual mode</a> sends RC stick input directly to the output mixer for "fully" manual control.
             </p>
             
             <blockquote>
@@ -440,7 +460,7 @@
             </blockquote>
             
             <h3 id="hold_fw">
-              保持模式
+              Hold Mode
             </h3>
             
             <p>
@@ -448,31 +468,31 @@
             </p>
             
             <p>
-              <a href="../flight_modes/hold.md">保持 </a>使固定翼飞行器在当前高度围绕当前位置盘旋。 该模式可用于暂停任务或帮助在紧急情况下重新获得对飞行器的控制。 它可以通过预编程的 RC 开关或<em>QGroundControl</em> <strong>Pause</strong> 按钮激活。
+              <a href="../flight_modes/hold.md">Hold</a> causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
             </p>
             
             <h3 id="return_fw">
-              返航模式
+              Return Mode
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
-              <a href="../flight_modes/return.md">返航模式</a>使飞行器（在安全高度）飞回其原始位置并在其上方环绕。 该模式可以手动（通过预编程的 RC 开关）或者自动（如故障保护被触发的事件）激活。
+              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly back to its home position (at a safe height) and circle over it. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
             </p>
             
             <h3 id="mission_fw">
-              任务模式
+              Mission Mode
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
-              <a href="../flight_modes/mission.md">任务模式</a> 使飞行器执行已经上传到飞行控制器的预定义自主<a href="../flying/missions.md">任务 </a>（飞行规划）。 通常使用地面站 (GCS) 来创建和上传任务。
+              <a href="../flight_modes/mission.md">Mission mode</a> causes the vehicle to execute a predefined autonomous <a href="../flying/missions.md">mission</a> (flight plan) that has been uploaded to the flight controller. The mission is typically created and uploaded with a Ground Control Station (GCS) application.
             </p>
             
             <blockquote>
@@ -482,27 +502,27 @@
             </blockquote>
             
             <h3 id="takeoff_fw">
-              起飞模式
+              Takeoff Mode
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;
             </p>
             
             <p>
-              <a href="../flight_modes/takeoff.md#fixed_wing">起飞 </a>模式启动飞行器起飞序列。 具体的起飞行为取决于被配置的起飞模式（弹射/手抛模式或跑道起飞模式）。
+              <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff</a> mode initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
             </p>
             
             <h3 id="land_fw">
-              着陆模式
+              Land Mode
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;
             </p>
             
             <p>
-              <a href="../flight_modes/land.md">着陆模式</a> 使飞行器转弯并降落在该模式启动的位置。 这个主题解释了固定翼着陆逻辑和参数： <a href="../flying/fixed_wing_landing.md">着陆 (固定翼)</a>。
+              <a href="../flight_modes/land.md">Land mode</a> causes the vehicle to turn and land at the location at which the mode was engaged. Fixed wing landing logic and parameters are explained in the topic: <a href="../flying/fixed_wing_landing.md">Landing (Fixed Wing)</a>.
             </p>
             
             <h2>
@@ -510,15 +530,15 @@
             </h2>
             
             <p>
-              VTOL 飞行器可以作为多旋翼飞行器或固定翼飞行器飞行。 多旋翼飞行模式主要用于起飞和着陆，而固定翼模式用于高效运动和/或执行任务。
+              A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
             </p>
             
             <p>
-              通常，VTOL 飞行器的飞行模式，在 MC 模式下飞行时和<a href="#mc_flight_modes">多旋翼 </a>相同 ，在固定翼模式飞行时和 <a href="#fw_flight_modes">固定翼 </a>相同。
+              Generally the flight modes for VTOL vehicles are the same as for <a href="#mc_flight_modes">multicopter</a> when flying in MC mode and <a href="#fw_flight_modes">fixed-wing</a> when flying in FW mode.
             </p>
             
             <p>
-              模式之间的切换由飞行员使用 RC 开关启动，或自主模式下在需要时自动启动。
+              The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
             </p>
             
             <h2>
