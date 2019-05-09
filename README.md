@@ -10,7 +10,7 @@ The guide is intended for people who want to:
 
 Contributions to this guide are very welcome!
 
-> **Note:** The documentation and tranlsation toolchain process is the same for all PX4, QGroundControl and MAVLink documentation (the instructions below are in the PX4 DevGuide).
+> **Note:** The documentation and translation toolchain process is the same for all PX4, QGroundControl and MAVLink documentation (the instructions below are in the PX4 DevGuide).
 
 Information for how you can help is given here:
 - [Contributing to Documentation](https://dev.px4.io/en/contribute/docs.html)
