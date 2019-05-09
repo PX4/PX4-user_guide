@@ -20,7 +20,7 @@ Some flight modes make sense only under specific pre-flight and in-flight condit
 
 ## Autonomous and Manual Modes {#categories}
 
-Flight Modes are either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and require no pilot/remote control input.
+Flight Modes are, generally speaking, either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and require no pilot/remote control input.
 
 > **Tip** Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight. For example, most modes will level out the vehicle when the RC sticks are centered.
 
@@ -34,7 +34,7 @@ Fixed Wing:
 
 Multicopter:
 
-* Manual-Easy: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc)
+* Manual-Easy: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc), [Orbit](#orbit_mc)
 * Manual-Acrobatic: [Rattitude](#rattitude_mc), [Acro](#acro_mc)
 * Autonomous: [Hold](#hold_mc), [Return](#return_mc), [Mission](#mission_mc), [Takeoff](#takeoff_mc), [Land](#land_mc), [Follow Me](#followme_mc), [Offboard](#offboard_mc)
 
@@ -141,7 +141,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              The <a href="../flight_modes/manual_stabilized_mc.md">Manual/Stabilized</a> mode stabilizes the multicopter when the RC control sticks are centred. To manually move/fly the vehicle you move the sticks outside of the centre.
+              The <a href="../flight_modes/manual_stabilized_mc.md">Manual/Stabilized</a> mode stabilizes the multicopter when the RC control sticks are centered. To manually move/fly the vehicle you move the sticks outside of the center.
             </p>
             
             <blockquote>
@@ -155,7 +155,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              As soon as you release the control sticks they will return to the centre deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately, and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+              As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately, and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
             </p>
             
             <p>
@@ -201,6 +201,26 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
+            
+            <h3 id="orbit_mc">
+              Orbit Mode
+            </h3>
+            
+            <p>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+            </p>
+            
+            <p>
+              The <a href="../flight_modes/orbit.md">Orbit mode</a> allows you to command a multicopter (or VTOL in multicopter mode) to fly in a circle, yawing so that it always faces towards the center.
+            </p>
+            
+            <p>
+              A GCS is <em>required</em> to enable the mode, and to set the center position and initial radius of the orbit. By default the vehicle will then perform a slow ongoing orbit around the center position (1m/s) in a clockwise direction. RC control is optional, and can be used to change the orbit altitude, radius, speed, and direction.
+            </p>
+            
+            <p>
+              <img src="../../images/flight_modes/orbit_MC.png" alt="Orbit Mode - MC" />
+            </p>
             
             <h3 id="hold_mc">
               Hold Mode
