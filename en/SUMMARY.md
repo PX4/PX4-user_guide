@@ -66,6 +66,7 @@
     * [Manual/Stabilized (MC)](flight_modes/manual_stabilized_mc.md)
     * [Rattitude (MC)](flight_modes/rattitude_mc.md)
     * [Acro (MC)](flight_modes/acro_mc.md)
+    * [Orbit (MC)](flight_modes/orbit.md)
     * [Position (FW)](flight_modes/position_fw.md)
     * [Altitude (FW)](flight_modes/altitude_fw.md)
     * [Stabilized (FW)](flight_modes/stabilized_fw.md)

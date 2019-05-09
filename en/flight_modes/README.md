@@ -113,7 +113,7 @@ th {
     <li>Outside center:
       <ul>
        <li>Pitch stick controls altitude.</li>
-       <li>Throttle stick controls the airspeed of the aircraft (as for centred RPY sticks).</li>
+       <li>Throttle stick controls the airspeed of the aircraft (as for centered RPY sticks).</li>
        <li>Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain <a href="https://en.wikipedia.org/wiki/Coordinated_flight">coordinated flight</a>). This is the same as <a href="#stabilized_fw">Stabilized</a>.</li>
     </ul>
   </li>
@@ -355,6 +355,19 @@ th {
  </td>
 </tr>
 
+
+<tr id="orbit_mc">
+ <td><a href="../flight_modes/orbit.md">Orbit</a>
+ <p><a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="20px" /></a></p>
+ </td>
+ <td>-</td>
+ <td>-</td>
+ <td>-</td>
+ <td></td>
+ <td><p>GCS-initiated guided mode for flying a circle, always facing the center.</p> 
+  <p>Mode must be started from GCS, specifying center point and initial radius and altitude. RC control is optional, and can be used to set the orbit altitude, radius, speed, and direction. Altitude control is the same as for <a href="#position_mc">Position Mode</a>.</p>
+ </td>
+</tr>
 
 <tr id="takeoff_mc">
  <td><a href="../flight_modes/takeoff.md">Takeoff</a></td>
