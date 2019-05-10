@@ -52,9 +52,9 @@ Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (�
 
 > **Note** PX4 固件在 [Pixhawk系列](../flight_controller/pixhawk_series.md) 板上默认包含大多数驱动程序。 闪存受限的飞控板可以注释掉/省略驱动程序(在文档编写时，这只会影响基于 FMUv2 的飞控板)。
 
-您可以在固件中包含缺少的驱动程序，方法是在 [ cmake 配置文件](https://github.com/PX4/Firmware/tree/master/cmake/configs) 中取消(或添加) 驱动程序，该文件对应于为之编译的目标。 例如，为了启用 leddar_one 驱动程序，您将删除下面行开头的 `#` 。
+You can include the missing driver in firmware by uncommenting (or adding) the driver in the **default.cmake** config file that corresponds to the [board](https://github.com/PX4/Firmware/tree/master/boards/px4) you want to build for. For example, to enable the sf0x driver, you would remove the `#` at the beginning of the line below.
 
-    #drivers/distance_sensor/leddar_one
+    #distance_sensor/sf0x
     
 
 然后，您需要为平台编译固件，如 [编译 PX4 软件](https://dev.px4.io/en/setup/building_px4.html) (PX4 开发指南) 中所述。
