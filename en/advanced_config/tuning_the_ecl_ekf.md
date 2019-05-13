@@ -146,7 +146,7 @@ hpos_drift_rate | 0.1&nbsp;([EKF2_REQ_HDRIFT](../advanced_config/parameter_refer
 vpos_drift_rate | 0.2&nbsp;([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | Drift rate calculated from reported GPS altitude (when stationary).
 hspd | 0.1&nbsp;([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC)) | 0.01 | m/s | Filtered magnitude of reported GPS horizontal velocity.
 
-> **Note** The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic.
+> **Note** The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
 
 
 ### Range Finder
