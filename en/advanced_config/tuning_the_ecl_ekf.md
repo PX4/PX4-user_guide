@@ -1,8 +1,8 @@
-# Using the ecl EKF
+# Using the ECL EKF
 
 This tutorial answers common questions about use of the ECL EKF algorithm.
 
-## What is the ecl EKF?
+## What is the ECL EKF?
 
 The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
 
@@ -89,6 +89,7 @@ See the following parameter documentation for information on how to use this fea
 ### GPS
 
 #### Position and Velocity Measurements
+
 GPS measurements will be used for position and velocity if the following conditions are met:
 
 * GPS use is enabled via setting of the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
@@ -117,7 +118,7 @@ The following items should be checked during setup:
 
 * Verify that data for the second receiver is present. 
   This will be logged as `vehicle_gps_position_1` and can also be checked when connected via the *nsh console* using the command `listener vehicle_gps_position -i 1`. 
-The [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter will need to be set correctly.
+  The [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter will need to be set correctly.
 * Check the `s_variance_m_s`, `eph` and `epv` data from each receiver and decide which accuracy metrics can be used.
   If both receivers output sensible `s_variance_m_s` and `eph` data, and GPS vertical position is not being used directly for navigation, then setting [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 3 is recommended.
   Where only `eph` data is available and both receivers do not output `s_variance_m_s` data, set [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) to 2.
@@ -125,6 +126,28 @@ The [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) param
 * The output from the blended receiver data is logged as `ekf_gps_position`, and can be checked whilst connect via the nsh terminal using the command `listener ekf_gps_position`.
 * Where receivers output at different rates, the blended output will be at the rate of slower receiver. 
   Where possible receivers should be configured to output at the same rate.
+
+
+#### GPS Performance Requirements
+
+For the ECL to accept GPS data for navigation, certain minimum requirements need to be satisfied over a period of 10 seconds (minimums are defined in the [EKF2_REQ_*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters)
+
+The table below shows the different metrics directly reported or calculated from the GPS data, and the minimum required values for the data to be used by ECL. 
+In addition, the *Average Value* column shows typical values that might reasonably be obtained from a standard GNSS module (e.g. uBlox M8 series) - i.e. values that are considered good/acceptable.
+
+Metric | Minimum required | Average Value | Units | Notes
+--- | --- | --- | --- | ---
+eph | 3&nbsp;([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH)) | 0.8 | m | Standard deviation of horizontal position error
+epv | 5&nbsp;([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV)) | 1.5 | m | Standard deviation of vertical position error
+Number of satellites | 6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS)) | 14 | - | 
+Speed variance | 0.5 | 0.3 | m/s | 
+Fix type | 3 | 4 | - | 
+hpos_drift_rate | 0.1&nbsp;([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01 | m/s | Drift rate calculated from reported GPS position (when stationary).
+vpos_drift_rate | 0.2&nbsp;([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02 | m/s | Drift rate calculated from reported GPS altitude (when stationary).
+hspd | 0.1&nbsp;([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC)) | 0.01 | m/s | Filtered magnitude of reported GPS horizontal velocity.
+
+> **Note** The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
+
 
 ### Range Finder
 
