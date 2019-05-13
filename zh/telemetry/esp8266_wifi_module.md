@@ -26,7 +26,7 @@ ESP8266固件具有以下 *工厂* 设置：
 
 ### 预编译二进制文件
 
-[MavLink ESP8266 Firmware V 1.1.1](http://www.grubba.com/mavesp8266/firmware-1.1.1.bin)
+[MavLink ESP8266 Firmware V 1.2.2](http://www.grubba.com/mavesp8266/firmware-1.2.2.bin)
 
 ### 更新固件
 
