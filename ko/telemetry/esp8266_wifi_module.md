@@ -26,7 +26,7 @@ The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains in
 
 ### Pre Built Binaries
 
-[MavLink ESP8266 Firmware V 1.1.1](http://www.grubba.com/mavesp8266/firmware-1.1.1.bin)
+[MavLink ESP8266 Firmware V 1.2.2](http://www.grubba.com/mavesp8266/firmware-1.2.2.bin)
 
 ### Updating the Firmware
 
