@@ -44,7 +44,7 @@ Parachute settings
 - Set [PWM_MAIN_FAIL5](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL5) to PWM value for parachute "ON" position (usually between 1800 and 2200ms)
 
 Motor settings:
-- Set [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1), where n is 1 - 4, to 900ms such that the motors directly go to disarmed values.
+- Set [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), where n is 1 - 4, to 900ms such that the motors directly go to disarmed values.
 
 
 > **Note** There is no way to recover from a Termination state!
