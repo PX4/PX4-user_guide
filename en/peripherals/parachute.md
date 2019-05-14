@@ -40,7 +40,7 @@ Enable flight termination:
 - Set [Failure Detector](../config/safety.md#failure_detector) pitch and roll angles and time triggers for crash/flip detection. 
 
 Parachute settings
-- Set [PWM_MAIN_DIS5](../advanced_config/parameter_reference.md#PWM_MAIN_DIS5) to PWM value for parachute "OFF" position (usually between 700 and 1000ms)
+- Set [PWM_MAIN_DIS7](../advanced_config/parameter_reference.md#PWM_MAIN_DIS5) to PWM value for parachute "OFF" position (usually between 700 and 1000ms)
 - Set [PWM_MAIN_FAIL5](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL5) to PWM value for parachute "ON" position (usually between 1800 and 2200ms)
 
 Motor settings:
