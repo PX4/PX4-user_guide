@@ -135,6 +135,7 @@
     * [Benewake TFmini Lidar](sensor/tfmini.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
     * [TeraRanger](sensor/teraranger.md)
+    * [Lanbao PSK-CM8JL65-CC5](sensor/cm8jl65_ir_distance_sensor.md)
   * [Airspeed Sensors](sensor/airspeed.md)
   * [Optical Flow](sensor/optical_flow.md) 
     * [PX4FLOW](sensor/px4flow.md)
