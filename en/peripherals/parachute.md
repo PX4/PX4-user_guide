@@ -41,7 +41,7 @@ Enable flight termination:
 
 Parachute settings
 - Set [PWM_MAIN_DIS7](../advanced_config/parameter_reference.md#PWM_MAIN_DIS5) to PWM value for parachute "OFF" position (usually between 700 and 1000ms)
-- Set [PWM_MAIN_FAIL5](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL5) to PWM value for parachute "ON" position (usually between 1800 and 2200ms)
+- Set [PWM_MAIN_FAIL7](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL5) to PWM value for parachute "ON" position (usually between 1800 and 2200ms)
 
 Motor settings:
 - Set [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), where n is 1 - 4, to 900ms such that the motors directly go to disarmed values.
