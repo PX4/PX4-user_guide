@@ -32,16 +32,26 @@ These can be connected to any free PWM port (both MAIN and AUX).
 
 ## Software Configuration
 
-The [Safety](../config/safety.md) topic explains how to set *flight termination* as the action to be performed in the event of particular checks being triggered (this also covers the parameters you need to set to trigger the [Failure Detector](../config/safety.md#failure_detector), which always results in *Flight termination*).
+The [Safety](../config/safety.md) topic explains how to set *flight termination* as the action to be performed in the event of particular checks being triggered.
 
-- Set [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) to enable flight termination. 
-  If this is not enabled the action will not be performed (the triggering check will be ignored).
-  
-- For each MAIN output to which a safety device is attached, where "n" is the PWM port number, set:
-  - [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) to the device's "OFF" PWM value.
-  - [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1) to the device's "ON" PWM value.
-- For each AUX output to which a safety device is attached, where "n" is the PWM port number, set:
-  - [PWM_AUX_DIS1](../advanced_config/parameter_reference.md#PWM_AUX_DIS1) to the device's "OFF" PWM value.
-  - [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) to the device's "ON" PWM value.
-- Also set the `PWM_AUX_FAILn` and `PWM_MAIN_FAILn` PWM values for any motors.
+[Safety > Failure Detector](../config/safety.md#failure_detector) explains how to configure the attitude limits that trigger *Flight termination*.
+The failure detector will always trigger flight termination unless the [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) is disabled.
+
+For each MAIN output to which a safety device is attached, where "n" is the PWM port number, set:
+- [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) to the device's "OFF" PWM value.
+- [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1) to the device's "ON" PWM value.
+
+For each AUX output to which a safety device is attached, where "n" is the PWM port number, set:
+- [PWM_AUX_DIS1](../advanced_config/parameter_reference.md#PWM_AUX_DIS1) to the device's "OFF" PWM value.
+- [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) to the device's "ON" PWM value.
+
+Finally, set the `PWM_AUX_FAILn` and `PWM_MAIN_FAILn` PWM values for any motors.
+
+
+## Logic Diagram
+
+The diagram below shows the logical flow around flight termination.
+
+![Logic diagram](../../assets/config/flight_termination_logic_diagram.png)
+
 

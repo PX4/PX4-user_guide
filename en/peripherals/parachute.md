@@ -35,13 +35,13 @@ Hardware setup:
 - Power the servo rail - i.e. connect a 5V BEC to the servo rail.
 
 Enable flight termination:
-- Set [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) to 0
 - Set [Safety](../config/safety.md) action to *Flight termination* for checks where you want the parachute to trigger
-- Set [Failure Detector](../config/safety.md#failure_detector) pitch and roll angles and time triggers for crash/flip detection. 
+- Set [Failure Detector](../config/safety.md#failure_detector) pitch and roll angles and time triggers for crash/flip detection.
+  > **Note** Ensure the failure/IMU timeout circuit breaker is not enabled (i.e. set [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) to 0)
 
 Parachute settings
-- Set [PWM_MAIN_DIS7](../advanced_config/parameter_reference.md#PWM_MAIN_DIS5) to PWM value for parachute "OFF" position (usually between 700 and 1000ms)
-- Set [PWM_MAIN_FAIL7](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL5) to PWM value for parachute "ON" position (usually between 1800 and 2200ms)
+- Set [PWM_MAIN_DIS7](../advanced_config/parameter_reference.md#PWM_MAIN_DIS7) to PWM value for parachute "OFF" position (usually between 700 and 1000ms)
+- Set [PWM_MAIN_FAIL7](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL7) to PWM value for parachute "ON" position (usually between 1800 and 2200ms)
 
 Motor settings:
 - Set [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), where n is 1 - 4, to 900ms such that the motors directly go to disarmed values.
@@ -51,7 +51,3 @@ Motor settings:
   Reboot/power cycle the vehicle before your next test.
 
 
-<!-- 
-FD_FAIL_P
-Comment: Maximum pitch angle before FailureDetector triggers the attitude_failure flag Does not affect the behavior of the vehicle for now; only for logging
--->

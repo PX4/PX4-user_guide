@@ -234,12 +234,16 @@ Parameter | Description
 ## Failure Detector {#failure_detector}
 
 The failure detector triggers [flight termination](../advanced_config/flight_termination.md) if the vehicle attitude ever exceeds a predefined attitude for more than a specified time (e.g. if it unexpectedly flips).
-This allows you to launch a parachute or perform some other action to protect the vehicle.
+This allows you to launch a [parachute](../peripherals/parachute.md) or perform some other action to protect the vehicle.
+
+> **Note** Failure detection is active in all modes and vehicles when the flight termination circuit breaker ([CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)) is not enabled.
+  You may need to disable the circuit breaker for acrobatic flight. <!-- in PX4 v1.9 -->
 
 The relevant parameters are shown below:
 
 Parameter | Description
 --- | ---
+<span id="CBRK_FLIGHTTERM"></span>[CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Set to 121212 to disable flight termination due to FailureDetector or FMU loss.
 <span id="FD_FAIL_P"></span>[FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P) | Maximum allowed pitch (in degrees).
 <span id="FD_FAIL_R"></span>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R) | Maximum allowed roll (in degrees).
 <span id="FD_FAIL_P_TTRI"></span>[FD_FAIL_P_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_P_TTRI) | Time to exceed [FD_FAIL_P](#FD_FAIL_P) for failure detection (default 0.3s).
