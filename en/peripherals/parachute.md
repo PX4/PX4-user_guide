@@ -31,7 +31,7 @@ The PWM values mentioned are for the *Fruity Chutes* parachute we tested.
 > **Tip** For the first test, try on the bench, without the props and with an unloaded parachute device!
 
 Hardware setup:
-- Connect the parachute to IO, channel 5 (starting from 1).
+- Connect the parachute to the IO port (MAIN), channel 7 (starting from 1).
 - Power the servo rail - i.e. connect a 5V BEC to the servo rail.
 
 Enable flight termination:
