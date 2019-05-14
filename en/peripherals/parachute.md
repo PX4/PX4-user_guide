@@ -25,7 +25,7 @@ Below are a few notes about using parachutes:
 
 ## Parachute Setup
 
-The setup below explains how you might configure a quad multicopter with motors on AUX 1-4 and a parachute on MAIN PWM port 5.
+The setup below explains how you might configure a quad multicopter with motors on MAIN 1-4 and a parachute on MAIN PWM port 7.
 The PWM values mentioned are for the *Fruity Chutes* parachute we tested.
 
 > **Tip** For the first test, try on the bench, without the props and with an unloaded parachute device!
