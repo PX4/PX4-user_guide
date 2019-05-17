@@ -10186,6 +10186,27 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="INA226_CONFIG">INA226_CONFIG</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>INA226 Power Monitor Config</p>   </td>
+ <td style="vertical-align: top;">0 > 65535 (1)</td>
+ <td style="vertical-align: top;">18139 </td>
+ <td style="vertical-align: top;">u</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="INA226_CURRENT">INA226_CURRENT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>INA226 Power Monitor Max Current</p>   </td>
+ <td style="vertical-align: top;">0.1 > 200.0 (0.1)</td>
+ <td style="vertical-align: top;">164.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="INA226_SHUNT">INA226_SHUNT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>INA226 Power Monitor Shunt</p>   </td>
+ <td style="vertical-align: top;">0.000000001 > 0.1 (.000000001)</td>
+ <td style="vertical-align: top;">0.0005 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>QNH for barometer</p>   </td>
  <td style="vertical-align: top;">500 > 1500 </td>
