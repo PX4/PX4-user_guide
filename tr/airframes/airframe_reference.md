@@ -1971,6 +1971,35 @@ This page lists all supported airframes and types including the motor assignment
       </p>
     </td>
   </tr>
+  
+  <tr id="rover_rover_aion_robotics_r1_ugv">
+    <td style="vertical-align: top;">
+      <a href="http://docs.aionrobotics.com/en/latest/r1-ugv.html">Aion Robotics R1 UGV</a>
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Timothy Scott
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 50003
+      </p>
+      
+      <p>
+        <b>Specific Outputs:</b>
+        
+        <ul>
+          <li>
+            <b>MAIN0</b>: Speed of left wheels
+          </li>
+          <li>
+            <b>MAIN1</b>: Speed of right wheels
+          </li>
+        </ul>
+      </p>
+    </td>
+  </tr>
 </table>
 
 ## VTOL
