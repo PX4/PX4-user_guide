@@ -21,4 +21,4 @@ Some boards include in-built vibration-isolation, while others come with *mounti
 
 You should use the mounting strategy recommended in your flight controller documentation.
 
-> **Tip** [Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to test whether vibration levels are acceptable, and suggests a number of possible [solutions](../log/flight_review.md#solutions) if there is a problem.
+> **Tip** [Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to test whether vibration levels are acceptable, and [Vibration Isolation](../assembly/vibration_isolation.md) suggests a number of possible solutions if there is a problem.

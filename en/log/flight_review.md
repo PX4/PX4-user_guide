@@ -181,25 +181,13 @@ Very high (unsafe) vibration levels.
 
 
 
-### Fixing Vibration Problems (Solutions) {#solutions}
+### Fixing Vibration Problems {#solutions}
 
-Often a source of vibration cannot be identified from logs alone, and the vehicle needs to be inspected.
-There can be a combination of multiple sources.
+Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
 
-A few of simple steps that can be taken to reduce vibrations are:
-- Make sure everything is firmly attached on the vehicle (landing gear, GPS mast, etc.).
-- Use balanced propellers.
-- Make sure to use high-quality components for the propellers, motors, ESC and airframe.
-  Each of these components can make a big difference.
-- Use a vibration-isolation method to mount the autopilot.
-- As a *last* measure, adjust the software filters (see [here](../config_mc/racer_setup.md#filters)).
-  It is better to reduce the source of vibrations, rather than filtering them out in software.
-  
-> **Tip** Vibration analysis is a deep and complex topic.
-  Two *general* references that you may find useful are: [An Introduction to Shock & Vibration Response Spectra, Tom Irvine](https://info.mide.com/hubfs/eBooks/ebook-tom-irvine-shock-vibration-response-spectra.pdf) (free ebook) and 
-[Structural Dynamics and Vibration in Practice - An Engineering Handbook, Douglas Thorby](https://books.google.ch/books?id=PwzDuWDc8AgC&printsec=frontcover#v=onepage&q&f=false) (preview).
+In this case the vehicle should be inspected.
+[Vibration Isolation](../assembly/vibration_isolation.md) explains some basic things you can check (and do) to improve vibration performance.
 
-<!-- TODO: write a separate vibration setup page in more depth, move some of this there and link to it from here -->
 
 
 ## Actuator Outputs

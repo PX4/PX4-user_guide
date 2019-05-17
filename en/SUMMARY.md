@@ -15,6 +15,7 @@
   * [Flight Reporting](getting_started/flight_reporting.md)
 * [Basic Assembly](assembly/README.md)
   * [Mounting the Flight Controller](assembly/mount_and_orient_controller.md)
+  * [Vibration Isolation](assembly/vibration_isolation.md)
   * [Pixhawk 4 Wiring Quickstart](assembly/quick_start_pixhawk4.md)
   * [Pixhawk 4 Mini Wiring Quickstart](assembly/quick_start_pixhawk4_mini.md)
   * [Cube Wiring Quickstart](assembly/quick_start_cube.md)
