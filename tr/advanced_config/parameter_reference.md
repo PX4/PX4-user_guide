@@ -16693,6 +16693,10 @@
       <p>
         Acceleration for auto and for manual
       </p>
+      
+      <p>
+        <strong>Comment:</strong> Note: In manual, this parameter is only used in MPC_POS_MODE 1.
+      </p>
     </td>
     
     <td style="vertical-align: top;">
@@ -16739,7 +16743,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maximum horizontal acceleration for auto mode and maximum deceleration for manual mode
+        Maximum horizontal acceleration for auto mode and for manual mode
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Manual mode: Maximum deceleration for MPC_POS_MODE 1 and 2. Maximum acceleration and deceleration for MPC_POS_MODE 3. Auto mode: Used with MPC_AUTO_MODE 0 only. For MPC_AUTO_MODE 1, MPC_ACC_HOR is always used.
       </p>
     </td>
     
@@ -16919,6 +16927,10 @@
       <p>
         Slow horizontal manual deceleration for manual mode
       </p>
+      
+      <p>
+        <strong>Comment:</strong> Note: This is only used when MPC_POS_MODE is set to 1.
+      </p>
     </td>
     
     <td style="vertical-align: top;">
@@ -17007,6 +17019,34 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="MPC_JERK_AUTO">MPC_JERK_AUTO</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Jerk limit in auto mode
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility. Note: This is only used in jerk-limited trajectory mode (MPC_AUTO_MODE 1)
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      5.0 > 80.0 (1)
+    </td>
+    
+    <td style="vertical-align: top;">
+      8.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s/s/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)
     </td>
     
@@ -17016,7 +17056,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: this is only used when MPC_POS_MODE is set to a smoothing mode.
+        <strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 1 or 3.
       </p>
     </td>
     
@@ -17044,7 +17084,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> If this is not zero, a velocity-based maximum jerk limit is used: the applied jerk limit linearly increases with the vehicle's velocity between MPC_JERK_MIN (zero velocity) and MPC_JERK_MAX (maximum velocity). This means that the vehicle's motions are smooth for low velocities, but still allows fast direction changes or breaking at higher velocities. Set this to zero to use a fixed maximum jerk limit (MPC_JERK_MAX). Note: this is only used when MPC_POS_MODE is set to a smoothing mode.
+        <strong>Comment:</strong> If this is not zero, a velocity-based maximum jerk limit is used: the applied jerk limit linearly increases with the vehicle's velocity between MPC_JERK_MIN (zero velocity) and MPC_JERK_MAX (maximum velocity). This means that the vehicle's motions are smooth for low velocities, but still allows fast direction changes or breaking at higher velocities. Set this to zero to use a fixed maximum jerk limit (MPC_JERK_MAX). Note: This is only used when MPC_POS_MODE is set to 1.
       </p>
     </td>
     
@@ -17299,7 +17339,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to commanded thrust in Manual/Stabilized flight mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: in case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.
+        <strong>Comment:</strong> This parameter defines how the throttle stick input is mapped to commanded thrust in Manual/Stabilized flight mode. In case the default is used ('Rescale to hover thrust'), the stick input is linearly rescaled, such that a centered stick corresponds to the hover throttle (see MPC_THR_HOVER). Select 'No Rescale' to directly map the stick 1:1 to the output. This can be useful in case the hover thrust is very low and the default would lead to too much distortion (e.g. if hover thrust is set to 20%, 80% of the upper thrust range is squeezed into the upper half of the stick range). Note: In case MPC_THR_HOVER is set to 50%, the modes 0 and 1 are the same.
       </p>
       
       <strong>Values:</strong>
