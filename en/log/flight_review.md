@@ -186,7 +186,7 @@ Very high (unsafe) vibration levels.
 Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
 
 In this case the vehicle should be inspected.
-[Vibration Isolation](../assembly/vibration_isolation.md) explains some basic things you can check (and do) to improve vibration performance.
+[Vibration Isolation](../assembly/vibration_isolation.md) explains some basic things you can check (and do) to reduce vibration levels.
 
 
 
