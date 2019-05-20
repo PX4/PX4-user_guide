@@ -34,8 +34,10 @@ These can be connected to any free PWM port (both MAIN and AUX).
 
 The [Safety](../config/safety.md) topic explains how to set *flight termination* as the action to be performed in the event of particular checks being triggered.
 
-[Safety > Failure Detector](../config/safety.md#failure_detector) explains how to configure the attitude limits that trigger *Flight termination*.
-The failure detector will always trigger flight termination unless the [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) is disabled.
+You can (optionally) trigger flight termination if the vehicle flips (exceeds a certain attitude):
+- Enable the failure detector (disabled by default) by setting [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM).
+- [Safety > Failure Detector](../config/safety.md#failure_detector) explains how to configure the attitude limits that trigger *Flight termination*.
+
 
 For each MAIN output to which a safety device is attached, where "n" is the PWM port number, set:
 - [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) to the device's "OFF" PWM value.
