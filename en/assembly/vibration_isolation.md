@@ -7,8 +7,8 @@ This topic shows how to determine whether vibration levels are too high, and lis
 Flight Control boards with in-built accelerometers or gyros are sensitive to vibrations.
 High vibration levels can cause sensor clipping and sensor failures, resulting in a range of problems, from reduced flight efficiency/performance (leading to shorter flights and increased vehicle wear-and-tear), through to fly-aways and crashes.
 
-Airframes are designed to damp/reduce the amplitude of specific structural resonances at the autopilot mounting location.
-Users should further isolate the flight controller from airframe (using foam or some other isolation mount) in order to reduce vibration to the level that the autopilot can handle.
+Well-designed airframes damp/reduce the amplitude of specific structural resonances at the autopilot mounting location.
+Further isolation may be needed in order to reduce vibration to the level that sensitive components can handle (e.g. some flight controllers must be attached to the airframe using some form of anti-vibration foam/mount - while others are internally isolated).
 
 
 ## Vibration Analysis
