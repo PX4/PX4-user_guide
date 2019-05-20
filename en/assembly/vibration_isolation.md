@@ -1,6 +1,6 @@
 # Vibration Isolation
 
-This topic shows how to determine whether vibration levels are too high, and lists some simple steps to improve vibration performance.
+This topic shows how to determine whether vibration levels are too high, and lists some simple steps to improve vibration characteristics.
 
 ## Overview
 
