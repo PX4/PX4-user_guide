@@ -5240,7 +5240,7 @@ is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</str
  <td style="vertical-align: top;"><strong id="MPC_SPOOLUP_TIME">MPC_SPOOLUP_TIME</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Enforced delay between arming and takeoff</p><p><strong>Comment:</strong> For altitude controlled modes the time from arming the motors until a takeoff is possible gets forced to be at least MPC_SPOOLUP_TIME seconds to ensure the motors and propellers can sppol up and reach idle speed before getting commanded to spin faster. This delay is particularly useful for vehicles with slow motor spin-up e.g. because of large propellers.</p>   </td>
  <td style="vertical-align: top;">0 > 10 </td>
- <td style="vertical-align: top;">0.0 </td>
+ <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
@@ -5293,8 +5293,8 @@ is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</str
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TKO_RAMP_T">MPC_TKO_RAMP_T</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Position control smooth takeoff ramp time constant</p><p><strong>Comment:</strong> Increasing this value will make automatic and manual takeoff slower. If it's too slow the drone might scratch the ground and tip over. A time constant of 0 disables the ramp</p>   </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0.4 </td>
+ <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">3.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
