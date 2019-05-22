@@ -17320,7 +17320,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.0
+      1.0
     </td>
     
     <td style="vertical-align: top;">
@@ -17521,11 +17521,11 @@
     </td>
     
     <td style="vertical-align: top;">
-      0 > 1
+      0 > 5
     </td>
     
     <td style="vertical-align: top;">
-      0.4
+      3.0
     </td>
     
     <td style="vertical-align: top;">
