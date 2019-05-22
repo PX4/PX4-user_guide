@@ -150,19 +150,11 @@ S500 框架： x 和 y 轴的边界振动水平有点高 (这是典型的S500机
 
 ![初始加速度振动极高 绘图](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
-### 解决方案
+### Fixing Vibration Problems {#solutions}
 
-通常情况下，单靠计程仪无法识别振动源，需要对车辆进行检查。 可以结合多种来源。
+Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
 
-减少振动的解决办法和步骤包括：
-
-- 确保所有东西都牢固地附着在飞机上 (起落架、GPS 天线等)。
-- 使用平衡螺旋桨。
-- 确保使用高质量的螺旋桨、发动机、ESC 和机身。 这些组成部分中的每一个都有很大的不同。
-- 使用隔振方法安装自动驾驶仪。
-- *最后* 一个措施，调整软件过滤器 (见[ 这里](../config_mc/racer_setup.md#filters))。 最好是减少振动源，而不是在软件中过滤。
-
-<!-- TODO: write a separate vibration setup page in more depth, move some of this there and link to it from here -->
+In this case the vehicle should be inspected. [Vibration Isolation](../assembly/vibration_isolation.md) explains some basic things you can check (and do) to reduce vibration levels.
 
 ## 制动器输出
 
@@ -172,22 +164,22 @@ S500 框架： x 和 y 轴的边界振动水平有点高 (这是典型的S500机
 
 这个图可以帮助识别不同的问题:
 
-- 如果一个或多个信号在较长时间内处于最大值，则意味着控制器运行到**饱和**。 这并不一定是一个问题，例如在全速飞行时，这是意料之中的。 但如果它发生了，例如在一次任务中，这是一个信号，表明飞行器超重，无法提供足够的推力。
-- 对于多机来说，如果飞行器**不平衡**，这张图可以很好地显示。 它在图中显示，一个或多个相邻的电机 (一个四旋翼的情况下是两个) 平均需要以更高的推力运行。 请注意，如果某些电机提供的推力大于其他电机，或者 ESCs 没有经过校准，也可能出现这种情况。 一个不平衡的车辆通常不是一个大问题，因为自动驾驶仪将自动解释它。 然而，它减少了最大的可实现的推力，并会给一些电机带来更大的压力，因此，飞机最好是平衡的。
-- 不平衡也有可能来自偏航的轴心。 这图与前一种情况类似，但是相反的电机将分别运行得更高或更低。 原因可能是一个或多个电机倾斜。
+- If one or more of the signals is at the maximum over a longer time, it means the controller runs into **saturation**. It is not necessarily a problem, for example when flying at full throttle this is expected. But if it happens for example during a mission, it's an indication that the vehicle is overweight for the amount of thrust that it can provide.
+- For a multicopter the plot can be a good indication if the vehicle is **imbalanced**. It shows in the plot that one or more neighboring motors (two in case of a quadrotor) need to run at higher thrust on average. Note that this can also be the case if some motors provide more thrust than others or the ESCs are not calibrated. An imbalanced vehicle is generally not a big problem as the autopilot will automatically account for it. However it reduces the maximum achievable thrust and puts more strain on some motors, so it is better to balance the vehicle.
+- An imbalance can also come from the yaw axis. The plot will look similar as in the previous case, but opposite motors will run higher or lower respectively. The cause is likely that one or more motors are tilted.
     
-    这是一个六轴电机的例子：电机 1、3 和 6 运行的推力更高： ![十六进制致动器输出不平衡](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
+    This is an example from a hexarotor: motors 1, 3 and 6 run at higher thrust: ![Hexrotor imbalanced actuator outputs](../../assets/flight_log_analysis/flight_review/actuator_outputs_hex_imbalanced.png) <!-- https://logs.px4.io/plot_app?log=9eca6934-b657-4976-a32f-b2e56535f05f -->
 
-- 如果信号看起来非常**嘈杂** (具有高振幅) ，它可能有两个原因: 传感器噪声或通过控制器的振动 (这在其他图中也显示出来，见上一节) 或 PID 增益过高。 这是一个极端的例子： ![嘈杂的致动器输出 - 极端情况](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
+- If the signals look very **noisy** (with high amplitudes), it can have two causes: sensor noise or vibrations passing through the controller (this shows up in other plots as well, see previous section) or too high PID gains. This is an extreme example: ![Noisy actuator outputs - extreme case](../../assets/flight_log_analysis/flight_review/actuator_outputs_noisy.png)
 
 ## GPS 不确定性
 
 *GPS 不确定性* 图显示 GPS 设备信息:
 
-- 使用卫星的数目 (应大约或多余 12 个)
-- 水平位置精确度（应小于 1 米）
-- 垂直位置精确度 (应小于 2 米)
-- GPS 校正：3D GPS 校正值是 3，浮动 RTK 是 5，固定 RTK 是 6
+- Number of used satellites (should be around 12 or higher)
+- Horizontal position accuracy (should be below 1 meter)
+- Vertical position accuracy (should be below 2 meters)
+- GPS fix: this is 3 for a 3D GPS fix, 5 for RTK float and 6 for RTK fixed type
 
 ## GPS 噪声和干扰
 
@@ -211,8 +203,8 @@ GPS 噪声与放大器干扰图是检测 GPS 信号干扰和干扰的有效手�
 
 解决办法是：
 
-- 使用外部磁强计 (避免使用内部磁强计)
-- 如果使用外部磁强计，将其移到离强电流较远的地方(例如，使用 (较长的) GPS 天线)。
+- Use an external magnetometer (avoid using the internal magnetometer)
+- If using an external magnetometer, move it further away from strong currents (i.e. by using a (longer) GPS mast).
 
 如果标准是不相关的，但不是恒定的，很可能它没有被正确校准。 然而，这也可能是由于外部动乱造成的（例如，在靠近金属结构时)。
 
@@ -264,9 +256,9 @@ GPS 噪声与放大器干扰图是检测 GPS 信号干扰和干扰的有效手�
 
 它们展示了一种振动很低的飞行器:
 
-- 致动器控制 FFT 显示，只在结束部分有一个最低的峰值，剩下的地方都很低且平坦。
-- 谱密度大多为绿色，低频率只有很小的黄色。
-- 原始加速度的 z 轴轨迹与 x/y 轴轨迹很好地分离开了。
+- Actuator Controls FFT shows only a single peak at the lowest end, with the rest low and flat.
+- Spectral density is mostly green, with only a little yellow at the low frequencies.
+- Raw Acceleration has z-axis trace well separated from the x/y-axis traces.
 
 ![低振动 QAV-R 5 Racer - FFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
@@ -280,8 +272,8 @@ GPS 噪声与放大器干扰图是检测 GPS 信号干扰和干扰的有效手�
 
 他们展示了一种低振动的车辆（但不像上面的 QAV-R 那么低！）
 
-- 致动器控制FFT在最底层显示峰值。 其余的大部分是平的，除了在 100Hz 左右有一个凸起 (这是螺旋桨的叶片通过频率) 。
-- 光谱密度大多为绿色。 叶片通过频率再次可见。
+- Actuator Controls FFT shows a peak at the lowest end. Most of the rest is flat, except for a bump at around 100Hz (this is the blade passing frequency of the propellers).
+- Spectral density is mostly green. The blade passing frequency is again visible.
 - 原始加速度的 z 轴轨迹与 x/y 轴轨迹很好地分离开了。
 
 ![低振动 DJI F450 - FFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
@@ -296,9 +288,9 @@ GPS 噪声与放大器干扰图是检测 GPS 信号干扰和干扰的有效手�
 
 它们显示这些飞机的边界振动可以接受：
 
-- 致动器控制FFT在最底层显示峰值。 其余大部分都是平的，除了在 100Hz 左右有一个突起。
-- 光谱密度大多为绿色，但比DJI F450 在 100Hz 时更黄。
-- 原始加速度的 z 轴轨迹与 x/y 轴轨迹非常接近。 这是它开始对飞行性能产生负面影响的极限。
+- 致动器控制FFT在最底层显示峰值。 Most of the rest is flat, except for a bump at around 100Hz.
+- Spectral density is mostly green, but more yellow than for the DJI F450 at 100Hz.
+- Raw Acceleration has z-axis trace fairly close to the x/y-axis traces. This is at the limit where it starts to negatively affect flight performance.
 
 ![低振动S500启动器控制 - FFFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
