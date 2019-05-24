@@ -1,10 +1,10 @@
-# PX4Flow 光流智能摄像机
+# PX4FlOW 光流智能相机
 
-PX4FLOW是一个 [光流](../sensor/optical_flow.md) 智能相机。 It has a native resolution of 752x480 pixels and calculates optical flow on a 4x binned and cropped area at 400 Hz, giving it a very high light sensitivity.
+PX4FLOW 是一款 [光流](../sensor/optical_flow.md) 智能相机。 它的自然分辨率为 752 x 480 像素，并在400赫兹下计算4倍剪切区域的光流，使其具有很高的光敏度。
 
 ![PX4Flow v1.0](../../assets/hardware/sensors/px4flow/px4flow_v1.0_top_generated.png)
 
-Unlike many mouse sensors, it also works indoors and in low outdoor light conditions without the need for an illumination LED. It can be freely reprogrammed to perform any other basic, efficient low-level computer vision tasks.
+与许多鼠标传感器不同的是，它也可以在室内和室外光线较弱的条件下工作，并且不需要额外的LED照明。 它可以自由地二次开发，执行任何其它基本的、有效的低级计算机视觉任务。
 
 - 168 MHz Cortex M4F CPU (128 + 64 KB RAM)
 - 752x480 MT9V034 image sensor, L3GD20 3D Gyro
@@ -14,9 +14,9 @@ Unlike many mouse sensors, it also works indoors and in low outdoor light condit
 
 {% youtube %} https://youtu.be/0Jpq6DU_HVg {% endyoutube %}
 
-## Where to Buy
+## 购买渠道
 
-Order this module from:
+通过以下途径购买模块：
 
 - [Unmanned Tech](http://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/) (UK)
 - [Holybro](https://shop.holybro.com/px4flow-kit_p1035.html) (Germany & EU)
