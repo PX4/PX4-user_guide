@@ -52,7 +52,7 @@ These are documented here: [Parameter Reference > Mission](../advanced_config/pa
 
 ## Supported Mission Commands {#mission_commands}
 
-PX4 "accepts" the following MAVLink mission commands in Mission mode (note: caveats below list). Unless otherwise noted, the implementation is as defined in the MAVLink speification.
+PX4 "accepts" the following MAVLink mission commands in Mission mode (note: caveats below list). Unless otherwise noted, the implementation is as defined in the MAVLink specification.
 
 * [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT) 
   * *Param3* (flythrough) is ignored. Flythrough is always enabled if *param 1* (time_inside) > 0.
@@ -101,6 +101,6 @@ Note:
 * PX4 parses the above messages, but they are not necessary *acted* on. For example, some messages are vehicle-type specific.
 * PX4 generally does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
 * Not all messages/commands are exposed via *QGroundControl*.
-* The list may be [out of date](#out_of_date) as messages are added. You can check the current set by inspecting the code. Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp) (list generated in [this git changelist](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)).
+* The list may become out of date as messages are added. You can check the current set by inspecting the code. Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp) (list generated in [this git changelist](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)).
   
   > **Note** Please add an bug fix or PR if you find a missing/incorrect message.
