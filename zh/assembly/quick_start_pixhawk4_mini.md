@@ -103,7 +103,7 @@
 >     
 >     ## 电机
 >     
->     电机和舵机按照 [机架参考列表](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN OUT** 端口。 有关更多的详细信息，请参阅[*Pixhawk 4 Mini* > 所支持的平台](../flight_controller/pixhawk4_mini.md#supportedplatforms)。
+>     电机和舵机按照 [机架参考列表](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN OUT** 端口。 See [*Pixhawk 4 Mini* > Supported Platforms](../flight_controller/pixhawk4_mini.md#motors) for more information.
 >     
 >     > 本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用”机架）。
 >     
