@@ -21,7 +21,7 @@ Key information
 The Holybro [Pixhawk 4 Mini QAV250 Kit](https://shop.holybro.com/pixhawk-4-mini-qav250-kit_p1125.html) includes almost all required components:
 
 * [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-* [Holybro Micro FPV Radio telemetry set](http://www.holybro.com/product/17)
+* [Holybro Micro FPV Radio telemetry set](https://shop.holybro.com/micro-transceiver-telemetry-radio-set_p1025.html)
 * Power module holybro
 * Fully assembled Power Management Board with ESCs
 * Motors - DR2205 KV2300
