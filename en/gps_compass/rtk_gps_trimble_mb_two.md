@@ -50,6 +50,6 @@ The pins on the 28-pin connector are numbered as shown below:
 For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other.
 The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
 
-The MB-Two has problems with baudrate auto-detection. The baudrate must be configured manually by setting [SET_GPS1_BAUD](../advanced_config/parameter_reference.md#SET_GPS1_BAUD) to 115200.
+The MB-Two has problems with baudrate auto-detection. The baudrate must be configured manually by setting [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200.
 
 To activate heading fusion for the attitude estimation, set the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter to enable *GPS yaw fusion*.
