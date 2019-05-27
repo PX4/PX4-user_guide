@@ -167,6 +167,4 @@
 
 源代码和下载在 [Github](https://github.com/facontidavide/PlotJuggler)上。
 
-详情访问[www.pleptjugler.io](https://www.plotjuggler.io)。
-
-![PlotJugler](../../assets/flight_log_analysis/plotjuggler.png)
+![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
