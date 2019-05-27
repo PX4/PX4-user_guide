@@ -25,7 +25,8 @@ drivers/irlock
 modules/landing_target_estimator
 ```
 
-The two modules should also be started on system boot. For instructions see: [customizing the system startup](https://dev.px4.io/en/advanced/system_startup.html#starting-additional-applications).
+The two modules should also be started on system boot.
+For instructions see: [customizing the system startup](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup).
 
 
 ## Software Configuration (Parameters)

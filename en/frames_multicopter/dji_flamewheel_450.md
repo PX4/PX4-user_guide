@@ -38,11 +38,12 @@ to set the board rotation correctly in *QGroundControl* afterwards.
 
 ## Wiring and Connections
 
-General pinout for the Pixhawk 3 Pro can be found [here](https://pixhawk.drotek.com/en/inputs-outputs.html).
+General pinout for the Pixhawk 3 Pro can be found [here](https://drotek.gitbook.io/pixhawk-3-pro/hardware/inputs-outputs).
 
 ### 3DR Telemetry
 
-The 3DR Telemetry does not come with a JST GH connector which the *Pixhawk 3 Pro* uses. The pinout remains the same and just the plug needs to be changed. Use the Telem 1 port on the *Pixhawk 3 Pro*.
+The 3DR Telemetry does not come with a JST GH connector which the *Pixhawk 3 Pro* uses.
+The pinout remains the same and just the plug needs to be changed. Use the Telem 1 port on the *Pixhawk 3 Pro*.
 
 | pin | Pixhawk 3 Pro Telem 1 | 3DR Telemetry    |
 | --- | --------------------- | ---------------- |

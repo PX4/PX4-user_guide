@@ -171,8 +171,6 @@ Key features:
 
 Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
 
-For more information visit [www.plotjuggler.io](https://www.plotjuggler.io). 
-
 ![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
 
 
