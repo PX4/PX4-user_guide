@@ -2,7 +2,7 @@
 
 This section contains information about complete vehicles that run PX4.
 
-> **Note** This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/technology/airframes/#) and in the [Airframes Reference](../airframes/airframe_reference.md).
+> **Note** This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/technology/airframes/) and in the [Airframes Reference](../airframes/airframe_reference.md).
 
 - Consumer drones run PX4 natively/"out of the box": 
   - Multicopter 
@@ -17,10 +17,10 @@ This section contains information about complete vehicles that run PX4.
   - [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) - UAV development platform with autopilot and integrated onboard computer.
 - Consumer drones run a custom version of PX4 (supported by their vendors): 
   - Multicopter 
-    - [Yuneec Typhoon H Plus](https://px4.io/portfolio/yuneec-typhoon-h-plus/)
+    - [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus)
     - [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
     - [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
-    - [Airlango Mystic](https://px4.io/portfolio/airlango-mystic/)
+    - [Airlango Mystic](http://airlango.com/products/)
     - [Airdog II](https://px4.io/portfolio/airdog-ii/)
     - [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
   - Fixed Wing: 
