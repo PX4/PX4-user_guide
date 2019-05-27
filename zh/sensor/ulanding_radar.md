@@ -1,6 +1,6 @@
 # uLanding Radar
 
-The *Aerotenna* [uLanding](https://aerotenna.com/sensors/#ulanding) altimeter is compact microwave rangefinder that has been optimised for use on UAVs. With a sensing range of 45m, it is useful for applications including terrain following, precision hovering (e.g. for photography), anti-collision sensing etc. Particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
+The *Aerotenna* [uLanding](https://aerotenna.com/sensors/) altimeter is compact microwave rangefinder that has been optimised for use on UAVs. With a sensing range of 45m, it is useful for applications including terrain following, precision hovering (e.g. for photography), anti-collision sensing etc. Particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
 
 <img src="../../assets/hardware/sensors/uLanding_lite_1.jpg" alt="Aerotenna uLanding" width="300px" />
 
