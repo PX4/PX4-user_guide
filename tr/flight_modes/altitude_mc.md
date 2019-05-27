@@ -8,7 +8,7 @@ When the sticks are released/centered the vehicle will level and maintain the cu
 
 > **Tip** *Altitude mode* is the safest non-GPS manual mode for new fliers. It is just like [Manual/Stabilized](../flight_modes/manual_stabilized_mc.md) mode but additionally locks the vehicle altitude when the sticks are released.
 
-The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)).
+The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
 ![Altitude Control MC - Mode2 RC Controller](../../images/flight_modes/altitude_control_mode_copter.png)
 
