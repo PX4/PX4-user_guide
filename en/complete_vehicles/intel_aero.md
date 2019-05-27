@@ -148,7 +148,7 @@ After setting up the PX4 development environment, follow these steps update the 
    systemctl start mavlink-router
    ```
 1. Start QGroundControl and it should automatically connect.
-1. Instead of starting QGroundControl, you can open a [NuttX shell](https://dev.px4.io/en/debug/system_console.html#mavlink-shell) with:
+1. Instead of starting QGroundControl, you can open a [NuttX shell](https://dev.px4.io/master/en/debug/system_console.html#mavlink_shell) with:
    ```
    ./Tools/mavlink_shell.py 0.0.0.0:14550
    ```
