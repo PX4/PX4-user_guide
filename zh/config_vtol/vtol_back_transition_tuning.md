@@ -10,7 +10,7 @@
 
 ## 设置期望的减速加速度
 
-在用任务模式飞航点的时候，自驾仪会试着计算启动后转换的适当距离。 它通过当前速度（取自地速）和期望减速加速度来计算这个距离。 要让飞行器在后转换时更加接近降落点，你可以调整期望减速加速度（[VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)）参数 确保你的后转换持续时间足够长，可以让飞行器在超时前达到预期的位置。
+When flying missions that make use of a [VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND) waypoint the autopilot will attempt to calculate the proper distance at which to initiate the back-transition. 它通过当前速度（取自地速）和期望减速加速度来计算这个距离。 要让飞行器在后转换时更加接近降落点，你可以调整期望减速加速度（[VT_B_DEC_MSS](../advanced_config/parameter_reference.md#VT_B_DEC_MSS)）参数 确保你的后转换持续时间足够长，可以让飞行器在超时前达到预期的位置。
 
 ## 应用空气制动
 
@@ -36,7 +36,7 @@
 
 ### 用一个通道来控制
 
-用一个单独的控制频道来控制电机转向的电调(例如 [Hobbywing Platinum series](http://www.hobbywing.com/category.php?id=44&filter_attr=6345.6346))可以用在后转换期间用空气刹车频道来进行后转换。
+ESCs that use a separate control channel to control the motor direction (e.g. [Hobbywing Platinum series](http://a.hobbywing.com/category.php?id=44&filter_attr=6345.6346)) can use the airbrakes channel to apply reverse thrust during back-transition.
 
 已经配置好支持这种方法的机型(比如DeltaQuad 机型) 可以通过把[VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT) 设置为1，并把[VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)设置到你想要的油门上来激活反向推力功能。 这是一个从0到1的值，0.7代表70%油门
 
