@@ -61,7 +61,7 @@
 
 *Pixhawk 4 Mini* 可以有电源冗余 — 如果提供了两个电源。 供电轨道为：**POWER** 和 **USB**。
 
-> **Note** **MAIN OUT** 电源输出轨并不会为飞控板供电（而且不由其供电）。 你必须在 **POWER** 或 **USB** 之一 [提供电源](../assembly/quick_start_pixhawk4_mini.md#voltageratings)，否则飞控板将不会供电。
+> **Note** **MAIN OUT** 电源输出轨并不会为飞控板供电（而且不由其供电）。 You must [supply power](../assembly/quick_start_pixhawk4_mini.md#voltage-ratings) to one of **POWER** or **USB** or the board will be unpowered.
 
 **正常运行最大额定值**
 
