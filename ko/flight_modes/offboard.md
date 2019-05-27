@@ -14,10 +14,10 @@ The vehicle obeys a position, velocity or attitude setpoint provided over MAVLin
 
 Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink commands (more may be supported in future). It can be used to:
 
-* Control vehicle position, velocity, or thrust ([SET_POSITION_TARGET_LOCAL_NED](http://mavlink.org/messages/common#SET_POSITION_TARGET_LOCAL_NED)). 
+* Control vehicle position, velocity, or thrust ([SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)). 
   * Acceleration setpoints are combined to create a 'thrust' setpoint.
-  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](http://mavlink.org/messages/common#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](http://mavlink.org/messages/common#MAV_FRAME_BODY_NED).
-* Control vehicle attitude/orientation ([SET_ATTITUDE_TARGET](http://mavlink.org/messages/common#SET_ATTITUDE_TARGET)).
+  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+* Control vehicle attitude/orientation ([SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)).
 
 Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
 
