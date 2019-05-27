@@ -9,7 +9,7 @@ ESP8266 是一款低成本且易于使用的 Wi-Fi 模块，具有完整的 TCP/
 该模块是现成的。 下面列出了一些供应商。
 
 - [Sparkfun](https://www.sparkfun.com/products/13678)
-- [GearBeast](https://us.gearbest.com/esp8266-wifi-module-_gear/)
+- [GearBeast](https://us.gearbest.com/boards-shields/pp_009604906563.html?wid=1433363)
 
 ## 模块设置
 
@@ -30,7 +30,7 @@ ESP8266固件具有以下 *工厂* 设置：
 
 ### 更新固件
 
-如果您安装了 1.0.4 或更高版本的固件，则可以通过使用 ESP 的 *Over The Air Update* 特性进行更新。 只需连接到其 AP WiFi 链接并浏览：http：//192.168.4.1/update 。 然后，您可以选择上面下载的固件文件，并将其上传到 WiFi 模块。
+如果您安装了 1.0.4 或更高版本的固件，则可以通过使用 ESP 的 *Over The Air Update* 特性进行更新。 Just connect to its AP WiFi link and browse to: `http://192.168.4.1/update`. 然后，您可以选择上面下载的固件文件，并将其上传到 WiFi 模块。
 
 ### Flashing the ESP8266 Firmware
 
