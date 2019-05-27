@@ -19,7 +19,7 @@ Caipiroshka VTOL是由 TBS Caipirinha轻度改装而来。
 * 3S 2200 mA锂电池 
   * Team Orion 3S 11.1V 50 C（[Hobbyshop 商城](https://www.hobbyshop.ch/modellbau-elektronik/akku/team-orion-lipo-2200-3s-11-1v-50c-xt60-ori60163.html)）
 * [Pixracer 飞控 + 电源模块](../flight_controller/pixracer.md)
-* [数字空速传感器](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
+* [数字空速传感器](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
 
 ## 组装
 
