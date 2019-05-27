@@ -22,7 +22,7 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
     modules/landing_target_estimator
     
 
-这两个模块也应该在系统启动时启动。 有关说明，请参阅：[自定义系统启动](https://dev.px4.io/en/advanced/system_startup.html#starting-additional-applications)。
+这两个模块也应该在系统启动时启动。 For instructions see: [customizing the system startup](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup).
 
 ## 软件配置（参数）
 
