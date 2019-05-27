@@ -10,7 +10,7 @@
 
 当所有遥控输入都居中时（无滚动、俯仰、偏航，油门约50％），飞机将恢复直线水平飞行（受风影响）并保持其当前高度。
 
-下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)）。
+The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
 ![固定翼高度控制](../../images/flight_modes/altitude_control_mode_fw.png)
 
@@ -23,9 +23,9 @@
   * 如果空速传感器已连接，油门杆控制飞机速度。 在没有空速传感器的情况下，用户无法控制油门（在这种情况下，飞机将在巡航油门下([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)) 水平飞行，根据需要增加或减少油门以上升或下降。
 * 外部中心： 
   * 俯仰摇杆控制高度。
-  * 油门杆控制飞机的空速（滚动/俯仰/偏航输入回中）。
-  * 翻滚摇杆控制滚动角度。 自动驾驶仪将保持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)。 这和[稳定模式](#stabilized_fw)一样。
-  * 偏航杆操纵会驱动方向舵（指令将被加到自动驾驶仪计算的指令中以维持[协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)）。 这和[稳定模式](#stabilized_fw)一样。
+  * Throttle stick controls the airspeed of the aircraft (as for centered Roll/Pitch/Yaw inputs).
+  * 翻滚摇杆控制滚动角度。 自动驾驶仪将保持 [协调飞行](https://en.wikipedia.org/wiki/Coordinated_flight)。 This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
+  * Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)). This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
 
 > **注** *可能需要手动输入（遥控器，或通过MAVLink连接的游戏手柄/拇指杆）。 *海拔高度通常使用气压计测量，在极端天气条件下可能会变得不准确。 带有激光雷达/距离传感器的飞机将能够以更高的可靠性和准确性控制高度。
 
