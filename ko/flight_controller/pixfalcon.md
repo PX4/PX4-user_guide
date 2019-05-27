@@ -34,64 +34,65 @@ Pixfalcon 자동 조종 장치 ( Holybro <sup> 및 reg; </ 1> </ 0>) 는 공간�
 </h2>
 
 <p>
-  제조사 : <a href="http://www.holybro.com/product/8"> Holybro </ 0> 또는 유통 업체 <a href="http://www.hobbyking.com/hobbyking/store/__86437__PixFalcon_Micro_PX4_Autopilot_plus_Micro_M8N_GPS_and_Mega_PBD_Power_Module.html"> Hobbyking <sup> & reg; </ 2> </ 1></p> 
-  
-  <p>
-    옵션 하드웨어
-  </p>
-  
-  <ul>
-    <li>
-      광학 플로우 : 제조업체 <a href="http://www.holybro.com/product/24"> Holybro </ 0> 또는 유통 업체 <a href="http://www.hobbyking.com/hobbyking/store/__66308__HK_Pilot32_Optical_Flow_Kit_With_Sonar.html"> Hobbyking </ 1>의 PX4 Flow 장치</li> 
-      
+  From distributor <a href="https://hobbyking.com/en_us/pixfalcon-micro-px4-autopilot-plus-micro-m8n-gps-and-mega-pbd-power-module.html">Hobbyking<sup>&reg;</sup></a>
+</p>
+
+<p>
+  옵션 하드웨어
+</p>
+
+<ul>
+  <li>
+    Optical flow: PX4 Flow unit from manufacturer <a href="http://www.holybro.com/product/px4flow/">Holybro</a> or distributor <a href="http://www.hobbyking.com/hobbyking/store/__66308__HK_Pilot32_Optical_Flow_Kit_With_Sonar.html">Hobbyking</a>
+  </li>
+  <li>
+    Digital Airspeed sensor from manufacturer <a href="http://www.holybro.com/product/digital-air-speed-sensor/">Holybro</a> or distributor <a href="https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html">Hobbyking</a>
+  </li>
+  <li>
+    통합 텔레 메 트리가있는 화면 디스플레이 <ul>
       <li>
-        제조사 <a href="http://www.holybro.com/product/26"> Holybro </ 0> 또는 유통 업체 <a href="http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html"> Hobbyking </ 1>의 디지털 속도 센서</li> 
-        
-        <li>
-          통합 텔레 메 트리가있는 화면 디스플레이 <ul>
-            <li>
-              <a href="http://www.hobbyking.com/hobbyking/store/__74650__Micro_HKPilot_Telemetry_Radio_Module_with_On_Screen_Display_OSD_unit_433MHz_.html">Hobbyking OSD + EU Telemetry (433 MHz)</a>
-            </li>
-          </ul>
-        </li>
-        
-        <li>
-          순수한 텔레 메 트리 옵션 <ul>
-            <li>
-              <a href="http://www.hobbyking.com/hobbyking/store/__87841__APM_Pixhawk_Wireless_Wifi_Radio_Module.html">Hobbyking 와이파이 텔레 메 트리</a>
-            </li>
-            <li>
-              <a href="http://www.hobbyking.com/hobbyking/store/__74647__Micro_HKPilot_Telemetry_radio_Set_With_Integrated_PCB_Antenna_433Mhz.html">Hobbyking EU 마이크로 텔레 메 트리 (433 MHz)</a>
-            </li>
-            <li>
-              <a href="http://www.hobbyking.com/hobbyking/store/__74648__Micro_HKPilot_Telemetry_radio_Set_With_Integrated_PCB_Antenna_915Mhz.html">Hobbyking 미국 마이크로 텔레 메 트리 (915 MHz)</a>
-            </li>
-          </ul>
-        </li></ul> 
-        
-        <h2>
-          Building Firmware
-        </h2>
-        
-        <blockquote>
-          <p>
-            <strong>Tip</strong> Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
-          </p>
-        </blockquote>
-        
-        <p>
-          To <a href="https://dev.px4.io/en/setup/building_px4.html">build PX4</a> for this target:
-        </p>
-        
-        <pre><code>make px4_fmu-v2_default
+        <a href="https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html">Hobbyking OSD + EU Telemetry (433 MHz)</a>
+      </li>
+    </ul>
+  </li>
+  <li>
+    순수한 텔레 메 트리 옵션 <ul>
+      <li>
+        <a href="https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html">Hobbyking 와이파이 텔레 메 트리</a>
+      </li>
+      <li>
+        <a href="https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-433mhz.html">HKPilot Micro Telemetry EU version (433 MHz)</a>
+      </li>
+      <li>
+        <a href="https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-915mhz.html">HKPilot Micro Telemetry EU version (915 MHz)</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2>
+  Building Firmware
+</h2>
+
+<blockquote>
+  <p>
+    <strong>Tip</strong> Most users will not need to build this firmware! It is pre-built and automatically installed by <em>QGroundControl</em> when appropriate hardware is connected.
+  </p>
+</blockquote>
+
+<p>
+  To <a href="https://dev.px4.io/en/setup/building_px4.html">build PX4</a> for this target:
+</p>
+
+<pre><code>make px4_fmu-v2_default
 </code></pre>
-        
-        <h2>
-          Key Links
-        </h2>
-        
-        <ul>
-          <li>
-            <a href="http://www.holybro.com/manual/pixfalcon.pdf">User Manual</a>
-          </li>
-        </ul>
+
+<h2>
+  Key Links
+</h2>
+
+<ul>
+  <li>
+    <a href="http://www.holybro.com/manual/pixfalcon11.pdf">User Manual</a>
+  </li>
+</ul>
