@@ -22,7 +22,7 @@ PX4는 <>IR-LOCK 센서 </a>), IR-LOCK 센서 </em>(PX4 v1.7.4에서)에 대한 
     모듈/랜딩_target_estimator
     
 
-시스템 부팅 시에도 두 모듈을 시작해야 합니다. 지침은 [ 시스템 시작 사용자 정의](https://dev.px4.io/en/advanced/system_startup.html#starting-additional-applications)를 참조하십시오.
+시스템 부팅 시에도 두 모듈을 시작해야 합니다. For instructions see: [customizing the system startup](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup).
 
 ## 소프트웨어 구성(파라미터)
 
