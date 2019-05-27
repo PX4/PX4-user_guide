@@ -160,13 +160,11 @@ The serial API does not conform to the termios convention for setting data rate 
 
 ### Timers
 
-Additional functions for more advanced aDSP operations are available with the prefix `qurt_`.  
-Timer functions, for example, are available with the `qurt_timer` prefix and are documented in the **qurt_timer.h** header file included with the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools).
+Additional functions for more advanced aDSP operations are available with the prefix `qurt_`. Timer functions, for example, are available with the `qurt_timer` prefix and are documented in the **qurt_timer.h** header file included with the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools).
 
 ### Setting the Power Level
 
-Using the HAP functions provided by the Hexagon SDK, it is possible to set the power level of the aDSP.  
-This will often lead to reduced I/O latencies. More information on these API's is available in the **HAP_power.h** header file available in the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools).
+Using the HAP functions provided by the Hexagon SDK, it is possible to set the power level of the aDSP. This will often lead to reduced I/O latencies. More information on these API's is available in the **HAP_power.h** header file available in the [Hexagon SDK](https://developer.qualcomm.com/software/hexagon-dsp-sdk/tools).
 
 ## Troubleshooting
 
@@ -257,7 +255,7 @@ To check if it's in fastboot mode, use:
     fastboot devices
     
 
-Once you managed to get into fastboot mode, you can try [above teps](#upgradingreplacing-the-linux-image) to update the Android/Linux image.
+Once you managed to get into fastboot mode, you can try [updating the Android/Linux image](../flight_controller/snapdragon_flight_software_installation.md#update-linux-image).
 
 If you happen to have a [P2 board](#do-i-have-a-p1-or-p2-board), you should be able to reset the Snapdragon to the recovery image by starting up the Snapdragon while shorting the two pins next to where J3 is written (The two rectangular pins in-between the corner hole and the MicroSD card slot almost at the edge of the board.
 
@@ -284,7 +282,7 @@ Also, the logs might have filled the space. To delete them, do:
 
 #### _FDtest
 
-If you see the following output on mini-dm when trying to start the px4 program, it means that you need to [update the ADSP firmware](#updating-the-adsp-firmware):
+If you see the following output on mini-dm when trying to start the px4 program, it means that you need to [update the ADSP firmware](../flight_controller/snapdragon_flight_software_installation.md#update-dsp-processor-firmware):
 
     [08500/03]  05:10.960  HAP:45:undefined PLT symbol _FDtest (689) /libpx4muorb_skel.so  0303  symbol.c
     
@@ -310,15 +308,15 @@ If you have changed the source, presumably added functions and you see `undefine
 
 If you get errors like the above when starting px4, try
 
-- [upgrading the Linux image](#upgradingreplacing-the-linux-image)
-- and [updating the ADSP firmware](#updating-the-adsp-firmware). Also try to do this from a native Linux installation instead of a virtual machine. There have been [reports](https://github.com/PX4/Firmware/issues/5303) where it didn't seem to work when done in a virtual machine.
-- then [rebuild the px4 software](https://dev.px4.io/en/setup/building_px4.html), by first completely deleting your existing Firmware repo and then recloning it [as described here](https://dev.px4.io/en/setup/building_px4.html#downloading-the-software-and-first-build)
-- and finally [rebuild and re-run it](https://dev.px4.io/en/setup/building_px4.html#qurt--snapdragon-based-boards)
-- make sure the executable bit of `/usr/local/qr-linux/q6-admin.sh` is set: `adb shell chmod +x /usr/local/qr-linux/q6-admin.sh`
+- [upgrading the Linux image](../flight_controller/snapdragon_flight_software_installation.md#update-linux-image)
+- and [updating the ADSP firmware](../flight_controller/snapdragon_flight_software_installation.md#update-dsp-processor-firmware). Also try to do this from a native Linux installation instead of a virtual machine. There have been [reports](https://github.com/PX4/Firmware/issues/5303) where it didn't seem to work when done in a virtual machine.
+- then [rebuild the px4 software](https://dev.px4.io/en/setup/building_px4.html), by first completely deleting your existing Firmware repo and then re-cloning it [as described here](https://dev.px4.io/master/en/setup/building_px4.html#get_px4_code)
+- and finally [rebuild and re-run it](https://dev.px4.io/master/en/setup/building_px4.html#qurt--snapdragon-based-boards)
+- make sure the executable bit of `/usr/local/qr-linux/q6-admin.sh` is set: ```adb shell chmod +x /usr/local/qr-linux/q6-admin.sh```
 
 ### ADSP restarts
 
-If the mini-dm console suddenly shows a whole lot of INIT output, the ADSP side has crashed. The reasons for it are not obvious, e.g. it can be some segmentation fault, null pointer exception, etc..
+If the mini-dm console suddenly shows a whole lot of INIT output, the ADSP side has crashed. The reasons for it are not obvious, e.g. it can be some segmentation fault, null pointer exception, etc.
 
 The mini-dm console output typically looks like this:
 
