@@ -103,7 +103,7 @@ Lua map of flight modes:
 
 ### D-port
 
-D-Port receivers transmit the following messages (from [here](http://shipow.github.io/cleanflight-web/docs/telemetry.html)):
+D-Port receivers transmit the following messages (from [here](https://github.com/cleanflight/cleanflight/blob/master/docs/Telemetry.md)):
 
 * **AccX, AccY, AccZ:** Accelerometer values.
 * **Alt:** Barometer based altitude, init level is zero.
