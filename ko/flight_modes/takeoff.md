@@ -111,6 +111,6 @@ The specific behaviour for each vehicle type is described below.
 
 <h2>VTOL</h2>
 
-<p>VTOL은 FW 모드에서는 TAKEOFF 동작 및 매개 변수 <a href="#fixed-wing-fw"> 고정 날개 </ 0>를 따르며 MC 모드에서는 <a href="#multi-copter-mc"> Multicopter </ 1> 매개 변수를 따릅니다.</p>
+<p>A VTOL follows the TAKEOFF behavior and parameters of <a href="#fixed_wing">Fixed Wing</a> when in FW mode, and of <a href="#multi-copter-mc">Multicopter</a> when in MC mode.</p>
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
