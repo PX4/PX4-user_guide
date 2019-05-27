@@ -139,20 +139,6 @@ There are two ways to counteract that:
      On the second Tab
 -->
 
-<!-- TODO: needed?
-#### Feed Forward Tuning
-
-Parameters: [MC_YAW_FF](../advanced_config/parameter_reference.md#MC_YAW_FF).
-
-This parameter is not critical and can be tuned in flight, in worst case
-yaw response will be sluggish or too fast. Play with FF parameter to get
-comfortable response. Valid range is 0…1. Typical value is 0.8…0.9. (For
-aerial video optimal value may be much smaller to get smooth response.)
-
-Look at `ATTITUDE.yaw` in *QGroundControl*. Yaw overshoot should be not more
-than 2-5% (which is less than the overshoot for roll and pitch angles).
--->
-
 <!-- TODO
 ### Velocity & Position Controller
 The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
