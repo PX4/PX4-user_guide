@@ -9,5 +9,5 @@ HKPilot에는 PX4와 함께 사용할 수 있으며 915MHz(USA) 및 433MHz(유�
 
 ## 구매처
 
-* [HKOL Transprover Transition V2 (43Mhz)](http://www.hobbyking.com/hobbyking/store/uh_viewitem.asp?idproduct=55559)
-* [HK 텔레프레전스 세트 V2 (915Mhz)](https://hobbyking.com/en_us/hkpilot-transceiver-telemetry-radio-set-v2-915mhz.html)
+* [Micro HKPilot Telemetry radio Set With Integrated PCB Antenna 433Mhz](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-set-with-integrated-pcb-antenna-433mhz.html)
+* [Micro HKPilot Telemetry radio Set With Integrated PCB Antenna 915Mhz](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-set-with-integrated-pcb-antenna-915mhz.html)
