@@ -8,7 +8,7 @@
 
 > **注意***高度模式*是对于新手而言最安全的非GPS手动模式。 它就像[手动/稳定](../flight_modes/manual_stabilized_mc.md)模式，但额外地在操纵杆回中时锁定飞机高度。
 
-下图以可视方式显示模式行为（对于[模式2发送器](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)）。
+The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
 ![高度控制MC - Mode2 RC控制器](../../images/flight_modes/altitude_control_mode_copter.png)
 
