@@ -9,7 +9,7 @@ The ESP8266 is a low-cost and readily available Wi-Fi module with full TCP/IP st
 The module is readily available. A few vendors are listed below.
 
 - [Sparkfun](https://www.sparkfun.com/products/13678)
-- [GearBeast](https://us.gearbest.com/esp8266-wifi-module-_gear/)
+- [GearBeast](https://us.gearbest.com/boards-shields/pp_009604906563.html?wid=1433363)
 
 ## Module Setup
 
@@ -30,7 +30,7 @@ The [firmware repository](https://github.com/dogmaphobic/mavesp8266) contains in
 
 ### Updating the Firmware
 
-If you have firmware 1.0.4 or greater installed, you can do the update using the ESP's *Over The Air Update* feature. Just connect to its AP WiFi link and browse to: http://192.168.4.1/update. You can then select the firmware file you downloaded above and upload it to the WiFi Module.
+If you have firmware 1.0.4 or greater installed, you can do the update using the ESP's *Over The Air Update* feature. Just connect to its AP WiFi link and browse to: `http://192.168.4.1/update`. You can then select the firmware file you downloaded above and upload it to the WiFi Module.
 
 ### Flashing the ESP8266 Firmware
 
