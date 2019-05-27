@@ -53,7 +53,7 @@
   
   ## 支持的任务命令 {#mission_commands}
   
-  PX4在任务模式下“接受”以下MAVLink任务命令（注意：下面列出的警告）。 除非另有说明，否则实现方式与MAVLink规范中的定义相同。
+  PX4在任务模式下“接受”以下MAVLink任务命令（注意：下面列出的警告）。 Unless otherwise noted, the implementation is as defined in the MAVLink specification.
   
   * [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT) 
     * *参数3*（飞越）被忽略。 如果*参数1*（time_inside）> 0，则始终启用飞越。
@@ -103,6 +103,6 @@
     
     * 对于任务命令，PX4通常不支持本地坐标系（例如，[MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)）。
     * 并非所有消息/命令都通过*QGroundControl*公开。
-    * 添加消息时，列表可能过时</ 0>。 您可以通过检查代码来检查当前设置。 在[/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp)中支持`MavlinkMissionManager:: parse_mavlink_mission_item` （在[此git变更列表](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)中生成的列表）。</p> 
+    * The list may become out of date as messages are added. 您可以通过检查代码来检查当前设置。 在[/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp)中支持`MavlinkMissionManager:: parse_mavlink_mission_item` （在[此git变更列表](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)中生成的列表）。
       
-      > 如果您发现丢失/不正确的消息，请添加错误修复或PR。</li> </ul>
+      > 如果您发现丢失/不正确的消息，请添加错误修复或PR。</ul>
