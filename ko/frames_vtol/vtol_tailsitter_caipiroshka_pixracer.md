@@ -19,7 +19,7 @@ The Caipiroshka VTOL is a slightly modified TBS Caipirinha.
 * 3S 2200 mA LiPo battery 
   * Team Orion 3S 11.1V 50 C ([Hobbyshop store](https://www.hobbyshop.ch/modellbau-elektronik/akku/team-orion-lipo-2200-3s-11-1v-50c-xt60-ori60163.html))
 * [Pixracer autopilot board + power module](../flight_controller/pixracer.md)
-* [Digital airspeed sensor](http://www.hobbyking.com/hobbyking/store/__62752__HKPilot_32_Digital_Air_Speed_Sensor_And_Pitot_Tube_Set.html)
+* [Digital airspeed sensor](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
 
 ## Assembly
 
