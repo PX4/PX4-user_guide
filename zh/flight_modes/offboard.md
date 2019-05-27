@@ -14,10 +14,10 @@
 
 Offboard 模式主要用于控制飞机运动和姿态，目前仅支持 MAVLink 命令的一个有限子集（未来将支持更多）。 此模式可用于：
 
-* 控制飞机位置、速度或油门 ([SET_POSITION_TARGET_LOCAL_NED](http://mavlink.org/messages/common#SET_POSITION_TARGET_LOCAL_NED))。 
+* Control vehicle position, velocity, or thrust ([SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)). 
   * 加速度设定值将被综合计算出一个“油门”设定值。
-  * PX4 支持坐标系指定 (`coordinate_frame` 字段): [MAV_FRAME_LOCAL_NED](http://mavlink.org/messages/common#MAV_FRAME_LOCAL_NED) 和 [MAV_FRAME_BODY_NED](http://mavlink.org/messages/common#MAV_FRAME_BODY_NED)。
-* 控制飞机姿态/方位 ([SET_ATTITUDE_TARGET](http://mavlink.org/messages/common#SET_ATTITUDE_TARGET))。
+  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+* Control vehicle attitude/orientation ([SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)).
 
 其他操作, 如起飞、降落、返回起飞点，最好使用其它适当的模式来处理。 上传、下载任务等操作可以在任何模式下执行。
 
