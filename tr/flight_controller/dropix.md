@@ -30,11 +30,7 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 
 ## Where to buy
 
-[DroPix Autopilot OEM Pack](https://store.drotek.com/autopilots/889-dropix-flight-controller.html)
-
-[DroPix Autopilot Only (No connectors / No case)](https://store.drotek.com/autopilots/888-706-dropix-flight-controller.html#/148-dropix_option-without_connectors_without_case)
-
-[DroPix Autopilot spare case](https://store.drotek.com/accessories/672-dropix-case-8944595425041.html)
+[DroPix Autopilots & Accessories](https://store.drotek.com/dropix-autopilots)
 
 ## Documentation
 
