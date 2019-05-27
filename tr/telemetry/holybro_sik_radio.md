@@ -6,5 +6,6 @@ Holybro has a number of [SiK](../telemetry/sik_radio.md)-compatible telemetry ra
 
 ## Purchase:
 
-* [Holybro Radio V3](http://www.holybro.com/product/57)
-* [FPV Radio telemetry set](http://www.holybro.com/product/15)
+* [Holybro Transceiver Telemetry Radio V3 433MHz](http://www.holybro.com/product/transceiver-telemetry-radio-v3/)
+* [Holybro Transceiver Telemetry Radio V3 915MHz](http://www.holybro.com/product/transceiver-telemetry-radio-v3-915mhz/)
+* [Holybro Micro Transceiver Telemetry Radio Set](http://www.holybro.com/product/micro-transceiver-telemetry-radio-set/)
