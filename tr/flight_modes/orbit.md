@@ -23,7 +23,7 @@ RC control can be used to change the orbit altitude, radius, speed, and orbit di
   - *up/down:* controls orbit radius (smaller/bigger). When centered the current radius is locked. 
     - Minimum radius is 1m. Maximum radius is 100m.
 
-The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)).
+The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
 ![Orbit Mode - MC](../../images/flight_modes/orbit_MC.png)
 
