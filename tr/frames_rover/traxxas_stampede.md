@@ -14,7 +14,7 @@ This vehicle was chosen to understand how a Pixhawk could be used for wheeled pl
     - [3DR 433MHz Telemetry Module (EU)
 - [Spektrum Dxe Controller](http://www.spektrumrc.com/Products/Default.aspx?ProdId=SPM1000) or other PX4-compatible remotes
 - [Spektrum Quad Race Serial Receiver w/Diversity](http://www.spektrumrc.com/Products/Default.aspx?ProdID=SPM4648)
-- [PX4Flow](https://pixhawk.org/modules/px4flow)
+- [PX4Flow](../sensor/px4flow.md)
 
 ## Assembly
 
