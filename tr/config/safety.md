@@ -213,7 +213,7 @@ The relevant parameters are shown below:
 
 A safety switch allows you to immediately stop all motors or return the vehicle from the remote control transmitter (if you lose control of the vehicle, this may be better than allowing it to continue flying).
 
-The safety switches may be enabled as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md#safety_switch).
+The safety switches may be enabled as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md).
 
 This section lists the available safety switches.
 
