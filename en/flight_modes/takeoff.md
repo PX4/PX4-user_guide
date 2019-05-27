@@ -53,6 +53,6 @@ Parameter | Description
 
 ## VTOL
 
-A VTOL follows the TAKEOFF behavior and parameters of [Fixed Wing](#fixed-wing-fw) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
+A VTOL follows the TAKEOFF behavior and parameters of [Fixed Wing](#fixed_wing) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
