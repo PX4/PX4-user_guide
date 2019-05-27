@@ -37,7 +37,7 @@ One of these:
 
 ### Recommended spare parts
 
-- 1 cm diameter O-ring for prop saver ([Hobbyking International Warehouse](http://www.hobbyking.com/hobbyking/store/__27339__Wing_Wing_Z_84_O_Ring_10pcs_.html))
+- 1 cm diameter O-ring for prop saver ([Hobbyking](https://hobbyking.com/en_us/wing-wing-z-84-o-ring-10pcs.html))
 - 125x110 mm propellers ([Hobbyking](https://hobbyking.com/en_us/gws-ep-propeller-dd-5043-125x110mm-green-6pcs-set.html))
 
 ## Wiring
