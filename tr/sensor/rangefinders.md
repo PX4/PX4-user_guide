@@ -26,7 +26,7 @@ The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_co
 - [SF10/A](http://lightware.co.za/shop2017/drone-altimeters/26-sf10a-25-m.html) (25 m)
 - [SF10/B](http://lightware.co.za/shop2017/drone-altimeters/25-sf10b-50-m.html) (50 m)
 - SF10/C (100m) (Discontinued)
-- [SF11/C](http://lightware.co.za/shop2017/drone-altimeters/44-sf11c-120-m.html) (120 m)
+- [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) (120 m)
 - [SF/LW20](http://lightware.co.za/shop2017/drone-altimeters/51-lw20-100-m.html) (100 m) - Waterproofed (IP67) with servo for sense-and-avoid applications
 
 Drivers exist for both I2C and serial ports (not all devices are supported for both serial and I2C).
