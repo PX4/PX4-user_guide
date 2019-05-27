@@ -36,7 +36,7 @@ In this setup the autopilot is rotated by 180 degrees so that it's easier to acc
 
 ## 接线和连接
 
-General pinout for the Pixhawk 3 Pro can be found [here](https://pixhawk.drotek.com/en/inputs-outputs.html).
+General pinout for the Pixhawk 3 Pro can be found [here](https://drotek.gitbook.io/pixhawk-3-pro/hardware/inputs-outputs).
 
 ### 3DR Telemetry
 
