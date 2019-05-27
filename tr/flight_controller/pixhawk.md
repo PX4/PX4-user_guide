@@ -18,7 +18,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
   * RAM: 8 KB SRAM
 * Wifi: ESP8266 external
 * GPS: U-Blox<sup>&reg;</sup> 7/8 (Hobbyking<sup>&reg;</sup>) / U-Blox 6 (3D Robotics)
-* Optical flow: [PX4 Flow unit](http://www.hobbyking.com/hobbyking/store/__66308__HK_Pilot32_Optical_Flow_Kit_With_Sonar.html)
+* Optical flow: [PX4 Flow unit](../sensor/px4flow.md)
 * Redundant power supply inputs and automatic failover
 * External safety switch
 * Multicolor LED main visual indicator
@@ -46,10 +46,6 @@ Order mRo Pixhawk from:
 * [Bare Bones](https://store.mrobotics.io/Genuine-PixHawk-1-Barebones-p/mro-pixhawk1-bb-mr.htm) - Just the board (useful as a 3DR Pixhawk replacement)
 * [mRo Pixhawk 2.4.6 Essential Kit](https://store.mrobotics.io/Genuine-PixHawk-Flight-Controller-p/mro-pixhawk1-minkit-mr.htm) - includes everything except for telemetry radios
 * [mRo Pixhawk 2.4.6 Cool Kit! (Limited edition)](https://store.mrobotics.io/product-p/mro-pixhawk1-fullkit-mr.htm) - includes everything you need including telemetry radios
-
-If out of stock the software-compatible but not connector-compatible versions can be used:
-
-* [HKPilot32](http://www.hobbyking.com/hobbyking/store/__55561__HKPilot32_Autonomous_Vehicle_32Bit_Control_Set_w_Power_Module.html)
 
 ## Specifications
 
@@ -240,20 +236,16 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
 ## Parts / Housings
 
-* **ARM MINI JTAG (J6**, //not populated per default//**)**: 1.27 mm 10pos header (SHROUDED, for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](http://www.distrelec.ch/en/Pin-header-SMT-straight-for-IDC-1-27-mm-10-Minitek-127-Pin-header-for-IDC%2C-shrouded%2C-straight%2C-SMT-FCI-20021521-00010D4LF/p/14352308?q=20021521-00010D4LF&page=1&origPos=1&origPageSize=10&simi=99.4), [Digi-Key](http://www.digikey.com/product-detail/en/20021521-00010T1LF/609-4054-ND/2414951),) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](http://www.digikey.com/product-detail/en/M50-3600542/952-1389-ND/2264370) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d)) 
+* **ARM MINI JTAG (J6**, //not populated per default//**)**: 1.27 mm 10pos header (SHROUDED, for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](http://www.distrelec.ch/en/Pin-header-SMT-straight-for-IDC-1-27-mm-10-Minitek-127-Pin-header-for-IDC%2C-shrouded%2C-straight%2C-SMT-FCI-20021521-00010D4LF/p/14352308?q=20021521-00010D4LF&page=1&origPos=1&origPageSize=10&simi=99.4), [Digi-Key](http://www.digikey.com/product-detail/en/20021521-00010T1LF/609-4054-ND/2414951),) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/products/en?keywords=M50-3600542) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d)) 
   * JTAG Adapter Option #1: [BlackMagic Probe](http://www.blacksphere.co.nz/main/blackmagic), comes without cables, needs the **Samtec FFSD-05-D-06.00-01-N** cable ([Samtec sample service](http://www.samtec.com/suddenservice/samples/samples.aspx) or [Digi-Key Link: SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) or [Tag Connect Ribbon](http://www.tag-connect.com/CORTEXRIBBON10) and a Mini-USB cable
-  * JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](http://search.digikey.com/us/en/cat/programmers-development-systems/in-circuit-programmers-emulators-and-debuggers/2621880?k=st%20link%20v2) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](http://search.digikey.com/us/en/products/MDL-ADA2/726-1193-ND/1986451)
-  * JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) or any other OpenOCD-compatible ARM Cortex JTAG adapter, needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](http://search.digikey.com/us/en/products/MDL-ADA2/726-1193-ND/1986451)
-* **USARTs**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](http://search.digikey.com/scripts/DkSearch/dksus.dll?WT.z_header=search_go&lang=en&site=us&keywords=DF13A-6P-1.25H%2820%29&x=0&y=0)) 
+  * JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND/2214535) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2)
+  * JTAG Adapter Option #3: [SparkFun Link: Olimex ARM-TINY](http://www.sparkfun.com/products/8278) or any other OpenOCD-compatible ARM Cortex JTAG adapter, needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2)
+* **USARTs**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3371-ND)) 
   * Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](http://search.digikey.com/us/en/products/DF13-6S-1.25C/H2182-ND/241752))
-* **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](http://search.digikey.com/scripts/DkSearch/dksus.dll?WT.z_header=search_go&lang=en&site=us&keywords=DF13A-4P-1.25H%2820%29&x=0&y=0)) 
-  * Mates: Hirose DF13 4 pos housing ([Digi-Key Link: Hirose DF13-4S-1.25C](http://www.digikey.com/product-search/en?KeyWords=DF13-4S-1.25C))
-* **USB (J5)**: Micro USB-B 
-  * Mates: Cell phone data / charger cables, e.g. [Digi-Key Link: ASSMANN AK67421-0.5-R](http://search.digikey.com/us/en/products/AK67421-0.5-R/AE10418-ND/2263977)
+* **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](http://search.digikey.com/scripts/DkSearch/dksus.dll?WT.z_header=search_go&lang=en&site=us&keywords=DF13A-4P-1.25H%2820%29&x=0&y=0))
 
 <!--
 ## Peripherals
-
 
 * [[:peripherals:sensors:px4airspeed|Digital airspeed sensor PX4AIRSPEED]]
 * [[https://store.3drobotics.com/products/3dr-gps-ublox-with-compass?taxon_id=34|u-Blox GPS Module]]
