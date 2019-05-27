@@ -8,5 +8,5 @@ The radios come with a 6-position DF13 connector, and are essentially plug-n-pla
 
 ## Purchase
 
-* [HKPilot Transceiver Telemetry Radio Set V2 (433Mhz)](http://www.hobbyking.com/hobbyking/store/uh_viewitem.asp?idproduct=55559)
-* [HKPilot Transceiver Telemetry Radio Set V2 (915Mhz)](https://hobbyking.com/en_us/hkpilot-transceiver-telemetry-radio-set-v2-915mhz.html)
+* [Micro HKPilot Telemetry radio Set With Integrated PCB Antenna 433Mhz](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-set-with-integrated-pcb-antenna-433mhz.html)
+* [Micro HKPilot Telemetry radio Set With Integrated PCB Antenna 915Mhz](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-set-with-integrated-pcb-antenna-915mhz.html)
