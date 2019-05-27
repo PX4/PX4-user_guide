@@ -46,4 +46,7 @@
 </h2>
 
 <p>
-  当处于FW模式时，VTOL遵循TAKEOFF行为和<a href="#fixed-wing-fw">固定翼</ 0>的参数，而当处于MC模式时，VTOL遵循<a href="#multi-copter-mc">多旋翼</ 1>的参数。</p> <!-- this maps to AUTO_TAKEOFF in dev -->
+  A VTOL follows the TAKEOFF behavior and parameters of <a href="#fixed_wing">Fixed Wing</a> when in FW mode, and of <a href="#multi-copter-mc">Multicopter</a> when in MC mode.
+</p>
+
+<!-- this maps to AUTO_TAKEOFF in dev -->
