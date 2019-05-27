@@ -106,7 +106,7 @@ Lua map of flight modes:
 
 <h3>D-port</h3>
 
-<p>D-Port 接收机从PX4传输以下信息(from <a href="http://shipow.github.io/cleanflight-web/docs/telemetry.html">here</a>):</p>
+<p>D-Port receivers transmit the following messages (from <a href="https://github.com/cleanflight/cleanflight/blob/master/docs/Telemetry.md">here</a>):</p>
 
 <ul>
 <li><strong>AccX, accy, accz:</strong>加速度计数值。</li>
