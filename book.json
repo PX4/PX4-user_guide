@@ -1,6 +1,6 @@
 {   
     "gitbook": ">= 3.2.2",
-    "title": "PX4 User Guide",
+    "title": "PX4 v1.9.0 User Guide",
     "variables": {
         "logo": "./assets/site/logo_pro_small.png",
         "px4_version": "v1.9.0"
