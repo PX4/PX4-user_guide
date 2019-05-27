@@ -12,7 +12,7 @@ PX4 supports the following LightWare Lidar rangefinders:
 - [SF10/A](http://lightware.co.za/shop2017/drone-altimeters/26-sf10a-25-m.html) (25 m)
 - [SF10/B](http://lightware.co.za/shop2017/drone-altimeters/25-sf10b-50-m.html) (50 m)
 - SF10/C (100m) (Discontinued)
-- [SF11/C](http://lightware.co.za/shop2017/drone-altimeters/44-sf11c-120-m.html) (120 m)
+- [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) (120 m)
 - [LW20](http://lightware.co.za/shop2017/drone-altimeters/51-lw20-100-m.html) (100 m) - Waterproofed (IP67) with servo for sense-and-avoid applications
 
 The lidars can be connected to I2C or serial ports, depending on their type (see below)
@@ -30,7 +30,7 @@ Connect the Lidar the autopilot I2C port as shown below (in this case, for the [
 
 ![SF1XX LIDAR to I2C connection](../../assets/hardware/sensors/sf1xx_i2c.jpg)
 
-> **Note** Some older revisions cannot be used with PX4. Specifically they may be miss-configured to have an I2C address equal to `0x55`, which conflicts with `rgbled` module. On Linux systems you may be able to determine the address using [i2cdetect](http://manpages.ubuntu.com/manpages/zesty/man8/i2cdetect.8.html). If the I2C address is equal to `0x66` the sensor can be used with PX4.
+> **Note** Some older revisions cannot be used with PX4. Specifically they may be miss-configured to have an I2C address equal to `0x55`, which conflicts with `rgbled` module. On Linux systems you may be able to determine the address using [i2cdetect](http://manpages.ubuntu.com/manpages/bionic/en/man8/i2cdetect.8.html). If the I2C address is equal to `0x66` the sensor can be used with PX4.
 
 ### Parameter Setup {#i2c_parameter_setup}
 
@@ -68,4 +68,4 @@ Then set the [SENS_EN_SF0X](../advanced_config/parameter_reference.md#SENS_EN_SF
 
 ## Further Information
 
-- [Modules Reference: Distance Sensor (Driver) : sf1xx](https://dev.px4.io/en/middleware/modules_driver_distance_sensor.html#sf1xx) (PX4 Dev Guide)
+- [Modules Reference: Distance Sensor (Driver) : sf1xx](https://dev.px4.io/master/en/middleware/modules_driver_distance_sensor.html#sf1xx) (PX4 Dev Guide)
