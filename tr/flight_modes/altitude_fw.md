@@ -10,7 +10,7 @@ The throttle input controls airspeed. Roll and pitch are angle-controlled (so it
 
 When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throttle) the aircraft will return to straight, level flight (subject to wind) and keep its current altitude.
 
-The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitters-for-aircraft)).
+The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
 ![Altitude Control FW](../../images/flight_modes/altitude_control_mode_fw.png)
 
@@ -23,9 +23,9 @@ RC/manual mode like Stabilized mode but with altitude stabilization (centered st
   * Throttle stick controls the airspeed of the aircraft if an airspeed sensor is connected. Without an airspeed sensor the user cannot control throttle (in which case the vehicle will fly level at cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)), increasing or decreasing throttle as needed to climb or descend).
 * Outside center: 
   * Pitch stick controls altitude.
-  * Throttle stick controls the airspeed of the aircraft (as for centred Roll/Pitch/Yaw inputs).
-  * Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight). This is same as in [Stabilized mode](#stabilized_fw).
-  * aw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)). This is same as in [Stabilized mode](#stabilized_fw).
+  * Throttle stick controls the airspeed of the aircraft (as for centered Roll/Pitch/Yaw inputs).
+  * Roll stick controls roll angle. Autopilot will maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight). This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
+  * Yaw stick actuates the rudder (signal will be added to the one calculated by the autopilot to maintain [coordinated flight](https://en.wikipedia.org/wiki/Coordinated_flight)). This is same as in [Stabilized mode](../flight_modes/stabilized_fw.md).
 
 > **Note** * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink). * The altitude is normally measured using a barometer, which may become inaccurate in extreme weather conditions. Vehicles that include a LIDAR/range sensor will be able to control altitude with greater reliability and accuracy.
 
