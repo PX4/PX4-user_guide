@@ -123,7 +123,7 @@ After setting up the PX4 development environment, follow these steps update the 
 1. Make sure you are connected to the board with WiFi or USB Network
 2. ssh to the board and make sure MAVLink forwarding runs. By default it automatically starts when booting. It can be started manually with: ```systemctl start mavlink-router```
 3. Start QGroundControl and it should automatically connect.
-4. Instead of starting QGroundControl, you can open a [NuttX shell](https://dev.px4.io/en/debug/system_console.html#mavlink-shell) with: ```./Tools/mavlink_shell.py 0.0.0.0:14550```
+4. Instead of starting QGroundControl, you can open a [NuttX shell](https://dev.px4.io/master/en/debug/system_console.html#mavlink_shell) with: ```./Tools/mavlink_shell.py 0.0.0.0:14550```
 
 ## Connecting LeddarOne Range Finder {#leddarone}
 
