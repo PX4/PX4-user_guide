@@ -5,8 +5,8 @@ TeraRanger provide a number of lightweight distance measurement sensor based on 
 PX4 supports:
 
 * [TeraRanger One](http://www.teraranger.com/products/teraranger-one/) (0.2 - 14 m) (Requires an [I2C adapter](http://www.teraranger.com/product/teraranger-i2c-adapter/))
-* [TeraRanger Evo 60m](https://www.terabee.com/portfolio-item/teraranger-evo-infrared-distance-sensor/) (0.5 – 60 m)
-* TeraRanger Evo 600Hz (0.75 - 8 m)
+* [TeraRanger Evo 60m](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-60m/) (0.5 – 60 m)
+* [TeraRanger Evo 600Hz](https://www.terabee.com/shop/lidar-tof-range-finders/teraranger-evo-600hz/) (0.75 - 8 m)
 
 > **Info** The *Terranger One* is used in the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md).
 
@@ -32,4 +32,4 @@ The sensors are enabled using the parameter [SENS_EN_TRANGER](../advanced_config
 
 ## Further Information
 
-* [Modules Reference: Distance Sensor (Driver) : teraranger](https://dev.px4.io/en/middleware/modules_driver_distance_sensor.html#teraranger) (PX4 Dev Guide)
+* [Modules Reference: Distance Sensor (Driver) : teraranger](https://dev.px4.io/master/en/middleware/modules_driver_distance_sensor.html#teraranger) (PX4 Dev Guide)
