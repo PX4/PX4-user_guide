@@ -2,7 +2,7 @@
 
 # PX4 오토파일럿 사용자 가이드 ({{ book.px4_version }})
 
-[![릴리즈](https://img.shields.io/github/release/PX4/Firmware.svg)](https://github.com/PX4/Firmware/releases) [![논의](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
+[![릴리즈](https://img.shields.io/badge/release-{{ book.px4_version }}-blue.svg)](https://github.com/PX4/Firmware/releases) [![논의](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
 PX4는 *전문가용 오토파일럿*입니다. 산업계 및 학계의 세계적 수준의 개발자에 의해 개발되고 활발한 전세계 커뮤니티에 의해 지원되며, 레이싱 및 카고 드론에서 지상 차량 및 잠수정에 이르기까지 모든 종류의 이동체에 적용됩니다.
 
