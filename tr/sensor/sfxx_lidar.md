@@ -6,23 +6,29 @@ LightWare develops a range of light-weight, general purpose, laser altimeters ("
 
 ## Supported Models
 
-PX4 supports the following LightWare Lidar rangefinders:
+The following models are supported by PX4, and can be connected to either the I2C or Serial bus (the tables below indicates what bus can be used for each model).
 
-- [SF02](http://lightware.co.za/shop2017/proximity-sensors/1-sf02f.html) (50 m)
-- [SF10/A](http://lightware.co.za/shop2017/drone-altimeters/26-sf10a-25-m.html) (25 m)
-- [SF10/B](http://lightware.co.za/shop2017/drone-altimeters/25-sf10b-50-m.html) (50 m)
-- SF10/C (100m) (Discontinued)
-- [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) (120 m)
-- [LW20](http://lightware.co.za/shop2017/drone-altimeters/51-lw20-100-m.html) (100 m) - Waterproofed (IP67) with servo for sense-and-avoid applications
+### Available
 
-The lidars can be connected to I2C or serial ports, depending on their type (see below)
+| Model                                                                                  | Range (m) | Bus               | Description                                                     |
+| -------------------------------------------------------------------------------------- | --------- | ----------------- | --------------------------------------------------------------- |
+| [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) | 120       | Serial or I2C bus |                                                                 |
+| [LW20](http://lightware.co.za/shop2017/drone-altimeters/51-lw20-100-m.html)            | 100       | I2C bus           | Waterproofed (IP67) with servo for sense-and-avoid applications |
 
-- **Serial**: SF02, SF10/a, SF10/b, SF10/c, SF11/c
-- **I2C**: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20
+### Discontinued
+
+The following models are no longer available from the manufacturer.
+
+| Model                                                                         | Range | Bus           |
+| ----------------------------------------------------------------------------- | ----- | ------------- |
+| [SF02](http://lightware.co.za/shop2017/proximity-sensors/1-sf02f.html)        | 50    | Serial        |
+| [SF10/A](http://lightware.co.za/shop2017/drone-altimeters/26-sf10a-25-m.html) | 25    | Serial or I2C |
+| [SF10/B](http://lightware.co.za/shop2017/drone-altimeters/25-sf10b-50-m.html) | 50    | Serial or I2C |
+| SF10/C                                                                        | 100m  | Serial or I2C |
 
 ## I2C Setup
 
-The following models can be connected to the I2C port: SF10/a, SF10/b, SF10/c, SF11/c, SF/LW20
+Check the tables above to confirm that which models can be connected to the I2C port.
 
 ### Hardware {#i2c_hardware_setup}
 
