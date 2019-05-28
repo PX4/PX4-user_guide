@@ -77,7 +77,7 @@ After setting up the PX4 development environment, follow these steps to install 
   ```
   make bitcraze_crazyflie_default menuconfig
   ```
-  or *qconfig*:
+  or *qconfig* (Check *Low-level console support* under *Serial Driver Support* in GUI):
   ```
   make bitcraze_crazyflie_default qconfig
   ```
