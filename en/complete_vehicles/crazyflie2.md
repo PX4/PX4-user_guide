@@ -72,7 +72,15 @@ After setting up the PX4 development environment, follow these steps to install 
 1. Wait for completion.
 1. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html).
 
-> **Note** If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/Firmware/blob/master/platforms/nuttx/nuttx-configs/crazyflie/nsh/defconfig#L934) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`
+> **Note** If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/Firmware/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`.
+  This should be done using *menuconfig*:
+  ```
+  make bitcraze_crazyflie_default menuconfig
+  ```
+  or *qconfig* (Check *Low-level console support* under *Serial Driver Support* in GUI):
+  ```
+  make bitcraze_crazyflie_default qconfig
+  ```
 
 ## Wireless Setup Instructions
 
