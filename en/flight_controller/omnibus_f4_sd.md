@@ -42,7 +42,7 @@ The board is produced by different vendors, with some variations (e.g. with or w
 > **Tip** Any Omnibus F4 labeled derivative (e.g. clone) should work as well. However, power distribution on these boards is of varying quality.
 
 These are the boards tested and known to work:
-- [Hobbywing XRotor Flight Controller F4](http://www.hobbywing.com/goods.php?id=590) 
+- [Hobbywing XRotor Flight Controller F4](http://a.hobbywing.com/goods.php?id=636) 
    > **Note** This board fits on top of the [Hobbywing XRotor Micro 40A 4in1 ESC](http://www.hobbywing.com/goods.php?id=588) without soldering. This ESC board also provides power for the Omnibus board.
    
    Purchase from:
