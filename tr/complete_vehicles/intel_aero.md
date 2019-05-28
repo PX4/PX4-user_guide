@@ -127,7 +127,7 @@ After setting up the PX4 development environment, follow these steps update the 
 
 ## Connecting LeddarOne Range Finder {#leddarone}
 
-Connect the [LeddarOne](../sensor/leddar_one.md) to the Aero telemetry port. The pinout for the LeddarOne and Aero telemetry port are as follows.
+Connect the [LeddarOne](../sensor/leddar_one.md) to the Aero telemetry port. The pinout for the LeddarOne and Aero telemetry port (TELEM1) are as follows.
 
 | Pin | Aerofc TELEMETRY | LeddarOne |
 | --- | ---------------- | --------- |
@@ -138,9 +138,7 @@ Connect the [LeddarOne](../sensor/leddar_one.md) to the Aero telemetry port. The
 | 5   | SDA              | TX        |
 | 6   | GND              | -         |
 
-To enable the rangefinder set the [SENS_EN_LEDDAR1](../advanced_config/parameter_reference.md#SENS_EN_LEDDAR1) parameter to 1 and reboot the board (instructions for setting parameters [available here](../advanced_config/parameters.md)).
-
-> **Tip** If you need to restore the telemetry port to MAVLink, set `SENS_EN_LEDDAR1=0` and reboot.
+To enable the rangefinder set the [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG) parameter to TELEM1 and reboot the board (instructions for setting parameters [available here](../advanced_config/parameters.md)).
 
 ## Connecting Lidar Lite Range Finder {#lidar_lite}
 
