@@ -14,7 +14,6 @@ More detailed setup and configuration information is provided in the topics link
 [Lidar-Lite](../sensor/lidar_lite.md) is a compact, high-performance optical distant measurement rangefinder. 
 It has a sensor range from (5cm - 40m) and can be connected to either PWM or I2C ports.
 
-
 ### MaxBotix I2CXL-MaxSonar-EZ
 
 The MaxBotix [I2CXL-MaxSonar-EZ](https://www.maxbotix.com/product-category/i2cxl-maxsonar-ez-products) range has a number of relatively short-ranged sonar based rangefinders that are suitable for assisted takeoff/landing and collision avoidance. 
@@ -24,16 +23,10 @@ The rangefinders are enabled using the parameter [SENS_EN_MB12XX](../advanced_co
 
 ### Lightware LIDARs
 
-[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) provide a range of lightweight "laser altimeters" that are suitable for many drone applications:
-* [SF02](http://lightware.co.za/shop2017/proximity-sensors/1-sf02f.html)
-* [SF10/A](http://lightware.co.za/shop2017/drone-altimeters/26-sf10a-25-m.html) (25 m)
-* [SF10/B](http://lightware.co.za/shop2017/drone-altimeters/25-sf10b-50-m.html) (50 m)
-* SF10/C (100m) (Discontinued)
-* [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) (120 m)
-* [SF/LW20](http://lightware.co.za/shop2017/drone-altimeters/51-lw20-100-m.html) (100 m) - Waterproofed (IP67) with servo for sense-and-avoid applications
+[Lightware SFxx Lidar](../sensor/sfxx_lidar.md) provide a broad range of lightweight "laser altimeters" that are suitable for many drone applications.
 
-Drivers exist for both I2C and serial ports (not all devices are supported for both serial and I2C).
-
+PX4 supports: SF11/c and SF/LW20.
+PX4 can also be used with the following discontinued models: SF02, SF10/a, SF10/b, SF10/c.
 
 ### TeraRanger Rangefinders
 
