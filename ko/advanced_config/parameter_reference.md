@@ -198,7 +198,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.1
+      50.1
     </td>
     
     <td style="vertical-align: top;">
@@ -29365,6 +29365,9 @@
         </li>
         <li>
           <strong>2:</strong> from boot until shutdown
+        </li>
+        <li>
+          <strong>3:</strong> depending on AUX1 RC channel
         </li>
       </ul>
       
