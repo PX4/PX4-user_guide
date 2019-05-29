@@ -11345,53 +11345,6 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;">deg C</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="SYS_COMPANION">SYS_COMPANION</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>TELEM2 as companion computer link (deprecated)</p><p><strong>Comment:</strong> This parameter is deprecated and will be removed after 1.9.0. Use the generic serial configuration parameters instead (e.g. MAV_0_CONFIG, MAV_0_MODE, etc.).</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>10:</strong> FrSky Telemetry</li> 
-
-<li><strong>20:</strong> Crazyflie (Syslink)</li> 
-
-<li><strong>57600:</strong> Companion Link (57600 baud, 8N1)</li> 
-
-<li><strong>157600:</strong> OSD (57600 baud, 8N1)</li> 
-
-<li><strong>257600:</strong> Command Receiver (57600 baud, 8N1)</li> 
-
-<li><strong>319200:</strong> Normal Telemetry (19200 baud, 8N1)</li> 
-
-<li><strong>338400:</strong> Normal Telemetry (38400 baud, 8N1)</li> 
-
-<li><strong>357600:</strong> Normal Telemetry (57600 baud, 8N1)</li> 
-
-<li><strong>519200:</strong> Minimal Telemetry (19200 baud, 8N1)</li> 
-
-<li><strong>538400:</strong> Minimal Telemetry (38400 baud, 8N1)</li> 
-
-<li><strong>557600:</strong> Minimal Telemetry (57600 baud, 8N1)</li> 
-
-<li><strong>921600:</strong> Companion Link (921600 baud, 8N1)</li> 
-
-<li><strong>1500000:</strong> Companion Link (1500000 baud, 8N1)</li> 
-
-<li><strong>1921600:</strong> ESP8266 (921600 baud, 8N1)</li> 
-
-<li><strong>3115200:</strong> Normal Telemetry (115200 baud, 8N1)</li> 
-
-<li><strong>4115200:</strong> Iridium Telemetry (115200 baud, 8N1)</li> 
-
-<li><strong>5115200:</strong> Minimal Telemetry (115200 baud, 8N1)</li> 
-
-<li><strong>6460800:</strong> RTPS Client (460800 baud)</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
-</td>
- <td style="vertical-align: top;">0 > 6460800 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="SYS_FMU_TASK">SYS_FMU_TASK</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Run the FMU as a task to reduce latency</p><p><strong>Comment:</strong> If true, the FMU will run in a separate task instead of on the work queue. Set this if low latency is required, for example for racing. This is a trade-off between RAM usage and latency: running as a task, it requires a separate stack and directly polls on the control topics, whereas running on the work queue, it runs at a fixed update rate.</p>   <p><b>Reboot required:</b> true</p>
 </td>
