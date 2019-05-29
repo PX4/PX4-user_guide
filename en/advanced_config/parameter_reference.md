@@ -9182,6 +9182,8 @@ to takeoff is reached</p>   </td>
 <li><strong>1:</strong> from boot until disarm</li> 
 
 <li><strong>2:</strong> from boot until shutdown</li> 
+
+<li><strong>3:</strong> depending on AUX1 RC channel</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
