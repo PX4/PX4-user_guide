@@ -29366,6 +29366,9 @@
         <li>
           <strong>2:</strong> from boot until shutdown
         </li>
+        <li>
+          <strong>3:</strong> depending on AUX1 RC channel
+        </li>
       </ul>
       
       <p>
