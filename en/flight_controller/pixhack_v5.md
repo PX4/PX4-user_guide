@@ -1,11 +1,11 @@
-# Pixhack v5
+# CUAV v5
 
-*Pixhack v5*<sup>&reg;</sup> is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 
+*CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 
 The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. 
 It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with PX4 firmware. 
 It is intended primarily for academic and commercial developers.
 
-![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5.jpg)
+![CUAV v5](../../assets/flight_controller/pixhack_v5/pixhack_v5.jpg)
 
 ## Quick Summary
 
@@ -48,14 +48,14 @@ Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426
 
 ## Connection {#connection}
 
-![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5_connector.jpg)
+![CUAV v5](../../assets/flight_controller/pixhack_v5/pixhack_v5_connector.jpg)
 
 > **Warning**The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
 
 
 ## Voltage Ratings
 
-*Pixhack v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+*CUAV v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered. 
 
@@ -78,15 +78,15 @@ make px4_fmu-v5_default
 ## Debug Port
 
 The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector.
-To access the I/O Debug port, the user must remove the Pixhack v5 shell.
+To access the I/O Debug port, the user must remove the CUAV v5 shell.
 Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
 
 The pinout is as shown.
 
-![Pixhack v5 debug](../../assets/flight_controller/pixhack_v5/pixhack_v5_debug.jpg)
+![CUAV v5 debug](../../assets/flight_controller/pixhack_v5/pixhack_v5_debug.jpg)
 
 
-pin | pixhack v5 debug 
+pin | CUAV v5 debug 
 --- | --- 
 1 | GND 
 2 | FMU-SWCLK 
@@ -111,7 +111,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## Further info
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
-- [Pixhack v5 docs](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
+- [CUAV v5 docs](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
 - [CUAV Github](https://github.com/cuav) 
 
 
