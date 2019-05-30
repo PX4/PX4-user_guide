@@ -158,7 +158,7 @@
     * [Pixhack v3](flight_controller/pixhack_v3.md)
     * [Pixhawk 4](flight_controller/pixhawk4.md)
     * [Pixhawk 4 Mini](flight_controller/pixhawk4_mini.md)
-    * [Pixhack v5](flight_controller/pixhack_v5.md)
+    * [CUAV v5 (Pixhack v5)](flight_controller/pixhack_v5.md)
     * [Pixhawk Mini (Discontinued)](flight_controller/pixhawk_mini.md)
     * [AUAV-X2 (Discontinued)](flight_controller/auav_x2.md)
     * [Silicon Errata](flight_controller/silicon_errata.md)
