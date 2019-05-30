@@ -1,8 +1,8 @@
-# Pixhack v5
+# CUAV v5
 
-*Pixhack v5*<sup>&reg;</sup> 是由CUAV<sup>&reg;</sup>设计和制造的先进的自动驾驶仪。 该控制器基于[Pixhawk项目](https://pixhawk.org/)的**FMUv5** 开源硬件设计。 它在[NuttX](http://nuttx.org) OS操作系统上运行PX4，并与PX4固件完全兼容。 它主要面向学术和商业开发者。
+*CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 该控制器基于[Pixhawk项目](https://pixhawk.org/)的**FMUv5** 开源硬件设计。 它在[NuttX](http://nuttx.org) OS操作系统上运行PX4，并与PX4固件完全兼容。 它主要面向学术和商业开发者。
 
-![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5.jpg)
+![CUAV v5](../../assets/flight_controller/pixhack_v5/pixhack_v5.jpg)
 
 ## 快速预览
 
@@ -47,13 +47,13 @@
 
 ## 接口定义 {#connection}
 
-![Pixhack v5](../../assets/flight_controller/pixhack_v5/pixhack_v5_connector.jpg)
+![CUAV v5](../../assets/flight_controller/pixhack_v5/pixhack_v5_connector.jpg)
 
 > **Warning** RCIN接口仅限于为遥控接收机供电，不能连接任何电源/负载。
 
 ## 额定电压
 
-*Pixhack v5*在电源上可以实现三度冗余。 三个电源口：**POWER1**, **POWER2** and **USB**。 
+*CUAV v5* can be triple-redundant on the power supply if three power sources are supplied. 三个电源口：**POWER1**, **POWER2** and **USB**。 
 
 > **Note**输出电源轨** FMU PWM OUT**和**IO PWM OUT** （0V至36V）不为飞行控制器供电（并且不由其供电)。 您必须在**POWER1** 、**POWER2** 或 **USB** 任一接口中接入电源，否则主板将断开供电。
 
@@ -75,20 +75,20 @@
 
 ## Debug调试端口
 
-系统的串行控制台和SWD接口在** FMU Debug **端口上运行。 只需将FTDI电缆连接到Debug & F7 SWD连接器。 如需访问IO调试接口，用户必须去除Pixhack v5的外壳。 这两个端口都有标准串行引脚, 可以连接到标准的FTDI电缆(3.3 v,但耐压5v )。
+系统的串行控制台和SWD接口在** FMU Debug **端口上运行。 只需将FTDI电缆连接到Debug & F7 SWD连接器。 To access the I/O Debug port, the user must remove the CUAV v5 shell. 这两个端口都有标准串行引脚, 可以连接到标准的FTDI电缆(3.3 v,但耐压5v )。
 
 引脚排列如图所示
 
-![Pixhack v5 调试](../../assets/flight_controller/pixhack_v5/pixhack_v5_debug.jpg)
+![CUAV v5 debug](../../assets/flight_controller/pixhack_v5/pixhack_v5_debug.jpg)
 
-| 针脚 | Pixhack V5 调试定义 |
-| -- | --------------- |
-| 1  | GND             |
-| 2  | FMU-swclk       |
-| 3  | FMU-SWDIO       |
-| 4  | UART7_RX        |
-| 5  | UART7_TX        |
-| 6  | VCC             |
+| 针脚 | CUAV v5 debug |
+| -- | ------------- |
+| 1  | GND           |
+| 2  | FMU-swclk     |
+| 3  | FMU-SWDIO     |
+| 4  | UART7_RX      |
+| 5  | UART7_TX      |
+| 6  | VCC           |
 
 ## 外部设备
 
@@ -104,5 +104,5 @@
 
 * FMUv5参考设计</0 >。 </li> 
   
-  * [Pixhack v5 文档](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
+  * [CUAV v5 docs](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
   * [CUAV Github库](https://github.com/cuav) </ul>
