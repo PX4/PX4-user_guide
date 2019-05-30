@@ -158,7 +158,7 @@
     * [Pixhack v3](flight_controller/pixhack_v3.md)
     * [Pixhawk 4](flight_controller/pixhawk4.md)
     * [Pixhawk 4 Mini](flight_controller/pixhawk4_mini.md)
-    * [Pixhack v5](flight_controller/pixhack_v5.md)
+    * [CUAV v5](flight_controller/pixhack_v5.md)
     * [Pixhawk Mini （停产）](flight_controller/pixhawk_mini.md)
     * [Auav-x2 (停产)](flight_controller/auav_x2.md)
     * [芯片勘误表](flight_controller/silicon_errata.md)
