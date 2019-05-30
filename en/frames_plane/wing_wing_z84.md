@@ -25,10 +25,10 @@ One of these:
 
 ### Electronic Speed Controller (ESC)
 
-One of these:
+One of these (any small (>=12A) ESC will do):
 
 -   [Blue Series 12A ESC](https://hobbyking.com/en_us/hobbyking-12a-blueseries-brushless-speed-controller.html) (Hobbyking)
--   [ePower Pro 12A](http://www.eflight.ch/pi/ePower-Pro-12A.html) (Eflight - Switzerland)
+-   [Lumenier Regler 30A BLHeli_S ESC OPTO](https://www.brack.ch/lumenier-regler-30a-blhelis-esc-opto-2-4s-589152) (Brack - Switzerland)
 
 ### Autopilot and Essential Components
 
