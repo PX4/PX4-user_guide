@@ -2590,7 +2590,7 @@ Set to 0 to disable heading hold</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_LND_THRTC_SC">FW_LND_THRTC_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Throttle time constant factor for landing</p><p><strong>Comment:</strong> Set this parameter to <1.0 to make the TECS throttle loop react faster during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS throttle time constant (FW_T_THRO_CONST) is multiplied by this value.</p>   </td>
+ <td style="vertical-align: top;"><p>Throttle time constant factor for landing</p><p><strong>Comment:</strong> Set this parameter to less than 1.0 to make the TECS throttle loop react faster during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS throttle time constant (FW_T_THRO_CONST) is multiplied by this value.</p>   </td>
  <td style="vertical-align: top;">0.2 > 1.0 (0.1)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
