@@ -67,7 +67,7 @@ The settings and underlying parameters are shown below.
 
 ### Data Link Loss Failsafe
 
-The Data Link loss failsafe is triggered if a telemetry link (connection to ground station) is lost.
+The Data Link Loss failsafe is triggered if a telemetry link (connection to ground station) is lost when flying a [mission](../flying/missions.md).
 
 ![Safety - Data Link Loss (QGC)](../../images/qgc/setup/safety_data_link_loss.png)
 
