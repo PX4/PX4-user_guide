@@ -8633,7 +8633,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Set this parameter to <1.0 to make the TECS throttle loop react faster during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS throttle time constant (FW_T_THRO_CONST) is multiplied by this value.
+        <strong>Comment:</strong> Set this parameter to less than 1.0 to make the TECS throttle loop react faster during landing than during normal flight (i.e. giving efficiency and low motor wear at high altitudes but control accuracy during landing). During landing, the TECS throttle time constant (FW_T_THRO_CONST) is multiplied by this value.
       </p>
     </td>
     
