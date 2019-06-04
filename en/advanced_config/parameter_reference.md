@@ -5130,6 +5130,13 @@ the vehicle will accelerate at this rate until the normal position control speed
  <td style="vertical-align: top;">meters</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MPC_COL_PREV_DLY">MPC_COL_PREV_DLY</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Average delay of the range sensor message in seconds</p><p><strong>Comment:</strong> Only used in Position mode.</p>   </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0. </td>
+ <td style="vertical-align: top;">seconds</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MPC_CRUISE_90">MPC_CRUISE_90</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Cruise speed when angle prev-current/current-next setpoint
 is 90 degrees. It should be lower than MPC_XY_CRUISE</p><p><strong>Comment:</strong> Applies only in AUTO modes (includes also RTL / hold / etc.)</p>   </td>
