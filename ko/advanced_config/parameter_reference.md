@@ -19490,7 +19490,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -19516,7 +19516,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -19542,7 +19542,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -19568,7 +19568,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -19594,7 +19594,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -19620,7 +19620,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -19646,7 +19646,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -19672,7 +19672,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -20970,7 +20970,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -20996,7 +20996,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -21022,7 +21022,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -21048,7 +21048,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -21074,7 +21074,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -21100,7 +21100,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -21126,7 +21126,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
@@ -21152,7 +21152,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Enable to invert the channel.
+        <strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.
       </p>
     </td>
     
