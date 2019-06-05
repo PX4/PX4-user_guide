@@ -1528,7 +1528,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 121212 will disable the flight termination action. --> The IO driver will not do flight termination if requested by the FMU WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>Comment:</strong> Setting this parameter to 121212 will disable the flight termination action if triggered by the FailureDetector logic or if FMU is lost. This circuit breaker does not affect the RC loss, data link loss and geofence safety logic.
       </p>
       
       <p>
@@ -9807,12 +9807,12 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Maximum pitch angle before FailureDetector triggers the attitude_failure flag Does not affect the behavior of the vehicle for now; only for logging
+        <strong>Comment:</strong> Maximum pitch angle before FailureDetector triggers the attitude_failure flag If flight termination is enabled (@CBRK_FLIGHTTERM set to 0), the autopilot will terminate the flight and set all the outputs to their failsafe value as soon as the attitude_failure flag is set. Setting this parameter to 0 disables the check
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      0 > 180
+      60 > 180
     </td>
     
     <td style="vertical-align: top;">
@@ -9821,6 +9821,34 @@
     
     <td style="vertical-align: top;">
       degrees
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="FD_FAIL_P_TTRI">FD_FAIL_P_TTRI</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch failure trigger time
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Seconds (decimal) that pitch has to exceed FD_FAIL_P before being considered as a failure.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.02 > 5
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.3
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
     </td>
   </tr>
   
@@ -9835,12 +9863,12 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Maximum roll angle before FailureDetector triggers the attitude_failure flag Does not affect the behavior of the vehicle for now; only for logging
+        <strong>Comment:</strong> Maximum roll angle before FailureDetector triggers the attitude_failure flag If flight termination is enabled (@CBRK_FLIGHTTERM set to 0), the autopilot will terminate the flight and set all the outputs to their failsafe value as soon as the attitude_failure flag is set. Setting this parameter to 0 disables the check
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      0 > 180
+      60 > 180
     </td>
     
     <td style="vertical-align: top;">
@@ -9849,6 +9877,34 @@
     
     <td style="vertical-align: top;">
       degrees
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="FD_FAIL_R_TTRI">FD_FAIL_R_TTRI</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll failure trigger time
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Seconds (decimal) that roll has to exceed FD_FAIL_R before being considered as a failure.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.02 > 5
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.3
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
     </td>
   </tr>
 </table>
