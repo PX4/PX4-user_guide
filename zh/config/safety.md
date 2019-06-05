@@ -9,16 +9,16 @@ PX4 has a number of safety features to protect and recover your vehicle if somet
 
 Each failsafe defines its own set of actions. Some of the more common failsafe actions are:
 
-| Action                                          | 描述                                                                                                                                                                                                                  |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| None/Disabled                                   | No action (the failsafe will be ignored).                                                                                                                                                                           |
-| 报警                                              | A warning message will be sent to *QGroundControl*.                                                                                                                                                                 |
-| [Hold mode](../flight_modes/hold.md)            | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.                                                                               |
-| [返航模式](../flight_modes/return.md)               | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return_settings) (below).                                                                                          |
-| [降落模式](../flight_modes/land.md)                 | The vehicle will enter *Land mode*, and lands immediately.                                                                                                                                                          |
-| RC Auto Recovery (CASA Outback Challenge rules) | TBD                                                                                                                                                                                                                 |
-| Terminate/Flight termination                    | Turns off all controllers and sets all PWM outputs to a failsafe value (defined in airframe configuration using `FAILSAFE` variable). For a fixed-wing vehicle this might allow you to glide the vehicle to safety. |
-| Lockdown                                        | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill_switch).                                                                                                                |
+| Action                                                         | 描述                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| None/Disabled                                                  | No action (the failsafe will be ignored).                                                                                                                                                                                                                                                                                                                                                                                     |
+| 报警                                                             | A warning message will be sent to *QGroundControl*.                                                                                                                                                                                                                                                                                                                                                                           |
+| [Hold mode](../flight_modes/hold.md)                           | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.                                                                                                                                                                                                                                                                                         |
+| [返航模式](../flight_modes/return.md)                              | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return_settings) (below).                                                                                                                                                                                                                                                                                                    |
+| [降落模式](../flight_modes/land.md)                                | The vehicle will enter *Land mode*, and lands immediately.                                                                                                                                                                                                                                                                                                                                                                    |
+| RC Auto Recovery (CASA Outback Challenge rules)                | TBD                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| [Flight termination](../advanced_config/flight_termination.md) | Turns off all controllers and sets all PWM outputs to their failsafe values (e.g. [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1)). The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. For a fixed-wing vehicle this might allow you to glide the vehicle to safety. |
+| Lockdown                                                       | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill_switch).                                                                                                                                                                                                                                                                                                                          |
 
 > **Note** It is possible to recover from a failsafe action (if the cause is fixed) by switching modes. For example, in the case where RC Loss failsafe causes the vehicle to enter *Return mode*, if RC is recovered you can change to *Position mode* and continue flying.
 
@@ -209,6 +209,24 @@ The relevant parameters are shown below:
 | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [VT_FW_ALT_ERR](../advanced_config/parameter_reference.md#VT_FW_ALT_ERR) | Maximum negative altitude error for fixed wing flight. If the altitude drops more than this value below the altitude setpoint the vehicle will transition back to MC mode and enter failsafe RTL. |
 
+## Failure Detector {#failure_detector}
+
+The failure detector allows a vehicle to take protective action(s) if it unexpectedly flips - for example, it can launch a [parachute](../peripherals/parachute.md) or perform some other action).
+
+> **Note** Failure detection is deactivated by default using a circuit breaker. You can enable it by setting [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM).
+
+More precisely, the failure detector triggers [flight termination](../advanced_config/flight_termination.md) (in all modes) if the vehicle attitude exceeds predefined pitch and roll values for more than a specified time.
+
+The relevant parameters are shown below:
+
+| Parameter                                                                                             | Description                                                                                                                      |
+| ----------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| <span id="CBRK_FLIGHTTERM"></span>[CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Flight termination circuit breaker. Unset from 121212 (default) to enable flight termination due to FailureDetector or FMU loss. |
+| <span id="FD_FAIL_P"></span>[FD_FAIL_P](../advanced_config/parameter_reference.md#FD_FAIL_P)           | Maximum allowed pitch (in degrees).                                                                                              |
+| <span id="FD_FAIL_R"></span>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R)           | Maximum allowed roll (in degrees).                                                                                               |
+| <span id="FD_FAIL_P_TTRI"></span>[FD_FAIL_P_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_P_TTRI) | Time to exceed [FD_FAIL_P](#FD_FAIL_P) for failure detection (default 0.3s).                                                   |
+| <span id="FD_FAIL_R_TTRI"></span>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | Time to exceed [FD_FAIL_R](#FD_FAIL_R) for failure detection (default 0.3s).                                                   |
+
 ## Safety Switches {#safety_switch}
 
 A safety switch allows you to immediately stop all motors or return the vehicle from the remote control transmitter (if you lose control of the vehicle, this may be better than allowing it to continue flying).
@@ -247,6 +265,6 @@ For modes that do not support disarming in flight, the switch is ignored during 
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
 
-## 更多信息：
+## Further Information
 
 * [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
