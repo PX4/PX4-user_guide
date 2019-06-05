@@ -2800,6 +2800,49 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_FLT_PROFILE">COM_FLT_PROFILE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        User Flight Profile
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Describes the intended use of the vehicle. Can be used by ground control software or log post processing. This param does not influence the behavior within the firmware. This means for example the control logic is independent of the setting of this param (but depends on other params).
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Default
+        </li>
+        <li>
+          <strong>100:</strong> Pro User
+        </li>
+        <li>
+          <strong>200:</strong> Flight Tester
+        </li>
+        <li>
+          <strong>300:</strong> Developer
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_HLDL_LOSS_T">COM_HLDL_LOSS_T</strong> (INT32)
     </td>
     
