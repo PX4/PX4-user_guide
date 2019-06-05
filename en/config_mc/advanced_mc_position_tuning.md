@@ -1,6 +1,6 @@
 # Advanced Multicopter Position Control Tuning
 
-This document provides an overview of the multicopter position-control tuning parameters that affect the value of a desired setpoint (as contrasted with those parameters that affect how well the vehicle tracks the setpoint). 
+This document provides an overview of the multicopter position-control tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements, the maximum allowed velocity, etc. (i.e. the parameters that affect the value of a desired setpoint rather than those that affect how well the vehicle *tracks* the setpoint). 
 
 > **Warning** This guide is for advanced users/experts.
 
