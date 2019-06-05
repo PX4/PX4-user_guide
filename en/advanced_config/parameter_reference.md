@@ -5819,56 +5819,56 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV1">PWM_AUX_REV1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV2">PWM_AUX_REV2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV3">PWM_AUX_REV3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV4">PWM_AUX_REV4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV5">PWM_AUX_REV5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV6">PWM_AUX_REV6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV7">PWM_AUX_REV7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 7</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 7</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_AUX_REV8">PWM_AUX_REV8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 8</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of auxiliary output channel 8</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
@@ -6195,56 +6195,56 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV1">PWM_MAIN_REV1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 1</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV2">PWM_MAIN_REV2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 2</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV3">PWM_MAIN_REV3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 3</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV4">PWM_MAIN_REV4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 4</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV5">PWM_MAIN_REV5</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 5</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV6">PWM_MAIN_REV6</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 6</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV7">PWM_MAIN_REV7</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 7</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 7</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PWM_MAIN_REV8">PWM_MAIN_REV8</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Invert direction of main output channel 8</p><p><strong>Comment:</strong> Enable to invert the channel.</p>   </td>
+ <td style="vertical-align: top;"><p>Invert direction of main output channel 8</p><p><strong>Comment:</strong> Enable to invert the channel. Warning: Use this parameter when connected to a servo only. For a brushless motor, invert manually two phases to reverse the direction.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
