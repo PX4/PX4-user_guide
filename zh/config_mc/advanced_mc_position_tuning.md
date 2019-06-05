@@ -1,6 +1,6 @@
 # 高级多旋翼位置控制调参
 
-本文档概述了 影响期望设定值的多旋翼位置控制调整参数（与影响车辆跟踪设定点精度的的参数形成对比）
+This document provides an overview of the multicopter position-control tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements, the maximum allowed velocity, etc. (i.e. the parameters that affect the value of a desired setpoint rather than those that affect how well the vehicle *tracks* the setpoint).
 
 > **Warning** 本指南适用于高级用户/专家。
 
