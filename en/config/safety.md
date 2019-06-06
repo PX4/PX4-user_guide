@@ -233,7 +233,7 @@ Parameter | Description
 
 ## Failure Detector {#failure_detector}
 
-The failure detector allows a vehicle to take protective action(s) if it unexpectedly flips - for example, it can launch a [parachute](../peripherals/parachute.md) or perform some other action).
+The failure detector allows a vehicle to take protective action(s) if it unexpectedly flips - for example, it can launch a [parachute](../peripherals/parachute.md) or perform some other action.
 
 > **Note** Failure detection is deactivated by default using a circuit breaker.
   You can enable it by setting [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM).
