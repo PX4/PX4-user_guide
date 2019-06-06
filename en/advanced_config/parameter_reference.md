@@ -11428,10 +11428,12 @@ is less than 50% of this value</p>   </td>
 <li><strong>1:</strong> local_position_estimator, attitude_estimator_q (unsupported)</li> 
 
 <li><strong>2:</strong> ekf2 (recommended)</li> 
+
+<li><strong>3:</strong> Q attitude estimator (no position)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">1 > 2 </td>
+ <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">2 </td>
  <td style="vertical-align: top;"></td>
 </tr>
