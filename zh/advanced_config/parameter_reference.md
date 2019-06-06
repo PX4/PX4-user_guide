@@ -35489,6 +35489,9 @@
         <li>
           <strong>2:</strong> ekf2 (recommended)
         </li>
+        <li>
+          <strong>3:</strong> Q attitude estimator (no position)
+        </li>
       </ul>
       
       <p>
@@ -35497,7 +35500,6 @@
     </td>
     
     <td style="vertical-align: top;">
-      1 > 2
     </td>
     
     <td style="vertical-align: top;">
