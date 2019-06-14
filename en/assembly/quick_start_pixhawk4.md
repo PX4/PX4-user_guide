@@ -171,5 +171,8 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 ![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg) --> 
 
 ## Further information
-<!-- - [Pixhawk 4 Quick Start Guide (Holybro)]() Add link--> 
-- [Pixhawk 4](../flight_controller/pixhawk4.md)
+
+- [Pixhawk 4](../flight_controller/pixhawk4.md) (Overview page)
+- [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+- [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+- [Pixhawk 4 Quick Start Guide (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
