@@ -126,3 +126,5 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
 - [Pixhawk 4 Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
 - [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+- [Pixhawk 4 Quick Start Guide (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
+
