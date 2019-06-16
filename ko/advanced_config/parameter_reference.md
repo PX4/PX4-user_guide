@@ -3027,6 +3027,95 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set offboard loss failsafe mode
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Land mode
+        </li>
+        <li>
+          <strong>1:</strong> Hold mode
+        </li>
+        <li>
+          <strong>2:</strong> Return mode
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set offboard loss failsafe mode when RC is available
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Position mode
+        </li>
+        <li>
+          <strong>1:</strong> Altitude mode
+        </li>
+        <li>
+          <strong>2:</strong> Manual
+        </li>
+        <li>
+          <strong>3:</strong> Return mode
+        </li>
+        <li>
+          <strong>4:</strong> Land mode
+        </li>
+        <li>
+          <strong>5:</strong> Hold mode
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_OF_LOSS_T">COM_OF_LOSS_T</strong> (FLOAT)
     </td>
     
@@ -14362,95 +14451,6 @@
     <th>
       Units
     </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Set offboard loss failsafe mode
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> Land mode
-        </li>
-        <li>
-          <strong>1:</strong> Hold mode
-        </li>
-        <li>
-          <strong>2:</strong> Return mode
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Set offboard loss failsafe mode when RC is available
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> Position mode
-        </li>
-        <li>
-          <strong>1:</strong> Altitude mode
-        </li>
-        <li>
-          <strong>2:</strong> Manual
-        </li>
-        <li>
-          <strong>3:</strong> Return mode
-        </li>
-        <li>
-          <strong>4:</strong> Land mode
-        </li>
-        <li>
-          <strong>5:</strong> Hold mode
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
   </tr>
   
   <tr>
