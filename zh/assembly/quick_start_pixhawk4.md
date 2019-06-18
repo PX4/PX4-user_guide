@@ -140,11 +140,15 @@
 > >     
 > >     针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
 > >     
-> >     ## 配置
+> >     ## Pinouts
 > >     
-> >     一般配置信息在以下内容中介绍: Autopilot 配置 </0 >。</p> 
+> >     [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 > >     
-> >     QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+> >     ## Configuration
+> >     
+> >     General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+> >     
+> >     QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 > >     
 > >     <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 > >     
@@ -152,7 +156,7 @@
 
 ![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg) -->
 > >     
-> >     ## 更多信息
+> >     ## Further information
 > >     
 > >     - [Pixhawk 4](../flight_controller/pixhawk4.md) (Overview page)
 > >     - [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
