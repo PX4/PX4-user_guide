@@ -979,6 +979,35 @@ This page lists all supported airframes and types including
 </tr>
 </tbody></table>
 
+### VTOL Octoplane
+
+<div>
+<img src="../../assets/airframes/types/VTOLPlaneOcto.svg" width="29%" style="max-height: 180px;"/>
+<table style="float: right; width: 70%; font-size:1.5rem;">
+ <colgroup><col></colgroup>
+ <thead>
+   <tr><th>Common Outputs</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></td>
+</tr>
+</tbody></table>
+</div>
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
+ <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th></th></tr>
+ </thead>
+<tbody>
+<tr id="vtol_vtol_octoplane_generic_octoplane_vtol">
+ <td style="vertical-align: top;">Generic Octoplane VTOL</td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13050</p></td>
+
+</tr>
+</tbody></table>
+
 ### VTOL Quad Tailsitter
 
 <div>
