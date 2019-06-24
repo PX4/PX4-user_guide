@@ -483,9 +483,14 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Michael Schaeuble</p><p><code>SYS_AUTOSTART</code> = 4013</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_s500">
- <td style="vertical-align: top;">S500</td>
+<tr id="copter_quadrotor_x_s500_generic">
+ <td style="vertical-align: top;">S500 Generic</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4014</p></td>
+
+</tr>
+<tr id="copter_quadrotor_x_holybro_s500">
+ <td style="vertical-align: top;">Holybro S500</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4015</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_hobbyking_micro_pcb">

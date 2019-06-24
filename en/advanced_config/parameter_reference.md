@@ -4893,7 +4893,7 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_I">MC_PITCHRATE_I</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Pitch rate I gain</p><p><strong>Comment:</strong> Pitch rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
- <td style="vertical-align: top;">0.05 </td>
+ <td style="vertical-align: top;">0.2 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -4949,7 +4949,7 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><strong id="MC_ROLLRATE_I">MC_ROLLRATE_I</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Roll rate I gain</p><p><strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
- <td style="vertical-align: top;">0.05 </td>
+ <td style="vertical-align: top;">0.2 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
