@@ -929,9 +929,9 @@
     </td>
   </tr>
   
-  <tr id="copter_quadrotor_x_s500">
+  <tr id="copter_quadrotor_x_s500_generic">
     <td style="vertical-align: top;">
-      S500
+      S500 Generic
     </td>
     
     <td style="vertical-align: top;">
@@ -945,30 +945,46 @@
     </td>
   </tr>
   
-  <tr id="copter_quadrotor_x_hobbyking_micro_pcb">
+  <tr id="copter_quadrotor_x_holybro_s500">
     <td style="vertical-align: top;">
-      컴퓨터 게임
+      Holybro S500
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        유지관: 토마스 구블러<thomas@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
-        0>SYS_AUTOSTART</code> = 4020
+        <code>SYS_AUTOSTART</code> = 4015
+      </p>
+    </td>
+  </tr>
+  
+  <tr id="copter_quadrotor_x_hobbyking_micro_pcb">
+    <td style="vertical-align: top;">
+      Hobbyking Micro PCB
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Thomas Gubler <thomas@px4.io>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 4020
       </p>
     </td>
   </tr>
   
   <tr id="copter_quadrotor_x_3dr_solo">
     <td style="vertical-align: top;">
-      3DR 솔로
+      3DR Solo
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: Andreas Antener<andreas@uaventure.com>
+        Maintainer: Andreas Antener <andreas@uaventure.com>
       </p>
       
       <p>
@@ -979,7 +995,7 @@
   
   <tr id="copter_quadrotor_x_3dr_diy_quad">
     <td style="vertical-align: top;">
-      3DR DIY 쿼드
+      3DR DIY Quad
     </td>
     
     <td style="vertical-align: top;">
@@ -988,14 +1004,14 @@
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 4031
+        <code>SYS_AUTOSTART</code> = 4031
       </p>
     </td>
   </tr>
   
   <tr id="copter_quadrotor_x_generic_250_racer">
     <td style="vertical-align: top;">
-      일반 250 레이서
+      Generic 250 Racer
     </td>
     
     <td style="vertical-align: top;">
@@ -1004,7 +1020,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 4050
+        <code>SYS_AUTOSTART</code> = 4050
       </p>
     </td>
   </tr>
