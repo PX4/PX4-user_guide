@@ -16053,7 +16053,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.05
+      0.2
     </td>
     
     <td style="vertical-align: top;">
@@ -16271,7 +16271,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.05
+      0.2
     </td>
     
     <td style="vertical-align: top;">
