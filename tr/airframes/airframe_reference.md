@@ -929,9 +929,9 @@ This page lists all supported airframes and types including the motor assignment
     </td>
   </tr>
   
-  <tr id="copter_quadrotor_x_s500">
+  <tr id="copter_quadrotor_x_s500_generic">
     <td style="vertical-align: top;">
-      S500
+      S500 Generic
     </td>
     
     <td style="vertical-align: top;">
@@ -941,6 +941,22 @@ This page lists all supported airframes and types including the motor assignment
       
       <p>
         <code>SYS_AUTOSTART</code> = 4014
+      </p>
+    </td>
+  </tr>
+  
+  <tr id="copter_quadrotor_x_holybro_s500">
+    <td style="vertical-align: top;">
+      Holybro S500
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 4015
       </p>
     </td>
   </tr>
