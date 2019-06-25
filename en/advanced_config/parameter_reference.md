@@ -13132,14 +13132,6 @@ is less than 50% of this value</p>   </td>
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="V19_VT_ROLLDIR">V19_VT_ROLLDIR</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Temporary parameter for the upgrade to v1.9, this is reminder to check the direction of
-fixed-wing roll control surfaces on custom VTOLs platforms</p><p><strong>Comment:</strong> This parameter is present in v1.9 to enable smooth transition, it will be removed in v1.10. In firmware versions before v1.9, the VTOL attitude controller generated reversed fixed wing roll commands. As a consequence, all VTOL mixers had to reverse roll mixing. The VTOL roll commands in fixed wing mode were fixed in v1.9! - Standard VTOL platforms should be unaffected and this parameter can be ignored. - Custom VTOL platforms may crash if no action is taken, please check the direction of deflection of roll control surfaces before flight. Fix the roll mixer if necessary. Set to 1 to disable VTOL actuator outputs and display an info message (default). Set to 0 AFTER CAREFULLY CHECKING the direction of deflection of roll control surfaces.</p>   </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="VT_ARSP_BLEND">VT_ARSP_BLEND</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Transition blending airspeed</p><p><strong>Comment:</strong> Airspeed at which we can start blending both fw and mc controls. Set to 0 to disable.</p>   </td>
  <td style="vertical-align: top;">0.00 > 30.00 (1)</td>
