@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-飞机按照远端控制器通过MAVLink给出的位置，速度或姿态设定值来运行。 设定值可以由运行在配套计算机 (一般通过串口线或wifi与飞孔连接) 上的MAVLink API (如[Dronecode SDK](https://sdk.dronecode.org/en/) 或者 [MAVROS](https://github.com/mavlink/mavros)) 提供。
+飞机按照远端控制器通过MAVLink给出的位置，速度或姿态设定值来运行。 The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
 > **Note** 固定翼飞机不支持 Offboard 模式。 仅支持多旋翼和 VTOL 机型。
 
@@ -37,7 +37,7 @@ Offboard模式需要主动连接到远程 MAVLink 系统 (例如配套计算机�
 
 ## 开发者资源
 
-通常, 开发人员不会直接在 MAVLink 层工作, 而是使用像 [Dronecode SDK](https://sdk.dronecode.org/en/) 或 [ROS](http://www.ros.org/) (这些技术提供了对开发人员友好的 API, 并负责管理和维护连接、发送消息和监视响应——类似这样的使用 *Offboard模式</2 > 和MAVLink的细节问题)。</p> 
+Typically developers do not directly work at the MAVLink layer, but instead use a robotics API like [MAVSDK](https://mavsdk.mavlink.io/) or [ROS](http://www.ros.org/) (these provide a developer friendly API, and take care of managing and maintaining connections, sending messages and monitoring responses - the minutiae of working with *Offboard mode* and MAVLink).
 
 以下资源可能对开发者有用:
 
