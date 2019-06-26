@@ -16,7 +16,7 @@
 
 ## 드론코드 플랫폼 {#dronecode}
 
-PX4는 일반 산업 친화적 오픈 소스 라이선스에 따라 제공되는 드론 개발을 위한 완벽한 플랫폼인 [ Dronecode 플랫폼](https://www.dronecode.org/platform/)의 일부입니다. Dronecode는 [ PX4 비행 스택 ](#autopilot), [ QGroundControl ](#qgc) 지상 제어 스테이션, [ Dronecode SDK ](https://www.dronecode.org/sdk/) 및 [ Dronecode Camera Manager](https://camera-manager.dronecode.org/en/)를 포함합니다.
+PX4는 일반 산업 친화적 오픈 소스 라이선스에 따라 제공되는 드론 개발을 위한 완벽한 플랫폼인 [ Dronecode 플랫폼](https://www.dronecode.org/platform/)의 일부입니다. It includes, among other things, the [PX4 flight stack](#autopilot)), [QGroundControl](#qgc) ground control station, the [MAVSDK](https://www.dronecode.org/sdk/) and the [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/).
 
 ## PX4 오토파일럿 {#autopilot}
 
@@ -87,7 +87,7 @@ PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배
 
 ## 외부/보조 컴퓨터
 
-PX4는 직렬 케이블 또는 wifi를 통해 별도의 기체용 보조 컴퓨터에서 제어할 수 있습니다. 보조 컴퓨터는 대개 Dronecode SDK 또는 MAVROS와 같은 MAVLink API를 사용하여 통신합니다.
+PX4는 직렬 케이블 또는 wifi를 통해 별도의 기체용 보조 컴퓨터에서 제어할 수 있습니다. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
 > ** 참고 ** Robotics API를 사용하려면 소프트웨어 개발 기술이 필요하며 이 가이드의 범위를 벗어납니다.
 
