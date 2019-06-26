@@ -20,7 +20,8 @@ The "brain" of the drone is called an autopilot. It consists of *flight stack* s
 
 ## Dronecode Platform {#dronecode}
 
-PX4 is part of the [Dronecode Platform](https://www.dronecode.org/platform/) — a complete end-to-end platform for drone development, delivered under a common industry-friendly open source license. It includes, among other things, the [PX4 flight stack](#autopilot)), [QGroundControl](#qgc) ground control station, the [Dronecode SDK](https://www.dronecode.org/sdk/) and the [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/).
+PX4 is part of the [Dronecode Platform](https://www.dronecode.org/platform/) — a complete end-to-end platform for drone development, delivered under a common industry-friendly open source license.
+It includes, among other things, the [PX4 flight stack](#autopilot)), [QGroundControl](#qgc) ground control station, the [MAVSDK](https://www.dronecode.org/sdk/) and the [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/).
 
 ## PX4 Autopilot {#autopilot}
 
@@ -104,7 +105,8 @@ This makes it possible to tune parameters while a vehicle is in flight, inspect 
 
 ## Offboard/Companion Computer
 
-PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the Dronecode SDK or MAVROS.
+PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi.
+The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
 > **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 

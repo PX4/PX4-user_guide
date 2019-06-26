@@ -195,7 +195,7 @@ The mission is typically created and uploaded with a Ground Control Station (GCS
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
 [Follow Me mode](../flight_modes/follow_me.md) causes a multicopter to autonomously follow and track a user providing their current position setpoint.
-Position setpoints might come from an Android phone/tablet running *QGroundControl* or from a Dronecode SDK app.
+Position setpoints might come from an Android phone/tablet running *QGroundControl* or from a MAVSDK app.
 
 ### Offboard Mode {#offboard_mc}
 
