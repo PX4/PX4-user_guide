@@ -16,7 +16,7 @@
 
 ## Dronecode 平台 {#dronecode}
 
-PX4 是 [Dronecode平台](https://www.dronecode.org/platform/) 的一部分 - 一个在通用的行业友好型开源许可下提供的完整无人机开发端到端平台。 其中包括 [PX4飞行堆栈](#autopilot)，[QGroundControl ](#qgc)地面控制站，[ Dronecode SDK ](https://www.dronecode.org/sdk/) 和 [Dronecode相机管理器](https://camera-manager.dronecode.org/en/)。
+PX4 是 [Dronecode平台](https://www.dronecode.org/platform/) 的一部分 - 一个在通用的行业友好型开源许可下提供的完整无人机开发端到端平台。 It includes, among other things, the [PX4 flight stack](#autopilot)), [QGroundControl](#qgc) ground control station, the [MAVSDK](https://www.dronecode.org/sdk/) and the [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/).
 
 ## PX4 自动驾驶仪 {#autopilot}
 
@@ -87,7 +87,7 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 ## 机载计算机
 
-PX4 可以通过串行电缆或 wifi 由独立的机载计算机进行控制。 机载计算机通常使用 MAVLink API（如 Dronecode SDK 或 MAVROS）进行通信。
+PX4 可以通过串行电缆或 wifi 由独立的机载计算机进行控制。 The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
 > **Note**使用 Robotics API 需要软件开发技能，并且超出了本指南的范围。
 
