@@ -33274,6 +33274,726 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="SENS_MB12_0_ROT">SENS_MB12_0_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 0 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_10_ROT">SENS_MB12_10_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 10 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_11_ROT">SENS_MB12_11_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 12 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_1_ROT">SENS_MB12_1_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 1 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_2_ROT">SENS_MB12_2_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 2 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_3_ROT">SENS_MB12_3_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 3 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_4_ROT">SENS_MB12_4_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 4 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_5_ROT">SENS_MB12_5_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 5 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_6_ROT">SENS_MB12_6_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 6 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_7_ROT">SENS_MB12_7_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 7 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_8_ROT">SENS_MB12_8_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 8 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_MB12_9_ROT">SENS_MB12_9_ROT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        MaxBotix MB12XX Sensor 9 Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter defines the rotation of the sensor relative to the platform.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No rotation
+        </li>
+        <li>
+          <strong>1:</strong> Yaw 45°
+        </li>
+        <li>
+          <strong>2:</strong> Yaw 90°
+        </li>
+        <li>
+          <strong>3:</strong> Yaw 135°
+        </li>
+        <li>
+          <strong>4:</strong> Yaw 180°
+        </li>
+        <li>
+          <strong>5:</strong> Yaw 225°
+        </li>
+        <li>
+          <strong>6:</strong> Yaw 270°
+        </li>
+        <li>
+          <strong>7:</strong> Yaw 315°
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 7
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="SENS_MPDT0_ROT">SENS_MPDT0_ROT</strong> (INT32)
     </td>
     
