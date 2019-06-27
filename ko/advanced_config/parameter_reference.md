@@ -41880,17 +41880,17 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="VT_MOT_COUNT">VT_MOT_COUNT</strong> (INT32)
+      <strong id="VT_MOT_ID">VT_MOT_ID</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        VTOL number of engines
+        The channel number of motors which provide lift during hover
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      0 > 8 (1)
+      0 > 12345678 (1)
     </td>
     
     <td style="vertical-align: top;">
