@@ -11942,7 +11942,7 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"><strong id="SYS_AUTOSTART">SYS_AUTOSTART</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Auto-start script index</p><p><strong>Comment:</strong> CHANGING THIS VALUE REQUIRES A RESTART. Defines the auto-start script used to bootstrap the system.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">0 > 99999 </td>
+ <td style="vertical-align: top;">0 > 9999999 </td>
  <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
