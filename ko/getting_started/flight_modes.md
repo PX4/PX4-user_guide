@@ -30,7 +30,7 @@ Fixed Wing:
 
 * Manual-Easy: [Position](#position_fw), [Altitude](#altitude_fw), [Stabilized](#stabilized_fw), [Manual](#manual_fw)
 * Manual-Acrobatic: [Acro](#acro_fw)
-* Autonomous: [Hold](#hold_fw), [Return](#return_fw), [Mission](#mission_fw), [Takeoff](#takeoff_fw), [Land](#land_fw)
+* Autonomous: [Hold](#hold_fw), [Return](#return_fw), [Mission](#mission_fw), [Takeoff](#takeoff_fw), [Land](#land_fw), [Offboard](#offboard_fw)
 
 Multicopter:
 
@@ -524,6 +524,24 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             <p>
               <a href="../flight_modes/land.md">Land mode</a> causes the vehicle to turn and land at the location at which the mode was engaged. Fixed wing landing logic and parameters are explained in the topic: <a href="../flying/fixed_wing_landing.md">Landing (Fixed Wing)</a>.
             </p>
+            
+            <h3 id="offboard_fw">
+              Offboard Mode
+            </h3>
+            
+            <p>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+            </p>
+            
+            <p>
+              <a href="../flight_modes/offboard.md">Offboard mode</a> causes the fixed wing vehicle to obey attitude setpoints provided over MAVLink.
+            </p>
+            
+            <blockquote>
+              <p>
+                <strong>Note</strong> This mode is intended for companion computers and ground stations!
+              </p>
+            </blockquote>
             
             <h2>
               Vertical Take Off and Landing (VTOL)
