@@ -14,19 +14,17 @@
 
 드론의 "두뇌"는 오토파일럿 또는 자동 조종 장치라고 합니다. 112/5000 이 장치는 * 기체 컨트롤러 * ( "비행 컨트롤러") 하드웨어에서 실행되는 * 비행 스택 * 소프트웨어로 구성됩니다.
 
-## 드론코드 플랫폼 {#dronecode}
+## PX4 Autopilot {#autopilot}
 
-PX4는 일반 산업 친화적 오픈 소스 라이선스에 따라 제공되는 드론 개발을 위한 완벽한 플랫폼인 [ Dronecode 플랫폼](https://www.dronecode.org/platform/)의 일부입니다. It includes, among other things, the [PX4 flight stack](#autopilot)), [QGroundControl](#qgc) ground control station, the [MAVSDK](https://www.dronecode.org/sdk/) and the [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/).
+[PX4](http://px4.io/) is powerful open source autopilot *flight stack*.
 
-## PX4 오토파일럿 {#autopilot}
-
-[ PX4](http://px4.io/)는 강력한 오픈 소스 오토파일럿 * 비행 스택 *입니다. (역주: 비행 스택이란 여러 기능을 갖는 모듈들의 집합체를 의미합니다.)
-
-몇 가지 PX4의 주요 특징은 다음과 같습니다:
+Some of PX4's key features are:
 
 - 항공기 (멀티콥터, 고정익 항공기 및 VTOL), 지상 차량 및 수중함을 포함하여 [ 많은 다양한 차량 프레임/유형](../airframes/airframe_reference.md)을 제어합니다. 
 - [ 이동체 컨트롤러](#vehicle_controller), 센서 및 기타 주변 장치 하드웨어 선택 시 가장 좋습니다.
 - 유연하고 강력한 [ 비행 모드 ](#flight_modes) 및 [ 안전 기능](#safety)을 갖고 있습니다.
+
+PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
 ## QGroundControl {#qgc}
 
@@ -36,13 +34,13 @@ Dronecode 지상 관제소는 [ QGroundControl](http://qgroundcontrol.com/)이�
 
 ![QGC 메인 화면](../../images/qgc_main_screen.jpg)
 
-## 차량/비행 제어 보드 {#vehicle_controller}
+## Vehicle/Flight Controller Board {#vehicle_controller}
 
 PX4는 초기에 [ Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에서 실행되도록 설계되었지만 Linux 컴퓨터 및 기타 하드웨어에서도 실행될 수 있습니다. 비행기의 물리적 제한, 수행하려는 활동 그리고 당연히 비용에도 적합한 보드를 선택해야 합니다.
 
 자세한 내용은 [ 비행 컨트롤러 선택](flight_controller_selection.md)을 참조하십시오.
 
-## 센서
+## Sensors
 
 PX4는 센서를 사용하여 차량 상태를 결정합니다(안정화에 필요 및 자율 제어 가능). 시스템은 자이로 스코프, 가속도계, 자력계(나침반) 및 기압계가 * 최소로 필요합니다. * 모든 자동 [ 모드 ](../getting_started/flight_modes.md#categories) 및 일부 보조 모드를 사용하려면 GPS 또는 기타 위치 확인 시스템이 필요합니다. 고정익 및 VTOL- 기체에는 속도 센서가 추가로 포함되어야 합니다(매우 권장 됨).
 
@@ -51,7 +49,7 @@ PX4는 센서를 사용하여 차량 상태를 결정합니다(안정화에 필�
 - [센서](../getting_started/sensor_selection.md) 
 - [주변장치](../peripherals/README.md)
 
-## ESC(전자속도제어기)와 모터
+## ESCs & Motors
 
 많은 PX4 드론은 전자 속도 컨트롤러(Electronic Speed Controller, ESC)를 통해 비행 컨트롤러에 의해 구동되는 브러시리스 모터를 사용합니다(ESC는 비행 컨트롤러의 신호를 모터로 전해지는 적절한 수준의 전력으로 변환합니다).
 
@@ -61,13 +59,13 @@ PX4가 지원하는 ESC/모터에 관한 정보는 여기를 보세요.
 - [ESC 캘리브레이션](../advanced_config/esc_calibration.md)
 - [ESC 펌웨어와 프로토콜 개요](https://oscarliang.com/esc-firmware-protocols/)(oscarliang.com)
 
-## 배터리/전원
+## Battery/Power
 
 PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배터리는 일반적으로 비행 컨트롤러 및 ESC(모터 용)에 별도의 전원을 제공하는 * 전원 모듈 * 또는 * 전원 관리 보드*를 사용하여 시스템에 연결됩니다.
 
 배터리 및 배터리 구성에 대한 정보는 [ 배터리 구성 ](../config/battery.md) 및 [ 기본 어셈블리](../assembly/README.md)(예: [ Pixhawk 4 배선 빠른 시작> 전원 ](../assembly/quick_start_pixhawk4.md#power)) 가이드를 참조하십시오.
 
-## 라디오 컨트롤러(RC) {#rc_systems}
+## Radio Control (RC) {#rc_systems}
 
 [ 라디오 컨트롤러(RC) ](../getting_started/rc_transmitter_receiver.md) 시스템은 비행체를 *수동으로 * 제어하는 데 사용됩니다. 차량을 기반으로 수신기와 스틱/제어 위치를 통신하기 위해 송신기를 사용하는 원격 제어 장치로 구성됩니다. 일부 RC 시스템은 자동 조종 장치로부터 다시 원격 측정 정보를 수신할 수 있습니다.
 
@@ -81,11 +79,11 @@ PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배
 - [ 비행 첫걸음 ](../flying/basic_flying.md) - 리모컨으로 비행하는 법을 배웁니다.
 - [ FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 원격 측정/상태 업데이트를 수신하도록 RC 송신기를 설정합니다.
 
-## 데이터/텔레메트리 라디오
+## Data/Telemetry Radios
 
 [ 데이터/텔레메트리 라디오](../telemetry/README.md)는 * QGroundControl *과 같은 지상 제어 스테이션과 PX4를 실행하는 차량 사이에 무선 MAVLink 연결을 제공할 수 있습니다. 이를 통해 기체가 비행 중일 때 매개 변수를 조정하고 실시간으로 원격 측정을 검사하며 비행 중 임무를 변경하는 등의 작업을 수행할 수 있습니다.
 
-## 외부/보조 컴퓨터
+## Offboard/Companion Computer
 
 PX4는 직렬 케이블 또는 wifi를 통해 별도의 기체용 보조 컴퓨터에서 제어할 수 있습니다. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
@@ -94,7 +92,7 @@ PX4는 직렬 케이블 또는 wifi를 통해 별도의 기체용 보조 컴퓨�
 - [ 외부 보드 모드 ](../flight_modes/offboard.md) - 지상 제어 스테이션 또는 보조 컴퓨터와 같은 PX4의 외부에서의 제어를 위한 비행 모드입니다. 
 - [ Robotics API ](https://dev.px4.io/en/robotics/) (PX4 개발자 가이드)
 
-## 이동식 메모리/로깅
+## Removable Memory/Logging
 
 PX4는 [ 비행 기록 ](../getting_started/flight_reporting.md)을 저장하기 위해 SD 메모리 카드를 사용합니다 (SD의 지원은 모든 비행 컨트롤러에 있는 것은 아닙니다).
 
@@ -102,7 +100,7 @@ PX4는 [ 비행 기록 ](../getting_started/flight_reporting.md)을 저장하기
 
 권장되는 카드는 [ 개발자 가이드 > 로깅](http://dev.px4.io/en/log/logging.html#sd-cards)에 목록화되어 있습니다.
 
-## 비행 모드 {#flight_modes}
+## Flight Modes {#flight_modes}
 
 비행 모드는 사용자(조종사)에게 다른 종류/수준의 기체 자동화 및 자동 조종 보조 기능을 제공합니다. * 자율 모드*는 자동 조종 장치에 의해 완전히 제어되며 파일럿/원격 제어 입력이 필요하지 않습니다. 예를 들어 이륙과 같은 일반적인 작업을 자동화하고 홈 위치로 돌아가고 착륙하는 데 사용됩니다. 다른 자율 모드는 사전 프로그래밍 된 임무를 수행하거나, GPS 신호를 따르거나, 외부 컴퓨터 또는 지상 관제소에서 명령을 수락합니다.
 
@@ -112,7 +110,7 @@ PX4는 [ 비행 기록 ](../getting_started/flight_reporting.md)을 저장하기
 
 사용 가능한 비행 모드에 대한 개요는 [여기에서 확인](../getting_started/flight_modes.md)할 수 있습니다. 다른 비행 모드를 켜기 위해 원격 제어 스위치를 설정하는 방법은 [ 비행 모드 구성](../config/flight_mode.md)에 나와 있습니다.
 
-## 안전 설정(Failsafe) {#safety}
+## Safety Settings (Failsafe) {#safety}
 
 PX4는 장애가 발생할 경우 기체을 보호하고 복구할 수 있도록 구성 가능한 장애 안전 시스템을 갖추고 있습니다! 이를 통해 안전하게 비행할 수 있는 지역 및 조건을 지정하고, 안전 장치가 작동(예: 착륙, 위치 유지 또는 지정된 지점으로 복귀)될 경우 수행할 작업을 지정할 수 있습니다.
 
@@ -131,7 +129,7 @@ PX4는 장애가 발생할 경우 기체을 보호하고 복구할 수 있도록
 
 자세한 내용은 [ 안전](../config/safety.md)(기본 설정)을 참조하십시오.
 
-## 방향
+## Heading and Directions
 
 모든 차량, 보트 및 항공기는 전진 방향에 따라 지향 방향이 있습니다.
 
