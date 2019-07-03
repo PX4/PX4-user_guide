@@ -37,11 +37,13 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
 
 ### Fixed Wing
 
-> **Note** Limited for offboard mode in Fixed Wing was added to master after PX4 v1.9.0. 
-<!-- See https://github.com/PX4/Firmware/pull/12149 and https://github.com/PX4/Firmware/pull/12311 -->
-
-
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) - Control vehicle attitude/body rates.
+
+> **Warning** Position setpoints are **not supported** on Fixed Wing offboard mode (`SET_POSITION_TARGET_LOCAL_NED`).
+
+<!-- Limited for offboard mode in Fixed Wing was added to master after PX4 v1.9.0.
+See https://github.com/PX4/Firmware/pull/12149 and https://github.com/PX4/Firmware/pull/12311 -->
+
 
 
 ## Offboard Parameters
