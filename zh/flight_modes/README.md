@@ -399,6 +399,24 @@ th {
                                 <td>
                                   飞机执行已上传到飞行控制器的 <a href="../flying/missions.md">预定义的飞行计划</a>。
                                 </td>
+                              </tr>
+                              
+                              <tr id="offboard_fw">
+                                <td>
+                                  <a href="../flight_modes/offboard.md">Offboard</a>
+                                </td>
+                                
+                                <td colspan="3">
+                                  Auto
+                                </td>
+                                
+                                <td>
+                                  <a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a>
+                                </td>
+                                
+                                <td>
+                                  Vehicle obeys attitude setpoints provided over MAVLink (often from a companion computer connected via serial cable or wifi).
+                                </td>
                               </tr></tbody></table> 
                               
                               <h2>
@@ -839,7 +857,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          Vehicle obeys a position, velocity or attitude setpoint provided over MAVLink (often from a companion computer connected via serial cable or wifi).
+                                                          Vehicle obeys a position, velocity or attitude setpoints provided over MAVLink (often from a companion computer connected via serial cable or wifi).
                                                         </td>
                                                       </tr></tbody></table> 
                                                       
