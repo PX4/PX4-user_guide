@@ -5,11 +5,7 @@
 The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink.
 The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
-> **Note** Offboard mode is not supported by Fixed Wing vehicles.
-  It is supported for Copter and VTOL vehicles.
-
-<span></span>
-> **Note** 
+> **Note**
 >  * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc.
 >  * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes).
 >  * The vehicle must be armed before this mode can be engaged.
@@ -19,11 +15,6 @@ The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mav
 ## Description
 
 Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink commands (more may be supported in future).
-It can be used to:
-* Control vehicle position, velocity, or thrust ([SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)). 
-  - Acceleration setpoints are combined to create a 'thrust' setpoint.
-  - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
-* Control vehicle attitude/orientation ([SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)).
 
 Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. 
 Operations like uploading, downloading missions can be performed in any mode.
@@ -34,6 +25,23 @@ In order to hold position while in this mode, the vehicle must receive a stream 
 Offboard mode requires an active connection to a remote MAVLink system (e.g. companion computer or GCS). 
 If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. 
 The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+
+## Supported Messages
+
+### Copter/VTOL
+
+* [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) - Control vehicle position, velocity, or thrust. 
+  - Acceleration setpoints are combined to create a 'thrust' setpoint.
+  - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+* [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) - Control vehicle attitude/orientation.
+
+### Fixed Wing
+
+> **Note** Limited for offboard mode in Fixed Wing was added to master after PX4 v1.9.0. 
+<!-- See https://github.com/PX4/Firmware/pull/12149 and https://github.com/PX4/Firmware/pull/12311 -->
+
+
+* [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) - Control vehicle attitude/body rates.
 
 
 ## Offboard Parameters
