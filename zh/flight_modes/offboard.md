@@ -4,30 +4,39 @@
 
 飞机按照远端控制器通过MAVLink给出的位置，速度或姿态设定值来运行。 The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
-> **Note** 固定翼飞机不支持 Offboard 模式。 仅支持多旋翼和 VTOL 机型。
-
-<span></span>
-
-> **Note** * 此模式需要位置或位/姿信息-例如 GPS、光流、视觉惯性里程计、mocap 等。 * 此模式是自动的 (遥控器 [默认](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) 被禁用，仅能用于切换模式)。 * 使用此模式前飞机必须先被激活。 * 在能够使用此模式之前飞机必须已经能够接收到目标设定点的消息流。 * 如果没能以 > 2Hz 的速率接收目标设定值飞机将退出该模式。
+> **Note** * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc. * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes). * The vehicle must be armed before this mode can be engaged. * The vehicle must be already be receiving a stream of target setpoints before this mode can be engaged. * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
 
 ## 描述
 
-Offboard 模式主要用于控制飞机运动和姿态，目前仅支持 MAVLink 命令的一个有限子集（未来将支持更多）。 此模式可用于：
+Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink messages (more may be supported in future).
 
-* Control vehicle position, velocity, or thrust ([SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)). 
+Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. Operations like uploading, downloading missions can be performed in any mode.
+
+A stream of setpoint commands must be received by the vehicle prior to engaging the mode, and in order to remain in the mode (if the message rate falls below 2Hz the vehicle will stop). In order to hold position while in this mode, the vehicle must receive a stream of setpoints for the current position.
+
+Offboard mode requires an active connection to a remote MAVLink system (e.g. companion computer or GCS). If the connection is lost, after a timeout ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) the vehicle will attempt to land or perform some other failsafe action. The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL_RC_ACT](#COM_OBL_RC_ACT).
+
+## Supported Messages
+
+### Copter/VTOL
+
+* [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED) - Control vehicle position, velocity, or thrust. 
   * 加速度设定值将被综合计算出一个“油门”设定值。
   * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
-* Control vehicle attitude/orientation ([SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)).
+* [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) - Control vehicle attitude/orientation.
 
-其他操作, 如起飞、降落、返回起飞点，最好使用其它适当的模式来处理。 上传、下载任务等操作可以在任何模式下执行。
+### Fixed Wing
 
-要启用或保持该模式, 飞机必须先接收到一个提供设定值的消息流 (如果消息速率低于 2Hz 飞机将退出该模式)。 如果要在此模式下做位置保持，必须向飞机提供一个包含当前位置设定值的消息流。
+* [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET) - Control vehicle attitude/body rates.
 
-Offboard模式需要主动连接到远程 MAVLink 系统 (例如配套计算机或GCS)。 如果连接丢失, 在超时 ([COM_OF_LOSS_T](#COM_OF_LOSS_T)) 后, 飞机将尝试降落或执行其他故障保护操作。 故障保护操作在参数 [COM_OBL_ACT](#COM_OBL_ACT) 和 [COM_OBL_RC_ACT](#COM_OBL_RC_ACT) 中定义。
+> **Warning** Position setpoints are **not supported** on Fixed Wing offboard mode (`SET_POSITION_TARGET_LOCAL_NED`).
 
-## Offboard参数
+<!-- Limited for offboard mode in Fixed Wing was added to master after PX4 v1.9.0.
+See https://github.com/PX4/Firmware/pull/12149 and https://github.com/PX4/Firmware/pull/12311 -->
 
-*Offboard模式*受以下参数影响：
+## Offboard Parameters
+
+*Offboard mode* is affected by the following parameters:
 
 | 参数                                                                                                    | 描述                                                                                                                                                                                             |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -35,11 +44,11 @@ Offboard模式需要主动连接到远程 MAVLink 系统 (例如配套计算机�
 | <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | *没有* 连接到遥控器的情况下, 丢失offboard连接后切换到的模式 (取值为- 0: [Land](../flight_modes/land.md), 1: [Hold](../flight_modes/hold.md), 2: [Return ](../flight_modes/return.md))。                                   |
 | <span id="COM_OBL_RC_ACT"></span>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | 连接到遥控器的情况下，丢失offboard连接后切换到的模式 (取值为 - 0: *Position*, 1: [Altitude](../flight_modes/altitude_mc.md), 2: *Manual*, 3: [Return ](../flight_modes/return.md), 4: [Land](../flight_modes/land.md))。 |
 
-## 开发者资源
+## Developer Resources
 
 Typically developers do not directly work at the MAVLink layer, but instead use a robotics API like [MAVSDK](https://mavsdk.mavlink.io/) or [ROS](http://www.ros.org/) (these provide a developer friendly API, and take care of managing and maintaining connections, sending messages and monitoring responses - the minutiae of working with *Offboard mode* and MAVLink).
 
-以下资源可能对开发者有用:
+The following resources may be useful for a developer audience:
 
-* [基于Linux的Offboard控制](https://dev.px4.io/en/ros/offboard_control.html) (PX4 Devguide)
-* [MAVROS Offboard控制示例](https://dev.px4.io/en/ros/mavros_offboard.html) (PX4 Devguide)
+* [Offboard Control from Linux](https://dev.px4.io/en/ros/offboard_control.html) (PX4 Devguide)
+* [MAVROS Offboard control example](https://dev.px4.io/en/ros/mavros_offboard.html) (PX4 Devguide)
