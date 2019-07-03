@@ -29677,6 +29677,30 @@
       s
     </td>
   </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_BAT_MIN_PCT">SIM_BAT_MIN_PCT</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator Battery minimal percentage. Can be used to alter the battery level during SITL- or HITL-simulation on the fly. Particularly useful for testing different low-battery behaviour
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 100 (0.1)
+    </td>
+    
+    <td style="vertical-align: top;">
+      50.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      %
+    </td>
+  </tr>
 </table>
 
 ## Sensor Calibration
