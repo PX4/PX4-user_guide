@@ -14,7 +14,7 @@ The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mav
 
 ## Description
 
-Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink commands (more may be supported in future).
+Offboard mode is primarily used for controlling vehicle movement and attitude, and supports only a very limited set of MAVLink messages (more may be supported in future).
 
 Other operations, like taking off, landing, return to launch, are best handled using the appropriate modes. 
 Operations like uploading, downloading missions can be performed in any mode.
