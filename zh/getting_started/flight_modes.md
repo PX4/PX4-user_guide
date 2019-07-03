@@ -30,7 +30,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
 
 * 手动－简单： [位置](#position_fw), [高度](#altitude_fw), [自稳](#stabilized_fw), [手动](#manual_fw)
 * 手动－特技：[特技](#acro_fw)
-* 自主：[保持](#hold_fw), [返航](#return_fw), [任务](#mission_fw), [起飞](#takeoff_fw), [降落](#land_fw)
+* Autonomous: [Hold](#hold_fw), [Return](#return_fw), [Mission](#mission_fw), [Takeoff](#takeoff_fw), [Land](#land_fw), [Offboard](#offboard_fw)
 
 多旋翼:
 
@@ -524,6 +524,24 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             <p>
               <a href="../flight_modes/land.md">Land mode</a> causes the vehicle to turn and land at the location at which the mode was engaged. Fixed wing landing logic and parameters are explained in the topic: <a href="../flying/fixed_wing_landing.md">Landing (Fixed Wing)</a>.
             </p>
+            
+            <h3 id="offboard_fw">
+              Offboard Mode
+            </h3>
+            
+            <p>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+            </p>
+            
+            <p>
+              <a href="../flight_modes/offboard.md">Offboard mode</a> causes the fixed wing vehicle to obey attitude setpoints provided over MAVLink.
+            </p>
+            
+            <blockquote>
+              <p>
+                <strong>Note</strong> This mode is intended for companion computers and ground stations!
+              </p>
+            </blockquote>
             
             <h2>
               垂直起降（VTOL）
