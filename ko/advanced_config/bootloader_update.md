@@ -1,12 +1,12 @@
-# 부트 로더 업데이트
+# 부트로더 업데이트
 
-The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO) and [PX4FLOW](../sensor/px4flow.md).
+[PX4 부트로더](https://github.com/PX4/Bootloader)는 픽스호크 보드(PX4FMU, PX4IO)와 PX4FLOW에 펌웨어를 불러오는 데 사용됩니다.
 
-This topic explains several methods for updating the Pixhawk bootloader.
+이 섹션에서는 픽스호크 부트로더를 업데이트하는 여러 방법에 대해 설명합니다.
 
-> **Note** Hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
+> **Note** 하드웨어는 보통 적정 버전의 부트로더가 미리 설치되어 있습니다. FMUv2 펌웨어가 설치된 픽스호크 보드를 업데이트해야 하는 경우라면 다음과 같이 업데이트 할 수 있습니다: [펌웨어 > FMUv2 부트로더 업데이트](../config/firmware.md#bootloader)
 
-## QGroundControl Bootloader Update {#qgc_bootloader_update}
+## QGroundControl 부트로더 업데이트 {#qgc_bootloader_update}
 
 The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
