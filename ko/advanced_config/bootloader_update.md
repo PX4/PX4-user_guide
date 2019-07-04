@@ -17,18 +17,18 @@
 1. SD카드를 삽입합니다 (발생할 수 있는 문제들의 디버그를 위한 부트 로그 기록을 가능하게 합니다.)
 2. 새로운/적절한 부트로더를 포함하는 이미지로 [부트로더를 업데이트](../config/firmware.md#custom)합니다.
     
-    > **Tip** The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
+    > **팁** 업데이트된 부트로더는 커스텀 펌웨어 (예 - 개발 팀 펌웨어)나 최신 마스터 버전일 수 있습니다.
     
     ![FMUv2 업데이트](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
-3. Wait for the vehicle to reboot.
+3. 기체가 재부팅 될 대까지 기다리십시오.
 
-4. [Find and enable](../advanced_config/parameters.md#parameter-configuration) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
-5. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
+4. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 매개변수를 찾아서 [활성화](../advanced_config/parameters.md#parameter-configuration)하십시오.
+5. 재부팅하십시오 (보드의 연결을 끊고 다시 연결하십시오.). 부트로더 업데이트는 수 초 안에 완료됩니다.
 
-Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
+일반적으로 이 단계에서 올바른/새 부트로더를 사용하여 [펌웨어를 다시 업데이트](../config/firmware.md) 할 수 있습니다.
 
-### Dronecode Probe Bootloader Update {#dronecode_probe}
+### Dronecode Probe 부트로더 업데이트 {#dronecode_probe}
 
 The following steps explain how you can "manually" update the bootloader using the dronecode probe:
 
