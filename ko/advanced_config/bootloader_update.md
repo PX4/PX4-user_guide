@@ -8,14 +8,14 @@
 
 ## QGroundControl 부트로더 업데이트 {#qgc_bootloader_update}
 
-The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+*Qgroundcontrol*을 사용해 적절한/최신 버전의 펌웨어를 설치하는 방법이 가장 쉽습니다. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 매개변수를 설정해 다음 재시작시 부트로더 업데이트를 시작할 수 있습니다.
 
-> **Note** This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
+> **Note** 이 방법은 펌웨어에 매개변수 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)가 있을 때만 사용할 수 있습니다. 현재는 FMUv2와 커스텀 펌웨어 일부에서만 사용 가능합니다.
 
-The steps are:
+단계는 다음과 같습니다:
 
-1. Insert an SD card (enables boot logging to debug any problems).
-2. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader.
+1. SD카드를 삽입합니다 (발생할 수 있는 문제들의 디버그를 위한 부트 로그 기록을 가능하게 합니다.)
+2. 새로운/적절한 부트로더를 포함하는 이미지로 [부트로더를 업데이트](../config/firmware.md#custom)합니다.
     
     > **Tip** The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
     
