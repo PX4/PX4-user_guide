@@ -26,9 +26,9 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ## 소프트웨어 구성(파라미터)
 
-정밀 착륙은 `랜딩_target_estimator ` 및 ` navigator ` 매개 변수를 사용하여 구성됩니다. 그것은 각각 "토지 목표 추정기"와 "정확한 토지" 그룹에서 발견된다. 가장 중요한 파라미터는 아래에 설명되어 있습니다.
+정밀 착륙은 `landing_target_estimator ` 및 `navigator` 매개변수를 사용하여 구성됩니다. 위의 매개변수는 각각 "Landing target estimator"와 "Precision land" 그룹에서 찾을 수 있습니다. 가장 중요한 파라미터는 아래에 설명되어 있습니다.
 
-매개 변수 [LTEST_MODE ](../advanced_config/parameter_reference.md#LTEST_MODE)에 따라 비컨이 정지 상태이거나 이동 중인 것으로 가정되는지 여부가 결정됩니다. `LTEST_MODE `이 이동으로 설정된 경우(예: 멀티코터가 착륙하는 차량에 설치된 경우), 비컨 측정은 설정 위치에만 사용됩니다. `LTEST_MODE `이 정지 상태로 설정된 경우 차량 위치 추정기(EKF2 또는 LPE)에서도 신호 측정이 사용됩니다.
+매개 변수 [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE)는 비컨이 정지하는지, 아니면 움직이는지 결정합니다. `LTEST_MODE `이 이동으로 설정된 경우(예: 착륙할 멀티콥터에 설치된 경우), 비콘 측정은 정밀 랜딩 컨트롤러에서 목표 좌표를 생성하는 데에만 사용됩니다. `LTEST_MODE`가 고정으로 설정되면 비콘 측정은 기체 위치 추정기 (EKF2 또는 LPE)에서도 사용됩니다.
 
 매개 변수 [LTEST_SCALE_X ](../advanced_config/parameter_reference.md#LTEST_SCALE_X) 및 [ LTEST_SCALE_Y ](../advanced_config/parameter_reference.md#LTEST_SCALE_Y)를 사용하여 비컨 속도를 추정할 수 있다. IR-LOCK 센서의 렌즈 변형으로 인해 측정 스케일링이 필요할 수 있습니다. 차량 프레임이 아니라 센서 프레임에서 `LTEST_SCALE_X ` 및 ` LTEST_SCALE_Y `을 고려합니다.
 
