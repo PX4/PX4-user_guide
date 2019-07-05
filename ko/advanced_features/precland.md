@@ -2,21 +2,21 @@
 
 PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-landing-kit), IR 비컨 (예 [IR-LOCK MarkOne](https://irlock.com/collections/markone)), 그리고 하향 범위 센서를 사용한 *멀티콥터* (PX4 v1.7.4 이상)의 정밀 착륙을 지원합니다. 정밀 착륙은 약 10 cm 이내의 오차로 착륙할 수 있게 합니다 (GPS 착륙은 수 미터의 오차를 가질 수 있습니다).
 
-정밀 착륙은 * 고정 착륙 * 비행 모드로 들어가거나 [ 조종 장치 ](#mission)의 일부로 시작할 수 있습니다.
+정밀 착륙은 *Precision Land* 비행 모드나 [미션](#mission)의 일부로 시작할 수 있습니다.
 
-## 설치
+## 설정
 
 ### 하드웨어 설정
 
-[ 공식 가이드 ](https://irlock.readme.io/v2.0/docs)에 따라 IR-LOCK 센서를 장착하십시오. 센서의 x축이 차량의 y축과 정렬되어 있는지, 센서의 y축이 차량의 -x 방향과 정렬되어 있는지 확인하십시오(카메라에서 전방으로 90도 기울인 경우).
+[ 공식 가이드 ](https://irlock.readme.io/v2.0/docs)에 따라 IR-LOCK 센서를 장착하십시오. 센서의 x축이 기체의 y축과 정렬되어 있는지, 센서의 y축이 기체의 -x 방향과 정렬되어 있는지 확인하십시오 (카메라에서 전방으로 90도 기울인 경우).
 
 [ 범위/거리 센서 ](../getting_started/sensor_selection.md#distance)(* LidarLite v3 *)를 설치해도 문제가 없습니다.
 
-> **참고** 많은 적외선 기반 범위 센서는 IR-LOCK 신호기 앞에서 성능이 좋지 않습니다. 호환 가능한 다른 센서는 IR-LOCK 가이드를 참조하십시오.
+> **참고** 많은 적외선 기반 범위 센서는 IR-LOCK 비컨 센서와 같이 사용할 때 성능이 좋지 않습니다. 호환 가능한 다른 센서는 IR-LOCK 가이드를 참조하십시오.
 
 ### 펌웨어 구성
 
-정밀 착륙을 위해서는 기본적으로 PX4 펌웨어에 포함되지 않은 모듈 `` 및 ` 랜딩_타겟_estimator `이 필요합니다. 비행 컨트롤러에 대한 관련 [ 구성 ](https://github.com/PX4/Firmware/tree/master/cmake/configs)에 다음 라인을 추가(또는 조정)하여 포함할 수 있습니다.
+정밀 착륙은 기본적으로 PX4 펌웨어에 포함되지 않은 모듈 `irlock` 및 `landing_target_estimator`가 필요합니다. 비행 컨트롤러에 대한 관련 [ 구성 ](https://github.com/PX4/Firmware/tree/master/cmake/configs)에 다음 라인을 추가(또는 조정)하여 포함할 수 있습니다.
 
     운전자/여객
     모듈/랜딩_target_estimator
