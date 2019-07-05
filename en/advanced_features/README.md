@@ -6,4 +6,5 @@ This section contains topics related to some of the more advanced features of th
 * [Precision Landing](../advanced_features/precland.md)
 * [Iridium/RockBlock Satellite Communication System](../advanced_features/satcom_roadblock.md)
 * [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) (needs companion computer)
+* [Safe Landing](../computer_vision/safe_landing.md) (needs companion computer)
 * [Collision Prevention](../computer_vision/collision_prevention.md)

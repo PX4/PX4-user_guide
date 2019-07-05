@@ -88,6 +88,7 @@
   * [Precision Landing](advanced_features/precland.md)
   * [RockBlock SatCom System](advanced_features/satcom_roadblock.md)
   * [Obstacle Avoidance](computer_vision/obstacle_avoidance.md)
+  * [Safe Landing](computer_vision/safe_landing.md)
   * [Collision Prevention](computer_vision/collision_prevention.md)
 * [Advanced Configuration](advanced_config/README.md)
   * [Parameters](advanced_config/parameters.md)
