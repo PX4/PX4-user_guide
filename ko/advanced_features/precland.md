@@ -65,30 +65,30 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ### 미션에서의 수행 {#mission}
 
-Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
+정밀 착륙은 `param2`을 적절히 설정해 [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND)를 사용하여 [미션](../flying/missions.md)의 일부로 시작됩니다.
 
-- `param2` = 0: Normal landing without using the beacon.
-- `param2` = 1: *Opportunistic* precision landing.
-- `param2` = 2: *Required* precision landing.
+- `param2` = 0: 비컨 사용 없이 일반 착륙
+- `param2` = 1: *가능성 탐색* 모드 정밀 착륙
+- `param2` = 1: *필수* 모드 정밀 착륙
 
 ## 시뮬레이션
 
-IR-LOCK 센서와 비컨을 사용한 정밀 착륙은 [SITL Gazebo ](https://dev.px4.io/en/simulation/gazebo.html)에서 시뮬레이션할 수 있다.
+IR-LOCK 센서와 비컨을 사용한 정밀 착륙은 [SITL Gazebo ](https://dev.px4.io/en/simulation/gazebo.html)에서 시뮬레이션할 수 있습니다.
 
-IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 차량을 사용하여 시뮬레이션을 시작하려면 다음을 실행하십시오.
+IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 기체를 사용하여 시뮬레이션을 시작하려면 다음을 실행하십시오.
 
     make px4_sitl gazebo_iris_irlock
     
 
-Gazebo GUI에서 이동하거나 [ Gazebo World ](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42)에서 위치를 변경하여 비콘의 위치를 변경할 수 있습니다.
+비컨은 Gazebo GUI에서 이동시키거나, [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42)에서 비컨을 이동하여 위치를 변경할 수 있습니다.
 
 ## 작동 원리
 
-### 에스컬레이터의 비교
+### 착륙 목표 추정
 
-`랜딩_target_estimator `은 `꽃다발`의 운전자와 예상 지반 높이에서 측정하여 차량에 상대적인 비컨 위치를 추정합니다.
+`landing_target_estimator`는 `irlock` 드라이버로부터 측정값을 받을 뿐 아니라, 기체로부터의 비컨의 상대 위치를 추정하기 위한 예상 지형 고도를 받아옵니다.
 
-` irock_report `의 측정에는 영상 중심에서 비컨으로 각도의 접선이 포함됩니다. 즉, 측정은 z 구성요소의 길이 "1"인 비콘을 가리키는 벡터의 x와 y 성분이다. 즉, 카메라에서 비컨까지의 거리에 따라 측정치를 스케일링하면 벡터가 카메라에서 비컨으로 전환됩니다. 그런 다음 이 상대 위치는 차량의 자세 추정치를 사용하여 북쪽으로 정렬된 수평 차체 프레임으로 회전합니다. 상대 위치 측정의 x와 y 성분 모두 별도의 Kalman 필터로 필터링됩니다. 이 필터는 속도 추정치를 생성하고 특이치 거부를 허용하는 단순한 저역 통과 필터 역할을 합니다.
+`irock_report `의 측정에는 영상 중심에서 비컨으로 각도의 접선이 포함됩니다. 다른 말로, 측정은 z 성분의 크기가 1이고, 측정은 비컨을 가르키는 벡터의 x와 y성분입니다. 비컨에서 카메라부터의 거리의 측정을 스케일링하는것은 비컨에서 카메라까지의 벡터를 반환합니다. 그런 다음 이 상대 위치는 차량의 자세 추정치를 사용하여 북쪽으로 정렬된 수평 차체 프레임으로 회전합니다. 상대 위치 측정의 x와 y 성분 모두 별도의 Kalman 필터로 필터링됩니다. 이 필터는 속도 추정치를 생성하고 특이치 거부를 허용하는 단순한 저역 통과 필터 역할을 합니다.
 
 `랜딩_타겟_estimator `은 새로운 `월호_보고서 `가 추정치에 퓨전될 때마다 추정 상대 위치와 속도를 발표한다. 비컨이 보이지 않거나 신호 측정이 거부되면 아무 것도 게시되지 않습니다. 착륙 목표 추정치는 `랜딩_target_pose ` uORB 메시지에 기재된다.
 
