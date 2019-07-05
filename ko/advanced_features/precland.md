@@ -16,7 +16,7 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ### 펌웨어 구성
 
-정밀 착륙은 기본적으로 PX4 펌웨어에 포함되지 않은 모듈 `irlock` 및 `landing_target_estimator`가 필요합니다. 비행 컨트롤러에 관련된 [config](https://github.com/PX4/Firmware/tree/master/cmake/configs)에 다음 라인을 추가하여 (또는 주석 마크를 지워서) 모듈을 포함(include)시킬 수 있습니다.
+정밀 착륙은 기본적으로 PX4 펌웨어에 포함되지 않은 모듈 `irlock` 및 `landing_target_estimator`가 필요합니다. 비행 제어기와 관련된 [config](https://github.com/PX4/Firmware/tree/master/cmake/configs)에 다음 라인을 추가하여 (또는 주석 마크를 지워서) 모듈을 포함(include)시킬 수 있습니다.
 
     drivers/irlock
     modules/landing_target_estimator
@@ -38,15 +38,15 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ## 정밀 착륙 모드
 
-정밀 착륙은 "필수" 또는 "기회적"으로 구성할 수 있다. 모드 선택은 정밀 착륙 수행 방법에 영향을 미친다.
+정밀 착륙은 "필수" 또는 "가능"으로 설정할 수 있습니다. 이러한 모드 선택은 정밀 착륙 실행에 영향을 미칩니다.
 
 ### 필수 모드
 
-* 필수 모드 *에서 착륙 시작 시 아무런 신호도 보이지 않을 경우 차량이 신호등을 검색합니다. 표지판이 장착된 경우 차량이 정밀 착륙을 수행합니다.
+*필수 모드*에서 착륙을 시작할 때 아무런 신호를 찾을 수 없다면 기체가 비컨을 찾기 시작합니다. 비컨을 찾는 경우에 기체는 정밀 착륙을 실행합니다.
 
-검색 절차는 검색 고도까지 상승하는 것으로 구성됩니다([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). 검색 고도에서 여전히 신호등이 보이지 않고 검색 시간 초과([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT) 후에 현재 위치에서 정상 착륙이 시작됩니다.
+이런 탐색 과정은 탐색 고도까지 상승하는 것으로 구성됩니다 ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). 기체가 비컨을 탐색 고도에서 찾을 수 없고, 탐색시간 초과 ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT))이후, 현재 위치에서 일반 착륙을 시작합니다.
 
-### 기회주의적 모드
+### 가능 모드
 
 * 점성 모드 *에서 *차량은 착지가 시작될 때* 신호등이 보이는 경우에만 정밀 착륙을 사용한다. 차량이 보이지 않으면 즉시 현재 위치에서 * 정상 * 착지를 수행합니다.
 
