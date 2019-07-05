@@ -38,7 +38,7 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ## 정밀 착륙 모드
 
-정밀 착륙은 "필수" 또는 "가능"으로 설정할 수 있습니다. 이러한 모드 선택은 정밀 착륙 실행에 영향을 미칩니다.
+정밀 착륙은 "필수" 또는 "가능성 탐색"으로 설정할 수 있습니다. 이러한 모드 선택은 정밀 착륙 실행에 영향을 미칩니다.
 
 ### 필수 모드
 
@@ -46,30 +46,30 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 이런 탐색 과정은 탐색 고도까지 상승하는 것으로 구성됩니다 ([PLD_SRCH_ALT](../advanced_config/parameter_reference.md#PLD_SRCH_ALT)). 기체가 비컨을 탐색 고도에서 찾을 수 없고, 탐색시간 초과 ([PLD_SRCH_TOUT](../advanced_config/parameter_reference.md#PLD_SRCH_TOUT))이후, 현재 위치에서 일반 착륙을 시작합니다.
 
-### 가능 모드
+### 가능성 탐색 모드
 
-In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the beacon is visible when landing is initiated. 차량이 보이지 않으면 즉시 현재 위치에서 * 정상 * 착지를 수행합니다.
+*가능성 탐색 모드*에서는 기체가 착륙이 시행될 때 비컨이 가시적이라면 정밀 착륙을 사용합니다. 비컨이 보이지 않으면, 기체는 즉시 현재 위치에서 *일반* 착륙을 수행합니다.
 
-## 정밀 랜딩 수행
+## 정밀 착륙 수행
 
-> **Note** 현재 좌표 컨트롤러 구현의 한계로, 정밀 착륙은 유효한 GPS 측정 좌표에서만 가능합니다.
+> **참고** 현재 좌표 컨트롤러 구현의 한계로, 정밀 착륙은 유효한 GPS 측정 좌표에서만 가능합니다.
 
-### 비아 커맨드
+### 커맨드를 사용한 수행
 
-정밀 계단참은 명령행 인터페이스를 통해 시작할 수 있습니다.
+정밀 착륙은 아래의 명령으로 시작할 수 있습니다
 
-    카시트를 주문하다.
+    commander mode auto:precland
     
 
-이 경우, 정밀 착륙은 항상 "필수"로 간주된다.
+이 경우, 정밀 착륙은 "필수" 모드로 간주됩니다.
 
-### 미션에서 {#mission}
+### 미션에서의 수행 {#mission}
 
 Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
 
 - `param2` = 0: Normal landing without using the beacon.
-- `param2` = 0: 표지판을 사용하지 않고 일반 착륙.
-- `param2 ` = 2: * required * 정밀 착륙.
+- `param2` = 1: *Opportunistic* precision landing.
+- `param2` = 2: *Required* precision landing.
 
 ## 시뮬레이션
 
