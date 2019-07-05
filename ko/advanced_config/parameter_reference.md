@@ -28983,6 +28983,57 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="RTL_CONE_ANG">RTL_CONE_ANG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Half-angle of the RTL cone
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the half-angle of the cone which defines the vehicle RTL behavior.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above home.
+        </li>
+        <li>
+          <strong>25:</strong> 25 degrees half cone angle.
+        </li>
+        <li>
+          <strong>45:</strong> 45 degrees half cone angle.
+        </li>
+        <li>
+          <strong>65:</strong> 65 degrees half cone angle.
+        </li>
+        <li>
+          <strong>80:</strong> 80 degrees half cone angle.
+        </li>
+        <li>
+          <strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above home.
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 90
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+      degrees
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="RTL_DESCEND_ALT">RTL_DESCEND_ALT</strong> (FLOAT)
     </td>
     
