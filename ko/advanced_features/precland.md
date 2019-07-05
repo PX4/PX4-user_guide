@@ -48,7 +48,7 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ### 가능 모드
 
-* 점성 모드 *에서 *차량은 착지가 시작될 때* 신호등이 보이는 경우에만 정밀 착륙을 사용한다. 차량이 보이지 않으면 즉시 현재 위치에서 * 정상 * 착지를 수행합니다.
+In *Opportunistic Mode* the vehicle will use precision landing *if* (and only if) the beacon is visible when landing is initiated. 차량이 보이지 않으면 즉시 현재 위치에서 * 정상 * 착지를 수행합니다.
 
 ## 정밀 랜딩 수행
 
