@@ -16,10 +16,10 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ### 펌웨어 구성
 
-정밀 착륙은 기본적으로 PX4 펌웨어에 포함되지 않은 모듈 `irlock` 및 `landing_target_estimator`가 필요합니다. 비행 컨트롤러에 대한 관련 [ 구성 ](https://github.com/PX4/Firmware/tree/master/cmake/configs)에 다음 라인을 추가(또는 조정)하여 포함할 수 있습니다.
+정밀 착륙은 기본적으로 PX4 펌웨어에 포함되지 않은 모듈 `irlock` 및 `landing_target_estimator`가 필요합니다. 비행 컨트롤러에 관련된 [config](https://github.com/PX4/Firmware/tree/master/cmake/configs)에 다음 라인을 추가하여 (또는 주석 마크를 지워서) 모듈을 포함(include)시킬 수 있습니다.
 
-    운전자/여객
-    모듈/랜딩_target_estimator
+    drivers/irlock
+    modules/landing_target_estimator
     
 
 시스템 부팅 시에도 두 모듈을 시작해야 합니다. 지침은 [사용자 정의 시스템 시작](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup)을 참조하십시오.
