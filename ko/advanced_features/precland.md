@@ -34,9 +34,9 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 이러한 스케일 매개변수를 보정하려면, `LTEST_MODE`을 이동으로 설정하고, 비컨 위로 멀티콥터를 날려 전후좌우로 기체를 움직이십시오. 동작을 수행하는 중에 logging<1>, `landing_target_pose`와 `vehicle_local_position`이 설정되어야 합니다. 그런 다음, `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel`를 각각 `vehicle_local_position.vx` and `vehicle_local_position.vy`와 비교하십시오 (각각의 측정은 NED 프레임에서 이루어집니다). 추정된 비컨 속도가 기체 속도보다 일관되게 작거나 크면 스케일 파라미터를 조정하여 보정합니다.</p> 
 
-If you observe slow sideways oscillations of the vehicle while doing a precision landing with `LTEST_MODE` set to stationary, the beacon measurements are likely scaled too high and you should reduce the scale parameter in the relevant direction.
+`LTEST_MODE`를 정지로 설정하고 정밀 착륙을 하는 도중 기체의 측면에 진동이 나타난다면, 비콘 측정 값이 너무 높게 조정되었을 가능성이 있으므로 관련 방향에서 스케일 매개변수를 줄여야합니다.
 
-## 정밀 토지 모드
+## 정밀 착륙 모드
 
 정밀 착륙은 "필수" 또는 "기회적"으로 구성할 수 있다. 모드 선택은 정밀 착륙 수행 방법에 영향을 미친다.
 
