@@ -1,12 +1,12 @@
 # 정밀 랜딩
 
-PX4는 <>IR-LOCK 센서 </a>), IR-LOCK 센서 </em>(PX4 v1.7.4에서)에 대한 정밀 착륙을 지원합니다. 이렇게 하면 약 10cm의 정밀도로 착륙할 수 있습니다(대조적으로 GPS 정밀도는 몇 미터 정도 될 수 있음).
+PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-landing-kit), IR 비컨 (예 [IR-LOCK MarkOne](https://irlock.com/collections/markone)), 그리고 하향 범위 센서를 사용한 *멀티콥터* (PX4 v1.7.4 이상)의 정밀 착륙을 지원합니다. 정밀 착륙은 약 10 cm 이내의 오차로 착륙할 수 있게 합니다 (GPS 착륙은 수 미터의 오차를 가질 수 있습니다).
 
 정밀 착륙은 * 고정 착륙 * 비행 모드로 들어가거나 [ 조종 장치 ](#mission)의 일부로 시작할 수 있습니다.
 
 ## 설치
 
-### Hardware Setup
+### 하드웨어 설정
 
 [ 공식 가이드 ](https://irlock.readme.io/v2.0/docs)에 따라 IR-LOCK 센서를 장착하십시오. 센서의 x축이 차량의 y축과 정렬되어 있는지, 센서의 y축이 차량의 -x 방향과 정렬되어 있는지 확인하십시오(카메라에서 전방으로 90도 기울인 경우).
 
@@ -22,7 +22,7 @@ PX4는 <>IR-LOCK 센서 </a>), IR-LOCK 센서 </em>(PX4 v1.7.4에서)에 대한 
     모듈/랜딩_target_estimator
     
 
-시스템 부팅 시에도 두 모듈을 시작해야 합니다. For instructions see: [customizing the system startup](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup).
+시스템 부팅 시에도 두 모듈을 시작해야 합니다. 지침은 [사용자 정의 시스템 시작](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup)을 참조하십시오.
 
 ## 소프트웨어 구성(파라미터)
 
@@ -52,7 +52,7 @@ PX4는 <>IR-LOCK 센서 </a>), IR-LOCK 센서 </em>(PX4 v1.7.4에서)에 대한 
 
 ## 정밀 랜딩 수행
 
-> **Note** Due to a limitation in the current implementation of the position controller, precision landing is only possible with a valid global position.
+> **Note** 현재 좌표 컨트롤러 구현의 한계로, 정밀 착륙은 유효한 GPS 측정 좌표에서만 가능합니다.
 
 ### 비아 커맨드
 
