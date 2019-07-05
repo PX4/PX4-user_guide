@@ -22,7 +22,7 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
     modules/landing_target_estimator
     
 
-시스템 부팅 시에도 두 모듈을 시작해야 합니다. 지침은 [사용자 정의 시스템 시작](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup)을 참조하십시오.
+시스템 부팅 시에도 두 모듈은 반드시 시작되어야 합니다. 지침은 [사용자 정의 시스템 시작](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup)을 참조하십시오.
 
 ## 소프트웨어 구성(파라미터)
 
