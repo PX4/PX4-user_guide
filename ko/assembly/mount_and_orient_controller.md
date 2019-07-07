@@ -13,7 +13,7 @@ Status: 초안
 
 ![FC 방향](../../images/fc_orientation_1.png)
 
-> **Note** 만약 컨트롤러를 권장된/기본 방향으로 장착할 수 없다면 (예: 물리적 제약), 비행 제어 소프트웨어 상 비행 제어기의 방향을 실제 [비행 제어기의 방향](../config/flight_controller_orientation.md)대로 설정해야 합니다.
+> **참고** 만약 컨트롤러를 권장된/기본 방향으로 장착할 수 없다면 (예: 물리적 제약), 비행 제어 소프트웨어 상 비행 제어기의 방향을 실제 [비행 제어기의 방향](../config/flight_controller_orientation.md)대로 설정해야 합니다.
 
 ## 진동 감쇠
 
