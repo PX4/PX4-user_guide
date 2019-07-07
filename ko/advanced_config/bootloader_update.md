@@ -56,26 +56,26 @@
         Type "apropos word" to search for commands related to "word"...
         Reading symbols from px4fmuv5_bl.elf...done.
 
-5. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
-6. Now connect to the Dronecode probe with the following command: ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
-7. Power on the Pixhawk with another USB cable and connect the Dronecode probe to the FMU-DEBUG port.
+5. **/dev/serial/by-id** 디렉토리에서 ls 커맨드를 입력해 `<dronecode-probe-id>`를 찾으십시오.
+6. 아래 커맨드로 Dronecode probe에 연결하십시오: ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
+7. Pixhawk를 다른 USB 케이블로 전원을 넣고, FMU-DEBUG 포트로 Dronecode probe에 연결하십시오.
     
-    > **Note** To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+    > **참고** FMU-DEBUG 포트로 Dronecode probe에 연결하려면, 하우징 케이스를 제거해야 할 수도 있습니다 (예. Pixhawk4의 경우 %t Torx 스크류 드라이버를 사용할 수 있습니다).
 
-8. Use the following command to scan for the Pixhawk’s swd and connect to it:
+8. 아래 커맨드로 Pixhawk의 swd를 스캔하고 연결하십시오:
     
         (gdb) mon swdp_scan
         (gdb) attach 1
         
 
-9. Load the binary into the Pixhawk: ```(gdb) load```
+9. 이제 바이너리를 픽스호크에 로드하십시오: ```(gdb) load```
 
-After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
+부트로더가 업데이트된 후 이제 *Qgroundcontrol*을 통해 [PX4 펌웨어를 불러올 수 있습니다](../config/firmware.md).
 
-## Other Boards (Non-Pixhawk) {#non-pixhawk}
+## 다른 보드 (Non-Pixhawk) {#non-pixhawk}
 
-Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
+[Pixhawk Series](../flight_controller/pixhawk_series.md)에 포함되지 않은 보드들은 고유의 부트로더 업데이트 메커니즘을 가질 수 있습니다.
 
-These will be documented (where relevant) with the board:
+이 정보는 각 보드별로 (연관이 있는 경우) 아래에 문서화됩니다.
 
 - [Omnibus F4 SD > PX4 Bootloader Update](../flight_controller/omnibus_f4_sd.md#upload)
