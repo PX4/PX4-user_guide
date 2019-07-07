@@ -33,13 +33,13 @@
 
 Cube를 가능한 (이상적으로는) 윗면이 위로 향하도록 하여 기체의 무게 중심에 가깝게, 그리고 화살표를 기체의 앞면을 가르키도록 장착하십시오 (큐브 윗면에 그려진 *화살표 마크*를 참고하십시오).
 
-![튜브 마운트 - 전면 방향](../../assets/flight_controller/cube/cube_mount_front.jpg)
+![Cube 장착 - 전면 방향](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
 > **참고** 만약 컨트롤러를 권장된/기본 방향으로 장착할 수 없다면 (예: 물리적 제약), 비행 제어 소프트웨어 상 비행 제어기의 방향을 실제 [비행 제어기의 방향](../config/flight_controller_orientation.md)대로 설정해야 합니다.
 
 Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 사용해 장착할 수 있습니다. Cube 액세서리에 포함된 장착 1.8mm 두께의 프레임보드 전용으로 설계되었습니다. 커스텀 나사는 나사산 길이가 6mm~7.55mm인 M2.5 나사여야 합니다.
 
-![튜브 마운트 - 장착 플레이트](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
+![Cube 마운트 - 장착 플레이트](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
 ## GPS + 나침반 + 안전 스위치 + LED {#gps}
 
@@ -51,7 +51,7 @@ Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 �
 
 아래의 다이어그램은 모듈과 모듈 연결의 개요를 보여줍니다.
 
-![여기에 + 커넥터 다이어그램](../../assets/flight_controller/cube/here_plus_connector.png)
+![Here+ 연결 다이어그램](../../assets/flight_controller/cube/here_plus_connector.png)
 
 > **참고 ** GPS 모듈의 내장 안전 스위치는 *기본적으로* "활성화"됩니다.(활성화된 경우, PX4는 기체 시동을 허용하지 않습니다). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다 (어떤 이유로든 조종기나 지상국 프로그램이 기체 시동을 끌 수 없을 때 유용합니다).
 
@@ -69,7 +69,7 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 버저는 UAV 상태를 나타내는 오디오 신호를 보냅니다. 버저는 아래와 같이 USB포트에 연결됩니다. (추가적인 설정이 필요하지 않습니다)
 
-![큐브 버저](../../assets/flight_controller/cube/cube_buzzer.jpg)
+![Cube 버저](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
 ## 라디오 컨트롤 {#rc_control}
 
@@ -83,13 +83,13 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 제공된 3-와이어 서보 케이블로 접지(-), 전원(+) 및 신호(S) 와이어를 RC 핀에 연결합니다.
 
-![큐브 - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
+![Cube - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
 
 ### Spektrum Satellite 수신기
 
 Spktrum DSM, DSM2 및 DSM-X Satellite RC 수신기는 **SPKT/DSM** 포트에 연결합니다.
 
-![큐브 - 스픽트럼](../../assets/flight_controller/cube/cube_rc_spektrum.jpg)
+![Cube - Spektrum](../../assets/flight_controller/cube/cube_rc_spektrum.jpg)
 
 ### PWM 수신기
 
@@ -111,13 +111,13 @@ Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 �
 
 통신 채널은 [텔레메트리 라디오](../telemetry/README.md)를 경유합니다. 기체의 텔레메트리를 **TELEM1** 포트에 연결해야 합니다 (이 포트에 연결된 경우 추가 구성이 필요하지 않음). 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 (USB를 통해) 연결됩니다.
 
-![텔레메트릭 라디오](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
+![텔레메트리 라디오](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
 ## SD 카드 (선택 사항)
 
 SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_started/flight_reporting.md)에 사용됩니다. Micro-SD 카드를 그림과 같이 큐브에 삽입합니다.
 
-![큐브 - SDCard 마운트](../../assets/flight_controller/cube/cube_sdcard.jpg)
+![Cube - SDCard 장착](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
 > **팁** SanDisk Extreme U3 32GB가 [매우 권장됩니다](https://dev.px4.io/en/log/logging.html#sd-cards) (개발자 가이드).
 
@@ -125,7 +125,7 @@ SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_starte
 
 모터/서보는 **MAIN**과 **AUX**포트에 [기체 프레임 참고사항](../airframes/airframe_reference.md)에 기체별로 정의된 특정 순서로 연결해야 합니다.
 
-![큐브 - 모터 연결](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
+![Cube - 모터 연결](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
 > **참고** 이 참고사항은 모든 지원되는 기체/기기 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
 
@@ -143,16 +143,16 @@ SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_starte
 
 *QGroundControl*를 다운로드/설치/실행한 후, 아래와 같이 비행 제어기를 컴퓨터에 연결합니다.
 
-![큐브 - 컴퓨터에 대한 USB 연결](../../assets/flight_controller/cube/cube_usb_connection.jpg)
+![Cube - 컴퓨터 USB 연결](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 
-기본/일반 구성 정보는 다음에서 다룹니다.
+기본적/일반적인 설정은 [비행 제어기 설정](../config/README.md)에서 다룹니다.
 
-QuadPlane 특정 구성 여기 덮여 있다: [QuadPlane VTOL 구성](../config_vtol/vtol_quad_configuration.md)
+QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 
-## Further information
+## 추가적인 정보
 
-- [큐브](../flight_controller/pixhawk-2.md) <!-- - [pixhawk2 user manual copy]()  // fold out insert shipped with doc /assets/flight_controller/cube/cube_mount_front/pixhawk2 user manual copy.pdf -->
+- [Cube](../flight_controller/pixhawk-2.md) <!-- - [pixhawk2 user manual copy]()  // fold out insert shipped with doc /assets/flight_controller/cube/cube_mount_front/pixhawk2 user manual copy.pdf -->
     
     <!-- - [Cube Quickstart]() (HEX) -->
