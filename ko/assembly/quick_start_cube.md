@@ -37,19 +37,19 @@ Cube를 가능한 (이상적으로는) 윗면이 위로 향하도록 하여 기�
 
 > **참고** 만약 컨트롤러를 권장된/기본 방향으로 장착할 수 없다면 (예: 물리적 제약), 비행 제어 소프트웨어 상 비행 제어기의 방향을 실제 [비행 제어기의 방향](../config/flight_controller_orientation.md)대로 설정해야 합니다.
 
-Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 사용해 장착할 수 있습니다. Cube 액세서리에 포함된 장착 1.8mm 두께의 프레임보드 전용으로 설계되었습니다. 사용자 지정 된 나사 해야하는 M2.5 범위 6mm 큐브 내부 스레드 길이 ~ 7.55 m m.
+Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 사용해 장착할 수 있습니다. Cube 액세서리에 포함된 장착 1.8mm 두께의 프레임보드 전용으로 설계되었습니다. 커스텀 나사는 나사산 길이가 6mm~7.55mm인 M2.5 나사여야 합니다.
 
 ![튜브 마운트 - 장착 플레이트](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
-## GPS + 나침반 + 안전 스위치, LED {#gps}
+## GPS + 나침반 + 안전 스위치 + LED {#gps}
 
-The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md).
+권장되는 GPS모듈은 *Here*과 [Here+](../gps_compass/rtk_gps_hex_hereplus.md)입니다. 두 기기 모두 GPS 모듈, 나침반, 안전 스위치 그리고 [LEDs](../getting_started/led_meanings.md)를 통합한 모듈입니다.
 
-> **참고** 모듈 사이의 차이점은 *여기 +* 지원 센티미터 수준 [RTK](../advanced_features/rtk-gps.md) 통해 위치. 그렇지 않으면 그들은 같은 방식으로 사용/연결 되어 있습니다.
+> **참고** 두 모듈은 *Here+*는 [RTK](../advanced_features/rtk-gps.md)를 통한 센티미터 단위의 위치 제어를 제공하는 점이 다릅니다. RTK 지원을 제외하면, 두 모듈은 같은 방식으로 사용/연결됩니다.
 
-모듈은 방향 마커가 차량 앞쪽으로 향하도록 하여 가능한 한 멀리 프레임에 장착해야 합니다(다른 전자 장치와 나침반을 분리하면 간섭이 줄어듭니다). 제공된 8핀 케이블을 사용하여 ` GPS1 ` 포트에 연결해야 합니다..
+모듈은 방향 마커가 기체 앞쪽으로 향하도록 가능한 프레임에서 멀리 장착해야 합니다 (다른 전자 장치와 나침반을 분리하면 간섭이 줄어듭니다). 제공된 8핀 케이블을 사용하여 `GPS1` 포트에 연결해야 합니다..
 
-아래 다이어그램 모듈과 연결의 개요 보기를 보여줍니다.
+아래의 다이어그램은 모듈과 모듈 연결의 개요를 보여줍니다.
 
 ![여기에 + 커넥터 다이어그램](../../assets/flight_controller/cube/here_plus_connector.png)
 
