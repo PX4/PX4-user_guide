@@ -119,43 +119,40 @@ SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_starte
 
 ![큐브 - SDCard 마운트](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
-> **Tip ** SanDisk Extreme U3 32GB는  높게 권장됩니다(개발자 가이드).</p> </blockquote> 
-> 
-> ## Motors
-> 
-> 모터/servos [기체 참조](../airframes/airframe_reference.md)에 귀하의 차량에 대 한 지정 된 순서 대로 **메인** 및 **AUX** 포트에 연결 됩니다.
-> 
-> ![큐브 - 모터 연결](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
-> 
-> > ** 노트 ** 이 참조는 지원되는 모든 공기 및 접지 프레임에 대한 모터/servo 매핑의 출력 포트를 나열합니다(기준에 프레임이 나열되지 않은 경우 올바른 유형의 "일반" 공기 프레임을 사용합니다).
-> 
-> 
+> **팁** SanDisk Extreme U3 32GB가 [매우 권장됩니다](https://dev.px4.io/en/log/logging.html#sd-cards) (개발자 가이드).
+
+## 모터
+
+모터/서보는 **MAIN**과 **AUX**포트에 [기체 프레임 참고사항](../airframes/airframe_reference.md)에 기체별로 정의된 특정 순서로 연결해야 합니다.
+
+![큐브 - 모터 연결](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
+
+> **참고** 이 참고사항은 모든 지원되는 기체/기기 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
 
 <span></span>
 
-> 
-> > **주의** 프레임 간에 매핑이 일관되지 않습니다(예: 모든 평면 프레임에 대해 스로틀이 동일한 출력에 의존할 수 없음). 차량에 대 한 올바른 매핑을 사용할 수 있는지 확인 합니다.
-> 
-> ## Other Peripherals
-> 
-> 옵션/낮은 공통 구성요소의 배선 및 구성은 개별 [ 주변기기 ](../peripherals/README.md)의 항목에서 다룹니다.
-> 
-> ## Configuration
-> 
-> 구성은 [QGroundContro](http://qgroundcontrol.com/)을 사용 하 여 수행 됩니다.
-> 
-> 다운로드, 설치 하 고 *QGroundControl*를 실행, 후와 같이 컴퓨터에 보드를 연결 합니다.
-> 
-> ![큐브 - 컴퓨터에 대한 USB 연결](../../assets/flight_controller/cube/cube_usb_connection.jpg)
-> 
-> 기본/일반 구성 정보는 다음에서 다룹니다.
-> 
-> QuadPlane 특정 구성 여기 덮여 있다: [QuadPlane VTOL 구성](../config_vtol/vtol_quad_configuration.md)
-> 
-> <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
-> 
-> ## Further information
-> 
-> - [큐브](../flight_controller/pixhawk-2.md) <!-- - [pixhawk2 user manual copy]()  // fold out insert shipped with doc /assets/flight_controller/cube/cube_mount_front/pixhawk2 user manual copy.pdf -->
->     
->     <!-- - [Cube Quickstart]() (HEX) -->
+> **주의** 출력 포트 연결은 모든 프레임에 대해 일관되지 않습니다 (예: 비행기 프레임에서 모터 스로틀이 동일한 출력이 아닐 수 있음). 가지고 있는 기체의 프레임에 대해 올바르게 모터를 연결했는지 다시 한 번 확인하십시오.
+
+## 그 외 주변 장치
+
+선택적인 주변 장치의 배선 및 구성은 개별 [주변 장치](../peripherals/README.md)에 대한 항목에서 다룹니다.
+
+## 설정
+
+설정은 [QgroundControl](http://qgroundcontrol.com/)을 사용해 이뤄집니다.
+
+*QGroundControl*를 다운로드/설치/실행한 후, 아래와 같이 비행 제어기를 컴퓨터에 연결합니다.
+
+![큐브 - 컴퓨터에 대한 USB 연결](../../assets/flight_controller/cube/cube_usb_connection.jpg)
+
+기본/일반 구성 정보는 다음에서 다룹니다.
+
+QuadPlane 특정 구성 여기 덮여 있다: [QuadPlane VTOL 구성](../config_vtol/vtol_quad_configuration.md)
+
+<!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
+
+## Further information
+
+- [큐브](../flight_controller/pixhawk-2.md) <!-- - [pixhawk2 user manual copy]()  // fold out insert shipped with doc /assets/flight_controller/cube/cube_mount_front/pixhawk2 user manual copy.pdf -->
+    
+    <!-- - [Cube Quickstart]() (HEX) -->
