@@ -21,7 +21,7 @@
     
     ![FMUv2 업데이트](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
-3. 기체가 재부팅 될 대까지 기다리십시오.
+3. 기체가 재부팅 될 때까지 기다리십시오.
 
 4. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 매개변수를 찾아서 [활성화](../advanced_config/parameters.md#parameter-configuration)하십시오.
 5. 재부팅하십시오 (보드의 연결을 끊고 다시 연결하십시오.). 부트로더 업데이트는 수 초 안에 완료됩니다.
@@ -30,15 +30,15 @@
 
 ### Dronecode Probe 부트로더 업데이트 {#dronecode_probe}
 
-The following steps explain how you can "manually" update the bootloader using the dronecode probe:
+아래 단계는 dronecode probe를 사용하여 수동으로 부트로더를 업데이트 하는 방법을 설명합니다:
 
-1. Get a binary containing the bootloader (either from dev team or build it yourself).
-2. Connect the Dronecode probe to your PC via USB. 
-3. Go into the directory containing the binary and run the following command in the terminal: 
+1. 부트로더를 포함한 바이너리를 만드십시오 (개발자 팀에서 다운받거나, 직접 소스를 빌드하십시오).
+2. USB로 컴퓨터와 Dronecode probe를 연결하십시오. 
+3. 바이너리가 들어 있는 디렉토리에서 아래 커맨드를 터미널에 입력하십시오. 
         cmd
         arm-none-eabi-gdb px4fmuv5_bl.elf
 
-4. The *gdb terminal* appears and it should display the following output: 
+4. *gdb terminal*이 나타나고, 아래와 같은 결과를 출력합니다. 
         cmd
         GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
         Copyright (C) 2017 Free Software Foundation, Inc.
