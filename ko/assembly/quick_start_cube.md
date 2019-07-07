@@ -53,51 +53,51 @@ Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 �
 
 ![여기에 + 커넥터 다이어그램](../../assets/flight_controller/cube/here_plus_connector.png)
 
-> **참고 ** GPS 모듈의 통합 안전 스위치는 기본적으로 * *을(를) 활성화합니다(활성화된 경우 PX4는 차량에 무장을 허용하지 않습니다). 안전을 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전을 활성화하고 차량을 해제할 수 있습니다(어떤 이유로든 리모컨이나 접지 스테이션에서 차량을 해제할 수 없는 경우 유용함).
+> **참고 ** GPS 모듈의 내장 안전 스위치는 *기본적으로* "활성화"됩니다.(활성화된 경우, PX4는 기체 시동을 허용하지 않습니다). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다 (어떤 이유로든 조종기나 지상국 프로그램이 기체 시동을 끌 수 없을 때 유용합니다).
 
 <span></span>
 
-> **Tip ** 구형 6핀 GPS 모듈을 사용하려면 GPS와 [ 안전 스위치 ](#safety_switch)를 모두 연결하는 데 사용할 수 있는 케이블이 키트에 함께 제공됩니다.
+> **팁** 구형 6핀 GPS 모듈을 사용하려면, GPS와 [안전 스위치](#safety_switch)를 모두 연결하는 데 사용할 수 있는 케이블이 키트에 함께 제공됩니다.
 
 ## 안전 스위치 {#safety_switch}
 
-권장 GPS(내장 안전 스위치가 있는 경우)를 사용하지 않는 경우에만 큐브와 함께 제공되는 전용 안전 스위치가 필요합니다.
+Cube와 함께 구성된 *전용* 안전 스위치는 (내장 안전 스위치를 포함한) 권장 [GPS](#gps)를 사용하지 않을 경우에만 필요합니다.
 
-GPS 없이 비행하는 경우 차량을 장갑으로 고정하고 이동하기 위해(또는 기존의 6핀을 사용하는 경우) 스위치를 "0" GPS1 </code> 포트에 직접 연결해야 합니다.
+GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 안전 스위치는 반드시 `GPS1` 포트(또는 구형 6핀 케이블 사용시 제공된 케이블을 통해)에 장착되어어야 합니다.
 
 ## 버저
 
-버저는 UAV 상태를 표시 하는 오디오 신호를 제공 합니다. 그림과 같이 USB 포트에 연결해야 합니다(추가 구성은 필요하지 않음).
+버저는 UAV 상태를 나타내는 오디오 신호를 보냅니다. 버저는 아래와 같이 USB포트에 연결됩니다. (추가적인 설정이 필요하지 않습니다)
 
 ![큐브 버저](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
-## Radio Control {#rc_control}
+## 라디오 컨트롤 {#rc_control}
 
-[ 리모트 컨트롤(RC) 라디오 시스템](../getting_started/rc_transmitter_receiver.md)은 차량을 수동으로 제어하려는 경우 필요합니다(PX4에는 자율 비행 모드를 위한 무선 시스템이 필요하지 않음).
+[리모트 컨트롤(RC) 라디오 시스템](../getting_started/rc_transmitter_receiver.md)은 기체를 *수동으로* 제어할 때 필요합니다 (PX4에는 자율 비행 모드를 위한 라디오 시스템이 필요하지 않음).
 
-You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
+기체와 조종자가 서로 통신하기 위해 [호환되는 송신기/수신기를 선택하고](../getting_started/rc_transmitter_receiver.md), 송신기와 수신기를 *바인드*해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
 
-아래 지침은 다양한 유형의 수신기를 연결하는 방법을 보여 줍니다.
+아래 지침은 다른 종류의 수신기를 연결하는 방법을 설명합니다.
 
-### PPM-SUM / Futaba S.버스 수신기
+### PPM-SUM / Futaba S.BUS 수신기
 
-제공된 3와이어 서보 케이블을 사용하여 접지(-), 전원(+) 및 신호(S) 와이어를 RC 핀에 연결합니다.
+제공된 3-와이어 서보 케이블로 접지(-), 전원(+) 및 신호(S) 와이어를 RC 핀에 연결합니다.
 
 ![큐브 - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
 
-### 스펙트럼 위성 수신기
+### Spektrum Satellite 수신기
 
-Spktrum DSM, DSM2 및 DSM-X Satellite RC 수신기는 SPKT/DSM 포트에 연결됩니다. 
+Spktrum DSM, DSM2 및 DSM-X Satellite RC 수신기는 **SPKT/DSM** 포트에 연결합니다.
 
 ![큐브 - 스픽트럼](../../assets/flight_controller/cube/cube_rc_spektrum.jpg)
 
 ### PWM 수신기
 
-큐브는 각 채널 </em>에 대해 *개의 개별 와이어가 있는 PPM 또는 PWM 수신기에 직접 연결할 수 없습니다. 따라서 PWM 수신기는 hex.aero 또는 proficnc.com.에서 구매할 수 있는 PPM 인코더 모듈을 통해 RCIN 포트에 연결해야 합니다.</p> 
+Cube는 *각각의 채널이 개별적으로 배선된* PPM 또는 PWM 수신기에 바로 연결할 수 없습니다. PWM 수신기는 hex.aero 또는 proficnc.com에서 구매할 수 있는 *PPM 인코더 모듈*을 통해 **RCIN**포트에 연결해야 합니다.
 
-## Power {#power}
+## 전원 공급 {#power}
 
-큐브는 일반적으로 **POWER1 ** 포트에 연결된 전원 모듈(키트와 함께 제공)을 통해 리튬 이온 폴리머(LiPo) 배터리로부터 전원을 공급받습니다. 전원 모듈은 보드에 안정적인 전원 공급 및 전압/전류 표시를 제공하며 멀티코터 차량의 모터를 구동하는 데 사용되는 ESC에 개별적으로 전원을 공급할 수 있습니다.
+Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 함께 제공)을 통해 리튬 이온 폴리머(LiPo) 배터리에서 전원을 공급받습니다. 전원 모듈은 보드에 안정적인 전원 공급 및 전압/전류 표시를 제공하며 멀티콥터 기체의 모터를 구동하는 데 사용되는 ESC에 개별적으로 전원을 공급할 수 있습니다.
 
 멀티콥터 차량의 일반적인 전원 설정은 다음과 같습니다.
 
@@ -105,17 +105,17 @@ Spktrum DSM, DSM2 및 DSM-X Satellite RC 수신기는 SPKT/DSM 포트에 연결�
 
 <!-- HOw is the power rail powered for servos - power rail? Plane/Vtol would be cool to show here too -->
 
-## 원격 측정 시스템(옵션) {#telemetry}
+## 텔레메트리 시스템 (선택 사항) {#telemetry}
 
-원격 측정 시스템을 사용하면 지상국에서 이동 중인 차량과 통신, 모니터링 및 제어할 수 있습니다(예: UAV를 특정 위치로 유도하거나 새 임무를 업로드할 수 있음).
+텔레메트리 시스템은 지상국과 비행 중인 기체와 통신, 모니터링, 제어할 수 있도록 합니다 (예: 기체를 특정 위치로 움직이도록 지시하거나, 새로운 미션을 업로드할 수 있습니다).
 
-통신 채널은 [Telecry Radios](../telemetry/README.md)을 통해 제공됩니다. 차량 기반 라디오를 ** TELEM1 ** 포트에 연결해야 합니다(이 포트에 연결된 경우 추가 구성이 필요하지 않음). 다른 라디오는 일반적으로 USB를 통해 지상국 컴퓨터 또는 모바일 장치에 연결됩니다.
+통신 채널은 [텔레메트리 라디오](../telemetry/README.md)를 경유합니다. 기체의 텔레메트리를 **TELEM1** 포트에 연결해야 합니다 (이 포트에 연결된 경우 추가 구성이 필요하지 않음). 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 (USB를 통해) 연결됩니다.
 
 ![텔레메트릭 라디오](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
-## SD 카드(선택 사항)
+## SD 카드 (선택 사항)
 
-SD 카드는 가장 일반적으로  로그에 사용되며 비행 세부 정보를 분석합니다. Micro-SD 카드를 그림과 같이 큐브에 삽입합니다(아직 없는 경우).</p> 
+SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_started/flight_reporting.md)에 사용됩니다. Micro-SD 카드를 그림과 같이 큐브에 삽입합니다.
 
 ![큐브 - SDCard 마운트](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
