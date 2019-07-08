@@ -53,7 +53,7 @@ The `TELEM 1` port is almost always used for the GCS telemetry stream.
 To support this there is a [default serial port mapping](../peripherals/serial_configuration.md#default_port_mapping) of MAVLink instance 0 as shown below:
 - [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) = `TELEM 1`
 - [MAV_0_MODE](../advanced_config/parameter_reference.md#MAV_0_MODE) = `Normal`
-- [MAV_0_RATE](../advanced_config/parameter_reference.md#MAV_0_RATE)= `1200` B/s
+- [MAV_0_RATE](../advanced_config/parameter_reference.md#MAV_0_RATE)= `1200` Bytes/s
 - [MAV_0_FORWARD](../advanced_config/parameter_reference.md#MAV_0_FORWARD) = `True`
 - [SER_TEL1_BAUD](../advanced_config/parameter_reference.md#SER_TEL1_BAUD) = `57600`
 
@@ -63,6 +63,7 @@ To support this there is a [default serial port mapping](../peripherals/serial_c
 For example, to use a companion computer on `TELEM 2` you might set parameters as shown:
 - [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG) = `TELEM 2`
 - [MAV_2_MODE](../advanced_config/parameter_reference.md#MAV_2_MODE) = `Onboard`
-- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)= `921600` B/s
+- [MAV_2_RATE](../advanced_config/parameter_reference.md#MAV_2_RATE)= `80000` Bytes/s
+  > **Tip** This value might have to be tuned/reduced in the event of message losses.
 - [MAV_2_FORWARD](../advanced_config/parameter_reference.md#MAV_2_FORWARD) = `True`
 - [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) = `921600` baud
