@@ -73,7 +73,7 @@ GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 �
 
 ## 라디오 컨트롤 {#rc_control}
 
-[리모트 컨트롤(RC) 라디오 시스템](../getting_started/rc_transmitter_receiver.md)은 기체를 *수동으로* 제어할 때 필요합니다 (PX4에는 자율 비행 모드를 위한 라디오 시스템이 필요하지 않음).
+[리모트 컨트롤(RC) 라디오 시스템](../getting_started/rc_transmitter_receiver.md)은 기체를 *수동으로* 제어할 때 필요합니다 (PX4에는 자율 비행 모드를 위한 라디오 시스템이 필요하지 않습니다).
 
 기체와 조종자가 서로 통신하기 위해 [호환되는 송신기/수신기를 선택하고](../getting_started/rc_transmitter_receiver.md), 송신기와 수신기를 *바인드*해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
 
