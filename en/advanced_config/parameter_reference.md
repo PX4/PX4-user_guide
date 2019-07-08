@@ -12126,6 +12126,14 @@ is less than 50% of this value</p>   </td>
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="TEL_BST_EN">TEL_BST_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Blacksheep telemetry Enable</p><p><strong>Comment:</strong> If true, the FMU will try to connect to Blacksheep telemetry on start up</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="TEL_FRSKY_CONFIG">TEL_FRSKY_CONFIG</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Serial Configuration for FrSky Telemetry</p><p><strong>Comment:</strong> Configure on which serial port to run FrSky Telemetry.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
