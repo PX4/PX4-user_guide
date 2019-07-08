@@ -7,10 +7,16 @@ The feature can be enabled in both [Land mode](../flight_modes/land.md) and [Mis
 If commanded to land, the vehicle first descends to a height where it can measure the surface (companion computer `loiter_height` parameter).
 If the landing area is not sufficiently flat, the vehicle moves outwards in a square-spiral pattern, periodically stopping to re-check the terrain for a landing spot that isn't too rough.
 
-> **Warning** The feature will not prevent a vehicle from landing on a road (even if a car is detected it will be "forgotten" once it moves past).
-  It will prevent landing on water, as the cameras used do not "see" the water surface at all.
-
 {% youtube %}https://youtu.be/9SuJYcT0Mgc{% endyoutube %}
+
+## Limitations/Capabilities
+
+Safe landing is designed for finding flat areas in rough terrain.
+
+- Landing on a road is not prevented; if a car is detected it will be "forgotten" once it moves past.
+- Landing on water may occur if using radar or ultrasound sensors, but should not occur if using stereo cameras or LIDAR.
+  - The system will only land if it is able to detect ground. 
+    For stereo cameras, water that is rough enough to have sufficient distinguishing features for analysis will not be flat enough to land on.
 
 
 ## PX4 Configuration
@@ -31,13 +37,17 @@ This covers the common setup for obstacle avoidance and collision prevention, an
 The configuration information includes, among other things, how to set up safe landing for different cameras, sizes of vehicles, and the height at which the decision to land or not is taken.
 
 
-## Safe Landing Interface
+## Safe Landing Interface {#interface}
 
-PX4 uses the [MAVLink Trajectory Interface/Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) for integrating path planning services from a companion computer (including obstacle avoidance in missions, safe landing, collision prevention, and future services). 
+PX4 uses the [MAVLink Path Planning Protocol (Trajectory Interface)](https://mavlink.io/en/services/trajectory.html) for integrating path planning services from a companion computer (including obstacle avoidance in missions, safe landing, and future services).
 
-<!-- 
-[Obstacle Avoidance > Mission Avoidance Interface](../computer_vision/obstacle_avoidance.md#mission_avoidance_interface)
+When landing in missions the MAVLink interface/implementation is exactly the same as documented in [Obstacle Avoidance > Path Planning Interface](../computer_vision/obstacle_avoidance.md#path_planning_interface).
 
+The companion subscribes to the vehicle state and stops sending setpoints when PX4 has disarmed.
+
+<!--
+multiple planners?
+interface in land mode?
 -->
 
 
