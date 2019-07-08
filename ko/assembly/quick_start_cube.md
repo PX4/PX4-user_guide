@@ -35,7 +35,7 @@ Cube를 가능한 (이상적으로는) 윗면이 위로 향하도록 하여 기�
 
 ![Cube 장착 - 전면 방향](../../assets/flight_controller/cube/cube_mount_front.jpg)
 
-> **참고** 만약 컨트롤러를 권장된/기본 방향으로 장착할 수 없다면 (예: 물리적 제약), 비행 제어 소프트웨어 상 비행 제어기의 방향을 실제 [비행 제어기의 방향](../config/flight_controller_orientation.md)대로 설정해야 합니다.
+> **참고** 만약 컨트롤러를 권장된/기본 방향으로 장착할 수 없다면 (예: 물리적 제약), 비행 제어 소프트웨어 상 비행 제어 장치의 방향을 실제 [비행 제어 장치의 방향](../config/flight_controller_orientation.md)대로 설정해야 합니다.
 
 Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 사용해 장착할 수 있습니다. Cube 액세서리에 포함된 장착 1.8mm 두께의 프레임보드 전용으로 설계되었습니다. 커스텀 나사는 나사산 길이가 6mm~7.55mm인 M2.5 나사여야 합니다.
 
@@ -141,11 +141,11 @@ SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_starte
 
 설정은 [QgroundControl](http://qgroundcontrol.com/)을 사용해 이뤄집니다.
 
-*QGroundControl*를 다운로드/설치/실행한 후, 아래와 같이 비행 제어기를 컴퓨터에 연결합니다.
+*QGroundControl*를 다운로드/설치/실행한 후, 아래와 같이 비행 제어 장치를 컴퓨터에 연결합니다.
 
 ![Cube - 컴퓨터 USB 연결](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 
-기본적/일반적인 설정은 [비행 제어기 설정](../config/README.md)에서 다룹니다.
+기본적/일반적인 설정은 [비행 제어 장치 설정](../config/README.md)에서 다룹니다.
 
 QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
 
