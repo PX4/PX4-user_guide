@@ -1,10 +1,10 @@
 # Vibration Isolation
 
-This topic shows how to determine whether vibration levels are too high, and lists some simple steps to improve vibration characteristics.
+이 섹션은 진동 규모의 크기를 판단하는 방법과 진동 특성을 개선하는 방법에 대해 설명합니다.
 
-## Overview
+## 개요
 
-Flight Control boards with in-built accelerometers or gyros are sensitive to vibrations. High vibration levels can cause a range of problems, including reduced flight efficiency/performance, shorter flight times and increased vehicle wear-and-tear. In extreme cases vibration may lead to sensor clipping/failures, possibly resulting in estimation failures and fly-aways.
+내장된 가속도 센서 또는 자이로스코프 센서가 있는 비행 제어 보드는 진동에 민감합니다. 큰 규모의 진동은 비행 효율과 성능의 감소, 짧은 비행 시간, 기체 내구도 감소 등 다양한 문제을 일으킵니다. 극단적인 경우 진동으로 인해 센서가 오작동하거나 파손될 수 있으며, 이로 인해 자세/위치 추정에 실패하고 기체가 영원히 날아가버릴 수 있습니다.
 
 Well-designed airframes damp/reduce the amplitude of specific structural resonances at the autopilot mounting location. Further isolation may be needed in order to reduce vibration to the level that sensitive components can handle (e.g. some flight controllers must be attached to the airframe using some form of anti-vibration foam/mount - while others are internally isolated).
 
