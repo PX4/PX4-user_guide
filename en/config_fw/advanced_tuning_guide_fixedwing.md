@@ -15,8 +15,6 @@ PX4 uses TECS for altitude and airspeed control, and L1 for horizontal heading/p
 <span></span>
 > **Tip** All parameters are documented in the [Parameter Reference](../advanced_config/parameter_reference.md).
 The most important parameters are covered in this guide.
- 
-
 
 ## TECS Tuning (Altitude and Airspeed)
 
@@ -25,47 +23,37 @@ For a detailed description of the TECS algorithm and the control diagram, see [C
 
 A well-tuned attitude controller is required before tuning TECS [PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
 
-The tuning of the TECS controller mainly is about setting the airframe properties correctly. 
-A step-by-step procedure for the setting of the most important ones is provided below.
-It consists of several flights performed in manual or stabilized flight mode, each to set a different group of parameters. 
-Highly beneficial to do this with a second person reading the current vehicle states over telemetry.
-To improve accuracy, taking a look at the flight logs afterwards is encouraged to set some parameters more precicely. 
+Tuning TECS is mainly about setting the airframe limitations correctly. Those limiations can be specified in terms of parameters which can be
+determined from a sequence of flight maneuvers that are described below. Most of the maneuvers required the plane to be flown by a pilot in stabilised flight mode.
+It is highly beneficial to have a person available who can read and take note of telemetry data while the pilot is flying the maneuvers.
+To improve accuracy it's also recommended to verify the data obtained during flight with the data recorded in the flight logs.
 
-#### 1st: Manual flight in trim condition
-Fly in manual (or stabilized) flight mode. Set the throttle such that the aircraft is in level flight. 
+#### 1st: Trim Conditions
+Fly in stabilised flight mode and find trim values for both throttle and pitch angle for level flight at trim airspeed.
+Use throttle to adjust airspeed and pitch to keep level flight.
 Set the following parameters:
-- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - set to the airspeed on a manual level flight
-- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE) - set to the throttle (stick position between 0 and
-  1.0) on a manual level flight at FW_AIRSPD_TRIM
-- trim pitch? (if large offset from 0, get from logs)
+- [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) - set to the desired trim airspeed flown during the maneuver.
+- [FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE) - set to the throttle required to fly at trim airspeed.
+- [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) - set to the pitch angle required to maintain level flight.
 
-#### 2nd: Manual ascends/descends
-Fly multiple ascends/descends with various throttle and pitch setpoints. 
-Fly them in a manner that appear aggressive but still save to you (the aim is to tune the absolute edge cases of TECS).
-After the flight, get the following out of your logs:
+#### 2nd: Airspeed & Throttle Limits
+Fly in stabilised mode and increase throttle while maintaining level flight using pitch control until the vehicle reaches
+the maximum allowed airspeed.
+- [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) - set to the throttle you applied to reach maximum airspeed during level flight.
+- [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) - set to the minimum throttle the plane should fly at.
+- [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - set to the maximum airspeed you achieved during level flight at `FW_THR_MAX`.
 
-- [FW_THR_MIN](../advanced_config/parameter_reference.md#FW_THR_MIN) - set to the minimal throttle you applied during the flight
-- [FW_THR_MAX](../advanced_config/parameter_reference.md#FW_THR_MAX) - set to the maximal throttle you applied during the flight
-- [FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) - minimal airspeed at which the aircraft was still safely controllable during the maneuvers (add a safety margin if you think that it was close to stalling)
-- [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - maximal airspeed reached during the flight
+#### 3rd: Pitch & Climb Rate Limits
+Fly in stabilised mode, apply full throttle (`FW_THR_MAX`) and slowly increase the pitch angle of the vehicle until the airspeed reaches `FW_AIRSPD_TRIM`.
+- [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) - set to the pitch angle required to climb at trim airspeed when applying `FW_THR_MAX`.
+- [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) - set to the climb rate achieved during the climb at `FW_AIRSPD_TRIM`.
 
-#### 3rd: Manual extreme ascends/descends
-- Fly with `FW_THR_MAX` and see at which pitch angle (up) the airspeed is corresponding to `FW_AIRSPD_TRIM` - set this angle as [FW_P_LIM_MAX](../advanced_config/parameter_reference.md#FW_P_LIM_MAX) and set [FW_T_CLMB_MAX](../advanced_config/parameter_reference.md#FW_T_CLMB_MAX) to the climb rate (in m/s) during this ascend
-- Fly with `FW_THR_MIN` and see at which pitch angle (down) the airspeed is corresponding to [FW_AIRSPD_MAX](../advanced_config/parameter_reference.md#FW_AIRSPD_MAX) - set this angle as `FW_P_LIM_MIN` and set [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) to the sink rate during this descend
-- Fly with `FW_THR_MIN` and at `FW_AIRSPD_TRIM` - set [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) to the sink rate during this descend
+Fly in stabilised mode, reduce the throttle to `FW_THR_MIN` and slowly decrease the pitch angle until the vehicle reaches `FW_AIRSPD_MAX`.
+- [FW_P_LIM_MIN](../advanced_config/parameter_reference.md#FW_P_LIM_MIN) - set to the pitch angle required to reach `FW_AIRSPD_MAX` at `FW_THR_MIN`.
+- [FW_T_SINK_MAX](../advanced_config/parameter_reference.md#FW_T_SINK_MAX) - set to the sink rate achieved during the descent.
 
-
-#### 4th: Flight in altitude control mode
-Once these parameters are set, make the system follow a figure 8 pattern
-with waypoints and observe the altitude hold and airspeed hold
-performance. The default gains are “soft” and gentle. To improve
-altitude hold (but also make the throttle response more twitchy),
-decrease the time constant:
-
-- [FW_T_TIME_CONST](../advanced_config/parameter_reference.md#FW_T_TIME_CONST) - decrease to improve altitude hold performance,
-  but reduces efficiency and increases wear.
-
-
+Fly in stabilised mode, reduce throttle to `FW_THR_MIN` and adjust the pitch angle such that the plane maintains `FW_AIRSPD_TRIM`.
+- [FW_T_SINK_MIN](../advanced_config/parameter_reference.md#FW_T_SINK_MIN) - set to the sink rate achieved while maintaining `FW_AIRSPD_TRIM`.
 
 ### L1 Controller Tuning (Position)
 
