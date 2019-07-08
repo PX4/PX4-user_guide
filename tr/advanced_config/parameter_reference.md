@@ -37212,6 +37212,36 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="TEL_BST_EN">TEL_BST_EN</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Blacksheep telemetry Enable
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If true, the FMU will try to connect to Blacksheep telemetry on start up
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="TEL_FRSKY_CONFIG">TEL_FRSKY_CONFIG</strong> (INT32)
     </td>
     
