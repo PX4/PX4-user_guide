@@ -13809,6 +13809,20 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable user assisted descent speed for autonomous land routine.
+When enabled, descent speed will be equal to MPC_LAND_SPEED at half throttle,
+MPC_Z_VEL_MAX_DN at zero throttle, and 0.5 * MPC_LAND_SPEED at full throttle</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Fixed descent speed of MPC_LAND_SPEED</li> 
+
+<li><strong>1:</strong> User assisted descent speed</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="RV_YAW_P">RV_YAW_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p></p>   </td>
  <td style="vertical-align: top;"></td>
