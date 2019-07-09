@@ -90,6 +90,7 @@
   * [Obstacle Avoidance](computer_vision/obstacle_avoidance.md)
   * [Safe Landing](computer_vision/safe_landing.md)
   * [Collision Prevention](computer_vision/collision_prevention.md)
+  * [Path Planning Interface](computer_vision/path_planning_interface.md)
 * [Advanced Configuration](advanced_config/README.md)
   * [Parameters](advanced_config/parameters.md)
   * [Multicopter Config/Tuning](config_mc/README.md)
