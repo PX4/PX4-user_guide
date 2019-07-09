@@ -9051,6 +9051,26 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="RTL_CONE_ANG">RTL_CONE_ANG</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Half-angle of the RTL cone</p><p><strong>Comment:</strong> Defines the half-angle of the cone which defines the vehicle RTL behavior.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above home.</li> 
+
+<li><strong>25:</strong> 25 degrees half cone angle.</li> 
+
+<li><strong>45:</strong> 45 degrees half cone angle.</li> 
+
+<li><strong>65:</strong> 65 degrees half cone angle.</li> 
+
+<li><strong>80:</strong> 80 degrees half cone angle.</li> 
+
+<li><strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above home.</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 90 </td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;">degrees</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="RTL_DESCEND_ALT">RTL_DESCEND_ALT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Return mode loiter altitude</p><p><strong>Comment:</strong> Stay at this altitude above home position after RTL descending. Land (i.e. slowly descend) from this altitude if autolanding allowed.</p>   </td>
  <td style="vertical-align: top;">2 > 100 (0.5)</td>
@@ -9275,6 +9295,15 @@ to takeoff is reached</p>   </td>
  <td style="vertical-align: top;">1 > 86400 (1)</td>
  <td style="vertical-align: top;">60 </td>
  <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SIM_BAT_MIN_PCT">SIM_BAT_MIN_PCT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Simulator Battery minimal percentage. Can be used to alter
+the battery level during SITL- or HITL-simulation on the fly.
+Particularly useful for testing different low-battery behaviour</p>   </td>
+ <td style="vertical-align: top;">0 > 100 (0.1)</td>
+ <td style="vertical-align: top;">50.0 </td>
+ <td style="vertical-align: top;">%</td>
 </tr>
 </tbody></table>
 
@@ -12097,6 +12126,14 @@ is less than 50% of this value</p>   </td>
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="TEL_BST_EN">TEL_BST_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Blacksheep telemetry Enable</p><p><strong>Comment:</strong> If true, the FMU will try to connect to Blacksheep telemetry on start up</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="TEL_FRSKY_CONFIG">TEL_FRSKY_CONFIG</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Serial Configuration for FrSky Telemetry</p><p><strong>Comment:</strong> Configure on which serial port to run FrSky Telemetry.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -13769,6 +13806,20 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
  <td style="vertical-align: top;"><p></p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.2 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable user assisted descent speed for autonomous land routine.
+When enabled, descent speed will be equal to MPC_LAND_SPEED at half throttle,
+MPC_Z_VEL_MAX_DN at zero throttle, and 0.5 * MPC_LAND_SPEED at full throttle</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Fixed descent speed of MPC_LAND_SPEED</li> 
+
+<li><strong>1:</strong> User assisted descent speed</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>

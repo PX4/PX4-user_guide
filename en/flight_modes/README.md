@@ -206,6 +206,13 @@ th {
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
  <td>Vehicle executes a <a href="../flying/missions.md">predefined mission/flight plan</a> that has been uploaded to the flight controller. </td>
 </tr>
+
+<tr id="offboard_fw">
+ <td><a href="../flight_modes/offboard.md">Offboard</a></td>
+ <td colspan="3">Auto</td>
+ <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
+ <td>Vehicle obeys attitude setpoints provided over MAVLink (often from a companion computer connected via serial cable or wifi).</td>
+</tr>
  
 </tbody></table>
 
@@ -417,7 +424,7 @@ th {
  <td><a href="../flight_modes/offboard.md">Offboard</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td>Vehicle obeys a position, velocity or attitude setpoint provided over MAVLink (often from a companion computer connected via serial cable or wifi).</td>
+ <td>Vehicle obeys a position, velocity or attitude setpoints provided over MAVLink (often from a companion computer connected via serial cable or wifi).</td>
 </tr>
  
 </tbody></table>
