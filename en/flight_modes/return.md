@@ -24,13 +24,15 @@ The required return altitude can be configured using using the parameter [RTL_CO
 
 ![Return mode cone](../../assets/flying/rtl_cone.jpg)
 
+<!-- Original draw.io diagram can be found here: https://drive.google.com/file/d/1W72XeZYSOkRlBSbPXCCiam9NMAyAWSg-/view?usp=sharing -->
+
 If the vehicles is:
 - Above [RTL_RETURN_ALT](#RTL_RETURN_ALT) (1) it will return at its current altitude.
 - Below the cone it will return where it intersects the cone (2) or [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (whichever is higher).
 - Outside the cone (3) it will first climb until it reaches [RTL_RETURN_ALT](#RTL_RETURN_ALT).
 - Inside the cone:
-  - Above [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) it will return at its current altitude.
-  - Below [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4) it will first ascend to `RTL_DESCEND_ALT`.
+  - Above [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4) it will return at its current altitude.
+  - Below [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (5) it will first ascend to `RTL_DESCEND_ALT`.
 
 Note:
 - If [RTL_CONE_ANG](#RTL_CONE_ANG) is 0 degrees there is no "cone":
