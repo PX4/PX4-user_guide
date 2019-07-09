@@ -1,22 +1,22 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 로고" width="180px" /></a></div>
 
-# PX4 오토파일럿 사용자 가이드 ({{ book.px4_version }})
+# PX4 오토파일럿 사용자 설명서 ({{ book.px4_version }})
 
 [![릴리즈](https://img.shields.io/badge/release-{{ book.px4_version }}-blue.svg)](https://github.com/PX4/Firmware/releases) [![논의](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
 PX4는 *전문가용 오토파일럿*입니다. 산업계 및 학계의 세계적 수준의 개발자에 의해 개발되고 활발한 전세계 커뮤니티에 의해 지원되며, 레이싱 및 카고 드론에서 지상 차량 및 잠수정에 이르기까지 모든 종류의 이동체에 적용됩니다.
 
-> **팁** 이 가이드에는 PX4 기반의 이동체를 조립, 구성 및 안전하게 비행하는 데 필요한 모든 것이 포함되어 있습니다.
+> **팁** 이 설명서에는 PX4 기반의 이동체를 조립, 구성 및 안전하게 비행하는 데 필요한 모든 것이 포함되어 있습니다.
 
 <span></span>
 
-> **참고** 이 안내서는 아직 작업 중입니다! 아직 PX4의 모두 다루지는 않습니다.
+> **참고** 이 설명서는 아직 작업 중입니다! 아직 PX4의 모두 다루지는 않습니다.
 
 ## 시작하려면 어떻게 해야 합니까?
 
 [시작하기](getting_started/README.md)는 모든 사용자가 읽어야 합니다! 비행 스택(비행 모드 및 안전 기능을 일컬음) 과 지원되는 하드웨어 (비행 컨트롤러, 이동체, 항공기, 원격 측정 시스템, RC 제어 시스템) 를 통해 제공되는 기능을 포함하여 PX4에 대한 개요를 제공합니다.
 
-달성하려는 목표에 따라, 다음의 팁을 통해 이 가이드를 탐색하는데 도움이 됩니다.
+달성하려는 목표에 따라, 다음의 팁을 통해 이 설명서를 탐색하는데 도움이 됩니다.
 
 **이미 무인 항공기를 가지고 있으며 단지 비행하기를 원하는 경우:**
 
@@ -27,7 +27,7 @@ PX4를 지원하는 Ready To Fly (RTF) 이동체가 있는 경우:
 
 **처음부터 사전 지식 없이 PX4로 드론을 만들고 싶은 경우:**
 
-> ** Tip ** "지원되는" 기체는 [기체프레임 참조](airframes/airframe_reference.md)에 나열되어 있습니다. 이 프레임들은 * QGroundControl*을 사용하여 다운로드 할 수 있는 구성을 테스트하고 조정한 기체입니다.
+> ** Tip ** "지원되는" 기체는 [기체 프레임 참고문헌](airframes/airframe_reference.md)에 나열되어 있습니다. 이 프레임들은 * QGroundControl*을 사용하여 다운로드 할 수 있는 구성을 테스트하고 조정한 기체입니다.
 
 사전 지식 없이 처음부터 기체를 제작하려는 경우:
 
@@ -48,7 +48,7 @@ PX4를 지원하는 Ready To Fly (RTF) 이동체가 있는 경우:
 
 **새 하드웨어에서 PX4를 실행하고 플랫폼을 확장하고 싶은 경우:**
 
-- [ PX4 개발자 가이드](http://dev.px4.io/)에서는 비행 알고리즘 수정, 새 모드 추가, 새 하드웨어 통합, 비행 컨트롤러 외부에서 PX4와의 통신 및 PX4에 기여하는 방법에 대해 설명합니다.
+- [ PX4 개발자 설명서](http://dev.px4.io/)에서는 비행 알고리즘 수정, 새 모드 추가, 새 하드웨어 통합, 비행 컨트롤러 외부에서 PX4와의 통신 및 PX4에 기여하는 방법에 대해 설명합니다.
 
 ## 포럼 및 채팅 {#support}
 
@@ -65,7 +65,7 @@ PX4를 사용하는 데 문제가 있으면 먼저 [위의 지원 채널](#suppo
 
 ## 기여하기
 
-코드 및 설명서에 기여하는 방법에 대한 정보는 개발자 가이드에서 확인할 수 있습니다.
+코드 및 설명서에 기여하는 방법에 대한 정보는 개발자 설명서에서 확인할 수 있습니다.
 
 - [코드](https://dev.px4.io/en/contribute/)
 - [문서](https://dev.px4.io/en/contribute/docs.html)
@@ -73,7 +73,7 @@ PX4를 사용하는 데 문제가 있으면 먼저 [위의 지원 채널](#suppo
 
 ## 라이센스
 
-PX4 코드는 자유롭게 사용하고 [ BSD 3절의 라이센스](https://opensource.org/licenses/BSD-3-Clause) 조건에 따라 수정할 수 있습니다. 본 문서는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)에 따라 사용이 허가되었습니다. 자세한 내용은 [PX4 개발 안내서 > 라이센스](https://dev.px4.io/en/contribute/licenses.html)를 참조하십시오.
+PX4 코드는 자유롭게 사용하고 [ BSD 3절의 라이센스](https://opensource.org/licenses/BSD-3-Clause) 조건에 따라 수정할 수 있습니다. 본 문서는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)에 따라 사용이 허가되었습니다. 자세한 내용은 [PX4 개발 설명서 > 라이센스](https://dev.px4.io/en/contribute/licenses.html)를 참조하십시오.
 
 ### 아이콘
 
