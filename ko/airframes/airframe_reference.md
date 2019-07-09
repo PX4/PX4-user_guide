@@ -2150,7 +2150,7 @@
   
   <tr id="vtol_standard_vtol_generic_quad_delta_vtol">
     <td style="vertical-align: top;">
-      일반 쿼드 델타 VTOL
+      Generic quad delta VTOL
     </td>
     
     <td style="vertical-align: top;">
