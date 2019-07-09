@@ -14,11 +14,11 @@
     
     위의 예는 *Quadrotor Wide* 그룹에서 선택된 *3DR Iris Quadrotor*입니다.
 
-4. **적용하고 재시작**을 클릭하십시오. 다음 프롬프트에서 **적용**을 클릭하여 설정을 저장하고 기체을 다시 시작하십시오.
+4. **적용하고 재시작**을 클릭하십시오. 그 다음 대화 상자에서 **적용**을 클릭하여 설정을 저장하고 기체을 다시 시작하십시오.
     
-    <img src="../../images/qgc/setup/airframe_px4_apply_prompt.jpg" width="300px" title="기체 선택 명령 적용" />
+    <img src="../../images/qgc/setup/airframe_px4_apply_prompt.jpg" width="300px" title="기체 프레임 선택 명령 적용" />
 
-## Further Information
+## 추가 정보
 
-* [QGroundControl 사용자 안내서 > Airframe](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
-*  PX4 설치 비디오 - @ 37s </ 0> (Youtube)</li> </ul>
+* [QGroundControl 사용자 설명서 > 기체 프레임](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html)
+* [PX4 Setup Video - @37s](https://youtu.be/91VGmdSlbo4?t=35s) (Youtube)
