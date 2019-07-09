@@ -20,7 +20,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 좌측 경사판 서보모터, 피치 축</li><li><b>MAIN2</b>: 우측 경사판 서보모터, 롤 축</li><li>메인3: 상부 로터(CCW)</li><li>메인4: 로터 하부(CW)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 좌측 경사판 서보모터, 피치 축</li><li><b>MAIN2</b>: 우측 경사판 서보모터, 롤 축</li><li><b>MAIN3</b>: 상부 로터 (CCW)</li><li><b>MAIN4</b>: 하부 로터 (CW)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -54,7 +54,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: 모터 7</li><li><b>AUX2</b>: 모터 8</li><li><b>AUX3</b>: 모터 9</li><li><b>AUX4</b>: 모터 10</li><li><b>AUX5</b>: 모터 11</li><li><b>AUX6</b>: 모터 12</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: 모터 7</li><li><b>AUX2</b>: 모터 8</li><li><b>AUX3</b>: 모터 9</li><li><b>AUX4</b>: 모터 10</li><li><b>AUX5</b>: 모터 11</li><li><b>AUX6</b>: 모터 12</li></ul></td>
 </tr>
   </table>
 </div>
@@ -88,7 +88,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 메인 모터</li><li>메인2: 전면 경사판 서보</li><li>메인3: 우측 경사판 서보</li><li>MAIN4: 좌측 경사판 서보</li><li><b>MAIN5</b>: 테일 로터 서보</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 메인 모터</li><li><b>MAIN2</b>: 전면 경사판 서보</li><li><b>MAIN3</b>: 우측 경사판 서보</li><li><b>MAIN4</b>: 좌측 경사판 서보</li><li><b>MAIN5</b>: 테일 로터 서보</li></ul></td>
 </tr>
   </table>
 </div>
@@ -122,7 +122,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 모터1</li><li>메인2: 모터2</li><li>메인3: 모터3</li><li>메인4: 모터4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터1</li><li><b>MAIN2</b>: 모터2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -156,7 +156,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 전면 우측 탑, CW; 각도:60; 방향:CW</li><li>메인2: 전방 우측 하단, CCW; 각도:60; 방향:CCW</li><li>메인3: 백탑, CW; 각도:180; 방향:CW</li><li>메인4: 백 하단, CCW; 각도:180; 방향:CCW</li><li><b>MAIN5</b>: 전면 좌측 상단, CW; 각도:-60; 방향:CW</li><li><b>MAIN6</b>: 전면 좌측 하단, CCW; 각도:-60; 방향:CCW</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 전면 우측 탑, CW; 각도:60; 방향:CW</li><li><b>MAIN2</b>: 전면 우측 하단, CCW; 각도:60; 방향:CCW</li><li><b>MAIN3</b>: 후면 상단, CW; 각도:180; 방향:CW</li><li><b>MAIN4</b>: 후면 하단, CCW; 각도:180; 방향:CCW</li><li><b>MAIN5</b>: 전면 좌측 상단, CW; 각도:-60; 방향:CW</li><li><b>MAIN6</b>: 전면 좌측 하단, CCW; 각도:-60; 방향:CCW</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -173,7 +173,7 @@
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
  <td style="vertical-align: top;">일반 육각형 모양</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 11001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
 
 </tr>
 </tbody></table>
@@ -207,7 +207,7 @@
 <tbody>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
  <td style="vertical-align: top;">일반 16진법 x 지오메트리</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 6001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p></td>
 
 </tr>
 </tbody></table>
@@ -241,7 +241,7 @@
 <tbody>
 <tr id="copter_octo_coax_wide_steadidrone_mavrik">
  <td style="vertical-align: top;">스테디론 맥브릭</td>
- <td style="vertical-align: top;"><p>유지관리자: 사이먼 윌크스 <simon@uaventure.com></p><p>_AUTOSTART = 12002</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 12002</p></td>
 
 </tr>
 </tbody></table>
@@ -275,7 +275,7 @@
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
  <td style="vertical-align: top;">일반 옥토콥터 + 지오메트리</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 9001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
 
 </tr>
 </tbody></table>
@@ -309,7 +309,7 @@
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10">
  <td style="vertical-align: top;">일반 10" 옥토 동축 지오메트리</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 12001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
 
 </tr>
 </tbody></table>
@@ -343,7 +343,7 @@
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
  <td style="vertical-align: top;">일반 옥토콥터 X 지오메트리</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 8001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
 
 </tr>
 </tbody></table>
@@ -377,7 +377,7 @@
 <tbody>
 <tr id="copter_quadrotor_+_generic_10">
  <td style="vertical-align: top;">일반 10" 쿼드 + 지오메트리</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 5001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
 
 </tr>
 </tbody></table>
@@ -405,7 +405,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 깜박임
+        Maintainer: Blankered
       </p>
       
       <p>
@@ -513,7 +513,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART = 10015
+        <code>SYS_AUTOSTART</code> = 10015
       </p>
       
       <p>
@@ -554,7 +554,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART = 10016
+        <code>SYS_AUTOSTART</code> = 10016
       </p>
       
       <p>
@@ -589,7 +589,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART = 10017
+        <code>SYS_AUTOSTART</code> = 10017
       </p>
       
       <p>
@@ -630,7 +630,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART = 10018
+        <code>SYS_AUTOSTART</code> = 10018
       </p>
       
       <p>
@@ -690,7 +690,7 @@
 <tbody>
 <tr id="copter_quadrotor_asymmetric_spedix_s250aq">
  <td style="vertical-align: top;"><a href="https://docs.px4.io/en/framebuild_multicopter/spedix_s250_pixracer.html">Spedix S250AQ</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p>SYS_AUTOSTART = 4051</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4051</p></td>
 
 </tr>
 </tbody></table>
@@ -722,7 +722,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART = 4001
+        <code>SYS_AUTOSTART</code> = 4001
       </p>
       
       <p>
@@ -771,11 +771,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        관리인: 레온 뮬러 <thedevleon>
+        Maintainer: Leon Mueller <thedevleon>
       </p>
       
       <p>
-        SYS_AUTOSTART = 4002
+        <code>SYS_AUTOSTART</code> = 4002
       </p>
       
       <p>
@@ -824,7 +824,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 제임스 고퍼트 <james.goppert@gmail.com>
+        Maintainer: James Goppert <james.goppert@gmail.com>
       </p>
       
       <p>
@@ -904,7 +904,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        관리인: 파벨 키리엔코<pavel.kirienko@gmail.com>
+        Maintainer: Pavel Kirienko <pavel.kirienko@gmail.com>
       </p>
       
       <p>
@@ -920,7 +920,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 마이클 섀이블
+        Maintainer: Michael Schaeuble
       </p>
       
       <p>
@@ -1184,7 +1184,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 1001
+        <code>SYS_AUTOSTART</code> = 1001
       </p>
     </td>
   </tr>
@@ -1235,7 +1235,7 @@
 <tbody>
 <tr id="copter_tilt-quad_tilt-quadrotor">
  <td style="vertical-align: top;"><a href="http://www.alivaero.com/the-project.html">틸트-쿼드로터</a></td>
- <td style="vertical-align: top;"><p>유지관: 리카르도 마르크스<marques.ricardo17@gmail.com></p><p>SYS_AUTOSTART</code> = 4100</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Ricardo Marques <marques.ricardo17@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4100</p></td>
 
 </tr>
 </tbody></table>
@@ -1269,7 +1269,7 @@
 <tbody>
 <tr id="copter_tricopter_y+_generic_tricopter_y+_geometry">
  <td style="vertical-align: top;">일반 트리클로터 Y+ 지오메트리</td>
- <td style="vertical-align: top;"><p>관리인: 트렌트 루카치크<aerialhedgehog@gmail.com></p><p>SYS_AUTOSTART</code> = 14001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Trent Lukaczyk <aerialhedgehog@gmail.com></p><p><code>SYS_AUTOSTART</code> = 14001</p></td>
 
 </tr>
 </tbody></table>
@@ -1303,7 +1303,7 @@
 <tbody>
 <tr id="copter_tricopter_y-_generic_tricopter_y-_geometry">
  <td style="vertical-align: top;">일반 트리클로터 Y- 지오메트리</td>
- <td style="vertical-align: top;"><p>Maintainer: Trent Lukaczyk <aerialhedgehog@gmail.com></p><p>SYS_AUTOSTART</code> = 14002</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Trent Lukaczyk <aerialhedgehog@gmail.com></p><p><code>SYS_AUTOSTART</code> = 14002</p></td>
 
 </tr>
 </tbody></table>
@@ -1344,7 +1344,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        SYS_AUTOSTART</code> = 3000
+        <code>SYS_AUTOSTART</code> = 3000
       </p>
       
       <p>
@@ -1376,7 +1376,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 3030
+        <code>SYS_AUTOSTART</code> = 3030
       </p>
       
       <p>
@@ -1408,7 +1408,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 3031
+        <code>SYS_AUTOSTART</code> = 3031
       </p>
       
       <p>
@@ -1436,11 +1436,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        관리인: 줄리안 오스<julian@px4.io>
+        Maintainer: Julian Oes <julian@px4.io>
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 3032
+        <code>SYS_AUTOSTART</code> = 3032
       </p>
       
       <p>
@@ -1472,7 +1472,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 3033
+        <code>SYS_AUTOSTART</code> = 3033
       </p>
       
       <p>
@@ -1504,7 +1504,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 3034
+        <code>SYS_AUTOSTART</code> = 3034
       </p>
       
       <p>
@@ -1536,7 +1536,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 3035
+        <code>SYS_AUTOSTART</code> = 3035
       </p>
       
       <p>
@@ -1568,7 +1568,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 3036
+        <code>SYS_AUTOSTART</code> = 3036
       </p>
       
       <p>
@@ -1596,11 +1596,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        유지관리자: 얀 립하르트<JTLiphardt@gmail.com>
+        Maintainer: Jan Liphardt <JTLiphardt@gmail.com>
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 3037
+        <code>SYS_AUTOSTART</code> = 3037
       </p>
       
       <p>
@@ -1632,7 +1632,7 @@
       </p>
       
       <p>
-        SYS_AUTOSTART</code> = 3100
+        <code>SYS_AUTOSTART</code> = 3100
       </p>
       
       <p>
@@ -1683,7 +1683,7 @@
 <tbody>
 <tr id="plane_plane_a-tail_applied_aeronautics_albatross">
  <td style="vertical-align: top;">적용된 에어로노틱스 알바트로스</td>
- <td style="vertical-align: top;"><p>Maintainer: Andreas Antener <andreas@uaventure.com></p><p>SYS_AUTOSTART</code> = 2106</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Andreas Antener <andreas@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 2106</p></td>
 
 </tr>
 </tbody></table>
@@ -1717,7 +1717,7 @@
 <tbody>
 <tr id="plane_plane_v-tail_x-uav_mini_talon">
  <td style="vertical-align: top;">X-UAV Mini Talon</td>
- <td style="vertical-align: top;"><p>Maintainer: Friedrich Beckmann <friedrich.beckmann@hs-augsburg.de></p><p><code>SYS_AUTOSTART</code> = 2200</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Friedrich Beckmann <friedrich.beckmann@hs-augsburg.de></p><p><code>SYS_AUTOSTART</code> = 2106</p></td>
 
 </tr>
 </tbody></table>
