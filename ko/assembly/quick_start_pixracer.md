@@ -2,11 +2,11 @@
 
 > **경고** 작성 중인 문서입니다.
 
-이 퀵 스타트 가이드는 [Pixracer](../flight_controller/pixracer.md) 비행 컨트롤러에 전원을 공급하고 중요한 주변 장치를 연결하는 방법을 설명합니다.
+이 퀵 스타트 설명서는 [Pixracer](../flight_controller/pixracer.md) 비행 컨트롤러에 전원을 공급하고 중요한 주변 장치를 연결하는 방법을 설명합니다.
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
-## 배선 가이드
+## 배선 설명서
 
 ![Grau pixracer double](../../assets/flight_controller/pixracer/grau_pixracer_double.jpg)
 
