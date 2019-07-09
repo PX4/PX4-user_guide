@@ -74,7 +74,7 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 >           </li></ul> 
 >           
 >           <h2>
->             빠른 시작
+>             퀵 스타트
 >           </h2>
 >           
 >           <h3>
