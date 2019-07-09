@@ -20,7 +20,7 @@
 
 Some of PX4's key features are:
 
-- 항공기 (멀티콥터, 고정익 항공기 및 VTOL), 지상 차량 및 수중함을 포함하여 [ 많은 다양한 차량 프레임/유형](../airframes/airframe_reference.md)을 제어합니다. 
+- 항공기 (멀티콥터, 고정익 항공기 및 VTOL), 지상 차량 및 수중함을 포함하여 [ 다양한 기체 프레임/유형](../airframes/airframe_reference.md)을 제어합니다. 
 - [ 이동체 컨트롤러](#vehicle_controller), 센서 및 기타 주변 장치 하드웨어 선택 시 가장 좋습니다.
 - 유연하고 강력한 [ 비행 모드 ](#flight_modes) 및 [ 안전 기능](#safety)을 갖고 있습니다.
 
@@ -63,7 +63,7 @@ PX4가 지원하는 ESC/모터에 관한 정보는 여기를 보세요.
 
 PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배터리는 일반적으로 비행 컨트롤러 및 ESC(모터 용)에 별도의 전원을 제공하는 * 전원 모듈 * 또는 * 전원 관리 보드*를 사용하여 시스템에 연결됩니다.
 
-배터리 및 배터리 구성에 대한 정보는 [ 배터리 구성 ](../config/battery.md) 및 [ 기본 어셈블리](../assembly/README.md)(예: [ Pixhawk 4 배선 빠른 시작> 전원 ](../assembly/quick_start_pixhawk4.md#power)) 가이드를 참조하십시오.
+배터리 및 배터리 구성에 대한 정보는 [ 배터리 구성 ](../config/battery.md) 및 [ 기본 어셈블리](../assembly/README.md)(예: [ Pixhawk 4 배선 퀵 스타트> 전원 ](../assembly/quick_start_pixhawk4.md#power)) 설명서를 참조하십시오.
 
 ## Radio Control (RC) {#rc_systems}
 
@@ -87,10 +87,10 @@ PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배
 
 PX4는 직렬 케이블 또는 wifi를 통해 별도의 기체용 보조 컴퓨터에서 제어할 수 있습니다. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
-> ** 참고 ** Robotics API를 사용하려면 소프트웨어 개발 기술이 필요하며 이 가이드의 범위를 벗어납니다.
+> ** 참고 ** Robotics API를 사용하려면 소프트웨어 개발 기술이 필요하며 이 설명서의 범위를 벗어납니다.
 
 - [ 외부 보드 모드 ](../flight_modes/offboard.md) - 지상 제어 스테이션 또는 보조 컴퓨터와 같은 PX4의 외부에서의 제어를 위한 비행 모드입니다. 
-- [ Robotics API ](https://dev.px4.io/en/robotics/) (PX4 개발자 가이드)
+- [ Robotics API ](https://dev.px4.io/en/robotics/) (PX4 개발자 설명서)
 
 ## Removable Memory/Logging
 
@@ -98,7 +98,7 @@ PX4는 [ 비행 기록 ](../getting_started/flight_reporting.md)을 저장하기
 
 > ** 팁 ** Pixhawk 보드에서 지원되는 최대 SD 카드 크기는 32GB입니다.
 
-권장되는 카드는 [ 개발자 가이드 > 로깅](http://dev.px4.io/en/log/logging.html#sd-cards)에 목록화되어 있습니다.
+권장되는 카드는 [ 개발자 설명서 > 로깅](http://dev.px4.io/en/log/logging.html#sd-cards)에 목록화되어 있습니다.
 
 ## Flight Modes {#flight_modes}
 
