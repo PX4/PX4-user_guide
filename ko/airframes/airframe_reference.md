@@ -50,7 +50,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -186,7 +186,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -220,7 +220,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -254,7 +254,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -288,7 +288,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -322,7 +322,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -356,7 +356,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -413,7 +413,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -454,7 +454,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -483,7 +483,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -558,7 +558,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -593,7 +593,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -634,7 +634,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -669,7 +669,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -726,7 +726,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -779,7 +779,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1120,7 +1120,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1214,7 +1214,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -1248,7 +1248,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -1282,7 +1282,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -1308,7 +1308,7 @@
 </tr>
 </tbody></table>
 
-## Plane
+## 비행기
 
 ### 플라잉 윙
 
@@ -1318,7 +1318,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -1348,7 +1348,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1380,7 +1380,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1412,7 +1412,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1444,7 +1444,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1476,7 +1476,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1508,7 +1508,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1540,7 +1540,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1572,7 +1572,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1604,7 +1604,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1636,7 +1636,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1662,7 +1662,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -1688,7 +1688,7 @@
 </tr>
 </tbody></table>
 
-### Plane V-Tail
+### 비행기 V-Tail
 
 <div>
   <img src="../../assets/airframes/types/PlaneVTail.svg" width="29%" style="max-height: 180px;" /> 
@@ -1696,7 +1696,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -1730,7 +1730,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -1764,7 +1764,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -1798,7 +1798,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1839,7 +1839,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1869,9 +1869,9 @@
   </tr>
 </table>
 
-## Rover
+## 로버
 
-### Rover
+### 로버
 
 <div>
 <img src="../../assets/airframes/types/Rover.svg" width="29%" style="max-height: 180px;"/>
@@ -1889,7 +1889,7 @@
   
   <tr id="rover_rover_generic_ground_vehicle">
     <td style="vertical-align: top;">
-      Generic Ground Vehicle
+      일반 지상 차량
     </td>
     
     <td style="vertical-align: top;">
@@ -1898,7 +1898,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1927,7 +1927,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -1974,7 +1974,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -2003,11 +2003,11 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
-            <b>MAIN0</b>: Speed of left wheels
+            <b>MAIN0</b>: 우측 날개 속도
           </li>
           <li>
             <b>MAIN1</b>: 우측 날개 속도
@@ -2020,7 +2020,7 @@
 
 ## VTOL
 
-### Standard VTOL
+### 표준 VTOL
 
 <div>
 <img src="../../assets/airframes/types/VTOLPlane.svg" width="29%" style="max-height: 180px;"/>
@@ -2038,7 +2038,7 @@
   
   <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
     <td style="vertical-align: top;">
-      HIL Standard VTOL QuadPlane
+      HIL 표준 VTOL QuadPlane
     </td>
     
     <td style="vertical-align: top;">
@@ -2063,7 +2063,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -2113,7 +2113,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -2150,7 +2150,7 @@
   
   <tr id="vtol_standard_vtol_generic_quad_delta_vtol">
     <td style="vertical-align: top;">
-      Generic quad delta VTOL
+      일반 쿼드 델타 VTOL
     </td>
     
     <td style="vertical-align: top;">
@@ -2163,7 +2163,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -2255,7 +2255,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -2302,7 +2302,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -2343,7 +2343,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -2377,7 +2377,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -2411,7 +2411,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -2471,7 +2471,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -2505,7 +2505,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
@@ -2562,7 +2562,7 @@
       </p>
       
       <p>
-        <b>Specific Outputs:</b>
+        <b>특정 출력:</b>
         
         <ul>
           <li>
