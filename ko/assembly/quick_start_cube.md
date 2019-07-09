@@ -1,6 +1,6 @@
 # 큐브 배선 퀵 스타트
 
-이 퀵 스타트 가이드는 [ 큐브 ](../flight_controller/pixhawk-2.md)<sup>&reg;</sup> 비행 컨트롤러에 전원을 공급하고 가장 중요한 주변 장치를 연결하는 방법을 설명합니다.
+이 퀵 스타트 설명서는 [ 큐브 ](../flight_controller/pixhawk-2.md)<sup>&reg;</sup> 비행 컨트롤러에 전원을 공급하고 가장 중요한 주변 장치를 연결하는 방법을 설명합니다.
 
 <img src="../../assets/flight_controller/cube/pixhawk2_cube_hero.png" width="400px" />
 
@@ -119,11 +119,11 @@ SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_starte
 
 ![Cube - SDCard 장착](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
-> **팁** SanDisk Extreme U3 32GB가 [매우 권장됩니다](https://dev.px4.io/en/log/logging.html#sd-cards) (개발자 가이드).
+> **팁** SanDisk Extreme U3 32GB가 [매우 권장됩니다](https://dev.px4.io/en/log/logging.html#sd-cards) (개발자 설명서).
 
 ## 모터
 
-모터/서보는 **MAIN**과 **AUX**포트에 [기체 프레임 참고사항](../airframes/airframe_reference.md)에 기체별로 정의된 특정 순서로 연결해야 합니다.
+모터/서보는 **MAIN**과 **AUX**포트에 [기체 프레임 참고문헌](../airframes/airframe_reference.md)에 기체별로 정의된 특정 순서로 연결해야 합니다.
 
 ![Cube - 모터 연결](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
