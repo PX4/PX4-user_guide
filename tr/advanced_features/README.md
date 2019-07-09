@@ -7,3 +7,4 @@ This section contains topics related to some of the more advanced features of th
 * [Iridium/RockBlock Satellite Communication System](../advanced_features/satcom_roadblock.md)
 * [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) (needs companion computer)
 * [Collision Prevention](../computer_vision/collision_prevention.md)
+* [Air Traffic Avoidance: ADS-B/FLARM](../advanced_features/traffic_avoidance_adsb.md)
