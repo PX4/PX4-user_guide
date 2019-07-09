@@ -1,12 +1,12 @@
-# 에어프레임 참조
+# 에어프레임 참고 문헌
 
-> 참고 이 목록은 소스 코드에서 자동으로 생성됩니다.
+> **참고** **이 목록은 소스 코드에서 자동으로 생성됩니다**.
 > 
-> AUX 채널은 Pixhawk 보드(AUX OUT 레이블로 표시됨) 에서만 사용할 수 있습니다.
+> **AUX** 채널은 Pixhawk 보드(**AUX OUT** 레이블로 표시됨)에서만 사용할 수 있습니다.
 
-이 페이지에는 다음을 포함하여 지원되는 모든 에어프레임이 나열됩니다. 모터 할당 및 번호 지정 녹색의 모터는 시계 방향으로 회전합니다. 시계 반대쪽에 있는 파란 옷을 입은 사람들
+이 페이지에는 모터 할당과 번호 지정을 포함한 지원되는 모든 기체 프레임이 나열됩니다 **녹색 모터**는 시계 방향으로 회전합니다. **파란색 모터**는 반시계 방향으로 회전합니다.
 
-## Copter
+## 콥터
 
 ### 동축 헬리콥터
 
@@ -20,7 +20,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 좌측 슬래시 플레이트 서보모터, 피치 축</li><li>메인2: 우측 슬래시 플레이트 서보터, 롤 축</li><li>메인3: 상부 로터(CCW)</li><li>메인4: 로터 하부(CW)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li>메인1: 좌측 경사판 서보모터, 피치 축</li><li>메인2: 우측 경사판 서보터, 롤 축</li><li>메인3: 상부 로터(CCW)</li><li>메인4: 로터 하부(CW)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -28,7 +28,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -36,13 +36,13 @@
   </tr>
 <tbody>
 <tr id="copter_coaxial_helicopter_esky_(big)_lama_v4">
- <td style="vertical-align: top;">에스키(빅) 라마 v4</td>
- <td style="vertical-align: top;"><p>유지관: 엠마뉴엘 루셀</p><p>SYS_AUTOSTART = 15001</p></td>
+ <td style="vertical-align: top;">Esky (Big) Lama v4</td>
+ <td style="vertical-align: top;"><p>Maintainer: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
 
 </tr>
 </tbody></table>
 
-### 도데카로토르 콕스
+### Dodecarotor cox
 
 <div>
   <img src="../../assets/airframes/types/DodecaRotorXCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -62,7 +62,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -70,8 +70,8 @@
   </tr>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
- <td style="vertical-align: top;">일반 도데카로터 공압 기하학</td>
- <td style="vertical-align: top;"><p>관리인: 윌리엄 페일<develop707@gmail.com></p><p>SYS_AUTOSTART = 24001</p></td>
+ <td style="vertical-align: top;">Generic Dodecarotor cox geometry</td>
+ <td style="vertical-align: top;"><p>Maintainer: William Peale <develop707@gmail.com></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
 
 </tr>
 </tbody></table>
@@ -84,11 +84,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 메인 모터</li><li>메인2: 프론트 슬래시 플레이트 서보</li><li>메인3: 우측 슬래시 플레이트 서보</li><li>MAIN4: 좌측 슬래시 플레이트 서보</li><li>메인5: 테일 로터 서보</li></ul></td>
+ <td style="vertical-align: top;"><ul><li>메인1: 메인 모터</li><li>메인2: 전면 경사판 서보</li><li>메인3: 우측 경사판 서보</li><li>MAIN4: 좌측 경사판 서보</li><li>메인5: 테일 로터 서보</li></ul></td>
 </tr>
   </table>
 </div>
@@ -96,7 +96,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -104,13 +104,13 @@
   </tr>
 <tbody>
 <tr id="copter_helicopter_blade_130x">
- <td style="vertical-align: top;">블레이드 130X</td>
- <td style="vertical-align: top;"><p>유지관리자: Bart Slinger <bartslinger@gmail.com></p><p>SYS_AUTOSTART = 16001</p></td>
+ <td style="vertical-align: top;">Blade 130X</td>
+ <td style="vertical-align: top;"><p>Maintainer: Bart Slinger <bartslinger@gmail.com></p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
 
 </tr>
 </tbody></table>
 
-### 육면체 +
+### 헥사로터 +
 
 <div>
   <img src="../../assets/airframes/types/HexaRotorPlus.svg" width="29%" style="max-height: 180px;" /> 
@@ -118,7 +118,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        공통 출력
       </th>
     </tr>
 <tr>
@@ -156,7 +156,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 프론트 우측 탑, CW; 각도:60; 방향:CW</li><li>메인2: 전방 우측 하단, CCW; 각도:60; 방향:CCW</li><li>메인3: 백탑, CW; 각도:180; 방향:CW</li><li>메인4: 백 하단, CCW; 각도:180; 방향:CCW</li><li>메인5: 전방 좌측 상단, CW; 각도:-60; 방향:CW</li><li>메인6: 전방 좌측 하단, CCW, 각도:-60, 방향:CCW</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li>메인1: 전면 우측 탑, CW; 각도:60; 방향:CW</li><li>메인2: 전방 우측 하단, CCW; 각도:60; 방향:CCW</li><li>메인3: 백탑, CW; 각도:180; 방향:CW</li><li>메인4: 백 하단, CCW; 각도:180; 방향:CCW</li><li>메인5: 전방 좌측 상단, CW; 각도:-60; 방향:CW</li><li>메인6: 전방 좌측 하단, CCW, 각도:-60, 방향:CCW</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -673,7 +673,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li>메인1: 모터1(프론트 우측: CCW)</li><li>메인2: 모터2(좌측 뒤로: CCW)</li><li>메인3: 모터3(프론트 좌측: CW)</li><li>메인4: 모터4(오른쪽 후면: CW)</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li>메인1: 모터1(전면 우측: CCW)</li><li>메인2: 모터2(좌측 뒤로: CCW)</li><li>메인3: 모터3(전면 좌측: CW)</li><li>메인4: 모터4(오른쪽 후면: CW)</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
 </tr>
   </table>
 </div>
