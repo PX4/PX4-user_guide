@@ -54,7 +54,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: 모터 7</li><li>AUX2: 모터 8</li><li>AUX3: 모터 9</li><li>AUX4: 모터 10</li><li>AUX5: 모터 11</li><li>AUX6: 모터 12</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 모터 1</li><li>메인2: 모터 2</li><li>메인3: 모터 3</li><li>메인4: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: 모터 7</li><li><b>AUX2</b>: 모터 8</li><li><b>AUX3</b>: 모터 9</li><li><b>AUX4</b>: 모터 10</li><li><b>AUX5</b>: 모터 11</li><li><b>AUX6</b>: 모터 12</li></ul></td>
 </tr>
   </table>
 </div>
@@ -122,7 +122,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 모터1</li><li>메인2: 모터2</li><li>메인3: 모터3</li><li>메인4: 모터4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li>AUX2: RC AUX2 채널의 피드스루</li><li>AUX3: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 모터1</li><li>메인2: 모터2</li><li>메인3: 모터3</li><li>메인4: 모터4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -156,7 +156,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 전면 우측 탑, CW; 각도:60; 방향:CW</li><li>메인2: 전방 우측 하단, CCW; 각도:60; 방향:CCW</li><li>메인3: 백탑, CW; 각도:180; 방향:CW</li><li>메인4: 백 하단, CCW; 각도:180; 방향:CCW</li><li><b>MAIN5</b>: 전면 좌측 상단, CW; 각도:-60; 방향:CW</li><li><b>MAIN6</b>: 전면 좌측 하단, CCW; 각도:-60; 방향:CCW</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 전면 우측 탑, CW; 각도:60; 방향:CW</li><li>메인2: 전방 우측 하단, CCW; 각도:60; 방향:CCW</li><li>메인3: 백탑, CW; 각도:180; 방향:CW</li><li>메인4: 백 하단, CCW; 각도:180; 방향:CCW</li><li><b>MAIN5</b>: 전면 좌측 상단, CW; 각도:-60; 방향:CW</li><li><b>MAIN6</b>: 전면 좌측 하단, CCW; 각도:-60; 방향:CCW</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -164,7 +164,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -190,7 +190,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -198,7 +198,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -232,7 +232,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -258,7 +258,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -266,7 +266,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -300,7 +300,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -326,7 +326,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -334,7 +334,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -360,7 +360,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 피드스루</li><li><b>MAIN6</b>: RC AUX2 채널의 피드스루</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li>AUX4: RC FLAPS 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 피드스루</li><li><b>MAIN6</b>: RC AUX2 채널의 피드스루</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li><li><b>AUX4</b>: RC FLAPS 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -368,7 +368,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -391,7 +391,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -487,7 +487,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li><li><b>AUX4</b>: RC FLAPS 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -495,7 +495,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -681,7 +681,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -704,7 +704,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -754,10 +754,10 @@
             <b>AUX2</b>: RC AUX2 채널의 피드스루
           </li>
           <li>
-            <b>AUX3</b>: feed-through of RC AUX3 channel
+            <b>AUX3</b>: RC AUX3 채널의 피드스루
           </li>
           <li>
-            <b>AUX4</b>: feed-through of RC FLAPS channel
+            <b>AUX4</b>: RC FLAPS 채널의 피드스루
           </li>
         </ul>
       </p>
@@ -804,13 +804,13 @@
             <b>AUX1</b>: 마운트 피치
           </li>
           <li>
-            <b>AUX2</b>: Mount roll
+            <b>AUX2</b>: 마운트 롤(roll)
           </li>
           <li>
-            <b>AUX3</b>: Mount yaw
+            <b>AUX3</b>: 마운트 요(yaw)
           </li>
           <li>
-            <b>AUX4</b>: Mount retract
+            <b>AUX4</b>: 마운트 접힘
           </li>
         </ul>
       </p>
@@ -840,7 +840,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maintainer: Leon Mueller <thedevleon>
+        Maintainer: Lorenz Meier <thedevleon>
       </p>
       
       <p>
@@ -1166,7 +1166,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -1218,7 +1218,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li>AUX1</b>: 로터 2 암용 외부 서보 모터</li><li>AUX2</b>: 로터 4 암용 외부 서보 모터</li><li>AUX3</b>: 로터 2 암용 내부 서보 모터</li><li>AUX4</b>: 로터 4 암용 내부 서보 모터</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li>AUX1</b>: 로터 2 암용 외부 서보 모터</li><li>AUX2</b>: 로터 4 암용 외부 서보 모터</li><li><b>AUX3</b>: 로터 2 암(arm) 내부 서보 모터</li><li><b>AUX4</b>: 로터 4 암(arm) 내부 서보 모터</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1226,7 +1226,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -1260,7 +1260,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -1294,7 +1294,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -1322,7 +1322,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1330,7 +1330,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -1666,7 +1666,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><0>MAIN1</0></b>: 에일러론 우측</li><li><b>MAIN2</b>: 좌측 보조 날개(aileron)</li><li>주3</b>: v-테일 우측</li><li>MAIN4</b>: v-테일 왼쪽</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: 휠</li><li><b>MAIN7</b>: 우측 플랩(flaps)</li><li><b>MAIN8</b>: 좌측 플랩(flaps)</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><0>MAIN1</0></b>: 에일러론 우측</li><li><b>MAIN2</b>: 좌측 보조 날개(aileron)</li><li>주3</b>: v-테일 우측</li><li>MAIN4</b>: v-테일 왼쪽</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: 휠</li><li><b>MAIN7</b>: 우측 플랩(flaps)</li><li><b>MAIN8</b>: 좌측 플랩(flaps)</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1674,7 +1674,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -1700,7 +1700,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 우측 보조 날개(aileron)</li><li><b>MAIN2</b>: 좌측 보조 날개(aileron)</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: 휠</li><li><b>MAIN7</b>: 우측 플랩(flaps)</li><li><b>MAIN8</b>: 좌측 플랩(flaps)</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 우측 보조 날개(aileron)</li><li><b>MAIN2</b>: 좌측 보조 날개(aileron)</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: 휠</li><li><b>MAIN7</b>: 우측 플랩(flaps)</li><li><b>MAIN8</b>: 좌측 플랩(flaps)</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1708,7 +1708,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -1742,7 +1742,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -1768,7 +1768,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1776,7 +1776,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -1880,7 +1880,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -2029,7 +2029,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -2082,16 +2082,16 @@
             <b>AUX1</b>: 에일러론(Aileron) 1
           </li>
           <li>
-            <b>AUX2</b>: Aileron 2
+            <b>AUX2</b>: 에일러론(Aileron) 2
           </li>
           <li>
-            <b>AUX3</b>: Elevator
+            <b>AUX3</b>: 엘리베이터(elevator)
           </li>
           <li>
-            <b>AUX4</b>: Rudder
+            <b>AUX4</b>: 방향키 (rudder)
           </li>
           <li>
-            <b>AUX5</b>: Throttle
+            <b>AUX5</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -2132,16 +2132,16 @@
             <b>AUX1</b>: 에일러론(Aileron) 1
           </li>
           <li>
-            <b>AUX2</b>: Aileron 2
+            <b>AUX2</b>: 에일러론(Aileron) 2
           </li>
           <li>
-            <b>AUX3</b>: Elevator
+            <b>AUX3</b>: 엘리베이터(elevator)
           </li>
           <li>
-            <b>AUX4</b>: Rudder
+            <b>AUX4</b>: 방향키 (rudder)
           </li>
           <li>
-            <b>AUX5</b>: Throttle
+            <b>AUX5</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -2182,10 +2182,10 @@
             <b>AUX1</b>: 우측 엘러본(elevon)
           </li>
           <li>
-            <b>AUX2</b>: Left elevon
+            <b>AUX2</b>: 좌측 엘러본(elevon)
           </li>
           <li>
-            <b>AUX3</b>: Motor
+            <b>AUX3</b>: 모터
           </li>
         </ul>
       </p>
@@ -2355,7 +2355,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -2381,7 +2381,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: 에일러론(Aileron) 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: 에일러론(Aileron) 1</li><li><b>AUX2</b>: 에일러론(Aileron) 2</li><li><b>AUX3</b>: 엘리베이터(elevator)</li><li><b>AUX4</b>: 방향키 (rudder)</li><li><b>AUX5</b>: 스로틀</li></ul></td>
 </tr>
   </table>
 </div>
@@ -2389,7 +2389,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -2423,7 +2423,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
@@ -2475,7 +2475,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: 틸트 서보</li><li><b>AUX2</b>: Elevon 1</li><li><b>AUX3</b>: Elevon 2</li><li><b>AUX4</b>: Gear</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: 틸트 서보</li><li><b>AUX2</b>: 엘러본(elevon) 1</li><li><b>AUX3</b>: 엘러본(elevon) 2</li><li><b>AUX4</b>: 방향키 (rudder)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -2483,7 +2483,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      Name
+      명칭
     </th>
     
     <th>
