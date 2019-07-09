@@ -190,7 +190,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -224,7 +224,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li>메인7: 모터 7</li><li>메인8: 모터 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: motor 6</li><li>메인7: 모터 7</li><li>메인8: 모터 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -258,7 +258,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -292,7 +292,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -326,7 +326,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -360,7 +360,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: motor 4</li><li>메인5: RC AUX1 채널의 피드스루</li><li>메인6: RC AUX2 채널의 피드스루</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li>AUX4: RC FLAPS 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li>메인5: RC AUX1 채널의 피드스루</li><li>메인6: RC AUX2 채널의 피드스루</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li>AUX4: RC FLAPS 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -426,10 +426,10 @@
             <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
           <li>
-            <b>MAIN5</b>: feed-through of RC AUX1 channel
+            <b>MAIN5</b>: RC AUX1 채널의 피드스루
           </li>
           <li>
             <b>MAIN6</b>: feed-through of RC AUX2 channel
@@ -467,7 +467,7 @@
             <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
         </ul>
       </p>
@@ -530,10 +530,10 @@
             <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
           <li>
-            <b>MAIN5</b>: feed-through of RC AUX1 channel
+            <b>MAIN5</b>: RC AUX1 채널의 피드스루
           </li>
           <li>
             <b>MAIN6</b>: feed-through of RC AUX2 channel
@@ -571,7 +571,7 @@
             <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
         </ul>
       </p>
@@ -606,10 +606,10 @@
             <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
           <li>
-            <b>MAIN5</b>: feed-through of RC AUX1 channel
+            <b>MAIN5</b>: RC AUX1 채널의 피드스루
           </li>
           <li>
             <b>MAIN6</b>: feed-through of RC AUX2 channel
@@ -647,10 +647,10 @@
             <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
           <li>
-            <b>MAIN5</b>: feed-through of RC AUX1 channel
+            <b>MAIN5</b>: RC AUX1 채널의 피드스루
           </li>
           <li>
             <b>MAIN6</b>: feed-through of RC AUX2 channel
@@ -673,7 +673,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 모터1(전면 우측: CCW)</li><li><b>MAIN2</b>: 모터 2(후면 좌측: CCW)</li><li>메인3: 모터3(전면 좌측: CW)</li><li>메인4: 모터4(오른쪽 후면: CW)</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 모터1(전면 우측: CCW)</li><li><b>MAIN2</b>: 모터 2(후면 좌측: CCW)</li><li>메인3: 모터3(전면 좌측: CW)</li><li>메인4: 모터4(오른쪽 후면: CW)</li><li><b>MAIN5</b>: RC AUX1 채널의 피드스루</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -739,10 +739,10 @@
             <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
           <li>
-            <b>MAIN5</b>: feed-through of RC AUX1 channel
+            <b>MAIN5</b>: RC AUX1 채널의 피드스루
           </li>
           <li>
             <b>MAIN6</b>: feed-through of RC AUX2 channel
@@ -792,10 +792,10 @@
             <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
           <li>
-            <b>MAIN5</b>: feed-through of RC AUX1 channel
+            <b>MAIN5</b>: RC AUX1 채널의 피드스루
           </li>
           <li>
             <b>MAIN6</b>: feed-through of RC AUX2 channel
@@ -1133,7 +1133,7 @@
             <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
         </ul>
       </p>
@@ -1218,7 +1218,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: motor 4</li><li>AUX1</b>: 로터 2 암용 외부 서보 모터</li><li>AUX2</b>: 로터 4 암용 외부 서보 모터</li><li>AUX3</b>: 로터 2 암용 내부 서보 모터</li><li>AUX4</b>: 로터 4 암용 내부 서보 모터</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li>AUX1</b>: 로터 2 암용 외부 서보 모터</li><li>AUX2</b>: 로터 4 암용 외부 서보 모터</li><li>AUX3</b>: 로터 2 암용 내부 서보 모터</li><li>AUX4</b>: 로터 4 암용 내부 서보 모터</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1286,7 +1286,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 요(yaw) 서보</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1358,7 +1358,7 @@
             <b>MAIN2</b>: 우측 보조 날개(aileron)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1390,7 +1390,7 @@
             <b>MAIN2</b>: 우측 보조 날개(aileron)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1422,7 +1422,7 @@
             <b>MAIN2</b>: 우측 보조 날개(aileron)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1454,7 +1454,7 @@
             <b>MAIN2</b>: 우측 보조 날개(aileron)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1486,7 +1486,7 @@
             <b>MAIN2</b>: 우측 보조 날개(aileron)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1518,7 +1518,7 @@
             <b>MAIN2</b>: 좌측 보조 날개(aileron)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1550,7 +1550,7 @@
             <b>MAIN2</b>: 우측 보조 날개(aileron)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1582,7 +1582,7 @@
             <b>MAIN2</b>: 우측 보조 날개(aileron)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1614,7 +1614,7 @@
             <b>MAIN2</b>: 우측 보조 날개(aileron)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1646,7 +1646,7 @@
             <b>MAIN2</b>: 우측 보조 날개(aileron)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1700,7 +1700,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 우측 보조 날개(aileron)</li><li><b>MAIN2</b>: 좌측 보조 날개(aileron)</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 우측 보조 날개(aileron)</li><li><b>MAIN2</b>: 좌측 보조 날개(aileron)</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1734,7 +1734,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 보조 날개(aileron)</li><li><b>MAIN2</b>: 엘리베이터(elevator)</li><li><b>MAIN3</b>: 방향키 (rudder)</li><li><b>MAIN4</b>: throttle</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 보조 날개(aileron)</li><li><b>MAIN2</b>: 엘리베이터(elevator)</li><li><b>MAIN3</b>: 방향키 (rudder)</li><li><b>MAIN4</b>: 스로틀</li><li><b>MAIN5</b>: 플랩(flaps)</li><li><b>MAIN6</b>: gear</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1811,10 +1811,10 @@
             <b>MAIN3</b>: 스로틀
           </li>
           <li>
-            <b>MAIN4</b>: rudder
+            <b>MAIN4</b>: 방향키 (rudder)
           </li>
           <li>
-            <b>MAIN5</b>: flaps
+            <b>MAIN5</b>: 플랩(flaps)
           </li>
           <li>
             <b>MAIN6</b>: gear
@@ -1852,10 +1852,10 @@
             <b>MAIN3</b>: 엘리베이터(elevator)
           </li>
           <li>
-            <b>MAIN4</b>: rudder
+            <b>MAIN4</b>: 방향키 (rudder)
           </li>
           <li>
-            <b>MAIN5</b>: throttle
+            <b>MAIN5</b>: 스로틀
           </li>
           <li>
             <b>MAIN6</b>: wheel
@@ -1905,7 +1905,7 @@
             <b>MAIN2</b>: 조향기(steering)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -1931,28 +1931,28 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 제어 그룹 0, 채널 0의 피드 스루
+            <b>MAIN1</b>: 제어 그룹 0, 채널 0의 패스 스루
           </li>
           <li>
-            <b>MAIN2</b>: 제어 그룹 0, 채널 1의 피드 스루
+            <b>MAIN2</b>: 제어 그룹 0, 채널 1의 패스 스루
           </li>
           <li>
-            <b>MAIN3</b>: 제어 그룹 0, 채널 2의 피드 스루
+            <b>MAIN3</b>: 제어 그룹 0, 채널 2의 패스 스루
           </li>
           <li>
-            <b>MAIN4</b>: pass-through of control group 0, channel 3
+            <b>MAIN4</b>: 제어 그룹 0, 채널 3의 패스 스루
           </li>
           <li>
-            <b>MAIN5</b>: pass-through of control group 0, channel 4
+            <b>MAIN5</b>: 제어 그룹 0, 채널 4의 패스 스루
           </li>
           <li>
-            <b>MAIN6</b>: pass-through of control group 0, channel 5
+            <b>MAIN6</b>: 제어 그룹 0, 채널 5의 패스 스루
           </li>
           <li>
-            <b>MAIN7</b>: pass-through of control group 0, channel 6
+            <b>MAIN7</b>: 제어 그룹 0, 채널 6의 패스 스루
           </li>
           <li>
-            <b>MAIN8</b>: pass-through of control group 0, channel 7
+            <b>MAIN8</b>: 제어 그룹 0, 채널 7의 패스 스루
           </li>
         </ul>
       </p>
@@ -1981,7 +1981,7 @@
             <b>MAIN2</b>: 조향기(steering)
           </li>
           <li>
-            <b>MAIN4</b>: throttle
+            <b>MAIN4</b>: 스로틀
           </li>
         </ul>
       </p>
@@ -2073,10 +2073,10 @@
             <b>MAIN2</b>: 모터 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
           <li>
             <b>AUX1</b>: Aileron 1
@@ -2123,10 +2123,10 @@
             <b>MAIN2</b>: 모터 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
           <li>
             <b>AUX1</b>: Aileron 1
@@ -2173,10 +2173,10 @@
             <b>MAIN2</b>: 모터 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
           <li>
             <b>AUX1</b>: Right elevon
@@ -2265,13 +2265,13 @@
             <b>MAIN2</b>: 모터 2
           </li>
           <li>
-            <b>MAIN3</b>: motor 3
+            <b>MAIN3</b>: 모터 3
           </li>
           <li>
-            <b>MAIN4</b>: motor 4
+            <b>MAIN4</b>: 모터 4
           </li>
           <li>
-            <b>MAIN5</b>: Right elevon
+            <b>MAIN5</b>: 우측 엘러본(elevon)
           </li>
           <li>
             <b>MAIN6</b>: Left elevon
@@ -2312,13 +2312,13 @@
             <b>MAIN2</b>: A-tail left
           </li>
           <li>
-            <b>MAIN3</b>: Pusher motor
+            <b>MAIN3</b>: 푸셔(Pusher) 모터
           </li>
           <li>
-            <b>MAIN4</b>: A-tail right
+            <b>MAIN4</b>: A-tail left
           </li>
           <li>
-            <b>MAIN5</b>: motor 1
+            <b>MAIN5</b>: 모터 1
           </li>
           <li>
             <b>MAIN6</b>: motor 2
@@ -2347,7 +2347,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 우측 모터</li><li><b>MAIN2</b>: 좌측 모터</li><li><b>MAIN5</b>: elevon right</li><li><b>MAIN6</b>: elevon left</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 우측 모터</li><li><b>MAIN2</b>: 좌측 모터</li><li><b>MAIN5</b>: 우측 엘러본(elevon)</li><li><b>MAIN6</b>: elevon left</li></ul></td>
 </tr>
   </table>
 </div>
@@ -2381,7 +2381,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></td>
 </tr>
   </table>
 </div>
@@ -2415,7 +2415,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: motor 4</li><li><b>MAIN4</b>: motor 5</li><li><b>MAIN5</b>: elevon left</li><li><b>MAIN6</b>: elevon right</li><li><b>MAIN7</b>: canard surface</li><li><b>MAIN8</b>: rudder</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 4</li><li><b>MAIN4</b>: 모터 5</li><li><b>MAIN5</b>: elevon left</li><li><b>MAIN6</b>: elevon right</li><li><b>MAIN7</b>: canard surface</li><li><b>MAIN8</b>: rudder</li></ul></td>
 </tr>
   </table>
 </div>
@@ -2515,10 +2515,10 @@
             <b>MAIN2</b>: 전면 우측 모터 하단
           </li>
           <li>
-            <b>MAIN3</b>: Back motor bottom
+            MAIN3</b>: 후면 모터 하단
           </li>
           <li>
-            <b>MAIN4</b>: Back motor top
+            <b>MAIN4</b>: 후면 모터 상단
           </li>
           <li>
             <b>MAIN5</b>: Front left motor bottom
@@ -2572,10 +2572,10 @@
             <b>MAIN2</b>: 좌측 모터
           </li>
           <li>
-            <b>MAIN3</b>: Motor back
+            <b>MAIN3</b>: 후면 모터
           </li>
           <li>
-            <b>MAIN4</b>: empty
+            <b>MAIN4</b>: 비어 있음
           </li>
           <li>
             <b>MAIN5</b>: Tilt servo right
