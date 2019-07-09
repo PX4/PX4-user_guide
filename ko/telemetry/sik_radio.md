@@ -25,8 +25,8 @@ SiK 라디오용 하드웨어는 다양한 범위 및 폼 팩터를 지원하는
 
 대부분의 [벤더 ](#vendors)에서 소싱된 하드웨어는 최신 펌웨어로 미리 구성되어야 합니다. 예를 들어 MAVLink 2에 대한 지원을 받으려면 이전 하드웨어를 새 펌웨어로 업데이트해야 할 수 있습니다.
 
-*QGroundControl *: [QGoundControl 사용자 가이드 > Loading Firmware ](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)을(를) 사용하여 라디오 펌웨어를 업데이트할 수 있습니다.
+*QGroundControl *: [QGoundControl 사용자 설명서 > Loading Firmware ](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)을(를) 사용하여 라디오 펌웨어를 업데이트할 수 있습니다.
 
 ## 고급 설정/구성
 
-PX4 개발자 가이드에는 펌웨어 및 AT-명령 기반 구성에 대한 추가 정보 가 있습니다. 개발자가 아닌 경우에는 이 작업을 수행할 필요가 없습니다.</p>
+PX4 개발자 설명서에는 펌웨어 및 AT-명령 기반 구성에 대한 추가 정보 가 있습니다. 개발자가 아닌 경우에는 이 작업을 수행할 필요가 없습니다.</p>
