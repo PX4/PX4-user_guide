@@ -210,7 +210,7 @@ Parameter | Description
 
 ### Traffic Avoidance Failsafe
 
-The Traffic Avoidance Failsafe allows PX4 to respond to transponder data (e.g. from ADSB transponders).
+The Traffic Avoidance Failsafe allows PX4 to respond to transponder data (e.g. from [ADSB transponders](../advanced_features/traffic_avoidance_adsb.md)) during missions.
 
 The relevant parameters are shown below:
 
