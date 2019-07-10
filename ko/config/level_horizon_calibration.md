@@ -19,10 +19,10 @@
 
 ## 검증
 
-방위가 설정되고 수평 - 수평선 캘리브레이션이 완료된 후, 나침반의 표제가 기체를 북쪽을 향하고 지평선이 수평 일 때 0 근처의 값을 보여 주는지 비행 조망에서 확인하십시오 (위쪽은 파란색, 아래쪽은 녹색입니다 ).
+비행 컨트롤러 방향 설정과 수평 조정 캘리브레이션이 완료되면 비행 HUD의 나침반이 기체가 북쪽을 향할 때 0에 가까운 값을 향하는 지, 수평선이 수평을 이루는지 (파란색 하늘이 상단에, 초록색 땅이 하단에 있습니다) 확인하십시오.
 
-## Further Information
+## 추가 정보
 
-* [Advanced Orientation Tuning](../advanced_config/advanced_flight_controller_orientation_leveling.md) (advanced users only).
-* [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#level-horizon)
-*  PX4 설치 비디오 "자이로 스코프"- @ 1m14s </ 0> (Youtube) </li> </ul>
+* [고급 방향 조정](../advanced_config/advanced_flight_controller_orientation_leveling.md) (고급 사용자)
+* [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#level-horizon)
+* [PX4 설치 비디오 "자이로스코프 센서"- @ 1분 14초](https://youtu.be/91VGmdSlbo4?t=1m14s)(Youtube)
