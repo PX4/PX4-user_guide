@@ -29,7 +29,7 @@ YAW, PITCH 및/또는 ROLL 오프셋은 기본 정방향(각각 Z, Y, X축을 �
 
 ## 미세 조정
 
-[수평 조정 캘리브레이션](../config/level_horizon_calibration.md)을 사용하여 컨트롤러 방향의 정렬 어긋남을 캘리브레이션하고 비행 시야의 수평을 맞출 수 있습니다.
+[수평 조정 캘리브레이션](../config/level_horizon_calibration.md)을 사용하여 컨트롤러 방향 정렬의 어긋남을 캘리브레이션하고 비행 HUD의 수평을 맞출 수 있습니다.
 
 ## 추가 정보
 
