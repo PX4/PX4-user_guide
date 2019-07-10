@@ -2,7 +2,7 @@
 
 *QGroundControl* **데스크톱** 버전 [Pixhawk 시리즈](../getting_started/flight_controller_selection.md) 비행 컨트롤러 보드 PX4 펌웨어 설치를 사용할 수 있습니다.
 
-> **Caution** **Before you start installing Firmware** all USB connections to the vehicle must be *disconnected* (both direct or through a telemetry radio). 차량은 배터리로 전원을 공급받으면 안 된다.
+> **Caution** **Before you start installing Firmware** all USB connections to the vehicle must be *disconnected* (both direct or through a telemetry radio). 기체는 배터리로 전원을 공급받으면 안 된다.
 
 ## Install Stable PX4
 
@@ -12,7 +12,7 @@ Generally you should use the most recent *released* version of PX4, in order to 
 
 To install PX4:
 
-1. 상단 툴바에서 ** 기어 </ 0> 아이콘 (차량 설정) 을 선택한 다음 사이드 바에서 ** 펌웨어 </ 0>를 선택하십시오.</p> 
+1. 상단 툴바에서 ** 기어 </ 0> 아이콘 (기체 설정) 을 선택한 다음 사이드 바에서 ** 펌웨어 </ 0>를 선택하십시오.</p> 
     
     ![펌웨어가 분리됨](../../assets/qgc/setup/firmware/firmware_disconnected.jpg)</li> 
     
