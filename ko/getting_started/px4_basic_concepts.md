@@ -1,34 +1,34 @@
 # 기본 개념
 
-이 주제에서는 무인 항공기에 대한 기본적인 소개와 PX4 사용에 대해 설명합니다. (초보자를 위한 것이지만 숙련된 사용자에게도 좋은 소개 자료입니다.)
+이 주제는 무인 항공기에 대한 기본적인 소개와 PX4 사용에 대해 설명합니다. (초보자를 위한 것이지만 숙련된 사용자에게도 좋은 소개 자료입니다.)
 
-기본 개념을 이미 잘 알고 있다면 [기본 조립](../assembly/README.md)으로 이동하여 특정 자동 조종 장치 하드웨어를 연결하는 방법을 배울 수 있습니다. *QGroundControl*을 사용하여 펌웨어를 설치하고 이동체를 설정하려면 [기본 설정](../config/README.md)을 참조하십시오.
+기본 개념을 이미 잘 알고 있다면 [기본 조립](../assembly/README.md)으로 이동하여 특정 비행 컨트롤러 하드웨어를 배선하는 방법을 배울 수 있습니다. *QGroundControl*을 사용하여 펌웨어를 설치하고 기체를 설정하려면 [기본 설정](../config/README.md)을 참조하십시오.
 
 ## 드론이란?
 
 드론은 원격 또는 자율적으로 제어될 수 있는 무인 "로봇" 이동체입니다.
 
-드론은 많은 소비자 그리고 산업 및 군사적 목적으로 [활용](http://px4.io/applications/)됩니다. 여기에는 (대략) 항공 사진/비디오, 화물 운송, 레이싱, 검색 및 측량 등 내용이 포함됩니다.
+드론은 많은 소비자 그리고 산업적, 군사적 목적으로 [사용 및 활용](http://px4.io/applications/)됩니다. 여기에는 (대략) 항공 사진/비디오, 화물 운송, 레이싱, 검색 및 측량 등 내용이 포함됩니다.
 
-> ** 팁 ** 항공기, 지상, 해상 및 수중에서 사용하기 위해 다양한 유형의 무인 항공기가 존재합니다. 무인 항공기(UAV), 무인 항공 시스템(UAS), 무인 지상 차량(UGV), 무인 수면함(USV), 무인 수중함(UUV) 이라고 합니다.
+> **팁** 항공기, 지상, 해상 및 수중에서 사용하기 위해 다양한 유형의 무인 항공기가 존재합니다. 무인 항공기(UAV), 무인 항공 시스템(UAS), 무인 지상 기체(UGV), 무인 수면함(USV), 무인 수중함(UUV) 이라고 합니다.
 
-드론의 "두뇌"는 오토파일럿 또는 자동 조종 장치라고 합니다. 112/5000 이 장치는 * 기체 컨트롤러 * ( "비행 컨트롤러") 하드웨어에서 실행되는 * 비행 스택 * 소프트웨어로 구성됩니다.
+드론의 "두뇌"는 비행 컨트롤러입니다. 이 장치는 *기체 컨트롤러* ( "비행 컨트롤러") 하드웨어에서 실행되는 *펌웨어*로 이루어져 있습니다.
 
-## PX4 Autopilot {#autopilot}
+## PX4 비행 컨트롤러 {#autopilot}
 
-[PX4](http://px4.io/) is powerful open source autopilot *flight stack*.
+[PX4](http://px4.io/)는 강력한 오픈 소스 비행 컨트롤러 *펌웨어* 입니다.
 
-Some of PX4's key features are:
+몇 가지 PX4의 주요 특징은 다음과 같습니다:
 
-- 항공기 (멀티콥터, 고정익 항공기 및 VTOL), 지상 차량 및 수중함을 포함하여 [ 다양한 기체 프레임/유형](../airframes/airframe_reference.md)을 제어합니다. 
-- [ 이동체 컨트롤러](#vehicle_controller), 센서 및 기타 주변 장치 하드웨어 선택 시 가장 좋습니다.
-- 유연하고 강력한 [ 비행 모드 ](#flight_modes) 및 [ 안전 기능](#safety)을 갖고 있습니다.
+- 항공기 (멀티콥터, 고정익 항공기 및 VTOL), 지상 기체 및 수중함을 포함하여 [ 다양한 기체 프레임/유형](../airframes/airframe_reference.md)을 제어합니다. 
+- [기체 컨트롤러](#vehicle_controller), 센서 및 기타 주변 장치 하드웨어 선택 시 좋은 선택입니다.
+- 유연하고 강력한 [비행 모드](#flight_modes) 및 [안전 기능](#safety)을 갖고 있습니다.
 
 PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
 ## QGroundControl {#qgc}
 
-Dronecode 지상 관제소는 [ QGroundControl](http://qgroundcontrol.com/)이라고 합니다. * QGroundControl*을 사용하여 PX4를 [ 차량 제어 하드웨어](flight_controller_selection.md)에 로드(플래시)하여 차량을 설정하고 다른 매개 변수를 변경하고 실시간 비행 정보를 얻고 완전 자율 임무를 생성 및 실행할 수 있습니다.
+Dronecode 지상 관제소는 [ QGroundControl](http://qgroundcontrol.com/)이라고 합니다. * QGroundControl*을 사용하여 PX4를 [ 기체 제어 하드웨어](flight_controller_selection.md)에 로드(플래시)하여 기체를 설정하고 다른 매개 변수를 변경하고 실시간 비행 정보를 얻고 완전 자율 임무를 생성 및 실행할 수 있습니다.
 
 * QGroundControl*은 Windows, Android, MacOS 또는 Linux에서 실행됩니다. [ 여기에서 다운로드하여 설치하십시오](http://qgroundcontrol.com/downloads/). 
 
@@ -42,7 +42,7 @@ PX4는 초기에 [ Pixhawk 시리즈](../flight_controller/pixhawk_series.md) �
 
 ## Sensors
 
-PX4는 센서를 사용하여 차량 상태를 결정합니다(안정화에 필요 및 자율 제어 가능). 시스템은 자이로 스코프, 가속도계, 자력계(나침반) 및 기압계가 * 최소로 필요합니다. * 모든 자동 [ 모드 ](../getting_started/flight_modes.md#categories) 및 일부 보조 모드를 사용하려면 GPS 또는 기타 위치 확인 시스템이 필요합니다. 고정익 및 VTOL- 기체에는 속도 센서가 추가로 포함되어야 합니다(매우 권장 됨).
+PX4는 센서를 사용하여 기체 상태를 결정합니다(안정화에 필요 및 자율 제어 가능). 시스템은 자이로 스코프, 가속도계, 자력계(나침반) 및 기압계가 * 최소로 필요합니다. * 모든 자동 [ 모드 ](../getting_started/flight_modes.md#categories) 및 일부 보조 모드를 사용하려면 GPS 또는 기타 위치 확인 시스템이 필요합니다. 고정익 및 VTOL- 기체에는 속도 센서가 추가로 포함되어야 합니다(매우 권장 됨).
 
 더 많은 정보는 여기를 보세요.
 
@@ -67,7 +67,7 @@ PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배
 
 ## Radio Control (RC) {#rc_systems}
 
-[ 라디오 컨트롤러(RC) ](../getting_started/rc_transmitter_receiver.md) 시스템은 비행체를 *수동으로 * 제어하는 데 사용됩니다. 차량을 기반으로 수신기와 스틱/제어 위치를 통신하기 위해 송신기를 사용하는 원격 제어 장치로 구성됩니다. 일부 RC 시스템은 자동 조종 장치로부터 다시 원격 측정 정보를 수신할 수 있습니다.
+[ 라디오 컨트롤러(RC) ](../getting_started/rc_transmitter_receiver.md) 시스템은 비행체를 *수동으로 * 제어하는 데 사용됩니다. 기체를 기반으로 수신기와 스틱/제어 위치를 통신하기 위해 송신기를 사용하는 원격 제어 장치로 구성됩니다. 일부 RC 시스템은 자동 조종 장치로부터 다시 원격 측정 정보를 수신할 수 있습니다.
 
 > ** 참고 ** PX4에는 자율 비행 모드를 위한 원격 제어 시스템이 필요하지 않습니다.
 
@@ -81,7 +81,7 @@ PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배
 
 ## Data/Telemetry Radios
 
-[ 데이터/텔레메트리 라디오](../telemetry/README.md)는 * QGroundControl *과 같은 지상 제어 스테이션과 PX4를 실행하는 차량 사이에 무선 MAVLink 연결을 제공할 수 있습니다. 이를 통해 기체가 비행 중일 때 매개 변수를 조정하고 실시간으로 원격 측정을 검사하며 비행 중 임무를 변경하는 등의 작업을 수행할 수 있습니다.
+[ 데이터/텔레메트리 라디오](../telemetry/README.md)는 * QGroundControl *과 같은 지상 제어 스테이션과 PX4를 실행하는 기체 사이에 무선 MAVLink 연결을 제공할 수 있습니다. 이를 통해 기체가 비행 중일 때 매개 변수를 조정하고 실시간으로 원격 측정을 검사하며 비행 중 임무를 변경하는 등의 작업을 수행할 수 있습니다.
 
 ## Offboard/Companion Computer
 
@@ -114,7 +114,7 @@ PX4는 [ 비행 기록 ](../getting_started/flight_reporting.md)을 저장하기
 
 PX4는 장애가 발생할 경우 기체을 보호하고 복구할 수 있도록 구성 가능한 장애 안전 시스템을 갖추고 있습니다! 이를 통해 안전하게 비행할 수 있는 지역 및 조건을 지정하고, 안전 장치가 작동(예: 착륙, 위치 유지 또는 지정된 지점으로 복귀)될 경우 수행할 작업을 지정할 수 있습니다.
 
-> ** 참고 ** *첫 번째* failsafe 이벤트에 대해서만 작업을 지정할 수 있습니다. 이벤트가 발생하면 시스템은 특별한 처리 코드를 입력하는데, 이 코드는 후속 안전 장치 트리거가 별도의 시스템 수준과 차량 별 코드에 의해 관리되도록 합니다.
+> ** 참고 ** *첫 번째* failsafe 이벤트에 대해서만 작업을 지정할 수 있습니다. 이벤트가 발생하면 시스템은 특별한 처리 코드를 입력하는데, 이 코드는 후속 안전 장치 트리거가 별도의 시스템 수준과 기체 별 코드에 의해 관리되도록 합니다.
 
 주요 장애 안전 영역은 다음과 같습니다.
 
@@ -131,7 +131,7 @@ PX4는 장애가 발생할 경우 기체을 보호하고 복구할 수 있도록
 
 ## Heading and Directions
 
-모든 차량, 보트 및 항공기는 전진 방향에 따라 지향 방향이 있습니다.
+모든 기체, 보트 및 항공기는 전진 방향에 따라 지향 방향이 있습니다.
 
 ![프레임 방향](../../images/frame_heading.png)
 
