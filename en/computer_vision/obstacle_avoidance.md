@@ -9,6 +9,10 @@ Obstacle avoidance is intended for automatic modes, and is currently supported f
 
 This topic explains how the feature is set up and enabled in both modes.
 
+{% youtube %}https://youtu.be/PrGt7pKj3tI{% endyoutube %}
+
+
+
 ## Limitations/Capabilities
 
 - The maximum speed for obstacle avoidance is currently approximately 3 m/s (due to the cost of computing the avoidance path).

@@ -12,14 +12,18 @@ All services that use this interface send and receive messages of the same type/
 Developers can therefore use this interface to create their own new companion-side path planning services, or tweak the existing planner software.
 
 
-## Limitations
-
-Only one planner can run on the companion computer at a time (at time of writing).
-This means that only one feature that uses this interface can be enabled for the running vehicle (e.g. obstacle avoidance OR safe landing, but not both).
-
-### PX4 Configuration
+## PX4 Configuration
 
 Path planning is activated in PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
+
+## Companion Computer Setup
+
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
+
+The actual setup/configuration required depends on the planner being used.
+
+> **Warning** Only one planner can run on the companion computer at a time (at time of writing).
+  This means that offboard features that use different planners cannot be enabled on the same vehicle. a vehicle at the same time (e.g. a vehicle can support obstacle avoidance and collision prevent, but not also safe landing - or visa versa).
 
 
 ### Trajectory Interface
@@ -76,8 +80,13 @@ The fields for the `TRAJECTORY_REPRESENTATION_WAYPOINTS` message from the compan
   - `command[0]`: NaN.
 - All other indices/fields are set as NaN.
 
-PX4 will stream trajectory messages ... TBD.
 
+
+## Companion Failure Handling
+
+PX4 safely handles the case where messages are not received from the offboard system:
+- If the `HEARTBEAT` is lost, PX4 will emit a status message (which is displayed in QGroundControl) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state).
+- When external path planning is enabled (`COM_OBS_AVOID=1`) and the vehicle is in an autonomous mode (Hold, Return, Mission, Takeoff, Land) the vehicle will switch into [Hold mode](../flight_modes/hold.md) a trajectory message is not received for more than 0.5 seconds.
 
 ## Supported Hardware
 
