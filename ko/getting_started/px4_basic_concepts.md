@@ -24,42 +24,42 @@
 - [기체 컨트롤러](#vehicle_controller), 센서 및 기타 주변 장치 하드웨어 선택 시 좋은 선택입니다.
 - 유연하고 강력한 [비행 모드](#flight_modes) 및 [안전 기능](#safety)을 갖고 있습니다.
 
-PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
+PX4는 [QGroundControl](#qgc) 지상국 프로그램, [Pixhawk 하드웨어](https://pixhawk.org/) 그리고 컴패니언 컴퓨터, 카메라 및 MAVLink 프로토콜을 사용하는 다른 하드웨어를 통합한 [MAVSDK](http://mavsdk.mavlink.io)를 포함하는 더 넓은 범주의 플랫폼의 핵심 부분입니다. [Dronecode 프로젝트](https://www.dronecode.org/)가 PX4를 지원합니다.
 
 ## QGroundControl {#qgc}
 
-Dronecode 지상 관제소는 [ QGroundControl](http://qgroundcontrol.com/)이라고 합니다. * QGroundControl*을 사용하여 PX4를 [ 기체 제어 하드웨어](flight_controller_selection.md)에 로드(플래시)하여 기체를 설정하고 다른 매개 변수를 변경하고 실시간 비행 정보를 얻고 완전 자율 임무를 생성 및 실행할 수 있습니다.
+Dronecode 지상 관제소는 [QGroundControl](http://qgroundcontrol.com/)이라고 합니다. *QGroundControl*을 사용하여 PX4를 [기체 제어 하드웨어](flight_controller_selection.md)에 로드(플래시)하여 기체를 설정하고 다른 파라미터를 변경하고 실시간 비행 정보를 얻고 완전 자율 임무를 생성 및 실행할 수 있습니다.
 
-* QGroundControl*은 Windows, Android, MacOS 또는 Linux에서 실행됩니다. [ 여기에서 다운로드하여 설치하십시오](http://qgroundcontrol.com/downloads/). 
+*QGroundControl*은 Windows, Android, MacOS 또는 Linux에서 실행됩니다. [여기](http://qgroundcontrol.com/downloads/)에서 다운로드하고 설치하십시오.
 
 ![QGC 메인 화면](../../images/qgc_main_screen.jpg)
 
-## Vehicle/Flight Controller Board {#vehicle_controller}
+## 기체/비행 제어 보드 {#vehicle_controller}
 
-PX4는 초기에 [ Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에서 실행되도록 설계되었지만 Linux 컴퓨터 및 기타 하드웨어에서도 실행될 수 있습니다. 비행기의 물리적 제한, 수행하려는 활동 그리고 당연히 비용에도 적합한 보드를 선택해야 합니다.
+PX4는 초기에 [Pixhawk 시리즈](../flight_controller/pixhawk_series.md) 컨트롤러에서 실행되도록 설계되었지만, 이제 Linux 컴퓨터 및 기타 하드웨어에서도 실행될 수 있습니다. 기체 물리적 제한, 수행하려는 활동 및 비용에 적합한 보드를 선택해야합니다.
 
-자세한 내용은 [ 비행 컨트롤러 선택](flight_controller_selection.md)을 참조하십시오.
+자세한 내용은 [비행 컨트롤러 선택](flight_controller_selection.md)을 참조하십시오.
 
-## Sensors
+## 센서
 
-PX4는 센서를 사용하여 기체 상태를 결정합니다(안정화에 필요 및 자율 제어 가능). 시스템은 자이로 스코프, 가속도계, 자력계(나침반) 및 기압계가 * 최소로 필요합니다. * 모든 자동 [ 모드 ](../getting_started/flight_modes.md#categories) 및 일부 보조 모드를 사용하려면 GPS 또는 기타 위치 확인 시스템이 필요합니다. 고정익 및 VTOL- 기체에는 속도 센서가 추가로 포함되어야 합니다(매우 권장 됨).
+PX4는 센서를 사용하여 기체 상태를 결정합니다 (기체 안정화에 필요하고 자율 주행을 활성화합니다). 시스템은 자이로스코프 센서, 가속도 센서, 지자기(나침반) 센서 및 기압 센서를 *최소로 요구합니다*. 자동 [모드](../getting_started/flight_modes.md#categories) 활성화와 다른 몇몇 보조 모드의 활성화를 위해서는 GPS또는 다른 위치 확인 시스템이 필요합니다. 고정익 및 VTOL 기체는 대기속도 센서가 추가로 포함되어야 합니다(매우 권장됨).
 
-더 많은 정보는 여기를 보세요.
+더 자세한 정보는 다음을 참고하세요.
 
 - [센서](../getting_started/sensor_selection.md) 
-- [주변장치](../peripherals/README.md)
+- [주변 장치](../peripherals/README.md)
 
-## ESCs & Motors
+## ESC와 모터
 
-많은 PX4 드론은 전자 속도 컨트롤러(Electronic Speed Controller, ESC)를 통해 비행 컨트롤러에 의해 구동되는 브러시리스 모터를 사용합니다(ESC는 비행 컨트롤러의 신호를 모터로 전해지는 적절한 수준의 전력으로 변환합니다).
+많은 PX4 드론은 전자 속도 컨트롤러(Electronic Speed Controller, ESC)를 통해 비행 컨트롤러에 의해 구동되는 브러시리스 모터를 사용합니다 (ESC는 비행 컨트롤러의 신호를 모터로 전해지는 적절한 수준의 전력으로 변환합니다).
 
-PX4가 지원하는 ESC/모터에 관한 정보는 여기를 보세요.
+PX4가 지원하는 ESC/모터에 관한 정보는 여기를 참조하십시오.
 
 - [ESC와 모터](../peripherals/esc_motors.md)
 - [ESC 캘리브레이션](../advanced_config/esc_calibration.md)
 - [ESC 펌웨어와 프로토콜 개요](https://oscarliang.com/esc-firmware-protocols/)(oscarliang.com)
 
-## Battery/Power
+## 배터리/전원
 
 PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배터리는 일반적으로 비행 컨트롤러 및 ESC(모터 용)에 별도의 전원을 제공하는 * 전원 모듈 * 또는 * 전원 관리 보드*를 사용하여 시스템에 연결됩니다.
 
