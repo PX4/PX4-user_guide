@@ -2,11 +2,11 @@
 
 [<img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;
 
-* Manual / Stabilized </ 0> 모드는 RC 컨트롤 스틱이 중앙에있을 때 멀티탭을 안정시킵니다. 차량을 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 움직입니다.</p> 
+* Manual / Stabilized </ 0> 모드는 RC 컨트롤 스틱이 중앙에있을 때 멀티탭을 안정시킵니다. 기체를 수동으로 움직이거나 조종하려면 스틱을 중앙의 바깥쪽으로 움직입니다.</p> 
 
 > ** 참고 </ 0>이 다중 모드는 * 수동 </ 1> 또는 * 안정화 </ 1> 모드를 설정하면 활성화됩니다.</p> </blockquote> 
 > 
-> 수동 제어에서 롤과 피치 스틱이 각 축을 중심으로 차량 (자세)을 * 각도로 제어하면 요 스틱이 수평면 위의 회전 속도를 제어하고 스로틀은 고도 / 속도를 제어합니다 .</p> 
+> 수동 제어에서 롤과 피치 스틱이 각 축을 중심으로 기체 (자세)을 * 각도로 제어하면 요 스틱이 수평면 위의 회전 속도를 제어하고 스로틀은 고도 / 속도를 제어합니다 .</p> 
 > 
 > As soon as you release the control sticks they will return to the center deadzone. 롤 포크와 피치 스틱이 중앙에 오면 멀티 피터가 수평을 유지하고 정지합니다. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately (see [below](#params)), and no external forces are applied (e.g. wind). 항공기는 바람의 방향으로 표류하고 고도를 유지하기 위해 스로틀을 제어해야합니다.
 > 
