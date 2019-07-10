@@ -133,7 +133,7 @@
                       기본적으로 mRo X2.1은 PX4보다는 ArduPilot <sup> & reg; </ 0>에 대해 사전 구성 될 수 있습니다. 이 보드가 X2.1 대신 FMUv2로 인식 될 때 펌웨어 업데이트 중에 볼 수 있습니다.</p> 
                       
                       <p>
-                        이 경우 <a href="https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip"> BL_Update_X21.zip </ 0>을 사용하여 BootLoader를 업데이트해야합니다 이 보정을 수행하지 않으면 나침반 방향이 잘못되어 보조 IMU는 감지되지 않습니다.</p> 
+                        이 경우 <a href="https://github.com/PX4/px4_user_guide/raw/master/assets/hardware/BL_Update_X21.zip"> BL_Update_X21.zip </ 0>을 사용하여 BootLoader를 업데이트해야합니다 이 캘리브레이션을 수행하지 않으면 나침반 방향이 잘못되어 보조 IMU는 감지되지 않습니다.</p> 
                         
                         <p>
                           업데이트 단계는 다음과 같습니다.
