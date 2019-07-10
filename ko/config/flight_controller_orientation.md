@@ -4,11 +4,11 @@
 
 ## 방향 계산
 
-YAW, PITCH 및/또는 ROLL 오프셋은 기본 정방향(각각 Z, Y, X축을 중심으로 시계 방향)에 따라 계산됩니다. This frame is referred to as the *body frame* and the default orientation as `ROTATION_NONE`.
+YAW, PITCH 및/또는 ROLL 오프셋은 기본 정방향(각각 Z, Y, X축을 중심으로 시계 방향)에 따라 계산됩니다. 이러한 프레임은 *body frame*이라고 불리며, 기본 방향은 `ROTATION_NONE`입니다.
 
 <img src="../../images/fc_orientation_1.png" style="width: 600px;" />
 
-예를 들어, 아래에 표시된 차량은 `=0> 회전_70_RONE `,  회전_YAW_90>에 해당하는 Z축 주위로 회전합니다.</p>
+예를 들어, 아래에 표시된 기체는 `=0> 회전_70_RONE `,  회전_YAW_90>에 해당하는 Z축 주위로 회전합니다.</p>
 
 <p><img src="../../images/yaw_rotation.png" alt="Yaw 회전" /></p>
 
@@ -17,7 +17,7 @@ YAW, PITCH 및/또는 ROLL 오프셋은 기본 정방향(각각 Z, Y, X축을 �
 <p>방향을 설정하려면</p>
 
 <ol start="1">
-<li><em>QGroundControl </em>을 시작하고 차량을 연결합니다.</li>
+<li><em>QGroundControl </em>을 시작하고 기체을 연결합니다.</li>
 <li>Select the <strong>Gear</strong> icon (Vehicle Setup) in the top toolbar and then <strong>Sensors</strong> in the sidebar.</li>
 <li><strong> 방향 설정 </strong> 버튼을 선택합니다.
 <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;"/></li>
@@ -26,7 +26,7 @@ YAW, PITCH 및/또는 ROLL 오프셋은 기본 정방향(각각 Z, Y, X축을 �
 </p>
 
 <p><img src="../../images/qgc/setup/sensor_orientation_selector_values.jpg" style="width: 200px;"/></p></li>
-<li><p>동일한 방법으로 <strong> 외부 나침반 방향 </strong>을 선택합니다(이 옵션은 차량이 외부 나침반인 경우에만 표시됨).</p></li>
+<li><p>동일한 방법으로 <strong> 외부 나침반 방향 </strong>을 선택합니다(이 옵션은 기체이 외부 나침반인 경우에만 표시됨).</p></li>
 <li><strong>OK </strong>을 누릅니다.</li>
 </ol>
 
