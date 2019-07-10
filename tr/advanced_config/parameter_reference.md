@@ -1336,69 +1336,6 @@
   </tr>
 </table>
 
-## Chip
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
-  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-      Description
-    </th>
-    
-    <th>
-      Min > Max (Incr.)
-    </th>
-    
-    <th>
-      Default
-    </th>
-    
-    <th>
-      Units
-    </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SYS_FORCE_F7DC">SYS_FORCE_F7DC</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Force F7 D cache on and disregard errata 1259864 data corruption in a sequence of write-through stores and loads on ARM M7 silicon Fault Status: Present in r0p1, r0p2, r1p0 and r1p1. Fixed in r1p2
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> if Eratta exits turn dcache off else leave it on
-        </li>
-        <li>
-          <strong>1:</strong> Force it off
-        </li>
-        <li>
-          <strong>2:</strong> Force it on
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 2
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-</table>
-
 ## Circuit Breaker
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
