@@ -6,7 +6,7 @@
 
 [비행 컨트롤러](../getting_started/flight_controller_selection.md) - 다양한 플랫폼 및 판매자의 비행 컨트롤러 하드웨어 옵션.
 
-[기체/프레임](../getting_started/frame_selection.md) - 항공, 지상 및 해양 프레임을 포함하는 지원되는 이동체 유형.
+[기체/프레임](../getting_started/frame_selection.md) - 항공, 지상 및 해양 프레임을 포함하는 지원되는 기체 유형.
 
 [센서](../getting_started/sensor_selection.md) - 오토파일럿에 필요한 센서.
 
