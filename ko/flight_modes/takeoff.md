@@ -2,7 +2,7 @@
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-* 이륙 (Takeo) </ 0> 비행 모드는 차량이 지정된 높이로 떨어져 나가고 추가 입력을 기다립니다.</p> 
+* 이륙 (Takeo) </ 0> 비행 모드는 기체가 지정된 높이로 떨어져 나가고 추가 입력을 기다립니다.</p> 
 
 > **Note** * This mode requires GPS. * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes). * The vehicle must be armed before this mode can be engaged.
 
@@ -39,7 +39,7 @@ The specific behaviour for each vehicle type is described below.
 
 <p>항공기는 <em> 투석기 / 발사 모드 </ 0> 또는 <em> 활주로 이륙 모드 </ 0>를 사용하여 현재 방향으로 이륙합니다. 모드는 기본적으로 투석기 / 손발기가되지만, <code> RWTO_TKOFF </ 0>를 사용하여 활주로 이륙으로 설정할 수 있습니다.</p>
 
-<p><em> 투석기 / 손 발사 모드 </ 0>에서 차량은 최대 스로틀 상승 (약 2 초 내에 <code> RWTO_MAX_THR </ 1>까지 상승)을 수행합니다. 고도 오류 <<a href="#FW_CLMBOUT_DIFF"> FW_CLMBOUT_DIFF </ 0>가되면 일반 탐색이 진행됩니다.</p>
+<p><em> 투석기 / 손 발사 모드 </ 0>에서 기체는 최대 스로틀 상승 (약 2 초 내에 <code> RWTO_MAX_THR </ 1>까지 상승)을 수행합니다. 고도 오류 <<a href="#FW_CLMBOUT_DIFF"> FW_CLMBOUT_DIFF </ 0>가되면 일반 탐색이 진행됩니다.</p>
 
 <blockquote>
   <p><strong> 참고 </ 0> 위에 논의 된 동작 외에도 일부 조건이 충족 될 때까지 시작 시퀀스가 ​​시작되지 않도록 차단하는 시작 탐지기가 있습니다. 투석기 발사의 경우 이는 약간의 가속 임계 값입니다.</p>
@@ -49,7 +49,7 @@ The specific behaviour for each vehicle type is described below.
 
 <ol start="1">
 <li><strong> 스로틀 램프 </ 0> : 이륙을위한 최소 속도 (<a href="#FW_AIRSPD_MIN"> FW_AIRSPD_MIN </ 1> x <a href="#RWTO_AIRSPD_SCL"> RWTO_AIRSPD_SCL </ 2>)에 도달 할 때까지 활주로에 고정 (피치 고정, ) </li>
-<li><strong> 이륙 </ 0> : 피치를 높이고 차량 고도> 항법 고도 (<a href="#RWTO_NAV_ALT"> RWTO_NAV_ALT </ 1>)까지 계속하십시오.</li>
+<li><strong> 이륙 </ 0> : 피치를 높이고 기체 고도> 항법 고도 (<a href="#RWTO_NAV_ALT"> RWTO_NAV_ALT </ 1>)까지 계속하십시오.</li>
 <li>
 
 
@@ -105,7 +105,7 @@ The specific behaviour for each vehicle type is described below.
 
 
 
-<strong> 참고 </ 0> 차량은 항상 이륙 중에 (<a href="../advanced_config/parameter_reference.md#FW_THR_MIN"> FW_THR_MIN </ 1>, <a href="../advanced_config/parameter_reference.md#FW_THR_MAX"> FW_THR_MAX </ 2>) 정상 FW 최대 / 최소 스로틀 설정을 준수합니다.
+<strong> 참고 </ 0> 기체는 항상 이륙 중에 (<a href="../advanced_config/parameter_reference.md#FW_THR_MIN"> FW_THR_MIN </ 1>, <a href="../advanced_config/parameter_reference.md#FW_THR_MAX"> FW_THR_MAX </ 2>) 정상 FW 최대 / 최소 스로틀 설정을 준수합니다.
 </p>
 </blockquote>
 
