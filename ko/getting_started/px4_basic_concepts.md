@@ -6,7 +6,7 @@
 
 ## 드론이란?
 
-드론은 원격 또는 자율적으로 제어될 수 있는 무인 "로봇" 이동체입니다.
+드론은 원격 또는 자율적으로 제어될 수 있는 무인 "로봇" 기체입니다.
 
 드론은 많은 소비자 그리고 산업적, 군사적 목적으로 [사용 및 활용](http://px4.io/applications/)됩니다. 여기에는 (대략) 항공 사진/비디오, 화물 운송, 레이싱, 검색 및 측량 등 내용이 포함됩니다.
 
@@ -63,40 +63,40 @@ PX4가 지원하는 ESC/모터에 관한 정보는 여기를 참조하십시오.
 
 PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배터리는 일반적으로 비행 컨트롤러 및 ESC(모터 용)에 별도의 전원을 제공하는 * 전원 모듈 * 또는 * 전원 관리 보드*를 사용하여 시스템에 연결됩니다.
 
-배터리 및 배터리 구성에 대한 정보는 [ 배터리 구성 ](../config/battery.md) 및 [ 기본 어셈블리](../assembly/README.md)(예: [ Pixhawk 4 배선 퀵 스타트> 전원 ](../assembly/quick_start_pixhawk4.md#power)) 설명서를 참조하십시오.
+배터리 및 배터리 구성에 대한 정보는 [ 배터리 구성 ](../config/battery.md) 및 [ 기본 조립](../assembly/README.md) (예: [Pixhawk 4 배선 퀵 스타트> 전원 ](../assembly/quick_start_pixhawk4.md#power)) 설명서를 참조하십시오.
 
-## Radio Control (RC) {#rc_systems}
+## 무선 컨트롤(RC) {#rc_systems}
 
-[ 라디오 컨트롤러(RC) ](../getting_started/rc_transmitter_receiver.md) 시스템은 비행체를 *수동으로 * 제어하는 데 사용됩니다. 기체를 기반으로 수신기와 스틱/제어 위치를 통신하기 위해 송신기를 사용하는 원격 제어 장치로 구성됩니다. 일부 RC 시스템은 자동 조종 장치로부터 다시 원격 측정 정보를 수신할 수 있습니다.
+[라디오 컨트롤\(RC\)](../getting_started/rc_transmitter_receiver.md) 시스템은 기체를 *수동으로* 제어하는데 사용됩니다. 기체를 기반으로 수신기와 스틱/제어 위치를 통신하기 위해 송신기를 사용하는 원격 제어 장치로 구성됩니다. 몇몇 RC 시스템은 비행 컨트롤러부터 텔레메트리 정보를 추가적으로 다시 받아올 수 있습니다.
 
-> ** 참고 ** PX4에는 자율 비행 모드를 위한 원격 제어 시스템이 필요하지 않습니다.
+> **참고** PX4에는 자율 비행 모드에 원격 제어 시스템이 필요하지 않습니다.
 
 ![Taranis X9D 송신기](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-[ RC 시스템 선택 ](../getting_started/rc_transmitter_receiver.md)은 RC 시스템을 선택하는 방법을 설명합니다. 다른 관련 주제는 다음과 같습니다.
+[RC 시스템 선택](../getting_started/rc_transmitter_receiver.md)은 RC 시스템을 선택하는 방법을 설명합니다. 다른 관련 주제는 다음과 같습니다.
 
-- [ 라디오/원격 제어 설정 ](../config/radio.md) - * QGroundControl *의 원격 제어 구성.
-- [ 비행 첫걸음 ](../flying/basic_flying.md) - 리모컨으로 비행하는 법을 배웁니다.
+- [ 라디오/원격 제어 설정](../config/radio.md) - *QGroundControl*의 원격 제어 설정.
+- [비행 첫걸음](../flying/basic_flying.md) - RC로 비행하는 법을 배웁니다.
 - [ FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 원격 측정/상태 업데이트를 수신하도록 RC 송신기를 설정합니다.
 
-## Data/Telemetry Radios
+## 데이터/텔레메트리 라디오
 
-[ 데이터/텔레메트리 라디오](../telemetry/README.md)는 * QGroundControl *과 같은 지상 제어 스테이션과 PX4를 실행하는 기체 사이에 무선 MAVLink 연결을 제공할 수 있습니다. 이를 통해 기체가 비행 중일 때 매개 변수를 조정하고 실시간으로 원격 측정을 검사하며 비행 중 임무를 변경하는 등의 작업을 수행할 수 있습니다.
+[ 데이터/텔레메트리 라디오](../telemetry/README.md)는 *QGroundControl*과 같은 지상국과 PX4를 실행하는 기체 사이에 무선 MAVLink 연결을 제공할 수 있습니다. 이를 통해 기체가 비행 중일 때 파라미터를 조정하고 실시간으로 원격 측정을 검사하며 비행 중 임무를 변경하는 등의 작업을 수행할 수 있습니다.
 
-## Offboard/Companion Computer
+## 오프보드(Offboard)/컴패니언 컴퓨터
 
-PX4는 직렬 케이블 또는 wifi를 통해 별도의 기체용 보조 컴퓨터에서 제어할 수 있습니다. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+PX4는 직렬 케이블이나 와이파이를 통해 기체에 독립적으로 장착된 컴퓨터를 통해 제어할 수 있습니다. 보조 컴퓨터는 대개 Dronecode SDK 또는 MAVROS와 같은 MAVLink API를 사용하여 통신합니다.
 
-> ** 참고 ** Robotics API를 사용하려면 소프트웨어 개발 기술이 필요하며 이 설명서의 범위를 벗어납니다.
+> **참고** Robotics API를 사용하려면 소프트웨어 개발 기술이 필요하며 이 설명서의 범위를 벗어납니다.
 
-- [ 외부 보드 모드 ](../flight_modes/offboard.md) - 지상 제어 스테이션 또는 보조 컴퓨터와 같은 PX4의 외부에서의 제어를 위한 비행 모드입니다. 
-- [ Robotics API ](https://dev.px4.io/en/robotics/) (PX4 개발자 설명서)
+- [Offboard 모드](../flight_modes/offboard.md) - 지상국 또는 보조 컴퓨터와 같은 PX4의 외부에서 제어를 위한 비행 모드입니다. 
+- [Robotics API](https://dev.px4.io/en/robotics/) (PX4 개발자 설명서)
 
-## Removable Memory/Logging
+## 이동식 메모리/기록
 
-PX4는 [ 비행 기록 ](../getting_started/flight_reporting.md)을 저장하기 위해 SD 메모리 카드를 사용합니다 (SD의 지원은 모든 비행 컨트롤러에 있는 것은 아닙니다).
+PX4는 [비행 기록](../getting_started/flight_reporting.md)을 저장하기 위해 SD 메모리 카드를 사용합니다 (모든 비행 컨트롤러가 SD카드를 지원하지는 않습니다).
 
-> ** 팁 ** Pixhawk 보드에서 지원되는 최대 SD 카드 크기는 32GB입니다.
+> **팁** Pixhawk 보드에서 지원되는 최대 SD 카드 크기는 32GB입니다.
 
 권장되는 카드는 [ 개발자 설명서 > 로깅](http://dev.px4.io/en/log/logging.html#sd-cards)에 목록화되어 있습니다.
 
