@@ -8,3 +8,4 @@ This section contains topics related to some of the more advanced features of th
 * [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) (needs companion computer)
 * [Safe Landing](../computer_vision/safe_landing.md) (needs companion computer)
 * [Collision Prevention](../computer_vision/collision_prevention.md)
+* [Air Traffic Avoidance: ADS-B/FLARM](../advanced_features/traffic_avoidance_adsb.md)
