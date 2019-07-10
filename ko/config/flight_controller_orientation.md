@@ -8,35 +8,30 @@ YAW, PITCH 및/또는 ROLL 오프셋은 기본 정방향(각각 Z, Y, X축을 �
 
 <img src="../../images/fc_orientation_1.png" style="width: 600px;" />
 
-예를 들어, 아래에 표시된 기체는 `=0> 회전_70_RONE `,  회전_YAW_90>에 해당하는 Z축 주위로 회전합니다.</p>
+예를 들어, 아래에 표시된 기체는 Z축을 중심으로 각각 다음과 같이 회전합니다: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
-<p><img src="../../images/yaw_rotation.png" alt="Yaw 회전" /></p>
+![Yaw 회전](../../images/yaw_rotation.png)
 
-<h2>방향 설정</h2>
+## 방향 설정
 
-<p>방향을 설정하려면</p>
+방향을 설정하려면
 
-<ol start="1">
-<li><em>QGroundControl </em>을 시작하고 기체을 연결합니다.</li>
-<li>Select the <strong>Gear</strong> icon (Vehicle Setup) in the top toolbar and then <strong>Sensors</strong> in the sidebar.</li>
-<li><strong> 방향 설정 </strong> 버튼을 선택합니다.
-<img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;"/></li>
-<li><p><strong> AutoPilot Orientation</strong>을 선택합니다(<a href="#calculating-orientation">위에서 계산함</a>으로서).
- 
-</p>
+1. *QGroundControl *을 시작하고 기체를 연결합니다.
+2. 상단 툴바에서 **톱니바퀴** 아이콘(기체 설정)을 선택한 다음 사이드 바에서 **센서**를 선택하십시오.
+3. **방향 설정** 버튼을 클릭합니다. <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
+4. **비행 컨트롤러 방향**을 선택합니다([위에서 계산한 방법](#calculating-orientation)대로 선택하십시오).
+    
+    <img src="../../images/qgc/setup/sensor_orientation_selector_values.jpg" style="width: 200px;" />
 
-<p><img src="../../images/qgc/setup/sensor_orientation_selector_values.jpg" style="width: 200px;"/></p></li>
-<li><p>동일한 방법으로 <strong> 외부 나침반 방향 </strong>을 선택합니다(이 옵션은 기체이 외부 나침반인 경우에만 표시됨).</p></li>
-<li><strong>OK </strong>을 누릅니다.</li>
-</ol>
+5. 동일한 방법으로 **외부 나침반 방향 **을 선택합니다(이 선택 사항은 기체에 외부 나침반이 있을 때에만 표시됩니다).
 
-<h2>미세 조정</h2>
+6. **확인**을 누릅니다.
 
-<p>컨트롤러 방향에 작은 미스-정렬을 보상 하 고 비행 보기에서 수평선을 레벨 <a href="../config/level_horizon_calibration.md">수준 수평선 보정</a>을 사용할 수 있습니다.</p>
+## 미세 조정
 
-<h2>Further Information</h2>
+[수평 조정 캘리브레이션](../config/level_horizon_calibration.md)을 사용하여 컨트롤러 방향의 정렬 어긋남을 캘리브레이션하고 비행 시야의 수평을 맞출 수 있습니다.
 
-<ul>
-<li><a href="../advanced_config/advanced_flight_controller_orientation_leveling.md">방향 조정 고급</a> (고급 사용자만)입니다.</li>
-<li><a href="https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation">QGroundControl User Guide > Sensors</a></li>
-</ul>
+## 추가 정보
+
+* [고급 방향 조정](../advanced_config/advanced_flight_controller_orientation_leveling.md) (고급 사용자)
+* [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#flight_controller_orientation)
