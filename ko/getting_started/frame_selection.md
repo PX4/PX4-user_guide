@@ -27,6 +27,6 @@ Depending on the way the VTOL flies in copter mode or how it makes the transitio
 
 -->
 
-## 지상 이동체
+## 지상 기체
 
-## 해양 이동체
+## 해양 기체
