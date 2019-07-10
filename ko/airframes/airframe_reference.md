@@ -1889,7 +1889,7 @@
   
   <tr id="rover_rover_generic_ground_vehicle">
     <td style="vertical-align: top;">
-      일반 지상 차량
+      일반 지상 기체
     </td>
     
     <td style="vertical-align: top;">
