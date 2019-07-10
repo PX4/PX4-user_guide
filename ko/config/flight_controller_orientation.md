@@ -1,10 +1,10 @@
-# 비행 통제관/센서 방향
+# 비행 컨트롤러 및 센서 정렬
 
-기본적으로 비행 컨트롤러(및 외부 나침반(있는 경우)는 화살표가 차량 앞쪽으로 향하도록 프레임에 배치되어야 합니다. 보드나 외부 나침반이 다른 방향으로 마운트된 경우 펌웨어에서 이를 구성해야 합니다.
+기본적으로 비행 컨트롤러(그리고 외부 나침반 센서)는 윗면이 위를 향하도록, 화살표가 기체 정면을 향하도록 프레임에 장착되어야 합니다. 보드나 외부 나침반 센서가 다른 방향으로 장착된 경우 펌웨어에서 이를 설정해야 합니다.
 
 ## 방향 계산
 
-YAW, PITCH and/or ROLL offsets are calculated relative to the forward-facing-upright orientation (clock-wise rotation around the Z, Y and X axis, respectively). This frame is referred to as the *body frame* and the default orientation as `ROTATION_NONE`.
+YAW, PITCH 및/또는 ROLL 오프셋은 기본 정방향(각각 Z, Y, X축을 중심으로 시계 방향)에 따라 계산됩니다. This frame is referred to as the *body frame* and the default orientation as `ROTATION_NONE`.
 
 <img src="../../images/fc_orientation_1.png" style="width: 600px;" />
 
