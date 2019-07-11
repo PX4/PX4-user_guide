@@ -9747,54 +9747,6 @@
       m/s/s
     </td>
   </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_SPEED_MAX">GND_SPEED_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Maximum ground speed
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 40 (0.5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      10.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_SPEED_TRIM">GND_SPEED_TRIM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Trim ground speed
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 40 (0.5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      3.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s
-    </td>
-  </tr>
 </table>
 
 ## Failure Detector
@@ -10065,704 +10017,6 @@
     
     <td style="vertical-align: top;">
       meters
-    </td>
-  </tr>
-</table>
-
-## GND Attitude Control
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
-  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-      Description
-    </th>
-    
-    <th>
-      Min > Max (Incr.)
-    </th>
-    
-    <th>
-      Default
-    </th>
-    
-    <th>
-      Units
-    </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_BAT_SCALE_EN">GND_BAT_SCALE_EN</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Whether to scale throttle by battery power level
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The fixed wing should constantly behave as if it was fully charged with reduced max thrust at lower battery percentages. i.e. if cruise speed is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_GSPD_SP_TRIM">GND_GSPD_SP_TRIM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Groundspeed speed trim
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This allows to scale the turning radius depending on the speed.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      norm
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_MAN_Y_SC">GND_MAN_Y_SC</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Manual yaw scale
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Scale factor applied to the desired yaw actuator command in full manual mode. This parameter allows to adjust the throws of the control surfaces.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      norm
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_SPEED_D">GND_SPEED_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Speed proportional gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the derivative gain for the speed closed loop controller
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.00 > 50.0 (0.005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      %m/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_SPEED_I">GND_SPEED_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Speed Integral gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the integral gain for the speed closed loop controller
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.00 > 50.0 (0.005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-      %m/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_SPEED_IMAX">GND_SPEED_IMAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Speed integral maximum value
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the maxim value the integral can reach to prevent wind-up.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.005 > 50.0 (0.005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      %m/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_SPEED_P">GND_SPEED_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Speed proportional gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the proportional gain for the speed closed loop controller
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.005 > 50.0 (0.005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      2.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      %m/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_SPEED_THR_SC">GND_SPEED_THR_SC</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Speed to throttle scaler
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is a gain to map the speed control output to the throttle linearly.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.005 > 50.0 (0.005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      %m/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_SP_CTRL_MODE">GND_SP_CTRL_MODE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Control mode for speed
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> open loop control
-        </li>
-        <li>
-          <strong>1:</strong> close the loop with gps speed
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_WR_D">GND_WR_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wheel steering rate integrator gain
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.00 > 30 (0.005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.00
-    </td>
-    
-    <td style="vertical-align: top;">
-      %/rad
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_WR_FF">GND_WR_FF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wheel steering rate feed forward
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Direct feed forward from rate setpoint to control surface output
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 10.0 (0.05)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      %/rad/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_WR_I">GND_WR_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wheel steering rate integrator gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This gain defines how much control response will result out of a steady state error. It trims any constant error.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.00 > 0.5 (0.005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.00
-    </td>
-    
-    <td style="vertical-align: top;">
-      %/rad
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_WR_IMAX">GND_WR_IMAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wheel steering rate integrator limit
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> The portion of the integrator part in the control surface deflection is limited to this value
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.05)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_WR_P">GND_WR_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wheel steering rate proportional gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This defines how much the wheel steering input will be commanded depending on the current body angular rate error.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.005 > 1.0 (0.005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      %/rad/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_WR_TC">GND_WR_TC</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Attitude Wheel Time Constant
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This defines the latency between a steering step input and the achieved setpoint (inverse to a P gain). Half a second is a good start value and fits for most average systems. Smaller systems may require smaller values, but as this will wear out servos faster, the value should only be decreased as needed.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.4 > 1.0 (0.05)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.4
-    </td>
-    
-    <td style="vertical-align: top;">
-      s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_W_RMAX">GND_W_RMAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Maximum wheel steering rate
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This limits the maximum wheel steering rate the controller will output (in degrees per second). Setting a value of zero disables the limit.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 90.0 (0.5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      90.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      deg/s
-    </td>
-  </tr>
-</table>
-
-## GND POS Control
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
-  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-      Description
-    </th>
-    
-    <th>
-      Min > Max (Incr.)
-    </th>
-    
-    <th>
-      Default
-    </th>
-    
-    <th>
-      Units
-    </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_L1_DAMPING">GND_L1_DAMPING</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        L1 damping
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Damping factor for L1 control.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.6 > 0.9 (0.05)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.75
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_L1_DIST">GND_L1_DIST</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        L1 distance
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the waypoint radius
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 100.0 (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      5.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      m
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_L1_PERIOD">GND_L1_PERIOD</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        L1 period
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the L1 distance and defines the tracking point ahead of the rover it's following. Using values around 2-5 for a traxxas stampede. Shorten slowly during tuning until response is sharp without oscillation.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 50.0 (0.5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      10.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      m
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_THR_CRUISE">GND_THR_CRUISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Cruise throttle
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the throttle setting required to achieve the desired cruise speed. 10% is ok for a traxxas stampede vxl with ESC set to training mode
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-      norm
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_THR_IDLE">GND_THR_IDLE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Idle throttle
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the minimum throttle while on the ground, it should be 0 for a rover
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 0.4 (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      norm
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_THR_MAX">GND_THR_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Throttle limit max
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For a Traxxas stampede vxl with the ESC set to training, 30 % is enough
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.3
-    </td>
-    
-    <td style="vertical-align: top;">
-      norm
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="GND_THR_MIN">GND_THR_MIN</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Throttle limit min
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the minimum throttle % that can be used by the controller. Set to 0 for rover
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      norm
     </td>
   </tr>
 </table>
@@ -14744,11 +13998,14 @@
         <li>
           <strong>3:</strong> along trajectory
         </li>
+        <li>
+          <strong>4:</strong> towards waypoint (yaw first)
+        </li>
       </ul>
     </td>
     
     <td style="vertical-align: top;">
-      0 > 3
+      0 > 4
     </td>
     
     <td style="vertical-align: top;">
@@ -29118,6 +28375,501 @@
     </td>
     
     <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
+## Rover Position Control
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_L1_DAMPING">GND_L1_DAMPING</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        L1 damping
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Damping factor for L1 control.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.6 > 0.9 (0.05)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.75
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_L1_DIST">GND_L1_DIST</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        L1 distance
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the waypoint radius
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 100.0 (0.1)
+    </td>
+    
+    <td style="vertical-align: top;">
+      5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      m
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_L1_PERIOD">GND_L1_PERIOD</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        L1 period
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the L1 distance and defines the tracking point ahead of the rover it's following. Using values around 2-5 for a traxxas stampede. Shorten slowly during tuning until response is sharp without oscillation.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 50.0 (0.5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      10.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      m
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_MAX_ANG">GND_MAX_ANG</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maximum turn angle for Ackerman steering. At a control output of 0, the steering wheels are at 0 radians. At a control output of 1, the steering wheels are at GND_MAX_ANG radians
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 3.14159 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.7854
+    </td>
+    
+    <td style="vertical-align: top;">
+      rad
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_SPEED_D">GND_SPEED_D</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Speed proportional gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the derivative gain for the speed closed loop controller
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.00 > 50.0 (0.005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      %m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_SPEED_I">GND_SPEED_I</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Speed Integral gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the integral gain for the speed closed loop controller
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.00 > 50.0 (0.005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      %m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_SPEED_IMAX">GND_SPEED_IMAX</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Speed integral maximum value
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maxim value the integral can reach to prevent wind-up.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.005 > 50.0 (0.005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      %m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_SPEED_MAX">GND_SPEED_MAX</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maximum ground speed
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 40 (0.5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      10.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_SPEED_P">GND_SPEED_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Speed proportional gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the proportional gain for the speed closed loop controller
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.005 > 50.0 (0.005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      %m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_SPEED_THR_SC">GND_SPEED_THR_SC</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Speed to throttle scaler
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is a gain to map the speed control output to the throttle linearly.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.005 > 50.0 (0.005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      %m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_SPEED_TRIM">GND_SPEED_TRIM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Trim ground speed
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 40 (0.5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      3.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_SP_CTRL_MODE">GND_SP_CTRL_MODE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Control mode for speed
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This allows the user to choose between closed loop gps speed or open loop cruise throttle speed
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> open loop control
+        </li>
+        <li>
+          <strong>1:</strong> close the loop with gps speed
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_THR_CRUISE">GND_THR_CRUISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Cruise throttle
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the throttle setting required to achieve the desired cruise speed. 10% is ok for a traxxas stampede vxl with ESC set to training mode
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1.0 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      norm
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_THR_IDLE">GND_THR_IDLE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Idle throttle
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum throttle while on the ground, it should be 0 for a rover
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 0.4 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      norm
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_THR_MAX">GND_THR_MAX</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Throttle limit max
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum throttle % that can be used by the controller. For a Traxxas stampede vxl with the ESC set to training, 30 % is enough
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1.0 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.3
+    </td>
+    
+    <td style="vertical-align: top;">
+      norm
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_THR_MIN">GND_THR_MIN</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Throttle limit min
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum throttle % that can be used by the controller. Set to 0 for rover
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1.0 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      norm
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="GND_WHEEL_BASE">GND_WHEEL_BASE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Distance from front axle to rear axle
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      m
     </td>
   </tr>
 </table>
