@@ -76,20 +76,16 @@
             "gitbookConfigURL": "https://raw.githubusercontent.com/PX4/px4_user_guide/master/book.json",
             "options": [
                 {
-                    "value": "https://docs.px4.io/en/",
-                    "text": "stable (v1.9.0)"
-                },
-                {
                     "value": "https://docs.px4.io/master/en/",
                     "text": "master"
                 },
                 {
                     "value": "https://docs.px4.io/v1.9.0/en/",
-                    "text": "v1.9.0"
+                    "text": "v1.9 - stable"
                 },
                 {
                     "value": "https://docs.px4.io/v1.8.2/en/",
-                    "text": "v1.8.2"
+                    "text": "v1.8"
                 }
             ]
         }
