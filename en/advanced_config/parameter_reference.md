@@ -3966,7 +3966,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_0_RATE">MAV_0_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Maximum MAVLink sending rate for instance 0</p><p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0, a value of <baudrate>/20 is used, which corresponds to half of the theoretical maximum bandwidth.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Maximum MAVLink sending rate for instance 0</p><p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0 a value of half of the theoretical maximum bandwidth is used. This corresponds to baudrate/20 Bytes/s (baudrate/10 = maximum data rate on 8N1-configured links).</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;">0 > ? </td>
  <td style="vertical-align: top;">1200 </td>
@@ -4032,7 +4032,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_1_RATE">MAV_1_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Maximum MAVLink sending rate for instance 1</p><p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0, a value of <baudrate>/20 is used, which corresponds to half of the theoretical maximum bandwidth.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Maximum MAVLink sending rate for instance 1</p><p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0 a value of half of the theoretical maximum bandwidth is used. This corresponds to baudrate/20 Bytes/s (baudrate/10 = maximum data rate on 8N1-configured links).</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;">0 > ? </td>
  <td style="vertical-align: top;">0 </td>
@@ -4098,7 +4098,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MAV_2_RATE">MAV_2_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Maximum MAVLink sending rate for instance 2</p><p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0, a value of <baudrate>/20 is used, which corresponds to half of the theoretical maximum bandwidth.</p>   <p><b>Reboot required:</b> True</p>
+ <td style="vertical-align: top;"><p>Maximum MAVLink sending rate for instance 2</p><p><strong>Comment:</strong> Configure the maximum sending rate for the MAVLink streams in Bytes/sec. If the configured streams exceed the maximum rate, the sending rate of each stream is automatically decreased. If this is set to 0 a value of half of the theoretical maximum bandwidth is used. This corresponds to baudrate/20 Bytes/s (baudrate/10 = maximum data rate on 8N1-configured links).</p>   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;">0 > ? </td>
  <td style="vertical-align: top;">0 </td>
