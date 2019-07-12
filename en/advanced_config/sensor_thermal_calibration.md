@@ -2,7 +2,9 @@
 
 PX4 contains functionality to calibrate and compensate rate gyro, accelerometer and barometric pressure sensors for the effect of changing sensor temperature on sensor bias.
 
-This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation). 
+This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation).
+
+> **Note** At time of writing (June2019/PX4 v1.9) thermal calibration of the magnetometer is not yet supported.
 
 
 ## Test Setup/Best Practice {#test_setup}
