@@ -4,6 +4,8 @@ PX4 contains functionality to calibrate and compensate rate gyro, accelerometer 
 
 This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation).
 
+> **Note** At time of writing (June2019/PX4 v1.9) thermal calibration of the magnetometer is not yet supported.
+
 ## Test Setup/Best Practice {#test_setup}
 
 The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
