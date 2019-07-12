@@ -22,13 +22,11 @@ This topic explains how the feature is set up and enabled in both modes.
 
 ## Offboard Mode Avoidance {#offboard_mode}
 
-PX4 supports collision avoidance in [Offboard mode](../flight_modes/offboard.md).
+PX4 supports obstacle avoidance in [Offboard mode](../flight_modes/offboard.md).
 
 The desired route comes from a [ROS](http://dev.px4.io/en/ros/) node running on a companion computer.
 This is passed into an obstacle avoidance module (another ROS node).
 The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
-
-While the `SET_POSITION_TARGET_LOCAL_NED` setpoints come from a ROS collision avoidance node, to PX4 they could be from any MAVLink system.
 
 The only required PX4-side setup is to put PX4 into *Offboard mode*.
 
@@ -55,7 +53,7 @@ The difference when avoidance is active are:
   - *local planner* mission speed is around 3 m/s.
   - *global planner* mission speed is around 1-1.5 m/s.
 
-If PX4 stops receiving setpoint updates then obstacle avoidance will be disabled, and the mission continues under normal PX4 [Mission mode](../flight_modes/mission.md) control.
+If PX4 stops receiving setpoint updates for more than half a second it will switch into [Hold mode](../flight_modes/hold.md).
 
 
 ### PX4 Configuration
