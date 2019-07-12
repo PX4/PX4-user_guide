@@ -8,23 +8,27 @@
 
 本文将阐述怎样在这两种模式中设置自主避障功能。
 
-## Offboard模式避障 {#offboard_mode}
+{% youtube %}https://youtu.be/PrGt7pKj3tI{% endyoutube %}
 
-PX4在 [Offboard模式](../flight_modes/offboard.md) 中支持避障功能。
+## Limitations/Capabilities
 
-期望路径来自在配套计算机上运行的一个 [ROS](http://dev.px4.io/en/ros/) 节点。 并传递给自主避障模块（另一个ROS节点）。 避障软件将规划路径通过 `SET_POSITION_TARGET_LOCAL_NED` 消息流发送给飞行控制栈。
+- The maximum speed for obstacle avoidance is currently approximately 3 m/s (due to the cost of computing the avoidance path).
+  
+  > **Note** Obstacle avoidance can use the *local planner* planner emits messages at ~30Hz and can move at around 3 m/s) or global planner (emits messages at ~10Hz and mission speed with obstacle avoidance is around 1-1.5 m/s).
 
-> **Note** 唯一需要PX4这边的设置是将PX4切换到 *Offboard 模式* 。 PX4飞控并不知道发送 `SET_POSITION_TARGET_LOCAL_NED` 消息的信息源来自哪一个MAVLink系统。
+## Offboard Mode Avoidance {#offboard_mode}
 
-功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../complete_vehicles/intel_aero.md) 。 自主避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../complete_vehicles/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
+PX4 supports obstacle avoidance in [Offboard mode](../flight_modes/offboard.md).
 
-## 任务模式避障 {#mission_mode}
+The desired route comes from a [ROS](http://dev.px4.io/en/ros/) node running on a companion computer. This is passed into an obstacle avoidance module (another ROS node). The avoidance software sends the planned path to the flight stack as a stream of `SET_POSITION_TARGET_LOCAL_NED` messages.
 
-PX4支持 [任务模式](../flight_modes/mission.md) 避障，需要使用一台独立的运行避障软件的机载计算机配合。
+The only required PX4-side setup is to put PX4 into *Offboard mode*.
 
-Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1. PX4通过MAVLink的[路径规划协议](https://mavlink.io/en/services/trajectory.html)（Trajectory 接口）实现与避障软件的交互，[#详见后文](#mission_avoidance_interface)。 PX4兼容所有符合此接口的避障系统。
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
 
-功能测试所使用的软硬件是：运行*local_planner* 或 *global_planner*软件的 [Intel Aero](../complete_vehicles/intel_aero.md) 。 自主避障功能也支持Gazebo仿真测试。 配置方法详见[Intel Aero > Obstacle Avoidance](../complete_vehicles/intel_aero.md#obstacle-avoidance) 和[PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)两个Github代码仓库。
+## Mission Mode Avoidance {#mission_mode}
+
+PX4 supports obstacle avoidance in [Mission mode](../flight_modes/mission.md), using avoidance software running on a separate companion computer.
 
 ### 任务模式的变化
 
@@ -32,123 +36,39 @@ Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/paramet
 
 激活避障之后的不同之处有：
 
-- 飞机距离目标航点小于阈值半径，即判定为抵达，不考虑航向。 
-  - 在普通任务模式下，飞机必须沿某一航向抵达目标航点（比如从上一航点沿直线靠近）。 开启避障模式后该约束失效，因为避障算法接管了飞机的航向控制，飞机只是根据当前视野进行移动。 
-- 一旦判定为到达某航点（即距离航点小于阈值半径），PX4就开始切换新的当前航点与下一个航点。
-- 如果一个航点在某个障碍物*之内*，有可能无法抵达（任务将被阻塞）。 
-  - 如果飞机在上一航点与当前航点连线上的投影经过了当前航点，阈值半径将被放大，当前航点将被标记为抵达。
-  - 如果载具只能进入x-y方向的阈值半径，高度方向的可接受阈值将被修改，然后任务将继续（即使无法进入高度的可接受半径）。
-- （由 *QGroundControl*或PX4）预设的任务模式速度将被忽略。 速度将由避障软件决定： 
-  - *local planner* 任务速度约 3m/s。
-  - *global planner* 任务速度约 1~1.5 m/s。
+- A waypoint is "reached" when the vehicle is within the acceptance radius, regardless of its heading. 
+  - This differs from normal missions, in which the vehicle must reach a waypoint with a certain heading (i.e. in a "close to" straight line from the previous waypoint). This constraint cannot be fulfilled when obstacle avoidance is active because the obstacle avoidance algorithm has full control of the vehicle heading, and the vehicle always moves in the current field of view. 
+- PX4 starts emitting a new current/next waypoint once the previous waypoint is reached (i.e. as soon as vehicle enters its acceptance radius).
+- If a waypoint is *inside* an obstacle it may unreachable (and the mission will be stuck). 
+  - If the vehicle projection on the line previous-current waypoint passes the current waypoint, the acceptance radius is enlarged such that the current waypoint is set as reached
+  - If the vehicle within the x-y acceptance radius, the altitude acceptance is modified such that the mission progresses (even if it is not in the altitude acceptance radius).
+- The original mission speed (as set in *QGroundControl*/PX4) is ignored. The speed will be determined by the avoidance software: 
+  - *local planner* mission speed is around 3 m/s.
+  - *global planner* mission speed is around 1-1.5 m/s.
 
-如果PX4接收不到期望点，自主避障功能将被关闭，PX4将恢复普通[任务模式](../flight_modes/mission.md)。
+If PX4 stops receiving setpoint updates for more than half a second it will switch into [Hold mode](../flight_modes/hold.md).
 
-### 任务模式避障接口 {#mission_avoidance_interface}
+### PX4 Configuration
 
-Mission mode is enabled on PX4 by setting `COM_OBS_AVOID` to `1`.
+Obstacle avoidance is enabled within PX4 by [setting](../advanced_config/parameters.md) the [COM_OBS_AVOID](../advanced_config/parameter_reference.md#COM_OBS_AVOID) to 1.
 
-PX4将期望轨迹封装在 [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) 消息中，以 5Hz 的频率发送给机载计算机。
+> **Note** `COM_OBS_AVOID` also enables [Safe Landing](../computer_vision/safe_landing.md) and any other features that use the PX4 [Path Planning Offoard Interface](../computer_vision/path_planning_interface.md) (Trajectory Interface) to integrate external path planning services with PX4.
 
-各字段定义如下：
+## Companion Computer Setup
 
-- `time_usec`: UNIX纪元时间戳
-- `valid_points`: 3
-- 当前飞机信息： 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED坐标系下的载具位置
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下速度设定值
-  - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: x-y-z NED 坐标系下加速度设定值
-  - `pos_yaw[0]`: 当前航向角
-  - `vel_yaw[0]`: NaN
+Companion-side hardware setup and hardware/software configuration is provided in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) Github repo.
 
-- 当前航点：
-  
-  - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED 坐标系下的 *当前* 任务航点位置坐标
-  - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
-  - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
-  - `pos_yaw[1]`: 航向设定值
-  - `vel_yaw[1]`: 偏航速率设定值
+Obstacle avoidance in missions can use either the *local planner* or *global planner* (the local planner is recommended/better performing).
 
-- 下一个航点：
-  
-  - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED 坐标系 *下一个* 任务航点位置坐标
-  - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
-  - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
-  - `pos_yaw[2]`: 航向设定值
-  - `vel_yaw[2]`: 偏航速率设定值
-- 所有其它字段都是NaN(未定义)。 
+## Obstacle Avoidance Interface {#interface}
 
-PX4期望在整个任务期间 (不论障碍物是否存在) 都能接收到由`TRAJECTORY_REPRESENTATION_WAYPOINTS` 消息发送的目标期望点信息。
+PX4 uses the [Path Planning Offboard Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
 
-来自避障软件的消息各字段定义如下：
+The interface (messages sent) between PX4 and the companion are *exactly* the same as for any other path planning services.
 
-- `time_usec`: UNIX纪元时间戳
-- `valid_points`: 1
-- 当前飞机信息： 
-  - `pos_x[0]`, `pos_y[0]`, `pos_z[0]`: x-y-z NED坐标系下的载具位置设定值
-  - `vel_x[0]`, `vel_y[0]`, `vel_z[0]`: x-y-z NED 坐标系下速度设定值
-  - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
-  - `pos_yaw[0]`: 航向角设定值
-  - `vel_yaw[0]`: 偏航速率设定值
-- 所有其它字段都是NaN(未定义)。 
+## Supported Hardware
 
-目标期望点的发送频率，由规划软件的能力和用户设置决定。
-
-> **Note** 目前 *local planner* 发送消息的频率约 30Hz，可以保证载具的移动速度为 3 m/s。 *global planner* 发送消息的频率约为 10Hz ，任务速度只能达到 1-1.5 m/s。
-
-下文将对避障功能进行更详细的描述，包括PX4飞控和来自ROS的消息流的行为。
-
-#### 任务模式更详细的行为描述
-
-When a mission is uploaded from QGC and the parameter `COM_OBS_AVOID` is set to `1`, PX4 fills the uORB message `vehicle_trajectory_waypoint_desired` as described below:
-
-数组 `waypoints`：
-
-- *index 0 :*
-  
-  - position: x-y-z NED 坐标系下的位置
-  - velocity: x-y-z 由主动飞行控制栈产生的 NED 坐标系下的速度设定值
-  - Acceleration: 飞机加速度
-  - Yaw: 飞机航向角
-  - Yaw_speed: NaN
-
-- *index 1:*
-  
-  - position: x-y-z NED 坐标系下当前任务航点位置
-  - Velocity: NaN
-  - Acceleration: NaN
-  - Yaw: 航向设定值
-  - Yaw_speed: 偏航速率设定值
-
-- *Index 2:*
-  
-  - position: x-y-z NED 坐标系下 下一个任务航点位置
-  - Velocity: NaN
-  - Acceleration: NaN
-  - Yaw: 航向设定值
-  - Yaw_speed: 偏航速率设定值
-
-其余index均填充为NaN。
-
-`vehicle_trajectory_waypoint_desired` 消息被映射到 MAVLink 消息 `TRAJECTORY_REPRESENTATION_WAYPOINTS`（见上[避障接口](#mission_avoidance_interface)所述）。 消息发送频率为5Hz。
-
-MAVROS 将 MAVLink 消息转换成 ROS 消息 `mavros_msgs::trajectory` ，并将坐标系从北东地 (NED) 转换到 东北天 (ENU)。 此消息由ROS话题 `/mavros/trajectory/desired` 发布。
-
-在避障软件这端，算法将规划一条到航点的路径。
-
-经避障算法优化后的位置或速度设定值，可能由以下两个ROS消息发送给飞控固件： `mavros_msgs::trajectory` (同时包含速度和位置设定值)，由ROS 消息 `/mavros/trajectory/generated` 发布 `nav_msgs::Path` (只有位置设定值)，由 ROS 消息 `/mavros/trajectory/path` 发布
-
-MAVROS 将设定值的坐标系从 ENU 转换到 NED，并将 ROS 消息转换成 MAVLink 消息 `TRAJECTORY_REPRESENTATION_WAYPOINTS`。
-
-在PX4飞控这端，接收到的 `TRAJECTORY_REPRESENTATION_WAYPOINTS` 消息被转换成uORB消息 `vehicle_trajectory_waypoint`。 航点队列包含了所有未定义字段，但不包含index 0，消息内容如下：
-
-- Position: 位置设定值
-- Velocity: 速度设定值
-- acceleration: NaN（飞控固件暂不支持加速度设定值）
-- Yaw: 航向设定值
-- Yaw_speed: 偏航速率设定值
-
-以上设定值将作为飞控位置控制器的跟踪目标。
+Tested companion computers and cameras are listed in [PX4/avoidance](https://github.com/PX4/avoidance#run-on-hardware).
 
 <!-- ## Further Information -->
 
