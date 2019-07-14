@@ -162,18 +162,8 @@
      sodipodi:cx="197.5222"
      id="path7833"
      style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffffec;stroke-width:2.51338577;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     sodipodi:type="spiral" /><text
-     xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.33333588px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="42.879974"
-     y="30.930027"
-     id="text7999"><tspan
-       sodipodi:role="line"
-       id="tspan7997"
-       x="42.879974"
-       y="30.930027"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.33333588px;font-family:FreeSans;-inkscape-font-specification:FreeSans;fill:#ffffff;fill-opacity:1">3</tspan></text>
-<path
+     sodipodi:type="spiral" />
+     <path
      style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      d="m 88.62718,69.683532 c 7.20007,-7.642839 8.44151,-12.486121 9.7217,-18.999749 l -12.18689,-0.125 c 2.57083,4.089977 3.31842,10.989681 2.46519,19.124749 z"
      id="path14492"
