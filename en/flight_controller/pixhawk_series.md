@@ -35,7 +35,7 @@ The following products in the series are recommended/regularly tested with PX4:
 * [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
 * [CUAV v5](../flight_controller/pixhack_v5.md)
 * [V5+](../flight_controller/v5+.md)
-* [V5+](../flight_controller/v5_nano.md)
+* [V5 nano](../flight_controller/v5_nano.md)
 
 > **Note** This is not an exhaustive list of all boards that can run PX4. Other boards are linked from the sidebar, and there may be other flight controllers that we have not documented.
 
