@@ -4,7 +4,8 @@
 It is based on the Pixhawk **FMUv5** design standard and is optimized to run [PX4](http://px4-travis.s3.amazonaws.com/Firmware/master/px4fmu-v5_default.px4) firmware.
 The autopilot has mini size and powerful features, can be used not only in ordinary drones, also used in 220mm racing drones.
 
-![V5 nano](../assets/flight-controller/v5-nano/en/v5-nano_01.png)
+![V5+ AutoPilot](../assets/flight_controller/v5_nano/en/v5_nano_01.png)
+
 ![V5 nano](../assets/flight-controller/v5-nano/en/v5-nano_02.png)
 ![V5 nano](../assets/flight-controller/v5-nano/en/v5-nano_03.png)
 ![V5 nano](../assets/flight-controller/v5-nano/en/v5-nano_04.png)
