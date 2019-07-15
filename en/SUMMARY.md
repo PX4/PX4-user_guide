@@ -16,6 +16,8 @@
 * [Basic Assembly](assembly/README.md)
   * [Mounting the Flight Controller](assembly/mount_and_orient_controller.md)
   * [Vibration Isolation](assembly/vibration_isolation.md)
+  * [V5+ Wiring Quickstart](assembly/quick_start_v5+.md)
+  * [V5 nano Wiring Quickstart](assembly/quick_start_v5_nano.md)
   * [Pixhawk 4 Wiring Quickstart](assembly/quick_start_pixhawk4.md)
   * [Pixhawk 4 Mini Wiring Quickstart](assembly/quick_start_pixhawk4_mini.md)
   * [Cube Wiring Quickstart](assembly/quick_start_cube.md)
