@@ -4,13 +4,11 @@
 It is based on the Pixhawk **FMUv5** design standard and is optimized to run [PX4](http://px4-travis.s3.amazonaws.com/Firmware/master/px4fmu-v5_default.px4) firmware.
 The autopilot has mini size and powerful features, can be used not only in ordinary drones, also used in 220mm racing drones.
 
-![V5+ AutoPilot](../assets/flight_controller/v5_nano/en/v5_nano_01.png)
-
-![V5 nano](../assets/flight-controller/v5-nano/en/v5-nano_02.png)
-![V5 nano](../assets/flight-controller/v5-nano/en/v5-nano_03.png)
-![V5 nano](../assets/flight-controller/v5-nano/en/v5-nano_04.png)
-![V5 nano](../assets/flight-controller/v5-nano/en/v5-nano_05.png)
-![V5 nano](../assets/flight-controller/v5-nano/en/v5-nano_06.png)
+![V5 nano](../../assets/flight_controller/v5_nano/en/v5_nano_01.png)
+![V5 nano](../../assets/flight_controller/v5_nano/en/v5_nano_02.png)
+![V5 nano](../../assets/flight_controller/v5_nano/en/v5_nano_03.png)
+![V5 nano](../../assets/flight_controller/v5_nano/en/v5_nano_04.png)
+![V5 nano](../../assets/flight_controller/v5_nano/en/v5_nano_05.png)
 
 ### Quick Summary
 
@@ -61,15 +59,15 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 DSU7 is a new interface for CUAV naming, including fmu swd and uart7 interfaces. When V5+ runs PX4 firmware, uart7 is used as the DEBUG interface, PM2 does not work; when running ArduPilot firmware; uart7 is used as the communication serial port and usb is Used to debug the output, PM2 works.
 > **Warning**The PPMIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
 
-## Building PX4 Firmware {#building-firmware}
+## Building Firmware
 
-`make px4fmu-v5_default upload`
+> **Tip** Most users will not need to build this firmware!
+  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-###Building ArduPilot Firmware
-
-`./waf configure --board CUAVv5Nano`
-
-`./waf copter --upload`
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+```
+make px4_fmu-v5_default
+```
 
 ## Voltage Ratings
 
