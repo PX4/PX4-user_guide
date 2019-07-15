@@ -52,9 +52,28 @@ Information about supported devices and setup/configuration can be found in the 
 
 ## Configuration
 
-### GPS
+### Primary GPS
 
-GPS configuration is handled transparently for the user (provided the module GPS connector is connected correctly).
+GPS configuration on Pixhawk is handled transparently for the user - simply connect the GPS module to the port labeled **GPS** and everything should work.
+
+> **Note** The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices.
+  If you are using the *Trimble MB-Two* you will need to modify the configuration to explicitly set the rate to 115200 baud.
+
+
+### Secondary GPS (Dual GPS System) {#dual_gps}
+
+To use a secondary GPS, attached it to any free port, and then perform a [Serial Port Configuration](../peripherals/serial_configuration.md) to assign [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to the selected port.
+
+The following steps show how to configure a secondary GPS on the `TELEM 2` port in *QGroundControl*:
+
+1. [Find and set](../advanced_config/parameters.md#finding-a-parameter) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**.
+   - Open *QGroundControl* and navigate to the **Vehicle Setup > Parameters** section.
+   - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3).
+     ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
+1. Reboot the vehicle in order to make the other parameters visible.
+1. Select the **Serial** tab, and open the [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) parameter (`TELEM 2` port baud rate): set it to *Auto*.
+  ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
+
 
 ### Compass
 
