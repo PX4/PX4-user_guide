@@ -88,6 +88,10 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 
 ![V5+ AutoPilot](../../assets/flight_controller/v5+/connection/v5+_quickstart_07.png)
 
+## Pinouts{#pinouts}
+
+Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
+
 
 
 
