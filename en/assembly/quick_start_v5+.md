@@ -2,13 +2,15 @@
 
 ---
 
-This quick start guide shows how to power the V5+ flight controller and connect its most important peripherals. 
-![V5+](../../assets/flight-controller/v5+/v5+_01.png)
+This quick start guide shows how to power the V5+ flight controller and connect its most important peripherals。
+ 
+![V5+ AutoPilot](../../assets/flight_controller/v5+/v5+_01.png)
 
 ### Wiring Chart Overview
 The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
 
-![quickstart](../../assets/flight-controller/v5+/connection/v5+_quickstart_01.png)
+![V5+ AutoPilot](../../assets/flight_controller/v5+/connection/v5+_quickstart_01.png)
+
 
 | Main interface | **Function** |
 | :--- | :--- |
@@ -65,9 +67,9 @@ The figure below shows how you can access your remote receiver (please find the 
 
 The V5+ has a dedicated DSM cable. The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
 
-### power
+### Power
 
-The V5+ kit includes HV\_PM, which supports 2~10s lipo batter. Please connect the 6pin connector of the HW\_PM module to the flight control power1 interface.
+The V5+ kit includes HV\_PM, which supports 2~10s lipo battery. Please connect the 6pin connector of the HW\_PM module to the flight control power1 interface.
 
 ![quickstart](../../assets/flight-controller/v5+/connection/v5+_quickstart_05.png)
 
