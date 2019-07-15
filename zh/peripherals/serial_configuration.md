@@ -24,25 +24,18 @@ Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (�
 
 所有串行驱动程序/端口都以相同的方式配置：
 
-1. 将 service/peripheral 的配置参数设置为它将使用的端口
-2. 重启飞行器
+1. Set the configuration parameter for the service/peripheral to the port it will use. > **Note** Configuration parameter names follow the pattern `\*\_CONFIG` or `\*\_CFG` (*QGroundControl* only displays the parameters for services/drivers that are present in firmware). At time of writing the current set is: [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [RTPS_CONFIG](../advanced_config/parameter_reference.md#RTPS_CONFIG), [RTPS_MAV_CONFIG](../advanced_config/parameter_reference.md#RTPS_MAV_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG). 
+2. Reboot the vehicle in order to make the additional configuration parameters visible.
 3. 将所选端口的波特率设置为所需值。
 4. 配置特定于模块的参数 (如 MAVLink 流和数据速率配置)。
 
-> **Note** 配置参数名称遵循模式 `\*\_CONFIG` 或 `\*\_CFG` (*QGroundControl* 只显示固件中存在的 services/drivers 的参数。 在编写本报告时，当前设置为： [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG), [ISBD_CONFIG](../advanced_config/parameter_reference.md#ISBD_CONFIG), [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG), [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG), [MAV_2_CONFIG](../advanced_config/parameter_reference.md#MAV_2_CONFIG), [RTPS_CONFIG](../advanced_config/parameter_reference.md#RTPS_CONFIG), [RTPS_MAV_CONFIG](../advanced_config/parameter_reference.md#RTPS_MAV_CONFIG), [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG), [TEL_HOTT_CONFIG](../advanced_config/parameter_reference.md#TEL_HOTT_CONFIG), [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG), [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG), [SENS_TFMINI_CFG](../advanced_config/parameter_reference.md#SENS_TFMINI_CFG), [SENS_ULAND_CFG](../advanced_config/parameter_reference.md#SENS_ULAND_CFG)。
-
-以下步骤提供了如何在 *QGroundControl* 中配置端口的实例。 它展示了如何在 `TELEM 2` 端口上运行第二个 GPS (`GPS_2_CONFIG`) 。
-
-1. 转到飞行器参数设置中的 **参数** 部分。
-2. 选择 **GPS** 选项卡(1)，然后打开 [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) 参数(2)，并从下拉列表(3) 中选择 *TELEM 2*。 ![QGC 串口实例](../../assets/peripherals/qgc_serial_config_example.png)
-3. 重启飞行器，以便其他参数显示。
-4. 选择 **串口** 选项卡，并打开 [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) 参数 (`TELEM 2`端口波特率)：将其设置为 *Auto*。 ![QGC 串口波特率实例](../../assets/peripherals/qgc_serial_baudrate_example.png)
+The [GPS/Compass > Secondary GPS](../gps_compass/README.md#dual_gps) section provides a practical example of how to configure a port in *QGroundControl* (it shows how to use `GPS_2_CONFIG` to run a secondary GPS on the `TELEM 2` port).
 
 ## 处理端口冲突
 
 端口冲突由系统启动处理，它确保在特定端口上最多运行一个服务。
 
-> **Caution** 在编写本报告时，没有关于端口冲突的用户反馈。
+> **Caution** At time of writing there is no user feedback about conflicting ports.
 
 ## 故障处理
 
@@ -50,7 +43,7 @@ Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (�
 
 *QGroundControl* 只显示固件中存在的 services/drivers 的参数。 如果缺少参数，则可能需要将其添加到固件中。
 
-> **Note** PX4 固件在 [Pixhawk系列](../flight_controller/pixhawk_series.md) 板上默认包含大多数驱动程序。 闪存受限的飞控板可以注释掉/省略驱动程序(在文档编写时，这只会影响基于 FMUv2 的飞控板)。
+> **Note** PX4 firmware includes most drivers by default on [Pixhawk-series](../flight_controller/pixhawk_series.md) boards. Flash-limited boards may comment out/omit the driver (at time of writing this only affects boards based on FMUv2).
 
 You can include the missing driver in firmware by uncommenting (or adding) the driver in the **default.cmake** config file that corresponds to the [board](https://github.com/PX4/Firmware/tree/master/boards/px4) you want to build for. For example, to enable the sf0x driver, you would remove the `#` at the beginning of the line below.
 
