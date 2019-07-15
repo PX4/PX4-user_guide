@@ -42,15 +42,29 @@ GPS与罗盘的连接说明通常由厂家（至少支持更通用的 [自驾仪
 
 ## Configuration
 
-### GPS
+### Primary GPS
 
-GPS配置为用户透明地处理（前提是模块GPS连接器连接正确）。
+GPS configuration on Pixhawk is handled transparently for the user - simply connect the GPS module to the port labeled **GPS** and everything should work.
 
-### 罗盘
+> **Note** The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the *Trimble MB-Two* you will need to modify the configuration to explicitly set the rate to 115200 baud.
 
-指南针校准内容包括在：[罗盘配置](../config/compass.md) 中。 该过程非常简单，将校准所有连接的磁强计。
+### Secondary GPS (Dual GPS System) {#dual_gps}
 
-可以使用 [CAL\ *MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_EN) parameters（`x=0-3`）[performed](../advanced_config/parameters.md) 其他配置。 通常，您不需要 *修改* 这些，因为罗盘是自动检测的，优先排序，并且都是同时校准的（可能的例外是 [CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN) 可能用于禁用内部指南针）。 但是，您可能希望阅读它们，因为它们会让您知道哪些磁强计是内部或外部（[CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN)），哪些是用作主要标题源（[CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME)）。
+To use a secondary GPS, attached it to any free port, and then perform a [Serial Port Configuration](../peripherals/serial_configuration.md) to assign [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to the selected port.
+
+The following steps show how to configure a secondary GPS on the `TELEM 2` port in *QGroundControl*:
+
+1. [Find and set](../advanced_config/parameters.md#finding-a-parameter) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**. 
+  - Open *QGroundControl* and navigate to the **Vehicle Setup > Parameters** section.
+  - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3). ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
+2. Reboot the vehicle in order to make the other parameters visible.
+3. Select the **Serial** tab, and open the [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) parameter (`TELEM 2` port baud rate): set it to *Auto*. ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
+
+### Compass
+
+Compass calibration is covered in: [Compass Configuration](../config/compass.md). The process is straightforward and will calibrate all connected magnetometers.
+
+Additional configuration can be [performed](../advanced_config/parameters.md) using the [CAL*MAGx*](../advanced_config/parameter_reference.md#CAL_MAG0_EN) parameters (where `x=0-3`). Generally you will not need to *modify* these as compasses are autodetected, prioritised and are all calibrated at the same time (a possible exception is [CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN) which might be used to disable an internal compass). You may however wish to read them, as they will let you know which magnetometers are internal or external ([CAL\_MAGx\_EN](../advanced_config/parameter_reference.md#CAL_MAG0_EN)) and which is being uses as the main heading source ([CAL_MAG_PRIME](../advanced_config/parameter_reference.md#CAL_MAG_PRIME)).
 
 ## Developer Information
 
