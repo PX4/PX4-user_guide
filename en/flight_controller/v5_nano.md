@@ -54,10 +54,9 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 
 # connection{#connection}
 
-![V5 NANO](../assets/flight-controller/v5-nano/v5-nano_pinouts.png)
+## Connection{#connection}
 
-DSU7 is a new interface for CUAV naming, including fmu swd and uart7 interfaces. When V5+ runs PX4 firmware, uart7 is used as the DEBUG interface, PM2 does not work; when running ArduPilot firmware; uart7 is used as the communication serial port and usb is Used to debug the output, PM2 works.
-> **Warning**The PPMIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
+* [V5 nano Wiring Quickstart](../assembly/quick_start_v5_nano.md)
 
 ## Building Firmware
 
