@@ -48,46 +48,49 @@ If you are flying without the GPS you must attach the switch directly to the  GP
 
 If you do not use the recommended  GPS, there may be problems with the buzzer not working. You may need to add an external buzzer instead.
 
-### Radio Control 
+## Radio Control 
 
 A remote control (RC) radio system is required if you want to manually control your vehicle (PX4 does not require a radio system for autonomous flight modes). 
 You will need to select a compatible transmitter/receiver and then bind them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
 The figure below shows how you can access your remote receiver (please find the sbus cable in the kit)
 
-![quickstart](../../assets/flight-controller/v5-nano/connection/v5-nano_quickstart_05.png)
+![quickstart](../../assets/flight_controller/v5_nano/connection/v5_nano_quickstart_05.png)
 
-### Spektrum Satellite Receivers
+## Spektrum Satellite Receivers
 
 The V5 nano has a dedicated DSM cable. The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
 
-### power
+## Power
 
 The v5 nano kit includes HV\_PM, which supports 2~10s lipo batter. Please connect the 6pin connector of the HW\_PM module to the flight control power1 interface.
 
-![quickstart](../../assets/flight-controller/v5-nano/connection/v5-nano_quickstart_06.png)
+![quickstart](../../assets/flight_controller/v5_nano/connection/v5_nano_quickstart_06.png)
 
-### Telemetry System (Optional) 
+
+## Telemetry System (Optional) 
 
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
 The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to the **TELEM1/TELEM2** port (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
-![quickstart](../../assets/flight-controller/v5-nano/connection/v5-nano_quickstart_07.png)
+![quickstart](../../assets/flight_controller/v5_nano/connection/v5_nano_quickstart_07.png)
 
-### SD Car(Optional)
+## SD Car(Optional)
 
 The factory has completed inserting the sd card, you do not need to operate.
 
-### Motors
+## Motors
 
 Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the Airframe Reference. 
 
-![quickstart](../../assets/flight-controller/v5-nano/connection/v5-nano_quickstart_06.png)
+![quickstart](../../assets/flight_controller/v5_nano/connection/v5_nano_quickstart_06.png)
 
-### Pinouts
+## Pinouts
 
-![V5 NANO](../../assets/flight-controller/v5-nano/v5-nano_pinouts.png)
+![V5 nao pinouts](../../assets/flight_controller/v5_nano/v5_nano_pinouts.png)
+
+
 
 
 
