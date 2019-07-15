@@ -19,9 +19,7 @@ Controller | Description
 [Pixhawk 2](../flight_controller/pixhawk-2.md) | Flexible autopilot intended primarily for manufacturers of commercial systems. It is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.
 [Pixhawk 4](../flight_controller/pixhawk4.md) | Pixhawk 4 is optimized to run PX4 version 1.7 and is suitable for academic and commercial developers. It features more computing power and 2X the RAM than previous versions, additional ports for better integration and expansion, new sensors and integrated vibration isolation.
 [V5+](../flight_controller/v5+.md) | The board is based on the Pixhawk **FMUv5 design standard**, the external interface uses the [Pixhawk standard pinouts](https://pixhawk.org/pixhawk-connector-standard/), and the modular design allows the users to customize their own carrier board. The autopilot is compatible [PX4](http://px4-travis.s3.amazonaws.com/Firmware/master/px4fmu-v5_default.px4) firmware.can be used for academic research and commercial systems integration.
-[V5 nano](../flight_controller/v5_nano.md) | 
-
-
+[V5 nano](../flight_controller/v5_nano.md) | It is based on the Pixhawk **FMUv5** design standard and is optimized to run [PX4](http://px4-travis.s3.amazonaws.com/Firmware/master/px4fmu-v5_default.px4) firmware.The autopilot has mini size and powerful features, can be used not only in ordinary drones, also used in 220mm racing drones.
 
 ## Autopilots for Computationally Intensive Tasks
 
