@@ -35,9 +35,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 * [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
 
-## Assembly
 
-* [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
 
 
 ## Specifications

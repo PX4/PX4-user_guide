@@ -18,8 +18,8 @@ Controller | Description
 [Pixhawk Mini](../flight_controller/pixhawk_mini.md) | Small *general purpose* autopilot that has been optimised for ease of setup.<br>The controller has internal vibration damping and only 8 main outputs (**no AUX ports**), making it much less daunting to install and connect. It is not suitable for vehicles/functions that *require* AUX ports.
 [Pixhawk 2](../flight_controller/pixhawk-2.md) | Flexible autopilot intended primarily for manufacturers of commercial systems. It is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly.
 [Pixhawk 4](../flight_controller/pixhawk4.md) | Pixhawk 4 is optimized to run PX4 version 1.7 and is suitable for academic and commercial developers. It features more computing power and 2X the RAM than previous versions, additional ports for better integration and expansion, new sensors and integrated vibration isolation.
-
-
+[CUAV V5+](../flight_controller/cuav_v5_plus.md) | The board is based on the Pixhawk **FMUv5 design standard**, the external interface uses the [Pixhawk standard pinouts](https://pixhawk.org/pixhawk-connector-standard/), and the modular design allows the users to customize their own carrier board. The autopilot is compatible [PX4](http://px4-travis.s3.amazonaws.com/Firmware/master/px4fmu-v5_default.px4) firmware.can be used for academic research and commercial systems integration.
+[CUAV V5 nano](../flight_controller/cuav_v5_nano.md) | Based on the Pixhawk **FMUv5** design standard and optimized to run PX4 firmware. Small enough to use in 220mm racing drones, but powerful enough for almost any other drone use.
 
 ## Autopilots for Computationally Intensive Tasks
 
