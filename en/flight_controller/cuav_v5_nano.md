@@ -4,6 +4,8 @@
 
 The autopilot is small enough to use in 220mm racing drones, but remains powerful enough for almost any other drone use.
 
+> **Note** The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has a an all-in-one form factor, fewer PWM ports (MAIN I/O only - no AUX port) and does not have internal damping.
+
 ![V5 nano - Hero image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
 
@@ -11,12 +13,8 @@ Some of its main features include:
 - Full compatibility with the [Pixhawk project](https://pixhawk.org/) **FMUv5** design standard and uses the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/) for all external interfaces.
 - More advanced processor, RAM and flash memory than FMU v3, along with more stable and reliable sensors.
 - Firmware-compatible with PX4.
-- Generous 2.6mm spacing for for I/O pins, making it easier to use all the interfaces.
-<!-- 
-Built-in vibration dampening system with high performance shock absorption system.
-Multiple-redundant sensor and power systems for improved flight safety and stability.
-Performance is still strong
--->
+- Generous 2.6mm spacing for for I/O pins, making it easier to use all the interfaces. 
+
 
 
 ### Quick Summary
@@ -83,7 +81,8 @@ make px4_fmu-v5_default
 
 ## Voltage Ratings
 
-*V5 NANO* can be Two-fold redundancy on the power supply if two power sources are supplied. The three power rails are: **POWER1**and **USB**.
+*V5 NANO* can be Two-fold redundancy on the power supply if two power sources are supplied.
+The three power rails are: **POWER1**and **USB**.
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
   You must supply power to one of **POWER1**or **USB** or the board will be unpowered.
