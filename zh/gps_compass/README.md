@@ -50,7 +50,7 @@ GPS configuration on Pixhawk is handled transparently for the user - simply conn
 
 ### Secondary GPS (Dual GPS System) {#dual_gps}
 
-To use a secondary GPS, attached it to any free port, and then perform a [Serial Port Configuration](../peripherals/serial_configuration.md) to assign [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to the selected port.
+To use a secondary GPS, attach it to any free port, and then perform a [Serial Port Configuration](../peripherals/serial_configuration.md) to assign [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to the selected port.
 
 The following steps show how to configure a secondary GPS on the `TELEM 2` port in *QGroundControl*:
 
@@ -59,6 +59,10 @@ The following steps show how to configure a secondary GPS on the `TELEM 2` port 
   - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3). ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
 2. Reboot the vehicle in order to make the other parameters visible.
 3. Select the **Serial** tab, and open the [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) parameter (`TELEM 2` port baud rate): set it to *Auto*. ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
+
+After setting up the second GPS port:
+
+1. Configure the ECL/EKF2 estimator to blend data from both GPS systems. For detailed instructions see: [Using the ECL EKF > Dual Receivers](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers).
 
 ### Compass
 
