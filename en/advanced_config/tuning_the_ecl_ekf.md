@@ -2,6 +2,9 @@
 
 This tutorial answers common questions about use of the ECL EKF algorithm.
 
+> **Tip** The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the *PX4 Developer Summit 2019* (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020. 
+ 
+
 ## What is the ECL EKF?
 
 The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
@@ -500,3 +503,8 @@ You can enable *ground effect compensation* to fix this problem:
 
 If a terrain estimate is available (e.g. the vehicle is equipped with a range finder) then you can additionally specify [EKF2_GND_MAX_HGT](../advanced_config/parameter_reference.md#EKF2_GND_MAX_HGT), the above ground-level altitude below which ground effect compensation should be activated.
 If no terrain estimate is available this parameter will have no effect and the system will use heuristics to determine if ground effect compensation should be activated.
+
+## Further Information
+
+* [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ), *PX4 Developer Summit 2019*, Dr. Paul Riseborough): Overview of the estimator, and major changes from 2018/19, and the expected improvements through 2019/20. 
+ 
