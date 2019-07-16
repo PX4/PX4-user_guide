@@ -1,4 +1,4 @@
-# CUAV V5 nano AutoPilot
+# CUAV V5 nano Autopilot
 
 **V5 nano**<sup>&reg;</sup> is an autopilot for space-constrained applications, designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
 

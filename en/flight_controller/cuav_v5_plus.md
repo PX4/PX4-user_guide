@@ -1,4 +1,4 @@
-# CUAV V5+ AutoPilot
+# CUAV V5+ Autopilot
 
 *V5+*<sup>&reg;</sup> is an advanced autopilot manufactured by CUAV<sup>&reg;</sup>.
 It was designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
