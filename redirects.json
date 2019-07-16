@@ -2,6 +2,13 @@
     "redirects": [
 
 
+        
+        
+
+            {
+                "from": "en/flight_controller/pixhack_v5.html",
+                "to": "en/flight_controller/cuav_v5.html"
+            },
             {
                 "from": "en/flying/led_meanings.html",
                 "to": "en/getting_started/led_meanings.html"
