@@ -84,9 +84,9 @@ The other radio is connected to your ground station computer or mobile device (u
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
-## SD Car(Optional)
+## SD Card (Optional) {#sd_card}
 
-The factory has completed inserting the sd card, you do not need to operate.
+An SD card is inserted in the factory (you do not need to do anything).
 
 ## Motors
 

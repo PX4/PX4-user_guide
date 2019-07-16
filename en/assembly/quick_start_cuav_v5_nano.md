@@ -91,9 +91,9 @@ The other radio is connected to your ground station computer or mobile device (u
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
 
-## SD CarD (Optional)
+## SD Card (Optional) {#sd_card}
 
-The factory has completed inserting the SD card, you do not need to operate.
+An SDK card is inserted in the factory (you do not need to do anything).
 
 
 ## Motors
