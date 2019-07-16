@@ -4685,6 +4685,13 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MC_PITCHRATE_K">MC_PITCHRATE_K</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Pitch rate controller gain</p><p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_PITCHRATE_K * (MC_PITCHRATE_P * error + MC_PITCHRATE_I * error_integral + MC_PITCHRATE_D * error_derivative) Set MC_PITCHRATE_P=1 to implement a PID in the ideal form. Set MC_PITCHRATE_K=1 to implement a PID in the parallel form.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 5.0 (0.0005)</td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_MAX">MC_PITCHRATE_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max pitch rate</p><p><strong>Comment:</strong> Limit for pitch rate in manual and auto modes (except acro). Has effect for large rotations in autonomous mode, to avoid large control output and mixer saturation. This is not only limited by the vehicle's properties, but also by the maximum measurement rate of the gyro.</p>   </td>
  <td style="vertical-align: top;">0.0 > 1800.0 (5)</td>
@@ -4738,6 +4745,13 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><p>Roll rate I gain</p><p><strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.2 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MC_ROLLRATE_K">MC_ROLLRATE_K</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Roll rate controller gain</p><p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_ROLLRATE_K * (MC_ROLLRATE_P * error + MC_ROLLRATE_I * error_integral + MC_ROLLRATE_D * error_derivative) Set MC_ROLLRATE_P=1 to implement a PID in the ideal form. Set MC_ROLLRATE_K=1 to implement a PID in the parallel form.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 5.0 (0.0005)</td>
+ <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -4829,6 +4843,13 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><p>Yaw rate I gain</p><p><strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
  <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MC_YAWRATE_K">MC_YAWRATE_K</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Yaw rate controller gain</p><p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_YAWRATE_K * (MC_YAWRATE_P * error + MC_YAWRATE_I * error_integral + MC_YAWRATE_D * error_derivative) Set MC_YAWRATE_P=1 to implement a PID in the ideal form. Set MC_YAWRATE_K=1 to implement a PID in the parallel form.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 5.0 (0.0005)</td>
+ <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
