@@ -1,6 +1,4 @@
-# V5+ Wiring Quick Start
-
----
+# V5+ nano Wiring Quick Start
 
 This quick start guide shows how to power the V5+ flight controller and connect its most important peripherals. 
 ![quickstart](../../assets/flight_controller/v5_nano/en/v5_nano_01.png)
@@ -89,9 +87,3 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 ## Pinouts
 
 ![V5 nao pinouts](../../assets/flight_controller/v5_nano/v5_nano_pinouts.png)
-
-
-
-
-
-
