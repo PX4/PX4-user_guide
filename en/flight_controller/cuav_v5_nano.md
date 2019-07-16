@@ -42,8 +42,6 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 * Other Characteristics:
   * Operating temperature: -20 ~ 85°c（Measured value）
 
-
-
 ## Purchase
 
 [CUAV Store](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1)
@@ -59,8 +57,6 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 ## Pinouts{#pinouts}
 
 Download **V5 nano** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
-
-
 
 ## Building Firmware
 
@@ -90,8 +86,6 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## Further info
 
-
 * [V5 nano manual](http://manual.cuav.net/V5-nano.pdf)
 * [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
 * [CUAV Github](https://github.com/cuav) 
-
