@@ -87,5 +87,6 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 ## Further info
 
 * [V5 nano manual](http://manual.cuav.net/V5-nano.pdf)
+* [CUAV V5 nano docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5-nano.html) 
 * [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
 * [CUAV Github](https://github.com/cuav) 
