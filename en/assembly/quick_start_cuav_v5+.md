@@ -69,7 +69,7 @@ The CUAV V5+ has a dedicated DSM cable. The Spektrum satellite receiver should b
 
 The CUAV V5+ kit includes HV\_PM, which supports 2~10s lipo battery. Please connect the 6pin connector of the HW\_PM module to the flight control power1 interface.
 
-![CUAV V5+](../../assets/flight_controller/v5+/connection/v5+_quickstart_01.png)
+![CUAV V5+](../../assets/flight_controller/cuav_v5+/connection/v5+_quickstart_01.png)
 
 ## Telemetry System (Optional) 
 
