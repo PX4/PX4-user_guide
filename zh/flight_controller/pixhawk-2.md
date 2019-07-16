@@ -29,10 +29,6 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 
 - [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
-## Assembly
-
-- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
-
 ## Specifications
 
 ### Processor
@@ -86,7 +82,7 @@ Under these conditions all power sources will be used in this order to power the
 - Servo rail input (4.1V to 5.7V, 0V to 20V)
 - USB power input (4.1V to 5.7V, 0V to 6V)
 
-## 引脚和原理图
+## Pinouts and Schematics
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
@@ -106,7 +102,7 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
-## 编译固件
+## Building Firmware
 
 > **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
