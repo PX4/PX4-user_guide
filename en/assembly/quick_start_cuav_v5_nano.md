@@ -1,6 +1,6 @@
-# V5+ nano Wiring Quick Start
+# CUAV V5 nano Wiring Quick Start
 
-This quick start guide shows how to power the V5+ flight controller and connect its most important peripherals. 
+This quick start guide shows how to power the CUAV V5 nano flight controller and connect its most important peripherals. 
 ![quickstart](../../assets/flight_controller/v5_nano/en/v5_nano_01.png)
 
 ### Wiring Chart Overview
@@ -39,7 +39,7 @@ The GPS/Compass module should be mounted on the frame as far away from other ele
 
 ## Safety Switch 
 
-The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended NEO GPS (which has an inbuilt safety switch).
+The dedicated safety switch that comes with the CUAV V5 nano is only required if you are not using the recommended NEO GPS (which has an inbuilt safety switch).
 If you are flying without the GPS you must attach the switch directly to the  GPS1  port in order to be able to arm the vehicle and fly (If you use the old 6-pin GPS, please read the definition of the bottom interface to change the line.).
 
 ## Buzzer
@@ -57,11 +57,11 @@ The figure below shows how you can access your remote receiver (please find the 
 
 ## Spektrum Satellite Receivers
 
-The V5 nano has a dedicated DSM cable. The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
+The CUAV V5 nano has a dedicated DSM cable. The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
 
 ## Power
 
-The v5 nano kit includes HV\_PM, which supports 2~10s lipo batter. Please connect the 6pin connector of the HW\_PM module to the flight control power1 interface.
+The CUAV V5 nano  kit includes HV\_PM, which supports 2~10s lipo battery. Please connect the 6pin connector of the HW\_PM module to the flight control power1 interface.
 
 ![quickstart](../../assets/flight_controller/v5_nano/connection/v5_nano_quickstart_06.png)
 
