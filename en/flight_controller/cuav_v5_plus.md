@@ -98,7 +98,7 @@ The system's serial console and SWD interface operate on the **FMU Debug** port.
 Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable).
 It does not have an i/o debug interface.
 
-# Peripherals {#Optional-hardware}
+# Peripherals {#optional-hardware}
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
 * [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
@@ -109,9 +109,10 @@ It does not have an i/o debug interface.
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## Further Information
 
-- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
-- [CUAV Github](https://github.com/cuav) 
+- [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)
+- [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
+- [CUAV Github](https://github.com/cuav)
 - [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2B_BASE)
-- [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)

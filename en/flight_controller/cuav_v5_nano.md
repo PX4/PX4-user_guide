@@ -2,9 +2,9 @@
 
 **V5 nano**<sup>&reg;</sup> is an autopilot for space-constrained applications, designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
 
-The autopilot is small enough to use in 220mm racing drones, but remains powerful enough for almost any other drone use.
+The autopilot is small enough to use in 220mm racing drones, but remains powerful enough for most drone use.
 
-> **Note** The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has a an all-in-one form factor, fewer PWM ports (MAIN I/O only - no AUX port) and does not have internal damping.
+> **Note** The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has an all-in-one form factor, fewer PWM ports (can't be used for [airframes](../airframes/airframe_reference.md) that use AUX ports), and does not have internal damping.
 
 ![V5 nano - Hero image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
@@ -107,3 +107,4 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 * [V5 nano manual](http://manual.cuav.net/V5-nano.pdf)
 * [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
 * [CUAV Github](https://github.com/cuav) 
+
