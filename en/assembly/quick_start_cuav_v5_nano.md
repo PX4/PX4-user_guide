@@ -23,7 +23,7 @@ The image below shows how to connect the most important sensors and peripherals 
 | TELEM1/TELME2| Connect to the Telemetry System |
 | DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module
 
-> **NOTE**For more interface information, please read [V5 nano Manual](http://manual.cuav.net/V5-nano.pdf).
+> **NOTE**For more interface information, please read [CUAV V5 nano Manual](http://manual.cuav.net/V5-nano.pdf).
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
 
