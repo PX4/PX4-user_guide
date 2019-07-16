@@ -1,7 +1,5 @@
 # CUAV V5+ Wiring Quick Start
 
----
-
 This quick start guide shows how to power the CUAV V5+ flight controller and connect its most important peripherals.
  
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5+/v5+_01.png)
