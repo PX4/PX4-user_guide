@@ -1403,7 +1403,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>Comment:</strong> Setting this parameter to 782097 will disable the buzzer audio notification. Setting this parameter to 782090 will disable the startup tune, while keeping all others enabled.
       </p>
       
       <p>
@@ -10087,6 +10087,9 @@
         <li>
           <strong>202:</strong> GPS 2
         </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
       </ul>
       
       <p>
@@ -10145,6 +10148,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
         </li>
       </ul>
       
@@ -10721,6 +10727,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
         </li>
       </ul>
       
@@ -12505,6 +12514,9 @@
         <li>
           <strong>202:</strong> GPS 2
         </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
       </ul>
       
       <p>
@@ -12685,6 +12697,9 @@
         <li>
           <strong>202:</strong> GPS 2
         </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
       </ul>
       
       <p>
@@ -12864,6 +12879,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
         </li>
       </ul>
       
@@ -22100,6 +22118,9 @@
         <li>
           <strong>202:</strong> GPS 2
         </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
       </ul>
       
       <p>
@@ -22158,6 +22179,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
         </li>
       </ul>
       
@@ -32495,6 +32519,9 @@
         <li>
           <strong>202:</strong> GPS 2
         </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
       </ul>
       
       <p>
@@ -32507,6 +32534,59 @@
     
     <td style="vertical-align: top;">
       0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_CM8JL65_R_0">SENS_CM8JL65_R_0</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Distance Sensor Rotation
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Distance Sensor Rotation as MAV_SENSOR_ORIENTATION enum
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> ROTATION_FORWARD_FACING
+        </li>
+        <li>
+          <strong>2:</strong> ROTATION_RIGHT_FACING
+        </li>
+        <li>
+          <strong>6:</strong> ROTATION_LEFT_FACING
+        </li>
+        <li>
+          <strong>12:</strong> ROTATION_BACKWARD_FACING
+        </li>
+        <li>
+          <strong>24:</strong> ROTATION_UPWARD_FACING
+        </li>
+        <li>
+          <strong>25:</strong> ROTATION_DOWNWARD_FACING
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      25
     </td>
     
     <td style="vertical-align: top;">
@@ -33017,6 +33097,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
         </li>
       </ul>
       
@@ -34517,6 +34600,9 @@
         <li>
           <strong>202:</strong> GPS 2
         </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
       </ul>
       
       <p>
@@ -34598,6 +34684,9 @@
         <li>
           <strong>202:</strong> GPS 2
         </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
       </ul>
       
       <p>
@@ -34657,6 +34746,9 @@
         <li>
           <strong>202:</strong> GPS 2
         </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
       </ul>
       
       <p>
@@ -34699,6 +34791,68 @@
     <th>
       单位
     </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RC_PORT_CONFIG">RC_PORT_CONFIG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Serial Configuration for RC Input Driver
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure on which serial port to run RC Input Driver. Setting this to 'Disabled' will use a board-specific default port for RC input.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>6:</strong> UART 6
+        </li>
+        <li>
+          <strong>101:</strong> TELEM 1
+        </li>
+        <li>
+          <strong>102:</strong> TELEM 2
+        </li>
+        <li>
+          <strong>103:</strong> TELEM 3
+        </li>
+        <li>
+          <strong>104:</strong> TELEM/SERIAL 4
+        </li>
+        <li>
+          <strong>201:</strong> GPS 1
+        </li>
+        <li>
+          <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      300
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
   </tr>
   
   <tr>
@@ -34826,6 +34980,119 @@
       
       <p>
         <strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Auto
+        </li>
+        <li>
+          <strong>50:</strong> 50 8N1
+        </li>
+        <li>
+          <strong>75:</strong> 75 8N1
+        </li>
+        <li>
+          <strong>110:</strong> 110 8N1
+        </li>
+        <li>
+          <strong>134:</strong> 134 8N1
+        </li>
+        <li>
+          <strong>150:</strong> 150 8N1
+        </li>
+        <li>
+          <strong>200:</strong> 200 8N1
+        </li>
+        <li>
+          <strong>300:</strong> 300 8N1
+        </li>
+        <li>
+          <strong>600:</strong> 600 8N1
+        </li>
+        <li>
+          <strong>1200:</strong> 1200 8N1
+        </li>
+        <li>
+          <strong>1800:</strong> 1800 8N1
+        </li>
+        <li>
+          <strong>2400:</strong> 2400 8N1
+        </li>
+        <li>
+          <strong>4800:</strong> 4800 8N1
+        </li>
+        <li>
+          <strong>9600:</strong> 9600 8N1
+        </li>
+        <li>
+          <strong>19200:</strong> 19200 8N1
+        </li>
+        <li>
+          <strong>38400:</strong> 38400 8N1
+        </li>
+        <li>
+          <strong>57600:</strong> 57600 8N1
+        </li>
+        <li>
+          <strong>115200:</strong> 115200 8N1
+        </li>
+        <li>
+          <strong>230400:</strong> 230400 8N1
+        </li>
+        <li>
+          <strong>460800:</strong> 460800 8N1
+        </li>
+        <li>
+          <strong>500000:</strong> 500000 8N1
+        </li>
+        <li>
+          <strong>921600:</strong> 921600 8N1
+        </li>
+        <li>
+          <strong>1000000:</strong> 1000000 8N1
+        </li>
+        <li>
+          <strong>1500000:</strong> 1500000 8N1
+        </li>
+        <li>
+          <strong>2000000:</strong> 2000000 8N1
+        </li>
+        <li>
+          <strong>3000000:</strong> 3000000 8N1
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SER_RC_BAUD">SER_RC_BAUD</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Baudrate for the Radio Controller Serial Port
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure the Baudrate for the Radio Controller Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
       <strong>Values:</strong>
@@ -36970,6 +37237,9 @@
         <li>
           <strong>202:</strong> GPS 2
         </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
       </ul>
       
       <p>
@@ -37028,6 +37298,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
         </li>
       </ul>
       
