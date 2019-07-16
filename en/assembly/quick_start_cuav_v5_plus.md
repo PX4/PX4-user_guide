@@ -98,3 +98,12 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 ## Pinouts {#pinouts}
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
+
+
+## Further Information
+
+- [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)
+- [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
+- [CUAV Github](https://github.com/cuav)
+- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2B_BASE)
