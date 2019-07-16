@@ -58,6 +58,8 @@ Some of its main features include:
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a1z10.5-c.w4002-21303114052.37.a28f697aeYzQx9&id=594262853015) (China Mainland users)
 
+> **Note** Autopilot may be purchased with included Neo GPS module
+
 ## Connections (Wiring) {#connection}
 
 [CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)

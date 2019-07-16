@@ -59,6 +59,9 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 
 [CUAV Taobao](https://item.taobao.com/item.htm?spm=a230r.1.14.8.26ab5258veQJRu&id=569404317857&ns=1&abbucket=13#detail) (China Mainland users)
 
+> **Note** Autopilot may be purchased with included Neo GPS module
+
+
 ## Connections (Wiring) {#connection}
 
 [V5 nano Wiring Quickstart](../assembly/quick_start_cuav_v5_nano.md)
