@@ -74,7 +74,7 @@ The communication channel is via Telemetry Radios. The vehicle-based radio shoul
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
-## SD Car(Optional)
+## SD Card (Optional)
 
 The factory has completed inserting the sd card, you do not need to operate.
 
