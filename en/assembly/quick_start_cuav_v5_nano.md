@@ -36,8 +36,10 @@ We'll go through each of these in detail in the following sections.
 
 ## GPS + Compass + Safety Switch + LED
 
-The recommended GPS modules are the neo v2 GPS, It contains GPS, compass, safety switch, buzzer, LED status light.
-The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (Neo GPS arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
+The recommended GPS module is the Neo v2 GPS, which contains GPS, compass, safety switch, buzzer, LED status light.
+
+The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (Neo GPS arrow is in the same direction as the flight control arrow).
+Connect to the flight control GPS interface using a cable.
 
 > **Note**If you use CAN GPS, please use the cable to connect to the flight control CAN interface.
 
@@ -67,7 +69,8 @@ The figure below shows how you can access your remote receiver (please find the 
 
 ## Spektrum Satellite Receivers
 
-The V5 nano has a dedicated DSM cable. The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
+The V5 nano has a dedicated DSM cable.
+The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
 
 
 ## Power
@@ -81,7 +84,9 @@ The v5 nano kit includes HV\_PM, which supports 2~10s lipo batter. Please connec
 
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
-The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to the **TELEM1/TELEM2** port (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
+The communication channel is via Telemetry Radios.
+The vehicle-based radio should be connected to the **TELEM1/TELEM2** port (if connected to this port, no further configuration is required).
+The other radio is connected to your ground station computer or mobile device (usually via USB).
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
@@ -93,7 +98,7 @@ The factory has completed inserting the SD card, you do not need to operate.
 
 ## Motors
 
-Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the Airframe Reference. 
+Motors/servos are connected to the MAIN ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 

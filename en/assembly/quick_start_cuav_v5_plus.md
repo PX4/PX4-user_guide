@@ -37,9 +37,11 @@ We'll go through each of these in detail in the following sections.
 
 ## GPS + Compass + Safety Switch + LED 
 
-The recommended GPS modules are the neo v2 GPS, which contains GPS, compass, safety switch, buzzer, LED status light.
+The recommended GPS module is the Neo v2 GPS, which contains GPS, compass, safety switch, buzzer, LED status light.
+
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (Neo GPS arrow is in the same direction as the flight control arrow).
 Connect to the flight control GPS interface using a cable.
+
 > **Note** If you use CAN GPS, please use the cable to connect to the flight control CAN interface.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
@@ -88,7 +90,7 @@ The factory has completed inserting the sd card, you do not need to operate.
 
 ## Motors
 
-Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the Airframe Reference. 
+Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
@@ -96,7 +98,3 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 ## Pinouts {#pinouts}
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
-
-
-
-
