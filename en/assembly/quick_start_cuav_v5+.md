@@ -1,12 +1,13 @@
-# V5+ Wiring Quick Start
+# CUAV V5+ Wiring Quick Start
 
 ---
 
-This quick start guide shows how to power the V5+ flight controller and connect its most important peripherals。
+This quick start guide shows how to power the CUAV V5+ flight controller and connect its most important peripherals。
  
 ![V5+ AutoPilot](../../assets/flight_controller/v5+/v5+_01.png)
 
 ## Wiring Chart Overview
+
 The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
 
 ![V5+ AutoPilot](../../assets/flight_controller/v5+/connection/v5+_quickstart_01.png)
@@ -28,9 +29,9 @@ The image below shows how to connect the most important sensors and peripherals 
 | TELEM1/TELME2| Connect to the Telemetry System |
 | DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module
 
-> **NOTE**For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
+> **NOTE**For more interface information, please read [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
 
-![V5+ AutoPilot](../../assets/flight_controller/v5+/connection/v5+_quickstart_02.png)
+![CUAV V5+](../../assets/flight_controller/v5+/connection/v5+_quickstart_02.png)
 
 > **NOTE** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you willneed to configure the autopilot software with the orientation that you actually used:[light Controller Orientation](https://docs.px4.io/en/advanced_features/rtk-gps.html).
 
@@ -40,7 +41,7 @@ The recommended GPS modules are the neo v2 GPS, It contains GPS, compass, safety
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (NEO GPS arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
 > **NOTE**If you use CAN GPS, please use the cable to connect to the flight control CAN interface.。
 
-![V5+ AutoPilot](../../assets/flight_controller/v5+/connection/v5+_quickstart_03.png)
+![CUAV V5+](../../assets/flight_controller/v5+/connection/v5+_quickstart_03.png)
 
 ## Safety Switch 
 
@@ -58,17 +59,17 @@ You will need to select a compatible transmitter/receiver and then bind them so 
 
 The figure below shows how you can access your remote receiver (please find the sbus cable in the kit).
 
-![V5+ AutoPilot](../../assets/flight_controller/v5+/connection/v5+_quickstart_04.png)
+![CUAV V5+](../../assets/flight_controller/v5+/connection/v5+_quickstart_04.png)
 
 ## Spektrum Satellite Receivers
 
-The V5+ has a dedicated DSM cable. The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
+The CUAV V5+ has a dedicated DSM cable. The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
 
 ## Power
 
-The V5+ kit includes HV\_PM, which supports 2~10s lipo battery. Please connect the 6pin connector of the HW\_PM module to the flight control power1 interface.
+The CUAV V5+ kit includes HV\_PM, which supports 2~10s lipo battery. Please connect the 6pin connector of the HW\_PM module to the flight control power1 interface.
 
-![V5+ AutoPilot](../../assets/flight_controller/v5+/connection/v5+_quickstart_01.png)
+![CUAV V5+](../../assets/flight_controller/v5+/connection/v5+_quickstart_01.png)
 
 ## Telemetry System (Optional) 
 
@@ -76,7 +77,7 @@ A telemetry system allows you to communicate with, monitor, and control a vehicl
 
 The communication channel is via Telemetry Radios. The vehicle-based radio should be connected to the **TELEM1/TELEM2** port (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
-![V5+ AutoPilot](../../assets/flight_controller/v5+/connection/v5+_quickstart_06.png)
+![CUAV V5+](../../assets/flight_controller/v5+/connection/v5+_quickstart_06.png)
 
 ## SD Car(Optional)
 
@@ -86,11 +87,12 @@ The factory has completed inserting the sd card, you do not need to operate.
 
 Motors/servos are connected to the MAIN and AUX ports in the order specified for your vehicle in the Airframe Reference. 
 
-![V5+ AutoPilot](../../assets/flight_controller/v5+/connection/v5+_quickstart_07.png)
+![CUAV V5+](../../assets/flight_controller/v5+/connection/v5+_quickstart_07.png)
 
 ## Pinouts{#pinouts}
 
-Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
+Download **CUAV V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
+
 
 
 
