@@ -3,7 +3,7 @@
 This quick start guide shows how to power the CUAV V5 nano flight controller and connect its most important peripherals. 
 ![quickstart](../../assets/flight_controller/v5_nano/en/v5_nano_01.png)
 
-### Wiring Chart Overview
+## Wiring Chart Overview
 The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
 
 ![quickstart](../../assets/flight_controller/v5_nano/connection/v5_nano_quickstart_02.png)
