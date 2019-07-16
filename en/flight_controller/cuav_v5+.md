@@ -4,13 +4,19 @@ CUAV *V5+ *<sup>&reg;</sup> is an advanced autopilot manufactured by CUAV<sup>&r
 
 The board is based on the Pixhawk **FMUv5 design standard**, the external interface uses the [Pixhawk standard pinouts](https://pixhawk.org/pixhawk-connector-standard/), and the modular design allows the users to customize their own carrier board. The autopilot is compatible [PX4](http://px4-travis.s3.amazonaws.com/Firmware/master/px4fmu-v5_default.px4) firmware.can be used for academic research and commercial systems integration.
 
-![CUAV V5+](../../assets/flight_controller/v5+/v5+_01.png)
-![CUAV V5+](../../assets/flight_controller/v5+/en/v5+_02.jpg)
-![CUAV V5+](../../assets/flight_controller/v5+/en/v5+_03.jpg)
-![CUAV V5+](../../assets/flight_controller/v5+/en/v5+_04.jpg)
-![CUAV V5](../../assets/flight_controller/v5+/en/v5+_06.jpg)
-![CUAV V5+](../../assets/flight_controller/v5+/en/v5+_07.jpg)
-![CUAV V5+](../../assets/flight_controller/v5+/en/v5+_08.jpg)
+![CUAV V5+](../../assets/flight_controller/cuav_v5+/v5+_01.png)
+
+![CUAV V5+](../../assets/flight_controller/cuav_v5+/en/v5+_02.jpg)
+
+![CUAV V5+](../../assets/flight_controller/cuav_v5+/en/v5+_03.jpg)
+
+![CUAV V5+](../../assets/flight_controller/cuav_v5+/en/v5+_04.jpg)
+
+![CUAV V5](../../assets/flight_controller/cuav_v5+/en/v5+_06.jpg)
+
+![CUAV V5+](../../assets/flight_controller/cuav_v5+/en/v5+_07.jpg)
+
+![CUAV V5+](../../assets/flight_controller/cuav_v5+/en/v5+_08.jpg)
 
 ## Quick Summary
 
