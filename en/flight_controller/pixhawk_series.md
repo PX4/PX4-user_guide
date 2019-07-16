@@ -72,7 +72,7 @@ At very high level, the main differences are:
 - **FMUv3:** Identical to FMUv2, but usable flash doubled to 2MB ([Pixhawk 2](../flight_controller/pixhawk-2.md),[Pixhack v3](../flight_controller/pixhack_v3.md),[mRo Pixhawk](../flight_controller/mro_pixhawk.md), [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md))
 - **FMUv4:** Increased RAM. Faster CPU. More serial ports. No IO processor ([Pixracer](../flight_controller/pixracer.md))
 - **FMUv4-PRO:** Slightly increased RAM. More serial ports. IO processor ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
-- **FMUv5:** New processor (F7). Much faster. More RAM. More CAN busses. Much more configurable.([Pixhawk 4](../flight_controller/pixhawk4.md),[Pixhack v5](../flight_controller/pixhack_v5.md),[CUAV V5+](../flight_controller/cuav_v5+.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
+- **FMUv5:** New processor (F7). Much faster. More RAM. More CAN busses. Much more configurable.([Pixhawk 4](../flight_controller/pixhawk4.md), [Pixhack v5](../flight_controller/pixhack_v5.md), [CUAV V5+](../flight_controller/cuav_v5+.md), [CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
 
 ### Licensing and trademarks
 
