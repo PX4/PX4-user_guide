@@ -39,7 +39,7 @@
 * [Airframe Builds](airframes/README.md)
   * [Airframes Reference](airframes/airframe_reference.md)
   * [Multicopters](frames_multicopter/README.md)
-    * [FlameWheel450 (CUAV v5+)](frames_multicopter/dji_flamewheel_450_cuav_5plus.md)
+    * [FlameWheel450 (CUAV v5+)](frames_multicopter/dji_f450_cuav_5plus.md)
     * [QAV250 \(Pixhawk4 Mini)](frames_multicopter/holybro_qav250_pixhawk4_mini.md)
     * [FlameWheel450 + RTK (Pixhawk 3 Pro)](frames_multicopter/dji_flamewheel_450.md)
     * [QAV250 \(Pixhawk Mini\)](frames_multicopter/lumenier_qav250_pixhawk_mini.md)
