@@ -142,7 +142,7 @@ Estimated time to assemble is approximately 90 minutes (about 45 minutes for the
    ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5plus/9a_telemtry_radio.jpg)
    ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5plus/9b_telemtry_radio.jpg)
 
-1. Put the aluminium standoffs on the button plate.
+1. Put the aluminium standoffs on the bottom plate.
 
 1. Plug in Telemetry (`TELEM`) and GPS module (`GPS/SAFETY`) to the flight controller.
    ![Attach GPS](../../assets/airframes/multicopter/dji_f450_cuav_5plus/11a_gps.jpg)
