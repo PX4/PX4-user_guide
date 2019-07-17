@@ -17,7 +17,7 @@ The components needed for this build are:
 * Fully assembled Power Management Board with ESCs
 * Motors - DR2205 KV2300
 * 5” Plastic Props
-* Carbon fiber 250 airframe with hardware
+* Carbon fibre 250 airframe with hardware
 * Foxer camera 
 * Vtx 5.8ghz 
 * Receiver FR SKY D4R-II
@@ -144,7 +144,7 @@ Estimated time to assemble is approximately 90 minutes (about 45 minutes for the
 
 1. Put the aluminium standoffs on the button plate.
 
-1. Plug in Telemetry (`TELEM` and GPS module (`GPS/SAFETY`) to the flight controller.
+1. Plug in Telemetry (`TELEM`) and GPS module (`GPS/SAFETY`) to the flight controller.
    ![Attach GPS](../../assets/airframes/multicopter/dji_f450_cuav_5plus/11a_gps.jpg)
    ![Attach GPS](../../assets/airframes/multicopter/dji_f450_cuav_5plus/11b_gps.jpg)
    
