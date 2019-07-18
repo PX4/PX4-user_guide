@@ -13,46 +13,50 @@ Key information
 ## Bill of materials
 
 The components needed for this build are:
-* Power module (Holybro)
-* Fully assembled Power Management Board with ESCs
-* Motors - DR2205 KV2300
-* 5” Plastic Props
-* Carbon fibre 250 airframe with hardware
-* Foxer camera 
-* Vtx 5.8ghz 
-* Receiver FR SKY D4R-II
-* Battery 4S 1300 mAh
-* DJI F450 Frame
+- Flight controller: [CUAV V5+](https://store.cuav.net/index.php?id_product=95&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-autopilot-m8n-gps-for-fpv-rc-drone-quadcopter-helicopter-flight-simulator-free-shipping-whole-sale&controller=product&id_lang=1):
+  - GPS: [CUAV NEO V2 GPS](https://store.cuav.net/index.php?id_product=97&id_product_attribute=0&rewrite=cuav-new-ublox-neo-m8n-gps-module-with-shell-stand-holder-for-flight-controller-gps-compass-for-pixhack-v5-plus-rc-parts-px4&controller=product&id_lang=1)
+  - Power Module
+- Frame: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
+- Propellers: [DJI Phantom Built-in Nut Upgrade Propellers 9.4x5](https://www.masterairscrew.com/collections/all-products/products/dji-phantom-built-in-nut-upgrade-propellers-in-white-mr-9-4x5-prop-set-x4-phantom)
+- Battery: [Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60](https://hobbyking.com/en_us/turnigy-high-capacity-5200mah-3s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us)
+- Telemetry: [Holibro Transceiver Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
+- RC Receiver: [FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver](https://www.banggood.com/FrSky-D4R-II-2_4G-4CH-ACCST-Telemetry-Receiver-for-RC-Drone-FPV-Racing-p-929069.html?cur_warehouse=GWTR)
+- Motors: [DJI E305 2312E Motor (800kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
+- ESC: [Hobbywing XRotor 20A APAC Brushless ESC 3-4S For RC Multicopters](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
 
-Additionally you will need a battery and receiver (+compatible transmitter).
-This build uses:
-* Receiver: [FR SKY D4R-II](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html)
-* Battery: [3S 5200mAh](TBD)
 
-The image below shows all the components used in this build.
+In addition, we used an FrSky Taranis controller.
+You will also need zip ties, double-sided tape, a soldering iron.
+
+The image below shows both frame and electronic components.
 
 ![All components used in this build](../../assets/airframes/multicopter/dji_f450_cuav_5plus/all_components.jpg)
 
 
 ## Hardware
 
+### Frame
+
+This section lists all hardware for the frame.
+
 Description | Quantity
 ---|---
-Unibody Frame Plate           | 1
-Flight Controller Cover Plate | 1
-Camera Plate                  | 1
-35mm Standoffs                | 6
-Vinyl screws & Nuts           | 4
-15mm Steel Screws             | 8
-Steel Nuts                    | 8
-7mm Steel Screws              | 12
-Velcro Battery Strap          | 1
-Foam for Battery              | 1
-Landing Pads                  | 4
+DJI F450 Bottom plate | 1
+DJI F450 Top plate | 1
+DJI F450 legs with landing gear | 4
+M3*8 screws | 18
+M2 5*6 screws | 24
+Velcro Battery Strap | 1
+DJI Phantom Built-in Nut Upgrade Propellers 9.4x5 | 1
 
-## Package
+![F450 frame components](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_frame_components.jpg)
 
-Description | Quantity (Default Package) | Quantity (GPS Package)
+
+### CUAV V5+ Package
+
+This section lists the components in the CUAV v5+ package.
+
+Description | Quantity (Default Package) | Quantity (+GPS Package)
 --- | --- | ---
 V5+ Autopilot            | 1 | 1
 DuPont Cable             | 2 | 2
@@ -73,19 +77,22 @@ TTL Plate                | 1 | 1
 NEO GPS                  | - | 1
 GPS Bracket              | - | 1
 
+![CUAV V5+ components](../../assets/airframes/multicopter/dji_f450_cuav_5plus/cuav5plus_components.jpg)
+
+
 ### Electronics
 
 Description | Quantity
 --- | --- 
-Motors - DR2205 KV2300             | 4
-Fully assembled Power Management Board with ESCs | 4
-Holybro power module               | 1
-Fr-sky D4R-II receiver             | 1
-CUAV V5+                           | 1
-Holybro GPS Neo-M8N                | 1
-Battery lumenier 1300 mAh 4S 14.8V | 1
-Vtx 5.8gHz                         | 1
-FPV camera                         | 1
+CUAV V5+ | 1
+CUAV NEO V2 GPS | 1
+Holibro Telemetry | 1
+FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver | 1
+DJI E305 2312E Motor (800kv,CW) | 4
+Hobbywing XRotor 20A APAC Brushless ESC | 4
+Power Module(Included in the CUAV V5+) | 1
+Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60 | 1
+
 
 ### Tools needed
 
@@ -129,7 +136,7 @@ Estimated time to assemble is approximately 90 minutes (about 45 minutes for the
 
    ![Add top board](../../assets/airframes/multicopter/dji_f450_cuav_5plus/6_add_top_board.jpg)
 
-1. Add double-sided tape to the CUAV V5+ flight controller (it has internal vibration damping, so no need to use foam).
+1. Add double-sided tape (3M) to the CUAV V5+ flight controller (it has internal vibration damping, so no need to use foam).
 
    ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5plus/7_attach_cuav5plus.jpg)
 
