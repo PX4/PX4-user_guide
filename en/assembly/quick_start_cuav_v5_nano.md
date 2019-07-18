@@ -106,3 +106,12 @@ Motors/servos are connected to the MAIN ports in the order specified for your ve
 ## Pinouts
 
 ![V5 nano pinouts](../../assets/flight_controller/cuav_v5_nano/v5_nano_pinouts.png)
+
+
+## Further Information
+
+- [Airframe buildlog using CUAV v5 nano on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5nano.md)
+- [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
+- [V5 nano manual](http://manual.cuav.net/V5-nano.pdf) (CUAV)
+- [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
+- [CUAV Github](https://github.com/cuav)  (CUAV)
