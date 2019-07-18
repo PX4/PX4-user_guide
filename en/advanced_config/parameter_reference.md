@@ -656,7 +656,7 @@ Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than
  <td style="vertical-align: top;"><strong id="COM_DISARM_LAND">COM_DISARM_LAND</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Time-out for auto disarm after landing</p><p><strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. The vehicle will also auto-disarm right after arming if it has not even flown, however the time will always be 10 seconds such that the pilot has enough time to take off. A negative value means that automatic disarming triggered by landing detection is disabled.</p>   </td>
  <td style="vertical-align: top;">-1 > 20 </td>
- <td style="vertical-align: top;">-1.0 </td>
+ <td style="vertical-align: top;">2.0 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
