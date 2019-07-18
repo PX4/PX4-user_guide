@@ -2150,7 +2150,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      -1.0
+      2.0
     </td>
     
     <td style="vertical-align: top;">
