@@ -92,8 +92,9 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## Further Information
 
-* [V5 nano manual](http://manual.cuav.net/V5-nano.pdf)
-* [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
-* [CUAV Github](https://github.com/cuav)
+* [V5 nano manual](http://manual.cuav.net/V5-nano.pdf) (CUAV)
+* [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
+* [CUAV Github](https://github.com/cuav) (CUAV)
+* [Airframe build-log using CUAV v5 nano on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5nano.md)
