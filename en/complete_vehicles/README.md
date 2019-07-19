@@ -14,8 +14,7 @@ This section contains information about complete vehicles that run PX4.
   * [Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
   * [Parrot Bebop](../complete_vehicles/bebop.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md)
-- Whole-vehicle hardware reference platforms that use PX4:
-  * [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) - UAV development platform with autopilot and integrated onboard computer.
+<!--  Whole-vehicle hardware reference platforms that use PX4: -->
 - Consumer drones run a custom version of PX4 (supported by their vendors):
   * Multicopter
     * [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus)

@@ -28,7 +28,6 @@ These flight controllers (and development platforms) offer on-vehicle "companion
 Controller | Description
 --- | ---
 [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | A high-end autopilot computer that runs PX4 on the DSP (on QuRT RTOS). It includes a camera and WiFi.
-[Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md) | A UAS development platform that integrates a Linux computer, PX4 on NuttX, and a camera in a single package.
 [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RaPi can be connected to an autopilot and used as a companion computer.
 
 

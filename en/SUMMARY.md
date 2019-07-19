@@ -190,13 +190,13 @@
   * [OcPoC-Zynq Mini](flight_controller/ocpoc_zynq.md)
   * [BeagleBone Blue](flight_controller/beaglebone_blue.md)
 * [Complete Vehicles](complete_vehicles/README.md)
-  * [Intel® Aero Ready to Fly Drone](complete_vehicles/intel_aero.md)
   * [Crazyflie 2.0](complete_vehicles/crazyflie2.md)
   * [Parrot Bebop](complete_vehicles/bebop.md)
   * [MindRacer BNF & RTF](complete_vehicles/mindracer_BNF_RTF.md)
     * [MindRacer 210](complete_vehicles/mindracer210.md)
     * [NanoMind 110](complete_vehicles/nanomind110.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](complete_vehicles/betafpv_beta75x.md)
+  * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
 * [Development](development/development.md)
 
 
