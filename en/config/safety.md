@@ -134,8 +134,9 @@ Loiter Time | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAN
 
 ### Land Mode Settings
 
-*Land at the current position* is a common [failsafe action](#failsafe_actions) that engages [Land Mode](../flight_modes/land.md). 
-This section shows how to set whether the vehicle will automatically disarm after landing. For Multicopters (only) you can additionally set the descent rate.
+*Land at the current position* is a common [failsafe action](#failsafe_actions) that engages [Land Mode](../flight_modes/land.md).
+This section shows how control when and if the vehicle automatically disarms after landing.
+For Multicopters (only) you can additionally set the descent rate.
 
 ![Safety - Land Mode Settings (QGC)](../../images/qgc/setup/safety_land_mode.png)
 
@@ -143,7 +144,7 @@ The settings and underlying parameters are shown below:
 
 Setting | Parameter | Description
 --- | --- | ---
-Disarm After | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing, and enter delay after landing before disarming (must be non-zero). 
+Disarm After | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing, and enter delay after landing before disarming (must be non-zero).
 Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED) | Rate of descent (MC only).
 
 
