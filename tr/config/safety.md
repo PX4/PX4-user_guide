@@ -237,7 +237,7 @@ This section lists the available safety switches.
 
 ### Kill Switch {#kill_switch}
 
-A kill switch immediately stops all motor outputs (if flying the vehicle will start to fall). The vehicle is not disarmed, and the motors will restart if the switch is reverted.
+A kill switch immediately stops all motor outputs. If flying the vehicle will start to fall! The vehicle is not disarmed for the first 5 seconds, and the motors will restart if the switch is reverted. After 5 seconds the vehicle disarms and you need to arm it successfully again to start the motors.
 
 ### Arm/Disarm Switch {#arming_switch}
 
