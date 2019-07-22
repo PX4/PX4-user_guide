@@ -27,11 +27,10 @@ PX4 能够在很多飞控板上运行（见 [自驾仪硬件](../flight_controll
 
 这些飞行控制器（和开发平台）提供无人机“同伴计算”，实现计算机视觉和其他计算密集型任务。
 
-| 控制器                                                                     | 参数描述                                                  |
-| ----------------------------------------------------------------------- | ----------------------------------------------------- |
-| [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | 在 DSP 上运行 PX4 的高端自驾仪计算机（ QuRT RTOS）。 它包含一个摄像头和 Wifi 。 |
-| [Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md)    | UAS 开发平台，集成了 Linux 计算机，Nuttx 上的 PX4 和单个软件包中的摄像头。      |
-| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)  | 树莓派可以连接到自驾仪并作为记载计算机                                   |
+| 控制器                                                                     | 参数描述                                                                    |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) | 在 DSP 上运行 PX4 的高端自驾仪计算机（ QuRT RTOS）。 它包含一个摄像头和 Wifi 。                   |
+| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)  | RaPi can be connected to an autopilot and used as a companion computer. |
 
 ## 可运行 PX4 的商业无人机
 
