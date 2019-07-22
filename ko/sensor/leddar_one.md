@@ -25,10 +25,6 @@ Build a cable following your board and pinout and LeddarOne pinout (shown below)
 
 > **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```drivers/distance_sensor/leddar_one```
 
-## 인텔 에어로 {#aero}
-
-The LeddarOne is the recommended rangefinder for the *Intel® Aero Ready to Fly Drone*. For more information on hardware setup and configuration see: [The Intel® Aero Ready to Fly Drone](../complete_vehicles/intel_aero.md#leddarone).
-
 ## Further Information
 
 * [LeddarOne Spec sheet](https://leddartech.com/app/uploads/dlm_uploads/2017/05/Spec-Sheets-LeddarOne-27octobre2017-web.pdf)
