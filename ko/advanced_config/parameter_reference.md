@@ -3365,13 +3365,17 @@
       <p>
         Enable RC stick override of auto modes
       </p>
+      
+      <p>
+        <strong>Comment:</strong> When an auto mode is active (except a critical battery reaction) moving the RC sticks gives control back to the pilot in manual position mode immediately. Only has an effect on multicopters and VTOLS in multicopter mode.
+      </p>
     </td>
     
     <td style="vertical-align: top;">
     </td>
     
     <td style="vertical-align: top;">
-      0
+      1
     </td>
     
     <td style="vertical-align: top;">
