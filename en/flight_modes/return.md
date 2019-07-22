@@ -20,7 +20,7 @@ A copter/multi-rotor will first ascend to the return altitude (*by default*, [RT
 When it arrives at the home/launch position it will rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
 It will then hover for the period defined in [RTL_LAND_DELAY](#RTL_LAND_DELAY) before landing.
 
-The required return altitude can be configured using using the parameter [RTL_CONE_ANG](#RTL_CONE_ANG), which defines the angle of a half cone centered around the home position.
+The required return altitude can be configured using using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG) (which define a half cone centered around the home position).
 
 ![Return mode cone](../../assets/flying/rtl_cone.jpg)
 
@@ -38,7 +38,6 @@ Note:
 - If [RTL_CONE_ANG](#RTL_CONE_ANG) is 0 degrees there is no "cone":
   - the vehicle returns at `RTL_RETURN_ALT` (or above).
   - This is the default behaviour.
-  - This is the only behaviour prior to PX4 v1.9.
 - If [RTL_CONE_ANG](#RTL_CONE_ANG) is 90 degrees the vehicle will return at the greater of `RTL_DESCEND_ALT` and the current altitude.
 - The vehicle will always ascend at least [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) for the return.
 
