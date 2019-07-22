@@ -100,7 +100,7 @@
   * [Parameters](advanced_config/parameters.md)
   * [Multicopter Config/Tuning](config_mc/README.md)
     * [Multicopter PID Tuning Guide](config_mc/pid_tuning_guide_multicopter.md)
-    * [Multicopter Advanced Tuning Guide](config_mc/advanced_mc_position_tuning.md)
+    * [MC Advanced Tuning Guide](config_mc/advanced_mc_position_tuning.md)
         * [Smooth and Sport](config_mc/position_mode_smooth.md)
         * [Jerk-limited](config_mc/position_mode_smooth_vel.md)
     * [Multicopter Racer Setup](config_mc/racer_setup.md)
