@@ -15,19 +15,19 @@ We'll go through each of these in detail in the following sections.
 
 | Main interface | Function |
 | :--- | :--- |
-| POWER1 | Connect Power  module;  power input & AD voltage  and current detection |
-| POWER2 | Connect i2c smart battery|
-| TF CARD |Insert SD card for log storage|
-| M1~M8 | PWM outputs.Can be used to control motors or servos |
-| A1~A8| PWM outputs.Can be used to control motors or servos |
-| DSU7|Used for FMU debug, reading debug information |
-| I2C1/I2C2 | Connect an I2C device such as an external compass |
-| CAN1/CAN2| Connect UAVCAN devices such as CAN GPS  |
-| TYPE-C\(USB\)| Connect to a computer for communication between the flight controller and the computer, such as loading firmware |
-| SBUS OUT|Connect SBUS camera Gimbals |
-| GPS&SAFETY |Connect to Neo GPS, which includes GPS, safety switch, buzzer interface |
-| TELEM1/TELME2| Connect to the Telemetry System |
-| DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module
+| POWER1 | Connect power module; power input & AD voltage and current detection. |
+| POWER2 | Connect i2c smart battery. |
+| TF CARD | Insert SD card for log storage|
+| M1~M8 | PWM outputs. Can be used to control motors or servos. |
+| A1~A8 | PWM outputs .Can be used to control motors or servos. |
+| DSU7 | Used for FMU debug, reading debug information. |
+| I2C1/I2C2 | Connect an I2C device such as an external compass. |
+| CAN1/CAN2| Connect UAVCAN devices such as CAN GPS.  |
+| TYPE-C\(USB\)| Connect to a computer for communication between the flight controller and the computer, such as loading firmware. |
+| SBUS OUT| Connect SBUS camera Gimbals |
+| GPS&SAFETY | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface. |
+| TELEM1/TELEM2 | Connect to the Telemetry System. |
+| DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module.
 
 > **Note** For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
 
@@ -53,7 +53,8 @@ If you are flying without the GPS you must attach the switch directly to the `GP
 
 ## Buzzer
 
-If you do not use the recommended  GPS, there may be problems with the buzzer not working. You may need to add an external buzzer instead.
+If you do not use the recommended GPS, the buzzer may not work.
+You may need to add an external buzzer instead.
 
 ## Radio Control 
 
@@ -66,11 +67,13 @@ The figure below shows how you can access your remote receiver (please find the 
 
 ## Spektrum Satellite Receivers
 
-The V5+ has a dedicated DSM cable. The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
+The V5+ has a dedicated DSM cable.
+The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
 
 ## Power
 
-The V5+ kit includes HV\_PM, which supports 2~10s LiPo battery. Please connect the 6pin connector of the HW\_PM module to the flight control power1 interface.
+The V5+ kit includes the HV\_PM, which supports 2~10s LiPo battery.
+Please connect the 6pin connector of the HW\_PM module to the flight control `Power1` interface.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
@@ -79,7 +82,7 @@ The V5+ kit includes HV\_PM, which supports 2~10s LiPo battery. Please connect t
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
 The communication channel is via Telemetry Radios.
-The vehicle-based radio should be connected to the **TELEM1/TELEM2** port (if connected to this port, no further configuration is required).
+The vehicle-based radio should be connected to either the **TELEM1** or **TELEM2** port (if connected to these ports, no further configuration is required).
 The other radio is connected to your ground station computer or mobile device (usually via USB).
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
