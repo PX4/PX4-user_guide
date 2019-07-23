@@ -4,9 +4,9 @@ The land detector is a dynamic vehicle model representing key vehicle states fro
 
 ## Auto-Disarming
 
-The land-detector does not auto-disarm the system on landing.
+The land-detector automatically disarms the vehicle on landing.
 
-You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (auto-disarming is disabled if this is zero).
+You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (or turn off auto-disarming by setting the parameter to -1).
 
 ## Multicopter Configuration
 
