@@ -5,9 +5,9 @@ This topic explains the main parameters you may wish to tune in order to improve
 
 ## Auto-Disarming
 
-The land-detector does not auto-disarm the system on landing.
+The land-detector automatically disarms the vehicle on landing.
 
-You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (auto-disarming is disabled if this is zero).
+You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (or turn off auto-disarming by setting the parameter to -1).
 
 ## Multicopter Configuration
 
@@ -42,7 +42,7 @@ These two parameters are sometimes worth tuning:
 
 ### Multicopter Land Detection
 
-In order to detect landing, the multicopter first has to go through three different states, where each state contains the conditions from the previous states plus tighter constraints. 
+In order to detect landing, the multicopter first has to go through three different states, where each state contains the conditions from the previous states plus tighter constraints.
 If a condition cannot be reached because of missing sensors, then the condition is true by default. 
 For instance, in [Acro mode](../flight_modes/acro_mc.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time. 
  
