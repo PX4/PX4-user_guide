@@ -105,13 +105,41 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## Known Issues
 
-#### GPS not compatible with other devices (Critical) - TBD_SERIAL_NUMBER
+#### GPS not compatible with other devices (Critical) - Batch 01
 
 The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
 The GPS will not work with other flight controllers, and is the only GPS unit that can be used with the *CUAV V5+* and *CUAV V5 nano*.
 <!-- Nano/80/V5_NANO_RC01_2019_05_29 -->
 
+- *Found:* Batch 01
+- *Fixed:* -
 
+#### Don't use PM2 to power PX4
+
+The PM2 port can only detect battery voltage and current.
+It can't be used for powering the CUAV V5 nano on PX4
+
+- *Found:* Batch 01
+- *Fixed:* -
+
+#### Power Module voltage is 5.2V
+
+The power module output voltage is 5.216V (as compared to more typical 5.05V).
+
+In addition, the measured voltage at the connectors is different when powered off USB as compared to the Power Module.
+
+- *Found:* Batch 01
+- *Fixed:* -
+
+#### Do not plug Digital or Analog PM onto connectors configured for other type of PM
+
+If you plug an Analog PM into a digital PM connector it will stop all the I2C devices on that bus.
+Specifically this will stop the GPS's compass due to contention, and may also damage the FMU (longer term).
+
+Similarly, a digital PM plugged into a analog connector will not work, and may also damage/destroy the power module (longer term).
+
+- *Found:* Batch 01
+- *Fixed:* -
 
 ## Further Information
 
