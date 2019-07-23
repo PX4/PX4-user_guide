@@ -16,7 +16,7 @@ We'll go through each of these in detail in the following sections.
 | :--- | :--- |
 | Power | Connect Power module;  power input & AD voltage  and current detection. |
 | PM2 | Connect i2c smart battery. |
-| TF CARD |Insert SD card for log storage|
+| TF CARD | Insert SD card for log storage |
 | M1~M8 | PWM outputs. Can be used to control motors or servos. |
 | A1~A8 | PWM outputs. Can be used to control motors or servos. |
 | DSU7 | Used for FMU debug, reading debug information. |
@@ -96,7 +96,7 @@ The other radio is connected to your ground station computer or mobile device (u
 
 ## SD Card (Optional) {#sd_card}
 
-An SDK card is inserted in the factory (you do not need to do anything).
+An SD card is inserted in the factory (you do not need to do anything).
 
 
 ## Motors
