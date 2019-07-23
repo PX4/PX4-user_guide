@@ -122,16 +122,16 @@ The settings and underlying parameters are shown below:
 
 ### Land Mode Settings
 
-*Land at the current position* is a common [failsafe action](#failsafe_actions) that engages [Land Mode](../flight_modes/land.md). This section shows how to set whether the vehicle will automatically disarm after landing. For Multicopters (only) you can additionally set the descent rate.
+*Land at the current position* is a common [failsafe action](#failsafe_actions) that engages [Land Mode](../flight_modes/land.md). This section shows how to control when and if the vehicle automatically disarms after landing. For Multicopters (only) you can additionally set the descent rate.
 
 ![Safety - Land Mode Settings (QGC)](../../images/qgc/setup/safety_land_mode.png)
 
 The settings and underlying parameters are shown below:
 
-| Setting              | 参数                                                                             | 参数描述                                                                                                                                      |
-| -------------------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Disarm After         | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing, and enter delay after landing before disarming (must be non-zero). |
-| Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Rate of descent (MC only).                                                                                                                |
+| Setting              | 参数                                                                             | 参数描述                                                                                                                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Disarm After         | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing, and enter delay after landing before disarming. The value must be non-zero but can be a fraction of a second. |
+| Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Rate of descent (MC only).                                                                                                                                                           |
 
 ## Other Failsafe Settings {#failsafe_other}
 
@@ -237,7 +237,7 @@ This section lists the available safety switches.
 
 ### Kill Switch {#kill_switch}
 
-A kill switch immediately stops all motor outputs. If flying the vehicle will start to fall! The vehicle is not disarmed for the first 5 seconds, and the motors will restart if the switch is reverted. After 5 seconds the vehicle disarms and you need to arm it successfully again to start the motors.
+A kill switch immediately stops all motor outputs (and if flying, the vehicle will start to fall)! The motors will restart if the switch is reverted within 5 seconds. After 5 seconds the vehicle will automatically disarm; you will need to arm it again in order to start the motors.
 
 ### Arm/Disarm Switch {#arming_switch}
 
