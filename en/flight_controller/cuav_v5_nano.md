@@ -85,7 +85,7 @@ make px4_fmu-v5_default
 ## Voltage Ratings
 
 *V5 NANO* can be Two-fold redundancy on the power supply if two power sources are supplied.
-The three power rails are: **POWER1**and **USB**.
+The three power rails are: **POWER1** and **USB**.
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
   You must supply power to one of **POWER1**or **USB** or the board will be unpowered.
@@ -101,6 +101,17 @@ The three power rails are: **POWER1**and **USB**.
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+
+
+## Known Issues
+
+#### GPS not compatible with other devices (Critical) - TBD_SERIAL_NUMBER
+
+The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
+The GPS will not work with other flight controllers, and is the only GPS unit that can be used with the *CUAV V5+* and *CUAV V5 nano*.
+<!-- Nano/80/V5_NANO_RC01_2019_05_29 -->
+
+
 
 ## Further Information
 
