@@ -72,7 +72,7 @@ The figure below shows how you can access your remote receiver (please find the 
 ## Spektrum Satellite Receivers
 
 The V5 nano has a dedicated DSM cable.
-The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface. 
+If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface. 
 
 
 ## Power
