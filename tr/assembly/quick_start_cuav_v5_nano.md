@@ -22,7 +22,7 @@ The image below shows how to connect the most important sensors and peripherals 
 | CAN1/CAN2       | Connect UAVCAN devices such as CAN GPS.                                                                                                                                                            |
 | TYPE-C\(USB\) | Connect to a computer for communication between the flight controller and the computer, such as loading firmware                                                                                   |
 | GPS&SAFETY      | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface.                                                                                                                           |
-| TELEM1/TELME2   | Connect to the Telemetry System.                                                                                                                                                                   |
+| TELEM1/TELEM2   | Connect to the Telemetry System.                                                                                                                                                                   |
 | DSM/SBUS/RSSI   | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module. |
 
 
