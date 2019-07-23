@@ -14,8 +14,8 @@ We'll go through each of these in detail in the following sections.
 
 | Main interface | Function |
 | :--- | :--- |
-| POWER1 | Connect Power module;  power input & AD voltage  and current detection. |
-| POWER2 | Connect i2c smart battery. |
+| Power | Connect Power module;  power input & AD voltage  and current detection. |
+| PM2 | Connect i2c smart battery. |
 | TF CARD |Insert SD card for log storage|
 | M1~M8 | PWM outputs. Can be used to control motors or servos. |
 | A1~A8 | PWM outputs. Can be used to control motors or servos. |
@@ -49,12 +49,13 @@ Connect to the flight control GPS interface using a cable.
 ## Safety Switch
 
 The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended Neo GPS (which has an inbuilt safety switch).
-If you are flying without the GPS you must attach the switch directly to the  GPS1  port in order to be able to arm the vehicle and fly (If you use the old 6-pin GPS, please read the definition of the bottom interface to change the line.).
+
+If you are flying without the GPS you must attach the switch directly to the GPS1 port in order to be able to arm the vehicle and fly (If you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
 
 
 ## Buzzer
 
-If you do not use the recommended GPS, there may be problems with the buzzer not working.
+If you do not use the recommended GPS the buzzer may not work.
 You may need to add an external buzzer instead.
 
 
@@ -71,13 +72,13 @@ The figure below shows how you can access your remote receiver (please find the 
 ## Spektrum Satellite Receivers
 
 The V5 nano has a dedicated DSM cable.
-The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface.
+The Spektrum satellite receiver should be connected to the flight control DSM/SBUS/RSSI interface. 
 
 
 ## Power
 
 The v5 nano kit includes HV\_PM, which supports 2~10S LiPo battery.
-Please connect the 6pin connector of the HW\_PM module to the flight control `Power1` interface.
+Please connect the 6pin connector of the HW\_PM module to the flight control `Power` interface.
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
@@ -87,7 +88,7 @@ Please connect the 6pin connector of the HW\_PM module to the flight control `Po
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
 The communication channel is via Telemetry Radios.
-The vehicle-based radio should be connected to the **TELEM1/TELEM2** port (if connected to this port, no further configuration is required).
+The vehicle-based radio should be connected to the **TELEM1** or **TELEM2** port (if connected to these ports, no further configuration is required).
 The other radio is connected to your ground station computer or mobile device (usually via USB).
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
