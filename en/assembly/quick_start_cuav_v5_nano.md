@@ -14,17 +14,17 @@ We'll go through each of these in detail in the following sections.
 
 | Main interface | Function |
 | :--- | :--- |
-| POWER1 | Connect Power  module;  power input & AD voltage  and current detection. |
-| POWER2 | Connect i2c smart battery.|
+| POWER1 | Connect Power module;  power input & AD voltage  and current detection. |
+| POWER2 | Connect i2c smart battery. |
 | TF CARD |Insert SD card for log storage|
 | M1~M8 | PWM outputs. Can be used to control motors or servos. |
 | A1~A8 | PWM outputs. Can be used to control motors or servos. |
-| DSU7 |Used for FMU debug, reading debug information. |
+| DSU7 | Used for FMU debug, reading debug information. |
 | I2C1/I2C2 | Connect an I2C device such as an external compass. |
 | CAN1/CAN2 | Connect UAVCAN devices such as CAN GPS. |
 | TYPE-C\(USB\) | Connect to a computer for communication between the flight controller and the computer, such as loading firmware |
 | GPS&SAFETY |Connect to Neo GPS, which includes GPS, safety switch, buzzer interface. |
-| TELEM1/TELME2 | Connect to the Telemetry System. |
+| TELEM1/TELEM2 | Connect to the Telemetry System. |
 | DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module.
 
 > **Note** For more interface information, please read [V5 nano Manual](http://manual.cuav.net/V5-nano.pdf).
