@@ -24,7 +24,7 @@ Alternatively arming and disarming can also be performed in *QGroundControl* (PX
 
 The easiest way to takeoff is to use the automatic [Takeoff mode](../flight_modes/takeoff.md) (remembering that you need to arm the vehicle before you can engage the vehicle motors).
 
-Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_fw), arming the vehicle, and then raising the throttle stick above 62.5%. 
+Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. 
 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
 > **Tip** The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles.
