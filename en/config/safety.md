@@ -144,7 +144,7 @@ The settings and underlying parameters are shown below:
 
 Setting | Parameter | Description
 --- | --- | ---
-Disarm After | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing, and enter delay after landing before disarming (must be non-zero).
+Disarm After | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing, and enter delay after landing before disarming. The value must be non-zero but can be a fraction of a second.
 Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED) | Rate of descent (MC only).
 
 
