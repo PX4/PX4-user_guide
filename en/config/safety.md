@@ -135,7 +135,7 @@ Loiter Time | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAN
 ### Land Mode Settings
 
 *Land at the current position* is a common [failsafe action](#failsafe_actions) that engages [Land Mode](../flight_modes/land.md).
-This section shows how control when and if the vehicle automatically disarms after landing.
+This section shows how to control when and if the vehicle automatically disarms after landing.
 For Multicopters (only) you can additionally set the descent rate.
 
 ![Safety - Land Mode Settings (QGC)](../../images/qgc/setup/safety_land_mode.png)
