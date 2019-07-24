@@ -133,15 +133,6 @@ The 5 volt pins on all connectors will be lower when powered from USB than the P
 - *Fixed:* -
 
 
-#### Do not plug Digital or Analog PM onto connectors configured for other type of PM
-
-If you plug an Analog PM into a digital PM connector it will stop all the I2C devices on that bus.
-Specifically this will stop the GPS's compass due to contention, and may also damage the FMU (longer term).
-
-Similarly, a digital PM plugged into a analog connector will not work, and may also damage/destroy the power module (longer term).
-
-- *Found:* Batch 01
-- *Fixed:* -
 
 #### Note to developers
 
