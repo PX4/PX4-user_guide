@@ -133,17 +133,14 @@ The 5 volt pins on all connectors will be lower when powered from USB than the P
 - *Fixed:* -
 
 
+#### Debugging on hardware (developer note)
 
-#### Note to developers
-
-DSU7 FMU Debug Pin 1 is 5 volts and not the 3.3 volts of the CPU.
+`DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
 Some JTAG use this voltage to set the IO levels when communicating to the target.
 
-For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (Vtref).
+For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-- *Found:* Batch 01
-- *Fixed:* -
 
 ## Further Information
 
