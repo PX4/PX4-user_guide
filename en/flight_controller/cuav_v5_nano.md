@@ -84,8 +84,8 @@ make px4_fmu-v5_default
 
 ## Voltage Ratings
 
-*V5 NANO* can be Two-fold redundancy on the power supply if two power sources are supplied.
-The three power rails are: **POWER1** and **USB**.
+*V5 NANO* can be two-fold redundancy on the power supply if two power sources are supplied.
+The power rails are: **POWER1** and **USB**.
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
   You must supply power to one of **POWER1**or **USB** or the board will be unpowered.
