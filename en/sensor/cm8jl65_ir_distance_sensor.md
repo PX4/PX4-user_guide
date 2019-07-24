@@ -26,3 +26,6 @@ The pinouts are labeled on the bottom of the sensor:
   ```
   distance_sensor/cm8jl65
   ```
+  
+In order to use the sensor for *collision prevention* you will further need to set the parameters [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) and [MPC_COL_PREV_D](../advanced_config/parameter_reference.mdMPC_COL_PREV_D).
+For more information see: [Collision Prevention](../computer_vision/collision_prevention.md#rangefinder).
