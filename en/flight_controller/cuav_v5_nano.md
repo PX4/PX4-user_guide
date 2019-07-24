@@ -123,14 +123,15 @@ The GPS will not work with other flight controllers, and is the only GPS unit th
 - *Found:* Batch 01
 - *Fixed:* -
 
-#### Power Module voltage is 5.2V
+#### Volt regulation varies greater than +/- 5%
 
-The power module output voltage is 5.216V (as compared to more typical 5.05V).
+The 5 volt pins on all connectors will be lower when powered from USB than the Power Module (the pins will measure approximately 4.69V when only powered by USB, and 5.28 Volts when connected to the Power Module).
 
-In addition, the measured voltage at the connectors is different when powered off USB as compared to the Power Module.
+> **Note** We recommend that when using USB with the *v5 Nano* you *also connect the power module* (to avoid under-powering any connected peripherals.
 
 - *Found:* Batch 01
 - *Fixed:* -
+
 
 #### Do not plug Digital or Analog PM onto connectors configured for other type of PM
 
@@ -138,6 +139,17 @@ If you plug an Analog PM into a digital PM connector it will stop all the I2C de
 Specifically this will stop the GPS's compass due to contention, and may also damage the FMU (longer term).
 
 Similarly, a digital PM plugged into a analog connector will not work, and may also damage/destroy the power module (longer term).
+
+- *Found:* Batch 01
+- *Fixed:* -
+
+#### Note to developers
+
+DSU7 FMU Debug Pin 1 is 5 volts and not the 3.3 volts of the CPU.
+
+Some JTAG use this voltage to set the IO levels when communicating to the target.
+
+For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (Vtref).
 
 - *Found:* Batch 01
 - *Fixed:* -
