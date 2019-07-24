@@ -114,10 +114,11 @@ The GPS will not work with other flight controllers, and is the only GPS unit th
 - *Found:* Batch 01
 - *Fixed:* -
 
-#### Don't use PM2 to power PX4
+#### PM2 cannot power the flight controller
 
-The PM2 port can't be used for powering the CUAV V5 nano when using PX4.
-It can detect battery voltage and current.
+`PM2` can only measure battery voltage and current, but **not** power the flight controller.
+
+> **Warning** We recommend you do not connect a power module to this connector when using PX4.
 
 - *Found:* Batch 01
 - *Fixed:* -
