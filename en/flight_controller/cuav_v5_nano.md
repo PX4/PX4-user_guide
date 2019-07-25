@@ -16,7 +16,6 @@ Some of its main features include:
 - Generous 2.6mm spacing for for I/O pins, making it easier to use all the interfaces. 
 
 
-
 ### Quick Summary
 
 Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
@@ -84,12 +83,12 @@ make px4_fmu-v5_default
 
 ## Voltage Ratings
 
-*V5 NANO* can be two-fold redundancy on the power supply if two power sources are supplied.
-The power rails are: **POWER1** and **USB**.
+*V5 nano* must be powered from `Power` during flight, and may also/alternatively be powered from `USB` for bench testing.
 
+> **Note** `PM2` cannot not be used for powering the *V5 nano* (see [this issue](#issue_pm2)).
+
+<span></span>
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
-  You must supply power to one of **POWER1**or **USB** or the board will be unpowered.
-  The PM2 connector only works with Ardupilot firmware and can only detect battery voltage and current, not powering V5 nano.
 
 ## Peripherals {#Optional-hardware}
 
@@ -114,7 +113,7 @@ The GPS will not work with other flight controllers, and is the only GPS unit th
 - *Found:* Batch 01
 - *Fixed:* -
 
-#### PM2 cannot power the flight controller
+#### PM2 cannot power the flight controller {#issue_pm2}
 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
 
@@ -127,19 +126,21 @@ The GPS will not work with other flight controllers, and is the only GPS unit th
 
 The 5 volt pins on all connectors will be lower when powered from USB than the Power Module (the pins will measure approximately 4.69V when only powered by USB, and 5.28 Volts when connected to the Power Module).
 
-> **Note** We recommend that when using USB with the *v5 Nano* you *also connect the power module* (to avoid under-powering any connected peripherals.
+We recommend that when using USB with the *V5 nano* you *also connect the power module* (to avoid under-powering any connected peripherals).
+
+> **Warning** Remove propellers *before* connecting the power module (this is important whenever bench testing with powered motors).
 
 - *Found:* Batch 01
 - *Fixed:* -
 
 
-#### Debugging on hardware (developer note)
+#### Using JTAG for hardware debugging
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
 Some JTAG use this voltage to set the IO levels when communicating to the target.
 
-For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
+For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of `DSM`/`SBUS`/`RSSI` pin 4 as Pin 1 on the debug connector (`Vtref`).
 
 
 ## Further Information

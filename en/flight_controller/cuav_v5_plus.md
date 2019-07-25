@@ -124,7 +124,9 @@ The GPS will not work with other flight controllers, and is the only GPS unit th
 
 The 5 volt pins on all connectors will be lower when powered from USB than the Power Module (the pins will measure approximately 4.69V when only powered by USB, and 5.28 Volts when connected to the Power Module).
 
-> **Note** We recommend that when using USB with the *v5 Nano* you *also connect the power module* (to avoid under-powering any connected peripherals.
+We recommend that when using USB with the *V5+* you *also connect the power module* (to avoid under-powering any connected peripherals).
+
+> **Warning** Remove propellers *before* connecting the power module (this is important whenever bench testing with powered motors).
 
 - *Found:* Batch 01
 - *Fixed:* -
@@ -140,7 +142,7 @@ Similarly, a digital PM plugged into a analog connector will not work, and may a
 - *Fixed:* -
 
 
-#### Debugging on hardware (developer note)
+#### Using JTAG for hardware debugging
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
