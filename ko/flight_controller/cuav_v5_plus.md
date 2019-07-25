@@ -94,7 +94,7 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
 The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable). It does not have an i/o debug interface.
 
-# Peripherals {#optional-hardware}
+## Peripherals {#optional-hardware}
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
 * [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
@@ -103,6 +103,43 @@ The system's serial console and SWD interface operate on the **FMU Debug** port.
 ## Supported Platforms / Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+
+## Known Issues
+
+#### GPS not compatible with other devices (Critical)
+
+The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch). The GPS will not work with other flight controllers, and is the only GPS unit that can be used with the *CUAV V5+* and *CUAV V5 nano*. <!-- 5+/90/V5+ 20190523 RC01 -->
+
+- *Found:* Batch 01
+- *Fixed:* -
+
+#### Volt regulation varies greater than +/- 5%
+
+The 5 volt pins on all connectors will be lower when powered from USB than the Power Module (the pins will measure approximately 4.69V when only powered by USB, and 5.28 Volts when connected to the Power Module).
+
+We recommend that when using USB with the *V5+* you *also connect the power module* (to avoid under-powering any connected peripherals).
+
+> **Warning** Remove propellers *before* connecting the power module (this is important whenever bench testing with powered motors).
+
+- *Found:* Batch 01
+- *Fixed:* -
+
+#### Do not plug Digital or Analog PM onto connectors configured for other type of PM
+
+If you plug an Analog PM into a digital PM connector it will stop all the I2C devices on that bus. Specifically this will stop the GPS's compass due to contention, and may also damage the FMU (longer term).
+
+Similarly, a digital PM plugged into a analog connector will not work, and may also damage/destroy the power module (longer term).
+
+- *Found:* Batch 01
+- *Fixed:* -
+
+#### Using JTAG for hardware debugging
+
+`DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
+
+Some JTAG use this voltage to set the IO levels when communicating to the target.
+
+For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
 ## Further Information
 
