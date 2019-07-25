@@ -1041,6 +1041,22 @@
     </td>
   </tr>
   
+  <tr id="copter_quadrotor_x_holybro_kopis_2">
+    <td style="vertical-align: top;">
+      Holybro Kopis 2
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Beat Kueng <beat@px4.io>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 4053
+      </p>
+    </td>
+  </tr>
+  
   <tr id="copter_quadrotor_x_dji_matrice_100">
     <td style="vertical-align: top;">
       DJI Matrice 100
