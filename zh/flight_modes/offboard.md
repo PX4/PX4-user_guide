@@ -4,7 +4,7 @@
 
 飞机按照远端控制器通过MAVLink给出的位置，速度或姿态设定值来运行。 The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
-> **Note** * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc. * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes). * The vehicle must be armed before this mode can be engaged. * The vehicle must be already be receiving a stream of target setpoints before this mode can be engaged. * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
+> **Note** * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc. * RC control is disabled except to change modes. * The vehicle must be armed before this mode can be engaged. * The vehicle must be already be receiving a stream of target setpoints before this mode can be engaged. * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
 
 ## 描述
 
