@@ -1041,6 +1041,22 @@
     </td>
   </tr>
   
+  <tr id="copter_quadrotor_x_holybro_kopis_2">
+    <td style="vertical-align: top;">
+      Holybro Kopis 2
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Beat Kueng <beat@px4.io>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 4053
+      </p>
+    </td>
+  </tr>
+  
   <tr id="copter_quadrotor_x_dji_matrice_100">
     <td style="vertical-align: top;">
       DJI Matrice 100
@@ -1120,20 +1136,20 @@
       </p>
       
       <p>
-        <b>특정 출력:</b>
+        <b>Specific Outputs:</b>
         
         <ul>
           <li>
-            <b>MAIN1</b>: 모터 1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 모터 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 모터 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 모터 4
+            <b>MAIN4</b>: motor 4
           </li>
         </ul>
       </p>
