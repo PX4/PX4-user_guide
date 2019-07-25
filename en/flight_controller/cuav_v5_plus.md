@@ -71,16 +71,16 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 ## Voltage Ratings
 
 *V5+ AutoPilot* can be triple-redundant on the power supply if three power sources are supplied.
-The three power rails are: **POWER1**, **POWER2** and **USB**.
+The three power rails are: `Power1`, `Power2` and `USB`.
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
-  You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+  You must supply power to one of `Power1`, `Power2` or `USB` or the board will be unpowered.
 
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
-1. **POWER1** and **POWER2** inputs (4.3V to 5.4V)
-1. **USB** input (4.75V to 5.25V)
+1. `Power1` and `Power2`* inputs (4.3V to 5.4V)
+1. `USB` input (4.75V to 5.25V)
 
 ## Building Firmware
 
@@ -108,6 +108,7 @@ It does not have an i/o debug interface.
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+
 
 ## Known Issues
 
@@ -150,6 +151,9 @@ Some JTAG use this voltage to set the IO levels when communicating to the target
 
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
+#### The HV\_PM power module output is unfused {#issue_pm_unfused}
+
+The *HV\_PM* power module supplied with the kit has an *unfused* output, and may be damaged if connected incorrectly/too much power is drawn.
 
 
 ## Further Information
