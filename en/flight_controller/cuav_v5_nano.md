@@ -147,7 +147,7 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 
 The *HV\_PM* power module supplied with the kit is not protected by a fuse:
 - Only connect devices with the power turned off.
-- The power module may be damaged if connected incorrectly/too much power is drawn..
+- The power module may be damaged if connected incorrectly/too much power is drawn.
 
 
 ## Further Information
