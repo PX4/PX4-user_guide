@@ -70,12 +70,13 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 ## Voltage Ratings
 
-*V5+ AutoPilot* can be triple-redundant on the power supply if three power sources are supplied.
-The three power rails are: `Power1`, `Power2` and `USB`.
+*V5+ AutoPilot* support redundant power supply - up to three sources may be used: `Power1`, `Power2` and `USB`.
+You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
-  You must supply power to one of `Power1`, `Power2` or `USB` or the board will be unpowered.
+> **Note** The *output* power sources **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) cannot be used to power the flight controller board, and are not powered by it. 
+  If you're connecting servos/actuators directly of these sources you will need to separately power it using a BEC.
 
+  
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
