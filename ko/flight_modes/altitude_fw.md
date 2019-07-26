@@ -1,10 +1,10 @@
-# Altitude Mode (Fixed Wing)
+# 고도 모드(고정익)
 
 [<img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" />](../getting_started/flight_modes.md#key_difficulty)&nbsp;[<img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" />](../getting_started/flight_modes.md#key_manual)&nbsp;[<img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" />](../getting_started/flight_modes.md#altitude_only)
 
-The *Altitude* flight mode makes it easier for users to control vehicle altitude, and in particular to reach and maintain a fixed altitude. The mode will not attempt to hold the vehicle course against wind.
+*고도* 비행모드는 사용자가 기체의 고도를 제어하거나 특정 고도를 유지하는것을 용이하게 합니다. 이 모드 하에서 바람이 있을 때 기체는 방향을 유지하지 않습니다.
 
-The climb/descent rate is controlled via the pitch/elevator stick. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed.
+기체의 상승/하강률을 피치/엘리베이터 스틱을 이용하여 제어할 수 있습니다. Once centered the autopilot latches onto the current altitude and will maintain it during yaw/roll, and at any airspeed.
 
 The throttle input controls airspeed. Roll and pitch are angle-controlled (so it is impossible to roll over or loop the vehicle).
 
