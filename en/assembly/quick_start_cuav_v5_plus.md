@@ -79,11 +79,13 @@ The V5+ kit includes the *HV\_PM* module, which supports 2~10S LiPo batteries.
 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
 
 > **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_plus.md#issue_pm_unfused)).
+   - Power **must** be turned off while connecting peripherals.
+   - Improper wiring can lead to *personal harm* or equipment damage!
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
-> **Note** The power module does not supply the output rail.
-  If you're connecting servos/actuators directly of this rail you will need to separately power it using a BEC.
+> **Note** The power module is not a power source for peripherals connected to the PWM outputs.
+  If you're connecting servos/actuators you will need to separately power them using a BEC.
 
 ## Telemetry System (Optional) 
 

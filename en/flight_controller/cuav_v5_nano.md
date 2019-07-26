@@ -83,12 +83,14 @@ make px4_fmu-v5_default
 
 ## Voltage Ratings
 
-*V5 nano* must be powered from `Power` during flight, and may also/alternatively be powered from `USB` for bench testing.
+*V5 nano* must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.
 
-> **Note** `PM2` cannot not be used for powering the *V5 nano* (see [this issue](#issue_pm2)).
+> **Note** The `PM2` connector cannot not be used for powering the *V5 nano* (see [this issue](#issue_pm2)).
 
 <span></span>
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+> **Note** The *output* power source **FMU PWM OUT** (0V to 36V) cannot be used to power the flight controller board, and are not powered by it. 
+  If you're connecting peripherals that must be powered, you will need to separately power the output using a BEC.
+
 
 ## Peripherals {#Optional-hardware}
 
@@ -145,9 +147,11 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 
 #### HV\_PM power module output is unfused {#issue_pm_unfused}
 
+> **Warning** This is a serious safety issue.
+
 The *HV\_PM* power module supplied with the kit is not protected by a fuse:
-- Only connect devices with the power turned off.
-- The power module may be damaged if connected incorrectly/too much power is drawn.
+- Power **must** be turned off while connecting peripherals.
+- Improper wiring can lead to *personal harm* or equipment damage!
 
 
 ## Further Information

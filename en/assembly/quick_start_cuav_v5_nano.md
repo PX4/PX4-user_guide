@@ -14,7 +14,7 @@ We'll go through each of these in detail in the following sections.
 
 | Main interface | Function |
 | :--- | :--- |
-| Power | Connect Power module;  power input & AD voltage  and current detection. |
+| Power | Connect Power module; Power input and AD voltage and current detection. |
 | PM2 | [Do not use with PX4](../flight_controller/cuav_v5_nano.md#issue_pm2) |
 | TF CARD | SD card for log storage (comes with card) |
 | M1~M8 | PWM outputs. Can be used to control motors or servos. |
@@ -84,11 +84,13 @@ The *v5 nano* kit includes the *HV\_PM* module, which supports 2~10S LiPo batter
 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
 
 > **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_nano.md#issue_pm_unfused)).
+   - Power **must** be turned off while connecting peripherals.
+   - Improper wiring can lead to *personal harm* or equipment damage!
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-> **Note** The power module does not supply the output rail.
-  If you're connecting servos/actuators directly of this rail you will need to separately power it using a BEC.
+> **Note** The power module is not a power source for peripherals connected to the PWM outputs.
+  If you're connecting servos/actuators you will need to separately power them using a BEC.
 
 
 ## Telemetry System (Optional)
