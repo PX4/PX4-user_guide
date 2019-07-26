@@ -68,12 +68,26 @@ The recommended mounting orientation (meaning: zero rotation) is defined as Y on
 ![PX4Flow align with Pixhawk](../../assets/hardware/sensors/px4flow/px4flowalignwithpixhawk.jpg)
 
 On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT).
-The above orientation maps to `SENS_FLOW_ROT`=270 degrees (the default). 
+The above orientation maps to [SENS_FLOW_ROT](#SENS_FLOW_ROT)=270 degrees (the default).
 
 Make sure the the PX4Flow board is well dampened.
 
-> **Warning** PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible.
-  (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
+> **Warning** PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
+  
+
+## PX4 Configuration {#px4_configuration}
+
+The PX4Flow parameters that you may need to configure are listed below.
+
+Parameter | Description
+--- | ---
+<span id="SENS_FLOW_MAXHGT"></span>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | Maximum height above ground when reliant on optical flow.
+<span id="SENS_FLOW_MINHGT"></span>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | Minimum height above ground when reliant on optical flow.
+<span id="SENS_FLOW_MAXR"></span>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR) | Maximum angular flow rate reliably measurable by the optical flow sensor.
+<span id="SENS_FLOW_ROT"></span>[SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT) | Yaw rotation of the PX4FLOW board relative to the vehicle body frame.
+
+If you're using flow with the ECL/EFK2 estimator you will also need to set the [Optical Flow > Estimators > EKF2](../sensor/optical_flow.md#ekf2) parameters.
+These enable fusing optical flow measurements for velocity calculation and also allow you to define offsets if the sensor is not centred within the vehicle.
 
 
 ### Connecting
