@@ -57,7 +57,6 @@ If you are flying without the GPS you must attach the switch directly to the `GP
 ## Buzzer
 
 If you do not use the recommended GPS, the buzzer may not work.
-<!-- You may need to add an external buzzer instead. -->
 
 ## Radio Control
 

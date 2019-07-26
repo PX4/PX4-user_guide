@@ -18,10 +18,10 @@ We'll go through each of these in detail in the following sections.
 | PM2 | [Do not use with PX4](../flight_controller/cuav_v5_nano.md#issue_pm2) |
 | TF CARD | SD card for log storage (comes with card) |
 | M1~M8 | PWM outputs. Can be used to control motors or servos. |
-| A1~A3 | PWM outputs. Can be used to control motors or servos. |
-| nARMED | |
+| A1~A3 | Capture pins (not supported on PX4). |
+| nARMED | Digital OUTPUT: GPIO will be set as input while not armed. While armed it will be configured as a GPIO OUT set low. |
 | DSU7 | Used for FMU debug, reading debug information. |
-| I2C1/I2C2/I2C3/I2C4 | Connect an I2C device such as an external compass. |
+| I2C2/I2C3/I2C4 | Connect an I2C device such as an external compass. |
 | CAN1/CAN2 | Connect UAVCAN devices such as CAN GPS. |
 | TYPE-C\(USB\) | Connect to a computer for communication between the flight controller and the computer, such as loading firmware |
 | GPS&SAFETY |Connect to Neo GPS, which includes GPS, safety switch, buzzer interface. |
@@ -59,7 +59,6 @@ If you are flying without the GPS you must attach the switch directly to the `GP
 ## Buzzer
 
 If you do not use the recommended *Neo v2 GPS* the buzzer may not work.
-<!-- You may need to add an external buzzer instead. -->
 
 
 ## Radio Control
