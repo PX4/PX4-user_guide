@@ -102,6 +102,8 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## Known Issues
 
+The issues below refer to the *batch number* in which they first appear. The batch number is the last two digits of the *serial number* that appears on a sticker on the side of the flight controller. For example, the serial number V031907XXXX**01** indicates the flight controller was in batch 01.
+
 #### GPS not compatible with other devices (Critical) - Batch 01 {#issue_gps_compatible}
 
 The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
