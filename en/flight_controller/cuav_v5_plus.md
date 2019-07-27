@@ -70,17 +70,28 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 ## Voltage Ratings
 
-*V5+ AutoPilot* can be triple-redundant on the power supply if three power sources are supplied.
-The three power rails are: **POWER1**, **POWER2** and **USB**.
+*V5+ AutoPilot* supports redundant power supply - up to three sources may be used: `Power1`, `Power2` and `USB`.
+You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
-  You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+> **Note** On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU.
+  It is neither powered by, nor provides power to the FMU.
+  However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+
 
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
-1. **POWER1** and **POWER2** inputs (4.3V to 5.4V)
-1. **USB** input (4.75V to 5.25V)
+1. `Power1` and `Power2` inputs (4.3V to 5.4V)
+1. `USB` input (4.75V to 5.25V)
+
+
+## Current Protection
+
+The *V5+* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
+The *V5+* has short circuit protection.
+
+> **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+
 
 ## Building Firmware
 
@@ -108,6 +119,7 @@ It does not have an i/o debug interface.
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+
 
 ## Known Issues
 
@@ -150,6 +162,12 @@ Some JTAG use this voltage to set the IO levels when communicating to the target
 
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
+#### The HV\_PM power module output is unfused {#issue_pm_unfused}
+
+> **Warning** This is a serious safety issue.
+
+- Power **must** be turned off while connecting peripherals.
+- Improper wiring can lead to *personal harm* or equipment damage!
 
 
 ## Further Information
