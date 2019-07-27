@@ -12,13 +12,14 @@ The image below shows how to connect the most important sensors and peripherals 
 
 | Main interface  | Function                                                                                                                                                                                           |
 |:--------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Power           | Connect Power module; power input & AD voltage and current detection.                                                                                                                              |
-| PM2             | Connect i2c smart battery.                                                                                                                                                                         |
-| TF CARD         | Insert SD card for log storage                                                                                                                                                                     |
+| Power           | Connect Power module; Provides Power and ANALOG voltage and current measurements.                                                                                                                  |
+| PM2             | [Do not use with PX4](../flight_controller/cuav_v5_nano.md#issue_pm2)                                                                                                                              |
+| TF CARD         | SD card for log storage (comes with card)                                                                                                                                                          |
 | M1~M8           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
-| A1~A8           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
+| A1~A3           | Capture pins (not *currently* supported on PX4).                                                                                                                                                   |
+| nARMED          | Indicates the FMU armed state. It is active low (low when armed).                                                                                                                                  |
 | DSU7            | Used for FMU debug, reading debug information.                                                                                                                                                     |
-| I2C1/I2C2       | Connect an I2C device such as an external compass.                                                                                                                                                 |
+| I2C2/I2C3/I2C4  | Connect an I2C device such as an external compass.                                                                                                                                                 |
 | CAN1/CAN2       | Connect UAVCAN devices such as CAN GPS.                                                                                                                                                            |
 | TYPE-C\(USB\) | Connect to a computer for communication between the flight controller and the computer, such as loading firmware                                                                                   |
 | GPS&SAFETY      | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface.                                                                                                                           |
@@ -30,11 +31,13 @@ The image below shows how to connect the most important sensors and peripherals 
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_03.png)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you willneed to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
+> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../advanced_features/rtk-gps.md).
 
 ## GPS + Compass + Safety Switch + LED
 
-The recommended GPS module is the Neo v2 GPS, which contains GPS, compass, safety switch, buzzer, LED status light.
+The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
+
+> **Note** Other GPS modules may not work (see [this issue](../flight_controller/cuav_v5_nano.md#issue_gps_compatible)).
 
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (Neo GPS arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
 
@@ -44,13 +47,13 @@ The GPS/Compass module should be mounted on the frame as far away from other ele
 
 ## Safety Switch
 
-The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended Neo GPS (which has an inbuilt safety switch).
+The dedicated safety switch that comes with the V5+ is only required if you are not using the recommended *Neo v2 GPS* (which has an inbuilt safety switch).
 
-If you are flying without the GPS you must attach the switch directly to the GPS1 port in order to be able to arm the vehicle and fly (If you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
+If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (If you use the old 6-pin GPS, please read the definition of the bottom interface to change the line).
 
 ## Buzzer
 
-If you do not use the recommended GPS the buzzer may not work. You may need to add an external buzzer instead.
+If you do not use the recommended *Neo v2 GPS* the buzzer may not work.
 
 ## Radio Control
 
@@ -62,13 +65,20 @@ The figure below shows how you can access your remote receiver (please find the 
 
 ## Spektrum Satellite Receivers
 
-The V5 nano has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface.
+The V5 nano has a dedicated DSM cable. If using a Spektrum satellite receiver, this should be connected to the flight controller `DSM/SBUS/RSSI` interface.
 
 ## Power
 
-The v5 nano kit includes HV\_PM, which supports 2~10S LiPo battery. Please connect the 6pin connector of the HW\_PM module to the flight control `Power` interface.
+The *v5 nano* kit includes the *HV\_PM* module, which supports 2~10S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
+
+> **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_nano.md#issue_pm_unfused)).
+
+- Power **must** be turned off while connecting peripherals.
+- Improper wiring can lead to *personal harm* or equipment damage!
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
+
+> **Note** The power module is not a power source for peripherals connected to the PWM outputs. If you're connecting servos/actuators you will need to separately power them using a BEC.
 
 ## Telemetry System (Optional)
 
