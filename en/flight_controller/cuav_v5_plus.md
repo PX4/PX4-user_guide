@@ -156,7 +156,6 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 
 > **Warning** This is a serious safety issue.
 
-The *HV\_PM* power module supplied with the kit is not protected by a fuse:
 - Power **must** be turned off while connecting peripherals.
 - Improper wiring can lead to *personal harm* or equipment damage!
 
