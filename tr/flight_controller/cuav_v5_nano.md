@@ -78,13 +78,17 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
 ## Voltage Ratings
 
-*V5 nano* must be powered from `Power` during flight, and may also/alternatively be powered from `USB` for bench testing.
+*V5 nano* must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.
 
-> **Note** `PM2` cannot not be used for powering the *V5 nano* (see [this issue](#issue_pm2)).
+> **Note** The `PM2` connector cannot not be used for powering the *V5 nano* (see [this issue](#issue_pm2)).
 
 <span></span>
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+> **Note** The Servo Power Rail is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+
+## Current Protection
+
+The *V5 nano* has no over current protection.
 
 ## Peripherals {#Optional-hardware}
 
@@ -98,9 +102,11 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 
 ## Known Issues
 
-#### GPS not compatible with other devices (Critical) - Batch 01
+#### GPS not compatible with other devices (Critical) - Batch 01 {#issue_gps_compatible}
 
-The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch). The GPS will not work with other flight controllers, and is the only GPS unit that can be used with the *CUAV V5+* and *CUAV V5 nano*. <!-- Nano/80/V5_NANO_RC01_2019_05_29 -->
+The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
+
+The GPS will not work with other flight controllers, and is the only GPS unit that can be used with the *CUAV V5+* and *CUAV V5 nano*. <!-- Nano/80/V5_NANO_RC01_2019_05_29 -->
 
 - *Found:* Batch 01
 - *Fixed:* -
@@ -125,13 +131,22 @@ We recommend that when using USB with the *V5 nano* you *also connect the power 
 - *Found:* Batch 01
 - *Fixed:* -
 
-#### Using JTAG for hardware debugging
+#### Using JTAG for hardware debugging {#issue_jtag}
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
 Some JTAG use this voltage to set the IO levels when communicating to the target.
 
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of `DSM`/`SBUS`/`RSSI` pin 4 as Pin 1 on the debug connector (`Vtref`).
+
+#### HV\_PM power module output is unfused {#issue_pm_unfused}
+
+> **Warning** This is a serious safety issue.
+
+The *HV\_PM* power module supplied with the kit is not protected by a fuse:
+
+- Power **must** be turned off while connecting peripherals.
+- Improper wiring can lead to *personal harm* or equipment damage!
 
 ## Further Information
 
