@@ -57,11 +57,24 @@ The recommended mounting orientation (meaning: zero rotation) is defined as Y on
 
 ![PX4Flow align with Pixhawk](../../assets/hardware/sensors/px4flow/px4flowalignwithpixhawk.jpg)
 
-On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT). The above orientation maps to `SENS_FLOW_ROT`=270 degrees (the default).
+On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT). The above orientation maps to [SENS_FLOW_ROT](#SENS_FLOW_ROT)=270 degrees (the default).
 
 Make sure the the PX4Flow board is well dampened.
 
-> **Warning** PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible. (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
+> **Warning** PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
+
+## PX4 Configuration {#px4_configuration}
+
+The PX4Flow parameters that you may need to configure are listed below.
+
+| Parameter                                                                                                 | Description                                                               |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| <span id="SENS_FLOW_MAXHGT"></span>[SENS_FLOW_MAXHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MAXHGT) | Maximum height above ground when reliant on optical flow.                 |
+| <span id="SENS_FLOW_MINHGT"></span>[SENS_FLOW_MINHGT](../advanced_config/parameter_reference.md#SENS_FLOW_MINHGT) | Minimum height above ground when reliant on optical flow.                 |
+| <span id="SENS_FLOW_MAXR"></span>[SENS_FLOW_MAXR](../advanced_config/parameter_reference.md#SENS_FLOW_MAXR)     | Maximum angular flow rate reliably measurable by the optical flow sensor. |
+| <span id="SENS_FLOW_ROT"></span>[SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT)       | Yaw rotation of the PX4FLOW board relative to the vehicle body frame.     |
+
+If you're using flow with the ECL/EFK2 estimator you will also need to set the [Optical Flow > Estimators > EKF2](../sensor/optical_flow.md#ekf2) parameters. These enable fusing optical flow measurements for velocity calculation and also allow you to define offsets if the sensor is not centred within the vehicle.
 
 ### Connecting
 
@@ -137,7 +150,7 @@ The following are third party libraries that can be used to integrate the flow m
 - \[px-ros-pkg]\](https://github.com/cvg/px-ros-pkg): A PX4FLOW ROS (Robot Operating System) interface, maintained by Lionel Heng (hengli@inf.ethz.ch).
 - [arduino-px4flow-i2c](https://github.com/eschnou/arduino-px4flow-i2c): An Arduino library wrapping the I2C interface, maintained by Laurent Eschenauer (laurent@eschenauer.be).
 
-## 连接器
+## Connectors
 
 - **USART2 (J2)**: Hirose DF13 6 pos ([Digi-Key Link: DF13A-6P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3371-ND)) 
   - Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](http://search.digikey.com/us/en/products/DF13-6S-1.25C/H2182-ND/241752))
@@ -214,7 +227,7 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 
 # PX4FLOW Developer Guide {#developer_guide}
 
-## 硬件安装
+## Hardware Setup
 
 - PX4FLOW Board v1.3
 - HRLV-MaxSonar-EZ (MB1043)
@@ -230,7 +243,7 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 
 > **Note** PX4 *driver* code can be found here: [PX4/Firmware/src/drivers/px4flow](https://github.com/PX4/Firmware/tree/master/src/drivers/px4flow)
 
-## 编译
+## Build
 
 Install the [PX4 toolchain](https://dev.px4.io/en/setup/dev_env.html) (PX4 Developer Guide). Then and clone the sources from https://github.com/PX4/Flow using *git*.
 
@@ -250,7 +263,7 @@ verify...
 done, rebooting.
 ```
 
-## 故障处理
+## Troubleshooting
 
 In case one doesn't see the aforementioned steps, the modem-manager should be removed by:
 
@@ -309,45 +322,45 @@ This is a pattern correlation threshold for filtering bad matches. Lower means o
 
 ### Others
 
-| 参数名              | 默认值    | Access | Comment                                                                                                                                                                                                                                       |
-| ---------------- | ------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| BFLOW_F_THLD   | 30     | RW     | This parameter is a feature threshold and limits the quality of patterns that are used to calculate the bottom flow. For low values (e.g. 10) almost every pattern is taken, for higher values (e.g. 100) only significant patters are taken. |
-| BFLOW_V_THLD   | 5000   | RW     | This is a pattern correlation threshold for filtering bad matches. Lower means only strong correlations are accepted.                                                                                                                         |
-| BFLOW_HIST_FIL | 0      | RW     | 1: Flow histogram filter is ON, 0: OFF                                                                                                                                                                                                        |
-| BFLOW_GYRO_COM | 0      | RW     | 1: Gyro compensation is ON, 0: OFF                                                                                                                                                                                                            |
-| BFLOW_LP_FIL   | 0      | RW     | 1: Lowpass filter on flow output is ON, 0: OFF                                                                                                                                                                                                |
-| BFLOW_W_NEW    | 0.3    | RW     | Flow lowpass filter gain                                                                                                                                                                                                                      |
-| DEBUG            | 1      | RW     | 1: Debug messages ON, 0: OFF                                                                                                                                                                                                                  |
-| GYRO_SENS_DPS  | 250    | RW     | Gyroscope sensitivity: 250, 500, 2000 (dps)                                                                                                                                                                                                   |
-| GYRO_COMP_THR  | 0.01   | RW     | Gyro compensation threshold (dps): Gyro data lower than this threshold is not compensated to prevent drift                                                                                                                                    |
-| IMAGE_WIDTH      | 64     | R      | Image width (pixels)                                                                                                                                                                                                                          |
-| IMAGE_HEIGHT     | 64     | R      | Image height (pixels)                                                                                                                                                                                                                         |
-| IMAGE_L_LIGHT  | 0      | RW     | 1: Image sensor low light mode ON, 0: OFF                                                                                                                                                                                                     |
-| IMAGE_NOISE_C  | 1      | RW     | 1: Image sensor noise correction ON, 0: OFF                                                                                                                                                                                                   |
-| IMAGE_TEST_PAT | 0      | RW     | 1: Gray-shaded test pattern mode ON, 0: OFF                                                                                                                                                                                                   |
-| LENS_FOCAL_LEN | 16     | RW     | Focal length of lens (mm)                                                                                                                                                                                                                     |
-| POSITION         | 0      | RW     | 0: Only position 0 is used (Bottom: 0, Front: 1, Top: 2, Back: 3, Right: 4, Left: 5)                                                                                                                                                          |
-| SONAR_FILTERED   | 0      | RW     | 1: Kalman filter on sonar output is ON, 0: OFF                                                                                                                                                                                                |
-| SONAR_KAL_L1   | 0.8461 | RW     | Sonar Kalman gain L1                                                                                                                                                                                                                          |
-| SONAR_KAL_L2   | 6.2034 | RW     | Sonar Kalman gain L2                                                                                                                                                                                                                          |
-| SYS_ID           | 81     | RW     | [MAVLink](https://mavlink.io/en/) System ID                                                                                                                                                                                                   |
-| SYS_COMP_ID    | 50     | RW     | [MAVLink](https://mavlink.io/en/) Component ID                                                                                                                                                                                                |
-| SYS_SENSOR_ID  | 77     | RW     | [MAVLink](https://mavlink.io/en/) Sensor ID                                                                                                                                                                                                   |
-| SYS_TYPE         | 0      | RW     | [MAVLink](https://mavlink.io/en/) System Type                                                                                                                                                                                                 |
-| SYS_AP_TYPE    | 1      | RW     | [MAVLink](https://mavlink.io/en/) Autopilot Type                                                                                                                                                                                              |
-| SYS_SW_VER     | 13XX   | R      | Software Version                                                                                                                                                                                                                              |
-| SYS_SEND_STATE | 1      | RW     | 1: Send [MAVLink](https://mavlink.io/en/) Heartbeat, 0: Not                                                                                                                                                                                   |
-| USART_2_BAUD   | 115200 | R      | Baudrate USART 2                                                                                                                                                                                                                              |
-| USART_3_BAUD   | 115200 | R      | Baudrate USART 3 (Data Output)                                                                                                                                                                                                                |
-| USB_SEND_VIDEO | 1      | RW     | 1: Send video over USB, 0: Not                                                                                                                                                                                                                |
-| USB_SEND_FLOW  | 1      | RW     | 1: Send flow over USB, 0: Not                                                                                                                                                                                                                 |
-| USB_SEND_GYRO  | 1      | RW     | 1: Send gyro data over USB, 0: Not                                                                                                                                                                                                            |
-| USB_SEND_FWD   | 0      | RW     | 1: Send forwarded flow over USB, 0: Not                                                                                                                                                                                                       |
-| USB_SEND_DEBUG | 1      | RW     | 1: Send debug msgs over USB, 0: Not                                                                                                                                                                                                           |
-| VIDEO_RATE       | 150    | RW     | Time in milliseconds between images of video transmission                                                                                                                                                                                     |
-| VIDEO_ONLY       | 0      | RW     | 1: High resolution video mode is ON, 0: OFF                                                                                                                                                                                                   |
+| Name             | Default | Access | Comment                                                                                                                                                                                                                                       |
+| ---------------- | ------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BFLOW_F_THLD   | 30      | RW     | This parameter is a feature threshold and limits the quality of patterns that are used to calculate the bottom flow. For low values (e.g. 10) almost every pattern is taken, for higher values (e.g. 100) only significant patters are taken. |
+| BFLOW_V_THLD   | 5000    | RW     | This is a pattern correlation threshold for filtering bad matches. Lower means only strong correlations are accepted.                                                                                                                         |
+| BFLOW_HIST_FIL | 0       | RW     | 1: Flow histogram filter is ON, 0: OFF                                                                                                                                                                                                        |
+| BFLOW_GYRO_COM | 0       | RW     | 1: Gyro compensation is ON, 0: OFF                                                                                                                                                                                                            |
+| BFLOW_LP_FIL   | 0       | RW     | 1: Lowpass filter on flow output is ON, 0: OFF                                                                                                                                                                                                |
+| BFLOW_W_NEW    | 0.3     | RW     | Flow lowpass filter gain                                                                                                                                                                                                                      |
+| DEBUG            | 1       | RW     | 1: Debug messages ON, 0: OFF                                                                                                                                                                                                                  |
+| GYRO_SENS_DPS  | 250     | RW     | Gyroscope sensitivity: 250, 500, 2000 (dps)                                                                                                                                                                                                   |
+| GYRO_COMP_THR  | 0.01    | RW     | Gyro compensation threshold (dps): Gyro data lower than this threshold is not compensated to prevent drift                                                                                                                                    |
+| IMAGE_WIDTH      | 64      | R      | Image width (pixels)                                                                                                                                                                                                                          |
+| IMAGE_HEIGHT     | 64      | R      | Image height (pixels)                                                                                                                                                                                                                         |
+| IMAGE_L_LIGHT  | 0       | RW     | 1: Image sensor low light mode ON, 0: OFF                                                                                                                                                                                                     |
+| IMAGE_NOISE_C  | 1       | RW     | 1: Image sensor noise correction ON, 0: OFF                                                                                                                                                                                                   |
+| IMAGE_TEST_PAT | 0       | RW     | 1: Gray-shaded test pattern mode ON, 0: OFF                                                                                                                                                                                                   |
+| LENS_FOCAL_LEN | 16      | RW     | Focal length of lens (mm)                                                                                                                                                                                                                     |
+| POSITION         | 0       | RW     | 0: Only position 0 is used (Bottom: 0, Front: 1, Top: 2, Back: 3, Right: 4, Left: 5)                                                                                                                                                          |
+| SONAR_FILTERED   | 0       | RW     | 1: Kalman filter on sonar output is ON, 0: OFF                                                                                                                                                                                                |
+| SONAR_KAL_L1   | 0.8461  | RW     | Sonar Kalman gain L1                                                                                                                                                                                                                          |
+| SONAR_KAL_L2   | 6.2034  | RW     | Sonar Kalman gain L2                                                                                                                                                                                                                          |
+| SYS_ID           | 81      | RW     | [MAVLink](https://mavlink.io/en/) System ID                                                                                                                                                                                                   |
+| SYS_COMP_ID    | 50      | RW     | [MAVLink](https://mavlink.io/en/) Component ID                                                                                                                                                                                                |
+| SYS_SENSOR_ID  | 77      | RW     | [MAVLink](https://mavlink.io/en/) Sensor ID                                                                                                                                                                                                   |
+| SYS_TYPE         | 0       | RW     | [MAVLink](https://mavlink.io/en/) System Type                                                                                                                                                                                                 |
+| SYS_AP_TYPE    | 1       | RW     | [MAVLink](https://mavlink.io/en/) Autopilot Type                                                                                                                                                                                              |
+| SYS_SW_VER     | 13XX    | R      | Software Version                                                                                                                                                                                                                              |
+| SYS_SEND_STATE | 1       | RW     | 1: Send [MAVLink](https://mavlink.io/en/) Heartbeat, 0: Not                                                                                                                                                                                   |
+| USART_2_BAUD   | 115200  | R      | Baudrate USART 2                                                                                                                                                                                                                              |
+| USART_3_BAUD   | 115200  | R      | Baudrate USART 3 (Data Output)                                                                                                                                                                                                                |
+| USB_SEND_VIDEO | 1       | RW     | 1: Send video over USB, 0: Not                                                                                                                                                                                                                |
+| USB_SEND_FLOW  | 1       | RW     | 1: Send flow over USB, 0: Not                                                                                                                                                                                                                 |
+| USB_SEND_GYRO  | 1       | RW     | 1: Send gyro data over USB, 0: Not                                                                                                                                                                                                            |
+| USB_SEND_FWD   | 0       | RW     | 1: Send forwarded flow over USB, 0: Not                                                                                                                                                                                                       |
+| USB_SEND_DEBUG | 1       | RW     | 1: Send debug msgs over USB, 0: Not                                                                                                                                                                                                           |
+| VIDEO_RATE       | 150     | RW     | Time in milliseconds between images of video transmission                                                                                                                                                                                     |
+| VIDEO_ONLY       | 0       | RW     | 1: High resolution video mode is ON, 0: OFF                                                                                                                                                                                                   |
 
-## 模式
+## Modes
 
 ### VIDEO ONLY Mode {#VIDEO_ONLY}
 
