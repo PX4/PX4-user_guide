@@ -92,6 +92,11 @@ make px4_fmu-v5_default
   If you're connecting peripherals that must be powered, you will need to separately power the output using a BEC.
 
 
+## Current Protection
+
+The *V5 nano* has no over current protection.
+
+
 ## Peripherals {#Optional-hardware}
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)

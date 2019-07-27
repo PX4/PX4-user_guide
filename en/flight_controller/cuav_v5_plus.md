@@ -70,7 +70,7 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 ## Voltage Ratings
 
-*V5+ AutoPilot* support redundant power supply - up to three sources may be used: `Power1`, `Power2` and `USB`.
+*V5+ AutoPilot* supports redundant power supply - up to three sources may be used: `Power1`, `Power2` and `USB`.
 You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
 > **Note** The *output* power sources **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) cannot be used to power the flight controller board, and are not powered by it. 
@@ -82,6 +82,15 @@ You must supply power to at least one of these sources, or the flight controller
 Under these conditions all power sources will be used in this order to power the system:
 1. `Power1` and `Power2` inputs (4.3V to 5.4V)
 1. `USB` input (4.75V to 5.25V)
+
+
+## Current Protection
+
+The *V5+* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
+The *V5+* has short circuit protection.
+
+> **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+
 
 ## Building Firmware
 
