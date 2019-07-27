@@ -87,9 +87,9 @@ make px4_fmu-v5_default
 
 > **Note** The `PM2` connector cannot not be used for powering the *V5 nano* (see [this issue](#issue_pm2)).
 
-<span></span>
-> **Note** The *output* power source **FMU PWM OUT** (0V to 36V) cannot be used to power the flight controller board, and are not powered by it. 
-  If you're connecting peripherals that must be powered, you will need to separately power the output using a BEC.
+<span></span> 
+> **Note** The Servo Power Rail is neither powered by, nor provides power to the FMU.
+  However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
 
 
 ## Current Protection

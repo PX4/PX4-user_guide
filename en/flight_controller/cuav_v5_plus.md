@@ -73,10 +73,11 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 *V5+ AutoPilot* supports redundant power supply - up to three sources may be used: `Power1`, `Power2` and `USB`.
 You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
-> **Note** The *output* power sources **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) cannot be used to power the flight controller board, and are not powered by it. 
-  If you're connecting servos/actuators directly of these sources you will need to separately power it using a BEC.
+> **Note** On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU.
+  It is neither powered by, nor provides power to the FMU.
+  However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
 
-  
+
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
