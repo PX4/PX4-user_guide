@@ -10,13 +10,13 @@ PX4 は *本格的なオートパイロットシステムです*. 世界中の�
 
 <span></span>
 
-> **Note** This guide is still a work in progress! It does not yet cover all of PX4.
+> **Note** 本ガイドはまだ作成途中です! そのため，PX4のすべてをまだカバーしていません．
 
-## How Do I Get Started?
+## なにから始めればいいの？
 
-[Getting Started](getting_started/README.md) should be read by all users! It provides an overview of PX4, including features provided by the flight stack (flight modes and safety features) and the supported hardware (flight controller, vehicles, airframes, telemetry systems, RC control systems).
+[さあ、はじめよう](getting_started/README.md) はすべてのユーザーが読むべきです! 本章は，様々な機能(フライトモードや安全機能) や利用可能なハードウェア(フライトコントローラ，機体，テレメトリーシステム，無線機) など，PX4の概要について説明しています。
 
-Depending on what you want to achieve, the following tips will help you navigate through this guide:
+あなたが実現したいことに応じて，次の情報が本ガイドの活用に役立つと思われます:
 
 **I already have a drone and I just want to fly:**
 
