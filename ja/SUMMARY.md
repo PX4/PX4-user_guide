@@ -201,9 +201,9 @@
 
 ## Dronecode ショートカット
 
-* [PX4 Developer Guide](https://dev.px4.io/en/)
-* [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/)
-* [QGroundControl Developer Guide](https://dev.qgroundcontrol.com/en/)
-* [MAVLink Guide](https://mavlink.io/en/)
+* [PX4 開発者用ガイド](https://dev.px4.io/en/)
+* [QGroundControlユーザガイド](https://docs.qgroundcontrol.com/en/)
+* [QGroundControl開発者用ガイド](https://dev.qgroundcontrol.com/en/)
+* [MAVLinkガイド](https://mavlink.io/en/)
 * [MAVSDK](https://mavsdk.mavlink.io/)
 * [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/)
