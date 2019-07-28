@@ -85,7 +85,7 @@ Under these conditions all power sources will be used in this order to power the
 1. `USB` input (4.75V to 5.25V)
 
 
-## Current Protection
+## Over Current Protection
 
 The *V5+* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
 The *V5+* has short circuit protection.
