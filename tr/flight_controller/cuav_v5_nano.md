@@ -86,7 +86,7 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
 > **Note** The Servo Power Rail is neither powered by, nor provides power to the FMU. However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
 
-## Current Protection
+## Over Current Protection
 
 The *V5 nano* has no over current protection.
 
