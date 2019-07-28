@@ -3,14 +3,15 @@
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
 The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink.
-The setpoint may be provided by a MAVLink API (e.g. [Dronecode SDK](https://sdk.dronecode.org/en/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
+The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/develop/en/index.html) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
-> **Note** Offboard mode is not supported by Fixed Wing vehicles. It is supported for Copter and VTOL vehicles.
+> **Note** Offboard mode is not supported by Fixed Wing vehicles. 
+It is supported for Copter and VTOL vehicles.
 
 <span></span>
 > **Note** 
 >  * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc.
->  * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes).
+>  * RC control is disabled except to change modes.
 >  * The vehicle must be armed before this mode can be engaged.
 >  * The vehicle must be already be receiving a stream of target setpoints before this mode can be engaged.
 >  * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
