@@ -92,7 +92,7 @@ make px4_fmu-v5_default
   However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
 
 
-## Current Protection
+## Over Current Protection
 
 The *V5 nano* has no over current protection.
 
