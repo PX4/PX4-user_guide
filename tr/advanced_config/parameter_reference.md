@@ -7631,7 +7631,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.02
+      0.1
     </td>
     
     <td style="vertical-align: top;">
@@ -7908,7 +7908,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.01
+      0.1
     </td>
     
     <td style="vertical-align: top;">
@@ -8264,7 +8264,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.01
+      0.1
     </td>
     
     <td style="vertical-align: top;">
@@ -16106,7 +16106,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      10.0
+      3.0
     </td>
     
     <td style="vertical-align: top;">
@@ -16134,7 +16134,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      5.0
+      3.0
     </td>
     
     <td style="vertical-align: top;">
@@ -16186,7 +16186,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      10.0
+      5.0
     </td>
     
     <td style="vertical-align: top;">
@@ -16210,7 +16210,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      10.0
+      4.0
     </td>
     
     <td style="vertical-align: top;">
@@ -16707,7 +16707,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      200.0
+      150.0
     </td>
     
     <td style="vertical-align: top;">
@@ -16751,7 +16751,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      3
     </td>
     
     <td style="vertical-align: top;">
@@ -17110,7 +17110,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.0
+      0.6
     </td>
     
     <td style="vertical-align: top;">
@@ -17284,7 +17284,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.0
+      0.6
     </td>
     
     <td style="vertical-align: top;">
@@ -17311,7 +17311,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.0
+      0.6
     </td>
     
     <td style="vertical-align: top;">
@@ -17407,7 +17407,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.02
+      0.1
     </td>
     
     <td style="vertical-align: top;">
