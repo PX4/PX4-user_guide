@@ -57,7 +57,7 @@ PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 - [PX4 Discuss](http://discuss.px4.io/) (*推奨*)
 - [Slack](http://slack.px4.io) (sign up)
 
-## Reporting Bugs & Issues
+## バグ & 問題提起
 
 If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
 
