@@ -18,11 +18,11 @@ PX4 は *本格的なオートパイロットシステムです*. 世界中の�
 
 あなたが実現したいことに応じて，次の情報が本ガイドの活用に役立つと思われます:
 
-**I already have a drone and I just want to fly:**
+**既にドローンを持っていて，すぐ飛ばしたいという方:**
 
-If you have a Ready To Fly (RTF) vehicle that supports PX4:
+PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 
-- [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+- [基本設定](config/README.md) では，ファームウェアを最新版に更新する方法・メインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについて説明しています．
 - [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
 
 **I want to build a drone with PX4 from scratch:**
