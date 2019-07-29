@@ -106,9 +106,9 @@ make px4_fmu-v5_default
 
 The system's serial console and SWD interface operate on the **FMU Debug** port.
 Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable).
-It does not have an i/o debug interface.
+It does not have an I/O debug interface.
 
-For more information see: [Using JTAG for hardware debugging](#issue_jtag)
+> **Warning**  See also: [Using JTAG for hardware debugging](#issue_jtag)
 
 ## Peripherals {#optional-hardware}
 
