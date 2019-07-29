@@ -43,10 +43,10 @@ PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 フライトコントローラや，基本的なセンサの改造については上記の通りです． 新しいセンサを使用したり，飛行の特性に影響を与える改造をした場合，以下を参照してください:
 
 - [周辺機器](peripherals/README.md) では，外部センサを使用するための追加情報を記載しています．
-- [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
-- [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+- [基本設定](config/README.md) ではメインセンサのキャリブレーションについて説明しています．
+- [応用設定](advanced_config/README.md) はより良いチューニング・再チューニングに役立ちます．
 
-**I want to run PX4 on new hardware and extend the platform:**
+**PX4を新しいハードウェアで動かしたり，プラットフォームを拡張したい方:**
 
 - [PX4 Developer Guide](http://dev.px4.io/) explains how to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
