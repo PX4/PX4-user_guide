@@ -41,7 +41,6 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 
 * Power System: Power Brick Input: 4.75~5.5V
 * USB Power Input: 4.75~5.25V
-* Servo Rail Input: 0~36V
 
 * Weight and Dimensions:
   * Dimensions: 60\*40\*14mm
