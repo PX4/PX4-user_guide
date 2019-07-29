@@ -69,7 +69,7 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 ## Voltage Ratings
 
-*V5+ AutoPilot* supports redundant power supply - up to three sources may be used: `Power1`, `Power2` and `USB`.
+*V5+ AutoPilot* supports redundant power supplies - up to three sources may be used: `Power1`, `Power2` and `USB`.
 You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
 > **Note** On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU.
