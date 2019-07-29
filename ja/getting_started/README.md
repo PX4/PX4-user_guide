@@ -1,8 +1,8 @@
-# Getting Started with PX4 Autopilot
+# PX4のはじめかた
 
-This section provides an overview of the basic concepts you need to understand in order to build and fly an unmanned vehicle using PX4.
+本章では，PX4を用いて無人機を構築・飛行させるのに理解する必要のある，基本的な概念についての概要を説明します．
 
-[Basic Concepts](../getting_started/px4_basic_concepts.md) — Brief introduction to PX4 and the Dronecode Platform.
+[基本コンセプト](../getting_started/px4_basic_concepts.md) — PX4 と Dronecode プラットフォームについての簡単な紹介です．
 
 [Flight Controllers](../getting_started/flight_controller_selection.md) — Flight controller hardware options from different platforms and vendors.
 
