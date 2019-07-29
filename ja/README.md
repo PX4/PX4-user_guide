@@ -59,27 +59,27 @@ PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 
 ## バグ & 問題提起
 
-If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
+もしPX4に関して問題を発見した場合，まず [上記サポートチャンネル](#support)に投稿してください (PX4の問題ではなく，機体の設定等が原因かもしれないため)．
 
-If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
+そして，開発チームから指示があった場合， [こちらのGithub](https://github.com/PX4/Firmware/issues)にて，問題が報告されるかもしれません． その場合， [フライトログ](getting_started/flight_reporting.md)や テンプレートで要求された情報をアップロードすることができます．
 
-## Contributing
+## 貢献
 
-Information on how to contribute to code and documentation can be found in the Developer Guide:
+コードや，ドキュメントについて貢献する方法は，開発者ガイドに記載されています:
 
-- [Code](https://dev.px4.io/en/contribute/)
-- [Documentation](https://dev.px4.io/en/contribute/docs.html)
-- [Translation](https://dev.px4.io/en/contribute/docs.html)
+- [コード](https://dev.px4.io/en/contribute/)
+- [ドキュメント](https://dev.px4.io/en/contribute/docs.html)
+- [翻訳](https://dev.px4.io/en/contribute/docs.html)
 
-## License
+## ライセンス
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/en/contribute/licenses.html).
+PX4のコードは[BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)の下で，自由に使用・改造することができます． このドキュメントは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)ライセンスの元に管理されています． より詳しい情報は，以下を参照してください: [PX4 Development Guide > Licences](https://dev.px4.io/en/contribute/licenses.html).
 
-### Icons
+### アイコン
 
-The following icons used in this library are licensed separately (as shown below):
+本ライブラリで使用されている，以下のアイコンはそれぞれ個別にライセンスされています (以下をご参照ください):
 
-<img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> *placeholder* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+<img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> *placeholder* アイコンは <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> によって <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>の下でライセンスされています．
 
 <img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
