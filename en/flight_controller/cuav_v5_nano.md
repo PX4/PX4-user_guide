@@ -28,16 +28,17 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
   * Barometer: MS5611
 
 * Interfaces: 8 PWM outputs
-  * 4 dedicated PWM/Capture inputs on FMU
+  * 3 dedicated PWM/Capture inputs on FMU
   * Dedicated R/C input for CPPM
   * Dedicated R/C input for Spektrum / DSM and S.Bus
   * Analog / PWM RSSI input
   * 4 general purpose serial ports
-  * 4 I2C ports
+  * 3 I2C ports
   * 4 SPI buses
-  * 2 CANBuses 
+  * 2 CAN Buses 
   * Analog inputs for voltage / current of battery
-  * 2 additional analog input
+  * 2 additional analog inputs
+  * Supports nARMED
 
 * Power System: Power Brick Input: 4.75~5.5V
 * USB Power Input: 4.75~5.25V
