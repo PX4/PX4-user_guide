@@ -6,7 +6,7 @@
   * [機体](getting_started/frame_selection.md)
   * [フライトコントローラ](getting_started/flight_controller_selection.md)
   * [センサー](getting_started/sensor_selection.md)
-  * [無線通信](getting_started/rc_transmitter_receiver.md)
+  * [RCシステム](getting_started/rc_transmitter_receiver.md)
   * [フライトモード](getting_started/flight_modes.md)
   * [機体ステータス表示](getting_started/vehicle_status.md) 
     * [LED表示の意味](getting_started/led_meanings.md)
