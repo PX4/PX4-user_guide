@@ -43,7 +43,6 @@ Some of its main features include:
 * Power System:
   * Power: 4.3~5.4V
   * USB Input: 4.75~5.25V
-  * Servo Rail Input: 0~36V
 * Weight and Dimensions:
   * Weight: 90g
   * Dimensions: 85.5\*42\*33mm 
