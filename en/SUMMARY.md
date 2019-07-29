@@ -115,6 +115,7 @@
   * [ECL/EKF Overview & Tuning](advanced_config/tuning_the_ecl_ekf.md)
   * [Flight Termination Configuration](advanced_config/flight_termination.md)
   * [Bootloader Update](advanced_config/bootloader_update.md)
+  * [Bootloader Flashing onto Betaflight Systems](advanced_config/bootloader_update_from_betaflight.md)
   * [Land Detector Configuration](advanced_config/land_detector.md)
   * [Sensor Thermal Compensation](advanced_config/sensor_thermal_calibration.md)
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
