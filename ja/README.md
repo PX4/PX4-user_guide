@@ -48,13 +48,13 @@ PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 
 **PX4を新しいハードウェアで動かしたり，プラットフォームを拡張したい方:**
 
-- [PX4 Developer Guide](http://dev.px4.io/) explains how to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+- [PX4 Developer Guide](http://dev.px4.io/) ではフライトアルゴリズムの改造や，新しいモードの追加，新しいハードウェアの追加，PX4の外部からの通信，さらにPX4の開発への貢献などについて記述しています．
 
-## Forums and Chat {#support}
+## フォーラム・チャット {#support}
 
-The core development team and community are active on the following forums and chat channels:
+開発コアチームや，開発者コミュニティと，以下のフォーラムやチャットを通してつながることができます．
 
-- [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
+- [PX4 Discuss](http://discuss.px4.io/) (*推奨*)
 - [Slack](http://slack.px4.io) (sign up)
 
 ## Reporting Bugs & Issues
