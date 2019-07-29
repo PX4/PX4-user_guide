@@ -108,6 +108,8 @@ The system's serial console and SWD interface operate on the **FMU Debug** port.
 Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable).
 It does not have an i/o debug interface.
 
+For more information see: [Using JTAG for hardware debugging](#issue_jtag)
+
 ## Peripherals {#optional-hardware}
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
@@ -157,7 +159,7 @@ Similarly, a digital PM plugged into a analog connector will not work, and may a
 - *Fixed:* -
 
 
-#### Using JTAG for hardware debugging
+#### Using JTAG for hardware debugging {#issue_jtag}
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
