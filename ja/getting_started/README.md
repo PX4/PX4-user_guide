@@ -2,16 +2,16 @@
 
 本章では，PX4を用いて無人機を構築・飛行させるのに理解する必要のある，基本的な概念についての概要を説明します．
 
-[基本コンセプト](../getting_started/px4_basic_concepts.md) — PX4 と Dronecode プラットフォームについての簡単な紹介です．
+[基本コンセプト](../getting_started/px4_basic_concepts.md) — PX4 と Dronecode プラットフォームについての簡単な紹介．
 
-[Flight Controllers](../getting_started/flight_controller_selection.md) — Flight controller hardware options from different platforms and vendors.
+[フライトコントローラ](../getting_started/flight_controller_selection.md) — 様々な形態で，様々なベンダーから提供されている，フライトコントローラについて．
 
-[Vehicles/Frames](../getting_started/frame_selection.md) — Supported vehicle types, including air, ground and marine frames.
+[機体](../getting_started/frame_selection.md) — 空中・地上・海中など，サポートされている機体のタイプ一覧
 
-[Sensors](../getting_started/sensor_selection.md) — Sensors needed by the autopilot.
+[センサー](../getting_started/sensor_selection.md) — オートパイロットに必要なセンサ一について.
 
-[Remote Control Systems](../getting_started/rc_transmitter_receiver.md) — Handheld systems for manually controlling a vehicle.
+[RCシステム](../getting_started/rc_transmitter_receiver.md) — 手動操縦に必要な操縦デバイスについて．
 
-[Flight Modes](../getting_started/flight_modes.md) — Control modes for manual, assisted and autonomous movement.
+[フライトモード](../getting_started/flight_modes.md) — 手動・操縦アシスト・自動操縦用のフライトモードについて．
 
-[Flight Reporting](../getting_started/flight_reporting.md) — Download detailed flight logs for debugging and analysis.
+[フライトの報告](../getting_started/flight_reporting.md) — デバッグ・分析のための詳細なフライトログのダウンロード方法について．
