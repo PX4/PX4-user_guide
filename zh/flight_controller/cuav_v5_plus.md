@@ -97,7 +97,9 @@ To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
 ## Debug Port
 
-The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable). It does not have an i/o debug interface.
+The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable). It does not have an I/O debug interface.
+
+> **Warning** See also: [Using JTAG for hardware debugging](#issue_jtag)
 
 ## Peripherals {#optional-hardware}
 
@@ -140,7 +142,7 @@ Similarly, a digital PM plugged into a analog connector will not work, and may a
 - *Found:* Batch 01
 - *Fixed:* -
 
-#### Using JTAG for hardware debugging
+#### Using JTAG for hardware debugging {#issue_jtag}
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
