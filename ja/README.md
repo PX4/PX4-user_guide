@@ -40,9 +40,9 @@ PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 
 **標準機を改造する場合:**
 
-Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
+フライトコントローラや，基本的なセンサの改造については上記の通りです． 新しいセンサを使用したり，飛行の特性に影響を与える改造をした場合，以下を参照してください:
 
-- [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
+- [周辺機器](peripherals/README.md) では，外部センサを使用するための追加情報を記載しています．
 - [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
 - [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
 
