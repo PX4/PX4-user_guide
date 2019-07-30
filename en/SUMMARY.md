@@ -198,6 +198,7 @@
     * [MindRacer 210](complete_vehicles/mindracer210.md)
     * [NanoMind 110](complete_vehicles/nanomind110.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](complete_vehicles/betafpv_beta75x.md)
+  * [Holybro Kopis 2](complete_vehicles/holybro_kopis2.md)
   * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
 * [Development](development/development.md)
 
