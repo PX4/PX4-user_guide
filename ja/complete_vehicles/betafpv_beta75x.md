@@ -21,9 +21,9 @@ In addition you will need:
 
 The *Beta75X* comes preinstalled with Betaflight.
 
-Before loading PX4 firmware you must first install the PX4 bootloader. Instructions for installing the bootloader can be found in the [Omnibus F4](../flight_controller/omnibus_f4_sd.md#betaflight_configurator) topic (this is the flight controller board on the *Beta75X*).
+Before loading PX4 firmware you must first install the PX4 bootloader. Instructions for installing the bootloader can be found in the [Omnibus F4](../flight_controller/omnibus_f4_sd.md#bootloader) topic (this is the flight controller board on the *Beta75X*).
 
-> **Tip** You can always [reinstall Betaflight](../flight_controller/omnibus_f4_sd.md#reinstall_betaflight) later if you want!
+> **Tip** You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall_betaflight) later if you want!
 
 ## Installation/Configuration
 
