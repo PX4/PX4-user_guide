@@ -115,6 +115,7 @@
   * [ECL/EKF Overview & Tuning](advanced_config/tuning_the_ecl_ekf.md)
   * [Flight Termination Configuration](advanced_config/flight_termination.md)
   * [Bootloader Update](advanced_config/bootloader_update.md)
+  * [Bootloader Flashing onto Betaflight Systems](advanced_config/bootloader_update_from_betaflight.md)
   * [Land Detector Configuration](advanced_config/land_detector.md)
   * [Sensor Thermal Compensation](advanced_config/sensor_thermal_calibration.md)
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
@@ -179,6 +180,7 @@
   * [(Air)Mind Series](flight_controller/mind_series.md)
     * [MindPX](flight_controller/mindpx.md)
     * [MindRacer](flight_controller/mindracer.md)
+  * [Kakute F7](flight_controller/kakutef7.md)
   * [Omnibus F4 SD](flight_controller/omnibus_f4_sd.md)
   * [Snapdragon Flight](flight_controller/snapdragon_flight.md)
     * [Hardware Setup Example](flight_controller/snapdragon_flight_hardware_example_setup.md)
@@ -196,6 +198,7 @@
     * [MindRacer 210](complete_vehicles/mindracer210.md)
     * [NanoMind 110](complete_vehicles/nanomind110.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](complete_vehicles/betafpv_beta75x.md)
+  * [Holybro Kopis 2](complete_vehicles/holybro_kopis2.md)
   * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
 * [Development](development/development.md)
 
