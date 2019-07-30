@@ -1,6 +1,6 @@
 # Bootloader Flashing onto Betaflight Systems
 
-This page documents how to flash the PX4 bootloader onto boards preflashed with Betaflight.
+This page documents how to flash the PX4 bootloader onto boards preflashed with Betaflight (e.g. OmnibusF4 SD or KakuteF7).
 
 There are two options for flashing the bootloader: via *Betaflight Configurator* (easier), or building from source.
 
@@ -25,7 +25,7 @@ Download and build the [Bootloader](https://github.com/PX4/Bootloader) via:
 ```
 git clone --recursive  https://github.com/PX4/Bootloader.git
 cd Bootloader
-make <target> # For example: omnibusf4sd_bl
+make <target> # For example: omnibusf4sd_bl or kakutef7_bl
 ```
 
 #### Flash Bootloader
@@ -46,7 +46,7 @@ The button can be released after the board is powered up.
 ##### dfu-util
 
 ```
-dfu-util -a 0 --dfuse-address 0x08000000 -D  build/omnibusf4sd_bl/omnibusf4sd_bl.bin
+dfu-util -a 0 --dfuse-address 0x08000000 -D  build/<target>/<target>.bin
 ```
 
 Reboot the flight controller and it let it boot without holding the boot button.
@@ -55,7 +55,7 @@ Reboot the flight controller and it let it boot without holding the boot button.
 
 See the dfuse manual here: https://www.st.com/resource/en/user_manual/cd00155676.pdf
 
-Flash the **omnibusf4sd_bl.bin** file.
+Flash the **<target>.bin** file.
 
 
 ## Reinstall Betaflight {#reinstall_betaflight}
