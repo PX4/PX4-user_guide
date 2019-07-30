@@ -76,6 +76,4 @@
 
 [Pixhawk Series](../flight_controller/pixhawk_series.md)에 포함되지 않은 보드들은 고유의 부트로더 업데이트 메커니즘을 가질 수 있습니다.
 
-이 정보는 각 보드별로 (연관이 있는 경우) 아래에 문서화됩니다.
-
-- [Omnibus F4 SD > PX4 Bootloader Update](../flight_controller/omnibus_f4_sd.md#upload)
+For boards that are preflashed with Betaflight, see [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md).
