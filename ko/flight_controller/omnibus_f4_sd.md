@@ -24,11 +24,11 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 * Standard racer form factor: 36x36 mm with standard 30.5 mm hole pattern
 * MPU6000 Accel / Gyro
 * BMP280 Baro (not all boards have it mounted)
-* microSD (logging and parameters)
+* microSD (for logging)
 * Futaba S.BUS and S.BUS2 / Spektrum DSM2 and DSMX / Graupner SUMD / PPM input / Yuneec ST24
 * OneShot PWM out (configurable)
-* built-in current sensor
-* built-in OSD chip (AB7456 via SPI, not supported yet)
+* Built-in current sensor
+* Built-in OSD chip (AB7456 via SPI)
 
 ## Where to Buy
 
@@ -171,57 +171,9 @@ Next update the TX/RX modules to use the CRSF protocol and set up telemetry. Ins
 
 The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
-## PX4 Bootloader Update {#upload}
+## PX4 Bootloader Update {#bootloader}
 
-The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed.
-
-There are two options for flashing the bootloader: via *Betaflight Configurator* (easier), or building from source (guaranteed to work).
-
-### Bootloader Update using Betaflight Configurator {#betaflight_configurator}
-
-To install the PX4 bootloader using the *Betaflight Configurator*:
-
-1. Download the pre-built bootloader binary: [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex).
-2. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform. > **Tip** If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao). 
-3. Connect the board to your PC and start the Configurator.
-4. Press the **Load Firmware [Local]** button ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
-5. Select the bootloader binary from the file system and then flash the board.
-
-You should now be able to install PX4 firmware on the board.
-
-### Bootloader Update using Source
-
-#### Download Bootloader Source
-
-Download and build the [Bootloader](https://github.com/PX4/Bootloader) via:
-
-    git clone --recursive  https://github.com/PX4/Bootloader.git
-    cd Bootloader
-    make omnibusf4sd_bl
-    
-
-#### Flash Bootloader
-
-You can flash the PX4 bootloader using the [dfu-util](http://dfu-util.sourceforge.net/) or the graphical [dfuse](https://www.st.com/en/development-tools/stsw-stm32080.html) tool on windows.
-
-Don't be afraid to try flashing using any of the below methods. The STM32 MCU cannot be bricked. DFU cannot be overwritten by flashing and will always allow you to install a new firmware, even if flashing fails.
-
-##### Enter DFU mode
-
-Both methods require the board to be in DFU mode. To enter DFU mode, hold the boot button down while connecting the USB cable to your computer. The button can be released after the board is powered up.
-
-##### dfu-util
-
-    dfu-util -a 0 --dfuse-address 0x08000000 -D  build/omnibusf4sd_bl/omnibusf4sd_bl.bin
-    
-
-Reboot the flight controller and it let it boot without holding the boot button.
-
-##### dfuse
-
-See the dfuse manual is here: https://www.st.com/resource/en/user_manual/cd00155676.pdf
-
-Flash the `omnibusf4sd_bl.bin` file.
+The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed. Download the [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
 ## Building Firmware
 
@@ -246,14 +198,6 @@ In addition to the [basic configuration](../config/README.md), the following par
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 | [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.                                                                   |
 | [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING)   | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.            |
-
-## Reinstall Betaflight {#reinstall_betaflight}
-
-In order to switch back to *Betaflight*:
-
-* Backup the PX4 parameters, e.g. by [exporting](https://dev.px4.io/master/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters) them to an SD card
-* Keep the **bootloader** button pressed while attaching the USB cable
-* Then flash *Betaflight* as usual with the *Betaflight-configurator*
 
 ## Further Info
 
