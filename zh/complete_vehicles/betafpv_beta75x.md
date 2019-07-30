@@ -21,9 +21,9 @@ BetaFPV的这款Beta75X 小型四旋翼穿越机, 可以进行室内或室外的
 
 *Beta75X*预装的是Betaflight。
 
-在刷 PX4 固件之前，您必须先安装 PX4 的bootloader。 安装引导程序的说明可以在 [Omnibus F4](../flight_controller/omnibus_f4_sd.md#betaflight_configurator)主题中找到 (这是 基于*Beta 75X*的飞行控制)。
+在刷 PX4 固件之前，您必须先安装 PX4 的bootloader。 Instructions for installing the bootloader can be found in the [Omnibus F4](../flight_controller/omnibus_f4_sd.md#bootloader) topic (this is the flight controller board on the *Beta75X*).
 
-> **提示** 如果您愿意的话，您可以在后续重新安装Betaflight！
+> **Tip** You can always [reinstall Betaflight](../advanced_config/bootloader_update_from_betaflight.md#reinstall_betaflight) later if you want!
 
 ## 安装配置
 
