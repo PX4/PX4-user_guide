@@ -14,12 +14,15 @@ It can be enabled for multicopter vehicles in [Position mode](../flight_modes/po
 
 The feature requires obstacle information from either an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
+> **Note** Multiple sensors can be used to get information about, and prevent collisions with, objects *around* the vehicle. 
+  If multiple sources supply data for the *same* orientation, the system uses the data that reports the smallest distance to an object.
+
 The vehicle starts braking as soon as it detects an obstacle.
 The velocity setpoint towards the obstacle is reduced linearly such that it is set to zero at the point when the vehicle reaches the minimum allowed distance.
 If the vehicle approaches any closer (i.e. it overshoots or is pushed) negative thrust is applied to repel it from the obstacle.
 
 Only the velocity components *towards* the obstacle are affected.
-RC inputs that cause the vehicle to move tangentially to the obstacle are still obeyed. 
+RC inputs that cause the vehicle to move tangentially to the obstacle are still obeyed.
 So if a vehicle approaches an obstacle from an angle, the vehicle will slow until it reaches the minimum distance and then "slide" along the surface until it is no longer blocked.
 
 The user is notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
