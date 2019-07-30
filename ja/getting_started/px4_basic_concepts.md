@@ -1,4 +1,4 @@
-# Basic Concepts
+# 基本コンセプト
 
 This topic provides a basic introduction to drones and using PX4 (it is meant mostly for novice users but is also a good introduction for experienced users).
 
