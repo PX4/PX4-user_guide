@@ -20,3 +20,5 @@ The pinouts are labeled on the bottom of the sensor:
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_CM8JL65_CFG](../advanced_config/parameter_reference.md#SENS_CM8JL65_CFG).
 
 > **Note** If the configuration parameter is not available in *QGroundControl* then you may need to [add the driver to the firmware](../peripherals/serial_configuration.md#parameter_not_in_firmware): ```distance_sensor/cm8jl65```
+
+In order to use the sensor for *collision prevention* you will further need to set the parameters [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) and [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D). For more information see: [Collision Prevention](../computer_vision/collision_prevention.md#rangefinder).
