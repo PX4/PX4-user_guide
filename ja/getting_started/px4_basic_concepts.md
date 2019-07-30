@@ -1,12 +1,12 @@
 # 基本コンセプト
 
-This topic provides a basic introduction to drones and using PX4 (it is meant mostly for novice users but is also a good introduction for experienced users).
+本章では，ドローンの簡単な解説と，PX4の使い方について説明します。(初心者向けの内容ですが，熟練者にも良い紹介になると思われます)。
 
-If you are already familiar with the basic concepts, you can move on to [Basic Assembly](../assembly/README.md) to learn how to wire your specific autopilot hardware. To load firmware and set up the vehicle with *QGroundControl*, see [Basic Configuration](../config/README.md).
+もし，すでに基本コンセプトについてご存知であれば，[基本構成](../assembly/README.md)にジャンプし，オートパイロット用機器の接続方法について学ぶことができます。 *QGroundControl*を用いてファームウェアを書き込んだり，機体のセットアップを行うには，[Basic Configuration](../config/README.md)を参照してください。
 
-## What is a Drone?
+## ドローンってなに？
 
-A drone is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
+ドローンは遠隔操縦または自律操縦可能な無人の”ロボット型”移動体です。
 
 Drones are used for many consumer, industrial and military [use cases and applications](http://px4.io/applications/). These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
 
