@@ -180,7 +180,7 @@
   * [(Air)Mind 시리즈](flight_controller/mind_series.md) 
     * [MindPX](flight_controller/mindpx.md)
     * [MindRacer](flight_controller/mindracer.md)
-  * [Kakute F7](flight_controller/kakutef7.md)
+  * [Holybro Kakute F7](flight_controller/kakutef7.md)
   * [Omnibus F4 SD](flight_controller/omnibus_f4_sd.md)
   * [Snapdragon Flight](flight_controller/snapdragon_flight.md) 
     * [Hardware Setup Example](flight_controller/snapdragon_flight_hardware_example_setup.md)
