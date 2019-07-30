@@ -8,7 +8,7 @@
 
 ドローンは遠隔操縦または自律操縦可能な無人の”ロボット型”移動体です。
 
-Drones are used for many consumer, industrial and military [use cases and applications](http://px4.io/applications/). These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
+ドローンは産業用や軍用等，[様々な用途で](http://px4.io/applications/)多くの人に利用されています。 These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
 
 > **Tip** Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
 
