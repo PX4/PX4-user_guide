@@ -174,7 +174,7 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 >               </td>
 >               
 >               <td align="center">
->                 1 1
+>                 511 
 >               </td>
 >               
 >               <td align="center">
