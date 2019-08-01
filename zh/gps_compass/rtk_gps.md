@@ -74,17 +74,21 @@ RTK GPS 是即插即用的。
 
 ### RTK GPS 设置
 
-RTK GPS 的设置在*QGroundControl*[普通设置](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk-gps)（**设置 > 普通设置**）。
+The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
 
 ![RTK GPS 设置](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
 这些设置定义了 RTK GPS 设置过程（称为“测量”）完成的最小持续时间和最小精度。
 
+<span></span>
+
+> **Tip** You can save and reuse a base position in order to save time: perform Survey-In once, select *Use Specified Base Position* and press **Save Current Base Position** to copy in the values for the last survey. The values will then persist across QGC reboots until they are changed.
+
 ### MAVLink2
 
-必须使用 maxink2 协议, 因为它可以更有效地使用低带宽通道。 默认情况下, 应在最近的生成中启用此功能。
+The MAVLink2 protocol must be used because it makes more efficient use of lower-bandwidth channels. This should be enabled by default on recent builds.
 
-为确保使用MAVLink2:
+To ensure MAVLink2 is used:
 
 - 将遥测模块固件更新到最新版本 (请参阅 QGroundControl> 设置 > 固件 </a0 >)。</li> 
     
@@ -92,7 +96,7 @@ RTK GPS 的设置在*QGroundControl*[普通设置](https://docs.qgroundcontrol.c
     
     ### 调试
     
-    您可能还需要调整一些参数, 因为默认参数是在假定 GPS 精度为米 (而不是厘米) 的情况下进行调整的。 例如, 您可以减少 [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE), 并将 [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) 到0.2。
+    You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters. For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) and [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) to 0.2.
     
     ### Use RTK GPS for Yaw
     
