@@ -72,11 +72,15 @@ The following settings may need to be changed (using *QGroundControl*).
 
 ### RTK GPS settings
 
-The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk-gps) (**SettingsView > General Settings**). 
+The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
 
 ![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
 These settings define the minimum duration and minimum accuracy for completing the RTK GPS setup process (known as "Survey-In).
+
+<span></span>
+> **Tip** You can save and reuse a base position in order to save time: perform Survey-In once, select *Use Specified Base Position* and press **Save Current Base Position** to copy in the values for the last survey.
+  The values will then persist across QGC reboots until they are changed.
 
 
 ### MAVLink2
