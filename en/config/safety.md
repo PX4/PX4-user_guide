@@ -144,7 +144,7 @@ The settings and underlying parameters are shown below:
 
 Setting | Parameter | Description
 --- | --- | ---
-Disarm After | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing, and enter delay after landing before disarming. The value must be non-zero but can be a fraction of a second.
+Disarm After | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing. The value must be non-zero but can be a fraction of a second.
 Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED) | Rate of descent (MC only).
 
 
@@ -158,7 +158,8 @@ The *Position Loss Failsafe* is triggered if the quality of the PX4 position est
 
 The failure action is controlled by [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL), based on whether RC control is assumed to be available (and altitude information):
 * `0`: Remote control available. Switch to *Altitude mode* if a height estimate is available, otherwise *Stabilized mode*.
-* `1`: Remote control *not* available. Switch to *Land mode* if a height estimate is available, otherwise enter flight termination.
+* `1`: Remote control *not* available.
+  Switch to *Land mode* if a height estimate is available, otherwise enter flight termination.
 
 Fixed Wing vehicles additionally have a parameter ([NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT)) for defining how long they will loiter (circle) after losing position before attempting to land. 
 
@@ -280,7 +281,8 @@ The arm/disarm switch immediately disarms (stop) motors for those [flight modes]
 - *Stabilized*
 - *Rattitude*
 
-For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
+For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected.
+This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
 
 <!-- 
 > **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel. 
@@ -292,6 +294,19 @@ For modes that do not support disarming in flight, the switch is ignored during 
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
 
+
+## Other Safety Settings
+
+### Auto-disarming Timeouts
+
+You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
+
+The [relevant parameters](../advanced_config/parameters.md) are shown below:
+
+Parameter | Description
+--- | ---
+[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Timeout for auto-disarm after landing.
+[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff.
 
 ## Further Information
 

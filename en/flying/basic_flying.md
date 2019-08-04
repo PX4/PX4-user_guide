@@ -47,7 +47,8 @@ All flying, including takeoff and landing, is controlled using the 4 basic comma
 
 ![RC Basic Commands](../../images/rc_basic_commands.png)
 
-In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space. This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
+In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space.
+This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
 
 ### Hover Aircraft
 
@@ -55,7 +56,7 @@ Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as 
 
 ![Basic Movements Multicopter](../../images/basic_movements_multicopter.png)
 
-- Pitch => Forward/Back.
+- Pitch => Forward/back.
 - Roll => Left/right.
 - Yaw => Left/right rotation around the centre of the frame.
 - Throttle => Changed altitude/speed.
