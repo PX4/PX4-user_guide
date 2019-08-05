@@ -9,7 +9,9 @@ The *Return* flight mode causes the vehicle to ascend to a safe height, then ret
 <span></span>
 > **Note** 
 >  * This mode requires GPS.
->  * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes).
+> * This mode is automatic - no user intervention is *required* to control the vehicle.
+> * RC control switches can be used to change flight modes on any vehicle.
+    The effect of RC stick movement depends on the vehicle type.
 
 The specific behaviour for each vehicle type is described below.
 
@@ -42,6 +44,8 @@ Note:
 - The vehicle will always ascend at least [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) for the return.
 
 
+RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+
 The RTL behaviour can be configured using the parameters below.
 
 
@@ -52,7 +56,7 @@ Parameter | Description
 <span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) | Time to hover at `RTL_DESCEND_ALT` before landing (default: 0.5s) -by default this period is short so that the vehicle will simply slow and then land immediately. If set to -1 the system will loiter at `RTL_DESCEND_ALT` rather than landing. The delay is provided to allow you to configure time for landing gear to be deployed (triggered automatically). 
 <span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST) | Minimum horizontal distance from home position to trigger ascent to the return altitude specified by the "cone". If the vehicle is horizontally closer than this distance to home, it will return at its current altitude or `RTL_DESCEND_ALT` (whichever is higher) instead of first ascending to RTL_RETURN_ALT).
 <span id="RTL_CONE_ANG"></span>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG) | Half-angle of the cone that defines the vehicle RTL return altitude. Values (in degrees): 0, 25, 45, 65, 80, 90. Note that 0 is "no cone" (always return at `RTL_RETURN_ALT` or higher), while 90 indicates that the vehicle must return at the current altitude or `RTL_DESCEND_ALT` (whichever is higher).
-
+<span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | If enabled stick movement gives control back to the pilot in [Position mode](../flight_modes/position_mc.md) (except when vehicle is handling a critical battery failsafe). Enabled by default.
 
 
 ## Fixed Wing (FW)
@@ -60,6 +64,7 @@ Parameter | Description
 A fixed-wing aircraft behaves the same as a multicopter on the return trip (respecting the same parameters).
 The only difference is that on arrival the vehicle will, by default, circle above the home position rather than hover/land.
 If [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1 the vehicle will land as described in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
+RC stick movement is ignored.
 
 The following additional parameters affect return mode on fixed wing:
 
