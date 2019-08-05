@@ -8,18 +8,16 @@ Optical Flow based navigation is supported by: EKF2 and LPE.
 An Optical Flow setup requires a downward facing camera and a [distance sensor](../sensor/rangefinders.md) (preferably a LiDAR).
 These can be connected via MAVLink, I2C or any other bus that supports the peripheral.
 
-> **Note** If connected to PX4 via MAVLink
-  the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic,
-  and the distance sensor must publish to the [DISANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
+> **Note** If connected to PX4 via MAVLink the Optical Flow device must publish to the [OPTICAL_FLOW_RAD](https://mavlink.io/en/messages/common.html#OPTICAL_FLOW_RAD) topic, and the distance sensor must publish to the [DISANCE_SENSOR](https://mavlink.io/en/messages/common.html#DISTANCE_SENSOR) topic.
 
 The output of the flow when moving in different directions must be as follows:
 
-| Vehicle movement | Integrated flow |
-| -- | -- |
-| Forwards | + Y |
-| Backwards | - Y |
-| Right | - X |
-| Left | + X |
+Vehicle movement | Integrated flow
+--- | ---
+Forwards | + Y
+Backwards | - Y
+Right | - X
+Left | + X
 
 For pure rotations the `integrated_xgyro` and `integrated_x` (respectively `integrated_ygyro` and `integrated_y`) have to be the same.
 
@@ -46,11 +44,22 @@ However we recommend using a LIDAR over a Sonar, because of robustness and accur
 
 ## Estimators
 
-### Extended Kalman Filter (EKF2)
+### Extended Kalman Filter (EKF2) {#ekf2}
 
 For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter, as shown using QGroundControl below:
+
 ![QGroundControl - Calibrate Sensors](../../images/qgc_ekf2_enable_flow.png)
 
+If your optical flow sensor is offset from the vehicle centre, you can set this using the following parameters.
+
+Parameter | Description
+--- | ---
+<span id="EKF2_OF_POS_X"></span>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | X position of optical flow focal point in body frame (default is 0.0m).
+<span id="EKF2_OF_POS_Y"></span>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | Y position of optical flow focal point in body frame (default is 0.0m).
+<span id="EKF2_OF_POS_Z"></span>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | Z position of optical flow focal point in body frame (default is 0.0m).
+
+<!-- 
 ### Local Position Estimator (LPE)
 
-TODO
+TBD
+-->

@@ -43,7 +43,6 @@ Some of its main features include:
 * Power System:
   * Power: 4.3~5.4V
   * USB Input: 4.75~5.25V
-  * Servo Rail Input: 0~36V
 * Weight and Dimensions:
   * Weight: 90g
   * Dimensions: 85.5\*42\*33mm 
@@ -70,17 +69,28 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 ## Voltage Ratings
 
-*V5+ AutoPilot* can be triple-redundant on the power supply if three power sources are supplied.
-The three power rails are: **POWER1**, **POWER2** and **USB**.
+*V5+ AutoPilot* supports redundant power supplies - up to three sources may be used: `Power1`, `Power2` and `USB`.
+You must supply power to at least one of these sources, or the flight controller will be unpowered.
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
-  You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+> **Note** On FMUv5 based FMUs with PX4IO module (as is the case for the *V5+*), the Servo Power Rail is only monitored by the FMU.
+  It is neither powered by, nor provides power to the FMU.
+  However, the pins marked **+** are all common, and a BEC may be connected to any of the servo pin sets to power the servo power rail.
+
 
 **Normal Operation Maximum Ratings**
 
 Under these conditions all power sources will be used in this order to power the system:
-1. **POWER1** and **POWER2** inputs (4.3V to 5.4V)
-1. **USB** input (4.75V to 5.25V)
+1. `Power1` and `Power2` inputs (4.3V to 5.4V)
+1. `USB` input (4.75V to 5.25V)
+
+
+## Over Current Protection
+
+The *V5+* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
+The *V5+* has short circuit protection.
+
+> **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+
 
 ## Building Firmware
 
@@ -96,9 +106,11 @@ make px4_fmu-v5_default
 
 The system's serial console and SWD interface operate on the **FMU Debug** port.
 Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable).
-It does not have an i/o debug interface.
+It does not have an I/O debug interface.
 
-# Peripherals {#optional-hardware}
+> **Warning**  See also: [Using JTAG for hardware debugging](#issue_jtag)
+
+## Peripherals {#optional-hardware}
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
 * [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
@@ -108,6 +120,60 @@ It does not have an i/o debug interface.
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+
+
+## Known Issues
+
+The issues below refer to the *batch number* in which they first appear. 
+The batch number is the last two digits of the *serial number* that appears on a sticker on the side of the flight controller. 
+For example, the serial number V011907XXXX**01** indicates the flight controller was in batch 01.
+
+#### GPS not compatible with other devices (Critical)
+
+The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
+The GPS will not work with other flight controllers, and is the only GPS unit that can be used with the *CUAV V5+* and *CUAV V5 nano*.
+<!-- 5+/90/V5+ 20190523 RC01 -->
+
+- *Found:* Batch 01
+- *Fixed:* -
+
+#### Volt regulation varies greater than +/- 5%
+
+The 5 volt pins on all connectors will be lower when powered from USB than the Power Module (the pins will measure approximately 4.69V when only powered by USB, and 5.28 Volts when connected to the Power Module).
+
+We recommend that when using USB with the *V5+* you *also connect the power module* (to avoid under-powering any connected peripherals).
+
+> **Warning** Remove propellers *before* connecting the power module (this is important whenever bench testing with powered motors).
+
+- *Found:* Batch 01
+- *Fixed:* -
+
+#### Do not plug Digital or Analog PM onto connectors configured for other type of PM
+
+If you plug an Analog PM into a digital PM connector it will stop all the I2C devices on that bus.
+Specifically this will stop the GPS's compass due to contention, and may also damage the FMU (longer term).
+
+Similarly, a digital PM plugged into a analog connector will not work, and may also damage/destroy the power module (longer term).
+
+- *Found:* Batch 01
+- *Fixed:* -
+
+
+#### Using JTAG for hardware debugging {#issue_jtag}
+
+`DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
+
+Some JTAG use this voltage to set the IO levels when communicating to the target.
+
+For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
+
+#### The HV\_PM power module output is unfused {#issue_pm_unfused}
+
+> **Warning** This is a serious safety issue.
+
+- Power **must** be turned off while connecting peripherals.
+- Improper wiring can lead to *personal harm* or equipment damage!
+
 
 ## Further Information
 
