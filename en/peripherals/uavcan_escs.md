@@ -9,14 +9,16 @@ UAVCAN ESCs have a number of advantages over [PWM ESCs and Servos](../peripheral
 - Wiring is less complicated as you can have a single bus for connecting all your ESCs and other UAVCAN peripherals.
 - Setup is easier as you configure ESC numbering by manually spinning each motor.
 
-PX4 can be used with UAVCAN ESC that run [Sapog](https://github.com/PX4/sapog#px4-sapog) firmware; an advanced open source sensorless PMSM/BLDC motor controller firmware designed for use in propulsion systems of electric unmanned vehicles.
+PX4 can be used with UAVCAN ESC from a number of vendors and running different firmwares:
+- [Sapog](#sapog) firmware; an advanced open source sensorless PMSM/BLDC motor controller firmware designed for use in propulsion systems of electric unmanned vehicles.
+- A number of others are [listed here](https://forum.uavcan.org/t/uavcan-esc-options/452/3?u=pavel.kirienko)
 
 > **Note** At time of writing PX4 supports UAVCAN v0 (not v1.0).
 
 
 ## Purchase
 
-Commercially available ESCs running Sapog firmware include:
+Sapog-based ESCs:
 - [Zubax Orel 20](https://zubax.com/products/orel_20)
 
   ![Orel20 - Top](../../assets/peripherals/esc_uavcan_zubax_orel20/orel20_top.jpg)
@@ -27,12 +29,13 @@ Commercially available ESCs running Sapog firmware include:
   ![Kotleta20 - Bottom](../../assets/peripherals/esc_uavcan_holybro_kotleta20/kotleta20_bottom.jpg)
 
 
-## Sapog-based ESC setup
 
-The following sections explain how to use Sapog-based ESCs with PX4.
+## Sapog-based ESC setup {#sapog}
+
+The following sections explain how to use [Sapog](https://github.com/PX4/sapog#px4-sapog)-based ESCs with PX4.
 The instructions should work for any Sapog-based ESC design.
 
-### Connecting
+### Connecting {#connecting}
 
 Connect all of the on-board CAN devices into a chain and make sure the bus is terminated at the end nodes.
 The order in which the ESC are connected/chained does not matter.
@@ -92,6 +95,7 @@ https://www.youtube.com/watch?v=4nSa8tvpbgQ
 
 ## Further Information
 
+- [PX4/Sapog](https://github.com/PX4/sapog#px4-sapog) (Github)
 - [Sapog v2 Reference Manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf)
 - [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB)
 - [Using Sapog based ESC with PX4](https://kb.zubax.com/display/MAINKB/Using+Sapog-based+ESC+with+PX4) (Zubax KB)
