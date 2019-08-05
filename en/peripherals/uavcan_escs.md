@@ -27,7 +27,7 @@ Commercially available ESCs running Sapog firmware include:
   ![Kotleta20 - Bottom](../../assets/peripherals/esc_uavcan_holybro_kotleta20/kotleta20_bottom.jpg)
 
 
-## Setup 
+## Sapog-based ESC setup
 
 The following sections explain how to use Sapog-based ESCs with PX4.
 The instructions should work for any Sapog-based ESC design.
