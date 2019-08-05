@@ -1,14 +1,12 @@
 # PX4 비행 모드 개요
 
-> **경고** 이 항목은 공사중입니다. 이 항목은 불완전하고 완벽하게 검토되지 않았습니다.
-
 비행 모드는 자동 조종 장치가 원격 제어 입력에 응답하는 방법과 완전한 자율 비행 중 기체 이동을 관리하는 방법을 정의합니다.
 
 이 모드는 이륙 및 착륙과 같은 일반적인 작업의 자동화에서 다시 수평 비행을 하기 쉽도록 고정된 경로 또는 위치로 기체를 유지하는 메커니즘에 이르기까지 사용자(조종사)에게 다양한 유형/수준의 자동 조종을 도와줍니다.
 
 이 항목에서는 비행 모드에 대한 개요와 MC (multicopter), FW (fixed-wing) 및 VTOL 프레임에서의 기본 동작의 차이점(대부분 사소한 차이점)을 설명합니다.
 
-> ** 팁 ** 특정 비행 모드에 대한 자세한 정보는 [ 비행 > 비행 모드](../flight_modes/README.md)에서 확인할 수 있습니다.
+> **Tip** More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
 
 ## 모드 간 전환
 
@@ -18,11 +16,13 @@
 
 일부 비행 모드는 특정 비행 전 및 비행 중 상태(예 : GPS 잠금 장치, 속도 센서, 축을 따라 비행기의 자세 감지)에서만 의미가 있습니다. PX4는 적절한 조건이 충족될 때까지 해당 모드로의 전환을 허용하지 않습니다.
 
+Last of all, in [autonomous modes](#categories) RC stick movement will [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) when flying as a multicopter (unless handling a critical battery failsafe). Stick movement is ignored for fixed-wing flight.
+
 ## 자율 모드 및 수동 모드 {#categories}
 
-Flight Modes are, generally speaking, either *manual* or *autonomous*. 수동 모드는 사용자가 RC 컨트롤 스틱(또는 조이스틱)을 통해 비행기의 움직임을 제어하는 ​​모드이며 자율 모드는 자동 조종 장치로 완전히 제어되며 파일럿/원격 제어 입력은 필요하지 않습니다.
+Flight Modes are, generally speaking, either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and *require* no pilot/remote control input.
 
-> **팁** 일부 수동 모드에는 자동 조종 보조 기능이 있어 제어 비행을 보다 쉽게 하거나 복원할 수 있습니다. For example, most modes will level out the vehicle when the RC sticks are centered.
+> **Tip** Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight. For example, most modes will level out the vehicle when the RC sticks are centered.
 
 Manual modes may further be divided into "easy" and "acrobatic" modes. In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively). Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip. In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis). Vehicles can flip, and while more maneuverable, are harder to fly.
 
@@ -155,7 +155,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. 기체는 적절하게 균형을 잡고, 스로틀이 적절하게 설정되고 외력이 가해지지 않으면 (예 : 바람), 고도에 유지되거나 유지됩니다. The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
+              As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately, and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
             </p>
             
             <p>
