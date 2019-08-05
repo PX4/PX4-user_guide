@@ -153,6 +153,7 @@
     * [PX4FLOW](sensor/px4flow.md)
   * [ESCs & モータ](peripherals/esc_motors.md) 
     * [PWM ESC & サーボ](peripherals/pwm_escs_and_servo.md)
+    * [UAVCAN ESCs](peripherals/uavcan_escs.md)
   * [カメラ](peripherals/camera.md)
   * [パラシュート](peripherals/parachute.md)
   * [機載PC用周辺機器](peripherals/companion_computer_peripherals.md)
