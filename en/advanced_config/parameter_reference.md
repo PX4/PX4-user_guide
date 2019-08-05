@@ -8722,6 +8722,123 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 </tr>
 </tbody></table>
 
+## Roboclaw
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="RBCLW_SER_CFG">RBCLW_SER_CFG</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Serial Configuration for Roboclaw Driver</p><p><strong>Comment:</strong> Configure on which serial port to run Roboclaw Driver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+</tbody></table>
+
+## Roboclaw driver
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Address of the Roboclaw</p><p><strong>Comment:</strong> The Roboclaw can be configured to have an address from 0x80 to 0x87, inclusive. It must be configured to match this parameter.</p> <strong>Values:</strong><ul>
+<li><strong>128:</strong> 0x80</li> 
+
+<li><strong>129:</strong> 0x81</li> 
+
+<li><strong>130:</strong> 0x82</li> 
+
+<li><strong>131:</strong> 0x83</li> 
+
+<li><strong>132:</strong> 0x84</li> 
+
+<li><strong>133:</strong> 0x85</li> 
+
+<li><strong>134:</strong> 0x86</li> 
+
+<li><strong>135:</strong> 0x87</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">128 > 135 </td>
+ <td style="vertical-align: top;">128 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="RBCLW_BAUD">RBCLW_BAUD</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Roboclaw serial baud rate</p><p><strong>Comment:</strong> Baud rate of the serial communication with the Roboclaw. The Roboclaw must be configured to match this rate.</p> <strong>Values:</strong><ul>
+<li><strong>2400:</strong> 2400 baud</li> 
+
+<li><strong>9600:</strong> 9600 baud</li> 
+
+<li><strong>19200:</strong> 19200 baud</li> 
+
+<li><strong>38400:</strong> 38400 baud</li> 
+
+<li><strong>57600:</strong> 57600 baud</li> 
+
+<li><strong>115200:</strong> 115200 baud</li> 
+
+<li><strong>230400:</strong> 230400 baud</li> 
+
+<li><strong>460800:</strong> 460800 baud</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">2400 > 460800 </td>
+ <td style="vertical-align: top;">2400 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="RBCLW_COUNTS_REV">RBCLW_COUNTS_REV</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Encoder counts per revolution</p><p><strong>Comment:</strong> Number of encoder counts for one revolution. The roboclaw treats analog encoders (potentiometers) as having 2047 counts per rev. The default value of 1200 corresponds to the default configuration of the Aion R1 rover.</p>   </td>
+ <td style="vertical-align: top;">1 > ? </td>
+ <td style="vertical-align: top;">1200 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="RBCLW_READ_PER">RBCLW_READ_PER</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Encoder read period</p><p><strong>Comment:</strong> How long to wait, in Milliseconds, between reading wheel encoder values over Uart from the Roboclaw</p>   </td>
+ <td style="vertical-align: top;">1 > 1000 </td>
+ <td style="vertical-align: top;">10 </td>
+ <td style="vertical-align: top;">ms</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="RBCLW_WRITE_PER">RBCLW_WRITE_PER</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Uart write period</p><p><strong>Comment:</strong> How long to wait, in Milliseconds, between writing actuator controls over Uart to the Roboclaw</p>   </td>
+ <td style="vertical-align: top;">1 > 1000 </td>
+ <td style="vertical-align: top;">10 </td>
+ <td style="vertical-align: top;">ms</td>
+</tr>
+</tbody></table>
+
 ## Rover Position Control
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
