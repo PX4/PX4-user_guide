@@ -2,7 +2,7 @@
 
 *QGroundControl* will guide you to place and hold your vehicle in a number of orientations (you will be prompted when to move between positions). 
 
-> **Tip** This is similar to [compass calibration](../config/compass.md) except that host the vehicle still (rather than rotate it) in each orientation.
+> **Tip** This is similar to [compass calibration](../config/compass.md) except that you hold the vehicle still (rather than rotate it) in each orientation.
 
 ## Performing the Calibration 
 
