@@ -42,14 +42,18 @@ If out of stock the software-compatible, but not connector-compatible version ca
 
 ## Pixhawk Setup
 
-In order to use the PX4Flow board, just connect it with I2C (on any Pixhawk series controller).
+In order to use the PX4Flow board, connect it to the I2C bus (on any Pixhawk series controller) and enable the driver using [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW).
 
-> **Warning** This does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/Firmware versions should work.
+> **Warning** PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**. All other PX4/Firmware versions should work.
 
-- Update the firmware on PX4Flow using *QGroundControl* (in the top left menu, click on CONFIG, then on Firmware Upgrade)
+The steps are:
+
+- In *QGroundControl*: 
+  - Update the firmware on PX4Flow (in the top left menu, click on CONFIG, then on Firmware Upgrade)
+  - Set the parameter [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW) and reboot (see [Parameters](../advanced_config/parameters.md) for infomration on finding and setting parameters).
 - Connect PX4Flow I2C to the Pixhawk I2C
 
-The module will be detected on boot. Flow data should be coming through at 10Hz if the autopilot is connected via **USB**. Flow data is transmitted via wireless at a lower rate.
+Once enabled, the module will be detected on boot. Flow data should be coming through at 10Hz if the autopilot is connected via **USB**. Flow data is transmitted over wireless channels at a lower rate.
 
 ### Mounting/Orientation
 
