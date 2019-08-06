@@ -1,4 +1,4 @@
-# Smooth and Sport Modes
+# Slew-rate type
 
 ## Position Mode
 

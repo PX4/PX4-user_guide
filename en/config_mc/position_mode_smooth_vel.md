@@ -1,4 +1,4 @@
-# Jerk-limited Modes
+# Jerk-limited type
 
 This type of setpoints generator is active in:
 - [Position mode](../flight_modes/position_mc.md) when [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE) (_Smooth position control (Velocity)_).

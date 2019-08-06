@@ -1,6 +1,6 @@
-# Advanced Multicopter Position Control Tuning
+# Trajectory generator
 
-This document provides an overview of the multicopter position-control tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements, the maximum allowed velocity, etc. (i.e. the parameters that affect the value of a desired setpoint rather than those that affect how well the vehicle *tracks* the setpoint). 
+This document provides an overview of the multicopter position-control tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements, the maximum allowed velocity, etc. (i.e. the parameters that affect the value of a desired setpoint rather than those that affect how well the vehicle *tracks* the setpoint). The algorithm that generates those setpoints is called a "trajectory generator".
 
 > **Warning** This guide is for advanced users/experts.
 
@@ -33,5 +33,7 @@ For the remainder of this topic the term **position-control** represents the cas
 Two different implementations are available for each mode and can be selected using the parameters [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) and [MPC_AUTO_MODE](../advanced_config/parameter_reference.md#MPC_AUTO_MODE).
 
 Click on the links below to learn more about those implementations and how to configure them:
-- [Smooth and Sport](../config_mc/position_mode_smooth.md) (`MPC_POS_MODE=1`, `MPC_POS_MODE=2`, `MPC_AUTO_MODE=0`)
-- [Jerk-limited](../config_mc/position_mode_smooth_vel.md) (`MPC_POS_MODE=3`, `MPC_AUTO_MODE=1`)
+- [Slew-rate](../config_mc/position_mode_smooth.md) (`MPC_POS_MODE=1`, `MPC_POS_MODE=2`, `MPC_AUTO_MODE=0`): a simple implementation where the jerk and acceleration is limited using slew-rates. In manual mode, it allows asymmetric profiles based on user intention (smooth acceleration and quick stop). The jerk and acceleration limits are not hard constraints.
+**Use case:** when quick response is more important than smooth motions (e.g.: inspection, agressive flight with position hold, fast missions)
+- [Jerk-limited](../config_mc/position_mode_smooth_vel.md) (`MPC_POS_MODE=3`, `MPC_AUTO_MODE=1`): generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
+**Use case:** when smooth motions are required (e.g.:filming, mapping, cargo).
