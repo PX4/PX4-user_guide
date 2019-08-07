@@ -16294,6 +16294,34 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="MPC_COL_PREV_ANG">MPC_COL_PREV_ANG</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Angle left/right from the commanded setpoint in which the range data is used to calculate speed limitations. All data further from the commanded direction is not considered
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 90
+    </td>
+    
+    <td style="vertical-align: top;">
+      45.
+    </td>
+    
+    <td style="vertical-align: top;">
+      [deg]
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MPC_COL_PREV_D">MPC_COL_PREV_D</strong> (FLOAT)
     </td>
     
