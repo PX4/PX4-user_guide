@@ -588,11 +588,12 @@ Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than
  <td style="vertical-align: top;">rad/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="COM_ARM_MAG">COM_ARM_MAG</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum magnetic field inconsistency between units that will allow arming</p>   </td>
- <td style="vertical-align: top;">0.05 > 0.5 (0.05)</td>
- <td style="vertical-align: top;">0.15 </td>
- <td style="vertical-align: top;">Gauss</td>
+ <td style="vertical-align: top;"><strong id="COM_ARM_MAG_ANG">COM_ARM_MAG_ANG</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Maximum magnetic field inconsistency between units that will allow arming
+Set -1 to disable the check</p>   </td>
+ <td style="vertical-align: top;">3 > 180 </td>
+ <td style="vertical-align: top;">30 </td>
+ <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_MIS_REQ">COM_ARM_MIS_REQ</strong> (INT32)</td>
