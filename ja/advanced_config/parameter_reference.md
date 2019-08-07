@@ -1917,25 +1917,25 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="COM_ARM_MAG">COM_ARM_MAG</strong> (FLOAT)
+      <strong id="COM_ARM_MAG_ANG">COM_ARM_MAG_ANG</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        Maximum magnetic field inconsistency between units that will allow arming
+        Maximum magnetic field inconsistency between units that will allow arming Set -1 to disable the check
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      0.05 > 0.5 (0.05)
+      3 > 180
     </td>
     
     <td style="vertical-align: top;">
-      0.15
+      30
     </td>
     
     <td style="vertical-align: top;">
-      Gauss
+      deg
     </td>
   </tr>
   
