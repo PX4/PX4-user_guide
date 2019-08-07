@@ -1,15 +1,19 @@
-# Trajectory generator
+# Multicopter Trajectory Generator Tuning
 
-This document provides an overview of the multicopter position-control tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements, the maximum allowed velocity, etc. (i.e. the parameters that affect the value of a desired setpoint rather than those that affect how well the vehicle *tracks* the setpoint). The algorithm that generates those setpoints is called a "trajectory generator".
+This document provides an overview of the multicopter tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements or direction changes in missions, the maximum allowed velocity, etc. (i.e. the parameters that affect the value of a desired setpoint rather than those that affect how well the vehicle *tracks* the setpoint).
+The algorithm that generates those setpoints is called a "trajectory generator".
 
 > **Warning** This guide is for advanced users/experts.
 
 <span></span>
-> **Tip** Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) *before* doing any of the higher-level related control tuning described here. Do not use the advanced position control tuning parameters to fix bad tracking or vibration!
+> **Tip** Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) *before* doing any of the tuning described here.
+  Do not use these tuning parameters to fix bad tracking or vibration!
 
 ## Overview
 
-The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../config_mc/pid_tuning_guide_multicopter.md) ("Lower level" tuning) aims to reduce the error between the desired setpoint and the estimate of the vehicle state. Poor P/PID Gains can lead to instability.
+The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track.
+[PID Tuning](../config_mc/pid_tuning_guide_multicopter.md) ("Lower level" tuning) aims to reduce the error between the desired setpoint and the estimate of the vehicle state.
+Poor P/PID Gains can lead to instability.
 
 The *desired* setpoint passed to the P/PID controller is itself calculated from a *demanded* setpoint based on a stick position (in RC modes) or from a mission command.
 Setpoint value ("higher level") tuning is used to specify the mapping between the demanded setpoint and the desired setpoint.
@@ -33,7 +37,10 @@ For the remainder of this topic the term **position-control** represents the cas
 Two different implementations are available for each mode and can be selected using the parameters [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) and [MPC_AUTO_MODE](../advanced_config/parameter_reference.md#MPC_AUTO_MODE).
 
 Click on the links below to learn more about those implementations and how to configure them:
-- [Slew-rate](../config_mc/position_mode_smooth.md) (`MPC_POS_MODE=1`, `MPC_POS_MODE=2`, `MPC_AUTO_MODE=0`): a simple implementation where the jerk and acceleration is limited using slew-rates. In manual mode, it allows asymmetric profiles based on user intention (smooth acceleration and quick stop). The jerk and acceleration limits are not hard constraints.
-**Use case:** when quick response is more important than smooth motions (e.g.: inspection, agressive flight with position hold, fast missions)
-- [Jerk-limited](../config_mc/position_mode_smooth_vel.md) (`MPC_POS_MODE=3`, `MPC_AUTO_MODE=1`): generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
-**Use case:** when smooth motions are required (e.g.:filming, mapping, cargo).
+- [Slew-rate](../config_mc/mc_slew_rate_type_trajectory.md) (`MPC_POS_MODE=1`, `MPC_POS_MODE=2`, `MPC_AUTO_MODE=0`) - Used when quick response is more important than smooth motion (e.g.: inspection, aggressive flight with position hold, fast missions).
+  - This is a simple implementation where the jerk and acceleration is limited using slew-rates.
+  - In manual mode, it allows asymmetric profiles based on user intention (smooth acceleration and quick stop).
+  - The jerk and acceleration limits are not hard constraints.
+
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) (`MPC_POS_MODE=3`, `MPC_AUTO_MODE=1`) - Used when smooth motion is required (e.g.: filming, mapping, cargo).
+  - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.

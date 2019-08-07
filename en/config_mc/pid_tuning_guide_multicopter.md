@@ -185,7 +185,7 @@ There are two ways to counteract that:
 <!-- TODO
 ### Velocity & Position Controller
 The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
-turn off all [higher-level position controller tuning gains](../config_mc/advanced_mc_position_tuning.md).
+turn off all [higher-level position controller tuning gains](../config_mc/mc_trajectory_tuning.md).
 
 - [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX): 1000
 - [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) : 1000

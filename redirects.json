@@ -2,9 +2,10 @@
     "redirects": [
 
 
-        
-        
-
+            {
+                "from": "en/config_mc/advanced_mc_position_tuning.html ",
+                "to": "en/config_mc/mc_trajectory_tuning.html "
+            },
             {
                 "from": "en/flight_controller/pixhack_v5.html",
                 "to": "en/flight_controller/cuav_v5.html"

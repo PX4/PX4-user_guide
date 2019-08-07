@@ -1,4 +1,19 @@
-# Slew-rate type
+# Slew-rate Type Trajectory for Multicopters
+
+The Slew Rate trajectory type should be used when a quick (and potentially "jerky") response to stick input is more important than ensuring smooth acceleration and deceleration (e.g.: for inspection, aggressive flight with position hold, fast missions).
+
+This type is a simple implementation where the jerk and acceleration is limited using slew-rates.
+In manual mode, it allows asymmetric profiles based on user intention (smooth acceleration and quick stop).
+The jerk and acceleration limits are not hard constraints.
+
+Enable this trajectory type using the following parameter settings: [MPC_POS_MODE=1](../advanced_config/parameter_reference.md#MPC_POS_MODE), `MPC_POS_MODE=2`, [MPC_AUTO_MODE=0](../advanced_config/parameter_reference.md#MPC_AUTO_MODE).
+
+> **Note** The [trajectory generator](../config_mc/mc_trajectory_tuning.md) also supports [MC Jerk-limited Trajectory Tuning](../config_mc/mc_jerk_limited_type_trajectory.md) for smoother responses.
+
+
+ 
+This topic explains how the trajectory type works, and can be tuned, in both position and mission modes.
+
 
 ## Position Mode
 
