@@ -2781,6 +2781,13 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="FW_GND_SPD_MIN">FW_GND_SPD_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum groundspeed</p><p><strong>Comment:</strong> The controller will increase the commanded airspeed to maintain this minimum groundspeed to the next waypoint.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 40 (0.5)</td>
+ <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;">m/s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="FW_T_CLMB_MAX">FW_T_CLMB_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum climb rate</p><p><strong>Comment:</strong> This is the best climb rate that the aircraft can achieve with the throttle set to THR_MAX and the airspeed set to the default value. For electric aircraft make sure this number can be achieved towards the end of flight when the battery voltage has reduced. The setting of this parameter can be checked by commanding a positive altitude change of 100m in loiter, RTL or guided mode. If the throttle required to climb is close to THR_MAX and the aircraft is maintaining airspeed, then this parameter is set correctly. If the airspeed starts to reduce, then the parameter is set to high, and if the throttle demand required to climb and maintain speed is noticeably less than FW_THR_MAX, then either FW_T_CLMB_MAX should be increased or FW_THR_MAX reduced.</p>   </td>
  <td style="vertical-align: top;">1.0 > 15.0 (0.5)</td>
