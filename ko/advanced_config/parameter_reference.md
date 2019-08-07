@@ -9328,6 +9328,34 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="FW_GND_SPD_MIN">FW_GND_SPD_MIN</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Minimum groundspeed
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The controller will increase the commanded airspeed to maintain this minimum groundspeed to the next waypoint.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 40 (0.5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="FW_T_CLMB_MAX">FW_T_CLMB_MAX</strong> (FLOAT)
     </td>
     
