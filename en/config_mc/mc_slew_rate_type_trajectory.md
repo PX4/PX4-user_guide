@@ -8,10 +8,8 @@ The jerk and acceleration limits are not hard constraints.
 
 Enable this trajectory type using the following parameter settings: [MPC_POS_MODE=1](../advanced_config/parameter_reference.md#MPC_POS_MODE), `MPC_POS_MODE=2`, [MPC_AUTO_MODE=0](../advanced_config/parameter_reference.md#MPC_AUTO_MODE).
 
-> **Note** The [trajectory generator](../config_mc/mc_trajectory_tuning.md) also supports [MC Jerk-limited Trajectory Tuning](../config_mc/mc_jerk_limited_type_trajectory.md) for smoother responses.
+> **Note** [Setpoint Tuning (Trajectory Generator)](../config_mc/mc_trajectory_tuning.md) also supports [MC Jerk-limited Trajectory Tuning](../config_mc/mc_jerk_limited_type_trajectory.md) for smoother responses.
 
-
- 
 This topic explains how the trajectory type works, and can be tuned, in both position and mission modes.
 
 

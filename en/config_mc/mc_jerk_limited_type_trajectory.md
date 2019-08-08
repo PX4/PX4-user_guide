@@ -5,7 +5,7 @@ It generates symmetric smooth S-curves where the jerk and acceleration limits ar
 
 Enable this trajectory type using the following parameter settings: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE), [MPC_AUTO_MODE=1](../advanced_config/parameter_reference.md#MPC_AUTO_MODE).
 
-> **Note** The [trajectory generator](../config_mc/mc_trajectory_tuning.md) also supports [MC Slew-rate Trajectory Tuning](../config_mc/mc_slew_rate_type_trajectory.md) for faster (albeit "jerky") response.
+> **Note** [Setpoint Tuning (Trajectory Generator)](../config_mc/mc_trajectory_tuning.md) also supports [MC Slew-rate Trajectory Tuning](../config_mc/mc_slew_rate_type_trajectory.md) for faster (albeit "jerky") response.
 
 
 ## Trajectory Generator
