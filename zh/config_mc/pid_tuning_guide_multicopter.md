@@ -142,7 +142,7 @@ I 增益一般在0.3~0.5之间，俯仰角的一般要大一点。
 <!-- TODO
 ### Velocity & Position Controller
 The PID-Gains should be chosen such that tracking is as tight as possible. Before doing any position/velocity control related tuning,
-turn off all [higher-level position controller tuning gains](../config_mc/advanced_mc_position_tuning.md).
+turn off all [higher-level position controller tuning gains](../config_mc/mc_trajectory_tuning.md).
 
 - [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX): 1000
 - [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) : 1000
