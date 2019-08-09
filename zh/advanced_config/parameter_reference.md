@@ -2,7 +2,7 @@
 
 > **注意：****这个清单是从源代码中自动生成的** (使用`make parameters_metadata`) 并且包含了最新的参数文档.
 
-## 姿态 Q 估计器
+## Airspeed Validator
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
@@ -29,12 +29,259 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="ARSP_ARSP_SCALE">ARSP_ARSP_SCALE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed scale (scale from IAS to CAS/EAS)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ARSP_SCALE_EST to 1.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.5 > 1.5
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_BETA_GATE">ARSP_BETA_GATE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Gate size for true sideslip fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 5
+    </td>
+    
+    <td style="vertical-align: top;">
+      1
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_BETA_NOISE">ARSP_BETA_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator sideslip measurement noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.3
+    </td>
+    
+    <td style="vertical-align: top;">
+      rad
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_SCALE_EST">ARSP_SCALE_EST</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Automatic airspeed scale estimation on
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS/EAS) on or off. It is recommended level (keeping altitude) while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved in the ARSP_ARSP_SCALE parameter.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_SC_P_NOISE">ARSP_SC_P_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator true airspeed scale process noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0001
+    </td>
+    
+    <td style="vertical-align: top;">
+      1/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_TAS_GATE">ARSP_TAS_GATE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Gate size for true airspeed fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 5
+    </td>
+    
+    <td style="vertical-align: top;">
+      3
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_TAS_NOISE">ARSP_TAS_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator true airspeed measurement noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 4
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.4
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_W_P_NOISE">ARSP_W_P_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator wind process noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s/s
+    </td>
+  </tr>
+</table>
+
+## Attitude Q estimator
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      参数名
+    </th>
+    
+    <th>
+      参数描述
+    </th>
+    
+    <th>
+      最小最大值 (增量)
+    </th>
+    
+    <th>
+      默认值
+    </th>
+    
+    <th>
+      单位
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="ATT_ACC_COMP">ATT_ACC_COMP</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        基于 GPS 的加速度补偿 速度
+        Acceleration compensation based on GPS velocity
       </p>
     </td>
     
@@ -56,7 +303,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        陀螺偏置极限值
+        Gyro bias limit
       </p>
     </td>
     
@@ -80,20 +327,20 @@
     
     <td style="vertical-align: top;">
       <p>
-        外部模块航向使用模式（运动捕捉/视觉）。设置为1则使用视觉模块相关航向数据； 设置为 2则使用从运动捕捉的相关航向数据
+        External heading usage mode (from Motion capture/Vision) Set to 1 to use heading estimate from vision. Set to 2 to use heading from motion capture
       </p>
       
-      <strong>数值：</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> 无外部模块
+          <strong>0:</strong> None
         </li>
         <li>
-          <strong>1:</strong> 视觉模块
+          <strong>1:</strong> Vision
         </li>
         <li>
-          <strong>2:</strong> 运动捕捉
+          <strong>2:</strong> Motion Capture
         </li>
       </ul>
     </td>
@@ -117,11 +364,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        磁偏角，度
+        Magnetic declination, in degrees
       </p>
       
       <p>
-        <strong>注释:</strong> 在正常操作中不使用此参数, 因为磁偏角是基于无人机所在GPS坐标位置进行检索得到
+        <strong>Comment:</strong> This parameter is not used in normal operation, as the declination is looked up based on the GPS coordinates of the vehicle.
       </p>
     </td>
     
@@ -144,7 +391,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        基于GPS的自动磁偏角补偿
+        Automatic GPS based declination compensation
       </p>
     </td>
     
@@ -166,7 +413,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        互补滤波器加速度计权重值
+        Complimentary filter accelerometer weight
       </p>
     </td>
     
@@ -189,7 +436,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        互补过滤器外部航向权重值
+        Complimentary filter external heading weight
       </p>
     </td>
     
@@ -212,7 +459,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        互补过滤器陀螺仪偏置权重值
+        Complimentary filter gyroscope bias weight
       </p>
     </td>
     
@@ -235,11 +482,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        互补滤波器磁罗盘权重值
+        Complimentary filter magnetometer weight
       </p>
       
       <p>
-        <strong>注意:</strong> 设为0时，不使用磁罗盘数据
+        <strong>Comment:</strong> Set to 0 to avoid using the magnetometer.
       </p>
     </td>
     
@@ -256,7 +503,7 @@
   </tr>
 </table>
 
-## 电池校准
+## Battery Calibration
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
@@ -288,11 +535,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        电池电压测量ADC通道
+        Battery ADC Channel
       </p>
       
       <p>
-        <strong>注意:</strong>此参数指定用于监视主电源电池电压的 ADC 通道, 当此值为-1.0时，使用板载默认设定值
+        <strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. A value of -1 means to use the board default.
       </p>
     </td>
     
@@ -314,11 +561,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        电池电流和检测电压对应关系(A/V)
+        Battery current per volt (A/V)
       </p>
       
       <p>
-        <strong>说明:</strong>通过3.3V ADC采样得到的电压值乘以当前设定系数将确定电池电流. 当此值为-1时，使用板载默认设定值.
+        <strong>Comment:</strong> The voltage seen by the 3.3V ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.
       </p>
     </td>
     
@@ -340,15 +587,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        电池容量
+        Battery capacity
       </p>
       
       <p>
-        <strong>说明:</strong>参数描述了当前安装的安装的电池的容量.
+        <strong>Comment:</strong> Defines the capacity of the attached battery.
       </p>
       
       <p>
-        <b>重启要求: </b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -372,11 +619,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        从ADC输入通道(电池电流测量通道) 得到的原始值转换成电压对应的系数.
+        Scaling from ADC counts to volt on the ADC input (battery current)
       </p>
       
       <p>
-        <strong>说明:</strong>这个不是电池电流，而是中间ADC电压。 值为-1 表示使用主板默认值, 这是强烈建议的。
+        <strong>Comment:</strong> This is not the battery current, but the intermediate ADC voltage. A value of -1 signifies that the board defaults are used, which is highly recommended.
       </p>
     </td>
     
@@ -398,11 +645,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        从ADC输入通道(电池电压测量通道) 得到的原始值转换成电压对应的系数.
+        Scaling from ADC counts to volt on the ADC input (battery voltage)
       </p>
       
       <p>
-        <strong>说明:</strong>这个不是电池电压，而是中间ADC电压。 值为-1 表示使用主板默认值, 这是强烈建议的。
+        <strong>Comment:</strong> This is not the battery voltage, but the intermediate ADC voltage. A value of -1 signifies that the board defaults are used, which is highly recommended.
       </p>
     </td>
     
@@ -424,15 +671,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        临界阈值
+        Critical threshold
       </p>
       
       <p>
-        <strong>说明:</strong>设置提示严重低电压报警的阈值. 这个值设置必须低于低电压报警阈值. 此阈值通常会触发 RTL。
+        <strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -456,15 +703,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        危险紧急阈值
+        Emergency threshold
       </p>
       
       <p>
-        <strong>说明:</strong>设置低电压危险报警阈值. 这个值必须低于严重低电压报警阈值. 此阈值一般会触发LAND.
+        <strong>Comment:</strong> Sets the threshold when the battery will be reported as dangerously low. This has to be lower than the critical threshold. This threshold commonly will trigger landing.
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -488,15 +735,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        低电压阈值
+        Low threshold
       </p>
       
       <p>
-        <strong>说明:</strong>此为触发低电压报警的阈值. 这个值必须高于严重低电压报警阈值.
+        <strong>Comment:</strong> Sets the threshold when the battery will be reported as low. This has to be higher than the critical threshold.
       </p>
       
       <p>
-        <b>重启要求: </b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -520,68 +767,68 @@
     
     <td style="vertical-align: top;">
       <p>
-        电芯串联数
+        Number of cells
       </p>
       
       <p>
-        <strong>说明:</strong>定义所安装的电池内部包含的串联电芯数量.
+        <strong>Comment:</strong> Defines the number of cells the attached battery consists of.
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong>未配置
+          <strong>0:</strong> Unconfigured
         </li>
         <li>
-          <strong>2:</strong>2S电池
+          <strong>2:</strong> 2S Battery
         </li>
         <li>
-          <strong>3:</strong>3S电池
+          <strong>3:</strong> 3S Battery
         </li>
         <li>
-          <strong>4:</strong>4S电池
+          <strong>4:</strong> 4S Battery
         </li>
         <li>
-          <strong>5:</strong>5S电池
+          <strong>5:</strong> 5S Battery
         </li>
         <li>
-          <strong>6:</strong>6S电池
+          <strong>6:</strong> 6S Battery
         </li>
         <li>
-          <strong>7:</strong>7S电池
+          <strong>7:</strong> 7S Battery
         </li>
         <li>
-          <strong>8:</strong>8S电池
+          <strong>8:</strong> 8S Battery
         </li>
         <li>
-          <strong>9:</strong>9S电池
+          <strong>9:</strong> 9S Battery
         </li>
         <li>
-          <strong>10:</strong>10S电池
+          <strong>10:</strong> 10S Battery
         </li>
         <li>
-          <strong>11:</strong>11S电池
+          <strong>11:</strong> 11S Battery
         </li>
         <li>
-          <strong>12:</strong>12S电池
+          <strong>12:</strong> 12S Battery
         </li>
         <li>
-          <strong>13:</strong>13S电池
+          <strong>13:</strong> 13S Battery
         </li>
         <li>
-          <strong>14:</strong>14S电池
+          <strong>14:</strong> 14S Battery
         </li>
         <li>
-          <strong>15:</strong>15S电池
+          <strong>15:</strong> 15S Battery
         </li>
         <li>
-          <strong>16:</strong>16S电池
+          <strong>16:</strong> 16S Battery
         </li>
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -604,15 +851,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        明确的定义每节电芯的内部阻抗
+        Explicitly defines the per cell internal resistance
       </p>
       
       <p>
-        <strong>说明:</strong>如果是非负值, 则会用于在所有计算中替换BAT_V_LOAD_DROP.
+        <strong>Comment:</strong> If non-negative, then this will be used in place of BAT_V_LOAD_DROP for all calculations.
       </p>
       
       <p>
-        <b>重启要求: </b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -636,21 +883,21 @@
     
     <td style="vertical-align: top;">
       <p>
-        电池电压检测器源
+        Battery monitoring source
       </p>
       
       <p>
-        <strong>说明:</strong>此参数决定了电池监测数据的来源. 参数''0'' 表示测量信号来源于一个电源模块. 参数"1"表示系统从外部接收到的Mavlink消息中获取电池状态信息.
+        <strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.
       </p>
       
-      <strong>参数值:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong>电源模块
+          <strong>0:</strong> Power Module
         </li>
         <li>
-          <strong>1:</strong>外部信息
+          <strong>1:</strong> External
         </li>
       </ul>
     </td>
@@ -674,15 +921,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        满电电压(5C 负载)
+        Full cell voltage (5C load)
       </p>
       
       <p>
-        <strong>说明:</strong>定义一个电池单元在轻度负载下被认为是满的电压. 这永远不会是标称电压4.2V.
+        <strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered full under a mild load. This will never be the nominal voltage of 4.2V
       </p>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -706,11 +953,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        电池电压分压器(电压分压器)
+        Battery voltage divider (V divider)
       </p>
       
       <p>
-        <strong>说明:</strong>这是电池电压到3.3V ADC电压的分压器。 如果使用Mauch 电源模块，数据表中的值可以在这里直接应用。 参数值为-1表示使用板载默认值。
+        <strong>Comment:</strong> This is the divider from battery voltage to 3.3V ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. A value of -1 means to use the board default.
       </p>
     </td>
     
@@ -732,15 +979,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        空电电压(5C负载)
+        Empty cell voltage (5C load)
       </p>
       
       <p>
-        <strong>说明:</strong>定义了单节电池认为为空的时候的电压值. 该电压应该选择设置在陡降至2.8V之前， 一个典型的锂电池只能放电到10%，在它陡降至会损坏电芯的电压之前。
+        <strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.
       </p>
       
       <p>
-        <b>重启要求: </b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -764,15 +1011,15 @@
     
     <td style="vertical-align: top;">
       <p>
-        在全油门工作时每节电芯的压降
+        Voltage drop per cell on full throttle
       </p>
       
       <p>
-        <strong>说明:</strong>这个隐式定义了对最大电流比的内阻，并假设是线性关系。 比较好的值是测量并计算在5C负载时的压降和20~25C负载时的压降的差值. 当参数BAT_R_INTERNAL被设置的时候会不使用此参数.
+        <strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT_R_INTERNAL is set.
       </p>
       
       <p>
-        <b>重启要求: </b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -796,11 +1043,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        电流传感器ADC通道输入电压偏移
+        Offset in volt as seen by the ADC input of the current sensor
       </p>
       
       <p>
-        <strong>说明:</strong>在根据电压计算电池电流之前，这个偏移量将被减去。
+        <strong>Comment:</strong> This offset will be subtracted before calculating the battery current based on the voltage.
       </p>
     </td>
     
@@ -976,7 +1223,7 @@
         <strong>Comment:</strong> Change time measurement
       </p>
       
-      <strong>参数对照:</strong>
+      <strong>Values:</strong>
       
       <ul>
         <li>
@@ -1120,7 +1367,7 @@
       </ul>
       
       <p>
-        <b>要求重启:</b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -1225,7 +1472,7 @@
       </p>
       
       <p>
-        <b>重启要求: </b>是
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -41055,23 +41302,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      参数名
+      Name
     </th>
     
     <th>
-      参数描述
+      Description
     </th>
     
     <th>
-      最小最大值 (增量)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      默认值
+      Default
     </th>
     
     <th>
-      单位
+      Units
     </th>
   </tr>
   
@@ -41947,209 +42194,6 @@
     
     <td style="vertical-align: top;">
       1/s
-    </td>
-  </tr>
-</table>
-
-## Wind Estimator
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
-  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-      Description
-    </th>
-    
-    <th>
-      Min > Max (Incr.)
-    </th>
-    
-    <th>
-      Default
-    </th>
-    
-    <th>
-      Units
-    </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_BETA_GATE">WEST_BETA_GATE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gate size for true sideslip fusion
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1 > 5
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
-      SD
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_BETA_NOISE">WEST_BETA_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator sideslip measurement noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.3
-    </td>
-    
-    <td style="vertical-align: top;">
-      rad
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_EN">WEST_EN</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Enable Wind estimator
-      </p>
-      
-      <p>
-        <b>Reboot required:</b> true
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_SC_P_NOISE">WEST_SC_P_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator true airspeed scale process noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0001
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_TAS_GATE">WEST_TAS_GATE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gate size for true airspeed fusion
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1 > 5
-    </td>
-    
-    <td style="vertical-align: top;">
-      3
-    </td>
-    
-    <td style="vertical-align: top;">
-      SD
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_TAS_NOISE">WEST_TAS_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator true airspeed measurement noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 4
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.4
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_W_P_NOISE">WEST_W_P_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator wind process noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s/s
     </td>
   </tr>
 </table>
