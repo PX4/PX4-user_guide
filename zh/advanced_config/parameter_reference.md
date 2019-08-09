@@ -17481,11 +17481,11 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.1 > 5.0
+      0.1 > 1.0
     </td>
     
     <td style="vertical-align: top;">
-      0.3
+      0.5
     </td>
     
     <td style="vertical-align: top;">
@@ -17682,7 +17682,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.1 > 5.0
+      0.1 > 1.0
     </td>
     
     <td style="vertical-align: top;">
