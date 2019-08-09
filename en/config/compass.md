@@ -9,7 +9,7 @@ The compass calibration process configures all connected internal and external [
 
 <span></span>
 > **Tip** You will need to calibrate your compass on first use, and you may need to recalibrate it if the vehicles is ever exposed to a very strong magnetic field, or if it is used in an area with abnormal magnetic characteristics.
-  Indications of a poor compass calibration include multicopter circling during hover, or veering off-path when attempting to fly straight.
+  Indications of a poor compass calibration include multicopter circling during hover, toilet bowling (circling at increasing radius/spiraling-out, usually constant altitude, leading to fly-way), or veering off-path when attempting to fly straight.
 
 ## Performing the Calibration 
 
