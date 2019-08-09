@@ -1,6 +1,72 @@
 # Parameter Reference
 > **Note** **This list is auto-generated from the source code** (using `make parameters_metadata`) and contains the most recent parameter documentation.
 
+## Airspeed Validator
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_ARSP_SCALE">ARSP_ARSP_SCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed scale (scale from IAS to CAS/EAS)</p><p><strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ARSP_SCALE_EST to 1.</p>   </td>
+ <td style="vertical-align: top;">0.5 > 1.5 </td>
+ <td style="vertical-align: top;">1.0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_BETA_GATE">ARSP_BETA_GATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Gate size for true sideslip fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td style="vertical-align: top;">1 > 5 </td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;">SD</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_BETA_NOISE">ARSP_BETA_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator sideslip measurement noise</p><p><strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0.3 </td>
+ <td style="vertical-align: top;">rad</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_SCALE_EST">ARSP_SCALE_EST</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Automatic airspeed scale estimation on</p><p><strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS/EAS) on or off. It is recommended level (keeping altitude) while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved in the ARSP_ARSP_SCALE parameter.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_SC_P_NOISE">ARSP_SC_P_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator true airspeed scale process noise</p><p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td style="vertical-align: top;">0 > 0.1 </td>
+ <td style="vertical-align: top;">0.0001 </td>
+ <td style="vertical-align: top;">1/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_TAS_GATE">ARSP_TAS_GATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Gate size for true airspeed fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td style="vertical-align: top;">1 > 5 </td>
+ <td style="vertical-align: top;">3 </td>
+ <td style="vertical-align: top;">SD</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_TAS_NOISE">ARSP_TAS_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator true airspeed measurement noise</p><p><strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td style="vertical-align: top;">0 > 4 </td>
+ <td style="vertical-align: top;">1.4 </td>
+ <td style="vertical-align: top;">m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ARSP_W_P_NOISE">ARSP_W_P_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator wind process noise</p><p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;">m/s/s</td>
+</tr>
+</tbody></table>
+
 ## Attitude Q estimator
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -13730,66 +13796,6 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
  <td style="vertical-align: top;">0.0 > 3.0 (0.01)</td>
  <td style="vertical-align: top;">1.0 </td>
  <td style="vertical-align: top;">1/s</td>
-</tr>
-</tbody></table>
-
-## Wind Estimator
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_BETA_GATE">WEST_BETA_GATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gate size for true sideslip fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td style="vertical-align: top;">1 > 5 </td>
- <td style="vertical-align: top;">1 </td>
- <td style="vertical-align: top;">SD</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_BETA_NOISE">WEST_BETA_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Wind estimator sideslip measurement noise</p>   </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0.3 </td>
- <td style="vertical-align: top;">rad</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_EN">WEST_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable Wind estimator</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_SC_P_NOISE">WEST_SC_P_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Wind estimator true airspeed scale process noise</p>   </td>
- <td style="vertical-align: top;">0 > 0.1 </td>
- <td style="vertical-align: top;">0.0001 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_TAS_GATE">WEST_TAS_GATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gate size for true airspeed fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td style="vertical-align: top;">1 > 5 </td>
- <td style="vertical-align: top;">3 </td>
- <td style="vertical-align: top;">SD</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_TAS_NOISE">WEST_TAS_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Wind estimator true airspeed measurement noise</p>   </td>
- <td style="vertical-align: top;">0 > 4 </td>
- <td style="vertical-align: top;">1.4 </td>
- <td style="vertical-align: top;">m/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="WEST_W_P_NOISE">WEST_W_P_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Wind estimator wind process noise</p>   </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0.1 </td>
- <td style="vertical-align: top;">m/s/s</td>
 </tr>
 </tbody></table>
 
