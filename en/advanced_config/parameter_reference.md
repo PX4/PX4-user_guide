@@ -5286,8 +5286,8 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_XY_TRAJ_P">MPC_XY_TRAJ_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Proportional gain for horizontal trajectory position error</p>   </td>
- <td style="vertical-align: top;">0.1 > 5.0 </td>
- <td style="vertical-align: top;">0.3 </td>
+ <td style="vertical-align: top;">0.1 > 1.0 </td>
+ <td style="vertical-align: top;">0.5 </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -5342,7 +5342,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_Z_TRAJ_P">MPC_Z_TRAJ_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Proportional gain for vertical trajectory position error</p>   </td>
- <td style="vertical-align: top;">0.1 > 5.0 </td>
+ <td style="vertical-align: top;">0.1 > 1.0 </td>
  <td style="vertical-align: top;">0.3 </td>
  <td style="vertical-align: top;"></td>
 </tr>
