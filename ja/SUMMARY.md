@@ -186,8 +186,8 @@
   * [Snapdragon Flight](flight_controller/snapdragon_flight.md) 
     * [ハードウェア設定例](flight_controller/snapdragon_flight_hardware_example_setup.md)
     * [開発環境インストール](flight_controller/snapdragon_flight_dev_environment_installation.md)
-    * [Snapdragon Software Installation](flight_controller/snapdragon_flight_software_installation.md)
-    * [Configuration](flight_controller/snapdragon_flight_configuration.md)
+    * [Snapdragonソフトウェアインストール](flight_controller/snapdragon_flight_software_installation.md)
+    * [設定](flight_controller/snapdragon_flight_configuration.md)
     * [Snapdragon Advanced](flight_controller/snapdragon_flight_advanced.md)
   * [Raspberry Pi 2/3 Navio2](flight_controller/raspberry_pi_navio2.md)
   * [OcPoC-Zynq Mini](flight_controller/ocpoc_zynq.md)
@@ -200,7 +200,7 @@
     * [NanoMind 110](complete_vehicles/nanomind110.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](complete_vehicles/betafpv_beta75x.md)
   * [Holybro Kopis 2](complete_vehicles/holybro_kopis2.md)
-  * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
+  * [Intel® Aero RTF Drone (廃版)](complete_vehicles/intel_aero.md)
 * [開発](development/development.md)
 
 ## Dronecode ショートカット
