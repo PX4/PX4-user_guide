@@ -10,9 +10,9 @@
 
 ドローンは産業用や軍用等，[様々な用途で](http://px4.io/applications/)多くの人に利用されています。 その活用例としては以下などがあります。(もちろん，これに限られません): 空撮．運送，レース，探査，調査等
 
-> **Tip** Different types of drones exist for use in air, ground, sea, and underwater. These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
+> **Tip** ドローンには空，水上，海中用のものがあります。 これらは (より正確に言うと) Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) などと呼ばれます。
 
-The "brain" of the drone is called an autopilot. It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
+ドローンの"頭脳"はオートパイロットと呼ばれます。 It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
 
 ## PX4 Autopilot {#autopilot}
 
