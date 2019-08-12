@@ -9,14 +9,28 @@ UAVCAN ESCs have a number of advantages over [PWM ESCs and Servos](../peripheral
 - Wiring is less complicated as you can have a single bus for connecting all your ESCs and other UAVCAN peripherals.
 - Setup is easier as you configure ESC numbering by manually spinning each motor.
 
-Any UAVCAN ESC can be used with PX4 (ESC enumeration may differ slightly).
+## PX4 Supported ESC
 
-A number of popular UAVCAN ESCs and ESC firmware are listed:
-- [Sapog](#sapog) firmware; an advanced open source sensorless PMSM/BLDC motor controller firmware designed for use in propulsion systems of electric unmanned vehicles.
-- [Mitochondrik](https://zubax.com/products/mitochondrik) integrated sensorless PMSM/BLDC motor controller chip (used in ESCs and integrated drives)
-- A number of others are [listed here](https://forum.uavcan.org/t/uavcan-esc-options/452/3?u=pavel.kirienko)
+PX4 is compatible with any/all UAVCAN ESCs (UAVCAN is generally speaking a plug'n'play protocol).
 
 > **Note** At time of writing PX4 supports UAVCAN v0 (not v1.0).
+
+The only difference between UAVCAN ESCs from a setup perspective is that the physical connectors and the software tools used to configure the motor order and direction may be different. 
+
+
+Some popular UAVCAN ESC firmware/products include:
+- [Sapog](#sapog) firmware; an advanced open source sensorless PMSM/BLDC motor controller firmware designed for use in propulsion systems of electric unmanned vehicles.
+  - [Zubax Orel 20](https://zubax.com/products/orel_20)
+  - [Holybro Kotleta20](https://shop.holybro.com/kotleta20_p1156.html)
+- [Mitochondrik](https://zubax.com/products/mitochondrik) - integrated sensorless PMSM/BLDC motor controller chip (used in ESCs and integrated drives)
+  - [Zubax Sadulli Integrated Drive](https://shop.zubax.com/collections/integrated-drives/products/sadulli-integrated-drive-open-hardware-reference-design-for-mitochondrik?variant=27740841181283)
+- [Myxa](https://zubax.com/products/myxa) - High-end PMSM/BLDC motor controller (FOC ESC) for light unmanned aircraft and watercraft.
+- [VESC Project ESCs](https://vesc-project.com/) (see also [Benjamin Vedder's blog](http://vedder.se) - project owner)
+- [OlliW’s UC4H ESC-Actuator Node](http://www.olliw.eu/2017/uavcan-for-hobbyists/#chapterescactuator)
+- A number of others are [listed here](https://forum.uavcan.org/t/uavcan-esc-options/452/3?u=pavel.kirienko)
+
+> **Note** This list is *not exhaustive/complete*.
+  If you know of another ESC, please add it to the list!
 
 
 ## Purchase
@@ -36,23 +50,31 @@ Mitochondrik based drives and ESC:
 
   ![Sadulli - Top](../../assets/peripherals/esc_usavcan_zubax_sadulli/sadulli_top.jpg)
 
+> **Note** There are many other commercially available ESCs; please add new links as you find them!
+
 
 ## Wiring/Connections {#connecting}
 
 Connect all of the on-board UAVCAN devices into a chain and make sure the bus is terminated at the end nodes.
-The order in which the ESC are connected/chained does not matter.
+The order in which the ESCs are connected/chained does not matter.
+
+> **Note** All UAVCAN ESCs share the same connection architecture/are wired the same way.
+  Note however that the actual connectors differ (e.g. *Zubax Orel 20* and *Holybro Kotleta20* use Dronecode standard connectors (JST-GH 4 Pin) - while VESCs do not).
 
 For more information information about proper bus connections see [UAVCAN Device Interconnection](https://kb.zubax.com/display/MAINKB/UAVCAN+device+interconnection) (Zubax KB).
 
 
 ## PX4 Configuration
 
-In order to use a UAVCAN ESC with PX4 you will need to enable the UAVCAN driver (and you may need to [set other parameters](../advanced_config/parameters.md)):
+In order to use a UAVCAN ESC with PX4 you will need to enable the UAVCAN driver:
 1. Power the vehicle using the battery (you must power the whole vehicle, not just the flight controller!) and connect *QGroundControl*.
-1. Navigate to the **Vehicle Setup > Parameters** screen.
+1. Navigate to the **Vehicle Setup > Parameters** screen
+   > [Parameters](../advanced_config/parameters.md) explains how to find and set parameters.
 1. Set [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) to the value *Sensors and Motors* (3) and then reboot the flight controller.
-1. If applicable, set [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT) to 1 in order to ensure that the motors are always running at least at the idle throttle while the system is armed.
-   Some systems will not benefit from this behavior, e.g. glider drones.
+
+If applicable (some systems will not benefit from this behavior, e.g. glider drones):
+1. Set [UAVCAN_ESC_IDLT](../advanced_config/parameter_reference.md#UAVCAN_ESC_IDLT) to 1 in order to ensure that the motors are always running at least at the idle throttle while the system is armed.
+
 
 
 ## ESC Setup
@@ -106,6 +128,19 @@ This assigns the following Sapog configuration parameters for each enumerated ES
 - `ctl_dir`
 
 > **Note** See [Sapog reference manual](https://files.zubax.com/products/io.px4.sapog/Sapog_v2_Reference_Manual.pdf) for more information about the parameters.
+
+### Myxa ESC Setup
+
+Motor enumeration for Myxa [Telega-based ESCs](https://zubax.com/products/telega) is usually performed using the [Kucher tool](https://files.zubax.com/products/com.zubax.kucher/) (or less "GUI-friendly" [UAVCAN GUI Tool](https://uavcan.org/GUI_Tool/Overview/)).
+
+There is some guidance here: [Quick start guide for Myxa v0.1](https://forum.zubax.com/t/quick-start-guide-for-myxa-v0-1/911) (Zubax blog)
+
+ (e.g Mitochondrik and Myxa) you can use the .
+
+
+### VESC ESC Setup
+
+For VESC the preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool).
 
 
 ## Further Information
