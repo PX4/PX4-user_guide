@@ -44,3 +44,5 @@ Click on the links below to learn more about those implementations and how to co
 
 - [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) (`MPC_POS_MODE=3`, `MPC_AUTO_MODE=1`) - Used when smooth motion is required (e.g.: filming, mapping, cargo).
   - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
+
+> **Tip** The jerk-limited (smooth) type is used by default for all frames in both manual and auto modes; this may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
