@@ -2,6 +2,253 @@
 
 > **Note** **This list is auto-generated from the source code** (using `make parameters_metadata`) and contains the most recent parameter documentation.
 
+## Airspeed Validator
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_ARSP_SCALE">ARSP_ARSP_SCALE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed scale (scale from IAS to CAS/EAS)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ARSP_SCALE_EST to 1.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.5 > 1.5
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_BETA_GATE">ARSP_BETA_GATE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Gate size for true sideslip fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 5
+    </td>
+    
+    <td style="vertical-align: top;">
+      1
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_BETA_NOISE">ARSP_BETA_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator sideslip measurement noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.3
+    </td>
+    
+    <td style="vertical-align: top;">
+      rad
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_SCALE_EST">ARSP_SCALE_EST</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Automatic airspeed scale estimation on
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS/EAS) on or off. It is recommended level (keeping altitude) while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved in the ARSP_ARSP_SCALE parameter.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_SC_P_NOISE">ARSP_SC_P_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator true airspeed scale process noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0001
+    </td>
+    
+    <td style="vertical-align: top;">
+      1/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_TAS_GATE">ARSP_TAS_GATE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Gate size for true airspeed fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 5
+    </td>
+    
+    <td style="vertical-align: top;">
+      3
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_TAS_NOISE">ARSP_TAS_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator true airspeed measurement noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 4
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.4
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_W_P_NOISE">ARSP_W_P_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator wind process noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s/s
+    </td>
+  </tr>
+</table>
+
 ## Attitude Q estimator
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -1725,6 +1972,32 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Require all the ESCs to be detected to arm
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This param is specific for ESCs reporting status. Normal ESCs configurations are not affected by the change of this param.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_ARM_EKF_AB">COM_ARM_EKF_AB</strong> (FLOAT)
     </td>
     
@@ -1917,25 +2190,25 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="COM_ARM_MAG">COM_ARM_MAG</strong> (FLOAT)
+      <strong id="COM_ARM_MAG_ANG">COM_ARM_MAG_ANG</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        Maximum magnetic field inconsistency between units that will allow arming
+        Maximum magnetic field inconsistency between units that will allow arming Set -1 to disable the check
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      0.05 > 0.5 (0.05)
+      3 > 180
     </td>
     
     <td style="vertical-align: top;">
-      0.15
+      30
     </td>
     
     <td style="vertical-align: top;">
-      Gauss
+      deg
     </td>
   </tr>
   
@@ -9328,6 +9601,34 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="FW_GND_SPD_MIN">FW_GND_SPD_MIN</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Minimum groundspeed
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The controller will increase the commanded airspeed to maintain this minimum groundspeed to the next waypoint.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 40 (0.5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="FW_T_CLMB_MAX">FW_T_CLMB_MAX</strong> (FLOAT)
     </td>
     
@@ -16294,6 +16595,34 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="MPC_COL_PREV_ANG">MPC_COL_PREV_ANG</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Angle left/right from the commanded setpoint in which the range data is used to calculate speed limitations. All data further from the commanded direction is not considered
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 90
+    </td>
+    
+    <td style="vertical-align: top;">
+      45.
+    </td>
+    
+    <td style="vertical-align: top;">
+      [deg]
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MPC_COL_PREV_D">MPC_COL_PREV_D</strong> (FLOAT)
     </td>
     
@@ -17152,11 +17481,11 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.1 > 5.0
+      0.1 > 1.0
     </td>
     
     <td style="vertical-align: top;">
-      0.3
+      0.5
     </td>
     
     <td style="vertical-align: top;">
@@ -17353,7 +17682,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.1 > 5.0
+      0.1 > 1.0
     </td>
     
     <td style="vertical-align: top;">
@@ -27719,6 +28048,319 @@
   </tr>
 </table>
 
+## Roboclaw
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_SER_CFG">RBCLW_SER_CFG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Serial Configuration for Roboclaw Driver
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure on which serial port to run Roboclaw Driver.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>6:</strong> UART 6
+        </li>
+        <li>
+          <strong>101:</strong> TELEM 1
+        </li>
+        <li>
+          <strong>102:</strong> TELEM 2
+        </li>
+        <li>
+          <strong>103:</strong> TELEM 3
+        </li>
+        <li>
+          <strong>104:</strong> TELEM/SERIAL 4
+        </li>
+        <li>
+          <strong>201:</strong> GPS 1
+        </li>
+        <li>
+          <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
+## Roboclaw driver
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Address of the Roboclaw
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The Roboclaw can be configured to have an address from 0x80 to 0x87, inclusive. It must be configured to match this parameter.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>128:</strong> 0x80
+        </li>
+        <li>
+          <strong>129:</strong> 0x81
+        </li>
+        <li>
+          <strong>130:</strong> 0x82
+        </li>
+        <li>
+          <strong>131:</strong> 0x83
+        </li>
+        <li>
+          <strong>132:</strong> 0x84
+        </li>
+        <li>
+          <strong>133:</strong> 0x85
+        </li>
+        <li>
+          <strong>134:</strong> 0x86
+        </li>
+        <li>
+          <strong>135:</strong> 0x87
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+      128 > 135
+    </td>
+    
+    <td style="vertical-align: top;">
+      128
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_BAUD">RBCLW_BAUD</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roboclaw serial baud rate
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Baud rate of the serial communication with the Roboclaw. The Roboclaw must be configured to match this rate.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>2400:</strong> 2400 baud
+        </li>
+        <li>
+          <strong>9600:</strong> 9600 baud
+        </li>
+        <li>
+          <strong>19200:</strong> 19200 baud
+        </li>
+        <li>
+          <strong>38400:</strong> 38400 baud
+        </li>
+        <li>
+          <strong>57600:</strong> 57600 baud
+        </li>
+        <li>
+          <strong>115200:</strong> 115200 baud
+        </li>
+        <li>
+          <strong>230400:</strong> 230400 baud
+        </li>
+        <li>
+          <strong>460800:</strong> 460800 baud
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      2400 > 460800
+    </td>
+    
+    <td style="vertical-align: top;">
+      2400
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_COUNTS_REV">RBCLW_COUNTS_REV</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Encoder counts per revolution
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Number of encoder counts for one revolution. The roboclaw treats analog encoders (potentiometers) as having 2047 counts per rev. The default value of 1200 corresponds to the default configuration of the Aion R1 rover.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      1200
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_READ_PER">RBCLW_READ_PER</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Encoder read period
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> How long to wait, in Milliseconds, between reading wheel encoder values over Uart from the Roboclaw
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 1000
+    </td>
+    
+    <td style="vertical-align: top;">
+      10
+    </td>
+    
+    <td style="vertical-align: top;">
+      ms
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_WRITE_PER">RBCLW_WRITE_PER</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Uart write period
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> How long to wait, in Milliseconds, between writing actuator controls over Uart to the Roboclaw
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 1000
+    </td>
+    
+    <td style="vertical-align: top;">
+      10
+    </td>
+    
+    <td style="vertical-align: top;">
+      ms
+    </td>
+  </tr>
+</table>
+
 ## Rover Position Control
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -32048,6 +32690,32 @@
     <td style="vertical-align: top;">
       <p>
         PGA460 Ultrasonic driver (PGA460)
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_EN_PX4FLOW">SENS_EN_PX4FLOW</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PX4 Flow Optical Flow
       </p>
       
       <p>
@@ -41526,209 +42194,6 @@
     
     <td style="vertical-align: top;">
       1/s
-    </td>
-  </tr>
-</table>
-
-## Wind Estimator
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
-  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-      Description
-    </th>
-    
-    <th>
-      Min > Max (Incr.)
-    </th>
-    
-    <th>
-      Default
-    </th>
-    
-    <th>
-      Units
-    </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_BETA_GATE">WEST_BETA_GATE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gate size for true sideslip fusion
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1 > 5
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
-      SD
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_BETA_NOISE">WEST_BETA_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator sideslip measurement noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.3
-    </td>
-    
-    <td style="vertical-align: top;">
-      rad
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_EN">WEST_EN</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Enable Wind estimator
-      </p>
-      
-      <p>
-        <b>Reboot required:</b> true
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_SC_P_NOISE">WEST_SC_P_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator true airspeed scale process noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0001
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_TAS_GATE">WEST_TAS_GATE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gate size for true airspeed fusion
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1 > 5
-    </td>
-    
-    <td style="vertical-align: top;">
-      3
-    </td>
-    
-    <td style="vertical-align: top;">
-      SD
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_TAS_NOISE">WEST_TAS_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator true airspeed measurement noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 4
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.4
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_W_P_NOISE">WEST_W_P_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator wind process noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s/s
     </td>
   </tr>
 </table>

@@ -4,7 +4,7 @@
 
 * 이륙 (Takeo) </ 0> 비행 모드는 기체가 지정된 높이로 떨어져 나가고 추가 입력을 기다립니다.</p> 
 
-> **Note** * This mode requires GPS. * This mode is automatic (RC control is disabled [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) except to change modes). * The vehicle must be armed before this mode can be engaged.
+> **Note** * This mode requires GPS. * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. The effect of RC stick movement depends on the vehicle type.
 
 The specific behaviour for each vehicle type is described below.
 
@@ -12,7 +12,9 @@ The specific behaviour for each vehicle type is described below.
 
 멀티 로터는  MIS_TAKEOFF_ALT </ 0>에 정의 된 고도까지 상승하고 위치를 유지합니다.</p>
 
-<p>이륙은 다음 매개 변수의 영향을받습니다.</p>
+<p>RC stick movement will <a href="#COM_RC_OVERRIDE">by default</a> change the vehicle to <a href="../flight_modes/position_mc.md">Position mode</a> unless handling a critical battery failsafe.</p>
+
+<p>Takeoff is affected by the following parameters:</p>
 
 <table>
 <thead>
@@ -23,29 +25,34 @@ The specific behaviour for each vehicle type is described below.
 </thead>
 <tbody>
 <tr>
-  <td><a href="../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT
-</a></td>
+  <td><span id="MIS_TAKEOFF_ALT"></span><a href="../advanced_config/parameter_reference.md#MIS_TAKEOFF_ALT">MIS_TAKEOFF_ALT</a></td>
   <td>이륙 중 목표 고도 (기본값 : 2.5m)</td>
 </tr>
 <tr>
-  <td><a href="../advanced_config/parameter_reference.md#MPC_TKO_SPEED">MPC_TKO_SPEED
-</a></td>
+  <td><span id="MPC_TKO_SPEED"></span><a href="../advanced_config/parameter_reference.md#MPC_TKO_SPEED">MPC_TKO_SPEED</a></td>
   <td>상승 속도 (기본값 : 1.5m / s)</td>
+</tr>
+<tr>
+  <td><span id="COM_RC_OVERRIDE"></span><a href="../advanced_config/parameter_reference.md#COM_RC_OVERRIDE">COM_RC_OVERRIDE</a></td>
+  <td>If enabled stick movement gives control back to the pilot in <a href="../flight_modes/position_mc.md">Position mode</a> (except when vehicle is handling a critical battery failsafe). Enabled by default.</td>
 </tr>
 </tbody>
 </table>
 
 <h2 id="fixed_wing">Fixed Wing (FW)</h2>
 
-<p>항공기는 <em> 투석기 / 발사 모드 </ 0> 또는 <em> 활주로 이륙 모드 </ 0>를 사용하여 현재 방향으로 이륙합니다. 모드는 기본적으로 투석기 / 손발기가되지만, <code> RWTO_TKOFF </ 0>를 사용하여 활주로 이륙으로 설정할 수 있습니다.</p>
+<p>The aircraft takes off in the current direction using either <em>catapult/hand-launch mode</em> or <em>runway takeoff mode</em>.
+The mode defaults to catapult/hand launch, but can be set to runway takeoff using <a href="#RWTO_TKOFF">RWTO_TKOFF</a>.</p>
 
-<p><em> 투석기 / 손 발사 모드 </ 0>에서 기체는 최대 스로틀 상승 (약 2 초 내에 <code> RWTO_MAX_THR </ 1>까지 상승)을 수행합니다. 고도 오류 <<a href="#FW_CLMBOUT_DIFF"> FW_CLMBOUT_DIFF </ 0>가되면 일반 탐색이 진행됩니다.</p>
+<p>In <em>catapult/hand launch mode</em> the vehicle will perform a full throttle climbout (ramp up to <a href="#RWTO_MAX_THR">RWTO_MAX_THR</a> in about 2 seconds).
+Once the altitude error < <a href="#FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</a>, regular navigation will proceed.</p>
 
 <blockquote>
-  <p><strong> 참고 </ 0> 위에 논의 된 동작 외에도 일부 조건이 충족 될 때까지 시작 시퀀스가 ​​시작되지 않도록 차단하는 시작 탐지기가 있습니다. 투석기 발사의 경우 이는 약간의 가속 임계 값입니다.</p>
+  <p><strong> 참고 </ 0> 위에 논의 된 동작 외에도 일부 조건이 충족 될 때까지 시작 시퀀스가 ​​시작되지 않도록 차단하는 시작 탐지기가 있습니다.
+    투석기 발사의 경우 이는 약간의 가속 임계 값입니다.</p>
 </blockquote>
 
-<p><em> 활주로 이륙 모드 </ 0>의 위상은 다음과 같습니다.</p>
+<p>The <em>runway takeoff mode</em> has the following phases:</p>
 
 <ol start="1">
 <li><strong> 스로틀 램프 </ 0> : 이륙을위한 최소 속도 (<a href="#FW_AIRSPD_MIN"> FW_AIRSPD_MIN </ 1> x <a href="#RWTO_AIRSPD_SCL"> RWTO_AIRSPD_SCL </ 2>)에 도달 할 때까지 활주로에 고정 (피치 고정, ) </li>
@@ -57,6 +64,8 @@ The specific behaviour for each vehicle type is described below.
 <strong> 등산 </ 0> :지면 위의 고도 <a href="#FW_CLMBOUT_DIFF"> FW_CLMBOUT_DIFF </ 1>까지 상승하십시오.
  이 단계에서는 롤 및 제목 제한이 제거됩니다.</li>
 </ol>
+
+<p>RC stick movement is ignored.</p>
 
 <p>Takeoff is affected by the following parameters:</p>
 

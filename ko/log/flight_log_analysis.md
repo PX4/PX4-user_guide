@@ -168,3 +168,11 @@ Key features:
 Source code and downloads are available on [Github](https://github.com/facontidavide/PlotJuggler).
 
 ![PlotJuggler](../../assets/flight_log_analysis/plotjuggler.png)
+
+### Data Comets
+
+[Data Comets](https://github.com/dsaffo/DataComets) is a interactive PX4 flight log analysis tool that allows you to encode flight data onto the flight path, filter and brush the data by time - and much more!
+
+You can use the online version of the tool for small log files (< 32Mb), or run it locally in order to analyze longer flights.
+
+![Data Comets](../../assets/flight_log_analysis/data_comets/data_comets_overview.gif)
