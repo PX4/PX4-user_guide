@@ -12,25 +12,26 @@ It can be enabled for multicopter vehicles in [Position mode](../flight_modes/po
 
 *Collision Prevention* is enabled/configured on PX4 by setting the parameter for minimum allowed distance ([MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D)).
 
-The feature requires obstacle information from either an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
+The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
 > **Note** Multiple sensors can be used to get information about, and prevent collisions with, objects *around* the vehicle. 
   If multiple sources supply data for the *same* orientation, the system uses the data that reports the smallest distance to an object.
 
-The vehicle starts braking as soon as it detects an obstacle.
-The velocity setpoint towards the obstacle is reduced linearly such that it is set to zero at the point when the vehicle reaches the minimum allowed distance.
+Collision prevention determines the desired speed using the minimum distance from *the set of all included* sensors in the commanded direction (where the "included" set of sensors is tuned using [MPC_COL_PREV_ANG](#angle_tuning)).
+
+The vehicle starts braking as soon as it detects an obstacle, and it will slow and stop movement (in all directions) when the it reaches the minimum allowed distance.
 If the vehicle approaches any closer (i.e. it overshoots or is pushed) negative thrust is applied to repel it from the obstacle.
 
-Only the velocity components *towards* the obstacle are affected.
-RC inputs that cause the vehicle to move tangentially to the obstacle are still obeyed.
-So if a vehicle approaches an obstacle from an angle, the vehicle will slow until it reaches the minimum distance and then "slide" along the surface until it is no longer blocked.
+In order to move away from an obstacle the user must command the vehicle to move toward a setpoint that is an "acceptable" angle away from the obstacle.
+The angle that must be used depends on: [MPC_COL_PREV_ANG Angle Tuning](#angle_tuning).
+
 
 The user is notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
 
 
 ## PX4 (Software) Setup
 
-Enabled collision prevention by [setting the following parameter](../advanced_config/parameters.md) in *QGroundControl*:
+Enable collision prevention by [setting the following parameter](../advanced_config/parameters.md) in *QGroundControl*:
 
 * [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D) - Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle).
   Set negative to disable *collision prevention*.
@@ -39,6 +40,32 @@ Enabled collision prevention by [setting the following parameter](../advanced_co
 
 If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be [attached and configured](#rangefinder) as described in the next section.
 If you are using a companion computer to provide obstacle information see [companion setup](#companion).
+
+### MPC_COL_PREV_ANG Angle Tuning {#angle_tuning}
+
+Collision prevention calculates the vehicle speed using the minimum distance from *the set of all included sensors* in the commanded direction, where the "included set" is tuned using [MPC_COL_PREV_ANG](../advanced_config/parameter_reference.md#MPC_COL_PREV_ANG).
+
+The angle affects both what objects will be detected in the direction that the vehicle is moving, and also the angle at which it can withdraw from an obstacle after stopping.
+
+Using a larger angle includes more sensors and reduces the chance of clipping obstacles.
+However a larger angle also increases the angle at which you will detect objects when you are moving away or alongside them - e.g. it is harder to travel along the obstacle surface without getting "stuck".
+Generally 45 degrees is a good compromise value.
+
+The diagrams below are used to illustrate how the setting works, where:
+- The minimum distance `MPC_COL_PREV_D = 4m`, and the sensor range is 12m.
+- The pink line shows where the user is trying to move the vehicle (this is the same for both diagrams).
+- The blue line shows the angle where received sensor data *can be used* (and what will be discarded).
+  - This is equal to double `MPC_COL_PREV_ANG` degrees centred on the commanded setpoint.
+  - On the left diagram the `MPC_COL_PREV_D` angle is 90 degrees, so all sensors on the right hand side of the vehicle are included.
+  - On the right the angle is 45 degrees, resulting in a smaller set of sensors being used (note the sensors close to the obstacle are omitted!)
+- The red arc shows the angle where sensor data *will be used*.
+  This is the subset of sensors that are both in range of an obstacle, and within the angle defined by the blue line.
+
+![MPC_COL_PREV_ANG image](../../assets/computer_vision/collision_prevention_angle.png)
+
+Because it has such a large angle the vehicle on the left includes sensors that are within the 4m minimum range; the distance used for calculation is 4m, and the commanded setpoint is ignored. 
+The vehicle on the right uses an angle that discards the sensors that are close to the obstacle.
+It measures a larger minimum distance (6m), and hence is able to move.
 
 
 ## PX4 Distance Sensor {#rangefinder}
@@ -81,3 +108,5 @@ See [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoi
 
 <!-- PR companion collision prevention (initial): https://github.com/PX4/Firmware/pull/10785 -->
 <!-- PR for FC sensor collision prevention: https://github.com/PX4/Firmware/pull/12179 -->
+
+
