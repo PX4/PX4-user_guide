@@ -27,6 +27,10 @@ The easiest way to takeoff is to use the automatic [Takeoff mode](../flight_mode
 Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. 
 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
+> **Note** The vehicle may disarm if you take too long to take off after arming. 
+  The timout can be tuned using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT).
+
+<span></span>
 > **Tip** The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles.
 
 
@@ -47,7 +51,8 @@ All flying, including takeoff and landing, is controlled using the 4 basic comma
 
 ![RC Basic Commands](../../images/rc_basic_commands.png)
 
-In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space. This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
+In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space.
+This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
 
 ### Hover Aircraft
 
@@ -55,7 +60,7 @@ Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as 
 
 ![Basic Movements Multicopter](../../images/basic_movements_multicopter.png)
 
-- Pitch => Forward/Back.
+- Pitch => Forward/back.
 - Roll => Left/right.
 - Yaw => Left/right rotation around the centre of the frame.
 - Throttle => Changed altitude/speed.
