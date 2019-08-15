@@ -27,6 +27,10 @@ The easiest way to takeoff is to use the automatic [Takeoff mode](../flight_mode
 Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. 
 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
+> **Note** The vehicle may disarm if you take too long to take off after arming. 
+  The timout can be tuned using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT).
+
+<span></span>
 > **Tip** The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles.
 
 
