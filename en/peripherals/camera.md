@@ -24,7 +24,7 @@ You can choose which pins to use for triggering using the [TRIG_PINS](../advance
 The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
 > **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). 
-  On a controller that only has an FMU, the pins map to `MAIN4` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano).
+  On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano).
   At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
 
 <span></span>
