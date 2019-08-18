@@ -153,6 +153,7 @@
   * [Airspeed Sensors](sensor/airspeed.md)
   * [Optical Flow](sensor/optical_flow.md)
     * [PX4FLOW](sensor/px4flow.md)
+    * [PMW3901](sensor/pmw3901.md)
   * [ESCs & Motors](peripherals/esc_motors.md)
     * [PWM ESCs and Servos](peripherals/pwm_escs_and_servo.md)
     * [UAVCAN ESCs](peripherals/uavcan_escs.md)
