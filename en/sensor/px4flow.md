@@ -66,12 +66,12 @@ Flow data is transmitted over wireless channels at a lower rate.
 
 ### Mounting/Orientation
 
-The recommended mounting orientation (meaning: zero rotation) is defined as Y on flow board pointing towards **front of vehicle**, as shown in the following picture.
+The recommended mounting orientation is defined as Y on flow board pointing towards **front of vehicle**, as shown in the following picture.
 
 ![PX4Flow align with Pixhawk](../../assets/hardware/sensors/px4flow/px4flowalignwithpixhawk.jpg)
 
 On **PX4**, the orientation should be set using the parameter [SENS_FLOW_ROT](../advanced_config/parameter_reference.md#SENS_FLOW_ROT).
-The above orientation maps to [SENS_FLOW_ROT](#SENS_FLOW_ROT)=270 degrees (the default).
+The above orientation maps to [SENS_FLOW_ROT=270](#SENS_FLOW_ROT) degrees (the default).
 
 Make sure the the PX4Flow board is well dampened.
 
