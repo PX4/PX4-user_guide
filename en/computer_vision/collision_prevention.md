@@ -10,7 +10,7 @@ It can be enabled for multicopter vehicles in [Position mode](../flight_modes/po
 
 ## Overview
 
-*Collision Prevention* is enabled/configured on PX4 by setting the parameter for minimum allowed distance ([MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D)).
+*Collision Prevention* is enabled on PX4 by setting the parameter for minimum allowed approach distance ([MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D)).
 
 The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
@@ -19,27 +19,26 @@ The feature requires obstacle information from an external system (sent using th
 
 
 The data from all sensors is fused into a range scan (a 360 degree map of the sensor data/state from around the vehicle), which is then input to the collision prevention algorithm.
-The collision prevention algorithm uses/considers only part of the range scan data in the calculation of the velocity limit - the data within two [MPC_COL_PREV_ANG](../advanced_config/parameter_reference.md#MPC_COL_PREV_ANG) degree arcs centered around the commanded direction.
-For more information see [MPC_COL_PREV_ANG Angle Tuning](#angle_tuning).
+The collision prevention algorithm only uses/considers part of the range scan data in the calculation of the velocity limit (see [MPC_COL_PREV_ANG Angle Tuning](#angle_tuning)).
 
-The vehicle starts braking as soon as it detects an obstacle, and it will slow and stop movement (in all directions) when the it reaches the minimum allowed distance.
+The vehicle starts braking as soon as it detects an obstacle, and will stop movement when it reaches the minimum allowed separation (the velocity depends on the geometry, measured distances, and range of sensor data being considered).
 If the vehicle approaches any closer (i.e. it overshoots or is pushed) negative thrust is applied to repel it from the obstacle.
 
 In order to move away from an obstacle the user must command the vehicle to move toward a setpoint that is an "acceptable" angle away from the obstacle.
-The angle that must be used depends on: [MPC_COL_PREV_ANG Angle Tuning](#angle_tuning).
-
+The angle that must be used depends on [MPC_COL_PREV_ANG Angle Tuning](#angle_tuning).
 
 The user is notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
 
 
 ## PX4 (Software) Setup
 
-Enable collision prevention by [setting the following parameter](../advanced_config/parameters.md) in *QGroundControl*:
+Configure collision prevention by [setting the following parameters](../advanced_config/parameters.md) in *QGroundControl*:
 
 * [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D) - Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle).
   Set negative to disable *collision prevention*.
 
   This should be tuned for both the *desired* minimal distance and likely speed of the vehicle.
+* [MPC_COL_PREV_ANG](#angle_tuning) - Set the angle (to both sides of the commanded direction) within which collected sensor data is used.
 
 If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be [attached and configured](#rangefinder) as described in the next section.
 If you are using a companion computer to provide obstacle information see [companion setup](#companion).
@@ -47,16 +46,19 @@ If you are using a companion computer to provide obstacle information see [compa
 
 ### MPC_COL_PREV_ANG Angle Tuning {#angle_tuning}
 
-Collision prevention calculates the allowed vehicle speed using a subset of the range scan provided by all sensors. The size of the this subset (centered around the commanded direction) can be tuned using the parameter [MPC_COL_PREV_ANG](../advanced_config/parameter_reference.md#MPC_COL_PREV_ANG).
+The data from all sensors is fused into a range scan (a 360 degree map of the sensor data/state from around the vehicle), which is then input to the collision prevention algorithm.
 
-The angle affects both what objects will be detected in the direction that the vehicle is commanded to move, and also the angle at which it can withdraw from an obstacle after stopping.
+The collision prevention algorithm only uses part of the range scan data in the calculation of the velocity limit (which we refer to as the *considered sensor data*). 
+This comprises the sensor data from the range scan that is within two [MPC_COL_PREV_ANG](../advanced_config/parameter_reference.md#MPC_COL_PREV_ANG) degree arcs centered around the commanded direction.
 
-Using a larger angle includes more sensor data and reduces the chance of clipping obstacles.
-However a larger angle also increases the angle at which you will detect objects when you are moving away or alongside them - e.g. it is harder to travel along the obstacle surface without getting "stuck".
-Generally 45 degrees is a good compromise value.
+Provided none of the *considered sensor data* includes data below the minimum allowed distance, the executed speed depends on the geometry, considered data, and actual sensor values.
+The vehicle will not move if **any** *considered sensor data* is below the minimum allowed separation.
+
+> **Tip** Generally 45 degrees is a good compromise value. 
+  Using a larger angle reduces the chance of clipping obstacles, but can make it feel like the vehicle is "always getting "stuck" (as you're more likely to detect an obstacle within the minimum distance).
 
 The diagrams below are used to illustrate how the setting works, where:
-- The minimum distance `MPC_COL_PREV_D = 4m`, and the sensor range is 12m.
+- The minimum distance (separation) `MPC_COL_PREV_D = 4m`, and the sensor range is 12m.
 - The pink line shows where the user is trying to move the vehicle (this is the same for both diagrams).
 - The blue line shows the angle where received sensor data *can be used* (and what will be discarded).
   - This is equal to double `MPC_COL_PREV_ANG` degrees centred on the commanded setpoint.
@@ -67,10 +69,11 @@ The diagrams below are used to illustrate how the setting works, where:
 
 ![MPC_COL_PREV_ANG image](../../assets/computer_vision/collision_prevention_angle.png)
 
-The vehicle on the left specifies a large angle, causing the collision prevention algorithm to consider sensor data that is within the 4m minimum range (in the velocity calculation).
-This may result in the commanded setpoint being ignored (vehicle doesn't move) or obeyed at a reduced velocity. 
+The vehicle on the left specifies a large angle, causing the collision prevention algorithm to consider sensor data that is within the 4m minimum separation.
+As a result the commanded setpoint is ignored (vehicle doesn't move).
+
 The vehicle on the right uses an angle that causes the collision prevention algorithm to discard the sensor data that is closest to the obstacle.
-The vehicle is therefore more likely to be able to move in the commanded direction.
+The vehicle is can move in the commanded direction, albeit perhaps at a reduced velocity.
 
 
 ## PX4 Distance Sensor {#rangefinder}
