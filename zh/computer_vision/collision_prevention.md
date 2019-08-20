@@ -8,27 +8,57 @@ It can be enabled for multicopter vehicles in [Position mode](../flight_modes/po
 
 ## 综述
 
-要在PX4上开启/配置*防撞*功能，请设置参数：最小安全间距（[MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D)）。
+*Collision Prevention* is enabled on PX4 by setting the parameter for minimum allowed approach distance ([MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D)).
 
-The feature requires obstacle information from either an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
+The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
 > **Note** Multiple sensors can be used to get information about, and prevent collisions with, objects *around* the vehicle. If multiple sources supply data for the *same* orientation, the system uses the data that reports the smallest distance to an object.
 
-飞机一旦检测到障碍物就开始制动。 朝向障碍物的速度设定值将线性降低，在达到最小安全距离时将降低为零。 如果 (由于过冲或者外力) 飞机越过最小安全距离，动力系统将启动反向推力使飞机远离障碍物。
+The data from all sensors is fused into a range scan (a 360 degree map of the sensor data/state from around the vehicle), which is then input to the collision prevention algorithm. The collision prevention algorithm only uses/considers part of the range scan data in the calculation of the velocity limit (see [MPC_COL_PREV_ANG Angle Tuning](#angle_tuning)).
 
-但只有 *朝向* 障碍物的速度分量才会受到影响。 如果遥控器发出沿障碍物切线方向移动的指令，将正常执行。 因此，如果载具以一定角度接近障碍物，载具会逐渐减速，直到最小安全距离，然后沿着平行于表面的方向“滑行”，直到原运动方向恢复畅通。
+The vehicle starts braking as soon as it detects an obstacle, and will stop movement when it reaches the minimum allowed separation (the velocity depends on the geometry, measured distances, and range of sensor data being considered). If the vehicle approaches any closer (i.e. it overshoots or is pushed) negative thrust is applied to repel it from the obstacle.
 
-当 *防撞*功能主动调整速率设定值时，通过 *QGroundControl* 用户会收到通知。
+In order to move away from an obstacle the user must command the vehicle to move toward a setpoint that is an "acceptable" angle away from the obstacle. The angle that must be used depends on [MPC_COL_PREV_ANG Angle Tuning](#angle_tuning).
+
+The user is notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
 
 ## PX4 (软件) 设置
 
-Enabled collision prevention by [setting the following parameter](../advanced_config/parameters.md) in *QGroundControl*:
+Configure collision prevention by [setting the following parameters](../advanced_config/parameters.md) in *QGroundControl*:
 
 - [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D) - 设置最小安全距离（飞机靠近障碍物的最小距离）。 设置为负值将禁用 *防撞* 功能。
-    
-    调参应根据*期望* 的最小距离与飞机大致的速度。
+  
+  调参应根据*期望* 的最小距离与飞机大致的速度。
+
+- [MPC_COL_PREV_ANG](#angle_tuning) - Set the angle (to both sides of the commanded direction) within which collected sensor data is used.
 
 If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be [attached and configured](#rangefinder) as described in the next section. If you are using a companion computer to provide obstacle information see [companion setup](#companion).
+
+### MPC_COL_PREV_ANG Angle Tuning {#angle_tuning}
+
+The data from all sensors is fused into a range scan (a 360 degree map of the sensor data/state from around the vehicle), which is then input to the collision prevention algorithm.
+
+The collision prevention algorithm only uses part of the range scan data in the calculation of the velocity limit (which we refer to as the *considered sensor data*). This comprises the sensor data from the range scan that is within two [MPC_COL_PREV_ANG](../advanced_config/parameter_reference.md#MPC_COL_PREV_ANG) degree arcs centered around the commanded direction.
+
+Provided none of the *considered sensor data* includes data below the minimum allowed distance, the executed speed depends on the geometry, considered data, and actual sensor values. The vehicle will not move if **any** *considered sensor data* is below the minimum allowed separation.
+
+> **Tip** Generally 45 degrees is a good compromise value. Using a larger angle reduces the chance of clipping obstacles, but can make it feel like the vehicle is "always getting "stuck" (as you're more likely to detect an obstacle within the minimum distance).
+
+The diagrams below are used to illustrate how the setting works, where:
+
+- The minimum distance (separation) `MPC_COL_PREV_D = 4m`, and the sensor range is 12m.
+- The pink line shows where the user is trying to move the vehicle (this is the same for both diagrams).
+- The blue line shows the angle where received sensor data *can be used* (and what will be discarded). 
+  - This is equal to double `MPC_COL_PREV_ANG` degrees centred on the commanded setpoint.
+  - On the left diagram the `MPC_COL_PREV_D` angle is 90 degrees, so all sensor data from the right hand side of the blue line is included.
+  - On the right the angle is 45 degrees, resulting in a smaller set of sensor data being used (note the sensor data close to the obstacle is excluded!)
+- The red arc shows the angle where sensor data *will be used*. This is the subset of sensors that are both in range of an obstacle, and within the angle defined by the blue line.
+
+![MPC_COL_PREV_ANG image](../../assets/computer_vision/collision_prevention_angle.png)
+
+The vehicle on the left specifies a large angle, causing the collision prevention algorithm to consider sensor data that is within the 4m minimum separation. As a result the commanded setpoint is ignored (vehicle doesn't move).
+
+The vehicle on the right uses an angle that causes the collision prevention algorithm to discard the sensor data that is closest to the obstacle. The vehicle is can move in the commanded direction, albeit perhaps at a reduced velocity.
 
 ## PX4 Distance Sensor {#rangefinder}
 
