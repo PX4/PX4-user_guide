@@ -1061,11 +1061,17 @@ Set -1 to disable the check</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set offboard loss failsafe mode</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Disabled</li> 
+
 <li><strong>0:</strong> Land mode</li> 
 
 <li><strong>1:</strong> Hold mode</li> 
 
 <li><strong>2:</strong> Return mode</li> 
+
+<li><strong>3:</strong> Terminate</li> 
+
+<li><strong>4:</strong> Lockdown</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
@@ -1075,6 +1081,8 @@ Set -1 to disable the check</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_OBL_RC_ACT">COM_OBL_RC_ACT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set offboard loss failsafe mode when RC is available</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Disabled</li> 
+
 <li><strong>0:</strong> Position mode</li> 
 
 <li><strong>1:</strong> Altitude mode</li> 
@@ -1086,6 +1094,10 @@ Set -1 to disable the check</p>   </td>
 <li><strong>4:</strong> Land mode</li> 
 
 <li><strong>5:</strong> Hold mode</li> 
+
+<li><strong>6:</strong> Terminate</li> 
+
+<li><strong>7:</strong> Lockdown</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
@@ -1103,9 +1115,9 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POSCTL_NAVL">COM_POSCTL_NAVL</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Position control navigation loss response</p><p><strong>Comment:</strong> This sets the flight mode that will be used if navigation accuracy is no longer adequate for position control. Navigation accuracy checks can be disabled using the CBRK_VELPOSERR parameter, but doing so will remove protection for all flight modes.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.</li> 
+<li><strong>0:</strong> Altitude/Manual. Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.</li> 
 
-<li><strong>1:</strong> Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.</li> 
+<li><strong>1:</strong> Land/Terminate.  Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
