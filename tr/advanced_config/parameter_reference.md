@@ -3279,6 +3279,9 @@
       
       <ul>
         <li>
+          <strong>-1:</strong> Disabled
+        </li>
+        <li>
           <strong>0:</strong> Land mode
         </li>
         <li>
@@ -3286,6 +3289,12 @@
         </li>
         <li>
           <strong>2:</strong> Return mode
+        </li>
+        <li>
+          <strong>3:</strong> Terminate
+        </li>
+        <li>
+          <strong>4:</strong> Lockdown
         </li>
       </ul>
     </td>
@@ -3319,6 +3328,9 @@
       
       <ul>
         <li>
+          <strong>-1:</strong> Disabled
+        </li>
+        <li>
           <strong>0:</strong> Position mode
         </li>
         <li>
@@ -3335,6 +3347,12 @@
         </li>
         <li>
           <strong>5:</strong> Hold mode
+        </li>
+        <li>
+          <strong>6:</strong> Terminate
+        </li>
+        <li>
+          <strong>7:</strong> Lockdown
         </li>
       </ul>
     </td>
@@ -3392,10 +3410,10 @@
       
       <ul>
         <li>
-          <strong>0:</strong> Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.
+          <strong>0:</strong> Altitude/Manual. Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.
         </li>
         <li>
-          <strong>1:</strong> Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.
+          <strong>1:</strong> Land/Terminate. Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.
         </li>
       </ul>
     </td>
