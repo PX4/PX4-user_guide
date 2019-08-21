@@ -54,9 +54,6 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
     * Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
     * Body rate (`SET_ATTITUDE_TARGET` `.body_roll_rate` ,`.body_pitch_rate`, `.body_yaw_rate`) with thrust setpoint  (`SET_ATTITUDE_TARGET.thrust`).
  
-
-> **Warning** Position setpoints are **not supported** on Fixed Wing offboard mode (`SET_POSITION_TARGET_LOCAL_NED`). 
-
 <!-- Limited for offboard mode in Fixed Wing was added to master after PX4 v1.9.0.
 See https://github.com/PX4/Firmware/pull/12149 and https://github.com/PX4/Firmware/pull/12311 -->
 
