@@ -36853,36 +36853,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="SYS_FMU_TASK">SYS_FMU_TASK</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Run the FMU as a task to reduce latency
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> If true, the FMU will run in a separate task instead of on the work queue. Set this if low latency is required, for example for racing. This is a trade-off between RAM usage and latency: running as a task, it requires a separate stack and directly polls on the control topics, whereas running on the work queue, it runs at a fixed update rate.
-      </p>
-      
-      <p>
-        <b>Reboot required:</b> true
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="SYS_HAS_BARO">SYS_HAS_BARO</strong> (INT32)
     </td>
     
