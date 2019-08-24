@@ -61,9 +61,9 @@ PX4によってサポートされているESC/モータについて，詳しく�
 
 ## バッテリー/動力源
 
-PX4ドローンの多くはリチウムポリマー(LiPo) バッテリーによって駆動されています。 The battery is typically connected to the system using a *Power Module* or *Power Management Board*, which provide separate power for the flight controller and to the ESCs (for the motors).
+PX4ドローンの多くはリチウムポリマー(LiPo) バッテリーによって駆動されています。 バッテリーは多くの場合， *パワーモジュール* や *パワーマネージメント基板*を介してシステムに接続され，これらからフライトコントローラやESCへの電源供給が行われます。
 
-Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
+バッテリーおよびバッテリーに関する設定については [バッテリー設定](../config/battery.md)および [基本構成](../assembly/README.md) に記載されています。(例： [Pixhawk 4 簡易設定 > 電源](../assembly/quick_start_pixhawk4.md#power)).
 
 ## Radio Control (RC) {#rc_systems}
 
