@@ -42,26 +42,26 @@ PX4 は元々[Pixhawk シリーズ](../flight_controller/pixhawk_series.md) で�
 
 ## センサー
 
-PX4 は機体の状態推定を行うために複数のセンサーを使用しています (安定化や，自動制御を行うために必要です)。 システムは *最低限* ジャイロセンサー，加速度センサー，磁気センサー (コンパス) ，気圧計を必要とします。 A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4 は機体の状態推定を行うために複数のセンサーを使用しています (安定化や，自動制御を行うために必要です)。 システムは *最低限* ジャイロセンサー，加速度センサー，磁気センサー (コンパス) ，気圧計を必要とします。 GPSやその他の測位システムは自動航行用の[モード](../getting_started/flight_modes.md#categories)を適用する場合や，各種操縦補助モードを適用する場合に必要です。 さらに，固定翼機やVTOL機では，大気速度センサーを使用するべきです (強く推奨します)。
 
-For more information see:
+詳細は以下を参照ください：
 
-- [Sensors](../getting_started/sensor_selection.md) 
-- [Peripherals](../peripherals/README.md)
+- [センサー](../getting_started/sensor_selection.md) 
+- [周辺機器](../peripherals/README.md)
 
-## ESCs & Motors
+## ESC & モータ
 
-Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
+多くのPX4ドローンでは，Electronic Speed Controller (ESC) によって駆動される，ブラシレスモータを使用します。 (ESCはフライトコントローラからの信号を受けて，モータへ供給する動力を適切に制御します)。
 
-For information about what ESC/Motors are supported by PX4 see:
+PX4によってサポートされているESC/モータについて，詳しくは以下をご参照ください：
 
-- [ESC & Motors](../peripherals/esc_motors.md)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
+- [ESC & モータ](../peripherals/esc_motors.md)
+- [ESCキャリブレーション](../advanced_config/esc_calibration.md)
+- [ESC ファームウェアとプロトコルの概要](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
-## Battery/Power
+## バッテリー/動力源
 
-PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. The battery is typically connected to the system using a *Power Module* or *Power Management Board*, which provide separate power for the flight controller and to the ESCs (for the motors).
+PX4ドローンの多くはリチウムポリマー(LiPo) バッテリーによって駆動されています。 The battery is typically connected to the system using a *Power Module* or *Power Management Board*, which provide separate power for the flight controller and to the ESCs (for the motors).
 
 Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
 
