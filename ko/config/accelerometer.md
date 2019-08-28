@@ -2,11 +2,15 @@
 
 *QGroundControl*은 기체를 다양한 방향으로 놓고 유지하도록 안내할 것입니다 (기체를 움직일 때 신호합니다).
 
-> **팁** 기체를 각 방향에 놓고 유지한다는 점을 제외하면 [나침반 캘리브레이션](../config/compass.md)과 유사합니다.
+> **Tip** This is similar to [compass calibration](../config/compass.md) except that you hold the vehicle still (rather than rotate it) in each orientation.
+
+<span></span>
+
+> **Note** The calibration uses a least squares 'fit' algorithm that doesn't reaquire you to have "perfect" 90 degree orientations. Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
 
 ## 캘리브레이션 수행
 
-캘리브레이션 단계는 다음과 같습니다:
+The calibration steps are:
 
 1. *QGroundControl *을 시작하고 기체에 연결합니다.
 2. 상단 툴바에서 ** 기어 </ 0> 아이콘 (기체 설정) 을 선택한 다음 사이드 바에서 ** 센서 </ 0>를 선택하십시오.</li> 
@@ -25,7 +29,7 @@
     
     * 기체의 모든 방향에 대해 캘리브레이션 과정을 반복합니다.</ol> 
     
-    모든 방향으로 기체 캘리브레이션을 했다면, *QgroundControl*에 *캘리브레이션 완료* 창이 나타납니다 (모든 방향 지시 그림이 초록색으로 표시되고, 진행 표시 줄이 완전히 채워집니다). 이제 다음 센서로 이동할 수 있습니다.
+    Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
     
     ## 추가 정보
     
