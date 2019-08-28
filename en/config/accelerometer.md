@@ -2,7 +2,12 @@
 
 *QGroundControl* will guide you to place and hold your vehicle in a number of orientations (you will be prompted when to move between positions). 
 
-> **Tip** This is similar to [compass calibration](../config/compass.md) except that host the vehicle still (rather than rotate it) in each orientation.
+> **Tip** This is similar to [compass calibration](../config/compass.md) except that you hold the vehicle still (rather than rotate it) in each orientation.
+
+<span></span>
+> **Note** The calibration uses a least squares 'fit' algorithm that doesn't reaquire you to have "perfect" 90 degree orientations.
+   Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
+
 
 ## Performing the Calibration 
 
@@ -14,16 +19,20 @@ The calibration steps are:
 
    ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer.jpg)
    
-   > **Note** You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). If not, you can also set it here.
+   > **Note** You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md).
+     If not, you can also set it here.
    
 1. Click **OK** to start the calibration. 
-1. Position the vehicle as guided by the *images* on the screen. Once prompted (the orientation-image turns yellow) hold the vehicle still. Once the calibration is complete for the current orientation the associated image on the screen will turn green.
+1. Position the vehicle as guided by the *images* on the screen.
+   Once prompted (the orientation-image turns yellow) hold the vehicle still.
+   Once the calibration is complete for the current orientation the associated image on the screen will turn green.
   
   ![Accelerometer calibration](../../assets/qgc/setup/sensor/accelerometer_positions_px4.jpg)
   
 1. Repeat the calibration process for all vehicle orientations.
    
-Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor. 
+Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely).
+You can then proceed to the next sensor. 
 
 
 ## Further Information
