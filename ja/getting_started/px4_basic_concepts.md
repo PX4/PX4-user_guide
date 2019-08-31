@@ -120,9 +120,9 @@ PX4では機体に問題が発生した際に，不具合からシステムを�
 
 - バッテリー残量低下
 - 無線通信 (RC) ロスト
-- Position Loss (global position estimate quality is too low).
-- Offboard Loss (e.g. lose connection to companion computer)
-- Data Link Loss (e.g. lose telemetry connection to GCS).
+- 位置情報喪失 (自己位置推定精度の悪化)
+- オフボード通信の喪失 (例： 機載コンピュータからの通信ロスト)
+- データリンクのロスト (例： GCSとのテレメトリー通信ロスト).
 - Geofence Breach (restrict vehicle to flight within a virtual cylinder).
 - Mission Failsafe (prevent a previous mission being run at a new takeoff location).
 - Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
