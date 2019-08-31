@@ -112,14 +112,14 @@ PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカ�
 
 ## セーフティ設定 (フェイルセーフ) {#safety}
 
-PX4では機体に問題が発生した際に，不具合からシステムを保護・回復するためのフェールセーフシステムを設定可能です。 These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+PX4では機体に問題が発生した際に，不具合からシステムを保護・回復するためのフェールセーフシステムを設定可能です。 安全に飛行可能なエリアや条件を設定し，もし当該条件から外れるイベントが発生した場合，フェールセーフアクション(例：着陸・一時停止・設定箇所への帰還) がトリガーされます。
 
-> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+> **Note** *最初の* フェイルセーフイベントに対するアクションのみ，設定が可能です。 一旦，システムがフェイルセーフ状態に移行すると，そのアクションによって発生した副次的なフェイルセーフイベントは異なるシステムレベル/機体固有のコードに応じて管理されます。
 
-The main failsafe areas are listed below:
+主なフェイルセーフ項目は以下の通りです。:
 
-- Low Battery
-- Remote Control (RC) Loss
+- バッテリー残量低下
+- 無線通信 (RC) ロスト
 - Position Loss (global position estimate quality is too low).
 - Offboard Loss (e.g. lose connection to companion computer)
 - Data Link Loss (e.g. lose telemetry connection to GCS).
