@@ -104,15 +104,15 @@ PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカ�
 
 必要な自動操縦のタイプや，ユーザ(操縦者) のレベルに応じて，様々なフライトモードの選択が可能です。 *Autonomousモード* ではオートパイロットによって完全に制御が行われ，パイロットからの遠隔操縦は不要です。 これらは，例えば離陸やホームポジションへの帰還，着陸などの共通タスクを自動化するために使用されます。 他のautonomousモードは，GPS位置情報を用いた設定経路の自動飛行や，オフボードコンピュータ/地上局からの命令 にそった飛行などが可能です。
 
-*Manual モード* はオートパイロットからの補助を利用しつつ，(RCシステムやジョイスティックを介した) ユーザからの指令で操縦する場合に使用されます。 Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
+*Manual モード* はオートパイロットからの補助を利用しつつ，(RCシステムやジョイスティックを介した) ユーザからの指令で操縦する場合に使用されます。 適切なマニュアルモードを選択することで，目的に沿った飛行特性を実現することができます。例えば，一部のモードでは宙返りなどのアクロバティックな動作が可能な一方で，他のモードでは風に対して自動で位置/飛行コースの保持が可能であったりします。
 
-> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+> **Tip** すべての機体で，すべてのフライトモードが可能なわけではありません。また，一部のモードは特定の条件が揃った時のみ使用可能です(例： 多くのモードは，GPSなどによる位置推定データを必要とします。)。
 
-An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+フライトモードの概要については[こちら](../getting_started/flight_modes.md)をご参照ください。 無線操縦のスイッチを用いたフライトモードの切り替え方法については [Flight Mode Configuration](../config/flight_mode.md)に記載があります。
 
-## Safety Settings (Failsafe) {#safety}
+## セーフティ設定 (フェイルセーフ) {#safety}
 
-PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+PX4では機体に問題が発生した際に，不具合からシステムを保護・回復するためのフェールセーフシステムを設定可能です。 These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
 > **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 
