@@ -766,14 +766,14 @@
     </th>
   </tr>
   
-  <tr id="copter_quadrotor_x_generic_quadrotor_x">
+  <tr id="copter_quadrotor_x_generic_quadcopter">
     <td style="vertical-align: top;">
-      通用 X 型四旋翼（Generic Quadrotor x）
+      Generic Quadcopter
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        维护者: Lorenz Meier <lorenz@px4.io>
+        Maintainer: Lorenz Meier <lorenz@px4.io>
       </p>
       
       <p>
@@ -785,16 +785,16 @@
         
         <ul>
           <li>
-            <b>MAIN1</b>: 电机1
+            <b>MAIN1</b>: motor 1
           </li>
           <li>
-            <b>MAIN2</b>: 电机 2
+            <b>MAIN2</b>: motor 2
           </li>
           <li>
-            <b>MAIN3</b>: 电机 3
+            <b>MAIN3</b>: motor 3
           </li>
           <li>
-            <b>MAIN4</b>: 电机 4
+            <b>MAIN4</b>: motor 4
           </li>
           <li>
             <b>MAIN5</b>: feed-through of RC AUX1 channel
@@ -803,13 +803,13 @@
             <b>MAIN6</b>: feed-through of RC AUX2 channel
           </li>
           <li>
-            <b>AUX1</b>: RC遥控器的AUX1反馈通道
+            <b>AUX1</b>: feed-through of RC AUX1 channel
           </li>
           <li>
-            <b>AUX2</b>: RC遥控器的AUX2反馈通道
+            <b>AUX2</b>: feed-through of RC AUX2 channel
           </li>
           <li>
-            <b>AUX3</b>: RC遥控器的AUX3反馈通道
+            <b>AUX3</b>: feed-through of RC AUX3 channel
           </li>
           <li>
             <b>AUX4</b>: feed-through of RC FLAPS channel
@@ -2502,13 +2502,39 @@
     <th>
     </th>
   </tr>
-<tbody>
-<tr id="vtol_vtol_duo_tailsitter_caipiroshka_duo_tailsitter">
- <td style="vertical-align: top;">Caipiroshka Duo Tailsitter</td>
- <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@px4.io></p><p><code>SYS_AUTOSTART</code> = 13001</p></td>
-
-</tr>
-</tbody></table>
+  
+  <tr id="vtol_vtol_duo_tailsitter_caipiroshka_duo_tailsitter">
+    <td style="vertical-align: top;">
+      Caipiroshka Duo Tailsitter
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Roman Bapst <roman@px4.io>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 13001
+      </p>
+    </td>
+  </tr>
+  
+  <tr id="vtol_vtol_duo_tailsitter_generic_tailsitter">
+    <td style="vertical-align: top;">
+      Generic Tailsitter
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Roman Bapst <roman@px4.io>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 13200
+      </p>
+    </td>
+  </tr>
+</table>
 
 ### VTOL Octoplane
 
