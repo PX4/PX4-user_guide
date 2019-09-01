@@ -443,8 +443,8 @@ This page lists all supported airframes and types including
    <tr><th>Name</th><th></th></tr>
  </thead>
 <tbody>
-<tr id="copter_quadrotor_x_generic_quadrotor_x">
- <td style="vertical-align: top;">Generic Quadrotor x</td>
+<tr id="copter_quadrotor_x_generic_quadcopter">
+ <td style="vertical-align: top;">Generic Quadcopter</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></p></td>
 
 </tr>
@@ -1000,6 +1000,11 @@ This page lists all supported airframes and types including
 <tr id="vtol_vtol_duo_tailsitter_caipiroshka_duo_tailsitter">
  <td style="vertical-align: top;">Caipiroshka Duo Tailsitter</td>
  <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@px4.io></p><p><code>SYS_AUTOSTART</code> = 13001</p></td>
+
+</tr>
+<tr id="vtol_vtol_duo_tailsitter_generic_tailsitter">
+ <td style="vertical-align: top;">Generic Tailsitter</td>
+ <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@px4.io></p><p><code>SYS_AUTOSTART</code> = 13200</p></td>
 
 </tr>
 </tbody></table>
