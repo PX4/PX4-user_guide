@@ -766,9 +766,9 @@ This page lists all supported airframes and types including the motor assignment
     </th>
   </tr>
   
-  <tr id="copter_quadrotor_x_generic_quadrotor_x">
+  <tr id="copter_quadrotor_x_generic_quadcopter">
     <td style="vertical-align: top;">
-      Generic Quadrotor x
+      Generic Quadcopter
     </td>
     
     <td style="vertical-align: top;">
@@ -2502,13 +2502,39 @@ This page lists all supported airframes and types including the motor assignment
     <th>
     </th>
   </tr>
-<tbody>
-<tr id="vtol_vtol_duo_tailsitter_caipiroshka_duo_tailsitter">
- <td style="vertical-align: top;">Caipiroshka Duo Tailsitter</td>
- <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@px4.io></p><p><code>SYS_AUTOSTART</code> = 13001</p></td>
-
-</tr>
-</tbody></table>
+  
+  <tr id="vtol_vtol_duo_tailsitter_caipiroshka_duo_tailsitter">
+    <td style="vertical-align: top;">
+      Caipiroshka Duo Tailsitter
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Roman Bapst <roman@px4.io>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 13001
+      </p>
+    </td>
+  </tr>
+  
+  <tr id="vtol_vtol_duo_tailsitter_generic_tailsitter">
+    <td style="vertical-align: top;">
+      Generic Tailsitter
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maintainer: Roman Bapst <roman@px4.io>
+      </p>
+      
+      <p>
+        <code>SYS_AUTOSTART</code> = 13200
+      </p>
+    </td>
+  </tr>
+</table>
 
 ### VTOL Octoplane
 
