@@ -10266,7 +10266,8 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>QNH for barometer</p>   </td>
+ <td style="vertical-align: top;"><p>QNH for barometer</p>   <p><b>Reboot required:</b> true</p>
+</td>
  <td style="vertical-align: top;">500 > 1500 </td>
  <td style="vertical-align: top;">1013.25 </td>
  <td style="vertical-align: top;">hPa</td>
