@@ -1468,7 +1468,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Selects which pin is used, ranges from 1 to 6 (AUX1-AUX6 on px4_fmu-v2 and the rail pins on px4_fmu-v4). The PWM interface takes two pins per camera, while relay triggers on every pin individually. Example: Value 56 would trigger on pins 5 and 6. For GPIO mode Pin 6 will be triggered followed by 5. With a value of 65 pin 5 will be triggered followed by 6. Pins may be non contiguous. I.E. 16 or 61. In GPIO mode the delay pin to pin is < .2 uS.
+        <strong>Comment:</strong> Selects which FMU pin is used (range: AUX1-AUX6 on Pixhawk controllers with an I/O board, MAIN1-MAIN6 on controllers without an I/O board. The PWM interface takes two pins per camera, while relay triggers on every pin individually. Example: Value 56 would trigger on pins 5 and 6. For GPIO mode Pin 6 will be triggered followed by 5. With a value of 65 pin 5 will be triggered followed by 6. Pins may be non contiguous. I.E. 16 or 61. In GPIO mode the delay pin to pin is < .2 uS.
       </p>
       
       <p>
@@ -2414,16 +2414,42 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. The vehicle will also auto-disarm right after arming if it has not even flown, however the time will always be 10 seconds such that the pilot has enough time to take off. A negative value means that automatic disarming triggered by landing detection is disabled.
+        <strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. A zero or negative value means that automatic disarming triggered by landing detection is disabled.
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      -1 > 20
     </td>
     
     <td style="vertical-align: top;">
       2.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="COM_DISARM_PRFLT">COM_DISARM_PRFLT</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Time-out for auto disarm if too slow to takeoff
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> A non-zero, positive value specifies the time after arming, in seconds, within which the vehicle must take off (after which it will automatically disarm). A zero or negative value means that automatic disarming triggered by a pre-takeoff timeout is disabled.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      10.0
     </td>
     
     <td style="vertical-align: top;">
@@ -3253,6 +3279,9 @@
       
       <ul>
         <li>
+          <strong>-1:</strong> Disabled
+        </li>
+        <li>
           <strong>0:</strong> Land mode
         </li>
         <li>
@@ -3260,6 +3289,12 @@
         </li>
         <li>
           <strong>2:</strong> Return mode
+        </li>
+        <li>
+          <strong>3:</strong> Terminate
+        </li>
+        <li>
+          <strong>4:</strong> Lockdown
         </li>
       </ul>
     </td>
@@ -3293,6 +3328,9 @@
       
       <ul>
         <li>
+          <strong>-1:</strong> Disabled
+        </li>
+        <li>
           <strong>0:</strong> Position mode
         </li>
         <li>
@@ -3309,6 +3347,12 @@
         </li>
         <li>
           <strong>5:</strong> Hold mode
+        </li>
+        <li>
+          <strong>6:</strong> Terminate
+        </li>
+        <li>
+          <strong>7:</strong> Lockdown
         </li>
       </ul>
     </td>
@@ -3366,10 +3410,10 @@
       
       <ul>
         <li>
-          <strong>0:</strong> Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.
+          <strong>0:</strong> Altitude/Manual. Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.
         </li>
         <li>
-          <strong>1:</strong> Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.
+          <strong>1:</strong> Land/Terminate. Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.
         </li>
       </ul>
     </td>
@@ -36822,36 +36866,6 @@
     
     <td style="vertical-align: top;">
       deg C
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SYS_FMU_TASK">SYS_FMU_TASK</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Run the FMU as a task to reduce latency
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> If true, the FMU will run in a separate task instead of on the work queue. Set this if low latency is required, for example for racing. This is a trade-off between RAM usage and latency: running as a task, it requires a separate stack and directly polls on the control topics, whereas running on the work queue, it runs at a fixed update rate.
-      </p>
-      
-      <p>
-        <b>Reboot required:</b> true
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
     </td>
   </tr>
   

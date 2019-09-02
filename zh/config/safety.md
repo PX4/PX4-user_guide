@@ -128,10 +128,10 @@ The settings and underlying parameters are shown below:
 
 The settings and underlying parameters are shown below:
 
-| Setting              | 参数                                                                             | 参数描述                                                                                                                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Disarm After         | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing, and enter delay after landing before disarming. The value must be non-zero but can be a fraction of a second. |
-| Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Rate of descent (MC only).                                                                                                                                                           |
+| Setting              | 参数                                                                             | 参数描述                                                                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Disarm After         | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing. The value must be non-zero but can be a fraction of a second. |
+| Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Rate of descent (MC only).                                                                                                           |
 
 ## Other Failsafe Settings {#failsafe_other}
 
@@ -264,6 +264,19 @@ For modes that do not support disarming in flight, the switch is ignored during 
 ### Return Switch {#return_switch}
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
+
+## Other Safety Settings
+
+### Auto-disarming Timeouts
+
+You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
+
+The [relevant parameters](../advanced_config/parameters.md) are shown below:
+
+| Parameter                                                                        | Description                                                |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | Timeout for auto-disarm after landing.                     |
+| [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff. |
 
 ## Further Information
 

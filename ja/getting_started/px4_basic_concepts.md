@@ -42,87 +42,87 @@ PX4 は元々[Pixhawk シリーズ](../flight_controller/pixhawk_series.md) で�
 
 ## センサー
 
-PX4 uses sensors to determine vehicle state (needed for stabilization and to enable autonomous control). The system *minimally requires* a gyroscope, accelerometer, magnetometer (compass) and barometer. A GPS or other positioning system is needed to enable all automatic [modes](../getting_started/flight_modes.md#categories), and some assisted modes. Fixed wing and VTOL-vehicles should additionally include an airspeed sensor (very highly recommended).
+PX4 は機体の状態推定を行うために複数のセンサーを使用しています (安定化や，自動制御を行うために必要です)。 システムは *最低限* ジャイロセンサー，加速度センサー，磁気センサー (コンパス) ，気圧計を必要とします。 GPSやその他の測位システムは自動航行用の[モード](../getting_started/flight_modes.md#categories)を適用する場合や，各種操縦補助モードを適用する場合に必要です。 さらに，固定翼機やVTOL機では，大気速度センサーを使用するべきです (強く推奨します)。
 
-For more information see:
+詳細は以下を参照ください：
 
-- [Sensors](../getting_started/sensor_selection.md) 
-- [Peripherals](../peripherals/README.md)
+- [センサー](../getting_started/sensor_selection.md) 
+- [周辺機器](../peripherals/README.md)
 
-## ESCs & Motors
+## ESC & モータ
 
-Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
+多くのPX4ドローンでは，Electronic Speed Controller (ESC) によって駆動される，ブラシレスモータを使用します。 (ESCはフライトコントローラからの信号を受けて，モータへ供給する動力を適切に制御します)。
 
-For information about what ESC/Motors are supported by PX4 see:
+PX4によってサポートされているESC/モータについて，詳しくは以下をご参照ください：
 
-- [ESC & Motors](../peripherals/esc_motors.md)
-- [ESC Calibration](../advanced_config/esc_calibration.md)
-- [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
+- [ESC & モータ](../peripherals/esc_motors.md)
+- [ESCキャリブレーション](../advanced_config/esc_calibration.md)
+- [ESC ファームウェアとプロトコルの概要](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
 
-## Battery/Power
+## バッテリー/動力源
 
-PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. The battery is typically connected to the system using a *Power Module* or *Power Management Board*, which provide separate power for the flight controller and to the ESCs (for the motors).
+PX4ドローンの多くはリチウムポリマー(LiPo) バッテリーによって駆動されています。 バッテリーは多くの場合， *パワーモジュール* や *パワーマネージメント基板*を介してシステムに接続され，これらからフライトコントローラやESCへの電源供給が行われます。
 
-Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
+バッテリーおよびバッテリーに関する設定については [バッテリー設定](../config/battery.md)および [基本構成](../assembly/README.md) に記載されています。(例： [Pixhawk 4 簡易設定 > 電源](../assembly/quick_start_pixhawk4.md#power)).
 
-## Radio Control (RC) {#rc_systems}
+## 無線操縦 (RC) {#rc_systems}
 
-A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
+[無線操縦 \(RC\)](../getting_started/rc_transmitter_receiver.md) システムは *手動で* 機体を制御するために使用します。 無線操縦システムはスティックやスイッチの情報を送る送信機と，機体に取り付けられた受信機によって構成されます。 一部の無線操縦システムでは，オートパイロットからのテレメトリー情報を受信することもできます。
 
-> **Note** PX4 does not require a remote control system for autonomous flight modes.
+> **Note** PX4 は自動操縦モードでは無線操縦システムを必要としません。
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-[RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
+[RCシステムの選択](../getting_started/rc_transmitter_receiver.md) ではどのように無線操縦システムの選択方法について説明しています。 その他，以下の関連コンテンツがあります。
 
-- [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in *QGroundControl*.
-- [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
-- [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
+- [無線/遠隔操縦のセットアップ](../config/radio.md) - *QGroundControl*を用いた遠隔操縦システムの設定について
+- [Flying 101](../flying/basic_flying.md) - 遠隔操縦を使用しての飛行方法。
+- [FrSky テレメトリー](../peripherals/frsky_telemetry.md) - RC送信機を用いたPX4からのテレメトリー・ステータス情報の受信設定方法。
 
-## Data/Telemetry Radios
+## データ/テレメトリー 無線
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[データ/テレメトリー無線](../telemetry/README.md) を用いると，*QGroundControl* などの地上局と，PX4が動作している機体の間でMAVLinkを用いた無線通信が可能となります。 これによって，フライト中にパラメータのチューニングを行ったり，リアルタイムでの機体状態の確認，ミッションの変更などが可能になります。
 
-## Offboard/Companion Computer
+## オフボード/コンパニオン コンピュータ
 
-PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+PX4 は，機載のコンピュータからシリアル通信やwifi通信を介して制御することが可能です。 機載コンピュータは通常，MAVSDKやMAVROSといったMAVLink APIを用いて通信を行います。
 
-> **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
+> **Note** ロボティクスAPIを使用するにはソフトウェア開発に関するスキルが必要です。本スキルについては本ガイドの対象外です。
 
-- [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
-- [Robotics APIs](https://dev.px4.io/en/robotics/) (PX4 Developer Guide)
+- [オフボードモード](../flight_modes/offboard.md) - 地上局(GCS) や機載コンピュータからPX4を用いて飛行を行うためのモード。 
+- [ロボティクスAPI APIs](https://dev.px4.io/en/robotics/) (PX4 Developer Guideへ移動します。)
 
-## Removable Memory/Logging
+## 取り外し可能メモリー/ロギング
 
-PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md) (SD support may not be present on every flight controller).
+PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカードを使用します(一部のフライトコントローラでは，SDカードの使用が不可能な場合があります)。
 
-> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB.
+> **Tip** Pixhawk でサポートされているSDカードの容量は最大 32GBです。
 
-A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
+推奨SDカードの一覧は以下にあります: [Developer Guide > ロギング](http://dev.px4.io/en/log/logging.html#sd-cards)
 
-## Flight Modes {#flight_modes}
+## フライトモード {#flight_modes}
 
-Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
+必要な自動操縦のタイプや，ユーザ(操縦者) のレベルに応じて，様々なフライトモードの選択が可能です。 *Autonomousモード* ではオートパイロットによって完全に制御が行われ，パイロットからの遠隔操縦は不要です。 これらは，例えば離陸やホームポジションへの帰還，着陸などの共通タスクを自動化するために使用されます。 他のautonomousモードは，GPS位置情報を用いた設定経路の自動飛行や，オフボードコンピュータ/地上局からの命令 にそった飛行などが可能です。
 
-*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
+*Manual モード* はオートパイロットからの補助を利用しつつ，(RCシステムやジョイスティックを介した) ユーザからの指令で操縦する場合に使用されます。 適切なマニュアルモードを選択することで，目的に沿った飛行特性を実現することができます。例えば，一部のモードでは宙返りなどのアクロバティックな動作が可能な一方で，他のモードでは風に対して自動で位置/飛行コースの保持が可能であったりします。
 
-> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+> **Tip** すべての機体で，すべてのフライトモードが可能なわけではありません。また，一部のモードは特定の条件が揃った時のみ使用可能です(例： 多くのモードは，GPSなどによる位置推定データを必要とします。)。
 
-An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+フライトモードの概要については[こちら](../getting_started/flight_modes.md)をご参照ください。 無線操縦のスイッチを用いたフライトモードの切り替え方法については [Flight Mode Configuration](../config/flight_mode.md)に記載があります。
 
-## Safety Settings (Failsafe) {#safety}
+## セーフティ設定 (フェイルセーフ) {#safety}
 
-PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+PX4では機体に問題が発生した際に，不具合からシステムを保護・回復するためのフェールセーフシステムを設定可能です。 安全に飛行可能なエリアや条件を設定し，もし当該条件から外れるイベントが発生した場合，フェールセーフアクション(例：着陸・一時停止・設定箇所への帰還) がトリガーされます。
 
-> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+> **Note** *最初の* フェイルセーフイベントに対するアクションのみ，設定が可能です。 一旦，システムがフェイルセーフ状態に移行すると，そのアクションによって発生した副次的なフェイルセーフイベントは異なるシステムレベル/機体固有のコードに応じて管理されます。
 
-The main failsafe areas are listed below:
+主なフェイルセーフ項目は以下の通りです。:
 
-- Low Battery
-- Remote Control (RC) Loss
-- Position Loss (global position estimate quality is too low).
-- Offboard Loss (e.g. lose connection to companion computer)
-- Data Link Loss (e.g. lose telemetry connection to GCS).
+- バッテリー残量低下
+- 無線通信 (RC) ロスト
+- 位置情報喪失 (自己位置推定精度の悪化)
+- オフボード通信の喪失 (例： 機載コンピュータからの通信ロスト)
+- データリンクのロスト (例： GCSとのテレメトリー通信ロスト).
 - Geofence Breach (restrict vehicle to flight within a virtual cylinder).
 - Mission Failsafe (prevent a previous mission being run at a new takeoff location).
 - Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).

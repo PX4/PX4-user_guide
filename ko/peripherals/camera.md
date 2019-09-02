@@ -34,32 +34,21 @@ MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 
 
 <h2>하드웨어 구성 트리거</h2>
 
-<p><a href="../advanced_config/parameter_reference.md#TRIG_PINS"> TRIG_PINS </ 0> 매개 변수를 사용하여 트리거링에 사용할 AUX 핀을 선택할 수 있습니다. 기본값은 56이며, 이는 트리거가 AUX 5 및 AUX 6에서 작동 함을 의미합니다.</p>
+<p>You can choose which pins to use for triggering using the <a href="../advanced_config/parameter_reference.md#TRIG_PINS">TRIG_PINS</a> parameter.
+The default is 56, which means that trigger is enabled on <em>FMU</em> pins 5 and 6.</p>
 
 <blockquote>
-  <p><strong> 경고 </ 0> <code> TRIG_PINS </ 1>의 <strong> 기본 </ 0> 값을 56으로 설정하면 AUX 핀 1, 2, 3 및 4를 액추에이터 출력으로 사용할 수 있습니다 (서보/ESC용). Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs. <strong> 액추에이터 출력이 필요한 경우 <code> TRIG_PINS </ 1>의 기본 값을 변경하지 마십시오. </ 0></p>
-</blockquote>
+  <p><strong>Note</strong> On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to <code>AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano). At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.</p> </blockquote> 
 
-<h2>트리거 인터페이스 백엔드</h2>
+<span></span>
 
-<p>
+> **Warning** With `TRIG_PINS` set to its **default** value of 56, you can use the AUX pins 1, 2, 3 and 4 as actuator outputs (for servos/ESCs). Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs. **DO NOT CHANGE THE DEFAULT VALUE OF `TRIG_PINS` IF YOU NEED ACTUATOR OUTPUTS.**
 
+## 트리거 인터페이스 백엔드
 
+The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter :
 
-
-카메라 트리거 드라이버는 <a href="../advanced_config/parameter_reference.md#TRIG_INTERFACE"> TRIG_INTERFACE </ 0> 매개 변수로 제어되는 특정 응용 프로그램에 대한 각각의 백엔드를 지원합니다.</p>
-
-<table>
-<thead>
-<tr>
-  <th>번호</th>
-  <th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>1</td>
-  <td>enables the GPIO interface. AUX 출력은 매 <a href="../advanced_config/parameter_reference.md#TRIG_INTERVAL"> TRIG_INTERVAL </ 1> 지속 시간마다 (<code> TRIG_POLARITY </ 0> 매개 변수에 따라) 높거나 낮게 펄스됩니다. 이것은 대부분의 표준 머신 비전 카메라를 직접 트리거하는 데 사용될 수 있습니다. PX4FMU 시리즈 하드웨어 (Pixhawk, Pixracer 등)에서 AUX 핀의 신호 레벨은 3.3v입니다.</td>
+enables the GPIO interface. AUX 출력은 매  TRIG_INTERVAL </ 1> 지속 시간마다 (` TRIG_POLARITY </ 0> 매개 변수에 따라) 높거나 낮게 펄스됩니다. 이것은 대부분의 표준 머신 비전 카메라를 직접 트리거하는 데 사용될 수 있습니다. PX4FMU 시리즈 하드웨어 (Pixhawk, Pixracer 등)에서 AUX 핀의 신호 레벨은 3.3v입니다.</td>
 </tr>
 <tr>
   <td>2</td>
@@ -101,32 +90,17 @@ MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 
 </tbody>
 </table>
 
-<p>카메라 트리거 모듈과 관련된 전체 매개 변수 목록은 <a href="../advanced_config/parameter_reference.md#camera-trigger"> 매개 변수 참조 </ 0> 페이지에서 확인할 수 있습니다.</p>
+<p>The full list of parameters pertaining to the camera trigger module can be found on the <a href="../advanced_config/parameter_reference.md#camera-trigger">parameter reference</a> page.</p>
 
 <h2 id="command_interface">명령 인터페이스</h2>
 
-<p><strong>TODO : 업데이트 필요 업데이트</strong></p>
+<p><strong>TODO : NEEDS UPDATING updating</strong></p>
 
-<p>카메라 트리거 드라이버는 몇 가지 명령을 지원합니다.</p>
+<p>The camera trigger driver supports several commands:</p>
 
-<p>
-<a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL"> MAV_CMD_DO_TRIGGER_CONTROL </ 0> - "명령 제어"모드에서 허용됩니다 (<code> TRIG_MODE </ 1> 1).</p>
+<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL">MAV_CMD_DO_TRIGGER_CONTROL</a> - Accepted in "command controlled" mode (<code>TRIG_MODE` 1).</p> 
 
-<table>
-<thead>
-<tr>
-  <th>명령 매개 변수</th>
-  <th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Param #1</td>
-  <td>트리거 활성화 / 비활성화 (비활성화의 경우 0으로 설정하고 시작의 경우 1로 설정)</td>
-</tr>
-<tr>
-  <td>Param #2</td>
-  <td>트리거 사이클 시간 (밀리 초 단위) (<code> TRIG_INTERVAL </ 0> 매개 변수 설정)</td>
+트리거 사이클 시간 (밀리 초 단위) (` TRIG_INTERVAL </ 0> 매개 변수 설정)</td>
 </tr>
 <tr>
   <td>Param #3</td>
@@ -135,7 +109,7 @@ MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 
 </tbody>
 </table>
 
-<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL"> MAV_CMD_DO_DIGICAM_CONTROL </ 0> - 모든 모드에서 허용됩니다. 이것은 GCS가 사용자 인터페이스에서 카메라를 테스트하기 위해 사용합니다. 트리거 드라이버는 아직 MAVLink 사양에 정의 된 모든 카메라 제어 매개 변수를 지원하지 않습니다.</p>
+<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL">MAV_CMD_DO_DIGICAM_CONTROL</a> - Accepted in all modes. This is used by the GCS to test-shoot the camera from the user interface. The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.</p>
 
 <table>
 <thead>
@@ -152,48 +126,43 @@ MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 
 </tbody>
 </table>
 
-<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST"> MAV_CMD_DO_SET_CAM_TRIGG_DIST </ 0> - "임무 통제"모드에서 허용됨 (<code> TRIG_MODE </> 4)</p>
+<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST">MAV_CMD_DO_SET_CAM_TRIGG_DIST</a> - Accepted in "mission controlled" mode (<code>TRIG_MODE` 4)</p> 
 
-<p>이 명령은 GCS의 조사 임무에 따라 카메라를 트리거하기 위해 임무 중 자동 생성됩니다.</p>
+This command is autogenerated during missions to trigger the camera based on survey missions from the GCS.
 
-<h2>테스트 트리거 기능</h2>
+## 테스트 트리거 기능
 
-<ol start="1">
-<li>PX4 콘솔에서 : 
-```카메라_트리거 테스트```</li>
-<li><p>From <em>QGroundControl</em>:</p>
+1. PX4 콘솔에서 : ```카메라_트리거 테스트```
+2. From *QGroundControl*:
+    
+    메인 인스트루먼트 패널에서 "Trigger Camera"를 클릭하십시오. 이러한 샷은 위치 정보 태그 지정을 위해 기록되거나 계산되지 않습니다.
+    
+    ![QGC 테스트 카메라](../../assets/camera/qgc_test_camera.png)
 
-<p>메인 인스트루먼트 패널에서 "Trigger Camera"를 클릭하십시오. 이러한 샷은 위치 정보 태그 지정을 위해 기록되거나 계산되지 않습니다.</p>
+## Sony QX-1 예제 (사진 측량법)
 
-<p><img src="../../assets/camera/qgc_test_camera.png" alt="QGC 테스트 카메라" /></p></li>
-</ol>
+![photogrammetry](../../assets/camera/photogrammetry.png)
 
-<h2>Sony QX-1 예제 (사진 측량법)</h2>
+In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony QX-1 and use the setup to create orthomosaics after flying a fully autonomous survey mission.
 
-<p><img src="../../assets/camera/photogrammetry.png" alt="사진 측량법" /></p>
+### 트리거 설정
 
-<p>이 예에서는 Seagull MAP2 트리거 케이블을 사용하여 Sony QX-1에 인터페이스하고 완전히 자율적 인 조사 임무를 수행 한 후 orthomosaics를 만드는 데 사용합니다.</p>
+The camera trigger can be configured from QGroundControl's "Camera" page under the settings tab
 
-<h3>트리거 설정</h3>
+* `TRIG_INTERFACE`: 2, Seagull MAP2. 
+* `TRIG_MODE`: 4, Mission controlled. 
 
-<p>카메라 트리거는 QGroundControl의 "카메라"페이지에서 설정 탭 아래에 구성 할 수 있습니다</p>
+Leave the rest of the parameters at their defaults.
 
-<ul>
-<li><code>TRIG_INTERFACE`: 2, Seagull MAP2. </li> 
+![Trigger pins](../../assets/camera/trigger_pins.png)
 
-* `TRIG_MODE`: 4, Mission controlled. </ul> 
-
-나머지 매개 변수는 기본값으로 두십시오.
-
-![트리거 핀](../../assets/camera/trigger_pins.png)
-
-Seagull MAP2를 자동 조종 장치의 보조 / FMU 핀에 연결해야합니다. 핀 1은 AUX 5에 연결되고, 핀 2는 AUX 6에 연결됩니다. MAP2 케이블의 다른 쪽 끝은 QX-1의 "MULTI"포트로 들어갑니다.
+You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot. Pin 1 goes to AUX 5, and Pin 2 to AUX 6. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
 
 ### 카메라 구성
 
-우리는이 예제를 위해 16-50mm f3.5-5.6 렌즈가있는 Sony QX-1을 사용합니다.
+We use a Sony QX-1 with a 16-50mm f3.5-5.6 lens for this example.
 
-카메라가 작동 할 때 자동 초점 및 측광 지연을 방지하려면 다음 지침을 따라야합니다.
+To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed :
 
 * 무한대까지 수동 초점
 * 카메라를 연속 촬영 모드로 설정하십시오.
@@ -203,35 +172,35 @@ Seagull MAP2를 자동 조종 장치의 보조 / FMU 핀에 연결해야합니�
 
 ### Mission Planning
 
-![QGC 측량 다각형](../../assets/camera/qgc_survey_polygon.jpeg)
+![QGC Survey Polygon](../../assets/camera/qgc_survey_polygon.jpeg)
 
-![QGC 조사 매개 변수](../../assets/camera/qgc_survey_parameters.jpg)
+![QGC Survey Parameters](../../assets/camera/qgc_survey_parameters.jpg)
 
 ### 위치 정보 태그 지정
 
-비행에서 로그 파일과 이미지를 다운로드 / 복사하고 QGroundControl을 가리켜 복사하십시오. 그런 다음 "태깅 시작"을 클릭하십시오.
+Download/copy the logfile and images from the flight and point QGroundControl to them. Then click on "Start Tagging".
 
-![QGC 위치 정보 태그 지정](../../assets/camera/qgc_geotag.png)
+![QGC Geotagging](../../assets/camera/qgc_geotag.png)
 
-위치 정보 태그 지정은  Pic2Map </ 0>과 같은 무료 온라인 서비스를 사용하여 확인할 수 있습니다. Pic2Map은 40 개의 이미지로 제한됩니다.</p> 
+You can verify the geotagging using a free online service like [Pic2Map](https://www.pic2map.com/). Note that Pic2Map is limited to only 40 images.
 
 ### 재건
 
-우리는 3D 재구성을 위해  Pix4D </ 0>를 사용합니다.</p> 
+We use [Pix4D](https://pix4d.com/) for 3D reconstruction.
 
-![위치 태그](../../assets/camera/geotag.jpg)
+![GeoTag](../../assets/camera/geotag.jpg)
 
 ## 카메라 -IMU 동기화 예 (VIO)
 
-이 예에서는 IMU 측정을 시각적 데이터와 동기화하는 기본 사항을 검토하여 스테레오 Visual-Inertial Navigation System (VINS)을 구축합니다. 명확한 것은 여기에서 우리가 사진을 찍는 것과 정확히 동시에 IMU 측정을하는 것이 아니라 VIO 알고리즘에 정확한 데이터를 제공하기 위해 이미지를 정확하게 타임 스탬프하는 것입니다.
+In this example, we will go over the basics of synchronising IMU measurements with visual data to build a stereo Visual-Inertial Navigation System (VINS). To be clear, the idea here isn't to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VIO algorithm.
 
-오토 파일럿과 컴패니언은 서로 다른 클럭베이스 (자동 파일럿의 부팅 시간과 함께 제공되는 유닉스 시대)를 가지므로 두 클록을 왜곡하는 대신 클럭 간의 시간 오프셋을 직접 관찰합니다. 이 오프셋은 교차 미들웨어 변환기 구성 요소 (예 : 동료의 MAVROS 및 PX4의 ` mavlink_receiver </ 0>)에서 MAVLink 메시지 (예 : <code> HIGHRES_IMU </ 0>)의 타임 스탬프에 더하거나 뺍니다. 실제 동기화 알고리즘은 NTP (Network Time Protocol) 알고리즘의 수정 된 버전이며 지수 이동 평균을 사용하여 추적 된 시간 오프셋을 원활하게합니다. 이 동기화는 MAVROS가 고 대역폭 온보드 링크 (MAVLink 모드 <code> 온보드 </ 0>)와 함께 사용되는 경우 자동으로 수행됩니다.</p>
+The autopilot and companion have different clock bases (boot-time for the autopilot and UNIX epoch for companion), so instead of skewing either clock, we directly observe the time offset between the clocks. This offset is added or subtracted from the timestamps in the MAVLink messages (e.g `HIGHRES_IMU`) in the cross-middleware translator component (e.g MAVROS on the companion and `mavlink_receiver` in PX4). The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset. This synchronisation is done automatically if MAVROS is used with a high-bandwidth onboard link (MAVLink mode `onboard`).
 
-<p>동기화 된 이미지 프레임과 관성 측정을 얻기 위해 두 카메라의 트리거 입력을 자동 조종 장치의 GPIO 핀에 연결합니다. 노출 시작과 이미지 시퀀스 번호에서 관성 측정의 타임 스탬프가 기록되어 카메라와 카메라로부터 획득 한 이미지 프레임을 버퍼링하는 컴패니언 컴퓨터 (<code> CAMERA_TRIGGER </ 0> 메시지)로 전송됩니다. 시퀀스 번호 (첫 번째 이미지 프레임은 시퀀스 0)를 기준으로 일치되며 이미지는 <code> CAMERA_TRIGGER </ 0> 메시지의 타임 스탬프와 함께 타임 스탬프가 적용되어 게시됩니다.</p>
+For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot. The timestamp of the inertial measurement from start of exposure and a image sequence number is recorded and sent to the companion computer (`CAMERA_TRIGGER` message), which buffers these packets and the image frames acquired from the camera. They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the `CAMERA_TRIGGER` message) and then published.
 
-<p>다음 다이어그램은 이미지를 올바르게 타임 스탬프하기 위해 발생해야하는 이벤트의 순서를 보여줍니다.</p>
+The following diagram illustrates the sequence of events which must happen in order to correctly timestamp our images.
 
-<p><img src="../../assets/camera/sequence_diagram.jpg" alt="시퀀스 진단" /></p>
+![Sequence diag](../../assets/camera/sequence_diagram.jpg)
 
 <!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-edito
 {/% mermaid %/}
@@ -250,28 +219,24 @@ end
 {/% endmermaid %/}
 -->
 
-<h3>1 단계</h3>
+### 1 단계
 
-<p>먼저 드라이버가 시작 명령을 기다릴 수 있도록 TRIG_MODE를 1로 설정하고
-FCU를 재부팅하여 나머지 매개 변수를 얻으십시오.</p>
+First, set the TRIG_MODE to 1 to make the driver wait for the start command and reboot your FCU to obtain the remaining parameters.
 
-<h3>2 단계</h3>
+### 2 단계
 
-<p>이 예제의 목적을 위해 우리는 작동 할 트리거를 구성 할 것입니다.
-30 FPS에서 작동하는 Point Gray Firefly MV 카메라와 함께 사용됩니다.</p>
+For the purposes of this example we will be configuring the trigger to operate in conjunction with a Point Grey Firefly MV camera running at 30 FPS.
 
-<ul>
-<li><code>TRIG_INTERVAL`: 33.33 ms</li> 
-
+* `TRIG_INTERVAL`: 33.33 ms
 * `TRIG_POLARITY`: 0 (active low)
 * `TRIG_ACT_TIME`: 0.5 ms. 설명서에 따르면 최소 1 마이크로 초 만 있으면됩니다.
 * ` TRIG_MODE </ 0> : 1, 왜냐하면 카메라 드라이버가 트리거를 시작하기 전에 이미지를받을 준비가되기 때문입니다. 이는 일련 번호를 올바르게 처리하는 데 필수적입니다.</li>
-<li><code>TRIG_PINS`: 56, Leave default.</ul> 
+<li><code>TRIG_PINS`: 56, Leave default.
 
 ### 3 단계
 
-지상과 신호 핀을 적절한 위치에 연결하여 카메라를 AUX 포트에 연결하십시오.
+Wire up your cameras to your AUX port by connecting the ground and signal pins to the appropriate place.
 
 ### 4 단계
 
-위의 시퀀스 다이어그램을 따르려면 드라이버를 수정해야합니다.  IDS 이미징 UEye </ 0> 카메라 및  IEEE1394 호환 </ 1> 카메라에 대한 공개 참조 구현을 사용할 수 있습니다.</p>
+You will have to modify your driver to follow the sequence diagram above. Public reference implementations for [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) cameras and for [IEEE1394 compliant](https://github.com/andre-nguyen/camera1394) cameras are available.
