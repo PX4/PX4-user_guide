@@ -32284,6 +32284,10 @@
       <p>
         QNH for barometer
       </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
     </td>
     
     <td style="vertical-align: top;">
