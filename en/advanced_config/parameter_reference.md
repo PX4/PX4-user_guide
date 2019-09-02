@@ -10472,6 +10472,14 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="SENS_EN_PMW3901">SENS_EN_PMW3901</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>PMW3901 Optical Flow</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_PX4FLOW">SENS_EN_PX4FLOW</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>PX4 Flow Optical Flow</p>   <p><b>Reboot required:</b> true</p>
 </td>
