@@ -3579,6 +3579,46 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_PREARM_MODE">COM_PREARM_MODE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Condition to enter prearmed mode
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Condition to enter the prearmed state, an intermediate state between disarmed and armed in which non-throttling actuators are active.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>1:</strong> Safety button
+        </li>
+        <li>
+          <strong>2:</strong> Always
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_RC_ARM_HYST">COM_RC_ARM_HYST</strong> (INT32)
     </td>
     
