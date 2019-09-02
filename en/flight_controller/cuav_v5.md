@@ -5,7 +5,7 @@ The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open
 It runs PX4 on the [NuttX](http://nuttx.org) OS, and is fully compatible with PX4 firmware. 
 It is intended primarily for academic and commercial developers.
 
-![CUAV v5](../../assets/flight_controller/pixhack_v5/pixhack_v5.jpg)
+![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5.jpg)
 
 ## Quick Summary
 
@@ -23,7 +23,7 @@ It is intended primarily for academic and commercial developers.
   * 8-14 PWM outputs (6 from IO, 8 from FMU)
   * 3 dedicated PWM/Capture inputs on FMU
   * Dedicated R/C input for CPPM
-  * Dedicated R/C input for ppm/DSM and S.Bus 
+  * Dedicated R/C input for PPM and S.Bus 
   * analog / PWM RSSI input
   * S.Bus servo output
   * 5 general purpose serial ports
@@ -48,7 +48,7 @@ Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426
 
 ## Connection {#connection}
 
-![CUAV v5](../../assets/flight_controller/pixhack_v5/pixhack_v5_connector.jpg)
+![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 
 > **Warning**The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
 
@@ -83,7 +83,7 @@ Both ports have standard serial pins and can be connected to a standard FTDI cab
 
 The pinout is as shown.
 
-![CUAV v5 debug](../../assets/flight_controller/pixhack_v5/pixhack_v5_debug.jpg)
+![CUAV v5 debug](../../assets/flight_controller/cuav_v5/pixhack_v5_debug.jpg)
 
 
 pin | CUAV v5 debug 
@@ -113,3 +113,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
 - [CUAV v5 docs](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
 - [CUAV Github](https://github.com/cuav) 
+
+
+

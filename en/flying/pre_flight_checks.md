@@ -8,7 +8,7 @@ The sections below list the errors, their likely causes and solutions, and any p
 
 ## EKF Preflight Checks/Errors
 
-The following errors (with associated checks and parameters) are reported by the [EKF](https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html) (and propagate to *QGroundControl*):
+The following errors (with associated checks and parameters) are reported by the [EKF](../advanced_config/tuning_the_ecl_ekf.md) (and propagate to *QGroundControl*):
 
 `PREFLIGHT FAIL: EKF HGT ERROR`:
 * This error is produced when the IMU and height measurement data are inconsistent.
