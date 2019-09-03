@@ -122,6 +122,8 @@
   * [Sensor Thermal Compensation](advanced_config/sensor_thermal_calibration.md)
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
+  * [Prearm/Arm/Disarm Configuration](advanced_config/prearm_arm_disarm.md)
+  prearm_arm_disarm.md
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [Peripheral Hardware](peripherals/README.md)
   * [Serial Port Configuration](peripherals/serial_configuration.md)
