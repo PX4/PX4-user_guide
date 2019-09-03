@@ -32271,6 +32271,29 @@
         <strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro_control) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.
       </p>
       
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> 0 (no limit)
+        </li>
+        <li>
+          <strong>50:</strong> 50 Hz
+        </li>
+        <li>
+          <strong>250:</strong> 250 Hz
+        </li>
+        <li>
+          <strong>400:</strong> 400 Hz
+        </li>
+        <li>
+          <strong>1000:</strong> 1000 Hz
+        </li>
+        <li>
+          <strong>2000:</strong> 2000 Hz
+        </li>
+      </ul>
+      
       <p>
         <b>Reboot required:</b> true
       </p>
