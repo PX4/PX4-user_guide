@@ -80,7 +80,7 @@ The startup sequence is:
 
 ### COM_PREARM_MODE=Safety or Disabled and No Safety Switch
 
-With no safety switch, when `COM_PREARM_MODE` is set to *Safety* or *Disabled* prearm mode cannot not enabled (same as disarmed). 
+With no safety switch, when `COM_PREARM_MODE` is set to *Safety* or *Disabled* prearm mode cannot be enabled (same as disarmed). 
 Arm to activate all actuators.
 This corresponds to [COM_PREARM_MODE=0 or 1](#COM_PREARM_MODE) (Disabled/Safety Switch) and [CBRK_IO_SAFETY=22027](#CBRK_IO_SAFETY) (I/O safety circuit breaker engaged).
 
