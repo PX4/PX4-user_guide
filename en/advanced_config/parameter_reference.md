@@ -6357,6 +6357,24 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 </tr>
 </tbody></table>
 
+## Peripheral
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="LIGHT_EN_BLINKM">LIGHT_EN_BLINKM</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>BlinkM LED</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+</tbody></table>
+
 ## Precision Land
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
