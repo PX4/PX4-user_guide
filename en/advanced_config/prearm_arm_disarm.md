@@ -12,20 +12,32 @@ A [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) (if av
 
 PX4 allows you to configure how prearming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
 
+
+## Auto-Disarming
+
+By default vehicles will automatically disarm on landing, or if you take too long to take off after arming.
+The feature is configured using the following timeouts.
+
+Parameter | Description
+--- | ---
+<span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Time-out for auto disarm after landing. Default: 2s (-1 to disable).
+<span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Time-out for auto disarm if too slow to takeoff. Default: 10s (<=0 to disable).
+
+
 ## Arming Sequence: Pre Arm Mode & Safety Button
 
 The arming sequence depends on whether or not there is a *safety switch*, and is controlled by the parameters [COM_PREARM_MODE](#COM_PREARM_MODE) (Prearm mode) and [CBRK_IO_SAFETY](#CBRK_IO_SAFETY) (I/O safety circuit breaker).
 
 The [COM_PREARM_MODE](#COM_PREARM_MODE) parameter defines when/if pre-arm mode is enabled ("safe"/non-throttling actuators are able to move):
-- *Disabled*: There is no separate pre-arm mode where only "safe"/non-throttling actuators are enabled.
-- *Safety Switch* (Default): The pre-arm mode is enabled by the safety switch. 
+- *Disabled*: Pre-arm mode disabled (there is no stage where only "safe"/non-throttling actuators are enabled).
+- *Safety Switch* (Default): The pre-arm mode is enabled by the safety switch.
   If there is no safety switch then pre-arm mode will not be enabled.
 - *Always*: Prearm mode is enabled from power up. 
 
 If there is a safety switch then this will be a precondition for arming.
 If there is no safety switch the I/O safety circuit breaker must be engaged ([CBRK_IO_SAFETY](#CBRK_IO_SAFETY)), and arming will depend only on the arm command.
 
-The sections below explain the startup sequences for the different configurations
+The sections below detail the startup sequences for the different configurations
 
 
 ### Default: COM_PREARM_MODE=Safety and Safety Switch
@@ -106,26 +118,12 @@ The startup sequence is:
    - All motors and actuators can move.
 
 
-
 ### Parameters
 
 Parameter | Description
 --- | ---
 <span id="COM_PREARM_MODE"></span>[COM_PREARM_MODE](../advanced_config/parameter_reference.md#COM_PREARM_MODE) | Condition to enter prearmed mode. `0`: Disabled, `1`: Safety switch (prearm mode enabled by safety switch; if no switch present cannot be enabled), `2`: Always (prearm mode enabled from power up). Default: `1` (safety button).
 <span id="CBRK_IO_SAFETY"></span>[CBRK_IO_SAFETY](../advanced_config/parameter_reference.md#CBRK_IO_SAFETY) | Circuit breaker for IO safety.
-
-
-
-## Auto-Disarming
-
-By default vehicles will automatically disarm on landing, or if you take too long to take off after arming.
-The feature is configured using the following timeouts.
-
-Parameter | Description
---- | ---
-<span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Time-out for auto disarm after landing. Default: 2s (-1 to disable).
-<span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Time-out for auto disarm if too slow to takeoff. Default: 10s (<=0 to disable).
-
 
 
 <!-- Discussion:
