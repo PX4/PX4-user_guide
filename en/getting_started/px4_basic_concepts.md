@@ -139,8 +139,8 @@ To reduce the chance of accidents, PX4 has explicit state(s) for powering the ve
   - In this state you can move ailerons, flaps etc, but motors/propellers are locked.
 - **Armed:** Vehicle is fully powered, including motors/propellers.
 
-A [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) (if available) is used as a precondition for arming the vehicle, and may also be used to enable the pre-armed state.
-When permitted, arming is enabled using an arming sequence, switch or MAVLink command. 
+By default, a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) is used to enter the pre-armed state.
+Arming is then enabled using an arming sequence, switch or MAVLink command. 
 
 The vehicle is initially disarmed, and must be armed before flight; if you don't take off quickly enough it will automatically disarm (returning the vehicle to a safe state).
 Similarly, when you land the vehicle will usually automatically disarm so that it can be approached safely.
