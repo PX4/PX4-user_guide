@@ -21536,6 +21536,58 @@
   </tr>
 </table>
 
+## Peripheral
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="LIGHT_EN_BLINKM">LIGHT_EN_BLINKM</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        BlinkM LED
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
 ## Precision Land
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -32152,7 +32204,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the accel driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the accel driver. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
       </p>
       
       <p>
@@ -32184,7 +32236,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the gyro driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the gyro driver. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
       </p>
       
       <p>
@@ -32198,6 +32250,38 @@
     
     <td style="vertical-align: top;">
       30.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="IMU_GYRO_RATEMAX">IMU_GYRO_RATEMAX</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Gyro control data maximum publication rate
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro_control) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 2000
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
     </td>
     
     <td style="vertical-align: top;">
