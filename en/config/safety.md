@@ -253,14 +253,11 @@ Parameter | Description
 <span id="FD_FAIL_R_TTRI"></span>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | Time to exceed [FD_FAIL_R](#FD_FAIL_R) for failure detection (default 0.3s).
 
 
-## Safety Switches {#safety_switch}
+## Emergency Switches {#safety_switch}
 
-A safety switch allows you to immediately stop all motors or return the vehicle from the remote control transmitter
-(if you lose control of the vehicle, this may be better than allowing it to continue flying).
+Remote control switches can be configured (as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md)) to allow you to take rapid corrective action in the event of a problem or emergency; for example, to stop all motors, or activate [Return mode](return_switch).
 
-The safety switches may be enabled as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md).
-
-This section lists the available safety switches.
+This section lists the available emergency switches.
 
 ### Kill Switch {#kill_switch}
 
