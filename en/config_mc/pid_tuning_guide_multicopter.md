@@ -22,9 +22,11 @@ The PID tuning needs to be done in the same order, starting with the rate contro
 
 ## Preconditions
 
-- You have selected the closest matching [default airframe configuration](../config/airframe.md) for your vehicle. This should give you a vehicle that already flies.
+- You have selected the closest matching [default airframe configuration](../config/airframe.md) for your vehicle.
+  This should give you a vehicle that already flies.
 - You should have done an [ESC calibration](../advanced_config/esc_calibration.md).
-- [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) is set correctly. It needs to be set low, but such that the **motors never stop** when the vehicle is armed.
+- [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) is set correctly.
+  It needs to be set low, but such that the **motors never stop** when the vehicle is armed.
 
   This can be tested in [Acro mode](../flight_modes/acro_mc.md) or in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
   - Remove propellers
@@ -49,7 +51,9 @@ Here are some general points to follow when tuning:
 
 ### Rate Controller
 
-The rate controller is the inner-most loop with three independent PID controllers to control the body rates. It can be implemented in several (mathematically equivalent) forms.
+The rate controller is the inner-most loop with three independent PID controllers to control the body rates.
+It can be implemented in several (mathematically equivalent) forms.
+
 > **Note** The derivative term (**D**) is on the feedback path in order to avoid an effect knowm as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
 
 - Parallel form:
@@ -57,7 +61,7 @@ The rate controller is the inner-most loop with three independent PID controller
   - Three independant paths
   - **I** and **D** terms are unitless
 
-![PID_Parallel](../../images/mc_pid_tuning/PID_algorithm_Parallel.png)
+  ![PID_Parallel](../../images/mc_pid_tuning/PID_algorithm_Parallel.png)
 
 - Ideal form:
   - Commonly used in industrial controllers
@@ -65,7 +69,7 @@ The rate controller is the inner-most loop with three independent PID controller
   - **I** and **D** terms represent the integral and derivative time constants
   - More intuitive to tune than the parallel form
 
-![PID_Ideal](../../images/mc_pid_tuning/PID_algorithm_Ideal.png)
+  ![PID_Ideal](../../images/mc_pid_tuning/PID_algorithm_Ideal.png)
 
 
 In order to let the user choose which form he wants to use, a mixed form is implemented in the flight controller.
@@ -80,7 +84,8 @@ The related parameters for the tuning of the PID rate controllers are:
 - Yaw rate control ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
 
 
-> **Note** A well-tuned rate controller is very important as it affects *all* flight modes. A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
+> **Note** A well-tuned rate controller is very important as it affects *all* flight modes.
+  A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
 
 The rate controller can be tuned in [Acro mode](../flight_modes/acro_mc.md) or [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
 - *Acro mode* is preferred, but is harder to fly. If you choose this mode, disable all stick expo:
@@ -111,7 +116,8 @@ It is responsible for a quick response and thus should be set as high as possibl
 
 #### D Gain
 
-The **D** (derivative) gain is used for rate damping. It is required but should be set only as high as needed to avoid overshoots.
+The **D** (derivative) gain is used for rate damping.
+It is required but should be set only as high as needed to avoid overshoots.
 - If the **D** gain is too high: the motors become twitchy (and maybe hot), because the **D** term amplifies noise.
 - If the **D** gain is too low: you see overshoots after a step-input.
 
@@ -236,7 +242,7 @@ The motor thrusts are in <span style="color:#6A9153">green</span>.
 With Airmode enabled, the commanded thrust is increased by <span style="color:#B85450">b</span>.
 When it is disabled, <span style="color:#9673A6">r</span> is reduced.
 
-  ![Airmode](../../images/mc_pid_tuning/MC_PID_tuning-Airmode.svg)
+![Airmode](../../images/mc_pid_tuning/MC_PID_tuning-Airmode.svg)
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
      On the first Tab
 -->
