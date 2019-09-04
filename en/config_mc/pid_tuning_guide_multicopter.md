@@ -52,18 +52,31 @@ Here are some general points to follow when tuning:
 ### Rate Controller
 
 The rate controller is the inner-most loop with three independent PID controllers to control the body rates.
-It can be implemented in several (mathematically equivalent) forms.
 
-> **Note** The derivative term (**D**) is on the feedback path in order to avoid an effect knowm as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+> **Note** A well-tuned rate controller is very important as it affects *all* flight modes.
+  A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
 
-- Parallel form:
-  - Commonly used in student textbooks
+#### Rate Controller Architecture/Form
+
+PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single mixed implementation: Parallel and Ideal.
+
+![PID_Mixed](../../images/mc_pid_tuning/PID_algorithm_Mixed.png)
+<!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
+
+> **Note** The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+
+Users can select the form that is used by setting the proportional gain for one of the forms  (**K** or **P**) to "1".
+The resulting forms are described below.
+
+##### Parallel Form
+
+- Commonly used in student textbooks
   - Three independant paths
   - **I** and **D** terms are unitless
 
   ![PID_Parallel](../../images/mc_pid_tuning/PID_algorithm_Parallel.png)
 
-- Ideal form:
+##### Ideal Form
   - Commonly used in industrial controllers
   - The proportional gain scales the whole controller
   - **I** and **D** terms represent the integral and derivative time constants
@@ -72,20 +85,12 @@ It can be implemented in several (mathematically equivalent) forms.
   ![PID_Ideal](../../images/mc_pid_tuning/PID_algorithm_Ideal.png)
 
 
-In order to let the user choose which form he wants to use, a mixed form is implemented in the flight controller.
-Setting **K** or **P** to 1 and tuning the other parameters allows to use the Parallel or Ideal form.
-
-![PID_Mixed](../../images/mc_pid_tuning/PID_algorithm_Mixed.png)
-<!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
+#### Rate PID Tuning
 
 The related parameters for the tuning of the PID rate controllers are:
 - Roll rate control ([MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_ROLLRATE_I](../advanced_config/parameter_reference.md#MC_ROLLRATE_I), [MC_ROLLRATE_D](../advanced_config/parameter_reference.md#MC_ROLLRATE_D), [MC_ROLLRATE_K](../advanced_config/parameter_reference.md#MC_ROLLRATE_K))
 - Pitch rate control ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
 - Yaw rate control ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
-
-
-> **Note** A well-tuned rate controller is very important as it affects *all* flight modes.
-  A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
 
 The rate controller can be tuned in [Acro mode](../flight_modes/acro_mc.md) or [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
 - *Acro mode* is preferred, but is harder to fly. If you choose this mode, disable all stick expo:
@@ -95,9 +100,9 @@ The rate controller can be tuned in [Acro mode](../flight_modes/acro_mc.md) or [
   - `MC_ACRO_Y_MAX` = 100
 - *Manual/Stabilized mode* is simpler to fly, but it is also more difficult to see if the attitude or the rate controller needs more tuning.
 
-In case your vehicle does not fly at all:
-- If you notice strong oscillations when first trying to takeoff (to the point where it does not fly), decrease all **P** and **D** gains until it takes off.
-- If on the other hand you hardly get any reaction at all to your RC commands, increase the **P** gains.
+If the vehicle does not fly at all:
+- If there are strong oscillations when first trying to takeoff (to the point where it does not fly), decrease all **P** and **D** gains until it takes off.
+- If the reaction to RC movement is minimal, increase the **P** gains.
 
 The actual tuning is roughly the same in *Manual mode* or *Acro mode*:
 You iteratively tune the **P** and **D** gains for roll and pitch, and then the **I** gain.
@@ -105,7 +110,7 @@ Initially you can use the same values for roll and pitch, and once you have good
 you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed).
 For yaw it is very similar, except that **D** can be left at 0.
 
-#### P/K Gain
+##### P/K Gain
 
 The **P** (proportional) gain is used to minimize the tracking error.
 It is responsible for a quick response and thus should be set as high as possible, but without introducing oscillations.
@@ -114,14 +119,14 @@ It is responsible for a quick response and thus should be set as high as possibl
   - the vehicle will react slowly to input changes.
   - In *Acro mode* the vehicle will drift, and you will constantly need to correct to keep it level.
 
-#### D Gain
+##### D Gain
 
 The **D** (derivative) gain is used for rate damping.
 It is required but should be set only as high as needed to avoid overshoots.
 - If the **D** gain is too high: the motors become twitchy (and maybe hot), because the **D** term amplifies noise.
 - If the **D** gain is too low: you see overshoots after a step-input.
 
-#### I Gain
+##### I Gain
 
 The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time.
 It is important (especially when flying *Acro mode*), but it should not be set too high.
