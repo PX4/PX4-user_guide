@@ -10383,6 +10383,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>33:</strong> Pitch 45°</li> 
 
 <li><strong>34:</strong> Pitch 315°</li> 
+
+<li><strong>35:</strong> Roll 90°, Yaw 270°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
