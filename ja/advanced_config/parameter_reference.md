@@ -32532,6 +32532,9 @@
         <li>
           <strong>34:</strong> Pitch 315°
         </li>
+        <li>
+          <strong>35:</strong> Roll 90°, Yaw 270°
+        </li>
       </ul>
       
       <p>
