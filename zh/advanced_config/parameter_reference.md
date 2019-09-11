@@ -1,6 +1,10 @@
 # 参数参照表
 
-> **注意：****这个清单是从源代码中自动生成的** (使用`make parameters_metadata`) 并且包含了最新的参数文档.
+> **Note** **This documentation was auto-generated from the source code for this PX4 version** (using `make parameters_metadata`).
+
+<span></span>
+
+> **Note** If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](http://docs.px4.io/master/en/advanced_config/parameters.html#missing).
 
 ## Airspeed Validator
 
