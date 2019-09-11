@@ -97,7 +97,7 @@
   * [Collision Prevention](computer_vision/collision_prevention.md)
   * [Path Planning Interface](computer_vision/path_planning_interface.md)
 * [고급 설정](advanced_config/README.md) 
-  * [파라미터](advanced_config/parameters.md)
+  * [Finding/Updating Parameters](advanced_config/parameters.md)
   * [멀티콥콥터 설정/조정](config_mc/README.md) 
     * [MC PID Tuning Guide](config_mc/pid_tuning_guide_multicopter.md)
     * [MC Setpoint Tuning (Trajectory Generator)](config_mc/mc_trajectory_tuning.md) * [MC Slew-rate Type Trajectory](config_mc/mc_slew_rate_type_trajectory.md) * [MC Jerk-limited Type Trajectory](config_mc/mc_jerk_limited_type_trajectory.md)
