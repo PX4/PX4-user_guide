@@ -97,7 +97,7 @@
   * [Collision Prevention](computer_vision/collision_prevention.md)
   * [Path Planning Interface](computer_vision/path_planning_interface.md)
 * [Advanced Configuration](advanced_config/README.md)
-  * [Parameters](advanced_config/parameters.md)
+  * [Finding/Updating Parameters](advanced_config/parameters.md)
   * [Multicopter Config/Tuning](config_mc/README.md)
     * [MC PID Tuning Guide](config_mc/pid_tuning_guide_multicopter.md)
     * [MC Setpoint Tuning (Trajectory Generator)](config_mc/mc_trajectory_tuning.md)
