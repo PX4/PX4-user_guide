@@ -146,7 +146,7 @@ PX4では機体に問題が発生した際に，不具合からシステムを�
 - 位置情報ロスト (自己位置推定精度の低下)
 - オフボード通信のロスト (例： 機載コンピュータからの通信ロスト)
 - データリンクのロスト (例： GCSとのテレメトリー通信ロスト).
-- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
+- ジオフェンス逸脱(円柱状のエリアに飛行範囲を制限)
 - Mission Failsafe (prevent a previous mission being run at a new takeoff location).
 - Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
 
