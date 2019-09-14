@@ -139,13 +139,13 @@ PX4では機体に問題が発生した際に，不具合からシステムを�
 
 > **Note** *最初の* フェイルセーフイベントに対するアクションのみ，設定が可能です。 一旦，システムがフェイルセーフ状態に移行すると，そのアクションによって発生した副次的なフェイルセーフイベントは異なるシステムレベル/機体固有のコードに応じて管理されます。
 
-The main failsafe areas are listed below:
+主なフェイルセーフ項目は以下の通りです。:
 
-- Low Battery
-- Remote Control (RC) Loss
-- Position Loss (global position estimate quality is too low).
-- Offboard Loss (e.g. lose connection to companion computer)
-- Data Link Loss (e.g. lose telemetry connection to GCS).
+- バッテリー残量低下
+- 無線通信 (RC) ロスト
+- 位置情報ロスト (自己位置推定精度の低下)
+- オフボード通信のロスト (例： 機載コンピュータからの通信ロスト)
+- データリンクのロスト (例： GCSとのテレメトリー通信ロスト).
 - Geofence Breach (restrict vehicle to flight within a virtual cylinder).
 - Mission Failsafe (prevent a previous mission being run at a new takeoff location).
 - Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
