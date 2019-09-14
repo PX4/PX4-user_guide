@@ -106,20 +106,20 @@ PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカ�
 
 推奨SDカードの一覧は以下にあります: [Developer Guide > ロギング](http://dev.px4.io/en/log/logging.html#sd-cards)
 
-## ディスアームド/プレアームド/アームド {#arming}
+## Disarmed/Pre-armed/Armed {#arming}
 
 機体は多くの可動部を持っており，その一部(特にモータやプロペラ) は潜在的な危険性を持っています。
 
-To reduce the chance of accidents, PX4 has explicit state(s) for powering the vehicle components:
+可動部による事故の可能性を低減するため，PX4は機体の起動に際して，以下の状態を定めています。
 
-- **Disarmed:** There is no power to motors or actuators.
-- **Pre-armed:** Actuators and other non-dangerous electronics are powered. 
-  - In this state you can move ailerons, flaps etc, but motors/propellers are locked.
-- **Armed:** Vehicle is fully powered, including motors/propellers.
+- **Disarmed:** モータやアクチュエータが動くことのない状態です。
+- **Pre-armed:** 危険性のないアクチュエータ・電動機が動作可能な状態です。 
+  - 本状態では，エルロンやフラップ等を動かすことができますが，モータ・プロペラはロックされています。
+- **Armed:** モータ・プロペラを含め，すべてのモータやアクチュエータが動作可能です。
 
-By default, a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) is used to enter the pre-armed state. Arming is then enabled using an arming sequence, switch or MAVLink command.
+標準では， [セーフティスイッチ](../getting_started/px4_basic_concepts.md#safety_switch) がpre-armed 状態に遷移するために用いられます。 Arming 状態には，その後Arming用のシーケンス操作やスイッチ，MAVLinkからのコマンド等によって遷移します。
 
-The vehicle is initially disarmed, and must be armed before flight; if you don't take off quickly enough it will automatically disarm (returning the vehicle to a safe state). Similarly, when you land the vehicle will usually automatically disarm so that it can be approached safely.
+機体は初期状態ではdisarm状態となっており，フライトを行うにはアーミングを行う必要があります。また，Armed状態になってから速やかに離陸を行わない場合，自動的にdisarm状態(安全な状態) に戻ります。 Similarly, when you land the vehicle will usually automatically disarm so that it can be approached safely.
 
 > **Note** The arming behaviour can be [configured](../advanced_config/prearm_arm_disarm.md) (e.g. the time until vehicle automatically disarms after landing).
 
