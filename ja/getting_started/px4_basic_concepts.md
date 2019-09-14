@@ -146,11 +146,11 @@ PX4では機体に問題が発生した際に，不具合からシステムを�
 - 位置情報ロスト (自己位置推定精度の低下)
 - オフボード通信のロスト (例： 機載コンピュータからの通信ロスト)
 - データリンクのロスト (例： GCSとのテレメトリー通信ロスト).
-- ジオフェンス逸脱(円柱状のエリアに飛行範囲を制限)
-- Mission Failsafe (prevent a previous mission being run at a new takeoff location).
-- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
+- ジオフェンス逸脱(円柱状のエリアに飛行範囲を制限します)
+- ミッションフェイルセーフ (前回設定した自動飛行経路が，新しい環境で実行されるのを防ぎます) 。
+- 航空機回避 (ADSB等のトランスポンダからのデータを受けて起動されます) 。
 
-For more information see: [Safety](../config/safety.md) (Basic Configuration).
+より詳しくは，以下を参照してください: [セーフティ](../config/safety.md) (基本設定).
 
 ## Heading and Directions
 
