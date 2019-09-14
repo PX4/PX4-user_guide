@@ -119,25 +119,25 @@ PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカ�
 
 標準では， [セーフティスイッチ](../getting_started/px4_basic_concepts.md#safety_switch) がpre-armed 状態に遷移するために用いられます。 Arming 状態には，その後Arming用のシーケンス操作やスイッチ，MAVLinkからのコマンド等によって遷移します。
 
-機体は初期状態ではdisarm状態となっており，フライトを行うにはアーミングを行う必要があります。また，Armed状態になってから速やかに離陸を行わない場合，自動的にdisarm状態(安全な状態) に戻ります。 Similarly, when you land the vehicle will usually automatically disarm so that it can be approached safely.
+機体は初期状態ではdisarm状態となっており，フライトを行うにはアーミングを行う必要があります。また，Armed状態になってから速やかに離陸を行わない場合，自動的にdisarm状態(安全な状態) に戻ります。 同様に，通常機体が着陸した後は，安全に機体に近づけるよう，自動的にdisarmへと遷移します。
 
-> **Note** The arming behaviour can be [configured](../advanced_config/prearm_arm_disarm.md) (e.g. the time until vehicle automatically disarms after landing).
+> **Note** アーミングに関する動作(例： 機体が着陸後，自動的にdisarmへ遷移するまでの時間) は[設定可能](../advanced_config/prearm_arm_disarm.md) です。
 
-## Flight Modes {#flight_modes}
+## フライトモード {#flight_modes}
 
-Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
+必要な自動操縦のタイプや，ユーザ(操縦者) のレベルに応じて，様々なフライトモードの選択が可能です。 *Autonomousモード* ではオートパイロットによって完全に制御が行われ，パイロットからの遠隔操縦は不要です。 これらは，例えば離陸やホームポジションへの帰還，着陸などの共通タスクを自動化するために使用されます。 他のautonomousモードは，GPS位置情報を用いた設定経路の自動飛行や，オフボードコンピュータ/地上局からの命令 にそった飛行などが可能です。
 
-*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
+*Manual モード* はオートパイロットからの補助を利用しつつ，(RCシステムやジョイスティックを介した) ユーザからの指令で操縦する場合に使用されます。 適切なマニュアルモードを選択することで，目的に沿った飛行特性を実現することができます。例えば，一部のモードでは宙返りなどのアクロバティックな動作が可能な一方で，他のモードでは風に対して自動で位置/飛行コースの保持が可能であったりします。
 
-> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+> **Tip** すべての機体で，すべてのフライトモードが可能なわけではありません。また，一部のモードは特定の条件が揃った時のみ使用可能です(例： 多くのモードは，GPSなどによる位置推定データを必要とします。)。
 
-An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+フライトモードの概要については[こちら](../getting_started/flight_modes.md)をご参照ください。 無線操縦のスイッチを用いたフライトモードの切り替え方法については [Flight Mode Configuration](../config/flight_mode.md)に記載があります。
 
-## Safety Settings (Failsafe) {#safety}
+## セーフティ設定 (フェイルセーフ) {#safety}
 
-PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+PX4では機体に問題が発生した際に，不具合からシステムを保護・回復するためのフェールセーフシステムを設定可能です。 安全に飛行可能なエリアや条件を設定し，もし当該条件から外れるイベントが発生した場合，フェールセーフアクション(例：着陸・一時停止・設定箇所への帰還) がトリガーされます。
 
-> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+> **Note** *最初の* フェイルセーフイベントに対するアクションのみ，設定が可能です。 一旦，システムがフェイルセーフ状態に移行すると，そのアクションによって発生した副次的なフェイルセーフイベントは異なるシステムレベル/機体固有のコードに応じて管理されます。
 
 The main failsafe areas are listed below:
 
