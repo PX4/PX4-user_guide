@@ -79,36 +79,36 @@ PX4ドローンの多くはリチウムポリマー(LiPo) バッテリーによ�
 - [Flying 101](../flying/basic_flying.md) - 遠隔操縦を使用しての飛行方法。
 - [FrSky テレメトリー](../peripherals/frsky_telemetry.md) - RC送信機を用いたPX4からのテレメトリー・ステータス情報の受信設定方法。
 
-## Safety Switch {#safety_switch}
+## セーフティスイッチ {#safety_switch}
 
-It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+[アーミング](#arming) (アーミングを行うと，ロータが回転し始めます) を行う前に押さなければならない*セーフティスイッチ* を設けることが一般的です。 多くの場合，セーフティスイッチはGPSユニットに統合されていますが，別々のコンポーネントになっていることもあります。
 
-> **Note** A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+> **Note** アーミングされた機体は危険です。 そのため，不意にアーミングされてしまうことがないよう，セーフティスイッチが設けられています。
 
-## Data/Telemetry Radios
+## データ/テレメトリー 無線
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[データ/テレメトリー無線](../telemetry/README.md) を用いると，*QGroundControl* などの地上局と，PX4が動作している機体の間でMAVLinkを用いた無線通信が可能となります。 これによって，フライト中にパラメータのチューニングを行ったり，リアルタイムでの機体状態の確認，ミッションの変更などが可能になります。
 
-## Offboard/Companion Computer
+## オフボード/コンパニオン コンピュータ
 
-PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+PX4 は，機載のコンピュータからシリアル通信やwifi通信を介して制御することが可能です。 機載コンピュータは通常，MAVSDKやMAVROSといったMAVLink APIを用いて通信を行います。
 
-> **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
+> **Note** ロボティクスAPIを使用するにはソフトウェア開発に関するスキルが必要です。本スキルについては本ガイドの対象外です。
 
 - [オフボードモード](../flight_modes/offboard.md) - 地上局(GCS) や機載コンピュータからPX4を用いて飛行を行うためのモード。 
 - [ロボティクスAPI APIs](https://dev.px4.io/en/robotics/) (PX4 Developer Guideへ移動します。)
 
-## Removable Memory/Logging
+## 取り外し可能メモリー/ロギング
 
-PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md) (SD support may not be present on every flight controller).
+PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカードを使用します(一部のフライトコントローラでは，SDカードの使用が不可能な場合があります)。
 
-> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB.
+> **Tip** Pixhawk でサポートされているSDカードの容量は最大 32GBです。
 
-A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
+推奨SDカードの一覧は以下にあります: [Developer Guide > ロギング](http://dev.px4.io/en/log/logging.html#sd-cards)
 
-## Disarmed/Pre-armed/Armed {#arming}
+## ディスアームド/プレアームド/アームド {#arming}
 
-Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
+機体は多くの可動部を持っており，その一部(特にモータやプロペラ) は潜在的な危険性を持っています。
 
 To reduce the chance of accidents, PX4 has explicit state(s) for powering the vehicle components:
 
