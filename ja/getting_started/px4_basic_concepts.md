@@ -32,7 +32,7 @@ PX4は地上局ソフト [QGroundControl](#qgc) や，[Pixhawk ハードウェ�
 
 *QGroundControl* は，Windows・Android・MacOS・Linuxで動作します。 ダウンロード・インストールは [こちら](http://qgroundcontrol.com/downloads/)から。
 
-![QGC Main Screen](../../images/qgc_main_screen.jpg)
+![QGCメインスクリーン](../../images/qgc_main_screen.jpg)
 
 ## 機体コントローラ {#vehicle_controller}
 
@@ -164,4 +164,4 @@ PX4では機体に問題が発生した際に，不具合からシステムを�
 
 本ドキュメント中の図では，赤色のプロペラが機体の機首方向を示します。
 
-You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
+機首についての詳細は， [フライトコントローラの方向](../config/flight_controller_orientation.md)で記述しています。
