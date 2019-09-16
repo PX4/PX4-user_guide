@@ -66,20 +66,20 @@ UAV用の最も一般的なRCシステムの *形態* は以下の通りです�
 *PX4* と *Pixhawk* は以下のシステムで動作が検証されています:
 
 * すべてのSpektrum DSM RC 受信機
-* すべてのFutaba S.BUS および S.BUS2 RC 受信機
-* すべてのFrSky社の PPM および S.Bus 受信機
+* すべてのFutaba社製 S.BUS および S.BUS2 RC 受信機
+* すべてのFrSky社製 PPM および S.Bus 受信機
 * Graupner HoTT
-* All PPM models from other manufacturers
+* すべてのPPM モデル
 
-## Connecting Receivers
+## 受信機の接続
 
-As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
+一般的な説明として，受信機はそのプロトコルに応じて，フライトコントローラの適切なポートに接続する必要があります:
 
-* Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
-* PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
-* PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
+* Spektrum および DSM 受信機は **SPKT/DSM** 入力ポートに接続してください。
+* PPM-Sum および S.BUS 受信機は**RC** 入力ポート(大抵，RCまたはRCINとラベリングされています)にグラウンド，電源，信号線を接続してください。
+* 各チャンネル毎への出力信号を持ったPPM受信機の場合，[このような](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) PPMエンコーダ(一つの信号線に全チャンネル情報を流すPPM-Sum受信機) を*介して*，RCINポートに接続してください。
 
-Instructions for connecting to specific flight controllers are given in the following quick-start guides:
+いくつかのフライトコントローラへの接続例は，以下のクイックスタートガイドにて参照可能です:
 
 * [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
 * [Pixracer](../assembly/quick_start_pixracer.md)
