@@ -18,23 +18,23 @@
 
 RCシステムの性能において，重要なのはいくつの"チャンネル"がサポートされているかです。 チャンネル数は何種類の送信機の物理的スイッチ情報を機体に送信できるかを決定します（スイッチ・ダイヤル・スティックの情報が，実際にどれだけ利用可能かを示します）。
 
-飛行体においては、最低4チャンネル以上(ロール・ピッチ・ヨー・推力) をサポートしているシステムが必要です。 地上を走行する機体の場合，最低2チャンネル(ステアリング・スロットル) が必要です。 An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot.
+飛行体においては、4チャンネル(ロール・ピッチ・ヨー・推力) 以上をサポートしているシステムが必要です。 地上を走行する機体の場合，2チャンネル(ステアリング・スロットル) 以上が必要です。 8チャンネルや16チャンネルなどをサポートしている送信機の場合，その他の機構の動作を行ったり，オートパイロットから提供される [フライトモード](../flight_modes/README.md) の切替が可能です。
 
-## Types of Remote Controls
+## RCシステムの種別
 
-### Remote Control Units for Aircraft {#transmitter_modes}
+### 飛行体用RCシステム {#transmitter_modes}
 
-The most popular *form* of remote control unit for UAVs is shown below. It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (i.e. aircraft need at least 4 channels).
+UAV用の最も一般的なRCシステムの *形態* は以下の通りです。 このようなシステムでは，それぞれ独立したコントロール用スティックを持っており，それぞれ，ロール・ピッチ，スロットル・ヨーに割り当てられます(言い換えると，飛行体は4チャンネル以上を必要とします)。
 
 ![RC Basic Commands](../../images/rc_basic_commands.png)
 
-There are numerous possible layouts for the control sticks, switches, etc. The more common layouts have been given specific "Mode" numbers. *Mode 1* and *Mode 2* (shown below) differ only in the placement of the throttle.
+コントロールスティックやスイッチなどの割り当てには，限りなくいくつものパターンが存在します。 中でも一般的ないくつかのレイアウトには，"モード"と呼ばれる番号が割り当てられています。 *モード 1* と *モード 2* (以下参照) はスロットルの配置が違うのみです。
 
 ![Mode1-Mode2](../../images/mode1_mode2.png)
 
-> **Note** The choice of mode is largely one of taste (*Mode 2* is more popular).
+> **Note** モードの選択は好みで選択されます。 (*モード 2* がより一般的です)。
 
-## Remote Control Units for Ground Vehicles
+## 地上機用RCシステム
 
 An Unmanned Ground Vehicle (UGV)/car minimally requires a 2 channel transmitter in order to send the values for steering and speed. Commonly transmitters set these values using a wheel and trigger, two single-axis control sticks, or a single dual-axis control stick.
 
