@@ -36,19 +36,19 @@ UAV用の最も一般的なRCシステムの *形態* は以下の通りです�
 
 ## 地上機用RCシステム
 
-An Unmanned Ground Vehicle (UGV)/car minimally requires a 2 channel transmitter in order to send the values for steering and speed. Commonly transmitters set these values using a wheel and trigger, two single-axis control sticks, or a single dual-axis control stick.
+地上機 (Unmanned Ground Vehicle, UGV) では，ステアリング指令と速度指令を送信するため，送信機には2チャンネル以上のチャンネルが必要です。 一般的には，ホイールとトリガーを持った送信機や，2つの1軸型のスティックを持った送信機，1つの2軸型のスティックを持った送信機などが用いられます。
 
-There is nothing to stop you using more channels/control mechanisms, and these can be very useful for engaging additional actuators and autopilot modes.
+もちろん，もっと多くのチャンネル・制御機構を持った送信機を用いることで，追加のアクチュエータを動かしたり，オートパイロットのモード切替などを容易にすることができます。
 
-## Choosing RC System Components
+## RCシステムコンポーネントの選択
 
-You will need to select a transmitter/receiver pair that are compatible with each other. In addition, receivers have to be be [compatible with PX4](#compatible_receivers) and the flight controller hardware.
+まず，送信機と受信機は互いに互換性のあるものを選択しなくてはいけません。 さらに受信機は [PX4互換](#compatible_receivers)であり，フライトコントローラと接続可能でなくてはいけません。
 
-Compatible radio systems are often sold together. For example, [FrSky Taranis X9D and FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us) are a popular combination.
+互換性を持ったRCシステムはたいていセットで販売されています。 たとえば，,[FrSky Taranis X9D と FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us) は一般的な組み合わせです。
 
-### Transmitter/Receiver Pairs
+### 送受信機ペア
 
-One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
+最も一般的なRCユニットのひとつは*FrSky Taranis X9D*です。 本ユニットでは， *FrSky X4R-SB* (S-BUS, 低遅延) や *X4R* (PPM-Sum, 従来一般的であった形式) 受信機と通信可能な送信モジュールが同梱されています。 It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
 
 > **Note** This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) radio modules.
 
