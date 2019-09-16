@@ -104,3 +104,17 @@ Note:
 * The list may become out of date as messages are added. You can check the current set by inspecting the code. Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp) (list generated in [this git changelist](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)).
   
   > **Note** Please add an bug fix or PR if you find a missing/incorrect message.
+
+## Inter-Waypoint Trajectory
+
+PX4 expects to follow a straight line from the previous waypoint to the current target (it does not plan any other kind of path between waypoints - if you need one you can simulate this by adding additional waypoints).
+
+MC vehicles will change the *speed* when approach/leaving a waypoint based on whether it uses [slew-rate](../config_mc/mc_slew_rate_type_trajectory.md#mission-mode) or [jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) tuning.
+
+Vehicles switch to the next waypoint as soon as they enter the acceptance radius.
+
+* For MC this radius is defined by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)
+* For FW the radius is defined by the "L1 distance". 
+  * The L1 distance is computed from two parameters: [L1_DAMPING](../advanced_config/parameter_reference.md#L1_DAMPING) and [L1_PERIOD](../advanced_config/parameter_reference.md#L1_PERIOD), and the current ground speed.
+  * By default, it's about 70 meters.
+  * The equation is: $$ L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{{xy}*{ground}} \right \|) $$
