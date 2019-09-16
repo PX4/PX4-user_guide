@@ -97,7 +97,7 @@
   * [衝突防止](computer_vision/collision_prevention.md)
   * [飛行経路設定用インターフェース](computer_vision/path_planning_interface.md)
 * [応用設定](advanced_config/README.md) 
-  * [Finding/Updating Parameters](advanced_config/parameters.md)
+  * [パラメータの検索/更新](advanced_config/parameters.md)
   * [マルチコプター設定/チューニング](config_mc/README.md) 
     * [マルチコプターPIDチューニングガイド](config_mc/pid_tuning_guide_multicopter.md)
     * [マルチコプター（MC）セットポイントチューニング(軌道ジェネレータ)](config_mc/mc_trajectory_tuning.md) * [MC スルーレート式軌道](config_mc/mc_slew_rate_type_trajectory.md) * [MC ジャーク制限式軌道](config_mc/mc_jerk_limited_type_trajectory.md)
