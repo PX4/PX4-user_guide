@@ -1,12 +1,12 @@
-# Radio Control Systems
+# 無線操縦システム
 
-A radio control (RC) system is required if you want to *manually* control your vehicle from a handheld transmitter. This topic explains a little about how RC works, how to choose an appropriate radio system for your vehicle, and how to connect it to your flight controller.
+無線操縦 (RC) システムは，*マニュアルで* 機体を手持ちの送信機から操縦する場合に必要です。 本章では，無線操縦システムについての概要と，選定の仕方，接続の仕方について解説します。
 
-> **Tip** PX4 does not require a remote control system for autonomous flight modes. You can disable RC checks by [setting parameter](../advanced_config/parameters.md): [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to 1.
+> **Note** PX4 は自動操縦モードでは無線操縦システムを必要としません。 [パラメータの設定](../advanced_config/parameters.md)によって，RCの接続チェックを無効化することができます。: 無効化するには，[COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) を 1にしてください。
 
-## How do RC Systems Work?
+## RCシステムはどのように動作するのか?
 
-An *RC system* has a ground-based *remote control unit* that is used by the operator to command the vehicle. The remote has physical controls that can be used to specify vehicle movement (e.g. speed, direction, throttle, yaw, pitch, roll, etc.) and to enable autopilot [flight modes](../flight_modes/README.md) (e.g. takeoff, land, return to land, mission etc.). On *telemetry-enabled* RC systems, the remote control unit can also receive and display information from the vehicle (e.g. battery level, flight mode).
+*RC システム* はオペレータによって操作される*リモートコントロールユニット* を持っています。 リモートコントロールユニットは機体の運動(例：速度・方位・スロットル・ロール・ピッチ・ヨー他)を指示したり，[フライトモード](../flight_modes/README.md) (例： takeoff, land, return to land, mission 他)を切り替えるための物理的インターフェースによって構成されています。 *テレメトリ対応*RCシステムでは，リモートコントロールユニットは機体の情報(例：バッテリー残量，フライトモード)を表示することができます。
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
