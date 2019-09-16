@@ -85,15 +85,15 @@ UAV用の最も一般的なRCシステムの *形態* は以下の通りです�
 * [Pixracer](../assembly/quick_start_pixracer.md)
 * [Pixhawk 4](../assembly/quick_start_pixhawk4.md)
 
-> **Tip** See the manufacturer's flight controller setup guide for additional information.
+> **Tip** より詳しい情報は，フライトコントローラの製造者のマニュアルを参照してください。
 
-## Binding Transmitter/Receiver {#binding}
+## 送受信機のバインド {#binding}
 
-Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other. The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions).
+RCシステムをキャリブレーション/使用する前に，送受信機をお互いに認識させるため， *バインド* を行う必要があります。 バインドを行う手順はハードウェアによって異なります(ハードウェアのマニュアルを参照してください) 。
 
-If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
+もし *Spektrum* 受信機を使用している場合，*QGroundControl*を用いて，バインドモードに移行することが可能です。: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
 
-## Related Topics
+## 関連トピック
 
-* [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
-* [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
+* [RCシステムのセットアップ](../config/radio.md) - PX4を用いたRCシステムの設定について。
+* [Flying 101](../flying/basic_flying.md) - RCシステムを用いた飛行方法について説明します。
