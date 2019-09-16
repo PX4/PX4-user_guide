@@ -152,16 +152,16 @@ PX4では機体に問題が発生した際に，不具合からシステムを�
 
 より詳しくは，以下を参照してください: [セーフティ](../config/safety.md) (基本設定).
 
-## Heading and Directions
+## 機首と方位
 
-All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+すべての機体，ボート，飛行機には機種方位または，前進方向として定められた向きがあります。
 
 ![Frame Heading](../../images/frame_heading.png)
 
-It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
+オートパイロットの向きを機体の運動方向と一致させるために，機体の機首方向を把握することは重要です。 マルチコプターもすべての方向に対称的な構造をしていますが，機首方向を持っています。 通常，色付きのプロペラや，色付きのアームで機首方向は表示されています。
 
 ![Frame Heading TOP](../../images/frame_heading_top.png)
 
-In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+本ドキュメント中の図では，赤色のプロペラが機体の機首方向を示します。
 
 You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
