@@ -10,11 +10,11 @@
 
 ![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-The remote control unit contains a radio module that is bound to, and communicates with, a (compatible) radio module on the vehicle. The vehicle-based unit is connected to the flight controller. The flight controller determines how to interpret the commands based on the current autopilot flight mode and vehicle state, and drives the vehicle motors and actuators appropriately.
+リモートコントロールユニットは，機載の受信機と対をなし，通信を行います。 機載受信機は，フライトコントローラと接続されています。 フライトコントローラは機載受信機からの指令を受けて，オートパイロットのフライトモードや，機体の状態を考慮して，機体のモータやアクチュエータを適切に制御・駆動します。
 
 <!-- image showing the different parts here would be nice -->
 
-> **Note** The ground- and vehicle- based radio modules are referred to as the transmitter and receiver respectively (even if they support bidirectional communication) and are collectively referred to as a *transmitter/receiver pair*. The remote control unit and it's included radio module are also referred to as a "transmitter".
+> **Note** 地上と機載のRCシステムはそれぞれ，(たとえ双方向通信であっても，) 送信機・受信機と呼ばれます。そして，総称して *送受信機*と呼ばれます。 The remote control unit and it's included radio module are also referred to as a "transmitter".
 
 An important quality of an RC system is how many "channels" it supports. The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used).
 
