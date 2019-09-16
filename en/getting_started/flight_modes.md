@@ -162,8 +162,11 @@ It can be activated with a pre-programmed RC switch or the *QGroundControl* **Pa
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Return mode](../flight_modes/return.md) causes the vehicle to return (at a safe height) to its home position and land.
-The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
+[Return mode](../flight_modes/return.md) causes the vehicle to fly a clear path to a safe location.
+The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a [failsafe](../config/safety.md) being triggered).
+
+The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).
+By default a mulitcopter will simply ascend to a safe height, fly to its home position, and then land. 
 
 
 ### Mission Mode {#mission_mc}
@@ -297,7 +300,12 @@ It can be activated with a pre-programmed RC switch or the *QGroundControl* **Pa
 
 [<img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" />](#key_automatic)&nbsp;[<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](#key_position_fixed)
 
-[Return mode](../flight_modes/return.md) causes the vehicle to fly back to its home position (at a safe height) and circle over it. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
+[Return mode](../flight_modes/return.md) causes the vehicle to fly a clear path to a safe location.
+The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a [failsafe](../config/safety.md) being triggered).
+
+The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).
+By default a fixed wing vehicle will ascend to a safe height and use a mission landing pattern if one exists, otherwise it will fly to the home position and circle. 
+
 
 ### Mission Mode {#mission_fw}
 
@@ -334,11 +342,15 @@ The specific launch behaviour depends on the configured takeoff mode (catapult/h
 
 ## Vertical Take Off and Landing (VTOL)
 
-A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle. The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
+A VTOL aircraft can fly as either a multicopter or as fixed-wing vehicle.
+The multicopter mode is mainly used for take off and landing while the fixed wing mode is used for efficient travel and/or mission execution.
 
 Generally the flight modes for VTOL vehicles are the same as for [multicopter](#mc_flight_modes) when flying in MC mode and [fixed-wing](#fw_flight_modes) when flying in FW mode.
 
 The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
+
+A few notes:
+- VTOL [Return mode](../flight_modes/return.md) uses a mission landing by default, if defined.
 
 
 ## Further Information
