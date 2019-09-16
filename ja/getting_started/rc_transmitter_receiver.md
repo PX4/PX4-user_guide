@@ -14,9 +14,9 @@
 
 <!-- image showing the different parts here would be nice -->
 
-> **Note** 地上と機載のRCシステムはそれぞれ，(たとえ双方向通信であっても，) 送信機・受信機と呼ばれます。そして，総称して *送受信機*と呼ばれます。 The remote control unit and it's included radio module are also referred to as a "transmitter".
+> **Note** 地上と機載のRCシステムはそれぞれ，(たとえ双方向通信であっても，) 送信機・受信機と呼ばれます。そして，総称して *送受信機*と呼ばれます。 リモートコントロールユニットは，その内部の無線モジュールも含めて，"送信機"と呼ばれます。
 
-An important quality of an RC system is how many "channels" it supports. The number of channels defines how many different physical controls on the remote control can be used to send commands to the vehicle (e.g. how many switches, dials, control sticks can actually be used).
+RCシステムの性能において，重要なのはいくつの"チャンネル"がサポートされているかです。 チャンネル数は何種類の送信機の物理的スイッチ情報を機体に送信できるかを決定します（スイッチ・ダイヤル・スティックの情報が，実際にどれだけ利用可能かを示します）。
 
 An aircraft must use a system that supports at least 4 channels (for roll, pitch, yaw, thrust). Ground vehicles need at least two channels (steering + throttle). An 8 or 16 channel transmitter provides additional channels that can be used to control other mechanisms or activate different [flight modes](../flight_modes/README.md) provided by the autopilot.
 
