@@ -48,26 +48,26 @@ UAV用の最も一般的なRCシステムの *形態* は以下の通りです�
 
 ### 送受信機ペア
 
-最も一般的なRCユニットのひとつは*FrSky Taranis X9D*です。 本ユニットでは， *FrSky X4R-SB* (S-BUS, 低遅延) や *X4R* (PPM-Sum, 従来一般的であった形式) 受信機と通信可能な送信モジュールが同梱されています。 It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
+最も一般的なRCユニットのひとつは*FrSky Taranis X9D*です。 本ユニットでは， *FrSky X4R-SB* (S-BUS, 低遅延) や *X4R* (PPM-Sum, 従来一般的であった形式) 受信機と通信可能な送信モジュールが同梱されています。 また，カスタム送信モジュール用スロットもあり，改造可能なオープンソースのOpenTXファームウェアによって動作可能です。
 
-> **Note** This remote control unit can display vehicle telemetry when used with [FrSky](../peripherals/frsky_telemetry.md) radio modules.
+> **Note** 本ユニットでは，[FrSky](../peripherals/frsky_telemetry.md) モジュールと組み合わせることで，機体のテレメトリ情報を表示することも可能です。
 
-Other popular transmitter/receiver pairs
+その他の一般的なRC送受信機の組み合わせは以下の通りです。
 
-* Turnigy remote using, for example, the FrSky transmitter/receiver modules.
-* Futaba Transmitters and compatible Futaba S-Bus receivers.
-* Long range ~900MHz, low latency: "Team Black Sheep Crossfire" or "Crossfire Micro" set with a compatible remote (e.g. Taranis)
-* Long Range ~433MHz: ImmersionRC EzUHF set with a compatible remote (e.g. Taranis)
+* FrSky送受信機を用いた，Turnigyシステム
+* Futaba社製送信機と，S-Bus互換受信機
+* 900MHz帯を用いた長距離・低遅延システム："Team Black Sheep Crossfire" や "Crossfire Micro" セットを互換送信機 (例：Taranis) と組み合わせたもの。
+* 433MHz帯を用いた長距離システム： ImmersionRC EzUHF セットを互換送信機(例：Taranis) と組み合わせたもの。
 
-### PX4-Compatible Receivers {#compatible_receivers}
+### PX4互換受信機 {#compatible_receivers}
 
-In addition to the transmitter/receiver pairs being compatible, the receiver must also be compatible with PX4 and the flight controller hardware.
+送信機と互換性があるだけでなく，受信機はPX4およびフライトコントローラ用ハードウェアと互換性を持つ必要があります。
 
-*PX4* and *Pixhawk* have been validated with:
+*PX4* と *Pixhawk* は以下のシステムで動作が検証されています:
 
-* All Spektrum DSM RC receivers
-* All Futaba S.BUS and S.BUS2 RC receivers
-* All FrSky PPM and S.Bus models
+* すべてのSpektrum DSM RC 受信機
+* すべてのFutaba S.BUS および S.BUS2 RC 受信機
+* すべてのFrSky社の PPM および S.Bus 受信機
 * Graupner HoTT
 * All PPM models from other manufacturers
 
