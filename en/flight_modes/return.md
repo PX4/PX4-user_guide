@@ -136,7 +136,7 @@ However the *default configuration* is tailored to suit the vehicle type, as des
 
 ### Multi-Copter (MC)
 
-Multicopters use a *safety point return type](#safety_point_return) by default (and the following configuration):
+Multicopters use a [safety point return type](#safety_point_return) by default (and the following configuration):
 - Ascend to [RTL_RETURN_ALT](#RTL_RETURN_ALT) ([RTL_CONE_ANG=0](#RTL_CONE_ANG) - cone not used).
 - Fly to the home position in a straight line and constant altitude (if already above the return altitude it will return at its current altitude).
 - Rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
