@@ -51,11 +51,13 @@ The settings and underlying parameters are shown below.
 | <span id="BAT_CRIT_THR"></span>Battery Failsafe Level | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | Percentage capacity for Return action (or other actions if a single action selected).                                                                                     |
 | Battery Emergency Level                         | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.                                                                                                             |
 
-### RC Loss Failsafe
+### RC Loss Failsafe {#rc_loss_failsafe}
 
 The RC Loss failsafe is triggered if the RC transmitter link is lost.
 
 ![Safety - RC Loss (QGC)](../../images/qgc/setup/safety_rc_loss.png)
+
+> **Note** PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
 
 The settings and underlying parameters are shown below.
 
