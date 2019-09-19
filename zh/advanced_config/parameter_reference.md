@@ -6150,7 +6150,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Minimum valid range for the range finder
+        Expected range finder reading when on ground
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If the vehicle is on ground, is not moving as determined by the motion test controlled by EKF2_MOVE_TEST and the range finder is returning invalid or no data, then an assumed range value of EKF2_MIN_RNG will be used by the terrain estimator so that a terrain height estimate is avilable at the start of flight in situations where the range finder may be inside its minimum measurements distance when on ground.
       </p>
     </td>
     
