@@ -4,17 +4,17 @@
 
 フライトモードはユーザー(パイロット) に離陸や着陸といった共通タスクの自動化から，水平保持機能や，経路保持，位置保持など，様々な方法・レベルでの操縦アシストを行います。
 
-This topic provides an overview of the available the flight modes, and the (mostly minor) differences in their default behaviour in multicopter (MC), fixed-wing (FW) and VTOL frames.
+本トピックでは，利用可能なフライトモードについての概要と，それぞれのモードの(多くの場合，微妙な違いではありますが)，マルチコプター(MC) ・固定翼機(FW) ，VTOL機での挙動の違いについて説明します。
 
-> **Tip** More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
+> **Tip** それぞれのモードの詳細については [飛行 > フライトモード](../flight_modes/README.md)を参照してください。
 
-## Switching Between Modes
+## モードの切替
 
-Pilots can transition between flight modes using switches on the remote control or with a ground control station (see [Flight Mode Configuration](../config/flight_mode.md)).
+パイロットはリモートコントローラのスイッチまたは，地上局ソフト( [Flight Mode Configuration](../config/flight_mode.md)を参照してください) を用いて，モードを切り替えることが可能です。
 
-Not all flight modes are available on all vehicle types, and some modes behave differently on different vehicle types.
+機体のタイプによっては，利用不可能なモードがあります。また，いくつかのモードは機体のタイプによって動作が異なることがあります。
 
-Some flight modes make sense only under specific pre-flight and in-flight conditions (e.g. GPS lock, airspeed sensor, vehicle attitude sensing along an axis). PX4 will not allow transitions to those modes until the right conditions are met.
+いくつかのモードは飛行前/飛行中に特定の条件(例：GPSの受信，大気速度センサー，機体姿勢の推定等) を満たすことで利用可能です。 これらの場合，PX4は特定の条件が満たされるまで，該当するモードへの遷移を禁止します。
 
 Last of all, in [autonomous modes](#categories) RC stick movement will [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) when flying as a multicopter (unless handling a critical battery failsafe). Stick movement is ignored for fixed-wing flight.
 
