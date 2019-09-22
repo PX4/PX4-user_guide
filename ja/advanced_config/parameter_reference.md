@@ -33123,6 +33123,9 @@
         <li>
           <strong>4:</strong> TREvo600Hz
         </li>
+        <li>
+          <strong>5:</strong> TREvo3m
+        </li>
       </ul>
       
       <p>
