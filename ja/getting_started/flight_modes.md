@@ -16,15 +16,15 @@
 
 いくつかのモードは飛行前/飛行中に特定の条件(例：GPSの受信，大気速度センサー，機体姿勢の推定等) を満たすことで利用可能です。 これらの場合，PX4は特定の条件が満たされるまで，該当するモードへの遷移を禁止します。
 
-Last of all, in [autonomous modes](#categories) RC stick movement will [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) when flying as a multicopter (unless handling a critical battery failsafe). Stick movement is ignored for fixed-wing flight.
+最後に, マルチコプターを飛行させている場合(バッテリーのフェイルセーフ状態でない限り)，[自律モード](#categories) ではRC送信機のスティックを動かすと，[標準設定](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) では[Position モード](../flight_modes/position_mc.md) へ移行します。 固定翼機の場合，スティックの動作は無視されます。
 
-## Autonomous and Manual Modes {#categories}
+## 自律モードと手動モード {#categories}
 
-Flight Modes are, generally speaking, either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and *require* no pilot/remote control input.
+フライトモードは，大きく分けて*手動モード* と *自律モード*に分類されます。 手動モードでは，ユーザはRC送信機のスティック(またはジョイスティック) を用いて，機体の挙動を操縦します。一方，*自律モード*ではオートパイロットによって機体は完全に制御され，パイロットや送信機からの操縦を*必要としません*。
 
-> **Tip** Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight. For example, most modes will level out the vehicle when the RC sticks are centered.
+> **Tip** いくつかの手動モードでは，オートパイロットが機体の操縦がしやすくなるよう，アシストを行います。 実際，ほとんどのモードでは，RC送信機が中立の場合，機体を水平に保つよう制御が行われます。
 
-Manual modes may further be divided into "easy" and "acrobatic" modes. In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively). Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip. In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis). Vehicles can flip, and while more maneuverable, are harder to fly.
+手動モードはさらに "簡単" なモードと "アクロバティック" なモードに分類できます。 In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively). Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip. In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis). Vehicles can flip, and while more maneuverable, are harder to fly.
 
 Fixed Wing:
 
