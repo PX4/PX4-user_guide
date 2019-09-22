@@ -1,8 +1,8 @@
-# PX4 Flight Modes Overview
+# PX4のフライトモードについて
 
-Flight modes define how the autopilot responds to remote control input, and how it manages vehicle movement during fully autonomous flight.
+フライトモードは，オートパイロットがリモートからの信号についてどのように反応するかや，完全自律飛行中にどのように機体を制御するかを決定します。
 
-The modes provide different types/levels of autopilot assistance to the user (pilot), ranging from automation of common tasks like takeoff and landing, through to mechanisms that make it easier to regain level flight, hold the vehicle to a fixed path or position, etc.
+フライトモードはユーザー(パイロット) に離陸や着陸といった共通タスクの自動化から，水平保持機能や，経路保持，位置保持など，様々な方法・レベルでの操縦アシストを行います。
 
 This topic provides an overview of the available the flight modes, and the (mostly minor) differences in their default behaviour in multicopter (MC), fixed-wing (FW) and VTOL frames.
 
