@@ -10596,6 +10596,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>3:</strong> TREvo60m</li> 
 
 <li><strong>4:</strong> TREvo600Hz</li> 
+
+<li><strong>5:</strong> TREvo3m</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
