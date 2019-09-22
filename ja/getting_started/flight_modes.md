@@ -24,26 +24,26 @@
 
 > **Tip** いくつかの手動モードでは，オートパイロットが機体の操縦がしやすくなるよう，アシストを行います。 実際，ほとんどのモードでは，RC送信機が中立の場合，機体を水平に保つよう制御が行われます。
 
-手動モードはさらに "簡単" なモードと "アクロバティック" なモードに分類できます。 In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively). Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip. In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis). Vehicles can flip, and while more maneuverable, are harder to fly.
+手動モードはさらに "簡単" なモードと "アクロバティック" なモードに分類できます。 簡単なモードでは，RC送信機のロール・ピッチスティックの信号は，それぞれ *水平面における* 機体の左右・前後の運動に直結する機体姿勢角の指令として扱われます。 これらは機体の運動の予測を楽にするだけでなく，角度が制御されるため，機体のフリップを不可能にします。 一方アクロバティックなモードでは，RC送信機の信号はそれぞれの軸に対する角速度指令として扱われます。 そのため，機体はフリップが可能になるなど運動性があがる反面，飛行させることが困難になります。
 
-Fixed Wing:
+固定翼機:
 
-* Manual-Easy: [Position](#position_fw), [Altitude](#altitude_fw), [Stabilized](#stabilized_fw), [Manual](#manual_fw)
-* Manual-Acrobatic: [Acro](#acro_fw)
-* Autonomous: [Hold](#hold_fw), [Return](#return_fw), [Mission](#mission_fw), [Takeoff](#takeoff_fw), [Land](#land_fw), [Offboard](#offboard_fw)
+* 手動-簡単: [Position](#position_fw), [Altitude](#altitude_fw), [Stabilized](#stabilized_fw), [Manual](#manual_fw)
+* 手動-アクロバティック: [Acro](#acro_fw)
+* 自律: [Hold](#hold_fw), [Return](#return_fw), [Mission](#mission_fw), [Takeoff](#takeoff_fw), [Land](#land_fw), [Offboard](#offboard_fw)
 
-Multicopter:
+マルチコプター:
 
-* Manual-Easy: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc), [Orbit](#orbit_mc)
-* Manual-Acrobatic: [Rattitude](#rattitude_mc), [Acro](#acro_mc)
-* Autonomous: [Hold](#hold_mc), [Return](#return_mc), [Mission](#mission_mc), [Takeoff](#takeoff_mc), [Land](#land_mc), [Follow Me](#followme_mc), [Offboard](#offboard_mc)
+* 手動-簡単: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc), [Orbit](#orbit_mc)
+* 手動-アクロバティック: [Rattitude](#rattitude_mc), [Acro](#acro_mc)
+* 自律: [Hold](#hold_mc), [Return](#return_mc), [Mission](#mission_mc), [Takeoff](#takeoff_mc), [Land](#land_mc), [Follow Me](#followme_mc), [Offboard](#offboard_mc)
 
-## Key
+## 記号
 
-The icons below are used within the document:<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a></td> 
+本ドキュメントでは，以下のアイコンが用いられます。<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a></td> 
 
 <td>
-  Manual mode. Remote control required.
+  手動モード. リモートコントロールが必要です。
 </td></tr> 
 
 <tr>
@@ -51,7 +51,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
     <span id="key_automatic"><a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a></td> 
     
     <td>
-      Automatic mode. RC control is disabled by default except to change modes.
+      自律モード. モードの切替を除いて，RC送信機からの信号は無効化されます。
     </td></tr> 
     
     <tr>
