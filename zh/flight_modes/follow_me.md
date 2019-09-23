@@ -8,40 +8,23 @@ author: Jimmy Johnson
 
 *跟随*模式允许多旋翼飞行器在运行*QGroundControl*的Android手机/平板电脑上自动跟踪和追踪用户。
 
-通过使用GPS和其他定位信息，多旋翼飞行器能够在指定的位置和距离处自动偏航以面向并跟随用户。在此模式下，无需用户输入。
+By using GPS and other positioning information a multicopter is able to automatically yaw to face and follow a user at a specified position and distance. While in this mode no user input is required.
 
-> **注** *该模式需要使用GPS。 *该模式目前只支持多旋翼。 *该模式仅可在使用安卓设备作为控制站时使用。
+> **Note** * This mode requires GPS. * This mode is currently only supported on multicopter. * This mode only works when using an Android device as the control station.
 
 {% youtube %} https://www.youtube.com/watch?v=RxDL4CtkzAQ {% endyoutube %}
 
 <!-- Updated to Follow me 1.4 -->
 
-## 安全须知
+## Safety Precautions
 
-> **警告****跟随模式**不会实施任何类型的避障。使用此模式时必须特别小心。
+> **Warning** **Follow-me mode** does not implement any type of obstacle avoidance. Special care must be taken when this mode is used.
 
-应遵守以下飞行须知。
+The following flight precautions should be observed. - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc. - Set the follow-me height to a value that is well above any surrounding obstructions - The **default** follow-me height is set to 8 metres (about 26 feet) relative to the home and arming position. - It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though follow me mode does implement auto take off). - Give your vehicle a lot of room to stop, especially when it is moving fast. This is required because most Android devices do not update their position very frequently, and autopilot estimations of the speed and direction can be inaccurate. - Be ready to take manual RC control if something goes wrong when using follow me mode for the first time. The accuracy of positioning is dependent on the quality of the GPS used by the Android device. If the GPS is not accurate, this will be reflected in follow me.
 
-- 跟随模式应只用于不受树木、电线、房屋等阻挡的开阔区域。 
-    - 将跟随高度设置为远高于任何周围障碍物的值
-    - 对于家庭和布防位置，**默认**跟随高度设置为8米（约26英尺）。
-- 在进入跟随模式之前手动飞到安全高度，比着陆时使用跟随模式（即使按照我模式执行自动起飞）*更安全*。
-- 给你的飞机留足够的空间，特别是当它快速移动时。 这是必需的，因为大多数Android设备不会非常频繁地更新其位置，并且自动驾驶仪对速度和方向的估计可能是不准确的。
-- 如果第一次使用跟随模式时，请做好手动遥控准备以应对问题发生。 定位的准确性取决于Android设备使用的GPS的质量。 如果GPS不准确，这将反映在跟随模式中。
+## Getting Started
 
-## 开始
-
-您将需要支持USB OTG的Android设备和两个遥测无线电。
-
-- 将一个数传无线电连接到Android设备，将另一个连接到飞机（这允许定位信息在两个无线电之间中继）。
-- 在Android设备上禁用睡眠模式 
-    - 此设置通常位于以下位置：**设置\>显示**。
-    - 将Android设备设置为不进入睡眠状态非常重要，因为这可能导致GPS信号定期停止发射。
-- 将飞机飞至至少2-3米的高度。 
-    - 将飞机放在地面上，按下安全开关并向后退至少10米。
-    - 启动飞机并飞到至少2-3米的高度
-- 切换至跟随模式。 
-    - 多旋翼将上升到所需的最小高度（默认为8米），然后暂停片刻以评估数传链路。 如果链接更新率正常，则多旋翼将偏航以面向用户。
+You will need a USB OTG-capable Android device and two telemetry radios. - Connect a telemetry radio to your Android device and another to the vehicle (this allows positioning information to be relayed between the two radios). - Disable sleep-mode on your Android device - This setting can usually be found under: **Settings \> Display**. - It is important that you set your Android device to not go to sleep as this could cause the GPS signal to cease being emitted at regular intervals. - Fly the vehicle to a height of at least 2-3 metres. - Set the vehicle on the ground, press the safety switch and step back at least 10 meters. - Arm the vehicle and fly to a height of at least 2-3 meters - Switch into follow me mode. - The copter will ascend to the minimum height required (default is 8 meters) and then pause for a moment to assess the radio link. If the link update rate is OK the copter will then yaw to face the user.
 
 此时你应该能够开始移动并且多旋翼应该跟随你的动作。
 
@@ -51,21 +34,18 @@ author: Jimmy Johnson
 
 可以使用以下参数配置跟随的行为：
 
-- **NAV_FT_DST:** 飞机/地面站在水平面上分离。 最小距离为1米。 默认距离为8米（约26英尺）。
-- **NAV_FT_MIN_HT: **相对于家庭/布防位置的跟随高度。默认和最小高度为8米（约26英尺）。
-- **NAV_FT_FS:** 跟随模式激活时相对于用户的飞行位置。 
-    - 0 =从右前方跟随。
-    - 1 =从后面跟随或跟踪用户（默认）。
-    - 2 =从前面跟随。
-    - 3 =从左前方跟随。
+- **NAV_FT_DST:** Vehicle/ground station separation in the horizontal plane. Minimum distance is 1 meter. Default distance is 8 meters (about 26 ft).
+- **NAV_FT_MIN_HT:** Vehicle follow-me height relative to the home/arming position. Default and minimum height is 8 meters (about 26 ft).
+- **NAV_FT_FS:** Flight position relative to the user when follow-me mode is active. 
+  - 0 = Follow from the front right.
+  - 1 = Follow from behind or trail the user (Default).
+  - 2 = Follow from the front.
+  - 3 = Follow from the front left.
 
 ## 已知的问题
 
-- 众所周知，SiK 915 Mhz无线电会干扰Android设备接收的GPS信号。 使用跟随目标模式时，请务必尽可能远离收音机和Android设备，以避免干扰。
+- The SiK 915 Mhz radio is known to interfere with the GPS signal being received by an Android device. Be sure to keep the radio and Android device as far apart as possible when using the follow target mode to avoid interference.
 
 ## 已验证的Android设备
 
-跟随模式已通过以下设备测试：
-
-- Nexus 5
-- Nexus 7 Tablet
+Follow-me has been tested with the following devices: - Nexus 5 - Nexus 7 Tablet
