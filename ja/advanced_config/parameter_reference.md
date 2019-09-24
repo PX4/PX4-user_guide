@@ -16687,12 +16687,12 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MPC_COL_PREV_ANG">MPC_COL_PREV_ANG</strong> (FLOAT)
+      <strong id="MPC_COL_PREV_CNG">MPC_COL_PREV_CNG</strong> (FLOAT)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        Angle left/right from the commanded setpoint in which the range data is used to calculate speed limitations. All data further from the commanded direction is not considered
+        Angle left/right from the commanded setpoint by which the collision prevention algorithm can choose to change the setpoint direction
       </p>
       
       <p>
@@ -16705,7 +16705,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      45.
+      30.
     </td>
     
     <td style="vertical-align: top;">
@@ -16724,7 +16724,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Only used in Position mode. Collision avoidace is disabled by setting this parameter to a negative value
+        <strong>Comment:</strong> Only used in Position mode. Collision avoidance is disabled by setting this parameter to a negative value
       </p>
     </td>
     
@@ -16748,7 +16748,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Average delay of the range sensor message in seconds
+        Average delay of the range sensor message plus the tracking delay of the position controller in seconds
       </p>
       
       <p>
@@ -16761,7 +16761,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.
+      0.4
     </td>
     
     <td style="vertical-align: top;">
