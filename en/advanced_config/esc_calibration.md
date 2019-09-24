@@ -1,11 +1,11 @@
 # ESC Calibration
 
-> **Note** These instructions are only relevant to ESCs that use a PWM input.
+> **Note** These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md).
 
 Electronic Speed Controllers (ESCs) regulate motor speed (and direction) based on the PWM input value from the flight controller (FC).
 The range of inputs to which an ESC will respond is configurable, and the default range can differ even between ESCs of the same model.
 
-This calibration updates all the ESCs with the maximum and minimum PWM input values that will be supplied by the flight controller. 
+This calibration updates all the ESCs with the maximum and minimum PWM input values that will be supplied by the flight controller.
 Subsequently all the ESCs/motors will respond to flight controller input in the same way (across the whole input range).
 
 Calibration is recommended for all ESCs, and in particular for low cost models.
@@ -22,10 +22,10 @@ To calibrate the ESCs:
 
    > **Warning** Never attempt ESC calibration with props on.
    >
-   > The motors should not spin during ESC calibration. 
+   > The motors should not spin during ESC calibration.
    > However if an ESC doesn't properly support/detect the calibration sequence then it will respond to the PWM input by running the motor at maximum speed.
    
-1. Disconnect the battery and connect the flight controller via USB (only). 
+1. Disconnect the battery and connect the flight controller via USB (only).
 1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
 
    ![ESC Calibration step 1](../../images/qgc_esc_calibration.png)

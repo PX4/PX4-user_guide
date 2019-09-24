@@ -157,7 +157,7 @@
     * [PX4FLOW](sensor/px4flow.md)
   * [ESCs & Motors](peripherals/esc_motors.md)
     * [PWM ESCs and Servos](peripherals/pwm_escs_and_servo.md)
-    * [DShot](peripherals/dshot.md)
+    * [DShot ESCs](peripherals/dshot.md)
     * [UAVCAN ESCs](peripherals/uavcan_escs.md)
   * [Camera](peripherals/camera.md)
   * [Parachute](peripherals/parachute.md)
