@@ -28,9 +28,9 @@ If the motors do not spin at lowest throttle, increase [DSHOT_MIN](../advanced_c
 ## Sending Commands
 
 Commands can be sent to the ESC via the [MAVLink shell](https://dev.px4.io/master/en/debug/system_console.html#mavlink_shell).
-Type `dshot help` for a full list.
+See [here](https://dev.px4.io/master/en/middleware/modules_driver.html#dshot) for a full reference of the supported commands.
 
-The most important commands are:
+The most important ones are:
 - Make the first motor beep (helps with identifying motors):
   ```
   dshot beep1 -m 1
