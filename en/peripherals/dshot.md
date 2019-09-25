@@ -2,14 +2,24 @@
 
 DShot is an alternative ESC protocol that has several advantages over PWM or OneShot:
 - Reduced latency
-- Checksum (increased robustness)
-- Digital encoding (no need for ESC calibrations)
-- Possibility to get feedback (telemetry)
-- Sending commands (such as reversing the motor spin direction)
+- Increased robustness via a checksum
+- No need for ESC calibration as mechanism uses digital encoding
+- Telemetry feedback is available/supported on some ESCs
+- Can reverse motor spin directions via commands when needed (rather than physically moving wires/re-soldering).
+- Other useful commands are supported.
+
+This topic shows how to connect and configure DShot ESCs.
+
+
+## Wiring/Connections {#wiring}
 
 DShot ESCs are connected and wired the same way as [PWM ESCs](pwm_escs_and_servo.md), and you can switch between these protocols just by changing software parameters (ESCs automatically detect the selected protocol on startup).
 
-## Configuration
+On Pixhawk flight controllers that have both MAIN and AUX ports, DShot can only be used on the MAIN ports if the AUX port is disabled (see configuration below).
+This means that if you use DShot ESCs you're restricted to [airframes](../airframes/airframe_reference.md) that don't *require* AUX ports for essential controls (you can use airframes where an AUX port is used for an optional output).
+
+
+## Configuration {#configuration}
 
 > **Warning** Remove propellers before changing ESC configuration parameters!
 
@@ -19,13 +29,18 @@ DShot comes with different speed options: *DShot150*, *DShot300*, *DShot600* and
 You should set the parameter to the highest speed supported by your ESC (according to its datasheet) and then reboot the vehicle.
 
 Then connect the battery and arm the vehicle.
-The ESCs should initialize and the motors turn.
-If the motors do not spin at lowest throttle, increase [DSHOT_MIN](../advanced_config/parameter_reference.md#DSHOT_MIN) until they spin.
+The ESCs should initialize and the motors turn in the correct directions.
+- If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)), reverse them by sending an [ESC Command](#commands).
+- Adjust [DSHOT_MIN](../advanced_config/parameter_reference.md#DSHOT_MIN) so that the motors spin at lowest throttle (but the vehicle does not take off).
 
-> **Tip** On boards with an IO, DShot is only supported on the AUX pins.
-> It is best to disable the IO via [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and then connect the motors to the AUX pins instead of MAIN.
+On boards that have both MAIN and AUX ports, set [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO).
 
-## Sending Commands
+> **Note** DShot is only supported on FMU pins, which map to the AUX ports on boards that have both MAIN and AUX.
+  Setting `SYS_USE_IO=0` disables the IO board, and remaps the FMU pins to the MAIN port.
+  This is needed because most [airframes](../airframes/airframe_reference.md) specify that ESCs/motors are connected to MAIN pins. 
+
+
+## ESC Commands {#commands}
 
 Commands can be sent to the ESC via the [MAVLink shell](https://dev.px4.io/master/en/debug/system_console.html#mavlink_shell).
 See [here](https://dev.px4.io/master/en/middleware/modules_driver.html#dshot) for a full reference of the supported commands.
@@ -78,4 +93,3 @@ dshot esc_info -m 1
 
 
 > **Tip** You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
-
