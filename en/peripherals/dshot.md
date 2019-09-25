@@ -65,8 +65,10 @@ Some ESCs are capable of sending telemetry back to the flight controller, includ
 - accumulated current consumption
 - RPM values
 
+These Dshot ESCs will have an additional telemetry wire.
+
 To enable this feature (on ESCs that support it):
-1. Connect all wires from the ESCs together to one of the RX pins of an unused serial port of the flight controller.
+1. Join all the telemetry wires from all the ESCs together, and then connect them to one of the RX pins on an unused flight controller serial port.
 1. Enable telemetry on that serial port using [DSHOT_TEL_CFG](../advanced_config/parameter_reference.md#DSHOT_TEL_CFG).
 
 After a reboot you can check if telemetry is working (make sure the battery is connected) using:
