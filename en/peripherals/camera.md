@@ -5,7 +5,7 @@ This can be used for multiple applications including timestamping photos for aer
 
 In addition to a pulse being sent out, a MAVLink message is published containing a sequence number (thus the current session's image sequence number) and the corresponding timestamp.
 
-## Trigger Configuration  {@trigger_setup_qgc}
+## Trigger Configuration  {#trigger_setup_qgc}
 
 Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) section.
 
@@ -17,7 +17,7 @@ The different [trigger modes](#trigger_mode), [backend interfaces](#trigger_back
   For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
 
 
-## Trigger Modes {@trigger_mode}
+## Trigger Modes {#trigger_mode}
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
