@@ -2,10 +2,11 @@
 
 *Collision Prevention* may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
 
-It can be enabled for multicopter vehicles in [Position mode](../flight_modes/position_mc.md), and can use sensor data from an offboard companion computer, a rangefinder attached to the flight controller, or both (fused).
+It can be enabled for multicopter vehicles in [Position mode](../flight_modes/position_mc.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
 
-> **Warning** Collision prevention may not prevent a crash if your vehicle is moving too fast!
-  This feature has only been tested (at time of writing) for a vehicle moving at 4 m/s.
+> **Note** Collision prevention may slow down your vehicle if your sensor range isn't large enough!
+  If very high flight speeds are critical, consider disabling collision prevention when it isn't necessary.
+  Moreover, collision prevention also prevents motion where no sensor data is available. It is recommended to adjust your sensor configuration to provide coverage in any directions you want to fly when collision prevention is enabled
 
 
 ## Overview
@@ -14,18 +15,11 @@ It can be enabled for multicopter vehicles in [Position mode](../flight_modes/po
 
 The feature requires obstacle information from an external system (sent using the MAVLink [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) message) and/or a [distance sensor](../sensor/rangefinders.md) connected to the flight controller.
 
-> **Note** Multiple sensors can be used to get information about, and prevent collisions with, objects *around* the vehicle. 
+> **Note** Multiple sensors can be used to get information about, and prevent collisions with, objects *around* the vehicle.
   If multiple sources supply data for the *same* orientation, the system uses the data that reports the smallest distance to an object.
 
 
-The data from all sensors is fused into a range scan (a 360 degree map of the sensor data/state from around the vehicle), which is then input to the collision prevention algorithm.
-The collision prevention algorithm only uses/considers part of the range scan data in the calculation of the velocity limit (see [MPC_COL_PREV_ANG Angle Tuning](#angle_tuning)).
-
-The vehicle starts braking as soon as it detects an obstacle, and will stop movement when it reaches the minimum allowed separation (the velocity depends on the geometry, measured distances, and range of sensor data being considered).
-If the vehicle approaches any closer (i.e. it overshoots or is pushed) negative thrust is applied to repel it from the obstacle.
-
-In order to move away from an obstacle the user must command the vehicle to move toward a setpoint that is an "acceptable" angle away from the obstacle.
-The angle that must be used depends on [MPC_COL_PREV_ANG Angle Tuning](#angle_tuning).
+The vehicle restricts the maximum velocity to slow down as it gets closer to obstacles, and will stop movement when it reaches the minimum allowed separation. In order to move away from or parallel to an obstacle the user must command the vehicle to move toward a setpoint that does not bring the vehicle closer to the obstacle. The algorithm will make minor adjustments to the direction of the setpoint if it is determined that a "better" setpoint exists within a fixed margin on either side of the requested setpoint.
 
 The user is notified through *QGroundControl* while *Collision Prevention* is actively controlling velocity setpoints.
 
@@ -35,45 +29,45 @@ The user is notified through *QGroundControl* while *Collision Prevention* is ac
 Configure collision prevention by [setting the following parameters](../advanced_config/parameters.md) in *QGroundControl*:
 
 * [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D) - Set the minimum allowed distance (the closest distance that the vehicle can approach the obstacle).
+  **Warning** This value is the distance to the sensors, not the outside of your vehicle or propellers. Be sure to leave a safe margin!
   Set negative to disable *collision prevention*.
 
-  This should be tuned for both the *desired* minimal distance and likely speed of the vehicle.
-* [MPC_COL_PREV_ANG](#angle_tuning) - Set the angle (to both sides of the commanded direction) within which collected sensor data is used.
+* [MPC_COL_PREV_DLY](#delay_tuning) - Set the sensor and velocity setpoint tracking delay
+
+* [MPC_COL_PREV_CNG](#angle_change_tuning) - Set the angle (to both sides of the commanded direction) within which the vehicle may deviate if it finds less obstacles in that direction.
 
 If you are using a distance sensor attached to your flight controller for collision prevention, it will need to be [attached and configured](#rangefinder) as described in the next section.
 If you are using a companion computer to provide obstacle information see [companion setup](#companion).
 
 
-### MPC_COL_PREV_ANG Angle Tuning {#angle_tuning}
+## Algorithm Description
 
-The data from all sensors is fused into a range scan (a 360 degree map of the sensor data/state from around the vehicle), which is then input to the collision prevention algorithm.
+The data from all sensors are fused into 36 sectors around the vehicle, each containing whether sensor data is available, what that data says, and when it was last observed. When the vehicle is commanded to move in a direction, all sectors in the hemisphere of that direction are checked to see if the movement will bring the vehicle closer to any obstacles, and restricts the vehicle's velocity if so.
 
-The collision prevention algorithm only uses part of the range scan data in the calculation of the velocity limit (which we refer to as the *considered sensor data*). 
-This comprises the sensor data from the range scan that is within two [MPC_COL_PREV_ANG](../advanced_config/parameter_reference.md#MPC_COL_PREV_ANG) degree arcs centered around the commanded direction.
+This velocity restriction takes into account both the inner velocity loop tuned by MPC_XY_P, as well as the jerk-optimal velocity controller via MPC_JERK_MAX and MPC_ACC_HOR. The velocity is restricted such that the vehicle will stop in time to maintain the distance specified in MPC_COL_PREV_D. The range of the sensors for each sector is also taken into account, limiting the velocity via the same mechanism. If there is no sensor data, velocity in the direction is restricted to 0, preventing the vehicle from crashing into unseen objects.
 
-Provided none of the *considered sensor data* includes data below the minimum allowed distance, the executed speed depends on the geometry, considered data, and actual sensor values.
-The vehicle will not move if **any** *considered sensor data* is below the minimum allowed separation.
+Delay, both in the vehicle tracking velocity setpoints and in receiving sensor data from external sources, is conservatively estimated via the [MPC_COL_PREV_DLY](#delay_tuning) parameter, which should be tuned to the specific vehicle.
 
-> **Tip** Generally 45 degrees is a good compromise value. 
-  Using a larger angle reduces the chance of clipping obstacles, but can make it feel like the vehicle is "always getting "stuck" (as you're more likely to detect an obstacle within the minimum distance).
+If the sectors adjacent to the commanded sectors are 'better' by a significant margin, the direction of the requested input can be modified by up to the angle specified in MPC_COL_PREV_CNG. This helps to fine-tune user input to 'guide' the vehicle around obstacles rather than getting stuck against them as easily.
 
-The diagrams below are used to illustrate how the setting works, where:
-- The minimum distance (separation) `MPC_COL_PREV_D = 4m`, and the sensor range is 12m.
-- The pink line shows where the user is trying to move the vehicle (this is the same for both diagrams).
-- The blue line shows the angle where received sensor data *can be used* (and what will be discarded).
-  - This is equal to double `MPC_COL_PREV_ANG` degrees centred on the commanded setpoint.
-  - On the left diagram the `MPC_COL_PREV_D` angle is 90 degrees, so all sensor data from the right hand side of the blue line is included.
-  - On the right the angle is 45 degrees, resulting in a smaller set of sensor data being used (note the sensor data close to the obstacle is excluded!)
-- The red arc shows the angle where sensor data *will be used*.
-  This is the subset of sensors that are both in range of an obstacle, and within the angle defined by the blue line.
 
-![MPC_COL_PREV_ANG image](../../assets/computer_vision/collision_prevention_angle.png)
+### MPC_COL_PREV_DLY Delay Tuning {#delay_tuning}
 
-The vehicle on the left specifies a large angle, causing the collision prevention algorithm to consider sensor data that is within the 4m minimum separation.
-As a result the commanded setpoint is ignored (vehicle doesn't move).
+There are two main sources of delay which should be accounted for: sensor delay, and vehicle velocity setpoint tracking delay. This is tuned via the [MPC_COL_PREV_DLY](../advanced_config/parameter_reference.md#MPC_COL_PREV_DLY) parameter.
 
-The vehicle on the right uses an angle that causes the collision prevention algorithm to discard the sensor data that is closest to the obstacle.
-The vehicle is can move in the commanded direction, albeit perhaps at a reduced velocity.
+For distance sensors directly connected to the flight controller, sensor delay can be assumed to be 0. For external vision-based systems this may be as high as 0.2s.
+
+Vehicle setpoint tracking delay can be measured by flying at full speed in manual position mode, then commanding a stop. By examining logs the delay between the actual velocity and the velocity setpoint can be measured. This is typically in the range between 0.1 and 0.5, depending on vehicle size and tuning.
+
+If the delay is set too high, it may cause the velocity to oscillate while slowing down before obstacle. This will be noticed if the vehicle slows down further from the obstacle than necessary, then speeding up again before finally slowing down again at the end.
+
+### MPC_COL_PREV_CNG Guidance Tuning {#angle_change_tuning}
+
+Depending on the vehicle, type of environment and pilot skill different amounts of guidance may be desired. Setting the [MPC_COL_PREV_CNG](../advanced_config/parameter_reference.MPC_COL_PREV_CNG) parameter to 0 will disable the guidance, resulting in the vehicle only moving exactly in the directions commanded. Increasing this parameter will let the vehicle choose optimal directions to avoid obstacles, making it easier to fly through tight gaps and to keep the minimum distance exactly while going around objects.
+
+Having this parameter too small may result in the vehicle feeling 'stuck' when close to obstacles, since only movements away from obstacles at minimum distance are allowed. Having the parameter too large may result in the vehicle feeling like it 'slides' away from obstacles in directions not commanded by the operator. From testing, 30 was found to be a good balance, although different vehicles may have different requirements.
+
+**Note** The guidance feature will never direct the vehicle in a direction without sensor data. If the vehicle feels 'stuck' with only a single distance sensor pointing forwards, this is probably because the guidance cannot safely adapt the direction due to lack of information.
 
 
 ## PX4 Distance Sensor {#rangefinder}
@@ -86,27 +80,27 @@ At time of writing PX4 allows you to use the [Lanbao PSK-CM8JL65-CC5](../sensor/
 
 Other sensors may be enabled, but this requires modification of driver code to set the sensor orientation and field of view.
 - Attach and configure the distance sensor on a particular port (see [sensor-specific docs](../sensor/rangefinders.md)) and enable collision prevention using `MPC_COL_PREV_D`.
-- Modify the driver to set the orientation. 
+- Modify the driver to set the orientation.
   This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor *module.yaml* file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
 - Modify the driver to set the *field of view* in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
 
-> **Tip** You can see the required modifications from the [feature PR](https://github.com/PX4/Firmware/pull/12179). 
+> **Tip** You can see the required modifications from the [feature PR](https://github.com/PX4/Firmware/pull/12179).
   Please contribute back your changes!
-  
+
 
 ## Companion Setup {#companion}
 
-If using a companion computer, it needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages when an obstacle is detected.
+If using a companion computer or external sensor, it needs to supply a stream of [OBSTACLE_DISTANCE](https://mavlink.io/en/messages/common.html#OBSTACLE_DISTANCE) messages which should reflect when and where an obstacle is detected
 
 The minimum rate at which messages *must* be sent depends on vehicle speed - at higher rates the vehicle will have a longer time to respond to detected obstacles.
 
-> **Info** Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 30Hz (the maximum rate supported by the vision system).
-  The system may work well at significantly higher speeds and lower frequency distance updates. 
+> **Info** Initial testing of the system used a vehicle moving at 4 m/s with `OBSTACLE_DISTANCE` messages being emitted at 10Hz (the maximum rate supported by the vision system).
+  The system may work well at significantly higher speeds and lower frequency distance updates.
 
 The tested hardware/software platform is [Auterion IF750A](https://auterion.com/if750a/) reference multicopter running the *local_planner* avoidance software from the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo.
 
 The hardware and software should be set up as described in the [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) repo.
-In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true. 
+In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure* tool and set the parameter `send_obstacles_fcu` to true.
 
 
 ## Gazebo Setup
