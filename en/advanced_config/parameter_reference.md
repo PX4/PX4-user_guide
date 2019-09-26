@@ -1547,11 +1547,33 @@ Increasing it makes the multi-rotor wind estimates adjust more slowly</p>   </td
  <td style="vertical-align: top;">rad</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="EKF2_EVP_GATE">EKF2_EVP_GATE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gate size for vision position fusion
+Sets the number of standard deviations used by the innovation consistency test</p>   </td>
+ <td style="vertical-align: top;">1.0 > ? </td>
+ <td style="vertical-align: top;">5.0 </td>
+ <td style="vertical-align: top;">SD</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="EKF2_EVP_NOISE">EKF2_EVP_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Measurement noise for vision position observations used when the vision system does not supply error estimates</p>   </td>
  <td style="vertical-align: top;">0.01 > ? </td>
- <td style="vertical-align: top;">0.05 </td>
+ <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="EKF2_EVV_GATE">EKF2_EVV_GATE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gate size for vision velocity estimate fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td style="vertical-align: top;">1.0 > ? </td>
+ <td style="vertical-align: top;">3.0 </td>
+ <td style="vertical-align: top;">SD</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="EKF2_EVV_NOISE">EKF2_EVV_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Measurement noise for vision velocity observations used when the vision system does not supply error estimates</p>   </td>
+ <td style="vertical-align: top;">0.01 > ? </td>
+ <td style="vertical-align: top;">0.1 </td>
+ <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EV_DELAY">EKF2_EV_DELAY</strong> (FLOAT)</td>
@@ -1560,13 +1582,6 @@ Increasing it makes the multi-rotor wind estimates adjust more slowly</p>   </td
  <td style="vertical-align: top;">0 > 300 </td>
  <td style="vertical-align: top;">175 </td>
  <td style="vertical-align: top;">ms</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF2_EV_GATE">EKF2_EV_GATE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gate size for vision estimate fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
- <td style="vertical-align: top;">1.0 > ? </td>
- <td style="vertical-align: top;">5.0 </td>
- <td style="vertical-align: top;">SD</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EV_POS_X">EKF2_EV_POS_X</strong> (FLOAT)</td>
