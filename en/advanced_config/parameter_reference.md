@@ -1412,10 +1412,11 @@ This parameter controls the time constant of the decay</p>   </td>
   <li><strong>5:</strong> multi-rotor drag fusion</li> 
   <li><strong>6:</strong> rotate external vision</li> 
   <li><strong>7:</strong> GPS yaw fusion</li> 
+  <li><strong>8:</strong> vision velocity fusion</li> 
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">0 > 255 </td>
+ <td style="vertical-align: top;">0 > 511 </td>
  <td style="vertical-align: top;">1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
