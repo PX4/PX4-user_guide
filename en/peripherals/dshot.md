@@ -1,10 +1,10 @@
 # DShot ESCs
 
 DShot is an alternative ESC protocol that has several advantages over PWM or OneShot:
-- Reduced latency
-- Increased robustness via a checksum
-- No need for ESC calibration as mechanism uses digital encoding
-- Telemetry feedback is available/supported on some ESCs
+- Reduced latency.
+- Increased robustness via a checksum.
+- No need for ESC calibration as the protocol uses digital encoding.
+- Telemetry feedback is available/supported on some ESCs.
 - Can reverse motor spin directions via commands when needed (rather than physically moving wires/re-soldering).
 - Other useful commands are supported.
 
@@ -15,8 +15,18 @@ This topic shows how to connect and configure DShot ESCs.
 
 DShot ESCs are connected and wired the same way as [PWM ESCs](pwm_escs_and_servo.md), and you can switch between these protocols just by changing software parameters (ESCs automatically detect the selected protocol on startup).
 
-On Pixhawk flight controllers that have both MAIN and AUX ports, DShot can only be used on the MAIN ports if the AUX port is disabled (see configuration below).
-This means that if you use DShot ESCs you're restricted to [airframes](../airframes/airframe_reference.md) that don't *require* AUX ports for essential controls (you can use airframes where an AUX port is used for an optional output).
+If using a Pixhawk flight controller that only has a MAIN port, connect the pins according to the [airframe reference](../airframes/airframe_reference.md) for your vehicle.
+
+If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO) and connect your ESCs to the AUX-labeled outputs *as though they were labeled MAIN*.
+
+> **Note** A Pixhawk flight controller that has both FMU and IO will label these ports as AUX and MAIN respectively.
+> DShot can only be used on the FMU ports (labeled AUX), which is a problem because ESC/motor outputs are typically assigned to the MAIN port in the [airframe reference](../airframes/airframe_reference.md).
+>
+> To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs.
+> Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
+
+<span></span>
+> **Note** Developers might alternatively modify the [airframe AUX mixer](http://dev.px4.io/master/en/airframes/adding_a_new_frame.html#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
 
 
 ## Configuration {#configuration}
@@ -32,12 +42,6 @@ Then connect the battery and arm the vehicle.
 The ESCs should initialize and the motors turn in the correct directions.
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)), reverse them by sending an [ESC Command](#commands).
 - Adjust [DSHOT_MIN](../advanced_config/parameter_reference.md#DSHOT_MIN) so that the motors spin at lowest throttle (but the vehicle does not take off).
-
-On boards that have both MAIN and AUX ports, set [SYS_USE_IO=0](../advanced_config/parameter_reference.md#SYS_USE_IO).
-
-> **Note** DShot is only supported on FMU pins, which map to the AUX ports on boards that have both MAIN and AUX.
-  Setting `SYS_USE_IO=0` disables the IO board, and remaps the FMU pins to the MAIN port.
-  This is needed because most [airframes](../airframes/airframe_reference.md) specify that ESCs/motors are connected to MAIN pins. 
 
 
 ## ESC Commands {#commands}
@@ -80,7 +84,7 @@ Some ESCs are capable of sending telemetry back to the flight controller, includ
 - accumulated current consumption
 - RPM values
 
-These Dshot ESCs will have an additional telemetry wire.
+These DShot ESCs will have an additional telemetry wire.
 
 To enable this feature (on ESCs that support it):
 1. Join all the telemetry wires from all the ESCs together, and then connect them to one of the RX pins on an unused flight controller serial port.
@@ -90,6 +94,5 @@ After a reboot you can check if telemetry is working (make sure the battery is c
 ```
 dshot esc_info -m 1
 ```
-
 
 > **Tip** You may have to configure [MOT_POLE_COUNT](../advanced_config/parameter_reference.md#MOT_POLE_COUNT) to get the correct RPM values.
