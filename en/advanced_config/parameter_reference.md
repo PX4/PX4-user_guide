@@ -13945,33 +13945,5 @@ MPC_Z_VEL_MAX_DN at zero throttle, and 0.5 * MPC_LAND_SPEED at full throttle</p>
  <td style="vertical-align: top;">0.1 </td>
  <td style="vertical-align: top;"></td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SEG_Q2V">SEG_Q2V</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p></p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SEG_TH2V_I">SEG_TH2V_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p></p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SEG_TH2V_I_MAX">SEG_TH2V_I_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p></p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SEG_TH2V_P">SEG_TH2V_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p></p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">10.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 </tbody></table>
 
