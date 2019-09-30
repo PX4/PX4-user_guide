@@ -4451,6 +4451,9 @@
         <li>
           <strong>7:</strong> GPS yaw fusion
         </li>
+        <li>
+          <strong>8:</strong> vision velocity fusion
+        </li>
       </ul>
       
       <p>
@@ -4459,7 +4462,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0 > 255
+      0 > 511
     </td>
     
     <td style="vertical-align: top;">
@@ -33089,7 +33092,10 @@
           <strong>4:</strong> SF11/c
         </li>
         <li>
-          <strong>5:</strong> SF/LW20
+          <strong>5:</strong> SF/LW20/b
+        </li>
+        <li>
+          <strong>6:</strong> SF/LW20/c
         </li>
       </ul>
       
@@ -42588,90 +42594,6 @@
     
     <td style="vertical-align: top;">
       0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_Q2V">SEG_Q2V</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_TH2V_I">SEG_TH2V_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_TH2V_I_MAX">SEG_TH2V_I_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_TH2V_P">SEG_TH2V_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      10.0
     </td>
     
     <td style="vertical-align: top;">
