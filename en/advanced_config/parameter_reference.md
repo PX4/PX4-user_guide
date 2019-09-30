@@ -10580,7 +10580,9 @@ is less than 50% of this value</p>   </td>
 
 <li><strong>4:</strong> SF11/c</li> 
 
-<li><strong>5:</strong> SF/LW20</li> 
+<li><strong>5:</strong> SF/LW20/b</li> 
+
+<li><strong>6:</strong> SF/LW20/c</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
