@@ -45,7 +45,10 @@ GND | Connect to ESC Ground
 PWR | JST-GH 6-pin Connector, 5V 3A output<br> connect to *Pixhawk 4 Mini* POWER
 BAT | Power Input, connect to 2~12s LiPo Battery
 
-The pinout of the *Pixhawk 4 Mini* **POWER** port is shown below. The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default. The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60A as default. The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged.
+The pinout of the *Pixhawk 4 Mini* **POWER** port is shown below.
+The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default.
+The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default.
+The VCC lines have to offer at least 3A continuous and should default to 5.1V. A lower voltage of 5V is still acceptable, but discouraged.
 
 Pin | Signal | Volt
 --- | --- | ---
