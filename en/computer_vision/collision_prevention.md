@@ -67,6 +67,12 @@ This helps to fine-tune user input to 'guide' the vehicle around obstacles rathe
 There are two main sources of delay which should be accounted for: *sensor delay*, and vehicle *velocity setpoint tracking delay*.
 Both sources of delay are tuned using the [MPC_COL_PREV_DLY](#MPC_COL_PREV_DLY) parameter.
 
+<!-- Not yet answered (fully) how to get sensor delay and how interacts with the setpoint tracking delay.
+  From @jkflying
+    Characterizing sensor delay is a huge pain. 
+    We did it by overlaying a known-low-latency sensor onto our unknown sensor, and then applying movements. 
+    Not sure if there is a better way. -->
+
 The *sensor delay* for distance sensors connected directly to the flight controller can be assumed to be 0.
 For external vision-based systems the sensor delay may be as high as 0.2s.
 
