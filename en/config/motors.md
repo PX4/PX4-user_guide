@@ -1,4 +1,4 @@
-# Motor Checks
+# Motor/Servo Checks
 
 After the airframe is setup and configured you should validate the motor assignment, spin direction and servo response:
 

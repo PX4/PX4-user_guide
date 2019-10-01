@@ -36,7 +36,7 @@
   * [Flight Modes](config/flight_mode.md)
   * [Battery](config/battery.md)
   * [Safety](config/safety.md)
-  * [Motors](config/motors.md)
+  * [Motors/Servos](config/motors.md)
 * [Airframe Builds](airframes/README.md)
   * [Airframes Reference](airframes/airframe_reference.md)
   * [Multicopters](frames_multicopter/README.md)

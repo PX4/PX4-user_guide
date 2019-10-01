@@ -18,7 +18,7 @@ This section contains *essential* configuration topics:
 * [Flight Modes](../config/flight_mode.md) (Optional)
 * [Battery](../config/battery.md) (optional)
 * [Safety](../config/safety.md) (optional)
-* [Motors](../config/motors.md)
+* [Motors/Servos](../config/motors.md)
 
 > **Note** For a [supported airframe](../config/airframe.md) only this basic configuration is required. If you're creating a new airframe you will additionally need to perform vehicle tuning (see [Advanced Configuration](../advanced_config/README.md)).
 
