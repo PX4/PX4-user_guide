@@ -191,7 +191,7 @@ Optical flow data will be used if the following conditions are met:
 
 ### External Vision System
 
-Position, Velocity or Orientation Measurements from an external vision system, e.g. Vicon, can be used:
+Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 
 * External vision system horizontal position data will be used if bit position 3 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 * External vision system vertical position data will be used if the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter is set to 3.
@@ -199,18 +199,18 @@ Position, Velocity or Orientation Measurements from an external vision system, e
 * External vision system orientation data will be used for yaw estimation if bit position 4 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 * External vision reference frame offset will be estimated and used to rotate the external vision system data if bit position 6 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 
-Either bit 4 or bit 6 should be set to true. Following EKF_AID_MASK values are supported when using with an external vision system.
+Either bit 4 or bit 6 should be set to true. Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) values are supported when using with an external vision system.
 
 EKF_AID_MASK value | Set bits | Description
 --- | --- | --- 
-73 | GPS + EV_POS + ROTATE_EV | *not recommended*, use EV_VEL instead, heading wrt north
-321 | GPS + EV_VEL + ROTATE_EV | *recommended*, heading wrt north
-24 | EV_POS + EV_YAW | heading wrt external vision frame
-72 | EV_POS + ROTATE_EV | heading wrt north
-272 | EV_VEL + EV_YAW | heading wrt external vision frame
-320 | EV_VEL + ROTATE_EV | heading wrt north
-280 | EV_POS + EV_VEL + EV_YAW | heading wrt external vision frame
-328 | EV_POS + EV_VEL + ROTATE_EV | heading wrt north
+321 | GPS + EV_VEL + ROTATE_EV | *recommended*, heading w.r.t. North
+73 | GPS + EV_POS + ROTATE_EV | *not recommended*, use EV_VEL instead, heading w.r.t. North
+24 | EV_POS + EV_YAW | heading w.r.t. external vision frame
+72 | EV_POS + ROTATE_EV | heading w.r.t. North
+272 | EV_VEL + EV_YAW | heading w.r.t. external vision frame
+320 | EV_VEL + ROTATE_EV | heading w.r.t. North
+280 | EV_POS + EV_VEL + EV_YAW | heading w.r.t. external vision frame
+328 | EV_POS + EV_VEL + ROTATE_EV | heading w.r.t. North
 
 ## How do I use the 'ecl' library EKF?
 
