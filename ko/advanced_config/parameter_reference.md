@@ -21382,11 +21382,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Thrust to PWM model parameter
+        Thrust to motor control signal model parameter
       </p>
       
       <p>
-        <strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2
+        <strong>Comment:</strong> Parameter used to model the nonlinear relationship between motor control signal (e.g. PWM) and static thrust. The model is: rel_thrust = factor * rel_signal^2 + (1-factor) * rel_signal, where rel_thrust is the normalized thrust between 0 and 1, and rel_signal is the relative motor control signal between 0 and 1.
       </p>
     </td>
     
