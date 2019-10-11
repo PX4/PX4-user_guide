@@ -1258,6 +1258,76 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 </tbody></table>
 
+## DShot
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="DSHOT_CONFIG">DSHOT_CONFIG</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Configure DShot</p><p><strong>Comment:</strong> This enables/disables DShot. The different modes define different speeds, for example DShot150 = 150kb/s. Not all ESCs support all modes. Note: this enables DShot on the FMU outputs. For boards with an IO it is the AUX outputs.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable (use PWM/Oneshot)</li> 
+
+<li><strong>150:</strong> DShot150</li> 
+
+<li><strong>300:</strong> DShot300</li> 
+
+<li><strong>600:</strong> DShot600</li> 
+
+<li><strong>1200:</strong> DShot1200</li> 
+</ul>
+  <p><b>Reboot required:</b> True</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="DSHOT_MIN">DSHOT_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum DShot Motor Output</p><p><strong>Comment:</strong> Minimum Output Value for DShot in percent. The value depends on the ESC. Make sure to set this high enough so that the motors are always spinning while armed.</p>   </td>
+ <td style="vertical-align: top;">0 > 1 (0.01)</td>
+ <td style="vertical-align: top;">0.055 </td>
+ <td style="vertical-align: top;">%</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="DSHOT_TEL_CFG">DSHOT_TEL_CFG</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Serial Configuration for DShot Driver</p><p><strong>Comment:</strong> Configure on which serial port to run DShot Driver.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>6:</strong> UART 6</li> 
+
+<li><strong>101:</strong> TELEM 1</li> 
+
+<li><strong>102:</strong> TELEM 2</li> 
+
+<li><strong>103:</strong> TELEM 3</li> 
+
+<li><strong>104:</strong> TELEM/SERIAL 4</li> 
+
+<li><strong>201:</strong> GPS 1</li> 
+
+<li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>300:</strong> Radio Controller</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MOT_POLE_COUNT">MOT_POLE_COUNT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Number of magnetic poles of the motors</p><p><strong>Comment:</strong> Specify the number of magnetic poles of the motors. It is required to compute the RPM value from the eRPM returned with the ESC telemetry. Either get the number from the motor spec sheet or count the magnets on the bell of the motor (not the stator magnets). Typical motors for 5 inch props have 14 poles.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">14 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+</tbody></table>
+
 ## Data Link Loss
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -4521,6 +4591,42 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 </tbody></table>
 
+## Mixer Output
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="MC_AIRMODE">MC_AIRMODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Multicopter air-mode</p><p><strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Roll/Pitch</li> 
+
+<li><strong>2:</strong> Roll/Pitch/Yaw</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="MOT_ORDERING">MOT_ORDERING</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Motor Ordering</p><p><strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. When changing this, make sure to test the motor response without props first.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> PX4</li> 
+
+<li><strong>1:</strong> Betaflight / Cleanflight</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+</tbody></table>
+
 ## Mount
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -4767,20 +4873,6 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;">0.0 > 1800.0 (5)</td>
  <td style="vertical-align: top;">540.0 </td>
  <td style="vertical-align: top;">deg/s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MC_AIRMODE">MC_AIRMODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Multicopter air-mode</p><p><strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Disabled</li> 
-
-<li><strong>1:</strong> Roll/Pitch</li> 
-
-<li><strong>2:</strong> Roll/Pitch/Yaw</li> 
-</ul>
-  </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_BAT_SCALE_EN">MC_BAT_SCALE_EN</strong> (INT32)</td>
@@ -5489,18 +5581,6 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="MOT_ORDERING">MOT_ORDERING</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Motor Ordering</p><p><strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. ONLY supported for fmu output (Pixracer or Omnibus F4). When changing this, make sure to test the motor response without props first.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> PX4</li> 
-
-<li><strong>1:</strong> Betaflight / Cleanflight</li> 
-</ul>
-  </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MOT_SLEW_MAX">MOT_SLEW_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum motor rise time (slew rate limit)</p><p><strong>Comment:</strong> Minimum time allowed for the motor input signal to pass through a range of 1000 PWM units. A value x means that the motor signal can only go from 1000 to 2000 PWM in maximum x seconds. Zero means that slew rate limiting is disabled.</p>   </td>
