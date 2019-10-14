@@ -29477,6 +29477,30 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="RWTO_RAMP_TIME">RWTO_RAMP_TIME</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Throttle ramp up time for runway takeoff
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0 > 15.0 (0.1)
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="RWTO_TKOFF">RWTO_TKOFF</strong> (INT32)
     </td>
     
