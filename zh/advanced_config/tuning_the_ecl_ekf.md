@@ -156,16 +156,16 @@ Position, velocity or orientation measurements from an external vision system, e
 
 Either bit 4 or bit 6 should be set to true. Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) values are supported when using with an external vision system.
 
-| EKF_AID_MASK value | Set bits                      | Description                                                 |
-| -------------------- | ----------------------------- | ----------------------------------------------------------- |
-| 321                  | GPS + EV_VEL + ROTATE_EV    | *recommended*, heading w.r.t. North                         |
-| 73                   | GPS + EV_POS + ROTATE_EV    | *not recommended*, use EV_VEL instead, heading w.r.t. North |
-| 24                   | EV_POS + EV_YAW             | heading w.r.t. external vision frame                        |
-| 72                   | EV_POS + ROTATE_EV          | heading w.r.t. North                                        |
-| 272                  | EV_VEL + EV_YAW             | heading w.r.t. external vision frame                        |
-| 320                  | EV_VEL + ROTATE_EV          | heading w.r.t. North                                        |
-| 280                  | EV_POS + EV_VEL + EV_YAW    | heading w.r.t. external vision frame                        |
-| 328                  | EV_POS + EV_VEL + ROTATE_EV | heading w.r.t. North                                        |
+| EKF_AID_MASK value | Set bits                      | Description                                                    |
+| -------------------- | ----------------------------- | -------------------------------------------------------------- |
+| 321                  | GPS + EV_VEL + ROTATE_EV    | Heading w.r.t. North (**Recommended**)                         |
+| 73                   | GPS + EV_POS + ROTATE_EV    | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead) |
+| 24                   | EV_POS + EV_YAW             | Heading w.r.t. external vision frame                           |
+| 72                   | EV_POS + ROTATE_EV          | Heading w.r.t. North                                           |
+| 272                  | EV_VEL + EV_YAW             | hHading w.r.t. external vision frame                           |
+| 320                  | EV_VEL + ROTATE_EV          | Heading w.r.t. North                                           |
+| 280                  | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame                           |
+| 328                  | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                                           |
 
 ## How do I use the 'ecl' library EKF?
 
@@ -195,7 +195,7 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 
 ## How do I check the EKF performance?
 
-EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. The following guide assumes that data has been logged using the *.ulog file format*. The .ulog format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
+EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. The following guide assumes that data has been logged using the *.ulog file format*. The **.ulog** format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
 Most of the EKF data is found in the [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
 
