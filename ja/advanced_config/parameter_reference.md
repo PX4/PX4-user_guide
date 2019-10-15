@@ -6308,7 +6308,7 @@
           <strong>2:</strong> 3-axis
         </li>
         <li>
-          <strong>3:</strong> VTOL customn
+          <strong>3:</strong> VTOL custom
         </li>
         <li>
           <strong>4:</strong> MC custom
