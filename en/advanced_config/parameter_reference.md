@@ -1974,7 +1974,7 @@ This parameter is used when the magnetometer fusion method is set automatically 
 
 <li><strong>2:</strong> 3-axis</li> 
 
-<li><strong>3:</strong> VTOL customn</li> 
+<li><strong>3:</strong> VTOL custom</li> 
 
 <li><strong>4:</strong> MC custom</li> 
 
