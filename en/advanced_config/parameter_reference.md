@@ -1655,6 +1655,13 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;">ms</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="EKF2_EV_NOISE_MD">EKF2_EV_NOISE_MD</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Whether to set the external vision observation noise from the parameter or from vision message</p><p><strong>Comment:</strong> If set to true the observation noise is set from the parameters directly, if set to false the measurement noise is taken from the vision message and the parameter are used as a lower bound.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="EKF2_EV_POS_X">EKF2_EV_POS_X</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>X position of VI sensor focal point in body frame</p>   </td>
  <td style="vertical-align: top;"></td>
