@@ -115,7 +115,7 @@ Geofence source | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURC
 <span id="CBRK_FLIGHTTERM"></span>Circuit breaker for flight termination | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Enables/Disables flight termination action (disabled by default).
 
 
-### Return Home Settings {#return_settings}
+### Return Mode Settings {#return_settings}
 
 *Return* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. 
 This section shows how to set the land/loiter behaviour after returning.
@@ -269,8 +269,9 @@ After 5 seconds the vehicle will automatically disarm; you will need to arm it a
 
 ### Arm/Disarm Switch {#arming_switch}
 
-The arm/disarm switch is a replacement for the default stick arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop). It might be used in preference to the default mechanism because:
-- Of a preference of a switch over a stick motion (e.g. if using a stick on another autopilot).
+The arm/disarm switch is a *direct replacement* for the default stick-based arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop).
+It might be used in preference to the default mechanism because:
+- Of a preference of a switch over a stick motion.
 - It avoids accidentally triggering arming/disarming in-air with a certain stick motion.
 - There is no delay (it reacts immediately).
 
