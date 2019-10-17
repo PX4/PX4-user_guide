@@ -16817,6 +16817,116 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="CP_DELAY">CP_DELAY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Average delay of the range sensor message plus the tracking delay of the position controller in seconds
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.4
+    </td>
+    
+    <td style="vertical-align: top;">
+      seconds
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CP_DIST">CP_DIST</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Minimum distance the vehicle should keep to all obstacles
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode. Collision avoidance is disabled by setting this parameter to a negative value
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 15
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      meters
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CP_GO_NO_DATA">CP_GO_NO_DATA</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Boolean to allow moving into directions where there is no sensor data (outside FOV)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CP_GUIDE_ANG">CP_GUIDE_ANG</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Angle left/right from the commanded setpoint by which the collision prevention algorithm can choose to change the setpoint direction
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 90
+    </td>
+    
+    <td style="vertical-align: top;">
+      30.
+    </td>
+    
+    <td style="vertical-align: top;">
+      [deg]
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)
     </td>
     
@@ -17014,90 +17124,6 @@
     </td>
     
     <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_COL_PREV_CNG">MPC_COL_PREV_CNG</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Angle left/right from the commanded setpoint by which the collision prevention algorithm can choose to change the setpoint direction
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Only used in Position mode.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 90
-    </td>
-    
-    <td style="vertical-align: top;">
-      30.
-    </td>
-    
-    <td style="vertical-align: top;">
-      [deg]
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_COL_PREV_D">MPC_COL_PREV_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Minimum distance the vehicle should keep to all obstacles
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Only used in Position mode. Collision avoidance is disabled by setting this parameter to a negative value
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      -1 > 15
-    </td>
-    
-    <td style="vertical-align: top;">
-      -1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      meters
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_COL_PREV_DLY">MPC_COL_PREV_DLY</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Average delay of the range sensor message plus the tracking delay of the position controller in seconds
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Only used in Position mode.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.4
-    </td>
-    
-    <td style="vertical-align: top;">
-      seconds
     </td>
   </tr>
   
