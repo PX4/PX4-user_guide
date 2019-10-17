@@ -56,14 +56,28 @@ The action is defined in the parameters [COM_OBL_ACT](#COM_OBL_ACT) and [COM_OBL
 ### Fixed Wing
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
-  * The following input combinations are supported: <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `x`, `y`, `z`)
-  - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
-
+  * Specify the *type* of the setpoint in `type_mask` (not part of the MAVLink standard).
+    The values are:
+    - Following bits not set: vehicle will fly in a flower-like pattern.
+    - 4096: Takeoff setpoint.
+    - 8192: Land setpoint.
+    - 12288: Loiter setpoint (fly a circle centred on setpoint).
+    - 16384: Idle setpoint (zero throttle, zero roll / pitch).
+  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+  
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
-  * The following input combinations are supported: <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
-  - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
+  * Specify the *type* of the setpoint in `type_mask` (not part of the MAVLink standard).
+    The values are:
+    - Following bits not set: vehicle will fly in a flower-like pattern.
+    - 4096: Takeoff setpoint.
+    - 8192: Land setpoint.
+    - 12288: Loiter setpoint (fly a circle centred on setpoint).
+    - 16384: Idle setpoint (zero throttle, zero roll / pitch).
+  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
   * The following input combinations are supported:
