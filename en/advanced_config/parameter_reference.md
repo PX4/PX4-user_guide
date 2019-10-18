@@ -5015,48 +5015,6 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MC_TPA_BREAK_D">MC_TPA_BREAK_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA D Breakpoint</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch D gain</p>   </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MC_TPA_BREAK_I">MC_TPA_BREAK_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA I Breakpoint</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch I gain</p>   </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MC_TPA_BREAK_P">MC_TPA_BREAK_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA P Breakpoint</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch P gain</p>   </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
- <td style="vertical-align: top;">1.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MC_TPA_RATE_D">MC_TPA_RATE_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA Rate D</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch D gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))</p>   </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.05)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MC_TPA_RATE_I">MC_TPA_RATE_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA Rate I</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch I gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))</p>   </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.05)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MC_TPA_RATE_P">MC_TPA_RATE_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>TPA Rate P</p><p><strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch P gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))</p>   </td>
- <td style="vertical-align: top;">0.0 > 1.0 (0.05)</td>
- <td style="vertical-align: top;">0.0 </td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MC_YAWRATE_D">MC_YAWRATE_D</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Yaw rate D gain</p><p><strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.01)</td>
