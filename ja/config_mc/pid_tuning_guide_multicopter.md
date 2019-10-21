@@ -129,9 +129,21 @@ The tuning above optimises performance around the hover throttle. But it can be 
 
 There are two ways to counteract that:
 
-- Adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter (preferred method). The thrust to PWM mapping is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5. You can start off with 0.3 and then increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values.
+- Adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter (preferred method).
   
   > **Note** The rate controller must be re-tuned if you change this parameter.
+  
+  The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
+  
+  If you have the possibility to *measure* thrust (e.g. with a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer)), you can measure the relation between the PWM control signal and the motor's actual thrust, and fit a function to the data. \[This Notebook\]\[THR_MDL_FAC_Calculation\] shows how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust data.
+  
+  [![Thrust Curve Compensation](../../images/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
+  
+  > **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
+  
+  [THR_MDL_FAC_Calculation]: https://gist.github.com/Finwood/19fe4504fab043d35b5f71bc990e5855
+  
+  If you don't have access to a thrust stand, you can also tune the modelling factor empirically. Start off with 0.3 and increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values, if it is too low you'll notice oscillations at higher throttle values.
 
 - Enable **Throttle PID Attenuation** (TPA), which is used to linearly reduce the PID gains when the throttle is above a threshold (<span style="color:#6383B0">breakpoint</span>, `MC_TPA_BREAK_*` parameters). The <span style="color:#8D6C9C">attenuation rate</span> is controlled via `MC_TPA_RATE_*` parameters. TPA should generally not be needed, but it can be used in addition to the thrust curve parameter. The following illustration shows the thrust in relationship to the attenuated PID values:
   
