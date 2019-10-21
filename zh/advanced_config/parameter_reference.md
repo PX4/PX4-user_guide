@@ -28153,11 +28153,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Half-angle of the RTL cone
+        Half-angle of the return mode altitude cone
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the half-angle of the cone which defines the vehicle RTL behavior.
+        <strong>Comment:</strong> Defines the half-angle of a cone centered around the home position that affects the altitude at which the vehicle returns during return to home.
       </p>
       
       <strong>Values:</strong>
@@ -28204,11 +28204,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Return mode loiter altitude
+        Return mode loiter altitude (relative to home)
       </p>
       
       <p>
-        <strong>Comment:</strong> Stay at this altitude above home position after RTL descending. Land (i.e. slowly descend) from this altitude if autolanding allowed.
+        <strong>Comment:</strong> Descend to this altitude (above home position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.
       </p>
     </td>
     
@@ -28236,7 +28236,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Delay after descend before landing in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.
+        <strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.
       </p>
     </td>
     
@@ -28260,11 +28260,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Minimum distance to trigger rising to a safe altitude
+        Maximum horizontal distance from home, below which RTL_DESCEND_ALT is used as return altitude
       </p>
       
       <p>
-        <strong>Comment:</strong> If the system is horizontally closer than this distance to home it will land straight on home instead of raising to the return altitude first.
+        <strong>Comment:</strong> If the vehicle is less than this horizontal distance from home when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).
       </p>
     </td>
     
@@ -28288,11 +28288,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        RTL altitude
+        Return mode return altitude
       </p>
       
       <p>
-        <strong>Comment:</strong> Altitude to fly back in RTL in meters
+        <strong>Comment:</strong> Default minimum altitude above home for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.
       </p>
     </td>
     
