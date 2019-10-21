@@ -159,6 +159,8 @@ There are two ways to counteract that:
 
 - Adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter (preferred method).
   
+  > **Note** The rate controller must be re-tuned if you change this parameter.
+
   The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic.
   Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
 
@@ -177,8 +179,6 @@ There are two ways to counteract that:
   If it is too high, you will start to notice oscillations at lower throttle values,
   if it is too low you'll notice oscillations at higher throttle values.
   
-  > **Note** The rate controller must be re-tuned if you change this parameter.
-
 - Enable **Throttle PID Attenuation** (TPA), which is used to linearly reduce the
   PID gains when the throttle is
   above a threshold (<span style="color:#6383B0">breakpoint</span>,
