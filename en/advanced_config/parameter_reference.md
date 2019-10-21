@@ -8870,7 +8870,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_CONE_ANG">RTL_CONE_ANG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Half-angle of the RTL cone</p><p><strong>Comment:</strong> Defines the half-angle of the cone which defines the vehicle RTL behavior.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Half-angle of the return mode altitude cone</p><p><strong>Comment:</strong> Defines the half-angle of a cone centered around the home position that affects the altitude at which the vehicle returns during return to home.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above home.</li> 
 
 <li><strong>25:</strong> 25 degrees half cone angle.</li> 
@@ -8890,28 +8890,28 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_DESCEND_ALT">RTL_DESCEND_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Return mode loiter altitude</p><p><strong>Comment:</strong> Stay at this altitude above home position after RTL descending. Land (i.e. slowly descend) from this altitude if autolanding allowed.</p>   </td>
+ <td style="vertical-align: top;"><p>Return mode loiter altitude (relative to home)</p><p><strong>Comment:</strong> Descend to this altitude (above home position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.</p>   </td>
  <td style="vertical-align: top;">2 > 100 (0.5)</td>
  <td style="vertical-align: top;">30 </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_LAND_DELAY">RTL_LAND_DELAY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Return mode delay</p><p><strong>Comment:</strong> Delay after descend before landing in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>   </td>
+ <td style="vertical-align: top;"><p>Return mode delay</p><p><strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.</p>   </td>
  <td style="vertical-align: top;">-1 > 300 (0.5)</td>
  <td style="vertical-align: top;">-1.0 </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_MIN_DIST">RTL_MIN_DIST</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Minimum distance to trigger rising to a safe altitude</p><p><strong>Comment:</strong> If the system is horizontally closer than this distance to home it will land straight on home instead of raising to the return altitude first.</p>   </td>
+ <td style="vertical-align: top;"><p>Maximum horizontal distance from home, below which RTL_DESCEND_ALT is used as return altitude</p><p><strong>Comment:</strong> If the vehicle is less than this horizontal distance from home when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).</p>   </td>
  <td style="vertical-align: top;">0.5 > 20 (0.5)</td>
  <td style="vertical-align: top;">5.0 </td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_RETURN_ALT">RTL_RETURN_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RTL altitude</p><p><strong>Comment:</strong> Altitude to fly back in RTL in meters</p>   </td>
+ <td style="vertical-align: top;"><p>Return mode return altitude</p><p><strong>Comment:</strong> Default minimum altitude above home for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.</p>   </td>
  <td style="vertical-align: top;">0 > 150 (0.5)</td>
  <td style="vertical-align: top;">60 </td>
  <td style="vertical-align: top;">m</td>
