@@ -10,7 +10,7 @@
 
 PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是使用最广泛的控制技术。
 
-控制器是分级的, 这意味着外环的控制器将其结果传递给内环的控制器。 最内环的控制器是 ** 角速率控制器 **, 然后是 ** 姿态控制器 **, 然后 ** 速度 & 位置控制器 **。 PID 调参需要按相同的顺序进行, 从角速率控制器开始, 因为它将影响其他所有控制器。
+The controllers are layered, which means a higher-level controller passes its results to a lower-level controller. The lowest-level controller is the the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**. The PID tuning needs to be done in the same order, starting with the rate controller, as it will affect all other controllers.
 
 ## 前置条件
 
@@ -59,7 +59,7 @@ PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是
 
 万一你的飞行器完全飞不起来，我们给你以下几点建议：
 
-- 如果你发现首次起飞有严重的振荡（严重到根本没法飞），那你可以减小所有的**P**和**D**参数，直到它能够正常起飞。
+- If you notice strong oscillations when first trying to takeoff (to the point where it does not fly), decrease all **P** and **D** gains until it takes off.
 - 但如果你的飞行器对遥控器的所有指令都没什么反应的话，可以增加**P**增益试试。
 
 在实际中，*手动模式*和*特技模式*的调参套路差不多：一步步地迭代调整滚转和俯仰的**P**和**D**增益，然后再调**I**增益。 一开始你的ROLL和PITCH可以用相同的值，等调的差不多了，细调的时候可以分别再调整滚转和俯仰（如果你的飞行器绕X，Y轴的质量分布差不多一样，那就不用再细调了。） 偏航那就很简单了，四旋翼对偏航角不是很敏感，我们甚至可以直接把偏航的D设为0。
@@ -85,7 +85,7 @@ PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是
 **I**（积分）增益可以「记住误差」。 如果你发现过了一段时间了，角速度还是达不到设定值，那就该增加** I **了。 它很重要(尤其在*特技模式*下) ，但我们不应该把它设得太高。
 
 - 如果积分增益太高：你会看到缓慢的振荡。
-- 如果积分增益太低——我们可以在*特技模式*下很好地看到这一点，让飞行器朝一个方向转45度，并保持一会。 他应该始终保持相同的角度。 如果它往回漂移，增加** I **。 通过观察日志我们也可以发现** I **增益太小的问题，可以看到实际的角速度过很久也达不到期望的角速度。
+- If the I gain is too low: this is best tested in *Acro mode*, by tilting the vehicle to one side about 45 degrees, and keeping it like that. 他应该始终保持相同的角度。 如果它往回漂移，增加** I **。 通过观察日志我们也可以发现** I **增益太小的问题，可以看到实际的角速度过很久也达不到期望的角速度。
 
 I 增益一般在0.3~0.5之间，俯仰角的一般要大一点。
 
@@ -93,7 +93,7 @@ I 增益一般在0.3~0.5之间，俯仰角的一般要大一点。
 
 要测试现在的增益，可以给一个在悬停状况下给一个**脉冲输入**（打一下杆再回来）然后观察飞行器的反应。 他应该反应很快，振荡和超调量都不大。(有种「锁定」的感觉)。
 
-举个例子，你可以把杆迅速打到一边，然后再让杆归位，给一个滚转方向的脉冲输入。(注意，让杆归位的时候不要直接松手，不然的话杆归位会在中间弹一下，这会导致你输入的命令也「弹一下」。)
+You can create a step-input for example for roll, by quickly pushing the roll stick to one side, and then let it go back quickly (be aware that the stick will oscillate too if you just let go of it, because it is spring-loaded — a well-tuned vehicle will follow these oscillations).
 
 > **Note** 一个调得很好的旋翼在*特技模式*不会随便超某个方向倾斜，即使不做任何矫正也能保持姿态几十秒。
 
@@ -135,7 +135,7 @@ I 增益一般在0.3~0.5之间，俯仰角的一般要大一点。
   
   The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
   
-  If you have the possibility to *measure* thrust (e.g. with a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer)), you can measure the relation between the PWM control signal and the motor's actual thrust, and fit a function to the data. \[This Notebook\]\[THR_MDL_FAC_Calculation\] shows how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust data.
+  If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise *measure* thrust), you can determine the relationship between the PWM control signal and the motor's actual thrust, and fit a function to the data. \[This Notebook\]\[THR_MDL_FAC_Calculation\] shows how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust data.
   
   [![Thrust Curve Compensation](../../images/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
   
@@ -143,9 +143,9 @@ I 增益一般在0.3~0.5之间，俯仰角的一般要大一点。
   
   [THR_MDL_FAC_Calculation]: https://gist.github.com/Finwood/19fe4504fab043d35b5f71bc990e5855
   
-  If you don't have access to a thrust stand, you can also tune the modelling factor empirically. Start off with 0.3 and increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values, if it is too low you'll notice oscillations at higher throttle values.
+  If you don't have access to a thrust stand, you can also tune the modeling factor empirically. Start off with 0.3 and increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values. If it is too low you'll notice oscillations at higher throttle values.
 
-- 使用「**大油门PID衰减**」(TPA)，它会在油门大于某个值的时候线性地降低PID增益。(衰减率由<span style="color:#6383B0">breakpoint</span>和`MC_TPA_RATE_*`这样的一组参数决定)。 <span style="color:#8D6C9C">衰减率</span>可以通过参数 `MC_TPA_RATE_*` 来控制. 我们一般不会用到TPA，但它确实是除了改变推力曲线之外解决大油门振荡的一种方法。 下图是这种方法的图示，显示了推力和PID值之间的关系。
+- Enable **Throttle PID Attenuation** (TPA), which is used to linearly reduce the PID gains when the throttle is above a threshold (<span style="color:#6383B0">breakpoint</span>, `MC_TPA_BREAK_*` parameters). The *attenuation rate* is controlled via `MC_TPA_RATE_*` parameters TPA should generally not be needed, but it can be used in addition to the thrust curve parameter. The following illustration shows the thrust in relationship to the attenuated PID values:
   
   ![TPA](../../images/mc_pid_tuning/MC_PID_tuning-TPA.svg) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
      On the second Tab
@@ -171,12 +171,12 @@ turn off all [higher-level position controller tuning gains](../config_mc/mc_tra
 
 可以想象，转化后某个电机的推力命令可能会为负，或者超过100%。 这就是混控器饱和。 对于电机来说执行这样的命令是不可能的(除了可逆式电动机) 。 PX4有两种办法来解决混控器饱和。
 
-- 通过减小沿旋转轴的力矩命令，来让转换后的电机命令都大于零。（关闭Airmode的情况下） 在极端情况下，输出的拉力命令会为零，这意味着不能做任何的姿态调整，这也是为什么我们为什么在这种模式下我们要设一个最小拉力。
-- 通过增加拉力命令来让各个电机的拉力不小于零。（启动 Airmode 的情况下）。 这样做的好处是即使在零油门下我们也可以很好地跟踪 角度 / 角速度 的误差。 这种模式一般会提高飞行的性能。
+- Either by reducing the commanded torque for roll such that none of the motor commands is below zero (Airmode disabled). In the extreme case where the commanded thrust is zero, it means that no attitude correction is possible anymore, which is why a minimum thrust is always required for this mode.
+- Or by increasing (boosting) the commanded thrust, such that none of the motor commands is negative (Airmode enabled). This has the big advantage that the attitude/rates can be tracked correctly even at low or zero throttle. It generally improves the flight performance.
   
-  然而在这种模式下会增加总推力，因此也可能会出现问题：即使油门减到零了，飞行器还是在往上跑。 对一个调参调的比较好的飞行器来说，这种问题一般不太会存在。然而在调参调的不好的飞行器上，这个问题就会显现出来，比如因为P调的太大而剧烈振荡的飞行器上，这种问题可能就会比较严重。
+  However it increases the total thrust which can lead to situations where the vehicle continues to ascend even though the throttle is reduced to zero. For a well-tuned, correctly functioning vehicle it is not the case, but for example it can happen when the vehicle strongly oscillates due to too high P tuning gains.
 
-下面是这两种模式的示意图（由左右两个电机产生力矩，而期望力矩是 <span style="color:#9673A6">r</span>。 对左边的电机而言，推力增加了<span style="color:#9673A6">r</span>，而右边的电机则减去r。 电机的推力用<span style="color:#6A9153">绿色</span>表示。 在打开Airmode的时候，期望总推力会增加<span style="color:#B85450">b</span>来避免负的力矩。 而当关掉这种模式的时候，我们减小期望力矩<span style="color:#9673A6">r</span>来避免负的推力出现。
+Both modes are shown below with a 2D illustration for two motors and a torque command for roll <span style="color:#9673A6">r</span>. On the left motor <span style="color:#9673A6">r</span> is added to the commanded thrust, while on the right motor it is subtracted from it. 电机的推力用<span style="color:#6A9153">绿色</span>表示。 With Airmode enabled, the commanded thrust is increased by <span style="color:#B85450">b</span>. When it is disabled, <span style="color:#9673A6">r</span> is reduced.
 
     ![Airmode](../../images/mc_pid_tuning/MC_PID_tuning-Airmode.svg)
     
