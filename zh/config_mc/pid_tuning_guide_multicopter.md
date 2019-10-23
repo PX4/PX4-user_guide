@@ -30,14 +30,13 @@ The controllers are layered, which means a higher-level controller passes its re
 
 ## 调参步骤
 
-> **Note** 出于安全原因, 所有的增益都默认设置为低值。  
-> 如果想获得良好的控制响应，必须相应的增加增益值。 
+> **Note** For safety reasons, the default gains are set to low values. You must increase the gains before you can expect good control responses. 
 
 以下是做调参时要遵循的一些一般要点：
 
 - 调整增益时，所有的增益值都应该慢慢增加, 因为增益过大可能会导致危险的振荡! 一般情况下，每次增益值的调整幅度大约在20%到30%，获得最优增益值后，基于最优值再下调5%到10%。
 - 在修改参数之前务必先着陆。 慢慢增加油门，观察振荡的现象。
-- 调参时的油门值应该在无人机的悬停油门, 并使用 [ 推力曲线参数（Thrust Curve Parameter 或 TPA) ](#thrust_curve) 来观察或判断推力非线性或高推力振荡现象。
+- Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter](#thrust_curve) to account for thrust non-linearities or high-thrust oscillations.
 
 ### 速率控制器
 
@@ -62,7 +61,7 @@ The controllers are layered, which means a higher-level controller passes its re
 - If you notice strong oscillations when first trying to takeoff (to the point where it does not fly), decrease all **P** and **D** gains until it takes off.
 - 但如果你的飞行器对遥控器的所有指令都没什么反应的话，可以增加**P**增益试试。
 
-在实际中，*手动模式*和*特技模式*的调参套路差不多：一步步地迭代调整滚转和俯仰的**P**和**D**增益，然后再调**I**增益。 一开始你的ROLL和PITCH可以用相同的值，等调的差不多了，细调的时候可以分别再调整滚转和俯仰（如果你的飞行器绕X，Y轴的质量分布差不多一样，那就不用再细调了。） 偏航那就很简单了，四旋翼对偏航角不是很敏感，我们甚至可以直接把偏航的D设为0。
+在实际中，*手动模式*和*特技模式*的调参套路差不多：一步步地迭代调整滚转和俯仰的**P**和**D**增益，然后再调**I**增益。 Initially you can use the same values for roll and pitch, and once you have good values, you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed). 偏航那就很简单了，四旋翼对偏航角不是很敏感，我们甚至可以直接把偏航的D设为0。
 
 #### P增益
 
@@ -70,7 +69,7 @@ The controllers are layered, which means a higher-level controller passes its re
 
 - 如果**P**增益太高了，会有高频率的振荡。
 - 如果 **P** 增益太低了: 
-  - 飞行器会对遥控器的输入很迟钝。 
+  - 飞行器会对遥控器的输入很迟钝。
   - 如果是在*特技模式*下，飞行器会漂移，你会一直要矫正它来让它水平。
 
 #### D 增益
@@ -123,33 +122,23 @@ You can create a step-input for example for roll, by quickly pushing the roll st
 - 最大俯仰角速度 ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX)
 - 最大偏航角速度 ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
-### 推力曲线 / 大油门 PID 衰减(Throttle PID Attenuation) {#thrust_curve}
+### Thrust Curve {#thrust_curve}
 
 以上的调整都是在悬停油门的基础上的。 但当你增大油门的时候，你可能会看到控制性能又不太好了，机体又开始振荡了。
 
-有两种方法可以搞定这种问题：
+To counteract that adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
 
-- Adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter (preferred method).
-  
-  > **Note** 如果你改变这个参数的话，必须要重新调整角速度控制器。
-  
-  The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
-  
-  If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise *measure* thrust), you can determine the relationship between the PWM control signal and the motor's actual thrust, and fit a function to the data. \[This Notebook\]\[THR_MDL_FAC_Calculation\] shows how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust data.
-  
-  [![Thrust Curve Compensation](../../images/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
-  
-  > **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
-  
-  [THR_MDL_FAC_Calculation]: https://gist.github.com/Finwood/19fe4504fab043d35b5f71bc990e5855
-  
-  If you don't have access to a thrust stand, you can also tune the modeling factor empirically. Start off with 0.3 and increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values. If it is too low you'll notice oscillations at higher throttle values.
+> **Note** The rate controller might need to be re-tuned if you change this parameter.
 
-- Enable **Throttle PID Attenuation** (TPA), which is used to linearly reduce the PID gains when the throttle is above a threshold (<span style="color:#6383B0">breakpoint</span>, `MC_TPA_BREAK_*` parameters). The *attenuation rate* is controlled via `MC_TPA_RATE_*` parameters TPA should generally not be needed, but it can be used in addition to the thrust curve parameter. The following illustration shows the thrust in relationship to the attenuated PID values:
-  
-  ![TPA](../../images/mc_pid_tuning/MC_PID_tuning-TPA.svg) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
-     On the second Tab
--->
+The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic. Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
+
+If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise *measure* thrust), you can determine the relationship between the PWM control signal and the motor's actual thrust, and fit a function to the data. [This Notebook](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb) shows how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust data.
+
+[![Thrust Curve Compensation](../../images/mc_pid_tuning/thrust-curve-compensation.svg)](https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb)
+
+> **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
+
+If you don't have access to a thrust stand, you can also tune the modeling factor empirically. Start off with 0.3 and increase it by 0.1 at a time. If it is too high, you will start to notice oscillations at lower throttle values. If it is too low you'll notice oscillations at higher throttle values.
 
 <!-- TODO
 ### Velocity & Position Controller
@@ -158,25 +147,25 @@ turn off all [higher-level position controller tuning gains](../config_mc/mc_tra
 
 - [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX): 1000
 - [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) : 1000
-- [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000 
-- [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX) : 1000 
-- [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000 
-- [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) : 0 
+- [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000
+- [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX) : 1000
+- [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000
+- [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) : 0
 - [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN) : 1
  -->
 
 ### Airmode & 混控器饱和 {#airmode}
 
-角速度控制器输出三个轴的扭矩和推力(滚转、俯仰和偏航) ，而这些输出需要被转换为每个电机的推力命令。 这种转换被称为混控。
+The rate controller outputs torque commands for all three axis (roll, pitch and yaw) and a scalar thrust value, which need to be converted into individual motor thrust commands. This step is called mixing.
 
-可以想象，转化后某个电机的推力命令可能会为负，或者超过100%。 这就是混控器饱和。 对于电机来说执行这样的命令是不可能的(除了可逆式电动机) 。 PX4有两种办法来解决混控器饱和。
+It can happen that one of the motor commands becomes negative, for example for a low thrust and large roll command (and similarly it can go above 100%). This is a mixer saturation. It is physically impossible for the vehicle to execute these commands (except for reversible motors). PX4 has two modes to resolve this:
 
 - Either by reducing the commanded torque for roll such that none of the motor commands is below zero (Airmode disabled). In the extreme case where the commanded thrust is zero, it means that no attitude correction is possible anymore, which is why a minimum thrust is always required for this mode.
 - Or by increasing (boosting) the commanded thrust, such that none of the motor commands is negative (Airmode enabled). This has the big advantage that the attitude/rates can be tracked correctly even at low or zero throttle. It generally improves the flight performance.
   
   However it increases the total thrust which can lead to situations where the vehicle continues to ascend even though the throttle is reduced to zero. For a well-tuned, correctly functioning vehicle it is not the case, but for example it can happen when the vehicle strongly oscillates due to too high P tuning gains.
 
-Both modes are shown below with a 2D illustration for two motors and a torque command for roll <span style="color:#9673A6">r</span>. On the left motor <span style="color:#9673A6">r</span> is added to the commanded thrust, while on the right motor it is subtracted from it. 电机的推力用<span style="color:#6A9153">绿色</span>表示。 With Airmode enabled, the commanded thrust is increased by <span style="color:#B85450">b</span>. When it is disabled, <span style="color:#9673A6">r</span> is reduced.
+Both modes are shown below with a 2D illustration for two motors and a torque command for roll <span style="color:#9673A6">r</span>. On the left motor <span style="color:#9673A6">r</span> is added to the commanded thrust, while on the right motor it is subtracted from it. The motor thrusts are in <span style="color:#6A9153">green</span>. With Airmode enabled, the commanded thrust is increased by <span style="color:#B85450">b</span>. When it is disabled, <span style="color:#9673A6">r</span> is reduced.
 
     ![Airmode](../../images/mc_pid_tuning/MC_PID_tuning-Airmode.svg)
     
@@ -185,6 +174,6 @@ Both modes are shown below with a 2D illustration for two motors and a torque co
      On the first Tab
 -->
 
-如果在混控过程中，某个电机的期望拉力超过了100%，飞控就会减小两个电机的期望总拉力，来满足期望力矩。 这点和「Airmode逻辑」是相同的，并且飞控在Airmode打开和关闭的时候都会这么干。
+If mixing becomes saturated towards the upper bound the commanded thrust is reduced to ensure that no motor is commanded to deliver more than 100% thrust. This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
 
-如果你觉得你的旋翼飞行器已经飞的很好了，可以通过参数[MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE)来启用Airmode。
+Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
