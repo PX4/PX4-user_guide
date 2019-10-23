@@ -166,7 +166,7 @@ you can determine the relationship between the PWM control signal and the motor'
 
 > **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
 
-[THR_MDL_FAC_Calculation]: https://gist.github.com/Finwood/19fe4504fab043d35b5f71bc990e5855
+[THR_MDL_FAC_Calculation]: https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb
 
 If you don't have access to a thrust stand, you can also tune the modeling factor empirically.
 Start off with 0.3 and increase it by 0.1 at a time.
