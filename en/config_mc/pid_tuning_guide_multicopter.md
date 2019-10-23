@@ -45,7 +45,7 @@ Here are some general points to follow when tuning:
 - All gains should be increased very slowly as large gains may cause dangerous oscillations!
   Typically increase gains by 20-30% per iteration, reducing to 5-10% for final fine tuning.
 - Land before changing a parameter. Slowly increase the throttle and check for oscillations.
-- Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter or TPA](#thrust_curve) to account for thrust non-linearities or high-thrust oscillations.
+- Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter](#thrust_curve) to account for thrust non-linearities or high-thrust oscillations.
 
 ### Rate Controller
 
@@ -146,46 +146,32 @@ The following parameters can also be adjusted. These determine the maximum rotat
 - Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
 
-### Thrust Curve / Throttle PID Attenuation (TPA) {#thrust_curve}
+### Thrust Curve {#thrust_curve}
 
 The tuning above optimises performance around the hover throttle.
 But it can be that you start to see oscillations when going towards full throttle.
 
-There are two ways to counteract that:
+To counteract that adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
 
-- Adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter (preferred method).
+> **Note** The rate controller might need to be re-tuned if you change this parameter.
 
-  > **Note** The rate controller must be re-tuned if you change this parameter.
+The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic.
+Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
 
-  The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic.
-  Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
+If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust),
+you can determine the relationship between the PWM control signal and the motor's actual thrust, and fit a function to the data.
+[This Notebook][THR_MDL_FAC_Calculation] shows how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust data.
 
-  If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust),
-  you can determine the relationship between the PWM control signal and the motor's actual thrust, and fit a function to the data.
-  [This Notebook][THR_MDL_FAC_Calculation] shows how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust data.
+[![Thrust Curve Compensation](../../images/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
 
-  [![Thrust Curve Compensation](../../images/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
+> **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
 
-  > **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
+[THR_MDL_FAC_Calculation]: https://gist.github.com/Finwood/19fe4504fab043d35b5f71bc990e5855
 
-  [THR_MDL_FAC_Calculation]: https://gist.github.com/Finwood/19fe4504fab043d35b5f71bc990e5855
-
-  If you don't have access to a thrust stand, you can also tune the modeling factor empirically.
-  Start off with 0.3 and increase it by 0.1 at a time.
-  If it is too high, you will start to notice oscillations at lower throttle values.
-  If it is too low you'll notice oscillations at higher throttle values.
-
-- Enable **Throttle PID Attenuation** (TPA), which is used to linearly reduce the PID gains when the throttle is above a threshold (<span style="color:#6383B0">breakpoint</span>,
-  `MC_TPA_BREAK_*` parameters).
-  The *attenuation rate* is controlled via `MC_TPA_RATE_*` parameters
-  TPA should generally not be needed, but it can be used in addition to the thrust curve parameter.
-  The following illustration shows the thrust in relationship to the attenuated PID values:
-
-  ![TPA](../../images/mc_pid_tuning/MC_PID_tuning-TPA.svg)
-<!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
-     On the second Tab
--->
-
+If you don't have access to a thrust stand, you can also tune the modeling factor empirically.
+Start off with 0.3 and increase it by 0.1 at a time.
+If it is too high, you will start to notice oscillations at lower throttle values.
+If it is too low you'll notice oscillations at higher throttle values.
 
 <!-- TODO
 ### Velocity & Position Controller
