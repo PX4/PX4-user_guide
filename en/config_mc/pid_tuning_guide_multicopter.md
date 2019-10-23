@@ -6,14 +6,14 @@ Generally if you're using a [supported specific configuration](../airframes/airf
 To get the very best performance it is usually good to tune a new vehicle.
 For example, different ESCs or motors require different tuning gains for optimal flight.
 
-> **Warning** This guide is for advanced users. 
+> **Warning** This guide is for advanced users.
   Un- or partially- tuned vehicles are likely to be unstable, and easy to crash.
   Make sure to have a Kill-switch assigned.
 
 
-## Introduction 
+## Introduction
 
-PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers, which are the most widespread control technique. 
+PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers, which are the most widespread control technique.
 
 The controllers are layered, which means a higher-level controller passes its results to a lower-level controller.
 The lowest-level controller is the the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**.
@@ -38,7 +38,7 @@ The PID tuning needs to be done in the same order, starting with the rate contro
 
 ## Tuning Steps
 
-> **Note** For safety reasons, the default gains are set to low values.  
+> **Note** For safety reasons, the default gains are set to low values.
 > You must increase the gains before you can expect good control responses. 
 
 Here are some general points to follow when tuning:
@@ -60,7 +60,7 @@ The rate controller is the inner-most loop with three independent PID controller
 
 The rate controller can be tuned in [Acro mode](../flight_modes/acro_mc.md) or [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
 - *Acro mode* is preferred, but is harder to fly. If you choose this mode, disable all stick expo:
-  - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, 
+  - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0,
     `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
@@ -72,17 +72,17 @@ In case your vehicle does not fly at all:
 
 The actual tuning is roughly the same in *Manual mode* or *Acro mode*:
 You iteratively tune the **P** and **D** gains for roll and pitch, and then the **I** gain.
-Initially you can use the same values for roll and pitch, and once you have good values, 
+Initially you can use the same values for roll and pitch, and once you have good values,
 you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed).
 For yaw it is very similar, except that **D** can be left at 0.
 
 #### P Gain
 
-The **P** (proportional) gain is used to minimize the tracking error. 
+The **P** (proportional) gain is used to minimize the tracking error.
 It is responsible for a quick response and thus should be set as high as possible, but without introducing oscillations.
 - If the **P** gain is too high: you will see high-frequency oscillations.
 - If the **P** gain is too low:
-  - the vehicle will react slowly to input changes. 
+  - the vehicle will react slowly to input changes.
   - In *Acro mode* the vehicle will drift, and you will constantly need to correct to keep it level.
 
 #### D Gain
@@ -93,7 +93,7 @@ The **D** (derivative) gain is used for dampening. It is required but should be 
 
 #### I Gain
 
-The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time. 
+The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time.
 It is important (especially when flying *Acro mode*), but it should not be set too high.
 - If the I gain is too high: you will see slow oscillations.
 - If the I gain is too low: this is best tested in *Acro mode*, by tilting the vehicle to one side about 45 degrees, and keeping it like that.
@@ -134,7 +134,7 @@ This controls the orientation and outputs desired body rates with the following 
 - Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P)
 - Yaw control ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
 
-The attitude controller is much easier to tune. 
+The attitude controller is much easier to tune.
 In fact, most of the time the defaults do not need to be changed at all.
 
 To tune the attitude controller, fly in *Manual/Stabilized mode* and increase the **P** gains gradually.
@@ -154,7 +154,7 @@ But it can be that you start to see oscillations when going towards full throttl
 There are two ways to counteract that:
 
 - Adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter (preferred method).
-  
+
   > **Note** The rate controller must be re-tuned if you change this parameter.
 
   The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic.
@@ -174,9 +174,9 @@ There are two ways to counteract that:
   Start off with 0.3 and increase it by 0.1 at a time.
   If it is too high, you will start to notice oscillations at lower throttle values.
   If it is too low you'll notice oscillations at higher throttle values.
-  
+
 - Enable **Throttle PID Attenuation** (TPA), which is used to linearly reduce the PID gains when the throttle is above a threshold (<span style="color:#6383B0">breakpoint</span>,
-  `MC_TPA_BREAK_*` parameters). 
+  `MC_TPA_BREAK_*` parameters).
   The *attenuation rate* is controlled via `MC_TPA_RATE_*` parameters
   TPA should generally not be needed, but it can be used in addition to the thrust curve parameter.
   The following illustration shows the thrust in relationship to the attenuated PID values:
@@ -194,17 +194,17 @@ turn off all [higher-level position controller tuning gains](../config_mc/mc_tra
 
 - [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX): 1000
 - [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) : 1000
-- [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000 
-- [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX) : 1000 
-- [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000 
-- [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) : 0 
+- [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW) : 1000
+- [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX) : 1000
+- [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) : 1000
+- [MPC_JERK_MAX](../advanced_config/parameter_reference.md#MPC_JERK_MAX) : 0
 - [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN) : 1
  -->
 
 
 ### Airmode & Mixer Saturation {#airmode}
 
-The rate controller outputs torque commands for all three axis (roll, pitch and yaw) and a scalar thrust value, which need to be converted into individual motor thrust commands. 
+The rate controller outputs torque commands for all three axis (roll, pitch and yaw) and a scalar thrust value, which need to be converted into individual motor thrust commands.
 This step is called mixing.
 
 It can happen that one of the motor commands becomes negative, for example for a low thrust and large roll command (and similarly it can go above 100%).
