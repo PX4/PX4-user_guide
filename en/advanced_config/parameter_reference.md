@@ -1055,6 +1055,13 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_MOT_TEST_EN">COM_MOT_TEST_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable Motor Testing</p><p><strong>Comment:</strong> If set, enables the motor test interface via MAVLink (DO_MOTOR_TEST), that allows spinning the motors for testing purposes.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1 </td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_OA_BOOT_T">COM_OA_BOOT_T</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set avoidance system bootup timeout</p><p><strong>Comment:</strong> The avoidance system running on the companion computer is expected to boot within this time and start providing trajectory points. If no avoidance system is detected a MAVLink warning message is sent.</p>   </td>
  <td style="vertical-align: top;">0 > 200 </td>
