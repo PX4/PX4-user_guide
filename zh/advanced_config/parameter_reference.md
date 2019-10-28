@@ -3204,7 +3204,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Action the system takes at critical battery.
+        <strong>Comment:</strong> Action the system takes at critical battery. See also BAT_CRIT_THR and BAT_EMERGEN_THR for definition of battery states.
       </p>
       
       <strong>Values:</strong>
