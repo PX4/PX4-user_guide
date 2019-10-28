@@ -3204,7 +3204,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Action the system takes on low battery. Defaults to off
+        <strong>Comment:</strong> Action the system takes at critical battery.
       </p>
       
       <strong>Values:</strong>
@@ -3214,13 +3214,10 @@
           <strong>0:</strong> Warning
         </li>
         <li>
-          <strong>1:</strong> Return mode
-        </li>
-        <li>
           <strong>2:</strong> Land mode
         </li>
         <li>
-          <strong>3:</strong> Return mode at critically low level, Land mode at current position if reaching dangerously low levels
+          <strong>3:</strong> Return at critical level, land at emergency level
         </li>
       </ul>
     </td>
@@ -3230,7 +3227,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      3
     </td>
     
     <td style="vertical-align: top;">
