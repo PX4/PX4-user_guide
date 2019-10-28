@@ -38,20 +38,20 @@ The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundContr
 
 ### Low Battery Failsafe
 
-The low battery failsafe is triggered when the battery capacity drops below one (or more warning) level values. 
+Low battery failsafe actions can be triggered when the battery capacity drops below the warning, critical or emergency level values.
 
-![Safety - Battery (QGC)](../../images/qgc/setup/safety_battery.png)
+![Safety - Battery (QGC)](../../assets/qgc/setup/safety/battery.png)
 
 The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`).
-With this configuration the failsafe will trigger warning, then return, and finally landing if capacity drops below the respective levels.
+With this configuration the failsafe will warn, return, and land immediately at the respective levels.
  
-It is also possible to set the *Failsafe Action* to warn, return, or land when the [Battery Failsafe Level](#BAT_CRIT_THR) failsafe level is reached.
+It is also possible to set the *Failsafe Action* to just warn, or land when the [Battery Failsafe Level](#BAT_CRIT_THR) failsafe level is reached.
 
 The settings and underlying parameters are shown below.
   
 Setting | Parameter | Description
 --- | --- | ---
-Failsafe Action | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR Warn, then return, then land based on each of the level settings below. 
+Failsafe Action | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn or Land when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR <br>Warn, then return, then land depending on the respective level settings below.
 Battery Warn Level | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR) | Percentage capacity for warnings (or other actions).
 <span id="BAT_CRIT_THR"></span>Battery Failsafe Level | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR) | Percentage capacity for Return action (or other actions if a single action selected).
 Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.
