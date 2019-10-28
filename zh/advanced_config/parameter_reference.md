@@ -28295,7 +28295,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.5 > 20 (0.5)
+      0.5 > 100 (0.5)
     </td>
     
     <td style="vertical-align: top;">
@@ -28360,6 +28360,9 @@
         </li>
         <li>
           <strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path
+        </li>
+        <li>
+          <strong>3:</strong> Return via direct way to whatever is closest: home, mission lading or safe point
         </li>
       </ul>
     </td>
