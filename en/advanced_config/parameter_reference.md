@@ -1040,7 +1040,7 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_LOW_BAT_ACT">COM_LOW_BAT_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery failsafe mode</p><p><strong>Comment:</strong> Action the system takes at critical battery.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Battery failsafe mode</p><p><strong>Comment:</strong> Action the system takes at critical battery. See also BAT_CRIT_THR and BAT_EMERGEN_THR for definition of battery states.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Warning</li> 
 
 <li><strong>2:</strong> Land mode</li> 
