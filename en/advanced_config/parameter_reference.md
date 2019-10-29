@@ -8875,8 +8875,8 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_CONE_ANG">RTL_CONE_ANG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Half-angle of the return mode altitude cone</p><p><strong>Comment:</strong> Defines the half-angle of a cone centered around the home position that affects the altitude at which the vehicle returns during return to home.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above home.</li> 
+ <td style="vertical-align: top;"><p>Half-angle of the return mode altitude cone</p><p><strong>Comment:</strong> Defines the half-angle of a cone centered around the destination position that affects the altitude at which the vehicle returns.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above destination.</li> 
 
 <li><strong>25:</strong> 25 degrees half cone angle.</li> 
 
@@ -8886,7 +8886,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 
 <li><strong>80:</strong> 80 degrees half cone angle.</li> 
 
-<li><strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above home.</li> 
+<li><strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above destination.</li> 
 </ul>
   </td>
  <td style="vertical-align: top;">0 > 90 </td>
@@ -8895,7 +8895,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_DESCEND_ALT">RTL_DESCEND_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Return mode loiter altitude (relative to home)</p><p><strong>Comment:</strong> Descend to this altitude (above home position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.</p>   </td>
+ <td style="vertical-align: top;"><p>Return mode loiter altitude</p><p><strong>Comment:</strong> Descend to this altitude (above destination position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.</p>   </td>
  <td style="vertical-align: top;">2 > 100 (0.5)</td>
  <td style="vertical-align: top;">30</td>
  <td style="vertical-align: top;">m</td>
@@ -8909,28 +8909,28 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_MIN_DIST">RTL_MIN_DIST</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal distance from home, below which RTL_DESCEND_ALT is used as return altitude</p><p><strong>Comment:</strong> If the vehicle is less than this horizontal distance from home when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).</p>   </td>
+ <td style="vertical-align: top;"><p>Maximum horizontal distance from return destination, below which RTL_DESCEND_ALT is used as return altitude</p><p><strong>Comment:</strong> If the vehicle is less than this horizontal distance from the return destination when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).</p>   </td>
  <td style="vertical-align: top;">0.5 > 100 (0.5)</td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_RETURN_ALT">RTL_RETURN_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Return mode return altitude</p><p><strong>Comment:</strong> Default minimum altitude above home for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.</p>   </td>
+ <td style="vertical-align: top;"><p>Return mode return altitude</p><p><strong>Comment:</strong> Default minimum altitude above destination (e.g. home, safe point, landing pattern) for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.</p>   </td>
  <td style="vertical-align: top;">0 > 150 (0.5)</td>
  <td style="vertical-align: top;">60</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_TYPE">RTL_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Return type</p><p><strong>Comment:</strong> Fly straight to the home location or planned mission landing and land there or use the planned mission to get to those points.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Return type</p><p><strong>Comment:</strong> Fly straight to the return location or planned mission landing and land there or use the planned mission to get to those points.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Return home via direct path</li> 
 
 <li><strong>1:</strong> Return to a planned mission landing, if available, via direct path, else return to home via direct path</li> 
 
 <li><strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path</li> 
 
-<li><strong>3:</strong> Return via direct way to whatever is closest: home, mission lading or safe point</li> 
+<li><strong>3:</strong> Return via direct path to closest destination: home, mission landing pattern or safe point</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
