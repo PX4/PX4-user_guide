@@ -284,6 +284,8 @@ The arm/disarm switch immediately disarms (stop) motors for those [flight modes]
 For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected.
 This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
 
+> **Note** [Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work. 
+
 <!-- 
 > **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel. 
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value). 
@@ -297,7 +299,7 @@ A return switch can be used to immediately engage [Return mode](../flight_modes/
 
 ## Other Safety Settings
 
-### Auto-disarming Timeouts
+### Auto-disarming Timeouts {#auto-disarming-timeouts}
 
 You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
 
@@ -305,8 +307,8 @@ The [relevant parameters](../advanced_config/parameters.md) are shown below:
 
 Parameter | Description
 --- | ---
-[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Timeout for auto-disarm after landing.
-[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff.
+<span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Timeout for auto-disarm after landing.
+<span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff.
 
 ## Further Information
 
