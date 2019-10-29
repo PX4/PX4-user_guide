@@ -9,6 +9,10 @@ It covers both (autopilot-assisted) manual flight and mission planning for fully
 
 [Missions](../flying/missions.md) — How to fly an autonomous mission.
 
+[Safety Points](../flying/plan_safety_points.md) — How to plan safe-return landing points (rally points).
+
+[Geofence](../flying/plan_geofence.md) — How to plan a geofence.
+
 [Flight Modes](../flight_modes/README.md) — Summary table + detailed information about flight modes.
 
 [Terrain Follow/Hold & Range Assistance](../flying/terrain_following_holding.md) — How to enable terrain following.
