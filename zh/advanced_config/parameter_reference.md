@@ -28180,14 +28180,14 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the half-angle of a cone centered around the home position that affects the altitude at which the vehicle returns during return to home.
+        <strong>Comment:</strong> Defines the half-angle of a cone centered around the destination position that affects the altitude at which the vehicle returns.
       </p>
       
       <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above home.
+          <strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above destination.
         </li>
         <li>
           <strong>25:</strong> 25 degrees half cone angle.
@@ -28202,7 +28202,7 @@
           <strong>80:</strong> 80 degrees half cone angle.
         </li>
         <li>
-          <strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above home.
+          <strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above destination.
         </li>
       </ul>
     </td>
@@ -28227,11 +28227,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Return mode loiter altitude (relative to home)
+        Return mode loiter altitude
       </p>
       
       <p>
-        <strong>Comment:</strong> Descend to this altitude (above home position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.
+        <strong>Comment:</strong> Descend to this altitude (above destination position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.
       </p>
     </td>
     
@@ -28283,11 +28283,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Maximum horizontal distance from home, below which RTL_DESCEND_ALT is used as return altitude
+        Maximum horizontal distance from return destination, below which RTL_DESCEND_ALT is used as return altitude
       </p>
       
       <p>
-        <strong>Comment:</strong> If the vehicle is less than this horizontal distance from home when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).
+        <strong>Comment:</strong> If the vehicle is less than this horizontal distance from the return destination when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).
       </p>
     </td>
     
@@ -28315,7 +28315,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Default minimum altitude above home for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.
+        <strong>Comment:</strong> Default minimum altitude above destination (e.g. home, safe point, landing pattern) for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.
       </p>
     </td>
     
@@ -28343,7 +28343,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Fly straight to the home location or planned mission landing and land there or use the planned mission to get to those points.
+        <strong>Comment:</strong> Fly straight to the return location or planned mission landing and land there or use the planned mission to get to those points.
       </p>
       
       <strong>Values:</strong>
@@ -28359,7 +28359,7 @@
           <strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path
         </li>
         <li>
-          <strong>3:</strong> Return via direct way to whatever is closest: home, mission lading or safe point
+          <strong>3:</strong> Return via direct path to closest destination: home, mission landing pattern or safe point
         </li>
       </ul>
     </td>
