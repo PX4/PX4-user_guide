@@ -3227,7 +3227,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      3
+      0
     </td>
     
     <td style="vertical-align: top;">
