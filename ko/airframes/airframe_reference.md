@@ -19,11 +19,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 좌측 경사판 서보모터, 피치 축</li><li><b>MAIN2</b>: 우측 경사판 서보모터, 롤 축</li><li><b>MAIN3</b>: 상부 로터 (CCW)</li><li><b>MAIN4</b>: 하부 로터 (CW)</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -54,11 +53,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: 모터 7</li><li><b>AUX2</b>: 모터 8</li><li><b>AUX3</b>: 모터 9</li><li><b>AUX4</b>: 모터 10</li><li><b>AUX5</b>: 모터 11</li><li><b>AUX6</b>: 모터 12</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -89,11 +87,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 메인 모터</li><li><b>MAIN2</b>: 전면 경사판 서보</li><li><b>MAIN3</b>: 우측 경사판 서보</li><li><b>MAIN4</b>: 좌측 경사판 서보</li><li><b>MAIN5</b>: 테일 로터 서보</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -124,11 +121,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터1</li><li><b>MAIN2</b>: 모터2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -159,11 +155,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 전면 우측 탑, CW; 각도:60; 방향:CW</li><li><b>MAIN2</b>: 전면 우측 하단, CCW; 각도:60; 방향:CCW</li><li><b>MAIN3</b>: 후면 상단, CW; 각도:180; 방향:CW</li><li><b>MAIN4</b>: 후면 하단, CCW; 각도:180; 방향:CCW</li><li><b>MAIN5</b>: 전면 좌측 상단, CW; 각도:-60; 방향:CW</li><li><b>MAIN6</b>: 전면 좌측 하단, CCW; 각도:-60; 방향:CCW</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -194,11 +189,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -210,7 +204,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
  <td style="vertical-align: top;">일반 16진법 x 지오메트리</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></p></td>
@@ -221,7 +214,7 @@
  <td style="vertical-align: top;"><p>Maintainer: Hyon Lim <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 6002</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li></ul></p></td>
 
 </tr>
-</tbody></table>
+</table>
 
 ### 옥토 콕스 와이드
 
@@ -234,11 +227,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -269,11 +261,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -304,11 +295,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -339,11 +329,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -374,11 +363,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 피드스루</li><li><b>MAIN6</b>: RC AUX2 채널의 피드스루</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li><li><b>AUX4</b>: RC FLAPS 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -413,7 +401,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="copter_quadrotor_h_reaper_500_quad">
  <td style="vertical-align: top;">리퍼 500 쿼드</td>
  <td style="vertical-align: top;"><p>Maintainer: Blankered</p><p>SYS_AUTOSTART = 4040</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 피드스루</li><li><b>MAIN6</b>: RC AUX2 채널의 피드스루</li></ul></p></td>
@@ -424,7 +411,7 @@
  <td style="vertical-align: top;"><p>Maintainer: Beat Kueng <beat-kueng@gmx.net></p><p><code>SYS_AUTOSTART</code> = 4041</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li></ul></p></td>
 
 </tr>
-</tbody></table>
+</table>
 
 ### 쿼드로터 와이드
 
@@ -437,11 +424,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li><li><b>AUX4</b>: RC FLAPS 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -453,7 +439,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="copter_quadrotor_wide_team_blacksheep_discovery">
  <td style="vertical-align: top;">팀 블랙셰프 디스커버리</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 10015</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 피드스루</li><li><b>MAIN6</b>: RC AUX2 채널의 피드스루</li></ul></p></td>
@@ -474,7 +459,7 @@
  <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 10018</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: RC AUX1 채널의 피드스루</li><li><b>MAIN6</b>: RC AUX2 채널의 피드스루</li></ul></p></td>
 
 </tr>
-</tbody></table>
+</table>
 
 ### 쿼드로터 비대칭
 
@@ -487,11 +472,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><0>MAIN1</0>: 모터1(전면 우측: CCW)</li><li><b>MAIN2</b>: 모터 2(후면 좌측: CCW)</li><li>메인3: 모터3(전면 좌측: CW)</li><li>메인4: 모터4(오른쪽 후면: CW)</li><li><b>MAIN5</b>: RC AUX1 채널의 피드스루</li><li><b>MAIN6</b>: RC AUX2 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -654,7 +638,7 @@
 </tr>
 <tr id="copter_quadrotor_x_teal_one">
  <td style="vertical-align: top;">Teal One</td>
- <td style="vertical-align: top;"><p>Maintainer: Jacob Dahl <jacob.dahl@tealdrones.com></p><p><code>SYS_AUTOSTART</code> = 4250</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Matt McFadden <matt.mcfadden@tealdrones.com></p><p><code>SYS_AUTOSTART</code> = 4250</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_crazyflie_2">
@@ -679,7 +663,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="copter_simulation_(copter)_hil_quadcopter_x">
  <td style="vertical-align: top;">힐 쿼드콥터 X</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
@@ -690,7 +673,7 @@
  <td style="vertical-align: top;"><p>Maintainer: Romain Chiappinelli <romain.chiap@gmail.com></p><p><code>SYS_AUTOSTART</code> = 1100</p></td>
 
 </tr>
-</tbody></table>
+</table>
 
 ### 틸트-쿼드
 
@@ -703,11 +686,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li>AUX1</b>: 로터 2 암용 외부 서보 모터</li><li>AUX2</b>: 로터 4 암용 외부 서보 모터</li><li><b>AUX3</b>: 로터 2 암(arm) 내부 서보 모터</li><li><b>AUX4</b>: 로터 4 암(arm) 내부 서보 모터</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -738,11 +720,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li>MAIN4</b>: 요 서보</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -773,11 +754,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 요(yaw) 서보</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -810,11 +790,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -826,7 +805,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="plane_flying_wing_generic_flying_wing">
  <td style="vertical-align: top;">일반 비행 날개</td>
  <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 3000</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 보조 날개(aileron)</li><li><b>MAIN2</b>: 우측 보조 날개(aileron)</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
@@ -877,7 +855,7 @@
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 3100</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 좌측 보조 날개(aileron)</li><li><b>MAIN2</b>: 우측 보조 날개(aileron)</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
 
 </tr>
-</tbody></table>
+</table>
 
 ### 평면 A-레일
 
@@ -890,11 +868,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><0>MAIN1</0></b>: 에일러론 우측</li><li><b>MAIN2</b>: 좌측 보조 날개(aileron)</li><li>주3</b>: v-테일 우측</li><li>MAIN4</b>: v-테일 왼쪽</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: 휠</li><li><b>MAIN7</b>: 우측 플랩(flaps)</li><li><b>MAIN8</b>: 좌측 플랩(flaps)</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -925,11 +902,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 우측 보조 날개(aileron)</li><li><b>MAIN2</b>: 좌측 보조 날개(aileron)</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: 휠</li><li><b>MAIN7</b>: 우측 플랩(flaps)</li><li><b>MAIN8</b>: 좌측 플랩(flaps)</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -960,11 +936,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 보조 날개(aileron)</li><li><b>MAIN2</b>: 엘리베이터(elevator)</li><li><b>MAIN3</b>: 방향키 (rudder)</li><li><b>MAIN4</b>: 스로틀</li><li><b>MAIN5</b>: 플랩(flaps)</li><li><b>MAIN6</b>: 기어</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -995,11 +970,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -1011,7 +985,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="plane_standard_plane_standard_plane">
  <td style="vertical-align: top;">Standard Plane</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 2100</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 보조 날개(aileron)</li><li><b>MAIN2</b>: 엘리베이터(elevator)</li><li><b>MAIN3</b>: 스로틀</li><li><b>MAIN4</b>: 방향키 (rudder)</li><li><b>MAIN5</b>: 플랩(flaps)</li><li><b>MAIN6</b>: 기어</li></ul></p></td>
@@ -1022,7 +995,7 @@
  <td style="vertical-align: top;"><p>Maintainer: Andreas Antener <andreas@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 2105</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 보조 날개(aileron)</li><li><b>MAIN2</b>: 보조 날개(aileron)</li><li><b>MAIN3</b>: 엘리베이터(elevator)</li><li><b>MAIN4</b>: 방향키 (rudder)</li><li><b>MAIN5</b>: 스로틀</li><li><b>MAIN6</b>: 휠</li><li><b>MAIN7</b>: 플랩(flaps)</li></ul></p></td>
 
 </tr>
-</tbody></table>
+</table>
 
 ## 로버
 
@@ -1041,7 +1014,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="rover_rover_generic_ground_vehicle">
  <td style="vertical-align: top;">일반 지상 기체</td>
  <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 50000</p><p><b>특정 출력:</b><ul><li><b>MAIN2</b>: 조향기(steering)</li><li><b>MAIN4</b>: 스로틀</li></ul></p></td>
@@ -1062,7 +1034,7 @@
  <td style="vertical-align: top;"><p>Maintainer: Timothy Scott</p><p><code>SYS_AUTOSTART</code> = 50003</p><p><b>특정 출력:</b><ul><li><b>MAIN0</b>: 우측 날개 속도</li><li><b>MAIN1</b>: 우측 날개 속도</li></ul></p></td>
 
 </tr>
-</tbody></table>
+</table>
 
 ## VTOL
 
@@ -1081,7 +1053,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="vtol_standard_vtol_hil_standard_vtol_quadplane">
  <td style="vertical-align: top;">HIL 표준 VTOL QuadPlane</td>
  <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@auterion.com></p><p><code>SYS_AUTOSTART</code> = 1002</p></td>
@@ -1127,7 +1098,7 @@
  <td style="vertical-align: top;"><p>Maintainer: Silvan Fuhrer <silvan@auterion.com></p><p><code>SYS_AUTOSTART</code> = 13014</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 보조 날개(aileron)</li><li><b>MAIN2</b>: A-tail left</li><li><b>MAIN3</b>: 푸셔(Pusher) 모터</li><li><b>MAIN4</b>: A-tail left</li><li><b>MAIN5</b>: 모터 1</li><li><b>MAIN6</b>: 모터 2</li><li><b>MAIN7</b>: 모터 3</li><li><b>MAIN8</b>: 모터 4</li></ul></p></td>
 
 </tr>
-</tbody></table>
+</table>
 
 ### VTOL Duo Tailsitter
 
@@ -1140,11 +1111,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 우측 모터</li><li><b>MAIN2</b>: 좌측 모터</li><li><b>MAIN5</b>: 우측 엘러본(elevon)</li><li><b>MAIN6</b>: 우측 엘러본(elevon)</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -1156,7 +1126,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="vtol_vtol_duo_tailsitter_caipiroshka_duo_tailsitter">
  <td style="vertical-align: top;">Caipiroshka Duo Tailsitter</td>
  <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@px4.io></p><p><code>SYS_AUTOSTART</code> = 13001</p></td>
@@ -1167,7 +1136,7 @@
  <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@px4.io></p><p><code>SYS_AUTOSTART</code> = 13200</p></td>
 
 </tr>
-</tbody></table>
+</table>
 
 ### VTOL Octoplane
 
@@ -1180,11 +1149,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: 에일러론(Aileron) 1</li><li><b>AUX2</b>: 에일러론(Aileron) 2</li><li><b>AUX3</b>: 엘리베이터(elevator)</li><li><b>AUX4</b>: 방향키 (rudder)</li><li><b>AUX5</b>: 스로틀</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -1215,11 +1183,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 4</li><li><b>MAIN4</b>: 모터 5</li><li><b>MAIN5</b>: 좌측 엘러본(elevon)</li><li><b>MAIN6</b>: 우측 엘러본(elevon)</li><li><b>MAIN7</b>: 캐너드 표면</li><li><b>MAIN8</b>: 방향키 (rudder)</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -1231,7 +1198,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="vtol_vtol_quad_tailsitter_quadrotor_x_tailsitter">
  <td style="vertical-align: top;">Quadrotor X Tailsitter</td>
  <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@px4.io></p><p><code>SYS_AUTOSTART</code> = 13003</p></td>
@@ -1242,7 +1208,7 @@
  <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@px4.io></p><p><code>SYS_AUTOSTART</code> = 13004</p></td>
 
 </tr>
-</tbody></table>
+</table>
 
 ### VTOL Tiltrotor
 
@@ -1255,11 +1221,10 @@
         공통 출력
       </th>
     </tr>
-<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>AUX1</b>: 틸트 서보</li><li><b>AUX2</b>: 엘러본(elevon) 1</li><li><b>AUX3</b>: 엘러본(elevon) 2</li><li><b>AUX4</b>: 방향키 (rudder)</li></ul></td>
 </tr>
-</tbody>  </table>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -1271,7 +1236,6 @@
     <th>
     </th>
   </tr>
-<tbody>
 <tr id="vtol_vtol_tiltrotor_birdseyeview_aerobotics_firefly6">
  <td style="vertical-align: top;">BirdsEyeView Aerobotics FireFly6</td>
  <td style="vertical-align: top;"><p>Maintainer: Roman Bapst <roman@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13002</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 전면 우측 모터 하단</li><li><b>MAIN2</b>: 전면 우측 모터 하단</li><li>MAIN3</b>: 후면 모터 하단</li><li><b>MAIN4</b>: 후면 모터 상단</li><li><b>MAIN5</b>: 전면 좌측 모터 하단</li><li><b>MAIN6</b>: 전면 좌측 모터 상단</li></ul></p></td>
@@ -1287,4 +1251,4 @@
  <td style="vertical-align: top;"><p>Maintainer: Andreas Antener <andreas@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13012</p><p><b>특정 출력:</b><ul><li><b>MAIN1</b>: 우측 모터</li><li><b>MAIN2</b>: 좌측 모터</li><li><b>MAIN3</b>: 후면 모터</li><li><b>MAIN4</b>: 비어 있음</li><li><b>MAIN5</b></0>: 우측 틸트 서보</li><li><b>MAIN6</b></0>: 좌측 틸트 서보</li><li><b>MAIN7</b>: 우측 엘러본(elevon)</li><li><b>MAIN8</b>: 좌측 엘러본(elevon)</li></ul></p></td>
 
 </tr>
-</tbody></table>
+</table>
