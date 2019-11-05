@@ -26,6 +26,8 @@ If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../ad
 <span></span>
 > **Note** Developers might alternatively modify the [airframe AUX mixer](http://dev.px4.io/master/en/airframes/adding_a_new_frame.html#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
 
+<span></span>
+> **Note** fmu-v5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts. The other pins cannot be used as motor/servo outputs.
 
 ## Configuration {#configuration}
 
