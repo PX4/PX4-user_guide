@@ -88,6 +88,7 @@ See https://github.com/PX4/Firmware/pull/12149 and https://github.com/PX4/Firmwa
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
   * The following input combinations are supported:
     * Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
+      > **Note** Only the yaw setting is actually used/extracted.
 
 ## Offboard Parameters
 
