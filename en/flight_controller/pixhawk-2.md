@@ -103,7 +103,7 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
-### Serial Ports
+### Serial Ports {#serial_ports}
 
 The serial port mappings are as below:
 - **GPS1:**/dev/ttyS3
