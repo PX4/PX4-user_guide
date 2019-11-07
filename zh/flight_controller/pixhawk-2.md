@@ -94,6 +94,15 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
+### Serial Ports {#serial_ports}
+
+The serial port mappings are as below:
+
+- **GPS1:**/dev/ttyS3
+- **TEL1:** /dev/ttyS1
+- **TEL2:** /dev/ttyS2
+- **TEL4:** /dev/ttyS6 (ttyS4 UART) > **Note** `TEL4` is labeled as `GPS2` on Cube.
+
 ### Debug Ports
 
 ![Cube Debug Ports](../../assets/flight_controller/cube/cube_ports_debug.jpg)
@@ -106,7 +115,7 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 
 > **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
+To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
 
     make px4_fmu-v3_default
     
