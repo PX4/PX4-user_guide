@@ -35,9 +35,6 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 * [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
 
-
-
-
 ## Specifications
 
 ### Processor
@@ -105,6 +102,15 @@ The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-
 ### Top-Side (GPS, TELEM etc)
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
+
+### Serial Ports {#serial_ports}
+
+The serial port mappings are as below:
+- **GPS1:**/dev/ttyS3
+- **TEL1:** /dev/ttyS1
+- **TEL2:** /dev/ttyS2
+- **TEL4:** /dev/ttyS6 (ttyS4 UART)
+  > **Note** `TEL4` is labeled as `GPS2` on Cube.
 
 ### Debug Ports
 
