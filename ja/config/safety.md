@@ -82,9 +82,11 @@ The settings and underlying parameters are shown below.
 
 ### Geofence Failsafe
 
-The Geofence is defined as a "virtual" cylinder around the home position. If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
+The *Geofence Failsafe* is a "virtual" cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
 
 ![Safety - Geofence (QGC)](../../images/qgc/setup/safety_geofence.png)
+
+> **Tip** PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
 
 The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.
 
