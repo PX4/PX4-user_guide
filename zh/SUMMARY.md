@@ -66,6 +66,7 @@
   * [Flying 101](flying/basic_flying.md) 
     * [Landing \(Fixed Wing\)](flying/fixed_wing_landing.md)
   * [Missions](flying/missions.md)
+  * [GeoFence](flying/geofence.md)
   * [Flight Modes](flight_modes/README.md) 
     * [Position Mode (MC)](flight_modes/position_mc.md)
     * [Altitude Mode (MC)](flight_modes/altitude_mc.md)
