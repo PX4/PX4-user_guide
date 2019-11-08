@@ -3195,30 +3195,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="COM_KILL_DISARM">COM_KILL_DISARM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Timeout value for disarming when kill switch is engaged
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 30.0 (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      5.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="COM_LOW_BAT_ACT">COM_LOW_BAT_ACT</strong> (INT32)
     </td>
     
