@@ -641,6 +641,11 @@
  <td style="vertical-align: top;"><p>Maintainer: Matt McFadden <matt.mcfadden@tealdrones.com></p><p><code>SYS_AUTOSTART</code> = 4250</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
+<tr id="copter_quadrotor_x_coex_clover_4">
+ <td style="vertical-align: top;">COEX Clover 4</td>
+ <td style="vertical-align: top;"><p>Maintainer: Oleg Kalachev <okalachev@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4500</p></td>
+
+</tr>
 <tr id="copter_quadrotor_x_crazyflie_2">
  <td style="vertical-align: top;">Crazyflie 2</td>
  <td style="vertical-align: top;"><p>Maintainer: Dennis Shtatov <densht@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4900</p></td>
