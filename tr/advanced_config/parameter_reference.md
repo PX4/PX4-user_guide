@@ -33316,6 +33316,9 @@
         <li>
           <strong>0:</strong> Thermal control off
         </li>
+        <li>
+          <strong>1:</strong> Thermal control enabled
+        </li>
       </ul>
     </td>
     
@@ -35090,7 +35093,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1442826
+      0
     </td>
     
     <td style="vertical-align: top;">
