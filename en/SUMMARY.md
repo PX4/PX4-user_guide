@@ -148,7 +148,7 @@
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)
   * [Power module](power_module/REAME.md)
     * [CUAV HV pm](power_module/hv_pm.md)
-    * [CUAV CAN PM](power_module/hv_pm.md)
+    * [CUAV CAN PM](power_module/can_pmu.md)
   * [Distance Sensors \(Rangefinders\)](sensor/rangefinders.md)
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
