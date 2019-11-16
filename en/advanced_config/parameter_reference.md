@@ -10669,6 +10669,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>-1:</strong> Thermal control unavailable</li> 
 
 <li><strong>0:</strong> Thermal control off</li> 
+
+<li><strong>1:</strong> Thermal control enabled</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
@@ -11400,7 +11402,7 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"><strong id="SENS_TEMP_ID">SENS_TEMP_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Target IMU device ID to regulate temperature</p>   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1442826</td>
+ <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
