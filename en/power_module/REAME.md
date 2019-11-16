@@ -6,8 +6,9 @@ PX4 supports multiple types of power modules:
 
 * Analog voltage and current power module
   * [CUAV HV PM](../power_module/hv_pm.md)
-* Uavcan power module
+* [UAVCAN](https://new.uavcan.org/) power module
   * [CUAV CAN PMU](../power_module/can_pmu.md)
   
 Pixahwk power is the ADC interface that can be connected to the Analog voltage and current power module and [Power Module Setup](https://docs.px4.io/master/en/config/battery.html) shows how to set it up.
 
+PX4 is compatible with the [UAVCAN](https://new.uavcan.org/) protocol. The [UAVCAN](https://new.uavcan.org/) power module has more secure and reliable performance and is rapidly evolving.
