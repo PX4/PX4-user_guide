@@ -5,5 +5,6 @@ The power module can provide battery voltage and current information for the dro
 PX4 supports multiple types of power modules:
 
 * Analog voltage and current power module
-  
+  * [CUAV HV PM](../power_module/hv_pm.md)
 * Uavcan power module
+  * [CUAV CAN PMU](../power_module/can_pmu.md)
