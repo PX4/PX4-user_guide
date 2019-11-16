@@ -8,3 +8,6 @@ PX4 supports multiple types of power modules:
   * [CUAV HV PM](../power_module/hv_pm.md)
 * Uavcan power module
   * [CUAV CAN PMU](../power_module/can_pmu.md)
+  
+Pixahwk power is the ADC interface that can be connected to the Analog voltage and current power module and [Power Module Setup](https://docs.px4.io/master/en/config/battery.html) shows how to set it up.
+
