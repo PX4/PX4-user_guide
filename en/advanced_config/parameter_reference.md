@@ -600,6 +600,13 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_ARM_AUTH_REQ">COM_ARM_AUTH_REQ</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Require arm authorization to arm</p><p><strong>Comment:</strong> The default allows to arm the vehicle without a arm authorization.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Require all the ESCs to be detected to arm</p><p><strong>Comment:</strong> This param is specific for ESCs reporting status. Normal ESCs configurations are not affected by the change of this param.</p>   </td>
  <td style="vertical-align: top;"></td>
