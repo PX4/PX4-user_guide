@@ -131,7 +131,7 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
         sudo apt-get install cmake python-empy
 
 2. Clone the PX4 Firmware directly onto the BeagleBone Blue.
-3. Continue with the [standard build system installation](https://dev.px4.io/en/setup/dev_env_linux.html).
+3. Continue with the [standard build system installation](https://dev.px4.io/master/en/setup/dev_env_linux.html).
 
 ## 부팅 중 자동 시작
 
@@ -194,7 +194,7 @@ BeagleBone Blue has some unique features such as multiple choices of WiFi interf
 
 #### SBUS 신호 변환기
 
-SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](https://dev.px4.io/en/tutorials/linux_sbus.html) contains a SBUS signal inverter circuit.
+SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](https://dev.px4.io/master/en/tutorials/linux_sbus.html) contains a SBUS signal inverter circuit.
 
 #### 일반적인 연결
 
