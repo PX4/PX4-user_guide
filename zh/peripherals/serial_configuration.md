@@ -14,7 +14,7 @@ Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (�
 以下功能通常映射到所有板上的相同的特定串口，默认情况下映射为：
 
 * MAVLink 被映射到 `Telem 1` 端口，端口的波特率为 57600 (对于[遥测模块](../telemetry/README.md))。
-* GPS 1 ([gps driver](https://dev.px4.io/en/middleware/modules_driver.html#gps)) 映射到 `GPS 1` 端口，端口具有*自动* 波特率(在此设置下，GPS 将自动检测波特率-除了 Trimble MB-2，它需要115200的波特率)。
+* GPS 1 ([gps driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
 
 默认情况下，所有其他端口都没有指定的功能(禁用)。
 
@@ -50,7 +50,7 @@ You can include the missing driver in firmware by uncommenting (or adding) the d
     #distance_sensor/sf0x
     
 
-然后，您需要为平台编译固件，如 [编译 PX4 软件](https://dev.px4.io/en/setup/building_px4.html) (PX4 开发指南) 中所述。
+You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/master/en/setup/building_px4.html) (PX4 Development Guide).
 
 ## 更多信息
 
