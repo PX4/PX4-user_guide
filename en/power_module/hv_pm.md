@@ -1,6 +1,4 @@
 # HV PM(High voltage power module)
----
-The V5 series Autopilot kit includes the HV PM module. The following mainly describes how to set and use the HV_PM(high voltage power module).
 
 ## Overview：
 
@@ -12,4 +10,8 @@ The CUAV HV_PM module is a new high voltage voltage power module independently d
 * Bec (5v) max current: 5A
 * Max (detection) current: 60A
 * Max output current(ESC/MOTOR PORT): 60A
+
+## Purchase:
+
+[CUAV aliexpress store](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
 
