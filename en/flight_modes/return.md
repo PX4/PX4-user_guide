@@ -20,7 +20,7 @@ At the end there are sections explaining the *default* (preconfigured) behaviour
 
 PX4 allows you to specify one of three different approaches for finding an unobstructed path to a safe destination and/or landing:
 - [Safety point return](#safety_point_return) ([RTL_TYPE=0](#RTL_TYPE)): Ascend to safe altitude and return to a safe point (home location)
-- [Mission landing return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to start of mission landing (if defined) and land.
+- [Mission landing return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to start of a [mission landing pattern](#mission_landing_pattern) (if defined) and land.
 - [Mission path return](#mission_path_return) (`RTL_TYPE=2`): Use mission path and continue to mission landing (if defined). If no mission landing defined, reverse mission to home.
 
 For the mission based return types, the vehicle will fall back to a safe point return if no mission/mission landing is defined.
@@ -44,7 +44,11 @@ In this return type the vehicle:
 
 This return type uses a *mission landing pattern* (if defined) to set the return destination and landing behaviour.
 
+<span id="mission_landing_pattern"></span>
 > **Note** A mission landing pattern consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND).
+
+<span></span>
+> **Warning** When this type is set PX4 will reject any mission without a valid landing pattern.
 
 If a mission landing has been defined, the vehicle will:
 - Ascend to a safe [return altitude](#return_altitude) above any expected obstacles.
