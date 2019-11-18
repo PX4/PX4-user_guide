@@ -71,7 +71,7 @@ Download **V5 nano** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make px4_fmu-v5_default
     
