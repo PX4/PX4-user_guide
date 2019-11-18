@@ -15,7 +15,7 @@ The following sections explain how to configure the [return type](#return_types)
 PX4 allows you to specify one of three different approaches for finding an unobstructed path to a safe destination and/or landing:
 
 - [Safety point return](#safety_point_return) ([RTL_TYPE=0](#RTL_TYPE)): Ascend to safe altitude and return to a safe point (home location)
-- [Mission landing return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to start of mission landing (if defined) and land.
+- [Mission landing return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to start of a [mission landing pattern](#mission_landing_pattern) (if defined) and land.
 - [Mission path return](#mission_path_return) (`RTL_TYPE=2`): Use mission path and continue to mission landing (if defined). If no mission landing defined, reverse mission to home.
 
 For the mission based return types, the vehicle will fall back to a safe point return if no mission/mission landing is defined.
@@ -40,7 +40,13 @@ In this return type the vehicle:
 
 This return type uses a *mission landing pattern* (if defined) to set the return destination and landing behaviour.
 
+<span id="mission_landing_pattern"></span>
+
 > **Note** A mission landing pattern consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND).
+
+<span></span>
+
+> **Warning** When this type is set PX4 will reject any mission without a valid landing pattern.
 
 If a mission landing has been defined, the vehicle will:
 
@@ -165,4 +171,4 @@ The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced
 | <span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)       | Minimum horizontal distance from home position to trigger ascent to the return altitude specified by the "cone". If the vehicle is horizontally closer than this distance to home, it will return at its current altitude or `RTL_DESCEND_ALT` (whichever is higher) instead of first ascending to RTL_RETURN_ALT).                                            |
 | <span id="RTL_CONE_ANG"></span>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)       | Half-angle of the cone that defines the vehicle RTL return altitude. Values (in degrees): 0, 25, 45, 65, 80, 90. Note that 0 is "no cone" (always return at `RTL_RETURN_ALT` or higher), while 90 indicates that the vehicle must return at the current altitude or `RTL_DESCEND_ALT` (whichever is higher).                                                     |
 | <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | If enabled stick movement gives control back to the pilot in [Position mode](../flight_modes/position_mc.md) (except when vehicle is handling a critical battery failsafe). Enabled by default.                                                                                                                                                                  |
-| <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)   | [Fixed Wing Only] The radius of the loiter circle (at [RTL_LAND_DELAY](#RTL_LAND_DELAY).                                                                                                                                                                                                                                                                       |
+| <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)  | [Fixed Wing Only] The radius of the loiter circle (at [RTL_LAND_DELAY](#RTL_LAND_DELAY).                                                                                                                                                                                                                                                                       |
