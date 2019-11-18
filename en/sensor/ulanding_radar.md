@@ -26,4 +26,4 @@ There is no need to set the baud rate for the port, as this is configured by the
 
 ## Further Information
 
-* [PX4 Development Guide](https://dev.px4.io/en/)
+* [PX4 Development Guide](https://dev.px4.io/master/en/)

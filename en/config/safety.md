@@ -57,11 +57,13 @@ Battery Warn Level | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT
 Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.
 
 
-### RC Loss Failsafe
+### RC Loss Failsafe {#rc_loss_failsafe}
 
 The RC Loss failsafe is triggered if the RC transmitter link is lost.
 
 ![Safety - RC Loss (QGC)](../../images/qgc/setup/safety_rc_loss.png)
+
+> **Note** PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
 
 The settings and underlying parameters are shown below.
 
@@ -88,10 +90,12 @@ Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DL
 
 ### Geofence Failsafe
 
-The Geofence is defined as a "virtual" cylinder around the home position.
+The *Geofence Failsafe* is a "virtual" cylinder centered around the home position.
 If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
 
 ![Safety - Geofence (QGC)](../../images/qgc/setup/safety_geofence.png)
+
+> **Tip** PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
 
 The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.
 
@@ -113,7 +117,7 @@ Geofence source | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURC
 <span id="CBRK_FLIGHTTERM"></span>Circuit breaker for flight termination | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Enables/Disables flight termination action (disabled by default).
 
 
-### Return Home Settings {#return_settings}
+### Return Mode Settings {#return_settings}
 
 *Return* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. 
 This section shows how to set the land/loiter behaviour after returning.
@@ -144,7 +148,7 @@ The settings and underlying parameters are shown below:
 
 Setting | Parameter | Description
 --- | --- | ---
-Disarm After | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing, and enter delay after landing before disarming. The value must be non-zero but can be a fraction of a second.
+Disarm After | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing. The value must be non-zero but can be a fraction of a second.
 Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED) | Rate of descent (MC only).
 
 
@@ -158,7 +162,8 @@ The *Position Loss Failsafe* is triggered if the quality of the PX4 position est
 
 The failure action is controlled by [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL), based on whether RC control is assumed to be available (and altitude information):
 * `0`: Remote control available. Switch to *Altitude mode* if a height estimate is available, otherwise *Stabilized mode*.
-* `1`: Remote control *not* available. Switch to *Land mode* if a height estimate is available, otherwise enter flight termination.
+* `1`: Remote control *not* available.
+  Switch to *Land mode* if a height estimate is available, otherwise enter flight termination.
 
 Fixed Wing vehicles additionally have a parameter ([NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT)) for defining how long they will loiter (circle) after losing position before attempting to land. 
 
@@ -252,14 +257,11 @@ Parameter | Description
 <span id="FD_FAIL_R_TTRI"></span>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | Time to exceed [FD_FAIL_R](#FD_FAIL_R) for failure detection (default 0.3s).
 
 
-## Safety Switches {#safety_switch}
+## Emergency Switches {#safety_switch}
 
-A safety switch allows you to immediately stop all motors or return the vehicle from the remote control transmitter
-(if you lose control of the vehicle, this may be better than allowing it to continue flying).
+Remote control switches can be configured (as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md)) to allow you to take rapid corrective action in the event of a problem or emergency; for example, to stop all motors, or activate [Return mode](#return_switch).
 
-The safety switches may be enabled as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md).
-
-This section lists the available safety switches.
+This section lists the available emergency switches.
 
 ### Kill Switch {#kill_switch}
 
@@ -269,8 +271,9 @@ After 5 seconds the vehicle will automatically disarm; you will need to arm it a
 
 ### Arm/Disarm Switch {#arming_switch}
 
-The arm/disarm switch is a replacement for the default stick arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop). It might be used in preference to the default mechanism because:
-- Of a preference of a switch over a stick motion (e.g. if using a stick on another autopilot).
+The arm/disarm switch is a *direct replacement* for the default stick-based arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop).
+It might be used in preference to the default mechanism because:
+- Of a preference of a switch over a stick motion.
 - It avoids accidentally triggering arming/disarming in-air with a certain stick motion.
 - There is no delay (it reacts immediately).
 
@@ -280,7 +283,10 @@ The arm/disarm switch immediately disarms (stop) motors for those [flight modes]
 - *Stabilized*
 - *Rattitude*
 
-For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
+For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected.
+This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
+
+> **Note** [Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work. 
 
 <!-- 
 > **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel. 
@@ -292,6 +298,19 @@ For modes that do not support disarming in flight, the switch is ignored during 
 
 A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
 
+
+## Other Safety Settings
+
+### Auto-disarming Timeouts {#auto-disarming-timeouts}
+
+You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
+
+The [relevant parameters](../advanced_config/parameters.md) are shown below:
+
+Parameter | Description
+--- | ---
+<span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Timeout for auto-disarm after landing.
+<span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff.
 
 ## Further Information
 

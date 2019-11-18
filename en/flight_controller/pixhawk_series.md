@@ -19,9 +19,9 @@ Key benefits of using a *Pixhawk series* controller include:
 * Automated update of latest firmware via *QGroundControl* (end-user friendly).
 
 
-## Recommended Boards
+## Recommended Boards {#recommended}
 
-The following products in the series are recommended/regularly tested with PX4:
+The following products in the series are regularly tested with PX4:
 
 * [mRo Pixhawk](../flight_controller/mro_pixhawk.md)
 * [HKPilot32](../flight_controller/HKPilot32.md)
@@ -37,7 +37,8 @@ The following products in the series are recommended/regularly tested with PX4:
 * [V5+](../flight_controller/cuav_v5_plus.md)
 * [V5 nano](../flight_controller/cuav_v5_nano.md)
 
-> **Note** This is not an exhaustive list of all boards that can run PX4. Other boards are linked from the sidebar, and there may be other flight controllers that we have not documented.
+> **Note** This is not an exhaustive list of all boards that can run PX4.
+Other boards are linked from the sidebar, and there may be other flight controllers that we have not documented.
 
 The rest of this topic explains a bit more about the Pixhawk series, but is not required reading.
 
@@ -45,25 +46,28 @@ The rest of this topic explains a bit more about the Pixhawk series, but is not 
 
 The [Pixhawk project](https://pixhawk.org/) creates open hardware designs in the form of schematics, which define a set of components (CPU, sensors, etc.) and their connections/pin mappings.
 
-Manufacturers are encouraged to take the [open designs](https://github.com/PX4/Hardware#hardware) and create products that are best suited to a particular market or use case (the physical layout/form factor not part of the open specification). Boards based on the same design are binary compatible.
+Manufacturers are encouraged to take the [open designs](https://github.com/pixhawk/Hardware) and create products that are best suited to a particular market or use case (the physical layout/form factor not part of the open specification). Boards based on the same design are binary compatible.
 
 > **Note** While a physical connector standard is not mandated, newer products generally follow the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/).
 
 The project also creates reference autopilot boards based on the open designs, and shares them under the same [licence](#licensing-and-trademarks).
 
-### FMU Versions
+### FMU Versions {#fmu_versions}
 
 The Pixhawk project has created a number of different open designs/schematics.
 All boards based on a design should be binary compatible (run the same firmware).
 
 Each design is named using the designation: FMUvX (e.g.: FMUv1, FMUv2, FMUv3, FMUv4, etc.).
-Higher FMU numbers indicate that the board is more recent,
-but may not indicate increased capability (versions can be almost identical - differing only in connector wiring).
+Higher FMU numbers indicate that the board is more recent, but may not indicate increased capability (versions can be almost identical - differing only in connector wiring).
 
 PX4 *users* generally do not need to know very much about FMU versions:
-- *QGroundControl* automatically downloads the correct firmware for a connected autopilot (based on its FMU version "under the hood").
-- Choosing a controller is usually based on physical constraints/form factor rather than FMU version.
+  - *QGroundControl* automatically downloads the correct firmware for a connected autopilot (based on its FMU version "under the hood").
+  - Choosing a controller is usually based on physical constraints/form factor rather than FMU version.
 
+  > **Note** The exception is that if you're using FMUv2 firmware it is [limited to 1MB of flash](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata).
+  In order to fit PX4 into this limited space, many modules are disabled by default.
+  You may find that some [parameters are missing](../advanced_config/parameters.md#missing) and that some hardware does not work "out of the box".
+  
 PX4 *developers* need to know the FMU version of their board, as this is required to build custom hardware.
 
 At very high level, the main differences are:
@@ -74,7 +78,7 @@ At very high level, the main differences are:
 - **FMUv4-PRO:** Slightly increased RAM. More serial ports. IO processor ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
 - **FMUv5:** New processor (F7). Much faster. More RAM. More CAN busses. Much more configurable.([Pixhawk 4](../flight_controller/pixhawk4.md),[CUAV v5](../flight_controller/cuav_v5.md),[CUAV V5+](../flight_controller/cuav_v5_plus.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
 
-### Licensing and trademarks
+### Licensing and Trademarks {#licensing-and-trademarks}
 
 Pixhawk project schematics and reference designs are licensed under [CC BY-SA 3](https://creativecommons.org/licenses/by-sa/3.0/legalcode).
 

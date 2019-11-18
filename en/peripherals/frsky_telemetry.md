@@ -5,25 +5,28 @@ FrSky telemetry allows you to access vehicle [telemetry/status](#messages) infor
 Available [telemetry is listed here](#messages), and includes: flight mode, battery level, RC signal strength, speed, altitude etc. 
 Some transmitters can additionally provide audible and vibration feedback, which is particularly useful for low battery and other failsafe warnings.
 
-PX4 supports both [S.Port](#s_port) (new) and D (old) FrSky telemetry ports. 
-
+PX4 supports both [S.Port](#s_port) (new) and D (old) FrSky telemetry ports.
 
 ## Hardware Setup
 
-A typical hardware setup is shown below. 
+A typical hardware setup for the Pixhawk/S.Port telemetry connection is shown below.
 
 ![FrSky-Taranis-Telemetry](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
 
-It includes:
+> **Note** The diagram below shows *only* the connection for telemetry!
+  You will still need to [separately connect the reciever for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers).
+
+The setup includes:
 
 * An [FrSky-compatible RC transmitter](#transmitters) like the FrSky Taranis X9D Plus.
 * An [FrSky telemetry-capable receiver](#receivers) like the XSR and X8R.
-* A cable to connect the flight controller telemetry port to the FrSky receiver (this is separate from the connection for RC channels).
+* A cable to connect the FrSky receiver Smart Port to a flight controller UART.
 
-With the exception of [Pixracer](../flight_controller/pixracer.md), Pixhawk-series UART ports and receiver telemetry ports are incompatible, and must (usually) be connected via an adapter. 
-
-> **Tip** Usually it is cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
-  Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
+  > **Warning** Except for [Pixracer](../flight_controller/pixracer.md), Pixhawk-series UART ports and receiver telemetry ports are incompatible, and must (usually) be connected via an adapter. 
+  
+  <span></span>
+  > **Tip** Usually it is cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
+    Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
 
 
 ### Ready-Made Cables {#ready_made_cable}
@@ -34,7 +37,7 @@ Ready-made cables (which include the required adapters) are available from:
   <a href="http://www.craftandtheoryllc.com/telemetry-cable"><img src="../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg" alt="Purchase cable here from Craft and Theory"></a>
 
   
-## PX4 Configuration
+## PX4 Configuration {#configure}
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which FrSky will run using [TEL_FRSKY_CONFIG](../advanced_config/parameter_reference.md#TEL_FRSKY_CONFIG). 
 There is no need to set the baud rate for the port, as this is configured by the driver.

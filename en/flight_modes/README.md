@@ -196,7 +196,7 @@ th {
  <td><a href="../flight_modes/return.md">Return</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td>Vehicle ascends to a safe height and then returns to its home position and circles. </td>
+ <td>Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).</td>
 </tr>
 
 
@@ -401,8 +401,7 @@ th {
  <td><a href="../flight_modes/return.md">Return</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td>Vehicle ascends to a safe height and then returns to its home position and lands. 
-</td>
+ <td>Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).</td>
 </tr>
 
 
@@ -410,7 +409,7 @@ th {
  <td><a href="../flight_modes/mission.md">Mission</a></td>
  <td colspan="3">Auto</td>
  <td><a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="20px" /></a></td>
- <td>Vehicle executes a <a href="../flying/missions.md">predefined mission/flight plan</a> that has been uploaded to the flight controller. </td>
+ <td>Vehicle executes a <a href="../flying/missions.md">predefined mission/flight plan</a> that has been uploaded to the flight controller.</td>
 </tr>
 
 <tr id="followme_mc">
@@ -456,6 +455,4 @@ Auto | This mode is automatic (RC control is disabled by default except to chang
 Abbreviations:
   * RPY: Roll, Pitch, Yaw
   * RPT: Roll, Pitch Throttle
-
-
 

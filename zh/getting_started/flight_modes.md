@@ -1,14 +1,12 @@
 # PX4 飞行模式总览
 
-> **Warning** 该主题正在建设中。 它尚未完整，尚未经过全面审核。
-
 飞行模式定义了自驾仪如何响应遥控输入，以及它如何在全自主飞行期间管理飞行器运动。
 
 这些模式为用户（飞行员）提供不同类型／级别的自动驾驶辅助，包括从起飞和着陆等常见任务的自动化，到更容易重新获得水平飞行及将飞行器保持在固定路径或位置的机制，等等。
 
 这一主题概述了可用的飞行模式，以及多旋翼飞行器（MC）、固定翼（FW）和 VTOL 默认行为中的（大部分情况下很小）差异。
 
-> **Tip** 关于特定飞行模式的详细信息，请参考 [飞行 > 飞行模式](../flight_modes/README.md)。
+> **Tip** More detailed information about specific flight modes can be found in [Flying > Flight Modes](../flight_modes/README.md).
 
 ## 飞行模式切换
 
@@ -18,21 +16,23 @@
 
 一些飞行模式仅在飞行前和飞行中某些特定条件下起作用（如 GPS 锁定，空速传感器，某个轴的姿态感测）。 除非满足合适的条件，否则 PX4 不会允许切换到这些模式。
 
+Last of all, in [autonomous modes](#categories) RC stick movement will [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) when flying as a multicopter (unless handling a critical battery failsafe). Stick movement is ignored for fixed-wing flight.
+
 ## 自主和手动模式 {#categories}
 
-Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模式是用户通过 RC 控制杆（或操纵杆）控制飞行器运动的模式，然而 *自主*模式完全由自驾仪控制，并且不需要驾驶员／遥控输入。
+Flight Modes are, generally speaking, either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and *require* no pilot/remote control input.
 
-> **Tip** 某些手动模式可能具有自驾辅助机制，以便更容易获得或恢复受控飞行。 如当遥控摇杆居中时，大部分飞行模式将使飞行器水平。
+> **Tip** Some manual modes may have autopilot-assisted mechanisms to make it easier to gain or restore controlled flight. For example, most modes will level out the vehicle when the RC sticks are centered.
 
-手动模式可以进一步分为 “简单” 和 ”特技“ 模式。 在简单模式中，滚转和俯仰摇杆设定飞行器角度，这将会分别导致*水平面上*的左右和前后运动。 这将不仅可以使运动变得可预测，而且因为角度受控，飞行器无法翻转。 在特技模式中，RC 摇杆控制角度旋转的速率（绕相应轴）。 飞行器可以翻转，虽然机动性更强，但更难飞行。
+Manual modes may further be divided into "easy" and "acrobatic" modes. In the easy modes, roll and pitch sticks set the vehicle angle, resulting in left-right and forward-back movement *in the horizontal plane* (respectively). Not only does this make movement predictable, but because angles are controlled, the vehicle is impossible to flip. In acrobatic modes RC sticks control the rate of angular rotation (around the respective axis). Vehicles can flip, and while more maneuverable, are harder to fly.
 
-固定翼:
+Fixed Wing:
 
 * 手动－简单： [位置](#position_fw), [高度](#altitude_fw), [自稳](#stabilized_fw), [手动](#manual_fw)
 * 手动－特技：[特技](#acro_fw)
 * Autonomous: [Hold](#hold_fw), [Return](#return_fw), [Mission](#mission_fw), [Takeoff](#takeoff_fw), [Land](#land_fw), [Offboard](#offboard_fw)
 
-多旋翼:
+Multicopter:
 
 * Manual-Easy: [Position](#position_mc), [Altitude](#altitude_mc), [Manual/Stabilized](#manual_stabilized_mc), [Orbit](#orbit_mc)
 * 手动-特技： [半自动](#rattitude_mc), [特技](#acro_mc)
@@ -40,7 +40,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
 
 ## 键
 
-本文档中使用下列的图标在<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a></td> 
+The icons below are used within the document:<span id="key_manual"><a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a></td> 
 
 <td>
   手动模式 需要遥控
@@ -89,21 +89,21 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
-              <a href="../flight_modes/position_mc.md">位置模式</a> 是一种容易飞行的 RC 模式，其中滚转和俯仰摇杆在左右和前后方向控制相对地面的速度。 当摇杆被释放／居中时，车辆将主动制动，保持水平，并锁定到 3D 空间的某个位置-消除风和其它力的影响。
+              <a href="../flight_modes/position_mc.md">Position mode</a> is an easy-to-fly RC mode in which roll and pitch sticks control speed over ground in the left-right and forward-back directions (relative to the "front" of the vehicle), and throttle controls speed of ascent-descent. When the sticks are released/centered the vehicle will actively brake, level, and be locked to a position in 3D space — compensating for wind and other forces.
             </p>
             
             <blockquote>
               <p>
-                <strong>Tip</strong>位置模式是新飞手最安全的手动模式。 与 <a href="#altitude_mc">高度</a> 和 <a href="#manual_stabilized_mc">手动/自稳</a> 模式不同，当摇杆居中时，飞行器将会制动，而不是继续运动直到风阻使其减速。
+                <strong>Tip</strong> Position mode is the safest manual mode for new fliers. Unlike <a href="#altitude_mc">Altitude</a> and <a href="#manual_stabilized_mc">Manual/Stabilized</a> modes the vehicle will stop when the sticks are centered rather than continuing until slowed by wind resistance.
               </p>
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/position_MC.png" alt="多旋翼位置模式" />
+              <img src="../../images/flight_modes/position_MC.png" alt="MC Position Mode" />
             </p>
             
             <h3 id="altitude_mc">
@@ -111,25 +111,25 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="所需高度（例如巴罗、测距仪）" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#altitude_only"><img src="../../assets/site/altitude_icon.svg" title="Altitude required (e.g. Baro, Rangefinder)" width="30px" /></a>
             </p>
             
             <p>
-              <a href="../flight_modes/altitude_mc.md">高度模式</a>是一个 <em>相对</em> 容易飞行的 RC 模式，其中滚转和俯仰摇杆控制飞行器在左右和前后方向（相对飞行器的”前面“）的运动，偏航摇杆控制水平面的旋转速率，油门摇杆控制升降的速度。
+              <a href="../flight_modes/altitude_mc.md">Altitude mode</a> is a <em>relatively</em> easy-to-fly RC mode in which roll and pitch sticks control vehicle movement in the left-right and forward-back directions (relative to the "front" of the vehicle), yaw stick controls rate of rotation over the horizontal plane, and throttle controls speed of ascent-descent.
             </p>
             
             <p>
-              当杆被释放/回中时，飞机将恢复水平并保持当前的<em>高度</em>。 如果在水平面上运动，飞机将继持续运动直到任何动量被风阻力消散。 如果刮风，飞机会向风的方向漂移。
+              When the sticks are released/centered the vehicle will level and maintain the current <em>altitude</em>. If moving in the horizontal plane the vehicle will continue until any momentum is dissipated by wind resistance. If the wind blows the aircraft will drift in the direction of the wind.
             </p>
             
             <blockquote>
               <p>
-                <strong>Tip</strong><em>高度模式</em> 是新飞手在没有 GPS 的手动模式中最安全的模式。 它就像 <a href="#manual_stabilized_mc">手动/自稳</a> 模式，但在释放摇杆时还额外可以稳定飞行器高度。
+                <strong>Tip</strong> <em>Attitude mode</em> is the safest non-GPS manual mode for new fliers. It is just like <a href="#manual_stabilized_mc">Manual/Stabilized</a> mode but additionally stabilizes the vehicle altitude when the sticks are released.
               </p>
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/altitude_MC.png" alt="多旋翼高度模式" />
+              <img src="../../images/flight_modes/altitude_MC.png" alt="MC Altitude Mode" />
             </p>
             
             <h3 id="manual_stabilized_mc">
@@ -137,7 +137,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="中等飞行难度" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_medium.png" title="Medium difficulty to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
             </p>
             
             <p>
@@ -146,20 +146,20 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             
             <blockquote>
               <p>
-                <strong>Note</strong>如果为 MC 飞行器设置 <em>手动</em>　或 <em>自稳</em>　模式，则启用此多旋翼模式。
+                <strong>Note</strong> This multicopter mode is enabled if you set either <em>Manual</em> or <em>Stabilized</em> modes for an MC vehicle.
               </p>
             </blockquote>
             
             <p>
-              当在手动控制下，滚转和俯仰摇杆控制飞行器角度（姿态），偏航摇杆控制水平面内的旋转速率，油门摇杆控制高度／速度。
+              When under manual control the roll and pitch sticks control the angle of the vehicle (attitude), the yaw stick controls the rate of rotation above the horizontal plane, and the throttle controls altitude/speed.
             </p>
             
             <p>
-              As soon as you release the control sticks they will return to the center deadzone. 一旦滚转和俯仰摇杆居中，多旋翼飞行器将会水平并停止。 假如被合适的平衡，油门被合适的设定，并且没有施加外部力（如风），飞行器将会悬停在适当位置／保持高度。 飞行器将会朝着风的方向飘移，并且必须控制油门以保持高度。
+              As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately, and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_stabilized_MC.png" alt="多旋翼手动飞行" />
+              <img src="../../images/flight_modes/manual_stabilized_MC.png" alt="MC Manual Flight" />
             </p>
             
             <h3 id="rattitude_mc">
@@ -167,15 +167,15 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
             </p>
             
             <p>
-              <a href="../flight_modes/rattitude_mc.md">半自稳模式</a> 允许飞行员在大多数时间使用<a href="#manual_stabilized_mc">手动/自稳</a>飞行，但在需要时仍然可以执行 <a href="#acro_mc">特技模式</a>式的翻转和其它技巧。
+              <a href="../flight_modes/rattitude_mc.md">Rattitude mode</a> allows pilots to fly using <a href="#manual_stabilized_mc">Manual/Stabilized</a> flight most of the time, but still perform <a href="#acro_mc">Acro mode</a>-style flips and tricks when desired.
             </p>
             
             <p>
-              当滚转／俯仰摇杆在中心区域移动时，飞行器表现为 <em>手动/自稳 模式</em>；当摇杆在外围区域移动时，飞行器表现为特技模式（默认情况下，手动／自稳模式占据摇杆范围的 80%）。 当摇杆居中时，多旋翼飞行器将会水平（但是仍然在会在风和预先存在的动量方向上漂移）。
+              The vehicle behaves as in <em>Manual/Stabilized mode</em> when the Roll/Pitch stick is moved within the central area and like <em>Acro mode</em> when the stick is moved in the outer circumference (by default Manual/Stabilized mode occupies about 80% of the range). When the sticks are centered the multicopter will level out (but will still drift in the direction of any wind and with any pre-existing momentum).
             </p>
             
             <!-- Image missing: https://github.com/PX4/px4_user_guide/issues/189 -->
@@ -185,19 +185,19 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
             </p>
             
             <p>
-              <a href="../flight_modes/acro_mc.md">特技模式</a>是用于执行特技动作的 RC 模式，如滚转和环绕。
+              <a href="../flight_modes/acro_mc.md">Acro mode</a> is the RC mode for performing acrobatic maneuvers e.g. rolls and loops.
             </p>
             
             <p>
-              滚转、俯仰和偏航杆控制绕相应轴的旋转角速率，并且油门直接传递到输出混控器。 当操纵杆居中时，飞机将停止旋转，但保持其当前朝向（在其侧面，倒置或任何其他方向）并根据当前动量移动。
+              The roll, pitch and yaw sticks control the rate of angular rotation around the respective axes and throttle is passed directly to the output mixer. When sticks are centered the vehicle will stop rotating, but remain in its current orientation (on its side, inverted, or whatever) and moving according to its current momentum.
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_acrobatic_MC.png" alt="手动特技飞行" />
+              <img src="../../images/flight_modes/manual_acrobatic_MC.png" alt="MC Manual Acrobatic Flight" />
             </p>
             
             <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
@@ -207,7 +207,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -227,7 +227,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -239,11 +239,15 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
-              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to return (at a safe height) to its home position and land. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
+              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly a clear path to a safe location. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a <a href="../config/safety.md">failsafe</a> being triggered).
+            </p>
+            
+            <p>
+              The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a mulitcopter will simply ascend to a safe height, fly to its home position, and then land.
             </p>
             
             <h3 id="mission_mc">
@@ -251,7 +255,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -260,7 +264,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             
             <blockquote>
               <p>
-                <strong>Tip</strong> PX4 GCS 称为 <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>。 <em>QGroundControl</em>是我们用来 <a href="../config/README.md">配置 PX4</a>的相同的应用程序。
+                <strong>Tip</strong> The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
               </p>
             </blockquote>
             
@@ -269,7 +273,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -281,7 +285,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -314,7 +318,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             
             <blockquote>
               <p>
-                <strong>Note</strong> 此模式适用于机载计算机和地面站。
+                <strong>Note</strong> This mode is intended for companion computers and ground stations!
               </p>
             </blockquote>
             
@@ -327,7 +331,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="易于使用" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_easy.png" title="Easy to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -340,7 +344,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             
             <blockquote>
               <p>
-                <strong>Tip</strong>位置模式是新飞手最安全的固定翼手动模式。
+                <strong>Tip</strong> Position mode is the safest fixed-wing manual mode for new fliers.
               </p>
             </blockquote>
             
@@ -370,7 +374,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             
             <blockquote>
               <p>
-                <strong>Tip</strong> <em>高度模式</em> 是最安全的非 GPS 引导模式，适合初学者学习如何飞行。 这就像 <a href="#manual_fw">手动</a>模式，但当俯仰摇杆被释放，额外稳定飞行器的高度。
+                <strong>Tip</strong> <em>Altitude mode</em> is the safest non GPS guided mode appropriate for beginners learning how to fly. It is just like <a href="#manual_fw">Manual</a> mode but additionally stabilizes the vehicle altitude when the pitch stick is released.
               </p>
             </blockquote>
             
@@ -396,7 +400,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             
             <blockquote>
               <p>
-                <strong>Tip</strong> <em>自稳模式 </em>比 <a href="#manual_fw">手动模式 </a>更容易飞行，因为您不能翻转它，并且很容易通过居中摇杆来使飞行器水平。
+                <strong>Tip</strong> <em>Stabilized mode</em> is much easier to fly than <a href="#manual_fw">Manual mode</a> because you can't roll or flip it, and it is easy to level the vehicle by centering the control sticks.
               </p>
             </blockquote>
             
@@ -413,7 +417,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="很难飞" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="需要手动或遥控控制" width="30px" /></a>&nbsp;
+              <a href="#key_difficulty"><img src="../../assets/site/difficulty_hard.png" title="Hard to fly" width="30px" /></a>&nbsp;<a href="#key_manual"><img src="../../assets/site/remote_control.svg" title="Manual/Remote control required" width="30px" /></a>&nbsp;
             </p>
             
             <p>
@@ -442,7 +446,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             
             <blockquote>
               <p>
-                <strong>Tip</strong>这是最难飞行的模式，因为没有什么是稳定的。 与<a href="#acro_fw">特技模式</a>不同，如果 RP 摇杆居中，飞行器将不会自动停止绕轴转动-飞行员实际上必须移动摇杆以向另一个方向施加力。
+                <strong>Tip</strong> This is the hardest mode to fly, because nothing is stabilised. Unlike <a href="#acro_fw">Acro Mode</a> if the RP stick is centered the vehicle will not automatically stop rotating around the axis - the pilot actually has to move the stick to apply force in the other direction.
               </p>
             </blockquote>
             
@@ -455,7 +459,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             
             <blockquote>
               <p>
-                <strong>Note</strong> 这是唯一忽略 FMU 的模式（即命令通过安全协处理器发送）。 它提供了一个安全机制，允许在 FMU 固件出现故障时，通过遥控完全控制油门、升降舵、副翼和方向舵。
+                <strong>Note</strong> This is the only mode that overrides the FMU (commands are sent via the safety coprocessor). It provides a safety mechanism that allows full control of throttle, elevator, ailerons and rudder via RC in the event of an FMU firmware malfunction.
               </p>
             </blockquote>
             
@@ -464,7 +468,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="需要定位修复（例如GPS）" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -476,11 +480,15 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
-              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly back to its home position (at a safe height) and circle over it. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
+              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly a clear path to a safe location. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a <a href="../config/safety.md">failsafe</a> being triggered).
+            </p>
+            
+            <p>
+              The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a fixed wing vehicle will ascend to a safe height and use a mission landing pattern if one exists, otherwise it will fly to the home position and circle.
             </p>
             
             <h3 id="mission_fw">
@@ -488,7 +496,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             </h3>
             
             <p>
-              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="自动模式" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
+              <a href="#key_automatic"><img src="../../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /></a>&nbsp;<a href="#key_position_fixed"><img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /></a>
             </p>
             
             <p>
@@ -497,7 +505,7 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
             
             <blockquote>
               <p>
-                <strong>Tip</strong> PX4 GCS 称为 <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>。 我们同样使用<em>QGroundControl</em>来配置 PX4。
+                <strong>Tip</strong> The PX4 GCS is called <a href="https://docs.qgroundcontrol.com/en/">QGroundControl</a>. <em>QGroundControl</em> is the same application we use for <a href="../config/README.md">configuring PX4</a>.
               </p>
             </blockquote>
             
@@ -559,15 +567,25 @@ Flight Modes are, generally speaking, either *manual* or *autonomous*. 手动模
               The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
             </p>
             
+            <p>
+              A few notes:
+            </p>
+            
+            <ul>
+              <li>
+                VTOL <a href="../flight_modes/return.md">Return mode</a> uses a mission landing by default, if defined.
+              </li>
+            </ul>
+            
             <h2>
               更多信息
             </h2>
             
             <ul>
               <li>
-                <a href="../flight_modes/README.md">飞行> 飞行模式 </a> - 所有模式的详细技术说明。
+                <a href="../flight_modes/README.md">Flying > Flight Modes</a> - Detailed technical explanation of all modes
               </li>
               <li>
-                <a href="../config/flight_mode.md">基本配置 > 飞行模式 </a> - 如何将 RC 控制开关映射到特定飞行模式。
+                <a href="../config/flight_mode.md">Basic Configuration > Flight Modes</a> - How to map RC control switches to specific flight modes
               </li>
             </ul>

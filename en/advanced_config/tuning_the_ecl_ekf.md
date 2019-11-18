@@ -179,7 +179,7 @@ These can be tuned by flying the vehicle in [Position mode](../flight_modes/posi
 This is then repeated for right/left movement with adjustment of [EKF2_BCOEF_Y](../advanced_config/parameter_reference.md#EKF2_BCOEF_Y) to minimise the `ekf2_innovations_0.drag_innov[1]` innovation sequence. 
 Tuning is easier if this testing is conducted in still conditions.
 
-If you are able to log data without dropouts from boot using [SDLOG_MODE = 1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE = 2](../advanced_config/parameter_reference.md#SDLOG_PROFILE), have access to the development environment, and are able to build code, then we recommended you fly *once* and perform the tuning on logs generated via [EKF2 Replay](https://dev.px4.io/en/debug/system_wide_replay.html#ekf2-replay) of the flight data.
+If you are able to log data without dropouts from boot using [SDLOG_MODE = 1](../advanced_config/parameter_reference.md#SDLOG_MODE) and [SDLOG_PROFILE = 2](../advanced_config/parameter_reference.md#SDLOG_PROFILE), have access to the development environment, and are able to build code, then we recommended you fly *once* and perform the tuning on logs generated via [EKF2 Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html#ekf2-replay) of the flight data.
 
 ### Optical Flow
 
@@ -191,11 +191,31 @@ Optical flow data will be used if the following conditions are met:
 
 ### External Vision System
 
-Position and Pose Measurements from an external vision system, e.g. Vicon, can be used:
+Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 
 * External vision system horizontal position data will be used if bit position 3 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 * External vision system vertical position data will be used if the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter is set to 3.
-* External vision system pose data will be used for yaw estimation if bit position 4 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
+* External vision system velocity data will be used if bit position 8 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
+* External vision system orientation data will be used for yaw estimation if bit position 4 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
+* External vision reference frame offset will be estimated and used to rotate the external vision system data if bit position 6 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
+
+Either bit 4 (`EV_YAW`) or bit 6 (`EV_ROTATE`) should be set to true, but not both together.
+Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) values are supported when using with an external vision system.
+
+EKF_AID_MASK value | Set bits | Description
+--- | --- | --- 
+321 | GPS + EV_VEL + ROTATE_EV | Heading w.r.t. North (**Recommended**) 
+73 | GPS + EV_POS + ROTATE_EV | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead)
+24 | EV_POS + EV_YAW | Heading w.r.t. external vision frame
+72 | EV_POS + ROTATE_EV | Heading w.r.t. North
+272 | EV_VEL + EV_YAW | hHading w.r.t. external vision frame
+320 | EV_VEL + ROTATE_EV | Heading w.r.t. North
+280 | EV_POS + EV_VEL + EV_YAW | Heading w.r.t. external vision frame
+328 | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North
+
+The EKF considers uncertainty in the visual pose estimate.
+This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE).
+You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
 
 ## How do I use the 'ecl' library EKF?
 
@@ -228,7 +248,8 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 ## How do I check the EKF performance?
 
 EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. 
-The following guide assumes that data has been logged using the *.ulog file format*. The .ulog format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
+The following guide assumes that data has been logged using the *.ulog file format*.
+The **.ulog** format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
 Most of the EKF data is found in the [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
 
@@ -312,11 +333,14 @@ The index map is as follows:
 * [1] Velocity tracking error magnitude (m/s). 
   The velocity tracking time constant can be adjusted using the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) parameter.
   Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED velocity outputs.
-* [2] Position tracking error magnitude \(m\). The position tracking time constant can be adjusted using the [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED position outputs.
+* [2] Position tracking error magnitude \(m\).
+  The position tracking time constant can be adjusted using the [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameter.
+  Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED position outputs.
 
 ### EKF Errors
 
-The EKF contains internal error checking for badly conditioned state and covariance updates. Refer to the filter\_fault\_flags in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
+The EKF contains internal error checking for badly conditioned state and covariance updates.
+Refer to the filter\_fault\_flags in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
 
 ### Observation Errors
 
@@ -352,7 +376,8 @@ If the EKF is not commencing GPS alignment, check the value of the integer again
 
 ### EKF Numerical Errors
 
-The EKF uses single precision floating point operations for all of its computations and first order approximations for derivation of the covariance prediction and update equations in order to reduce processing requirements. This means that it is possible when re-tuning the EKF to encounter conditions where the covariance matrix operations become badly conditioned enough to cause divergence or significant errors in the state estimates.
+The EKF uses single precision floating point operations for all of its computations and first order approximations for derivation of the covariance prediction and update equations in order to reduce processing requirements.
+This means that it is possible when re-tuning the EKF to encounter conditions where the covariance matrix operations become badly conditioned enough to cause divergence or significant errors in the state estimates.
 
 To prevent this, every covariance and state update step contains the following error detection and correction steps:
 
@@ -382,8 +407,10 @@ An isolation mount can make vibration worse if the resonant frequencies coincide
 
 The EKF can be made more resistant to vibration induced height divergence by making the following parameter changes:
 
-* Double the value of the innovation gate for the primary height sensor. If using barometric height this is [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE).
-* Increase the value of [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) to 0.5 initially. If divergence is still occurring, increase in further increments of 0.1 but do not go above 1.0
+* Double the value of the innovation gate for the primary height sensor.
+  If using barometric height this is [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE).
+* Increase the value of [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) to 0.5 initially.
+  If divergence is still occurring, increase in further increments of 0.1 but do not go above 1.0
 
 Note that the effect of these changes will make the EKF more sensitive to errors in GPS vertical velocity and barometric pressure.
 
@@ -444,7 +471,8 @@ Magnetometer test levels are only affected to a small extent.
 ### Determination of Excessive Gyro Bias
 
 Large gyro bias offsets are normally characterised by a change in the value of delta angle bias greater than 5E-4 during flight (equivalent to ~3 deg/sec) and can also cause a large increase in the magnetometer test ratio if the yaw axis is affected. 
-Height is normally unaffected other than extreme cases. Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time time settle before flying. 
+Height is normally unaffected other than extreme cases.
+Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time time settle before flying. 
 Pre-flight checks performed by the commander should prevent arming if the position is diverging.
 
 \(insert example plots showing bad gyro bias here\)
@@ -459,7 +487,8 @@ Height is normally unaffected.
 
 ### Determination of Poor GPS Accuracy
 
-Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations. Transient errors due to multipath, obscuration and interference are more common causes. 
+Poor GPS accuracy is normally accompanied by a rise in the reported velocity error of the receiver in conjunction with a rise in innovations.
+Transient errors due to multipath, obscuration and interference are more common causes. 
 Here is an example of a temporary loss of GPS accuracy where the multi-rotor started drifting away from its loiter location and had to be corrected using the sticks. 
 The rise in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vel\_test\_ratio to greater than 1 indicates the GPs velocity was inconsistent with other measurements and has been rejected.
 

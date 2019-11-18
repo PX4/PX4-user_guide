@@ -79,6 +79,12 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 - [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
+## Safety Switch {#safety_switch}
+
+It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+
+> **Note** A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+
 ## Data/Telemetry Radios
 
 [Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
@@ -99,6 +105,23 @@ PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_rep
 > **Tip** The maximum supported SD card size on Pixhawk boards is 32GB.
 
 A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
+
+## Disarmed/Pre-armed/Armed {#arming}
+
+Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
+
+To reduce the chance of accidents, PX4 has explicit state(s) for powering the vehicle components:
+
+- **Disarmed:** There is no power to motors or actuators.
+- **Pre-armed:** Actuators and other non-dangerous electronics are powered. 
+  - In this state you can move ailerons, flaps etc, but motors/propellers are locked.
+- **Armed:** Vehicle is fully powered, including motors/propellers.
+
+By default, a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) is used to enter the pre-armed state. Arming is then enabled using an arming sequence, switch or MAVLink command.
+
+The vehicle is initially disarmed, and must be armed before flight; if you don't take off quickly enough it will automatically disarm (returning the vehicle to a safe state). Similarly, when you land the vehicle will usually automatically disarm so that it can be approached safely.
+
+> **Note** The arming behaviour can be [configured](../advanced_config/prearm_arm_disarm.md) (e.g. the time until vehicle automatically disarms after landing).
 
 ## Flight Modes {#flight_modes}
 

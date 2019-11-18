@@ -1,10 +1,23 @@
 # Camera Trigger
 
-The camera trigger driver allows the use of the AUX ports to send out pulses in order to trigger a camera. This can be used for multiple applications including timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
+The camera trigger driver allows the use of the AUX ports to send out pulses in order to trigger a camera.
+This can be used for multiple applications including timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
 
 In addition to a pulse being sent out, a MAVLink message is published containing a sequence number (thus the current session's image sequence number) and the corresponding timestamp.
 
-## Trigger Modes
+## Trigger Configuration  {#trigger_setup_qgc}
+
+Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) section.
+
+![Trigger pins](../../assets/camera/trigger_pins.png)
+
+The different [trigger modes](#trigger_mode), [backend interfaces](#trigger_backend) and [hardware setup](#hardware_setup) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
+
+> **Note** The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware.
+  For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
+
+
+## Trigger Modes {#trigger_mode}
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
@@ -18,15 +31,23 @@ Mode | Description
  
 > **Info** If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
 
-## Trigger Hardware Configuration
+## Trigger Hardware Configuration {#hardware_setup}
 
-You can choose which AUX pins to use for triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. The default is 56, which means that trigger is enabled on AUX 5 and AUX 6. 
+You can choose which pins to use for triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
+The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
-> **Warning** With `TRIG_PINS` set to its **default** value of 56, you can use the AUX pins 1, 2, 3 and 4 as actuator outputs (for servos/ESCs). Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs. **DO NOT CHANGE THE DEFAULT VALUE OF `TRIG_PINS` IF YOU NEED ACTUATOR OUTPUTS.**
+> **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). 
+  On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano).
+  At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
 
-## Trigger Interface Backends
+<span></span>
+> **Warning** With `TRIG_PINS` set to its **default** value of 56, you can use the AUX pins 1, 2, 3 and 4 as actuator outputs (for servos/ESCs).
+  Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs.
+  **DO NOT CHANGE THE DEFAULT VALUE OF `TRIG_PINS` IF YOU NEED ACTUATOR OUTPUTS.**
 
-The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter : 
+## Trigger Interface Backends {#trigger_backend}
+
+The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter: 
 
 Number | Description
 --- | ---
@@ -59,7 +80,9 @@ Param #1 | Trigger enable/disable (set to 0 for disable, 1 for start)
 Param #2 | Trigger cycle time in milliseconds (sets the `TRIG_INTERVAL` parameter.)
 Param #3 | Sequence reset (set to 1 to reset image sequence number, 0 to keep current sequence number)
 
-[MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) - Accepted in all modes. This is used by the GCS to test-shoot the camera from the user interface. The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.
+[MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) - Accepted in all modes.
+This is used by the GCS to test-shoot the camera from the user interface.
+The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.
 
 Command Parameter | Description
 --- | ---
@@ -77,7 +100,8 @@ This command is autogenerated during missions to trigger the camera based on sur
    ```
 1. From *QGroundControl*: 
 
-   Click on "Trigger Camera" in the main instrument panel. These shots are not logged or counted for geotagging.
+   Click on **Trigger Camera** in the main instrument panel.
+   These shots are not logged or counted for geotagging.
 
    ![QGC Test Camera](../../assets/camera/qgc_test_camera.png)
 
@@ -89,22 +113,21 @@ In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony
 
 ### Trigger Settings
 
-The camera trigger can be configured from QGroundControl's "Camera" page under the settings tab
+The recommended camera settings are:
 
-* `TRIG_INTERFACE`: 2, Seagull MAP2.
-* `TRIG_MODE`: 4, Mission controlled.
+* `TRIG_INTERFAC=2` (Seagull MAP2).
+* `TRIG_MODE=4` (Mission controlled).
+* Leave the remaining parameters at their defaults.
 
-Leave the rest of the parameters at their defaults.
-
-![Trigger pins](../../assets/camera/trigger_pins.png)
-
-You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot. Pin 1 goes to AUX 5, and Pin 2 to AUX 6. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
+You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot.
+Pin 1 goes to `AUX 5`, and Pin 2 to `AUX 6`.
+The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
 
 ### Camera Configuration
 
 We use a Sony QX-1 with a 16-50mm f3.5-5.6 lens for this example.
 
-To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed :
+To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed:
 
 * Manual focus to infinity
 * Set camera to continuous shooting mode
@@ -124,7 +147,8 @@ Download/copy the logfile and images from the flight and point QGroundControl to
 
 ![QGC Geotagging](../../assets/camera/qgc_geotag.png)
 
-You can verify the geotagging using a free online service like [Pic2Map](https://www.pic2map.com/). Note that Pic2Map is limited to only 40 images.
+You can verify the geotagging using a free online service like [Pic2Map](https://www.pic2map.com/).
+Note that Pic2Map is limited to only 40 images.
 
 ### Reconstruction
 
@@ -134,11 +158,17 @@ We use [Pix4D](https://pix4d.com/) for 3D reconstruction.
 
 ## Camera-IMU sync example (VIO)
 
-In this example, we will go over the basics of synchronising IMU measurements with visual data to build a stereo Visual-Inertial Navigation System (VINS). To be clear, the idea here isn't to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VIO algorithm.
+In this example, we will go over the basics of synchronising IMU measurements with visual data to build a stereo Visual-Inertial Navigation System (VINS).
+To be clear, the idea here isn't to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VIO algorithm.
 
-The autopilot and companion have different clock bases (boot-time for the autopilot and UNIX epoch for companion), so instead of skewing either clock, we directly observe the time offset between the clocks. This offset is added or subtracted from the timestamps in the MAVLink messages (e.g `HIGHRES_IMU`) in the cross-middleware translator component (e.g MAVROS on the companion and `mavlink_receiver` in PX4). The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset. This synchronisation is done automatically if MAVROS is used with a high-bandwidth onboard link (MAVLink mode `onboard`).
+The autopilot and companion have different clock bases (boot-time for the autopilot and UNIX epoch for companion), so instead of skewing either clock, we directly observe the time offset between the clocks.
+This offset is added or subtracted from the timestamps in the MAVLink messages (e.g `HIGHRES_IMU`) in the cross-middleware translator component (e.g MAVROS on the companion and `mavlink_receiver` in PX4).
+The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset.
+This synchronisation is done automatically if MAVROS is used with a high-bandwidth onboard link (MAVLink mode `onboard`).
 
-For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot. The timestamp of the inertial measurement from start of exposure and a image sequence number is recorded and sent to the companion computer (`CAMERA_TRIGGER` message), which buffers these packets and the image frames acquired from the camera. They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the `CAMERA_TRIGGER` message) and then published.
+For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot.
+The timestamp of the inertial measurement from start of exposure and a image sequence number is recorded and sent to the companion computer (`CAMERA_TRIGGER` message), which buffers these packets and the image frames acquired from the camera.
+They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the `CAMERA_TRIGGER` message) and then published.
 
 The following diagram illustrates the sequence of events which must happen in order to correctly timestamp our images.
 
@@ -163,13 +193,11 @@ end
 
 ### Step 1
 
-First, set the TRIG_MODE to 1 to make the driver wait for the start command and
-reboot your FCU to obtain the remaining parameters.
+First, set the TRIG_MODE to 1 to make the driver wait for the start command and reboot your FCU to obtain the remaining parameters.
 
 ### Step 2
 
-For the purposes of this example we will be configuring the trigger to operate
-in conjunction with a Point Grey Firefly MV camera running at 30 FPS.
+For the purposes of this example we will be configuring the trigger to operate in conjunction with a Point Grey Firefly MV camera running at 30 FPS.
 
 * `TRIG_INTERVAL`: 33.33 ms
 * `TRIG_POLARITY`: 0 (active low)
@@ -183,4 +211,5 @@ Wire up your cameras to your AUX port by connecting the ground and signal pins t
 
 ### Step 4
 
-You will have to modify your driver to follow the sequence diagram above. Public reference implementations for [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) cameras and for [IEEE1394 compliant](https://github.com/andre-nguyen/camera1394) cameras are available.
+You will have to modify your driver to follow the sequence diagram above.
+Public reference implementations for [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) cameras and for [IEEE1394 compliant](https://github.com/andre-nguyen/camera1394) cameras are available.

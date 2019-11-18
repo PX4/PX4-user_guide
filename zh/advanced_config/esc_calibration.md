@@ -1,6 +1,6 @@
 # 电调（ESC）校准
 
-> **Note** 该说明只针对以PWM为输入的电子调速器（ESC）。
+> **Note** These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md).
 
 电子速度控制器 (ESCs) 根据来自飞行控制器 (FC) 的 PWM 输入值调节电机速度 (和方向)。 ESC 响应的输入范围是可配置的, 甚至同一型号的不同 ESC 之间的默认范围也会有所不同。
 

@@ -23,10 +23,11 @@ Connect the motors in the layout and order defined in the [Airframe Reference](.
         常规输出接法
       </th>
     </tr>
+<tbody>
 <tr>
  <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor1 (front right: CCW)</li><li><b>MAIN2</b>: motor2 (back left: CCW)</li><li><b>MAIN3</b>: motor3 (front left: CW)</li><li><b>MAIN4</b>: motor4 (back right: CW)</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></td>
 </tr>
-  </table>
+</tbody>  </table>
 </div>
 
 ## Airframe Configuration

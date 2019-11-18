@@ -5,6 +5,8 @@ It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gp
 
 PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI).
 
+> **Note** The set of supported compasses can be inferred from the [magnetometer drivers](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) in the source code.
+
 Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source.
 The system automatically chooses the best available compass based on their internal priority (external magnetometers have a higher priority).
 If the primary compass fails in-flight, it will failover to the next one.
@@ -38,7 +40,7 @@ Some popular GPS/compass options include:
 Instructions for connecting the GPS and compass are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)). 
 
 > **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). 
-  The [Zubax GNSS 2](https://zubax.com/products/gnss_2) can also be connected via [UAVCAN](https://dev.px4.io/en/uavcan/).
+  The [Zubax GNSS 2](https://zubax.com/products/gnss_2) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
 
 <span></span>
 > **Tip** Pay attention to pinout when connecting the GPS module. 
@@ -66,7 +68,7 @@ To use a secondary GPS, attach it to any free port, and then perform a [Serial P
 
 The following steps show how to configure a secondary GPS on the `TELEM 2` port in *QGroundControl*:
 
-1. [Find and set](../advanced_config/parameters.md#finding-a-parameter) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**.
+1. [Find and set](../advanced_config/parameters.md) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**.
    - Open *QGroundControl* and navigate to the **Vehicle Setup > Parameters** section.
    - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3).
      ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
@@ -92,7 +94,7 @@ You may however wish to read them, as they will let you know which magnetometers
 ## Developer Information
 
 - GPS/RTK-GPS
-  - [RTK-GPS](https://dev.px4.io/en/advanced/rtk_gps.html) 
-  - [GPS driver](https://dev.px4.io/en/middleware/modules_driver.html#gps)
-  - [UAVCAN Example](https://dev.px4.io/en/uavcan/)
-- [Magnetometer drivers](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) (source code)
+  - [RTK-GPS](https://dev.px4.io/master/en/advanced/rtk_gps.html) 
+  - [GPS driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)
+  - [UAVCAN Example](https://dev.px4.io/master/en/uavcan/)
+- [Driver source code](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) (Compasses)

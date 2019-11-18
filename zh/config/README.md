@@ -18,6 +18,7 @@
 * [Flight Modes](../config/flight_mode.md) (Optional)
 * [Battery](../config/battery.md) (optional)
 * [Safety](../config/safety.md) (optional)
+* [Motors/Servos](../config/motors.md)
 
 > **Note** 对于 [支持的机架](../config/airframe.md) 只需要这种基本配置。 如果要创建新的机架，还需要执行调整 (请参阅 [高级配置](../advanced_config/README.md) )。
 

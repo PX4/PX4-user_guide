@@ -6,7 +6,7 @@
 
 <span></span>
 
-> * 此模式需要3维位置信息 (例如GPS)。 *此模式为自动模式（[默认](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE)情况下，RC控制被禁用，除了用于更改模式外）。 * 使用此模式前飞机必须先被激活。
+> **Note** * This mode requires 3d position information (e.g. GPS). * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. RC stick movement will [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) when flying as a multicopter unless handling a critical battery failsafe (stick movement is ignored for fixed-wing flight).
 
 ## 参数描述
 
@@ -105,4 +105,18 @@
     * 并非所有消息/命令都通过*QGroundControl*公开。
     * The list may become out of date as messages are added. 您可以通过检查代码来检查当前设置。 在[/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp)中支持`MavlinkMissionManager:: parse_mavlink_mission_item` （在[此git变更列表](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)中生成的列表）。
       
-      > 如果您发现丢失/不正确的消息，请添加错误修复或PR。</ul>
+      > 如果您发现丢失/不正确的消息，请添加错误修复或PR。</ul> 
+    
+    ## Inter-Waypoint Trajectory
+    
+    PX4 expects to follow a straight line from the previous waypoint to the current target (it does not plan any other kind of path between waypoints - if you need one you can simulate this by adding additional waypoints).
+    
+    MC vehicles will change the *speed* when approach/leaving a waypoint based on whether it uses [slew-rate](../config_mc/mc_slew_rate_type_trajectory.md#mission-mode) or [jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) tuning.
+    
+    Vehicles switch to the next waypoint as soon as they enter the acceptance radius.
+    
+    * For MC this radius is defined by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)
+    * For FW the radius is defined by the "L1 distance". 
+      * The L1 distance is computed from two parameters: [L1_DAMPING](../advanced_config/parameter_reference.md#L1_DAMPING) and [L1_PERIOD](../advanced_config/parameter_reference.md#L1_PERIOD), and the current ground speed.
+      * By default, it's about 70 meters.
+      * The equation is: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$

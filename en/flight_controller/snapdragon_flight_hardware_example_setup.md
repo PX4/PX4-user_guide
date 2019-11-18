@@ -1,7 +1,7 @@
 # Snapdragon Hardware Setup Example
 
 This guide shows a Lumenier QAV-R 250 frame build with *Qualcomm Snapdragon Flight* and custom hardware mounts. 
-The setup uses a conventional PWM ESC board and therefore needs to be built with the `atlflight_eagle_default` make target (see instructions [here](https://dev.px4.io/en/setup/building_px4.html#qurt--snapdragon-based-boards)).
+The setup uses a conventional PWM ESC board and therefore needs to be built with the `atlflight_eagle_default` make target (see instructions [here](https://dev.px4.io/master/en/setup/building_px4.html#qurt--snapdragon-based-boards)).
 
 > **Tip** The PX4 development team has built, tested and documented this specific setup.
 

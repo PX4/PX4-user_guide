@@ -1,24 +1,21 @@
----
-Author: Hamish Willee
-Status: draft
----
+# Mounting the Flight Controller
 
-# 安装飞行控制器
+## Orientation
 
-## 朝向
+Almost all Flight Controllers have a *heading mark arrow* (shown below). The controller should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle (on all aircraft frames - airplane, multirotor, VTOL, ground vehicles etc.).
 
-几乎所有的飞行控制器都有一个*箭头标志* (如下图所示)。 飞行控制器应该顶部朝上放置在机架上，方向应使箭头朝向飞行器前部(在所有的机型中包括，固定翼、多旋翼、VTOL，地面车辆等)。
+![FC Heading Mark](../../images/fc_heading_mark_1.png)
 
-![飞行控制器朝向标记](../../images/fc_heading_mark_1.png)
+![FC Orientation](../../images/fc_orientation_1.png)
 
-![飞行控制器朝向](../../images/fc_orientation_1.png)
+> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to physical constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
-> **Note**如果飞行控制器不能安装在推荐/默认的方向 (例如，受空间限制) ，你需要根据实际安装的方向来配置飞控软件：[Flight Controller Orientation](../config/flight_controller_orientation.md)。
+## Vibration Isolation
 
-## 减振
+Flight Control boards with in-built accelerometers or gyros are sensitive to vibrations. Some boards include in-built vibration-isolation, while others come with *mounting foam* that you can use to isolate the controller from the vehicle.
 
-飞控板内置的加速度计对振动很敏感。 一些飞控板包括内部减振装置，在其他情况下，你可以在飞控板下安装减振泡沫来隔离飞控和飞行器。
+![Pixhawk Mounting foam](../../images/3dr_anti_vibration_mounting_foam.png) *Vibration damping foam*
 
-![Pixhawk减振泡沫](../../images/3dr_anti_vibration_mounting_foam.png) -Pixhawk减振泡沫
+You should use the mounting strategy recommended in your flight controller documentation.
 
-您应该使用飞行控制器文档中推荐的减振/安装策略。
+> **Tip** [Log Analysis using Flight Review > Vibration](../log/flight_review.md#vibration) explains how to test whether vibration levels are acceptable, and [Vibration Isolation](../assembly/vibration_isolation.md) suggests a number of possible solutions if there is a problem.

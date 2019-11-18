@@ -1,6 +1,257 @@
 # Parameter Reference
 
-> **Note** **This list is auto-generated from the source code** (using `make parameters_metadata`) and contains the most recent parameter documentation.
+> **Note** **This documentation was auto-generated from the source code for this PX4 version** (using `make parameters_metadata`).
+
+<span></span>
+
+> **Note** If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](http://docs.px4.io/master/en/advanced_config/parameters.html#missing).
+
+## Airspeed Validator
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_ARSP_SCALE">ARSP_ARSP_SCALE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed scale (scale from IAS to CAS/EAS)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ARSP_SCALE_EST to 1.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.5 > 1.5
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_BETA_GATE">ARSP_BETA_GATE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Gate size for true sideslip fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 5
+    </td>
+    
+    <td style="vertical-align: top;">
+      1
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_BETA_NOISE">ARSP_BETA_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator sideslip measurement noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.3
+    </td>
+    
+    <td style="vertical-align: top;">
+      rad
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_SCALE_EST">ARSP_SCALE_EST</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Automatic airspeed scale estimation on
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS/EAS) on or off. It is recommended level (keeping altitude) while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved in the ARSP_ARSP_SCALE parameter.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_SC_P_NOISE">ARSP_SC_P_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator true airspeed scale process noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0001
+    </td>
+    
+    <td style="vertical-align: top;">
+      1/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_TAS_GATE">ARSP_TAS_GATE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Gate size for true airspeed fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 5
+    </td>
+    
+    <td style="vertical-align: top;">
+      3
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_TAS_NOISE">ARSP_TAS_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator true airspeed measurement noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 4
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.4
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ARSP_W_P_NOISE">ARSP_W_P_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed Selector: Wind estimator wind process noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s/s
+    </td>
+  </tr>
+</table>
 
 ## Attitude Q estimator
 
@@ -42,7 +293,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -152,7 +403,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -955,7 +1206,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -1221,7 +1472,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Selects which pin is used, ranges from 1 to 6 (AUX1-AUX6 on px4_fmu-v2 and the rail pins on px4_fmu-v4). The PWM interface takes two pins per camera, while relay triggers on every pin individually. Example: Value 56 would trigger on pins 5 and 6. For GPIO mode Pin 6 will be triggered followed by 5. With a value of 65 pin 5 will be triggered followed by 6. Pins may be non contiguous. I.E. 16 or 61. In GPIO mode the delay pin to pin is < .2 uS.
+        <strong>Comment:</strong> Selects which FMU pin is used (range: AUX1-AUX6 on Pixhawk controllers with an I/O board, MAIN1-MAIN6 on controllers without an I/O board. The PWM interface takes two pins per camera, while relay triggers on every pin individually. Example: Value 56 would trigger on pins 5 and 6. For GPIO mode Pin 6 will be triggered followed by 5. With a value of 65 pin 5 will be triggered followed by 6. Pins may be non contiguous. I.E. 16 or 61. In GPIO mode the delay pin to pin is < .2 uS.
       </p>
       
       <p>
@@ -1725,6 +1976,58 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_ARM_AUTH_REQ">COM_ARM_AUTH_REQ</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Require arm authorization to arm
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The default allows to arm the vehicle without a arm authorization.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Require all the ESCs to be detected to arm
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This param is specific for ESCs reporting status. Normal ESCs configurations are not affected by the change of this param.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_ARM_EKF_AB">COM_ARM_EKF_AB</strong> (FLOAT)
     </td>
     
@@ -1917,25 +2220,25 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="COM_ARM_MAG">COM_ARM_MAG</strong> (FLOAT)
+      <strong id="COM_ARM_MAG_ANG">COM_ARM_MAG_ANG</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        Maximum magnetic field inconsistency between units that will allow arming
+        Maximum magnetic field inconsistency between units that will allow arming Set -1 to disable the check
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      0.05 > 0.5 (0.05)
+      3 > 180
     </td>
     
     <td style="vertical-align: top;">
-      0.15
+      30
     </td>
     
     <td style="vertical-align: top;">
-      Gauss
+      deg
     </td>
   </tr>
   
@@ -1958,7 +2261,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -2022,7 +2325,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -2141,16 +2444,42 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. The vehicle will also auto-disarm right after arming if it has not even flown, however the time will always be 10 seconds such that the pilot has enough time to take off. A negative value means that automatic disarming triggered by landing detection is disabled.
+        <strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. A zero or negative value means that automatic disarming triggered by landing detection is disabled.
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      -1 > 20
     </td>
     
     <td style="vertical-align: top;">
       2.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="COM_DISARM_PRFLT">COM_DISARM_PRFLT</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Time-out for auto disarm if too slow to takeoff
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> A non-zero, positive value specifies the time after arming, in seconds, within which the vehicle must take off (after which it will automatically disarm). A zero or negative value means that automatic disarming triggered by a pre-takeoff timeout is disabled.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      10.0
     </td>
     
     <td style="vertical-align: top;">
@@ -2892,6 +3221,30 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_KILL_DISARM">COM_KILL_DISARM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Timeout value for disarming when kill switch is engaged
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 30.0 (0.1)
+    </td>
+    
+    <td style="vertical-align: top;">
+      5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_LOW_BAT_ACT">COM_LOW_BAT_ACT</strong> (INT32)
     </td>
     
@@ -2901,7 +3254,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Action the system takes on low battery. Defaults to off
+        <strong>Comment:</strong> Action the system takes at critical battery. See also BAT_CRIT_THR and BAT_EMERGEN_THR for definition of battery states.
       </p>
       
       <strong>Values:</strong>
@@ -2911,13 +3264,10 @@
           <strong>0:</strong> Warning
         </li>
         <li>
-          <strong>1:</strong> Return mode
-        </li>
-        <li>
           <strong>2:</strong> Land mode
         </li>
         <li>
-          <strong>3:</strong> Return mode at critically low level, Land mode at current position if reaching dangerously low levels
+          <strong>3:</strong> Return at critical level, land at emergency level
         </li>
       </ul>
     </td>
@@ -2928,6 +3278,32 @@
     
     <td style="vertical-align: top;">
       0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="COM_MOT_TEST_EN">COM_MOT_TEST_EN</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable Motor Testing
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If set, enables the motor test interface via MAVLink (DO_MOTOR_TEST), that allows spinning the motors for testing purposes.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -2980,6 +3356,9 @@
       
       <ul>
         <li>
+          <strong>-1:</strong> Disabled
+        </li>
+        <li>
           <strong>0:</strong> Land mode
         </li>
         <li>
@@ -2987,6 +3366,12 @@
         </li>
         <li>
           <strong>2:</strong> Return mode
+        </li>
+        <li>
+          <strong>3:</strong> Terminate
+        </li>
+        <li>
+          <strong>4:</strong> Lockdown
         </li>
       </ul>
     </td>
@@ -3020,6 +3405,9 @@
       
       <ul>
         <li>
+          <strong>-1:</strong> Disabled
+        </li>
+        <li>
           <strong>0:</strong> Position mode
         </li>
         <li>
@@ -3036,6 +3424,12 @@
         </li>
         <li>
           <strong>5:</strong> Hold mode
+        </li>
+        <li>
+          <strong>6:</strong> Terminate
+        </li>
+        <li>
+          <strong>7:</strong> Lockdown
         </li>
       </ul>
     </td>
@@ -3093,10 +3487,10 @@
       
       <ul>
         <li>
-          <strong>0:</strong> Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.
+          <strong>0:</strong> Altitude/Manual. Assume use of remote control after fallback. Switch to Altitude mode if a height estimate is available, else switch to MANUAL.
         </li>
         <li>
-          <strong>1:</strong> Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.
+          <strong>1:</strong> Land/Terminate. Assume no use of remote control after fallback. Switch to Land mode if a height estimate is available, else switch to TERMINATION.
         </li>
       </ul>
     </td>
@@ -3262,6 +3656,46 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_PREARM_MODE">COM_PREARM_MODE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Condition to enter prearmed mode
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Condition to enter the prearmed state, an intermediate state between disarmed and armed in which non-throttling actuators are active.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>1:</strong> Safety button
+        </li>
+        <li>
+          <strong>2:</strong> Always
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_RC_ARM_HYST">COM_RC_ARM_HYST</strong> (INT32)
     </td>
     
@@ -3375,7 +3809,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -3549,6 +3983,198 @@
   </tr>
 </table>
 
+## DShot
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="DSHOT_CONFIG">DSHOT_CONFIG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Configure DShot
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This enables/disables DShot. The different modes define different speeds, for example DShot150 = 150kb/s. Not all ESCs support all modes. Note: this enables DShot on the FMU outputs. For boards with an IO it is the AUX outputs.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disable (use PWM/Oneshot)
+        </li>
+        <li>
+          <strong>150:</strong> DShot150
+        </li>
+        <li>
+          <strong>300:</strong> DShot300
+        </li>
+        <li>
+          <strong>600:</strong> DShot600
+        </li>
+        <li>
+          <strong>1200:</strong> DShot1200
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="DSHOT_MIN">DSHOT_MIN</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Minimum DShot Motor Output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Minimum Output Value for DShot in percent. The value depends on the ESC. Make sure to set this high enough so that the motors are always spinning while armed.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.055
+    </td>
+    
+    <td style="vertical-align: top;">
+      %
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="DSHOT_TEL_CFG">DSHOT_TEL_CFG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Serial Configuration for DShot Driver
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure on which serial port to run DShot Driver.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>6:</strong> UART 6
+        </li>
+        <li>
+          <strong>101:</strong> TELEM 1
+        </li>
+        <li>
+          <strong>102:</strong> TELEM 2
+        </li>
+        <li>
+          <strong>103:</strong> TELEM 3
+        </li>
+        <li>
+          <strong>104:</strong> TELEM/SERIAL 4
+        </li>
+        <li>
+          <strong>201:</strong> GPS 1
+        </li>
+        <li>
+          <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MOT_POLE_COUNT">MOT_POLE_COUNT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Number of magnetic poles of the motors
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Specify the number of magnetic poles of the motors. It is required to compute the RPM value from the eRPM returned with the ESC telemetry. Either get the number from the motor spec sheet or count the magnets on the bell of the motor (not the stator magnets). Typical motors for 5 inch props have 14 poles.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      14
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
 ## Data Link Loss
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -3705,7 +4331,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -4090,6 +4716,9 @@
         <li>
           <strong>7:</strong> GPS yaw fusion
         </li>
+        <li>
+          <strong>8:</strong> vision velocity fusion
+        </li>
       </ul>
       
       <p>
@@ -4098,7 +4727,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0 > 255
+      0 > 511
     </td>
     
     <td style="vertical-align: top;">
@@ -4540,6 +5169,30 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="EKF2_EVP_GATE">EKF2_EVP_GATE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Gate size for vision position fusion Sets the number of standard deviations used by the innovation consistency test
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="EKF2_EVP_NOISE">EKF2_EVP_NOISE</strong> (FLOAT)
     </td>
     
@@ -4554,11 +5207,63 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.05
+      0.1
     </td>
     
     <td style="vertical-align: top;">
       m
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="EKF2_EVV_GATE">EKF2_EVV_GATE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Gate size for vision velocity estimate fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      3.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="EKF2_EVV_NOISE">EKF2_EVV_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Measurement noise for vision velocity observations used when the vision system does not supply error estimates
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.01 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
     </td>
   </tr>
   
@@ -4592,29 +5297,27 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="EKF2_EV_GATE">EKF2_EV_GATE</strong> (FLOAT)
+      <strong id="EKF2_EV_NOISE_MD">EKF2_EV_NOISE_MD</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        Gate size for vision estimate fusion
+        Whether to set the external vision observation noise from the parameter or from vision message
       </p>
       
       <p>
-        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+        <strong>Comment:</strong> If set to true the observation noise is set from the parameters directly, if set to false the measurement noise is taken from the vision message and the parameter are used as a lower bound.
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      1.0 > ?
     </td>
     
     <td style="vertical-align: top;">
-      5.0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
-      SD
     </td>
   </tr>
   
@@ -4706,7 +5409,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -5704,7 +6407,7 @@
           <strong>2:</strong> 3-axis
         </li>
         <li>
-          <strong>3:</strong> VTOL customn
+          <strong>3:</strong> VTOL custom
         </li>
         <li>
           <strong>4:</strong> MC custom
@@ -5789,7 +6492,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Minimum valid range for the range finder
+        Expected range finder reading when on ground
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If the vehicle is on ground, is not moving as determined by the motion test controlled by EKF2_MOVE_TEST and the range finder is returning invalid or no data, then an assumed range value of EKF2_MIN_RNG will be used by the terrain estimator so that a terrain height estimate is avilable at the start of flight in situations where the range finder may be inside its minimum measurements distance when on ground.
       </p>
     </td>
     
@@ -6913,7 +7620,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -6943,7 +7650,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -7116,7 +7823,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -8181,7 +8888,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -8563,7 +9270,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -8771,7 +9478,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -9097,7 +9804,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -9319,6 +10026,34 @@
     
     <td style="vertical-align: top;">
       15.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="FW_GND_SPD_MIN">FW_GND_SPD_MIN</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Minimum groundspeed
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The controller will increase the commanded airspeed to maintain this minimum groundspeed to the next waypoint.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 40 (0.5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      5.0
     </td>
     
     <td style="vertical-align: top;">
@@ -12564,7 +13299,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -12747,7 +13482,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -12930,7 +13665,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -13114,7 +13849,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -13140,7 +13875,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -13166,7 +13901,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -13192,7 +13927,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -13420,7 +14155,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -13468,7 +14203,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -13683,7 +14418,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -13934,7 +14669,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -14135,7 +14870,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -14378,6 +15113,109 @@
   </tr>
 </table>
 
+## Mixer Output
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_AIRMODE">MC_AIRMODE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Multicopter air-mode
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>1:</strong> Roll/Pitch
+        </li>
+        <li>
+          <strong>2:</strong> Roll/Pitch/Yaw
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MOT_ORDERING">MOT_ORDERING</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Motor Ordering
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. When changing this, make sure to test the motor response without props first.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> PX4
+        </li>
+        <li>
+          <strong>1:</strong> Betaflight / Cleanflight
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
 ## Mount
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -14418,7 +15256,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -15105,46 +15943,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_AIRMODE">MC_AIRMODE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Multicopter air-mode
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> Disabled
-        </li>
-        <li>
-          <strong>1:</strong> Roll/Pitch
-        </li>
-        <li>
-          <strong>2:</strong> Roll/Pitch/Yaw
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_BAT_SCALE_EN">MC_BAT_SCALE_EN</strong> (INT32)
     </td>
     
@@ -15162,7 +15960,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -15662,168 +16460,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_TPA_BREAK_D">MC_TPA_BREAK_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA D Breakpoint
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch D gain
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_BREAK_I">MC_TPA_BREAK_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA I Breakpoint
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch I gain
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_BREAK_P">MC_TPA_BREAK_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA P Breakpoint
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch P gain
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_RATE_D">MC_TPA_RATE_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA Rate D
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch D gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.05)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_RATE_I">MC_TPA_RATE_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA Rate I
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch I gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.05)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_RATE_P">MC_TPA_RATE_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA Rate P
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch P gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.05)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_YAWRATE_D">MC_YAWRATE_D</strong> (FLOAT)
     </td>
     
@@ -16092,6 +16728,116 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="CP_DELAY">CP_DELAY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Average delay of the range sensor message plus the tracking delay of the position controller in seconds
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.4
+    </td>
+    
+    <td style="vertical-align: top;">
+      seconds
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CP_DIST">CP_DIST</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Minimum distance the vehicle should keep to all obstacles
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode. Collision avoidance is disabled by setting this parameter to a negative value
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 15
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      meters
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CP_GO_NO_DATA">CP_GO_NO_DATA</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Boolean to allow moving into directions where there is no sensor data (outside FOV)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CP_GUIDE_ANG">CP_GUIDE_ANG</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Angle left/right from the commanded setpoint by which the collision prevention algorithm can choose to change the setpoint direction
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 90
+    </td>
+    
+    <td style="vertical-align: top;">
+      30.
+    </td>
+    
+    <td style="vertical-align: top;">
+      [deg]
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)
     </td>
     
@@ -16289,62 +17035,6 @@
     </td>
     
     <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_COL_PREV_D">MPC_COL_PREV_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Minimum distance the vehicle should keep to all obstacles
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Only used in Position mode. Collision avoidace is disabled by setting this parameter to a negative value
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      -1 > 15
-    </td>
-    
-    <td style="vertical-align: top;">
-      -1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      meters
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_COL_PREV_DLY">MPC_COL_PREV_DLY</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Average delay of the range sensor message in seconds
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Only used in Position mode.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.
-    </td>
-    
-    <td style="vertical-align: top;">
-      seconds
     </td>
   </tr>
   
@@ -17152,11 +17842,11 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.1 > 5.0
+      0.1 > 1.0
     </td>
     
     <td style="vertical-align: top;">
-      0.3
+      0.5
     </td>
     
     <td style="vertical-align: top;">
@@ -17353,7 +18043,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.1 > 5.0
+      0.1 > 1.0
     </td>
     
     <td style="vertical-align: top;">
@@ -17508,7 +18198,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -17657,44 +18347,6 @@
     <th>
       Units
     </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MOT_ORDERING">MOT_ORDERING</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Motor Ordering
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. ONLY supported for fmu output (Pixracer or Omnibus F4). When changing this, make sure to test the motor response without props first.
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> PX4
-        </li>
-        <li>
-          <strong>1:</strong> Betaflight / Cleanflight
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
   </tr>
   
   <tr>
@@ -18896,7 +19548,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -18922,7 +19574,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -18948,7 +19600,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -18974,7 +19626,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19000,7 +19652,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19026,7 +19678,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19052,7 +19704,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19078,7 +19730,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20376,7 +21028,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20402,7 +21054,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20428,7 +21080,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20454,7 +21106,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20480,7 +21132,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20506,7 +21158,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20532,7 +21184,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20558,7 +21210,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20896,7 +21548,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20910,11 +21562,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Thrust to PWM model parameter
+        Thrust to motor control signal model parameter
       </p>
       
       <p>
-        <strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2
+        <strong>Comment:</strong> Parameter used to model the nonlinear relationship between motor control signal (e.g. PWM) and static thrust. The model is: rel_thrust = factor * rel_signal^2 + (1-factor) * rel_signal, where rel_thrust is the normalized thrust between 0 and 1, and rel_signal is the relative motor control signal between 0 and 1.
       </p>
     </td>
     
@@ -21119,6 +21771,58 @@
     
     <td style="vertical-align: top;">
       m
+    </td>
+  </tr>
+</table>
+
+## Peripheral
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="LIGHT_EN_BLINKM">LIGHT_EN_BLINKM</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        BlinkM LED
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
     </td>
   </tr>
 </table>
@@ -27522,18 +28226,18 @@
     
     <td style="vertical-align: top;">
       <p>
-        Half-angle of the RTL cone
+        Half-angle of the return mode altitude cone
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the half-angle of the cone which defines the vehicle RTL behavior.
+        <strong>Comment:</strong> Defines the half-angle of a cone centered around the destination position that affects the altitude at which the vehicle returns.
       </p>
       
       <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above home.
+          <strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above destination.
         </li>
         <li>
           <strong>25:</strong> 25 degrees half cone angle.
@@ -27548,7 +28252,7 @@
           <strong>80:</strong> 80 degrees half cone angle.
         </li>
         <li>
-          <strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above home.
+          <strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above destination.
         </li>
       </ul>
     </td>
@@ -27577,7 +28281,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Stay at this altitude above home position after RTL descending. Land (i.e. slowly descend) from this altitude if autolanding allowed.
+        <strong>Comment:</strong> Descend to this altitude (above destination position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.
       </p>
     </td>
     
@@ -27605,7 +28309,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Delay after descend before landing in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.
+        <strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.
       </p>
     </td>
     
@@ -27629,16 +28333,16 @@
     
     <td style="vertical-align: top;">
       <p>
-        Minimum distance to trigger rising to a safe altitude
+        Maximum horizontal distance from return destination, below which RTL_DESCEND_ALT is used as return altitude
       </p>
       
       <p>
-        <strong>Comment:</strong> If the system is horizontally closer than this distance to home it will land straight on home instead of raising to the return altitude first.
+        <strong>Comment:</strong> If the vehicle is less than this horizontal distance from the return destination when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      0.5 > 20 (0.5)
+      0.5 > 100 (0.5)
     </td>
     
     <td style="vertical-align: top;">
@@ -27657,11 +28361,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        RTL altitude
+        Return mode return altitude
       </p>
       
       <p>
-        <strong>Comment:</strong> Altitude to fly back in RTL in meters
+        <strong>Comment:</strong> Default minimum altitude above destination (e.g. home, safe point, landing pattern) for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.
       </p>
     </td>
     
@@ -27689,7 +28393,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Fly straight to the home location or planned mission landing and land there or use the planned mission to get to those points.
+        <strong>Comment:</strong> Fly straight to the return location or planned mission landing and land there or use the planned mission to get to those points.
       </p>
       
       <strong>Values:</strong>
@@ -27704,6 +28408,9 @@
         <li>
           <strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path
         </li>
+        <li>
+          <strong>3:</strong> Return via direct path to closest destination: home, mission landing pattern or safe point
+        </li>
       </ul>
     </td>
     
@@ -27715,6 +28422,319 @@
     </td>
     
     <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
+## Roboclaw
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_SER_CFG">RBCLW_SER_CFG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Serial Configuration for Roboclaw Driver
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure on which serial port to run Roboclaw Driver.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>6:</strong> UART 6
+        </li>
+        <li>
+          <strong>101:</strong> TELEM 1
+        </li>
+        <li>
+          <strong>102:</strong> TELEM 2
+        </li>
+        <li>
+          <strong>103:</strong> TELEM 3
+        </li>
+        <li>
+          <strong>104:</strong> TELEM/SERIAL 4
+        </li>
+        <li>
+          <strong>201:</strong> GPS 1
+        </li>
+        <li>
+          <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
+## Roboclaw driver
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_ADDRESS">RBCLW_ADDRESS</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Address of the Roboclaw
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The Roboclaw can be configured to have an address from 0x80 to 0x87, inclusive. It must be configured to match this parameter.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>128:</strong> 0x80
+        </li>
+        <li>
+          <strong>129:</strong> 0x81
+        </li>
+        <li>
+          <strong>130:</strong> 0x82
+        </li>
+        <li>
+          <strong>131:</strong> 0x83
+        </li>
+        <li>
+          <strong>132:</strong> 0x84
+        </li>
+        <li>
+          <strong>133:</strong> 0x85
+        </li>
+        <li>
+          <strong>134:</strong> 0x86
+        </li>
+        <li>
+          <strong>135:</strong> 0x87
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+      128 > 135
+    </td>
+    
+    <td style="vertical-align: top;">
+      128
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_BAUD">RBCLW_BAUD</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roboclaw serial baud rate
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Baud rate of the serial communication with the Roboclaw. The Roboclaw must be configured to match this rate.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>2400:</strong> 2400 baud
+        </li>
+        <li>
+          <strong>9600:</strong> 9600 baud
+        </li>
+        <li>
+          <strong>19200:</strong> 19200 baud
+        </li>
+        <li>
+          <strong>38400:</strong> 38400 baud
+        </li>
+        <li>
+          <strong>57600:</strong> 57600 baud
+        </li>
+        <li>
+          <strong>115200:</strong> 115200 baud
+        </li>
+        <li>
+          <strong>230400:</strong> 230400 baud
+        </li>
+        <li>
+          <strong>460800:</strong> 460800 baud
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      2400 > 460800
+    </td>
+    
+    <td style="vertical-align: top;">
+      2400
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_COUNTS_REV">RBCLW_COUNTS_REV</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Encoder counts per revolution
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Number of encoder counts for one revolution. The roboclaw treats analog encoders (potentiometers) as having 2047 counts per rev. The default value of 1200 corresponds to the default configuration of the Aion R1 rover.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      1200
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_READ_PER">RBCLW_READ_PER</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Encoder read period
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> How long to wait, in Milliseconds, between reading wheel encoder values over Uart from the Roboclaw
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 1000
+    </td>
+    
+    <td style="vertical-align: top;">
+      10
+    </td>
+    
+    <td style="vertical-align: top;">
+      ms
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="RBCLW_WRITE_PER">RBCLW_WRITE_PER</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Uart write period
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> How long to wait, in Milliseconds, between writing actuator controls over Uart to the Roboclaw
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 1000
+    </td>
+    
+    <td style="vertical-align: top;">
+      10
+    </td>
+    
+    <td style="vertical-align: top;">
+      ms
     </td>
   </tr>
 </table>
@@ -28423,6 +29443,30 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="RWTO_RAMP_TIME">RWTO_RAMP_TIME</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Throttle ramp up time for runway takeoff
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0 > 15.0 (0.1)
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="RWTO_TKOFF">RWTO_TKOFF</strong> (INT32)
     </td>
     
@@ -28436,7 +29480,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -28701,7 +29745,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -28823,7 +29867,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -28999,7 +30043,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -29175,7 +30219,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -29395,7 +30439,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -29571,7 +30615,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -29747,7 +30791,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -29945,7 +30989,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -30238,7 +31282,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -30531,7 +31575,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -30824,7 +31868,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -31426,7 +32470,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the accel driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the accel driver. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
       </p>
       
       <p>
@@ -31458,7 +32502,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the gyro driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the gyro driver. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
       </p>
       
       <p>
@@ -31472,6 +32516,61 @@
     
     <td style="vertical-align: top;">
       30.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="IMU_GYRO_RATEMAX">IMU_GYRO_RATEMAX</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Gyro control data maximum publication rate
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro_control) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> 0 (no limit)
+        </li>
+        <li>
+          <strong>50:</strong> 50 Hz
+        </li>
+        <li>
+          <strong>250:</strong> 250 Hz
+        </li>
+        <li>
+          <strong>400:</strong> 400 Hz
+        </li>
+        <li>
+          <strong>1000:</strong> 1000 Hz
+        </li>
+        <li>
+          <strong>2000:</strong> 2000 Hz
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 2000
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
     </td>
     
     <td style="vertical-align: top;">
@@ -31557,6 +32656,10 @@
     <td style="vertical-align: top;">
       <p>
         QNH for barometer
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -31694,6 +32797,9 @@
         </li>
         <li>
           <strong>34:</strong> Pitch 315°
+        </li>
+        <li>
+          <strong>35:</strong> Roll 90°, Yaw 270°
         </li>
       </ul>
       
@@ -31928,7 +33034,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -31995,7 +33101,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -32059,7 +33165,59 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_EN_PMW3901">SENS_EN_PMW3901</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PMW3901 Optical Flow
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_EN_PX4FLOW">SENS_EN_PX4FLOW</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PX4 Flow Optical Flow
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -32141,7 +33299,10 @@
           <strong>4:</strong> SF11/c
         </li>
         <li>
-          <strong>5:</strong> SF/LW20
+          <strong>5:</strong> SF/LW20/b
+        </li>
+        <li>
+          <strong>6:</strong> SF/LW20/c
         </li>
       </ul>
       
@@ -32180,6 +33341,9 @@
         </li>
         <li>
           <strong>0:</strong> Thermal control off
+        </li>
+        <li>
+          <strong>1:</strong> Thermal control enabled
         </li>
       </ul>
     </td>
@@ -32222,6 +33386,9 @@
         </li>
         <li>
           <strong>4:</strong> TREvo600Hz
+        </li>
+        <li>
+          <strong>5:</strong> TREvo3m
         </li>
       </ul>
       
@@ -33952,7 +35119,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1442826
+      0
     </td>
     
     <td style="vertical-align: top;">
@@ -35987,7 +37154,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -36159,36 +37326,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="SYS_FMU_TASK">SYS_FMU_TASK</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Run the FMU as a task to reduce latency
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> If true, the FMU will run in a separate task instead of on the work queue. Set this if low latency is required, for example for racing. This is a trade-off between RAM usage and latency: running as a task, it requires a separate stack and directly polls on the control topics, whereas running on the work queue, it runs at a fixed update rate.
-      </p>
-      
-      <p>
-        <b>Reboot required:</b> true
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="SYS_HAS_BARO">SYS_HAS_BARO</strong> (INT32)
     </td>
     
@@ -36210,7 +37347,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -36240,7 +37377,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -36418,7 +37555,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -36449,7 +37586,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -36505,7 +37642,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -38336,7 +39473,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -39085,7 +40222,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -40362,7 +41499,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -40590,7 +41727,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -40913,7 +42050,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -41097,7 +42234,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -41530,209 +42667,6 @@
   </tr>
 </table>
 
-## Wind Estimator
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
-  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-      Description
-    </th>
-    
-    <th>
-      Min > Max (Incr.)
-    </th>
-    
-    <th>
-      Default
-    </th>
-    
-    <th>
-      Units
-    </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_BETA_GATE">WEST_BETA_GATE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gate size for true sideslip fusion
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1 > 5
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
-      SD
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_BETA_NOISE">WEST_BETA_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator sideslip measurement noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.3
-    </td>
-    
-    <td style="vertical-align: top;">
-      rad
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_EN">WEST_EN</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Enable Wind estimator
-      </p>
-      
-      <p>
-        <b>Reboot required:</b> true
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_SC_P_NOISE">WEST_SC_P_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator true airspeed scale process noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0001
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_TAS_GATE">WEST_TAS_GATE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gate size for true airspeed fusion
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1 > 5
-    </td>
-    
-    <td style="vertical-align: top;">
-      3
-    </td>
-    
-    <td style="vertical-align: top;">
-      SD
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_TAS_NOISE">WEST_TAS_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator true airspeed measurement noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 4
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.4
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="WEST_W_P_NOISE">WEST_W_P_NOISE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Wind estimator wind process noise
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s/s
-    </td>
-  </tr>
-</table>
-
 ## Miscellaneous
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -41870,90 +42804,6 @@
     
     <td style="vertical-align: top;">
       0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_Q2V">SEG_Q2V</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_TH2V_I">SEG_TH2V_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_TH2V_I_MAX">SEG_TH2V_I_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_TH2V_P">SEG_TH2V_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      10.0
     </td>
     
     <td style="vertical-align: top;">
