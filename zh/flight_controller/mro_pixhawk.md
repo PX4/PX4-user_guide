@@ -58,7 +58,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 
 > **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make px4fmu-v3_default
     
