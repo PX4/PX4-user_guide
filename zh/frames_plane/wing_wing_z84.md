@@ -25,7 +25,7 @@ One of these:
 One of these (any small (>=12A) ESC will do):
 
 - [Blue Series 12A ESC](https://hobbyking.com/en_us/hobbyking-12a-blueseries-brushless-speed-controller.html) (Hobbyking)
-- [Lumenier Regler 30A BLHeli_S ESC OPTO](https://www.brack.ch/lumenier-regler-30a-blhelis-esc-opto-2-4s-589152) (Brack - Switzerland)
+- [Lumenier Regler 30A BLHeli_S ESC OPTO](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html) (GetFPV)
 
 ### Autopilot and Essential Components
 
