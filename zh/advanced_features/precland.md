@@ -32,7 +32,7 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 参数[ LTEST_SCALE_X ](../advanced_config/parameter_reference.md#LTEST_SCALE_X) 和 [ LTEST_SCALE_Y ](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) 可用于在估计信标相对于飞行器的位置和速度之前对信标测量结果进行缩放。 由于 IR-LOCK 传感器的镜头失真，可能需要进行测量缩放。 注意，在传感器坐标系中考虑` LTEST_SCALE_X `和` LTEST_SCALE_Y `，而不是飞行器坐标系。
 
-要校准这些缩放参数，请将` LTEST_MODE `设置为移动，将多旋翼飞行器飞行在信标上方，并使飞行器执行前后和左右运动，同时[记录](https://dev.px4.io/en/log/logging.html#configuration) ` landing_target_pose `和` vehicle_local_position `的日志。 然后，将 ` landing_target_pose.vx_rel ` 和 ` landing_target_pose.vy_rel ` 分别与` vehicle_local_position.vx ` 和 ` vehicle_local_position.vy ` 进行比较（均在NED坐标系中测量）。 如果估计的信标速度始终小于或大于飞行器速度，则调整缩放参数以进行补偿。
+To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](https://dev.px4.io/master/en/log/logging.html#configuration) `landing_target_pose` and `vehicle_local_position`. 然后，将 ` landing_target_pose.vx_rel ` 和 ` landing_target_pose.vy_rel ` 分别与` vehicle_local_position.vx ` 和 ` vehicle_local_position.vy ` 进行比较（均在NED坐标系中测量）。 如果估计的信标速度始终小于或大于飞行器速度，则调整缩放参数以进行补偿。
 
 如果在 <LT> LTEST_MODE </code> 设置为静止的情况下进行精准着陆时观察到飞行器缓慢侧向振荡，则信标测量可能会缩放得太高，您应该减小相关方向上的缩放参数。
 
@@ -73,7 +73,7 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 ## 仿真
 
-在 [SITL Gazebo](https://dev.px4.io/en/simulation/gazebo.html) 中可以使用 IR-LOCK 传感器和信标进行精准着陆仿真。
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/master/en/simulation/gazebo.html).
 
 可以运行下列命令来开启拥有 IR-LOCK 信标，带测距传感器的飞行器，IR-LOCK 摄像头的仿真世界：
 
