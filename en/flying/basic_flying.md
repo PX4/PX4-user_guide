@@ -20,7 +20,7 @@ To arm the drone:
   [Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly).
 
 <span></span>
-> **Note** The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](#disarm) if you take too long to take off!
+> **Note** The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (turn off motors) if you take too long to take off!
   This is a safety measure to ensure that vehicles return to a safe state when not in use.
 
 <span id="takeoff-and-landing"></span>
