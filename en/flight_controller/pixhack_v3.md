@@ -58,5 +58,4 @@ make px4_fmu-v3_default
 
 ## Pinouts and Schematics
 
-* Open hardware files: https://github.com/cuav/CUAV_Hardware/tree/master/Pixhack_V3
-* Documentation/wiring guides: http://doc.cuav.net/PixHack/pixhack-v3.html
+* [Documentation/wiring guides](http://doc.cuav.net/PixHack/pixhack-v3.html)
