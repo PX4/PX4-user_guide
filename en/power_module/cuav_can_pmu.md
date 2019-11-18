@@ -1,4 +1,4 @@
-# CAN PMU
+# CAUV CAN PMU
 
 ![CAN PMU](../../assets/hardware/power_module/can_pmu.jpg)
 
