@@ -76,7 +76,7 @@ If you have a vehicle that measures voltage through a power module and the ADC o
 
 The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
 
-> **Note** This setting corresponds to parameter: [BAT_A_PER_V](../advanced_config/parameter_reference.md#BAT_A_PER_V).
+> **Note** This setting corresponds to parameter: [BAT_V_DIV](../advanced_config/parameter_reference.md#BAT_V_DIV).
 
 ### Amps per volt {#current_divider}
 
@@ -85,6 +85,8 @@ The easiest way to calibrate the divider is by using *QGroundControl* and follow
 If you are using [Current-based Load Compensation](#current_based_load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
 
 The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
+
+> **Note** This setting corresponds to parameter: [BAT_A_PER_V](../advanced_config/parameter_reference.md#BAT_A_PER_V).
 
 ## Voltage-based Estimation with Load Compensation {#load_compensation}
 

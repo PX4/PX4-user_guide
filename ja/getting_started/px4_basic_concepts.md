@@ -32,7 +32,7 @@ PX4は地上局ソフト [QGroundControl](#qgc) や，[Pixhawk ハードウェ�
 
 *QGroundControl* は，Windows・Android・MacOS・Linuxで動作します。 ダウンロード・インストールは [こちら](http://qgroundcontrol.com/downloads/)から。
 
-![QGC Main Screen](../../images/qgc_main_screen.jpg)
+![QGCメインスクリーン](../../images/qgc_main_screen.jpg)
 
 ## 機体コントローラ {#vehicle_controller}
 
@@ -79,6 +79,12 @@ PX4ドローンの多くはリチウムポリマー(LiPo) バッテリーによ�
 - [Flying 101](../flying/basic_flying.md) - 遠隔操縦を使用しての飛行方法。
 - [FrSky テレメトリー](../peripherals/frsky_telemetry.md) - RC送信機を用いたPX4からのテレメトリー・ステータス情報の受信設定方法。
 
+## セーフティスイッチ {#safety_switch}
+
+[アーミング](#arming) (アーミングを行うと，ロータが回転し始めます) を行う前に押さなければならない*セーフティスイッチ* を設けることが一般的です。 多くの場合，セーフティスイッチはGPSユニットに統合されていますが，別々のコンポーネントになっていることもあります。
+
+> **Note** アーミングされた機体は危険です。 そのため，不意にアーミングされてしまうことがないよう，セーフティスイッチが設けられています。
+
 ## データ/テレメトリー 無線
 
 [データ/テレメトリー無線](../telemetry/README.md) を用いると，*QGroundControl* などの地上局と，PX4が動作している機体の間でMAVLinkを用いた無線通信が可能となります。 これによって，フライト中にパラメータのチューニングを行ったり，リアルタイムでの機体状態の確認，ミッションの変更などが可能になります。
@@ -100,6 +106,23 @@ PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカ�
 
 推奨SDカードの一覧は以下にあります: [Developer Guide > ロギング](http://dev.px4.io/en/log/logging.html#sd-cards)
 
+## Disarmed/Pre-armed/Armed {#arming}
+
+機体は多くの可動部を持っており，その一部(特にモータやプロペラ) は潜在的な危険性を持っています。
+
+可動部による事故の可能性を低減するため，PX4は機体の起動に際して，以下の状態を定めています。
+
+- **Disarmed:** モータやアクチュエータが動くことのない状態です。
+- **Pre-armed:** 危険性のないアクチュエータ・電動機が動作可能な状態です。 
+  - 本状態では，エルロンやフラップ等を動かすことができますが，モータ・プロペラはロックされています。
+- **Armed:** モータ・プロペラを含め，すべてのモータやアクチュエータが動作可能です。
+
+標準では， [セーフティスイッチ](../getting_started/px4_basic_concepts.md#safety_switch) がpre-armed 状態に遷移するために用いられます。 Arming 状態には，その後Arming用のシーケンス操作やスイッチ，MAVLinkからのコマンド等によって遷移します。
+
+機体は初期状態ではdisarm状態となっており，フライトを行うにはアーミングを行う必要があります。また，Armed状態になってから速やかに離陸を行わない場合，自動的にdisarm状態(安全な状態) に戻ります。 同様に，通常機体が着陸した後は，安全に機体に近づけるよう，自動的にdisarmへと遷移します。
+
+> **Note** アーミングに関する動作(例： 機体が着陸後，自動的にdisarmへ遷移するまでの時間) は[設定可能](../advanced_config/prearm_arm_disarm.md) です。
+
 ## フライトモード {#flight_modes}
 
 必要な自動操縦のタイプや，ユーザ(操縦者) のレベルに応じて，様々なフライトモードの選択が可能です。 *Autonomousモード* ではオートパイロットによって完全に制御が行われ，パイロットからの遠隔操縦は不要です。 これらは，例えば離陸やホームポジションへの帰還，着陸などの共通タスクを自動化するために使用されます。 他のautonomousモードは，GPS位置情報を用いた設定経路の自動飛行や，オフボードコンピュータ/地上局からの命令 にそった飛行などが可能です。
@@ -120,25 +143,25 @@ PX4では機体に問題が発生した際に，不具合からシステムを�
 
 - バッテリー残量低下
 - 無線通信 (RC) ロスト
-- 位置情報喪失 (自己位置推定精度の悪化)
-- オフボード通信の喪失 (例： 機載コンピュータからの通信ロスト)
+- 位置情報ロスト (自己位置推定精度の低下)
+- オフボード通信のロスト (例： 機載コンピュータからの通信ロスト)
 - データリンクのロスト (例： GCSとのテレメトリー通信ロスト).
-- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
-- Mission Failsafe (prevent a previous mission being run at a new takeoff location).
-- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
+- ジオフェンス逸脱(円柱状のエリアに飛行範囲を制限します)
+- ミッションフェイルセーフ (前回設定した自動飛行経路が，新しい環境で実行されるのを防ぎます) 。
+- 航空機回避 (ADSB等のトランスポンダからのデータを受けて起動されます) 。
 
-For more information see: [Safety](../config/safety.md) (Basic Configuration).
+より詳しくは，以下を参照してください: [セーフティ](../config/safety.md) (基本設定).
 
-## Heading and Directions
+## 機首と方位
 
-All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+すべての機体，ボート，飛行機には機種方位または，前進方向として定められた向きがあります。
 
 ![Frame Heading](../../images/frame_heading.png)
 
-It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
+オートパイロットの向きを機体の運動方向と一致させるために，機体の機首方向を把握することは重要です。 マルチコプターもすべての方向に対称的な構造をしていますが，機首方向を持っています。 通常，色付きのプロペラや，色付きのアームで機首方向は表示されています。
 
 ![Frame Heading TOP](../../images/frame_heading_top.png)
 
-In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+本ドキュメント中の図では，赤色のプロペラが機体の機首方向を示します。
 
-You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
+機首についての詳細は， [フライトコントローラの方向](../config/flight_controller_orientation.md)で記述しています。

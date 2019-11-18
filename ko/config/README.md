@@ -18,6 +18,7 @@
 > * [Flight Modes](../config/flight_mode.md) (Optional)
 > * [Battery](../config/battery.md) (optional)
 > * [Safety](../config/safety.md) (optional)
+> * [Motors/Servos](../config/motors.md)
 > 
 > > ** 참고 </ 0>  지원 기체 </ 1>의 경우이 기본 구성 만 필요합니다 새로운 기체를 만드는 경우 기체 튜닝을 수행해야합니다 ( 고급 구성 </ 0> 참조).</p> </blockquote> 
 > > 
