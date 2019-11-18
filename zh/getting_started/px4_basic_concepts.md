@@ -96,7 +96,7 @@ PX4 can be controlled from a separate on-vehicle companion computer via a serial
 > **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 
 - [板外控制模式](../flight_modes/offboard.md) - 用于从 GCS 或机载计算机对 PX4 进行板外控制的飞行模式。 
-- [Robotics APIs ](https://dev.px4.io/en/robotics/)（PX4开发人员指南）
+- [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
 
 ## Removable Memory/Logging
 
