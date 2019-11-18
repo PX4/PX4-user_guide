@@ -117,12 +117,12 @@ listener distance_sensor 5
 > **Note** The *QGroundControl MAVLink Console* works when connected to Pixhawk or other NuttX targets, but not the Simulator. 
   On the Simulator you can run the commands directly in the terminal.
 
-For more information see: [Sensor/Topic Debugging using the Listener Command](https://dev.px4.io/en/debug/sensor_uorb_topic_debugging.html) (PX4 Development Guide).
+For more information see: [Sensor/Topic Debugging using the Listener Command](https://dev.px4.io/master/en/debug/sensor_uorb_topic_debugging.html) (PX4 Development Guide).
 
 
 ## Simulation {#simulation}
 
-Lidar and sonar rangefinders can be used in the [Gazebo Simulator](https://dev.px4.io/en/simulation/gazebo.html) (PX4 Development Guide).
+Lidar and sonar rangefinders can be used in the [Gazebo Simulator](https://dev.px4.io/master/en/simulation/gazebo.html) (PX4 Development Guide).
 To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
 The iris optical flow model includes a Lidar rangefinder:

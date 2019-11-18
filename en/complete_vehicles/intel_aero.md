@@ -4,7 +4,7 @@
   The PX4 port is therefore deprecated, and will be removed from the codelines in future releases.
 
 The *Intel Aero Ready to Fly Drone*® is a UAV development platform.
-Part of this is the [Intel Aero Compute Board](https://software.intel.com/en-us/aero/dev-kit), running Linux on a Quad-core CPU. 
+Part of this is the *Intel Aero Compute Board*, running Linux on a Quad-core CPU. 
 The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX. 
 These are integrated in the same package on the *Intel Aero Ready to Fly Drone*, 
 which also includes the vision accessory kit.

@@ -117,7 +117,7 @@ The companion computer will usually communicate using a MAVLink API like the MAV
 > **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 
 * [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
-* [Robotics APIs](https://dev.px4.io/en/robotics/) (PX4 Developer Guide)
+* [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
 
 
 ## Removable Memory/Logging
