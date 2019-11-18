@@ -42,3 +42,8 @@ it is recommended to use in large commercial no one. Machines can also be applie
   * Size:46.5mm \* 38.5mm \* 22.5mm
   * Weight:76g
 
+## Purchase
+
+[CUAV store](https://store.cuav.net/index.php)
+[CUAV aliexpress ](https://www.aliexpress.com/item/4000369700535.html)
+
