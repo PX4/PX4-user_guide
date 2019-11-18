@@ -67,13 +67,13 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 有关如何参与代码和文档的信息，请参阅开发人员指南：
 
-- [贡献代码](https://dev.px4.io/en/contribute/)
-- [文档撰写](https://dev.px4.io/en/contribute/docs.html)
-- [参与翻译](https://dev.px4.io/en/contribute/docs.html)
+- [贡献代码](https://dev.px4.io/master/en/contribute/)
+- [文档撰写](https://dev.px4.io/master/en/contribute/docs.html)
+- [参与翻译](https://dev.px4.io/master/en/contribute/docs.html)
 
 ## 许可证
 
-根据许可 [BSD 3 条款许可证](https://opensource.org/licenses/BSD-3-Clause) 的细则，PX4 代码可自由使用和修改。 本文档可在 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 下进行许可 。 有关详细信息，请参阅：[PX4 开发指南 > 许可证](https://dev.px4.io/en/contribute/licenses.html)。
+根据许可 [BSD 3 条款许可证](https://opensource.org/licenses/BSD-3-Clause) 的细则，PX4 代码可自由使用和修改。 本文档可在 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 下进行许可 。 For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/master/en/contribute/licenses.html).
 
 ### 图标
 

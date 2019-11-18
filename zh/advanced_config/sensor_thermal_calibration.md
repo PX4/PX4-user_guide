@@ -109,7 +109,7 @@ PX4 支持两种校准过程：
 
 ### 校准参数使用
 
-热偏差校正(使用校准参数) 在 [sensors module](https://dev.px4.io/en/middleware/modules_system.html#sensors) 中执行。 测量温度中减去参考温度，得到一个 delta 温度，其中：
+The correction for thermal offsets (using the calibration parameters) is performed in the [sensors module](https://dev.px4.io/master/en/middleware/modules_system.html#sensors). 测量温度中减去参考温度，得到一个 delta 温度，其中：
 
     delta = measured_temperature - reference_temperature
     

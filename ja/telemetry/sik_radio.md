@@ -29,4 +29,4 @@ You can update the radio firmware using *QGroundControl*: [QGroundControl User G
 
 ## Advanced Setup/Configuration
 
-The PX4 Developer Guide has [additional information](https://dev.px4.io/en/data_links/sik_radio.html) about building firmware and AT-command based configuration. This should not be required by non-developers.
+The PX4 Developer Guide has [additional information](https://dev.px4.io/master/en/data_links/sik_radio.html) about building firmware and AT-command based configuration. This should not be required by non-developers.

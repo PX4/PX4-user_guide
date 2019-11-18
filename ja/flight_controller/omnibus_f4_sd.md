@@ -177,7 +177,7 @@ The board comes pre-installed with [Betaflight](https://github.com/betaflight/be
 
 ## Building Firmware
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make omnibus_f4sd_default
     

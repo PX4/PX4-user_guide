@@ -24,7 +24,9 @@ Follow the the respective tuning guides on how to tune multirotors and fixed win
 
 ### Transition Tuning
 
-While it might seem that you are dealing with a vehicle that can fly in two modes (multirotor for vertical takeoffs and landings and fixed wing for forwards flight) there is an additional state you also need to tune: transition. Getting your transition tuning right is important for obtaining a safe entry into fixed wing mode, for example, if your airspeed is too slow when it transitions it might stall.
+While it might seem that you are dealing with a vehicle that can fly in two modes (multirotor for vertical takeoffs and landings and fixed wing for forwards flight) there is an additional state you also need to tune: transition.
+
+Getting your transition tuning right is important for obtaining a safe entry into fixed wing mode, for example, if your airspeed is too slow when it transitions it might stall.
 
 #### Transition Throttle
 
@@ -52,7 +54,7 @@ Disable blending by setting this parameter to 0 which will keep full multirotor 
 
 Parameter: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
 
-This is the airspeed which, when reached, will trigger the transition out of multirotor mode into fixed wing mode. It is critical that you have properly calibrated your airspeed sensor. It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check FW\_AIRSPD\_MIN) as this is currently not checked.
+This is the airspeed which, when reached, will trigger the transition out of multirotor mode into fixed wing mode. It is critical that you have properly calibrated your airspeed sensor. It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check `FW_AIRSPD_MIN`) as this is currently not checked.
 
 #### Fixed Wing Permanent Stabilisation
 
@@ -104,6 +106,4 @@ When transitioning from **fixed wing to multirotor** for this type of VTOL the
 
 ### Support
 
-If you have any questions regarding your VTOL conversion or configuration please visit <http://discuss.px4.io/c/vtol>.
-
- 
+If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.

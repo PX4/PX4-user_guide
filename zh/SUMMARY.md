@@ -58,7 +58,6 @@
     * [Convergence Tiltrotor (Pixfalcon)](frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
     * [TBS Caipiroshka (Pixracer)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
     * [Falcon Vertigo QuadPlane (Dropix)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
-    * [Archived:FireFly Y6 Tiltrotor (Pixfalcon)](frames_vtol/vtol_tiltrotor_birdseyeview_firefly_y6_pixfalcon.md)
   * [Rovers](frames_rover/README.md) 
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
 * [飞行](flying/README.md) 
@@ -209,7 +208,7 @@
 
 ## Dronecode 相关资源
 
-* [PX4 开发人员指南](https://dev.px4.cc/zh/)
+* [PX4 开发人员指南](https://dev.px4.io/master/en/)
 * [QGroundControl用户指南](https://docs.qgroundcontrol.com/en/)
 * [QGroundControl 开发人员指南](https://dev.qgc.dimianzhan.com/zh/)
 * [MAVLink指南](https://mavlink.io/en/)

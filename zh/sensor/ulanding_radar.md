@@ -20,4 +20,4 @@ uLanding can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELE
 
 ## 更多信息
 
-* [PX4 开发指南](https://dev.px4.io/en/)
+* [PX4 开发指南](https://dev.px4.io/master/en/)
