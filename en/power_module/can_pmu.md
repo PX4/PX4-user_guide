@@ -7,3 +7,38 @@ CAN PMU<sup>&reg;</sup> is a high-precision power module developed by CUAV<sup>&
 it is recommended to use in large commercial no one. Machines can also be applied to technical research and other fields.
 
 ## Quick Summary
+
+* **processor** 
+  * STM32F412
+* **Voltage input **
+  * 6~62V\(2-15S\)
+* **Max current** 
+  * 110A
+* **Voltage accuracy ** 
+  * ±0.05V
+* **Current accuracy **
+  * ±0.1A
+* **Resolution**
+  * 0.01A/V
+* **Max output power **
+  * 6000W/90S
+* **Max stable power **
+  * 5000W
+* **Power port output**
+  * 5.4V/5A
+* **protocol**
+  * UAVCAN
+* **Operating temp**
+  * -20~+100℃
+* **Firmware upgrade**
+  * Support
+* **calibration**
+  * no need
+* **Interface Type**
+  * IN/OUT:XT90\(Cable）/Amass 8.0\(Module）
+  * Power:5025850670
+  * CAN: GHR-04V-S
+* **Appearance:**
+  * Size:46.5mm \* 38.5mm \* 22.5mm
+  * Weight:76g
+
