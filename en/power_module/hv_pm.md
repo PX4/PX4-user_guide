@@ -18,3 +18,7 @@ The CUAV HV_PM module is a new high voltage voltage power module independently d
 ## Pinouts
 
 ![HV PM](../../assets/hardware/power_module/hv_pm.jpg)
+
+## Enable hv pm
+
+[Battery and Power Module Setup](../config/battery.md) Describes how to configure your battery and power module. Below is important information about HV PM.
