@@ -115,6 +115,6 @@ Vehicles switch to the next waypoint as soon as they enter the acceptance radius
 
 * For MC this radius is defined by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)
 * For FW the radius is defined by the "L1 distance". 
-  * The L1 distance is computed from two parameters: [L1_DAMPING](../advanced_config/parameter_reference.md#L1_DAMPING) and [L1_PERIOD](../advanced_config/parameter_reference.md#L1_PERIOD), and the current ground speed.
+  * The L1 distance is computed from two parameters: [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) and [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD), and the current ground speed.
   * By default, it's about 70 meters.
   * The equation is: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$
