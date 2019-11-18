@@ -15,3 +15,6 @@ The CUAV HV_PM module is a new high voltage voltage power module independently d
 
 [CUAV aliexpress store](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
 
+## Pinouts
+
+![HV PM](../../assets/hardware/power_module/hv_pm.jpg)
