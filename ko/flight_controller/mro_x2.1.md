@@ -180,7 +180,7 @@
                                 </blockquote>
                                 
                                 <p>
-                                  To <a href="https://dev.px4.io/en/setup/building_px4.html">build PX4</a> for this target:
+                                  To <a href="https://dev.px4.io/master/en/setup/building_px4.html">build PX4</a> for this target:
                                 </p>
                                 
                                 <pre><code>make auav_x21_default
