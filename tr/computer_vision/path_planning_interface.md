@@ -40,21 +40,21 @@ The fields set by PX4 as shown:
   - `acc_x[0]`, `acc_y[0]`, `acc_z[0]`: NaN
   - `pos_yaw[0]`: Current yaw angle
   - `vel_yaw[0]`: NaN
-  - `command[0]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mavlink-commands-mavcmd) for the current waypoint. 
+  - `command[0]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint. 
 - Point 1 - Current waypoint (Unmodified/not type adapted)): 
   - `pos_x[1]`, `pos_y[1]`, `pos_z[1]`: x-y-z NED local position of *current* mission waypoint
   - `vel_x[1]`, `vel_y[1]`, `vel_z[1]`: NaN
   - `acc_x[1]`, `acc_y[1]`, `acc_z[1]`: NaN
   - `pos_yaw[1]`: Yaw setpoint
   - `vel_yaw[1]`: Yaw speed setpoint
-  - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mavlink-commands-mavcmd) for the current waypoint.
+  - `command[1]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the current waypoint.
 - Point 2 - Next waypoint in local coordinates (unmodified/not type adapted): 
   - `pos_x[2]`, `pos_y[2]`, `pos_z[2]`: x-y-z NED local position of *next* mission waypoint
   - `vel_x[2]`, `vel_y[2]`, `vel_z[2]`: NaN
   - `acc_x[2]`, `acc_y[2]`, `acc_z[2]`: NaN
   - `pos_yaw[2]`: Yaw setpoint
   - `vel_yaw[2]`: Yaw speed setpoint
-  - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mavlink-commands-mavcmd) for the next waypoint.
+  - `command[2]`: The [MAVLink Command](https://mavlink.io/en/messages/common.html#mav_commands) for the next waypoint.
 - All other indices/fields are set as NaN.
 
 <span id="type_adapted"></span>
