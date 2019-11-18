@@ -67,13 +67,13 @@ If directed by the development team, code issues may be raised on [Github here](
 
 Information on how to contribute to code and documentation can be found in the Developer Guide:
 
-- [Code](https://dev.px4.io/en/contribute/)
-- [Documentation](https://dev.px4.io/en/contribute/docs.html)
-- [Translation](https://dev.px4.io/en/contribute/docs.html)
+- [Code](https://dev.px4.io/master/en/contribute/)
+- [Documentation](https://dev.px4.io/master/en/contribute/docs.html)
+- [Translation](https://dev.px4.io/master/en/contribute/docs.html)
 
 ## License
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/en/contribute/licenses.html).
+PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/master/en/contribute/licenses.html).
 
 ### Icons
 
