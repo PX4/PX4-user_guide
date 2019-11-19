@@ -76,6 +76,26 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
     make px4_fmu-v5_default
     
 
+## Debug Port {#debug_port}
+
+The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable). It does not have an I/O debug interface.
+
+![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_nano/debug_port_dsu7.jpg)
+
+The debug port (DSU7) (JST SM06B connector) is documented for each board, and has the following pinout:
+
+| Pin     | Signal         | Volt  |
+| ------- | -------------- | ----- |
+| 1 (red) | 5V+            | +5V   |
+| 2 (blk) | DEBUG TX (OUT) | +3.3V |
+| 3 (blk) | DEBUG RX (IN)  | +3.3V |
+| 4 (blk) | FMU_SWDIO      | +3.3V |
+| 5 (blk) | FMU_SWCLK      | +3.3V |
+| 6 (blk) | GND            | GND   |
+
+
+> **Warning** See also: [Using JTAG for hardware debugging](#issue_jtag)
+
 ## Voltage Ratings
 
 *V5 nano* must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.
