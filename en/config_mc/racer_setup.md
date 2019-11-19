@@ -122,6 +122,7 @@ Even one millisecond added to the latency makes a difference.
 These are the factors that affect the latency:
 - A soft airframe or soft vibration mounting increases latency (they act as a filter).
 - Low-pass filters in software and on the sensor chip trade off increased latency for improved noise filtering.
+- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk).
   To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
 - PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0) 
