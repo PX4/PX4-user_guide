@@ -127,7 +127,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 ## Pinouts
 
-TELEM1, TELEM2 ports
+#### TELEM1, TELEM2 ports
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -138,7 +138,7 @@ Pin | Signal | Volt
 5 (blk) | RTS (OUT) | +3.3V
 6 (blk) | GND       | GND
 
-GPS port
+#### GPS port
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -149,7 +149,9 @@ Pin | Signal | Volt
 5 (blk) | CAN2 RX   | +3.3V
 6 (blk) | GND       | GND
 
-SERIAL 4/5 port - due to space constraints two ports are on one connector.
+#### SERIAL 4/5 port
+
+Due to space constraints two ports are on one connector.
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -160,7 +162,7 @@ Pin | Signal | Volt
 5 (blk) | RX (#5)   | +3.3V
 6 (blk) | GND       | GND
 
-ADC 6.6V
+#### ADC 6.6V
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -168,7 +170,7 @@ Pin | Signal | Volt
 2 (blk) | ADC IN    | up to +6.6V
 3 (blk) | GND       | GND
 
-ADC 3.3V
+#### ADC 3.3V
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -178,7 +180,7 @@ Pin | Signal | Volt
 4 (blk) | ADC IN    | up to +3.3V
 5 (blk) | GND       | GND
 
-I2C
+#### I2C
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -187,7 +189,7 @@ Pin | Signal | Volt
 3 (blk) | SDA    | +3.3 (pullups)
 4 (blk) | GND       | GND
 
-CAN
+#### CAN
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -196,7 +198,7 @@ Pin | Signal | Volt
 3 (blk) | CAN_L    | +12V
 4 (blk) | GND      | GND
 
-SPI
+#### SPI
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -208,7 +210,7 @@ Pin | Signal | Volt
 6 (blk) | !GPIO_EXT    | +3.3
 7 (blk) | GND          | GND
 
-POWER
+#### POWER
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -219,7 +221,7 @@ Pin | Signal | Volt
 5 (blk) | GND       | GND
 6 (blk) | GND       | GND
 
-SWITCH
+#### SWITCH
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -227,7 +229,8 @@ Pin | Signal | Volt
 2 (blk) | !IO_LED_SAFETY | GND
 3 (blk) | SAFETY   | GND
 
-## Console Port
+## Debug Ports
+### Console Port
 
 The system's serial console runs on the port labeled SERIAL4/5. The pinout is standard serial pinout, to connect to a standard FTDI cable (3.3V, but its 5V tolerant).
 
@@ -246,7 +249,7 @@ make px4_fmu-v2_default
 
 ## Parts / Housings
 
-* **ARM MINI JTAG (J6)**: 1.27 mm 10pos header (SHROUDED, for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](http://www.distrelec.ch/en/Pin-header-SMT-straight-for-IDC-1-27-mm-10-Minitek-127-Pin-header-for-IDC%2C-shrouded%2C-straight%2C-SMT-FCI-20021521-00010D4LF/p/14352308?q=20021521-00010D4LF&page=1&origPos=1&origPageSize=10&simi=99.4), [Digi-Key](https://www.digikey.com/product-detail/en/20021521-00010T1LF/609-4054-ND/2414951),) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/products/en?keywords=M50-3600542) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d))
+* **ARM MINI JTAG (J6)**: 1.27 mm 10pos header (SHROUDED), for Black Magic Probe: FCI 20021521-00010D4LF ([Distrelec](http://www.distrelec.ch/en/Pin-header-SMT-straight-for-IDC-1-27-mm-10-Minitek-127-Pin-header-for-IDC%2C-shrouded%2C-straight%2C-SMT-FCI-20021521-00010D4LF/p/14352308?q=20021521-00010D4LF&page=1&origPos=1&origPageSize=10&simi=99.4), [Digi-Key](https://www.digikey.com/product-detail/en/20021521-00010T1LF/609-4054-ND/2414951),) or Samtec FTSH-105-01-F-DV-K (untested) or Harwin M50-3600542 ([Digikey](https://www.digikey.com/products/en?keywords=M50-3600542) or [Mouser](http://ch.mouser.com/ProductDetail/Harwin/M50-3600542/?qs=%2fha2pyFadujTt%2fIEz8xdzrYzHAVUnbxh8Ki%252bwWYPNeEa09PYvTkIOQ%3d%3d))
   * JTAG Adapter Option #1: [BlackMagic Probe](https://1bitsquared.com/products/black-magic-probe). Note, may come without cables (check with manufacturer).
     If so, you will need the **Samtec FFSD-05-D-06.00-01-N** cable ([Samtec sample service](http://www.samtec.com/suddenservice/samples/samples.aspx) or [Digi-Key Link: SAM8218-ND](http://www.digikey.com/product-search/en?x=0&y=0&lang=en&site=us&KeyWords=FFSD-05-D-06.00-01-N)) or [Tag Connect Ribbon](http://www.tag-connect.com/CORTEXRIBBON10) and a Mini-USB cable.
   * JTAG Adapter Option #2: [Digi-Key Link: ST-LINK/V2](https://www.digikey.com/product-detail/en/stmicroelectronics/ST-LINK-V2/497-10484-ND) / [ST USER MANUAL](http://www.st.com/internet/com/TECHNICAL_RESOURCES/TECHNICAL_LITERATURE/USER_MANUAL/DM00026748.pdf), needs an ARM Mini JTAG to 20pos adapter: [Digi-Key Link: 726-1193-ND](https://www.digikey.com/products/en?keywords=MDL-ADA2)
@@ -255,15 +258,6 @@ make px4_fmu-v2_default
   * Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
 * **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3369-ND))
 
-
-<!--
-## Peripherals
-
-* [[:peripherals:sensors:px4airspeed|Digital airspeed sensor PX4AIRSPEED]]
-* [[https://store.3drobotics.com/products/3dr-gps-ublox-with-compass?taxon_id=34|u-Blox GPS Module]]
-* [[:peripherals:external_led|External multicolor LED]]
-* [[:peripherals:i2c_splitter|I2C splitter]]
--->
 
 ## Supported Platforms / Airframes
 
