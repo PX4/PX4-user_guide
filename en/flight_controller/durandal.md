@@ -147,13 +147,13 @@ make holybro_durandal-v1_default
 
 ## Debug Port
 
-The system's serial console and SWD interface runs on the [Debug port](#debug_port).
+The PX4 FMU serial console and SWD interface run on the [Debug port](#debug_port).
 
-The port has a  standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation).
+The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation).
 The pinout uses the standard Dronecode debug connector pinout.
 Please refer to the [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
 
-<!-- I/O port - how do we access? -->
+> **Note** No Debug port is exposed for the I/O board.
 
 
 ## Peripherals
