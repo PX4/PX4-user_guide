@@ -160,7 +160,7 @@ The other radio is connected to your ground station computer or mobile device (u
 ## SD Card (Optional)
 
 SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md).
-Insert a card into the *Durandal* where indicated below.
+Insert an SD card into the *Durandal* where indicated below.
 
 ![Durandal SD Card](../../assets/flight_controller/durandal/durandal_sd_slot.jpg)
 
@@ -188,9 +188,10 @@ The wiring and configuration of optional/less common components is covered withi
 
 [Durandal > Pinouts](../flight_controller/durandal.md#pinouts)
 
-## Configuration
+## PX4 Configuration {#configuration}
 
-General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+First you will need to install the latest [PX4 Firmware](../config/firmware.md#custom) onto the controller.
+Further general configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
