@@ -57,7 +57,7 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
 
 
 
-## Power
+## Power {#power}
 
 You can use a power module or power distribution board to power motors/servos and measure power consumption.
 The recommended power modules are shown below.
@@ -169,15 +169,16 @@ Insert an SD card into the *Durandal* where indicated below.
 
 ## Motors
 
-Motors/servos are connected to the **I/O PWM OUT** (**MAIN OUT**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). 
+Motors/servos control signals are connected to the **I/O PWM OUT** (**MAIN OUT**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md). 
 
 ![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
 
+The motors must be separately [powered](#power).
 
-> **Note** This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type). 
+> **Note** If your frame is not listed in the airframe reference then use a "generic" airframe of the correct type.
 
 <span></span>
-> **Note** There are 5 AUX ports; you cannot use this flight controller for airframes that use AUX6, AUX7, AUX8 for motors or other critical flight controls.
+> **Note** *Durandal* has 5 AUX ports, so cannot be used with airframes that map AUX6, AUX7, AUX8 to motors or other critical flight controls.
 
 
 ## Other Peripherals
