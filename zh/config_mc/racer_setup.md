@@ -58,7 +58,6 @@ After having built the racer, you will need to configure the software. Go throug
 These parameters are important:
 
 - Enable One-Shot by setting [PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) to 0.
-- Enable `SYS_FMU_TASK` (explained [below](#control_latency)).
 - Set the maximum roll-, pitch- and yaw rates for Manual/Stabilized mode as desired: [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) and [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX). The maximum tilt angle is configured with [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX).
 - The minimum thrust [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) should be set to 0.
 - Disable RC input filtering by setting [RC_FLT_CUTOFF](../advanced_config/parameter_reference.md#RC_FLT_CUTOFF) to 0.
@@ -97,7 +96,7 @@ These are the factors that affect the latency:
 
 - A soft airframe or soft vibration mounting increases latency (they act as a filter).
 - Low-pass filters in software and on the sensor chip trade off increased latency for improved noise filtering.
-- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver. Enable [SYS_FMU_TASK](../advanced_config/parameter_reference.md#SYS_FMU_TASK) to reduce latency (default on [Pixracer](../flight_controller/pixracer.md) and [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)).
+- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
 - PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0) 
 
