@@ -10,7 +10,7 @@ At high level, some of the key features are:
 - Powerful STM32H7 microcontroller running at 480MHz.
   2 MB of Flash memory and 1 MB of RAM.
 - New sensors with higher temperature stability.
-- Efficient vibration absorption system.
+- Internal vibration isolation system.
 - Dual high-performance, low-noise IMUs on board are designed for demanding stabilization applications.
 
 A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
