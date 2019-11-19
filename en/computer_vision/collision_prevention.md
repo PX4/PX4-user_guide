@@ -63,6 +63,12 @@ If the sectors adjacent to the commanded sectors are 'better' by a significant m
 This helps to fine-tune user input to 'guide' the vehicle around obstacles rather than getting stuck against them.
 
 
+### Range Data Loss {#data_loss}
+
+If the autopilot does not receive range data from any sensor for longer than 0.5s, it will output a warning "No range data received, no movement allowed." This will force the velocity setpoints in xy to zero. After 5s of not receiving any data, the vehicle will switch into HOLD mode. If you want the vehicle to be able to move again, you will need to disable the Collision Prevention by either setting the parameter [CP_DIST](#CP_DIST) to a negative value or switch out of Position mode (to e.g. Altitude or Stabilized). If you have multiple sensors connected and you lose connection to one of them, you will still be able to fly inside the FOV of the reporting sensors. The data of the faulty sensor will expire and the region covered by this sensor will be treated as uncovered, meaning you will not be able to move there.
+
+> **Warning** Be careful when enabling to fly outside the area with sensor coverage ([CP_GO_NO_DATA](#CP_GO_NO_DATA) = 1). If you lose connection to one of multiple sensors, the area covered by the faulty sensor is also treated as uncovered and you will be able to move there without constraint.
+
 ### CP_DELAY Delay Tuning {#delay_tuning}
 
 There are two main sources of delay which should be accounted for: *sensor delay*, and vehicle *velocity setpoint tracking delay*.
