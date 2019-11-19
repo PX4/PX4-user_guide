@@ -78,9 +78,9 @@ For more information see: [Durandal Technical Data Sheet](http://www.holybro.com
 Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
 
 
-## Connectors
+## Connections {#connections}
 
-The connectors are shown below (and below in the [pinouts section](#pinouts)).
+The locations of ports/connections are shown here (and below in the [pinouts section](#pinouts)).
 
 ### Top
 ![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
