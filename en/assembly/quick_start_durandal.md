@@ -30,12 +30,14 @@ We'll go through each of these in detail in the following sections.
 
 ## Mount and Orient Controller
 
-*Durandal* should be mounted on the frame using vibration-damping foam pads (included in the kit).
-It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+*Durandal* should be mounted on the frame positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
 ![Mounting/Orientation](../../assets/flight_controller/durandal/orientation.jpg)
 
-> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+
+> **Tip** The board has internal vibration-isolation.
+  Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
 
 
 ## GPS + Compass + Buzzer + Safety Switch + LED
@@ -57,11 +59,30 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
 
 ## Power
 
-You can use a power module or power distribution board to power motors/servos and measure power consumption. 
+You can use a power module or power distribution board to power motors/servos and measure power consumption.
+The recommended power modules are shown below.
 
-### PM02 v3 Power Module
+### PM02 v3 Power Module {#pm02_v3}
 
-The *PM02 v3* power module that can be bundled with *Durandal* has the following characteristics/limits:
+The [Power Module (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html) can be bundled with *Durandal*.
+It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
+
+Connect the output of the *Power Module* as shown.
+
+![Durandal PM02v3 Power connections](../../assets/flight_controller/durandal/connection_power.jpg)
+
+
+- PM voltage/current port: connect to [POWER1](../flight_controller/durandal.md#power) port (or `POWER2`) using the 6-wire GH cable supplied.
+- PM input (XT60 male connector): connect to the LiPo battery (2~12S).
+- PM power output (XT60 female connector): wire out to any motor ESCs.
+
+
+> **Note** The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module. 
+  If it will need to be separately powered in order to drive servos for rudders, elevons etc.
+  To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery.
+  Be careful with the voltage of servo you are going to use.
+
+The power module has the following characteristics/limits:
 - Max input voltage: 60V
 - Max current sensing: 120A Voltage
 - Current measurement configured for SV ADC Switching regulator outputs 5.2V and 3A max 
@@ -69,37 +90,40 @@ The *PM02 v3* power module that can be bundled with *Durandal* has the following
 - Package includes: 
   - PM02 board
   - 6pin MLX cable (1)
-  - 6pin GH cable (1) 
+  - 6pin GH cable (1)
 
-Connect the output of the *Power Module* that comes with the kit to one of the Durandal [POWER](../flight_controller/durandal.md#power) ports using the 6-wire GH cable.
+> **Note** See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
 
-The PM input **2~12S** will be connected to your LiPo battery.
+### Pixhawk 4 Power Module (PM07) {#pm07}
 
-The PM output should be connected to TBD
+The [Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html) can be bundled/used with *Durandal*.
+It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller. 
 
-<!-- 
+This is wired up in the same way as described in the [Pixhawk 4 Quick Start > Power](../assembly/quick_start_pixhawk4.md#power) documentation.
 
-> **Note** The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module. 
-  If it will need to be separately powered in order to drive servos for rudders, elevons etc.
-  To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery.
-  Be careful with the voltage of servo you are going to use.
+It has the following characteristics/limits:
+- PCB Current: total 120A outputs (MAX)
+- UBEC 5V output current: 3A
+- UBEC input voltage : 7~51v (2~12s LiPo)
+- Dimensions: 68*50*8 mm
+- Mounting Holes: 45*45mm
+- Weight: 36g
+- Package includes:
+  - PM07 board (1)
+  - 80mm XT60 connector wire (1)
+
+> **Note** See also [PM07 Quick Start Guide](http://www.holybro.com/manual/PM07-Quick-Start-Guide.pdf) (Holybro).
+
+### Battery Configuration
+
+The battery/power setup must be configured in [Power Settings](../config/battery.md).
+For either Power Module you will need to configure the *Number of Cells*.
+
+You will not need to update the *voltage divider* unless you are using some other power module (e.g. the one from the Pixracer).
 
 
+<!-- Data sheet for AP says 18.1 voltage divider, 36 Amps/volt BK to confirm -->
 
-The pinout of *Pixhawk 4*’s power ports is shown below. 
-The CURRENT signal should carry an analog voltage from 0-3.3V for 0-120A as default. 
-The VOLTAGE signal should carry an analog voltage from 0-3.3V for 0-60V as default. 
-The VCC lines have to offer at least 3A continuous and should default to 5.1V. 
-A lower voltage of 5V is still acceptable, but discouraged.
--->
-
-<!-- Data sheet for AP says 18.1 voltage divider, 36 Amps/volt 
-
-> **Note** Using the Power Module that comes with the kit you will need to configure the *Number of Cells* in the [Power Settings](https://docs.qgroundcontrol.com/en/SetupView/Power.html)
-> but you won't need to calibrate the *voltage divider*.
-> You will have to update the *voltage divider* if you are using any other power module (e.g. the one from the Pixracer).
-
--->
 
 ## Radio Control
 

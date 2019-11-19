@@ -18,6 +18,7 @@ A summary of the key features, [assembly](../assembly/quick_start_durandal.md), 
 
 ## Quick Summary
 
+#### Technical Specifications
 - Main FMU Processor: STM32H743
   - 32 Bit Arm ® Cortex® -M7, 480MHz, 2MB memory, 1MB RAM
 - IO Processor: STM32F100
@@ -29,45 +30,46 @@ A summary of the key features, [assembly](../assembly/quick_start_durandal.md), 
   - Barometer: MS5611
 - GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
-- Interfaces:
-  - 8-13 PWM servo outputs (8 from IO, 5 from FMU)
-  - 6 dedicated PWM/Capture inputs on FMU 
-  - Dedicated R/C input for Spektrum / DSM
-  - Dedicated R/C input for CPPM and S.Bus
-  - Dedicated S.Bus servo output and analog / PWM RSSI input
-  - 5 general purpose serial ports
-    - 3 with full flow control
-    - 1 with separate 1.5A current limit
-  - 3 I2C ports
-  - 4 SPI buses
-    - 1 internal high speed SPI sensor bus with 4 chip  selects and 6 DRDYs
-    - 1 internal low noise SPI bus dedicated for XXX
-    - Barometer with 2 chip selects, no DRDYs
-    - 1 internal SPI bus dedicated for FRAM
-    - Supports temperature control located on sensor module
-    - 1 external SPI buses
-  - Up to 2 CANBuses for dual CAN
-    - Each CANBus has individual silent controls or ESC RX-MUX control
-  - Analog inputs for voltage / current of 2 batteries
-  - 2 additional analog inputs
 
-- Electrical Data:
-  - Power module output: 4.9~5.5V
-  - Max input voltage: 6V
-  - Max current sensing: 120A
-  - USB Power Input: 4.75~5.25V
-  - Servo Rail Input: 0~36V
+#### Interfaces
+- 8-13 PWM servo outputs (8 from IO, 5 from FMU)
+- 6 dedicated PWM/Capture inputs on FMU 
+- Dedicated R/C input for Spektrum / DSM
+- Dedicated R/C input for CPPM and S.Bus
+- Dedicated S.Bus servo output and analog / PWM RSSI input
+- 5 general purpose serial ports
+  - 3 with full flow control
+  - 1 with separate 1.5A current limit
+- 3 I2C ports
+- 4 SPI buses
+  - 1 internal high speed SPI sensor bus with 4 chip  selects and 6 DRDYs
+  - 1 internal low noise SPI bus dedicated for XXX
+  - Barometer with 2 chip selects, no DRDYs
+  - 1 internal SPI bus dedicated for FRAM
+  - Supports temperature control located on sensor module
+  - 1 external SPI buses
+- Up to 2 CANBuses for dual CAN
+  - Each CANBus has individual silent controls or ESC RX-MUX control
+- Analog inputs for voltage / current of 2 batteries
+- 2 additional analog inputs
 
-- Mechanical Data:
-  - Dimensions: 80x45x20.5mm
-  - Weight: 68.8g
-  
-- Other Characteristics:
-  - Operating temperature: ~40~85C
-  - Storage temperature: -40~85C
-  - CE
-  - FCC
-  - RoHS compliant (lead-free)
+#### Electrical Data
+- Power module output: 4.9~5.5V
+- Max input voltage: 6V
+- Max current sensing: 120A
+- USB Power Input: 4.75~5.25V
+- Servo Rail Input: 0~36V
+
+#### Mechanical Data
+- Dimensions: 80x45x20.5mm
+- Weight: 68.8g
+
+#### Other Characteristics
+- Operating temperature: ~40~85C
+- Storage temperature: -40~85C
+- CE
+- FCC
+- RoHS compliant (lead-free)
 
 For more information see: [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf).
 
@@ -78,7 +80,23 @@ Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
 
 ## Connectors
 
-The connectors are shown in the [pinouts section](#pinouts) below.
+The connectors are shown below (and below in the [pinouts section](#pinouts)).
+
+### Top
+![Durandal - Top Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_top.jpg)
+
+### Front
+![Durandal - Front Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_front.jpg)
+
+### Back
+![Durandal - Back Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_back.jpg)
+
+### Right
+![Durandal - Right-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_right.jpg)
+
+
+### Left
+![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
 
 ## Dimensions
