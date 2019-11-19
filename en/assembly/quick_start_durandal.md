@@ -45,8 +45,6 @@ If the controller cannot be mounted in the recommended/default orientation (e.g
 Durandal is designed to work well with the *Pixhawk 4 GPS module*, which has an integrated compass, safety switch, buzzer and LED.
 It connects directly to the [GPS port](../flight_controller/durandal.md#gps) using the 10 pin cable.
 
-<!-- Confirm how compass delivery works - separate or in the package? -->
-
 The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
 ![Connect compass/GPS to Durandal](../../assets/flight_controller/durandal/connection_gps_compass.jpg) 
@@ -54,7 +52,6 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
 > **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle).
   To disable the safety press and hold the safety switch for 1 second.
   You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
-
 
 
 ## Power {#power}
@@ -122,12 +119,9 @@ For either Power Module you will need to configure the *Number of Cells*.
 You will not need to update the *voltage divider* unless you are using some other power module (e.g. the one from the Pixracer).
 
 
-<!-- Data sheet for AP says 18.1 voltage divider, 36 Amps/volt BK to confirm -->
-
-
 ## Radio Control
 
-A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes). 
+A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
 You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver). 
 
@@ -191,7 +185,10 @@ The wiring and configuration of optional/less common components is covered withi
 
 ## PX4 Configuration {#configuration}
 
-First you will need to install the latest [PX4 Firmware](../config/firmware.md#custom) onto the controller.
+First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using *QGroundControl*.
+> **Note** Durandal support will be in the *stable* PX4 release that follows PX4 v1.10.
+
+
 Further general configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
