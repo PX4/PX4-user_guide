@@ -73,11 +73,12 @@ Connect the output of the *Power Module* as shown.
 - PM input (XT60 male connector): connect to the LiPo battery (2~12S).
 - PM power output (XT60 female connector): wire out to any motor ESCs.
 
+> **Note** As this power module does not include power distribution wiring, you would normally just connect all the ESCs in parallel to the power module output (the ESC must be appropriate for the supplied voltage level).
 
-> **Note** The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module. 
-  If it will need to be separately powered in order to drive servos for rudders, elevons etc.
-  To do this, the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery.
-  Be careful with the voltage of servo you are going to use.
+<span></span>
+> **Note** The 8 pin power (+) rail of **MAIN/AUX** is not powered by the power module supply to the flight controller.
+  If it will need to be separately powered in order to drive servos for rudders, elevons etc., the power rail needs to be connected to a BEC equipped ESC or a standalone 5V BEC or a 2S LiPo battery.
+  Ensure the voltage of servo you are going to use is appropriate.
 
 The power module has the following characteristics/limits:
 - Max input voltage: 60V
