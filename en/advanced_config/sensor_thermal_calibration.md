@@ -118,7 +118,7 @@ Examples:
 
 ### Calibration Parameter Usage
 
-The correction for thermal offsets (using the calibration parameters) is performed in the [sensors module](https://dev.px4.io/en/middleware/modules_system.html#sensors). The reference temperature is subtracted from the measured temperature to obtain a delta temperature where:
+The correction for thermal offsets (using the calibration parameters) is performed in the [sensors module](https://dev.px4.io/master/en/middleware/modules_system.html#sensors). The reference temperature is subtracted from the measured temperature to obtain a delta temperature where:
 ```
 delta = measured_temperature - reference_temperature
 ```

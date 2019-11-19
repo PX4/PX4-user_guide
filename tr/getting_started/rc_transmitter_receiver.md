@@ -95,6 +95,5 @@ If you are using a *Spektrum* receiver, you can put it into bind mode using *QGr
 
 ## Related Topics
 
-* [RC System Selection](../getting_started/rc_transmitter_receiver.md) - Choose a compatible RC system.
 * [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
 * [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.

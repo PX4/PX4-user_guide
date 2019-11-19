@@ -43,7 +43,7 @@ Pixfalcon 자동 조종 장치 ( Holybro <sup> 및 reg; </ 1> </ 0>) 는 공간�
 
 <ul>
   <li>
-    Optical flow: PX4 Flow unit from manufacturer <a href="http://www.holybro.com/product/px4flow/">Holybro</a> or distributor <a href="http://www.hobbyking.com/hobbyking/store/__66308__HK_Pilot32_Optical_Flow_Kit_With_Sonar.html">Hobbyking</a>
+    Optical flow: PX4 Flow unit from manufacturer <a href="http://www.holybro.com/product/px4flow/">Holybro</a>
   </li>
   <li>
     Digital Airspeed sensor from manufacturer <a href="http://www.holybro.com/product/digital-air-speed-sensor/">Holybro</a> or distributor <a href="https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html">Hobbyking</a>
@@ -81,7 +81,7 @@ Pixfalcon 자동 조종 장치 ( Holybro <sup> 및 reg; </ 1> </ 0>) 는 공간�
 </blockquote>
 
 <p>
-  To <a href="https://dev.px4.io/en/setup/building_px4.html">build PX4</a> for this target:
+  To <a href="https://dev.px4.io/master/en/setup/building_px4.html">build PX4</a> for this target:
 </p>
 
 <pre><code>make px4_fmu-v2_default

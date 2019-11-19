@@ -14,8 +14,8 @@ The following models are supported by PX4, and can be connected to either the I2
 Model | Range (m) | Bus | Description
 --- | --- | --- | ---
 [SF11/C](https://lightware.co.za/collections/lidar-rangefinders/products/sf11-c-120-m) | 120 | Serial or I2C bus | 
-[LW20/B](http://lightware.co.za/shop2017/drone-altimeters/51-lw20-100-m.html) | 50 | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications
-[LW20/C](http://lightware.co.za/shop2017/drone-altimeters/51-lw20-100-m.html) | 100 | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications
+[LW20/B](https://lightware.co.za/products/lw20-b-50-m) | 50 | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications
+[LW20/C](https://lightware.co.za/products/lw20-c-100-m) | 100 | I2C bus | Waterproofed (IP67) with servo for sense-and-avoid applications
 
 ### Discontinued
 
@@ -23,9 +23,9 @@ The following models are no longer available from the manufacturer.
 
 Model | Range | Bus
 --- | --- | ---
-[SF02](http://lightware.co.za/shop2017/proximity-sensors/1-sf02f.html) | 50 | Serial
-[SF10/A](http://lightware.co.za/shop2017/drone-altimeters/26-sf10a-25-m.html) | 25 | Serial or I2C
-[SF10/B](http://lightware.co.za/shop2017/drone-altimeters/25-sf10b-50-m.html) | 50 | Serial or I2C
+[SF02](http://documents.lightware.co.za/SF02%20-%20Laser%20Rangefinder%20Manual%20-%20Rev%208.pdf) | 50 | Serial
+[SF10/A](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 25 | Serial or I2C
+[SF10/B](http://documents.lightware.co.za/SF10%20-%20Laser%20Altimeter%20Manual%20-%20Rev%206.pdf) | 50 | Serial or I2C
 SF10/C | 100m | Serial or I2C
 
 

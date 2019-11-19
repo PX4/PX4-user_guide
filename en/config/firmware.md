@@ -59,7 +59,7 @@ Firmware update then continues as before.
 
 If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
 
-> **Note** Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu-versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata) that restricted them to using 1MB of flash memory.
+> **Note** Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata) that restricted them to using 1MB of flash memory.
   The problem is fixed on newer boards, but you may need to update the factory-provided bootloader in order to install FMUv3 Firmware and access all 2MB available memory.
 
 To update the bootloader:
@@ -71,7 +71,7 @@ To update the bootloader:
    ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
    
    Wait for the vehicle to reboot.
-1. [Find and enable](../advanced_config/parameters.md#parameter-configuration) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 1. Reboot (disconnect/reconnect the board). 
    The bootloader update will only take a few seconds.
 1. Then [Update the Firmware](../config/firmware.md) again. 

@@ -36,6 +36,7 @@
   * [Flight Modes](config/flight_mode.md)
   * [Battery](config/battery.md)
   * [Safety](config/safety.md)
+  * [Motors/Servos](config/motors.md)
 * [机架组装](airframes/README.md) 
   * [机架参考](airframes/airframe_reference.md)
   * [多旋翼](frames_multicopter/README.md) 
@@ -57,7 +58,6 @@
     * [Convergence Tiltrotor (Pixfalcon)](frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
     * [TBS Caipiroshka (Pixracer)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
     * [Falcon Vertigo QuadPlane (Dropix)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
-    * [Archived:FireFly Y6 Tiltrotor (Pixfalcon)](frames_vtol/vtol_tiltrotor_birdseyeview_firefly_y6_pixfalcon.md)
   * [Rovers](frames_rover/README.md) 
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
 * [飞行](flying/README.md) 
@@ -65,6 +65,7 @@
   * [Flying 101](flying/basic_flying.md) 
     * [Landing \(Fixed Wing\)](flying/fixed_wing_landing.md)
   * [Missions](flying/missions.md)
+  * [GeoFence](flying/geofence.md)
   * [Flight Modes](flight_modes/README.md) 
     * [Position Mode (MC)](flight_modes/position_mc.md)
     * [Altitude Mode (MC)](flight_modes/altitude_mc.md)
@@ -97,7 +98,7 @@
   * [Collision Prevention](computer_vision/collision_prevention.md)
   * [Path Planning Interface](computer_vision/path_planning_interface.md)
 * [高级配置](advanced_config/README.md) 
-  * [参数](advanced_config/parameters.md)
+  * [Finding/Updating Parameters](advanced_config/parameters.md)
   * [Multicopter Config/Tuning](config_mc/README.md) 
     * [MC PID Tuning Guide](config_mc/pid_tuning_guide_multicopter.md)
     * [MC Setpoint Tuning (Trajectory Generator)](config_mc/mc_trajectory_tuning.md) * [MC Slew-rate Type Trajectory](config_mc/mc_slew_rate_type_trajectory.md) * [MC Jerk-limited Type Trajectory](config_mc/mc_jerk_limited_type_trajectory.md)
@@ -120,6 +121,7 @@
   * [Sensor Thermal Compensation](advanced_config/sensor_thermal_calibration.md)
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
+  * [Prearm/Arm/Disarm Configuration](advanced_config/prearm_arm_disarm.md) prearm_arm_disarm.md
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [Peripheral Hardware](peripherals/README.md) 
   * [Serial Port Configuration](peripherals/serial_configuration.md)
@@ -153,6 +155,7 @@
     * [PX4FLOW](sensor/px4flow.md)
   * [ESCs & Motors](peripherals/esc_motors.md) 
     * [PWM ESCs and Servos](peripherals/pwm_escs_and_servo.md)
+    * [DShot ESCs](peripherals/dshot.md)
     * [UAVCAN ESCs](peripherals/uavcan_escs.md)
   * [Camera](peripherals/camera.md)
   * [Parachute](peripherals/parachute.md)
@@ -205,7 +208,7 @@
 
 ## Dronecode 相关资源
 
-* [PX4 开发人员指南](https://dev.px4.cc/zh/)
+* [PX4 开发人员指南](https://dev.px4.io/master/en/)
 * [QGroundControl用户指南](https://docs.qgroundcontrol.com/en/)
 * [QGroundControl 开发人员指南](https://dev.qgc.dimianzhan.com/zh/)
 * [MAVLink指南](https://mavlink.io/en/)

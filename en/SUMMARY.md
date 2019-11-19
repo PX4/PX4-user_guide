@@ -53,12 +53,11 @@
   * [Planes](frames_plane/README.md)
     * [Wing Wing Z84 \(Pixracer\)](frames_plane/wing_wing_z84.md)
   * [VTOL](frames_vtol/README.md)
-    * [FunCub QuadPlane \(Pixhawk\)](frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
-    * [Ranger QuadPlane \(Pixhawk\)](frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.md)
-    * [Convergence Tiltrotor \(Pixfalcon\)](frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
-    * [TBS Caipiroshka \(Pixracer\)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
-    * [Falcon Vertigo QuadPlane \(Dropix\)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
-    * [Archived:FireFly Y6 Tiltrotor \(Pixfalcon\)](frames_vtol/vtol_tiltrotor_birdseyeview_firefly_y6_pixfalcon.md)
+    * [FunCub QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_fun_cub_vtol_pixhawk.md)
+    * [Ranger QuadPlane (Pixhawk)](frames_vtol/vtol_quadplane_volantex_ranger_ex_pixhawk.md)
+    * [Convergence Tiltrotor (Pixfalcon)](frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
+    * [TBS Caipiroshka (Pixracer)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
+    * [Falcon Vertigo QuadPlane (Dropix)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
   * [Rovers](frames_rover/README.md)
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
 * [Flying](flying/README.md)
@@ -125,7 +124,6 @@
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
   * [Prearm/Arm/Disarm Configuration](advanced_config/prearm_arm_disarm.md)
-    prearm\_arm\_disarm.md
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [Peripheral Hardware](peripherals/README.md)
   * [Serial Port Configuration](peripherals/serial_configuration.md)
@@ -215,7 +213,7 @@
 
 ## Dronecode Shortcuts
 
-* [PX4 Developer Guide](https://dev.px4.io/en/)
+* [PX4 Developer Guide](https://dev.px4.io/master/en/)
 * [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/)
 * [QGroundControl Developer Guide](https://dev.qgroundcontrol.com/en/)
 * [MAVLink Guide](https://mavlink.io/en/)

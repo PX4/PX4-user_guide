@@ -8,7 +8,7 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 
 ## EKF 飞行前检查 / 错误
 
-[EKF](https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html)报告以下错误（带有相关的检查和参数）（并传播到*QGroundControl*）：
+The following errors (with associated checks and parameters) are reported by the [EKF](https://dev.px4.io/master/en/tutorials/tuning_the_ecl_ekf.html) (and propagate to *QGroundControl*):
 
 `PREFLIGHT FAIL: EKF HGT ERROR`：
 
@@ -61,7 +61,7 @@ PX4 执行很多飞行前传感器质量和估算器检查，以确定是否有�
 - This error message is produced when the difference in measurements from different compass sensors is too great.
 - It indicates bad calibration, orientation or magnetic interference.
 - This check only applies to when more than one compass/magnetometer is connected.
-- The check is controlled by the [COM_ARM_MAG](../advanced_config/parameter_reference.md#COM_ARM_MAG) parameter.
+- The check is controlled by the [COM_ARM_MAG_ANG](../advanced_config/parameter_reference.md#COM_ARM_MAG_ANG) parameter.
 
 `PREFLIGHT FAIL: EKF INTERNAL CHECKS`:
 

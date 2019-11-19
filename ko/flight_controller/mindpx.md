@@ -294,7 +294,7 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 >               </blockquote>
 >               
 >               <p>
->                 To <a href="https://dev.px4.io/en/setup/building_px4.html">build PX4</a> for this target:
+>                 To <a href="https://dev.px4.io/master/en/setup/building_px4.html">build PX4</a> for this target:
 >               </p>
 >               
 >               <pre><code>make airmind_mindpx-v2_default

@@ -76,7 +76,7 @@ PX4提供了许多（逐步更有效）的方法，可用于估计容量：
 > 
 > 校准分压器最简单的方法是使用*QGroundControl* 按照 [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) 一步步完成校准（QGroundControl User Guide）。
 > 
-> > **Note** 此设置对应于参数 [BAT_A_PER_V](../advanced_config/parameter_reference.md#BAT_A_PER_V)。
+> > **Note** This setting corresponds to parameter: [BAT_V_DIV](../advanced_config/parameter_reference.md#BAT_V_DIV).
 > 
 > ### 安培/伏特 {#current_divider}
 > 
@@ -86,13 +86,15 @@ PX4提供了许多（逐步更有效）的方法，可用于估计容量：
 > 
 > 校准分压器最简单的方法是使用*QGroundControl* 按照 [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) 一步步完成校准（QGroundControl User Guide）。
 > 
+> > **Note** This setting corresponds to parameter: [BAT_A_PER_V](../advanced_config/parameter_reference.md#BAT_A_PER_V).
+> 
 > ## 基于电压估计的负载补偿 {#load_compensation}
 > 
-> > **Note** 负载参数配置良好时，电池容量估计的电压更加稳定，在上升和下降过程中变化较小。
+> > **Note** With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
 > 
 > 负载补偿尝试抵消，使用 [basic configuration](#basic_settings) 时，负载中测量电压/估计容量的波动。 通过估计 *卸载* 电压，使用这一电压（而不是测量电压）估计剩余电量。
 > 
-> > **Note** 使用负载补偿，您仍然需要配置 [basic configuration](#basic_settings) 。 *空载电压* （[BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)） 应该设置更高（高于没有补偿时）因为补偿电压被用来估计（通常低于空载时预期的休眠电池电压）。
+> > **Note** To use the load compensation you will still need to set the [basic configuration](#basic_settings). The *Empty Voltage* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
 > 
 > PX4支持两种负载补偿方法，这些方法是由 [setting](../advanced_config/parameters.md) 下面两个参数启用：
 > 

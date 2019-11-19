@@ -7,14 +7,32 @@
 在你校准遥控器之前，遥控器的发射机和接收机需要绑定（对频）。 发射机和接收机对频的方法各有不同（请参照您使用的遥控器的说明书） 提醒：如果您使用的是 Spektrum 的接收机， 提醒：如果您使用的是 FrSky 的接收机，您可以在发射机上进行绑定（对频），下面是介绍。
 
 > **提醒** 如果您使用的是 *Spektrum* 接收机,，你可以使用 * QGroundControl * 将它设置在绑定（对频）模式,，如[下面所示](#spektrum_bind)。
-> 
-> **提醒**：如果您使用的是 *FrSky * 的接收机，您可以在发射机上进行绑定（对频），下面是[介绍](https://www.youtube.com/watch?v=1IYg5mQdLVI)。
 
-## 执行校准
+<span></span>
 
-校准方法很简单，你只需要按照屏幕右上角的示意图移动遥控器的摇杆即可。
+> **Note** If you are using a *FrSky* receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
 
-遥控器校准
+## RC Loss Detection {#rc_loss_detection}
+
+PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#rc_loss_failsafe).
+
+RC receivers have different ways of indicating signal loss:
+
+* Output nothing (automatically detected by PX4)
+* Output a low throttle value value (you can configure PX4 to detect this).
+* Output the last received signal (*cannot be detected by PX4* as it looks like valid input).
+
+If your RC receiver does not support outputting no signal on RC loss, you must configure it to set throttle low instead, and set the corresponding value in [RC_FAILS_THR](../advanced_config/parameter_reference.md#RC_FAILS_THR).
+
+The way to do this is to set the RC controller trim and throttle stick as low as possible, and use the resulting output PWM value in both PX4 and the receiver (read your receiver manual to determine how to set the RC loss value). Then reset the throttle stick trim back to its normal position. This process ensures that the RC loss value is below the minimum value output by the receiver in normal operation.
+
+> **Note** Do not use a receiver that cannot support one of the two supported RC loss detection methods!
+
+## Performing the Calibration
+
+The calibration process is straightforward - you will be asked to move the sticks in a specific pattern that is shown on the transmitter diagram on the top right of the screen.
+
+To calibrate the radio:
 
 1. 打开您的 RC 发射机。
 2. 打开 *QGroundControl* 并连接上飞机。
@@ -33,21 +51,21 @@
 
 8. 点击 **下一步** 保存设置。
 
-在 [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=4m30s) (youtube) 中有遥控器校准的视频演示。
+Radio calibration is demonstrated in the [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=4m30s) (youtube).
 
-## 其他的遥控器设置
+## Additional Radio Setup
 
-除了校准你的控制杆和其他遥控，在这个界面还有一些其他游泳的遥控器设置选项。
+As well as calibrating your control sticks and other transmitter controls, there are a number of additional radio setup options that you may find useful on this screen.
 
-<img src="../../images/qgc/setup/radio_additional_radio_setup.jpg" title="遥控器设置-其他设置" width="300px" />
+<img src="../../images/qgc/setup/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
 
 <span id="spektrum_bind"></span>
 
 ### Spectrum 对频
 
-在你校准遥控器之前，遥控器的发射机和接收机需要绑定（对频）。 如果你使用的是 *Spektrum* 的接收机，你可以按照下面的提示，使用 *QGroundControl* 将它设置到 *绑定（对频）模式* （如果你没有简便的物理方式用接收机连接飞控，这个会挺好用）。
+Before you can calibrate the radio system the receiver and transmitter must be connected/bound. If you have a *Spektrum* receiver you can put it in *bind mode* using *QGroundControl* as shown below (this can be particularly useful if you don't have easy physical access to the receiver on your vehicle).
 
-Spektrum遥控器和接收机的对频
+To bind a Spektrum transmitter/receiver:
 
 1. 选择 **Spektrum 对频** 的按钮。
 2. 选择接收机上的 “radio” 按钮。
@@ -59,11 +77,11 @@ Spektrum遥控器和接收机的对频
 
 ### 复制微调
 
-这个设置是从你的遥控器复制手动微调设置，然后自动应用到自驾仪。 这个做完后，你需要手动移除微调设置。
+This setting is used to copy the manual trim settings from your radio transmitter so that they can be applied automatically within the autopilot. After this is done you will need to remove the manually set trims.
 
-> **提醒**微调设置是当你进行远程遥控，回中遥感时，适应横滚、俯仰、偏航，是你进行平稳或水平飞行（在自稳模式下）。 一些遥控器有微调旋钮，可以允许你对遥控器发送的每一个摇杆位置的值设置一个偏移量。 这里的**微调设置**将偏移量转移到了自驾仪中。
+> **Note** Trim settings are used to adjust the roll, pitch, yaw such that when you center the sticks on your remote control, you get stable or level flight (in Stabilized flight mode). Some RC controllers provide trim knobs that allow you to provide an offset to the value sent by the RC controller for each stick position. The **Copy Trims** setting here moves the offsets into the autopilot.
 
-复制微调
+To copy the trims:
 
 1. 选择 **微调**。
 2. 摇杆居中，油门杆最低。 
@@ -75,38 +93,38 @@ Spektrum遥控器和接收机的对频
 
 ### 辅助通道
 
-辅助通道可以让你使用遥控器控制任意可选的硬件（例如，一个抓手或收放装置）。
+AUX passthrough channels allow you to control arbitrary optional hardware from your transmitter (for example, a gripper).
 
-使用辅助通道
+To use the AUX passthrough channels:
 
 1. 映射2个遥控器控制来隔离通道。 
 2. 如下所示，依次映射这些通道到端口 AUX1 和 AUX2。 设置后，保存到自驾仪。
     
     ![遥控器的AUX1和AUX2通道](../../images/qgc/setup/radio_additional_setup_aux_passthrough_channels.jpg)
 
-飞控将这些为指定的值通过指定的通道输出到 AUX1 / AUX2，来驱动连接的舵机/继电器。
+The flight controller will pass through the unmodified values from the specified channels out of AUX1/AUX2 to the connected servos/relays that drive your hardware.
 
 ### 参数调试通道
 
-调试通道是映射一个遥控器调试旋钮到参数（你可以在你的遥控器上动态调整一个参数）。
+Tuning channels allow you to map a transmitter tuning knob to a parameter (so that you can dynamically modify a parameter from your transmitter).
 
-> **提示**这个功能是启动手动飞行调试：[多旋翼 PID 调试指南](../config_mc/pid_tuning_guide_multicopter.md)，[固定翼 PID 调试指南](../config_fw/pid_tuning_guide_fixedwing.md)。
+> **Tip** This feature is provided to enable manual in-flight tuning: [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md), [Fixedwing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
 
-用来进行参数调试的通道被放置在了*遥控器*设置中，可以在参数编辑器里设置每一个映射的调试通道对应的参数。
+The channels used for parameter tuning are assigned in the *Radio* setup (here!), while the mapping from each tuning channel to its associated parameter is defined in the *Parameter editor*.
 
-设置调试通道
+To set up tuning channels:
 
 1. 映射3个遥控器通道（旋钮或滑块开关）来分离通道。
 2. 使用选择列表，选择*参数调试*映射到遥控器通道。 设置后，保存到自驾仪。
     
     ![映射遥控器通道到调试通道](../../images/qgc/setup/radio_additional_radio_setup_param_tuning.jpg)
 
-把一个参数调试通道到一个参数。
+To map a PARAM tuning channel to a parameter:
 
 1. 打开侧栏的**参数**。 
 2. 选择参数映射到你的遥控器（这个会打开*参数编辑器*）。
 3. 选中**高级设置**复选框。
-4. 单击 **将 rc 设置为 param...** 按钮 (这将弹出下面显示的背景对话框)。
+4. Click the **Set RC to Param...** button (this will pop-up the foreground dialog displayed below)
     
     ![映射调试通道到参数](../../images/qgc/setup/parameters_radio_channel_mapping.jpg)
 
@@ -115,9 +133,10 @@ Spektrum遥控器和接收机的对频
 6. 点击 **OK** 定关闭对话框。
 7. 点击 **保存** 保存修改，关闭*参数编辑器*。
 
-> **提示**你可以在右上角的*参数*的在右上角中选择菜单**工具>清除遥控器参数**，清楚所有的参数/调试通道。
+> **Tip** You can clear all parameter/tuning channel mappings by selecting menu **Tools > Clear RC to Param** at the top right of the *Parameters* screen.
 
-## 更多信息
+## Further Information
 
-* [QGroundControl > 远程控制](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
-* [PX4 设置视频 - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
+* [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
+* [PX4 Setup Video - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
+* [RC System Selection](../getting_started/rc_transmitter_receiver.md) - Choose a compatible RC system.

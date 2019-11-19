@@ -10,8 +10,8 @@ The Caipiroshka VTOL is a slightly modified *TBS Caipirinha*.
 
 * TBS Caipirinha Wing (no longer available - try [TBS Caipirinha 2](https://team-blacksheep.com/products/prod:tbs_caipi2_pnp)) 
 * 3D 打印的左右电机安装架（<a href="https://github.com/PX4/px4_user_guide/raw/master/assets/airframes/vtol/caipiroshka/motor_mounts.zip" target="_blank">设计文件 </a>）
-* CW 8045螺旋桨（[Eflight 商城](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19532&Kategorie_ID=288)）
-* CCW 8045螺旋桨（[Eflight商店](http://www.eflight.ch/shop/USER_ARTIKEL_HANDLING_AUFRUF.php?von_suchresultat=true&Ziel_ID=19533&Kategorie_ID=288)）
+* CW 8045 propeller ([Eflight store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
+* CCW 8045 propeller ([Eflight store](https://www.banggood.com/GEMFAN-Carbon-Nylon-8045-CWCCW-Propeller-For-Quadcopters-1-Pair-p-950874.html))
 * 2x 1800 kV 120-180W motors
   
   * [ePower 2208](https://www.galaxus.ch/en/s5/product/epower-22081400-fuer-2-3-lipo-imax-rc-electric-motors-8355913)
@@ -19,7 +19,7 @@ The Caipiroshka VTOL is a slightly modified *TBS Caipirinha*.
 
 * 2x 20-30S ESC
   
-  * [Brack store](https://www.brack.ch/lumenier-regler-30a-blhelis-esc-opto-2-4s-589152)
+  * [GetFPV](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html)
 * BEC（3A，5-5.3V）（如果你的电调不能提供5V的输出，可以用这个）
 * 3S 2200 mA锂电池 
   * Team Orion 3S 11.1V 50 C（[Hobbyshop 商城](https://www.hobbyshop.ch/modellbau-elektronik/akku/team-orion-lipo-2200-3s-11-1v-50c-xt60-ori60163.html)）

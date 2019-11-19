@@ -79,66 +79,89 @@ PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배
 - [비행 첫걸음](../flying/basic_flying.md) - RC로 비행하는 법을 배웁니다.
 - [ FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 원격 측정/상태 업데이트를 수신하도록 RC 송신기를 설정합니다.
 
-## 데이터/텔레메트리 라디오
+## Safety Switch {#safety_switch}
 
-[ 데이터/텔레메트리 라디오](../telemetry/README.md)는 *QGroundControl*과 같은 지상국과 PX4를 실행하는 기체 사이에 무선 MAVLink 연결을 제공할 수 있습니다. 이를 통해 기체가 비행 중일 때 파라미터를 조정하고 실시간으로 원격 측정을 검사하며 비행 중 임무를 변경하는 등의 작업을 수행할 수 있습니다.
+It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
 
-## 오프보드(Offboard)/컴패니언 컴퓨터
+> **Note** A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
 
-PX4는 직렬 케이블이나 와이파이를 통해 기체에 독립적으로 장착된 컴퓨터를 통해 제어할 수 있습니다. 보조 컴퓨터는 대개 Dronecode SDK 또는 MAVROS와 같은 MAVLink API를 사용하여 통신합니다.
+## Data/Telemetry Radios
 
-> **참고** Robotics API를 사용하려면 소프트웨어 개발 기술이 필요하며 이 설명서의 범위를 벗어납니다.
+[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+
+## Offboard/Companion Computer
+
+PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+
+> **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 
 - [Offboard 모드](../flight_modes/offboard.md) - 지상국 또는 보조 컴퓨터와 같은 PX4의 외부에서 제어를 위한 비행 모드입니다. 
-- [Robotics API](https://dev.px4.io/en/robotics/) (PX4 개발자 설명서)
+- [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
 
-## 이동식 메모리/기록
+## Removable Memory/Logging
 
-PX4는 [비행 기록](../getting_started/flight_reporting.md)을 저장하기 위해 SD 메모리 카드를 사용합니다 (모든 비행 컨트롤러가 SD카드를 지원하지는 않습니다).
+PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md) (SD support may not be present on every flight controller).
 
-> **팁** Pixhawk 보드에서 지원되는 최대 SD 카드 크기는 32GB입니다.
+> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB.
 
-권장되는 카드는 [개발자 설명서 > 로깅](http://dev.px4.io/en/log/logging.html#sd-cards)에 나열되어 있습니다.
+A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
 
-## 비행 모드 {#flight_modes}
+## Disarmed/Pre-armed/Armed {#arming}
 
-비행 모드는 사용자(조종사)에게 다른 종류/수준의 기체 자동화 및 자동 조종 보조 기능을 제공합니다. *자율 모드*는 자동 조종 장치에 의해 완전히 제어되며 파일럿/원격 제어 입력이 필요하지 않습니다. 예를 들어 이륙과 같은 일반적인 작업을 자동화하고 홈 위치로 돌아가고 착륙하는 데 사용됩니다. 다른 자율 모드는 사전 프로그래밍 된 임무를 수행하거나, GPS 신호를 따르거나, 외부 컴퓨터 또는 지상 관제소에서 명령을 수락합니다.
+Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
 
-*수동 모드*는 비행 컨트롤러의 도움으로 사용자가(RC 조종 스틱/조이스틱을 통해) 제어합니다. 다른 수동 모드는 다른 비행 특성을 가능하게 합니다. 예를 들어, 어떤 모드는 곡예 비행을 가능하게 하고, 다른 모드는 뒤집기가 불가능하고 바람에 대한 위치/코스를 유지합니다.
+To reduce the chance of accidents, PX4 has explicit state(s) for powering the vehicle components:
 
-> **팁** 모든 기체 유형에서 모든 비행 모드를 사용할 수 있는 것은 아니며, 일부 모드는 특정 조건이 충족 된 경우에만 사용할 수 있습니다 (예: 많은 모드가 GPS 위치 추정을 필요로 합니다).
+- **Disarmed:** There is no power to motors or actuators.
+- **Pre-armed:** Actuators and other non-dangerous electronics are powered. 
+  - In this state you can move ailerons, flaps etc, but motors/propellers are locked.
+- **Armed:** Vehicle is fully powered, including motors/propellers.
 
-사용 가능한 비행 모드에 대한 개요는 [여기에서 확인](../getting_started/flight_modes.md)할 수 있습니다. 다른 비행 모드를 켜기 위해 원격 제어 스위치를 설정하는 방법은 [비행 모드 구성](../config/flight_mode.md)에 나와 있습니다.
+By default, a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) is used to enter the pre-armed state. Arming is then enabled using an arming sequence, switch or MAVLink command.
 
-## 안전 설정(Failsafe) {#safety}
+The vehicle is initially disarmed, and must be armed before flight; if you don't take off quickly enough it will automatically disarm (returning the vehicle to a safe state). Similarly, when you land the vehicle will usually automatically disarm so that it can be approached safely.
 
-PX4는 시스템이 잘못되었을 때를 대비해 기체을 보호하고 복구할 수 있도록 구성 가능한 장애 안전 시스템을 갖추고 있습니다! 이를 통해 안전하게 비행할 수 있는 지역 및 조건을 지정하고, 안전 장치가 작동(예: 착륙, 위치 유지 또는 지정된 지점으로 복귀)될 경우 수행할 작업을 지정할 수 있습니다.
+> **Note** The arming behaviour can be [configured](../advanced_config/prearm_arm_disarm.md) (e.g. the time until vehicle automatically disarms after landing).
 
-> **참고** *첫 번째* failsafe 이벤트에 대해서만 작업을 지정할 수 있습니다. 이벤트가 발생하면 시스템은 특별한 처리 코드를 입력하는데, 이 코드는 후속 안전 장치 트리거가 별도의 시스템 수준과 기체별 코드에 의해 관리되도록 합니다.
+## Flight Modes {#flight_modes}
 
-주요 안전장치는 다음과 같습니다.
+Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
 
-- Low Batter(배터리 부족)
-- Remote Control (RC, 원격 제어 신호 상실)
-- Position Loss(위치 상실, 전체 위치 추정 품질이 너무 낮음)
-- Offboard Loss(외부 보드 연결 손실, 예: 보조 컴퓨터와의 연결이 끊어짐)
-- Data Link Loss(데이터 링크 손실, 예: GCS에 대한 텔레메트리 연결이 끊어짐)
-- Geofence Breach(지리적 경계 위반, 가상 실린더 모양의 경계 내에서 기체 비행을 제한합니다).
-- Mission Failsafe(미션 안전장치, 새 이륙 시 이전 미션이 실행되는 것을 방지합니다).
-- Traffic avoidance(트래픽 회피, 예를 들어 ADSB 응답기로부터 응답기 데이터에 의해 작동됩니다)
+*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
 
-자세한 내용은 [ 안전](../config/safety.md)(기본 설정)을 참조하십시오.
+> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
 
-## 방향
+An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
-모든 기체, 보트 및 항공기는 전진 방향에 따라 지향 방향이 있습니다.
+## Safety Settings (Failsafe) {#safety}
 
-![프레임 방향](../../images/frame_heading.png)
+PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
-비행 컨트롤러를 기체의 이동 벡터와 정렬시키기 위해서는 기체 진행 방향을 아는 것이 중요합니다. 멀티콥터는 모든 면에서 대칭이라도 진행 방향이 있습니다! 일반적으로 제조업체는 진행 방향을 표시하기 위해 색상이 입혀진 프로펠러나 팔(프레임)을 사용합니다.
+> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 
-![프레임 방향 TOP](../../images/frame_heading_top.png)
+The main failsafe areas are listed below:
 
-위 그림에서 우리는 진행 방향을 보여주기 위해 멀티콥터에 붉은 전방 프로펠러를 사용했습니다.
+- Low Battery
+- Remote Control (RC) Loss
+- Position Loss (global position estimate quality is too low).
+- Offboard Loss (e.g. lose connection to companion computer)
+- Data Link Loss (e.g. lose telemetry connection to GCS).
+- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
+- Mission Failsafe (prevent a previous mission being run at a new takeoff location).
+- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
 
-[비행 컨트롤러 방향](../config/flight_controller_orientation.md)에서 방향에 대해 자세히 읽을 수 있습니다.
+For more information see: [Safety](../config/safety.md) (Basic Configuration).
+
+## Heading and Directions
+
+All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+
+![Frame Heading](../../images/frame_heading.png)
+
+It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
+
+![Frame Heading TOP](../../images/frame_heading_top.png)
+
+In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+
+You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
