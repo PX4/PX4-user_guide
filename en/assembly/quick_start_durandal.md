@@ -8,15 +8,9 @@ This quick start guide shows how to power the Holybro [Durandal](../flight_contr
 
 Durandal is sold bundled with a number of different combinations of accessories, including power modules: *PM02 V3* and *PM07*, and the *Pixhawk 4 GPS/Compass* (UBLOX NEO-M8N).
 
-The content of the box with the *PM02 V3* power module is shown below.
-This includes a pinout guide and power module instructions.
+The content of the box with the *PM02 V3* power module is shown below (the box also includes a pinout guide and power module instructions).
 
-![Durandal Box](../../assets/flight_controller/durandal/durandal_unboxing_1.jpg)
-
-The unpacked components, including cables, are:
-
-![Durandal - Fully Unboxed](../../assets/flight_controller/durandal/durandal_unboxing_2.jpg)
-
+![Durandal Box](../../assets/flight_controller/durandal/durandal_unboxing_schematics.jpg)
 
 ## Wiring Chart Overview
 
@@ -200,3 +194,5 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 - [Durandal Overview](../flight_controller/durandal.md)
 - [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf) (Holybro)
 - [Durandal Pinouts](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
+- [Durandal_MB_H743sch.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Durandal Schematics)
+- [Stm32H743IIK_pinmap.pdf](.https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Stm32H743IIK_pinmap.pdf) (Durandal Pinmap)
