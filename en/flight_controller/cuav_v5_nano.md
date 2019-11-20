@@ -83,24 +83,29 @@ make px4_fmu-v5_default
 
 ## Debug Port {#debug_port}
 
-The system's serial console and SWD interface operate on the **FMU Debug** port.
-Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable).
-It does not have an I/O debug interface.
+The board's serial console and FMU SWD interface operate on the **Debug** port (DSU7).
+It does not have an I/O SWD interface.
 
 ![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_nano/debug_port_dsu7.jpg)
 
-The debug port (DSU7) (JST SM06B connector) is documented for each board, and has the following pinout:
+The debug port uses a *JST SM06B connector*, and has the following pinout:
 
 Pin | Signal | Volt
 --- | --- | ---
-1 (red) | 5V+ | +5V
-2 (blk) | DEBUG TX (OUT) | +3.3V
-3 (blk) | DEBUG RX (IN) | +3.3V
-4 (blk) | FMU_SWDIO | +3.3V
-5 (blk) | FMU_SWCLK | +3.3V
-6 (blk) | GND | GND
+1 | 5V+ | +5V
+2 | DEBUG TX (OUT) | +3.3V
+3 | DEBUG RX (IN) | +3.3V
+4 | FMU_SWDIO | +3.3V
+5 | FMU_SWCLK | +3.3V
+6 | GND | GND
 
-> **Warning**  See also: [Using JTAG for hardware debugging](#issue_jtag)
+**Note** The *JST SM06B connector* is **not** a [Pixhawk standard debug port connector](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
+
+The board comes with a debug cable, which plugs into the  **Debug** port (DSU7) and splits out an FTDI cable for the System Console, and an SWD cable for SWD/JTAG debugging.
+
+![CUAV Debug Cable](../../assets/flight_controller/cuav_v5_nano/cuav_debug_cable.jpg)
+
+> **Warning** You may wish to adjust this cable if using the *JLink Edu Mini*: [Using JTAG for hardware debugging](#issue_jtag).
 
 ## Voltage Ratings
 

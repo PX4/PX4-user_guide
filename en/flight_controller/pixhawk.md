@@ -1,6 +1,6 @@
-# Pixhawk 1 Flight Controller
+# 3DR Pixhawk 1 Flight Controller
 
-The *Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). 
+The *Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO).
 It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 > **Tip** Originally manufactured by 3DR<sup>&reg;</sup> this board was the original standard microcontroller platform for PX4. While the board is no longer manufactured by 3DR, you can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
@@ -232,10 +232,35 @@ Pin | Signal | Volt
 ## Debug Ports
 ### Console Port
 
-The system's serial console runs on the port labeled SERIAL4/5. The pinout is standard serial pinout, to connect to a standard FTDI cable (3.3V, but its 5V tolerant).
+The system's serial console runs on the `SERIAL5` pins of the port labeled `SERIAL4/5`.
 
-Please refer to the Devguide [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
+![Pixhawk SERIAL5/5 UART](../../assets/flight_controller/pixhawk1/pixhawk_serial4_5.jpg)
 
+The relevant pins are shown below:
+
+Pin | Name
+--- | --- 
+1 | +5V (red) 
+2 | S4 TX 
+3 | S4 RX
+4 | S5 (CONSOLE TX)
+5 | S5 (CONSOLE RX)
+6 | GND 
+
+> **Note** Please refer to the Devguide [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
+
+
+### SWD/JTAG Port {#swd_port}
+
+The FMU and IO SWD (JTAG) ports are hidden under the cover (which must be removed for hardware debugging).
+
+![Pixhawk SWD](../../assets/flight_controller/pixhawk1/pixhawk_swd.jpg).
+
+The ports are ARM 10-pin JTAG connectors, which you will probably have to solder.
+The pinout for the ports is shown below (the square marker in the corner above indicates pin 1).
+
+![ARM 10-Pin connector pinout](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
+ 
 
 ## Building Firmware
 
