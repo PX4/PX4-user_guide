@@ -63,7 +63,15 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
     make px4fmu-v3_default
     
 
-## Pinouts and Schematics
+## Debug Ports
+
+See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
+
+## Pinouts
+
+See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
+
+## Schematics
 
 The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
 
