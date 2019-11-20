@@ -223,7 +223,8 @@ The relevant parameters are shown below:
 Parameter | Description
 --- | ---
 [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return mode, Land mode.
-
+[NAV_TRAFF_AVOIDU](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOIDU) | Set the action distance for Manned Aviation
+[NAV_TRAFF_AVOIDM](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOIDM) | Set the action distance for Unmanned Aviation
 
 ### Adaptive QuadChute Failsafe
 
