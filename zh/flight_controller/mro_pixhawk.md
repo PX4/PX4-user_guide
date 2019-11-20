@@ -63,9 +63,17 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
     make px4fmu-v3_default
     
 
-## 引脚和原理图
+## Debug Ports
 
-该控制器基于[Pixhawk项目](https://pixhawk.org/)的**FMUv3** 开源硬件设计。
+See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
+
+## Pinouts
+
+See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
+
+## Schematics
+
+The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
 
 * [FMUv3 schematic](https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF) -- Schematic and layout
 
