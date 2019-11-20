@@ -84,9 +84,11 @@ Parameter | Description
 
 PX4 listens for valid transponder reports during missions.
 
-If a valid transponder report is received, PX4 first uses the transponder position and heading information to estimate whether the vehicles will share a similar altitude before they pass each other.
+If a valid transponder report is received, PX4 first uses the transponder position and heading information to estimate whether the vehicles will share a similar altitude before they pass each other. 
 If they may then PX4 it estimates how the closest distance between the path to the next waypoint and the other vehicles predicted path.
-If the crossing point is less that 500m for altitude and path distance (hard coded), the [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe) action is started, and the vehicle will either warn, land, or return.
+If the crossing point is less than the configured distance for altitude and path, the [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe) action is started, and the vehicle will either warn, land, or return.
+The detection Distance for Manned and Unmanned aviaton can be configured independent from another.
+
 
 The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/navigator/navigator_main.cpp)).
 
