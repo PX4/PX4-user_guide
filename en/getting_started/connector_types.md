@@ -16,14 +16,16 @@ All connectors in a series share the same pin shape/size, inter-pin spacing ("pi
 The connectors within a series vary by number of pins, and in the size and shape of the housing.
 
 There are a [huge number](http://www.jst-mfg.com/product/search_e.php?type=1&id=1&page=1) of JST series.
-The table below shows the JST series most commonly used on Pixhawk-based drones.  <!-- add current, voltage etc to table: SH and GH have one row of pins, 1A max current, 50V max voltage). SUR is different: .5A,30V** -->
+
+The image and table below show the JST series most commonly used on Pixhawk-based drones.  <!-- add current, voltage etc to table: SH and GH have one row of pins, 1A max current, 50V max voltage). SUR is different: .5A,30V** -->
+
+![Connector Types - GH and SH](../../assets/hardware/connector_types/connectors_gh_sh.jpg)
 
 JST Series | Pitch (mm) | Pin Shape | Wire Size (AWG) | Lock | Description
 --- | --- | --- | --- | --- | ---
 [SH](http://www.jst-mfg.com/product/detail_e.php?series=231) | 1.0  | blade (rectangle) | 32 - 28 | N | Crimp style connector. Compact type.
 [GH](http://www.jst-mfg.com/product/detail_e.php?series=105) | 1.25 | | 30 - 26 | Y | Crimp style connectors with secure locking device. 
 [SUR](http://www.jst-mfg.com/product/detail_e.php?series=246) | 0.9 | ? | ||
-![Connector Types - GH and SH](../../assets/hardware/connector_types/connectors_gh_sh.jpg)
 
 
 The table below shows some specific examples of ports and cables used on Pixhawk flight controllers.
