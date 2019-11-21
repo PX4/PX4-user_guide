@@ -33,39 +33,12 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="ARSP_ARSP_SCALE">ARSP_ARSP_SCALE</strong> (FLOAT)
+      <strong id="ASPD_BETA_GATE">ASPD_BETA_GATE</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        Airspeed scale (scale from IAS to CAS/EAS)
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ARSP_SCALE_EST to 1.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.5 > 1.5
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="ARSP_BETA_GATE">ARSP_BETA_GATE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Airspeed Selector: Gate size for true sideslip fusion
+        Airspeed Selector: Gate size for sideslip angle fusion
       </p>
       
       <p>
@@ -88,7 +61,7 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="ARSP_BETA_NOISE">ARSP_BETA_NOISE</strong> (FLOAT)
+      <strong id="ASPD_BETA_NOISE">ASPD_BETA_NOISE</strong> (FLOAT)
     </td>
     
     <td style="vertical-align: top;">
@@ -116,16 +89,20 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="ARSP_SCALE_EST">ARSP_SCALE_EST</strong> (INT32)
+      <strong id="ASPD_DO_CHECKS">ASPD_DO_CHECKS</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        Automatic airspeed scale estimation on
+        Enable checks on airspeed sensors
       </p>
       
       <p>
-        <strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS/EAS) on or off. It is recommended level (keeping altitude) while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved in the ARSP_ARSP_SCALE parameter.
+        <strong>Comment:</strong> If set to true then the data comming from the airspeed sensors is checked for validity. Only applied if ASPD_PRIMARY > 0.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -142,7 +119,258 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="ARSP_SC_P_NOISE">ARSP_SC_P_NOISE</strong> (FLOAT)
+      <strong id="ASPD_FALLBACK">ASPD_FALLBACK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable fallback to secondary airspeed measurement
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If ASPD_DO_CHECKS is set to true, then airspeed estimation can fallback from what specified in ASPD_PRIMARY to secondary source (other airspeed sensors, groundspeed minus windspeed).
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> To other airspeed sensor (if one valid), else disable airspeed
+        </li>
+        <li>
+          <strong>1:</strong> To other airspeed sensor (if one valid), else to ground-windspeed
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ASPD_FS_INNOV">ASPD_FS_INNOV</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed failsafe consistency threshold (Experimental)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This specifies the minimum airspeed test ratio required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Start with a value of 1.0 when tuning. When tas_test_ratio is > 1.0 it indicates the inconsistency between predicted and measured airspeed is large enough to cause the navigation EKF to reject airspeed measurements. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the ASPD_FS_INTEG parameter.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.5 > 3.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ASPD_FS_INTEG">ASPD_FS_INTEG</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed failsafe consistency delay (Experimental)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This sets the time integral of airspeed test ratio exceedance above ASPD_FS_INNOV required to trigger a failsafe. For example if ASPD_FS_INNOV is 1 and estimator_status.tas_test_ratio is 2.0, then the exceedance is 1.0 and the integral will rise at a rate of 1.0/second. A negative value disables the check. Larger positive values make the check less sensitive, smaller positive values make it more sensitive.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      ? > 30.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ASPD_FS_T1">ASPD_FS_T1</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed failsafe stop delay (Experimental)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 10
+    </td>
+    
+    <td style="vertical-align: top;">
+      3
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ASPD_FS_T2">ASPD_FS_T2</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed failsafe start delay (Experimental)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      10 > 1000
+    </td>
+    
+    <td style="vertical-align: top;">
+      100
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ASPD_PRIMARY">ASPD_PRIMARY</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Index or primary airspeed measurement source
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>-1:</strong> Disabled
+        </li>
+        <li>
+          <strong>0:</strong> Groundspeed minus windspeed
+        </li>
+        <li>
+          <strong>1:</strong> First airspeed sensor
+        </li>
+        <li>
+          <strong>2:</strong> Second airspeed sensor
+        </li>
+        <li>
+          <strong>3:</strong> Third airspeed sensor
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ASPD_SCALE">ASPD_SCALE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed scale (scale from IAS to CAS/EAS)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ASPD_SCALE_EST to 1.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.5 > 1.5
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ASPD_SCALE_EST">ASPD_SCALE_EST</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Automatic airspeed scale estimation on
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS/EAS) on or off. It is recommended to fly level altitude while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved using the ASPD_SCALE parameter.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ASPD_SC_P_NOISE">ASPD_SC_P_NOISE</strong> (FLOAT)
     </td>
     
     <td style="vertical-align: top;">
@@ -170,7 +398,34 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="ARSP_TAS_GATE">ARSP_TAS_GATE</strong> (INT32)
+      <strong id="ASPD_STALL">ASPD_STALL</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Airspeed fault detection stall airspeed. (Experimental)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the minimum indicated airspeed at which the wing can produce 1g of lift. It is used by the airspeed sensor fault detection and failsafe calculation to detect a significant airspeed low measurement error condition and should be set based on flight test for reliable operation.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      10.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="ASPD_TAS_GATE">ASPD_TAS_GATE</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
@@ -198,7 +453,7 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="ARSP_TAS_NOISE">ARSP_TAS_NOISE</strong> (FLOAT)
+      <strong id="ASPD_TAS_NOISE">ASPD_TAS_NOISE</strong> (FLOAT)
     </td>
     
     <td style="vertical-align: top;">
@@ -226,7 +481,7 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="ARSP_W_P_NOISE">ARSP_W_P_NOISE</strong> (FLOAT)
+      <strong id="ASPD_W_P_NOISE">ASPD_W_P_NOISE</strong> (FLOAT)
     </td>
     
     <td style="vertical-align: top;">
@@ -2334,107 +2589,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="COM_ASPD_FS_ACT">COM_ASPD_FS_ACT</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Airspeed fault detection (Experimental)
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Failsafe action when bad airspeed measurements are detected. Ensure the COM_ASPD_STALL parameter is set correctly before use.
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> disabled
-        </li>
-        <li>
-          <strong>1:</strong> log a message
-        </li>
-        <li>
-          <strong>2:</strong> log a message, warn the user
-        </li>
-        <li>
-          <strong>3:</strong> log a message, warn the user, switch to non-airspeed TECS mode
-        </li>
-        <li>
-          <strong>4:</strong> log a message, warn the user, switch to non-airspeed TECS mode, switch to Return mode after COM_ASPD_FS_DLY seconds
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="COM_ASPD_FS_DLY">COM_ASPD_FS_DLY</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Airspeed fault detection delay before RTL (Experimental)
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> RTL delay after bad airspeed measurements are detected if COM_ASPD_FS_ACT is set to 4. Ensure the COM_ASPD_STALL parameter is set correctly before use. The failsafe start and stop delays are controlled by the COM_TAS_FS_T1 and COM_TAS_FS_T2 parameters. Additional protection against persistent airspeed sensor errors can be enabled using the COM_TAS_FS_INNOV parameter, but these addtional checks are more prone to false positives in windy conditions.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 300
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-      s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="COM_ASPD_STALL">COM_ASPD_STALL</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Airspeed fault detection stall airspeed. (Experimental)
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the minimum indicated airspeed at which the wing can produce 1g of lift. It is used by the airspeed sensor fault detection and failsafe calculation to detect a significant airspeed low measurement error condition and should be set based on flight test for reliable operation. The failsafe response is controlled by the COM_ASPD_FS_ACT parameter.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      10.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="COM_DISARM_LAND">COM_DISARM_LAND</strong> (FLOAT)
     </td>
     
@@ -3841,117 +3995,6 @@
     
     <td style="vertical-align: top;">
       %
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="COM_TAS_FS_INNOV">COM_TAS_FS_INNOV</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Airspeed failsafe consistency threshold (Experimental)
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This specifies the minimum airspeed test ratio as logged in estimator_status.tas_test_ratio required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Start with a value of 1.0 when tuning. When estimator_status.tas_test_ratio is > 1.0 it indicates the inconsistency between predicted and measured airspeed is large enough to cause the navigation EKF to reject airspeed measurements. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the COM_TAS_FS_INTEG parameter. The subsequent failsafe response is controlled by the COM_ASPD_FS_ACT parameter.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.5 > 3.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="COM_TAS_FS_INTEG">COM_TAS_FS_INTEG</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Airspeed failsafe consistency delay (Experimental)
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This sets the time integral of airspeed test ratio exceedance above COM_TAS_FS_INNOV required to trigger a failsafe. For example if COM_TAS_FS_INNOV is 100 and estimator_status.tas_test_ratio is 2.0, then the exceedance is 1.0 and the integral will rise at a rate of 1.0/second. A negative value disables the check. Larger positive values make the check less sensitive, smaller positive values make it more sensitive. The failsafe response is controlled by the COM_ASPD_FS_ACT parameter.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      ? > 30.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      -1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="COM_TAS_FS_T1">COM_TAS_FS_T1</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Airspeed failsafe stop delay (Experimental)
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad. The failsafe response is controlled by the COM_ASPD_FS_ACT parameter.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1 > 10
-    </td>
-    
-    <td style="vertical-align: top;">
-      3
-    </td>
-    
-    <td style="vertical-align: top;">
-      s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="COM_TAS_FS_T2">COM_TAS_FS_T2</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Airspeed failsafe start delay (Experimental)
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good. The failsafe response is controlled by the COM_ASPD_FS_ACT parameter.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      10 > 1000
-    </td>
-    
-    <td style="vertical-align: top;">
-      100
-    </td>
-    
-    <td style="vertical-align: top;">
-      s
     </td>
   </tr>
   
@@ -15763,348 +15806,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Acro mode Expo factor for Roll and Pitch
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.69
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_EXPO_Y">MC_ACRO_EXPO_Y</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Acro mode Expo factor for Yaw
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.69
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Max acro pitch rate default: 2 turns per second
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1800.0 (5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      720.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      deg/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Max acro roll rate default: 2 turns per second
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1800.0 (5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      720.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      deg/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Acro mode SuperExpo factor for Roll and Pitch
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 0.95
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.7
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Acro mode SuperExpo factor for Yaw
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 0.95
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.7
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Max acro yaw rate default 1.5 turns per second
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1800.0 (5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      540.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      deg/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_BAT_SCALE_EN">MC_BAT_SCALE_EN</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Battery power level scaler
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The copter should constantly behave as if it was fully charged with reduced max acceleration at lower battery percentages. i.e. if hover is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      Disabled (0)
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_DTERM_CUTOFF">MC_DTERM_CUTOFF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Cutoff frequency for the low pass filter on the D-term in the rate controller
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to decrease the driver-level filtering, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1000 (10)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.
-    </td>
-    
-    <td style="vertical-align: top;">
-      Hz
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_PITCHRATE_D">MC_PITCHRATE_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate D gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.0005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.003
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_PITCHRATE_FF">MC_PITCHRATE_FF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate feedforward
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Improves tracking performance.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ?
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_PITCHRATE_I">MC_PITCHRATE_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate I gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Pitch rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.2
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_PITCHRATE_K">MC_PITCHRATE_K</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate controller gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_PITCHRATE_K * (MC_PITCHRATE_P * error + MC_PITCHRATE_I * error_integral + MC_PITCHRATE_D * error_derivative) Set MC_PITCHRATE_P=1 to implement a PID in the ideal form. Set MC_PITCHRATE_K=1 to implement a PID in the parallel form.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 5.0 (0.0005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_PITCHRATE_MAX">MC_PITCHRATE_MAX</strong> (FLOAT)
     </td>
     
@@ -16128,33 +15829,6 @@
     
     <td style="vertical-align: top;">
       deg/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_PITCHRATE_P">MC_PITCHRATE_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate P gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 0.6 (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.15
-    </td>
-    
-    <td style="vertical-align: top;">
     </td>
   </tr>
   
@@ -16188,33 +15862,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_PR_INT_LIM">MC_PR_INT_LIM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate integrator limit
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Pitch rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.30
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_RATT_TH">MC_RATT_TH</strong> (FLOAT)
     </td>
     
@@ -16234,114 +15881,6 @@
     
     <td style="vertical-align: top;">
       0.8
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ROLLRATE_D">MC_ROLLRATE_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate D gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 0.01 (0.0005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.003
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ROLLRATE_FF">MC_ROLLRATE_FF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate feedforward
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Improves tracking performance.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ?
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ROLLRATE_I">MC_ROLLRATE_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate I gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.2
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ROLLRATE_K">MC_ROLLRATE_K</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate controller gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_ROLLRATE_K * (MC_ROLLRATE_P * error + MC_ROLLRATE_I * error_integral + MC_ROLLRATE_D * error_derivative) Set MC_ROLLRATE_P=1 to implement a PID in the ideal form. Set MC_ROLLRATE_K=1 to implement a PID in the parallel form.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 5.0 (0.0005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
     </td>
     
     <td style="vertical-align: top;">
@@ -16378,33 +15917,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_ROLLRATE_P">MC_ROLLRATE_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate P gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 0.5 (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.15
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_ROLL_P">MC_ROLL_P</strong> (FLOAT)
     </td>
     
@@ -16428,141 +15940,6 @@
     
     <td style="vertical-align: top;">
       1/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_RR_INT_LIM">MC_RR_INT_LIM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate integrator limit
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Roll rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.30
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_YAWRATE_D">MC_YAWRATE_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate D gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_YAWRATE_FF">MC_YAWRATE_FF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate feedforward
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Improves tracking performance.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_YAWRATE_I">MC_YAWRATE_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate I gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_YAWRATE_K">MC_YAWRATE_K</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate controller gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_YAWRATE_K * (MC_YAWRATE_P * error + MC_YAWRATE_I * error_integral + MC_YAWRATE_D * error_derivative) Set MC_YAWRATE_P=1 to implement a PID in the ideal form. Set MC_YAWRATE_K=1 to implement a PID in the parallel form.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 5.0 (0.0005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
     </td>
   </tr>
   
@@ -16592,33 +15969,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_YAWRATE_P">MC_YAWRATE_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate P gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 0.6 (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.2
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_YAW_P">MC_YAW_P</strong> (FLOAT)
     </td>
     
@@ -16642,33 +15992,6 @@
     
     <td style="vertical-align: top;">
       1/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_YR_INT_LIM">MC_YR_INT_LIM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate integrator limit
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Yaw rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.30
-    </td>
-    
-    <td style="vertical-align: top;">
     </td>
   </tr>
   
@@ -18250,6 +17573,752 @@
     
     <td style="vertical-align: top;">
       deg/s
+    </td>
+  </tr>
+</table>
+
+## Multicopter Rate Control
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Acro mode Expo factor for Roll and Pitch
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.69
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_EXPO_Y">MC_ACRO_EXPO_Y</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Acro mode Expo factor for Yaw
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.69
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Max acro pitch rate default: 2 turns per second
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1800.0 (5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      720.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      deg/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Max acro roll rate default: 2 turns per second
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1800.0 (5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      720.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      deg/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Acro mode SuperExpo factor for Roll and Pitch
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 0.95
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.7
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Acro mode SuperExpo factor for Yaw
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 0.95
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.7
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Max acro yaw rate default 1.5 turns per second
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1800.0 (5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      540.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      deg/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_BAT_SCALE_EN">MC_BAT_SCALE_EN</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery power level scaler
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The copter should constantly behave as if it was fully charged with reduced max acceleration at lower battery percentages. i.e. if hover is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_DTERM_CUTOFF">MC_DTERM_CUTOFF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Cutoff frequency for the low pass filter on the D-term in the rate controller
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to decrease the driver-level filtering, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1000 (10)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PITCHRATE_D">MC_PITCHRATE_D</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate D gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.0005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.003
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PITCHRATE_FF">MC_PITCHRATE_FF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate feedforward
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Improves tracking performance.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PITCHRATE_I">MC_PITCHRATE_I</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate I gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Pitch rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.2
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PITCHRATE_K">MC_PITCHRATE_K</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate controller gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_PITCHRATE_K * (MC_PITCHRATE_P * error + MC_PITCHRATE_I * error_integral + MC_PITCHRATE_D * error_derivative) Set MC_PITCHRATE_P=1 to implement a PID in the ideal form. Set MC_PITCHRATE_K=1 to implement a PID in the parallel form.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 5.0 (0.0005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PITCHRATE_P">MC_PITCHRATE_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate P gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 0.6 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.15
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PR_INT_LIM">MC_PR_INT_LIM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate integrator limit
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Pitch rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.30
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ROLLRATE_D">MC_ROLLRATE_D</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate D gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 0.01 (0.0005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.003
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ROLLRATE_FF">MC_ROLLRATE_FF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate feedforward
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Improves tracking performance.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ROLLRATE_I">MC_ROLLRATE_I</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate I gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.2
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ROLLRATE_K">MC_ROLLRATE_K</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate controller gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_ROLLRATE_K * (MC_ROLLRATE_P * error + MC_ROLLRATE_I * error_integral + MC_ROLLRATE_D * error_derivative) Set MC_ROLLRATE_P=1 to implement a PID in the ideal form. Set MC_ROLLRATE_K=1 to implement a PID in the parallel form.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 5.0 (0.0005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ROLLRATE_P">MC_ROLLRATE_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate P gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 0.5 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.15
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_RR_INT_LIM">MC_RR_INT_LIM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate integrator limit
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Roll rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.30
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YAWRATE_D">MC_YAWRATE_D</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate D gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YAWRATE_FF">MC_YAWRATE_FF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate feedforward
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Improves tracking performance.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YAWRATE_I">MC_YAWRATE_I</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate I gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YAWRATE_K">MC_YAWRATE_K</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate controller gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_YAWRATE_K * (MC_YAWRATE_P * error + MC_YAWRATE_I * error_integral + MC_YAWRATE_D * error_derivative) Set MC_YAWRATE_P=1 to implement a PID in the ideal form. Set MC_YAWRATE_K=1 to implement a PID in the parallel form.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 5.0 (0.0005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YAWRATE_P">MC_YAWRATE_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate P gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 0.6 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.2
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YR_INT_LIM">MC_YR_INT_LIM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate integrator limit
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Yaw rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.30
+    </td>
+    
+    <td style="vertical-align: top;">
     </td>
   </tr>
 </table>

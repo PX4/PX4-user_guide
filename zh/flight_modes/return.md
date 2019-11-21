@@ -4,7 +4,7 @@
 
 The *Return* flight mode is used to *fly a vehicle to safety* on an unobstructed path to a safe destination, where it may either wait (hover or circle) or land.
 
-PX4 provides several mechanisms for choosing a safe return path, destination and landing, including using safe points, mission paths, and mission landing sequences.
+PX4 provides several mechanisms for choosing a safe return path, destination and landing, including using home location, safety (rally) points, mission paths, and mission landing sequences.
 
 The following sections explain how to configure the [return type](#return_types), [return altitude](#return_altitude) and [landing/arrival behaviour](#arrival). At the end there are sections explaining the *default* (preconfigured) behaviour for each [vehicle type](#default_configuration).
 
@@ -12,22 +12,23 @@ The following sections explain how to configure the [return type](#return_types)
 
 ## Return Types (RTL_TYPE) {#return_types}
 
-PX4 allows you to specify one of three different approaches for finding an unobstructed path to a safe destination and/or landing:
+PX4 provides four alternative approaches ([RTL_TYPE](#RTL_TYPE)) for finding an unobstructed path to a safe destination and/or landing:
 
-- [Safety point return](#safety_point_return) ([RTL_TYPE=0](#RTL_TYPE)): Ascend to safe altitude and return to a safe point (home location)
-- [Mission landing return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to start of a [mission landing pattern](#mission_landing_pattern) (if defined) and land.
+- [Home location return](#home_return) (`RTL_TYPE=0`): Ascend to safe altitude and return via a direct path to the home location.
+- [Mission landing return](#mission_landing_return) (`RTL_TYPE=1`): Ascend to a safe altitude, fly direct to start of mission landing (if defined) and land.
 - [Mission path return](#mission_path_return) (`RTL_TYPE=2`): Use mission path and continue to mission landing (if defined). If no mission landing defined, reverse mission to home.
+- [Closest safe destination return](#safety_point_return) (`RTL_TYPE=3`): Ascend to a safe altitude and return via direct path to closest destination: home, mission landing pattern or safety point (also called a "rally point").
 
-For the mission based return types, the vehicle will fall back to a safe point return if no mission/mission landing is defined.
+For the mission based return types, the vehicle will fall back to a home location return if no mission/mission landing is defined.
 
 More detailed explanations for each of the types are provided in the following sections.
 
-### Safety Point Return Type (RTL_TYPE=0) {#safety_point_return}
+### Home Location Return Type (RTL_TYPE=0) {#home_return}
 
 In this return type the vehicle:
 
 - Ascends to a safe [return altitude](#return_altitude) (above any expected obstacles).
-- Flies to safe point (home position) via direct path
+- Flies to the home position via direct path
 - [Land or waits](#arrival) at descent altitude
 
 > **Note** This return type is the fallback for the other types if no mission or mission landing is defined.
@@ -55,7 +56,7 @@ If a mission landing has been defined, the vehicle will:
 - Descend/ascend to the specified waypoint altitude
 - Execute the landing sequence.
 
-If no mission landing is defined PX4 will revert to a [Safety Point Return](#safety_point_return).
+If no mission landing is defined, PX4 will revert to a [Home Location Return](#home_return).
 
 ### Mission Path Return Type (RTL_TYPE=2) {#mission_path_return}
 
@@ -85,11 +86,20 @@ Mission *without* landing pattern defined:
 - **Auto mode other than mission mode:** 
   - Fly directly to closest waypoint (for FW not a landing WP) and descend to waypoint altitude.
   - Continue the mission in reverse, exactly as though RTL was triggered in mission mode (above)
-- **Manual modes:** Same as [Safety Point Return](#safety_point_return).
+- **Manual modes:** Same as [Home Location Return](#home_return).
 
-If no mission is defined PX4 will revert to a [Safety Point Return](#safety_point_return).
+If no mission is defined PX4 will revert to a [Home Location Return](#home_return).
 
 If the mission changes during return mode, then the behaviour is re-evaluated based on the new mission following the same rules as above (e.g. if the new mission has no landing sequence and you're in a mission, the mission is reversed).
+
+### Closest Safe Destination Return Type (RTL_TYPE=3) {#safety_point_return}
+
+In this return type the vehicle:
+
+- Ascends to a safe [return altitude](#return_altitude) (above any expected obstacles).
+- Flies a direct path to the closest destination of: home location, mission landing pattern or safe point.
+- If the destination is a mission landing pattern the vehicle will follow the pattern to land
+- If the destination is a home location or safety point the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [Land or waits](#arrival).
 
 ## Return Altitude {#return_altitude}
 
@@ -97,7 +107,7 @@ A vehicle will usually first ascend to a safe altitude before returning (in orde
 
 > **Note** The exception is when executing a [mission path return](#mission_path_return) from within a mission. In this case the vehicle follows mission waypoints, which we assume avoid any obstacles).
 
-The return altitude can be configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG) (which define a half cone centered around the home position).
+The return altitude can be configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG) (which define a half cone centered around the destination - home location or safety point).
 
 ![Return mode cone](../../assets/flying/rtl_cone.jpg)
 
@@ -123,7 +133,7 @@ RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Pos
 
 ## Hover/Landing at Destination {#arrival}
 
-Unless executing a mission landing (e.g. if executing a [safety point return](#safety_point_return)), the vehicle will arrive at its destination, and rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
+Unless executing a mission landing (e.g. if executing a [home location return](#home_return) or [closest safe destination return](#safety_point_return)), the vehicle will arrive at its destination, and rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
 
 The vehicle will the loiter for a specified time ([RTL_LAND_DELAY](#RTL_LAND_DELAY)) and then land. If [RTL_LAND_DELAY=-1](#RTL_LAND_DELAY) it will loiter indefinitely.
 
@@ -135,7 +145,7 @@ However the *default configuration* is tailored to suit the vehicle type, as des
 
 ### Multi-Copter (MC)
 
-Multicopters use a [safety point return type](#safety_point_return) by default (and the following configuration):
+Multicopters use a [home location return](#home_return) by default (and the following configuration):
 
 - Ascend to [RTL_RETURN_ALT](#RTL_RETURN_ALT) ([RTL_CONE_ANG=0](#RTL_CONE_ANG) - cone not used).
 - Fly to the home position in a straight line and constant altitude (if already above the return altitude it will return at its current altitude).

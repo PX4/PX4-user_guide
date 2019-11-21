@@ -13,56 +13,131 @@
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="ARSP_ARSP_SCALE">ARSP_ARSP_SCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airspeed scale (scale from IAS to CAS/EAS)</p><p><strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ARSP_SCALE_EST to 1.</p>   </td>
- <td style="vertical-align: top;">0.5 > 1.5 </td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="ARSP_BETA_GATE">ARSP_BETA_GATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airspeed Selector: Gate size for true sideslip fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
+ <td style="vertical-align: top;"><strong id="ASPD_BETA_GATE">ASPD_BETA_GATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airspeed Selector: Gate size for sideslip angle fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td style="vertical-align: top;">1 > 5 </td>
  <td style="vertical-align: top;">1</td>
  <td style="vertical-align: top;">SD</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="ARSP_BETA_NOISE">ARSP_BETA_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="ASPD_BETA_NOISE">ASPD_BETA_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator sideslip measurement noise</p><p><strong>Comment:</strong> Sideslip measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.3</td>
  <td style="vertical-align: top;">rad</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="ARSP_SCALE_EST">ARSP_SCALE_EST</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Automatic airspeed scale estimation on</p><p><strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS/EAS) on or off. It is recommended level (keeping altitude) while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved in the ARSP_ARSP_SCALE parameter.</p>   </td>
+ <td style="vertical-align: top;"><strong id="ASPD_DO_CHECKS">ASPD_DO_CHECKS</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable checks on airspeed sensors</p><p><strong>Comment:</strong> If set to true then the data comming from the airspeed sensors is checked for validity. Only applied if ASPD_PRIMARY > 0.</p>   <p><b>Reboot required:</b> true</p>
+</td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="ARSP_SC_P_NOISE">ARSP_SC_P_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="ASPD_FALLBACK">ASPD_FALLBACK</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable fallback to secondary airspeed measurement</p><p><strong>Comment:</strong> If ASPD_DO_CHECKS is set to true, then airspeed estimation can fallback from what specified in ASPD_PRIMARY to secondary source (other airspeed sensors, groundspeed minus windspeed).</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> To other airspeed sensor (if one valid), else disable airspeed</li> 
+
+<li><strong>1:</strong> To other airspeed sensor (if one valid), else to ground-windspeed</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ASPD_FS_INNOV">ASPD_FS_INNOV</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed failsafe consistency threshold (Experimental)</p><p><strong>Comment:</strong> This specifies the minimum airspeed test ratio required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Start with a value of 1.0 when tuning. When tas_test_ratio is > 1.0 it indicates the inconsistency between predicted and measured airspeed is large enough to cause the navigation EKF to reject airspeed measurements. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the ASPD_FS_INTEG parameter.</p>   </td>
+ <td style="vertical-align: top;">0.5 > 3.0 </td>
+ <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ASPD_FS_INTEG">ASPD_FS_INTEG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed failsafe consistency delay (Experimental)</p><p><strong>Comment:</strong> This sets the time integral of airspeed test ratio exceedance above ASPD_FS_INNOV required to trigger a failsafe. For example if ASPD_FS_INNOV is 1 and estimator_status.tas_test_ratio is 2.0, then the exceedance is 1.0 and the integral will rise at a rate of 1.0/second. A negative value disables the check. Larger positive values make the check less sensitive, smaller positive values make it more sensitive.</p>   </td>
+ <td style="vertical-align: top;">? > 30.0 </td>
+ <td style="vertical-align: top;">-1.0</td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ASPD_FS_T1">ASPD_FS_T1</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airspeed failsafe stop delay (Experimental)</p><p><strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad.</p>   </td>
+ <td style="vertical-align: top;">1 > 10 </td>
+ <td style="vertical-align: top;">3</td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ASPD_FS_T2">ASPD_FS_T2</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Airspeed failsafe start delay (Experimental)</p><p><strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good.</p>   </td>
+ <td style="vertical-align: top;">10 > 1000 </td>
+ <td style="vertical-align: top;">100</td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ASPD_PRIMARY">ASPD_PRIMARY</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Index or primary airspeed measurement source</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Disabled</li> 
+
+<li><strong>0:</strong> Groundspeed minus windspeed</li> 
+
+<li><strong>1:</strong> First airspeed sensor</li> 
+
+<li><strong>2:</strong> Second airspeed sensor</li> 
+
+<li><strong>3:</strong> Third airspeed sensor</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ASPD_SCALE">ASPD_SCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed scale (scale from IAS to CAS/EAS)</p><p><strong>Comment:</strong> Scale can either be entered manually, or estimated in-flight by setting ASPD_SCALE_EST to 1.</p>   </td>
+ <td style="vertical-align: top;">0.5 > 1.5 </td>
+ <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ASPD_SCALE_EST">ASPD_SCALE_EST</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Automatic airspeed scale estimation on</p><p><strong>Comment:</strong> Turns the automatic airspeed scale (scale from IAS to CAS/EAS) on or off. It is recommended to fly level altitude while performing the estimation. Set to 1 to start estimation (best when already flying). Set to 0 to end scale estimation. The estimated scale is then saved using the ASPD_SCALE parameter.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ASPD_SC_P_NOISE">ASPD_SC_P_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator true airspeed scale process noise</p><p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td style="vertical-align: top;">0 > 0.1 </td>
  <td style="vertical-align: top;">0.0001</td>
  <td style="vertical-align: top;">1/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="ARSP_TAS_GATE">ARSP_TAS_GATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><strong id="ASPD_STALL">ASPD_STALL</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Airspeed fault detection stall airspeed. (Experimental)</p><p><strong>Comment:</strong> This is the minimum indicated airspeed at which the wing can produce 1g of lift. It is used by the airspeed sensor fault detection and failsafe calculation to detect a significant airspeed low measurement error condition and should be set based on flight test for reliable operation.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">10.0</td>
+ <td style="vertical-align: top;">m/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ASPD_TAS_GATE">ASPD_TAS_GATE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Airspeed Selector: Gate size for true airspeed fusion</p><p><strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.</p>   </td>
  <td style="vertical-align: top;">1 > 5 </td>
  <td style="vertical-align: top;">3</td>
  <td style="vertical-align: top;">SD</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="ARSP_TAS_NOISE">ARSP_TAS_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="ASPD_TAS_NOISE">ASPD_TAS_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator true airspeed measurement noise</p><p><strong>Comment:</strong> True airspeed measurement noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td style="vertical-align: top;">0 > 4 </td>
  <td style="vertical-align: top;">1.4</td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="ARSP_W_P_NOISE">ARSP_W_P_NOISE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><strong id="ASPD_W_P_NOISE">ASPD_W_P_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator wind process noise</p><p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.1</td>
@@ -705,38 +780,6 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="COM_ASPD_FS_ACT">COM_ASPD_FS_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airspeed fault detection (Experimental)</p><p><strong>Comment:</strong> Failsafe action when bad airspeed measurements are detected. Ensure the COM_ASPD_STALL parameter is set correctly before use.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> disabled</li> 
-
-<li><strong>1:</strong> log a message</li> 
-
-<li><strong>2:</strong> log a message, warn the user</li> 
-
-<li><strong>3:</strong> log a message, warn the user, switch to non-airspeed TECS mode</li> 
-
-<li><strong>4:</strong> log a message, warn the user, switch to non-airspeed TECS mode, switch to Return mode after COM_ASPD_FS_DLY seconds</li> 
-</ul>
-  </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="COM_ASPD_FS_DLY">COM_ASPD_FS_DLY</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airspeed fault detection delay before RTL (Experimental)</p><p><strong>Comment:</strong> RTL delay after bad airspeed measurements are detected if COM_ASPD_FS_ACT is set to 4. Ensure the COM_ASPD_STALL parameter is set correctly before use. The failsafe start and stop delays are controlled by the COM_TAS_FS_T1 and COM_TAS_FS_T2 parameters. Additional protection against persistent airspeed sensor errors can be enabled using the COM_TAS_FS_INNOV parameter, but these addtional checks are more prone to false positives in windy conditions.</p>   </td>
- <td style="vertical-align: top;">0 > 300 </td>
- <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="COM_ASPD_STALL">COM_ASPD_STALL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airspeed fault detection stall airspeed. (Experimental)</p><p><strong>Comment:</strong> This is the minimum indicated airspeed at which the wing can produce 1g of lift. It is used by the airspeed sensor fault detection and failsafe calculation to detect a significant airspeed low measurement error condition and should be set based on flight test for reliable operation. The failsafe response is controlled by the COM_ASPD_FS_ACT parameter.</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">m/s</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="COM_DISARM_LAND">COM_DISARM_LAND</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Time-out for auto disarm after landing</p><p><strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. A zero or negative value means that automatic disarming triggered by landing detection is disabled.</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -1239,34 +1282,6 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;">5 > 40 (0.05)</td>
  <td style="vertical-align: top;">12.0</td>
  <td style="vertical-align: top;">%</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="COM_TAS_FS_INNOV">COM_TAS_FS_INNOV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airspeed failsafe consistency threshold (Experimental)</p><p><strong>Comment:</strong> This specifies the minimum airspeed test ratio as logged in estimator_status.tas_test_ratio required to trigger a failsafe. Larger values make the check less sensitive, smaller values make it more sensitive. Start with a value of 1.0 when tuning. When estimator_status.tas_test_ratio is > 1.0 it indicates the inconsistency between predicted and measured airspeed is large enough to cause the navigation EKF to reject airspeed measurements. The time required to detect a fault when the threshold is exceeded depends on the size of the exceedance and is controlled by the COM_TAS_FS_INTEG parameter. The subsequent failsafe response is controlled by the COM_ASPD_FS_ACT parameter.</p>   </td>
- <td style="vertical-align: top;">0.5 > 3.0 </td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="COM_TAS_FS_INTEG">COM_TAS_FS_INTEG</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airspeed failsafe consistency delay (Experimental)</p><p><strong>Comment:</strong> This sets the time integral of airspeed test ratio exceedance above COM_TAS_FS_INNOV required to trigger a failsafe. For example if COM_TAS_FS_INNOV is 100 and estimator_status.tas_test_ratio is 2.0, then the exceedance is 1.0 and the integral will rise at a rate of 1.0/second. A negative value disables the check. Larger positive values make the check less sensitive, smaller positive values make it more sensitive. The failsafe response is controlled by the COM_ASPD_FS_ACT parameter.</p>   </td>
- <td style="vertical-align: top;">? > 30.0 </td>
- <td style="vertical-align: top;">-1.0</td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="COM_TAS_FS_T1">COM_TAS_FS_T1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airspeed failsafe stop delay (Experimental)</p><p><strong>Comment:</strong> Delay before stopping use of airspeed sensor if checks indicate sensor is bad. The failsafe response is controlled by the COM_ASPD_FS_ACT parameter.</p>   </td>
- <td style="vertical-align: top;">1 > 10 </td>
- <td style="vertical-align: top;">3</td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="COM_TAS_FS_T2">COM_TAS_FS_T2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Airspeed failsafe start delay (Experimental)</p><p><strong>Comment:</strong> Delay before switching back to using airspeed sensor if checks indicate sensor is good. The failsafe response is controlled by the COM_ASPD_FS_ACT parameter.</p>   </td>
- <td style="vertical-align: top;">10 > 1000 </td>
- <td style="vertical-align: top;">100</td>
- <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_VEL_FS_EVH">COM_VEL_FS_EVH</strong> (FLOAT)</td>
