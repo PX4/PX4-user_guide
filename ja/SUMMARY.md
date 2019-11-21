@@ -121,7 +121,7 @@
   * [センサーの温度特性補償](advanced_config/sensor_thermal_calibration.md)
   * [センサ取り付け方向の調整：応用編](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [静圧補正](advanced_config/static_pressure_buildup.md)
-  * [Prearm/Arm/Disarm の設定](advanced_config/prearm_arm_disarm.md) prearm_arm_disarm.md
+  * [Prearm/Arm/Disarm Configuration](advanced_config/prearm_arm_disarm.md)
   * [パラメータ一覧](advanced_config/parameter_reference.md)
 * [周辺機器](peripherals/README.md) 
   * [シリアルポート設定](peripherals/serial_configuration.md)

@@ -57,5 +57,4 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 ## 引脚和原理图
 
-* 开源硬件资料： https://github.com/cuav/CUAV_Hardware/tree/master/Pixhack_V3
-* 文档和接线指南: http://doc.cuav.net/PixHack/pixhack-v3.html
+* [Documentation/wiring guides](http://doc.cuav.net/PixHack/pixhack-v3.html)

@@ -104,5 +104,5 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 * FMUv5参考设计</0 >。 </li> 
   
-  * [CUAV v5 docs](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
+  * [CUAV v5 docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html) 
   * [CUAV Github库](https://github.com/cuav) </ul>

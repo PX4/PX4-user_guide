@@ -57,5 +57,4 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 ## Pinouts and Schematics
 
-* Open hardware files: https://github.com/cuav/CUAV_Hardware/tree/master/Pixhack_V3
-* Documentation/wiring guides: http://doc.cuav.net/PixHack/pixhack-v3.html
+* [Documentation/wiring guides](http://doc.cuav.net/PixHack/pixhack-v3.html)
