@@ -1,5 +1,7 @@
 # CUAV HV PM(High voltage power module)
 
+>**Tip** The HV PM is included in the V5+/V5 nano kit, which can also be sold separately. There are different cables depending on the flight control (pixhack v3, pixhawk, V5+/V5 nano); you can also use it on other flight controllers, but you may need to modify the cable pin.
+
 ## Overview：
 
 The CUAV<sup>&reg;</sup> HV_PM module is a new high voltage voltage power module independently developed by CUAV with the following features:
