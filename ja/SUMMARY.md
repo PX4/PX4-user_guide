@@ -67,6 +67,7 @@
     * [着陸 \(固定翼機\)](flying/fixed_wing_landing.md)
   * [自動操縦](flying/missions.md)
   * [GeoFence](flying/geofence.md)
+  * [Safety Point Planning](flying/plan_safety_points.md)
   * [Flight Modes](flight_modes/README.md) 
     * [Position Mode (MC)](flight_modes/position_mc.md)
     * [Altitude Mode (MC)](flight_modes/altitude_mc.md)
