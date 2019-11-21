@@ -67,6 +67,7 @@
     * [착륙 \(고정익\)](flying/fixed_wing_landing.md)
   * [미션](flying/missions.md)
   * [GeoFence](flying/geofence.md)
+  * [Safety Point Planning](flying/plan_safety_points.md)
   * [Flight Modes](flight_modes/README.md) 
     * [Position Mode (MC)](flight_modes/position_mc.md)
     * [Altitude Mode (MC)](flight_modes/altitude_mc.md)
