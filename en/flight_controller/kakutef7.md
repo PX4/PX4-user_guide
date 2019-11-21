@@ -68,7 +68,7 @@ Download the [kakutef7_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/
 
 ## Building Firmware
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
 make holybro_kakutef7_default
 ```

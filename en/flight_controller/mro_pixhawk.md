@@ -57,12 +57,20 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 > **Tip** Most users will not need to build this firmware!
   It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
 make px4fmu-v3_default
 ```
 
-## Pinouts and Schematics
+## Debug Ports
+
+See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
+
+## Pinouts
+
+See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
+
+## Schematics
 
 The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
 

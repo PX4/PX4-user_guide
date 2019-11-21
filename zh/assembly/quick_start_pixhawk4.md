@@ -121,7 +121,7 @@
 > >     
 > >     ![Pixhawk 4/SD 卡](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 > >     
-> >     > **Tip** 闪迪至尊 U3 32GB 是 [强烈推荐 ](https://dev.px4.io/en/log/logging.html#sd-cards)的 (开发人员指南)。
+> >     > **Tip** The SanDisk Extreme U3 32GB is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
 > >     
 > >     ## 电机
 > >     

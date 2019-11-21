@@ -32,7 +32,7 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 기체에 대한 비컨의 상대 위치와 속도를 추정하기 전에, 매개 변수 [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X) 및 [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y)로 비컨 측정의 스케일을 조정할 수 있습니다. IR-LOCK 센서의 렌즈 왜곡으로 인해 측정 스케일링이 필수적일 수 있습니다. `LTEST_SCALE_X`및 ` LTEST_SCALE_Y`은 기체 프레임이 아니라 센서 프레임을 기준으로 생각해야 합니다.
 
-이러한 스케일 매개변수를 캘리브레이션하려면, `LTEST_MODE`을 이동으로 설정하고, 비컨 위로 멀티콥터를 날려 전후좌우로 기체를 움직이십시오. 동작을 수행하는 중에 logging<1>, `landing_target_pose`와 `vehicle_local_position`이 설정되어야 합니다. 그런 다음, `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel`를 각각 `vehicle_local_position.vx` and `vehicle_local_position.vy`와 비교하십시오 (각각의 측정은 NED 프레임에서 이루어집니다). 추정된 비컨 속도가 기체 속도보다 일관되게 작거나 크면 스케일 파라미터를 조정하여 캘리브레이션합니다.</p> 
+To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](https://dev.px4.io/master/en/log/logging.html#configuration) `landing_target_pose` and `vehicle_local_position`. 그런 다음, `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel`를 각각 `vehicle_local_position.vx` and `vehicle_local_position.vy`와 비교하십시오 (각각의 측정은 NED 프레임에서 이루어집니다). 추정된 비컨 속도가 기체 속도보다 일관되게 작거나 크면 스케일 파라미터를 조정하여 캘리브레이션합니다.
 
 `LTEST_MODE`를 정지로 설정하고 정밀 착륙을 하는 도중 기체의 측면에 진동이 나타난다면, 비콘 측정 값이 너무 높게 조정되었을 가능성이 있으므로 관련 방향에서 스케일 매개변수를 줄여야합니다.
 
@@ -73,7 +73,7 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ## 시뮬레이션
 
-IR-LOCK 센서와 비컨을 사용한 정밀 착륙은 [SITL Gazebo ](https://dev.px4.io/en/simulation/gazebo.html)에서 시뮬레이션할 수 있습니다.
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/master/en/simulation/gazebo.html).
 
 IR-LOCK 비컨과 범위 센서와 IR-LOCK 카메라가 장착된 기체를 사용하여 시뮬레이션을 시작하려면 다음을 실행하십시오.
 

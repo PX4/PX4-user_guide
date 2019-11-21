@@ -70,7 +70,7 @@ Under these conditions all power sources will be used in this order to power the
 > **Tip** Most users will not need to build this firmware!
   It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
 make px4_fmu-v5_default
 ```
@@ -111,7 +111,7 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## Further info
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
-- [CUAV v5 docs](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
+- [CUAV v5 docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html) 
 - [CUAV Github](https://github.com/cuav) 
 
 

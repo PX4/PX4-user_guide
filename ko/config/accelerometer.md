@@ -1,6 +1,10 @@
 # 가속도 센서
 
-*QGroundControl*은 기체를 다양한 방향으로 놓고 유지하도록 안내할 것입니다 (기체를 움직일 때 신호합니다).
+You will need to calibrate your accelerometer on first use or if the flight controller orientation is changed. Otherwise you should not need to recalibrate (except perhaps in winter, if you have a flight controller that was not [thermally calibrated](../advanced_config/sensor_thermal_calibration.md) in the factory).
+
+> **Note** Poor accelerometer calibration is generally caught by preflight checks and arming-denied messages (QGC warnings typically refer to "high accelerometer bias" and "consistency check failures").
+
+*QGroundControl* will guide you to place and hold your vehicle in a number of orientations (you will be prompted when to move between positions).
 
 > **Tip** This is similar to [compass calibration](../config/compass.md) except that you hold the vehicle still (rather than rotate it) in each orientation.
 

@@ -51,12 +51,11 @@ The board can be purchased from:
 > **Tip** Most users will not need to build this firmware!
   It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
 make px4_fmu-v3_default
 ```
 
 ## Pinouts and Schematics
 
-* Open hardware files: https://github.com/cuav/CUAV_Hardware/tree/master/Pixhack_V3
-* Documentation/wiring guides: http://doc.cuav.net/PixHack/pixhack-v3.html
+* [Documentation/wiring guides](http://doc.cuav.net/PixHack/pixhack-v3.html)

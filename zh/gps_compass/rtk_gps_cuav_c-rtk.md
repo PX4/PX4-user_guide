@@ -17,7 +17,7 @@ RTK设置和使用在px4上通过 *QGroundControl* 很大程度上可以即插�
 
 ## 接线和连接
 
-c-rtk gps 配有一根线材, 可在与 < 0>Pixhack v2/0 > 兼容的6针连接器和4针连接器中使用。 6针连接器提供 rtk gps 的接口, 并应连接到飞行控制器的 gps 接口。 4针连接器是一个 m8n (标准) gps 接口, 可作为第二个 gps(可选)。
+C-RTK GPS comes with a cable that terminates in a 6-pin connector and 4-pin connector that are compatible with [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/c-rtk/hardware-connection.html). 6针连接器提供 rtk gps 的接口, 并应连接到飞行控制器的 gps 接口。 4针连接器是一个 m8n (标准) gps 接口, 可作为第二个 gps(可选)。
 
 > **Tip**在编写本文时, PX4固件还没有完全支持第二个 gps。 无需连接4针端口。
 

@@ -67,13 +67,19 @@ This frees it of the need of any desktop system.
 
 ## Connectors 
 
-All connectors follow the [Dronecode connector standard](https://wiki.dronecode.org/workgroup/connectors/start). Unless noted otherwise all connectors are JST GH.
-
+All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixhawk-connector-standard/).
+Unless noted otherwise all connectors are JST GH.
 
 ## Pinouts
 
+![Pixracer top pinouts](../../assets/flight_controller/pixracer/pixracer_r09_top_pinouts.jpg)
 
-TELEM1, TELEM2+OSD ports
+![Pixracer bottom pinouts](../../assets/flight_controller/pixracer/pixracer_r09_bot_pinouts.jpg)
+
+![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
+
+
+#### TELEM1, TELEM2+OSD ports
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -84,7 +90,7 @@ Pin | Signal | Volt
 5 (blk) | RTS (OUT) | +3.3V
 6 (blk) | GND       | GND
 
-GPS port
+#### GPS port
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -95,7 +101,7 @@ Pin | Signal | Volt
 5 (blk) | I2C1 SDA  | +3.3V
 6 (blk) | GND       | GND
 
-FrSky Telemetry / SERIAL4
+#### FrSky Telemetry / SERIAL4
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -104,7 +110,7 @@ Pin | Signal | Volt
 3 (blk) | RX (IN)   | +3.3V
 4 (blk) | GND       | GND
 
-RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
+#### RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -114,7 +120,7 @@ Pin | Signal | Volt
 4 (blk) | VDD 3V3   | +3.3V
 5 (blk) | GND       | GND
 
-CAN
+#### CAN
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -123,7 +129,7 @@ Pin | Signal | Volt
 3 (blk) | CAN_L    | +12V
 4 (blk) | GND       | GND
 
-POWER
+#### POWER
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -134,7 +140,7 @@ Pin | Signal | Volt
 5 (blk) | GND       | GND
 6 (blk) | GND       | GND
 
-SWITCH
+#### SWITCH
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -144,7 +150,9 @@ Pin | Signal | Volt
 4 (blk) | BUZZER-   | -
 5 (blk) | BUZZER+   | -
 
-Dronecode debug port (JST SM06B connector)
+#### Debug Port (JST SM06B connector)
+
+Dronecode debug port.
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -154,14 +162,6 @@ Pin | Signal | Volt
 4 (blk) | SWDIO  | +3.3V
 5 (blk) | SWCLK  | +3.3V
 6 (blk) | GND       | GND
-
-
-![Pixracer top pinouts](../../assets/flight_controller/pixracer/pixracer_r09_top_pinouts.jpg)
-
-![Pixracer bottom pinouts](../../assets/flight_controller/pixracer/pixracer_r09_bot_pinouts.jpg)
-
-![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
-
 
 
 ## Schematics
@@ -178,7 +178,7 @@ The following PDF files are provided for *convenience only*:
 > **Tip** Most users will not need to build this firmware!
   It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
 make px4_fmu-v4_default
 ```

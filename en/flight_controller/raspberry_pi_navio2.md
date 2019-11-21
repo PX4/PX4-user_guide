@@ -177,5 +177,5 @@ Then clone the Firmware directly onto the Pi.
 
 ### Building the code
 
-Continue with our [standard build system installation](https://dev.px4.io/en/setup/dev_env_linux.html).
+Continue with our [standard build system installation](https://dev.px4.io/master/en/setup/dev_env_linux.html).
 

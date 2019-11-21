@@ -8,6 +8,8 @@ This section contains topics about flying your (fully configured) autopilot cont
 
 [Missions](../flying/missions.md) — How to fly an autonomous mission.
 
+[GeoFence](../flying/geofence.md) — How to set a geofence.
+
 [Flight Modes](../flight_modes/README.md) — Summary table + detailed information about flight modes.
 
 [Terrain Follow/Hold & Range Assistance](../flying/terrain_following_holding.md) — How to enable terrain following.

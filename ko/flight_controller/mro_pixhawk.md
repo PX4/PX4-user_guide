@@ -158,14 +158,30 @@
                       </blockquote>
                       
                       <p>
-                        To <a href="https://dev.px4.io/en/setup/building_px4.html">build PX4</a> for this target:
+                        To <a href="https://dev.px4.io/master/en/setup/building_px4.html">build PX4</a> for this target:
                       </p>
                       
                       <pre><code>make px4fmu-v3_default
 </code></pre>
                       
                       <h2>
-                        Pinouts and Schematics
+                        Debug Ports
+                      </h2>
+                      
+                      <p>
+                        See <a href="../flight_controller/pixhawk.md#debug-ports">3DR Pixhawk 1 > Debug Ports</a>
+                      </p>
+                      
+                      <h2>
+                        Pinouts
+                      </h2>
+                      
+                      <p>
+                        See <a href="../flight_controller/pixhawk.md#pinouts">3DR Pixhawk 1 > Pinouts</a>
+                      </p>
+                      
+                      <h2>
+                        Schematics
                       </h2>
                       
                       <p>

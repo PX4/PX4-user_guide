@@ -243,7 +243,11 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to return (at a safe height) to its home position and land. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
+              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly a clear path to a safe location. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a <a href="../config/safety.md">failsafe</a> being triggered).
+            </p>
+            
+            <p>
+              The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a mulitcopter will simply ascend to a safe height, fly to its home position, and then land.
             </p>
             
             <h3 id="mission_mc">
@@ -480,7 +484,11 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly back to its home position (at a safe height) and circle over it. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a failsafe being triggered).
+              <a href="../flight_modes/return.md">Return mode</a> causes the vehicle to fly a clear path to a safe location. The mode may be activated manually (via a pre-programmed RC switch) or automatically (i.e. in the event of a <a href="../config/safety.md">failsafe</a> being triggered).
+            </p>
+            
+            <p>
+              The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a fixed wing vehicle will ascend to a safe height and use a mission landing pattern if one exists, otherwise it will fly to the home position and circle.
             </p>
             
             <h3 id="mission_fw">
@@ -559,15 +567,25 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               The switch between modes is initiated either by the pilot using an RC switch or automatically by PX4 when needed in the Auto modes.
             </p>
             
+            <p>
+              A few notes:
+            </p>
+            
+            <ul>
+              <li>
+                VTOL <a href="../flight_modes/return.md">Return mode</a> uses a mission landing by default, if defined.
+              </li>
+            </ul>
+            
             <h2>
               更多信息
             </h2>
             
             <ul>
               <li>
-                <a href="../flight_modes/README.md">飞行> 飞行模式 </a> - 所有模式的详细技术说明。
+                <a href="../flight_modes/README.md">Flying > Flight Modes</a> - Detailed technical explanation of all modes
               </li>
               <li>
-                <a href="../config/flight_mode.md">基本配置 > 飞行模式 </a> - 如何将 RC 控制开关映射到特定飞行模式。
+                <a href="../config/flight_mode.md">Basic Configuration > Flight Modes</a> - How to map RC control switches to specific flight modes
               </li>
             </ul>

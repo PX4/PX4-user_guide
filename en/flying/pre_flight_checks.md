@@ -8,7 +8,7 @@ The sections below list the errors, their likely causes and solutions, and any p
 
 ## EKF Preflight Checks/Errors
 
-The following errors (with associated checks and parameters) are reported by the [EKF](https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html) (and propagate to *QGroundControl*):
+The following errors (with associated checks and parameters) are reported by the [EKF](https://dev.px4.io/master/en/tutorials/tuning_the_ecl_ekf.html) (and propagate to *QGroundControl*):
 
 `PREFLIGHT FAIL: EKF HGT ERROR`:
 * This error is produced when the IMU and height measurement data are inconsistent.
@@ -52,7 +52,7 @@ The following errors (with associated checks and parameters) are reported by the
 * This error message is produced when the difference in measurements from different compass sensors is too great.
 * It indicates bad calibration, orientation or magnetic interference.
 * This check only applies to when more than one compass/magnetometer is connected.
-* The check is controlled by the [COM_ARM_MAG](../advanced_config/parameter_reference.md#COM_ARM_MAG) parameter.
+* The check is controlled by the [COM_ARM_MAG_ANG](../advanced_config/parameter_reference.md#COM_ARM_MAG_ANG) parameter.
 
 `PREFLIGHT FAIL: EKF INTERNAL CHECKS`:
 * This error message is generated if the innovation magnitudes of either the horizontal GPS velocity, magnetic yaw, vertical GPS velocity or vertical position sensor (Baro by default but could be range finder or GPS if non-standard parameters are being used) are excessive. Innovations are the difference between the value predicted by the inertial navigation calculation and measured by the sensor.

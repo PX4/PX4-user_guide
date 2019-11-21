@@ -68,7 +68,7 @@
 
 > **Tip**大多数用户将不需要构建此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make px4_fmu-v5_default
     
@@ -104,5 +104,5 @@
 
 * FMUv5参考设计</0 >。 </li> 
   
-  * [CUAV v5 docs](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
+  * [CUAV v5 docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html) 
   * [CUAV Github库](https://github.com/cuav) </ul>

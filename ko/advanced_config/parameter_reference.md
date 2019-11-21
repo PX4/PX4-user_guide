@@ -1,6 +1,10 @@
 # 매개 변수 참조
 
-> **Note** **This list is auto-generated from the source code** (using `make parameters_metadata`) and contains the most recent parameter documentation.
+> **Note** **This documentation was auto-generated from the source code for this PX4 version** (using `make parameters_metadata`).
+
+<span></span>
+
+> **Note** If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](http://docs.px4.io/master/en/advanced_config/parameters.html#missing).
 
 ## Airspeed Validator
 
@@ -129,7 +133,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -289,7 +293,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -399,7 +403,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -1202,7 +1206,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -1972,6 +1976,32 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_ARM_AUTH_REQ">COM_ARM_AUTH_REQ</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Require arm authorization to arm
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The default allows to arm the vehicle without a arm authorization.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</strong> (INT32)
     </td>
     
@@ -1989,7 +2019,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -2231,7 +2261,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -2295,7 +2325,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -3191,6 +3221,30 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_KILL_DISARM">COM_KILL_DISARM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Timeout value for disarming when kill switch is engaged
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 30.0 (0.1)
+    </td>
+    
+    <td style="vertical-align: top;">
+      5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_LOW_BAT_ACT">COM_LOW_BAT_ACT</strong> (INT32)
     </td>
     
@@ -3200,7 +3254,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Action the system takes on low battery. Defaults to off
+        <strong>Comment:</strong> Action the system takes at critical battery. See also BAT_CRIT_THR and BAT_EMERGEN_THR for definition of battery states.
       </p>
       
       <strong>Values:</strong>
@@ -3210,13 +3264,10 @@
           <strong>0:</strong> Warning
         </li>
         <li>
-          <strong>1:</strong> Return mode
-        </li>
-        <li>
           <strong>2:</strong> Land mode
         </li>
         <li>
-          <strong>3:</strong> Return mode at critically low level, Land mode at current position if reaching dangerously low levels
+          <strong>3:</strong> Return at critical level, land at emergency level
         </li>
       </ul>
     </td>
@@ -3227,6 +3278,32 @@
     
     <td style="vertical-align: top;">
       0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="COM_MOT_TEST_EN">COM_MOT_TEST_EN</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable Motor Testing
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If set, enables the motor test interface via MAVLink (DO_MOTOR_TEST), that allows spinning the motors for testing purposes.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -3579,6 +3656,46 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_PREARM_MODE">COM_PREARM_MODE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Condition to enter prearmed mode
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Condition to enter the prearmed state, an intermediate state between disarmed and armed in which non-throttling actuators are active.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>1:</strong> Safety button
+        </li>
+        <li>
+          <strong>2:</strong> Always
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_RC_ARM_HYST">COM_RC_ARM_HYST</strong> (INT32)
     </td>
     
@@ -3692,7 +3809,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -3866,6 +3983,198 @@
   </tr>
 </table>
 
+## DShot
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      명칭
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="DSHOT_CONFIG">DSHOT_CONFIG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Configure DShot
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This enables/disables DShot. The different modes define different speeds, for example DShot150 = 150kb/s. Not all ESCs support all modes. Note: this enables DShot on the FMU outputs. For boards with an IO it is the AUX outputs.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disable (use PWM/Oneshot)
+        </li>
+        <li>
+          <strong>150:</strong> DShot150
+        </li>
+        <li>
+          <strong>300:</strong> DShot300
+        </li>
+        <li>
+          <strong>600:</strong> DShot600
+        </li>
+        <li>
+          <strong>1200:</strong> DShot1200
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="DSHOT_MIN">DSHOT_MIN</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Minimum DShot Motor Output
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Minimum Output Value for DShot in percent. The value depends on the ESC. Make sure to set this high enough so that the motors are always spinning while armed.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.055
+    </td>
+    
+    <td style="vertical-align: top;">
+      %
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="DSHOT_TEL_CFG">DSHOT_TEL_CFG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Serial Configuration for DShot Driver
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure on which serial port to run DShot Driver.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>6:</strong> UART 6
+        </li>
+        <li>
+          <strong>101:</strong> TELEM 1
+        </li>
+        <li>
+          <strong>102:</strong> TELEM 2
+        </li>
+        <li>
+          <strong>103:</strong> TELEM 3
+        </li>
+        <li>
+          <strong>104:</strong> TELEM/SERIAL 4
+        </li>
+        <li>
+          <strong>201:</strong> GPS 1
+        </li>
+        <li>
+          <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>300:</strong> Radio Controller
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MOT_POLE_COUNT">MOT_POLE_COUNT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Number of magnetic poles of the motors
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Specify the number of magnetic poles of the motors. It is required to compute the RPM value from the eRPM returned with the ESC telemetry. Either get the number from the motor spec sheet or count the magnets on the bell of the motor (not the stator magnets). Typical motors for 5 inch props have 14 poles.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      14
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
 ## Data Link Loss
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -4022,7 +4331,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -4407,6 +4716,9 @@
         <li>
           <strong>7:</strong> GPS yaw fusion
         </li>
+        <li>
+          <strong>8:</strong> vision velocity fusion
+        </li>
       </ul>
       
       <p>
@@ -4415,7 +4727,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0 > 255
+      0 > 511
     </td>
     
     <td style="vertical-align: top;">
@@ -4857,6 +5169,30 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="EKF2_EVP_GATE">EKF2_EVP_GATE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Gate size for vision position fusion Sets the number of standard deviations used by the innovation consistency test
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="EKF2_EVP_NOISE">EKF2_EVP_NOISE</strong> (FLOAT)
     </td>
     
@@ -4871,11 +5207,63 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.05
+      0.1
     </td>
     
     <td style="vertical-align: top;">
       m
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="EKF2_EVV_GATE">EKF2_EVV_GATE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Gate size for vision velocity estimate fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      3.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="EKF2_EVV_NOISE">EKF2_EVV_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Measurement noise for vision velocity observations used when the vision system does not supply error estimates
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.01 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
     </td>
   </tr>
   
@@ -4909,29 +5297,27 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="EKF2_EV_GATE">EKF2_EV_GATE</strong> (FLOAT)
+      <strong id="EKF2_EV_NOISE_MD">EKF2_EV_NOISE_MD</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        Gate size for vision estimate fusion
+        Whether to set the external vision observation noise from the parameter or from vision message
       </p>
       
       <p>
-        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+        <strong>Comment:</strong> If set to true the observation noise is set from the parameters directly, if set to false the measurement noise is taken from the vision message and the parameter are used as a lower bound.
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      1.0 > ?
     </td>
     
     <td style="vertical-align: top;">
-      5.0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
-      SD
     </td>
   </tr>
   
@@ -5023,7 +5409,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -6021,7 +6407,7 @@
           <strong>2:</strong> 3-axis
         </li>
         <li>
-          <strong>3:</strong> VTOL customn
+          <strong>3:</strong> VTOL custom
         </li>
         <li>
           <strong>4:</strong> MC custom
@@ -6106,7 +6492,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Minimum valid range for the range finder
+        Expected range finder reading when on ground
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If the vehicle is on ground, is not moving as determined by the motion test controlled by EKF2_MOVE_TEST and the range finder is returning invalid or no data, then an assumed range value of EKF2_MIN_RNG will be used by the terrain estimator so that a terrain height estimate is avilable at the start of flight in situations where the range finder may be inside its minimum measurements distance when on ground.
       </p>
     </td>
     
@@ -7230,7 +7620,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -7260,7 +7650,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -7433,7 +7823,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -8498,7 +8888,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -8880,7 +9270,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -9088,7 +9478,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -9414,7 +9804,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -12909,7 +13299,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -13092,7 +13482,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -13275,7 +13665,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -13459,7 +13849,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -13485,7 +13875,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -13511,7 +13901,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -13537,7 +13927,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -13765,7 +14155,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -13813,7 +14203,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -14028,7 +14418,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -14279,7 +14669,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -14480,7 +14870,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -14723,6 +15113,109 @@
   </tr>
 </table>
 
+## Mixer Output
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      명칭
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_AIRMODE">MC_AIRMODE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Multicopter air-mode
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Disabled
+        </li>
+        <li>
+          <strong>1:</strong> Roll/Pitch
+        </li>
+        <li>
+          <strong>2:</strong> Roll/Pitch/Yaw
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MOT_ORDERING">MOT_ORDERING</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Motor Ordering
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. When changing this, make sure to test the motor response without props first.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> PX4
+        </li>
+        <li>
+          <strong>1:</strong> Betaflight / Cleanflight
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
 ## Mount
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -14763,7 +15256,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -15270,388 +15763,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Acro mode Expo factor for Roll and Pitch
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.69
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_EXPO_Y">MC_ACRO_EXPO_Y</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Acro mode Expo factor for Yaw
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.69
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Max acro pitch rate default: 2 turns per second
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1800.0 (5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      720.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      deg/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Max acro roll rate default: 2 turns per second
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1800.0 (5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      720.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      deg/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Acro mode SuperExpo factor for Roll and Pitch
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 0.95
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.7
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Acro mode SuperExpo factor for Yaw
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 0.95
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.7
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Max acro yaw rate default 1.5 turns per second
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1800.0 (5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      540.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      deg/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_AIRMODE">MC_AIRMODE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Multicopter air-mode
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> The air-mode enables the mixer to increase the total thrust of the multirotor in order to keep attitude and rate control even at low and high throttle. This function should be disabled during tuning as it will help the controller to diverge if the closed-loop is unstable (i.e. the vehicle is not tuned yet). Enabling air-mode for yaw requires the use of an arming switch.
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> Disabled
-        </li>
-        <li>
-          <strong>1:</strong> Roll/Pitch
-        </li>
-        <li>
-          <strong>2:</strong> Roll/Pitch/Yaw
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_BAT_SCALE_EN">MC_BAT_SCALE_EN</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Battery power level scaler
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The copter should constantly behave as if it was fully charged with reduced max acceleration at lower battery percentages. i.e. if hover is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_DTERM_CUTOFF">MC_DTERM_CUTOFF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Cutoff frequency for the low pass filter on the D-term in the rate controller
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to decrease the driver-level filtering, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1000 (10)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.
-    </td>
-    
-    <td style="vertical-align: top;">
-      Hz
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_PITCHRATE_D">MC_PITCHRATE_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate D gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.0005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.003
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_PITCHRATE_FF">MC_PITCHRATE_FF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate feedforward
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Improves tracking performance.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ?
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_PITCHRATE_I">MC_PITCHRATE_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate I gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Pitch rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.2
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_PITCHRATE_K">MC_PITCHRATE_K</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate controller gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_PITCHRATE_K * (MC_PITCHRATE_P * error + MC_PITCHRATE_I * error_integral + MC_PITCHRATE_D * error_derivative) Set MC_PITCHRATE_P=1 to implement a PID in the ideal form. Set MC_PITCHRATE_K=1 to implement a PID in the parallel form.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 5.0 (0.0005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_PITCHRATE_MAX">MC_PITCHRATE_MAX</strong> (FLOAT)
     </td>
     
@@ -15675,33 +15786,6 @@
     
     <td style="vertical-align: top;">
       deg/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_PITCHRATE_P">MC_PITCHRATE_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate P gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 0.6 (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.15
-    </td>
-    
-    <td style="vertical-align: top;">
     </td>
   </tr>
   
@@ -15735,33 +15819,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_PR_INT_LIM">MC_PR_INT_LIM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Pitch rate integrator limit
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Pitch rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.30
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_RATT_TH">MC_RATT_TH</strong> (FLOAT)
     </td>
     
@@ -15781,114 +15838,6 @@
     
     <td style="vertical-align: top;">
       0.8
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ROLLRATE_D">MC_ROLLRATE_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate D gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 0.01 (0.0005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.003
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ROLLRATE_FF">MC_ROLLRATE_FF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate feedforward
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Improves tracking performance.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ?
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ROLLRATE_I">MC_ROLLRATE_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate I gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.2
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_ROLLRATE_K">MC_ROLLRATE_K</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate controller gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_ROLLRATE_K * (MC_ROLLRATE_P * error + MC_ROLLRATE_I * error_integral + MC_ROLLRATE_D * error_derivative) Set MC_ROLLRATE_P=1 to implement a PID in the ideal form. Set MC_ROLLRATE_K=1 to implement a PID in the parallel form.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 5.0 (0.0005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
     </td>
     
     <td style="vertical-align: top;">
@@ -15925,33 +15874,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_ROLLRATE_P">MC_ROLLRATE_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate P gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 0.5 (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.15
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_ROLL_P">MC_ROLL_P</strong> (FLOAT)
     </td>
     
@@ -15975,303 +15897,6 @@
     
     <td style="vertical-align: top;">
       1/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_RR_INT_LIM">MC_RR_INT_LIM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Roll rate integrator limit
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Roll rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.30
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_BREAK_D">MC_TPA_BREAK_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA D Breakpoint
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch D gain
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_BREAK_I">MC_TPA_BREAK_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA I Breakpoint
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch I gain
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_BREAK_P">MC_TPA_BREAK_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA P Breakpoint
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Magnitude of throttle setpoint at which to begin attenuating roll/pitch P gain
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_RATE_D">MC_TPA_RATE_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA Rate D
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch D gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.05)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_RATE_I">MC_TPA_RATE_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA Rate I
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch I gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.05)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_TPA_RATE_P">MC_TPA_RATE_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        TPA Rate P
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Throttle PID Attenuation (TPA) Rate at which to attenuate roll/pitch P gain Attenuation factor is 1.0 when throttle magnitude is below the setpoint Above the setpoint, the attenuation factor is (1 - rate * (throttle - breakpoint) / (1.0 - breakpoint))
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 1.0 (0.05)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_YAWRATE_D">MC_YAWRATE_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate D gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_YAWRATE_FF">MC_YAWRATE_FF</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate feedforward
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Improves tracking performance.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_YAWRATE_I">MC_YAWRATE_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate I gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_YAWRATE_K">MC_YAWRATE_K</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate controller gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_YAWRATE_K * (MC_YAWRATE_P * error + MC_YAWRATE_I * error_integral + MC_YAWRATE_D * error_derivative) Set MC_YAWRATE_P=1 to implement a PID in the ideal form. Set MC_YAWRATE_K=1 to implement a PID in the parallel form.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 5.0 (0.0005)
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
     </td>
   </tr>
   
@@ -16301,33 +15926,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MC_YAWRATE_P">MC_YAWRATE_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate P gain
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > 0.6 (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.2
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MC_YAW_P">MC_YAW_P</strong> (FLOAT)
     </td>
     
@@ -16351,33 +15949,6 @@
     
     <td style="vertical-align: top;">
       1/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MC_YR_INT_LIM">MC_YR_INT_LIM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Yaw rate integrator limit
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Yaw rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0 > ? (0.01)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.30
-    </td>
-    
-    <td style="vertical-align: top;">
     </td>
   </tr>
   
@@ -16433,6 +16004,116 @@
     <th>
       Units
     </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CP_DELAY">CP_DELAY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Average delay of the range sensor message plus the tracking delay of the position controller in seconds
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.4
+    </td>
+    
+    <td style="vertical-align: top;">
+      seconds
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CP_DIST">CP_DIST</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Minimum distance the vehicle should keep to all obstacles
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode. Collision avoidance is disabled by setting this parameter to a negative value
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1 > 15
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      meters
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CP_GO_NO_DATA">CP_GO_NO_DATA</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Boolean to allow moving into directions where there is no sensor data (outside FOV)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CP_GUIDE_ANG">CP_GUIDE_ANG</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Angle left/right from the commanded setpoint by which the collision prevention algorithm can choose to change the setpoint direction
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Only used in Position mode.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 90
+    </td>
+    
+    <td style="vertical-align: top;">
+      30.
+    </td>
+    
+    <td style="vertical-align: top;">
+      [deg]
+    </td>
   </tr>
   
   <tr>
@@ -16634,90 +16315,6 @@
     </td>
     
     <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_COL_PREV_ANG">MPC_COL_PREV_ANG</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Angle left/right from the commanded setpoint in which the range data is used to calculate speed limitations. All data further from the commanded direction is not considered
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Only used in Position mode.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 90
-    </td>
-    
-    <td style="vertical-align: top;">
-      45.
-    </td>
-    
-    <td style="vertical-align: top;">
-      [deg]
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_COL_PREV_D">MPC_COL_PREV_D</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Minimum distance the vehicle should keep to all obstacles
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Only used in Position mode. Collision avoidace is disabled by setting this parameter to a negative value
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      -1 > 15
-    </td>
-    
-    <td style="vertical-align: top;">
-      -1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      meters
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_COL_PREV_DLY">MPC_COL_PREV_DLY</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Average delay of the range sensor message in seconds
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Only used in Position mode.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.
-    </td>
-    
-    <td style="vertical-align: top;">
-      seconds
     </td>
   </tr>
   
@@ -17881,7 +17478,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -17933,6 +17530,752 @@
     
     <td style="vertical-align: top;">
       deg/s
+    </td>
+  </tr>
+</table>
+
+## Multicopter Rate Control
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      명칭
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_EXPO">MC_ACRO_EXPO</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Acro mode Expo factor for Roll and Pitch
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.69
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_EXPO_Y">MC_ACRO_EXPO_Y</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Acro mode Expo factor for Yaw
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Exponential factor for tuning the input curve shape. 0 Purely linear input curve 1 Purely cubic input curve
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.69
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_P_MAX">MC_ACRO_P_MAX</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Max acro pitch rate default: 2 turns per second
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1800.0 (5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      720.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      deg/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_R_MAX">MC_ACRO_R_MAX</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Max acro roll rate default: 2 turns per second
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1800.0 (5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      720.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      deg/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_SUPEXPO">MC_ACRO_SUPEXPO</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Acro mode SuperExpo factor for Roll and Pitch
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 0.95
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.7
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_SUPEXPOY">MC_ACRO_SUPEXPOY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Acro mode SuperExpo factor for Yaw
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> SuperExpo factor for refining the input curve shape tuned using MC_ACRO_EXPO_Y. 0 Pure Expo function 0.7 resonable shape enhancement for intuitive stick feel 0.95 very strong bent input curve only near maxima have effect
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 0.95
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.7
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ACRO_Y_MAX">MC_ACRO_Y_MAX</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Max acro yaw rate default 1.5 turns per second
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1800.0 (5)
+    </td>
+    
+    <td style="vertical-align: top;">
+      540.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      deg/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_BAT_SCALE_EN">MC_BAT_SCALE_EN</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery power level scaler
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This compensates for voltage drop of the battery over time by attempting to normalize performance across the operating range of the battery. The copter should constantly behave as if it was fully charged with reduced max acceleration at lower battery percentages. i.e. if hover is at 0.5 throttle at 100% battery, it will still be 0.5 at 60% battery.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_DTERM_CUTOFF">MC_DTERM_CUTOFF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Cutoff frequency for the low pass filter on the D-term in the rate controller
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to decrease the driver-level filtering, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1000 (10)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PITCHRATE_D">MC_PITCHRATE_D</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate D gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.0005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.003
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PITCHRATE_FF">MC_PITCHRATE_FF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate feedforward
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Improves tracking performance.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PITCHRATE_I">MC_PITCHRATE_I</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate I gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Pitch rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.2
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PITCHRATE_K">MC_PITCHRATE_K</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate controller gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_PITCHRATE_K * (MC_PITCHRATE_P * error + MC_PITCHRATE_I * error_integral + MC_PITCHRATE_D * error_derivative) Set MC_PITCHRATE_P=1 to implement a PID in the ideal form. Set MC_PITCHRATE_K=1 to implement a PID in the parallel form.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 5.0 (0.0005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PITCHRATE_P">MC_PITCHRATE_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate P gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 0.6 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.15
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_PR_INT_LIM">MC_PR_INT_LIM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch rate integrator limit
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Pitch rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large pitch moment trim changes.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.30
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ROLLRATE_D">MC_ROLLRATE_D</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate D gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Roll rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 0.01 (0.0005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.003
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ROLLRATE_FF">MC_ROLLRATE_FF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate feedforward
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Improves tracking performance.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ROLLRATE_I">MC_ROLLRATE_I</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate I gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Roll rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.2
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ROLLRATE_K">MC_ROLLRATE_K</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate controller gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_ROLLRATE_K * (MC_ROLLRATE_P * error + MC_ROLLRATE_I * error_integral + MC_ROLLRATE_D * error_derivative) Set MC_ROLLRATE_P=1 to implement a PID in the ideal form. Set MC_ROLLRATE_K=1 to implement a PID in the parallel form.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 5.0 (0.0005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_ROLLRATE_P">MC_ROLLRATE_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate P gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 0.5 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.15
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_RR_INT_LIM">MC_RR_INT_LIM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll rate integrator limit
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Roll rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large roll moment trim changes.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.30
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YAWRATE_D">MC_YAWRATE_D</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate D gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Yaw rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YAWRATE_FF">MC_YAWRATE_FF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate feedforward
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Improves tracking performance.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YAWRATE_I">MC_YAWRATE_I</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate I gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Yaw rate integral gain. Can be set to compensate static thrust difference or gravity center offset.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YAWRATE_K">MC_YAWRATE_K</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate controller gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_YAWRATE_K * (MC_YAWRATE_P * error + MC_YAWRATE_I * error_integral + MC_YAWRATE_D * error_derivative) Set MC_YAWRATE_P=1 to implement a PID in the ideal form. Set MC_YAWRATE_K=1 to implement a PID in the parallel form.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 5.0 (0.0005)
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YAWRATE_P">MC_YAWRATE_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate P gain
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Yaw rate proportional gain, i.e. control output for angular speed error 1 rad/s.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 0.6 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.2
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MC_YR_INT_LIM">MC_YR_INT_LIM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw rate integrator limit
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Yaw rate integrator limit. Can be set to increase the amount of integrator available to counteract disturbances or reduced to improve settling time after large yaw moment trim changes.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > ? (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.30
+    </td>
+    
+    <td style="vertical-align: top;">
     </td>
   </tr>
 </table>
@@ -18030,44 +18373,6 @@
     <th>
       Units
     </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MOT_ORDERING">MOT_ORDERING</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Motor Ordering
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Determines the motor ordering. This can be used for example in combination with a 4-in-1 ESC that assumes a motor ordering which is different from PX4. ONLY supported for Quads. ONLY supported for fmu output (Pixracer or Omnibus F4). When changing this, make sure to test the motor response without props first.
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> PX4
-        </li>
-        <li>
-          <strong>1:</strong> Betaflight / Cleanflight
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 1
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
   </tr>
   
   <tr>
@@ -19269,7 +19574,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19295,7 +19600,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19321,7 +19626,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19347,7 +19652,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19373,7 +19678,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19399,7 +19704,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19425,7 +19730,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -19451,7 +19756,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20749,7 +21054,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20775,7 +21080,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20801,7 +21106,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20827,7 +21132,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20853,7 +21158,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20879,7 +21184,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20905,7 +21210,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -20931,7 +21236,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -21269,7 +21574,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -21283,11 +21588,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Thrust to PWM model parameter
+        Thrust to motor control signal model parameter
       </p>
       
       <p>
-        <strong>Comment:</strong> Parameter used to model the relationship between static thrust and motor input PWM. Model is: thrust = (1-factor)*PWM + factor * PWM^2
+        <strong>Comment:</strong> Parameter used to model the nonlinear relationship between motor control signal (e.g. PWM) and static thrust. The model is: rel_thrust = factor * rel_signal^2 + (1-factor) * rel_signal, where rel_thrust is the normalized thrust between 0 and 1, and rel_signal is the relative motor control signal between 0 and 1.
       </p>
     </td>
     
@@ -21492,6 +21797,58 @@
     
     <td style="vertical-align: top;">
       m
+    </td>
+  </tr>
+</table>
+
+## Peripheral
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      명칭
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="LIGHT_EN_BLINKM">LIGHT_EN_BLINKM</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        BlinkM LED
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
     </td>
   </tr>
 </table>
@@ -27895,18 +28252,18 @@
     
     <td style="vertical-align: top;">
       <p>
-        Half-angle of the RTL cone
+        Half-angle of the return mode altitude cone
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the half-angle of the cone which defines the vehicle RTL behavior.
+        <strong>Comment:</strong> Defines the half-angle of a cone centered around the destination position that affects the altitude at which the vehicle returns.
       </p>
       
       <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above home.
+          <strong>0:</strong> No cone, always climb to RTL_RETURN_ALT above destination.
         </li>
         <li>
           <strong>25:</strong> 25 degrees half cone angle.
@@ -27921,7 +28278,7 @@
           <strong>80:</strong> 80 degrees half cone angle.
         </li>
         <li>
-          <strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above home.
+          <strong>90:</strong> Only climb to at least RTL_DESCEND_ALT above destination.
         </li>
       </ul>
     </td>
@@ -27950,7 +28307,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Stay at this altitude above home position after RTL descending. Land (i.e. slowly descend) from this altitude if autolanding allowed.
+        <strong>Comment:</strong> Descend to this altitude (above destination position) after return, and wait for time defined in RTL_LAND_DELAY. Land (i.e. slowly descend) from this altitude if autolanding allowed.
       </p>
     </td>
     
@@ -27978,7 +28335,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Delay after descend before landing in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.
+        <strong>Comment:</strong> Delay before landing (after initial descent) in Return mode. If set to -1 the system will not land but loiter at RTL_DESCEND_ALT.
       </p>
     </td>
     
@@ -28002,16 +28359,16 @@
     
     <td style="vertical-align: top;">
       <p>
-        Minimum distance to trigger rising to a safe altitude
+        Maximum horizontal distance from return destination, below which RTL_DESCEND_ALT is used as return altitude
       </p>
       
       <p>
-        <strong>Comment:</strong> If the system is horizontally closer than this distance to home it will land straight on home instead of raising to the return altitude first.
+        <strong>Comment:</strong> If the vehicle is less than this horizontal distance from the return destination when return mode is activated it will ascend to RTL_DESCEND_ALT for the return journey (rather than the altitude set by RTL_RETURN_ALT and RTL_CONE_ANG).
       </p>
     </td>
     
     <td style="vertical-align: top;">
-      0.5 > 20 (0.5)
+      0.5 > 100 (0.5)
     </td>
     
     <td style="vertical-align: top;">
@@ -28030,11 +28387,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        RTL altitude
+        Return mode return altitude
       </p>
       
       <p>
-        <strong>Comment:</strong> Altitude to fly back in RTL in meters
+        <strong>Comment:</strong> Default minimum altitude above destination (e.g. home, safe point, landing pattern) for return flight. This is affected by RTL_MIN_DIST and RTL_CONE_ANG.
       </p>
     </td>
     
@@ -28062,7 +28419,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Fly straight to the home location or planned mission landing and land there or use the planned mission to get to those points.
+        <strong>Comment:</strong> Fly straight to the return location or planned mission landing and land there or use the planned mission to get to those points.
       </p>
       
       <strong>Values:</strong>
@@ -28076,6 +28433,9 @@
         </li>
         <li>
           <strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path
+        </li>
+        <li>
+          <strong>3:</strong> Return via direct path to closest destination: home, mission landing pattern or safe point
         </li>
       </ul>
     </td>
@@ -28905,7 +29265,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      명칭
+      Name
     </th>
     
     <th>
@@ -29109,6 +29469,30 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="RWTO_RAMP_TIME">RWTO_RAMP_TIME</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Throttle ramp up time for runway takeoff
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0 > 15.0 (0.1)
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="RWTO_TKOFF">RWTO_TKOFF</strong> (INT32)
     </td>
     
@@ -29122,7 +29506,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -29135,7 +29519,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      명칭
+      Name
     </th>
     
     <th>
@@ -29387,7 +29771,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -29400,7 +29784,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      명칭
+      Name
     </th>
     
     <th>
@@ -29474,7 +29858,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      명칭
+      Name
     </th>
     
     <th>
@@ -29509,7 +29893,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -29685,7 +30069,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -29861,7 +30245,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -30081,7 +30465,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -30257,7 +30641,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -30433,7 +30817,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -30631,7 +31015,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -30924,7 +31308,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -31217,7 +31601,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -31510,7 +31894,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -32112,7 +32496,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the accel driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the accel driver. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
       </p>
       
       <p>
@@ -32144,7 +32528,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the gyro driver. This features is currently supported by the mpu6000 and mpu9250. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the gyro driver. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
       </p>
       
       <p>
@@ -32158,6 +32542,61 @@
     
     <td style="vertical-align: top;">
       30.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="IMU_GYRO_RATEMAX">IMU_GYRO_RATEMAX</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Gyro control data maximum publication rate
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro_control) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> 0 (no limit)
+        </li>
+        <li>
+          <strong>50:</strong> 50 Hz
+        </li>
+        <li>
+          <strong>250:</strong> 250 Hz
+        </li>
+        <li>
+          <strong>400:</strong> 400 Hz
+        </li>
+        <li>
+          <strong>1000:</strong> 1000 Hz
+        </li>
+        <li>
+          <strong>2000:</strong> 2000 Hz
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 2000
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
     </td>
     
     <td style="vertical-align: top;">
@@ -32243,6 +32682,10 @@
     <td style="vertical-align: top;">
       <p>
         QNH for barometer
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
       </p>
     </td>
     
@@ -32380,6 +32823,9 @@
         </li>
         <li>
           <strong>34:</strong> Pitch 315°
+        </li>
+        <li>
+          <strong>35:</strong> Roll 90°, Yaw 270°
         </li>
       </ul>
       
@@ -32614,7 +33060,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -32681,7 +33127,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -32745,7 +33191,33 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SENS_EN_PMW3901">SENS_EN_PMW3901</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PMW3901 Optical Flow
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -32771,7 +33243,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -32853,7 +33325,10 @@
           <strong>4:</strong> SF11/c
         </li>
         <li>
-          <strong>5:</strong> SF/LW20
+          <strong>5:</strong> SF/LW20/b
+        </li>
+        <li>
+          <strong>6:</strong> SF/LW20/c
         </li>
       </ul>
       
@@ -32892,6 +33367,9 @@
         </li>
         <li>
           <strong>0:</strong> Thermal control off
+        </li>
+        <li>
+          <strong>1:</strong> Thermal control enabled
         </li>
       </ul>
     </td>
@@ -32934,6 +33412,9 @@
         </li>
         <li>
           <strong>4:</strong> TREvo600Hz
+        </li>
+        <li>
+          <strong>5:</strong> TREvo3m
         </li>
       </ul>
       
@@ -34664,7 +35145,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1442826
+      0
     </td>
     
     <td style="vertical-align: top;">
@@ -36699,7 +37180,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -36892,7 +37373,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -36922,7 +37403,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -37100,7 +37581,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -37131,7 +37612,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -37187,7 +37668,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -39018,7 +39499,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -39767,7 +40248,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -41044,7 +41525,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -41272,7 +41753,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -41595,7 +42076,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      1
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -41779,7 +42260,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -42349,90 +42830,6 @@
     
     <td style="vertical-align: top;">
       0.1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_Q2V">SEG_Q2V</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_TH2V_I">SEG_TH2V_I</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_TH2V_I_MAX">SEG_TH2V_I_MAX</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="SEG_TH2V_P">SEG_TH2V_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      10.0
     </td>
     
     <td style="vertical-align: top;">

@@ -47,7 +47,7 @@ This is the silkscreen for the *Kakute F7*, showing the top of the board:
 | R3, T3   | UART3 RX and TX                                                      | NuttX debug console |
 | R4, T4   | UART4 RX and TX                                                      | GPS1                |
 | R6, T6   | UART6 RX and TX                                                      | RC port             |
-| R7, T7   | UART7 RX and TX (RX is located in the plug for use with 4-in-1 ESCs) |                     |
+| R7, T7   | UART7 RX and TX (RX is located in the plug for use with 4-in-1 ESCs) | DShot telemetry     |
 | LED      | WS2182 addressable LED signal wire (not tested)                      |                     |
 | Buz-     | Piezo buzzer negative leg (Connect buzzer positive leg to 5V pad)    |                     |
 | 3V3      | 3.3V output (200 mA max)                                             |                     |
@@ -63,7 +63,7 @@ The board comes pre-installed with [Betaflight](https://github.com/betaflight/be
 
 ## Building Firmware
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make holybro_kakutef7_default
     

@@ -45,7 +45,11 @@ In this return type the vehicle:
 
 This return type uses a *mission landing pattern* (if defined) to set the return destination and landing behaviour.
 
+<span id="mission_landing_pattern"></span>
 > **Note** A mission landing pattern consists of a [MAV_CMD_DO_LAND_START](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_LAND_START), one or more position waypoints, and a [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND).
+
+<span></span>
+> **Warning** When this type is set PX4 will reject any mission without a valid landing pattern.
 
 If a mission landing has been defined, the vehicle will:
 - Ascend to a safe [return altitude](#return_altitude) above any expected obstacles.

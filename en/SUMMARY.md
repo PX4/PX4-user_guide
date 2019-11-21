@@ -18,6 +18,7 @@
   * [Vibration Isolation](assembly/vibration_isolation.md)
   * [CUAV V5+ Wiring Quickstart](assembly/quick_start_cuav_v5_plus.md)
   * [CUAV V5 nano Wiring Quickstart](assembly/quick_start_cuav_v5_nano.md)
+  * [Durandal Wiring Quickstart](assembly/quick_start_durandal.md)
   * [Pixhawk 4 Wiring Quickstart](assembly/quick_start_pixhawk4.md)
   * [Pixhawk 4 Mini Wiring Quickstart](assembly/quick_start_pixhawk4_mini.md)
   * [Cube Wiring Quickstart](assembly/quick_start_cube.md)
@@ -58,7 +59,6 @@
     * [Convergence Tiltrotor (Pixfalcon)](frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
     * [TBS Caipiroshka (Pixracer)](frames_vtol/vtol_tailsitter_caipiroshka_pixracer.md)
     * [Falcon Vertigo QuadPlane (Dropix)](frames_vtol/vtol_quadplane_falcon_vertigo_hybrid_rtf_dropix.md)
-    * [Archived:FireFly Y6 Tiltrotor (Pixfalcon)](frames_vtol/vtol_tiltrotor_birdseyeview_firefly_y6_pixfalcon.md)
   * [Rovers](frames_rover/README.md)
     * [Traxxas Stampede](frames_rover/traxxas_stampede.md)
 * [Flying](flying/README.md)
@@ -66,6 +66,7 @@
   * [Flying 101](flying/basic_flying.md)
     * [Landing \(Fixed Wing\)](flying/fixed_wing_landing.md)
   * [Missions](flying/missions.md)
+  * [GeoFence](flying/geofence.md)
   * [Safety Point Planning](flying/plan_safety_points.md)
   * [Flight Modes](flight_modes/README.md)
     * [Position Mode (MC)](flight_modes/position_mc.md)
@@ -125,7 +126,6 @@
   * [Advanced Controller Orientation](advanced_config/advanced_flight_controller_orientation_leveling.md)
   * [Static Pressure Buildup](advanced_config/static_pressure_buildup.md)
   * [Prearm/Arm/Disarm Configuration](advanced_config/prearm_arm_disarm.md)
-  prearm_arm_disarm.md
   * [Full Parameter Reference](advanced_config/parameter_reference.md)
 * [Peripheral Hardware](peripherals/README.md)
   * [Serial Port Configuration](peripherals/serial_configuration.md)
@@ -189,6 +189,7 @@
     * [MindPX](flight_controller/mindpx.md)
     * [MindRacer](flight_controller/mindracer.md)
   * [Holybro Kakute F7](flight_controller/kakutef7.md)
+  * [Holybro Durandal](flight_controller/durandal.md)
   * [Omnibus F4 SD](flight_controller/omnibus_f4_sd.md)
   * [Snapdragon Flight](flight_controller/snapdragon_flight.md)
     * [Hardware Setup Example](flight_controller/snapdragon_flight_hardware_example_setup.md)
@@ -213,7 +214,7 @@
 
 ## Dronecode Shortcuts
 
-* [PX4 Developer Guide](https://dev.px4.io/en/)
+* [PX4 Developer Guide](https://dev.px4.io/master/en/)
 * [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/)
 * [QGroundControl Developer Guide](https://dev.qgroundcontrol.com/en/)
 * [MAVLink Guide](https://mavlink.io/en/)

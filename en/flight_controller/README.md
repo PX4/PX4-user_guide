@@ -40,6 +40,7 @@ The list of boards documented in this library can be found in the sidebar (repro
   * [MindPX](../flight_controller/mindpx.md)
   * [MindRacer](../flight_controller/mindracer.md)
 * [Kakute F7](../flight_controller/kakutef7.md)
+* [Durandal](../flight_controller/durandal.md)
 * [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 * [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
 * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)

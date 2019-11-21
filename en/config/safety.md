@@ -90,10 +90,12 @@ Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DL
 
 ### Geofence Failsafe
 
-The Geofence is defined as a "virtual" cylinder around the home position.
+The *Geofence Failsafe* is a "virtual" cylinder centered around the home position.
 If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
 
 ![Safety - Geofence (QGC)](../../images/qgc/setup/safety_geofence.png)
+
+> **Tip** PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
 
 The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.
 
@@ -284,6 +286,8 @@ The arm/disarm switch immediately disarms (stop) motors for those [flight modes]
 For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected.
 This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
 
+> **Note** [Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work. 
+
 <!-- 
 > **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel. 
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value). 
@@ -297,7 +301,7 @@ A return switch can be used to immediately engage [Return mode](../flight_modes/
 
 ## Other Safety Settings
 
-### Auto-disarming Timeouts
+### Auto-disarming Timeouts {#auto-disarming-timeouts}
 
 You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
 
@@ -305,8 +309,8 @@ The [relevant parameters](../advanced_config/parameters.md) are shown below:
 
 Parameter | Description
 --- | ---
-[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Timeout for auto-disarm after landing.
-[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff.
+<span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Timeout for auto-disarm after landing.
+<span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff.
 
 ## Further Information
 
