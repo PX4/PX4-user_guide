@@ -67,7 +67,6 @@
     * [Landing \(Fixed Wing\)](flying/fixed_wing_landing.md)
   * [Missions](flying/missions.md)
   * [Safety Point Planning](flying/plan_safety_points.md)
-  * [Geofence Planning](flying/plan_geofence.md)
   * [Flight Modes](flight_modes/README.md)
     * [Position Mode (MC)](flight_modes/position_mc.md)
     * [Altitude Mode (MC)](flight_modes/altitude_mc.md)
