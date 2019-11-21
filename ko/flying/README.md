@@ -10,6 +10,8 @@
 
 [GeoFence](../flying/geofence.md) — How to set a geofence.
 
+[Rally Points](../flying/plan_safety_points.md) — How to plan safe-return landing points (rally points).
+
 [Flight Modes](../flight_modes/README.md) — Summary table + detailed information about flight modes.
 
 [Terrain Follow/Hold & Range Assistance](../flying/terrain_following_holding.md) — How to enable terrain following.
