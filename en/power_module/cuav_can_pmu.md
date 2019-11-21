@@ -70,6 +70,10 @@ Set the following parameters in the QGroundControl parameter list and restart af
 
 ![qgc set](../../assets/hardware/power_module/qgc_set_en.png)
 
+# list 
+
+![CAN PMU list](../../assets/hardware/power_module/can_pmu_list.png)
+
 ## More information
 
 [CAN PMU Manual](http://manual.cuav.net/power-module/CAN-PMU.pdf)
