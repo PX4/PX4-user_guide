@@ -29,7 +29,6 @@ If it fails before flight, arming will be denied.
 Some popular GPS/compass options include:
 * [Ublox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) (Hobbyking)
 * [mRo GPS u-Blox Neo-M8N Dual Compass LIS3MDL+ IST8310](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) (mRo store)
-* [CUAV C-RTK](https://www.aliexpress.com/item/32853894248.html?spm=2114.12010608.0.0.75592fadQKPPEn) (cuav store)
 * [Drotek uBlox GPS/Compasses](https://drotek.com/shop/en/184-u-blox) (drotek)
 * [Holybro Micro M8N GPS Module](https://www.getfpv.com/holybro-micro-m8n-gps-module.html) (getfpv)
 * [Holybro Ublox NEO-M8N GPS Module](https://www.getfpv.com/holybro-ublox-neo-m8n-gps-module.html) (getfpv)
