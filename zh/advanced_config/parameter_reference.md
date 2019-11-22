@@ -28462,23 +28462,23 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Fly straight to the return location or planned mission landing and land there or use the planned mission to get to those points.
+        <strong>Comment:</strong> Return mode destination and flight path (home location, rally point, mission landing pattern, reverse mission)
       </p>
       
       <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Return home via direct path
+          <strong>0:</strong> Return to closest safe point (home or rally point) via direct path.
         </li>
         <li>
-          <strong>1:</strong> Return to a planned mission landing, if available, via direct path, else return to home via direct path
+          <strong>1:</strong> Return to closest safe point other than home (mission landing pattern or rally point), via direct path. If no mission landing or rally points are defined return home via direct path.
         </li>
         <li>
-          <strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path
+          <strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path. Do not consider rally points.
         </li>
         <li>
-          <strong>3:</strong> Return via direct path to closest destination: home, mission landing pattern or safe point
+          <strong>3:</strong> Return via direct path to closest destination: home, start of mission landing pattern or safe point. If the destination is a mission landing pattern, follow the pattern to land.
         </li>
       </ul>
     </td>
