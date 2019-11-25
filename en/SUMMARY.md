@@ -144,7 +144,7 @@
       * [3DR Telemetry Wifi \(Discontinued\)](telemetry/3dr_telemetry_wifi.md)
   * [MAVLink Telemetry \(OSD/GCS\)](peripherals/mavlink_peripherals.md)
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)
-  * [Power module](power_module/REAME.md)
+  * [Power module](power_module/README.md)
     * [CUAV HV pm](power_module/cuav_hv_pm.md)
     * [CUAV CAN PMU](power_module/cuav_can_pmu.md)
   * [Distance Sensors \(Rangefinders\)](sensor/rangefinders.md)
