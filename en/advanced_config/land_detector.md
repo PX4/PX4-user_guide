@@ -35,7 +35,7 @@ These two parameters are sometimes worth tuning:
   The default of 8 m/s is a reliable tradeoff between airspeed sensing accuracy and triggering fast enough. 
   Better airspeed sensors should allow lower values of this parameter.
 * [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum horizontal velocity for the system to be still be considered landed. 
-* [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum climb rate velocity for the system to be still be considered landed. 
+* [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum vertical velocity for the system to be still be considered landed.
   This parameter can be adjusted to ensure land detection triggers earlier or later on throwing the airframe for hand-launches.
 
 
