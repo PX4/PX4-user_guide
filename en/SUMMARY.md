@@ -219,6 +219,3 @@
 * [MAVLink Guide](https://mavlink.io/en/)
 * [MAVSDK](https://mavsdk.mavlink.io/)
 * [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/)
-
-
-
