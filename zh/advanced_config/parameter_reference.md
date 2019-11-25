@@ -16730,6 +16730,30 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="MPC_MAN_Y_TAU">MPC_MAN_Y_TAU</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Manual yaw rate input filter time constant Setting this parameter to 0 disables the filter
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.08
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MPC_POS_MODE">MPC_POS_MODE</strong> (INT32)
     </td>
     
