@@ -21,19 +21,19 @@ Key benefits of using a *Pixhawk series* controller include:
 
 The following products in the series are regularly tested with PX4:
 
-* [mRo Pixhawk](../flight_controller/mro_pixhawk.md)
-* [HKPilot32](../flight_controller/HKPilot32.md)
-* [Pixfalcon](../flight_controller/pixfalcon.md)
-* [DroPix](../flight_controller/dropix.md)
-* [Pixracer](../flight_controller/pixracer.md)
-* [Pixhack v3](../flight_controller/pixhack_v3.md)
-* [Pixhawk 2](../flight_controller/pixhawk-2.md)
-* [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
-* [Pixhawk 4](../flight_controller/pixhawk4.md)
-* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md)
-* [CUAV v5](../flight_controller/cuav_v5.md)
-* [V5+](../flight_controller/cuav_v5_plus.md)
-* [V5 nano](../flight_controller/cuav_v5_nano.md)
+* [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
+* [HKPilot32](../flight_controller/HKPilot32.md) (FMUv2)
+* [Pixfalcon](../flight_controller/pixfalcon.md) (FMUv2)
+* [DroPix](../flight_controller/dropix.md) (FMUv2)
+* [Pixracer](../flight_controller/pixracer.md) (FMUv4)
+* [Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
+* [Pixhawk 2](../flight_controller/pixhawk-2.md) (FMUv3)
+* [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4)
+* [Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
+* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
+* [CUAV v5](../flight_controller/cuav_v5.md) (FMUv5)
+* [CUAV V5+](../flight_controller/cuav_v5_plus.md) (FMUv5)
+* [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) (FMUv5)
 
 > **Note** This is not an exhaustive list of all boards that can run PX4. Other boards are linked from the sidebar, and there may be other flight controllers that we have not documented.
 
