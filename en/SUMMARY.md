@@ -43,8 +43,8 @@
   * [Multicopters](frames_multicopter/README.md)
     * [DJI F450 (CUAV v5+)](frames_multicopter/dji_f450_cuav_5plus.md)
     * [DJI F450 (CUAV v5 nano)](frames_multicopter/dji_f450_cuav_5nano.md)
-    * [QAV250 \(Pixhawk4 Mini)](frames_multicopter/holybro_qav250_pixhawk4_mini.md)
-    * [DJI F450 + RTK (Pixhawk 3 Pro)](frames_multicopter/dji_flamewheel_450.md)
+    * [QAV250 (Pixhawk4 Mini)](frames_multicopter/holybro_qav250_pixhawk4_mini.md)
+    * [DJI F450 + RTK \(Pixhawk 3 Pro\)](frames_multicopter/dji_flamewheel_450.md)
     * [QAV250 \(Pixhawk Mini\)](frames_multicopter/lumenier_qav250_pixhawk_mini.md)
     * [QAV250 \(Pixhawk/AUAV\_X2\)](frames_multicopter/lumenier_qav250_pixhawk_auav_x2.md)
     * [Spedix 250 \(Pixracer\)](frames_multicopter/spedix_s250_pixracer.md)
@@ -104,8 +104,8 @@
   * [Multicopter Config/Tuning](config_mc/README.md)
     * [MC PID Tuning Guide](config_mc/pid_tuning_guide_multicopter.md)
     * [MC Setpoint Tuning (Trajectory Generator)](config_mc/mc_trajectory_tuning.md)
-        * [MC Slew-rate Type Trajectory](config_mc/mc_slew_rate_type_trajectory.md)
-        * [MC Jerk-limited Type Trajectory](config_mc/mc_jerk_limited_type_trajectory.md)
+      * [MC Slew-rate Type Trajectory](config_mc/mc_slew_rate_type_trajectory.md)
+      * [MC Jerk-limited Type Trajectory](config_mc/mc_jerk_limited_type_trajectory.md)
     * [Multicopter Racer Setup](config_mc/racer_setup.md)
   * [Fixed Wing  Config/Tuning](config_fw/README.md)
     * [Fixedwing PID Tuning Guide](config_fw/pid_tuning_guide_fixedwing.md)
@@ -146,7 +146,10 @@
       * [3DR Telemetry Wifi (Discontinued)](telemetry/3dr_telemetry_wifi.md)
   * [MAVLink Telemetry (OSD/GCS)](peripherals/mavlink_peripherals.md)
   * [FrSky Telemetry](peripherals/frsky_telemetry.md)
-  * [Distance Sensors (Rangefinders)](sensor/rangefinders.md)
+  * [Power module](power_module/README.md)
+    * [CUAV HV pm](power_module/cuav_hv_pm.md)
+    * [CUAV CAN PMU](power_module/cuav_can_pmu.md)
+  * [Distance Sensors \(Rangefinders\)](sensor/rangefinders.md)
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
     * [LeddarOne Lidar](sensor/leddar_one.md)
@@ -210,7 +213,6 @@
   * [Holybro Kopis 2](complete_vehicles/holybro_kopis2.md)
   * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
 * [Development](development/development.md)
-
 
 ## Dronecode Shortcuts
 
