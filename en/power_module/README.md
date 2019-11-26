@@ -1,16 +1,19 @@
-# Power module
+# Power Modules
 
-The power module can provide battery voltage and current information for the drone. The flight controller can use the information provided by the power module to detect the power. With it, your drone can achieve low battery protection, such as return, landing, and so on.
+Power modules provide a regulated power supply for the flight controller, along with information about battery voltage and current.
+The voltage/current information is used to determine the consumed power, and to hence to estimate remaining battery capacity.
+This in turn allows the flight controller to provide failsafe warnings and other actions in the event of low power: [Safety > Low Battery Failsafe](../config/safety.md#low-battery-failsafe).
+
+The PX4 battery/power module configuration (via the ADC interface) is covered in: [Power Module Setup](../config/battery.md).
 
 ![CAN PMU](../../assets/hardware/power_module/can_pmu.jpg)
 
-PX4 supports multiple types of power modules:
+This section provides links/information about supported power modules and power distribution boards:
 
-* Analog voltage and current power module
+* Analog voltage and current power modules:
   * [CUAV HV PM](../power_module/hv_pm.md)
-* [UAVCAN](https://new.uavcan.org/) power module
+* [UAVCAN](https://new.uavcan.org/) power modules
   * [CUAV CAN PMU](../power_module/can_pmu.md)
-  
-Pixahwk power is the ADC interface that can be connected to the Analog voltage and current power module and [Power Module Setup](../config/battery.html) shows how to set it up.
 
-PX4 is compatible with the [UAVCAN](https://new.uavcan.org/) protocol. The [UAVCAN](https://new.uavcan.org/) power module has more secure and reliable performance and is rapidly evolving.
+> **Note** Power distribution boards include a power modules, and additionally have wiring to supply power to motors.
+  They may include a BEC to supply power to servos and other actuators.
