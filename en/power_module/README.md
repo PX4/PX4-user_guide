@@ -8,12 +8,13 @@ The PX4 battery/power module configuration (via the ADC interface) is covered in
 
 ![CAN PMU](../../assets/hardware/power_module/can_pmu.jpg)
 
+> **Note** Power distribution boards are also covered by this topic. 
+  These include a power module, and additionally have wiring to supply power to motors.
+  They may also include a BEC to supply power to servos and other actuators.
+
 This section provides links/information about supported power modules and power distribution boards:
 
 * Analog voltage and current power modules:
   * [CUAV HV PM](../power_module/hv_pm.md)
 * [UAVCAN](https://new.uavcan.org/) power modules
   * [CUAV CAN PMU](../power_module/can_pmu.md)
-
-> **Note** Power distribution boards include a power modules, and additionally have wiring to supply power to motors.
-  They may include a BEC to supply power to servos and other actuators.
