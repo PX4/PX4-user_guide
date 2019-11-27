@@ -6,7 +6,7 @@ The CUAV<sup>&reg;</sup> *HV_PM* power module is a "high voltage" power module i
   There are different cables depending on the flight controller (Pixhack v3, V5+/V5 nano, Pixhawk).
   It can be used with other flight controllers, but you may need to modify the cable pin.
 
-## Key Features
+## Specifications
 
 - **Higher voltage input:** 10V-60V (3s~14s battery)
 - **Accurate battery monitor:**

@@ -7,7 +7,7 @@ It uses the [UAVCAN](https://new.uavcan.org/) protocol and runs the CUAV ITT com
 
 It is recommended for use in large commercial vehicles, but might also be used for research vehicles.
 
-## Key Features
+## Specifications
 
 - **Processor:** STM32F412
 - **Voltage input**: 6~62V\(2-15S\)

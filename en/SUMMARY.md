@@ -149,6 +149,8 @@
   * [Power Modules](power_module/README.md)
     * [CUAV HV pm](power_module/cuav_hv_pm.md)
     * [CUAV CAN PMU](power_module/cuav_can_pmu.md)
+    * [Holybro PM07 (Pixhawk 4 PM)](power_module/holybro_pm07_pixhawk4_power_module.md)
+    * [Holybro PM06 (Micro Power Module)](power_module/holybro_pm06_pixhawk4mini_power_module.md)
   * [Distance Sensors \(Rangefinders\)](sensor/rangefinders.md)
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)

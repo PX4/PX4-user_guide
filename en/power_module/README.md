@@ -14,5 +14,7 @@ This section provides links/information about supported power modules and power 
 
 * Analog voltage and current power modules:
   * [CUAV HV PM](../power_module/cuav_hv_pm.md)
+  * [Holybro PM07 (Pixhawk 4 PM)](../power_module/holybro_pm07_pixhawk4_power_module.md)
+  * [Holybro PM06 (Pixhawk 4 Mini PM)](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 * [UAVCAN](https://new.uavcan.org/) power modules
   * [CUAV CAN PMU](../power_module/cuav_can_pmu.md)
