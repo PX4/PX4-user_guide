@@ -5554,7 +5554,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Minimum required GDoP set by EKF2_REQ_GDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT
+        <strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Minimum required PDOP set by EKF2_REQ_PDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT
       </p>
       
       <strong>Bitmask:</strong>
@@ -5564,7 +5564,7 @@
           <strong>0:</strong> Min sat count (EKF2_REQ_NSATS)
         </li>
         <li>
-          <strong>1:</strong> Min GDoP (EKF2_REQ_GDOP)
+          <strong>1:</strong> Min PDOP (EKF2_REQ_PDOP)
         </li>
         <li>
           <strong>2:</strong> Max horizontal position error (EKF2_REQ_EPH)
@@ -7022,29 +7022,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="EKF2_REQ_GDOP">EKF2_REQ_GDOP</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Required GDoP to use GPS
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.5 > 5.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      2.5
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="EKF2_REQ_GPS_H">EKF2_REQ_GPS_H</strong> (FLOAT)
     </td>
     
@@ -7116,6 +7093,29 @@
     
     <td style="vertical-align: top;">
       6
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="EKF2_REQ_PDOP">EKF2_REQ_PDOP</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Required PDOP to use GPS
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.5 > 5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.5
     </td>
     
     <td style="vertical-align: top;">
