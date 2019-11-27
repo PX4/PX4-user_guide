@@ -49,34 +49,32 @@ The Here2 GPS pinout is provided below. This can be used to help modify the conn
 
 ## Specification
 
-* Processor: STM32F302
-* Sensor
-  * Compass, Gyro, Accelerometer: ICM20948
-  * Barometer: MS5611
-* Receiver Type:
-  * 72-channel ublox M8N engine, GPS/QZSS L2 C/A, GLONASS L10F, BeiDou B11, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
-* Navigation Update Rate: Max: 10 Hz
-* Positionaing Accuracy: 3D Fix
-* Time to first fix
-  * Cold start: 26s
-  * Aided start: 2s
-  * Reacquisition: 1s
-* Sensitivity
-  * Tracking & Navigation: -167 dBm
-  * Hot start: -148 dBm
-  * Cold start: -157 dBm
-* Assisted GNSS
-  * AssistNow GNSS Online
-  * AssistNow GNSS Offline (up to 35 days)
-  * AssistNow Autonomous (up to 6 days)
-  * OMA SUPL& 3GPP compliant
-* Oscillator: TCXO (NEO-8MN/Q)
-* RTC crystal: Build in
-* ROM: Flash (NEO-8MN)
-* Available Antennas: Active Antenna & Passive Antenna
-* Signal Integrity: Signature feature with SHA 256
-* Protocols & Interfaces
-  * UART/I2C/CAN: JST_GH Main interface, Switch internally.
-  * STM32 Main Programming Interface: JST_SUR
+- **Processor:** STM32F302
+- **Sensor**
+  - **Compass, Gyro, Accelerometer:** ICM20948
+  - **Barometer:** MS5611
+- **Receiver Type:** 72-channel ublox M8N engine, GPS/QZSS L2 C/A, GLONASS L10F, BeiDou B11, Galileo E1B/C, SBAS L1 C/A: WAAS, EGNOS, MSAS, GAGAN
+- **Navigation Update Rate:** Max: 10 Hz
+- **Positionaing Accuracy:** 3D Fix
+- **Time to first fix:**
+  - **Cold start:** 26s
+  - **Aided start:** 2s
+  - **Reacquisition:** 1s
+- **Sensitivity:**
+  - **Tracking & Navigation:** -167 dBm
+  - **Hot start:** -148 dBm
+  - **Cold start:** -157 dBm
+- **Assisted GNSS**
+  - AssistNow GNSS Online
+  - AssistNow GNSS Offline (up to 35 days)
+  - AssistNow Autonomous (up to 6 days)
+  - OMA SUPL& 3GPP compliant
+- **Oscillator:** TCXO (NEO-8MN/Q)
+- **RTC crystal:** Build in
+- **ROM:** Flash (NEO-8MN)
+- **Available Antennas:** Active Antenna & Passive Antenna
+- **Signal Integrity:** Signature feature with SHA 256
+- **Protocols & Interfaces:**
+  - **UART/I2C/CAN:** JST_GH Main interface, Switch internally.
+  - **STM32 Main Programming Interface:** JST_SUR
   
-
