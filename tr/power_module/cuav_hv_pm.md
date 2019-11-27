@@ -1,29 +1,30 @@
-# CUAV HV PM(High voltage power module)
-> **Tip** The HV PM is included in the V5+/V5 nano kit, which can also be sold separately. There are different cables depending on the flight control (pixhack v3, pixhawk, V5+/V5 nano); you can also use it on other flight controllers, but you may need to modify the cable pin.
+# CUAV HV PM (High-Voltage Power Module)
 
-## Overview：
+The CUAV<sup>&reg;</sup> *HV_PM* power module is a "high voltage" power module independently developed by CUAV.
+> **Tip** The *HV_PM* is included in the CUAV V5+/V5 nano kit, but is also be sold separately. There are different cables depending on the flight controller (Pixhack v3, V5+/V5 nano, Pixhawk). It can be used with other flight controllers, but you may need to modify the cable pin.
 
-The CUAV<sup>&reg;</sup> HV_PM module is a new high voltage voltage power module independently developed by CUAV with the following features:
-* Higher voltage input: 10v-60v (3s~14s battery)
-* accurate battery monitor:
-   * voltage detection accuracy: +-0.1v;
-   * current detection accuracy: +-0.2A
-* Bec (5v) max current: 5A
-* Max (detection) current: 60A
-* Max output current(ESC/MOTOR PORT): 60A
+## Specifications
 
-## Purchase:
+- **Higher voltage input:** 10V-60V (3s~14s battery)
+- **Accurate battery monitor:**
+  - **Voltage detection accuracy:** +-0.1v;
+  - **Current detection accuracy:** +-0.2A
+- **BEC (5v) max current:** 5A
+- **Max (detection) current:** 60A
+- **Max output current (ESC/MOTOR PORT):** 60A
+
+## Purchase
 
 [CUAV aliexpress store](https://www.aliexpress.com/item/32841805115.html?spm=2114.12010615.8148356.1.64165998hPvTKQ)
 
 ## Pinouts
 
-![HV PM](../../assets/hardware/power_module/hv_pm.jpg)
+![HV PM](../../assets/hardware/power_module/cuav_hv/hv_pm.jpg)
 
-## Enable hv pm
+## Enable HV PM
 
-[Battery and Power Module Setup](../config/battery.md) Describes how to configure your battery and power module. Below is important information about HV PM.
+[Battery and Power Module Setup](../config/battery.md) describes how to configure the battery and power module.
 
-* Voltage divider:18
-
-* Amps per volt:24A/V
+The key configuration settings for `HV_PM` are:
+- **Voltage divider:** 18
+- **Amps per volt:** 24 A/V
