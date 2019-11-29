@@ -9658,13 +9658,6 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_XSCALE">CAL_GYRO0_XSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro X-axis scaling factor</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO0_YOFF">CAL_GYRO0_YOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Y-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -9672,24 +9665,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_YSCALE">CAL_GYRO0_YSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro Y-axis scaling factor</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO0_ZOFF">CAL_GYRO0_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Z-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_ZSCALE">CAL_GYRO0_ZSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro Z-axis scaling factor</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -9714,13 +9693,6 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_XSCALE">CAL_GYRO1_XSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro X-axis scaling factor</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO1_YOFF">CAL_GYRO1_YOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Y-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -9728,24 +9700,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_YSCALE">CAL_GYRO1_YSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro Y-axis scaling factor</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO1_ZOFF">CAL_GYRO1_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Z-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_ZSCALE">CAL_GYRO1_ZSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro Z-axis scaling factor</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -9770,13 +9728,6 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO2_XSCALE">CAL_GYRO2_XSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro X-axis scaling factor</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO2_YOFF">CAL_GYRO2_YOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Y-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -9784,24 +9735,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO2_YSCALE">CAL_GYRO2_YSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro Y-axis scaling factor</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO2_ZOFF">CAL_GYRO2_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Z-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO2_ZSCALE">CAL_GYRO2_ZSCALE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro Z-axis scaling factor</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
