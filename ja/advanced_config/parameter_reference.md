@@ -41505,56 +41505,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="ESC_BITRATE">ESC_BITRATE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        UAVCAN CAN bus bitrate
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      20000 > 1000000
-    </td>
-    
-    <td style="vertical-align: top;">
-      1000000
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="ESC_NODE_ID">ESC_NODE_ID</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        UAVCAN Node ID
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1 > 125
-    </td>
-    
-    <td style="vertical-align: top;">
-      120
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="UAVCAN_BITRATE">UAVCAN_BITRATE</strong> (INT32)
     </td>
     
