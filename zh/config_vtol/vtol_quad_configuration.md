@@ -106,4 +106,4 @@ When transitioning from **fixed wing to multirotor** for this type of VTOL the
 
 ### 技术支持
 
-If you have any questions regarding your VTOL conversion or configuration please visit <https://discuss.px4.io/c/px4/vtol>.
+If you have any questions regarding your VTOL conversion or configuration please see <https://discuss.px4.io/c/px4/vtol>.

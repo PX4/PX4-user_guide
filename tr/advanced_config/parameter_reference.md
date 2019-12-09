@@ -789,16 +789,756 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="BAT1_ADC_CHANNEL">BAT1_ADC_CHANNEL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery 1 ADC Channel
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. A value of -1 means to use the board default.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT1_A_PER_V">BAT1_A_PER_V</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery 1 current per volt (A/V)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The voltage seen by the 3.3V ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT1_CAPACITY">BAT1_CAPACITY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery 1 capacity
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the capacity of battery 1 in mAh.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0 > 100000 (50)
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      mAh
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT1_N_CELLS">BAT1_N_CELLS</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Number of cells for battery 1
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the number of cells the attached battery consists of.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>2:</strong> 2S Battery
+        </li>
+        <li>
+          <strong>3:</strong> 3S Battery
+        </li>
+        <li>
+          <strong>4:</strong> 4S Battery
+        </li>
+        <li>
+          <strong>5:</strong> 5S Battery
+        </li>
+        <li>
+          <strong>6:</strong> 6S Battery
+        </li>
+        <li>
+          <strong>7:</strong> 7S Battery
+        </li>
+        <li>
+          <strong>8:</strong> 8S Battery
+        </li>
+        <li>
+          <strong>9:</strong> 9S Battery
+        </li>
+        <li>
+          <strong>10:</strong> 10S Battery
+        </li>
+        <li>
+          <strong>11:</strong> 11S Battery
+        </li>
+        <li>
+          <strong>12:</strong> 12S Battery
+        </li>
+        <li>
+          <strong>13:</strong> 13S Battery
+        </li>
+        <li>
+          <strong>14:</strong> 14S Battery
+        </li>
+        <li>
+          <strong>15:</strong> 15S Battery
+        </li>
+        <li>
+          <strong>16:</strong> 16S Battery
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT1_R_INTERNAL">BAT1_R_INTERNAL</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Explicitly defines the per cell internal resistance for battery 1
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If non-negative, then this will be used in place of BAT1_V_LOAD_DROP for all calculations.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0 > 0.2 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Ohm
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT1_SOURCE">BAT1_SOURCE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery 1 monitoring source
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Power Module
+        </li>
+        <li>
+          <strong>1:</strong> External
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+      mAh
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT1_V_CHARGED">BAT1_V_CHARGED</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Full cell voltage (5C load)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      4.05
+    </td>
+    
+    <td style="vertical-align: top;">
+      V
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT1_V_DIV">BAT1_V_DIV</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery 1 voltage divider (V divider)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the divider from battery 1 voltage to 3.3V ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. A value of -1 means to use the board default.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT1_V_EMPTY">BAT1_V_EMPTY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Empty cell voltage (5C load)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      3.5
+    </td>
+    
+    <td style="vertical-align: top;">
+      V
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT1_V_LOAD_DROP">BAT1_V_LOAD_DROP</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Voltage drop per cell on full throttle
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT1_R_INTERNAL is set.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.07 > 0.5 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.3
+    </td>
+    
+    <td style="vertical-align: top;">
+      V
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT2_ADC_CHANNEL">BAT2_ADC_CHANNEL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery 2 ADC Channel
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. A value of -1 means to use the board default.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT2_A_PER_V">BAT2_A_PER_V</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery 2 current per volt (A/V)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The voltage seen by the 3.3V ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT2_CAPACITY">BAT2_CAPACITY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery 2 capacity
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the capacity of battery 2 in mAh.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0 > 100000 (50)
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      mAh
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT2_N_CELLS">BAT2_N_CELLS</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Number of cells for battery 2
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the number of cells the attached battery consists of.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>2:</strong> 2S Battery
+        </li>
+        <li>
+          <strong>3:</strong> 3S Battery
+        </li>
+        <li>
+          <strong>4:</strong> 4S Battery
+        </li>
+        <li>
+          <strong>5:</strong> 5S Battery
+        </li>
+        <li>
+          <strong>6:</strong> 6S Battery
+        </li>
+        <li>
+          <strong>7:</strong> 7S Battery
+        </li>
+        <li>
+          <strong>8:</strong> 8S Battery
+        </li>
+        <li>
+          <strong>9:</strong> 9S Battery
+        </li>
+        <li>
+          <strong>10:</strong> 10S Battery
+        </li>
+        <li>
+          <strong>11:</strong> 11S Battery
+        </li>
+        <li>
+          <strong>12:</strong> 12S Battery
+        </li>
+        <li>
+          <strong>13:</strong> 13S Battery
+        </li>
+        <li>
+          <strong>14:</strong> 14S Battery
+        </li>
+        <li>
+          <strong>15:</strong> 15S Battery
+        </li>
+        <li>
+          <strong>16:</strong> 16S Battery
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT2_R_INTERNAL">BAT2_R_INTERNAL</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Explicitly defines the per cell internal resistance for battery 2
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If non-negative, then this will be used in place of BAT2_V_LOAD_DROP for all calculations.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0 > 0.2 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Ohm
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT2_SOURCE">BAT2_SOURCE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery 2 monitoring source
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Power Module
+        </li>
+        <li>
+          <strong>1:</strong> External
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+      mAh
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT2_V_CHARGED">BAT2_V_CHARGED</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Full cell voltage (5C load)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      4.05
+    </td>
+    
+    <td style="vertical-align: top;">
+      V
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT2_V_DIV">BAT2_V_DIV</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery 2 voltage divider (V divider)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This is the divider from battery 2 voltage to 3.3V ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. A value of -1 means to use the board default.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      -1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT2_V_EMPTY">BAT2_V_EMPTY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Empty cell voltage (5C load)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      3.5
+    </td>
+    
+    <td style="vertical-align: top;">
+      V
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="BAT2_V_LOAD_DROP">BAT2_V_LOAD_DROP</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Voltage drop per cell on full throttle
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT2_R_INTERNAL is set.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.07 > 0.5 (0.01)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.3
+    </td>
+    
+    <td style="vertical-align: top;">
+      V
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="BAT_ADC_CHANNEL">BAT_ADC_CHANNEL</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        Battery ADC Channel
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This parameter specifies the ADC channel used to monitor voltage of main power battery. A value of -1 means to use the board default.
+        This parameter is deprecated. Please use BAT1_ADC_CHANNEL
       </p>
     </td>
     
@@ -820,11 +1560,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Battery current per volt (A/V)
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> The voltage seen by the 3.3V ADC multiplied by this factor will determine the battery current. A value of -1 means to use the board default.
+        This parameter is deprecated. Please use BAT1_A_PER_V
       </p>
     </td>
     
@@ -846,11 +1582,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Battery capacity
+        This parameter is deprecated. Please use BAT1_CAPACITY instead
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the capacity of the attached battery.
+        <strong>Comment:</strong> Defines the capacity of battery 1.
       </p>
       
       <p>
@@ -1026,7 +1762,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Number of cells
+        This parameter is deprecated. Please use BAT1_N_CELLS instead
       </p>
       
       <p>
@@ -1110,7 +1846,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Explicitly defines the per cell internal resistance
+        This parameter is deprecated. Please use BAT1_R_INTERNAL instead
       </p>
       
       <p>
@@ -1142,11 +1878,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Battery monitoring source
+        This parameter is deprecated. Please use BAT1_SOURCE instead
       </p>
       
       <p>
-        <strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.
+        <strong>Comment:</strong> Battery monitoring source. This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.
       </p>
       
       <strong>Values:</strong>
@@ -1180,11 +1916,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Full cell voltage (5C load)
+        This parameter is deprecated. Please use BAT1_V_CHARGED instead
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered full under a mild load. This will never be the nominal voltage of 4.2V
+        <strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered full under a mild load. This will never be the nominal voltage of 4.2V
       </p>
       
       <p>
@@ -1212,11 +1948,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Battery voltage divider (V divider)
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the divider from battery voltage to 3.3V ADC voltage. If using e.g. Mauch power modules the value from the datasheet can be applied straight here. A value of -1 means to use the board default.
+        This parameter is deprecated. Please use BAT1_V_DIV
       </p>
     </td>
     
@@ -1238,11 +1970,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Empty cell voltage (5C load)
+        This parameter is deprecated. Please use BAT1_V_EMPTY instead
       </p>
       
       <p>
-        <strong>Comment:</strong> Defines the voltage where a single cell of the battery is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.
+        <strong>Comment:</strong> Defines the voltage where a single cell of battery 1 is considered empty. The voltage should be chosen before the steep dropoff to 2.8V. A typical lithium battery can only be discharged down to 10% before it drops off to a voltage level damaging the cells.
       </p>
       
       <p>
@@ -1270,11 +2002,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Voltage drop per cell on full throttle
+        This parameter is deprecated. Please use BAT1_V_LOAD_DROP instead
       </p>
       
       <p>
-        <strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT_R_INTERNAL is set.
+        <strong>Comment:</strong> This implicitely defines the internal resistance to maximum current ratio for battery 1 and assumes linearity. A good value to use is the difference between the 5C and 20-25C load. Not used if BAT_R_INTERNAL is set.
       </p>
       
       <p>
@@ -5554,7 +6286,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Minimum required GDoP set by EKF2_REQ_GDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT
+        <strong>Comment:</strong> Set bits to 1 to enable checks. Checks enabled by the following bit positions 0 : Minimum required sat count set by EKF2_REQ_NSATS 1 : Minimum required PDOP set by EKF2_REQ_PDOP 2 : Maximum allowed horizontal position error set by EKF2_REQ_EPH 3 : Maximum allowed vertical position error set by EKF2_REQ_EPV 4 : Maximum allowed speed error set by EKF2_REQ_SACC 5 : Maximum allowed horizontal position rate set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 6 : Maximum allowed vertical position rate set by EKF2_REQ_VDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 7 : Maximum allowed horizontal speed set by EKF2_REQ_HDRIFT. This check will only run when the vehicle is on ground and stationary. Detecton of the stationary condition is controlled by the EKF2_MOVE_TEST parameter. 8 : Maximum allowed vertical velocity discrepancy set by EKF2_REQ_VDRIFT
       </p>
       
       <strong>Bitmask:</strong>
@@ -5564,7 +6296,7 @@
           <strong>0:</strong> Min sat count (EKF2_REQ_NSATS)
         </li>
         <li>
-          <strong>1:</strong> Min GDoP (EKF2_REQ_GDOP)
+          <strong>1:</strong> Min PDOP (EKF2_REQ_PDOP)
         </li>
         <li>
           <strong>2:</strong> Max horizontal position error (EKF2_REQ_EPH)
@@ -6298,6 +7030,32 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="EKF2_MAG_CHECK">EKF2_MAG_CHECK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Magnetic field strength test selection
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> When set, the EKF checks the strength of the magnetic field to decide whether the magnetometer data is valid. If GPS data is received, the magnetic field is compared to a World Magnetic Model (WMM), otherwise an average value is used. This check is useful to reject occasional hard iron disturbance.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="EKF2_MAG_DECL">EKF2_MAG_DECL</strong> (FLOAT)
     </td>
     
@@ -6996,29 +7754,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="EKF2_REQ_GDOP">EKF2_REQ_GDOP</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Required GDoP to use GPS
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.5 > 5.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      2.5
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="EKF2_REQ_GPS_H">EKF2_REQ_GPS_H</strong> (FLOAT)
     </td>
     
@@ -7090,6 +7825,29 @@
     
     <td style="vertical-align: top;">
       6
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="EKF2_REQ_PDOP">EKF2_REQ_PDOP</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Required PDOP to use GPS
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.5 > 5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.5
     </td>
     
     <td style="vertical-align: top;">
@@ -16725,6 +17483,30 @@
     
     <td style="vertical-align: top;">
       deg/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MPC_MAN_Y_TAU">MPC_MAN_Y_TAU</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Manual yaw rate input filter time constant Setting this parameter to 0 disables the filter
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 5.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.08
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
     </td>
   </tr>
   
@@ -28462,23 +29244,23 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Fly straight to the return location or planned mission landing and land there or use the planned mission to get to those points.
+        <strong>Comment:</strong> Return mode destination and flight path (home location, rally point, mission landing pattern, reverse mission)
       </p>
       
       <strong>Values:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Return home via direct path
+          <strong>0:</strong> Return to closest safe point (home or rally point) via direct path.
         </li>
         <li>
-          <strong>1:</strong> Return to a planned mission landing, if available, via direct path, else return to home via direct path
+          <strong>1:</strong> Return to closest safe point other than home (mission landing pattern or rally point), via direct path. If no mission landing or rally points are defined return home via direct path.
         </li>
         <li>
-          <strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path
+          <strong>2:</strong> Return to a planned mission landing, if available, using the mission path, else return to home via the reverse mission path. Do not consider rally points.
         </li>
         <li>
-          <strong>3:</strong> Return via direct path to closest destination: home, mission landing pattern or safe point
+          <strong>3:</strong> Return via direct path to closest destination: home, start of mission landing pattern or safe point. If the destination is a mission landing pattern, follow the pattern to land.
         </li>
       </ul>
     </td>
@@ -30561,28 +31343,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="CAL_GYRO0_XSCALE">CAL_GYRO0_XSCALE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gyro X-axis scaling factor
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="CAL_GYRO0_YOFF">CAL_GYRO0_YOFF</strong> (FLOAT)
     </td>
     
@@ -30605,28 +31365,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="CAL_GYRO0_YSCALE">CAL_GYRO0_YSCALE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gyro Y-axis scaling factor
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="CAL_GYRO0_ZOFF">CAL_GYRO0_ZOFF</strong> (FLOAT)
     </td>
     
@@ -30641,28 +31379,6 @@
     
     <td style="vertical-align: top;">
       0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="CAL_GYRO0_ZSCALE">CAL_GYRO0_ZSCALE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gyro Z-axis scaling factor
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
     </td>
     
     <td style="vertical-align: top;">
@@ -30737,28 +31453,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="CAL_GYRO1_XSCALE">CAL_GYRO1_XSCALE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gyro X-axis scaling factor
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="CAL_GYRO1_YOFF">CAL_GYRO1_YOFF</strong> (FLOAT)
     </td>
     
@@ -30781,28 +31475,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="CAL_GYRO1_YSCALE">CAL_GYRO1_YSCALE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gyro Y-axis scaling factor
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="CAL_GYRO1_ZOFF">CAL_GYRO1_ZOFF</strong> (FLOAT)
     </td>
     
@@ -30817,28 +31489,6 @@
     
     <td style="vertical-align: top;">
       0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="CAL_GYRO1_ZSCALE">CAL_GYRO1_ZSCALE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gyro Z-axis scaling factor
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
     </td>
     
     <td style="vertical-align: top;">
@@ -30913,28 +31563,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="CAL_GYRO2_XSCALE">CAL_GYRO2_XSCALE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gyro X-axis scaling factor
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="CAL_GYRO2_YOFF">CAL_GYRO2_YOFF</strong> (FLOAT)
     </td>
     
@@ -30957,28 +31585,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="CAL_GYRO2_YSCALE">CAL_GYRO2_YSCALE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gyro Y-axis scaling factor
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="CAL_GYRO2_ZOFF">CAL_GYRO2_ZOFF</strong> (FLOAT)
     </td>
     
@@ -30993,28 +31599,6 @@
     
     <td style="vertical-align: top;">
       0.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="CAL_GYRO2_ZSCALE">CAL_GYRO2_ZSCALE</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Gyro Z-axis scaling factor
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0
     </td>
     
     <td style="vertical-align: top;">
@@ -32498,7 +33082,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> DETECT_ORIENTATION_TAIL_DOWN = 1 DETECT_ORIENTATION_NOSE_DOWN = 2 DETECT_ORIENTATION_LEFT = 4 DETECT_ORIENTATION_RIGHT = 8 DETECT_ORIENTATION_UPSIDE_DOWN = 16 DETECT_ORIENTATION_RIGHTSIDE_UP = 32
+        <strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: DETECT_ORIENTATION_TAIL_DOWN = 1 DETECT_ORIENTATION_NOSE_DOWN = 2 DETECT_ORIENTATION_LEFT = 4 DETECT_ORIENTATION_RIGHT = 8 DETECT_ORIENTATION_UPSIDE_DOWN = 16 DETECT_ORIENTATION_RIGHTSIDE_UP = 32
       </p>
       
       <strong>Values:</strong>
@@ -41627,56 +42211,6 @@
   <tr>
     <td style="vertical-align: top;">
       <strong id="CANNODE_NODE_ID">CANNODE_NODE_ID</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        UAVCAN Node ID
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1 > 125
-    </td>
-    
-    <td style="vertical-align: top;">
-      120
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="ESC_BITRATE">ESC_BITRATE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        UAVCAN CAN bus bitrate
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      20000 > 1000000
-    </td>
-    
-    <td style="vertical-align: top;">
-      1000000
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="ESC_NODE_ID">ESC_NODE_ID</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">

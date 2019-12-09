@@ -36,7 +36,7 @@
 > 
 > 下图显示了 *Pixhawk 4* 所提供的电源管理板接线方式。
 > 
-> ![Pixhawk 4 - 电源管理板](../../assets/flight_controller/pixhawk4/pixhawk4_power_management_board.png)
+> ![Pixhawk 4 - 电源管理板](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
 > 
 > > **Note** 如果配置为固定翼或无人车, 飞控 **FMU MAIN OUT** 8个输出端口的 power (+) 正极线束将要进行独立供电 ，以保障方向舵、升降舵等伺服舵机的正常驱动。 为此，独立供电的正极线束需要连接到一个BEC，如具备BEC独立5V输出的ESC电调或者一个2SLiPo电池。 请注意你要在这里使用的伺服舵机的工作电压。
 > 
