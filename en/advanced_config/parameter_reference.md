@@ -5211,16 +5211,6 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_ESTM">MPC_ACC_HOR_ESTM</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Horizontal acceleration in manual modes when te estimator speed limit is removed.
-If full stick is being applied and the estimator stops demanding a speed limit,
-which it had been before (e.g if GPS is gained while flying on optical flow/vision only),
-the vehicle will accelerate at this rate until the normal position control speed is achieved</p>   </td>
- <td style="vertical-align: top;">0.2 > 2.0 (0.1)</td>
- <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">m/s/s</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and for manual mode</p><p><strong>Comment:</strong> Manual mode: Maximum deceleration for MPC_POS_MODE 1 and 2. Maximum acceleration and deceleration for MPC_POS_MODE 3. Auto mode: Used with MPC_AUTO_MODE 0 only. For MPC_AUTO_MODE 1, MPC_ACC_HOR is always used.</p>   </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
