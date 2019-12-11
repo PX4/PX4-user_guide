@@ -17341,7 +17341,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX" and "MPC_LAND_SPEED" to enable a smooth descent experience Value needs to be higher than "MPC_LAND_ALT2"
+        <strong>Comment:</strong> Below this altitude: - descending velocity gets limited to a value between "MPC_Z_VEL_MAX" and "MPC_LAND_SPEED" - horizontal velocity gets limited to a value between "MPC_VEL_MANUAL" and "MPC_LAND_VEL_XY" for a smooth descent and landing experience. Value needs to be higher than "MPC_LAND_ALT2"
       </p>
     </td>
     
@@ -17369,7 +17369,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED" Value needs to be lower than "MPC_LAND_ALT1"
+        <strong>Comment:</strong> Below this altitude descending and horizontal velocities get limited to "MPC_LAND_SPEED" and "MPC_LAND_VEL_XY", respectively. Value needs to be lower than "MPC_LAND_ALT1"
       </p>
     </td>
     
@@ -17403,6 +17403,30 @@
     
     <td style="vertical-align: top;">
       0.7
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MPC_LAND_VEL_XY">MPC_LAND_VEL_XY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maximum horizontal velocity during landing Set the value higher than the otherwise expected maximum to disable any slowdown
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.
     </td>
     
     <td style="vertical-align: top;">
