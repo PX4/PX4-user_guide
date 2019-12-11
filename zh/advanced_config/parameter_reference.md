@@ -16971,30 +16971,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MPC_ACC_HOR_ESTM">MPC_ACC_HOR_ESTM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Horizontal acceleration in manual modes when te estimator speed limit is removed. If full stick is being applied and the estimator stops demanding a speed limit, which it had been before (e.g if GPS is gained while flying on optical flow/vision only), the vehicle will accelerate at this rate until the normal position control speed is achieved
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.2 > 2.0 (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.5
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)
     </td>
     
