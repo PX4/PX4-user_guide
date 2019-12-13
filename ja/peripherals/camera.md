@@ -32,11 +32,11 @@
 
 どのピンを用いてトリガーを行うかは，[TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) パラメータを用いて設定することができます。 標準値は56となっており、これは *FMU* の5番と6番のピンを使用することを意味しています。
 
-> **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano). At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
+> **Note** FMU 基板と I/O 基板を両方有するPixhawkフライトコントローラでは、このFMUピン設定は `AUX5` と `AUX6` を使用することを意味します(例： Pixhawk 4, CUAV v5+)。 FMU基板のみを有するフライトコントローラでは、`MAIN5` と `MAIN6` です(例：Pixhawk 4 mini, CUAV v5 nano)。 現時点では，トリガー機能はFMUピンでのみ動作し，I/Oボード上のピンではトリガーを行うことはできません。
 
 <span></span>
 
-> **Warning** With `TRIG_PINS` set to its **default** value of 56, you can use the AUX pins 1, 2, 3 and 4 as actuator outputs (for servos/ESCs). Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs. **DO NOT CHANGE THE DEFAULT VALUE OF `TRIG_PINS` IF YOU NEED ACTUATOR OUTPUTS.**
+> **Warning** `TRIG_PINS` を **標準の** 56に設定した場合のみ、 AUXピンの1, 2, 3, 4番を(サーボ/ESCなどの) アクチュエータ出力として利用可能です。 ハードウェアタイマーの実装方法の都合で (1234 と 56 はそれぞれ2つの独立したタイマーで駆動される別々のグループとなっています), 本設定がカメラトリガーとFMUからのアクチュエータ出力を同時に可能とする唯一の設定です。 **アクチュエータ出力が必要な場合 `TRIG_PINS` の設定を絶対に変更しないでください。**
 
 ## Trigger Interface Backends {#trigger_backend}
 
