@@ -1,6 +1,6 @@
 # カメラのトリガー
 
-カメラトリガードライバーを用いると，AUXポートを使用して，カメラトリガー用のパルス信号を出力することができます。 This can be used for multiple applications including timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
+カメラトリガードライバーを用いると，AUXポートを使用して，カメラトリガー用のパルス信号を出力することができます。 本機能は，航空測量や3次元復元のためのタイムスタンプ付き画像の取得や，複数のカメラの同期撮影，VIO(Visual Inertial Navigation, 光学慣性航法) に役立ちます。
 
 In addition to a pulse being sent out, a MAVLink message is published containing a sequence number (thus the current session's image sequence number) and the corresponding timestamp.
 
