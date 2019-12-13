@@ -2,29 +2,29 @@
 
 カメラトリガードライバーを用いると，AUXポートを使用して，カメラトリガー用のパルス信号を出力することができます。 本機能は，航空測量や3次元復元のためのタイムスタンプ付き画像の取得や，複数のカメラの同期撮影，VIO(Visual Inertial Navigation, 光学慣性航法) に役立ちます。
 
-In addition to a pulse being sent out, a MAVLink message is published containing a sequence number (thus the current session's image sequence number) and the corresponding timestamp.
+パルス信号の計測に加えて，連番(つまり，現在のセッションの画像番号) とタイムスタンプを含んだMAVLinkメッセージも出力されます。
 
-## Trigger Configuration {#trigger_setup_qgc}
+## トリガー設定 {#trigger_setup_qgc}
 
-Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) section.
+トリガー設定は通常 *QGroundControl* を用いて、 [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) セクションより行います。
 
 ![Trigger pins](../../assets/camera/trigger_pins.png)
 
-The different [trigger modes](#trigger_mode), [backend interfaces](#trigger_backend) and [hardware setup](#hardware_setup) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
+[トリガーモード](#trigger_mode)の違い, [バックエンドインターフェース](#trigger_backend),[ハードウェア設定](#hardware_setup) について、以下で説明します。(各項目は[パラメータ](../advanced_config/parameters.md)を用いて設定することも可能です)。
 
-> **Note** The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware. For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
+> **Note** カメラ設定は、通常FMU-v2ベースのフライトコントローラ (例. 3DR Pixhawk) では、ファームウェアに標準では含まれていないため、利用不可能です。 詳細については [パラメータの検索/変更 > ファームウェアに含まれないパラメータ](../advanced_config/parameters.md#parameter-not-in-firmware)を参照してください。
 
-## Trigger Modes {#trigger_mode}
+## トリガーモード {#trigger_mode}
 
-Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
+トリガーモードは全部で4種類あり, [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) パラメータを用いて変更可能です。:
 
-| Mode | Description                                                                                                                                                                                    |
-| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | Camera triggering is disabled.                                                                                                                                                                 |
-| 1    | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#command_interface) for more details.    |
-| 2    | Switches the intervalometer constantly on.                                                                                                                                                     |
-| 3    | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval. |
-| 4    | triggers automatically when flying a survey in Mission mode.                                                                                                                                   |
+| モード | 説明                                                                                                                                                                                             |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0   | カメラトリガーは無効                                                                                                                                                                                     |
+| 1   | MAVLinkの`MAV_CMD_DO_TRIGGER_CONTROL` コマンドによってオンオフ可能なインターバル撮影モードとして機能します。 詳細は[コマンドインターフェース](#command_interface) を参照してください。                                                                      |
+| 2   | インターバル撮影を常に行います。                                                                                                                                                                               |
+| 3   | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval. |
+| 4   | triggers automatically when flying a survey in Mission mode.                                                                                                                                   |
 
 > **Info** If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
 
