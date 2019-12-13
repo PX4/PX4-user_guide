@@ -51,29 +51,29 @@
 
 ## その他のパラメータ
 
-| パラメータ                                                                      | 説明                                                                                                                                                                                                                               |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [TRIG_POLARITY](../advanced_config/parameter_reference.md#TRIG_POLARITY)   | GPIOインターフェースを使用している時のみ反映されます。 トリガーピンの極性を設定します。 Active high means that the pin is pulled low normally and pulled high on a trigger event. Active low is vice-versa.                                                               |
-| [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)   | Defines the time between two consecutive trigger events in milliseconds.                                                                                                                                                         |
-| [TRIG_ACT_TIME](../advanced_config/parameter_reference.md#TRIG_ACT_TIME) | Defines the time in milliseconds the trigger pin is held in the "active" state before returning to neutral. In PWM modes, the minimum is limited to 40 ms to make sure we always fit an activate pulse into the 50Hz PWM signal. |
+| パラメータ                                                                      | 説明                                                                                                            |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| [TRIG_POLARITY](../advanced_config/parameter_reference.md#TRIG_POLARITY)   | GPIOインターフェースを使用している時のみ反映されます。 トリガーピンの極性を設定します。 アクティブハイは、通常はロー状態であり、トリガーイベント発生時にハイとなることを意味します。 アクティブローはその反対です。 |
+| [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)   | 連続する2つのトリガーイベント間の時間をミリ秒単位で設定します。                                                                              |
+| [TRIG_ACT_TIME](../advanced_config/parameter_reference.md#TRIG_ACT_TIME) | トリガー信号は”アクティブ”に保持される時間の長さをミリ秒単位で設定します。 PWMモードでは、アクティブパルスを常に50Hz PWM信号に適合させるために、最小値は40ミリ秒に制限されています。            |
 
-The full list of parameters pertaining to the camera trigger module can be found on the [parameter reference](../advanced_config/parameter_reference.md#camera-trigger) page.
+カメラトリガーモジュールに関連するパラメーターの完全なリストは、[パラメーターリファレンス](../advanced_config/parameter_reference.md#camera-trigger)ページにあります。
 
-## Command Interface {#command_interface}
+## コマンドインターフェイス {#command_interface}
 
-**TODO : NEEDS UPDATING updating**
+**TODO : アップデートが必要な項目です。**
 
-The camera trigger driver supports several commands:
+カメラトリガードライバーはいくつかのコマンドをサポートしています。:
 
-[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Accepted in "command controlled" mode (`TRIG_MODE` 1).
+[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) は "コマンド制御"モードの最中に有効となります (`TRIG_MODE` 1)。
 
-| Command Parameter | Description                                                                                 |
-| ----------------- | ------------------------------------------------------------------------------------------- |
-| Param #1          | Trigger enable/disable (set to 0 for disable, 1 for start)                                  |
-| Param #2          | Trigger cycle time in milliseconds (sets the `TRIG_INTERVAL` parameter.)                    |
-| Param #3          | Sequence reset (set to 1 to reset image sequence number, 0 to keep current sequence number) |
+| コマンドパラメーター | 説明                                                     |
+| ---------- | ------------------------------------------------------ |
+| Param #1   | トリガーの有効化/無効化 (0は無効，1は有効)                               |
+| Param #2   | トリガーのサイクル時間をミリ秒単位で指定します。(`TRIG_INTERVAL` パラメータを設定します。) |
+| Param #3   | シーケンスのリセット(1を指定すると画像の連番のリセットを、0を指定すると現在のカウントを保持します。)   |
 
-[MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) - Accepted in all modes. This is used by the GCS to test-shoot the camera from the user interface. The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.
+[MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) はすべてのモードで利用可能です。 This is used by the GCS to test-shoot the camera from the user interface. The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.
 
 | Command Parameter | Description                                                          |
 | ----------------- | -------------------------------------------------------------------- |
