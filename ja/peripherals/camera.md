@@ -18,19 +18,19 @@
 
 トリガーモードは全部で4種類あり, [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) パラメータを用いて変更可能です。:
 
-| モード | 説明                                                                                                                                                                                             |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0   | カメラトリガーは無効                                                                                                                                                                                     |
-| 1   | MAVLinkの`MAV_CMD_DO_TRIGGER_CONTROL` コマンドによってオンオフ可能なインターバル撮影モードとして機能します。 詳細は[コマンドインターフェース](#command_interface) を参照してください。                                                                      |
-| 2   | インターバル撮影を常に行います。                                                                                                                                                                               |
-| 3   | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval. |
-| 4   | triggers automatically when flying a survey in Mission mode.                                                                                                                                   |
+| モード | 説明                                                                                                                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------- |
+| 0   | カメラトリガーは無効                                                                                                                |
+| 1   | MAVLinkの`MAV_CMD_DO_TRIGGER_CONTROL` コマンドによってオンオフ可能なインターバル撮影モードとして機能します。 詳細は[コマンドインターフェース](#command_interface) を参照してください。 |
+| 2   | インターバル撮影を常に行います。                                                                                                          |
+| 3   | 距離に応じてトリガーを行うモードです。 あらかじめ設定された水平距離を飛行するたびに，撮影が行われます。 ただし，2トリガー間の最短時間は設定されたトリガーインターバル時間以上となるよう制限されます。                      |
+| 4   | Missionモードで飛行中，ミッション設定に応じて自動的にトリガーされます。                                                                                   |
 
-> **Info** If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
+> **Info** はじめてカメラーのトリガー設定を行う場合, `TRIG_MODE` パラメータの変更後に再起動を忘れずに行ってください。
 
-## Trigger Hardware Configuration {#hardware_setup}
+## トリガーハードウェア設定 {#hardware_setup}
 
-You can choose which pins to use for triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
+どのピンを用いてトリガーを行うかは，[TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) パラメータを用いて設定することができます。 標準値は56となっており、これは *FMU* の5番と6番のピンを使用することを意味しています。
 
 > **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano). At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
 
