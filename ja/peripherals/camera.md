@@ -140,11 +140,11 @@ Seagull MAP2をオートパイロットのAUX/FMUピンに接続します。 Pin
 
 ![GeoTag](../../assets/camera/geotag.jpg)
 
-## Camera-IMU sync example (VIO)
+## カメラ-IMU の同期例(VIO)
 
-In this example, we will go over the basics of synchronising IMU measurements with visual data to build a stereo Visual-Inertial Navigation System (VINS). To be clear, the idea here isn't to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VIO algorithm.
+本例では、IMUの測定値と視覚データを同期してステレオの視覚慣性航法システム（VINS）を構築する方法の基本について説明します。 正確に定義しておくと、ここでの目的は写真を撮ると同時にIMU測定を行うのではなく、VIOアルゴリズムに正確なデータを提供するために、画像に正確にタイムスタンプを付けることです。
 
-The autopilot and companion have different clock bases (boot-time for the autopilot and UNIX epoch for companion), so instead of skewing either clock, we directly observe the time offset between the clocks. This offset is added or subtracted from the timestamps in the MAVLink messages (e.g `HIGHRES_IMU`) in the cross-middleware translator component (e.g MAVROS on the companion and `mavlink_receiver` in PX4). The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset. This synchronisation is done automatically if MAVROS is used with a high-bandwidth onboard link (MAVLink mode `onboard`).
+オートパイロットとコンパニオンコンピュータは異なる基準時間（オートパイロットはブート時間、コンパニオンコンピュータはUNIX時間）を持っているため、いずれかのクロックを調整する代わりに、クロック間の時間オフセットを直接観察します。 This offset is added or subtracted from the timestamps in the MAVLink messages (e.g `HIGHRES_IMU`) in the cross-middleware translator component (e.g MAVROS on the companion and `mavlink_receiver` in PX4). The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset. This synchronisation is done automatically if MAVROS is used with a high-bandwidth onboard link (MAVLink mode `onboard`).
 
 For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot. The timestamp of the inertial measurement from start of exposure and a image sequence number is recorded and sent to the companion computer (`CAMERA_TRIGGER` message), which buffers these packets and the image frames acquired from the camera. They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the `CAMERA_TRIGGER` message) and then published.
 
