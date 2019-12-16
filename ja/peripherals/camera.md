@@ -96,21 +96,21 @@
 
 ![photogrammetry](../../assets/camera/photogrammetry.png)
 
-In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony QX-1 and use the setup to create orthomosaics after flying a fully autonomous survey mission.
+本例では、Seagull MAP2トリガーケーブルをSony QX-1と組み合わせて、自動航行でサーベイミッションを行ったあとに、オルソモザイク画像を生成します。
 
-### Trigger Settings
+### トリガー設定
 
-The recommended camera settings are:
+推奨カメラ設定は以下の通りです。:
 
-* `TRIG_INTERFAC=2` (Seagull MAP2).
-* `TRIG_MODE=4` (Mission controlled).
-* Leave the remaining parameters at their defaults.
+* `TRIG_INTERFAC=2`(Seagull MAP2) とします 。
+* `TRIG_MODE=4` (Mission による制御) とします。
+* その他のパラメータはデフォルト値のままにします。
 
-You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot. Pin 1 goes to `AUX 5`, and Pin 2 to `AUX 6`. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
+Seagull MAP2をオートパイロットのAUX/FMUピンに接続します。 Pin 1 は`AUX 5`に、 Pin 2 は`AUX 6`に接続します。 MAP2 のもう一端はQX-1の "MULTI" ポートに接続します。
 
-### Camera Configuration
+### カメラ設定
 
-We use a Sony QX-1 with a 16-50mm f3.5-5.6 lens for this example.
+ここでは、Sony QX-1を16-50mm f3.5-5.6 レンズと組み合わせて使用します。
 
 To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed:
 
