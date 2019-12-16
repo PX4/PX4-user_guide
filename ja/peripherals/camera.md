@@ -112,21 +112,21 @@ Seagull MAP2をオートパイロットのAUX/FMUピンに接続します。 Pin
 
 ここでは、Sony QX-1を16-50mm f3.5-5.6 レンズと組み合わせて使用します。
 
-To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed:
+カメラがトリガーされた際にオートフォーカスと測光の遅れを避けるために、次のガイドラインに従う必要があります。
 
-* Manual focus to infinity
-* Set camera to continuous shooting mode
-* Manually set exposure and aperture
-* ISO should be set as low as possible
-* Manual white balance suitable for scene
+* マニュアルにてフォーカスを無限遠に設定
+* カメラを連続撮影モードに設定
+* 露出と絞りを手動で設定する
+* ISOは可能な限り低く設定する
+* シーンに応じて、ホワイトバランスを手動で設定する
 
-### Mission Planning
+### ミッションプランニング
 
 ![QGC Survey Polygon](../../assets/camera/qgc_survey_polygon.jpeg)
 
 ![QGC Survey Parameters](../../assets/camera/qgc_survey_parameters.jpg)
 
-### Geotagging
+### ジオタグの付与
 
 Download/copy the logfile and images from the flight and point QGroundControl to them. Then click on "Start Tagging".
 
