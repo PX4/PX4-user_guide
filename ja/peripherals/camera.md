@@ -128,15 +128,15 @@ Seagull MAP2をオートパイロットのAUX/FMUピンに接続します。 Pin
 
 ### ジオタグの付与
 
-Download/copy the logfile and images from the flight and point QGroundControl to them. Then click on "Start Tagging".
+フライト時のログと撮影写真をダウンロード/コピーし，QGroundControlを用いて，それらを開きます。 そして，"Start Tagging"をクリックします。
 
 ![QGC Geotagging](../../assets/camera/qgc_geotag.png)
 
-You can verify the geotagging using a free online service like [Pic2Map](https://www.pic2map.com/). Note that Pic2Map is limited to only 40 images.
+フリーのオンラインサービスである[Pic2Map](https://www.pic2map.com/)を使って、ジオタグを確認できます。 ただし、Pic2Mapは40枚までの画像に制限されています。
 
-### Reconstruction
+### 3Dモデル構築
 
-We use [Pix4D](https://pix4d.com/) for 3D reconstruction.
+ここでは[Pix4D](https://pix4d.com/) を用いて3Dモデル構築を行います。
 
 ![GeoTag](../../assets/camera/geotag.jpg)
 
