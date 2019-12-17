@@ -1,0 +1,195 @@
+# Holybro S500 + Pixhawk4 Build
+
+This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+
+## Key information
+
+- **Frame:** Holybro S500
+- **Flight controller:** [Pixhawk 4]
+- **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes for autopilot installation/configuration)
+
+## Bill of materials
+
+* Pixhawk 4 autopilot（PM07 not included)
+* Power Management PM02（Assembled）
+* ARM adopts high strength plastics
+* Motors - 2216 KV880（ V2 Update）
+* Propeller 1045（ V2 Update）
+* Pixhawk4 GPS
+* Fully assembled Power Management Board with ESCs
+* 433MHz Telemetry Radio / 915MHz Telemetry Radio
+* Power and Radio Cables
+* Battery Straps
+* Dimensions:383*385*240mm
+* Wheelbase:480mm
+
+
+Note: No LiPo battery included. In addition, we use a FrSky Taranis controller.
+
+
+## Hardware
+
+Item Description | Quantity
+---|---
+
+Wheelbase:480mm              |   1
+Arms                         |   4
+Set of Landing Gear          |   2
+M3*8 screws                  |   18
+M2 5*6 screws                |   24
+Battery Straps               |   1
+Propeller 1045 (V2 Update)   |   1
+
+
+
+## Package
+Items | Package
+---|---
+
+
+Pixhawk 4                           |  1
+Pixhawk4 GPS MODULE                 |  1
+I2C splitter Board                  |  2
+6 to 6 pin cable (power)            |  3
+4 to 4 pin cable (CAN)              |  2
+6 to 4 pin cable (Data)             |  1
+10 to 10 pin cable (PWM)            |  2
+8 to 8 pin cable(AUX)               |  1
+7 to 7 pin cable(SPI)               |  1
+6 to 6 pin cable(Debug)             |  1
+PPM/SBUS out cable                  |  1
+XSR receiver cable                  |  1
+DSMX receiver cable                 |  1
+SBUS receiver cable                 |  1
+USB cable                           |  1
+'X'type folding pedestal mount      |  1
+70mm & 140mm carbon rod standoff    |  2
+6*3 2.54mm pitch Horizontal Pin     |  1
+8*3 2.54mm pitch Horizontal Pin     |  2
+Foam Set                            |  1
+Pixhawk4 Quick Start Guide          |  1
+Pixhawk4 Pinouts                    |  1
+GPS Quick Start Guide               |  1
+
+
+
+### Electronics
+Item Description | Quantity
+--- | --- 
+
+Pixhawk 4 autopilot (PM06 not included)            |  1
+Power Management PM02 (Assembled)                  |  1
+Motors - 2216 KV880 (V2 Update)                    |  4
+Pixhawk 4 GPS                                      |  1
+Fully assembled Power Management Board with ESCs   |  1
+433MHz Telemetry Radio / 915MHz Telemetry Radio    |  1
+
+
+
+### Tools needed
+
+The following tools are used in this assembly:
+
+- 1.5 mm Hex screwdriver
+- 2.0 mm Hex screwdriver
+- 2.5 mm Hex screwdriver
+- 3mm Phillips screwdriver
+- Wire cutters
+- Precision tweezers
+
+
+## Assembly
+
+Estimate time to assemble is 90 minutes, about 45 minutes for frame assembly and 45 minutes installing and configuring the autopilot in QGroundControl.
+
+Step 1: Assembling the Landing Gear
+We are going to start by assembling the landing gear to the vertical pole.
+Unscrew the landing gear screws and insert the vertical pole, see Figures 1 and 2.
+
+Step 2:  Assemble the Power Management Board to the landing gear.
+Screw the landing gear with a vertical pole to the Fully assembled Power Management Board. The Board has 4 holes (see Figure 3 arrows) use the M3X8 screws, a total of 8 pieces, 4 on each side, see Figure 4. 
+
+Step 3:  Assemble the arms to the Power Management Board.
+Attach the arm to the Power Management Board, see Figures 6 and 7. Use M2 5X6 screws a total of 2 in each arm. Insert the screws from the bottom of the plate, see Figure 8. Make sure the ESC cables run through the middle of the arm, see Figure 9.
+
+Step 4: Assemble the 8*3 2.54mm pitch Horizontal Pin to the 10 to 10 pin cable (PWM) to the Power Management Board. 
+Connect the 10 to 10 pin cable (PWM) to the 8*3 2.54mm pitch Horizontal Pin, see Figure 10. Cut a piece of 3M Tape and attach to the bottom of the Horizontal Pin, see Figure 11  stick the Horizontal Pin to the Power Management Board, see Figures 12 and 13. 
+
+Step 5: Assemble the motors to the arms.
+For this, we will need the 16 screws M3X7, 4 motors, and the 4 arms. Mount the motors in each arm put the screw through the bottom of the arm, see Figures 14 and 15. After the 4 motors are mounted on the arm grab the cables(red, blue, black) and put them through the arm thread, see Figures 16 and 17. The 3 cables that are color-coded go connected to the ESC. 
+
+Step 6: Mounting the GPS on the frame.
+For this, we will need the Pixhawk 4 GPS and the mounting plate, see Figure 17. Mount the GPS mast to the back of the Board, use the 4 screws see Figure 18 and 19. Use the tape and stick the GPS to the top of the GPS mast, see Figure 20.
+
+Step 7: Paste the FrSky to the Board.
+Paste FrSky with double-sided tape(3M) to the bottom board. Attach the FrSky to the frame, See Figures 21 and 22.
+
+Step 8: Attach the Telemetry to the frame.
+The next step is to take the Holybro telemetry radio and attach it onto the frame, use 3M tape, see Figure 23 and 24 . This assembly attached it inside the frame facing outwards to the front of the vehicle. A picture is shown below of the radio sitting inside the bottom of the frame, see Figure 25.
+
+Step 9: Mounting the Pixhawk 4 to the plate
+Use double-sided tape to attach the Pixhawk 4 to the center plate, see Figure 26,27 and 28. The next step is to mount the Pixhawk 4 with the plate to the frame. For this, we will need the M2 5X6 screws. Align the plate to the frame, see Figures 29 and 30, insert the screws. Before you mount the plate we recommend putting tape on the Power Module that way it’s tight and not loose, see Figure 29.  
+
+Step 10: Assembling the Battery Mount to the frame. 
+For this we will need the M2 5X6 screws and the battery mount see Figure 31. Insert the long rods to the small rings see Figure 32 and 33. Attach that to the frame, make sure all four sides are aligned to insert the screws, see Figure 34. Assemble the small plate to the legs, see Figure 35 screw on all four sides. The final step is to attach the plate to the, see figure 36.
+
+Step 11: Pixhawk 4 wiring
+The Pixhawk 4, which has several different wires and connections with it. Included below is a picture of every wire needed with the Pixhawk and how it looks when connected.
+Plugin Telemetry and GPS module to the flight controller as seen in Figure 37; plug in the RC receiver, all 4 ESCs to the flight controller as well as the power module as shown in Figure 37.
+
+
+### Vehicle calibration/setup
+Vehicle calibration/setup is similar for all vehicles. 
+
+** Radio calibration **
+
+1. Turn on the remote control.
+2. Select **Radio** in the left-sidebar.
+3. Select the "mode" of your remote control (top right).
+4. Click the **Calibrate** button and follow the on-screen
+   instructions.
+
+** Calibrate sensors **
+
+1. Select **Sensors** in the left-sidebar.
+2. Select the **Compass** button and then follow the on-screen instructions.
+3. Select the **Gyroscope **button and then follow the on-screen instructions.
+4. Select the **Accelerometer **button and then follow the on-screen instructions.
+
+** Select flight modes **
+
+[Flight Modes](../flight_modes/README.md) provide
+autopilot assisted or fully controlled flight. New users should
+configure their receiver to support the following three modes (these
+make the vehicle much easier to fly):
+
+- *Stabilized* - Vehicle hard to flip, and will level-out if the
+  sticks are released (but not hold position)
+- *Altitude* - Climb and drop are controlled to have a maximum rate.
+- *Position* - When sticks are released the vehicle will stop (and
+  hold position against wind drift)
+
+There are a number of ways to [configure flight modes](../config/flight_mode.md). In this case
+we have a three-way switch on the receiver that we map to a single channel (5).
+
+** Calibrate ESC **
+
+1. Remove propellers.
+
+   > **Warning** Propellers must be removed from vehicle prior
+     to performing ESC calibration!
+2. Select **Power **in the left-sidebar.
+3. Select the **Calibrate **button and then follow the on-screen
+   instructions (Connect your battery. When the tones stop, press OK
+   and unplug battery).
+   
+### Tuning
+Firmware installation sets *default* autopilot parameters that have been
+configured for the selected frame. 
+These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+The parameters below are recommended for this build (the yellow
+parameters are the ones that have changed). These were generated by
+flight testing.
+
+## Acknowledgements
+This build log was provided by the Dronecode Test Flight Team.
