@@ -144,11 +144,11 @@ Seagull MAP2をオートパイロットのAUX/FMUピンに接続します。 Pin
 
 本例では、IMUの測定値と視覚データを同期してステレオの視覚慣性航法システム（VINS）を構築する方法の基本について説明します。 正確に定義しておくと、ここでの目的は写真を撮ると同時にIMU測定を行うのではなく、VIOアルゴリズムに正確なデータを提供するために、画像に正確にタイムスタンプを付けることです。
 
-オートパイロットとコンパニオンコンピュータは異なる基準時間 (オートパイロットはブート時間、コンパニオンコンピュータはUNIX時間) を持っているため、いずれかの時間を調整する代わりに、クロック間の時間オフセットを直接観察します。 そして検出されたオフセットは，ミドルウェア間の変換コンポーネント(例：コンパニオンPC上のMAVROSとPX4の `mavlink_receiver`)によって，MAVLinkメッセージ (例： `HIGHRES_IMU`) のタイムスタンプから加減されます。 The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset. This synchronisation is done automatically if MAVROS is used with a high-bandwidth onboard link (MAVLink mode `onboard`).
+オートパイロットとコンパニオンコンピュータは異なる基準時間 (オートパイロットはブート時間、コンパニオンコンピュータはUNIX時間) を持っているため、いずれかの時間を調整する代わりに、直接クロック間の時間オフセットを検出します。 そして検出されたオフセットは，ミドルウェア間の変換コンポーネント(例：コンパニオンPC上のMAVROSとPX4の `mavlink_receiver`)によって，MAVLinkメッセージ (例： `HIGHRES_IMU`) のタイムスタンプから加減されます。 実際の同期アルゴリズムは、Network Time Protocol (NTP) アルゴリズムの修正版であり、指数移動平均を使用して、追跡された時間オフセットを平滑化して演算します。 MAVROSが十分な帯域を持ったオンボードリンク (MAVLinkモード `onboard`) で使用されている場合、この同期は自動的に行われます。
 
-For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot. The timestamp of the inertial measurement from start of exposure and a image sequence number is recorded and sent to the companion computer (`CAMERA_TRIGGER` message), which buffers these packets and the image frames acquired from the camera. They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the `CAMERA_TRIGGER` message) and then published.
+同期した画像と慣性測定値を取得するために、2つのカメラのトリガー入力をオートパイロットのGPIOピンに接続します。 撮影開始からの慣性測定のタイムスタンプと画像シーケンス番号が記録され、コンパニオンPCに送信されます (`CAMERA_TRIGGER`メッセージ)。そして，これらのパケットとカメラから取得した画像フレームがコンパニオンPCにバッファーされます。 画像と慣性計測データは，シーケンスナンバー (最初の画像は0となります) と ( `CAMERA_TRIGGER` メッセージからのタイムスタンプに基づいて) タイムスタンプされた画像データによってマッチングされ，パブリッシュされます。
 
-The following diagram illustrates the sequence of events which must happen in order to correctly timestamp our images.
+以下の図は正確に画像にタイムスタンプを行うための，イベントの流れを説明したものです。
 
 ![Sequence diag](../../assets/camera/sequence_diagram.jpg)
 
@@ -169,18 +169,18 @@ end
 {/% endmermaid %/}
 -->
 
-### Step 1
+### ステップ 1
 
-First, set the TRIG_MODE to 1 to make the driver wait for the start command and reboot your FCU to obtain the remaining parameters.
+まず，ドライバーをスタートコマンドを待機する状態にするため， TRIG_MODEパラメータに1をセットし，さらに残りのパラメータを取得するためにFCUを再起動します。
 
-### Step 2
+### ステップ 2
 
-For the purposes of this example we will be configuring the trigger to operate in conjunction with a Point Grey Firefly MV camera running at 30 FPS.
+本例の目的達成のため，ここでは30 FPSで動作するPoint Grey Firefly MVカメラと連動するようにトリガーを構成します。
 
 * `TRIG_INTERVAL`: 33.33 ms
-* `TRIG_POLARITY`: 0 (active low)
-* `TRIG_ACT_TIME`: 0.5 ms. The manual specifies it only has to be a minimum of 1 microsecond.
-* `TRIG_MODE`: 1, because we want our camera driver to be ready to receive images before starting to trigger. This is essential to properly process sequence numbers.
+* `TRIG_POLARITY`: 0 (アクティブロー)
+* `TRIG_ACT_TIME`: 0.5 ms. マニュアルでは、最小1マイクロ秒である必要があると規定されています。
+* `TRIG_MODE`: 1, トリガーを開始する前にカメラドライバーが画像を受信できるようにする必要があるため，このように設定します。 本設定は正しくシーケンス番号を処理するために重要です。
 * `TRIG_PINS`: 56, Leave default.
 
 ### Step 3
