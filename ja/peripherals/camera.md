@@ -181,12 +181,12 @@ end
 * `TRIG_POLARITY`: 0 (アクティブロー)
 * `TRIG_ACT_TIME`: 0.5 ms. マニュアルでは、最小1マイクロ秒である必要があると規定されています。
 * `TRIG_MODE`: 1, トリガーを開始する前にカメラドライバーが画像を受信できるようにする必要があるため，このように設定します。 本設定は正しくシーケンス番号を処理するために重要です。
-* `TRIG_PINS`: 56, Leave default.
+* `TRIG_PINS`: 56, デフォルト値のままにします。
 
-### Step 3
+### ステップ 3
 
-Wire up your cameras to your AUX port by connecting the ground and signal pins to the appropriate place.
+GNDピンとシグナルピンを介して，カメラとAUXポートを適切に接続します。
 
-### Step 4
+### ステップ 4
 
-You will have to modify your driver to follow the sequence diagram above. Public reference implementations for [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) cameras and for [IEEE1394 compliant](https://github.com/andre-nguyen/camera1394) cameras are available.
+前掲の図に準拠するように，ドライバーを適宜製作してください。 [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) カメラや [IEEE1394 準拠](https://github.com/andre-nguyen/camera1394) のカメラについては，実装方法のリファレンスが公開されています。
