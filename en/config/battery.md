@@ -16,6 +16,10 @@ PX4 provides a number of (progressively more effective) methods that can be used
 
 Later methods build on preceding methods. The approach you use will depend on whether the vehicle's power module can measure current.
 
+> **Note** The instructions below refer to battery 1 calibration parameters: `BAT1_*`. 
+  Other batteries use the `BATx_*` parameters, where `x` is the battery number.
+  All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
+
 
 ## Basic Battery Settings (default) {#basic_settings}
 
@@ -34,14 +38,17 @@ You are presented with the basic settings that characterize your battery. The se
 ![QGC Power Setup](../../assets/qgc/qgc_setup_power_px4.jpg)
 
 
-> **Note** The basic settings below correspond to [parameters](../advanced_config/parameters.md): [BAT_N_CELLS](../advanced_config/parameter_reference.md#BAT_N_CELLS), [BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY), [BAT_V_CHARGED](../advanced_config/parameter_reference.md#BAT_V_CHARGED). 
+> **Note** The basic settings below correspond to [parameters](../advanced_config/parameters.md): [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS), [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), [BAT1_V_CHARGED](../advanced_config/parameter_reference.md#BAT1_V_CHARGED). 
 
 
 ### Number of Cells (in Series)
 
 This sets the number of cells connected in series in the battery. Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5s").
 
-> **Note** The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type. The most common drone battery type (Lithium-Polymer - LiPo) has a nominal cell voltage of 3.7V. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*. The battery voltage at the terminals is then a multiple of the cell voltage.
+> **Note** The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type.
+  The most common drone battery type (Lithium-Polymer - LiPo) has a nominal cell voltage of 3.7V.
+  In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*.
+  The battery voltage at the terminals is then a multiple of the cell voltage.
 
 If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell. The table below shows the voltage-to-cell relationship for LiPo batteries:
 * 1S - 3.7V
@@ -58,13 +65,16 @@ This sets the *nominal* maximum voltage of each cell (the lowest voltage at whic
 
 The value should be set slightly lower that the nominal maximum cell voltage for the battery (4.2V for LiPo), but not so low that the estimated capacity is still 100% after a few minutes of flight. The default value is usually appropriate for LiPo batteries. 
 
-> **Note**  The voltage of a full battery may drop a small amount over time after charging. Setting a slightly-lower than maximum value compensates for this drop.
+> **Note**  The voltage of a full battery may drop a small amount over time after charging.
+  Setting a slightly-lower than maximum value compensates for this drop.
 
 ### Empty Voltage (per cell)
 
 This sets the nominal minimum safe voltage of each cell (use below this voltage may damage the battery).
 
-> **Note** There is no single value at which a battery is said to be empty. If you choose a value that is too low the battery may be damaged due to deep discharge (and/or the vehicle may crash). If you choose a value that is too high you may unnecessarily curtail your flight.
+> **Note** There is no single value at which a battery is said to be empty.
+  If you choose a value that is too low the battery may be damaged due to deep discharge (and/or the vehicle may crash).
+  If you choose a value that is too high you may unnecessarily curtail your flight.
 
 A rule of thumb for LiPo batteries:
 - 3.7V without load is a conservative minimum value.
@@ -80,9 +90,7 @@ If you have a vehicle that measures voltage through a power module and the ADC o
 
 The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide). 
 
-> **Note** This setting corresponds to parameter: [BAT_V_DIV](../advanced_config/parameter_reference.md#BAT_V_DIV).
-
-
+> **Note** This setting corresponds to parameter: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV).
 ### Amps per volt {#current_divider}
 
 > **Tip** This setting is not needed if you are using the basic configuration (without load compensation etc.)
@@ -91,7 +99,7 @@ If you are using [Current-based Load Compensation](#current_based_load_compensat
 
 The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
 
-> **Note** This setting corresponds to parameter: [BAT_A_PER_V](../advanced_config/parameter_reference.md#BAT_A_PER_V).
+> **Note** This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V).
 
 
 ## Voltage-based Estimation with Load Compensation {#load_compensation}
@@ -102,18 +110,20 @@ Load compensation attempts to counteract the fluctuation in measured voltage/est
 
 > **Note** To use the load compensation you will still need to set the [basic configuration](#basic_settings). The *Empty Voltage* ([BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY)) should be set higher (than without compensation) because the compensated voltage gets used for the estimation (typically set a bit below the expected rest cell voltage when empty after use).
 
-PX4 supports two load compensation methods, which are enabled by  [setting](../advanced_config/parameters.md) either of the two parameters below:
-* [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
-* [BAT_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
+PX4 supports two load compensation methods, which are enabled by [setting](../advanced_config/parameters.md) either of the two parameters below:
+* [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
+* [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
 
 ### Current-based Load Compensation (recommended) {#current_based_load_compensation}
 
-This load compensation method relies on current measurement to determine load. It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
+This load compensation method relies on current measurement to determine load.
+It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
 
 To enable this feature:
 
-1. Set the parameter [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) to to the internal resistance of your battery. 
-   > **Tip** There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
+1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of  battery 1 (and repeat for other batteries). 
+   > **Tip** There are LiPo chargers out there which can measure the internal resistance of your battery.
+     A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
 1. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 
 ### Thrust-based Load Compensation {#thrust_based_load_compensation}
@@ -124,24 +134,26 @@ This load compensation method estimates the load based on the total thrust that 
 
 To enable this feature:
 
-1. Set the parameter [BAT_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
+1. Set the parameter [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
 
 
 ## Voltage-based Estimation Fused with Current Integration {#current_integration}
 
 > **Note** This is the most accurate way to measure relative battery consumption. If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
 
-This method evaluates the remaining battery capacity by *fusing* the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. It requires hardware that can accurately measure current.
+This method evaluates the remaining battery capacity by *fusing* the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed.
+It requires hardware that can accurately measure current.
 
 To enable this feature:
 
 1. First set up accurate voltage estimation using [current-based load compensation](#current_based_load_compensation).
    > **Tip** Including calibrating the [Amps per volt divider](#current_divider) setting.
    
-1. Set the parameter [BAT_CAPACITY](../advanced_config/parameter_reference.md#BAT_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
+1. Set the parameter [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
    > **Note** Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
    
 ---
+
 **Additional information**
 
 The estimate of the charge that has been consumed over time is produced by mathematically integrating the measured current (this approach provides very accurate energy consumption estimates).
