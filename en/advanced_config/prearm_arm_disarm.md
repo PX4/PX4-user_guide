@@ -4,13 +4,42 @@ Vehicles may have moving parts, some of which are potentially dangerous when pow
 
 To reduce the chance of accidents, PX4 has explicit state(s) for powering the vehicle components:
 - **Disarmed:** There is no power to motors or actuators.
-- **Pre-armed:** Actuators and other non-dangerous electronics are powered.
-  - In this state you can move ailerons, flaps etc, but motors/propellers are locked.
-- **Armed:** Vehicle is fully powered, including motors/propellers.
+- **Pre-armed:** Motors/propellers are locked but actuators for non-dangerous electronics are powered (e.g. ailerons, flaps etc.).
+- **Armed:** Vehicle is fully powered. Motors/propellers may be turning (dangerous!)
 
-A [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) (if available) is used as a precondition for arming the vehicle, and may also be used to enable the pre-armed state. When permitted, arming is enabled using an arming sequence, switch or MAVLink command. 
+A [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) (if available) is used as a precondition for arming the vehicle, and may also be used to enable the pre-armed state.
 
-PX4 allows you to configure how prearming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
+When permitted, arming is enabled using an [arming gesture](#arm_disarm_gestures), [arming switch](#arm_disarm_switch) or MAVLink command. 
+
+PX4 allows you to configure how pre-arming, arming and disarming work using parameters (which can be edited in *QGroundControl* via the [parameter editor](../advanced_config/parameters.md)), as described in the following sections.
+
+> **Note** Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_` and `COM_DISARM_*`).
+
+## Arming Gesture {#arm_disarm_gestures}
+
+By default the vehicle is armed and disarmed by moving the RC throttle/yaw stick into a particular position and holding for for 1 second:
+- **Arming:** stick to *bottom right*.
+- **Disarming:** stick to *bottom left*. 
+
+The hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
+
+Parameter | Description
+--- | ---
+<span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second).
+
+## Arming Switch {#arm_disarm_switch}
+
+An *Arm switch* can be configured to trigger arm/disarm, and will then be used instead of a [gesture](#arm_disarm_gestures) (which is disabled).
+
+The switch is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW).
+The behaviour of the switch is then further configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
+
+Parameter | Description
+--- | ---
+<span id="RC_MAP_ARM_SW"></span>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) | Arm switch channel (default: 0 - unassigned). If defined the specified RC channel is used instead of stick.
+<span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is only a button. 0: Arm switch is a switch that stays on when armed, 1: Arm switch is a button that only triggers arming and disarming.
+
+> **Note** The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
 
 
 ## Auto-Disarming
