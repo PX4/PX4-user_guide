@@ -30280,7 +30280,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.0 > 20.0 (0.5)
+      -10.0 > 20.0 (0.5)
     </td>
     
     <td style="vertical-align: top;">
