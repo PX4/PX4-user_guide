@@ -994,14 +994,9 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_SWISBTN">COM_ARM_SWISBTN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Arm switch is only a button</p><p><strong>Comment:</strong> The default uses the arm switch as real switch. If parameter set button gets handled like stick arming.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Arm switch is a switch that stays on when armed</li> 
-
-<li><strong>1:</strong> Arm switch is a button that only triggers arming and disarming</li> 
-</ul>
-  </td>
- <td style="vertical-align: top;">0 > 1 </td>
- <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"><p>Arm switch is only a button</p><p><strong>Comment:</strong> The default uses the arm switch as real switch. If parameter set button gets handled like stick arming.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
