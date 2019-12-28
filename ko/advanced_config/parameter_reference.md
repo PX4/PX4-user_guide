@@ -3231,6 +3231,32 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_ARM_MAG_STR">COM_ARM_MAG_STR</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable mag strength preflight check
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Deny arming if the estimator detects a strong magnetic disturbance (check enabled by EKF2_MAG_CHECK)
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_ARM_MIS_REQ">COM_ARM_MIS_REQ</strong> (INT32)
     </td>
     
