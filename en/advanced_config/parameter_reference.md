@@ -1579,6 +1579,8 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -3483,6 +3485,8 @@ but also ignore less noise</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -3509,6 +3513,8 @@ but also ignore less noise</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -3696,6 +3702,8 @@ but also ignore less noise</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -4216,6 +4224,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -4284,6 +4294,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -4351,6 +4363,8 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -6833,6 +6847,8 @@ default 1.5 turns per second</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -6859,6 +6875,8 @@ default 1.5 turns per second</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -9252,6 +9270,8 @@ default 1.5 turns per second</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -10740,6 +10760,8 @@ is less than 50% of this value</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -10978,6 +11000,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -11606,6 +11630,8 @@ is less than 50% of this value</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -11640,6 +11666,8 @@ is less than 50% of this value</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -11666,6 +11694,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -11703,6 +11733,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
@@ -11776,6 +11808,67 @@ is less than 50% of this value</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="SER_GPS2_BAUD">SER_GPS2_BAUD</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Baudrate for the GPS 2 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Auto</li> 
+
+<li><strong>50:</strong> 50 8N1</li> 
+
+<li><strong>75:</strong> 75 8N1</li> 
+
+<li><strong>110:</strong> 110 8N1</li> 
+
+<li><strong>134:</strong> 134 8N1</li> 
+
+<li><strong>150:</strong> 150 8N1</li> 
+
+<li><strong>200:</strong> 200 8N1</li> 
+
+<li><strong>300:</strong> 300 8N1</li> 
+
+<li><strong>600:</strong> 600 8N1</li> 
+
+<li><strong>1200:</strong> 1200 8N1</li> 
+
+<li><strong>1800:</strong> 1800 8N1</li> 
+
+<li><strong>2400:</strong> 2400 8N1</li> 
+
+<li><strong>4800:</strong> 4800 8N1</li> 
+
+<li><strong>9600:</strong> 9600 8N1</li> 
+
+<li><strong>19200:</strong> 19200 8N1</li> 
+
+<li><strong>38400:</strong> 38400 8N1</li> 
+
+<li><strong>57600:</strong> 57600 8N1</li> 
+
+<li><strong>115200:</strong> 115200 8N1</li> 
+
+<li><strong>230400:</strong> 230400 8N1</li> 
+
+<li><strong>460800:</strong> 460800 8N1</li> 
+
+<li><strong>500000:</strong> 500000 8N1</li> 
+
+<li><strong>921600:</strong> 921600 8N1</li> 
+
+<li><strong>1000000:</strong> 1000000 8N1</li> 
+
+<li><strong>1500000:</strong> 1500000 8N1</li> 
+
+<li><strong>2000000:</strong> 2000000 8N1</li> 
+
+<li><strong>3000000:</strong> 3000000 8N1</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SER_GPS3_BAUD">SER_GPS3_BAUD</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Baudrate for the GPS 3 Serial Port</p><p><strong>Comment:</strong> Configure the Baudrate for the GPS 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Auto</li> 
 
 <li><strong>50:</strong> 50 8N1</li> 
@@ -12617,6 +12710,8 @@ is less than 50% of this value</p>   </td>
 
 <li><strong>202:</strong> GPS 2</li> 
 
+<li><strong>203:</strong> GPS 3</li> 
+
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
@@ -12643,6 +12738,8 @@ is less than 50% of this value</p>   </td>
 <li><strong>201:</strong> GPS 1</li> 
 
 <li><strong>202:</strong> GPS 2</li> 
+
+<li><strong>203:</strong> GPS 3</li> 
 
 <li><strong>300:</strong> Radio Controller</li> 
 </ul>
