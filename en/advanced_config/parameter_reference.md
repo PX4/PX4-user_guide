@@ -940,28 +940,28 @@ Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than
  <td style="vertical-align: top;"><p>Maximum EKF height innovation test ratio that will allow arming</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_EKF_POS">COM_ARM_EKF_POS</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum EKF position innovation test ratio that will allow arming</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">m</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_EKF_VEL">COM_ARM_EKF_VEL</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum EKF velocity innovation test ratio that will allow arming</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">m/s</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_EKF_YAW">COM_ARM_EKF_YAW</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum EKF yaw innovation test ratio that will allow arming</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">rad</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_IMU_ACC">COM_ARM_IMU_ACC</strong> (FLOAT)</td>
