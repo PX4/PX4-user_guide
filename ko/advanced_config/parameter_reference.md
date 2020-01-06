@@ -33134,6 +33134,70 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="IMU_GYRO_NF_BW">IMU_GYRO_NF_BW</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Driver level notch bandwidth for gyro
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the gyro driver. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 100
+    </td>
+    
+    <td style="vertical-align: top;">
+      20.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="IMU_GYRO_NF_FREQ">IMU_GYRO_NF_FREQ</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Driver level notch frequency for gyro
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The center frequency for the 2nd order notch filter on the gyro driver. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter. See "IMU_GYRO_NF_BW" to set the bandwidth of the filter.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1000
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="IMU_GYRO_RATEMAX">IMU_GYRO_RATEMAX</strong> (INT32)
     </td>
     
