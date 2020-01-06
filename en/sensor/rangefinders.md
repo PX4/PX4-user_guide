@@ -59,11 +59,6 @@ The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm
 It must be connected to a UART/serial bus. 
 
 
-### Other
-
-PX4 also supports the Bebop rangefinder.
-
-
 ## Configuration/Setup {#configuration}
 
 Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter.
