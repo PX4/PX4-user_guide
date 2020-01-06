@@ -483,11 +483,6 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: Pavel Kirienko <pavel.kirienko@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4012</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_parrot_bebop_frame">
- <td style="vertical-align: top;">Parrot Bebop Frame</td>
- <td style="vertical-align: top;"><p>Maintainer: Michael Schaeuble</p><p><code>SYS_AUTOSTART</code> = 4013</p></td>
-
-</tr>
 <tr id="copter_quadrotor_x_s500_generic">
  <td style="vertical-align: top;">S500 Generic</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4014</p></td>
