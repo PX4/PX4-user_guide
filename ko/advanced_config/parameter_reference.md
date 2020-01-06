@@ -17015,7 +17015,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Manual mode: Maximum deceleration for MPC_POS_MODE 1 and 2. Maximum acceleration and deceleration for MPC_POS_MODE 3. Auto mode: Used with MPC_AUTO_MODE 0 only. For MPC_AUTO_MODE 1, MPC_ACC_HOR is always used.
+        <strong>Comment:</strong> Maximum deceleration for MPC_POS_MODE 1 and 2. Maximum acceleration and deceleration for MPC_POS_MODE 3.
       </p>
     </td>
     
@@ -17094,67 +17094,6 @@
     </td>
     
     <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_AUTO_MODE">MPC_AUTO_MODE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Auto sub-mode
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> Default line tracking
-        </li>
-        <li>
-          <strong>1:</strong> Jerk-limited trajectory
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_CRUISE_90">MPC_CRUISE_90</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Cruise speed when angle prev-current/current-next setpoint is 90 degrees. It should be lower than MPC_XY_CRUISE
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Applies only in AUTO modes (includes also RTL / hold / etc.)
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0 > 20.0 (1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      3.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s
     </td>
   </tr>
   
@@ -17268,7 +17207,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility. Note: This is only used in jerk-limited trajectory mode (MPC_AUTO_MODE 1)
+        <strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility.
       </p>
     </td>
     
@@ -18165,29 +18104,6 @@
     
     <td style="vertical-align: top;">
       1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_Z_TRAJ_P">MPC_Z_TRAJ_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Proportional gain for vertical trajectory position error
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.1 > 1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.3
     </td>
     
     <td style="vertical-align: top;">
