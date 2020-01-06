@@ -3081,7 +3081,6 @@
     </td>
     
     <td style="vertical-align: top;">
-      m
     </td>
   </tr>
   
@@ -3105,7 +3104,6 @@
     </td>
     
     <td style="vertical-align: top;">
-      m
     </td>
   </tr>
   
@@ -3129,7 +3127,6 @@
     </td>
     
     <td style="vertical-align: top;">
-      m/s
     </td>
   </tr>
   
@@ -3153,7 +3150,6 @@
     </td>
     
     <td style="vertical-align: top;">
-      rad
     </td>
   </tr>
   
