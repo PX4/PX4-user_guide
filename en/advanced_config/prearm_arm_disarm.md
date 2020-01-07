@@ -17,27 +17,32 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 
 ## Arming Gesture {#arm_disarm_gestures}
 
-By default the vehicle is armed and disarmed by moving the RC throttle/yaw stick into a particular position and holding for for 1 second:
+By default the vehicle is armed and disarmed by moving the RC throttle/yaw stick into a particular position and holding for 1 second:
 - **Arming:** stick to *bottom right*.
-- **Disarming:** stick to *bottom left*. 
+- **Disarming:** stick to *bottom left*.
 
-The hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
+The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
 
 Parameter | Description
 --- | ---
-<span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second).
+<span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second).
 
-## Arming Switch {#arm_disarm_switch}
+## Arming Button/Switch {#arm_disarm_switch}
 
-An *Arm switch* can be configured to trigger arm/disarm, and will then be used instead of a [gesture](#arm_disarm_gestures) (which is disabled).
+An *arming button* or "momentary switch" can be configured to trigger arm/disarm *instead* of [gesture-based arming](#arm_disarm_gestures).
+The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
 
-The switch is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW).
-The behaviour of the switch is then further configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
+A two position-switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch *transitions*.
+
+> **Tip** Use of a two-position switch is not recommended because it is easy to get the switch into an inconsistent state (i.e. if arming is rejected, the switch will say armed even though the vehicle is not armed).
+
+The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
+
 
 Parameter | Description
 --- | ---
 <span id="RC_MAP_ARM_SW"></span>[RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) | Arm switch channel (default: 0 - unassigned). If defined the specified RC channel is used instead of stick.
-<span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is only a button. 0: Arm switch is a switch that stays on when armed, 1: Arm switch is a button that only triggers arming and disarming.
+<span id="COM_ARM_SWISBTN"></span>[COM_ARM_SWISBTN](../advanced_config/parameter_reference.md#COM_ARM_SWISBTN) | Arm switch is a button. <br>- `0`: Arm switch is a 2-position switch where arm/disarm commands are sent on respective switch transitions.<br>-`1`: Arm switch is a button or momentary switch. Arm/disarm command is sent after holding down button for set time ([COM_RC_ARM_HYST](#COM_RC_ARM_HYST)).
 
 > **Note** The switch can also be set as part of *QGroundControl* [Flight Mode](../config/flight_mode.md) configuration.
 

@@ -129,24 +129,20 @@ PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_rep
 A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
 
 
-## Disarmed/Pre-armed/Armed {#arming}
+## Arming and Disarming {#arming}
 
 Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
 
-To reduce the chance of accidents, PX4 has explicit state(s) for powering the vehicle components:
-- **Disarmed:** There is no power to motors or actuators.
-- **Pre-armed:** Actuators and other non-dangerous electronics are powered.
-  - In this state you can move ailerons, flaps etc, but motors/propellers are locked.
-- **Armed:** Vehicle is fully powered, including motors/propellers.
+To reduce the chance of accidents:
+- PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
+- Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can be attempted.
+- Arming is prevented if the vehicle is not in a "healthy" state.
+- A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
 
-By default, a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) is used to enter the pre-armed state.
-Arming is then enabled using an arming sequence, switch or MAVLink command. 
+Arming is (by default) triggered by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left).
+It is also possible to configure PX4 to arm using an RC button on the RC control (and arming commands can be sent from a ground station).
 
-The vehicle is initially disarmed, and must be armed before flight; if you don't take off quickly enough it will automatically disarm (returning the vehicle to a safe state).
-Similarly, when you land the vehicle will usually automatically disarm so that it can be approached safely.
-
-> **Note** The arming behaviour can be [configured](../advanced_config/prearm_arm_disarm.md) (e.g. the time until vehicle automatically disarms after landing).
-
+A detailed overview of arming and arming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
 
 ## Flight Modes {#flight_modes}
