@@ -4,7 +4,7 @@ The *Flight termination* [failsafe action](../config/safety.md#failsafe_actions)
 
 When *Flight termination* is activated, PX4 simultaneously turns off all controllers and sets all PWM outputs to their failsafe values.
 
-Depending on what devices are connected the PWM failsafe outputs can be used to:
+Depending on what devices are connected, the PWM failsafe outputs can be used to:
 - Deploy a [parachute](../peripherals/parachute.md).
 - Extend retractable landing gear.
 - Move a PWM-connected gimbal to a safe orientation (or retract it) in order to protect the camera.
