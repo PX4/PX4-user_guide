@@ -36,8 +36,8 @@ Hardware setup:
 
 Enable flight termination:
 - Set [Safety](../config/safety.md) action to *Flight termination* for checks where you want the parachute to trigger
-- Set [Failure Detector](../config/safety.md#failure_detector) pitch and roll angles and time triggers for crash/flip detection.
-  > **Note** Disable the failure/IMU timeout circuit breaker (i.e. set [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) to 0).
+- Set [Failure Detector](../config/safety.md#failure_detector) pitch angles, roll angles and time triggers for crash/flip detection, and disable the failure/IMU timeout circuit breaker (i.e. set [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)).
+  > **Note** You can also configure an [external ATS](../config/safety.md#external_ats) for failure detection.
 
 Parachute settings
 - Set [PWM_MAIN_DIS7](../advanced_config/parameter_reference.md#PWM_MAIN_DIS7) to PWM value for parachute "OFF" position (usually between 700 and 1000ms)
