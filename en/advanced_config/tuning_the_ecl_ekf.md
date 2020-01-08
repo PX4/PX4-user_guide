@@ -251,7 +251,7 @@ EKF outputs, states and status data are published to a number of uORB topics whi
 The following guide assumes that data has been logged using the *.ulog file format*.
 The **.ulog** format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
-Most of the EKF data is found in the [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
+Most of the EKF data is found in the [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
 
 A python script that automatically generates analysis plots and metadata can be found [here](https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/process_logdata_ekf.py). 
 To use this script file, cd to the `Tools/ecl_ekf` directory and enter `python process_logdata_ekf.py <log_file.ulg>`. 
@@ -300,27 +300,27 @@ The index map for covariances\[28\] is as follows:
 
 ### Observation Innovations
 
-* Magnetometer XYZ \(gauss\) : Refer to mag\_innov\[3\] in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
-* Yaw angle \(rad\) : Refer to heading\_innov in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
-* Velocity and position innovations : Refer to vel\_pos\_innov\[6\] in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg). The index map for vel\_pos\_innov\[6\] is as follows:
+* Magnetometer XYZ \(gauss\) : Refer to `mag_field[3]` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+* Yaw angle \(rad\) : Refer to `heading` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+* Velocity and position innovations : Refer to vel\_pos\_innov\[6\] in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg). The index map for vel\_pos\_innov\[6\] is as follows:
   * \[0 ... 2\] Velocity NED \(m/s\)
   * \[3 ... 5\] Position NED \(m\)
-* True Airspeed \(m/s\) : Refer to airspeed\_innov in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
-* Synthetic sideslip \(rad\) : Refer to beta\_innov in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
-* Optical flow XY \(rad/sec\) : Refer to flow\_innov in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
-* Height above ground \(m\) : Refer to hagl\_innov in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* True Airspeed \(m/s\) : Refer to `airspeed` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+* Synthetic sideslip \(rad\) : Refer to `beta` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+* Optical flow XY \(rad/sec\) : Refer to `flow` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+* Height above ground \(m\) : Refer to `hagl` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
 
 ### Observation Innovation Variances
 
-* Magnetometer XYZ \(gauss^2\) : Refer to mag\_innov\_var\[3\] in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* Magnetometer XYZ \(gauss^2\) : Refer to mag\_innov\_var\[3\] in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg). 
 * Yaw angle \(rad^2\) : Refer to heading\_innov\_var in the ekf2\_innovations message.
-* Velocity and position innovations : Refer to vel\_pos\_innov\_var\[6\] in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg). The index map for vel\_pos\_innov\_var\[6\] is as follows:
+* Velocity and position innovations : Refer to vel\_pos\_innov\_var\[6\] in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg). The index map for vel\_pos\_innov\_var\[6\] is as follows:
   * \[0 ... 2\] Velocity NED \(m/s\)^2
   * \[3 ... 5\] Position NED \(m^2\)
-* True Airspeed \(m/s\)^2 : Refer to airspeed\_innov\_var in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
-* Synthetic sideslip \(rad^2\) : Refer to beta\_innov\_var in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
-* Optical flow XY \(rad/sec\)^2 : Refer to flow\_innov\_var in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
-* Height above ground \(m^2\) : Refer to hagl\_innov\_var in [ekf2\_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).
+* True Airspeed \(m/s\)^2 : Refer to airspeed\_innov\_var in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+* Synthetic sideslip \(rad^2\) : Refer to beta\_innov\_var in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+* Optical flow XY \(rad/sec\)^2 : Refer to flow\_innov\_var in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+* Height above ground \(m^2\) : Refer to hagl\_innov\_var in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
 
 ### Output Complementary Filter
 
@@ -396,7 +396,7 @@ After re-tuning the filter, particularly re-tuning that involve reducing the noi
 The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration. 
 If this is occurring, then the following signs should be evident in the data
 
-* [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).vel\_pos\_innov\[2\] and  [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/ekf2_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
+* [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] and  [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
 * [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).hgt\_test\_ratio will be greater than 1.0
 
 The recommended first step is to ensure that the autopilot is isolated from the airframe using an effective isolation mounting system. 
