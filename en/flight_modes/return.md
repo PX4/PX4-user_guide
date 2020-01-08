@@ -46,8 +46,8 @@ In this return type the vehicle:
 In this return type the vehicle:
 - Ascends to a safe [return altitude](#return_altitude) (above any expected obstacles).
 - Flies via direct path to a rally point or the start of a [mission landing pattern](#mission_landing_pattern) (whichever is closest).
-  If no mission landing or rally points are defined the vehicle instead returns home via a direct path.
-- If the destination is a mission landing pattern it will follow the pattern to land.
+  If no valid mission landing or rally points are defined the vehicle instead returns home via a direct path.
+- If the destination is a valid mission landing pattern it will follow the pattern to land.
 - If the destination is a rally point or home it will [land or wait](#arrival) at descent altitude (depending on landing parameters).
 
 <span id="mission_landing_pattern"></span>
@@ -158,7 +158,7 @@ Multicopters use a [home location return](#home_return) by default (and the foll
 ### Fixed Wing (FW)
 
 Fixed-wing aircraft use a [mission landing return type](#mission_landing_return) by default: 
-- If a mission landing is defined, fly direct to the mission landing start point and then land.
+- If a valid mission landing is defined, fly direct to the mission landing start point and then land.
 - Otherwise fly directly to the home position and circle above it at radius [NAV_LOITER_RAD](#NAV_LOITER_RAD).
 
 If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
@@ -168,7 +168,7 @@ RC stick movement is ignored.
 ### VTOL
 
 VTOL aircraft use a [mission landing return type](#mission_landing_return) by default: 
-- If a mission landing is defined, fly direct to the mission landing start point and then land.
+- If a valid mission landing is defined, fly direct to the mission landing start point and then land.
 - Otherwise fly directly to the home position, transition to multicopter mode, and land as a multicopter.
   > **Note** If not in a mission landing, a VTOL in FW mode will *always* transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
 
