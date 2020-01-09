@@ -5907,7 +5907,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Measurement noise for vision angle observations used when the vision system does not supply error estimates
+        Measurement noise for vision angle observations used to lower bound or replace the uncertainty included in the message
       </p>
     </td>
     
@@ -5955,7 +5955,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Measurement noise for vision position observations used when the vision system does not supply error estimates
+        Measurement noise for vision position observations used to lower bound or replace the uncertainty included in the message
       </p>
     </td>
     
@@ -6007,7 +6007,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Measurement noise for vision velocity observations used when the vision system does not supply error estimates
+        Measurement noise for vision velocity observations used to lower bound or replace the uncertainty included in the message
       </p>
     </td>
     
