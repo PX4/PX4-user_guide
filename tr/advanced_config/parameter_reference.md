@@ -30613,6 +30613,58 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="SIM_ACCEL_BLOCK">SIM_ACCEL_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block accelerometer data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation accelerometer data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_BARO_BLOCK">SIM_BARO_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block barometer data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation barometer data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="SIM_BAT_DRAIN">SIM_BAT_DRAIN</strong> (FLOAT)
     </td>
     
@@ -30656,6 +30708,134 @@
     
     <td style="vertical-align: top;">
       %
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_DPRES_BLOCK">SIM_DPRES_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block differential pressure data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation differential pressure data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_GPS_BLOCK">SIM_GPS_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block GPS data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation GPS data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_GPS_NOISE_X">SIM_GPS_NOISE_X</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator GPS noise multiplier
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 10 (0.1)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      %
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_GYRO_BLOCK">SIM_GYRO_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block gyroscope data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation gyroscope data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_MAG_BLOCK">SIM_MAG_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block magnetometer data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation magnetometer data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
     </td>
   </tr>
 </table>
