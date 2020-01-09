@@ -1874,7 +1874,7 @@ Increasing it makes the multi-rotor wind estimates adjust more slowly</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Measurement noise for vision angle observations used when the vision system does not supply error estimates</p>   </td>
+ <td style="vertical-align: top;"><p>Measurement noise for vision angle observations used to lower bound or replace the uncertainty included in the message</p>   </td>
  <td style="vertical-align: top;">0.01 > ? </td>
  <td style="vertical-align: top;">0.05</td>
  <td style="vertical-align: top;">rad</td>
@@ -1889,7 +1889,7 @@ Sets the number of standard deviations used by the innovation consistency test</
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EVP_NOISE">EKF2_EVP_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Measurement noise for vision position observations used when the vision system does not supply error estimates</p>   </td>
+ <td style="vertical-align: top;"><p>Measurement noise for vision position observations used to lower bound or replace the uncertainty included in the message</p>   </td>
  <td style="vertical-align: top;">0.01 > ? </td>
  <td style="vertical-align: top;">0.1</td>
  <td style="vertical-align: top;">m</td>
@@ -1903,7 +1903,7 @@ Sets the number of standard deviations used by the innovation consistency test</
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EVV_NOISE">EKF2_EVV_NOISE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Measurement noise for vision velocity observations used when the vision system does not supply error estimates</p>   </td>
+ <td style="vertical-align: top;"><p>Measurement noise for vision velocity observations used to lower bound or replace the uncertainty included in the message</p>   </td>
  <td style="vertical-align: top;">0.01 > ? </td>
  <td style="vertical-align: top;">0.1</td>
  <td style="vertical-align: top;">m/s</td>
