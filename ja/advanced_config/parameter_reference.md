@@ -30360,6 +30360,32 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="SDLOG_BOOT_BAT">SDLOG_BOOT_BAT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery-only Logging
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> When enabled, logging will not start from boot if battery power is not detected (e.g. powered via USB on a test bench). This prevents extraneous flight logs from being created during bench testing. Note that this only applies to log-from-boot modes. This has no effect on arm-based modes.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="SDLOG_DIRS_MAX">SDLOG_DIRS_MAX</strong> (INT32)
     </td>
     
