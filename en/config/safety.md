@@ -227,7 +227,7 @@ Parameter | Description
 
 ### Adaptive QuadChute Failsafe
 
-Failsafe for when a pusher motor fails (or airspeed sensor) and a VTOL vehicle can no longer achieve a desired altitude setpoint in fixed-wing mode. 
+Failsafe for when a pusher motor fails (or airspeed sensor) and a VTOL vehicle can no longer achieve a desired altitude setpoint in fixed-wing mode.
 If triggered, the vehicle will transition to multicopter mode and enter failsafe Return mode.
 
 The relevant parameters are shown below:
@@ -239,12 +239,16 @@ Parameter | Description
 
 ## Failure Detector {#failure_detector}
 
-The failure detector allows a vehicle to take protective action(s) if it unexpectedly flips - for example, it can launch a [parachute](../peripherals/parachute.md) or perform some other action.
+The failure detector allows a vehicle to take protective action(s) if it unexpectedly flips, or if it is notified by an external failure detection system.
 
-> **Note** Failure detection is deactivated by default using a circuit breaker.
-  You can enable it by setting [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM).
+More precisely, the failure detector can be used to trigger [flight termination](../advanced_config/flight_termination.md) (in all modes) if failure conditions are met, and can then launch a [parachute](../peripherals/parachute.md) or perform some other action.
 
-More precisely, the failure detector triggers [flight termination](../advanced_config/flight_termination.md) (in all modes) if the vehicle attitude exceeds predefined pitch and roll values for more than a specified time.
+> **Note** Failure detection is deactivated by default.
+  You can enable it by setting [CBRK_FLIGHTTERM=0](#CBRK_FLIGHTTERM).
+
+### Attitude Trigger {#attitude_trigger}
+
+The failure detector can be configured to trigger if the vehicle attitude exceeds predefined pitch and roll values for longer than a specified time.
 
 The relevant parameters are shown below:
 
@@ -255,6 +259,19 @@ Parameter | Description
 <span id="FD_FAIL_R"></span>[FD_FAIL_R](../advanced_config/parameter_reference.md#FD_FAIL_R) | Maximum allowed roll (in degrees).
 <span id="FD_FAIL_P_TTRI"></span>[FD_FAIL_P_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_P_TTRI) | Time to exceed [FD_FAIL_P](#FD_FAIL_P) for failure detection (default 0.3s).
 <span id="FD_FAIL_R_TTRI"></span>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | Time to exceed [FD_FAIL_R](#FD_FAIL_R) for failure detection (default 0.3s).
+
+### External Automatic Trigger System (ATS) {#external_ats}
+
+The [failure detector](#failure_detector), if [enabled](#CBRK_FLIGHTTERM), can also be triggered by an external ATS system.
+The external trigger system must be connected to flight controller port AUX5 (or MAIN5 on boards that do not have AUX ports), and is configured using the parameters below.
+
+> **Note** External ATS is required by [ASTM F3322-18](https://webstore.ansi.org/Standards/ASTM/ASTMF332218).
+  One example of an ATS device is the [FruityChutes Sentinel Automatic Trigger System](https://fruitychutes.com/uav_rpv_drone_recovery_parachutes/sentinel-automatic-trigger-system.htm).
+
+Parameter | Description
+--- | ---
+<span id="FD_EXT_ATS_EN"></span>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN) |Enable PWM input on AUX5 or MAIN5 (depending on board) for engaging failsafe from an external automatic trigger system (ATS). Default: Disabled.
+<span id="FD_EXT_ATS_TRIG"></span>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | The PWM threshold from external automatic trigger system for engaging failsafe. Default: 1900 ms.
 
 
 ## Emergency Switches {#safety_switch}
