@@ -207,13 +207,12 @@
   * [BeagleBone Blue](flight_controller/beaglebone_blue.md)
 * [完成機](complete_vehicles/README.md) 
   * [Crazyflie 2.0](complete_vehicles/crazyflie2.md)
-  * [Parrot Bebop](complete_vehicles/bebop.md)
   * [MindRacer BNF & RTF](complete_vehicles/mindracer_BNF_RTF.md) 
     * [MindRacer 210](complete_vehicles/mindracer210.md)
     * [NanoMind 110](complete_vehicles/nanomind110.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](complete_vehicles/betafpv_beta75x.md)
   * [Holybro Kopis 2](complete_vehicles/holybro_kopis2.md)
-  * [Intel® Aero RTF Drone (廃版)](complete_vehicles/intel_aero.md)
+  * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
 * [開発](development/development.md)
 
 ## Dronecode ショートカット
