@@ -34,7 +34,7 @@ The easiest way to calculate the optical flow is to use the [PX4Flow](../sensor/
 
 #### Other Cameras
 
-It is also possible to use a board/quad that has an integrated camera (Bebop2, Snapdragon Flight).
+It is also possible to use a board/quad that has an integrated camera (e.g. Snapdragon Flight).
 For this the [Optical Flow repo](https://github.com/PX4/OpticalFlow) can be used (see also [snap_cam](https://github.com/PX4/snap_cam)).
 
 ### Range Finder
