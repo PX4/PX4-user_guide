@@ -4595,80 +4595,6 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 </tbody></table>
 
-## MPU9x50 Configuration
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="MPU_ACC_LPF_ENM">MPU_ACC_LPF_ENM</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Low pass filter frequency for Accelerometer</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> MPU9X50_ACC_LPF_460HZ</li> 
-
-<li><strong>1:</strong> MPU9X50_ACC_LPF_184HZ</li> 
-
-<li><strong>2:</strong> MPU9X50_ACC_LPF_92HZ</li> 
-
-<li><strong>3:</strong> MPU9X50_ACC_LPF_41HZ</li> 
-
-<li><strong>4:</strong> MPU9X50_ACC_LPF_20HZ</li> 
-
-<li><strong>5:</strong> MPU9X50_ACC_LPF_10HZ</li> 
-
-<li><strong>6:</strong> MPU9X50_ACC_LPF_5HZ</li> 
-
-<li><strong>7:</strong> MPU9X50_ACC_LPF_460HZ_NOLPF</li> 
-</ul>
-  </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">4</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPU_GYRO_LPF_ENM">MPU_GYRO_LPF_ENM</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Low pass filter frequency for Gyro</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> MPU9X50_GYRO_LPF_250HZ</li> 
-
-<li><strong>1:</strong> MPU9X50_GYRO_LPF_184HZ</li> 
-
-<li><strong>2:</strong> MPU9X50_GYRO_LPF_92HZ</li> 
-
-<li><strong>3:</strong> MPU9X50_GYRO_LPF_41HZ</li> 
-
-<li><strong>4:</strong> MPU9X50_GYRO_LPF_20HZ</li> 
-
-<li><strong>5:</strong> MPU9X50_GYRO_LPF_10HZ</li> 
-
-<li><strong>6:</strong> MPU9X50_GYRO_LPF_5HZ</li> 
-
-<li><strong>7:</strong> MPU9X50_GYRO_LPF_3600HZ_NOLPF</li> 
-</ul>
-  </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">4</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="MPU_SAMPLE_R_ENM">MPU_SAMPLE_R_ENM</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Sample rate in Hz</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> MPU9x50_SAMPLE_RATE_100HZ</li> 
-
-<li><strong>1:</strong> MPU9x50_SAMPLE_RATE_200HZ</li> 
-
-<li><strong>2:</strong> MPU9x50_SAMPLE_RATE_500HZ</li> 
-
-<li><strong>3:</strong> MPU9x50_SAMPLE_RATE_1000HZ</li> 
-</ul>
-  </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">2</td>
- <td style="vertical-align: top;"></td>
-</tr>
-</tbody></table>
-
 ## Mission
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -6784,23 +6710,6 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;">0.0 > 100 (0.1)</td>
  <td style="vertical-align: top;">10.0</td>
  <td style="vertical-align: top;">s</td>
-</tr>
-</tbody></table>
-
-## RC Receiver Configuration
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="RC_RECEIVER_TYPE">RC_RECEIVER_TYPE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>RC receiver type</p><p><strong>Comment:</strong> Acceptable values: - RC_RECEIVER_SPEKTRUM = 1, - RC_RECEIVER_LEMONRX = 2,</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1</td>
- <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
 
@@ -12491,65 +12400,6 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.5)</td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;">N</td>
-</tr>
-</tbody></table>
-
-## Snapdragon UART ESC
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="UART_ESC_BAUD">UART_ESC_BAUD</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ESC UART baud rate</p><p><strong>Comment:</strong> Default rate is 250Kbps, whic is used in off-the-shelf QRP ESC products.</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">250000</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="UART_ESC_MODEL">UART_ESC_MODEL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>ESC model</p><p><strong>Comment:</strong> See esc_model_t enum definition in uart_esc_dev.h for all supported ESC model enum values.</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> ESC_200QX</li> 
-
-<li><strong>1:</strong> ESC_350QX</li> 
-
-<li><strong>2:</strong> ESC_210QC</li> 
-</ul>
-  </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">2</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="UART_ESC_MOTOR1">UART_ESC_MOTOR1</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Motor 1 Mapping</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">4</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="UART_ESC_MOTOR2">UART_ESC_MOTOR2</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Motor 2 Mapping</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">2</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="UART_ESC_MOTOR3">UART_ESC_MOTOR3</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Motor 3 Mapping</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="UART_ESC_MOTOR4">UART_ESC_MOTOR4</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Motor 4 Mapping</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">3</td>
- <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
 
