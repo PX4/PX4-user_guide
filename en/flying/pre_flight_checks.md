@@ -29,6 +29,8 @@ The following errors (with associated checks and parameters) are reported by the
 * This error is produced when the yaw angle estimated using gyro data and the yaw angle from the magnetometer or external vision system are inconsistent.
 * Check the IMU data for large yaw rate offsets and check the magnetometer alignment and calibration.
 * The check is controlled by the [COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) parameter
+* The default value of 0.5 allows the differences between the navigation yaw angle and magnetic yaw angle (magnetometer or external vision) to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences.
+* It can fail if the yaw gyro has a large offset or if the vehicle is moved or rotated in the presence of a bad magnetic interference or magnetometer calibration.
 
 `PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS`:
 * This error is produced when the IMU accelerometer bias estimated by the EKF is excessive. 
