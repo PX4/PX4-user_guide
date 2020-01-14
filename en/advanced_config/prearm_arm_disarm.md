@@ -20,9 +20,17 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 
 ## Arming Gesture {#arm_disarm_gestures}
 
-By default the vehicle is armed and disarmed by moving the RC throttle/yaw stick into a particular position and holding for 1 second:
-- **Arming:** stick to *bottom right*.
-- **Disarming:** stick to *bottom left*.
+By default, the vehicle is armed and disarmed by setting RC throttle/yaw to particular values and holding for 1 second
+- **Arming:** Throttle minimum, yaw maximum
+- **Disarming:** Throttle minimum, yaw minimum
+
+RC controllers will have different gestures [based on their mode](../getting_started/rc_transmitter_receiver.md#types-of-remote-controls) (as controller mode affects the sticks used for throttle and yaw):
+- **Mode 2**: 
+  - *Arm:* Left stick to bottom right. 
+  - *Disarm:* Left stick to the bottom left.
+- **Mode 1**: 
+  - *Arm:* Left-stick to right, right-stick to bottom.
+  - *Disarm:* - Left-stick to left, right-stick to the bottom.
 
 The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
 
