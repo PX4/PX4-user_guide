@@ -2,7 +2,8 @@
 
 This topic explains how to configure power settings.
 
-> **Note** The battery monitoring features of PX4 can only be used if you have compatible hardware. In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
+> **Note** The battery monitoring features of PX4 can only be used if you have compatible hardware.
+  In most cases this means a power module that measures the battery voltage, and may also measure the current between battery and vehicle.
 
 ## Overview
 
@@ -10,11 +11,14 @@ The goal of the power setup is to provide a good estimate of remaining battery p
 
 PX4 provides a number of (progressively more effective) methods that can be used to estimate the capacity:
 
-1. [Basic Battery Settings](#basic_settings) (default): raw measured voltage is compared to the range between "empty" and "full" voltages. This results in coarse estimates because measured voltage (and its corresponding capacity) will fluctuate under load.
+1. [Basic Battery Settings](#basic_settings) (default): raw measured voltage is compared to the range between "empty" and "full" voltages.
+   This results in coarse estimates because measured voltage (and its corresponding capacity) will fluctuate under load.
 1. [Voltage-based Estimation with Load Compensation](#load_compensation): Counteracts the effects of loading on the capacity calculation.
-1. [Voltage-based Estimation with Current Integration](#current_integration): Fuses the load-compensated voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. This results in a capacity estimate that is comparable to that of a smart battery.
+1. [Voltage-based Estimation with Current Integration](#current_integration): Fuses the load-compensated voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed.
+   This results in a capacity estimate that is comparable to that of a smart battery.
 
-Later methods build on preceding methods. The approach you use will depend on whether the vehicle's power module can measure current.
+Later methods build on preceding methods.
+The approach you use will depend on whether the vehicle's power module can measure current.
 
 > **Note** The instructions below refer to battery 1 calibration parameters: `BAT1_*`. 
   Other batteries use the `BATx_*` parameters, where `x` is the battery number.
@@ -23,23 +27,23 @@ Later methods build on preceding methods. The approach you use will depend on wh
 
 ## Basic Battery Settings (default) {#basic_settings}
 
-> **Note** This default/basic power configuration results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
-
 The basic battery settings configure PX4 to use the default method for capacity estimate. 
 This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells). 
 
-To configure the basic settings:
+> **Note** This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+
+To configure the basic settings for battery 1:
 
 1. Start *QGroundControl* and connect the vehicle.
 1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Power** in the sidebar.
 
-You are presented with the basic settings that characterize your battery. The sections below explain what values to set for each field.
+You are presented with the basic settings that characterize the battery.
+The sections below explain what values to set for each field.
 
 ![QGC Power Setup](../../assets/qgc/qgc_setup_power_px4.jpg)
 
-
-> **Note** The basic settings below correspond to [parameters](../advanced_config/parameters.md): [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS), [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY), [BAT1_V_CHARGED](../advanced_config/parameter_reference.md#BAT1_V_CHARGED). 
-
+> **Note** At time of writing *QGroundControl* only allows you to set values for battery 1 in this view.
+  For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
 
 ### Number of Cells (in Series)
 
@@ -58,6 +62,7 @@ If the number of cells is not supplied you can calculate it by dividing the batt
 * 5S - 18.5V
 * 6S - 22.2V
 
+> **Note** This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS) and [BAT2_N_CELLS](../advanced_config/parameter_reference.md#BAT2_N_CELLS)
 
 ### Full Voltage (per cell)
 
@@ -67,6 +72,9 @@ The value should be set slightly lower that the nominal maximum cell voltage for
 
 > **Note**  The voltage of a full battery may drop a small amount over time after charging.
   Setting a slightly-lower than maximum value compensates for this drop.
+
+<span></span>
+> **Note** This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_V_CHARGED](../advanced_config/parameter_reference.md#BAT1_V_CHARGED) and [BAT2_V_CHARGED](../advanced_config/parameter_reference.md#BAT2_V_CHARGED). 
 
 ### Empty Voltage (per cell)
 
@@ -83,14 +91,17 @@ A rule of thumb for LiPo batteries:
 
 > **Tip** Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
 
+<span></span>
+> **Note** This setting corresponds to [parameter](../advanced_config/parameters.md): [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY) and [BAT2_V_EMPTY](../advanced_config/parameter_reference.md#BAT2_V_EMPTY). 
 
-### Voltage divider
+### Voltage Divider
 
 If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
 
 The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide). 
 
-> **Note** This setting corresponds to parameter: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV).
+> **Note** This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
+
 ### Amps per volt {#current_divider}
 
 > **Tip** This setting is not needed if you are using the basic configuration (without load compensation etc.)
@@ -99,7 +110,7 @@ If you are using [Current-based Load Compensation](#current_based_load_compensat
 
 The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
 
-> **Note** This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V).
+> **Note** This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
 
 
 ## Voltage-based Estimation with Load Compensation {#load_compensation}
