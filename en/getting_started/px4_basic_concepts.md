@@ -135,7 +135,7 @@ Vehicles may have moving parts, some of which are potentially dangerous when pow
 
 To reduce the chance of accidents:
 - PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
-- Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can be attempted.
+- Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can succeed.
 - Arming is prevented if the vehicle is not in a "healthy" state.
 - A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
 
