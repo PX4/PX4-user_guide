@@ -32,7 +32,7 @@ Parameter | Description
 An *arming button* or "momentary switch" can be configured to trigger arm/disarm *instead* of [gesture-based arming](#arm_disarm_gestures).
 The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
 
-A two position-switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch *transitions*.
+A two-position switch can also be used for arming/disarming, where the respective arm/disarm commands are sent on switch *transitions*.
 
 > **Tip** Use of a two-position switch is not recommended because it is easy to get the switch into an inconsistent state (i.e. if arming is rejected, the switch will stay armed even though the vehicle is not armed).
 
