@@ -20,7 +20,7 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 
 ## Arming Gesture {#arm_disarm_gestures}
 
-By default, the vehicle is armed and disarmed by setting RC throttle/yaw to particular values and holding for 1 second
+By default, the vehicle is armed and disarmed by moving RC throttle/yaw sticks to particular extremes and holding them for 1 second.
 - **Arming:** Throttle minimum, yaw maximum
 - **Disarming:** Throttle minimum, yaw minimum
 
