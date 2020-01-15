@@ -106,22 +106,20 @@ PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカ�
 
 推奨SDカードの一覧は以下にあります: [Developer Guide > ロギング](http://dev.px4.io/en/log/logging.html#sd-cards)
 
-## Disarmed/Pre-armed/Armed {#arming}
+## Arming and Disarming {#arming}
 
 機体は多くの可動部を持っており，その一部(特にモータやプロペラ) は潜在的な危険性を持っています。
 
-可動部による事故の可能性を低減するため，PX4は機体の起動に際して，以下の状態を定めています。
+To reduce the chance of accidents:
 
-- **Disarmed:** モータやアクチュエータが動くことのない状態です。
-- **Pre-armed:** 危険性のないアクチュエータ・電動機が動作可能な状態です。 
-  - 本状態では，エルロンやフラップ等を動かすことができますが，モータ・プロペラはロックされています。
-- **Armed:** モータ・プロペラを含め，すべてのモータやアクチュエータが動作可能です。
+- PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
+- Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can succeed.
+- Arming is prevented if the vehicle is not in a "healthy" state.
+- A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
 
-標準では， [セーフティスイッチ](../getting_started/px4_basic_concepts.md#safety_switch) がpre-armed 状態に遷移するために用いられます。 Arming 状態には，その後Arming用のシーケンス操作やスイッチ，MAVLinkからのコマンド等によって遷移します。
+Arming is (by default) triggered by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is also possible to configure PX4 to arm using an RC button on the RC control (and arming commands can be sent from a ground station).
 
-機体は初期状態ではdisarm状態となっており，フライトを行うにはアーミングを行う必要があります。また，Armed状態になってから速やかに離陸を行わない場合，自動的にdisarm状態(安全な状態) に戻ります。 同様に，通常機体が着陸した後は，安全に機体に近づけるよう，自動的にdisarmへと遷移します。
-
-> **Note** アーミングに関する動作(例： 機体が着陸後，自動的にdisarmへ遷移するまでの時間) は[設定可能](../advanced_config/prearm_arm_disarm.md) です。
+A detailed overview of arming and arming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
 ## フライトモード {#flight_modes}
 
@@ -129,7 +127,7 @@ PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカ�
 
 *Manual モード* はオートパイロットからの補助を利用しつつ，(RCシステムやジョイスティックを介した) ユーザからの指令で操縦する場合に使用されます。 適切なマニュアルモードを選択することで，目的に沿った飛行特性を実現することができます。例えば，一部のモードでは宙返りなどのアクロバティックな動作が可能な一方で，他のモードでは風に対して自動で位置/飛行コースの保持が可能であったりします。
 
-> **Tip** すべての機体で，すべてのフライトモードが可能なわけではありません。また，一部のモードは特定の条件が揃った時のみ使用可能です(例： 多くのモードは，GPSなどによる位置推定データを必要とします。)。
+> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
 
 フライトモードの概要については[こちら](../getting_started/flight_modes.md)をご参照ください。 無線操縦のスイッチを用いたフライトモードの切り替え方法については [Flight Mode Configuration](../config/flight_mode.md)に記載があります。
 
@@ -137,7 +135,7 @@ PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカ�
 
 PX4では機体に問題が発生した際に，不具合からシステムを保護・回復するためのフェールセーフシステムを設定可能です。 安全に飛行可能なエリアや条件を設定し，もし当該条件から外れるイベントが発生した場合，フェールセーフアクション(例：着陸・一時停止・設定箇所への帰還) がトリガーされます。
 
-> **Note** *最初の* フェイルセーフイベントに対するアクションのみ，設定が可能です。 一旦，システムがフェイルセーフ状態に移行すると，そのアクションによって発生した副次的なフェイルセーフイベントは異なるシステムレベル/機体固有のコードに応じて管理されます。
+> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 
 主なフェイルセーフ項目は以下の通りです。:
 
