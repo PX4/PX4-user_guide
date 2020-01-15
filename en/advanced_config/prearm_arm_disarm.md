@@ -30,7 +30,7 @@ RC controllers will have different gestures [based on their mode](../getting_sta
   - *Disarm:* Left stick to the bottom left.
 - **Mode 1**: 
   - *Arm:* Left-stick to right, right-stick to bottom.
-  - *Disarm:* - Left-stick to left, right-stick to the bottom.
+  - *Disarm:* Left-stick to left, right-stick to the bottom.
 
 The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYST).
 
