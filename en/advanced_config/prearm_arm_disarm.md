@@ -47,8 +47,6 @@ A two-position switch can also be used for arming/disarming, where the respectiv
 
 > **Tip** Two-position arming switches are primarily used in/recommended for racing drones.
 
-is not recommended because it is easy to get the switch into an inconsistent state (i.e. if arming is rejected, the switch will stay armed even though the vehicle is not armed).
-
 The switch or button is assigned (and enabled) using [RC_MAP_ARM_SW](#RC_MAP_ARM_SW), and the switch "type" is configured using [COM_ARM_SWISBTN](#COM_ARM_SWISBTN).
 
 
