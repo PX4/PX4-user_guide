@@ -10886,34 +10886,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="FW_T_HGT_OMEGA">FW_T_HGT_OMEGA</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Complementary filter "omega" parameter for height
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the cross-over frequency (in radians/second) of the complementary filter used to fuse vertical acceleration and barometric height to obtain an estimate of height rate and height. Increasing this frequency weights the solution more towards use of the barometer, whilst reducing it weights the solution more towards use of the accelerometer data.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0 > 10.0 (0.5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      3.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      rad/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="FW_T_HRATE_FF">FW_T_HRATE_FF</strong> (FLOAT)
     </td>
     
