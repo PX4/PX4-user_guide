@@ -15773,6 +15773,9 @@
         <li>
           <strong>3:</strong> Land mode
         </li>
+        <li>
+          <strong>4:</strong> Position Hold mode
+        </li>
       </ul>
     </td>
     
@@ -15784,6 +15787,62 @@
     </td>
     
     <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="NAV_TRAFF_A_RADM">NAV_TRAFF_A_RADM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set NAV TRAFFIC AVOID RADIUS MANNED
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Manned Aviation
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      500 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      500
+    </td>
+    
+    <td style="vertical-align: top;">
+      m
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="NAV_TRAFF_A_RADU">NAV_TRAFF_A_RADU</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set NAV TRAFFIC AVOID RADIUS
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Unmanned Aviation
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      10 > 500
+    </td>
+    
+    <td style="vertical-align: top;">
+      10
+    </td>
+    
+    <td style="vertical-align: top;">
+      m
     </td>
   </tr>
 </table>
