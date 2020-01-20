@@ -93,6 +93,7 @@ The detection Distance for Manned and Unmanned aviaton can be configured indepen
 The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/navigator/navigator_main.cpp)).
 
 PX4 will also forward the transponder data to a GCS if this has been configured for the MAVLink instance (this is recommended).
+The last 10 Digits of the GUID is displayed as Drone identifcation.
 
 ## Further Information
 
