@@ -2114,6 +2114,16 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="EKF2_IMU_ID">EKF2_IMU_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Device id of IMU</p><p><strong>Comment:</strong> Set to 0 to use system selected (sensor_combined) IMU, otherwise set to the device id of the desired IMU (vehicle_imu).</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> System Primary</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="EKF2_IMU_POS_X">EKF2_IMU_POS_X</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>X position of IMU in body frame</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10565,7 +10575,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_RATEMAX">IMU_GYRO_RATEMAX</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro control data maximum publication rate</p><p><strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro_control) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Gyro control data maximum publication rate</p><p><strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> 0 (no limit)</li> 
 
 <li><strong>50:</strong> 50 Hz</li> 
