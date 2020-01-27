@@ -2877,6 +2877,37 @@
     <td style="vertical-align: top;">
     </td>
   </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CBRK_VTOLARMING">CBRK_VTOLARMING</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Circuit breaker for arming in fixed-wing mode check
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Setting this parameter to 159753 will enable arming in fixed-wing mode for VTOLs. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 159753
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
 </table>
 
 ## Commander
