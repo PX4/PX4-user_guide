@@ -33192,6 +33192,38 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="IMU_DGYRO_CUTOFF">IMU_DGYRO_CUTOFF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Cutoff frequency for angular acceleration
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter used on the time derivative of the measured angular velocity. Set to 0 to disable the filter.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1000
+    </td>
+    
+    <td style="vertical-align: top;">
+      10.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="IMU_GYRO_CUTOFF">IMU_GYRO_CUTOFF</strong> (FLOAT)
     </td>
     
