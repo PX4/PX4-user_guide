@@ -534,7 +534,18 @@
 ### Quadrotor x
 
 <div>
-<img src="../../assets/airframes/types/QuadRotorX.svg" width="29%" style="max-height: 180px;"/>
+  <img src="../../assets/airframes/types/QuadRotorX.svg" width="29%" style="max-height: 180px;" /> 
+  
+  <table style="float: right; width: 70%; font-size:1.5rem;">
+    <colgroup><col></colgroup> <tr>
+      <th>
+        Common Outputs
+      </th>
+    </tr>
+<tr>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
+</tr>
+  </table>
 </div>
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
@@ -548,12 +559,7 @@
   </tr>
 <tr id="copter_quadrotor_x_generic_quadcopter">
  <td style="vertical-align: top;">Generic Quadcopter</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></p></td>
-
-</tr>
-<tr id="copter_quadrotor_x_generic_quadrotor_x_with_mount_(e.g._gimbal)">
- <td style="vertical-align: top;">Generic Quadrotor x with mount (e.g. gimbal)</td>
- <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <thedevleon></p><p><code>SYS_AUTOSTART</code> = 4002</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: Mount pitch</li><li><b>AUX2</b>: Mount roll</li><li><b>AUX3</b>: Mount yaw</li><li><b>AUX4</b>: Mount retract</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
 
 </tr>
   
@@ -572,11 +578,6 @@
       </p>
     </td>
   </tr>
-<tr id="copter_quadrotor_x_h4_680mm_with_z1_tiny2_gimbal">
- <td style="vertical-align: top;">H4 680mm with Z1 Tiny2 Gimbal</td>
- <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <thedevleon></p><p><code>SYS_AUTOSTART</code> = 4004</p></td>
-
-</tr>
 <tr id="copter_quadrotor_x_lumenier_qav250">
  <td style="vertical-align: top;">Lumenier QAV250</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4009</p></td>
@@ -590,11 +591,6 @@
 <tr id="copter_quadrotor_x_dji_flame_wheel_f450">
  <td style="vertical-align: top;">DJI Flame Wheel F450</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4011</p></td>
-
-</tr>
-<tr id="copter_quadrotor_x_f450-sized_quadrotor_with_can">
- <td style="vertical-align: top;">F450-sized quadrotor with CAN</td>
- <td style="vertical-align: top;"><p>Maintainer: Pavel Kirienko <pavel.kirienko@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4012</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_s500_generic">
