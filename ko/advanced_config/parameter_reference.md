@@ -33196,11 +33196,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Driver level cutoff frequency for accel
+        Low pass filter cutoff frequency for accel
       </p>
       
       <p>
-        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the accel driver. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary accelerometer. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
       </p>
       
       <p>
@@ -33260,11 +33260,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Driver level cutoff frequency for gyro
+        Low pass filter cutoff frequency for gyro
       </p>
       
       <p>
-        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the gyro driver. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary gyro. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
       </p>
       
       <p>
@@ -33292,11 +33292,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Driver level notch bandwidth for gyro
+        Notch filter bandwidth for gyro
       </p>
       
       <p>
-        <strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the gyro driver. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency.
+        <strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency.
       </p>
       
       <p>
@@ -33324,11 +33324,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Driver level notch frequency for gyro
+        Notch filter frequency for gyro
       </p>
       
       <p>
-        <strong>Comment:</strong> The center frequency for the 2nd order notch filter on the gyro driver. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter. See "IMU_GYRO_NF_BW" to set the bandwidth of the filter.
+        <strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter. See "IMU_GYRO_NF_BW" to set the bandwidth of the filter.
       </p>
       
       <p>
