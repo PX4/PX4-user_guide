@@ -14,3 +14,4 @@ This section provides links/information about supported power modules and power 
   * [Holybro PM06 (Pixhawk 4 Mini PM)](../power_module/holybro_pm06_pixhawk4mini_power_module.md)
 * [UAVCAN](https://new.uavcan.org/) power modules
   * [CUAV CAN PMU](../power_module/cuav_can_pmu.md)
+  * [Pomegranate Systems Power Module](https://p-systems.io/product/power_module)
