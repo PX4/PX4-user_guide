@@ -9,11 +9,13 @@ If a potential collision is detected, PX4 can *warn*, immediately [land](../flig
 
 ## Configure Traffic Avoidance
 
-Configure the action when there is a potential collision using the parameter below:
+Configure the trigger distance and action when there is a potential collision using the parameters below:
 
 Parameter | Description
 --- | ---
 <span id="NAV_TRAFF_AVOID"></span>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode.
+<span id="NAV_TRAFF_A_RADM"></span>[NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | Set traffic avoidance trigger distance for *manned* aviation
+<span id="NAV_TRAFF_A_RADU"></span>[NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | Set traffic avoidance trigger distance for *unmanned* aviation
 
 
 ## Implementation {#implementation}
