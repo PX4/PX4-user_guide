@@ -199,9 +199,11 @@ The Traffic Avoidance Failsafe allows PX4 to respond to transponder data (e.g. f
 
 The relevant parameters are shown below:
 
-| Parameter                                                                      | Description                                                      |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return mode, Land mode. |
+| Parameter                                                                        | Description                                                      |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Set the failsafe action: Disabled, Warn, Return mode, Land mode. |
+| [NAV_TRAFF_AVOIDU](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOIDU) | Set the avoidance trigger distance for unmanned aviation.        |
+| [NAV_TRAFF_AVOIDM](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOIDM) | Set the avoidance trigger distance for manned aviation.          |
 
 ### Adaptive QuadChute Failsafe
 
