@@ -1936,21 +1936,21 @@ Sets the number of standard deviations used by the innovation consistency test</
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EV_POS_X">EKF2_EV_POS_X</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>X position of VI sensor focal point in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>X position of VI sensor focal point in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EV_POS_Y">EKF2_EV_POS_Y</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Y position of VI sensor focal point in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>Y position of VI sensor focal point in body frame (right axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EV_POS_Z">EKF2_EV_POS_Z</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Z position of VI sensor focal point in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>Z position of VI sensor focal point in body frame (down axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
@@ -2022,21 +2022,21 @@ Sets the number of standard deviations used by the innovation consistency test</
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_POS_X">EKF2_GPS_POS_X</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>X position of GPS antenna in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>X position of GPS antenna in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_POS_Y">EKF2_GPS_POS_Y</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Y position of GPS antenna in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>Y position of GPS antenna in body frame (right axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_POS_Z">EKF2_GPS_POS_Z</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Z position of GPS antenna in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>Z position of GPS antenna in body frame (down axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
@@ -2133,21 +2133,21 @@ Sets the number of standard deviations used by the innovation consistency test</
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_IMU_POS_X">EKF2_IMU_POS_X</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>X position of IMU in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>X position of IMU in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_IMU_POS_Y">EKF2_IMU_POS_Y</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Y position of IMU in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>Y position of IMU in body frame (right axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_IMU_POS_Z">EKF2_IMU_POS_Z</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Z position of IMU in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>Z position of IMU in body frame (down axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
@@ -2360,21 +2360,21 @@ Assumes measurement is timestamped at trailing edge of integration period</p>   
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_POS_X">EKF2_OF_POS_X</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>X position of optical flow focal point in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>X position of optical flow focal point in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_POS_Y">EKF2_OF_POS_Y</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Y position of optical flow focal point in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>Y position of optical flow focal point in body frame (right axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_POS_Z">EKF2_OF_POS_Z</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Z position of optical flow focal point in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>Z position of optical flow focal point in body frame (down axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
@@ -2551,21 +2551,21 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_RNG_POS_X">EKF2_RNG_POS_X</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>X position of range finder origin in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>X position of range finder origin in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_RNG_POS_Y">EKF2_RNG_POS_Y</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Y position of range finder origin in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>Y position of range finder origin in body frame (right axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_RNG_POS_Z">EKF2_RNG_POS_Z</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Z position of range finder origin in body frame</p>   </td>
+ <td style="vertical-align: top;"><p>Z position of range finder origin in body frame (down axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;">m</td>
