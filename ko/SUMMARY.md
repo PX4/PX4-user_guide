@@ -95,6 +95,7 @@
   * [정밀 착륙](advanced_features/precland.md)
   * [RockBlock SatCom 시스템](advanced_features/satcom_roadblock.md)
   * [Air Traffic Avoidance: ADSB/FLARM](advanced_features/traffic_avoidance_adsb.md)
+  * [Air Traffic Avoidance: UTM](advanced_features/traffic_avoidance_utm.md)
   * [Obstacle Avoidance](computer_vision/obstacle_avoidance.md)
   * [Safe Landing](computer_vision/safe_landing.md)
   * [Collision Prevention](computer_vision/collision_prevention.md)
