@@ -6128,7 +6128,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        X position of VI sensor focal point in body frame
+        X position of VI sensor focal point in body frame (forward axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6151,7 +6151,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Y position of VI sensor focal point in body frame
+        Y position of VI sensor focal point in body frame (right axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6174,7 +6174,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Z position of VI sensor focal point in body frame
+        Z position of VI sensor focal point in body frame (down axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6435,7 +6435,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        X position of GPS antenna in body frame
+        X position of GPS antenna in body frame (forward axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6458,7 +6458,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Y position of GPS antenna in body frame
+        Y position of GPS antenna in body frame (right axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6481,7 +6481,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Z position of GPS antenna in body frame
+        Z position of GPS antenna in body frame (down axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6817,7 +6817,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        X position of IMU in body frame
+        X position of IMU in body frame (forward axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6840,7 +6840,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Y position of IMU in body frame
+        Y position of IMU in body frame (right axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6863,7 +6863,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Z position of IMU in body frame
+        Z position of IMU in body frame (down axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -7563,7 +7563,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        X position of optical flow focal point in body frame
+        X position of optical flow focal point in body frame (forward axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -7586,7 +7586,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Y position of optical flow focal point in body frame
+        Y position of optical flow focal point in body frame (right axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -7609,7 +7609,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Z position of optical flow focal point in body frame
+        Z position of optical flow focal point in body frame (down axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -8193,7 +8193,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        X position of range finder origin in body frame
+        X position of range finder origin in body frame (forward axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -8216,7 +8216,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Y position of range finder origin in body frame
+        Y position of range finder origin in body frame (right axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -8239,7 +8239,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Z position of range finder origin in body frame
+        Z position of range finder origin in body frame (down axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
