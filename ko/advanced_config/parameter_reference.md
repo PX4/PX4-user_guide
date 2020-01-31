@@ -4693,21 +4693,21 @@
     
     <td style="vertical-align: top;">
       <p>
-        Enable RC stick override of auto or offboard modes
+        Enable RC stick override of auto and/or offboard modes
       </p>
       
       <p>
-        <strong>Comment:</strong> Moving the RC sticks gives control back to the pilot in manual position mode immediately when: 0: an auto mode is active (except a critical battery reaction) 1: offboard mode is active Only has an effect on multicopters and VTOLS in multicopter mode.
+        <strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks immediately gives control back to the pilot (switches to manual position mode): bit 0: Enable for auto modes (except for in critical battery reaction), bit 1: Enable for offboard mode. Only has an effect on multicopters, and VTOLS in multicopter mode.
       </p>
       
       <strong>Bitmask:</strong>
       
       <ul>
         <li>
-          <strong>0:</strong> Enable override of auto modes
+          <strong>0:</strong> Enable override in auto modes
         </li>
         <li>
-          <strong>1:</strong> Enable override of offboard mode
+          <strong>1:</strong> Enable override in offboard mode
         </li>
       </ul>
     </td>
