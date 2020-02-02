@@ -2,8 +2,7 @@
 
 ![Module Image](../../assets/hardware/power_module/pomegranate_systems_pm/main_image.jpg)
 
-Digital Power Module with high resolution current integration, 5V/2A supply with power monitoring, single UAVCAN v0 CANbus interface, 
-and an RGB status LED.
+Digital Power Module with high resolution current integration, 5V/2A supply with power monitoring, single UAVCAN v0 CANbus interface, and an RGB status LED.
 
 Detailed setup, configuration, and troubleshooting information can be found on the [manufacturer's device home page](https://p-systems.io/product/power_module).
 
@@ -22,10 +21,10 @@ Detailed setup, configuration, and troubleshooting information can be found on t
  - **MCU:** STM32 F302K8U
  - **Firmware:** [Open Source](https://bitbucket.org/p-systems/firmware/)
  - **Electrical Interface:**
-   - **Power:**: Solder Pads or XT60PW (right angle, board-mounted connectors)
-   - **CANbus**: Dual JST GH-4 (standard UAVCAN micro-connector)
-   - **I2C / Serial**: JST GH-5 
-   - **5V Output**: Solder Pads or CANbus / I2C connectors
+   - **Power:** Solder pads or XT60PW (right angle, board-mounted connectors)
+   - **CANbus** Dual JST GH-4 (standard UAVCAN micro-connector)
+   - **I2C / Serial:** JST GH-5 
+   - **5V Output:** Solder pads or CANbus / I2C connectors
  - **Device Mass:**
    - **Without Connectors:** 9g
    - **With XT60PW Connectors:** 16g
@@ -35,13 +34,13 @@ Detailed setup, configuration, and troubleshooting information can be found on t
 
 ## Configuration
 
- 1. Enable UAVCAN by setting the [UAVCAN_ENABLE](../advanced_config/parameters.md#UAVCAN_ENABLE) parameter to `2` (Sensors Automatic Config) or `3`. 
+ 1. Enable UAVCAN by setting the [UAVCAN_ENABLE](../advanced_config/parameters.md#UAVCAN_ENABLE) parameter to `2` (Sensors Automatic Config) or `3`.
  2. Set the following module parameters using the [Mavlink console](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_console.html):
-    * Battery capacity in mAh `battery_capacity_mAh`
-    * Battery voltage when *full*, `battery_full_V`, 
-    * Battery voltage when *empty*, `battery_empty_V`
-    * Turn on current integration `enable_current_track`
-    * (optional) Turn Off CANbus termination resistor `enable_can_term`
+    * Battery capacity in mAh: `battery_capacity_mAh`
+    * Battery voltage when *full*: `battery_full_V`, 
+    * Battery voltage when *empty*: `battery_empty_V`
+    * Turn on current integration: `enable_current_track`
+    * (optional) Turn Off CANbus termination resistor :`enable_can_term`
 
 **Example:** A Power Module with UAVCAN node id `125` connected to a `3S` LiPo with capacity of `5000mAh` can be configured with the following commands:
 
