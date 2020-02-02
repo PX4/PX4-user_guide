@@ -33476,6 +33476,108 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="PCF8583_ADDR">PCF8583_ADDR</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PCF8583 rotorfreq (i2c) i2c address
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>80:</strong> 0x50
+        </li>
+        <li>
+          <strong>81:</strong> 0x51
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      80
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PCF8583_POOL">PCF8583_POOL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PCF8583 rotorfreq (i2c) pool interval
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1000000
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PCF8583_RESET">PCF8583_RESET</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PCF8583 rotorfreq (i2c) counter reset value
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Internal device counter is reset to 0 when overun this value, counter is able to store upto 6 digits reset of counter takes some time - measurement with reset has worse accurancy
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> - reset avter every measurement
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      500000
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="SENS_BARO_QNH">SENS_BARO_QNH</strong> (FLOAT)
     </td>
     
@@ -43516,6 +43618,37 @@
     
     <td style="vertical-align: top;">
       0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PCF8583_MAGNET">PCF8583_MAGNET</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PCF8583 rotorfreq (i2c) magnet count
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Nmumber of signals per rotation of rotor
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      2
     </td>
     
     <td style="vertical-align: top;">
