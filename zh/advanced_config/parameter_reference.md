@@ -14268,6 +14268,36 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="MAV_0_RADIO_CTL">MAV_0_RADIO_CTL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable software throttling of mavlink on instance 0
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If enabled, MAVLink messages will be throttled according to `txbuf` field reported by radio_status. Requires a radio to send the mavlink message RADIO_STATUS.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MAV_0_RATE">MAV_0_RATE</strong> (INT32)
     </td>
     
@@ -14454,6 +14484,36 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="MAV_1_RADIO_CTL">MAV_1_RADIO_CTL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable software throttling of mavlink on instance 1
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If enabled, MAVLink messages will be throttled according to `txbuf` field reported by radio_status. Requires a radio to send the mavlink message RADIO_STATUS.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MAV_1_RATE">MAV_1_RATE</strong> (INT32)
     </td>
     
@@ -14632,6 +14692,36 @@
     
     <td style="vertical-align: top;">
       0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MAV_2_RADIO_CTL">MAV_2_RADIO_CTL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable software throttling of mavlink on instance 2
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If enabled, MAVLink messages will be throttled according to `txbuf` field reported by radio_status. Requires a radio to send the mavlink message RADIO_STATUS.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -14879,16 +14969,16 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MAV_RADIO_ID">MAV_RADIO_ID</strong> (INT32)
+      <strong id="MAV_SIK_RADIO_ID">MAV_SIK_RADIO_ID</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        MAVLink Radio ID
+        MAVLink SiK Radio ID
       </p>
       
       <p>
-        <strong>Comment:</strong> When non-zero the MAVLink app will attempt to configure the radio to this ID and re-set the parameter to 0. If the value is negative it will reset the complete radio config to factory defaults.
+        <strong>Comment:</strong> When non-zero the MAVLink app will attempt to configure the SiK radio to this ID and re-set the parameter to 0. If the value is negative it will reset the complete radio config to factory defaults. Only applies if this mavlink instance is going through a SiK radio
       </p>
     </td>
     
