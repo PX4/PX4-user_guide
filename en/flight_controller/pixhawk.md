@@ -232,9 +232,26 @@ Pin | Signal | Volt
 ## Debug Ports
 ### Console Port
 
-The system's serial console runs on the port labeled SERIAL4/5. The pinout is standard serial pinout, to connect to a standard FTDI cable (3.3V, but its 5V tolerant).
+The system's serial console runs on the port labeled SERIAL4/5.
+The pinout is standard serial pinout, to connect to a standard FTDI cable (3.3V, but its 5V tolerant).
 
 Please refer to the Devguide [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
+
+### SWD Port
+
+The SWD (JTAG) ports are hidden under the cover (which must be removed for hardware debugging).
+There are separate ports for FMU and IO, as highlighted below.
+
+![Pixhawk SWD](../../assets/flight_controller/pixhawk1/pixhawk_swd.jpg)
+
+The ports are ARM 10-pin JTAG connectors, which you will probably have to solder.
+The pinout for the ports is shown below (the square markers in the corners above indicates pin 1).
+
+![ARM 10-Pin connector pinout](../../assets/flight_controller/pixhawk1/arm_10pin_jtag_connector_pinout.jpg)
+
+<!-- For more information on SWD debugging see devguide [link to follow] -->
+
+> **Note** All Pixhawk FMUv2 boards have a similar SWD port. 
 
 
 ## Building Firmware
