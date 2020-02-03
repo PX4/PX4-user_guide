@@ -79,7 +79,7 @@ This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://sto
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
-make auav_x21_default
+make mro_x21_default
 ```
 
 ## Schematics
