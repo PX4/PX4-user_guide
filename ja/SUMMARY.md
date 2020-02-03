@@ -152,6 +152,7 @@
     * [CUAV CAN PMU](power_module/cuav_can_pmu.md)
     * [Holybro PM07 (Pixhawk 4 PM)](power_module/holybro_pm07_pixhawk4_power_module.md)
     * [Holybro PM06 (Micro Power Module)](power_module/holybro_pm06_pixhawk4mini_power_module.md)
+    * [Pomegranate Systems Power Module](power_module/pomegranate_systems_pm.md)
   * [測距センサ (レンジファインダー\)](sensor/rangefinders.md) 
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
     * [uLanding Radar](sensor/ulanding_radar.md)
