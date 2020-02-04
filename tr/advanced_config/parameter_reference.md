@@ -2610,7 +2610,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. The sensor driver will not be started and it cannot be calibrated. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
       </p>
       
       <p>
