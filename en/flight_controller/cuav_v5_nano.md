@@ -104,7 +104,9 @@ This spits out an FTDI cable for connecting the [PX4 System Console](https://dev
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_nano/cuav_nano_debug_cable.jpg)
 
-> **Warning** The SWD cable *does not split* out the 5V cable from the port.
+> **Warning** The SWD cable uses 5V as Vref but the CPU is run at 3,3V! 
+
+  Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.   
 >  For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to connect to `Vtref` (Pin 1) of the debug cable. Thus providing 3.3V and *NOT* 5V to the JTAG.
 >
 >  For more information see [Using JTAG for hardware debugging](#issue_jtag).
