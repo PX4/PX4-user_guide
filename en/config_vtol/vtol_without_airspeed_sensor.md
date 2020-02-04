@@ -45,6 +45,8 @@ This can be used to tune your throttle setting after the first flight without a
 
 To bypass the flight checks you need to set the circuit breaker for the airspeed sensor ([CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK)) to 162128.
 
+> **Note** Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks).
+
 To tell the flight controller it will fly without an airspeed sensor you
 need to set the airspeed mode ([FW_ARSP_MODE](../advanced_config/parameter_reference.md#FW_ARSP_MODE)) to 'declare airspeed invalid' (2).
 
