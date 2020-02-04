@@ -100,17 +100,17 @@ Pin | Signal | Volt
 6 (blk) | GND | GND
 
 The product package includes a convenient debug cable that can be connected to the `DSU7` port.
-This splits out an FTDI cable for connecting the [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) to a computer USB port, and SWD pins used for SWD/JTAG debugging.
+This splits out an FTDI cable for connecting the [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) to a computer USB port, and SWD pins used for SWD/JTAG debugging. 
+The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_nano/cuav_nano_debug_cable.jpg)
 
-> **Warning** The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V! 
+> **Warning** The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
 >
-> Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.   
-> For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to connect to `Vtref` (Pin 1) of the debug cable (i.e. providing 3.3V and *NOT* 5V to the JTAG).
+> Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
+> For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
 >
->  For more information see [Using JTAG for hardware debugging](#issue_jtag).
-
+>For more information see [Using JTAG for hardware debugging](#issue_jtag).
 
 
 ## Voltage Ratings
