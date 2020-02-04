@@ -105,7 +105,7 @@ This spits out an FTDI cable for connecting the [PX4 System Console](https://dev
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_nano/cuav_nano_debug_cable.jpg)
 
 > **Warning** The SWD cable *does not split* out the 5V cable from the port.
->  For direct connection to *Segger Jlink* we recommended you connect the 3.3 Volts of `DSM`/`SBUS`/`RSSI` pin 4 as Pin 1 on the debug connector (`Vtref`).
+>  For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to connect to `Vtref` (Pin 1) of the debug cable. Thus providing 3.3V and *NOT* 5V to the JTAG.
 >
 >  For more information see [Using JTAG for hardware debugging](#issue_jtag).
 
@@ -200,4 +200,3 @@ The *HV\_PM* power module supplied with the kit is not protected by a fuse:
 * [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)  (CUAV)
 * [CUAV Github](https://github.com/cuav)  (CUAV)
 * [Airframe build-log using CUAV v5 nano on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5nano.md)
-
