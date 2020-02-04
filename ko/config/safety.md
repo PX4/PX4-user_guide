@@ -199,9 +199,11 @@ The Traffic Avoidance Failsafe allows PX4 to respond to transponder data (e.g. f
 
 The relevant parameters are shown below:
 
-| Parameter                                                                      | Description                                                      |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
-| [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return mode, Land mode. |
+| Parameter                                                                        | Description                                                      |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Set the failsafe action: Disabled, Warn, Return mode, Land mode. |
+| [NAV_TRAFF_AVOIDU](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOIDU) | Set the avoidance trigger distance for unmanned aviation.        |
+| [NAV_TRAFF_AVOIDM](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOIDM) | Set the avoidance trigger distance for manned aviation.          |
 
 ### Adaptive QuadChute Failsafe
 
@@ -215,11 +217,15 @@ The relevant parameters are shown below:
 
 ## Failure Detector {#failure_detector}
 
-The failure detector allows a vehicle to take protective action(s) if it unexpectedly flips - for example, it can launch a [parachute](../peripherals/parachute.md) or perform some other action.
+The failure detector allows a vehicle to take protective action(s) if it unexpectedly flips, or if it is notified by an external failure detection system.
 
-> **Note** Failure detection is deactivated by default using a circuit breaker. You can enable it by setting [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM).
+More precisely, the failure detector can be used to trigger [flight termination](../advanced_config/flight_termination.md) (in all modes) if failure conditions are met, and can then launch a [parachute](../peripherals/parachute.md) or perform some other action.
 
-More precisely, the failure detector triggers [flight termination](../advanced_config/flight_termination.md) (in all modes) if the vehicle attitude exceeds predefined pitch and roll values for more than a specified time.
+> **Note** Failure detection is deactivated by default. You can enable it by setting [CBRK_FLIGHTTERM=0](#CBRK_FLIGHTTERM).
+
+### Attitude Trigger {#attitude_trigger}
+
+The failure detector can be configured to trigger if the vehicle attitude exceeds predefined pitch and roll values for longer than a specified time.
 
 The relevant parameters are shown below:
 
@@ -231,13 +237,24 @@ The relevant parameters are shown below:
 | <span id="FD_FAIL_P_TTRI"></span>[FD_FAIL_P_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_P_TTRI) | Time to exceed [FD_FAIL_P](#FD_FAIL_P) for failure detection (default 0.3s).                                                   |
 | <span id="FD_FAIL_R_TTRI"></span>[FD_FAIL_R_TTRI](../advanced_config/parameter_reference.md#FD_FAIL_R_TTRI) | Time to exceed [FD_FAIL_R](#FD_FAIL_R) for failure detection (default 0.3s).                                                   |
 
+### External Automatic Trigger System (ATS) {#external_ats}
+
+The [failure detector](#failure_detector), if [enabled](#CBRK_FLIGHTTERM), can also be triggered by an external ATS system. The external trigger system must be connected to flight controller port AUX5 (or MAIN5 on boards that do not have AUX ports), and is configured using the parameters below.
+
+> **Note** External ATS is required by [ASTM F3322-18](https://webstore.ansi.org/Standards/ASTM/ASTMF332218). One example of an ATS device is the [FruityChutes Sentinel Automatic Trigger System](https://fruitychutes.com/uav_rpv_drone_recovery_parachutes/sentinel-automatic-trigger-system.htm).
+
+| Parameter                                                                                               | Description                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <span id="FD_EXT_ATS_EN"></span>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)     | Enable PWM input on AUX5 or MAIN5 (depending on board) for engaging failsafe from an external automatic trigger system (ATS). Default: Disabled. |
+| <span id="FD_EXT_ATS_TRIG"></span>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | The PWM threshold from external automatic trigger system for engaging failsafe. Default: 1900 ms.                                                |
+
 ## Emergency Switches {#safety_switch}
 
 Remote control switches can be configured (as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md)) to allow you to take rapid corrective action in the event of a problem or emergency; for example, to stop all motors, or activate [Return mode](#return_switch).
 
 This section lists the available emergency switches.
 
-### 킬스위치 {#kill_switch}
+### Kill Switch {#kill_switch}
 
 A kill switch immediately stops all motor outputs (and if flying, the vehicle will start to fall)! The motors will restart if the switch is reverted within 5 seconds. After 5 seconds the vehicle will automatically disarm; you will need to arm it again in order to start the motors.
 
@@ -277,8 +294,8 @@ You can set timeouts to automatically disarm a vehicle if it is too slow to take
 
 The [relevant parameters](../advanced_config/parameters.md) are shown below:
 
-| Parameter                                                                                                 | Description                                                |
-| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| Parameter                                                                                                  | Description                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | Timeout for auto-disarm after landing.                     |
 | <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff. |
 

@@ -32,7 +32,9 @@ The following errors (with associated checks and parameters) are reported by the
 
 - 当使用陀螺仪数据估计的偏航角和来自磁力计或外部视觉系统的偏航角不一致时，产生该误差。
 - 检查 IMU 数据是否存在较大的偏航率漂洗，并检查磁力计的对准和校准。
-- 检查由[COM_ARM_EKF_POS](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS)参数控制。
+- The check is controlled by the [COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) parameter
+- The default value of 0.5 allows the differences between the navigation yaw angle and magnetic yaw angle (magnetometer or external vision) to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences.
+- It can fail if the yaw gyro has a large offset or if the vehicle is moved or rotated in the presence of a bad magnetic interference or magnetometer calibration.
 
 `PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS`:
 
@@ -82,7 +84,3 @@ The [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) p
 
 - `1` (default): Arming *is* allowed without a position estimate for flight modes that do not require position information (only).
 - `0`: Arming is allowed only if EKF is providing a global position estimate and EFK GPS quality checks are passing
-
-### COM_ARM_EKF_YAW
-
-The [COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) parameter determines the maximum difference (in radians) between the navigation yaw angle and magnetic yaw angle (magnetometer or external vision) allowed before preflight checks fail. The default value of 0.5 allows the differences to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences. It can fail if the yaw gyro has a large offset or if the vehicle is moved or rotated in the presence of a bad magnetic interference or magnetometer calibration.

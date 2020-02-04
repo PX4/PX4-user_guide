@@ -2725,37 +2725,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="CBRK_GPSFAIL">CBRK_GPSFAIL</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Circuit breaker for GPS failure detection
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Setting this parameter to 240024 will disable the GPS failure detection. If this check is enabled, then the sensor check will fail if the GPS module is missing. It will also check for excessive signal noise on the GPS receiver and warn the user if detected. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
-      </p>
-      
-      <p>
-        <b>Reboot required:</b> true
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0 > 240024
-    </td>
-    
-    <td style="vertical-align: top;">
-      0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="CBRK_IO_SAFETY">CBRK_IO_SAFETY</strong> (INT32)
     </td>
     
@@ -2899,6 +2868,37 @@
     
     <td style="vertical-align: top;">
       0 > 201607
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="CBRK_VTOLARMING">CBRK_VTOLARMING</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Circuit breaker for arming in fixed-wing mode check
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Setting this parameter to 159753 will enable arming in fixed-wing mode for VTOLs. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 159753
     </td>
     
     <td style="vertical-align: top;">
@@ -3081,7 +3081,6 @@
     </td>
     
     <td style="vertical-align: top;">
-      m
     </td>
   </tr>
   
@@ -3105,7 +3104,6 @@
     </td>
     
     <td style="vertical-align: top;">
-      m
     </td>
   </tr>
   
@@ -3129,7 +3127,6 @@
     </td>
     
     <td style="vertical-align: top;">
-      m/s
     </td>
   </tr>
   
@@ -3153,7 +3150,6 @@
     </td>
     
     <td style="vertical-align: top;">
-      rad
     </td>
   </tr>
   
@@ -3231,6 +3227,32 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="COM_ARM_MAG_STR">COM_ARM_MAG_STR</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable mag strength preflight check
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Deny arming if the estimator detects a strong magnetic disturbance (check enabled by EKF2_MAG_CHECK)
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="COM_ARM_MIS_REQ">COM_ARM_MIS_REQ</strong> (INT32)
     </td>
     
@@ -3268,25 +3290,13 @@
       <p>
         <strong>Comment:</strong> The default uses the arm switch as real switch. If parameter set button gets handled like stick arming.
       </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> Arm switch is a switch that stays on when armed
-        </li>
-        <li>
-          <strong>1:</strong> Arm switch is a button that only triggers arming and disarming
-        </li>
-      </ul>
     </td>
     
     <td style="vertical-align: top;">
-      0 > 1
     </td>
     
     <td style="vertical-align: top;">
-      0
+      Disabled (0)
     </td>
     
     <td style="vertical-align: top;">
@@ -4683,19 +4693,31 @@
     
     <td style="vertical-align: top;">
       <p>
-        Enable RC stick override of auto modes
+        Enable RC stick override of auto and/or offboard modes
       </p>
       
       <p>
-        <strong>Comment:</strong> When an auto mode is active (except a critical battery reaction) moving the RC sticks gives control back to the pilot in manual position mode immediately. Only has an effect on multicopters and VTOLS in multicopter mode.
+        <strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks immediately gives control back to the pilot (switches to manual position mode): bit 0: Enable for auto modes (except for in critical battery reaction), bit 1: Enable for offboard mode. Only has an effect on multicopters, and VTOLS in multicopter mode.
       </p>
+      
+      <strong>Bitmask:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Enable override in auto modes
+        </li>
+        <li>
+          <strong>1:</strong> Enable override in offboard mode
+        </li>
+      </ul>
     </td>
     
     <td style="vertical-align: top;">
+      0 > 3
     </td>
     
     <td style="vertical-align: top;">
-      Enabled (1)
+      1
     </td>
     
     <td style="vertical-align: top;">
@@ -4901,6 +4923,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -5925,7 +5950,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Measurement noise for vision angle observations used when the vision system does not supply error estimates
+        Measurement noise for vision angle observations used to lower bound or replace the uncertainty included in the message
       </p>
     </td>
     
@@ -5973,7 +5998,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Measurement noise for vision position observations used when the vision system does not supply error estimates
+        Measurement noise for vision position observations used to lower bound or replace the uncertainty included in the message
       </p>
     </td>
     
@@ -6025,7 +6050,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Measurement noise for vision velocity observations used when the vision system does not supply error estimates
+        Measurement noise for vision velocity observations used to lower bound or replace the uncertainty included in the message
       </p>
     </td>
     
@@ -6103,7 +6128,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        X position of VI sensor focal point in body frame
+        X position of VI sensor focal point in body frame (forward axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6126,7 +6151,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Y position of VI sensor focal point in body frame
+        Y position of VI sensor focal point in body frame (right axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6149,7 +6174,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Z position of VI sensor focal point in body frame
+        Z position of VI sensor focal point in body frame (down axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6410,7 +6435,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        X position of GPS antenna in body frame
+        X position of GPS antenna in body frame (forward axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6433,7 +6458,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Y position of GPS antenna in body frame
+        Y position of GPS antenna in body frame (right axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6456,7 +6481,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Z position of GPS antenna in body frame
+        Z position of GPS antenna in body frame (down axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6753,12 +6778,46 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="EKF2_IMU_ID">EKF2_IMU_ID</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Device id of IMU
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Set to 0 to use system selected (sensor_combined) IMU, otherwise set to the device id of the desired IMU (vehicle_imu).
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> System Primary
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="EKF2_IMU_POS_X">EKF2_IMU_POS_X</strong> (FLOAT)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        X position of IMU in body frame
+        X position of IMU in body frame (forward axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6781,7 +6840,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Y position of IMU in body frame
+        Y position of IMU in body frame (right axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -6804,7 +6863,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Z position of IMU in body frame
+        Z position of IMU in body frame (down axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -7504,7 +7563,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        X position of optical flow focal point in body frame
+        X position of optical flow focal point in body frame (forward axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -7527,7 +7586,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Y position of optical flow focal point in body frame
+        Y position of optical flow focal point in body frame (right axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -7550,7 +7609,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Z position of optical flow focal point in body frame
+        Z position of optical flow focal point in body frame (down axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -8134,7 +8193,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        X position of range finder origin in body frame
+        X position of range finder origin in body frame (forward axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -8157,7 +8216,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Y position of range finder origin in body frame
+        Y position of range finder origin in body frame (right axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -8180,7 +8239,7 @@
     
     <td style="vertical-align: top;">
       <p>
-        Z position of range finder origin in body frame
+        Z position of range finder origin in body frame (down axis with origin relative to vehicle centre of gravity)
       </p>
     </td>
     
@@ -10892,34 +10951,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="FW_T_HGT_OMEGA">FW_T_HGT_OMEGA</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Complementary filter "omega" parameter for height
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> This is the cross-over frequency (in radians/second) of the complementary filter used to fuse vertical acceleration and barometric height to obtain an estimate of height rate and height. Increasing this frequency weights the solution more towards use of the barometer, whilst reducing it weights the solution more towards use of the accelerometer data.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0 > 10.0 (0.5)
-    </td>
-    
-    <td style="vertical-align: top;">
-      3.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      rad/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="FW_T_HRATE_FF">FW_T_HRATE_FF</strong> (FLOAT)
     </td>
     
@@ -11318,6 +11349,63 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="FD_EXT_ATS_EN">FD_EXT_ATS_EN</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable PWM input on AUX5 or MAIN5 (depending on board) for engaging failsafe from an external automatic trigger system (ATS)
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> External ATS is required by ASTM F3322-18.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="FD_EXT_ATS_TRIG">FD_EXT_ATS_TRIG</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        The PWM threshold from external automatic trigger system for engaging failsafe
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> External ATS is required by ASTM F3322-18.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1900
+    </td>
+    
+    <td style="vertical-align: top;">
+      microseconds
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="FD_FAIL_P">FD_FAIL_P</strong> (INT32)
     </td>
     
@@ -11630,6 +11718,9 @@
           <strong>202:</strong> GPS 2
         </li>
         <li>
+          <strong>203:</strong> GPS 3
+        </li>
+        <li>
           <strong>300:</strong> Radio Controller
         </li>
       </ul>
@@ -11690,6 +11781,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -12269,6 +12363,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -14057,6 +14154,9 @@
           <strong>202:</strong> GPS 2
         </li>
         <li>
+          <strong>203:</strong> GPS 3
+        </li>
+        <li>
           <strong>300:</strong> Radio Controller
         </li>
       </ul>
@@ -14168,6 +14268,36 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="MAV_0_RADIO_CTL">MAV_0_RADIO_CTL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable software throttling of mavlink on instance 0
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If enabled, MAVLink messages will be throttled according to `txbuf` field reported by radio_status. Requires a radio to send the mavlink message RADIO_STATUS.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MAV_0_RATE">MAV_0_RATE</strong> (INT32)
     </td>
     
@@ -14238,6 +14368,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -14351,6 +14484,36 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="MAV_1_RADIO_CTL">MAV_1_RADIO_CTL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable software throttling of mavlink on instance 1
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If enabled, MAVLink messages will be throttled according to `txbuf` field reported by radio_status. Requires a radio to send the mavlink message RADIO_STATUS.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MAV_1_RATE">MAV_1_RATE</strong> (INT32)
     </td>
     
@@ -14421,6 +14584,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -14526,6 +14692,36 @@
     
     <td style="vertical-align: top;">
       0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MAV_2_RADIO_CTL">MAV_2_RADIO_CTL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Enable software throttling of mavlink on instance 2
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If enabled, MAVLink messages will be throttled according to `txbuf` field reported by radio_status. Requires a radio to send the mavlink message RADIO_STATUS.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> True
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Enabled (1)
     </td>
     
     <td style="vertical-align: top;">
@@ -14773,16 +14969,16 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MAV_RADIO_ID">MAV_RADIO_ID</strong> (INT32)
+      <strong id="MAV_SIK_RADIO_ID">MAV_SIK_RADIO_ID</strong> (INT32)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        MAVLink Radio ID
+        MAVLink SiK Radio ID
       </p>
       
       <p>
-        <strong>Comment:</strong> When non-zero the MAVLink app will attempt to configure the radio to this ID and re-set the parameter to 0. If the value is negative it will reset the complete radio config to factory defaults.
+        <strong>Comment:</strong> When non-zero the MAVLink app will attempt to configure the SiK radio to this ID and re-set the parameter to 0. If the value is negative it will reset the complete radio config to factory defaults. Only applies if this mavlink instance is going through a SiK radio
       </p>
     </td>
     
@@ -15005,173 +15201,6 @@
     
     <td style="vertical-align: top;">
       Disabled (0)
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-</table>
-
-## MPU9x50 Configuration
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
-  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-      Description
-    </th>
-    
-    <th>
-      Min > Max (Incr.)
-    </th>
-    
-    <th>
-      Default
-    </th>
-    
-    <th>
-      Units
-    </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPU_ACC_LPF_ENM">MPU_ACC_LPF_ENM</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Low pass filter frequency for Accelerometer
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> MPU9X50_ACC_LPF_460HZ
-        </li>
-        <li>
-          <strong>1:</strong> MPU9X50_ACC_LPF_184HZ
-        </li>
-        <li>
-          <strong>2:</strong> MPU9X50_ACC_LPF_92HZ
-        </li>
-        <li>
-          <strong>3:</strong> MPU9X50_ACC_LPF_41HZ
-        </li>
-        <li>
-          <strong>4:</strong> MPU9X50_ACC_LPF_20HZ
-        </li>
-        <li>
-          <strong>5:</strong> MPU9X50_ACC_LPF_10HZ
-        </li>
-        <li>
-          <strong>6:</strong> MPU9X50_ACC_LPF_5HZ
-        </li>
-        <li>
-          <strong>7:</strong> MPU9X50_ACC_LPF_460HZ_NOLPF
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      4
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPU_GYRO_LPF_ENM">MPU_GYRO_LPF_ENM</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Low pass filter frequency for Gyro
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> MPU9X50_GYRO_LPF_250HZ
-        </li>
-        <li>
-          <strong>1:</strong> MPU9X50_GYRO_LPF_184HZ
-        </li>
-        <li>
-          <strong>2:</strong> MPU9X50_GYRO_LPF_92HZ
-        </li>
-        <li>
-          <strong>3:</strong> MPU9X50_GYRO_LPF_41HZ
-        </li>
-        <li>
-          <strong>4:</strong> MPU9X50_GYRO_LPF_20HZ
-        </li>
-        <li>
-          <strong>5:</strong> MPU9X50_GYRO_LPF_10HZ
-        </li>
-        <li>
-          <strong>6:</strong> MPU9X50_GYRO_LPF_5HZ
-        </li>
-        <li>
-          <strong>7:</strong> MPU9X50_GYRO_LPF_3600HZ_NOLPF
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      4
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPU_SAMPLE_R_ENM">MPU_SAMPLE_R_ENM</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Sample rate in Hz
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> MPU9x50_SAMPLE_RATE_100HZ
-        </li>
-        <li>
-          <strong>1:</strong> MPU9x50_SAMPLE_RATE_200HZ
-        </li>
-        <li>
-          <strong>2:</strong> MPU9x50_SAMPLE_RATE_500HZ
-        </li>
-        <li>
-          <strong>3:</strong> MPU9x50_SAMPLE_RATE_1000HZ
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      2
     </td>
     
     <td style="vertical-align: top;">
@@ -15899,6 +15928,9 @@
         <li>
           <strong>3:</strong> Land mode
         </li>
+        <li>
+          <strong>4:</strong> Position Hold mode
+        </li>
       </ul>
     </td>
     
@@ -15910,6 +15942,62 @@
     </td>
     
     <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="NAV_TRAFF_A_RADM">NAV_TRAFF_A_RADM</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set NAV TRAFFIC AVOID RADIUS MANNED
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Manned Aviation
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      500 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      500
+    </td>
+    
+    <td style="vertical-align: top;">
+      m
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="NAV_TRAFF_A_RADU">NAV_TRAFF_A_RADU</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Set NAV TRAFFIC AVOID RADIUS
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Defines the Radius where NAV TRAFFIC AVOID is Called For Unmanned Aviation
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      10 > 500
+    </td>
+    
+    <td style="vertical-align: top;">
+      10
+    </td>
+    
+    <td style="vertical-align: top;">
+      m
     </td>
   </tr>
 </table>
@@ -16971,30 +17059,6 @@
   
   <tr>
     <td style="vertical-align: top;">
-      <strong id="MPC_ACC_HOR_ESTM">MPC_ACC_HOR_ESTM</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Horizontal acceleration in manual modes when te estimator speed limit is removed. If full stick is being applied and the estimator stops demanding a speed limit, which it had been before (e.g if GPS is gained while flying on optical flow/vision only), the vehicle will accelerate at this rate until the normal position control speed is achieved
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.2 > 2.0 (0.1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.5
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s/s
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
       <strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)
     </td>
     
@@ -17004,7 +17068,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Manual mode: Maximum deceleration for MPC_POS_MODE 1 and 2. Maximum acceleration and deceleration for MPC_POS_MODE 3. Auto mode: Used with MPC_AUTO_MODE 0 only. For MPC_AUTO_MODE 1, MPC_ACC_HOR is always used.
+        <strong>Comment:</strong> Maximum deceleration for MPC_POS_MODE 1 and 2. Maximum acceleration and deceleration for MPC_POS_MODE 3.
       </p>
     </td>
     
@@ -17083,67 +17147,6 @@
     </td>
     
     <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_AUTO_MODE">MPC_AUTO_MODE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Auto sub-mode
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> Default line tracking
-        </li>
-        <li>
-          <strong>1:</strong> Jerk-limited trajectory
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_CRUISE_90">MPC_CRUISE_90</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Cruise speed when angle prev-current/current-next setpoint is 90 degrees. It should be lower than MPC_XY_CRUISE
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Applies only in AUTO modes (includes also RTL / hold / etc.)
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      1.0 > 20.0 (1)
-    </td>
-    
-    <td style="vertical-align: top;">
-      3.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      m/s
     </td>
   </tr>
   
@@ -17257,7 +17260,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility. Note: This is only used in jerk-limited trajectory mode (MPC_AUTO_MODE 1)
+        <strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility.
       </p>
     </td>
     
@@ -17341,7 +17344,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Below this altitude descending velocity gets limited to a value between "MPC_Z_VEL_MAX" and "MPC_LAND_SPEED" to enable a smooth descent experience Value needs to be higher than "MPC_LAND_ALT2"
+        <strong>Comment:</strong> Below this altitude: - descending velocity gets limited to a value between "MPC_Z_VEL_MAX" and "MPC_LAND_SPEED" - horizontal velocity gets limited to a value between "MPC_VEL_MANUAL" and "MPC_LAND_VEL_XY" for a smooth descent and landing experience. Value needs to be higher than "MPC_LAND_ALT2"
       </p>
     </td>
     
@@ -17369,7 +17372,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Below this altitude descending velocity gets limited to "MPC_LAND_SPEED" Value needs to be lower than "MPC_LAND_ALT1"
+        <strong>Comment:</strong> Below this altitude descending and horizontal velocities get limited to "MPC_LAND_SPEED" and "MPC_LAND_VEL_XY", respectively. Value needs to be lower than "MPC_LAND_ALT1"
       </p>
     </td>
     
@@ -17403,6 +17406,30 @@
     
     <td style="vertical-align: top;">
       0.7
+    </td>
+    
+    <td style="vertical-align: top;">
+      m/s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MPC_LAND_VEL_XY">MPC_LAND_VEL_XY</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Maximum horizontal velocity during landing Set the value higher than the otherwise expected maximum to disable any slowdown
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.
     </td>
     
     <td style="vertical-align: top;">
@@ -18130,29 +18157,6 @@
     
     <td style="vertical-align: top;">
       1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="MPC_Z_TRAJ_P">MPC_Z_TRAJ_P</strong> (FLOAT)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Proportional gain for vertical trajectory position error
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.1 > 1.0
-    </td>
-    
-    <td style="vertical-align: top;">
-      0.3
     </td>
     
     <td style="vertical-align: top;">
@@ -22871,58 +22875,6 @@
   </tr>
 </table>
 
-## RC Receiver Configuration
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
-  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-      Description
-    </th>
-    
-    <th>
-      Min > Max (Incr.)
-    </th>
-    
-    <th>
-      Default
-    </th>
-    
-    <th>
-      Units
-    </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="RC_RECEIVER_TYPE">RC_RECEIVER_TYPE</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        RC receiver type
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Acceptable values: - RC_RECEIVER_SPEKTRUM = 1, - RC_RECEIVER_LEMONRX = 2,
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-</table>
-
 ## RTPS
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -22990,6 +22942,9 @@
           <strong>202:</strong> GPS 2
         </li>
         <li>
+          <strong>203:</strong> GPS 3
+        </li>
+        <li>
           <strong>300:</strong> Radio Controller
         </li>
       </ul>
@@ -23050,6 +23005,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -29344,6 +29302,9 @@
           <strong>202:</strong> GPS 2
         </li>
         <li>
+          <strong>203:</strong> GPS 3
+        </li>
+        <li>
           <strong>300:</strong> Radio Controller
         </li>
       </ul>
@@ -30280,7 +30241,7 @@
     </td>
     
     <td style="vertical-align: top;">
-      0.0 > 20.0 (0.5)
+      -10.0 > 20.0 (0.5)
     </td>
     
     <td style="vertical-align: top;">
@@ -30362,6 +30323,32 @@
     <th>
       Units
     </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SDLOG_BOOT_BAT">SDLOG_BOOT_BAT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Battery-only Logging
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> When enabled, logging will not start from boot if battery power is not detected (e.g. powered via USB on a test bench). This prevents extraneous flight logs from being created during bench testing. Note that this only applies to log-from-boot modes. This has no effect on arm-based modes.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
   </tr>
   
   <tr>
@@ -30631,6 +30618,58 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="SIM_ACCEL_BLOCK">SIM_ACCEL_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block accelerometer data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation accelerometer data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_BARO_BLOCK">SIM_BARO_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block barometer data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation barometer data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="SIM_BAT_DRAIN">SIM_BAT_DRAIN</strong> (FLOAT)
     </td>
     
@@ -30674,6 +30713,134 @@
     
     <td style="vertical-align: top;">
       %
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_DPRES_BLOCK">SIM_DPRES_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block differential pressure data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation differential pressure data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_GPS_BLOCK">SIM_GPS_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block GPS data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation GPS data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_GPS_NOISE_X">SIM_GPS_NOISE_X</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator GPS noise multiplier
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 10 (0.1)
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      %
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_GYRO_BLOCK">SIM_GYRO_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block gyroscope data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation gyroscope data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SIM_MAG_BLOCK">SIM_MAG_BLOCK</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Simulator block magnetometer data
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Enable to block the publication of any incoming simulation magnetometer data.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      Disabled (0)
+    </td>
+    
+    <td style="vertical-align: top;">
     </td>
   </tr>
 </table>
@@ -33119,11 +33286,11 @@
     
     <td style="vertical-align: top;">
       <p>
-        Driver level cutoff frequency for accel
+        Low pass filter cutoff frequency for accel
       </p>
       
       <p>
-        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the accel driver. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary accelerometer. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
       </p>
       
       <p>
@@ -33146,16 +33313,48 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="IMU_DGYRO_CUTOFF">IMU_DGYRO_CUTOFF</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Cutoff frequency for angular acceleration
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter used on the time derivative of the measured angular velocity. Set to 0 to disable the filter.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1000
+    </td>
+    
+    <td style="vertical-align: top;">
+      10.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="IMU_GYRO_CUTOFF">IMU_GYRO_CUTOFF</strong> (FLOAT)
     </td>
     
     <td style="vertical-align: top;">
       <p>
-        Driver level cutoff frequency for gyro
+        Low pass filter cutoff frequency for gyro
       </p>
       
       <p>
-        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the gyro driver. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
+        <strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary gyro. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.
       </p>
       
       <p>
@@ -33169,6 +33368,70 @@
     
     <td style="vertical-align: top;">
       30.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="IMU_GYRO_NF_BW">IMU_GYRO_NF_BW</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Notch filter bandwidth for gyro
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 100
+    </td>
+    
+    <td style="vertical-align: top;">
+      20.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      Hz
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="IMU_GYRO_NF_FREQ">IMU_GYRO_NF_FREQ</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Notch filter frequency for gyro
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter. See "IMU_GYRO_NF_BW" to set the bandwidth of the filter.
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0 > 1000
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
     </td>
     
     <td style="vertical-align: top;">
@@ -33187,7 +33450,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro_control) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.
+        <strong>Comment:</strong> This is the maximum rate the gyro control data (sensor_gyro) will be allowed to publish at. Set to 0 to disable and publish at the native sensor sample rate.
       </p>
       
       <strong>Values:</strong>
@@ -33295,6 +33558,108 @@
     
     <td style="vertical-align: top;">
       0.0005
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PCF8583_ADDR">PCF8583_ADDR</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PCF8583 rotorfreq (i2c) i2c address
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>80:</strong> 0x50
+        </li>
+        <li>
+          <strong>81:</strong> 0x51
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      80
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PCF8583_POOL">PCF8583_POOL</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PCF8583 rotorfreq (i2c) pool interval
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1000000
+    </td>
+    
+    <td style="vertical-align: top;">
+      us
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PCF8583_RESET">PCF8583_RESET</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PCF8583 rotorfreq (i2c) counter reset value
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Internal device counter is reset to 0 when overun this value, counter is able to store upto 6 digits reset of counter takes some time - measurement with reset has worse accurancy
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> - reset avter every measurement
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      500000
     </td>
     
     <td style="vertical-align: top;">
@@ -33593,6 +33958,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -34233,6 +34601,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -35737,6 +36108,9 @@
           <strong>202:</strong> GPS 2
         </li>
         <li>
+          <strong>203:</strong> GPS 3
+        </li>
+        <li>
           <strong>300:</strong> Radio Controller
         </li>
       </ul>
@@ -35821,6 +36195,9 @@
           <strong>202:</strong> GPS 2
         </li>
         <li>
+          <strong>203:</strong> GPS 3
+        </li>
+        <li>
           <strong>300:</strong> Radio Controller
         </li>
       </ul>
@@ -35881,6 +36258,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -35969,6 +36349,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -36116,6 +36499,119 @@
       
       <p>
         <strong>Comment:</strong> Configure the Baudrate for the GPS 2 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> Auto
+        </li>
+        <li>
+          <strong>50:</strong> 50 8N1
+        </li>
+        <li>
+          <strong>75:</strong> 75 8N1
+        </li>
+        <li>
+          <strong>110:</strong> 110 8N1
+        </li>
+        <li>
+          <strong>134:</strong> 134 8N1
+        </li>
+        <li>
+          <strong>150:</strong> 150 8N1
+        </li>
+        <li>
+          <strong>200:</strong> 200 8N1
+        </li>
+        <li>
+          <strong>300:</strong> 300 8N1
+        </li>
+        <li>
+          <strong>600:</strong> 600 8N1
+        </li>
+        <li>
+          <strong>1200:</strong> 1200 8N1
+        </li>
+        <li>
+          <strong>1800:</strong> 1800 8N1
+        </li>
+        <li>
+          <strong>2400:</strong> 2400 8N1
+        </li>
+        <li>
+          <strong>4800:</strong> 4800 8N1
+        </li>
+        <li>
+          <strong>9600:</strong> 9600 8N1
+        </li>
+        <li>
+          <strong>19200:</strong> 19200 8N1
+        </li>
+        <li>
+          <strong>38400:</strong> 38400 8N1
+        </li>
+        <li>
+          <strong>57600:</strong> 57600 8N1
+        </li>
+        <li>
+          <strong>115200:</strong> 115200 8N1
+        </li>
+        <li>
+          <strong>230400:</strong> 230400 8N1
+        </li>
+        <li>
+          <strong>460800:</strong> 460800 8N1
+        </li>
+        <li>
+          <strong>500000:</strong> 500000 8N1
+        </li>
+        <li>
+          <strong>921600:</strong> 921600 8N1
+        </li>
+        <li>
+          <strong>1000000:</strong> 1000000 8N1
+        </li>
+        <li>
+          <strong>1500000:</strong> 1500000 8N1
+        </li>
+        <li>
+          <strong>2000000:</strong> 2000000 8N1
+        </li>
+        <li>
+          <strong>3000000:</strong> 3000000 8N1
+        </li>
+      </ul>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="SER_GPS3_BAUD">SER_GPS3_BAUD</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Baudrate for the GPS 3 Serial Port
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Configure the Baudrate for the GPS 3 Serial Port. Note: certain drivers such as the GPS can determine the Baudrate automatically.
       </p>
       
       <strong>Values:</strong>
@@ -37454,186 +37950,6 @@
   </tr>
 </table>
 
-## Snapdragon UART ESC
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
-  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
-    <th>
-      Name
-    </th>
-    
-    <th>
-      Description
-    </th>
-    
-    <th>
-      Min > Max (Incr.)
-    </th>
-    
-    <th>
-      Default
-    </th>
-    
-    <th>
-      Units
-    </th>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="UART_ESC_BAUD">UART_ESC_BAUD</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        ESC UART baud rate
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> Default rate is 250Kbps, whic is used in off-the-shelf QRP ESC products.
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      250000
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="UART_ESC_MODEL">UART_ESC_MODEL</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        ESC model
-      </p>
-      
-      <p>
-        <strong>Comment:</strong> See esc_model_t enum definition in uart_esc_dev.h for all supported ESC model enum values.
-      </p>
-      
-      <strong>Values:</strong>
-      
-      <ul>
-        <li>
-          <strong>0:</strong> ESC_200QX
-        </li>
-        <li>
-          <strong>1:</strong> ESC_350QX
-        </li>
-        <li>
-          <strong>2:</strong> ESC_210QC
-        </li>
-      </ul>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      2
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="UART_ESC_MOTOR1">UART_ESC_MOTOR1</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Motor 1 Mapping
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      4
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="UART_ESC_MOTOR2">UART_ESC_MOTOR2</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Motor 2 Mapping
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      2
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="UART_ESC_MOTOR3">UART_ESC_MOTOR3</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Motor 3 Mapping
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      1
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-  
-  <tr>
-    <td style="vertical-align: top;">
-      <strong id="UART_ESC_MOTOR4">UART_ESC_MOTOR4</strong> (INT32)
-    </td>
-    
-    <td style="vertical-align: top;">
-      <p>
-        Motor 4 Mapping
-      </p>
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-    
-    <td style="vertical-align: top;">
-      3
-    </td>
-    
-    <td style="vertical-align: top;">
-    </td>
-  </tr>
-</table>
-
 ## System
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -38344,6 +38660,9 @@
           <strong>202:</strong> GPS 2
         </li>
         <li>
+          <strong>203:</strong> GPS 3
+        </li>
+        <li>
           <strong>300:</strong> Radio Controller
         </li>
       </ul>
@@ -38404,6 +38723,9 @@
         </li>
         <li>
           <strong>202:</strong> GPS 2
+        </li>
+        <li>
+          <strong>203:</strong> GPS 3
         </li>
         <li>
           <strong>300:</strong> Radio Controller
@@ -43386,6 +43708,37 @@
     
     <td style="vertical-align: top;">
       0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="PCF8583_MAGNET">PCF8583_MAGNET</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        PCF8583 rotorfreq (i2c) magnet count
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Nmumber of signals per rotation of rotor
+      </p>
+      
+      <p>
+        <b>Reboot required:</b> true
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > ?
+    </td>
+    
+    <td style="vertical-align: top;">
+      2
     </td>
     
     <td style="vertical-align: top;">

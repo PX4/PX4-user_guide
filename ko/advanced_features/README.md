@@ -9,3 +9,4 @@
 * [Safe Landing](../computer_vision/safe_landing.md) (needs companion computer)
 * [Collision Prevention](../computer_vision/collision_prevention.md)
 * [Air Traffic Avoidance: ADS-B/FLARM](../advanced_features/traffic_avoidance_adsb.md)
+* [Air Traffic Avoidance: UTM](../advanced_features/traffic_avoidance_utm.md)
