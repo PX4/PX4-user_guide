@@ -31,6 +31,8 @@ Examine the throttle level (thrust) when the vehicle is level (no or little pitc
 
 To bypass the flight checks you need to set the circuit breaker for the airspeed sensor ([CBRK_AIRSPD_CHK](../advanced_config/parameter_reference.md#CBRK_AIRSPD_CHK)) to 162128.
 
+> **Note** Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks).
+
 To tell the flight controller it will fly without an airspeed sensor you need to set the airspeed mode ([FW_ARSP_MODE](../advanced_config/parameter_reference.md#FW_ARSP_MODE)) to 'declare airspeed invalid' (2).
 
 Set the cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)) to the percentage as determined from the log of the reference flight. Note that QGC scales this from 1..100 and the thrust value from the log is scaled from 0..1. 따라서 0.65의 추력을 65로 입력해야합니다. For safety reasons it is recommended to add +- 10% throttle to the determined value for testing a first flight.
