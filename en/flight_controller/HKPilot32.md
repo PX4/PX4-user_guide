@@ -63,7 +63,7 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 make px4_fmu-v2_default
 ```
 
-## Debug Ports
+## Debug Port
 
 See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports).
 

@@ -47,6 +47,13 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 make px4_fmu-v2_default
 ```
 
+## Debug Port
+
+This board does not have a debug port (i.e it does not have a port for accessing the [System Console](http://dev.px4.io/master/en/debug/system_console.html) or SWD (JTAG) debug interface.
+
+In order to access these interfaces developers would need to solder wires to the board test pads for SWD and IC to a console.
+
+
 ## Key Links
 
 * [User Manual](http://www.holybro.com/manual/pixfalcon11.pdf)
