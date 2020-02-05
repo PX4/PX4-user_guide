@@ -14009,6 +14009,98 @@ is less than 50% of this value</p>   </td>
 </tr>
 </tbody></table>
 
+## UUV Attitude Control
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_DIRCT_PITCH">UUV_DIRCT_PITCH</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Direct pitch input</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_DIRCT_ROLL">UUV_DIRCT_ROLL</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Direct roll input</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_DIRCT_THRUST">UUV_DIRCT_THRUST</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Direct thrust input</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_DIRCT_YAW">UUV_DIRCT_YAW</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Direct yaw input</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_INPUT_MODE">UUV_INPUT_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Select Input Mode</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> use Attitude Setpoints</li> 
+
+<li><strong>1:</strong> Direct Feedthrough</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_PITCH_D">UUV_PITCH_D</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Pitch differential gain</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">2.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_PITCH_P">UUV_PITCH_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Pitch proportional gain</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">4.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_ROLL_D">UUV_ROLL_D</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Roll differential gain</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.5</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_ROLL_P">UUV_ROLL_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Roll proportional gain</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">4.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_YAW_D">UUV_YAW_D</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Yaw differential gain</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">2.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UUV_YAW_P">UUV_YAW_P</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Yawh proportional gain</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">4.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+</tbody></table>
+
 ## VTOL Attitude Control
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
