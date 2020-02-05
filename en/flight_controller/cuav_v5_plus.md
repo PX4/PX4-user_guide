@@ -104,11 +104,35 @@ make px4_fmu-v5_default
 
 ## Debug Port
 
-The system's serial console and SWD interface operate on the **FMU Debug** port.
-Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable).
-It does not have an I/O debug interface.
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface operate on the **FMU Debug** port (`DSU7`).
+The board does not have an I/O debug interface.
 
-> **Warning**  See also: [Using JTAG for hardware debugging](#issue_jtag)
+![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
+
+The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | 5V+ | +5V
+2 (blk) | DEBUG TX (OUT) | +3.3V
+3 (blk) | DEBUG RX (IN) | +3.3V
+4 (blk) | FMU_SWDIO | +3.3V
+5 (blk) | FMU_SWCLK | +3.3V
+6 (blk) | GND | GND
+
+The product package includes a convenient debug cable that can be connected to the `DSU7` port.
+This splits out an FTDI cable for connecting the [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) to a computer USB port, and SWD pins used for SWD/JTAG debugging. 
+The provided debug cable does not connect to the SWD port `Vref` pin (1).
+
+![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
+
+> **Warning** The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
+>
+> Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
+> For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+>
+>For more information see [Using JTAG for hardware debugging](#issue_jtag).
+
 
 ## Peripherals {#optional-hardware}
 
