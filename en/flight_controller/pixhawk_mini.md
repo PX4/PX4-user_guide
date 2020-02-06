@@ -296,7 +296,7 @@ make px4_fmu-v2_default
 
 This board does not have a debug port (i.e it does not have a port for accessing the [System Console](http://dev.px4.io/master/en/debug/system_console.html) or SWD (JTAG) debug interface.
 
-In order to access these developers would need to solder wires to the board test pads for SWD and IC to a console.
+Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
 
 
 ### Other Peripherals
