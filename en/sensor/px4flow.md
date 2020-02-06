@@ -382,42 +382,53 @@ This is a pattern correlation threshold for filtering bad matches. Lower means o
 
 Name | Default | Access| Comment
 --- | --- | --- | ---
-BFLOW_F_THLD    | 30     | RW      | This parameter is a feature threshold and limits the quality of patterns that are used to calculate the bottom flow. For low values (e.g. 10) almost every pattern is taken, for higher values (e.g. 100) only significant patters are taken.
+AEC             | 1      | RW      | 1: Camera Automatic Exposure Control is ON, 0: OFF
+AGC             | 1      | RW      | 1: Camera Automatic Gain Control is ON, 0: OFF
+BFLOW_F_THLD    | 40     | RW      | This parameter is a feature threshold and limits the quality of patterns that are used to calculate the bottom flow. For low values (e.g. 10) almost every pattern is taken, for higher values (e.g. 100) only significant patters are taken.
 BFLOW_V_THLD    | 5000       | RW      | This is a pattern correlation threshold for filtering bad matches. Lower means only strong correlations are accepted.
 BFLOW_HIST_FIL  | 0        | RW      | 1: Flow histogram filter is ON, 0: OFF
 BFLOW_GYRO_COM  | 0        | RW      | 1: Gyro compensation is ON, 0: OFF
 BFLOW_LP_FIL    | 0        | RW      | 1: Lowpass filter on flow output is ON, 0: OFF
 BFLOW_W_NEW     | 0.3      | RW      | Flow lowpass filter gain
+BFLOW_MAX_PIX   | 8        | R       | Some parameter that is not used anywhere and should be deleted
+BFLOW_RATE      | 10.0     | RW      | Rate with which updates for optical flow are published
+BRIGHT          | 20       | RW      | Desired brightness level from camera
 DEBUG           | 1        | RW      | 1: Debug messages ON, 0: OFF
+EXPOSURE_MAX    | 500      | RW      | Maximal exposure time (μs)
+GAIN_MAX        | 16       | RW      | Maximal gain (units?)
 GYRO_SENS_DPS   | 250      | RW      | Gyroscope sensitivity: 250, 500, 2000 (dps)
 GYRO_COMP_THR   | 0.01     | RW      | Gyro compensation threshold (dps): Gyro data lower than this threshold is not compensated to prevent drift
-IMAGE_WIDTH     | 64       | R       | Image width (pixels)
+HDR             | 1        | RW      | 1: Camera High Dynamic Range ON, 0: OFF
 IMAGE_HEIGHT    | 64       | R       | Image height (pixels)
-IMAGE_L_LIGHT   | 0        | RW      | 1: Image sensor low light mode ON, 0: OFF
+IMAGE_WIDTH     | 64       | R       | Image width (pixels)
+IMAGE_L_LIGHT   | 0        | RW      | A parameter that is not used anymore and should be deleted
 IMAGE_NOISE_C   | 1        | RW      | 1: Image sensor noise correction ON, 0: OFF
 IMAGE_TEST_PAT  | 0        | RW      | 1: Gray-shaded test pattern mode ON, 0: OFF
-LENS_FOCAL_LEN  | 16       | RW      | Focal length of lens (mm) |
+LENS_FOCAL_LEN  | 16.0     | RW      | Focal length of lens (mm)
 POSITION        | 0        | RW      | 0: Only position 0 is used (Bottom: 0, Front: 1, Top: 2, Back: 3, Right: 4, Left: 5)
+SHTR_W_1        | 443      | RW      | Camera Shutter W_1 ?
+SHTR_W_2        | 473      | RW      | Camera Shutter W_2 ?
+SHTR_W_TOT      | 480      | RW      | Camera Shutter Total ?
 SONAR_FILTERED  | 0        | RW      | 1: Kalman filter on sonar output is ON, 0: OFF
-SONAR_KAL_L1    | 0.8461   | RW      | Sonar Kalman gain L1
-SONAR_KAL_L2    | 6.2034   | RW      | Sonar Kalman gain L2
+SONAR_KAL_L1    | 0.8461   | RW      | Sonar Kalman gain L1 (for the position)
+SONAR_KAL_L2    | 6.2034   | RW      | Sonar Kalman gain L2 (for the speed)
 SYS_ID          | 81       | RW      | [MAVLink](https://mavlink.io/en/) System ID
 SYS_COMP_ID     | 50       | RW      | [MAVLink](https://mavlink.io/en/) Component ID
 SYS_SENSOR_ID   | 77       | RW      | [MAVLink](https://mavlink.io/en/) Sensor ID
-SYS_TYPE        | 0        | RW      | [MAVLink](https://mavlink.io/en/) System Type
-SYS_AP_TYPE     | 1        | RW      | [MAVLink](https://mavlink.io/en/) Autopilot Type
+SYS_TYPE        | 0        | RW      | [MAVLink](https://mavlink.io/en/) System Type (0 means generic)
+SYS_AP_TYPE     | 0        | RW      | [MAVLink](https://mavlink.io/en/) Autopilot Type (0 means generic)
 SYS_SW_VER      | 13XX     | R       | Software Version
-SYS_SEND_STATE  | 1        | RW      | 1: Send [MAVLink](https://mavlink.io/en/) Heartbeat, 0: Not
+SYS_SEND_STATE  | 1        | RW      | 1: Send [MAVLink](https://mavlink.io/en/messages/common.html#HEARTBEAT) Heartbeat, 0: Not
+SYS_SEND_LPOS   | 1        | RW      | 1: Send [MAVLink](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) Local position estimate, 0: Not
 USART_2_BAUD    | 115200   | R       | Baudrate USART 2
 USART_3_BAUD    | 115200   | R       | Baudrate USART 3 (Data Output)
-USB_SEND_VIDEO  | 1        | RW      | 1: Send video over USB, 0: Not
-USB_SEND_FLOW   | 1        | RW      | 1: Send flow over USB, 0: Not
-USB_SEND_GYRO   | 1        | RW      | 1: Send gyro data over USB, 0: Not
-USB_SEND_FWD    | 0        | RW      | 1: Send forwarded flow over USB, 0: Not
 USB_SEND_DEBUG  | 1        | RW      | 1: Send debug msgs over USB, 0: Not
-VIDEO_RATE      | 150      | RW      | Time in milliseconds between images of video transmission
+USB_SEND_FLOW   | 1        | RW      | 1: Send flow over USB, 0: Not
+USB_SEND_FWD    | 0        | RW      | 1: Send forwarded flow over USB, 0: Not
+USB_SEND_GYRO   | 1        | RW      | 1: Send gyro data over USB, 0: Not
+USB_SEND_VIDEO  | 1        | RW      | 1: Send video over USB, 0: Not
 VIDEO_ONLY      | 0        | RW      | 1: High resolution video mode is ON, 0: OFF
-
+VIDEO_RATE      | 50       | RW      | Time between images of video transmission (ms)
 
 ## Modes
 
@@ -426,12 +437,6 @@ VIDEO_ONLY      | 0        | RW      | 1: High resolution video mode is ON, 0: O
 Set `VIDEO_ONLY` to 1 for high resolution mode.
 In this mode the camera image is transmitted at a higher resolution to ease the lens focus process.
 No flow values are calculated in this mode.
-
-###  Low Light Mode
-
-If `IMAGE_L_LIGHT` is set to 1, the sensor operates in low light mode.
-
-> **Note** This mode is under construction, and results are more noisy
 
 ###  Test Pattern Mode
 
