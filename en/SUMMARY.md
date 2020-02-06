@@ -198,6 +198,8 @@
   * [Holybro Kakute F7](flight_controller/kakutef7.md)
   * [Holybro Durandal](flight_controller/durandal.md)
   * [Omnibus F4 SD](flight_controller/omnibus_f4_sd.md)
+  * [ModalAI](flight_controller/modalai.md)
+    * [Flight Core v1](flight_controller/modalai_fc_v1.md)
   * [Snapdragon Flight](flight_controller/snapdragon_flight.md)
     * [Hardware Setup Example](flight_controller/snapdragon_flight_hardware_example_setup.md)
     * [Developer Environment Installation](flight_controller/snapdragon_flight_dev_environment_installation.md)
