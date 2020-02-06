@@ -390,7 +390,7 @@ BFLOW_HIST_FIL  | 0        | RW      | 1: Flow histogram filter is ON, 0: OFF
 BFLOW_GYRO_COM  | 0        | RW      | 1: Gyro compensation is ON, 0: OFF
 BFLOW_LP_FIL    | 0        | RW      | 1: Lowpass filter on flow output is ON, 0: OFF
 BFLOW_W_NEW     | 0.3      | RW      | Flow lowpass filter gain
-BFLOW_MAX_PIX   | 8        | R       | Some parameter that is not used anywhere and should be deleted
+BFLOW_MAX_PIX   | 8        | R       | Delete (parameter not used).
 BFLOW_RATE      | 10.0     | RW      | Rate with which updates for optical flow are published
 BRIGHT          | 20       | RW      | Desired brightness level from camera
 DEBUG           | 1        | RW      | 1: Debug messages ON, 0: OFF
@@ -401,7 +401,7 @@ GYRO_COMP_THR   | 0.01     | RW      | Gyro compensation threshold (dps): Gyro d
 HDR             | 1        | RW      | 1: Camera High Dynamic Range ON, 0: OFF
 IMAGE_HEIGHT    | 64       | R       | Image height (pixels)
 IMAGE_WIDTH     | 64       | R       | Image width (pixels)
-IMAGE_L_LIGHT   | 0        | RW      | A parameter that is not used anymore and should be deleted
+IMAGE_L_LIGHT   | 0        | RW      | Delete (parameter not used).
 IMAGE_NOISE_C   | 1        | RW      | 1: Image sensor noise correction ON, 0: OFF
 IMAGE_TEST_PAT  | 0        | RW      | 1: Gray-shaded test pattern mode ON, 0: OFF
 LENS_FOCAL_LEN  | 16.0     | RW      | Focal length of lens (mm)
