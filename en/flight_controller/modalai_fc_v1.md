@@ -1,4 +1,4 @@
-# ModaAI Flight Core v1
+# ModalAI Flight Core v1
 
 The ModalAI Flight Core is a [Pixhawk Series](../flight_controller/pixhawk_series.md) derived flight controller, made in the USA. The Flight Core can be paired with [ModalAI VOXL](https://docs.modalai.com/voxl-datasheet/) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
 
