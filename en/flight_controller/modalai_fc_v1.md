@@ -2,16 +2,33 @@
 
 The ModalAI Flight Core is a [Pixhawk Series](../flight_controller/pixhawk_series.md) derived flight controller, made in the USA. The Flight Core can be paired with [ModalAI VOXL](https://docs.modalai.com/voxl-datasheet/) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
 
-![FlightCoreV1](../../assets/hardware/hardware-modalai-fc-v1.jpg)
+![FlightCoreV1](../../assets/flight_controller/modalai/fc_v1/main.jpg)
 
 ## Quick Summary
 
-The main hardware documentation can be found [here].(https://docs.modalai.com/flight-core-datasheet/)
+The main hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
+
+## PX4 Firwmare and Bootloader
+
+Although supported in PX4 v1.10, a few issues have been addressed since than which are currently being maintained by ModalAI [here](https://github.com/modalai/px4-firmware/tree/modalai-1.10).  These changes are mostly picked up in the master branch after the v1.10 release, with ongoing development for improvments in VIO and VOA being added as needed and then upstreamed.
+
+More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
+
+## PX4 Bootloader
+
+This board is supported in the PX4 bootloader starting with v5.0 [here](https://github.com/PX4/Bootloader).
+
+More information about the firmware can be found [here](https://docs.modalai.com/flight-core-bootloader/).
+
+## QGroundControl Support
+
+This board is slated to be supported starting in QGroundControl 3.5.7 (or the release after 3.5.6).
 
 ## Specification
 
 | Feature          | Details |
 |:--------         |:------- |
+| Weight           | 6 g     |
 | MCU              | 216MHz, 32-bit ARM M7 [STM32F765II](https://www.st.com/en/microcontrollers-microprocessors/stm32f765ii.html) |
 | Memory           | 256Kb FRAM   |
 |                  | 2Mbit Flash  |
@@ -34,6 +51,10 @@ The main hardware documentation can be found [here].(https://docs.modalai.com/fl
 |                  | I2C |
 |                  | GPIO |
 
+## Dimensions
+
+![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
+
 ## Availability
 
 - Flight Core Complete Kit is available [here](https://shop.modalai.com/products/flight-core)
@@ -42,11 +63,19 @@ The main hardware documentation can be found [here].(https://docs.modalai.com/fl
 
 ## Quick Start
 
+### Orientation
+
+Below shows the orientation when using the recommended version listed above.
+
+- **NOTE** - the version 1.10 release of PX4 requires 'ROTATION_YAW_180' whereas the release maintained by ModalAI and in PX4 master does not
+
+![FlightCoreV1Orientation](../../assets/flight_controller/modalai/fc_v1/orientation.png)
+
 ### Connectors
 
 Detailed information about the pinouts can be found [here](https://docs.modalai.com/flight-core-datasheet-connectors).
 
-![FlightCoreV1Top](../../assets/hardware/hardware-modalai-fc-v1-top.png)
+![FlightCoreV1Top](../../assets/flight_controller/modalai/fc_v1/top.png)
 
 | Connector | Summary |
 | --- | --- |
@@ -63,7 +92,7 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 | J12  | Spektrum UART Connector |
 | J13  | I2C Display (Spare Sensor Connector) / Safety Button Input |
 
-![FlightCoreV1Bottom](../../assets/hardware/hardware-modalai-fc-v1-bottom.png)
+![FlightCoreV1Bottom](../../assets/flight_controller/modalai/fc_v1/bottom.png)
 
 ### User Guide
 
