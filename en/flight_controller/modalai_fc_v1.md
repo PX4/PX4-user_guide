@@ -18,7 +18,7 @@ More information about the firmware can be found [here](https://docs.modalai.com
 
 This board is supported in the PX4 bootloader starting with v5.0 [here](https://github.com/PX4/Bootloader).
 
-More information about the firmware can be found [here](https://docs.modalai.com/flight-core-bootloader/).
+More information about the bootloader can be found [here](https://docs.modalai.com/flight-core-bootloader/).
 
 ## QGroundControl Support
 
