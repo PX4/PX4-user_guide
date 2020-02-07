@@ -12298,6 +12298,116 @@
   </tr>
 </table>
 
+## Hover Thrust Estimator
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      参数名
+    </th>
+    
+    <th>
+      参数描述
+    </th>
+    
+    <th>
+      最小最大值 (增量)
+    </th>
+    
+    <th>
+      默认值
+    </th>
+    
+    <th>
+      单位
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="HTE_ACC_GATE">HTE_ACC_GATE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Gate size for acceleration fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0 > 10.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      3.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="HTE_HT_ERR_INIT">HTE_HT_ERR_INIT</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        1-sigma initial hover thrust uncertainty
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      normalized_thrust
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="HTE_HT_NOISE">HTE_HT_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Hover thrust process noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Reduce to make the hover thrust estimate more stable, increase if the real hover thrust is expected to change quickly over time.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0001 > 1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0005
+    </td>
+    
+    <td style="vertical-align: top;">
+      normalized_thrust/s
+    </td>
+  </tr>
+</table>
+
 ## Iridium SBD
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -39158,23 +39268,23 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
   <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
     <th>
-      参数名
+      Name
     </th>
     
     <th>
-      参数描述
+      Description
     </th>
     
     <th>
-      最小最大值 (增量)
+      Min > Max (Incr.)
     </th>
     
     <th>
-      默认值
+      Default
     </th>
     
     <th>
-      单位
+      Units
     </th>
   </tr>
   
