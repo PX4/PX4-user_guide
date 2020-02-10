@@ -58,7 +58,7 @@ If PX4 stops receiving setpoint updates then obstacle avoidance will be disabled
 
 ###  Mission Mode Avoidance Interface {#mission_avoidance_interface}
 
-Mission mode is enabled on PX4 by setting `COM_OBS_AVOID` to `1`.
+Obstacle avoidance in mission mode is enabled on PX4 by setting `COM_OBS_AVOID` to `1`.
 
 PX4 sends the desired trajectory to the companion computer in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
 
