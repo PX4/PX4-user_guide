@@ -8,17 +8,11 @@ The ModalAI Flight Core is a [Pixhawk Series](../flight_controller/pixhawk_serie
 
 The main hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
 
-## PX4 Firwmare and Bootloader
+## PX4 Firwmare
 
 Although supported in PX4 v1.10, a few issues have been addressed since than which are currently being maintained by ModalAI [here](https://github.com/modalai/px4-firmware/tree/modalai-1.10).  These changes are mostly picked up in the master branch after the v1.10 release, with ongoing development for improvments in VIO and VOA being added as needed and then upstreamed.
 
 More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
-
-## PX4 Bootloader
-
-This board is supported in the PX4 bootloader starting with v5.0 [here](https://github.com/PX4/Bootloader).
-
-More information about the bootloader can be found [here](https://docs.modalai.com/flight-core-bootloader/).
 
 ## QGroundControl Support
 
@@ -65,7 +59,7 @@ This board is slated to be supported starting in QGroundControl 3.5.7 (or the re
 
 ### Orientation
 
-Below shows the orientation when using the recommended version listed above.
+Below shows the orientation when using the recommended PX4 firmware version (master branch or the [ModalAI mantained v1.10](https://github.com/modalai/px4-firmware/tree/modalai-1.10))
 
 - **NOTE** - the version 1.10 release of PX4 requires 'ROTATION_YAW_180' whereas the release maintained by ModalAI and in PX4 master does not
 
