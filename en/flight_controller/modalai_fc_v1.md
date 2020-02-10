@@ -59,9 +59,9 @@ This board is slated to be supported starting in QGroundControl 3.5.7 (or the re
 
 ### Orientation
 
-Below shows the orientation when using the recommended PX4 firmware version (master branch or the [ModalAI mantained v1.10](https://github.com/modalai/px4-firmware/tree/modalai-1.10))
+The diagram below shows the recommended orientation, which corresponds to `ROTATION_NONE` on PX4 master branch (and on the [ModalAI-maintained PX4 v1.10 branch](https://github.com/modalai/px4-firmware/tree/modalai-1.10))
 
-- **NOTE** - the version 1.10 release of PX4 requires 'ROTATION_YAW_180' whereas the release maintained by ModalAI and in PX4 master does not
+> **Note** For *PX4 v1.10* stable releases from *QGroundControl* (only) use `ROTATION_YAW_180` for the above orientation. 
 
 ![FlightCoreV1Orientation](../../assets/flight_controller/modalai/fc_v1/orientation.png)
 
