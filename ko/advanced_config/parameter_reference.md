@@ -15079,6 +15079,34 @@
   
   <tr>
     <td style="vertical-align: top;">
+      <strong id="MAV_RADIO_TOUT">MAV_RADIO_TOUT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Timeout in seconds for the RADIO_STATUS reports coming in
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If the connected radio stops reporting RADIO_STATUS for a certain time, a warning is triggered and, if MAV_X_RADIO_CTL is enabled, the software-flow control is reset.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 250
+    </td>
+    
+    <td style="vertical-align: top;">
+      5
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
       <strong id="MAV_SIK_RADIO_ID">MAV_SIK_RADIO_ID</strong> (INT32)
     </td>
     
