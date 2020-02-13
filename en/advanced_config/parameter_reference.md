@@ -4557,6 +4557,13 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MAV_RADIO_TOUT">MAV_RADIO_TOUT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Timeout in seconds for the RADIO_STATUS reports coming in</p><p><strong>Comment:</strong> If the connected radio stops reporting RADIO_STATUS for a certain time, a warning is triggered and, if MAV_X_RADIO_CTL is enabled, the software-flow control is reset.</p>   </td>
+ <td style="vertical-align: top;">1 > 250 </td>
+ <td style="vertical-align: top;">5</td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MAV_SIK_RADIO_ID">MAV_SIK_RADIO_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>MAVLink SiK Radio ID</p><p><strong>Comment:</strong> When non-zero the MAVLink app will attempt to configure the SiK radio to this ID and re-set the parameter to 0. If the value is negative it will reset the complete radio config to factory defaults. Only applies if this mavlink instance is going through a SiK radio</p>   </td>
  <td style="vertical-align: top;">-1 > 240 </td>
