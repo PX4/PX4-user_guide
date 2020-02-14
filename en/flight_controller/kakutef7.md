@@ -94,3 +94,21 @@ Parameter | Setting
 [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.
 
 
+## Debug Port
+
+### System Console
+
+UART3 RX and TX are configured for use as the [System Console](https://dev.px4.io/master/en/debug/system_console.html).
+
+### SWD
+
+The SWD (JTAG) pins are:
+- `SWCLK`: Test Point 2 (Pin 72 on the CPU)
+- `SWDIO`: Test Point 3 (Pin 76 on CPU)
+- `GND`: As marked on board
+- `VDD_3V3`: As marked on board
+
+These are shown below.
+
+![SWD Pins on Kakute F7 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![SWD Pins on Kakute F7:  GND and VDD_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)
+
