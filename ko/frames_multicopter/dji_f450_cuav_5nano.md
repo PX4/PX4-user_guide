@@ -12,22 +12,22 @@
 
 ## Bill of materials
 
-The components needed for this build are:
+이 부품들이 조립에 필요합니다:
 
-- Flight controller: [CUAV V5 nano](https://store.cuav.net/index.php?id_product=98&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-nano-small-flight-controller-for-ardupilot-px4-drone-parts-free-shipping-whole-sale-&controller=product&id_lang=1): 
+- 비행컨트롤러: [CUAV V5 nano](https://store.cuav.net/index.php?id_product=98&id_product_attribute=0&rewrite=cuav-new-pixhack-v5-nano-small-flight-controller-for-ardupilot-px4-drone-parts-free-shipping-whole-sale-&controller=product&id_lang=1): 
   - GPS: [CUAV NEO V2 GPS](https://store.cuav.net/index.php?id_product=97&id_product_attribute=0&rewrite=cuav-new-ublox-neo-m8n-gps-module-with-shell-stand-holder-for-flight-controller-gps-compass-for-pixhack-v5-plus-rc-parts-px4&controller=product&id_lang=1)
-  - Power Module
-- Frame: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
-- Propellers: [DJI Phantom Built-in Nut Upgrade Propellers 9.4x5](https://www.masterairscrew.com/collections/all-products/products/dji-phantom-built-in-nut-upgrade-propellers-in-white-mr-9-4x5-prop-set-x4-phantom)
-- Battery: [Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60](https://hobbyking.com/en_us/turnigy-high-capacity-5200mah-3s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us)
-- Telemetry: [Holibro Transceiver Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
-- RC Receiver: [FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver](https://www.banggood.com/FrSky-D4R-II-2_4G-4CH-ACCST-Telemetry-Receiver-for-RC-Drone-FPV-Racing-p-929069.html?cur_warehouse=GWTR)
-- Motors: [DJI E305 2312E Motor (800kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
+  - 전원 모듈
+- 프레임: [DJI F450](https://www.amazon.com/Flame-Wheel-Basic-Quadcopter-Drone/dp/B00HNMVQHY)
+- 프로펠러: [DJI Phantom Built-in Nut Upgrade Propellers 9.4x5](https://www.masterairscrew.com/collections/all-products/products/dji-phantom-built-in-nut-upgrade-propellers-in-white-mr-9-4x5-prop-set-x4-phantom)
+- 배터리: [Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60](https://hobbyking.com/en_us/turnigy-high-capacity-5200mah-3s-12c-multi-rotor-lipo-pack-w-xt60.html?___store=en_us)
+- 텔레메트리: [Holibro Transceiver Telemetry Radio V3](https://shop.holybro.com/transceiver-telemetry-radio-v3_p1103.html)
+- RC 수신기: [FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver](https://www.banggood.com/FrSky-D4R-II-2_4G-4CH-ACCST-Telemetry-Receiver-for-RC-Drone-FPV-Racing-p-929069.html?cur_warehouse=GWTR)
+- 모터: [DJI E305 2312E Motor (800kv,CW)](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
 - ESC: [Hobbywing XRotor 20A APAC Brushless ESC 3-4S For RC Multicopters](https://www.amazon.com/DJI-E305-2312E-Motor-800kv/dp/B01M7TW3XN)
 
-In addition, we used an FrSky Taranis controller. You will also need zip ties, double-sided tape, a soldering iron.
+추가적으로 우리는 FrSky Taranis 조종기 사용합니다. 부수적으로 케이블 타이와, 양면테이프, 땜 납도 필요합니다.
 
-The image below shows both frame and electronic components.
+아래의 이미지는 프레임과 전자 부품을 보여줍니다.
 
 ![All components used in this build](../../assets/airframes/multicopter/dji_f450_cuav_5nano/all_components.jpg)
 
@@ -41,7 +41,7 @@ The image below shows both frame and electronic components.
 | ---------------------------------- | -- |
 | DJI F450 밑판                        | 1  |
 | DJI F450 윗판                        | 1  |
-| DJI F450 legs with landing gear    | 4  |
+| DJI F450 랜딩기어 역할을 하는 다리            | 4  |
 | M3*8 나사                            | 18 |
 | M2 5*6 나사                          | 24 |
 | 벨크로 배터리 스트랩                        | 1  |
@@ -76,9 +76,9 @@ The image below shows both frame and electronic components.
 | GPS 브라켓             | -           | 1             |
 
 
-### Electronics
+### 전자부품
 
-| Description                                           | 수량 |
+| 품목                                                    | 수량 |
 | ----------------------------------------------------- | -- |
 | CUAV V5 nano                                          | 1  |
 | CUAV NEO V2 GPS                                       | 1  |
@@ -86,19 +86,19 @@ The image below shows both frame and electronic components.
 | FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver        | 1  |
 | DJI E305 2312E Motor (800kv,CW)                       | 4  |
 | Hobbywing XRotor 20A APAC Brushless ESC               | 4  |
-| Power Module(Included in the CUAV V5 nano package)    | 1  |
+| Power Module(CUAV V5 nano 패키지에 포함된)                   | 1  |
 | Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60 | 1  |
 
 
 ### 필요한 공구
 
-The following tools are used in this assembly:
+아래 공구들이 조립에 필요합니다.
 
-- 2.0mm Hex screwdriver
-- 3mm Phillips screwdriver
-- Wire cutters
-- Precision tweezers
-- Soldering iron
+- 2.0mm 육각 스크류드라이버
+- 3mm Phillips 스크류드라이버
+- Wire 커터
+- 정밀 트위저
+- 납땜기
 
 ![Required tools](../../assets/airframes/multicopter/dji_f450_cuav_5nano/required_tools.jpg)
 
@@ -106,7 +106,7 @@ The following tools are used in this assembly:
 
 예상 조립 시간은 약 90 분입니다 (프레임 조립에 약 45 분, 오토파일럿 설치와 구성에 약 45 분).
 
-1. Attach the 4 arms to the bottom plate using the provided screws.
+1. 제공된 나사를 이용하여 밑판에 팔 4개를 결합합니다.
   
     ![Arms to bottom plate](../../assets/airframes/multicopter/dji_f450_cuav_5nano/1_attach_arms_bottom_plate.jpg)
 
@@ -165,11 +165,11 @@ That's it! The final build is shown below:
 * [펌웨어](../config/firmware.md)
 * [기체프레임](../config/airframe.md)
   
-  > **Note** You will need to select the *Generic Quadrotor X* airframe (**Quadrotor x > Generic Quadrotor X**).
+  > **Note** *Generic Quadrotor X* 에어프레임을 선택합니다.(**Quadrotor x > Generic Quadrotor X**).
   
     ![QGroundControl - Select Generic Quadrotor X airframee](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_select_airframe.jpg)
 
-Then perform the mandatory setup/calibration:
+그리고 필수 설치/설정을 수행합니다.
 
 * [센서 보정](../config/flight_controller_orientation.md)
 * [지자기 센서](../config/compass.md)
