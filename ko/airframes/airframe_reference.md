@@ -42,9 +42,9 @@
 </tr>
 </tbody></table>
 
-## Copter
+## 콥터
 
-### Coaxial Helicopter
+### 동축 헬리콥터
 
 <div>
   <img src="../../assets/airframes/types/HelicopterCoaxial.svg" width="29%" style="max-height: 180px;" /> 
