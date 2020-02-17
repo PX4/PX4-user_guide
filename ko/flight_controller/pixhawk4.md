@@ -19,14 +19,14 @@
   * 기압계: MS5611
 * GPS: ublox Neo-M8N GPS/GLONASS 수신기; IST8310 지자계 센서가 통합된
 * 인터페이스: 
-  * 8-16 PWM outputs (8 from IO, 8 from FMU)
+  * PWM 출력 8-16개 (IO에서 8개, FMU에서 8개)
   * 3 dedicated PWM/Capture inputs on FMU
   * Dedicated R/C input for CPPM
   * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
   * Dedicated S.Bus servo output
-  * 5 general purpose serial ports
-  * 3 I2C ports
-  * 4 SPI buses
+  * 범용 serial 포트 5개
+  * I2C 포트 3개
+  * SPI 버스 4개
   * Up to 2 CANBuses for dual CAN with serial ESC
   * Analog inputs for voltage / current of 2 batteries
 * 전원시스템 
@@ -61,7 +61,7 @@
 
 ## 정격 전압
 
-*Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+만약 세개의 파워소스가 공급된다면 *Pixhawk 4*는 전원 공급기에서 3개의 파워레일을 중복 시킬 수 있습니다. 이 세개의 파워 레일은: **POWER1**, **POWER2** 그리고 **USB** 입니다.
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 
@@ -107,7 +107,7 @@ Both ports have standard serial pinout and can be connected to a standard FTDI c
 
 ## 지원되는 플랫폼/ 에어프레임 Platforms/Airframes
 
-멀티콥터/비행기/로버 또는 배 등 일반적인 RC 서보와 Futaba S-Bus servos로 제어되는 기체. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+멀티콥터/비행기/로버 또는 배 등 일반적인 RC 서보와 Futaba S-Bus servos로 제어되는 기체. [Airframes Reference](../airframes/airframe_reference.md)에서 완전히 지원하는 설정 세트를 볼 수 있습니다.
 
 ## 추가정보
 
