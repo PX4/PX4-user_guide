@@ -110,23 +110,23 @@
   
     ![Arms to bottom plate](../../assets/airframes/multicopter/dji_f450_cuav_5nano/1_attach_arms_bottom_plate.jpg)
 
-2. Solder ESC (Electronic Speed Controller) to the board, positive (red) and negative (black).
+2. ESC (변속기) 의 양극 (빨강) 과 음극 (검정) 을 보드에 납땜합니다.
   
     ![Solder ESCs](../../assets/airframes/multicopter/dji_f450_cuav_5nano/2_solder_esc.jpg)
 
-3. Solder the Power Module, positive (red) and negative (black).
+3. 전원 모듈의 양극 (빨강) 과 음극 (검정) 을 납땜합니다.
   
     ![Solder power module](../../assets/airframes/multicopter/dji_f450_cuav_5nano/3_solder_power_module.jpg)
 
-4. Plug in the motors to the ESCs according to their positions.
+4. 모터의 플러그를 ECS의 극에 맞춰에 꽂습니다.
   
     ![Plug in motors](../../assets/airframes/multicopter/dji_f450_cuav_5nano/4_plug_in_motors.jpg)
 
-5. Attach the motors to the corresponding arms.
+5. 각각의 모터를 해당하는 팔에 고정합니다.
   
     ![Attach motors to arms (white)](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5a_attach_motors_to_arms.jpg) ![Attach motors to arms (red)](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5b_attach_motors_to_arms.jpg)
 
-6. Add the top board (screw into the top of the legs).
+6. (다리의 윗부분과 나사로 결합하여) 윗판을 장착합니다.
   
     ![Add top board](../../assets/airframes/multicopter/dji_f450_cuav_5nano/6_add_top_board.jpg)
 
@@ -148,9 +148,9 @@
 
 11. Plug in Telemetry (`TELEM1`), GPS module (`GPS/SAFETY`), RC receiver (`RC`), all 4 ESC’s (`M1-M4`), and the power module (`Power1`) into the flight controller. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
   
-  > **Note** The motor order is defined in the [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)
+  > **Note** 모터의 순서는 [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)에 제시되어 있습니다.
 
-That's it! The final build is shown below:
+끝났습니다! 마지막 조립순서가 다음에 이어집니다:
 
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
