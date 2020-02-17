@@ -154,16 +154,16 @@ That's it! The final build is shown below:
 
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
-## Vehicle Configuration/Calibration {#configure}
+## 기체 설정/보정 {#configure}
 
-*QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
+*QGroundControl* 이 PX4 오토파일럿을 설치하고 프레임에 대한 설정과 조정하는데 사용됩니다. *QGroundControl*을 [다운로드하고 설치](http://qgroundcontrol.com/downloads/) 하십시오.
 
-> **Tip** Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
+> **Tip** PX4의 설치와 설정에 대한 전체 지침은 [기본 설정](../config/README.md)에서 찾을 수 있습니다.
 
-First update the firmware and airframe:
+먼저 펌웨어와 에어프레임을 업데이트 합니다.
 
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md)
+* [펌웨어](../config/firmware.md)
+* [기체프레임](../config/airframe.md)
   
   > **Note** You will need to select the *Generic Quadrotor X* airframe (**Quadrotor x > Generic Quadrotor X**).
   
@@ -173,10 +173,10 @@ Then perform the mandatory setup/calibration:
 
 * [센서 보정](../config/flight_controller_orientation.md)
 * [지자기 센서](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md) > **Note** For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
+* [가속도 센서](../config/accelerometer.md)
+* [수평 보정](../config/level_horizon_calibration.md)
+* [무선 설정](../config/radio.md)
+* [비행 모드](../config/flight_mode.md) > **Note** 이 구성을 위해 우리는 비행 모드 중 *Stabilized*, *Altitude* 그리고 *Position*를 리시버의 3축 스위치 (단일 채널 - 5번에 맵핑) 에 설정합니다. 이 방법이 초심자를 위한 최소 설정으로 추천됩니다.
 
 이후 다음 작업 역시 수행되어야 합니다:
 
