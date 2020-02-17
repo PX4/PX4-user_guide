@@ -1,12 +1,12 @@
-# DJI FlameWheel 450 + CUAV V5 nano Build
+# DJI FlameWheel 450 + CUAV V5 nano 구성
 
-This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
+이 주제는 키트의 조립과 *QGroundControl*을 이용하는 PX4 설정에 대한 지침을 제공합니다.
 
-Key information
+핵심정보
 
-- **Frame:** DJI F450
-- **Flight controller:** [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
-- **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes autopilot installation/configuration)
+- **프레임:** DJI F450
+- **비행 조절장치:** [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
+- **조립 시간 (예상):** 90 분 (프레임 조립에 45분, 오토파일럿 설치와 설정에 45분)
 
 ![Finished setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
@@ -35,59 +35,59 @@ The image below shows both frame and electronic components.
 
 ### 프레임
 
-This section lists all hardware for the frame.
+이 섹션은 프레임의 모든 하드웨어를 나열합니다.
 
-| Description                                       | Quantity |
-| ------------------------------------------------- | -------- |
-| DJI F450 Bottom plate                             | 1        |
-| DJI F450 Top plate                                | 1        |
-| DJI F450 legs with landing gear                   | 4        |
-| M3*8 screws                                       | 18       |
-| M2 5*6 screws                                     | 24       |
-| Velcro Battery Strap                              | 1        |
-| DJI Phantom Built-in Nut Upgrade Propellers 9.4x5 | 1        |
+| 품목                                 | 수량 |
+| ---------------------------------- | -- |
+| DJI F450 밑판                        | 1  |
+| DJI F450 윗판                        | 1  |
+| DJI F450 legs with landing gear    | 4  |
+| M3*8 나사                            | 18 |
+| M2 5*6 나사                          | 24 |
+| 벨크로 배터리 스트랩                        | 1  |
+| DJI Phantom 나사 내장 업그레이드 프로펠러 9.4x5 | 1  |
 
 
 ![F450 frame components](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_frame_components.jpg)
 
 ### CUAV v5 nano 패키지
 
-This section lists the components in the CUAV v5 nano package.
+이 섹션은 CUAV v5 nano package의 부품들을 나열합니다.
 
-| Description               | Quantity (Default Package) | Quantity (+GPS Package) |
-| ------------------------- | -------------------------- | ----------------------- |
-| V5 nano flight controller | 1                          | 1                       |
-| DuPont Cable              | 2                          | 2                       |
-| I2C/CAN Cable             | 2                          | 2                       |
-| ADC 6.6 Cable             | 2                          | 2                       |
-| SBUS Signal Cable         | 1                          | 1                       |
-| IRSSI Cable               | 1                          | 1                       |
-| DSM Signal Cable          | 1                          | 1                       |
-| ADC 3.3 Cable             | 1                          | 1                       |
-| Debug Cable               | 1                          | 1                       |
-| Safety Switch Cable       | 1                          | 1                       |
-| Voltage & Current Cable   | 1                          | 1                       |
-| PW-Link Module Cable      | 1                          | 1                       |
-| Power Module              | 1                          | 1                       |
-| SanDisk 16GB Memory Card  | 1                          | 1                       |
-| 12C Expansion Board       | 1                          | 1                       |
-| TTL Plate                 | 1                          | 1                       |
-| NEO GPS                   | -                          | 1                       |
-| GPS Bracket               | -                          | 1                       |
+| 품목                  | 수량 (기본 패키지) | 수량 (+GPS 패키지) |
+| ------------------- | ----------- | ------------- |
+| V5 nano 비행 제어기      | 1           | 1             |
+| 듀퐁 케이블              | 2           | 2             |
+| I2C/CAN 케이블         | 2           | 2             |
+| ADC 6.6 케이블         | 2           | 2             |
+| SBUS 시그널 케이블        | 1           | 1             |
+| IRSSI 케이블           | 1           | 1             |
+| DSM 시그널 케이블         | 1           | 1             |
+| ADC 3.3 케이블         | 1           | 1             |
+| Debug 케이블           | 1           | 1             |
+| 안전 스위치 케이블          | 1           | 1             |
+| 전압 & 전류 케이블         | 1           | 1             |
+| PW-Link 모듈 케이블      | 1           | 1             |
+| 전원 모듈               | 1           | 1             |
+| SanDisk 16GB 메모리 카드 | 1           | 1             |
+| I2C 확장 보드           | 1           | 1             |
+| TTL Plate           | 1           | 1             |
+| NEO GPS             | -           | 1             |
+| GPS 브라켓             | -           | 1             |
 
 
 ### Electronics
 
-| Description                                           | Quantity |
-| ----------------------------------------------------- | -------- |
-| CUAV V5 nano                                          | 1        |
-| CUAV NEO V2 GPS                                       | 1        |
-| Holibro Telemetry                                     | 1        |
-| FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver        | 1        |
-| DJI E305 2312E Motor (800kv,CW)                       | 4        |
-| Hobbywing XRotor 20A APAC Brushless ESC               | 4        |
-| Power Module(Included in the CUAV V5 nano package)    | 1        |
-| Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60 | 1        |
+| Description                                           | 수량 |
+| ----------------------------------------------------- | -- |
+| CUAV V5 nano                                          | 1  |
+| CUAV NEO V2 GPS                                       | 1  |
+| Holibro Telemetry                                     | 1  |
+| FrSky D4R-II 2.4G 4CH ACCST Telemetry Receiver        | 1  |
+| DJI E305 2312E Motor (800kv,CW)                       | 4  |
+| Hobbywing XRotor 20A APAC Brushless ESC               | 4  |
+| Power Module(Included in the CUAV V5 nano package)    | 1  |
+| Turnigy High Capacity 5200mAh 3S 12C Lipo Pack w/XT60 | 1  |
 
 
 ### 필요한 공구
@@ -171,22 +171,22 @@ First update the firmware and airframe:
 
 Then perform the mandatory setup/calibration:
 
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
+* [센서 보정](../config/flight_controller_orientation.md)
+* [지자기 센서](../config/compass.md)
 * [Accelerometer](../config/accelerometer.md)
 * [Level Horizon Calibration](../config/level_horizon_calibration.md)
 * [Radio Setup](../config/radio.md)
 * [Flight Modes](../config/flight_mode.md) > **Note** For this build we set up modes *Stabilized*, *Altitude* and *Position* on a three-way switch on the receiver (mapped to a single channel - 5). This is the recommended minimal set of modes for beginners.
 
-Ideally you should also do:
+이후 다음 작업 역시 수행되어야 합니다:
 
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery](../config/battery.md)
+* [ESC 캘리브레이션](../advanced_config/esc_calibration.md)
+* [배터리](../config/battery.md)
 * [Safety](../config/safety.md)
 
 ## 튜닝
 
-Firmware installation sets *default* autopilot parameters that have been configured for the selected frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
+펌웨어 설치과정에서 오토파일럿 파라미터를 선택된 프레임에 맞춘 *기본*값으로 설정합니다. 이 상태로도 비행하기에 충분하지만 특정 프레임 구성에 대한 파라미터를 조정하는 것이 좋습니다.
 
 <!--
 
@@ -199,6 +199,6 @@ These were generated by flight testing.
 
 {% youtube %} https://youtu.be/b0bKNdDqVHw {% endyoutube %}
 
-## Acknowledgments
+## 감사인사
 
 이 빌드 로그는 Dronecode Test Flight Team에서 제공했습니다.
