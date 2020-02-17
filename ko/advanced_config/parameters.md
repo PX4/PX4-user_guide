@@ -1,4 +1,4 @@
-# Finding/Updating Parameters
+# 파라미터 검색/갱신
 
 PX4 behaviour can be configured/tuned using [parameters](../advanced_config/parameter_reference.md) (e.g. [Multicopter PID gains](../config_mc/pid_tuning_guide_multicopter.md), calibration information, etc.).
 
@@ -8,7 +8,7 @@ The *QGroundControl Parameters* screen allows you to find and modify **any** of 
 
 <span></span>
 
-> **Warning** While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
+> **경고** 일부 파라미터는 비행중에 변경할 수 있지만 추천하는 방법은 아닙니다(가이드에 명시된 경우를 제외하고).
 
 ## Finding a Parameter {#finding}
 
