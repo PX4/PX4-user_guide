@@ -1,8 +1,8 @@
 # Pixhawk 4
 
-*Pixhawk 4*<sup>&reg;</sup> 는 PX4팀과 Holybro<sup>&reg;</sup> 가 함께 협력하여 설계하고 만든 진보한 오토파일럿이다. PX4 버전 1.7을 실행하는데 최적화 되어 있으며 연구와 상업용 개발자들에게 적합하다.
+*Pixhawk 4*<sup>&reg;</sup> 는 PX4팀과 Holybro<sup>&reg;</sup> 가 함께 협력하여 설계하고 만든 진보된 오토파일럿입니다. PX4 버전 1.7을 실행하는데 최적화 되어 있으며 연구와 상업용 개발자들에게 적합합니다.
 
-[Pixhawk-project](https://pixhawk.org/) **FMUv5**을 기반으로 오픈 하드웨어로서 설계 되었으며 [NuttX](http://nuttx.org) OS에서 PX4 를 작동시킨다.
+[Pixhawk-project](https://pixhawk.org/) **FMUv5**을 기반으로 오픈 하드웨어로서 설계 되었으며 [NuttX](http://nuttx.org) OS에서 PX4 를 작동시킵니다.
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
 
@@ -39,11 +39,11 @@
 * Other Characteristics: 
   * 작동 온도: -40 ~ 85°c
 
-Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
+추가적인 정보는 [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)에서 찾을 수 있습니다.
 
 ## 구입처
 
-Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
+[Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html)에서 주문 가능 합니다.
 
 ## 커넥터 Connectors
 
@@ -70,7 +70,7 @@ Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-
 Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
-2. **USB** input (4.75V to 5.25V)
+2. **USB** 에는 (4.75V to 5.25V) 입력합니다.
 
 **Absolute Maximum Ratings**
 
@@ -86,7 +86,7 @@ The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides
 
 ## 펌웨어 빌드
 
-> **Tip** 대부분의 사용자들은 이 펌웨어를 빌드할 필요가 가 없다. 이미 사전에 빌드 되어 있으며 *QGroundControl*가 설치되어 있다면 하드웨어가 정확히 연결된 순간에 자동으로 설치한다.
+> **Tip** 대부분의 사용자들은 이 펌웨어를 빌드할 필요가 가 없습니다. 이미 사전에 빌드 되어 있으며 *QGroundControl*가 설치되어 있다면 하드웨어가 적절히 연결되면 자동으로 설치됩니다.
 
 이 타켓에 맞게 [PX4 빌드](https://dev.px4.io/master/en/setup/building_px4.html)하기
 
