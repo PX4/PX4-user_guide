@@ -99,13 +99,13 @@ The system's serial console and SWD interface runs on the **FMU Debug** port, wh
 
 Both ports have standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. Please refer to the [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
 
-## Peripherals
+## 주변기기
 
 * [디지털 풍속 센서](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
 * [텔레메트리 무선 모듈](../telemetry/README.md)
-* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+* [레인지파인더/거리 센서](../sensor/rangefinders.md)
 
-## 지원되는 플랫폼/ 에어프레임 Platforms/Airframes
+## 지원되는 플랫폼/에어프레임
 
 멀티콥터/비행기/로버 또는 배 등 일반적인 RC 서보와 Futaba S-Bus servos로 제어되는 기체. [Airframes Reference](../airframes/airframe_reference.md)에서 완전히 지원하는 설정 세트를 볼 수 있습니다.
 
