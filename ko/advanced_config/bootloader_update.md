@@ -23,7 +23,7 @@
 
 3. 기체가 재부팅 될 때까지 기다리십시오.
 
-4. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+4. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 파라미터를 [찾아서 활성화](../advanced_config/parameters.md) 하십시오.
 5. 재부팅하십시오 (보드의 연결을 끊고 다시 연결하십시오.). 부트로더 업데이트는 수 초 안에 완료됩니다.
 
 일반적으로 이 단계에서 올바른/새 부트로더를 사용하여 [펌웨어를 다시 업데이트](../config/firmware.md) 할 수 있습니다.
