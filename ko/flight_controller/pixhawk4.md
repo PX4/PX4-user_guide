@@ -8,17 +8,17 @@
 
 ## 빠른 요약
 
-* Main FMU Processor: STM32F765 
+* 메인 FMU 프로세서: STM32F765 
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-* IO Processor: STM32F100 
+* IO 프로세서: STM32F100 
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-* On-board sensors: 
-  * Accel/Gyro: ICM-20689
-  * Accel/Gyro: BMI055
-  * Magnetometer: IST8310
-  * Barometer: MS5611
-* GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
-* Interfaces: 
+* 내장 센서: 
+  * 가속도/자이로: ICM-20689
+  * 가속/자이로: BMI055
+  * 지자계: IST8310
+  * 기압계: MS5611
+* GPS: ublox Neo-M8N GPS/GLONASS 수신기; IST8310 지자계 센서가 통합된
+* 인터페이스: 
   * 8-16 PWM outputs (8 from IO, 8 from FMU)
   * 3 dedicated PWM/Capture inputs on FMU
   * Dedicated R/C input for CPPM
@@ -29,14 +29,14 @@
   * 4 SPI buses
   * Up to 2 CANBuses for dual CAN with serial ESC
   * Analog inputs for voltage / current of 2 batteries
-* Power System: 
-  * Power module output: 4.9~5.5V
-  * USB Power Input: 4.75~5.25V
-  * Servo Rail Input: 0~36V
-* Weight and Dimensions: 
-  * Weight: 15.8g
-  * Dimensions: 44x84x12mm
-* Other Characteristics: 
+* 전원시스템 
+  * 전원 모듈 출력: 4.9~5.5V
+  * USB 전원 입력: 4.75~5.25V
+  * 서보 전원 입력: 0~36V
+* 무게와 치수 
+  * 무게: 15.8g
+  * 치수: 44x84x12mm
+* 기타 특성: 
   * 작동 온도: -40 ~ 85°c
 
 추가적인 정보는 [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)에서 찾을 수 있습니다.
@@ -49,13 +49,13 @@
 
 ![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
-> **Warning** The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
+> **경고** **DSM/SBUS RC** 와 **PPM RC** 포트들은 RC 수신기 전용 입니다. 이 포트들은 전원이 공급되고 있습니다. 절대 서보나 전원공급기나 기타 배터리 (또는 다른 수신기) 들과 연결하면 안됩니다.
 
 ## 핀아웃 Pinouts
 
-Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf).
+*Pixhawk 4* pinouts은 [여기](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)서 다운로드 합니다.
 
-## Dimensions
+## 치수
 
 ![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
@@ -69,7 +69,7 @@ Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-
 
 Under these conditions all power sources will be used in this order to power the system:
 
-1. **POWER1** and **POWER2** inputs (4.9V to 5.5V)
+1. **POWER1** 과 **POWER2** 에는 (4.9V to 5.5V) 를 입력합니다.
 2. **USB** 에는 (4.75V to 5.25V) 입력합니다.
 
 **Absolute Maximum Ratings**
@@ -101,13 +101,13 @@ Both ports have standard serial pinout and can be connected to a standard FTDI c
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [Telemetry Radio Modules](../telemetry/README.md)
+* [디지털 풍속 센서](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [텔레메트리 무선 모듈](../telemetry/README.md)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## 지원되는 플랫폼/ 에어프레임 Platforms/Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+멀티콥터/비행기/로버 또는 배 등 일반적인 RC 서보와 Futaba S-Bus servos로 제어되는 기체. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 추가정보
 
