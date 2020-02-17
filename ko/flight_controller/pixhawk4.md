@@ -65,16 +65,16 @@
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 
-**Normal Operation Maximum Ratings**
+**정상 작동 최대 전압 등급**
 
 아래 조건의 공급 전원은 시스템에 전원을 공급하기 위해 순서대로 사용됩니다.
 
-1. **POWER1** 과 **POWER2** 에는 (4.9V to 5.5V) 를 입력합니다.
+1. **POWER1** 과 **POWER2** 에 (4.9V to 5.5V) 를 입력
 2. **USB** 에는 (4.75V to 5.25V) 입력합니다.
 
-**Absolute Maximum Ratings**
+**절대 최대 전압**
 
-Under these conditions the system will not draw any power (will not be operational), but will remain intact.
+아래 조건에서 시스템은 전원을 공급하지 않지만 (작동하지 않음) 그대로 유지는 됩니다.
 
 1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
 2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
@@ -95,9 +95,9 @@ Under these conditions the system will not draw any power (will not be operation
 
 ## 디버그 포트
 
-The system's serial console and SWD interface runs on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. In order to access these ports, the user must remove the *Pixhawk 4* casing.
+시스템 시리얼 콘솔과 SWD인터페이스는 **FMU Debug** 포트에서 작동하며 I/O콘솔과 SWD인터페이스는 ** I/O 디버그 포트** 를 통해 접근할 수 있습니다. 이러한 포트를 접근하기 위해, 사용자는 *Pixhawk 4* 케이스를 제거해야만 합니다.
 
-Both ports have standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. Please refer to the [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
+이런 포트 모두 표준 시리얼 핀아웃을 가지고 있고 표준 FTDI 케이블 (3.3V, but it's 5V tolerant) 또는 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation)를 사용하여 연결할 수 있습니다. 핀아웃은 표준 Dronecode debug connector 핀아웃을 사용합니다. 이 포트에 배선하는 방법은 [wiring](https://dev.px4.io/master/en/debug/system_console.html)를 참고합니다.
 
 ## 주변기기
 
