@@ -1,6 +1,6 @@
-# 파라미터 검색/갱신
+# 파라미터 찾기/갱신
 
-PX4 behaviour can be configured/tuned using [parameters](../advanced_config/parameter_reference.md) (e.g. [Multicopter PID gains](../config_mc/pid_tuning_guide_multicopter.md), calibration information, etc.).
+PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md)를 사용하여 설정/조정될 수 있습니다(예. [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보, 등.).
 
 The *QGroundControl Parameters* screen allows you to find and modify **any** of the parameters associated with the vehicle. 상단 메뉴의 톱니 바퀴 아이콘을 클릭한 다음 좌측 메뉴의 파라미터를 클릭하여 파라미터 화면에 진입합니다.
 
@@ -10,7 +10,7 @@ The *QGroundControl Parameters* screen allows you to find and modify **any** of 
 
 > **경고** 일부 파라미터는 비행중에 변경할 수 있지만 추천하는 방법은 아닙니다(가이드에 명시된 경우를 제외하고).
 
-## Finding a Parameter {#finding}
+## 파라미터 찾기 {#finding}
 
 *검색* 필드에 용어를 입력하여 파라미터를 검색 할 수 있습니다. 검색은 입력된 하위 문자열을 포함하는 모든 파라미터 이름 및 설명을 나열합니다 (검색을 초기화하려면 **지우기**를 누릅니다).
 
