@@ -20,7 +20,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: 엘리베이터</li><li><b>MAIN4</b>: 러더</li><li><b>MAIN5</b>: 러더 (두번째, 선택적)</li><li><b>MAIN6</b>: 쓰로틀</li><li><b>MAIN7</b>: 휠</li><li><b>AUX1</b>: feed-through of RC AUX1 channel for prerotator (optional)</li><li><b>AUX2</b>: feed-through of RC AUX2 channel for release device (optional)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: 엘리베이터</li><li><b>MAIN4</b>: 러더</li><li><b>MAIN5</b>: 러더 (두번째, 선택적)</li><li><b>MAIN6</b>: 쓰로틀</li><li><b>MAIN7</b>: 휠</li><li><b>AUX1</b>: 프리로테이터를 위한 RC AUX1 채널의 피드-스루 (선택적)</li><li><b>AUX2</b>: feed-through of RC AUX2 channel for release device (optional)</li></ul></td>
 </tr>
   </table>
 </div>
