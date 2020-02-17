@@ -20,7 +20,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: 엘리베이터</li><li><b>MAIN4</b>: 러더</li><li><b>MAIN5</b>: 러더 (두번째, 선택적)</li><li><b>MAIN6</b>: 쓰로틀</li><li><b>MAIN7</b>: 휠</li><li><b>AUX1</b>: 프리로테이터를 위한 RC AUX1 채널의 피드-스루 (선택적)</li><li><b>AUX2</b>: feed-through of RC AUX2 channel for release device (optional)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: 엘리베이터</li><li><b>MAIN4</b>: 러더</li><li><b>MAIN5</b>: 러더 (두번째, 선택적)</li><li><b>MAIN6</b>: 쓰로틀</li><li><b>MAIN7</b>: 휠</li><li><b>AUX1</b>: 프리로테이터를 위한 RC AUX1 채널의 피드-스루 (선택적)</li><li><b>AUX2</b>: 릴리즈 장치를 위한 RC AUX2 채널의 피드-스루 (선택적)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -106,7 +106,7 @@
   </tr>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
- <td style="vertical-align: top;">범용 도데카로터 콕스 지오메트리</td>
+ <td style="vertical-align: top;">일반 도데카로터 콕스 지오메트리</td>
  <td style="vertical-align: top;"><p>관리자: William Peale <develop707@gmail.com></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
 
 </tr>
@@ -146,7 +146,7 @@
 </tr>
 </tbody></table>
 
-### 헥사로터 +
+### +형 헥사로터
 
 <div>
   <img src="../../assets/airframes/types/HexaRotorPlus.svg" width="29%" style="max-height: 180px;" /> 
@@ -192,7 +192,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: front right top, CW; angle:60; direction:CW</li><li><b>MAIN2</b>: front right bottom, CCW; angle:60; direction:CCW</li><li><b>MAIN3</b>: back top, CW; angle:180; direction:CW</li><li><b>MAIN4</b>: back bottom, CCW; angle:180; direction:CCW</li><li><b>MAIN5</b>: front left top, CW; angle:-60; direction:CW</li><li><b>MAIN6</b>: front left bottom, CCW;angle:-60; direction:CCW</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 전면 우측 상단, CW; 각도:60; 방향:CW</li><li><b>MAIN2</b>: 전면 우측 하단, CCW; 각도:60; 방향:CCW</li><li><b>MAIN3</b>: 후면 상단, CW; 각도:180; 방향:CW</li><li><b>MAIN4</b>: 후면 하단, CCW; 각도:180; 방향:CCW</li><li><b>MAIN5</b>: 전면 좌측 상단, CW; 각도:-60; 방향:CW</li><li><b>MAIN6</b>: 전면 좌측 하단, CCW; 각도:-60; 방향:CCW</li><li><b>AUX1</b>: RC AUX1 채널의 피드-스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드-스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드-스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -208,13 +208,13 @@
   </tr>
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
- <td style="vertical-align: top;">Generic Hexarotor coaxial geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
+ <td style="vertical-align: top;">일반 동축반전식 헥사로터 지오메트리</td>
+ <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
 
 </tr>
 </tbody></table>
 
-### Hexarotor x
+### X형 헥사로터
 
 <div>
   <img src="../../assets/airframes/types/HexaRotorX.svg" width="29%" style="max-height: 180px;" /> 
@@ -241,8 +241,8 @@
     </th>
   </tr>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
- <td style="vertical-align: top;">Generic Hexarotor x geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></p></td>
+ <td style="vertical-align: top;">일반 X형 헥사로터 지오메트리</td>
+ <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p><p><b>특정 출력:</b><ul><li><b>AUX1</b>: RC AUX1 채널의 피드-스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드-스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드-스루</li></ul></p></td>
 
 </tr>
 <tr id="copter_hexarotor_x_uvify_draco-r">
@@ -1216,7 +1216,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: 에일러론(Aileron) 1</li><li><b>AUX2</b>: 에일러론(Aileron) 2</li><li><b>AUX3</b>: 엘리베이터(elevator)</li><li><b>AUX4</b>: 방향키 (rudder)</li><li><b>MAIN5</b>: 스로틀 (Throttle)</li></ul></td>
 </tr>
   </table>
 </div>
