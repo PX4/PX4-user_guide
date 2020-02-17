@@ -20,7 +20,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: rudder (second, optional)</li><li><b>MAIN6</b>: throttle</li><li><b>MAIN7</b>: wheel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel for prerotator (optional)</li><li><b>AUX2</b>: feed-through of RC AUX2 channel for release device (optional)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: 엘리베이터</li><li><b>MAIN4</b>: 러더</li><li><b>MAIN5</b>: 러더 (두번째, 선택적)</li><li><b>MAIN6</b>: 쓰로틀</li><li><b>MAIN7</b>: 휠</li><li><b>AUX1</b>: feed-through of RC AUX1 channel for prerotator (optional)</li><li><b>AUX2</b>: feed-through of RC AUX2 channel for release device (optional)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -37,14 +37,14 @@
 <tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o., Roman Dvorak <dvorakroman@thunderfly.cz></p><p><code>SYS_AUTOSTART</code> = 17002</p></td>
+ <td style="vertical-align: top;"><p>관리자: ThunderFly s.r.o., Roman Dvorak <dvorakroman@thunderfly.cz></p><p><code>SYS_AUTOSTART</code> = 17002</p></td>
 
 </tr>
 </tbody></table>
 
-## 콥터
+## Copter
 
-### 동축 헬리콥터
+### 동축반전식 헬리콥터
 
 <div>
   <img src="../../assets/airframes/types/HelicopterCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -56,7 +56,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: Left swashplate servomotor, pitch axis</li><li><b>MAIN2</b>: Right swashplate servomotor, roll axis</li><li><b>MAIN3</b>: Upper rotor (CCW)</li><li><b>MAIN4</b>: Lower rotor (CW)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 좌측 경사판 서보모터, 피치 축</li><li><b>MAIN2</b>: 우측 경사판 서보모터, 롤 축</li><li><b>MAIN3</b>: 상부 rotor (CCW)</li><li><b>MAIN4</b>: 하부 rotor (CW)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -73,12 +73,12 @@
 <tbody>
 <tr id="copter_coaxial_helicopter_esky_(big)_lama_v4">
  <td style="vertical-align: top;">Esky (Big) Lama v4</td>
- <td style="vertical-align: top;"><p>Maintainer: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
+ <td style="vertical-align: top;"><p>관리자: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
 
 </tr>
 </tbody></table>
 
-### Dodecarotor cox
+### 도데카로터 콕스
 
 <div>
   <img src="../../assets/airframes/types/DodecaRotorXCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -90,7 +90,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: motor 7</li><li><b>AUX2</b>: motor 8</li><li><b>AUX3</b>: motor 9</li><li><b>AUX4</b>: motor 10</li><li><b>AUX5</b>: motor 11</li><li><b>AUX6</b>: motor 12</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: 모터 7</li><li><b>AUX2</b>: 모터 8</li><li><b>AUX3</b>: 모터 9</li><li><b>AUX4</b>: 모터 10</li><li><b>AUX5</b>: 모터 11</li><li><b>AUX6</b>: 모터 12</li></ul></td>
 </tr>
   </table>
 </div>
@@ -106,13 +106,13 @@
   </tr>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
- <td style="vertical-align: top;">Generic Dodecarotor cox geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: William Peale <develop707@gmail.com></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
+ <td style="vertical-align: top;">범용 도데카로터 콕스 지오메트리</td>
+ <td style="vertical-align: top;"><p>관리자: William Peale <develop707@gmail.com></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
 
 </tr>
 </tbody></table>
 
-### Helicopter
+### 헬리콥터
 
 <div>
   <img src="../../assets/airframes/types/Helicopter.svg" width="29%" style="max-height: 180px;" /> 
@@ -124,7 +124,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: main motor</li><li><b>MAIN2</b>: front swashplate servo</li><li><b>MAIN3</b>: right swashplate servo</li><li><b>MAIN4</b>: left swashplate servo</li><li><b>MAIN5</b>: tail-rotor servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 메인 모터</li><li><b>MAIN2</b>: 전면 경사판 서보</li><li><b>MAIN3</b>: 우측 경사판 서보</li><li><b>MAIN4</b>: 좌측 경사판 서보</li><li><b>MAIN5</b>: 테일 로터 서보</li></ul></td>
 </tr>
   </table>
 </div>
@@ -141,12 +141,12 @@
 <tbody>
 <tr id="copter_helicopter_blade_130x">
  <td style="vertical-align: top;">Blade 130X</td>
- <td style="vertical-align: top;"><p>Maintainer: Bart Slinger <bartslinger@gmail.com></p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
+ <td style="vertical-align: top;"><p>관리자: Bart Slinger <bartslinger@gmail.com></p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
 
 </tr>
 </tbody></table>
 
-### Hexarotor +
+### 헥사로터 +
 
 <div>
   <img src="../../assets/airframes/types/HexaRotorPlus.svg" width="29%" style="max-height: 180px;" /> 
@@ -158,7 +158,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor1</li><li><b>MAIN2</b>: motor2</li><li><b>MAIN3</b>: motor3</li><li><b>MAIN4</b>: motor4</li><li><b>MAIN5</b>: motor5</li><li><b>MAIN6</b>: motor6</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터1</li><li><b>MAIN2</b>: 모터2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
 </tr>
   </table>
 </div>
@@ -174,13 +174,13 @@
   </tr>
 <tbody>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
- <td style="vertical-align: top;">Generic Hexarotor + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
+ <td style="vertical-align: top;">일반 헥사로터 + 지오메트리</td>
+ <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
 
 </tr>
 </tbody></table>
 
-### Hexarotor Coaxial
+### 동축반전식 헥사로터
 
 <div>
   <img src="../../assets/airframes/types/Y6B.svg" width="29%" style="max-height: 180px;" /> 
