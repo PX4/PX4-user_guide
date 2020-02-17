@@ -37,7 +37,7 @@
   * Weight: 15.8g
   * Dimensions: 44x84x12mm
 * Other Characteristics: 
-  * Operating temperature: -40 ~ 85°c
+  * 작동 온도: -40 ~ 85°c
 
 Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
@@ -86,14 +86,14 @@ The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides
 
 ## 펌웨어 빌드
 
-> **Tip** 대부분의 사용자들은 이 펌웨어를 빌드할 필요가 가 없다. It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** 대부분의 사용자들은 이 펌웨어를 빌드할 필요가 가 없다. 이미 사전에 빌드 되어 있으며 *QGroundControl*가 설치되어 있다면 하드웨어가 정확히 연결된 순간에 자동으로 설치한다.
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+이 타켓에 맞게 [PX4 빌드](https://dev.px4.io/master/en/setup/building_px4.html)하기
 
     make px4_fmu-v5_default
     
 
-## Debug Port
+## 디버그 포트
 
 The system's serial console and SWD interface runs on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. In order to access these ports, the user must remove the *Pixhawk 4* casing.
 
