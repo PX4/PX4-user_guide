@@ -2,7 +2,7 @@
 
 *Pixhawk 4*<sup>&reg;</sup> 는 PX4팀과 Holybro<sup>&reg;</sup> 가 함께 협력하여 설계하고 만든 진보된 오토파일럿입니다. PX4 버전 1.7을 실행하는데 최적화 되어 있으며 연구와 상업용 개발자들에게 적합합니다.
 
-[Pixhawk-project](https://pixhawk.org/) **FMUv5**을 기반으로 오픈 하드웨어로서 설계 되었으며 [NuttX](http://nuttx.org) OS에서 PX4 를 작동시킵니다.
+[Pixhawk-project](https://pixhawk.org/) **FMUv5**을 기반으로 오픈 하드웨어로서 설계 되었으며 [NuttX](http://nuttx.org) OS에서 PX4 를 작동 합니다.
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
 
@@ -20,15 +20,15 @@
 * GPS: ublox Neo-M8N GPS/GLONASS 수신기; IST8310 지자계 센서가 통합된
 * 인터페이스: 
   * PWM 출력 8-16개 (IO에서 8개, FMU에서 8개)
-  * 3 dedicated PWM/Capture inputs on FMU
-  * Dedicated R/C input for CPPM
-  * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
-  * Dedicated S.Bus servo output
+  * FMU의 전용 PWM/캡처 입력 3 개
+  * CPPM 전용 R/C 입력
+  * 아날로그 / PWM RSSI 입력이있는 Spektrum / DSM 및 S.Bus 전용 R / C 입력
+  * 전용 S.Bus 서보 출력
   * 범용 serial 포트 5개
   * I2C 포트 3개
   * SPI 버스 4개
-  * Up to 2 CANBuses for dual CAN with serial ESC
-  * Analog inputs for voltage / current of 2 batteries
+  * 직렬 ESC를 사용하는 듀얼 CAN에 최대 2 개의 CAN 버스
+  * 배터리 2 개의 전압 / 전류를위한 아날로그 입력
 * 전원시스템 
   * 전원 모듈 출력: 4.9~5.5V
   * USB 전원 입력: 4.75~5.25V
@@ -63,22 +63,22 @@
 
 만약 세개의 파워소스가 공급된다면 *Pixhawk 4*는 전원 공급기에서 3개의 파워레일을 중복 시킬 수 있습니다. 이 세개의 파워 레일은: **POWER1**, **POWER2** 그리고 **USB** 입니다.
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+> **노트** 출력 전원 레일인 **FMU PWM OUT** 과 **I/O PWM OUT** (0V to 36V) 은 비행 제어 보드에 전원을 공급 하지 않습니다.(공급 받지도 않습니다). 당신은 **POWER1**, **POWER2** 또는 **USB**중 하나를 이용하여 통해 전원을 공급해야 합니다.
 
 **정상 작동 최대 전압 등급**
 
 아래 조건의 공급 전원은 시스템에 전원을 공급하기 위해 순서대로 사용됩니다.
 
 1. **POWER1** 과 **POWER2** 에 (4.9V to 5.5V) 를 입력
-2. **USB** 에는 (4.75V to 5.25V) 입력합니다.
+2. **USB** 에 (4.75V to 5.25V) 입력
 
 **절대 최대 전압**
 
 아래 조건에서 시스템은 전원을 공급하지 않지만 (작동하지 않음) 그대로 유지는 됩니다.
 
-1. **POWER1** and **POWER2** inputs (operational range 4.1V to 5.7V, 0V to 10V undamaged)
-2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
-3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
+1. **POWER1** 과 **POWER2** 입력 (작동 범위 4.1V ~ 5.7V, 비손상 범위0V ~ 10V)
+2. **USB** 입력 (작동 범위 4.1V to 5.7V, 비손상 범위 0V to 6V)
+3. 서보 입력: **FMU PWM OUT** 과 **I/O PWM OUT**의 VDD_SERVO 핀 (0V to 42V undamaged)
 
 ## 조립/설정
 
@@ -111,8 +111,8 @@
 
 ## 추가정보
 
-* [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-* [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+* [Pixhawk 4 기술 데이터 시트](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+* [FMUv5 레퍼런스 디자인 핀아웃](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
 * [Pixhawk 4 Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
-* [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
-* [Pixhawk 4 Quick Start Guide (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
+* [Pixhawk 4 핀아웃](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
+* [Pixhawk 4 빠른 시작 가이드 (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
