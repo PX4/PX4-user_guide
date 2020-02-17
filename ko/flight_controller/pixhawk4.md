@@ -1,12 +1,12 @@
 # Pixhawk 4
 
-*Pixhawk 4*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 version 1.7, suitable for academic and commercial developers.
+*Pixhawk 4*<sup>&reg;</sup> 는 PX4팀과 Holybro<sup>&reg;</sup> 가 함께 협력하여 설계하고 만든 진보한 오토파일럿이다. PX4 버전 1.7을 실행하는데 최적화 되어 있으며 연구와 상업용 개발자들에게 적합하다.
 
-It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+[Pixhawk-project](https://pixhawk.org/) **FMUv5**을 기반으로 오픈 하드웨어로서 설계 되었으며 [NuttX](http://nuttx.org) OS에서 PX4 를 작동시킨다.
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
 
-## Quick Summary
+## 빠른 요약
 
 * Main FMU Processor: STM32F765 
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
@@ -41,17 +41,17 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
 
 Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
 
-## Purchase
+## 구입처
 
 Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
 
-## Connectors
+## 커넥터 Connectors
 
 ![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
 > **Warning** The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
 
-## Pinouts
+## 핀아웃 Pinouts
 
 Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf).
 
@@ -59,7 +59,7 @@ Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-
 
 ![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
-## Voltage Ratings
+## 정격 전압
 
 *Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
@@ -80,13 +80,13 @@ Under these conditions the system will not draw any power (will not be operation
 2. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
 3. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
-## Assembly/Setup
+## 조립/설정
 
 The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
 
-## Building Firmware
+## 펌웨어 빌드
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** 대부분의 사용자들은 이 펌웨어를 빌드할 필요가 가 없다. It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
@@ -105,11 +105,11 @@ Both ports have standard serial pinout and can be connected to a standard FTDI c
 * [Telemetry Radio Modules](../telemetry/README.md)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## Supported Platforms / Airframes
+## 지원되는 플랫폼/ 에어프레임 Platforms/Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Further info
+## 추가정보
 
 * [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 * [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
