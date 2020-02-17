@@ -4,7 +4,7 @@
 
 [Pixhawk-project](https://pixhawk.org/) **FMUv5**을 기반으로 오픈 하드웨어로서 설계 되었으며 [NuttX](http://nuttx.org) OS에서 PX4 를 작동 합니다.
 
-<img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
+<img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright 이미지" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 이미지" />
 
 ## 빠른 요약
 
@@ -47,7 +47,7 @@
 
 ## 커넥터 Connectors
 
-![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
+![Pixhawk 4 커넥터들](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
 > **경고** **DSM/SBUS RC** 와 **PPM RC** 포트들은 RC 수신기 전용 입니다. 이 포트들은 전원이 공급되고 있습니다. 절대 서보나 전원공급기나 기타 배터리 (또는 다른 수신기) 들과 연결하면 안됩니다.
 
@@ -57,7 +57,7 @@
 
 ## 치수
 
-![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
+![Pixhawk 4 치수](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
 ## 정격 전압
 
