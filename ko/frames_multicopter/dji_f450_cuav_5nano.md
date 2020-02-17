@@ -8,7 +8,7 @@
 - **비행 조절장치:** [CUAV V5 nano](../flight_controller/cuav_v5_nano.md)
 - **조립 시간 (예상):** 90 분 (프레임 조립에 45분, 오토파일럿 설치와 설정에 45분)
 
-![Finished setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
+![성절 완료하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
 ## Bill of materials
 
@@ -29,7 +29,7 @@
 
 아래의 이미지는 프레임과 전자 부품을 보여줍니다.
 
-![All components used in this build](../../assets/airframes/multicopter/dji_f450_cuav_5nano/all_components.jpg)
+![이 구성에 사용된 모든 부품들](../../assets/airframes/multicopter/dji_f450_cuav_5nano/all_components.jpg)
 
 ## 하드웨어
 
@@ -48,7 +48,7 @@
 | DJI Phantom 나사 내장 업그레이드 프로펠러 9.4x5 | 1  |
 
 
-![F450 frame components](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_frame_components.jpg)
+![F450 프레임 부품들](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_frame_components.jpg)
 
 ### CUAV v5 nano 패키지
 
@@ -100,7 +100,7 @@
 - 정밀 트위저
 - 납땜기
 
-![Required tools](../../assets/airframes/multicopter/dji_f450_cuav_5nano/required_tools.jpg)
+![필요한 공구들](../../assets/airframes/multicopter/dji_f450_cuav_5nano/required_tools.jpg)
 
 ## 조립
 
@@ -108,51 +108,51 @@
 
 1. 제공된 나사를 이용하여 밑판에 팔 4개를 결합합니다.
   
-    ![Arms to bottom plate](../../assets/airframes/multicopter/dji_f450_cuav_5nano/1_attach_arms_bottom_plate.jpg)
+    ![밑판의 팔들](../../assets/airframes/multicopter/dji_f450_cuav_5nano/1_attach_arms_bottom_plate.jpg)
 
 2. ESC (변속기) 의 양극 (빨강) 과 음극 (검정) 을 보드에 납땜합니다.
   
-    ![Solder ESCs](../../assets/airframes/multicopter/dji_f450_cuav_5nano/2_solder_esc.jpg)
+    ![ESC들 납땜하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/2_solder_esc.jpg)
 
 3. 전원 모듈의 양극 (빨강) 과 음극 (검정) 을 납땜합니다.
   
-    ![Solder power module](../../assets/airframes/multicopter/dji_f450_cuav_5nano/3_solder_power_module.jpg)
+    ![전원 모듈 납땜하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/3_solder_power_module.jpg)
 
 4. 모터의 플러그를 ECS의 극에 맞춰에 꽂습니다.
   
-    ![Plug in motors](../../assets/airframes/multicopter/dji_f450_cuav_5nano/4_plug_in_motors.jpg)
+    ![모터 연결하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/4_plug_in_motors.jpg)
 
 5. 각각의 모터를 해당하는 팔에 고정합니다.
   
-    ![Attach motors to arms (white)](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5a_attach_motors_to_arms.jpg) ![Attach motors to arms (red)](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5b_attach_motors_to_arms.jpg)
+    ![팔(흰색) 에 모터 장착하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5a_attach_motors_to_arms.jpg) ![팔(빨간색) 에 모터 장착하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/5b_attach_motors_to_arms.jpg)
 
 6. (다리의 윗부분과 나사로 결합하여) 윗판을 장착합니다.
   
-    ![Add top board](../../assets/airframes/multicopter/dji_f450_cuav_5nano/6_add_top_board.jpg)
+    ![윗판 장학하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/6_add_top_board.jpg)
 
-7. Add damping foam to the *CUAV V5 nano* flight controller.
+7. 진동 방지 폼테이프를 *CUAV V5 nano* 비행 컨트롤러에 부착합니다.
   
-    ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7a_attach_cuav5nano.jpg) ![Damping foam](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7b_attach_cuav5nano.jpg)
+    ![진동방지 폼테이프](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7a_attach_cuav5nano.jpg) ![진동방지 폼테이프](../../assets/airframes/multicopter/dji_f450_cuav_5nano/7b_attach_cuav5nano.jpg)
 
-8. Attach the FrSky receiver to the bottom board with double-sided tape.
+8. FrSky 수신기를 양면 테이프를 이용하여 아래판에 부착합니다.
   
-    ![Attach FrSky receiver with double-sided tape](../../assets/airframes/multicopter/dji_f450_cuav_5nano/8_attach_frsky.jpg)
+    ![양면테이프로 FrSky 수신기 부착하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/8_attach_frsky.jpg)
 
-9. Attach the telemetry module to the vehicle’s bottom board using double-sided tape.
+9. 텔레메트리 모듈을 기체의 아랫판에 양면테이프를 이용하여 부착합니다.
   
-    ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9a_telemtry_radio.jpg) ![Attach telemetry radio](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9b_telemtry_radio.jpg)
+    ![무선 텔레메트리 장착하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9a_telemtry_radio.jpg) ![무선 텔레메트리 장착하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/9b_telemtry_radio.jpg)
 
-10. Put the aluminium standoffs on the button plate and attach GPS.
+10. 알루미늄 GPS 지지대를 밑판에 추가한후 GPS를 부착합니다.
   
-    ![Aluminium standoffs](../../assets/airframes/multicopter/dji_f450_cuav_5nano/10_aluminium_standoffs.jpg)
+    ![알루미늄 지지대](../../assets/airframes/multicopter/dji_f450_cuav_5nano/10_aluminium_standoffs.jpg)
 
-11. Plug in Telemetry (`TELEM1`), GPS module (`GPS/SAFETY`), RC receiver (`RC`), all 4 ESC’s (`M1-M4`), and the power module (`Power1`) into the flight controller. ![Attach peripherals to flight controller](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
+11. 비행컨트롤러의 각 포트에 맞게 텔레메트리는 (`TELEM1`) 에, GPS 모듈은 (`GPS/SAFETY`) 에, RC 수신기는 (`RC`) 에, 모든 4 ESC’s (`M1-M4`) 에, 그리고 전원 모듈은(`Power1`) 꽂습니다. ![비행 컨트롤러에 주변장치 장착하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/12_fc_attach_periperhals.jpg)
   
   > **Note** 모터의 순서는 [Airframe Reference > Quadrotor x](../airframes/airframe_reference.md#quadrotor-x)에 제시되어 있습니다.
 
 끝났습니다! 마지막 조립순서가 다음에 이어집니다:
 
-![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
+![완료된 설정](../../assets/airframes/multicopter/dji_f450_cuav_5nano/f450_cuav5_nano_complete.jpg)
 
 ## 기체 설정/보정 {#configure}
 
@@ -167,7 +167,7 @@
   
   > **Note** *Generic Quadrotor X* 에어프레임을 선택합니다.(**Quadrotor x > Generic Quadrotor X**).
   
-    ![QGroundControl - Select Generic Quadrotor X airframee](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_select_airframe.jpg)
+    ![QGroundControl - Generic Quadrotor X airframee 선택하기](../../assets/airframes/multicopter/dji_f450_cuav_5nano/qgc_select_airframe.jpg)
 
 그리고 필수 설치/설정을 수행합니다.
 
