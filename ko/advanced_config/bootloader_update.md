@@ -76,4 +76,4 @@
 
 [Pixhawk Series](../flight_controller/pixhawk_series.md)에 포함되지 않은 보드들은 고유의 부트로더 업데이트 메커니즘을 가질 수 있습니다.
 
-For boards that are preflashed with Betaflight, see [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md).
+Betaflight 로 미리 플래쉬 되어 있는 보드의 경우, [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md)을 확인하십시오.
