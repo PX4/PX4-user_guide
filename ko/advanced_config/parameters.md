@@ -2,9 +2,9 @@
 
 PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md)를 사용하여 설정/조정될 수 있습니다(예. [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보, 등.).
 
-The *QGroundControl Parameters* screen allows you to find and modify **any** of the parameters associated with the vehicle. 상단 메뉴의 톱니 바퀴 아이콘을 클릭한 다음 좌측 메뉴의 파라미터를 클릭하여 파라미터 화면에 진입합니다.
+*QGroundControl 파라미터* 화면은 기체와 관련된 **어떤 **파라미터든지 찾고 수정할 수 있도록 허용합니다. 상단 메뉴의 톱니 바퀴 아이콘을 클릭한 다음 좌측 메뉴의 파라미터를 클릭하여 파라미터 화면에 진입합니다.
 
-> **Note** Most of the more commonly used parameters are more conveniently set using the dedicated setup screens described in the [Basic Configuration](../config/README.md) section. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
+> **참고** 일반적으로 사용되는 대부분의 파라미터는 [기본 설정](../config/README.md) 에서 설명한 설정 전용 화면을 이용하면 더 편하게 설정할 수 있습니다. The *Parameters* screen is needed when modifying less commonly modified parameters - for example while tuning a new vehicle.
 
 <span></span>
 
