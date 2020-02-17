@@ -67,7 +67,7 @@
 
 **Normal Operation Maximum Ratings**
 
-Under these conditions all power sources will be used in this order to power the system:
+아래 조건의 공급 전원은 시스템에 전원을 공급하기 위해 순서대로 사용됩니다.
 
 1. **POWER1** 과 **POWER2** 에는 (4.9V to 5.5V) 를 입력합니다.
 2. **USB** 에는 (4.75V to 5.25V) 입력합니다.
@@ -82,7 +82,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 ## 조립/설정
 
-The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
+[Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md)는 GPS와 전원관리보드 등을 포함한 필요/중요 주변기기를 어떻게 조립하는지 지침을 제공한다.
 
 ## 펌웨어 빌드
 
