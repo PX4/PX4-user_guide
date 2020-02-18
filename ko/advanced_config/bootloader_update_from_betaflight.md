@@ -1,6 +1,6 @@
-# Bootloader Flashing onto Betaflight Systems
+# Betaflight 시스템에 부트로더 플래싱 하기
 
-This page documents how to flash the PX4 bootloader onto boards preflashed with Betaflight (e.g. [OmnibusF4 SD](../flight_controller/omnibus_f4_sd.md) or [Kakute F7](../flight_controller/kakutef7.md)).
+이 페이지 문서는 이미 Betaflight 로 미리 플래쉬 되어 있는 보드(예.[OmnibusF4 SD](../flight_controller/omnibus_f4_sd.md) or [Kakute F7](../flight_controller/kakutef7.md))에 PX4 부트로더를 플래쉬하는지에 관한 것 입니다.
 
 There are two options for flashing the bootloader: via *Betaflight Configurator* (easier), or building from source.
 
