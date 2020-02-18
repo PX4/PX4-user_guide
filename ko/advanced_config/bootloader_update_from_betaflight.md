@@ -4,9 +4,9 @@
 
 부트로더를 플래슁하는 2가지 선택지가 있습니다: *Betaflight Configurator* 를 이용하는 것(쉬움) 과, 소스로 부터 빌드하는 방법이 있습니다.
 
-### Bootloader Update using Betaflight Configurator {#betaflight_configurator}
+### Betaflight Configurator를 이용하여 부트로더 갱신하기 {#betaflight_configurator}
 
-To install the PX4 bootloader using the *Betaflight Configurator*:
+*Betaflight Configurator*를 이용하여 PX4 부트로더 설치하기:
 
 1. You should have downloaded already the pre-built bootloader binary (this depends on the board you want to flash).
 2. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform. > **Tip** If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao). 
@@ -16,7 +16,7 @@ To install the PX4 bootloader using the *Betaflight Configurator*:
 
 You should now be able to install PX4 firmware on the board.
 
-### Bootloader Update using Source
+### Source를 이용하여 부트로더 갱신하기
 
 #### Download Bootloader Source
 
