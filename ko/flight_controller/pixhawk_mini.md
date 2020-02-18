@@ -252,6 +252,16 @@ Notes:
 
 <img src="../../images/pixhawk_mini_port_main_out.png" width="350px" title="Pixhawk Mini - port for motors/servos" />
 
+### Other Peripherals
+
+The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
+
+### Configuration
+
+General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+
+QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+
 ## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
@@ -266,13 +276,3 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 This board does not have a debug port (i.e it does not have a port for accessing the [System Console](http://dev.px4.io/master/en/debug/system_console.html) or SWD (JTAG) debug interface.
 
 Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
-
-### Other Peripherals
-
-The wiring and configuration of other components is covered within the topics for individual [peripherals](../peripherals/README.md).
-
-### Configuration
-
-General configuration information is covered in: [Autopilot Configuration](../config/README.md).
-
-QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
