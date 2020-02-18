@@ -6,7 +6,7 @@ This page is a collection of useful commands and instructions which might come i
 
 ### Over FTDI
 
-Connect the small debug header shipped with the Snapdragon and the FTDI cable.
+The kit comes with a breakout board with three pins to access the console. Connect the bundled FTDI cable to the supplied header and the breakout board to the expansion connector.
 
 On Linux, open a console using:
 
@@ -31,14 +31,37 @@ To get a shell, do:
     adb shell
     
 
-### DSP Debug Monitor
+### DSP Debug Monitor/Console
 
-You can also run *mini-dm* provided by hexagon to see the output of the DSP:
+When you are connected to your Snapdragon board via USB you have access to the PX4 shell on the DSP (POSIX). The interaction with the DSP side (QuRT) is enabled with the `qshell` posix app and its QuRT companion.
+
+With the Snapdragon connected via USB, open the mini-dm to see the output of the DSP:
 
     ${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
     
 
 > **Note** Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+
+Run the main app on the linaro side:
+
+```sh
+cd /home/linaro
+./px4 -s px4.config
+```
+
+You can now use all apps loaded on the DSP from the linaro shell with the following syntax:
+
+```sh
+pxh> qshell command [args ...]
+```
+
+For example, to see the available QuRT apps:
+
+```sh
+pxh> qshell list_tasks
+```
+
+The output of the executed command is displayed on the minidm.
 
 ## Serial ports
 
