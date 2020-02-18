@@ -287,7 +287,7 @@ To discuss the interfaces or how to integrate other features join the PX4 slack 
 
 ## How to get Technical Support?
 
-For hardware issues, please contact Holybro at: [support@holybro.com](mailto:support@holybro.com).
+For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
 
 For software issues, use the following [community support channels](README.md#support):
 - PX4 discuss: [Computer Vision](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance) category.
