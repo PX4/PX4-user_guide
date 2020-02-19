@@ -41,3 +41,27 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 ```
 make px4_fmu-v4pro_default
 ```
+
+## Debug Port
+
+The board has FMU and IO debug ports as shown below.
+
+![Debug Ports](../../assets/flight_controller/pixhawk3pro/pixhawk3_pro_debug_ports.jpg)
+
+The pinouts and connector comply with the [Pixhawk Standard Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
+ 
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | VCC TARGET SHIFT  | +3.3V
+2 (blk) | CONSOLE TX (OUT)  | +3.3V
+3 (blk) | CONSOLE RX (IN)   | +3.3V
+4 (blk) | SWDIO  | +3.3V
+5 (blk) | SWCLK  | +3.3V
+6 (blk) | GND       | GND
+
+For information about wiring and using this port see:
+- [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (Note, the FMU console maps to UART7).
+<!-- Add SWD cross link later -->
+
+
+
