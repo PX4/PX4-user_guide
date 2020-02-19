@@ -1,16 +1,16 @@
-# Flight Termination Configuration
+# 비행 중단 설정
 
-The *Flight termination* [failsafe action](../config/safety.md#failsafe_actions) may be triggered by a [safety check](../config/safety.md) (e.g. RC Loss, geofence violation, etc. on any vehicle type or in any flight mode), or by the [Failure Detector](../config/safety.md#failure_detector).
+*비행중단* [failsafe 행동은](../config/safety.md#failsafe_actions) [safety check](../config/safety.md)(예를 들어 RC 놓침, 지오펜스 충돌 등, etc. 어떤 타입의 기체거나 어떤 종류의 비행 보드이거나), 또는 [실패 감지기](../config/safety.md#failure_detector) 에 의해 실시 될 것이다.
 
 When *Flight termination* is activated, PX4 simultaneously turns off all controllers and sets all PWM outputs to their failsafe values.
 
 Depending on what devices are connected, the PWM failsafe outputs can be used to:
 
-- Deploy a [parachute](../peripherals/parachute.md).
+- [낙하산](../peripherals/parachute.md) 펼치기.
 - Extend retractable landing gear.
 - Move a PWM-connected gimbal to a safe orientation (or retract it) in order to protect the camera.
-- Trigger an inflatable device like an airbag.
-- Trigger an alarm.
+- 에어백 같은 팽창 장비 가동하기.
+- 알람 울리기.
 
 There is no way to recover from flight termination. After triggering you should unplug the battery as soon as possible. You will need to reboot/power cycle the vehicle before it can be used again.
 
