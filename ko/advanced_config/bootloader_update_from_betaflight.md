@@ -8,19 +8,19 @@
 
 *Betaflight Configurator*를 이용하여 PX4 부트로더 설치하기:
 
-1. You should have downloaded already the pre-built bootloader binary (this depends on the board you want to flash).
-2. Download the [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) for your platform. > **Tip** If using the *Chrome* web browser, a simple cross-platform alternative is to install the configurator as an [extension from here](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao). 
-3. Connect the board to your PC and start the Configurator.
-4. Press the **Load Firmware [Local]** button ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
-5. Select the bootloader binary from the file system and then flash the board.
+1. 미리 빌드된 부트로더 바이너리(플래쉬 하고자 하는 보드에 따라 다름) 를 다운 받아야 합니다.
+2. 플랫폼에 맞게 [Betaflight Configurator](https://github.com/betaflight/betaflight-configurator/releases) 를 다운로드 합니다. > **Tip** 만약 *Chrome* 웹브라우저를 사용한다면, 간단한 크로스-플랫폼 대안은 configurator로 [여기서 확장](https://chrome.google.com/webstore/detail/betaflight-configurator/kdaghagfopacdngbohiknlhcocjccjao)을 설치하는 것 입니다. 
+3. PC와 보드를 연결하고 Configurator를 실행합니다.
+4. **Load Firmware [Local]** 버튼을 누릅니다. ![Betaflight Configurator - Local Firmware](../../assets/flight_controller/omnibus_f4_sd/betaflight_configurator.jpg)
+5. 파일 시스템으로 부터 부트로더 바이너리를 선택하고 보드를 플래쉬 합니다.
 
-You should now be able to install PX4 firmware on the board.
+이제 보드에 PX4 펌웨어를 설치 할 수 있습니다.
 
 ### Source를 이용하여 부트로더 갱신하기
 
-#### Download Bootloader Source
+#### 부트로더 소스 다운로드
 
-Download and build the [Bootloader](https://github.com/PX4/Bootloader) via:
+다운로드 하고 [Bootloader](https://github.com/PX4/Bootloader) 빌드하기:
 
     git clone --recursive  https://github.com/PX4/Bootloader.git
     cd Bootloader
