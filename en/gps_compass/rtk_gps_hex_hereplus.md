@@ -78,6 +78,6 @@ Pin | Here+ GPS | pin | Pixhawk 4 GPS Port
 5 | I2C SDA | 5 | SDA1
 6 | BUTTON | 6 | SAFETY_SWITCH
 7 | BUTTON_LED | 7 | SAFETY_SWITCH_LED
-- | - | 8 | VDD_3V3
-- | - | 9 | BUZZER
+/ | - | 8 | VDD_3V3
+/ | - | 9 | BUZZER
 8 | GND | 10 | GND
