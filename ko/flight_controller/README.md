@@ -41,6 +41,8 @@
 * [Kakute F7](../flight_controller/kakutef7.md)
 * [Durandal](../flight_controller/durandal.md)
 * [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
+* [ModalAI](../flight_controller/modalai.md) 
+  * [Flight Core](../flight_controller/modalai_fc_v1.md)
 * [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
 * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)

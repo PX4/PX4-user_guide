@@ -88,6 +88,18 @@ Pixfalcon 자동 조종 장치 ( Holybro <sup> 및 reg; </ 1> </ 0>) 는 공간�
 </code></pre>
 
 <h2>
+  Debug Port
+</h2>
+
+<p>
+  This board does not have a debug port (i.e it does not have a port for accessing the <a href="http://dev.px4.io/master/en/debug/system_console.html">System Console</a> or SWD (JTAG) debug interface.
+</p>
+
+<p>
+  Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
+</p>
+
+<h2>
   Key Links
 </h2>
 

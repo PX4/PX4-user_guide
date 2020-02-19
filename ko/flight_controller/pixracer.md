@@ -144,9 +144,9 @@ All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixha
 | 4 (blk) | BUZZER-          | -     |
 | 5 (blk) | BUZZER+          | -     |
 
-#### Debug Port (JST SM06B connector)
+#### Debug Port
 
-Dronecode debug port.
+This is a [Pixhawk Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
 
 | Pin     | Signal           | Volt  |
 | ------- | ---------------- | ----- |
@@ -156,6 +156,10 @@ Dronecode debug port.
 | 4 (blk) | SWDIO            | +3.3V |
 | 5 (blk) | SWCLK            | +3.3V |
 | 6 (blk) | GND              | GND   |
+
+For information about wiring and using this port see:
+
+* [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (Note, the FMU console maps to UART7).
 
 ## Schematics
 

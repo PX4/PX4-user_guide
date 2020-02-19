@@ -2610,7 +2610,7 @@
       </p>
       
       <p>
-        <strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
+        <strong>Comment:</strong> Setting this parameter to 162128 will disable the check for an airspeed sensor. The sensor driver will not be started and it cannot be calibrated. WARNING: ENABLING THIS CIRCUIT BREAKER IS AT OWN RISK
       </p>
       
       <p>
@@ -12298,6 +12298,116 @@
   </tr>
 </table>
 
+## Hover Thrust Estimator
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="HTE_ACC_GATE">HTE_ACC_GATE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Gate size for acceleration fusion
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.0 > 10.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      3.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      SD
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="HTE_HT_ERR_INIT">HTE_HT_ERR_INIT</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        1-sigma initial hover thrust uncertainty
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Sets the number of standard deviations used by the innovation consistency test.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0 > 1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.1
+    </td>
+    
+    <td style="vertical-align: top;">
+      normalized_thrust
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="HTE_HT_NOISE">HTE_HT_NOISE</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Hover thrust process noise
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> Reduce to make the hover thrust estimate more stable, increase if the real hover thrust is expected to change quickly over time.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0001 > 1.0
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0005
+    </td>
+    
+    <td style="vertical-align: top;">
+      normalized_thrust/s
+    </td>
+  </tr>
+</table>
+
 ## Iridium SBD
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -14964,6 +15074,34 @@
     </td>
     
     <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="MAV_RADIO_TOUT">MAV_RADIO_TOUT</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Timeout in seconds for the RADIO_STATUS reports coming in
+      </p>
+      
+      <p>
+        <strong>Comment:</strong> If the connected radio stops reporting RADIO_STATUS for a certain time, a warning is triggered and, if MAV_X_RADIO_CTL is enabled, the software-flow control is reset.
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+      1 > 250
+    </td>
+    
+    <td style="vertical-align: top;">
+      5
+    </td>
+    
+    <td style="vertical-align: top;">
+      s
     </td>
   </tr>
   
@@ -42684,6 +42822,285 @@
     
     <td style="vertical-align: top;">
       1
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+</table>
+
+## UUV Attitude Control
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup> <tr>
+    <th>
+      Name
+    </th>
+    
+    <th>
+      Description
+    </th>
+    
+    <th>
+      Min > Max (Incr.)
+    </th>
+    
+    <th>
+      Default
+    </th>
+    
+    <th>
+      Units
+    </th>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_DIRCT_PITCH">UUV_DIRCT_PITCH</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Direct pitch input
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_DIRCT_ROLL">UUV_DIRCT_ROLL</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Direct roll input
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_DIRCT_THRUST">UUV_DIRCT_THRUST</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Direct thrust input
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_DIRCT_YAW">UUV_DIRCT_YAW</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Direct yaw input
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_INPUT_MODE">UUV_INPUT_MODE</strong> (INT32)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Select Input Mode
+      </p>
+      
+      <strong>Values:</strong>
+      
+      <ul>
+        <li>
+          <strong>0:</strong> use Attitude Setpoints
+        </li>
+        <li>
+          <strong>1:</strong> Direct Feedthrough
+        </li>
+      </ul>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_PITCH_D">UUV_PITCH_D</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch differential gain
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_PITCH_P">UUV_PITCH_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Pitch proportional gain
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      4.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_ROLL_D">UUV_ROLL_D</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll differential gain
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      1.5
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_ROLL_P">UUV_ROLL_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Roll proportional gain
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      4.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_YAW_D">UUV_YAW_D</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yaw differential gain
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      2.0
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+  </tr>
+  
+  <tr>
+    <td style="vertical-align: top;">
+      <strong id="UUV_YAW_P">UUV_YAW_P</strong> (FLOAT)
+    </td>
+    
+    <td style="vertical-align: top;">
+      <p>
+        Yawh proportional gain
+      </p>
+    </td>
+    
+    <td style="vertical-align: top;">
+    </td>
+    
+    <td style="vertical-align: top;">
+      4.0
     </td>
     
     <td style="vertical-align: top;">

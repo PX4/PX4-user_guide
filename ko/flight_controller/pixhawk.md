@@ -1,6 +1,6 @@
-# Pixhawk 1 Flight Controller
+# Pixhawk 1 비행 컨트롤러
 
-The *Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). It runs PX4 on the [NuttX](http://nuttx.org) OS.
+*Pixhawk<sup>&reg;</sup> 1* 오토파일럿은 [Pixhawk-project](https://pixhawk.org/) **FMUv2** 오픈 하드웨어를 기반으로 설계된 범용 비행 컨틀롤러 입니다(PX4FMU와 PX4IO의 기능을 결합한). 이것은 PX4를 [NuttX](http://nuttx.org) OS위에서 실행합니다.
 
 > **Tip** Originally manufactured by 3DR<sup>&reg;</sup> this board was the original standard microcontroller platform for PX4. While the board is no longer manufactured by 3DR, you can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
 
@@ -225,9 +225,32 @@ Due to space constraints two ports are on one connector.
 
 ### Console Port
 
-The system's serial console runs on the port labeled SERIAL4/5. The pinout is standard serial pinout, to connect to a standard FTDI cable (3.3V, but its 5V tolerant).
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) runs on the port labeled [SERIAL4/5](#serial-45-port).
 
-Please refer to the Devguide [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
+> **Tip** A convenient way to connect to the console is to use a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), as it comes with connectors that can be used with several different Pixhawk devices. Simply connect the 6-pos DF13 1:1 cable on the [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) to the Pixhawk `SERIAL4/5` port .
+> 
+> ![Dronecode probe](../../assets/flight_controller/pixhawk1/dronecode_probe.jpg)
+
+The pinout is standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
+
+| 3DR Pixhawk 1 |           | FTDI                 |
+| ------------- | --------- | -------------------- |
+| 1             | +5V (red) | | N/C                |
+| 2             | S4 Tx     | | N/C                |
+| 3             | S4 Rx     | | N/C                |
+| 4             | S5 Tx     | 5 | FTDI RX (yellow) |
+| 5             | S5 Rx     | 4 | FTDI TX (orange) |
+| 6             | GND       | 1 | FTDI GND (black) |
+
+The wiring for an FTDI cable to a 6-pos DF13 1:1 connector is shown in the figure below.
+
+![Console Connector](../../assets/flight_controller/pixhawk1/console_connector.jpg)
+
+The complete wiring is shown below.
+
+![Console Debug](../../assets/flight_controller/pixhawk1/console_debug.jpg)
+
+> > **Note** For information on how to *use* the console see: [System Console](https://dev.px4.io/master/en/debug/system_console.html) (PX4 Developer Guide)
 
 ### SWD Port
 
