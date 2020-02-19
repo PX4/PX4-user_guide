@@ -4,11 +4,11 @@
 
 When *Flight termination* is activated, PX4 simultaneously turns off all controllers and sets all PWM outputs to their failsafe values.
 
-Depending on what devices are connected, the PWM failsafe outputs can be used to:
+연결된 장치에 따라 PWM failsafe 출력은 다음과 같이 활용 될 수 있습니다.
 
 - [낙하산](../peripherals/parachute.md) 펼치기.
-- Extend retractable landing gear.
-- Move a PWM-connected gimbal to a safe orientation (or retract it) in order to protect the camera.
+- 랜딩기억 펼치기.
+- 카메라를 보호하기 위해 PWM방식으로 연결된 짐벌을 안전 각도(또는 수납 위치) 로 움직이기.
 - 에어백 같은 팽창 장비 가동하기.
 - 알람 울리기.
 
