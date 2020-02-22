@@ -17,68 +17,10 @@ Information about flashing OS images can be found on [this page](https://github.
 Other useful information can be found in the [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;).
 
 
-## Robot Control Library
-
-On [BeagleBone Blue](https://beagleboard.org/blue), PX4 requires [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) version 1.0.0 or higher.
-
-BeagleBoard OS images come with *librobotcontrol* preinstalled, but it may not work properly in all OS images.
-
-One way to check if *librobotcontrol* works properly is to run *rc_test_drivers* which comes with *librobotcontrol*.
-As shown in the following example, all tests should pass. 
-Optionally run other tests such as *rc_test_bmp*, *rc_test_mpu*, etc.
-
-```sh
-debian@beaglebone:~$ rc_test_drivers
-
-Kernel: 4.14.56-ti-rt-r64
-BeagleBoard.org Debian Image 2018-07-22
-Debian: 9.5
-
-PASSED: gpio 0
-PASSED: gpio 1
-PASSED: gpio 2
-PASSED: gpio 3
-PASSED: pwm1
-PASSED: pwm2
-PASSED: eqep0
-PASSED: eqep1
-PASSED: eqep2
-PASSED: pru-rproc
-PASSED: uart1
-PASSED: uart2
-PASSED: uart4
-PASSED: uart5
-PASSED: i2c1
-PASSED: i2c2
-PASSED: spi
-PASSED: LED
-PASSED: ADC iio
-
-Currently running on a:
-MODEL_BB_BLUE
-Robot Control library Version:
-1.0.0
-```
-
 > **Tip** Optionally you can update to a realtime kernel, and if you do, re-check if *librobotcontrol* works properly with the realtime kernel.
 
 The latest OS images at time of updating this document is [bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz).
 
-
-### Setup Robot Control Library
-
-If you want to build PX4, there are additional setup steps for this library.
-
-Here are steps to build the *librobotcontrol* with PX4 extensions natively on a BeagleBone board:
-
-```sh
-git clone https://github.com/StrawsonDesign/librobotcontrol.git
-cd librobotcontrol
-make EXT_CFLAGS=-DRC_AUTOPILOT_EXT
-sudo make install
-```
-
-> **Tip** `EXT_CFLAGS` was added after version 1.0.4. If it's not in your version of **librobotcontrol/library/Makefile**, add it to `CLFAGS`, e.g., `CFLAGS := $(EXT_CFLAGS) -g -fPIC -I $(INCLUDEDIR)`
 
 ## Cross Compiler Build (Recommend)
 
