@@ -5720,14 +5720,14 @@ default 1.5 turns per second</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_K">MC_PITCHRATE_K</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Pitch rate controller gain</p><p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_PITCHRATE_K * (MC_PITCHRATE_P * error + MC_PITCHRATE_I * error_integral + MC_PITCHRATE_D * error_derivative) Set MC_PITCHRATE_P=1 to implement a PID in the ideal form. Set MC_PITCHRATE_K=1 to implement a PID in the parallel form.</p>   </td>
- <td style="vertical-align: top;">0.0 > 5.0 (0.0005)</td>
+ <td style="vertical-align: top;">0.01 > 5.0 (0.0005)</td>
  <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_P">MC_PITCHRATE_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Pitch rate P gain</p><p><strong>Comment:</strong> Pitch rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td style="vertical-align: top;">0.0 > 0.6 (0.01)</td>
+ <td style="vertical-align: top;">0.01 > 0.6 (0.01)</td>
  <td style="vertical-align: top;">0.15</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -5762,14 +5762,14 @@ default 1.5 turns per second</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLLRATE_K">MC_ROLLRATE_K</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Roll rate controller gain</p><p><strong>Comment:</strong> Global gain of the controller. This gain scales the P, I and D terms of the controller: output = MC_ROLLRATE_K * (MC_ROLLRATE_P * error + MC_ROLLRATE_I * error_integral + MC_ROLLRATE_D * error_derivative) Set MC_ROLLRATE_P=1 to implement a PID in the ideal form. Set MC_ROLLRATE_K=1 to implement a PID in the parallel form.</p>   </td>
- <td style="vertical-align: top;">0.0 > 5.0 (0.0005)</td>
+ <td style="vertical-align: top;">0.01 > 5.0 (0.0005)</td>
  <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_ROLLRATE_P">MC_ROLLRATE_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Roll rate P gain</p><p><strong>Comment:</strong> Roll rate proportional gain, i.e. control output for angular speed error 1 rad/s.</p>   </td>
- <td style="vertical-align: top;">0.0 > 0.5 (0.01)</td>
+ <td style="vertical-align: top;">0.01 > 0.5 (0.01)</td>
  <td style="vertical-align: top;">0.15</td>
  <td style="vertical-align: top;"></td>
 </tr>
