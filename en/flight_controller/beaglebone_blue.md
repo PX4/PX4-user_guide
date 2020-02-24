@@ -43,7 +43,7 @@ connmanctl>connect wifi_f45eab2f1ee1_6372797774616c_managed_psk
 connmanctl>quit
 ```
 ### SSH root Login on Beaglebone
-With USB Serial connectet 
+With USB Serial connected 
 ```
 echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 ```
