@@ -1,17 +1,17 @@
-# Complete Vehicles
+# 완성된 기체들
 
 This section contains information about complete vehicles that run PX4.
 
 > **Note** This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/technology/airframes/) and in the [Airframes Reference](../airframes/airframe_reference.md).
 
-- Consumer drones run PX4 natively/"out of the box": 
+- PX4를 네이티브 버전으로 구동할 수 있는 소비자용 드론들 / "out of the box": 
   - Multicopter 
     - [Teal One](https://tealdrones.com/teal-one/)
     - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) 
   - VTOL 
     - [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
-- Consumer drones that can be updated to run PX4 (from other flight stacks):
+- (다른 비행 스택을 적용했으나) PX4로 업데이트 받을 수 있는 소비자용 드론들
   
   - [Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
   - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md) <!--  Whole-vehicle hardware reference platforms that use PX4: -->
