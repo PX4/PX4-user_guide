@@ -43,12 +43,12 @@ The DevKit contains following components:
   - 1x Structure Core depth camera
   - 1x *UP Core* computer (with Ubuntu and PX4 avoidance)
     - Atom CPU
-    - FTDI UART connected to flight controller
-    - USB2 port connected to depth camera
+    - `UART0`: FTDI UART connected to flight controller
+    - `USB3`: USB2 port connected to depth camera
     - `USB1`: USB2 A port for booting PX4 avoidance environment
     - `USB2`: USB2 port on a JST-GH connector. 
       Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
-    - `USB3`: USB3 A port (connecting this may jam GPS)
+    - `?`: USB3 A port (connecting this may jam GPS)
     - `HDMI`: HDMI out
     - SD card slot
     - WiFi attached to external antenna #1
