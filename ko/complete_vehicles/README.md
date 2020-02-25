@@ -11,7 +11,7 @@ This section contains information about complete vehicles that run PX4.
   - VTOL 
     - [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
-- (다른 비행 스택을 적용했으나) PX4로 업데이트 받을 수 있는 소비자용 드론들
+- (다른 비행 스택을 적용했으나) PX4로 업데이트 받을 수 있는 소비자용 드론들:
   
   - [Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
   - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md) <!--  Whole-vehicle hardware reference platforms that use PX4: -->
