@@ -22,12 +22,15 @@ It also covers the first flight, and how to get started with modifying the compu
 1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras).
    Consequently it can’t be used for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
    
-1. PX4 obstacle avoidance and collision prevention can only be used when GPS is available (not indoors).
+1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS co-ordinates).
+   Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
+   
+1. Connecting the port labeled `USB3` may jam the GPS and disable GPS-dependent functionality (e.g. missions).
 
 
 ## Getting to Know Your DevKit
 
-![Schematic Overview](../../assets/hardware/px4_vision_devkit/px4_vision_schematic_overview.png)
+![Schematic Overview](../../assets/hardware/px4_vision_devkit/px4_vision_schematic_overview.jpg)
 
 
 ![Schematic Layered](../../assets/hardware/px4_vision_devkit/px4_vision_schematic_layered.png)
@@ -42,9 +45,12 @@ The DevKit contains following components:
     - Atom CPU
     - FTDI UART connected to flight controller
     - USB2 port connected to depth camera
-    - Unused USB3 A port
+    - `USB1`: USB2 A port for booting PX4 avoidance environment
+    - `USB2`: USB2 port on a JST-GH connector. 
+      Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
+    - `USB3`: USB3 A port (connecting this may jam GPS)
+    - `HDMI`: HDMI out
     - SD card slot
-    - HDMI out
     - WiFi attached to external antenna #1
   - ESP8266 connected to flight controller, attached to external WiFi antenna #2
 - A USB2.0 stick with pre-flashed software that bundles:
@@ -124,7 +130,7 @@ In addition, users will need ground station hardware/software:
 
 When the vehicle setup is complete:
 
-1. Insert the pre-imaged USB stick from the kit into the *UP Core* USB1 port (highlighted below).
+1. Insert the pre-imaged USB stick from the kit into the *UP Core* `USB1` port (highlighted below).
 
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 1. Connect the battery to power the vehicle.
@@ -152,8 +158,6 @@ When the vehicle setup is complete:
 
 1. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes/position_mc.md) and fly manually towards an obstacle.
   The vehicle should slow down and then stop within 6m of the obstacle (the distance can be [changed](../advanced_config/parameters.md) using the [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) parameter).
-  
-   > **Tip** While collision prevention is active you will be unable to manually pitch, roll, or yaw.
 
 1. To test [obstacle avoidance](../computer_vision/obstacle_avoidance.md), create a mission where the path is blocked by an obstacle.
   Then switch to [Mission Mode](../flight_modes/mission.md) to run the mission, and observe the vehicle moving around the obstacle and then returning to the planned course.
@@ -171,7 +175,7 @@ Documentation about the companion computer vision/planning software can be found
 The project provides a number of different planner implementations (packaged as ROS nodes):
 - The PX4 Vision Kit runs the *localplanner* by default and this is the recommended starting point for your own software.
 - The *globalplanner* has not been tested with this kit.
-- The *landing planner* requires a downward facing camera, and cannot be tested using this kit.
+- The *landing planner* requires a downward facing camera, and cannot used without first modifying the camera mounting.
 
 PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/en/) using these interfaces:
 - [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
@@ -181,7 +185,7 @@ PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/e
 
 The first three steps of [Fly the Drone (with avoidance)](#fly_drone) explain how to boot the companion computer.
 
-In summary, you just insert the provided USB stick into the *UP Core* USB1 port, and then power the vehicle using a 4S battery.
+In summary, you just insert the provided USB stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery.
 The USB stick contains a bootable *Ubuntu Linux 18.04* image with PX4 Avoidance software included, which automatically runs the *local planner* for object avoidance and collision prevention on startup.
 
 The avoidance system will be up and running after about 2.5 minutes.
@@ -192,10 +196,10 @@ Once started the companion computer can be used both as a computer vision develo
 ### Login to the Companion Computer {#login_mission_computer}
 
 To login to the companion computer:
-1. Connect a keyboard and mouse to the *UP Core* via its USB2 port:
+1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
 
    ![UP Core: USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
-   - Use the USB-JST cable from the kit to expose a USB A connector
+   - Use the USB-JST cable from the kit to get a USB A connector
    
      ![USB to JST cable](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
    - A USB hub can be attached to the cable if the keyboard and mouse have separate connectors. 
@@ -214,7 +218,7 @@ You can alternatively install the image on the *UP Core* and boot from internal 
 
 To flash the USB image to the *UP Core*:
 
-1. Insert the pre-flashed USB drive into the *UP Core* USB1 port.
+1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
 1. [Login to the companion computer](#login_mission_computer) (as described above).
 1. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
    The terminal will prompt for a number of responses during the flashing process.
