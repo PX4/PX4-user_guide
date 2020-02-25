@@ -37,7 +37,8 @@ The steps are:
 sudo -su
 connmanctl
 connmanctl>scan wifi
-connmanctl>services(at this point you should see your network appear along with other stuff, in my case it was "AR Crystal wifi_f45eab2f1ee1_6372797774616c_managed_psk")
+connmanctl>services
+(at this point you should see your network appear along with other stuff, in my case it was "AR Crystal wifi_f45eab2f1ee1_6372797774616c_managed_psk")
 connmanctl>agent on
 connmanctl>connect wifi_f45eab2f1ee1_6372797774616c_managed_psk
 connmanctl>quit
