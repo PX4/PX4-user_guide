@@ -247,7 +247,7 @@ The PX4 Vision’s *UP Core* computer provides a complete and fully configured e
 You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/Avoidance](https://github.com/PX4/avoidance) repo.
 
 The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner. 
-The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package
+The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
 
 The avoidance package is started on boot.
 To integrate a different planner, this needs to be disabled.
@@ -256,9 +256,18 @@ To integrate a different planner, this needs to be disabled.
    ```sh
    systemctl stop avoidance.service
    ```
-   To make this change permanent even after a reboot, the process needs to be disabled:
+   You can simply reboot the machine to restart the service.
+
+   Other useful commands are:
    ```sh
+   # restart service
+   systemctl start avoidance.service
+   
+   # disable service (stop service and do not restart after boot)
    systemctl disable avoidance.service
+   
+   # enable service (start service and enable restart after boot)
+   systemctl enable avoidance.service  
    ```
 
 1. The source code of the obstacle avoidance package can be found in https://github.com/PX4/avoidance which is located in `~/catkin_ws/src/avoidance`.
