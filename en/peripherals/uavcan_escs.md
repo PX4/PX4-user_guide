@@ -140,6 +140,10 @@ There is some guidance here: [Quick start guide for Myxa v0.1](https://forum.zub
 
 For VESC the preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool).
 
+### Troubleshooting
+
+PX4 requires an SD card for UAVCAN node allocation and firmware upgrade (both of which happen during boot).
+If motors simply don't start, check that there is a (working) SD card present and reboot.
 
 ## Further Information
 
