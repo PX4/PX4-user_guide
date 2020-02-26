@@ -25,8 +25,8 @@ It also covers the first flight, and how to get started with modifying the compu
 1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS co-ordinates).
    Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
    
-1. Connecting the port labeled `USB3` may jam the GPS and disable GPS-dependent functionality (e.g. missions).
-
+1. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions).
+   This is why the boot image is supplied on a *USB2* memory stick.
 
 ## Getting to Know Your DevKit
 
@@ -43,16 +43,17 @@ The DevKit contains following components:
   - 1x Structure Core depth camera
   - 1x *UP Core* computer (with Ubuntu and PX4 avoidance)
     - Atom CPU
-    - `UART0`: FTDI UART connected to flight controller
-    - `USB3`: USB2 port connected to depth camera
-    - `USB1`: USB2 A port for booting PX4 avoidance environment
+    - FTDI UART connected to flight controller
+    - `USB1`: USB3 A port used for booting PX4 avoidance environment from a USB2 stick (connecting a USB3 peripheral may jam GPS).
     - `USB2`: USB2 port on a JST-GH connector. 
       Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
-    - `?`: USB3 A port (connecting this may jam GPS)
+    - `USB3`: USB2 JST-GH port connected to depth camera
     - `HDMI`: HDMI out
     - SD card slot
-    - WiFi attached to external antenna #1
-  - ESP8266 connected to flight controller, attached to external WiFi antenna #2
+    - WiFi (attached to external antenna #1). 
+      Allows computer to access home WiFi network for Internet access/updates.
+  - ESP8266 connected to flight controller (attached to external antenna #2).
+    Enables wireless connection to the ground station.
 - A USB2.0 stick with pre-flashed software that bundles:
   - Ubuntu 18.04 LTS
   - ROS Melodic
@@ -130,14 +131,14 @@ In addition, users will need ground station hardware/software:
 
 When the vehicle setup is complete:
 
-1. Insert the pre-imaged USB stick from the kit into the *UP Core* `USB1` port (highlighted below).
+1. Insert the pre-imaged USB2 stick from the kit into the *UP Core* port `USB1` (highlighted below).
 
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 1. Connect the battery to power the vehicle.
 
 1. Wait until the boot sequence completes and the avoidance system has started (the vehicle will reject arming commands during boot).
 
-   > **Tip** The boot/startup process takes about 2.5 minutes.
+   > **Tip** The boot/startup process takes about 2.5 minutes from USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
 
 1. Check that the avoidance system has started properly:
 
@@ -181,14 +182,40 @@ PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/e
 - [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
 - [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
 
+
+### Installing the image on the Companion Computer {#install_image_mission_computer}
+
+You can install the image on the *UP Core* and boot from internal memory (instead of the USB).
+
+> **Tip** This is recommended because booting from internal memory is much faster (~30 seconds vs 2.5 minutes), it frees up a USB port, and may well provide more memory than your USB stick. 
+
+To flash the USB image to the *UP Core*:
+
+1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
+1. [Login to the companion computer](#login_mission_computer) (as described above).
+1. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
+   The terminal will prompt for a number of responses during the flashing process.
+   ```sh
+   cd ~/catkin_ws/src/px4vision_ros
+   sudo ./flash_emmc.sh
+   ```
+
+   > **Note** All information saved in the *UP Core* computer will be removed when executing this script
+
+1. Pull out the USB stick.
+1. Restart the vehicle.
+   The *UP Core* computer will now boot from internal memory (eMMC).
+
+
 ### Boot the Companion Computer {#boot_mission_computer}
 
-The first three steps of [Fly the Drone (with avoidance)](#fly_drone) explain how to boot the companion computer.
+First insert the provided USB2 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery.
+The avoidance system should start within about 2.5 minutes.
 
-In summary, you just insert the provided USB stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery.
-The USB stick contains a bootable *Ubuntu Linux 18.04* image with PX4 Avoidance software included, which automatically runs the *local planner* for object avoidance and collision prevention on startup.
+> **Tip** [Fly the Drone (with avoidance)](#fly_drone) additionally explains how to verify that the avoidance system is active.
 
-The avoidance system will be up and running after about 2.5 minutes.
+If you've already [installed the image on the companion computer](#install_image_mission_computer) you can just power the vehicle (i.e. no USB stick is needed).
+The avoidance system should be up and running within around 30 seconds.
 
 Once started the companion computer can be used both as a computer vision development environment and for running the software.
 
@@ -212,26 +239,6 @@ To login to the companion computer:
    - **Username:** px4vision
    - **Password:** px4vision
 
-### Installing the image on the Companion Computer {#install_image_mission_computer}
-
-You can alternatively install the image on the *UP Core* and boot from internal memory (instead of the USB).
-
-To flash the USB image to the *UP Core*:
-
-1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
-1. [Login to the companion computer](#login_mission_computer) (as described above).
-1. Open a terminal and run the following command to copy the image onto internal memory (eMMC).
-   The terminal will prompt for a number of responses during the flashing process.
-   ```sh
-   cd ~/catkin_ws/src/px4vision_ros
-   sudo ./flash_emmc.sh
-   ```
-
-   > **Note** All information saved in the *UP Core* computer will be removed when executing this script
-
-1. Pull out the USB stick.
-1. Restart the vehicle.
-   The *UP Core* computer will now boot from internal memory (eMMC).
 
 
 ### Developing/Extending PX4 Avoidance
