@@ -210,6 +210,7 @@
   * [OcPoC-Zynq Mini](flight_controller/ocpoc_zynq.md)
   * [BeagleBone Blue](flight_controller/beaglebone_blue.md)
 * [完成機](complete_vehicles/README.md) 
+  * [PX4 Vision Kit](complete_vehicles/px4_vision_kit.md)
   * [Crazyflie 2.0](complete_vehicles/crazyflie2.md)
   * [MindRacer BNF & RTF](complete_vehicles/mindracer_BNF_RTF.md) 
     * [MindRacer 210](complete_vehicles/mindracer210.md)
