@@ -8,7 +8,7 @@ The configuration makes it easy to (for example):
 - setup dual GPS.
 - enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
 
-> **Note** Some ports cannot be configured (e.g. `SERIAL 5`), for example because they are used for a very specific purpose like RC input.
+> **Note** Some ports cannot be configured because they are used for a very specific purpose like RC input or the system console (`SERIAL 5`).
 
 ## Pre-configured Ports {#default_port_mapping}
 
