@@ -284,8 +284,7 @@ The kit is designed for creating computer vision software that runs on the compa
 Modification of PX4 code is not needed to meet most computer vision use cases.
 To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
 
-> **Note** Firmware modification is not supported in the *Early Adopter Ediion*.
-  It may only be used with the supplied firmware (at tme of writing).
+> **Note** Firmware modification is not recommended in the *Early Adopter Edition* (we suggest that you use the shipped version).
 
 ## Other Development Resources
 
