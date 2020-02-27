@@ -1,4 +1,4 @@
-# Advanced Configuration
+# Расширенные настройки
 
 This section contains advanced configuration topics, covering vehicle-specific tuning, and less-common sensors and peripherals.
 
