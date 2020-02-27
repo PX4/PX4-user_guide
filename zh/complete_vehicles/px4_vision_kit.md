@@ -1,10 +1,10 @@
 ## PX4 Vision Autonomy Development Kit (Early Adopter Edition)
 
-The *PX4 Vision Autonomy DevKit* is a robust and inexpensive kit for enabling computer vision development on autonomous vehicles.
+*PX4 Vision Autonomy DevKit*是一个稳定且性价比高的开发包，能够在自主车辆上开发计算机视觉。
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
-The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* flight controller, *UP Core* companion computer, and Occipital *Structure Core* depth camera sensor. The vehicle comes with software for PX4 [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) and [Collision Prevention](../computer_vision/collision_prevention.md) enabled “out of the box”. Developers can use the kit to try out other features provided by the PX4 Avoidance project, modify the existing code, or experiment with completely new computer vision-based functionality.
+这个工具包包含一个接近即时运行的碳纤维四个部分，装备了一个*Pixhawk 4*飞行控制器、*UP Core*伴随的计算机，以及八项重要*建筑核心*深度相机传感器。 The vehicle comes with software for PX4 [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) and [Collision Prevention](../computer_vision/collision_prevention.md) enabled “out of the box”. Developers can use the kit to try out other features provided by the PX4 Avoidance project, modify the existing code, or experiment with completely new computer vision-based functionality.
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
 
