@@ -27,7 +27,7 @@ The instructions here are tested with the following version:
 
 In order to install Ubuntu on Intel Aero, the following equipment is needed:
 
-1. Power supply (battery or network cable)
+1. Источник питания (батарея или сетевой блок питания)
 2. Micro HDMI to HDMI cable to attach a monitor
 3. Micro USB3 to USB2 female adapter
 4. USB Hub to attach mouse and keyboard
@@ -95,7 +95,7 @@ Create a catkin workspace and initialize it. Then clone the avoidance repository
     roslaunch local_planner local_planner_aero.launch
     
 
-## Flashing PX4 software
+## Прошивка PX4
 
 After setting up the PX4 development environment, follow these steps update the PX4 software:
 
@@ -120,7 +120,7 @@ After setting up the PX4 development environment, follow these steps update the 
 
 5. Upload with: `make intel_aerofc-v1_default upload`
 
-## Connecting QGroundControl via Network
+## Подключение к QGroundControl через сеть
 
 1. Make sure you are connected to the board with WiFi or USB Network
 2. ssh to the board and make sure MAVLink forwarding runs. By default it automatically starts when booting. It can be started manually with: ```systemctl start mavlink-router```
