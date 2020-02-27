@@ -72,24 +72,24 @@ In addition, users will need ground station hardware/software:
 
 1. 将接收机（套件中不包含）固定在无人机上，
    - 使用H2.0 十六进制键工具移除/取消顶部板块(在电池进入的地方)。
-   - [Connect the receiver to the flight controller](../assembly/quick_start_pixhawk4.md#radio-control).
-   - Re-attach the top plate.
-   - Mount the RC receiver on the *UP Core* carrier board plate at the back of the vehicle (use zipties or double-sided tape).
-   - Ensure the antennas are clear of any obstructions and electrically isolated from the frame (e.g. secure them under the carrier board or to the vehicle arms or legs).
+   - [将接收器连接到飞控](../assembly/quick_start_pixhawk4.md#radio-control)。
+   - 重新安装上面的外壳。
+   - 在无人机背部安装RC 接收器(使用双面胶或其他)。
+   - 确保天线无障碍物阻挡并将天线和机架电隔离。例如，在减震板下方或机臂上。
 
-1. [Bind](../getting_started/rc_transmitter_receiver.md#binding) the RC ground and air units (if not already done). The binding procedure depends on the specific radio system used (read the receiver manual).
-1. Raise the GPS mast to the vertical position and screw the cover onto the holder on the base plate.
+1. 遥控和接收机配对(如果尚未完成的话)。 配对方法程序取决于接收机和遥控器（读取接收器手册）。
+1. GPS需要高于无人机，并固定到底板。
 
    ![Raise GPS mast](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
-1. Power the vehicle with a fully charged battery.
+1. 用充好电的电池的为车辆供电。
 
-   > **Note**  Ensure propellers are removed before connecting the battery.
-1. Connect the *Pixhawk 4* and ground station using a USB cable.
-1. Start *QGroundControl* on the ground station.
-1. [Configure/calibrate](../config/README.md) the vehicle: > **Note** The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is worth doing the following basic checks.
+   > **注意** 电池连接前移除螺旋桨。
+1. 使用 USB 线连接*Pixhawk 4* 和地面站。
+1. 启动*QGroundControl*。
+1. [配置/校准](../config/README.md) : > **Note** 无人机需要校准前需要完成，机架电池和其他传感器的安装。 然而，您需要校准无线电系统 (您刚刚连接) 并且值得进行以下基本检查。
 
-   - [Confirm that the Airframe](../config/airframe.md) is set to **PX4 Vision Devkit Platform**.
+   - [确认机架类型](../config/airframe.md)已设置为 **PX4 Vision Devkit Platform**。
    - [Calibrate the Radio System](../config/radio.md)
    - [Calibrate the Compass](../config/compass.md)
 1. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
