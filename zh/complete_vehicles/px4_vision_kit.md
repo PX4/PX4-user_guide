@@ -87,29 +87,29 @@ In addition, users will need ground station hardware/software:
    > **注意** 电池连接前移除螺旋桨。
 1. 使用 USB 线连接*Pixhawk 4* 和地面站。
 1. 启动*QGroundControl*。
-1. [配置/校准](../config/README.md) : > **Note** 无人机需要校准前需要完成，机架电池和其他传感器的安装。 然而，您需要校准无线电系统 (您刚刚连接) 并且值得进行以下基本检查。
+1. [配置/校准](../config/README.md) : > **Note** 无人机需要校准前需要完成，机架电池和其他传感器的安装。 您需要校准无线电系统 (您刚刚连接) 并且进行以下的基本检查。
 
    - [确认机架类型](../config/airframe.md)已设置为 **PX4 Vision Devkit Platform**。
-   - [Calibrate the Radio System](../config/radio.md)
-   - [Calibrate the Compass](../config/compass.md)
-1. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
+   - [校准遥控](../config/radio.md)
+   - [校准罗盘](../config/compass.md)
+1. (可选) 在遥控上设置一个[飞行模式切换开关](../config/flight_mode.md)。
 
-   > **Note** Modes can also be changed using *QGroundControl*
+   > **Note** 模式也可以通过*QGroundControl*切换
 
-   We recommend RC controller switches are define for:
-   - [Position Mode](../flight_modes/position_mc.md) - a safe manual flight mode that can be used to test collision prevention.
-   - [Mission Mode](../flight_modes/mission.md) - run missions and test obstacle avoidance.
-   - [Return Mode](../flight_modes/return.md) - return vehicle safely to its launch point and land.
+   我们推荐的遥控设置为：
+   - [定点模式](../flight_modes/position_mc.md) - 可以测试防撞的安全手动飞行模型
+   - [任务模式](../flight_modes/mission.md) - 执行任务并测试避障。
+   - [返回模式](../flight_modes/return.md) - 安全返回其发射点并降落。
 
-1. Attach the propellers with the rotations as shown:
+1. 螺旋桨按照下面的方向安装：
 
    ![Motor Order Diagram](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
-   - The propellers directions can be determined from the labels: *6045* (clockwise) and _6045_**R** (reversed).
+   - 螺旋桨方向可以从标签中确定：*6045* (顺时针) 和_6045_**R** (逆时针)。
 
      ![Propeller identification](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 
-   - Screw down firmly using the provided propellor nuts:
+   - 将螺旋桨向下旋紧。
 
      ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
 
