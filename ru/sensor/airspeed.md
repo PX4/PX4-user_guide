@@ -25,6 +25,6 @@ Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They 
 
 Информацию о настройке PX4 можно найти в: [Базовая конфигурация > Воздушная скорость](../config/airspeed.md).
 
-## Developer Information
+## Информация для разработчиков
 
-* [Airspeed drivers](https://github.com/PX4/Firmware/tree/master/src/drivers/differential_pressure) (source code)
+* [Драйверы сенсоров воздушной скорости](https://github.com/PX4/Firmware/tree/master/src/drivers/differential_pressure) (исходный код)
