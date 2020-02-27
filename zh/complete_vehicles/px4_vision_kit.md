@@ -203,7 +203,7 @@ Once started the companion computer can be used both as a computer vision develo
 To login to the companion computer:
 1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
 
-   ![UP Core: USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
+   ![UP Core：USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
    - Use the USB-JST cable from the kit to get a USB A connector
 
      ![USB to JST cable](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
