@@ -1,5 +1,5 @@
-# Airframe/Vehicle Builds
+# Типы воздушных/наземных судов
 
-PX4 supports numerous types of vehicles, including different configurations of multicopters, planes, VTOL vehicles, ground vehicles, etc. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+PX4 поддерживает множество типов БПЛА, в том числе различную конфигурацию беспилотных многовинтовых и вертикального взлета-посадки (VTOL) летательных аппаратов, планеров, в том числе наземных транспортных средств. Полный набор поддерживаемых конфигураций можно увидеть в [Типы воздушных судов](../airframes/airframe_reference.md).
 
-This section contains instructions for how to install several different [flight controllers](../flight_controller/README.md) on a number of common frames.
+В этом разделе содержатся инструкции по настройке [ полетных контроллеров ](../flight_controller/README.md) на типичных вариантах БПЛА.
