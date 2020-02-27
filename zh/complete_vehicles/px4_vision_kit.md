@@ -4,22 +4,22 @@
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
-这个工具包包含一个接近即时运行的碳纤维四个部分，装备了一个*Pixhawk 4*飞行控制器、*UP Core*伴随的计算机，以及八项重要*建筑核心*深度相机传感器。 The vehicle comes with software for PX4 [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) and [Collision Prevention](../computer_vision/collision_prevention.md) enabled “out of the box”. Developers can use the kit to try out other features provided by the PX4 Avoidance project, modify the existing code, or experiment with completely new computer vision-based functionality.
+这个工具包含有一个可以实时运行的碳纤维骨架四旋翼，配备*Pixhawk 4*飞控、*顶层*机载计算机，以及*Structure Core*和深度相机。 无人机上有来自PX4之外的 [避障](../computer_vision/obstacle_avoidance.md)和[防撞](../computer_vision/collision_prevention.md)软件。 开发者可以使用 PX4 避障项目提供的其他功能。 修改现有代码，或尝试全新的功能。
 
-The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
+该指南阐述了无人机准备飞行所需的最低设置(需要遥控器系统和电池)。 它也包括如何起飞，以及如何修改代码。
 
 
 ## Warnings & Notifications
 
-1. Do not power the *UP Core* computer using the power socket (this may destroy the computer). The *UP Core* should only be powered using the battery.
+1. 不要直接使用电源为*顶层*计算机供电(可能会摧毁计算机)。 *顶层*计算机只能使用电池供电。
 
    ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
-1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras). Consequently it can’t be used for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
+1. 该开发包使用前置摄像头，(它没有向下或后置深照相机)。 因此，它不能用于测试[安全着陆](../computer_vision/safe_landing.md)或其他需要下方摄像头的功能。
 
-1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS co-ordinates). Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
+1. 只有在GPS工作正常时才能测试自主避障（飞行任务使用全球定位系统坐标）。 防撞功能可以在位置估计良好的条件下进行测试，比如GPS或光流有比较好的定位。
 
-1. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions). This is why the boot image is supplied on a *USB2* memory stick.
+1. 标记为`USB1`的端口，如果有一个*USB3*的外围功能（禁用依赖GPS的功能，包括飞行任务），则可能会干扰GPS。 This is why the boot image is supplied on a *USB2* memory stick.
 
 ## Getting to Know Your DevKit
 
