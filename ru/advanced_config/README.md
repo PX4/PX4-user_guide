@@ -1,7 +1,7 @@
 # Расширенные настройки
 
-This section contains advanced configuration topics, covering vehicle-specific tuning, and less-common sensors and peripherals.
+В этом разделе содержатся подробные вопросы настройки, охватывающие особенности тюнинга БПЛА и менее распространенные датчики и прочая периферия.
 
-> **Tip** The topics are useful if you are creating a new airframe type or significantly modifying a supported frame. Generally if you're using a [supported airframe](../airframes/airframe_reference.md#copter) (e.g. from [QGroundControl > Airframe](../config/airframe.md)) the default tuning and configuration should be acceptable.
+> **Совет** Эти темы полезны, если вы создаете новый тип воздушного судна или значительно изменяете поддерживаемые типы БПЛА. Обычно если вы используете [поддерживаемый тип воздушный судна](../airframes/airframe_reference.md#copter) (например с [QGroundControl > Тип БПЛА](../config/airframe.md)) настройка по умолчанию должна быть приемлемой.
 
-For the standard configuration appropriate to every vehicle see: [Basic Configuration](../config/README.md).
+Для стандартных конфигурации, соответствующей каждому типу БПЛА, см. [Базовая конфигурация](../config/README.md).
