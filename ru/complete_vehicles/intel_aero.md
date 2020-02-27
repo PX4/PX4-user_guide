@@ -6,9 +6,9 @@ The *Intel Aero Ready to Fly Drone*® is a UAV development platform. Part of thi
 
 ![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
-## Introduction
+## Вступление
 
-The main documentation on the [official wiki](https://github.com/intel-aero/meta-intel-aero/wiki) explains how to setup, update and connect to the board, and how to do development on the Linux side. The instructions in this topic concentrate on updating the firmware on the microcontroller from a development tree.
+Основная документация по [официальной Wiki](https://github.com/intel-aero/meta-intel-aero/wiki) объясняет, как установить, обновить и подключится к полётному контроллеру, и как начать разработку в ОС Linux. The instructions in this topic concentrate on updating the firmware on the microcontroller from a development tree.
 
 It's important to update to the latest image available since some instructions change between releases. You can check the BIOS and distro version by connecting to the board and running the following command:
 
@@ -23,7 +23,7 @@ The instructions here are tested with the following version:
     FPGA_VERSION = 0xc1
     
 
-## Setup Intel Aero using Ubuntu
+## Установка Intel Aero в ОС Ubuntu
 
 In order to install Ubuntu on Intel Aero, the following equipment is needed:
 
