@@ -19,7 +19,7 @@
 
 1. 只有在GPS工作正常时才能测试自主避障（飞行任务使用全球定位系统坐标）。 防撞功能可以在位置估计良好的条件下进行测试，比如GPS或光流有比较好的定位。
 
-1. 标记为`USB1`的端口，如果有一个*USB3*的外围功能（禁用依赖GPS的功能，包括飞行任务），则可能会干扰GPS。 This is why the boot image is supplied on a *USB2* memory stick.
+1. 如果使用*USB3*外设，`USB1`将会使得GPS阻塞。（会使依赖GPS的功能失效，包括飞行任务） 这是引导镜像从*USB2*内存卡上启动的原因。
 
 ## Getting to Know Your DevKit
 
@@ -28,8 +28,8 @@
 
 ![Schematic Layered](../../assets/hardware/px4_vision_devkit/px4_vision_schematic_layered.png)
 
-The DevKit contains following components:
-- PX4 Vision drone kit with these internal parts:
+DevKit 包含以下组件：
+- 带有这些组件的 PX4 视觉无人机套件：
   - 1x Pixhawk 4 flight controller (with custom PX4 firmware)
   - 1x pmw3901 optical flow sensor
   - 1x distance sensor
@@ -55,7 +55,7 @@ The DevKit contains following components:
 
 ## What Else do you Need?
 
-The kit contains all the essential drone hardware except a battery and a radio control system, which must be purchased separately:
+除电池和遥控须要单独购买，该套件中包内有所有必要的无人机硬件
 - Battery:
   - 4S LiPo with XT60 female connector
   - Less than 115mm long (to fit between power connector and GPS mast)
@@ -70,8 +70,8 @@ In addition, users will need ground station hardware/software:
 
 ## First-time Setup
 
-1. Attach a [compatible RC reciever](../getting_started/rc_transmitter_receiver.md#connecting-receivers) to the vehicle (not supplied with kit):
-   - Remove/unscrew the top plate (where the battery goes) using an H2.0 hex key tool.
+1. 将接收机（套件中不包含）固定在无人机上，
+   - 使用H2.0 十六进制键工具移除/取消顶部板块(在电池进入的地方)。
    - [Connect the receiver to the flight controller](../assembly/quick_start_pixhawk4.md#radio-control).
    - Re-attach the top plate.
    - Mount the RC receiver on the *UP Core* carrier board plate at the back of the vehicle (use zipties or double-sided tape).
