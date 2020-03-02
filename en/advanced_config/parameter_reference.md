@@ -1351,13 +1351,6 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="COM_OA_BOOT_T">COM_OA_BOOT_T</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set avoidance system bootup timeout</p><p><strong>Comment:</strong> The avoidance system running on the companion computer is expected to boot within this time and start providing trajectory points. If no avoidance system is detected a MAVLink warning message is sent.</p>   </td>
- <td style="vertical-align: top;">0 > 200 </td>
- <td style="vertical-align: top;">100</td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="COM_OBL_ACT">COM_OBL_ACT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Set offboard loss failsafe mode</p><p><strong>Comment:</strong> The offboard loss failsafe will only be entered after a timeout, set by COM_OF_LOSS_T in seconds.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Disabled</li> 
