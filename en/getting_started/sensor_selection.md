@@ -37,13 +37,13 @@ For more information and recommended hardware see: [Airspeed Sensors](../sensor/
 
 ## Tachometer
 
-Revolution-counter sensors are *highly recommended* for rotor-wing frames.
+[Revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft) are *highly recommended* for rotor-wing frames.
 
-They are so important because the autopilot does not have other means to detect stall or another rotor failure. For rotor-wing flight it is the rotation of blades that guarantees lift not airspeed or ground speed!
+They are so important because the autopilot does not have other means to detect stall or another rotor failure. For rotor-wing flight it is the rotation of blades that guarantees lift not airspeed or ground speed.
 
-![Digital RPM sensor](../../images/digital_airspeed_sensor.jpg)
+![Digital RPM sensor](../../images/tachometer_sensor.jpg)
 
-For more information and recommended hardware see: [Tachometer Sensors](../sensor/RPM.md).
+For more information and recommended hardware see: [Tachometer Sensors](../sensor/rpm.md).
 
 ## Distance
 
