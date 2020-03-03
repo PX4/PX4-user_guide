@@ -1,4 +1,4 @@
-# ThunderFly TFRPM01 sensor
+# ThunderFly TFRPM01 tachometer sensor
 
 The [TFRPM01](https://github.com/ThunderFly-aerospace/TFRPM01) is a small, and low system demanding revolution-counter.
 It must be connected to a I²C bus.
