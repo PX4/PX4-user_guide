@@ -1,4 +1,4 @@
-## PX4 Vision Autonomy Development Kit (Early Adopter Edition)
+## PX4自动可视化开发套件（早期采用版本）
 
 *PX4 Vision Autonomy DevKit*是一个稳定且性价比高的开发包，能够在自主车辆上开发计算机视觉。
 
@@ -9,7 +9,7 @@
 该指南阐述了无人机准备飞行所需的最低设置(需要遥控器系统和电池)。 它也包括如何起飞，以及如何修改代码。
 
 
-## Warnings & Notifications
+## 警告&通知
 
 1. 不要直接使用电源为*顶层*计算机供电(可能会摧毁计算机)。 *顶层*计算机只能使用电池供电。
 
@@ -21,7 +21,7 @@
 
 1. 如果使用*USB3*外设，`USB1`将会使得GPS阻塞。（会使依赖GPS的功能失效，包括飞行任务） 这是引导镜像从*USB2*内存卡上启动的原因。
 
-## Getting to Know Your DevKit
+## 开始了解你的开发套件
 
 ![Schematic Overview](../../assets/hardware/px4_vision_devkit/px4_vision_schematic_overview.jpg)
 
@@ -30,27 +30,27 @@
 
 DevKit 包含以下组件：
 - 带有这些组件的 PX4 视觉无人机套件：
-  - 1x Pixhawk 4 flight controller (with custom PX4 firmware)
-  - 1x pmw3901 optical flow sensor
-  - 1x distance sensor
-  - 1x Structure Core depth camera
-  - 1x *UP Core* computer (with Ubuntu and PX4 avoidance)
+  - 一个Pixhawk 4飞控（包含定制化的PX4固件）
+  - 一个pmw3901 光流传感器
+  - 一个距离传感器
+  - 一个核心结构深度相机
+  - 一个*核以上的计算机（包含ubuntu和PX4避障）</p>
     - Atom CPU
-    - FTDI UART connected to flight controller
-    - `USB1`: USB3 A port used for booting PX4 avoidance environment from a USB2 stick (connecting a USB3 peripheral may jam GPS).
-    - `USB2`: USB2 port on a JST-GH connector. Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
-    - `USB3`: USB2 JST-GH port connected to depth camera
-    - `HDMI`: HDMI out
-    - SD card slot
-    - WiFi (attached to external antenna #1). Allows computer to access home WiFi network for Internet access/updates.
-  - ESP8266 connected to flight controller (attached to external antenna #2). Enables wireless connection to the ground station.
+    - FTDI UART串口连接到飞控
+    - `USB1`：USB3  一个口被用来从USB2启动PX4避障环境（连接到USB3的话可能会导致GPS无法使用）
+    - `USB2`：连接JST-GH的USB2口 可以用于第二个相机，LTE 4G等。 (或开发期间使用的键盘/鼠标)。
+    - `USB3`: USB2 JST-GH 端口连接到深度摄像头
+    - `HDMI`：HDMI输出
+    - SD 卡槽位
+    - WiFi(附加外部天线#1)。 允许计算机访问 WiFi 家庭网络访问/更新</li>
+  - ESP8266 connected to flight controller (attached to external antenna #2). Enables wireless connection to the ground station.</ul></li>
 - A USB2.0 stick with pre-flashed software that bundles:
   - Ubuntu 18.04 LTS
   - ROS Melodic
   - Occipital Structure Core ROS driver
   - MAVROS
   - PX4 Avoidance
-- Assorted cables, propellers, and other accessories. To be used to attach additional peripherals.
+- Assorted cables, propellers, and other accessories. To be used to attach additional peripherals.</ul>
 
 
 ## What Else do you Need?
