@@ -232,6 +232,8 @@ Pin | Signal | Volt
 
 ## Serial Port Mapping
 
+UART | Device | Port
+--- | --- | ---
 UART1 | /dev/ttyS0 | IO debug (except v4, there ttyS0 is the wifi)
 USART2 | /dev/ttyS1 | TELEM1 (flow control)
 USART3 | /dev/ttyS2 | TELEM2 (flow control)
