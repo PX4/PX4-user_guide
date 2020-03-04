@@ -1,10 +1,10 @@
-## PX4自动可视化开发套件（早期采用版本）
+## PX4视觉自主开发套件（先行者版）
 
-*PX4 Vision Autonomy DevKit*是一个稳定且性价比高的开发包，能够在自主车辆上开发计算机视觉。
+*PX4视觉自主开发套件*是一个稳定且高性价比的套件，让你能够在自动化无人机上开发计算机视觉。
 
 ![Overview](../../assets/hardware/px4_vision_devkit/px4_vision_kit_hero.jpg)
 
-这个工具包含有一个可以实时运行的碳纤维骨架四旋翼，配备*Pixhawk 4*飞控、*顶层*机载计算机，以及*Structure Core*和深度相机。 无人机上有来自PX4之外的 [避障](../computer_vision/obstacle_avoidance.md)和[防撞](../computer_vision/collision_prevention.md)软件。 开发者可以使用 PX4 避障项目提供的其他功能。 修改现有代码，或尝试全新的功能。
+这个套件含有一个几乎到手即飞的碳纤维机架四旋翼，配备 *Pixhawk 4* 飞控、*UP Core*机载计算机，以及*Structure Core*深度相机。 无人机上有来自PX4之外的 [避障](../computer_vision/obstacle_avoidance.md)和[防撞](../computer_vision/collision_prevention.md)软件。 开发者可以使用 PX4 避障项目提供的其他功能。 修改现有代码，或尝试全新的功能。
 
 该指南阐述了无人机准备飞行所需的最低设置(需要遥控器系统和电池)。 它也包括如何起飞，以及如何修改代码。
 
