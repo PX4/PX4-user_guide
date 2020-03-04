@@ -132,11 +132,11 @@ Here is an example implementation. I used a Spektrum plug to get 3.3v from the D
 
 ## Serial Port Mapping
 
-Port | UART | Device
+UART | Device | Port
 --- | --- | ---
-SerialRX | USART1 | /dev/ttyS0
-TELEM1 | USART4 | /dev/ttyS1
-GPS | USART6 | /dev/ttyS2
+USART1 | /dev/ttyS0 | SerialRX
+USART4 | /dev/ttyS1 | TELEM1
+USART6 | /dev/ttyS2 | GPS
 
 ## RC Telemetry
 
