@@ -229,6 +229,16 @@ Pin | Signal | Volt
 2 (blk) | !IO_LED_SAFETY | GND
 3 (blk) | SAFETY   | GND
 
+
+## Serial Port Mapping
+
+UART1 | /dev/ttyS0 | IO debug (except v4, there ttyS0 is the wifi)
+USART2 | /dev/ttyS1 | TELEM1 (flow control)
+USART3 | /dev/ttyS2 | TELEM2 (flow control)
+UART4 | | 
+UART7 | CONSOLE
+UART8 | SERIAL4
+
 ## Debug Ports
 
 ### Console Port
