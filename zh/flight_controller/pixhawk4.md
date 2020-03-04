@@ -55,6 +55,8 @@
 
 [在此下载](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) *Pixhawk 4* 的针脚定义。
 
+> **Note** Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin). The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
+
 ## 尺寸
 
 ![Pixhawk 4 尺寸](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
@@ -63,7 +65,7 @@
 
 *Pixhawk 4* 可以实现电源三度冗余。 三个供电轨道为：**POWER1**，**POWER2** 和 **USB**。
 
-> **Note** 输出电源轨 **FMU PWM OUT** 和 **IO PWM OUT**（0V至36V）不为飞控板供电（并且不由其供电）。 您必须在 **POWER1**、**POWER2** 或 **USB** 任一接口中接入电源，否则飞控板将会断电。
+> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 
 **正常运行最大额定值**
 
@@ -86,33 +88,37 @@
 
 ## 编译固件
 
-> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make px4_fmu-v5_default
     
 
-## 调试接口
+## Debug Port {#debug_port}
 
-本系统的串行控制台和 SWD 接口运行在 **FMU 调试** 接口，同时 I/O 控制台与SWD接口可以通过 **I/O 调试** 接口访问。 为了能访问这些接口，用户需要移除 *Pixhawk 4* 的外壳。
+The system's [serial console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface runs on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. 为了能访问这些接口，用户需要移除 *Pixhawk 4* 的外壳。
 
-这两个端口都有标准的串口针脚，可以连接到标准的 FTDI 连接线上（3.3V，但它有5V 耐受性），或连接到 [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) 上。 针脚定义使用标准的 Dronecode 调试连接器针脚定义。 Please refer to the [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
+![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
+
+The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug). For wiring information see:
+
+* [System Console > Pixhawk Debug Port](https://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (PX4 Developer Guide)
 
 ## 外部设备
 
-* [数字空速传感器](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [数传电台模块](../telemetry/README.md)
-* [测距仪/距离传感器](../sensor/rangefinders.md)
+* [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [Telemetry Radio Modules](../telemetry/README.md)
+* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
 ## 支持的平台 / 机身
 
-任何可用普通遥控舵机系统或 Futaba S-Bus 舵机系统控制的多旋翼、固定翼、无人车、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## 更多信息
 
-* [Pixhawk 4 技术数据表](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-* [FMUv5 参考设计 pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
+* [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+* [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
 * [Pixhawk 4 Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
 * [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 * [Pixhawk 4 Quick Start Guide (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
