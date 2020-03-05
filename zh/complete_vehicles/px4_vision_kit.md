@@ -31,7 +31,7 @@
 DevKit 包含以下组件：
 - 带有这些组件的 PX4 视觉无人机套件：
   - 一个Pixhawk 4飞控（包含定制化的PX4固件）
-  - 一个pmw3901 光流传感器
+  - 一个 pmw3901 光流传感器
   - 一个距离传感器
   - 一个核心结构深度相机
   - 一个*核以上的计算机（包含ubuntu和PX4避障）</p>
@@ -43,20 +43,20 @@ DevKit 包含以下组件：
     - `HDMI`：HDMI输出
     - SD 卡槽位
     - WiFi(附加外部天线#1)。 允许计算机访问 WiFi 家庭网络访问/更新</li>
-  - ESP8266 connected to flight controller (attached to external antenna #2). Enables wireless connection to the ground station.</ul></li>
-- A USB2.0 stick with pre-flashed software that bundles:
-  - Ubuntu 18.04 LTS
+  - ESP8266连接到飞控(增加外部天线#2)。 启用与地面站的无线连接。</ul></li>
+- 一个已经烧录捆绑软件的U盘
+  - Ubuntu 18.04 长期支持版
   - ROS Melodic
   - Occipital Structure Core ROS driver
   - MAVROS
-  - PX4 Avoidance
+  - PX4避障
 - Assorted cables, propellers, and other accessories. To be used to attach additional peripherals.</ul>
 
 
-## What Else do you Need?
+## 你需要什么其他的东西
 
 除电池和遥控须要单独购买，该套件中包内有所有必要的无人机硬件
-- Battery:
+- 电池:
   - 4S LiPo with XT60 female connector
   - Less than 115mm long (to fit between power connector and GPS mast)
 - Radio control system
