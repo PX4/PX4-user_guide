@@ -160,6 +160,7 @@
     * [uLanding Radar](sensor/ulanding_radar.md)
     * [LeddarOne Lidar](sensor/leddar_one.md)
     * [Benewake TFmini Lidar](sensor/tfmini.md)
+    * [ThunderFly TFRPM01 tachometer sensor](sensor/rpm.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
     * [TeraRanger](sensor/teraranger.md)
     * [Lanbao PSK-CM8JL65-CC5](sensor/cm8jl65_ir_distance_sensor.md)
