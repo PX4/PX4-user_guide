@@ -57,86 +57,111 @@ DevKit 包含以下组件：
 
 除电池和遥控须要单独购买，该套件中包内有所有必要的无人机硬件
 - 电池:
-  - 4S LiPo with XT60 female connector
-  - Less than 115mm long (to fit between power connector and GPS mast)
-- Radio control system
-  - Any [PX4-compatible RC System](../getting_started/rc_transmitter_receiver.md) can be used.
-  - An *FrSky Taranis* transmitter with R-XSR receiver is one of the more popular setups.
-- An H2.0 Hex Key (to unscrew the top plate so that an RC receiver can be connected)
+  - 带XT60母头的锂电池
+  - 小于115毫米长度(连接电源和 GPS)
+- 遥控系统
+  - 可以使用的任何
+兼容PX4的遥控系统</li> 
+    
+      - 任何带有R-XSR接收机的FrSky Taranis是一个受欢迎的配置</ul></li> 
 
-In addition, users will need ground station hardware/software:
-- Laptop or tablet running [QGroundControl](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) (QGC).
+- 一个H2.0头的内六角（用来打开顶部的螺丝来安装接收机）</ul> 
+
+此外，用户也需要地面站硬件/软件：
+
+- 运行[QGroundControl](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html)的笔记本电脑或者平板
 
 
-## First-time Setup
+
+
+## 首次使用
 
 1. 将接收机（套件中不包含）固定在无人机上，
-   - 使用H2.0 十六进制键工具移除/取消顶部板块(在电池进入的地方)。
+   
+      - 使用H2.0 十六进制键工具移除/取消顶部板块(在电池进入的地方)。
    - [将接收器连接到飞控](../assembly/quick_start_pixhawk4.md#radio-control)。
    - 重新安装上面的外壳。
    - 在无人机背部安装RC 接收器(使用双面胶或其他)。
    - 确保天线无障碍物阻挡并将天线和机架电隔离。例如，在减震板下方或机臂上。
-
 1. 遥控和接收机配对(如果尚未完成的话)。 配对方法程序取决于接收机和遥控器（读取接收器手册）。
-1. GPS需要高于无人机，并固定到底板。
 
+1. GPS需要高于无人机，并固定到底板。
+   
    ![Raise GPS mast](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
 1. 用充好电的电池的为车辆供电。
+   
+   
 
    > **注意** 电池连接前移除螺旋桨。
+
 1. 使用 USB 线连接*Pixhawk 4* 和地面站。
+
 1. 启动*QGroundControl*。
 1. [配置/校准](../config/README.md) : > **Note** 无人机需要校准前需要完成，机架电池和其他传感器的安装。 您需要校准无线电系统 (您刚刚连接) 并且进行以下的基本检查。
 
    - [确认机架类型](../config/airframe.md)已设置为 **PX4 Vision Devkit Platform**。
    - [校准遥控](../config/radio.md)
    - [校准罗盘](../config/compass.md)
-1. (可选) 在遥控上设置一个[飞行模式切换开关](../config/flight_mode.md)。
+     
+     1. (可选) 在遥控上设置一个[飞行模式切换开关](../config/flight_mode.md)。
+
 
    > **Note** 模式也可以通过*QGroundControl*切换
-
+   
    我们推荐的遥控设置为：
+
    - [定点模式](../flight_modes/position_mc.md) - 可以测试防撞的安全手动飞行模型
+
    - [任务模式](../flight_modes/mission.md) - 执行任务并测试避障。
    - [返回模式](../flight_modes/return.md) - 安全返回其发射点并降落。
 
 1. 螺旋桨按照下面的方向安装：
-
+   
    ![Motor Order Diagram](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
    - 螺旋桨方向可以从标签中确定：*6045* (顺时针) 和_6045_**R** (逆时针)。
-
+     
      ![Propeller identification](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 
    - 将螺旋桨向下旋紧。
-
+     
      ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
 
 
-## Fly the Drone (with avoidance) {#fly_drone}
 
-When the vehicle setup is complete:
 
-1. Insert the pre-imaged USB2 stick from the kit into the *UP Core* port `USB1` (highlighted below).
+## 飞飞机（带避障） {#fly_drone}
 
+当载具设置完成时：
+
+1. 将套件中预先烧录好镜像的U盘插入上面的**`USB1`（下面高亮的）
+   
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
-1. Connect the battery to power the vehicle.
 
-1. Wait until the boot sequence completes and the avoidance system has started (the vehicle will reject arming commands during boot).
+1. 连接电池来给载具供电
 
-   > **Tip** The boot/startup process takes about 2.5 minutes from USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+1. 等到启动序列完成，并且避障系统已经启动（正在启动过程中时，飞机会拒绝解锁）
+   
+   
 
-1. Check that the avoidance system has started properly:
+   > **小贴士** 从U盘启动/开始的流程大概会要2.5分钟（从内部存储大概需要30s）
 
-   - The *QGroundControl* notification log displays the message: **Avoidance system connected**.
+1. 检查避障系统是否已经正常启动
 
+   - *QGC*显示通知日志消息：**避障系统已连接**
+     
      ![QGC Log showing avoidance system has started](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
-   - A red laser is visible on the front of the *Structure Core* camera.
-1. Wait for the GPS LED to turn green. This means that the vehicle has a GPS fix and is ready to fly!
-1. Connect the ground station to the vehicle WiFi network using the following default credentials:
-   - **SSID:** pixhawk4
-   - **Password:** pixhawk4
+
+   - 在结构光相机的前部将会看到一个红的激光束
+     
+     1. 等待 GPS LED 变成绿色. 这意味着载具的GPS已定位并且准备好起飞！
+
+1. 使用以下默认凭据将地面站连接到车辆WiFi网络：
+   
+      - **SSID:**pixhawk4
+   - **密码：** pixhawk4
+
 
    > **Note** WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
 
@@ -147,49 +172,69 @@ When the vehicle setup is complete:
 1. To test [obstacle avoidance](../computer_vision/obstacle_avoidance.md), create a mission where the path is blocked by an obstacle. Then switch to [Mission Mode](../flight_modes/mission.md) to run the mission, and observe the vehicle moving around the obstacle and then returning to the planned course.
 
 
+
+
 ## Development using the Kit
 
 The following sections explain how to use the kit as an environment for developing computer vision software.
+
+
 
 ### PX4 Avoidance Overview
 
 The *PX4 Avoidance* system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a *flight controller*.
 
 Documentation about the companion computer vision/planning software can be found on github here: [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance). The project provides a number of different planner implementations (packaged as ROS nodes):
+
 - The PX4 Vision Kit runs the *localplanner* by default and this is the recommended starting point for your own software.
 - The *globalplanner* has not been tested with this kit.
 - The *landing planner* requires a downward facing camera, and cannot used without first modifying the camera mounting.
 
 PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/en/) using these interfaces:
+
 - [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
 - [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
+
+
 
 
 ### Installing the image on the Companion Computer {#install_image_mission_computer}
 
 You can install the image on the *UP Core* and boot from internal memory (instead of the USB).
 
-> **Tip** This is recommended because booting from internal memory is much faster (~30 seconds vs 2.5 minutes), it frees up a USB port, and may well provide more memory than your USB stick.
+
+
+> **Tip** This is recommended because booting from internal memory is much faster (~30 seconds vs 2.5 minutes), it frees up a USB port, and may well provide more memory than your USB stick. 
 
 To flash the USB image to the *UP Core*:
 
 1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
 1. [Login to the companion computer](#login_mission_computer) (as described above).
-1. Open a terminal and run the following command to copy the image onto internal memory (eMMC). The terminal will prompt for a number of responses during the flashing process.
+1. Open a terminal and run the following command to copy the image onto internal memory (eMMC). The terminal will prompt for a number of responses during the flashing process. 
+   
+   
    ```sh
    cd ~/catkin_ws/src/px4vision_ros
    sudo ./flash_emmc.sh
    ```
 
+
+
+
    > **Note** All information saved in the *UP Core* computer will be removed when executing this script
 
 1. Pull out the USB stick.
+
 1. Restart the vehicle. The *UP Core* computer will now boot from internal memory (eMMC).
+
+
 
 
 ### Boot the Companion Computer {#boot_mission_computer}
 
 First insert the provided USB2 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery. The avoidance system should start within about 2.5 minutes.
+
+
 
 > **Tip** [Fly the Drone (with avoidance)](#fly_drone) additionally explains how to verify that the avoidance system is active.
 
@@ -198,24 +243,32 @@ If you've already [installed the image on the companion computer](#install_image
 Once started the companion computer can be used both as a computer vision development environment and for running the software.
 
 
+
+
 ### Login to the Companion Computer {#login_mission_computer}
 
 To login to the companion computer:
+
 1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
-
+   
    ![UP Core：USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
+
    - Use the USB-JST cable from the kit to get a USB A connector
-
+     
      ![USB to JST cable](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
+
    - A USB hub can be attached to the cable if the keyboard and mouse have separate connectors.
-1. Connect a monitor to the *UP Core* HDMI port.
+     
+     1. Connect a monitor to the *UP Core* HDMI port.
+![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
 
-   ![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
+The Ubuntu login screen should then appear on the monitor. 
 
-   The Ubuntu login screen should then appear on the monitor.
-1. Login to the *UP Core* using the credentials:
-   - **Username:** px4vision
+1. Login to the *UP Core* using the credentials: 
+      - **Username:** px4vision
    - **Password:** px4vision
+
+
 
 
 
@@ -227,13 +280,19 @@ The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the P
 
 The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
 
-1. Disable the avoidance process using the following command:
+1. Disable the avoidance process using the following command: 
+   
+   
    ```sh
    systemctl stop avoidance.service
    ```
-   You can simply reboot the machine to restart the service.
 
-   Other useful commands are:
+
+You can simply reboot the machine to restart the service.
+
+Other useful commands are: 
+
+
    ```sh
    # restart service
    systemctl start avoidance.service
@@ -245,19 +304,29 @@ The avoidance package is started on boot. To integrate a different planner, this
    systemctl enable avoidance.service  
    ```
 
+
 1. The source code of the obstacle avoidance package can be found in https://github.com/PX4/avoidance which is located in `~/catkin_ws/src/avoidance`.
 
-1. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo:
+1. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo: 
+   
+   
    ```sh
    git pull origin
    git checkout origin/master
    ```
-1. Build the package
+
+
+1. Build the package 
+   
+   
    ```
    catkin build local_planner
    ```
 
+
 The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS and using the catkin workspace, see the [ROS catkin tutorials](http://wiki.ros.org/catkin/Tutorials).
+
+
 
 
 ### Developing PX4 Firmware
@@ -266,7 +335,11 @@ The kit is designed for creating computer vision software that runs on the compa
 
 Modification of PX4 code is not needed to meet most computer vision use cases. To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
 
+
+
 > **Note** Firmware modification is not recommended in the *Early Adopter Edition* (we suggest that you use the shipped version).
+
+
 
 ## Other Development Resources
 
@@ -277,11 +350,14 @@ Modification of PX4 code is not needed to meet most computer vision use cases. T
 - [Path Planning Interface](../computer_vision/path_planning_interface.md)
 
 
+
+
 ## How to get Technical Support?
 
 For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
 
 For software issues, use the following [community support channels](README.md#support):
+
 - PX4 discuss: [Computer Vision](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance) category.
 - PX4 slack channel: #avoidance
 
