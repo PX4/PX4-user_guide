@@ -137,6 +137,7 @@
       * [CUAV C-RTK](gps_compass/rtk_gps_cuav_c-rtk.md)
       * [Trimble MB-Two](gps_compass/rtk_gps_trimble_mb_two.md)
       * [Hex Here2](gps_compass/rtk_gps_hex_here2.md)
+      * [Freefly RTK GPS](gps_compass/rtk_gps_freefly.md)
   * [数传电台](telemetry/README.md) 
     * [SiK 电台](telemetry/sik_radio.md) 
       * [RFD900 数传电台](telemetry/rfd900_telemetry.md)
