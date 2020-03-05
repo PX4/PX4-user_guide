@@ -7,11 +7,7 @@ Main features include:
 - Concurrent reception of all 4 GNSS (GPS, Galileo, GLONASS, BeiDou)
 - Built-in magnetometer (IST8310), baro (BMP388), RGB LED, safety switch and safety LED
 
-An RTK GPS kit includes:
-- 2x GPS modules with antennas
-- 3m USB C to A cable
-- Magnetic quick-mount for base station module (1/4-20 thread for tripod mounting)
-- Screws to mount onto a Freefly AltaX
+> **Note** This module can be used with PX4 v1.9 or above (support for the UBlox ZED-F9P was added in PX4 v1.9).
 
 ![FreeFly GPS Module](../../assets/hardware/gps/freefly_gps_module.jpg)
 
@@ -20,13 +16,20 @@ An RTK GPS kit includes:
 
 * [Freefly Store](https://store.freeflysystems.com/products/freefly-rtk-gps)
 
+## Kit Contents
+
+An RTK GPS kit includes:
+- 2x GPS modules with antennas
+- 3m USB C to A cable
+- Magnetic quick-mount for base station module (1/4-20 thread for tripod mounting)
+- Screws to mount onto a Freefly AltaX
+
+
 ## Configuration
 
 RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
 
 For the aircraft, you should set the parameter [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD) to 115200 8N1 to ensure that PX4 configures the correct baudrate.
-
-> **Note** Support for the UBlox ZED-F9P was added in PX4 v1.9, so you will need PX4 v1.9 or above to use this module
 
 ## Wiring and Connections
 
