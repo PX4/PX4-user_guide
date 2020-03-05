@@ -160,6 +160,7 @@
     * [uLanding 레이다](sensor/ulanding_radar.md)
     * [LeddarOne 라이다](sensor/leddar_one.md)
     * [Benewake TFmini 라이다](sensor/tfmini.md)
+    * [ThunderFly TFRPM01 tachometer sensor](sensor/rpm.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
     * [TeraRanger](sensor/teraranger.md)
     * [Lanbao PSK-CM8JL65-CC5](sensor/cm8jl65_ir_distance_sensor.md)
