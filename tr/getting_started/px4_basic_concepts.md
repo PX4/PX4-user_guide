@@ -79,6 +79,12 @@ A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system i
 - [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
 - [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
+## GCS Joystick Controller {#joystick}
+
+A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) shown below. Joysticks are also commonly used to fly the vehicle in simulation.
+
+![Joystick MicroNav.](../../assets/peripherals/joystick/micronav.jpg)
+
 ## Safety Switch {#safety_switch}
 
 It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
