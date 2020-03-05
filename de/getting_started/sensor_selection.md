@@ -32,13 +32,11 @@ For more information and recommended hardware see: [Airspeed Sensors](../sensor/
 
 ## Tachometer
 
-[Revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft) are *highly recommended* for rotor-wing frames.
+Tachometers ([revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) are *highly recommended* for rotor-wing frames because they allow the autopilot to detect stall or another rotor failure (for rotor-wing flight it is the rotation of blades that guarantees lift not airspeed or ground speed).
 
-They are so important because the autopilot does not have other means to detect stall or another rotor failure. For rotor-wing flight it is the rotation of blades that guarantees lift not airspeed or ground speed.
+![Digital RPM Sensor - TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-![Digital RPM sensor](../../images/tachometer_sensor.jpg)
-
-For more information and recommended hardware see: [Tachometer Sensors](../sensor/rpm.md).
+For more information and recommended hardware see: [Sensors > Tachometers](../sensor/tachometers.md).
 
 ## Distance
 
