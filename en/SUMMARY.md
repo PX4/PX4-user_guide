@@ -34,6 +34,7 @@
   * [Airspeed](config/airspeed.md)
   * [Level Horizon Calibration](config/level_horizon_calibration.md)
   * [Radio Setup](config/radio.md)
+  * [Joystick Setup](config/joystick.md)
   * [Flight Modes](config/flight_mode.md)
   * [Battery](config/battery.md)
   * [Safety](config/safety.md)
