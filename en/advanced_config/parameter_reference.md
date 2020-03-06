@@ -6673,58 +6673,6 @@ default 1.5 turns per second</p>   </td>
 </tr>
 </tbody></table>
 
-## Payload drop
-
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
- <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
- <thead>
-   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
- </thead>
-<tbody>
-<tr>
- <td style="vertical-align: top;"><strong id="BD_GPROPERTIES">BD_GPROPERTIES</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Ground drag property</p><p><strong>Comment:</strong> This parameter encodes the ground drag coefficient and the corresponding decrease in wind speed from the plane altitude to ground altitude.</p>   </td>
- <td style="vertical-align: top;">0.001 > 0.1 </td>
- <td style="vertical-align: top;">0.03</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="BD_OBJ_CD">BD_OBJ_CD</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Payload drag coefficient of the dropped object</p><p><strong>Comment:</strong> The drag coefficient (cd) is the typical drag constant for air. It is in general object specific, but the closest primitive shape to the actual object should give good results: http://en.wikipedia.org/wiki/Drag_coefficient</p>   </td>
- <td style="vertical-align: top;">0.08 > 1.5 </td>
- <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="BD_OBJ_MASS">BD_OBJ_MASS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Payload mass</p><p><strong>Comment:</strong> A typical small toy ball: 0.025 kg OBC water bottle: 0.6 kg</p>   </td>
- <td style="vertical-align: top;">0.001 > 5.0 </td>
- <td style="vertical-align: top;">0.6</td>
- <td style="vertical-align: top;">kg</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="BD_OBJ_SURFACE">BD_OBJ_SURFACE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Payload front surface area</p><p><strong>Comment:</strong> A typical small toy ball: (0.045 * 0.045) / 4.0 * pi = 0.001590 m^2 OBC water bottle: (0.063 * 0.063) / 4.0 * pi = 0.003117 m^2</p>   </td>
- <td style="vertical-align: top;">0.001 > 0.5 </td>
- <td style="vertical-align: top;">0.00311724531</td>
- <td style="vertical-align: top;">m^2</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="BD_PRECISION">BD_PRECISION</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Drop precision</p><p><strong>Comment:</strong> If the system is closer than this distance on passing over the drop position, it will release the payload. This is a safeguard to prevent a drop out of the required accuracy.</p>   </td>
- <td style="vertical-align: top;">1.0 > 80.0 </td>
- <td style="vertical-align: top;">30.0</td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="BD_TURNRADIUS">BD_TURNRADIUS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Plane turn radius</p><p><strong>Comment:</strong> The planes known minimal turn radius - use a higher value to make the plane maneuver more distant from the actual drop position. This is to ensure the wings are level during the drop.</p>   </td>
- <td style="vertical-align: top;">30.0 > 500.0 </td>
- <td style="vertical-align: top;">120.0</td>
- <td style="vertical-align: top;">m</td>
-</tr>
-</tbody></table>
-
 ## Peripheral
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
