@@ -66,9 +66,10 @@ UART1 | /dev/ttyS0 | GPS
 USART2 | /dev/ttyS1 | TELEM1 (flow control)
 USART3 | /dev/ttyS2 | TELEM2 (flow control)
 UART4 | /dev/ttyS3 | TELEM4
-USART6 | /dev/ttyS4 | TELEM3 (flow control)
-UART7 | /dev/ttyS5 | ?
-UART8 | /dev/ttyS6 | CONSOLE
+USART6 | /dev/ttyS4 | RC SBUS
+UART7 | /dev/ttyS5 | Debug Console
+UART8 | /dev/ttyS6 | PX4IO
+
 
 ## Dimensions
 
