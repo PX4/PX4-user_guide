@@ -8,7 +8,7 @@ It also has an LED that offers basic diagnostic information.
 
 ![TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-> **Note** The TFRPM01 sensor is open-source (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)).
+> **Note** The TFRPM01 sensor is open-source hardware commercially available from [ThunderFly s.r.o.](https://www.thunderfly.cz/) (manufacturing data is [available on GitHub](https://github.com/ThunderFly-aerospace/TFRPM01)).
   It is based on the [PCF8583 counter](https://www.nxp.com/docs/en/data-sheet/PCF8583.pdf).
 
 
@@ -27,7 +27,7 @@ TFRPM01A electronics is equipped by signaling LED which could be used for correc
 Hall-Effect sensors (magnetically operated) are ideal for harsh environments, where dirt, dust and water can contact the sensed rotor.
 
 Many different hall effect sensors are commercially available.
-For example a 5100 Miniature Flange Mounting Proximity Sensor is good choice.
+For example a [5100 Miniature Flange Mounting Proximity Sensor](https://m.littelfuse.com/~/media/electronics/datasheets/hall_effect_sensors/littelfuse_hall_effect_sensors_55100_datasheet.pdf.pdf) is good choice.
 
 ![Example of Hall effect probe](../../assets/hardware/sensors/tfrpm/hall_probe.jpg)
 
