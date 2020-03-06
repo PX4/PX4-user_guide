@@ -14,17 +14,19 @@ It also has an LED that offers basic diagnostic information.
 
 ## Hardware Setup
 
-The board is equipped with a (two troughpass) I²C connector for connecting to PX4 and has a 3-pin connector that can be used to connect to various sensors:
+The board is equipped with a (two troughpass) I²C connectors for connecting to PX4 and has a 3-pin connector that can be used to connect to various sensors:
 - TFRPM01 may be connected to any I²C port.
 - TFRPM01 has 3pin pin-header connector (with pull-up equipped input) that can be connected to different probe types.
-  - The sensor/probe hardware needs an pulse signal.
+  - The sensor/probe hardware needs an pulse signal. The signal input accept +5V TTL logic or [open collector](https://en.wikipedia.org/wiki/Open_collector) outputs. Maximum pulse frequency is 20 kHz with 50% duty cycle.
+  - The probe connector provide +5V power supply from I²C bus, the maximum power which could be used is limited by RC filter (see schematics. for details)
 
+TFRPM01A electronics is equipped by signaling LED which could be used for correct probe connection diagnostic. The LED lights up in case where the pulse input is grounded or exposed to logical 0.  Therefore is easy to check the probe is working correctly by spinning of rotor manually.
 
 ### Hall-Effect Sensor Probe
 
 Hall-Effect sensors (magnetically operated) are ideal for harsh environments, where dirt, dust and water can contact the sensed rotor.
 
-Many different hall effect sensors are commerically available.
+Many different hall effect sensors are commercially available.
 For example a 5100 Miniature Flange Mounting Proximity Sensor is good choice.
 
 ![Example of Hall effect probe](../../assets/hardware/sensors/tfrpm/hall_probe.jpg)
@@ -40,7 +42,7 @@ Both transmissive and reflective sensor types may be used for pulse generation.
 
 ## Parameter Setup
 
-Usually sensors can be used without configuration. 
+Usually sensors can be used without configuration.
 
 If needed, the following parameters may be used:
 
