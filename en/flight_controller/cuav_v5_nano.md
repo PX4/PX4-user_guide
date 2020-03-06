@@ -71,6 +71,19 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 Download **V5 nano** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+UART1 | /dev/ttyS0 | GPS
+USART2 | /dev/ttyS1 | TELEM1 (flow control)
+USART3 | /dev/ttyS2 | TELEM2 (flow control)
+UART4 | /dev/ttyS3 | TELEM4
+USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector
+UART7 | /dev/ttyS5 | Debug Console
+UART8 | /dev/ttyS6 | 
+
+
 ## Building Firmware
 
 > **Tip** Most users will not need to build this firmware!
