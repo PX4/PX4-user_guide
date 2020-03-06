@@ -85,3 +85,15 @@ make mro_x21_default
 ## Schematics
 
 The board is documented on the mRo hardware repo: [x21_V2_schematic.pdf](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf).
+
+
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+UART1 | /dev/ttyS0 | IO debug ? 
+USART2 | /dev/ttyS1 | TELEM1
+USART3 | /dev/ttyS2 | TELEM2
+UART4 | | GPS with I2C
+UART7 | CONSOLE
+UART8 | OSD (?SERIAL4)
