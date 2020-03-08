@@ -164,7 +164,7 @@
     * [TeraRanger](sensor/teraranger.md)
     * [Lanbao PSK-CM8JL65-CC5](sensor/cm8jl65_ir_distance_sensor.md)
   * [Tachometers (Revolution Counters)](sensor/tachometers.md) 
-    * [ThunderFly TFRPM01 Tachometer](sensor/thunderfly_tachometer.md)
+    * [ThunderFly TFRPM01 Tachometer Sensor](sensor/thunderfly_tachometer.md)
   * [Airspeed Sensors](sensor/airspeed.md)
   * [Optical Flow](sensor/optical_flow.md) 
     * [PX4FLOW](sensor/px4flow.md)
