@@ -26,12 +26,12 @@ The actual setup/configuration required depends on the planner being used.
   This means that offboard features that use different planners cannot be enabled on the same vehicle. a vehicle at the same time (e.g. a vehicle can support obstacle avoidance and collision prevent, but not also safe landing - or visa versa).
 
 
-## Trajectory Interface
+## Waypoint Trajectory Interface {#waypoint_interface)
 
 PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=`, in modes for which the path planning interface has been integrated), and receives back a stream of setpoints for the *planned path*.
 The path information is, in both cases, transported in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages.
 
-### PX4 MAVLink Interface
+### PX4 Waypoint Interface
 
 PX4 sends the desired path in `TRAJECTORY_REPRESENTATION_WAYPOINTS` messages at 5Hz.
 
@@ -69,7 +69,7 @@ Notes:
 - Point 1 and 2 are not used by the safe landing planner.
 - Point 1 is used by local and global planner.
 
-### Companion MAVLink Interface
+### Companion Waypoint Interface
 
 On the companion side, MAVROS translates the MAVLink message into ROS messages, which are eventually handled by the appropriate planner.
 The planner plans a path to the waypoint/target, and sends it to the vehicle as a stream of `TRAJECTORY_REPRESENTATION_WAYPOINTS` messages that have the setpoint in Point 0.
