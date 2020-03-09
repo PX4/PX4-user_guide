@@ -171,7 +171,7 @@ For information about wiring and using this port see:
 
 UART | Device | Port
 --- | --- | ---
-UART1 | /dev/ttyS0 | WiFi
+UART1 | /dev/ttyS0 | WiFi (ESP8266)
 USART2 | /dev/ttyS1 | TELEM1 (flow control)
 USART3 | /dev/ttyS2 | TELEM2 (flow control)
 UART4 | | 
