@@ -23,41 +23,46 @@ The recommended way to build PX4 for *BeagleBone Blue* is to compile on a develo
 
 > **Tip** This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
 
+<span></span>
+
+> **Note** The PX4 build requires [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/) which is automatically included in the build (but it can be installed and tested independently if required).
+
 ### Beaglebone Blue WIFI Setup
 
 For easy access to your board, you can connect it to your home network via wifi.
 
-The steps are:
+The steps are (execute on the board):
 
-    sudo -su
-    connmanctl
-    connmanctl>scan wifi
-    connmanctl>services
-    (at this point you should see your network appear along with other stuff, in my case it was "AR Crystal wifi_f45eab2f1ee1_6372797774616c_managed_psk")
-    connmanctl>agent on
-    connmanctl>connect wifi_f45eab2f1ee1_6372797774616c_managed_psk
-    connmanctl>quit
-    
+```sh
+sudo su
+connmanctl
+connmanctl>scan wifi
+connmanctl>services
+#(at this point you should see your network SSID appear.)
+connmanctl>agent on
+connmanctl>connect <SSID>
+connmanctl>quit
+```
 
 ### SSH root Login on Beaglebone
 
-With USB Serial connected
+Root login can be enabled on the board with:
 
-    echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
-    
+```sh
+sudo su
+echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
+```
 
 ### Cross Compiler Setup
 
-1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow steps here: 
-    1. sudo su
-    2. ssh-keygen -t rsa -C root@beaglebone
-    3. ENTER //no passphrase
-    4. ENTER
-    5. ENTER
-    6. ssh-copy-id root@beaglebone
-    7. When promted if you trust - yes
-    8. password root
-    9. On the development computer, define the BeagleBone Blue board as `beaglebone` in **/etc/hosts**
+1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow the steps here (on the development machine): 
+    1. Generate an SSH key if you have not previously done so: ```ssh-keygen -t rsa``` 
+        1. ENTER //no passphrase
+        2. ENTER
+        3. ENTER
+    2. Define the BeagleBone Blue board as `beaglebone` in **/etc/hosts**: ```ssh-copy-id root@beaglebone``` Alternatively you can use the beaglebone's IP: `ssh-copy-id root@<IP>`
+    3. When promted if you trust: yes
+    4. Enter root password
 
 2. Cross Compile Setup
     
@@ -73,51 +78,29 @@ With USB Serial connected
             
             > **Tip** GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
             
-            Download and unpack [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder
+            Download and unpack [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
             
-                sh
-                ...@ubuntu:/opt/bbblue_toolchain$ ls -l
-                lrwxrwxrwx 1 root root   51 Mar 22 16:10 gcc-arm-linux-gnueabihf -> gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
-                drwxr-xr-x 8 root root 4096 May 17  2017 gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
-                drwxr-xr-x 8 root root 4096 Nov 19 03:51 gcc-linaro-6.4.1-2017.11-x86_64_arm-linux-gnueabihf
-                
+            Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
             
-            The following is an example setup on development host.
+            > **Tip** The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
+            
+            General rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*.
         
         2. Add it to the PATH in ~/.profile as shown below
             
             ```sh
             export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
-            export CrossCompiler=/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-    gnueabihf-
             ```
             
-                sudo usermod -a -G dialout $USER
-                
+            > **Note** Logout and Login to apply the change, or execute the same line on your current shell.
             
-            > **Note** Logout and Login to make the change working
+            Follow the [Development Environment Setup](https://dev.px4.io/master/en/setup/dev_env_linux_ubuntu.html) instructions.
             
-            Download script for Ubuntu and run it
-            
-                curl https://raw.githubusercontent.com/PX4/Devguide/v1.9.0/build_scripts/ubuntu_sim_ros_melodic.sh --output ubuntu_sim_ros_melodic.sh
-                chmod 777 ubuntu_sim_ros_melodic.sh
-                apt-get install git
-                mkdir ~/src
-                cd ~/src
-                git clone https://github.com/PX4/Firmware.git
-                cd Firmware
-                apt install python3-pip
-                pip3 install --user empy
-                pip3 install --user toml
-                pip3 install --user numpy
-                pip3 install --user jinja2
-                ./ubuntu_sim_ros_melodic.sh
-                
-            
-            After sucessfull build:
+            You may have to edit the upload target to match with your setup:
             
                 nano Firmware/boards/beaglebone/blue/cmake/upload.cmake
                 
-                in row 37 change debian@beaglebone.lan --> root@beaglebone
+                #in row 37 change debian@beaglebone.lan --> root@beaglebone (or root@<IP>)
                 
 
 ### Cross Compile and Upload
@@ -160,11 +143,9 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
 ## Chnages in config
 
-All changes can be made in de px4.config file on beaglebone direct. For example, you can change the WIFI to wlan.
+All changes can be made in de px4.config file directly on beaglebone. For example, you can change the WIFI to wlan.
 
-> **Note** If you wanna change permanent for build, you have to change Firmware/posix-configs/bbblue/px4.config on the Build Machine before build.
-
-you have to change the file
+> **Note** If you want to change permanently, you have to change **Firmware/posix-configs/bbblue/px4.config** on the Build Machine before build.
 
 ## 부팅 중 자동 시작
 
