@@ -13,113 +13,121 @@
 
 有关闪存操作系统映像的信息可以在 [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware) 上找到。 其他有用的信息可以在 [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;) 中找到。
 
-## 机器人控制库文件
-
-在 [BeagleBone Blue](https://beagleboard.org/blue) 上，PX4 需要 [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) 版本 1.0.0 或更高版本。
-
-BeagleBoard 操作系统映像预装了 *librobotcontrol*，但在所有操作系统映像中可能无法正常工作。
-
-检查 *librobotcontrol* 是否正常工作的一种方法是运行 *librobotcontrol* 附带的 *rc_test_drivers*。 如以下示例所示，所有测试都应通过。 可选择运行其他测试，例如 *rc_test_bmp*，*rc_test_mpu* 等。
-
-```sh
-debian@beaglebone:~$ rc_test_drivers
-
-Kernel: 4.14.56-ti-rt-r64
-BeagleBoard.org Debian Image 2018-07-22
-Debian: 9.5
-
-PASSED: gpio 0
-PASSED: gpio 1
-PASSED: gpio 2
-PASSED: gpio 3
-PASSED: pwm1
-PASSED: pwm2
-PASSED: eqep0
-PASSED: eqep1
-PASSED: eqep2
-PASSED: pru-rproc
-PASSED: uart1
-PASSED: uart2
-PASSED: uart4
-PASSED: uart5
-PASSED: i2c1
-PASSED: i2c2
-PASSED: spi
-PASSED: LED
-PASSED: ADC iio
-
-Currently running on a:
-MODEL_BB_BLUE
-Robot Control library Version:
-1.0.0
-```
-
 > **Tip**您可以选择更新到实时内核，如果这样做，请重新检查 *librobotcontrol* 是否与实时内核一起正常工作。
 
-The latest OS images at time of updating this document is [bone-debian-9.5-iot-armhf-2018-10-07-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.5-iot-armhf-2018-10-07-4gb.img.xz).
+The latest OS images at time of updating this document is [bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz).
 
-### 设置机器人控制库
-
-如果要构建 PX4，则此库还有其他设置步骤。
-
-Here are steps to build the *librobotcontrol* with PX4 extensions natively on a BeagleBone board:
-
-    sh
-       git clone https://github.com/StrawsonDesign/librobotcontrol.git
-       cd librobotcontrol
-       make EXT_CFLAGS=-DRC_AUTOPILOT_EXT
-       sudo make install
-
-> **Tip** `EXT_CFLAGS` was added after version 1.0.4. If it's not in your version of **librobotcontrol/library/Makefile**, add it to `CLFAGS`, e.g., `CFLAGS := $(EXT_CFLAGS) -g -fPIC -I $(INCLUDEDIR)`
-
-After acquiring the pre-built library,
-
-1. Select the *librobotcontrol* installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
-2. Install **robotcontrol.h** and **rc/\*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
-3. Install pre-built native (ARM) version of librobotcontrol.\* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
-
-At this point the BeagleBone Blue target can be built on both cross compile host system and native build system, i.e.,
-
-```sh
-make posix_bbblue_cross [upload]
-```
-
-## 交叉编译器构建
+## Cross Compiler Build (Recommend)
 
 The recommended way to build PX4 for *BeagleBone Blue* is to compile on a development computer and upload the PX4 executable binary directly to the BeagleBone Blue.
 
 > **Tip** This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
 
-### 交叉编译器设置
+### Beaglebone Blue WIFI Setup
 
-ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/). The following is an example setup on development host.
+For easy access to your board, you can connect it to your home network via wifi.
 
-1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*. Here is an example of using soft link to select which version of the toolchain you want to use:
+The steps are:
+
+    sudo -su
+    connmanctl
+    connmanctl>scan wifi
+    connmanctl>services
+    (at this point you should see your network appear along with other stuff, in my case it was "AR Crystal wifi_f45eab2f1ee1_6372797774616c_managed_psk")
+    connmanctl>agent on
+    connmanctl>connect wifi_f45eab2f1ee1_6372797774616c_managed_psk
+    connmanctl>quit
     
-    ```sh
-    ...@ubuntu:/opt/bbblue_toolchain$ ls -l
-        lrwxrwxrwx 1 root root   51 Mar 22 16:10 gcc-arm-linux-gnueabihf -> gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
-        drwxr-xr-x 8 root root 4096 May 17  2017 gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
-        drwxr-xr-x 8 root root 4096 Nov 19 03:51 gcc-linaro-6.4.1-2017.11-x86_64_arm-linux-gnueabihf
-    ```
 
-2. Add it to the PATH in ~/.profile as shown below
+### SSH root Login on Beaglebone
+
+With USB Serial connected
+
+    echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
     
-    ```sh
-    export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/bin
-    export CrossCompiler=/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
-    ```
 
-> **Tip** GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
+### Cross Compiler Setup
 
-### 交叉编译和上传
+1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow steps here: 
+    1. sudo su
+    2. ssh-keygen -t rsa -C root@beaglebone
+    3. ENTER //no passphrase
+    4. ENTER
+    5. ENTER
+    6. ssh-copy-id root@beaglebone
+    7. When promted if you trust - yes
+    8. password root
+    9. On the development computer, define the BeagleBone Blue board as `beaglebone` in **/etc/hosts**
 
-1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). 
-    - For *rsync* over SSH with key authentication, follow steps similar to those for [Raspberry Pi/Navio](../flight_controller/raspberry_pi_navio2.md)
-    - On the development computer, define the BeagleBone Blue board as `BBBluePX4` in **/etc/hosts**
-2. Run the following command to build and upload files: 
-        sh
-        make posix_bbblue_cross upload
+2. Cross Compile Setup
+    
+    1. Toolchain download
+        
+        1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*. Here is an example of using soft link to select which version of the toolchain you want to use:
+            
+                mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
+                chmod -R 777 /opt/bbblue_toolchain
+                
+            
+            ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
+            
+            > **Tip** GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
+            
+            Download and unpack [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder
+            
+                sh
+                ...@ubuntu:/opt/bbblue_toolchain$ ls -l
+                lrwxrwxrwx 1 root root   51 Mar 22 16:10 gcc-arm-linux-gnueabihf -> gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
+                drwxr-xr-x 8 root root 4096 May 17  2017 gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
+                drwxr-xr-x 8 root root 4096 Nov 19 03:51 gcc-linaro-6.4.1-2017.11-x86_64_arm-linux-gnueabihf
+                
+            
+            The following is an example setup on development host.
+        
+        2. Add it to the PATH in ~/.profile as shown below
+            
+            ```sh
+            export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
+            export CrossCompiler=/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin/arm-linux-    gnueabihf-
+            ```
+            
+                sudo usermod -a -G dialout $USER
+                
+            
+            > **Note** Logout and Login to make the change working
+            
+            Download script for Ubuntu and run it
+            
+                curl https://raw.githubusercontent.com/PX4/Devguide/v1.9.0/build_scripts/ubuntu_sim_ros_melodic.sh --output ubuntu_sim_ros_melodic.sh
+                chmod 777 ubuntu_sim_ros_melodic.sh
+                apt-get install git
+                mkdir ~/src
+                cd ~/src
+                git clone https://github.com/PX4/Firmware.git
+                cd Firmware
+                apt install python3-pip
+                pip3 install --user empy
+                pip3 install --user toml
+                pip3 install --user numpy
+                pip3 install --user jinja2
+                ./ubuntu_sim_ros_melodic.sh
+                
+            
+            After sucessfull build:
+            
+                nano Firmware/boards/beaglebone/blue/cmake/upload.cmake
+                
+                in row 37 change debian@beaglebone.lan --> root@beaglebone
+                
+
+### Cross Compile and Upload
+
+Compile and Upload
+
+    make beaglebone_blue_default upload
+    
+
+> **Note** Without upload, files stored local in build folder.
 
 To test the uploaded files, run the following commands on the *BeagleBone Blue* board:
 
@@ -130,9 +138,15 @@ sudo ./bin/px4 -s px4.config
 
 > **Note** Currently *librobotcontrol* requires root access.
 
-## 本机构建（可选） {#native_builds}
+## Native Builds (optional) {#native_builds}
 
 You can also natively build PX4 builds directly on the BeagleBone Blue.
+
+After acquiring the pre-built library,
+
+1. Select the *librobotcontrol* installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
+2. Install **robotcontrol.h** and **rc/\*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
+3. Install pre-built native (ARM) version of librobotcontrol.\* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
 
 Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
@@ -143,6 +157,14 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
 2. Clone the PX4 Firmware directly onto the BeagleBone Blue.
 3. Continue with the [standard build system installation](https://dev.px4.io/master/en/setup/dev_env_linux.html).
+
+## Chnages in config
+
+All changes can be made in de px4.config file on beaglebone direct. For example, you can change the WIFI to wlan.
+
+> **Note** If you wanna change permanent for build, you have to change Firmware/posix-configs/bbblue/px4.config on the Build Machine before build.
+
+you have to change the file
 
 ## 引导期间自动启动
 
@@ -193,7 +215,7 @@ RestartSec=1
 WantedBy=multi-user.target
 ```
 
-### 其它选项
+### Miscellaneous
 
 #### 动力伺服导轨
 
