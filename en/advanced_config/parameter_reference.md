@@ -9808,13 +9808,6 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_BARO_PRIME">CAL_BARO_PRIME</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Primary baro ID</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO0_EN">CAL_GYRO0_EN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Gyro 0 enabled</p>   </td>
  <td style="vertical-align: top;"></td>
