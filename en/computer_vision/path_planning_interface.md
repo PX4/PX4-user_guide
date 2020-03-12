@@ -1,13 +1,15 @@
 # Path Planning Offboard Interface
 
 PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including obstacle avoidance in missions, [safe landing](../computer_vision/safe_landing.md), and future services):
-- The [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) message [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) is used to sent the current and next waypoint, and receive a stream of setpoints for the new path.
-- Alternatively, via mavlink the [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) can be used, parameterized by time, to specify the moving position setpoint of the vehicle over a given amount of time.
+- There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces:
+  > **Warning** Route planning software should not mix these interfaces while executing a task (PX4 will use the last received message of either type).
+
+  - The [Waypoint Trajectory Interface](#waypoint_interface) uses [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) to sent the current and next waypoint, and to receive a stream of setpoints for the new path.
+  - The [Bezier Trajectory Interface](#bezier_interface) uses [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) to specify the moving position setpoint of the vehicle over a given amount of time.
 - The [HEARTBEAT/Connection Protocol](https://mavlink.io/en/services/heartbeat.html) is used for "proof of life" detection.
 - [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) and [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) send the vehicle local position and altitude, respectively.
 
 > **Tip** The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in: [PX4/avoidance > Message Flows](https://github.com/PX4/avoidance#message-flows).
-
 
 All services that use this interface send and receive messages of the same type/format.
 Developers can therefore use this interface to create their own new companion-side path planning services, or tweak the existing planner software.
@@ -110,14 +112,18 @@ PX4 safely handles the case where messages are not received from the offboard sy
 
 ## Bezier Trajectory Interface {#bezier_interface)
 
-If the obstacle avoidance interface is enabled, it can also receive mavlink messages in the [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) format. This is parsed as follows:
+If the obstacle avoidance interface is enabled, it can also receive MAVLink messages in the [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) format.
+This is parsed as follows:
 
-- The number of Bezier control points determines the degree of the Bezier curve. For example, 3 points makes a quadratic bezier curve with constant acceleration.
-- The Bezier curve must be the same degree in x,y,z and yaw, with all Bezier control points finite
-- The `delta` array should have the value corresponding with the last Bezier control point indicate the duration that the waypoint takes to execute the curve to that point, from beginning to end. Other values in the `delta` array are ignored.
-- The timestamp of the mavlink message should be the time that the curve starts, and communication delay and clock mismatch will be compensated for on the flight controller via the timesync mechanism.
+- The number of bezier control points determines the degree of the bezier curve.
+  For example, 3 points makes a quadratic bezier curve with constant acceleration.
+- The bezier curve must be the same degree in x, y, z, and yaw, with all bezier control points finite
+- The `delta` array should have the value corresponding with the last bezier control point indicate the duration that the waypoint takes to execute the curve to that point, from beginning to end.
+  Other values in the `delta` array are ignored.
+- The timestamp of the MAVLink message should be the time that the curve starts, and communication delay and clock mismatch will be compensated for on the flight controller via the timesync mechanism.
 - The control points should all be specified in local coordinates.
-- Bezier curves do not only expire after 0.5s like the waypoint interface, but also after the execution time of the bezier curve has been reached. Be careful not to specify such short times for the bezier curve that you cannot send the next one in time.
+- Bezier curves do not only expire after 0.5s like the waypoint interface, but also after the execution time of the bezier curve has been reached.
+  Be careful not to specify such short times for the bezier curve that you cannot send the next one in time.
 
 ## Supported Hardware
 
@@ -125,6 +131,6 @@ Tested companion computers and cameras are listed in [PX4/avoidance](https://git
 
 
 <!-- ## Further Information -->
-<!-- @mrivi is expert! -->
+<!-- @mrivi and @jkflying are the experts! -->
 <!-- Issue with discussion : https://github.com/PX4/Devguide/issues/530 -->
-<!-- PR for mavlink docs: https://github.com/mavlink/mavlink-devguide/pull/133 -->
+<!-- PR for MAVLink docs: https://github.com/mavlink/mavlink-devguide/pull/133 -->
