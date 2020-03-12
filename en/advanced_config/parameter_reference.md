@@ -5637,13 +5637,6 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MC_DTERM_CUTOFF">MC_DTERM_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Cutoff frequency for the low pass filter on the D-term in the rate controller</p><p><strong>Comment:</strong> The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to decrease the driver-level filtering, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.</p>   </td>
- <td style="vertical-align: top;">0 > 1000 (10)</td>
- <td style="vertical-align: top;">0.</td>
- <td style="vertical-align: top;">Hz</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="MC_PITCHRATE_D">MC_PITCHRATE_D</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Pitch rate D gain</p><p><strong>Comment:</strong> Pitch rate differential gain. Small values help reduce fast oscillations. If value is too big oscillations will appear again.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.0005)</td>
@@ -10516,15 +10509,15 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_DGYRO_CUTOFF">IMU_DGYRO_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Cutoff frequency for angular acceleration</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter used on the time derivative of the measured angular velocity. Set to 0 to disable the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Cutoff frequency for angular acceleration (D-Term filter)</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter used on the time derivative of the measured angular velocity, also known as the D-term filter in the rate controller. The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to decrease the driver-level filtering, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 </td>
- <td style="vertical-align: top;">10.0</td>
+ <td style="vertical-align: top;">30.0</td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_CUTOFF">IMU_GYRO_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Low pass filter cutoff frequency for gyro</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary gyro. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Low pass filter cutoff frequency for gyro</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter on the primary gyro. This only affects the angular velocity sent to the controllers, not the estimators. Doesn't apply to the angular acceleration (D-Term filter), see IMU_DGYRO_CUTOFF. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 </td>
  <td style="vertical-align: top;">30.0</td>
@@ -10532,7 +10525,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_NF_BW">IMU_GYRO_NF_BW</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Notch filter bandwidth for gyro</p><p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Notch filter bandwidth for gyro</p><p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 > 100 </td>
  <td style="vertical-align: top;">20.0</td>
@@ -10540,7 +10533,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_NF_FREQ">IMU_GYRO_NF_FREQ</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Notch filter frequency for gyro</p><p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. 0 disables the filter. See "IMU_GYRO_NF_BW" to set the bandwidth of the filter.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Notch filter frequency for gyro</p><p><strong>Comment:</strong> The center frequency for the 2nd order notch filter on the primary gyro. This filter can be enabled to avoid feedback amplification of structural resonances at a specific frequency. This only affects the signal sent to the controllers, not the estimators. Applies to both angular velocity and angular acceleration sent to the controllers. See "IMU_GYRO_NF_BW" to set the bandwidth of the filter. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 </td>
  <td style="vertical-align: top;">0.0</td>
