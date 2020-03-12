@@ -55,14 +55,25 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
 
 ### Cross Compiler Setup
 
-1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow the steps here (on the development machine): 
-    1. Generate an SSH key if you have not previously done so: ```ssh-keygen -t rsa``` 
+1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow the steps here (on the development machine):
+    
+    1. Generate an SSH key if you have not previously done so:
+        
+            ssh-keygen -t rsa
+            
+        
         1. ENTER //no passphrase
         2. ENTER
         3. ENTER
-    2. Define the BeagleBone Blue board as `beaglebone` in **/etc/hosts**: ```ssh-copy-id root@beaglebone``` Alternatively you can use the beaglebone's IP: `ssh-copy-id root@<IP>`
-    3. When promted if you trust: yes
-    4. Enter root password
+    
+    2. Define the BeagleBone Blue board as `beaglebone` in **/etc/hosts** and copy the public SSH key to the board for password-less SSH access:
+        
+            ssh-copy-id root@beaglebone
+            
+    
+    3. Alternatively you can use the beaglebone's IP directly: ```ssh-copy-id root@<IP>```
+    4. When prompted if you trust: yes
+    5. Enter root password
 
 2. Cross Compile Setup
     
