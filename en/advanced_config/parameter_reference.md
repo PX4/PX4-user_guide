@@ -1623,55 +1623,6 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;">1518423250</td>
  <td style="vertical-align: top;">deg * 1e7</td>
 </tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_DLL_AH_T">NAV_DLL_AH_T</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Airfield home wait time</p><p><strong>Comment:</strong> The amount of time in seconds the system should wait at the airfield home waypoint</p>   </td>
- <td style="vertical-align: top;">0.0 > 3600.0 (1)</td>
- <td style="vertical-align: top;">120.0</td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_DLL_CHSK">NAV_DLL_CHSK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Skip comms hold wp</p><p><strong>Comment:</strong> If set to 1 the system will skip the comms hold wp on data link loss and will directly fly to airfield home</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Disabled (0)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_DLL_CH_ALT">NAV_DLL_CH_ALT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Comms hold alt</p><p><strong>Comment:</strong> Altitude of comms hold waypoint</p>   </td>
- <td style="vertical-align: top;">-50 > 30000 (0.5)</td>
- <td style="vertical-align: top;">600.0</td>
- <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_DLL_CH_LAT">NAV_DLL_CH_LAT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Comms hold Lat</p><p><strong>Comment:</strong> Latitude of comms hold waypoint</p>   </td>
- <td style="vertical-align: top;">-900000000 > 900000000 </td>
- <td style="vertical-align: top;">-266072120</td>
- <td style="vertical-align: top;">deg * 1e7</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_DLL_CH_LON">NAV_DLL_CH_LON</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Comms hold Lon</p><p><strong>Comment:</strong> Longitude of comms hold waypoint</p>   </td>
- <td style="vertical-align: top;">-1800000000 > 1800000000 </td>
- <td style="vertical-align: top;">1518453890</td>
- <td style="vertical-align: top;">deg * 1e7</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_DLL_CH_T">NAV_DLL_CH_T</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Comms hold wait time</p><p><strong>Comment:</strong> The amount of time in seconds the system should wait at the comms hold waypoint</p>   </td>
- <td style="vertical-align: top;">0.0 > 3600.0 (1)</td>
- <td style="vertical-align: top;">120.0</td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_DLL_N">NAV_DLL_N</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Number of allowed Datalink timeouts</p><p><strong>Comment:</strong> After more than this number of data link timeouts the aircraft returns home directly</p>   </td>
- <td style="vertical-align: top;">0 > 1000 </td>
- <td style="vertical-align: top;">2</td>
- <td style="vertical-align: top;"></td>
-</tr>
 </tbody></table>
 
 ## EKF2
@@ -4795,7 +4746,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_DLL_ACT">NAV_DLL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set data link loss failsafe mode</p><p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Set data link loss failsafe mode</p><p><strong>Comment:</strong> The data link loss failsafe will only be entered after a timeout, set by COM_DL_LOSS_T in seconds. Once the timeout occurs the selected action will be executed.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Hold mode</li> 
@@ -4803,8 +4754,6 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>2:</strong> Return mode</li> 
 
 <li><strong>3:</strong> Land mode</li> 
-
-<li><strong>4:</strong> Data Link Auto Recovery (CASA Outback Challenge rules)</li> 
 
 <li><strong>5:</strong> Terminate</li> 
 
@@ -4852,7 +4801,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_RCL_ACT">NAV_RCL_ACT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Set RC loss failsafe mode</p><p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered. Setting this parameter to 4 will enable CASA Outback Challenge rules, which are only recommended to participants of that competition.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Set RC loss failsafe mode</p><p><strong>Comment:</strong> The RC loss failsafe will only be entered after a timeout, set by COM_RC_LOSS_T in seconds. If RC input checks have been disabled by setting the COM_RC_IN_MODE param it will not be triggered.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>1:</strong> Hold mode</li> 
@@ -4860,8 +4809,6 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 <li><strong>2:</strong> Return mode</li> 
 
 <li><strong>3:</strong> Land mode</li> 
-
-<li><strong>4:</strong> RC Auto Recovery (CASA Outback Challenge rules)</li> 
 
 <li><strong>5:</strong> Terminate</li> 
 
@@ -4871,13 +4818,6 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">2</td>
  <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="NAV_RCL_LT">NAV_RCL_LT</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC Loss Loiter Time (CASA Outback Challenge rules)</p><p><strong>Comment:</strong> The amount of time in seconds the system should loiter at current position before termination. Only applies if NAV_RCL_ACT is set to 2 (CASA Outback Challenge rules). Set to -1 to make the system skip loitering.</p>   </td>
- <td style="vertical-align: top;">-1.0 > ? (0.1)</td>
- <td style="vertical-align: top;">120.0</td>
- <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_TRAFF_AVOID">NAV_TRAFF_AVOID</strong> (INT32)</td>
