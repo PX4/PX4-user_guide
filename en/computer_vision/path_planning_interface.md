@@ -2,10 +2,10 @@
 
 PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including obstacle avoidance in missions, [safe landing](../computer_vision/safe_landing.md), and future services):
 - There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces:
-  > **Warning** Route planning software should not mix these interfaces while executing a task (PX4 will use the last received message of either type).
-
-  - The [Waypoint Trajectory Interface](#waypoint_interface) uses [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) to sent the current and next waypoint, and to receive a stream of setpoints for the new path.
-  - The [Bezier Trajectory Interface](#bezier_interface) uses [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) to specify the moving position setpoint of the vehicle over a given amount of time.
+  - [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS): Used by PX4 to send the *desired path*.
+    May be used by path planning software to send PX4 a stream of setpoints for the *planned path*.
+  - [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) may (alternatively) be used by path planning software to send PX4 the *planned path* as a bezier curve.
+    The curve indicates the (moving) position setpoint of the vehicle over a given time period.
 - The [HEARTBEAT/Connection Protocol](https://mavlink.io/en/services/heartbeat.html) is used for "proof of life" detection.
 - [LOCAL_POSITION_NED](https://mavlink.io/en/messages/common.html#LOCAL_POSITION_NED) and [ALTITUDE](https://mavlink.io/en/messages/common.html#ALTITUDE) send the vehicle local position and altitude, respectively.
 
@@ -32,14 +32,21 @@ The actual setup/configuration required depends on the planner being used.
   This means that offboard features that use different planners cannot be enabled on the same vehicle. a vehicle at the same time (e.g. a vehicle can support obstacle avoidance and collision prevent, but not also safe landing - or visa versa).
 
 
-## Waypoint Trajectory Interface {#waypoint_interface)
+## Trajectory Interface {#waypoint_interface)
 
-PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=`, in modes for which the path planning interface has been integrated), and receives back a stream of setpoints for the *planned path*.
-The path information is, in both cases, transported in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages.
+PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in modes for which the path planning interface has been integrated), and receives back a stream of setpoints for the *planned path* from the path planning software.
 
-### PX4 Waypoint Interface
+The desired path information is sent by PX4 using [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages, as described below in [PX4 Waypoint Interface](#px4_waypoint_interface).
 
-PX4 sends the desired path in `TRAJECTORY_REPRESENTATION_WAYPOINTS` messages at 5Hz.
+Path planner software sends back setpoints for the *planned path* using either `TRAJECTORY_REPRESENTATION_WAYPOINTS` (see [Companion Waypoint Interface](#companion_waypoint_interface)) or [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) (see [Companion Bezier Trajectory Interface](#bezier_interface)).
+The difference is that the waypoint just specifies the next setpoint destination, while the bezier trajectory describes the exact vehicle motion (i.e. a setpoint that moves in time).
+
+> **Warning** Route planning software should not mix these interfaces while executing a task (PX4 will use the last received message of either type).
+
+
+### PX4 Waypoint Interface {#px4_waypoint_interface}
+
+PX4 sends the desired path in [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages at 5Hz.
 
 The fields set by PX4 as shown:
 - `time_usec`: UNIX Epoch time.
@@ -75,10 +82,26 @@ Notes:
 - Point 1 and 2 are not used by the safe landing planner.
 - Point 1 is used by local and global planner.
 
-### Companion Waypoint Interface
 
-On the companion side, MAVROS translates the MAVLink message into ROS messages, which are eventually handled by the appropriate planner.
-The planner plans a path to the waypoint/target, and sends it to the vehicle as a stream of `TRAJECTORY_REPRESENTATION_WAYPOINTS` messages that have the setpoint in Point 0.
+#### Handling of Companion Failure {#companion-failure-handling}
+
+PX4 safely handles the case where messages are not received from the offboard system:
+- If no planner is running and `COM_OBS_AVOID` is enabled at/from boot:
+  - preflight checks will fail (irrespective of vehicle mode) and it won't fly until `COM_OBS_AVOID` is set to 0.
+- If no planner is running and `COM_OBS_AVOID` is enabled after boot:
+  - the vehicle will run normally in manual modes.
+  - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes/hold.md).
+- When external path planning is enabled:
+  - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in *QGroundControl*) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). This is irrespective of the current flight mode.
+  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes/hold.md).
+  > **Note** A planner must always provide points in this timeframe.
+    - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount).
+  - If the execution time of the last-supplied bezier trajectory expires during path planning (when using the [Bezier Trajectory Interface](#bezier_interface)), this is treated the same as not getting a new message within 0.5 seconds (i.e. vehicle switches to [Hold mode](../flight_modes/hold.md)).
+
+
+## Companion Waypoint Interface {#companion_waypoint_interface}
+
+The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages that have the setpoint in Point 0.
 
 The fields for the messages from the companion computer are set as shown:
 - `time_usec`: UNIX Epoch time.
@@ -98,25 +121,17 @@ A planner that implements this interface must:
 - Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing, because it does not support Land mode).
 
 
-## Companion Failure Handling
+## Companion Bezier Trajectory Interface {#bezier_interface)
 
-PX4 safely handles the case where messages are not received from the offboard system:
-- If no planner is running and `COM_OBS_AVOID` is enabled at/from boot: 
-  - preflight checks will fail (irrespective of vehicle mode) and it won't fly until `COM_OBS_AVOID` is set to 0.
-- If no planner is running and `COM_OBS_AVOID` is enabled after boot: 
-  - the vehicle will run normally in manual modes
-  - if you switch to an autonomous mode (e.g. Land Mode) it will immediately fall back to [Hold mode](../flight_modes/hold.md).
-- When external path planning is enabled
-  - if the `HEARTBEAT` is lost PX4 will emit a status message (which is displayed in *QGroundControl*) stating either "Avoidance system lost" or "Avoidance system timeout" (depending on the vehicle state). This is irrespective of the current flight mode.
-  - if a trajectory message is not received for more than 0.5 seconds and the vehicle is in an autonomous mode (Return, Mission, Takeoff, Land), the vehicle will switch into [Hold mode](../flight_modes/hold.md).
-  > **Note** A planner must always provide points in this timeframe.
-    - A planner will mirror back setpoints it receives when the vehicle is in a mode/state for which it doesn't provide path planning. (i.e. the vehicle will follow its desired path, delayed by a very small amount). 
+The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) messages.
 
+The message defines the path that the vehicle should follow in terms of a curve (defined by the control points), starting at the message `timestamp` and reaching the final point after time `delta`.
+PX4 calculates its new setpoint (the expected current position/velocity/acceleration along the curve) using the time that the message was sent, the current time, and the total time for the curve (delta).
 
-## Bezier Trajectory Interface {#bezier_interface)
+> **Note** For example, say the message was sent 0.1 seconds ago and `delta` (curve duration) is 0.3s.
+  PX4 can calculate its setpoint at the 0.1s position in the curve.
 
-If the obstacle avoidance interface is enabled, it can also receive MAVLink messages in the [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) format.
-This is parsed as follows:
+In more detail, the `TRAJECTORY_REPRESENTATION_BEZIER` is parsed as follows:
 
 - The number of bezier control points determines the degree of the bezier curve.
   For example, 3 points makes a quadratic bezier curve with constant acceleration.
@@ -124,9 +139,11 @@ This is parsed as follows:
 - The `delta` array should have the value corresponding with the last bezier control point indicate the duration that the waypoint takes to execute the curve to that point, from beginning to end.
   Other values in the `delta` array are ignored.
 - The timestamp of the MAVLink message should be the time that the curve starts, and communication delay and clock mismatch will be compensated for on the flight controller via the timesync mechanism.
-- The control points should all be specified in local coordinates.
-- Bezier curves do not only expire after 0.5s like the waypoint interface, but also after the execution time of the bezier curve has been reached.
-  Be careful not to specify such short times for the bezier curve that you cannot send the next one in time.
+- The control points should all be specified in local coordinates ([MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
+- Bezier curves expire after the execution time of the bezier curve has been reached.
+  Ensure that new messages are sent at a high enough rate/with long enough execution time that this does not happen (or the vehicle will switch to Hold mode).
+
+
 
 ## Supported Hardware
 
