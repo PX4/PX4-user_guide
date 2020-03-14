@@ -702,14 +702,16 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 <tbody>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_ACT_TIME">TRIG_ACT_TIME</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Camera trigger activation time</p><p><strong>Comment:</strong> This parameter sets the time the trigger needs to pulled high or low.</p>   </td>
+ <td style="vertical-align: top;"><p>Camera trigger activation time</p><p><strong>Comment:</strong> This parameter sets the time the trigger needs to pulled high or low.</p>   <p><b>Reboot required:</b> true</p>
+</td>
  <td style="vertical-align: top;">0.1 > 3000 </td>
  <td style="vertical-align: top;">40.0</td>
  <td style="vertical-align: top;">ms</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_DISTANCE">TRIG_DISTANCE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Camera trigger distance</p><p><strong>Comment:</strong> Sets the distance at which to trigger the camera.</p>   </td>
+ <td style="vertical-align: top;"><p>Camera trigger distance</p><p><strong>Comment:</strong> Sets the distance at which to trigger the camera.</p>   <p><b>Reboot required:</b> true</p>
+</td>
  <td style="vertical-align: top;">0 > ? (1)</td>
  <td style="vertical-align: top;">25.0</td>
  <td style="vertical-align: top;">m</td>
@@ -733,9 +735,18 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_INTERVAL">TRIG_INTERVAL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Camera trigger interval</p><p><strong>Comment:</strong> This parameter sets the time between two consecutive trigger events</p>   </td>
+ <td style="vertical-align: top;"><p>Camera trigger interval</p><p><strong>Comment:</strong> This parameter sets the time between two consecutive trigger events</p>   <p><b>Reboot required:</b> true</p>
+</td>
  <td style="vertical-align: top;">4.0 > 10000.0 </td>
  <td style="vertical-align: top;">40.0</td>
+ <td style="vertical-align: top;">ms</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TRIG_MIN_INTERVA">TRIG_MIN_INTERVA</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Minimum camera trigger interval</p><p><strong>Comment:</strong> This parameter sets the minimum time between two consecutive trigger events the specific camera setup is supporting.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">1.0 > 10000.0 </td>
+ <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;">ms</td>
 </tr>
 <tr>
@@ -772,7 +783,8 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 
 <li><strong>1:</strong> Active high</li> 
 </ul>
-  </td>
+  <p><b>Reboot required:</b> true</p>
+</td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
