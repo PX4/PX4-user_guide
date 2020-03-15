@@ -159,8 +159,8 @@ DevKit 包含以下组件：
 
 1. 使用以下默认凭据将地面站连接到车辆WiFi网络：
    
-      - **SSID:**pixhawk4
-   - **密码：** pixhawk4
+      - **SSID：**pixhawk4
+   - **密码：**pixhawk4
 
 
    > **Note** WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
