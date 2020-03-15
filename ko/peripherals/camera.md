@@ -4,7 +4,7 @@
 
 펄스가 보내지는 것 외에도 시퀀스 번호 (따라서 현재 세션의 이미지 시퀀스 번호)와 해당 타임 스탬프가 포함 된 MAVLink 메시지가 게시됩니다.
 
-## Trigger Configuration {#trigger_setup_qgc}
+## 트리거 설정 {#trigger_setup_qgc}
 
 Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) section.
 
@@ -14,7 +14,7 @@ The different [trigger modes](#trigger_mode), [backend interfaces](#trigger_back
 
 > **Note** The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware. For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
 
-## Trigger Modes {#trigger_mode}
+## 트리거 모드 {#trigger_mode}
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
@@ -41,7 +41,7 @@ MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 
 <blockquote>
   <p><strong>Info</strong> If it is your first time enabling the camera trigger app, remember to reboot after changing the <code>TRIG_MODE` parameter.</p> </blockquote> 
 
-## Trigger Hardware Configuration {#hardware_setup}
+## 트리거 하드웨어 설정 {#hardware_setup}
 
 You can choose which pins to use for triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
@@ -51,7 +51,7 @@ You can choose which pins to use for triggering using the [TRIG_PINS](../advance
 
 > **Warning** With `TRIG_PINS` set to its **default** value of 56, you can use the AUX pins 1, 2, 3 and 4 as actuator outputs (for servos/ESCs). Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs. **DO NOT CHANGE THE DEFAULT VALUE OF `TRIG_PINS` IF YOU NEED ACTUATOR OUTPUTS.**
 
-## Trigger Interface Backends {#trigger_backend}
+## 트리거 인터페이스 백엔드 {#trigger_backend}
 
 The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter:
 
@@ -72,7 +72,7 @@ enables the GPIO interface. AUX 출력은 매  TRIG_INTERVAL </ 1> 지속 시간
 </tbody>
 </table>
 
-<h2>Other Parameters</h2>
+<h2>기타 패러미터들</h2>
 
 <table>
 <thead>

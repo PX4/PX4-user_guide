@@ -30,6 +30,14 @@ They are so important because the autopilot does not have other means to detect
 
 For more information and recommended hardware see: [Airspeed Sensors](../sensor/airspeed.md).
 
+## Tachometer
+
+Tachometers ([revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) are *highly recommended* for rotor-wing frames because they allow the autopilot to detect stall or another rotor failure (for rotor-wing flight it is the rotation of blades that guarantees lift not airspeed or ground speed).
+
+![Digital RPM Sensor - TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
+
+For more information and recommended hardware see: [Sensors > Tachometers](../sensor/tachometers.md).
+
 ## Distance
 
 Distance sensors are used for precision landing, object avoidance and terrain following.

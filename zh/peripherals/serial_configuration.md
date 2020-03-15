@@ -1,6 +1,6 @@
 # 串口配置
 
-Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (用于非常特定目的的端口除外，如RC输入，或不可配置的串口，如 `SERIAL 5`)。
+Many serial (UART) ports on a Pixhawk board can be fully configured via parameters: e.g.: `GPS1`, `TELEM1`, `TELEM2`, `TELEM4` (`UART+I2C`).
 
 通过配置，可以轻松地(例如)：
 
@@ -8,6 +8,8 @@ Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (�
 * 在其他端口上运行 MAVLink ，或更改流消息
 * 设置双 GPS
 * 启用在串口上运行的传感器，例如某些 [距离传感器](../sensor/rangefinders.md) 。
+
+> **Note** Some ports cannot be configured because they are used for a very specific purpose like RC input or the system console (`SERIAL 5`).
 
 ## 端口预配置 {#default_port_mapping}
 
@@ -18,7 +20,7 @@ Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (�
 
 默认情况下，所有其他端口都没有指定的功能(禁用)。
 
-> **Tip** 通过分别将 [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) 和 [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) 设置为 *Disabled*，可以禁用上述端口映射。
+> **Tip** The ports mappings above can be disabled by setting [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) and [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) to *Disabled*, respectively.
 
 ## 如何配置端口
 
