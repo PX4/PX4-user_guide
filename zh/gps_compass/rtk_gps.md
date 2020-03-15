@@ -18,6 +18,7 @@ PX4 支持[u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) 和[Trimble MB
 - [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)
 - [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
 - [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
+- [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md)
 
 > **Note**有一些 RTK 模块只能作为基站或移动站，有的则可以两用。
 

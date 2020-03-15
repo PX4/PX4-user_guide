@@ -79,6 +79,12 @@ PX4 드론은 대부분 리튬-폴리머(LiPo) 배터리로 구동됩니다. 배
 - [비행 첫걸음](../flying/basic_flying.md) - RC로 비행하는 법을 배웁니다.
 - [ FrSky 텔레메트리](../peripherals/frsky_telemetry.md) - PX4에서 원격 측정/상태 업데이트를 수신하도록 RC 송신기를 설정합니다.
 
+## GCS Joystick Controller {#joystick}
+
+A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) shown below. Joysticks are also commonly used to fly the vehicle in simulation.
+
+![Joystick MicroNav.](../../assets/peripherals/joystick/micronav.jpg)
+
 ## Safety Switch {#safety_switch}
 
 It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
