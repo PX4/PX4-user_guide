@@ -5,7 +5,7 @@ This topic provides full instructions for building the kit and configuring PX4 u
 ## Key information
 
 - **Frame:** Holybro S500
-- **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.html)
+- **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
 - **Assembly time (approx.):** 90 minutes (45 minutes for frame, 45 minutes for autopilot installation/configuration)
 
 ![Full S500 Kit](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_hero.png)
@@ -28,7 +28,7 @@ The Holybro [S500 V2 Kit](https://shop.holybro.com/s500-v2-kitmotor2216-880kv-pr
 * Wheelbase:480mm
 
 
-Note: No LiPo battery included. In addition, we use a FrSky Taranis controller.
+> **Note** No LiPo battery is included. In addition, we use a FrSky Taranis controller.
 
 
 ## Hardware
@@ -105,215 +105,143 @@ The following tools are used in this assembly:
 
 Estimate time to assemble is 90 minutes, about 45 minutes for frame assembly and 45 minutes installing and configuring the autopilot in QGroundControl.
 
-**Step 1:** Assembling the Landing Gear. We are going to start by assembling the landing gear to the vertical pole. Unscrew the landing gear screws and insert the vertical pole, see Figures 1 and 2.
+1. Assembling the Landing Gear. We are going to start by assembling the landing gear to the vertical pole. Unscrew the landing gear screws and insert the vertical pole as shown below.
 
-![Figure 1](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig1.jpg)
+   ![Figure 1](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig1.jpg)
 
-(Figure 1)
+   ![Figure 2](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig2.jpg)
 
-![Figure 2](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig2.jpg)
+1. Assemble the Power Management Board to the landing gear. Screw the landing gear with a vertical pole to the Fully assembled Power Management Board.
 
-(Figure 2)
+  The Board has 4 holes (see arrows below).
 
-**Step 2:**  Assemble the Power Management Board to the landing gear. Screw the landing gear with a vertical pole to the Fully assembled Power Management Board.
+  ![Figure 3](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig3.jpg)
 
-The Board has 4 holes (see Figure 3 arrows) use the M3X8 screws, a total of 8 pieces, 4 on each side, see Figure 4.
+  Connect with the M3X8 screws, a total of 8 pieces, 4 on each side.
 
-![Figure 3](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig3.jpg)
+  ![Figure 4](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig4.jpg)
 
-(Figure 3)
+1. Assemble the arms to the Power Management Board. Attach the arm to the Power Management Board.
 
-![Figure 4](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig4.jpg)
+   ![Figure 6](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig7.jpg)
 
-(Figure 4)
+   ![Figure 7](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig8.jpg)
 
-**Step 3:**  Assemble the arms to the Power Management Board. Attach the arm to the Power Management Board, see Figures 6 and 7.
+   Use M2 5X6 screws a total of 2 in each arm. Insert the screws from the bottom of the plate.
 
-![Figure 6](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig7.jpg)
+   ![Figure 8](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig9.jpg)
 
-(Figure 6)
+   Make sure the ESC cables run through the middle of the arm.
 
-![Figure 7](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig8.jpg)
+   ![Figure 9](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig91.jpg)
 
-(Figure 7)
+1. Assemble the 8*3 2.54mm pitch Horizontal Pin to the 10 to 10 pin cable (PWM) to the Power Management Board. Connect the 10 to 10 pin cable (PWM) to the 8*3 2.54mm pitch Horizontal Pin.
 
-Use M2 5X6 screws a total of 2 in each arm. Insert the screws from the bottom of the plate, see Figure 8.
+   ![Figure 10](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig10.jpg)
 
-![Figure 8](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig9.jpg)
+   Cut a piece of 3M Tape and attach to the bottom of the Horizontal Pin:
 
-(Figure 8)
+   ![Figure 11](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig11.jpg)
 
-Make sure the ESC cables run through the middle of the arm, see Figure 9.
+   Stick the Horizontal Pin to the Power Management Board:
 
-![Figure 9](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig91.jpg)
+   ![Figure 12](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig12.jpg)
 
-(Figure 9)
+   ![Figure 13](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig13.jpg)
 
-**Step 4:** Assemble the 8*3 2.54mm pitch Horizontal Pin to the 10 to 10 pin cable (PWM) to the Power Management Board. Connect the 10 to 10 pin cable (PWM) to the 8*3 2.54mm pitch Horizontal Pin, see Figure 10.
+1. Assemble the motors to the arms. For this, we will need the 16 screws M3X7, 4 motors, and the 4 arms.
 
-![Figure 10](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig10.jpg)
+   Mount the motors in each arm put the screw through the bottom of the arm:
 
-(Figure 10)
+   ![Figure 14](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig14.jpg)
 
-Cut a piece of 3M Tape and attach to the bottom of the Horizontal Pin, (see Figure 11)
+   ![Figure 15](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig15.jpg)
 
-![Figure 11](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig11.jpg)
+   After the 4 motors are mounted on the arm grab the cables(red, blue, black) and put them through the arm thread. The 3 cables that are color-coded go connected to the ESC.
 
-(Figure 11)
+   ![Figure 16](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig16.jpg)
 
-Stick the Horizontal Pin to the Power Management Board, see Figures 12 and 13.
+   ![Figure 17](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig17.jpg)
 
-![Figure 12](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig12.jpg)
+1. Mounting the GPS on the frame. For this, we will need the Pixhawk 4 GPS and the mounting plate.
 
-(Figure 12)
+   ![GPS Parts](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_gpskit.png)
 
-![Figure 13](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig13.jpg)
+   Mount the GPS mast to the back of the Board, use the 4 screws:
 
-(Figure 13)
+   ![Figure 18](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig18.jpg)
 
-**Step 5:** Assemble the motors to the arms. For this, we will need the 16 screws M3X7, 4 motors, and the 4 arms.
+   ![Figure 19](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig19.jpg)
 
-Mount the motors in each arm put the screw through the bottom of the arm, see Figures 14 and 15.
+   Use the tape and stick the GPS to the top of the GPS mast:
 
-![Figure 14](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig14.jpg)
+   ![Figure 20](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig20.jpg)
 
-(Figure 14)
+1. Paste the FrSky to the Board. Paste FrSky with double-sided tape (3M) to the bottom board. Attach the FrSky to the frame:
 
-![Figure 15](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig15.jpg)
+   ![Figure 21](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig21.jpg)
 
-(Figure 15)
+   ![Figure 22](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig22.jpg)
 
-After the 4 motors are mounted on the arm grab the cables(red, blue, black) and put them through the arm thread, see Figures 16 and 17. The 3 cables that are color-coded go connected to the ESC.
+1. Attach the Telemetry to the frame. The next step is to take the Holybro telemetry radio and attach it onto the frame, use 3M tape.
 
-![Figure 16](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig16.jpg)
+   ![Figure 23](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig23.jpg)
 
-(Figure 16)
+   ![Figure 24](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig24.jpg)
 
-![Figure 9](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig17.jpg)
+   This assembly attached it inside the frame facing outwards to the front of the vehicle. A picture is shown below of the radio sitting inside the bottom of the frame.
 
-(Figure 17)
+   ![Figure 25](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig25.jpg)
 
-**Step 6:** Mounting the GPS on the frame. For this, we will need the Pixhawk 4 GPS and the mounting plate.
+1. Mounting the Pixhawk 4 to the plate. Use double-sided tape to attach the Pixhawk 4 to the center plate:
 
-![GPS Parts](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_gpskit.png)
+   ![Figure 26](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig26.jpg)
 
-Mount the GPS mast to the back of the Board, use the 4 screws see Figure 18 and 19.
+   ![Figure 27](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig27.jpg)
 
-![Figure 18](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig18.jpg)
+   ![Figure 28](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig28.jpg)
 
-(Figure 18)
+   The next step is to mount the Pixhawk 4 with the plate to the frame. For this, we will need the M2 5X6 screws. Align the plate to the frame and insert the screws. Before you mount the plate we recommend putting tape on the Power Module (that way it's tight).
 
-![Figure 19](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig19.jpg)
+   ![Figure 29](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig29.jpg)
 
-(Figure 19)
+   ![Figure 30](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig30.jpg)
 
-Use the tape and stick the GPS to the top of the GPS mast, see Figure 20.
+1. Assembling the Battery Mount to the frame. For this we will need the M2 5X6 screws and the battery mount:
 
-![Figure 20](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig20.jpg)
+   ![Figure 31](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig31.jpg)
 
-(Figure 20)
+   Insert the long rods to the small rings:
 
-**Step 7:** Paste the FrSky to the Board. Paste FrSky with double-sided tape (3M) to the bottom board. Attach the FrSky to the frame, See Figures 21 and 22.
+   ![Figure 32](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig32.png)
 
-![Figure 21](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig21.jpg)
+   ![Figure 33](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig33.png)
 
-(Figure 21)
+   Attach that to the frame, make sure all four sides are aligned to insert the screws:
 
-![Figure 22](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig22.jpg)
+   ![Figure 34](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig34.jpg)
 
-(Figure 22)
+   Assemble the small plate to the legs and screw on all four sides.
 
-**Step 8:** Attach the Telemetry to the frame. The next step is to take the Holybro telemetry radio and attach it onto the frame, use 3M tape, see Figure 23 and 24.
+   ![Figure 35](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig35.jpg)
 
-![Figure 23](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig23.jpg)
+   The final step is to attach the plate:
 
-(Figure 23)
+   ![Figure 36](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig36.jpg)
 
-![Figure 24](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig24.jpg)
+1. Pixhawk 4 wiring. The Pixhawk 4, which has several different wires and connections with it. Included below is a picture of every wire needed with the Pixhawk and how it looks when connected.
 
-(Figure 24)
+1. Plugin Telemetry and GPS module to the flight controller as seen in Figure 37; plug in the RC receiver, all 4 ESCs to the flight controller as well as the power module.
 
-This assembly attached it inside the frame facing outwards to the front of the vehicle. A picture is shown below of the radio sitting inside the bottom of the frame, see Figure 25.
+   ![Figure 37](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig37.png)
 
-![Figure 25](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig25.jpg)
 
-(Figure 25)
-
-**Step 9:** Mounting the Pixhawk 4 to the plate. Use double-sided tape to attach the Pixhawk 4 to the center plate, see Figure 26-27 and 28.
-
-![Figure 26](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig26.jpg)
-
-(Figure 26)
-
-![Figure 27](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig27.jpg)
-
-(Figure 27)
-
-![Figure 28](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig28.jpg)
-
-(Figure 28)
-
-The next step is to mount the Pixhawk 4 with the plate to the frame. For this, we will need the M2 5X6 screws. Align the plate to the frame, see Figures 29 and 30, insert the screws.
-
-Before you mount the plate we recommend putting tape on the Power Module that way it’s tight and not loose, see Figure 29.
-
-![Figure 29](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig29.jpg)
-
-(Figure 29)
-
-![Figure 30](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig30.jpg)
-
-(Figure 30)
-
-**Step 10:** Assembling the Battery Mount to the frame. For this we will need the M2 5X6 screws and the battery mount see Figure 31.
-
-![Figure 31](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig31.jpg)
-
-(Figure 31)
-
-Insert the long rods to the small rings see Figure 32 and 33.
-
-![Figure 32](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig32.png)
-
-(Figure 32)
-
-![Figure 33](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig33.png)
-
-(Figure 33)
-
-Attach that to the frame, make sure all four sides are aligned to insert the screws, see Figure 34.
-
-![Figure 34](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig34.jpg)
-
-(Figure 34)
-
-Assemble the small plate to the legs, see Figure 35 screw on all four sides.
-
-![Figure 35](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig35.jpg)
-
-(Figure 35)
-
-The final step is to attach the plate to the, see figure 36.
-
-![Figure 36](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig36.jpg)
-
-(Figure 36)
-
-**Step 11:** Pixhawk 4 wiring. The Pixhawk 4, which has several different wires and connections with it. Included below is a picture of every wire needed with the Pixhawk and how it looks when connected.
-
-Plugin Telemetry and GPS module to the flight controller as seen in Figure 37; plug in the RC receiver, all 4 ESCs to the flight controller as well as the power module as shown in Figure 37.
-
-![Figure 37](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_fig37.png)
-
-(Figure 37)
+Fully assembled, the kit looks as shown below:
 
 ![Pixhawk Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_pixhawk.jpg)
 
-(Fully assembled Pixhawk)
-
 ![Fully Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
 
-(Fully assembled S500 V2 Kit)
 
 ## Install/Configure PX4 {#configure}
 
@@ -328,7 +256,7 @@ First update the firmware and airframe:
 
 > **Note** You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
 
-![QGroundControl - Select HolyBro X500 airframe](/Users/rroche/Work/Dronecode/Docs/px4_user_guide/assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig22.png)
+![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/s500_holybro_pixhawk4/S500_airframe.jpg)
 
 Then perform the mandatory setup/calibration:
 
