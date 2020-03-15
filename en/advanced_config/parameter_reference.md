@@ -2033,6 +2033,14 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="EKF2_GSF_TAS">EKF2_GSF_TAS</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Default value of true airspeed used in EKF-GSF AHRS calculation.
+If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assume this value of true airspeed when compensating for centripetal acceleration during turns. Set to zero to disable centripetal acceleration compensation during fixed wing flight modes</p>   </td>
+ <td style="vertical-align: top;">0.0 > 100.0 </td>
+ <td style="vertical-align: top;">15.0</td>
+ <td style="vertical-align: top;">m/s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="EKF2_GYR_B_NOISE">EKF2_GYR_B_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Process noise for IMU rate gyro bias prediction</p>   </td>
  <td style="vertical-align: top;">0.0 > 0.01 </td>
