@@ -45,6 +45,8 @@
     * [DJI F450 (CUAV v5+)](frames_multicopter/dji_f450_cuav_5plus.md)
     * [DJI F450 (CUAV v5 nano)](frames_multicopter/dji_f450_cuav_5nano.md)
     * [QAV250 (Pixhawk4 Mini)](frames_multicopter/holybro_qav250_pixhawk4_mini.md)
+    * [X500 (Pixhawk 4)](frames_multicopter/holybro_x500_pixhawk4.md)
+    * [S500 V2 (Pixhawk 4)](frames_multicopter/holybro_s500_v2_pixhawk4.md)
     * [DJI F450 + RTK \(Pixhawk 3 Pro\)](frames_multicopter/dji_flamewheel_450.md)
     * [QAV250 \(Pixhawk Mini\)](frames_multicopter/lumenier_qav250_pixhawk_mini.md)
     * [QAV250 \(Pixhawk/AUAV\_X2\)](frames_multicopter/lumenier_qav250_pixhawk_auav_x2.md)
