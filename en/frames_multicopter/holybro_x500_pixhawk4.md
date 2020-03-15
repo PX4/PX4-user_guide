@@ -5,7 +5,7 @@ This topic provides full instructions for building the kit and configuring PX4 u
 ## Key information
 
 - **Frame:** Holybro X500
-- **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.html)
+- **Flight controller:** [Pixhawk 4](../flight_controller/pixhawk4.md)
 - **Assembly time (approx.):** 2 hours (75 minutes for frame, 45 minutes for autopilot installation/configuration)
 
 ![Full X500 Kit](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_hero.png)
@@ -25,7 +25,8 @@ The Holybro [X500 Kit](https://shop.holybro.com/x500-kit_p1180.html) includes al
 * Dimensions - 410*410*300 mm
 * 433 MHz Telemetry Radio/915 MHz Telemetry Radio
 
-Additionally you will need a battery and receiver (+compatible transmitter). This build uses:
+Additionally you will need a battery and receiver ([compatible radio system](../getting_started/rc_transmitter_receiver.md)).
+This build uses:
 
 * Receiver: FR SKY Taranis
 * Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
@@ -192,7 +193,7 @@ Cut a piece of 3M Tape and attach to the bottom of the Horizontal Pin, see Figur
 
 (Figure 12)
 
-![Power Module 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig13.jpg)
+![Power Module 3](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig13_PWM_cable_with_tape.jpg)
 
 (Figure 13)
 
@@ -268,9 +269,9 @@ First update the firmware and airframe:
 * [Firmware](../config/firmware.md)
 * [Airframe](../config/airframe.md)
   
-> **Note** You will need to select the *Holybro X500* airframe (**Quadrotor x > Holybro X500**).
+> **Note** You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
 
-![QGroundControl - Select HolyBro X500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_fig22.png)
+![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
 
 Then perform the mandatory setup/calibration:
 * [Sensor Orientation](../config/flight_controller_orientation.md)
