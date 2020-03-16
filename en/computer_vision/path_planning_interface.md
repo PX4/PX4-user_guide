@@ -1,4 +1,4 @@
-# Path Planning Offboard Interface
+# Path Planning Interface
 
 PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including obstacle avoidance in missions, [safe landing](../computer_vision/safe_landing.md), and future services):
 - There are two [MAVLink Path Planning Protocol](https://mavlink.io/en/services/trajectory.html) interfaces:
