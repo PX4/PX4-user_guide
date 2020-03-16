@@ -34,7 +34,7 @@ The actual setup/configuration required depends on the planner being used.
 
 ## Trajectory Interface {#waypoint_interface)
 
-PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in modes for which the path planning interface has been integrated), and receives back a stream of setpoints for the *planned path* from the path planning software.
+PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in _auto_ modes), and receives back a stream of setpoints for the *planned path* from the path planning software.
 
 The desired path information is sent by PX4 using [TRAJECTORY_REPRESENTATION_WAYPOINTS](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_WAYPOINTS) messages, as described below in [PX4 Waypoint Interface](#px4_waypoint_interface).
 
