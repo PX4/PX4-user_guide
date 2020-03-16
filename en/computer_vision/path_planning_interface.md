@@ -32,7 +32,7 @@ The actual setup/configuration required depends on the planner being used.
   This means that offboard features that use different planners cannot be enabled on the same vehicle. a vehicle at the same time (e.g. a vehicle can support obstacle avoidance and collision prevent, but not also safe landing - or visa versa).
 
 
-## Trajectory Interface {#waypoint_interface)
+## Trajectory Interface {#waypoint_interface}
 
 PX4 sends information about the *desired path* to the companion computer (when `COM_OBS_AVOID=1`, in _auto_ modes), and receives back a stream of setpoints for the *planned path* from the path planning software.
 
@@ -121,7 +121,7 @@ A planner that implements this interface must:
 - Mirror back setpoints it receives when it doesn't support planning for the current vehicle state (e.g. the local planner would mirror back messages sent during safe landing, because it does not support Land mode).
 
 
-## Companion Bezier Trajectory Interface {#bezier_interface)
+## Companion Bezier Trajectory Interface {#bezier_interface}
 
 The path planning software (running on the companion computer) *may* send the planned path to PX4 as a stream of [TRAJECTORY_REPRESENTATION_BEZIER](https://mavlink.io/en/messages/common.html#TRAJECTORY_REPRESENTATION_BEZIER) messages.
 
