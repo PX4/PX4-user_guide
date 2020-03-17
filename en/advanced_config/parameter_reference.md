@@ -1030,7 +1030,7 @@ Set -1 to disable the check</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_DL_LOSS_T">COM_DL_LOSS_T</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Datalink loss time threshold</p><p><strong>Comment:</strong> After this amount of seconds without datalink the data link lost mode triggers</p>   </td>
- <td style="vertical-align: top;">5 > 300 (0.5)</td>
+ <td style="vertical-align: top;">5 > 300 (1)</td>
  <td style="vertical-align: top;">10</td>
  <td style="vertical-align: top;">s</td>
 </tr>
@@ -1400,8 +1400,8 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;"><strong id="COM_OF_LOSS_T">COM_OF_LOSS_T</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Time-out to wait when offboard connection is lost before triggering offboard lost action.
 See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
- <td style="vertical-align: top;">0 > 60 (1)</td>
- <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">0 > 60 (0.01)</td>
+ <td style="vertical-align: top;">0.5</td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
