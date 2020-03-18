@@ -16,7 +16,7 @@ More information about the firmware can be found [here](https://docs.modalai.com
 
 ## QGroundControl Support
 
-This board is slated to be supported starting in QGroundControl 3.5.7 (or the release after 3.5.6).
+This board supported in QGroundControl 4.0 and later.
 
 ## Specification
 
@@ -99,6 +99,21 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 ```
 make modalai_fc-v1
 ```
+
+
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+USART1 | /dev/ttyS0 | GPS1 (J10)
+USART2 | /dev/ttyS1 | TELEM3 (J4)
+USART3 | /dev/ttyS2 | Debug Console
+UART4 | /dev/ttyS3 | ?
+UART5 | /dev/ttyS4 | TELEM2 (J1)
+USART6 | /dev/ttyS5 | RC
+UART7 | /dev/ttyS6 | TELEM1 (J5)
+UART8 | /dev/ttyS7 | ?
+
 
 ## Support
 
