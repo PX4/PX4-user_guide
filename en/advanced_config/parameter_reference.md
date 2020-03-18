@@ -5433,9 +5433,9 @@ Setting this parameter to 0 disables the filter</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_USE_HTE">MPC_USE_HTE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Hover thrust source selector</p><p><strong>Comment:</strong> Set false to use the fixed parameter MPC_THR_HOVER (EXPERIMENTAL) Set true to use the value computed by the hover thrust estimator</p>   </td>
+ <td style="vertical-align: top;"><p>Hover thrust source selector</p><p><strong>Comment:</strong> Set false to use the fixed parameter MPC_THR_HOVER Set true to use the value computed by the hover thrust estimator</p>   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;">Enabled (1)</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
