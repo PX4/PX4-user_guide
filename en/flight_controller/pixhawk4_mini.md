@@ -111,8 +111,6 @@ USART3 | /dev/ttyS2 | TELEM2 (flow control)
 UART4 | /dev/ttyS3 | TELEM4
 USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector
 UART7 | /dev/ttyS5 | Debug Console
-UART8 | /dev/ttyS6 | 
-
 
 
 ## Peripherals
