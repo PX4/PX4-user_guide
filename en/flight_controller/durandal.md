@@ -150,14 +150,14 @@ UART | Device | Port
 --- | --- | ---
 USART1 | /dev/ttyS0 | GPS1
 USART2 | /dev/ttyS1 | TELEM1
-USART3 | /dev/ttyS2 | TELEM1
-UART4 | /dev/ttyS3 | TELEM4
-USART6 | /dev/ttyS4 | ?
-UART7 | /dev/ttyS5 | Serial Port
+USART3 | /dev/ttyS2 | TELEM2
+UART4 | /dev/ttyS3 | TELEM4/GPS2
+USART6 | /dev/ttyS4 | TELEM3
+UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | PX4IO
 
 
-## Debug Port
+## Debug Port {#debug_port}
 
 The PX4 FMU serial console and SWD interface run on the [Debug port](#debug_port).
 
