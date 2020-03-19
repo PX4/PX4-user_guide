@@ -57,10 +57,12 @@ Three axis body fixed magnetometer data (or external vision system pose data) at
   This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases. 
   It is the default method used during start-up and on ground.
 * The  XYZ magnetometer readings are used as separate observations. 
-  This method is more accurate and allows body frame offsets to be learned, but assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies. 
-  It is the default method when the vehicle is airborne and has climbed past 1.5 m altitude.
+  This method is more accurate and allows body frame offsets to be learned, but assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
 
-The logic used to select the mode is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
+The logic used to select these amodes is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
+
+The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#Yaw Measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#Yaw From GPS Velocity)
+
 
 ### Height
 
@@ -106,6 +108,14 @@ Some GPS receivers such as the [Trimble MB-Two RTK GPS receiver](https://www.tri
 This can be a significant advantage when operating in an environment where large magnetic anomalies are present, or at latitudes here the earth's magnetic field has a high inclination. 
 Use of GPS yaw measurements is enabled by setting bit position 7 to 1 (adding 128) in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
 
+#### Yaw From GPS Velocity
+
+The EKF runs an additional multi-hypothesis filter internally that uses multiple 3-state Extended Kalman Filters (EKF's) whose states are NE velocity and yaw angle. These individual yaw angle estimates are then combined using a Gaussian Sum Filter (GSF). The individual 3-state EKF's use IMU and GPS horizontal velocity data (plus optional airpseed data) and do not rely on any prior knowledge of the yaw angle or magnetometer measurements.  This provides a backup to the yaw from the main filter and is used to reset the yaw for the main 24-state EKF when a post takeoff loss of navigation indicates that the yaw estimate from the magnetomer is bad. This will result in a 'Emergency yaw reset - magnetometer use stopped' message information message at the GCS.
+
+Data from this estimator is logged when ekf2 replay logging is enabled and can be viewed in the 'yaw_estimator_status' message. The individual yaw estimates from the individiual 3-state EKF yaw estimators are in the 'yaw' fields. The GSF combined yaw estimate is in the 'yaw_composite' field. The variance for the GSF yaw estimate is in the 'yaw_variance' field. All angles are in radians. Weightings applied by the GSf to the individual 3-state EKF outputs are in the 'weight' fields.
+
+This also makes it possible to operate without any magnetomer data or dual antenna GPS receiver for yaw provided some horizontal movement after takeoff can be performed to enable the yaw to become observable. To use this feature, set [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) to 6 to disable magnetomer use. Once the vehicle has perfomred sufficient horizontal movement to make the yaw observable, the main 24-state EKF will align it's yaw to the GSf estimate and commence use of GPS. 
+
 #### Dual Receivers
 
 Data from GPS receivers can be blended using an algorithm that weights data based on reported accuracy (this works best if both receivers output data at the same rate and use the same accuracy).
@@ -130,6 +140,7 @@ The following items should be checked during setup:
 * Where receivers output at different rates, the blended output will be at the rate of slower receiver. 
   Where possible receivers should be configured to output at the same rate.
 
+#### Dual Receivers
 
 #### GPS Performance Requirements
 
