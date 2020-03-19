@@ -107,12 +107,12 @@ UART | Device | Port
 --- | --- | ---
 USART1 | /dev/ttyS0 | GPS1 (J10)
 USART2 | /dev/ttyS1 | TELEM3 (J4)
-USART3 | /dev/ttyS2 | Debug Console
-UART4 | /dev/ttyS3 | ?
-UART5 | /dev/ttyS4 | TELEM2 (J1)
-USART6 | /dev/ttyS5 | RC
+USART3 | /dev/ttyS2 | Debug Console (J2)
+UART4 | /dev/ttyS3 | Expansion UART (J6)
+UART5 | /dev/ttyS4 | TELEM2, Primary VOXL Communications (J1)
+USART6 | /dev/ttyS5 | RC (J12)
 UART7 | /dev/ttyS6 | TELEM1 (J5)
-UART8 | /dev/ttyS7 | ?
+UART8 | /dev/ttyS7 | N/A
 
 
 ## Support
