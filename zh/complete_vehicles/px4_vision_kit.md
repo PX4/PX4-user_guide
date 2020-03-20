@@ -45,11 +45,11 @@ DevKit 包含以下组件：
     - WiFi(附加外部天线#1)。 允许计算机访问 WiFi 家庭网络访问/更新</li>
   - ESP8266连接到飞控(增加外部天线#2)。 启用与地面站的无线连接。</ul></li>
 - 一个已经烧录捆绑软件的U盘
-  - Ubuntu 18.04 长期支持版
+  - Ubuntu 18.04 LTS
   - ROS Melodic
-  - Occipital Structure Core ROS driver
+  - Occipital Structure Core 相机 ROS 驱动
   - MAVROS
-  - PX4避障
+  - PX4 Avoidance 避障库
 - Assorted cables, propellers, and other accessories. To be used to attach additional peripherals.</ul>
 
 

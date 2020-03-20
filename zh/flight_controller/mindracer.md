@@ -1,6 +1,6 @@
 # MindRacer Hardware
 
-The AirMind<sup>&reg; <a href="http://mindpx.net">MindRacer</a> series is a fully stackable flight platform for miniature UAVs.</sup>.
+The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight platform for miniature UAVs.</sup>.
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
