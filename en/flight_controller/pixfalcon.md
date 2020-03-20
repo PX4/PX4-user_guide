@@ -58,12 +58,9 @@ Developers will need to solder wires to the board test pads for SWD, and to the 
 
 UART | Device | Port
 --- | --- | ---
-UART1 | /dev/ttyS0 | IO debug
-USART2 | /dev/ttyS1 | TELEM1 (flow control)
-USART3 | /dev/ttyS2 | TELEM2 (flow control)
-UART4 | | 
-UART7 | CONSOLE
-UART8 | SERIAL4
+UART1 | /dev/ttyS0 | IO Debug
+USART2 | /dev/ttyS1 | TELEM1 (No flow control)
+UART4 | | GPS
 
 
 ## Key Links
