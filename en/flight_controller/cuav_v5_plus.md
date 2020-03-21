@@ -184,7 +184,7 @@ Some JTAG use this voltage to set the IO levels when communicating to the target
 
 For direct connection to * Segger Jlink * we recommended you use the 3.3 Volts of DSM / SBUS / RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-#### HV-PM protection current is greater
+#### HV_PM protection current is greater
 
 HV_PM is defined by the designer as a PM module with higher performance. The output current is large, and it supports the connection of 3 ~ 14s batteries. The cut-off current is 6A, which is higher than that of ordinary PM modules. It is more suitable for high power equipment.
 
