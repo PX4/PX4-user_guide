@@ -153,6 +153,7 @@ CUAV has added some modifications based on its many years of flight controller d
 
 The batch number is the last two digits of the *serial number* that appears on a sticker on the side of the flight controller. 
 For example, the serial number V011907XXXX**01** indicates the flight controller was in batch 01.
+CUAV can quickly locate your hardware production batch number according to this number; and track faults and differences more quickly.
 
 #### GPS not compatible with other devices 
 
