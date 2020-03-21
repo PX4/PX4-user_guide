@@ -145,58 +145,47 @@ The provided debug cable does not connect to the SWD port `Vref` pin (1).
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
+## NOTE
 
-## Known Issues
+CUAV has added some modifications based on its many years of flight controller design experience; the differences between V5 + and other boards will be described below.
 
-The issues below refer to the *batch number* in which they first appear. 
+#### Production lot number label
+
 The batch number is the last two digits of the *serial number* that appears on a sticker on the side of the flight controller. 
 For example, the serial number V011907XXXX**01** indicates the flight controller was in batch 01.
 
-#### GPS not compatible with other devices (Critical)
+#### GPS not compatible with other devices 
 
-The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
-The GPS will not work with other flight controllers, and is the only GPS unit that can be used with the *CUAV V5+* and *CUAV V5 nano*.
-<!-- 5+/90/V5+ 20190523 RC01 -->
+The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).Don't try to use NEO v2.0 GPS with other Pixhawk flight controllers, or connect other GPS to V5+; it doesn't seem very friendly; UAVCAN GPS seems to be a great choice.
 
-- *Found:* Batch 01
-- *Fixed:* -
+#### HV_PM output voltage of 5.3V
 
-#### Volt regulation varies greater than +/- 5%
-
-The 5 volt pins on all connectors will be lower when powered from USB than the Power Module (the pins will measure approximately 4.69V when only powered by USB, and 5.28 Volts when connected to the Power Module).
+CUAV v5+ supports 2.5A  output; in order to compensate for the voltage drop caused by high current, they modified the output voltage of the PM module to 5.3v. CUAV V5+ has built-in high-brightness RGB, and some PCs with low power output USB may not provide enough power.
 
 We recommend that when using USB with the *V5+* you *also connect the power module* (to avoid under-powering any connected peripherals).
 
 > **Warning** Remove propellers *before* connecting the power module (this is important whenever bench testing with powered motors).
 
-- *Found:* Batch 01
-- *Fixed:* -
+#### Power2 is the I2C battery interface. Do not connect it to the Analog PM.
 
-#### Do not plug Digital or Analog PM onto connectors configured for other type of PM
-
+CUAV V5 + has an analog PM interface and an I2C battery interface. If you use analog PM, please connect to Power1; do not connect analog PM to Power.
 If you plug an Analog PM into a digital PM connector it will stop all the I2C devices on that bus.
 Specifically this will stop the GPS's compass due to contention, and may also damage the FMU (longer term).
 
 Similarly, a digital PM plugged into a analog connector will not work, and may also damage/destroy the power module (longer term).
 
-- *Found:* Batch 01
-- *Fixed:* -
+#### Using JTAG for hardware debugging 
 
-
-#### Using JTAG for hardware debugging {#issue_jtag}
-
-`DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
+CUAV V5+ is more inclined to apply; so the designer hopes that DSU7 can be set to MAVLINK or Debug (not supported by PX4); so `DSU7` FMU Debug Pin 1 is 5 volts-not the 3.3 volts of the CPU.
+`DSU7` FMU Debug Pin 1 is 5 volts-not the 3.3 volts of the CPU.
 
 Some JTAG use this voltage to set the IO levels when communicating to the target.
 
-For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
+For direct connection to * Segger Jlink * we recommended you use the 3.3 Volts of DSM / SBUS / RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-#### The HV\_PM power module output is unfused {#issue_pm_unfused}
+#### HV-PM protection current is greater
 
-> **Warning** This is a serious safety issue.
-
-- Power **must** be turned off while connecting peripherals.
-- Improper wiring can lead to *personal harm* or equipment damage!
+HV_PM is defined by the designer as a higher-performance PM module; the output current is larger, and it supports the connection of 3 ~ 14s batteries, and its cut-off current is 6A, which is higher than ordinary PM modules; if the wrong connection may cause damage to the device .
 
 
 ## Further Information
