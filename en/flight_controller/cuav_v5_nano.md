@@ -156,7 +156,7 @@ The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not
 
 #### HV_PM output voltage of 5.3V
 
-CUAV v5+ supports 2.5A  output; in order to compensate for the voltage drop caused by high current, they modified the output voltage of the PM module to 5.3v. which can ensure that the flight controller can still maintain a good power supply status after connecting many external devices.
+CUAV v5+ supports 2.5A output; in order to compensate for the voltage drop caused by high current, they modified the output voltage of the PM module to 5.3v. It can ensure that the flight controller can still get sufficient power after connecting many external devices.
 
 #### Power2 is the I2C battery interface. Do not connect it to the Analog PM.
 
