@@ -61,11 +61,11 @@ GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, �
 | PWR2        | 5V 3A 输出，连接到 *Pixhawk 4* 的 POWER 2                            |
 | 2~12S       | 电源输入，连接到12~S的LiPo电池                                           |
 
-> **Note** 根据您所使用的机身类型，参考 [Airframe Reference](../airframes/airframe_reference.md) 连接*Pixhawk 4* 的 **I/O PWM OUT** 和 **FMU PWM OUT** 接口到电源管理板。 PX4 固件中的 **MAIN** 输出映射到 *Pixhawk 4 * 的 **I/O PWM OUT ** 端口，同时 PX4 固件中的 **AUX 输出** 映射到*Pixhawk 4 * 的 **FMU PWM OUT ** 端口。 例如，**MAIN1** 映射至 **I/O PWM OUT** 的 IO_CH1 引脚， **AUX1** 映射至 ** FMU PWM OUT** 的 FMU_CH1 引脚。 PMB电源管理板的 **FMU PWM-IN** 内部是连接到 **FMU PWM-OUT**的，为了独立供电方便驱动伺服舵机（如副翼，升降舵，方向舵，补助翼，起落架，襟翼，云台，转向装置）。 PMB电源管理板的 **I/O PWM-IN** 内部是连接到 **M1-8**，用于驱动电机（例如 固定翼，垂起 或者 小车 中的油门通道）。
+> **Note** 根据您所使用的机身类型，参考 [Airframe Reference](../airframes/airframe_reference.md) 连接*Pixhawk 4* 的 **I/O PWM OUT** 和 **FMU PWM OUT** 接口到电源管理板。 PX4 固件中的 **MAIN** 输出映射到 *Pixhawk 4 * 的 **I/O PWM OUT ** 端口，同时 PX4 固件中的 **AUX 输出** 映射到*Pixhawk 4 * 的 **FMU PWM OUT ** 端口。 例如，**MAIN1** 映射至 **I/O PWM OUT** 的 IO_CH1 引脚， **AUX1** 映射至 ** FMU PWM OUT** 的 FMU_CH1 引脚。 PMB电源管理板的 **FMU PWM-IN** 内部是连接到 **FMU PWM-OUT**的，为了独立供电方便驱动伺服舵机（如副翼，升降舵，方向舵，补助翼，起落架，襟翼，云台，转向装置）。 电源模块板的 **I/O PWM-IN** 内部是连接到 **M1-8**，用于驱动电机（例如 固定翼，垂起 或者小车中的油门通道）。
 
-下表总结了如何将 *Pixhawk 4* 的pwm-out 端口连接到电源管理板的 pwm-in 端口, 具体取决于机身参考。
+下表总结了如何将 *Pixhawk 4* 的 PWM OUT 端口连接到电源管理板的 PWM-IN 端口，具体取决于机身类型。
 
-| 机架参考        | *Pixhawk 4 *-> 电源管理板之间的连接  |
+| 机架参考        | *Pixhawk 4* -> 电源模块板 之间的连接 |
 | ----------- | -------------------------- |
 | **MAIN**：电机 | I/O PWM OUT --> I/O PWM IN |
 | **MAIN**：舵机 | I/O PWM OUT --> FMU PWM IN |
@@ -113,7 +113,7 @@ GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, �
     
     机载端的无线数传模块应连接到 **TELEM1** 端口，如下所示（如果连接到此端口，则无需进一步配置）。 数传电台中的另一个应该连接到您的地面站电脑或者移动设备上（通常是通过USB接口）。
     
-    ![Pixhawk 4遥测电台](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
+    ![Pixhawk 4 数传电台](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
     
     ## SD 卡
     
@@ -125,7 +125,7 @@ GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, �
     
     ## 电机
     
-    电机和舵机按照 [机架参考列表](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **I/O PWM OUT** (**MAIN**) 和 **FMU PWM OUT**（**AUX**）端口。
+    电机和舵机按照 [机架参考](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **I/O PWM OUT** （**MAIN**）和 **FMU PWM OUT**（**AUX**）端口。
     
     > 本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用”机架）。
     
@@ -142,13 +142,13 @@ GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, �
     
     ## 针脚定义
     
-    [Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (从Holybro官网获取PDF)
+    [Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（从Holybro官网获取PDF）
     
     ## 配置
     
-    General configuration information is covered in: [Autopilot Configuration](../config/README.md).
+    一般配置信息在以下内容中介绍：[自动驾驶仪配置 ](../config/README.md)。
     
-    QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+    四轴复合翼垂起的特定配置在以下内容中介绍：[四轴复合翼配置](../config_vtol/vtol_quad_configuration.md)。
     
     <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
     
