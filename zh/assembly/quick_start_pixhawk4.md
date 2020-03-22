@@ -1,6 +1,6 @@
 # Pixhawk 4 接线快速入门
 
-本快速入门指南演示如何为 [Pixhawk 4](../flight_controller/pixhawk4.md) 飞行控制器供电，并连接其最重要的外围设备。
+本快速入门指南演示如何为 [Pixhawk 4](../flight_controller/pixhawk4.md) 飞行控制器供电，并连接主要的外围设备。
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk 4 图像" />
 
@@ -34,11 +34,11 @@ GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, �
 
 使用6PIN线材将套件中附带的 *电源管理板* (pm板) 的输出连接到 *Pixhawk 4 * 的其中一个 **POWER** 端口。 电源管理板的 **2~12S** 输入将连接到您的锂电池。 下表解释了电源管理板的连接, 包括动力电源与 esc电调和伺服舵机的信号连接。 请注意，电源管理板不通过 **FMU PWM-OUT</0 > 的 + 和 - 引脚为伺服舵机供电。</p> 
 
-下图显示了 *Pixhawk 4* 所提供的电源管理板接线方式。
+下图展示了 *Pixhawk 4* 所提供的电源管理板接线方式。
 
 ![Pixhawk 4 - 电源管理板](../../assets/hardware/power_module/holybro_pm07/pixhawk4_power_management_board.png)
 
-> **Note** 如果配置为固定翼或无人车, 飞控 **FMU MAIN OUT** 8个输出端口的 power (+) 正极线束将要进行独立供电 ，以保障方向舵、升降舵等伺服舵机的正常驱动。 为此，独立供电的正极线束需要连接到一个BEC，如具备BEC独立5V输出的ESC电调或者一个2SLiPo电池。 请注意你要在这里使用的伺服舵机的工作电压。
+> **Note** 如果配置为固定翼或无人车，飞控 **FMU MAIN OUT** 8个输出端口的 power (+) 正极排针需要进行独立供电 ，以保障方向舵、升降舵等伺服舵机的正常驱动。 为此，需要独立供电的正极排针要连接到一个BEC，如具备BEC独立5V输出的ESC电调或者一个2SLiPo电池。 请注意你要在这里使用的电压是伺服舵机的需要的。
 
 | 针脚&连接器      | 功能                                                            |
 | ----------- | ------------------------------------------------------------- |
