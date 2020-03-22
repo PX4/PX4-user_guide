@@ -99,66 +99,63 @@ GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, �
     
     ![Pixhawk 4 - Spektrum接收机的信号接口](../../assets/flight_controller/pixhawk4/pixhawk4_receiver_sbus.png)
 
-- PPM 接收机连接到 **PPM RC</0 > 输入端口。</p> 
+- PPM 接收机连接到 **PPM RC** 输入端口。
     
-    ![Pixhawk 4 - PPM接收机的信号接口](../../images/pixhawk_4_receiver_ppm.png)</li> 
-    
-    - PPM 和 *每个通道有单独连接线* 的 PWM 接收机需要连接在 **PPM RC** 端口，PWM信号需要通过一个[类似这样的](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)* PPM 编码器*（PPM-Sum 接收机只需要一根信号线就包含所有通道）。</ul> 
-    
-    更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息，请参阅：[遥控器发射机&接收器](../getting_started/rc_transmitter_receiver.md)。
-    
-    ## 数传电台（可选）
-    
-    遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
-    
-    机载端的无线数传模块应连接到 **TELEM1** 端口，如下所示（如果连接到此端口，则无需进一步配置）。 数传电台中的另一个应该连接到您的地面站电脑或者移动设备上（通常是通过USB接口）。
-    
-    ![Pixhawk 4 数传电台](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
-    
-    ## SD 卡
-    
-    SD卡通常是用来 [记录并分析飞行数据](../getting_started/flight_reporting.md)。 将内存卡 (包含在 Pixhawk 套件中) 插入 *Pixhawk 4 * 中，如下所示。
-    
-    ![Pixhawk 4/SD 卡](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
-    
-    > **Tip**（开发者指南）[强烈推荐使用](https://dev.px4.io/master/en/log/logging.html#sd-cards)SanDisk Extreme U3 32GB。
-    
-    ## 电机
-    
-    电机和舵机按照 [机架参考](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **I/O PWM OUT** （**MAIN**）和 **FMU PWM OUT**（**AUX**）端口。
-    
-    > 本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用”机架）。
-    
-    
+    ![Pixhawk 4 - PPM接收机的信号接口](../../images/pixhawk_4_receiver_ppm.png)
+
+- PPM 和 *每个通道有单独连接线* 的 PWM 接收机需要连接在 **PPM RC** 端口，PWM信号需要通过一个[类似这样的](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)* PPM 编码器*（PPM-Sum 接收机只需要一根信号线就包含所有通道）。
+
+更多有关遥控器系统选择、接收机兼容性和遥控器接收机对频绑定的详细信息，请参阅：[遥控器发射机&接收器](../getting_started/rc_transmitter_receiver.md)。
+
+## 数传电台（可选）
+
+遥测无线电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。
+
+机载端的无线数传模块应连接到 **TELEM1** 端口，如下所示（如果连接到此端口，则无需进一步配置）。 数传电台中的另一个应该连接到您的地面站电脑或者移动设备上（通常是通过USB接口）。
+
+![Pixhawk 4 数传电台](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
+
+## SD 卡
+
+SD卡通常是用来 [记录并分析飞行数据](../getting_started/flight_reporting.md)。 将内存卡 (包含在 Pixhawk 套件中) 插入 *Pixhawk 4 * 中，如下所示。
+
+![Pixhawk 4/SD 卡](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
+
+> **Tip**（开发者指南）[强烈推荐使用](https://dev.px4.io/master/en/log/logging.html#sd-cards)SanDisk Extreme U3 32GB。
+
+## 电机
+
+电机和舵机按照 [机架参考](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **I/O PWM OUT** （**MAIN**）和 **FMU PWM OUT**（**AUX**）端口。
+
+> 本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用”机架）。
 
 <span></span>
 
-    
-    > **Caution** 该参考列表并不是与机架类型完全匹配的。（例如，您不能依赖于所有的飞机类型都能够有相同的油门值输出。） 请确保为您的载具使用正确的配置方式。
-    
-    ## 其它外设
-    
-    针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
-    
-    ## 针脚定义
-    
-    [Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（从Holybro官网获取PDF）
-    
-    ## 配置
-    
-    一般配置信息在以下内容中介绍：[自动驾驶仪配置 ](../config/README.md)。
-    
-    四轴复合翼垂起的特定配置在以下内容中介绍：[四轴复合翼配置](../config_vtol/vtol_quad_configuration.md)。
-    
-    <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
-    
-    <!--## Detailed Wiring Infographic (Copter) 
+> **Caution** 该参考列表并不是与机架类型完全匹配的。（例如，您不能依赖于所有的飞机类型都能够有相同的油门值输出。） 请确保为您的载具使用正确的配置方式。
+
+## 其它外设
+
+针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
+
+## 针脚定义
+
+[Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（从Holybro官网获取PDF）
+
+## 配置
+
+一般配置信息在以下内容中介绍：[自动驾驶仪配置 ](../config/README.md)。
+
+四轴复合翼垂起的特定配置在以下内容中介绍：[四轴复合翼配置](../config_vtol/vtol_quad_configuration.md)。
+
+<!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
+
+<!--## Detailed Wiring Infographic (Copter) 
 
 ![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg) -->
-    
-    ## 更多信息
-    
-    - [Pixhawk 4](../flight_controller/pixhawk4.md)（概览页面）
-    - [Pixhawk 4 技术数据表](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-    - [Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（PDF）
-    - [Pixhawk 4 快速入门指南（PDF）](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
+
+## 更多信息
+
+- [Pixhawk 4](../flight_controller/pixhawk4.md)（概览页面）
+- [Pixhawk 4 技术数据表](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+- [Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（PDF）
+- [Pixhawk 4 快速入门指南（PDF）](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
