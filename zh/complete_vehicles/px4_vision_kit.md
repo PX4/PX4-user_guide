@@ -93,7 +93,7 @@ DevKit 包含以下组件：
    
    
 
-   > **注意** 电池连接前移除螺旋桨。
+   > **Note** 电池连接前移除螺旋桨。
 
 1. 使用 USB 线连接*Pixhawk 4* 和地面站。
 
@@ -131,7 +131,7 @@ DevKit 包含以下组件：
 
 
 
-## 飞飞机（带避障） {#fly_drone}
+## 让无人机飞起来（带避障） {#fly_drone}
 
 当载具设置完成时：
 
@@ -245,9 +245,9 @@ Once started the companion computer can be used both as a computer vision develo
 
 
 
-### Login to the Companion Computer {#login_mission_computer}
+### 登录到机载计算机 {#login_mission_computer}
 
-To login to the companion computer:
+按以下步骤登录到机载计算机：
 
 1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
    
@@ -259,20 +259,20 @@ To login to the companion computer:
 
    - A USB hub can be attached to the cable if the keyboard and mouse have separate connectors.
      
-     1. Connect a monitor to the *UP Core* HDMI port.
+     1. 连接显示器到 *UP Core* 的 HDMI 接口。
 ![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
 
 The Ubuntu login screen should then appear on the monitor. 
 
 1. Login to the *UP Core* using the credentials: 
-      - **Username:** px4vision
-   - **Password:** px4vision
+      - **用户名：**px4vision
+   - **密码：**px4vision
 
 
 
 
 
-### Developing/Extending PX4 Avoidance
+### 开发/扩展 PX4 避障功能
 
 The PX4 Vision’s *UP Core* computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS2). You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/Avoidance](https://github.com/PX4/avoidance) repo.
 
@@ -329,7 +329,7 @@ The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS
 
 
 
-### Developing PX4 Firmware
+### 开发 PX4 固件
 
 The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
 
