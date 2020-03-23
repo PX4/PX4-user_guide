@@ -1,6 +1,6 @@
 # 电调（ESC）校准
 
-> **Note** These instructions are only relevant to [PWM ESCs](../peripherals/pwm_escs_and_servo.md).
+> **Note** 这些说明仅与 [PWM 电调](../peripherals/pwm_escs_and_servo.md) 有关。
 
 电子速度控制器 (ESCs) 根据来自飞行控制器 (FC) 的 PWM 输入值调节电机速度 (和方向)。 ESC 响应的输入范围是可配置的, 甚至同一型号的不同 ESC 之间的默认范围也会有所不同。
 
@@ -22,9 +22,9 @@
     > 
     > 电调校准期间电机不应旋转。 但是，如果ESC没有正确的进入校准程序，它将通过以最大的速度运行电机来响应pwm输入。
 
-2. 断开电池并 (仅仅) 通过 USB 连接飞行控制器。
+2. 断开电池并（仅）通过 USB 连接飞行控制器。
 
-3. 打开 * QGroundControl * ** Settings > Power**, 然后按 ** Calibrate** 按钮。
+3. 打开 * QGroundControl *** 设置 > 电源**界面，然后按 **校准** 按钮。
     
     ![ESC校准步骤1](../../images/qgc_esc_calibration.png)
 
