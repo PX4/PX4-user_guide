@@ -9,14 +9,14 @@ This tutorial answers common questions about use of the ECL EKF algorithm.
 
 The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
 
-* Quaternion defining the rotation from North, East, Down local earth frame to X,Y,Z body frame
-* Velocity at the IMU - North,East,Down \(m/s\)
-* Position at the IMU - North,East,Down \(m\)
-* IMU delta angle bias estimates - X,Y,Z \(rad\)
-* IMU delta velocity bias estimates - X,Y,Z\(m/s\)
-* Earth Magnetic field components - North,East,Down \(gauss\)
-* Vehicle body frame magnetic field bias - X,Y,Z \(gauss\)
-* Wind velocity - North,East \(m/s\)
+* Quaternion defining the rotation from North, East, Down local earth frame to X, Y, Z body frame
+* Velocity at the IMU - North, East, Down \(m/s\)
+* Position at the IMU - North, East, Down \(m\)
+* IMU delta angle bias estimates - X, Y, Z \(rad\)
+* IMU delta velocity bias estimates - X, Y, Z\(m/s\)
+* Earth Magnetic field components - North, East, Down \(gauss\)
+* Vehicle body frame magnetic field bias - X, Y, Z \(gauss\)
+* Wind velocity - North, East \(m/s\)
 
 The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU. 
 Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time.
@@ -230,7 +230,7 @@ EKF_AID_MASK value | Set bits | Description
 73 | GPS + EV_POS + ROTATE_EV | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead)
 24 | EV_POS + EV_YAW | Heading w.r.t. external vision frame
 72 | EV_POS + ROTATE_EV | Heading w.r.t. North
-272 | EV_VEL + EV_YAW | hHading w.r.t. external vision frame
+272 | EV_VEL + EV_YAW | Heading w.r.t. external vision frame
 320 | EV_VEL + ROTATE_EV | Heading w.r.t. North
 280 | EV_POS + EV_VEL + EV_YAW | Heading w.r.t. external vision frame
 328 | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North
@@ -259,7 +259,7 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 
 ### Advantages
 
-* The ecl EKF is able to fuse data from sensors with different time delays and data rates in a mathematically consistent way which improves accuracy during dynamic manoeuvres once time delay parameters are set correctly.
+* The ecl EKF is able to fuse data from sensors with different time delays and data rates in a mathematically consistent way which improves accuracy during dynamic maneuvers once time delay parameters are set correctly.
 * The ecl EKF is capable of fusing a large range of different sensor types.
 * The ecl EKF detects and reports statistically significant inconsistencies in sensor data, assisting with diagnosis of sensor errors.
 * For fixed wing operation, the ecl EKF estimates wind speed with or without an airspeed sensor and is able to use the estimated wind in combination with airspeed measurements and sideslip assumptions to extend the dead-reckoning time available if GPS is lost in flight.
@@ -494,7 +494,7 @@ Magnetometer test levels are only affected to a small extent.
 
 Large gyro bias offsets are normally characterised by a change in the value of delta angle bias greater than 5E-4 during flight (equivalent to ~3 deg/sec) and can also cause a large increase in the magnetometer test ratio if the yaw axis is affected. 
 Height is normally unaffected other than extreme cases.
-Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time time settle before flying. 
+Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time settle before flying. 
 Pre-flight checks performed by the commander should prevent arming if the position is diverging.
 
 \(insert example plots showing bad gyro bias here\)
