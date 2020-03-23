@@ -112,18 +112,18 @@ Use of GPS yaw measurements is enabled by setting bit position 7 to 1 (adding 12
 #### Yaw From GPS Velocity {#yaw_from_gps_velocity}
 
 The EKF runs an additional multi-hypothesis filter internally that uses multiple 3-state Extended Kalman Filters (EKF's) whose states are NE velocity and yaw angle.
-These individual yaw angle estimates are then combined using a Gaussian Sum Filter (GSF). The individual 3-state EKF's use IMU and GPS horizontal velocity data (plus optional airpseed data) and do not rely on any prior knowledge of the yaw angle or magnetometer measurements.
-This provides a backup to the yaw from the main filter and is used to reset the yaw for the main 24-state EKF when a post-takeoff loss of navigation indicates that the yaw estimate from the magnetomer is bad.
+These individual yaw angle estimates are then combined using a Gaussian Sum Filter (GSF). The individual 3-state EKF's use IMU and GPS horizontal velocity data (plus optional airspeed data) and do not rely on any prior knowledge of the yaw angle or magnetometer measurements.
+This provides a backup to the yaw from the main filter and is used to reset the yaw for the main 24-state EKF when a post-takeoff loss of navigation indicates that the yaw estimate from the magnetometer is bad.
 This will result in an `Emergency yaw reset - magnetometer use stopped` message information message at the GCS.
 
 Data from this estimator is logged when ekf2 replay logging is enabled and can be viewed in the `yaw_estimator_status` message.
-The individual yaw estimates from the individiual 3-state EKF yaw estimators are in the `yaw` fields.
+The individual yaw estimates from the individual 3-state EKF yaw estimators are in the `yaw` fields.
 The GSF combined yaw estimate is in the `yaw_composite` field.
 The variance for the GSF yaw estimate is in the `yaw_variance` field.
 All angles are in radians.
 Weightings applied by the GSF to the individual 3-state EKF outputs are in the`weight` fields.
 
-This also makes it possible to operate without any magnetomer data or dual antenna GPS receiver for yaw provided some horizontal movement after takeoff can be performed to enable the yaw to become observable.
+This also makes it possible to operate without any magnetometer data or dual antenna GPS receiver for yaw provided some horizontal movement after takeoff can be performed to enable the yaw to become observable.
 To use this feature, set [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) to `none` (5) to disable magnetometer use.
 Once the vehicle has perfomred sufficient horizontal movement to make the yaw observable, the main 24-state EKF will align it's yaw to the GSF estimate and commence use of GPS.
 
