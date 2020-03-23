@@ -124,7 +124,7 @@ All angles are in radians.
 Weightings applied by the GSF to the individual 3-state EKF outputs are in the`weight` fields.
 
 This also makes it possible to operate without any magnetomer data or dual antenna GPS receiver for yaw provided some horizontal movement after takeoff can be performed to enable the yaw to become observable.
-To use this feature, set [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) to 6 to disable magnetomer use.
+To use this feature, set [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) to `none` (5) to disable magnetometer use.
 Once the vehicle has perfomred sufficient horizontal movement to make the yaw observable, the main 24-state EKF will align it's yaw to the GSF estimate and commence use of GPS.
 
 
