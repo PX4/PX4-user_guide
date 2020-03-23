@@ -40,4 +40,4 @@
     
     ![ESC校准步骤4](../../images/esc_calibration_step_4.png)
 
-> **Note** 高品质的ESC在出厂时就已经被校准过。 *按理说*，这意味着这些ESC可以仅通过设置 [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)，[PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX)参数来进行配置，这些参数在 ESC technical specification 中提供。 实际上，高品质的飞控也存在着不同的输入范围，因此我们推荐再次校准。
+> **Note** 某些高品质的ESC在出厂时就已经被校准过。 *按理说*，这意味着这些电调可以按照电调技术规格书仅通过设置 [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)，[PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX)参数来进行配置即可。 实际上，高品质的飞控也存在着不同的输入范围，因此我们推荐再次校准。
