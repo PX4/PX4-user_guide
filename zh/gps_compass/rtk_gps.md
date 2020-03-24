@@ -12,7 +12,7 @@
 
 ## 支持的 RTK 设备
 
-PX4 支持[u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) 和[Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) 以及纳入的GPS产品。 下面的 RTK 设备已经经过测试。
+PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS and products that incorporate it. 下面的 RTK 设备已经经过测试。
 
 - [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)
 - [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)
