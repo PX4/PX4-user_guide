@@ -60,7 +60,7 @@ UART | Device | Port
 --- | --- | ---
 UART1 | /dev/ttyS0 | IO Debug
 USART2 | /dev/ttyS1 | TELEM1 (No flow control)
-UART4 | | GPS
+UART4 | /dev/ttyS2 | GPS
 
 
 ## Key Links
