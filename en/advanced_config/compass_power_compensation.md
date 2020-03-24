@@ -11,7 +11,7 @@ This topic explains how to compensate for the induced magnetic fields in the cas
 Performing this power compensation is advisable only if all the following statements are true:
 1. The compass cannot be moved away from the power-carrying cables.
 1. There is a strong correlation between the compass readings and the thrust setpoint, and/or the battery current. 
-   ![Corrupted mag](../../images/corrupted_mag.png)
+   ![Corrupted mag](../../assets/advanced_config/corrupted_mag.png)
    
 1. The drone cables are all fixed in place/do not move (calculated compensation parameters will be invalid if the current-carrying cables can move).
 
@@ -24,20 +24,23 @@ Performing this power compensation is advisable only if all the following statem
 1. Secure the drone so that it cannot move, and attach the propellers (so the motors can draw the the same current as in flight).
    This example secures the vehicle using straps.
    
-   ![Corrupted mag](../../images/strap.png)
+   ![strap](../../assets/advanced_config/strap.png)
 1. Power the vehicle and switch into [ACRO flight mode](../flight_modes/acro_mc.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).   
    - Arm the vehicle and slowly raise the throttle to the maximum
-   - Sowly lower the throttle down to zero
+   - Slowly lower the throttle down to zero
    - Disarm the vehicle
    > **Note** Perform the test carefully and closely watch the vibrations.
 1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
+   ```cmd
+   python mag_compensation.py ~/path/to/log/logfile.ulg
+   ```
 
    > **Note** If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
-1. The script will return the parameter identification for thrust as well as for current.
+1. The script will return the parameter identification for thrust as well as for current and print them to the console. The figures that pop up from the script show the goodness of fit for each compass instance and how the data would look if compensated with the suggested values.
    If a current measurement is available, using the current-compensation usually yields the better results.
    Here is an example of a log, where the current fit is good, but the thrust parameters are unusable as the relationship is not linear.
-   ![line fit](../../images/line_fit.png)
+   ![line fit](../../assets/advanced_config/line_fit.png)
 
-1. Once the parameters are identified, the power compensation must be enabled by setting [CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP) to 1 (when using thrust parameters) or 2 (when using current parameters).    All the compensation parameters returned by the Python script must be set.
+1. Once the parameters are identified, the power compensation must be enabled by setting [CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP) to 1 (when using thrust parameters) or 2 (when using current parameters). Additionally, the compensation parameters for each axis of each compass must be set.
 
-   ![comp params](../../images/comp_params.png)
+   ![comp params](../../assets/advanced_config/comp_params.png)
