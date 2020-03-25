@@ -77,9 +77,6 @@ Connect the 6pin connector of the _HW\_PM_ module to the flight control `Power` 
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
-> **Note** The power module is not a power source for peripherals connected to the PWM outputs.  
->   If you're connecting servos/actuators you will need to separately power them using a BEC.
-
 ## Telemetry System \(Optional\)
 
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station \(for example, you can direct the UAV to a particular position, or upload a new mission\).
