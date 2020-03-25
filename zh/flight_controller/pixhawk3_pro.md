@@ -61,7 +61,8 @@ The pinouts and connector comply with the [Pixhawk Standard Debug Port](https://
 
 For information about wiring and using this port see:
 
-- [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (Note, the FMU console maps to UART7). <!-- Add SWD cross link later -->
+- [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (Note, the FMU console maps to UART7).
+- [SWD (JTAG) Hardware Debugging Interface](http://dev.px4.io/master/en/debug/swd_debug.html)
 
 ## Serial Port Mapping
 
