@@ -13,7 +13,7 @@ We'll go through each of these in detail in the following sections.
 
 | Main interface | Function |
 | :--- | :--- |
-| Power1 | Connect power module. Power input with _\*ANALOG_ voltage and current detection. Do not use a Digital PM on this connector! |
+| Power1 | Connect power module. Power input with _Analog_ voltage and current detection. Do not use a Digital PM on this connector! |
 | Power2 | Connect i2c smart battery. |
 | TF CARD | SD card for log storage \(card pre-inserted in factory\). |
 | M1~M8 | PWM outputs. Can be used to control motors or servos. |
