@@ -61,11 +61,11 @@ If you do not use the recommended _Neo v2 GPS_ the buzzer may not work.
 A remote control \(RC\) radio system is required if you want to manually control your vehicle \(PX4 does not require a radio system for autonomous flight modes\).  
 You will need to select a compatible transmitter/receiver and then bind them so that they communicate \(read the instructions that come with your specific transmitter/receiver\).
 
-The figure below shows how you can access your remote receiver \(please find the S.Bus cable in the kit\)
+The figure below shows how you can access your remote receiver (please find the S.Bus cable in the kit)
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
-> **Note** SBUS / DSM / RSSI pin1 has no fuse in some batches. Incorrect connection may cause equipment damage (see [this issues](../flight_controller/cuav_v5_nano.md#compatibility_gps))
+> **Note** SBUS / DSM / RSSI pin1 has no fuse in some batches. Incorrect connection may cause equipment damage (see [this issues](../flight_controller/cuav_v5_nano.md##pin1_unfused))
 
 ## Spektrum Satellite Receivers
 
