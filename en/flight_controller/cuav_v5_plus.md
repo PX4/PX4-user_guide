@@ -186,7 +186,7 @@ For example, the serial number Batch 01
 - Improper wiring can lead to equipment damage!
 
 - *Found:* Batch 01
-- *Fixed:* Batch 03
+- *Fixed:* Batch 02
 
 ## Further Information
 
