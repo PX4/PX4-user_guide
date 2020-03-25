@@ -123,6 +123,19 @@ The product package includes a convenient debug cable that can be connected to t
 > 
 > For more information see [Using JTAG for hardware debugging](#issue_jtag).
 
+## Serial Port Mapping
+
+| UART   | Device     | Port                                  |
+| ------ | ---------- | ------------------------------------- |
+| UART1  | /dev/ttyS0 | GPS                                   |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control)                 |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control)                 |
+| UART4  | /dev/ttyS3 | TELEM4                                |
+| USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector |
+| UART7  | /dev/ttyS5 | Debug Console                         |
+| UART8  | /dev/ttyS6 | PX4IO                                 |
+
+
 ## Peripherals {#optional-hardware}
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
