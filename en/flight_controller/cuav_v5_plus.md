@@ -190,7 +190,7 @@ The issues below refer to the *batch number* in which they first appear.
 The batch number is the last two digits of the *serial number* that appears on a sticker on the side of the flight controller. 
 For example, the serial number V011907XXXX**01** indicates the flight controller was in batch 01.
 
-#### SBUS / DSM / RSSI interface Pin1 unfusedunfused {#pin1_unfused}
+#### SBUS / DSM / RSSI interface Pin1 unfused {#pin1_unfused}
 
 > **Warning** This is a security issue.
 
