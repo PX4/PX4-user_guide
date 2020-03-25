@@ -158,7 +158,7 @@ UART8 | /dev/ttyS6 | PX4IO
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## NOTE
+## Notes
 
 #### Do not plug Digital or Analog PM onto connectors configured for other type of PM
 
@@ -194,8 +194,7 @@ For example, the serial number Batch V011904((V01 is the number of V5, 1904 is t
 
 > **Warning** This is a security issue.
 
-- Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface.
-- Improper wiring can lead to equipment damage!
+- Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this may lead to equipment damage.
 
 - *Found:* Batches V01190904xxxx
 - *Fixed:* Batches later than V01190904xxxx
