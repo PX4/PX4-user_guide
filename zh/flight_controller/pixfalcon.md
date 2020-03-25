@@ -49,7 +49,7 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 ## Debug Port
 
-This board does not have a debug port (i.e it does not have a port for accessing the [System Console](http://dev.px4.io/master/en/debug/system_console.html) or SWD (JTAG) debug interface.
+This board does not have a debug port (i.e it does not have a port for accessing the [System Console](http://dev.px4.io/master/en/debug/system_console.html) or the [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG).
 
 Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
 
