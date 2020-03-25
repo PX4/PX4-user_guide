@@ -37,9 +37,9 @@ We'll go through each of these in detail in the following sections.
 
 The recommended GPS module is the _Neo v2 GPS_, which contains GPS, compass, safety switch, buzzer, LED status light.
 
-> **Note** Other GPS modules may not work \(see [this compatibility](../flight_controller/cuav_v5_nano.md#compatibility_gps)\).
+> **Note** Other GPS modules may not work (see [this compatibility](../flight_controller/cuav_v5_nano.md#compatibility_gps)).
 
-The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle \(Neo GPS arrow is in the same direction as the flight control arrow\).  
+The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle(Neo GPS arrow is in the same direction as the flight control arrow).  
 Connect to the flight control GPS interface using a cable.
 
 > **Note**If you use CAN GPS, please use the cable to connect to the flight control CAN interface.
@@ -65,7 +65,7 @@ The figure below shows how you can access your remote receiver \(please find the
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
-> **Note** SBUS / DSM / RSSI pin1 has no fuse in some batches. Incorrect connection may cause equipment damage (See this )
+> **Note** SBUS / DSM / RSSI pin1 has no fuse in some batches. Incorrect connection may cause equipment damage (see [this issues](../flight_controller/cuav_v5_nano.md#compatibility_gps))
 
 ## Spektrum Satellite Receivers
 
