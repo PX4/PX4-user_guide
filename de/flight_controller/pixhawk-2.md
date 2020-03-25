@@ -88,6 +88,17 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf).
 
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | IO debug              |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |
+
 ## Ports
 
 ### Top-Side (GPS, TELEM etc)
