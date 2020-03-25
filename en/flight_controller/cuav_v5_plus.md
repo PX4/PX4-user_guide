@@ -174,9 +174,8 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 ## Known Issues
 
 The issues below refer to the *batch number* in which they first appear. 
-The batch number is the last two digits of the *serial number* that appears on a sticker on the side of the flight controller. 
-For example, the serial number Batch 01
- indicates the flight controller was in batch 01.
+The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller.
+For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
 #### SBUS / DSM / RSSI interface Pin1 unfused {#pin1_unfused}
 
@@ -185,8 +184,8 @@ For example, the serial number Batch 01
 - Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface.
 - Improper wiring can lead to equipment damage!
 
-- *Found:* V01190904xxxx
-- *Fixed:* v012020xxxxxx
+- *Found:* Batches V01190904xxxx
+- *Fixed:* Batches later than V01190904xxxx
 
 ## Further Information
 
