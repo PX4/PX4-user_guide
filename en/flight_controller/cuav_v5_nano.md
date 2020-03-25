@@ -110,7 +110,7 @@ The provided debug cable does not connect to the SWD port `Vref` pin (1).
 > Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
 > For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
 >
->For more information see [Using JTAG for hardware debugging](#issue_jtag).
+>For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
 
 ## Voltage Ratings
@@ -144,16 +144,17 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 CUAV adopts some differentiated designs and is incompatible with some hardware, which will be described below.
 
-#### GPS not compatible with other devices {#compatibility_gps}
+#### Neo v2.0 GPS not compatible with other devices {#compatibility_gps}
 
-The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
-The GPS will not work with other flight controllers.UAVCAN GPS is ideal for avoiding this compatibility.
+The *Neo v2.0 GPS* that is recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
+
+UAVCAN GPS is ideal for avoiding this compatibility.
 
 #### Using JTAG for hardware debugging {#compatibility_jtag}
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
-Some JTAG use this voltage to set the IO levels when communicating to the target.
+Some JTAG probes use this voltage to set the IO levels when communicating to the target.
 
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
@@ -161,7 +162,7 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
 
-> ** Warning ** PX4 does not support this interface.
+> **Warning** PX4 does not support this interface.
 
 ## Known Issues
 
@@ -171,10 +172,9 @@ For example, the serial number Batch V011904((V01 is the number of V5, 1904 is t
 
 #### SBUS / DSM / RSSI interface Pin1 unfused {#pin1_unfused}
 
-> **Warning** This is a security issue.
+> **Warning** This is a security issue. 
 
-- Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface.
-- Improper wiring can lead to equipment damage!
+- Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this can lead to equipment damage!
 
 - *Found:* Batches V01190904xxxx
 - *Fixed:* Batches later than V01190904xxxx
