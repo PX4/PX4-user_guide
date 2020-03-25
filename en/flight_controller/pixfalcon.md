@@ -54,6 +54,15 @@ This board does not have a debug port (i.e it does not have a port for accessing
 Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
 
 
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+UART1 | /dev/ttyS0 | IO Debug
+USART2 | /dev/ttyS1 | TELEM1 (No flow control)
+UART4 | /dev/ttyS2 | GPS
+
+
 ## Key Links
 
 * [User Manual](http://www.holybro.com/manual/pixfalcon11.pdf)

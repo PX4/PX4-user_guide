@@ -64,4 +64,13 @@ For information about wiring and using this port see:
 <!-- Add SWD cross link later -->
 
 
+## Serial Port Mapping
 
+UART | Device | Port
+--- | --- | ---
+UART1 | /dev/ttyS0 | WiFi
+USART2 | /dev/ttyS1 | TELEM1 (flow control)
+USART3 | /dev/ttyS2 | TELEM2 (flow control)
+UART4 | | 
+UART7 | CONSOLE
+UART8 | SERIAL4
