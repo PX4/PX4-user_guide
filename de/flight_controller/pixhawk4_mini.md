@@ -99,6 +99,19 @@ The system's serial console and SWD interface run on the **FMU Debug** port. In 
 
 The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard [Pixhawk debug connector](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) pinout. Please refer to the [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
 
+## Serial Port Mapping
+
+| UART   | Device     | Port                                  |
+| ------ | ---------- | ------------------------------------- |
+| UART1  | /dev/ttyS0 | GPS                                   |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control)                 |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control)                 |
+| UART4  | /dev/ttyS3 | TELEM4                                |
+| USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector |
+| UART7  | /dev/ttyS5 | Debug Console                         |
+| UART8  | /dev/ttyS6 | Not connected (no PX4IO)              |
+
+
 ## Peripherals
 
 * [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
