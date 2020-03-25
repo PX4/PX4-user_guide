@@ -158,7 +158,7 @@ Some JTAG probes use this voltage to set the IO levels when communicating to the
 
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-#### PM2 cannot power the flight controller {compatibility#_pm2}
+#### PM2 cannot power the flight controller {compatibility_pm2}
 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
 
