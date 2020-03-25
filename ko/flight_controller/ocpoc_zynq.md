@@ -42,4 +42,20 @@
         make aerotenna_ocpoc_ubuntu
         
     
-    OcPoC-Zynq에서 PX4를 처음 설정할 때의 전체 단계별 지침은 사용자 허브 페이지  OcPoC Zynq Mini의 PX4 </ 0>를 참조하십시오. 참고 : 현재 PX4 펌웨어는 OcPoC-Zynq 용 사전 빌드 된 바이너리가 QGroundControl을 통해 제공되지 않으므로 소스에서 빌드해야합니다.</p>
+    See the user hub page [PX4 on OcPoC Zynq Mini](https://aerotenna.readme.io/docs/px4-setup) for full step-by-step instructions for first time setup of PX4 on OcPoC-Zynq.
+    
+    > **Note** At the present time PX4 firmware must be built from source as no pre-built binaries for OcPoC-Zynq are supplied through QGroundControl.
+    
+    <!-- 
+## Serial Port Mapping
+
+OcPoc Port | Device | Port
+--- | --- | ---
+(OcPoC Port 5) | /dev/ttyS0 | TELEM4 / uSharp-Patch
+(OcPoC Port 9) | /dev/ttyS1 | GPS/Compass 3
+(OcPoC Port 2) | /dev/ttyS2 | TELEM3
+(OcPoC Port 6) | /dev/ttyS3 | GPS/Compass #1
+(OcPoC Port 4) | /dev/ttyPS1 | TELEM1 / Radio Telemetry
+(OcPoC Port 8) | /dev/ttyS6 | TELEM2 / uLanding Radar Altimeter
+(OcPoC Port 7) | /dev/ttyS6 | GPS/Compass #2 
+-->
