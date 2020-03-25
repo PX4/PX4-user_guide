@@ -109,7 +109,7 @@
 
 ## Debug Port {#debug_port}
 
-系统的 [串行控制台](https://dev.px4.io/master/en/debug/system_console.html) 和 SWD 接口运行在 **FMU Debug** 接口，同样的 I/O 控制台与 SWD 接口可以通过 **I/O Debug** 接口访问。 为了能访问这些接口，用户需要移除 *Pixhawk 4* 的外壳。
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) run on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. 为了能访问这些接口，用户需要移除 *Pixhawk 4* 的外壳。
 
 ![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
