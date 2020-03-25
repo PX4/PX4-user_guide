@@ -130,6 +130,13 @@ Here is an example implementation. I used a Spektrum plug to get 3.3v from the D
 
 ![Omnibus F4 SD Pullup Implementation](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
 
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+USART1 | /dev/ttyS0 | SerialRX
+USART4 | /dev/ttyS1 | TELEM1
+USART6 | /dev/ttyS2 | GPS
 
 ## RC Telemetry
 

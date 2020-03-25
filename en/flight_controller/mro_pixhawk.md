@@ -70,6 +70,17 @@ See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
 
 See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
 
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+UART1 | /dev/ttyS0 | IO debug
+USART2 | /dev/ttyS1 | TELEM1 (flow control)
+USART3 | /dev/ttyS2 | TELEM2 (flow control)
+UART4 | | 
+UART7 | CONSOLE
+UART8 | SERIAL4
+
 ## Schematics
 
 The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
