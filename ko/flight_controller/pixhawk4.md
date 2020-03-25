@@ -57,11 +57,23 @@
 
 > **Note** Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin). The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
 
-## 치수
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | GPS                   |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  | /dev/ttyS3 | TELEM4                |
+| USART6 | /dev/ttyS4 | RC SBUS               |
+| UART7  | /dev/ttyS5 | Debug Console         |
+| UART8  | /dev/ttyS6 | PX4IO                 |
+
+## Dimensions
 
 ![Pixhawk 4 치수](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
 
-## 정격 전압
+## Voltage Ratings
 
 만약 세개의 파워소스가 공급된다면 *Pixhawk 4*는 전원 공급기에서 3개의 파워레일을 중복 시킬 수 있습니다. 이 세개의 파워 레일은: **POWER1**, **POWER2** 그리고 **USB** 입니다.
 
@@ -82,11 +94,11 @@
 2. **USB** 입력 (작동 범위 4.1V to 5.7V, 비손상 범위 0V to 6V)
 3. 서보 입력: **FMU PWM OUT** 과 **I/O PWM OUT**의 VDD_SERVO 핀 (0V to 42V undamaged)
 
-## 조립/설정
+## Assembly/Setup
 
 [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md)는 GPS와 전원관리보드 등을 포함한 필요/중요 주변기기를 어떻게 조립하는지 지침을 제공한다.
 
-## 펌웨어 빌드
+## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
@@ -105,17 +117,17 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.or
 
 * [System Console > Pixhawk Debug Port](https://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (PX4 Developer Guide)
 
-## 주변기기
+## Peripherals
 
 * [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
 * [Telemetry Radio Modules](../telemetry/README.md)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
-## 지원되는 플랫폼/에어프레임
+## Supported Platforms / Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## 추가정보
+## Further info
 
 * [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
 * [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
