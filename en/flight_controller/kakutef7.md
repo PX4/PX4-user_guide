@@ -114,7 +114,7 @@ UART3 RX and TX are configured for use as the [System Console](https://dev.px4.i
 
 ### SWD
 
-The SWD (JTAG) pins are:
+The  [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) pins are:
 - `SWCLK`: Test Point 2 (Pin 72 on the CPU)
 - `SWDIO`: Test Point 3 (Pin 76 on CPU)
 - `GND`: As marked on board
