@@ -67,7 +67,7 @@ The figure below shows how you can access your remote receiver (please find the 
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_04.png)
 
-> **Note** SBUS / DSM / RSSI pin1 has no fuse in some batches. Incorrect connection may cause equipment damage (see [this issues](../flight_controller/cuav_v5_plus.md##pin1_unfused))
+> **Note** SBUS / DSM / RSSI pin1 has no fuse in some batches. Incorrect connection may cause equipment damage (see [this issues](../flight_controller/cuav_v5_plus.md#pin1_unfused))
 
 ## Spektrum Satellite Receivers
 
