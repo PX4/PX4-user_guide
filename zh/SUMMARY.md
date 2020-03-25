@@ -170,6 +170,7 @@
   * [空速传感器](sensor/airspeed.md)
   * [光流](sensor/optical_flow.md) 
     * [PX4FLOW](sensor/px4flow.md)
+    * [PMW3901](sensor/pmw3901.md)
   * [电调 & 电机](peripherals/esc_motors.md) 
     * [PWM ESCs and Servos](peripherals/pwm_escs_and_servo.md)
     * [DShot ESCs](peripherals/dshot.md)

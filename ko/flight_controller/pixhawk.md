@@ -221,6 +221,17 @@ Due to space constraints two ports are on one connector.
 | 2 (blk) | !IO_LED_SAFETY | GND   |
 | 3 (blk) | SAFETY           | GND   |
 
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | IO debug              |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |
+
 ## Debug Ports
 
 ### Console Port
@@ -254,7 +265,7 @@ The complete wiring is shown below.
 
 ### SWD Port
 
-The SWD (JTAG) ports are hidden under the cover (which must be removed for hardware debugging). There are separate ports for FMU and IO, as highlighted below.
+The [SWD](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) ports are hidden under the cover (which must be removed for hardware debugging). There are separate ports for FMU and IO, as highlighted below.
 
 ![Pixhawk SWD](../../assets/flight_controller/pixhawk1/pixhawk_swd.jpg)
 

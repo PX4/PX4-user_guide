@@ -97,7 +97,7 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 ## Debug Port
 
-The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface operate on the **FMU Debug** port (`DSU7`). The board does not have an I/O debug interface.
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port (`DSU7`). The board does not have an I/O debug interface.
 
 ![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
 
@@ -122,6 +122,19 @@ The product package includes a convenient debug cable that can be connected to t
 > Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
 > 
 > For more information see [Using JTAG for hardware debugging](#issue_jtag).
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                                  |
+| ------ | ---------- | ------------------------------------- |
+| UART1  | /dev/ttyS0 | GPS                                   |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control)                 |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control)                 |
+| UART4  | /dev/ttyS3 | TELEM4                                |
+| USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector |
+| UART7  | /dev/ttyS5 | Debug Console                         |
+| UART8  | /dev/ttyS6 | PX4IO                                 |
+
 
 ## Peripherals {#optional-hardware}
 

@@ -75,7 +75,7 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 ## Debug Port
 
-The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector. To access the I/O Debug port, the user must remove the CUAV v5 shell. Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
+The [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector. To access the I/O Debug port, the user must remove the CUAV v5 shell. Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
 
 The pinout is as shown.
 
@@ -89,6 +89,18 @@ The pinout is as shown.
 | 4   | UART7_RX      |
 | 5   | UART7_TX      |
 | 6   | VCC           |
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                                  |
+| ------ | ---------- | ------------------------------------- |
+| UART1  | /dev/ttyS0 | GPS                                   |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control)                 |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control)                 |
+| UART4  | /dev/ttyS3 | TELEM4                                |
+| USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector |
+| UART7  | /dev/ttyS5 | Debug Console                         |
+| UART8  | /dev/ttyS6 | PX4IO                                 |
 
 ## Peripherals
 
