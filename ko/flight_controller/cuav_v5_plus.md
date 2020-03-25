@@ -97,7 +97,7 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 ## Debug Port
 
-The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface operate on the **FMU Debug** port (`DSU7`). The board does not have an I/O debug interface.
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port (`DSU7`). The board does not have an I/O debug interface.
 
 ![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
 
