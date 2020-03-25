@@ -82,14 +82,12 @@ If using a Spektrum satellite receiver, this should be connected to the flight c
 The *v5 nano* kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries.
 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
 
-> **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_nano.md#issue_pm_unfused)).
-   - Power **must** be turned off while connecting peripherals.
-   - Improper wiring can lead to *personal harm* or equipment damage!
+> **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_nano.md#issue_pm_unfused)). Power **must** be turned off while connecting peripherals.
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
 > **Note** The power module is not a power source for peripherals connected to the PWM outputs.
-  If you're connecting servos/actuators you will need to separately power them using a BEC.
+  If you're connecting servos/actuators you will need to separately power them using a BEC. 
 
 
 ## Telemetry System (Optional)
