@@ -80,7 +80,8 @@ make airmind_mindpx-v2_default
 ### Companion PC connection
 
 MindPX has a USB-TO-UART Bridge IC on the board.
-A micro-USB to USB type A cable is used for the connection. Connect micro-USB end to the 'OBC' port of MindPX and USB type A end to companion computer.
+A micro-USB to USB type A cable is used for the connection.
+Connect micro-USB end to the 'OBC' port of MindPX and USB type A end to companion computer.
 
 And the max BAUD rate is the same with px4 family, which is up to 921600.
 
@@ -103,7 +104,6 @@ UART4 | /dev/ttyS3 | GPS1
 USART6 | /dev/ttyS4 | ?
 UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | ?
-
 
 
 ## Support
