@@ -85,6 +85,18 @@ In addition to the [basic configuration](../config/README.md), the following par
 | [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.            |
 
 
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| USART1 | /dev/ttyS0 | TELEM1                |
+| USART2 | /dev/ttyS1 | TELEM2                |
+| USART3 | /dev/ttyS2 | Debug Console         |
+| UART4  | /dev/ttyS3 | GPS1                  |
+| USART6 | /dev/ttyS4 | RC SBUS               |
+| UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
+
+
 ## Debug Port
 
 ### System Console
