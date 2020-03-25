@@ -100,6 +100,68 @@ Pixfalcon 자동 조종 장치 ( Holybro <sup> 및 reg; </ 1> </ 0>) 는 공간�
 </p>
 
 <h2>
+  Serial Port Mapping
+</h2>
+
+<table>
+  <tr>
+    <th>
+      UART
+    </th>
+    
+    <th>
+      Device
+    </th>
+    
+    <th>
+      Port
+    </th>
+  </tr>
+  
+  <tr>
+    <td>
+      UART1
+    </td>
+    
+    <td>
+      /dev/ttyS0
+    </td>
+    
+    <td>
+      IO Debug
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      USART2
+    </td>
+    
+    <td>
+      /dev/ttyS1
+    </td>
+    
+    <td>
+      TELEM1 (No flow control)
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      UART4
+    </td>
+    
+    <td>
+      /dev/ttyS2
+    </td>
+    
+    <td>
+      GPS
+    </td>
+  </tr>
+</table>
+
+<h2>
   Key Links
 </h2>
 
