@@ -265,7 +265,7 @@ The complete wiring is shown below.
 
 ### SWD Port
 
-The SWD (JTAG) ports are hidden under the cover (which must be removed for hardware debugging). There are separate ports for FMU and IO, as highlighted below.
+The [SWD](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) ports are hidden under the cover (which must be removed for hardware debugging). There are separate ports for FMU and IO, as highlighted below.
 
 ![Pixhawk SWD](../../assets/flight_controller/pixhawk1/pixhawk_swd.jpg)
 
