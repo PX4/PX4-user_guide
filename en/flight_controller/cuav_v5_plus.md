@@ -185,8 +185,8 @@ For example, the serial number Batch 01
 - Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface.
 - Improper wiring can lead to equipment damage!
 
-- *Found:* Batch 01
-- *Fixed:* Batch 02
+- *Found:* V01190904xxxx
+- *Fixed:* v012020xxxxxx
 
 ## Further Information
 
