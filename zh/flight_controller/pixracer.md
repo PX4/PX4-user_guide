@@ -161,6 +161,17 @@ For information about wiring and using this port see:
 
 * [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (Note, the FMU console maps to UART7).
 
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | WiFi (ESP8266)        |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |
+
 ## Schematics
 
 The reference is provided as: [Altium Design Files](https://github.com/AUAV-OpenSource/FMUv4-PixRacer)
@@ -170,7 +181,7 @@ The following PDF files are provided for *convenience only*:
 * [pixracer-rc12-12-06-2015-1330.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-rc12-12-06-2015-1330.pdf)
 * [pixracer-r14.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixracer/pixracer-r14.pdf) - R14 or RC14 is printed next to the SDCard socket
 
-## 编译固件
+## Building Firmware
 
 > **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
@@ -179,6 +190,6 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
     make px4_fmu-v4_default
     
 
-## 鸣谢
+## Credits
 
 This design was created by Nick Arsov and Phillip Kocmoud and architected by Lorenz Meier, David Sidrane and Leonard Hall.
