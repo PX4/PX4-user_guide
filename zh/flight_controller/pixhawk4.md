@@ -53,7 +53,7 @@
 
 ## 针脚定义
 
-[在此下载](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) *Pixhawk 4* 的针脚定义。
+[点此下载](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) *Pixhawk 4* 的针脚定义。
 
 > **Note** Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin). The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
 
@@ -65,7 +65,7 @@
 
 *Pixhawk 4* 可以实现电源三度冗余。 三个供电轨道为：**POWER1**，**POWER2** 和 **USB**。
 
-> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
+> **Note** 输出端电源排针 **FMU PWM OUT** 和 **IO PWM OUT**（0V至36V）不为飞控板供电（并且飞控也不为它供电）。 您必须在 **POWER1**、**POWER2** 或 **USB** 任一接口中供电，否则飞控板将不会启动。
 
 **正常运行最大额定值**
 
@@ -88,16 +88,16 @@
 
 ## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** 多数用户不需要自己构建固件！ It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+为此目标 [构建(build) PX4](https://dev.px4.io/master/en/setup/building_px4.html)：
 
     make px4_fmu-v5_default
     
 
-## Debug Port {#debug_port}
+## Debug 调试接口 {#debug_port}
 
-The system's [serial console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface runs on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. 为了能访问这些接口，用户需要移除 *Pixhawk 4* 的外壳。
+系统的 [串行控制台](https://dev.px4.io/master/en/debug/system_console.html) 和 SWD 接口运行在 **FMU Debug** 接口，同样的 I/O 控制台与 SWD 接口可以通过 **I/O Debug** 接口访问。 为了能访问这些接口，用户需要移除 *Pixhawk 4* 的外壳。
 
 ![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
@@ -107,9 +107,9 @@ The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.or
 
 ## 外部设备
 
-* [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
-* [Telemetry Radio Modules](../telemetry/README.md)
-* [Rangefinders/Distance sensors](../sensor/rangefinders.md)
+* [数字空速传感器](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [数传电台模块](../telemetry/README.md)
+* [测距仪/距离传感器](../sensor/rangefinders.md)
 
 ## 支持的平台 / 机身
 

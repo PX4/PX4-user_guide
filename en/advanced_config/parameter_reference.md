@@ -5418,14 +5418,14 @@ Setting this parameter to 0 disables the filter</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TILTMAX_AIR">MPC_TILTMAX_AIR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum tilt angle in air</p><p><strong>Comment:</strong> Limits maximum tilt in AUTO and POSCTRL modes during flight.</p>   </td>
- <td style="vertical-align: top;">20.0 > 180.0 </td>
+ <td style="vertical-align: top;">20.0 > 89.0 </td>
  <td style="vertical-align: top;">45.0</td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_TILTMAX_LND">MPC_TILTMAX_LND</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum tilt during landing</p><p><strong>Comment:</strong> Limits maximum tilt angle on landing.</p>   </td>
- <td style="vertical-align: top;">10.0 > 90.0 </td>
+ <td style="vertical-align: top;">10.0 > 89.0 </td>
  <td style="vertical-align: top;">12.0</td>
  <td style="vertical-align: top;">deg</td>
 </tr>
