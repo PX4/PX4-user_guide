@@ -81,14 +81,26 @@ MindPX has a USB-TO-UART Bridge IC on the board. A micro-USB to USB type A cable
 
 And the max BAUD rate is the same with px4 family, which is up to 921600.
 
-### User Guide
+## User Guide
 
 > **Note** The user guide is [here](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
-## Where to buy
+## Where to Buy
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
-## 技术支持
+## Serial Port Mapping
+
+| UART   | Device     | Port          |
+| ------ | ---------- | ------------- |
+| USART1 | /dev/ttyS0 | RC            |
+| USART2 | /dev/ttyS1 | TELEM1        |
+| USART3 | /dev/ttyS2 | TELEM2        |
+| UART4  | /dev/ttyS3 | GPS1          |
+| USART6 | /dev/ttyS4 | ?             |
+| UART7  | /dev/ttyS5 | Debug Console |
+| UART8  | /dev/ttyS6 | ?             |
+
+## Support
 
 Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.
