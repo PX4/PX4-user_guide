@@ -109,7 +109,7 @@
 
 ## Debug Port {#debug_port}
 
-The system's [serial console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface runs on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. 이러한 포트를 접근하기 위해, 사용자는 *Pixhawk 4* 케이스를 제거해야만 합니다.
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) run on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port. 이러한 포트를 접근하기 위해, 사용자는 *Pixhawk 4* 케이스를 제거해야만 합니다.
 
 ![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
 
