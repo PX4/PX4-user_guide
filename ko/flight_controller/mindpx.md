@@ -312,9 +312,9 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 >                 최대 BAUD 비율은 ​​px4 제품군과 동일하며 최대 921600입니다.
 >               </p>
 >               
->               <h3>
->                 사용자 설명서
->               </h3>
+>               <h2>
+>                 User Guide
+>               </h2>
 >               
 >               <blockquote>
 >                 <p>
@@ -323,11 +323,129 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 >               </blockquote>
 >               
 >               <h2>
->                 구입처
+>                 Where to Buy
 >               </h2>
 >               
 >               <p>
 >                 MindRacer는 인터넷 <a href="http://drupal.xitronet.com/?q=catalog"> AirMind Store </ 0>에 있습니다. 아마존 <sup> & reg; </ 0> 또는 eBay <sup> & reg; </ 0>에서 MindRacer를 찾을 수 있습니다.</p> 
+>                 
+>                 <h2>
+>                   Serial Port Mapping
+>                 </h2>
+>                 
+>                 <table>
+>                   <tr>
+>                     <th>
+>                       UART
+>                     </th>
+>                     
+>                     <th>
+>                       Device
+>                     </th>
+>                     
+>                     <th>
+>                       Port
+>                     </th>
+>                   </tr>
+>                   
+>                   <tr>
+>                     <td>
+>                       USART1
+>                     </td>
+>                     
+>                     <td>
+>                       /dev/ttyS0
+>                     </td>
+>                     
+>                     <td>
+>                       RC
+>                     </td>
+>                   </tr>
+>                   
+>                   <tr>
+>                     <td>
+>                       USART2
+>                     </td>
+>                     
+>                     <td>
+>                       /dev/ttyS1
+>                     </td>
+>                     
+>                     <td>
+>                       TELEM1
+>                     </td>
+>                   </tr>
+>                   
+>                   <tr>
+>                     <td>
+>                       USART3
+>                     </td>
+>                     
+>                     <td>
+>                       /dev/ttyS2
+>                     </td>
+>                     
+>                     <td>
+>                       TELEM2
+>                     </td>
+>                   </tr>
+>                   
+>                   <tr>
+>                     <td>
+>                       UART4
+>                     </td>
+>                     
+>                     <td>
+>                       /dev/ttyS3
+>                     </td>
+>                     
+>                     <td>
+>                       GPS1
+>                     </td>
+>                   </tr>
+>                   
+>                   <tr>
+>                     <td>
+>                       USART6
+>                     </td>
+>                     
+>                     <td>
+>                       /dev/ttyS4
+>                     </td>
+>                     
+>                     <td>
+>                       ?
+>                     </td>
+>                   </tr>
+>                   
+>                   <tr>
+>                     <td>
+>                       UART7
+>                     </td>
+>                     
+>                     <td>
+>                       /dev/ttyS5
+>                     </td>
+>                     
+>                     <td>
+>                       Debug Console
+>                     </td>
+>                   </tr>
+>                   
+>                   <tr>
+>                     <td>
+>                       UART8
+>                     </td>
+>                     
+>                     <td>
+>                       /dev/ttyS6
+>                     </td>
+>                     
+>                     <td>
+>                       ?
+>                     </td>
+>                   </tr>
+>                 </table>
 >                 
 >                 <h2>
 >                   Support

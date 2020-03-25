@@ -61,4 +61,16 @@ The pinouts and connector comply with the [Pixhawk Standard Debug Port](https://
 
 For information about wiring and using this port see:
 
-- [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (Note, the FMU console maps to UART7). <!-- Add SWD cross link later -->
+- [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (Note, the FMU console maps to UART7).
+- [SWD (JTAG) Hardware Debugging Interface](http://dev.px4.io/master/en/debug/swd_debug.html)
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | WiFi                  |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |
