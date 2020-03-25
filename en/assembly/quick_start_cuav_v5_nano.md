@@ -37,7 +37,7 @@ We'll go through each of these in detail in the following sections.
 
 The recommended GPS module is the _Neo v2 GPS_, which contains GPS, compass, safety switch, buzzer, LED status light.
 
-> **Note** Other GPS modules may not work \(see [this issue](../flight_controller/cuav_v5_nano.md#issue_gps_compatible)\).
+> **Note** Other GPS modules may not work \(see [this compatibility](../flight_controller/cuav_v5_nano.md#compatibility_gps)\).
 
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle \(Neo GPS arrow is in the same direction as the flight control arrow\).  
 Connect to the flight control GPS interface using a cable.
