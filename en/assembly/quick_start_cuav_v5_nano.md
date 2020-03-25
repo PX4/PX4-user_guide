@@ -65,6 +65,8 @@ The figure below shows how you can access your remote receiver \(please find the
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_05.png)
 
+> **Note** SBUS / DSM / RSSI pin1 has no fuse in some batches. Incorrect connection may cause equipment damage (See this )
+
 ## Spektrum Satellite Receivers
 
 The V5 nano has a dedicated DSM cable.  
