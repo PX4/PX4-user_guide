@@ -168,3 +168,107 @@
       <strong>Note</strong> As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are <a href="https://github.com/PX4/Hardware">available</a>.
     </p>
   </blockquote>
+  
+  <h2>
+    Serial Port Mapping
+  </h2>
+  
+  <table>
+    <tr>
+      <th>
+        UART
+      </th>
+      
+      <th>
+        Device
+      </th>
+      
+      <th>
+        Port
+      </th>
+    </tr>
+    
+    <tr>
+      <td>
+        UART1
+      </td>
+      
+      <td>
+        /dev/ttyS0
+      </td>
+      
+      <td>
+        IO debug
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        USART2
+      </td>
+      
+      <td>
+        /dev/ttyS1
+      </td>
+      
+      <td>
+        TELEM1 (flow control)
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        USART3
+      </td>
+      
+      <td>
+        /dev/ttyS2
+      </td>
+      
+      <td>
+        TELEM2 (flow control)
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        UART4
+      </td>
+      
+      <td>
+        
+      </td>
+      
+      <td>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        UART7
+      </td>
+      
+      <td>
+        CONSOLE
+      </td>
+      
+      <td>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        UART8
+      </td>
+      
+      <td>
+        SERIAL4
+      </td>
+      
+      <td>
+        
+      </td>
+    </tr>
+  </table>
