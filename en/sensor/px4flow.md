@@ -61,7 +61,7 @@ Flow data should be coming through at 10Hz if the autopilot is connected via **U
 Flow data is transmitted over wireless channels at a lower rate.
 
 
-### Mounting/Orientation
+### Mounting/Orientation {#mounting}
 
 The recommended mounting orientation is defined as Y on flow board pointing towards **front of vehicle**, as shown in the following picture.
 
