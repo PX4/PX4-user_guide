@@ -160,7 +160,7 @@ CUAV adopts some differentiated designs and is incompatible with some hardware, 
 
 The *Neo v2.0 GPS* that is recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
 
-UAVCAN GPS is ideal for avoiding this compatibility.
+The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-v2-pro/en/#enable) can also be used, and is compatible with other flight controllers.
 
 #### Using JTAG for hardware debugging {#compatibility_jtag}
 
