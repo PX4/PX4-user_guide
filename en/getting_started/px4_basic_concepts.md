@@ -132,12 +132,16 @@ The companion computer will usually communicate using a MAVLink API like the MAV
 
 PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
 
-By default, if no SD card is present PX4 will beep twice during boot (and none of the above features will be available).
+By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
 > **Tip** The maximum supported SD card size on Pixhawk boards is 32GB.
   The *SanDisk Extreme U3 32GB* is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
 
-SD cards are never-the-less optional, and some flight controllers may not even include an SD Card slot (in this case the notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER)).
+SD cards are never-the-less optional.
+Flight controllers that do not include an SD Card slot may:
+- Disable notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
+- Stream logs to another component (companion).
+- Store missions in RAM/FLASH. <!-- how? -->
 
 
 ## Arming and Disarming {#arming}
