@@ -174,7 +174,8 @@ CUAV adopts some differentiated designs and is incompatible with some hardware, 
 #### GPS not compatible with other devices {#compatibility_gps}
 
 The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
-The GPS will not work with other flight controllers.UAVCAN GPS is ideal for avoiding this compatibility.
+
+The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-v2-pro/en/#enable) can also be used, and is compatible with other flight controllers.
 
 #### Using JTAG for hardware debugging {#compatibility_jtag}
 
@@ -192,9 +193,9 @@ For example, the serial number Batch V011904((V01 is the number of V5, 1904 is t
 
 #### SBUS / DSM / RSSI interface Pin1 unfused {#pin1_unfused}
 
-> **Warning** This is a security issue.
+> **Warning** This is a safety issue.
 
-- Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this may lead to equipment damage.
+Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this may lead to equipment damage.
 
 - *Found:* Batches V01190904xxxx
 - *Fixed:* Batches later than V01190904xxxx
