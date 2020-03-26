@@ -10029,6 +10029,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_XCOMP">CAL_MAG0_XCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+X component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG0_XOFF">CAL_MAG0_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10043,6 +10054,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_YCOMP">CAL_MAG0_YCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+Y component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG0_YOFF">CAL_MAG0_YOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Y-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10054,6 +10076,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"><p>Magnetometer Y-axis scaling factor</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_ZCOMP">CAL_MAG0_ZCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+Z component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10148,6 +10181,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_XCOMP">CAL_MAG1_XCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+X component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG1_XOFF">CAL_MAG1_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10162,6 +10206,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_YCOMP">CAL_MAG1_YCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+Y component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG1_YOFF">CAL_MAG1_YOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Y-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10173,6 +10228,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"><p>Magnetometer Y-axis scaling factor</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_ZCOMP">CAL_MAG1_ZCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+Z component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10267,6 +10333,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG2_XCOMP">CAL_MAG2_XCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+X component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG2_XOFF">CAL_MAG2_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10281,6 +10358,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG2_YCOMP">CAL_MAG2_YCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+Y component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG2_YOFF">CAL_MAG2_YOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Y-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10292,6 +10380,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"><p>Magnetometer Y-axis scaling factor</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG2_ZCOMP">CAL_MAG2_ZCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+Z component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10386,6 +10485,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_XCOMP">CAL_MAG3_XCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+X component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG3_XOFF">CAL_MAG3_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10397,6 +10507,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis scaling factor</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_YCOMP">CAL_MAG3_YCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+Y component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10414,6 +10535,17 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_ZCOMP">CAL_MAG3_ZCOMP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Coefficient describing linear relationship between
+Z component of magnetometer in body frame axis
+and either current or throttle depending on value of CAL_MAG_COMP_TYP
+Unit for throttle-based compensation is [G] and
+for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG3_ZOFF">CAL_MAG3_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10425,6 +10557,20 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"><p>Magnetometer Z-axis scaling factor</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG_COMP_TYP">CAL_MAG_COMP_TYP</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Type of magnetometer compensation</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Throttle-based compensation</li> 
+
+<li><strong>2:</strong> Current-based compensation</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
