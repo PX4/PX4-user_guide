@@ -20,7 +20,7 @@ Performing this power compensation is advisable only if all the following statem
 
 ## How to Compensate the Compass {#how}
 
-1. Make sure your drone runs a Firmware version supporting power compensation (current master, targeted for v.1.12.0).
+1. Make sure your drone runs a Firmware version supporting power compensation (current master, or releases from v.1.11.0).
 1. Perform the [standard compass calibration](../config/compass.html#compass-calibration).
 1. Set the parameter [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) to 2 to enable logging of data from boot. 
 1. Set the parameter [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *high rate* (bit 2) to get more data points.
