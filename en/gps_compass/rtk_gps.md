@@ -16,7 +16,9 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 * [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)
 * [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
 * [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
-* [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md)
+* [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)
+* [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
+* [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
 
 > **Note** Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
 
