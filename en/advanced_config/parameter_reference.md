@@ -10989,6 +10989,14 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="SENS_EN_PAW3902">SENS_EN_PAW3902</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>PAW3902 Optical Flow</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_PGA460">SENS_EN_PGA460</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>PGA460 Ultrasonic driver (PGA460)</p>   <p><b>Reboot required:</b> true</p>
 </td>
