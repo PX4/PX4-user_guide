@@ -44,7 +44,7 @@ The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, saf
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow).
 Connect to the flight control GPS interface using a cable.
 
-> **Note** If you use CAN GPS, please use the cable to connect to the flight control CAN interface.
+> **Note** If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable), please use the cable to connect to the flight control CAN interface.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 
@@ -74,7 +74,7 @@ If using a Spektrum satellite receiver, this should be connected to the flight c
 
 ## Power
 
-The V5+ kit includes the *HV\_PM* module, which supports 2~10S LiPo batteries. 
+The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. 
 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
 
 > **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_plus.md#issue_pm_unfused)). Power **must** be turned off while connecting peripherals.
