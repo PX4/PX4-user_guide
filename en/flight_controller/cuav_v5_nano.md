@@ -184,9 +184,9 @@ For example, the serial number Batch V011904((V01 is the number of V5, 1904 is t
 
 #### SBUS / DSM / RSSI interface Pin1 unfused {#pin1_unfused}
 
-> **Warning** This is a security issue. 
+> **Warning** This is a safety issue. 
 
-- Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this can lead to equipment damage!
+Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this can lead to equipment damage!
 
 - *Found:* Batches V01190904xxxx
 - *Fixed:* Batches later than V01190904xxxx
