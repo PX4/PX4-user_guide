@@ -26,7 +26,7 @@ It also covers the first flight, and how to get started with modifying the compu
    Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
    
 1. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions).
-   This is why the boot image is supplied on a *USB2* memory stick.
+   This is why the boot image is supplied on a *USB2.0* memory stick.
 
 ## Getting to Know Your DevKit
 
@@ -44,10 +44,10 @@ The DevKit contains following components:
   - 1x *UP Core* computer (with Ubuntu and PX4 avoidance)
     - Atom CPU
     - FTDI UART connected to flight controller
-    - `USB1`: USB3 A port used for booting PX4 avoidance environment from a USB2 stick (connecting a USB3 peripheral may jam GPS).
-    - `USB2`: USB2 port on a JST-GH connector. 
+    - `USB1`: USB3.0 A port used for booting PX4 avoidance environment from a USB2.0 stick (connecting a USB3.0 peripheral may jam GPS).
+    - `USB2`: USB2.0 port on a JST-GH connector. 
       Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
-    - `USB3`: USB2 JST-GH port connected to depth camera
+    - `USB3`: USB2.0 JST-GH port connected to depth camera
     - `HDMI`: HDMI out
     - SD card slot
     - WiFi (attached to external antenna #1). 
@@ -131,7 +131,7 @@ In addition, users will need ground station hardware/software:
 
 When the vehicle setup is complete:
 
-1. Insert the pre-imaged USB2 stick from the kit into the *UP Core* port `USB1` (highlighted below).
+1. Insert the pre-imaged USB2.0 stick from the kit into the *UP Core* port labeled `USB1` (highlighted below).
 
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 1. Connect the battery to power the vehicle.
@@ -185,7 +185,7 @@ PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/e
 
 ### Installing the image on the Companion Computer {#install_image_mission_computer}
 
-You can install the image on the *UP Core* and boot from internal memory (instead of the USB).
+You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
 
 > **Tip** This is recommended because booting from internal memory is much faster (~30 seconds vs 2.5 minutes), it frees up a USB port, and may well provide more memory than your USB stick. 
 
@@ -209,7 +209,7 @@ To flash the USB image to the *UP Core*:
 
 ### Boot the Companion Computer {#boot_mission_computer}
 
-First insert the provided USB2 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery.
+First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery.
 The avoidance system should start within about 2.5 minutes.
 
 > **Tip** [Fly the Drone (with avoidance)](#fly_drone) additionally explains how to verify that the avoidance system is active.
