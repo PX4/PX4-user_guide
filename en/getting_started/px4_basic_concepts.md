@@ -140,8 +140,9 @@ By default, if no SD card is present PX4 will play the [format failed (2-beep)](
 SD cards are never-the-less optional.
 Flight controllers that do not include an SD Card slot may:
 - Disable notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
-- Stream logs to another component (companion).
-- Store missions in RAM/FLASH. <!-- how? -->
+- [Stream logs](https://dev.px4.io/master/en/log/logging.html#log-streaming) to another component (companion).
+- Store missions in RAM/FLASH. 
+  <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/Firmware/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 
 ## Arming and Disarming {#arming}
