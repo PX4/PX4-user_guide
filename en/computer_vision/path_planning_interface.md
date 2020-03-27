@@ -17,6 +17,9 @@ In these modes planning software is expected to supply setpoints to PX4; if the 
 All services that use this interface send and receive messages of the same type/format.
 Developers can therefore use this interface to create their own new companion-side path planning services, or tweak the existing planner software.
 
+> **Tip** The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) is recommended for developing path planning software.
+  It comes with [PX4 avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
+
 
 ## PX4 Configuration
 
