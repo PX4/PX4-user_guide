@@ -58,10 +58,15 @@ The rate controller is the inner-most loop with three independent PID controller
 
 #### Rate Controller Architecture/Form
 
-PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single mixed implementation: Parallel and Ideal.
+PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single mixed implementation: Parallel and Standard.
 
 ![PID_Mixed](../../images/mc_pid_tuning/PID_algorithm_Mixed.png)
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
+- _G(s)_ represents the angular rates dynamics of a vehicle
+- _r_ is the rate setpoint
+- _y_ is the body angular rate (measured by a gyro)
+- _e_ is the error between the rate setpoint and the measured rate
+- _u_ is the output of the PID controller
 
 > **Note** The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
 
@@ -70,20 +75,19 @@ The resulting forms are described below.
 
 ##### Parallel Form
 
-- Commonly used in student textbooks
-  - Three independant paths
-  - **I** and **D** terms are unitless
+This form is commonly used in textbooks as this is the simplest form where the output of the controller is simply the sum of the proportional, integral and derivative actions.
 
   ![PID_Parallel](../../images/mc_pid_tuning/PID_algorithm_Parallel.png)
 
-##### Ideal Form
-  - Commonly used in industrial controllers
-  - The proportional gain scales the whole controller
-  - **I** and **D** terms represent the integral and derivative time constants
-  - More intuitive to tune than the parallel form
+##### Standard Form
+This form is mathematically equivalent to the parallel form but facilitates manual tuning as the K gain represents the global "aggressiveness" of the controller. The integral gain is the inverse of the integrator time constant and represents how fast the integrator grows compared to the proportional gain. Similarly, the derivative gain is the derivative time constant and represents how much damping is added to the system.
 
-  ![PID_Ideal](../../images/mc_pid_tuning/PID_algorithm_Ideal.png)
 
+  ![PID_Standard](../../images/mc_pid_tuning/PID_algorithm_Standard.png)
+
+References:
+- https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/
+- https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form
 
 #### Rate PID Tuning
 
