@@ -5166,6 +5166,13 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;">1/s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MC_YAW_WEIGHT">MC_YAW_WEIGHT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Yaw weight</p><p><strong>Comment:</strong> A fraction [0,1] deprioritizing yaw compared to roll and pitch in non-linear attitude control. Deprioritizing yaw is necessary because multicopters have much less control authority in yaw compared to the other axes and it makes sense because yaw is not critical for stable hovering or 3D navigation. For yaw control tuning use MC_YAW_P. This ratio has no inpact on the yaw gain.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
+ <td style="vertical-align: top;">0.4</td>
+ <td style="vertical-align: top;">1/s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max yaw rate in auto mode</p><p><strong>Comment:</strong> Limit the rate of change of the yaw setpoint in autonomous mode to avoid large control output and mixer saturation.</p>   </td>
  <td style="vertical-align: top;">0.0 > 360.0 (5)</td>
