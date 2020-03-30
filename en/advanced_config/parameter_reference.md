@@ -5166,6 +5166,13 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;">1/s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MC_YAW_WEIGHT">MC_YAW_WEIGHT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Yaw weight</p><p><strong>Comment:</strong> A fraction [0,1] deprioritizing yaw compared to roll and pitch in non-linear attitude control. Deprioritizing yaw is necessary because multicopters have much less control authority in yaw compared to the other axes and it makes sense because yaw is not critical for stable hovering or 3D navigation. For yaw control tuning use MC_YAW_P. This ratio has no inpact on the yaw gain.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
+ <td style="vertical-align: top;">0.4</td>
+ <td style="vertical-align: top;">1/s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Max yaw rate in auto mode</p><p><strong>Comment:</strong> Limit the rate of change of the yaw setpoint in autonomous mode to avoid large control output and mixer saturation.</p>   </td>
  <td style="vertical-align: top;">0.0 > 360.0 (5)</td>
@@ -5226,7 +5233,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and for manual mode</p><p><strong>Comment:</strong> Maximum deceleration for MPC_POS_MODE 1 and 2. Maximum acceleration and deceleration for MPC_POS_MODE 3.</p>   </td>
+ <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and for manual mode</p><p><strong>Comment:</strong> Maximum deceleration for MPC_POS_MODE 1. Maximum acceleration and deceleration for MPC_POS_MODE 3.</p>   </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;">m/s/s</td>
@@ -5283,15 +5290,15 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_AUTO">MPC_JERK_AUTO</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Jerk limit in auto mode</p><p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility.</p>   </td>
- <td style="vertical-align: top;">5.0 > 80.0 (1)</td>
- <td style="vertical-align: top;">8.0</td>
+ <td style="vertical-align: top;">1.0 > 80.0 (1)</td>
+ <td style="vertical-align: top;">4.0</td>
  <td style="vertical-align: top;">m/s/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum jerk limit</p><p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 1 or 3.</p>   </td>
  <td style="vertical-align: top;">0.5 > 500.0 (1)</td>
- <td style="vertical-align: top;">20.0</td>
+ <td style="vertical-align: top;">8.0</td>
  <td style="vertical-align: top;">m/s/s/s</td>
 </tr>
 <tr>
@@ -5365,8 +5372,6 @@ Setting this parameter to 0 disables the filter</p>   </td>
 <li><strong>0:</strong> Default position control</li> 
 
 <li><strong>1:</strong> Smooth position control</li> 
-
-<li><strong>2:</strong> Sport position control</li> 
 
 <li><strong>3:</strong> Smooth position control (Velocity)</li> 
 </ul>
@@ -10755,9 +10760,9 @@ is less than 50% of this value</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="PCF8583_ADDR">PCF8583_ADDR</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) i2c address</p> <strong>Values:</strong><ul>
-<li><strong>80:</strong> 0x50</li> 
+<li><strong>80:</strong> Address 0x50 (80)</li> 
 
-<li><strong>81:</strong> 0x51</li> 
+<li><strong>81:</strong> Address 0x51 (81)</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
@@ -10766,8 +10771,17 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="PCF8583_MAGNET">PCF8583_MAGNET</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) pulse count</p><p><strong>Comment:</strong> Nmumber of signals per rotation of actuator</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">1 > ? </td>
+ <td style="vertical-align: top;">2</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="PCF8583_POOL">PCF8583_POOL</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) pool interval</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) pool interval
+How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1000000</td>
@@ -10775,10 +10789,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="PCF8583_RESET">PCF8583_RESET</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) counter reset value</p><p><strong>Comment:</strong> Internal device counter is reset to 0 when overun this value, counter is able to store upto 6 digits reset of counter takes some time - measurement with reset has worse accurancy</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> - reset avter every measurement</li> 
-</ul>
-  <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) pulse reset value</p><p><strong>Comment:</strong> Internal device counter is reset to 0 when overun this value, counter is able to store upto 6 digits reset of counter takes some time - measurement with reset has worse accurancy. 0 means reset counter after every measurement.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">500000</td>
@@ -14506,14 +14517,6 @@ MPC_Z_VEL_MAX_DN at zero throttle, and 0.5 * MPC_LAND_SPEED at full throttle</p>
   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="PCF8583_MAGNET">PCF8583_MAGNET</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PCF8583 rotorfreq (i2c) magnet count</p><p><strong>Comment:</strong> Nmumber of signals per rotation of rotor</p>   <p><b>Reboot required:</b> true</p>
-</td>
- <td style="vertical-align: top;">1 > ? </td>
- <td style="vertical-align: top;">2</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>

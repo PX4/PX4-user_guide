@@ -93,7 +93,7 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 ## Debug Port
 
-The system's serial console and SWD interface run on the **FMU Debug** port. In order to access these ports, the user must remove the *Pixhawk 4 Mini* casing.
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) run on the **FMU Debug** port. In order to access these ports, the user must remove the *Pixhawk 4 Mini* casing.
 
 ![Pixhawk 4 Mini FMU Debug](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_fmu_debug.png)
 
