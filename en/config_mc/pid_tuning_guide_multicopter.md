@@ -13,7 +13,7 @@ For example, different ESCs or motors require different tuning gains for optimal
 
 ## Introduction
 
-PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers, which are the most widespread control technique.
+PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
 
 The controllers are layered, which means a higher-level controller passes its results to a lower-level controller.
 The lowest-level controller is the the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**.
@@ -51,14 +51,16 @@ Here are some general points to follow when tuning:
 
 ### Rate Controller
 
-The rate controller is the inner-most loop with three independent PID controllers to control the body rates.
+The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
 
 > **Note** A well-tuned rate controller is very important as it affects *all* flight modes.
   A badly tuned rate controller will be visible in [Position mode](../flight_modes/position_mc.md), for example, as "twitches" (the vehicle will not hold perfectly still in the air).
 
 #### Rate Controller Architecture/Form
 
-PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single mixed implementation: Parallel and Standard.
+PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single "mixed" implementation: [Parallel](#parallel_form) and [Standard](#standard_form).
+
+Users can select the form that is used by setting the proportional gain for the other form to "1" (i.e. in the diagram below set **K** to 1 for the parallel form, or **P** to 1 for the standard form - this will replace either the K or P blocks with a line).
 
 ![PID_Mixed](../../images/mc_pid_tuning/PID_algorithm_Mixed.png)
 <!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
@@ -68,26 +70,33 @@ PX4 supports two (mathematically equivalent) forms of the PID rate controller in
 - _e_ is the error between the rate setpoint and the measured rate
 - _u_ is the output of the PID controller
 
+
+The two forms are described below.
+
+
 > **Note** The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
 
-Users can select the form that is used by setting the proportional gain for one of the forms  (**K** or **P**) to "1".
-The resulting forms are described below.
-
-##### Parallel Form
-
-This form is commonly used in textbooks as this is the simplest form where the output of the controller is simply the sum of the proportional, integral and derivative actions.
-
-  ![PID_Parallel](../../images/mc_pid_tuning/PID_algorithm_Parallel.png)
-
-##### Standard Form
-This form is mathematically equivalent to the parallel form but facilitates manual tuning as the K gain represents the global "aggressiveness" of the controller. The integral gain is the inverse of the integrator time constant and represents how fast the integrator grows compared to the proportional gain. Similarly, the derivative gain is the derivative time constant and represents how much damping is added to the system.
+<span></span>
+> **Tip** For more information see:
+  - [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
+  - [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
 
 
-  ![PID_Standard](../../images/mc_pid_tuning/PID_algorithm_Standard.png)
+##### Parallel Form {#parallel_form}
 
-References:
-- https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/
-- https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form
+The *parallel form* is the simplest form, and is (hence) commonly used in textbooks.
+In this case the output of the controller is simply the sum of the proportional, integral and derivative actions.
+
+![PID_Parallel](../../images/mc_pid_tuning/PID_algorithm_Parallel.png)
+
+##### Standard Form {#standard_form}
+
+The *standard form* is mathematically equivalent to the *parallel form* but facilitates manual tuning as the K gain represents the global "aggressiveness" of the controller. 
+The integral gain is the inverse of the integrator time constant and represents how fast the integrator grows compared to the proportional gain.
+Similarly, the derivative gain is the derivative time constant and represents how much damping is added to the system.
+
+![PID_Standard](../../images/mc_pid_tuning/PID_algorithm_Standard.png)
+
 
 #### Rate PID Tuning
 
@@ -114,23 +123,23 @@ Initially you can use the same values for roll and pitch, and once you have good
 you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed).
 For yaw it is very similar, except that **D** can be left at 0.
 
-##### P/K Gain
+##### Proportional Gain (P/K)
 
-The **P** (proportional) gain is used to minimize the tracking error.
+The proportional gain is used to minimize the tracking error (below we use **P** to refer to both **P** or **K**).
 It is responsible for a quick response and thus should be set as high as possible, but without introducing oscillations.
 - If the **P** gain is too high: you will see high-frequency oscillations.
 - If the **P** gain is too low:
   - the vehicle will react slowly to input changes.
   - In *Acro mode* the vehicle will drift, and you will constantly need to correct to keep it level.
 
-##### D Gain
+##### Derivative Gain (D)
 
 The **D** (derivative) gain is used for rate damping.
 It is required but should be set only as high as needed to avoid overshoots.
 - If the **D** gain is too high: the motors become twitchy (and maybe hot), because the **D** term amplifies noise.
 - If the **D** gain is too low: you see overshoots after a step-input.
 
-##### I Gain
+##### Integral Gain (I)
 
 The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time.
 It is important (especially when flying *Acro mode*), but it should not be set too high.
