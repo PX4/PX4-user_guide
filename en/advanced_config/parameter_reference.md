@@ -5233,7 +5233,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and for manual mode</p><p><strong>Comment:</strong> Maximum deceleration for MPC_POS_MODE 1 and 2. Maximum acceleration and deceleration for MPC_POS_MODE 3.</p>   </td>
+ <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and for manual mode</p><p><strong>Comment:</strong> Maximum deceleration for MPC_POS_MODE 1. Maximum acceleration and deceleration for MPC_POS_MODE 3.</p>   </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;">m/s/s</td>
@@ -5290,15 +5290,15 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_AUTO">MPC_JERK_AUTO</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Jerk limit in auto mode</p><p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility.</p>   </td>
- <td style="vertical-align: top;">5.0 > 80.0 (1)</td>
- <td style="vertical-align: top;">8.0</td>
+ <td style="vertical-align: top;">1.0 > 80.0 (1)</td>
+ <td style="vertical-align: top;">4.0</td>
  <td style="vertical-align: top;">m/s/s/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum jerk limit</p><p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 1 or 3.</p>   </td>
  <td style="vertical-align: top;">0.5 > 500.0 (1)</td>
- <td style="vertical-align: top;">20.0</td>
+ <td style="vertical-align: top;">8.0</td>
  <td style="vertical-align: top;">m/s/s/s</td>
 </tr>
 <tr>
@@ -5372,8 +5372,6 @@ Setting this parameter to 0 disables the filter</p>   </td>
 <li><strong>0:</strong> Default position control</li> 
 
 <li><strong>1:</strong> Smooth position control</li> 
-
-<li><strong>2:</strong> Sport position control</li> 
 
 <li><strong>3:</strong> Smooth position control (Velocity)</li> 
 </ul>
