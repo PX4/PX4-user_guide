@@ -9,11 +9,11 @@ To load firmware and set up the vehicle with *QGroundControl*, see [Basic Config
 
 A drone is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
 
-Drones are used for many consumer, industrial and military [use cases and applications](http://px4.io/applications/). 
-These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc. 
+Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). 
+These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
 
 > **Tip** Different types of drones exist for use in air, ground, sea, and underwater. 
-These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
+  These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
 
 The "brain" of the drone is called an autopilot.
 It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.

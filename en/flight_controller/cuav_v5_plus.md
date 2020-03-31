@@ -121,7 +121,7 @@ Pin | Signal | Volt
 6 (blk) | GND | GND
 
 The product package includes a convenient debug cable that can be connected to the `DSU7` port.
-This splits out an FTDI cable for connecting the [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) to a computer USB port, and SWD pins used for SWD/JTAG debugging. 
+This splits out an FTDI cable for connecting the [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) to a computer USB port, and SWD pins used for SWD/JTAG debugging.
 The provided debug cable does not connect to the SWD port `Vref` pin (1).
 
 ![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
@@ -131,7 +131,7 @@ The provided debug cable does not connect to the SWD port `Vref` pin (1).
 > Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
 > For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
 >
->For more information see [Using JTAG for hardware debugging](#issue_jtag).
+>For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
 
 ## Serial Port Mapping
@@ -187,7 +187,7 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 
 ## Known Issues
 
-The issues below refer to the *batch number* in which they first appear. 
+The issues below refer to the *batch number* in which they first appear.
 The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller.
 For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
@@ -206,6 +206,6 @@ Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI 
 - [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
 - [CUAV Github](https://github.com/cuav)
-- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2B_BASE)
+- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE)
 - [CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
 - [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)

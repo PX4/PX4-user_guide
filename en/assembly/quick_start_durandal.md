@@ -195,4 +195,4 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 - [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf) (Holybro)
 - [Durandal Pinouts](http://www.holybro.com/manual/Durandal-Pinouts.pdf) (Holybro)
 - [Durandal_MB_H743sch.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Durandal_MB_H743sch.pdf) (Durandal Schematics)
-- [Stm32H743IIK_pinmap.pdf](.https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Stm32H743IIK_pinmap.pdf) (Durandal Pinmap)
+- [Stm32H743IIK_pinmap.pdf](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/durandal/Stm32H743IIK_pinmap.pdf) (Durandal Pinmap)

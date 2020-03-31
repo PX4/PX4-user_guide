@@ -15,7 +15,7 @@ We'll go through each of these in detail in the following sections.
 | Main interface | Function |
 | :--- | :--- |
 | Power | Connect Power module; Provides Power and ANALOG voltage and current measurements. |
-| PM2 | [Do not use with PX4](../flight_controller/cuav_v5_nano.md#issue_pm2) |
+| PM2 | [Do not use with PX4](../flight_controller/cuav_v5_nano.md#compatibility_pm2) |
 | TF CARD | SD card for log storage (comes with card) |
 | M1~M8 | PWM outputs. Can be used to control motors or servos. |
 | A1~A3 | Capture pins (not *currently* supported on PX4). |
