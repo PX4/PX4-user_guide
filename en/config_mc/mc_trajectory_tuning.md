@@ -34,15 +34,11 @@ For the remainder of this topic the term **position-control** represents the cas
 
 ## Implementations
 
-Two different implementations are available for each mode and can be selected using the parameters [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) and [MPC_AUTO_MODE](../advanced_config/parameter_reference.md#MPC_AUTO_MODE).
+Different implementations are available for each mode and can be selected using the parameters [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-Click on the links below to learn more about those implementations and how to configure them:
-- [Slew-rate](../config_mc/mc_slew_rate_type_trajectory.md) (`MPC_POS_MODE=1`, `MPC_POS_MODE=2`, `MPC_AUTO_MODE=0`) - Used when quick response is more important than smooth motion (e.g.: inspection, aggressive flight with position hold, fast missions).
-  - This is a simple implementation where the jerk and acceleration is limited using slew-rates.
-  - In manual mode, it allows asymmetric profiles based on user intention (smooth acceleration and quick stop).
-  - The jerk and acceleration limits are not hard constraints.
+Click on the link below to learn more about those implementations and how to configure them:
 
-- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) (`MPC_POS_MODE=3`, `MPC_AUTO_MODE=1`) - Used when smooth motion is required (e.g.: filming, mapping, cargo).
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) (`MPC_POS_MODE=3`) - Used when smooth motion is required (e.g.: filming, mapping, cargo).
   - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
 
-> **Tip** The jerk-limited (smooth) type is used by default for all frames in both manual and auto modes; this may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
+> **Tip** The jerk-limited (smooth) type is used by default for all frames in both manual and auto modes; this may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads. 
