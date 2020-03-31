@@ -18,7 +18,6 @@ Warning | A warning message will be sent to *QGroundControl*.
 [Hold mode](../flight_modes/hold.md) | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.
 [Return mode](../flight_modes/return.md) | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return_settings) (below).
 [Land mode](../flight_modes/land.md) | The vehicle will enter *Land mode*, and lands immediately.
-RC Auto Recovery (CASA Outback Challenge rules) | TBD
 [Flight termination](../advanced_config/flight_termination.md) | Turns off all controllers and sets all PWM outputs to their failsafe values (e.g. [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1)). The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. For a fixed-wing vehicle this might allow you to glide the vehicle to safety.
 Lockdown | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill_switch).
 
@@ -70,8 +69,7 @@ The settings and underlying parameters are shown below.
 Setting | Parameter | Description
 --- | --- | ---
 RC Loss Timeout | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Amount of time after losing the RC connection before the failsafe will trigger.
-Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Disabled, Loiter, Return, Land, RC Auto Recovery, Terminate, Lockdown.
-RC Loss Loiter Time | [NAV_RCL_LT](../advanced_config/parameter_reference.md#NAV_RCL_LT) | If the *Failsafe Action* (`NAV_RCL_ACT`) is set to *CASA Outback Challenge rules* this sets the loiter time after RC loss.
+Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Disabled, Loiter, Return, Land, Terminate, Lockdown.
 
 
 ### Data Link Loss Failsafe
@@ -85,7 +83,7 @@ The settings and underlying parameters are shown below.
 Setting | Parameter | Description
 --- | --- | ---
 Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger.
-Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) | Disabled, Hold mode, Return mode, Land mode, Data Link Auto Recovery (CASA Outback Challenge rules), Terminate, Lockdown. Selecting the `Data Link Auto Recovery (CASA Outback Challenge rules)` action additionally enables the [Data Link Loss](../advanced_config/parameter_reference.md#data-link-loss) parameters.
+Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT) | Disabled, Hold mode, Return mode, Land mode, Terminate, Lockdown.
 
 
 ### Geofence Failsafe
