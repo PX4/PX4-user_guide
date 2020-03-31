@@ -10,7 +10,7 @@ Is it for fun or for work, what is the planned flight times and coverage.
 - There is even mixed type of aircraft called **VTOL** - Vertical Takeoff and Landing aircraft.
   It can take off in vertical mode like Multicopter and then transition in forward flight like Airplane.
 
-The [airframe reference](../airframes/airframe_reference.html) lists frames that have been tuned for perfect flight with PX4.
+The [airframe reference](../airframes/airframe_reference.md) lists frames that have been tuned for perfect flight with PX4.
 
 Once you select and buy or assemble your air-frame you will have to preset it in *QGroundControl* with a template during the [Initial Setup process](../config/README.md).
 

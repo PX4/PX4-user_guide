@@ -171,8 +171,7 @@ Parameter | Description
 --- | ---
 [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.
 [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) | Position control navigation loss response during mission. Values: 0 - assume use of RC, 1 - Assume no RC.
-[CBRK_GPSFAIL](../advanced_config/parameter_reference.md#CBRK_GPSFAIL) | Circuit breaker that can be used to disable GPS failure detection.
-[CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_GPSFAIL) | Circuit breaker for position error check (disables error checks in all modes).
+[CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR) | Circuit breaker for position error check (disables error checks in all modes).
 
 
 Parameters that only affect Fixed Wing vehicles:
@@ -221,8 +220,6 @@ The relevant parameters are shown below:
 Parameter | Description
 --- | ---
 [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return mode, Land mode.
-[NAV_TRAFF_AVOIDU](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOIDU) | Set the avoidance trigger distance for unmanned aviation.
-[NAV_TRAFF_AVOIDM](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOIDM) | Set the avoidance trigger distance for manned aviation.
 
 ### Adaptive QuadChute Failsafe
 
