@@ -52,7 +52,7 @@ The ESCs should initialize and the motors turn in the correct directions.
 
 ## ESC Commands {#commands}
 
-Commands can be sent to the ESC via the [MAVLink shell](https://dev.px4.io/master/en/debug/system_console.html#mavlink_shell).
+Commands can be sent to the ESC via the [MAVLink shell](https://dev.px4.io/master/en/debug/mavlink_shell.html).
 See [here](https://dev.px4.io/master/en/middleware/modules_driver.html#dshot) for a full reference of the supported commands.
 
 The most important ones are:

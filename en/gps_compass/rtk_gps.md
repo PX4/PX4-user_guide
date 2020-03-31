@@ -108,8 +108,8 @@ To enable this, set bit position 7 in [EKF2_AID_MASK](../advanced_config/paramet
 
 ### Dual Receivers
 
-A second GPS receiver can be used as a backup (either RTK or non RTK). 
-See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#GPS) section.
+A second GPS receiver can be used as a backup (either RTK or non RTK).
+See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
 
 <!-- 
 - Video demonstration would be nice.
