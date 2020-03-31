@@ -129,7 +129,7 @@ UART8 | /dev/ttyS6 | Not connected (no PX4IO)
 
 *V5 nano* must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.
 
-> **Note** The `PM2` connector cannot not be used for powering the *V5 nano* (see [this issue](#issue_pm2)).
+> **Note** The `PM2` connector cannot not be used for powering the *V5 nano* (see [this issue](#compatibility_pm2)).
 
 <span></span> 
 > **Note** The Servo Power Rail is neither powered by, nor provides power to the FMU.
@@ -170,7 +170,7 @@ Some JTAG probes use this voltage to set the IO levels when communicating to the
 
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-#### PM2 cannot power the flight controller {compatibility_pm2}
+#### PM2 cannot power the flight controller {#compatibility_pm2}
 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
 

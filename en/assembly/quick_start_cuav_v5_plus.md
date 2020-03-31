@@ -70,14 +70,15 @@ The figure below shows how you can access your remote receiver (please find the 
 ## Spektrum Satellite Receivers
 
 The V5+ has a dedicated DSM cable.
-If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface. 
+If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface.
 
 ## Power
 
-The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. 
+The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries.
 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
 
-> **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_plus.md#issue_pm_unfused)). Power **must** be turned off while connecting peripherals.
+> **Warning** The supplied power module is unfused.
+  Power **must** be turned off while connecting peripherals.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
@@ -114,7 +115,7 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 - [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)
 - [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)  (CUAV)
-- [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)  (CUAV)
+- [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html) (CUAV)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)  (CUAV)
 - [CUAV Github](https://github.com/cuav)  (CUAV)
-- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2B_BASE)  (CUAV)
+- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE) (CUAV)

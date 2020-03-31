@@ -58,7 +58,7 @@ make px4_fmu-v3_default
 
 ## Pinouts and Schematics
 
-* [Documentation/wiring guides](http://doc.cuav.net/PixHack/pixhack-v3.html)
+* [Documentation/wiring guides](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
 
 ## Serial Port Mapping
 
