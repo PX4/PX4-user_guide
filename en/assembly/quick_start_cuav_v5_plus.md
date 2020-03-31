@@ -77,7 +77,7 @@ If using a Spektrum satellite receiver, this should be connected to the flight c
 The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries.
 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
 
-> **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_plus.md#issue_pm_unfused)).
+> **Warning** The supplied power module is unfused.
   Power **must** be turned off while connecting peripherals.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
