@@ -39,12 +39,17 @@ Getting your transition tuning right is important for obtaining a safe entry int
 
 #### Transition Throttle 
 
-Parameter: [VT_TRANS_THR](../advanced_config/parameter_reference.md#VT_TRANS_THR) <!-- deleted - replaced by VT_F_TRANS_THR ? -->
+Parameter: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
 
-Transition throttle defines the maximum throttle to use during the transition.
+Front transition throttle defines the target throttle for the pusher/puller motor during the front transition.
 Don’t set this too low otherwise you will never reach the transition airspeed.
-If you set it too high it will just use more power than you may want.
-For your first transition you are better off higher than lower here. 
+If your vehicle is equiped with an airspeed sensor then you can increase this parameter to make the front transition complete quicker.
+For your first transition you are better off higher than lower here.
+
+Parameter: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)
+
+In most of the cases backtransition throttle can be set to 0 since it's not desired to produce any forward thrust.
+If the motor controller supports reverse thrust however, you can achieve this by setting a negative value.
 
 #### Forward Transition Duration
 
