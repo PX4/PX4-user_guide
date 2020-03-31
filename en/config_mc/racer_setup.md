@@ -13,7 +13,7 @@ You should already have some experience, or let someone with experience help you
 
 ## Build Options
 
-A racer usually omits some sensors. 
+A racer usually omits some sensors.
 
 The minimal configuration is to use only a gyro and accelerometer sensor.
 
@@ -31,7 +31,7 @@ There are however some benefits in adding GPS, particularly for beginners:
 - The log contains the flight track, which means you can review the flight (in 3D).
   This can help to improve your acrobatic flight skills.
 
-> **Note** During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. 
+> **Note** During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time.
 > If you switch into position mode during that time, altitude mode will be used instead until the position becomes valid again.
 
 
@@ -104,7 +104,7 @@ At this point you should be ready for a first test flight.
 
 If it goes well, do a first pass of [PID tuning](../config_mc/pid_tuning_guide_multicopter.md) (ignore the thrust curve settings).
 The vehicle needs to be **undertuned**, meaning the **P** and **D** gains should be set too low - such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough). 
-This is important for the [filter](#filters) tuning. 
+This is important for the [filter](#filters) tuning.
 There will be a second PID tuning round later.
 
 
@@ -133,24 +133,24 @@ This is the filtering pipeline for the controllers in PX4:
   The cutoff frequency is set to 98Hz and it is sampled at 1kHz.
 - Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
 - Low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance.
-  For this reason the D-term has an additional low-pass filter, configurable via [MC_DTERM_CUTOFF](../advanced_config/parameter_reference.md#MC_DTERM_CUTOFF).
+  For this reason the D-term has an additional low-pass filter, configurable via [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
 - A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)).
   Generally not used.
 
-To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters. 
-However this is a trade-off as it will also increase the noise of the signal, which is fed to the motors. 
+To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters.
+However this is a trade-off as it will also increase the noise of the signal, which is fed to the motors.
 Noise on the motors has the following consequences:
 - Motors and ESCs can get hot, to the point where they get damaged.
 - Reduced flight time because the motors continuously change their speed.
 - Visible random small twitches.
 
-The best filter settings depend on the vehicle. The defaults are set conservatively — such that they work on lower-quality setups as well.
+The best filter settings depend on the vehicle.
+The defaults are set conservatively — such that they work on lower-quality setups as well.
 
 #### Filter Tuning
 
-First make sure to have the high-rate logging profile activated
-([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter). [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the
-roll, pitch and yaw controls.
+First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter).
+[Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
 
 > **Warning** Do not try to fix a vehicle that suffers from high vibrations with filter tuning. Instead fix the vehicle hardware setup.
 
@@ -162,17 +162,17 @@ The performed flight maneuver can simply be hovering in [Manual/Stabilized mode]
 The total duration does not need to be more than 30 seconds. 
 In order to better compare, the maneuver should be similar in all tests.
 
-First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([MC_DTERM_CUTOFF](../advanced_config/parameter_reference.md#MC_DTERM_CUTOFF) = 30).  
+First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30).  
 Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* plot. 
 Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz). 
-Then tune the D-term filter (`MC_DTERM_CUTOFF`) in the same way. 
+Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way. 
 
 Below is an example for three different filter values (40Hz, 70Hz, 90Hz). 
 At 90 Hz the general noise level starts to increase (especially for roll), 
 and thus a cutoff frequency of 70 Hz is a safe setting.
-![MC_DTERM_CUTOFF=40](../../images/racer_setup/actuator_controls_fft_dterm_40.png) 
-![MC_DTERM_CUTOFF=70](../../images/racer_setup/actuator_controls_fft_dterm_70.png) 
-![MC_DTERM_CUTOFF=90](../../images/racer_setup/actuator_controls_fft_dterm_90.png) 
+![IMU_DGYRO_CUTOFF=40](../../images/racer_setup/actuator_controls_fft_dterm_40.png)
+![IMU_DGYRO_CUTOFF=70](../../images/racer_setup/actuator_controls_fft_dterm_70.png)
+![IMU_DGYRO_CUTOFF=90](../../images/racer_setup/actuator_controls_fft_dterm_90.png)
 
 > **Note** The plot cannot be compared between different vehicles, as the y axis scale can be different. 
 > On the same vehicle it is consistent and independent of the flight duration though.
