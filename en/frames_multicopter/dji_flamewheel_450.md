@@ -18,7 +18,7 @@ Key information:
 * Frame:            [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
 * Motors:           3DR Iris Plus 950kv rebranded T-Motors MN2213
 * ESCs:             Hobbywing XRotor 35A Micro 3-6S BLHeli
-* Blades:           Graupner 10"x5" (You need to print [these adapters](https://drive.google.com/open?id=0B2piootk_fIKMWhIVzVPWEFGLU0) to be M6 compatible) <!--TODO-->
+* Blades:           Graupner 10"x5" (You need to print [these adapters](https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view) to be M6 compatible) <!--TODO-->
 * Distance sensor:  Lidar-Lite V3
 * GPS:              Here+ RTK GPS
 * Telemetry:        3DR Telemetry

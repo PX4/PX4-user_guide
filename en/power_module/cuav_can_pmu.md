@@ -65,6 +65,6 @@ Set the following parameters in the *QGroundControl* [parameter list](../advance
 
 [CAN PMU Manual](http://manual.cuav.net/power-module/CAN-PMU.pdf)
 
-[CUAV docs](http://doc.cuav.net/power-module/can-pmu/en/#px4-firmware)
+[CAN PMU Power detection module > Enable CAN PMU > PX4 firmware](http://doc.cuav.net/power-module/can-pmu/en/) (CUAV docs)
 
 [UAVCAN](https://new.uavcan.org/)
