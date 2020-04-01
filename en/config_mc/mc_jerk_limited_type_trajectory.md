@@ -3,10 +3,11 @@
 The Jerk-limited trajectory type provides smooth motion in response to user stick input or mission changes (e.g.: for filming, mapping, cargo).
 It generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
 
-Enable this trajectory type using the following parameter settings: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE), [MPC_AUTO_MODE=1](../advanced_config/parameter_reference.md#MPC_AUTO_MODE).
+This trajectory type is always enabled in mission mode.
+To enable it in Position mode set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-> **Note** The jerk-limited type is used *by default* on all airframes, in both auto and position modes.
-  [Setpoint Tuning (Trajectory Generator)](../config_mc/mc_trajectory_tuning.md) also supports a different algorithm for a faster (albeit more "jerky") response.
+> **Note** The jerk-limited type is used *by default* in position mode.
+  It may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
 
 
 ## Trajectory Generator
