@@ -8,9 +8,9 @@ If you plan using PX4 for flying aircraft the most important question you should
 - For longer flights and larger areas of coverage you will need fixed wing aircraft i.e. **Airplanes**.
 - There is even mixed type of aircraft called **VTOL** - Vertical Takeoff and Landing aircraft. It can take off in vertical mode like Multicopter and then transition in forward flight like Airplane.
 
-You can see our [airframe](http://px4.io/technology/airframes/) list which is growing constantly with, frames that we tuned for perfect flight with PX4 autopilot.
+The [airframe reference](../airframes/airframe_reference.md) lists frames that have been tuned for perfect flight with PX4.
 
-Once you select and buy or assemble your air-frame you will have to preset it in QGroundControl with a template during the [Initial Setup process](../config/README.md).
+Once you select and buy or assemble your air-frame you will have to preset it in *QGroundControl* with a template during the [Initial Setup process](../config/README.md).
 
 ![Frame Selection](../../images/frame_selection.png)
 
