@@ -59,6 +59,6 @@ OcPoc Port | Device | Port
 (OcPoC Port 2) | /dev/ttyS2 | TELEM3
 (OcPoC Port 6) | /dev/ttyS3 | GPS/Compass #1
 (OcPoC Port 4) | /dev/ttyPS1 | TELEM1 / Radio Telemetry
-(OcPoC Port 8) | /dev/ttyS6 | TELEM2 / uLanding Radar Altimeter
+(OcPoC Port 8) | /dev/ttyS6 | TELEM2 / Ainstein US-D1 (a.k.a uLanding) Radar Altimeter
 (OcPoC Port 7) | /dev/ttyS6 | GPS/Compass #2 
 -->
