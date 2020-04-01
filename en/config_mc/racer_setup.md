@@ -13,15 +13,13 @@ You should already have some experience, or let someone with experience help you
 
 ## Build Options
 
-A racer usually omits some sensors. 
+A racer usually omits some sensors.
 
 The minimal configuration is to use only a gyro and accelerometer sensor.
 
 > **Note** If the board has an internal magnetometer, it should not be used (small racers are particularly prone to strong electromagnetic interference).
 
-Racers typically do not have a GPS as it adds some weight and is prone to damage during crashes
-(a GPS + external magnetometer must be placed on a GPS mast away from high currents to avoid
-magnetic interference, which unfortunately means that it is easy to break). 
+Racers typically do not have a GPS as it adds some weight and is prone to damage during crashes (a GPS + external magnetometer must be placed on a GPS mast away from high currents to avoid magnetic interference, which unfortunately means that it is easy to break). 
 
 There are however some benefits in adding GPS, particularly for beginners:
 - You can go into position hold and the vehicle will just stay in one place.
@@ -33,7 +31,7 @@ There are however some benefits in adding GPS, particularly for beginners:
 - The log contains the flight track, which means you can review the flight (in 3D).
   This can help to improve your acrobatic flight skills.
 
-> **Note** During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time. 
+> **Note** During aggressive acrobatic maneuvers the GPS can lose its position fix for a short time.
 > If you switch into position mode during that time, altitude mode will be used instead until the position becomes valid again.
 
 
@@ -57,7 +55,8 @@ Make sure that the center of gravity is as close as possible to the center of th
 Left-right balance is usually not a problem, but front-back balance may be.
 You can move the battery until it is correct and mark it on the frame so you will always place it correctly.
 
-> **Note** The integral term can account for an imbalanced setup, and a custom mixer can do that even better. However it is best to fix any imbalance as part of the vehicle setup.
+> **Note** The integral term can account for an imbalanced setup, and a custom mixer can do that even better.
+  However it is best to fix any imbalance as part of the vehicle setup.
 
 ### Motor Ordering
 If you plan to use a 4-in-1 ESC, such as the [Hobbywing XRotor Micro 40A 4in1](http://www.hobbywing.com/goods.php?id=588), you will notice that it uses a motor ordering that is different from the one that PX4 uses.
@@ -66,9 +65,7 @@ PX4 allows you to change the motor ordering in software via [MOT_ORDERING](../ad
 ## Software Setup
 
 After having built the racer, you will need to configure the software.
-Go through the [Basic Configuration Guide](../config/README.md) and choose the
-[Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer)
-airframe, which already sets some racer-specific parameters.
+Go through the [Basic Configuration Guide](../config/README.md) and choose the [Generic 250 Racer](../airframes/airframe_reference.md#copter_quadrotor_x_generic_250_racer) airframe, which already sets some racer-specific parameters.
 
 These parameters are important:
 - Enable One-Shot by setting [PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) to 0.
@@ -106,9 +103,8 @@ Make sure to assign a [kill switch](../config/safety.md#kill_switch) or an [armi
 At this point you should be ready for a first test flight.
 
 If it goes well, do a first pass of [PID tuning](../config_mc/pid_tuning_guide_multicopter.md) (ignore the thrust curve settings).
-The vehicle needs to be **undertuned**, meaning the **P** and **D** gains should be set too low - such that there are no oscillations from the controller that could
-be interpreted as noise (the default gains might be good enough). 
-This is important for the [filter](#filters) tuning. 
+The vehicle needs to be **undertuned**, meaning the **P** and **D** gains should be set too low - such that there are no oscillations from the controller that could be interpreted as noise (the default gains might be good enough). 
+This is important for the [filter](#filters) tuning.
 There will be a second PID tuning round later.
 
 
@@ -135,28 +131,28 @@ As mentioned in the previous section, filters affect the control latency.
 This is the filtering pipeline for the controllers in PX4:
 - On-chip DLPF for the gyro sensor. 
   The cutoff frequency is set to 98Hz and it is sampled at 1kHz.
-- Low-pass filter on the gyro sensor data. It can be configured with the
-  [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
-- Low-pass filter on the D-term. The D-term is most susceptible to noise while
-  slightly increased latency does not negatively affect performance. For this
-  reason the D-term has an additional low-pass filter, configurable via
-  [MC_DTERM_CUTOFF](../advanced_config/parameter_reference.md#MC_DTERM_CUTOFF).
-- A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Generally not used.
+- Low-pass filter on the gyro sensor data.
+  It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
+- A separate low-pass filter on the D-term.
+  The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance.
+  For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
+- A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)).
+  Generally not used.
 
-To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters. 
-However this is a trade-off as it will also increase the noise of the signal, which is fed to the motors. 
+To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters.
+However this is a trade-off as it will also increase the noise of the signal, which is fed to the motors.
 Noise on the motors has the following consequences:
 - Motors and ESCs can get hot, to the point where they get damaged.
 - Reduced flight time because the motors continuously change their speed.
 - Visible random small twitches.
 
-The best filter settings depend on the vehicle. The defaults are set conservatively — such that they work on lower-quality setups as well.
+The best filter settings depend on the vehicle.
+The defaults are set conservatively — such that they work on lower-quality setups as well.
 
 #### Filter Tuning
 
-First make sure to have the high-rate logging profile activated
-([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter). [Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the
-roll, pitch and yaw controls.
+First make sure to have the high-rate logging profile activated ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) parameter).
+[Flight Review](../getting_started/flight_reporting.md) will then show an FFT plot for the roll, pitch and yaw controls.
 
 > **Warning** Do not try to fix a vehicle that suffers from high vibrations with filter tuning. Instead fix the vehicle hardware setup.
 
@@ -168,17 +164,16 @@ The performed flight maneuver can simply be hovering in [Manual/Stabilized mode]
 The total duration does not need to be more than 30 seconds. 
 In order to better compare, the maneuver should be similar in all tests.
 
-First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([MC_DTERM_CUTOFF](../advanced_config/parameter_reference.md#MC_DTERM_CUTOFF) = 30). 
+First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30).  
 Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* plot. 
 Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz). 
-Then tune the D-term filter (`MC_DTERM_CUTOFF`) in the same way.
+Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way. 
 
 Below is an example for three different filter values (40Hz, 70Hz, 90Hz). 
-At 90 Hz the general noise level starts to increase (especially for roll), 
-and thus a cutoff frequency of 70 Hz is a safe setting.
-![MC_DTERM_CUTOFF=40](../../images/racer_setup/actuator_controls_fft_dterm_40.png)
-![MC_DTERM_CUTOFF=70](../../images/racer_setup/actuator_controls_fft_dterm_70.png)
-![MC_DTERM_CUTOFF=90](../../images/racer_setup/actuator_controls_fft_dterm_90.png)
+At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting.
+![IMU_DGYRO_CUTOFF=40](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_40.png)
+![IMU_DGYRO_CUTOFF=70](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_70.png)
+![IMU_DGYRO_CUTOFF=90](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_90.png)
 
 > **Note** The plot cannot be compared between different vehicles, as the y axis scale can be different. 
 > On the same vehicle it is consistent and independent of the flight duration though.
@@ -189,8 +184,7 @@ Now do a second round of PID tuning, this time as tight as possible, and also tu
 
 ### Airmode
 
-After you verified that the vehicle flies well at low and high throttle, you can
-enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter. This feature makes sure that the
-vehicle is still controllable and tracks the rate at low throttle.
+After you verified that the vehicle flies well at low and high throttle, you can enable [airmode](../config_mc/pid_tuning_guide_multicopter.md#airmode) with the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
+This feature makes sure that the vehicle is still controllable and tracks the rate at low throttle.
 
 Happy flipping :)
