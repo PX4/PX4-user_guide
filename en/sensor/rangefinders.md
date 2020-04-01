@@ -36,10 +36,11 @@ They are typically faster and have greater range than sonar, and smaller and lig
 PX4 supports the following models connected via the I2C bus: TeraRanger One, TeraRanger Evo 60m and TeraRanger Evo 600Hz.
 
 
-### uLanding Radar
+### Ainstein US-D1 Standard Radar Altimeter
 
-The [*Aerotenna* uLanding Radar](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. 
-It has a sensing range of 45m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
+The *Ainstein* [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs.
+It has a sensing range of around 50m.
+A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
 
 
 ### LeddarOne
