@@ -658,6 +658,11 @@
  <td style="vertical-align: top;"><p>Maintainer: Hyon Lim <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4072</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
+<tr id="copter_quadrotor_x_uvify_ifo">
+ <td style="vertical-align: top;">UVify IFO</td>
+ <td style="vertical-align: top;"><p>Maintainer: Hyon Lim <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4073</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+
+</tr>
 <tr id="copter_quadrotor_x_zmr250_racer">
  <td style="vertical-align: top;">ZMR250 Racer</td>
  <td style="vertical-align: top;"><p>Maintainer: Anton Matosov <anton.matosov@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4080</p></td>
