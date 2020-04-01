@@ -131,9 +131,11 @@ As mentioned in the previous section, filters affect the control latency.
 This is the filtering pipeline for the controllers in PX4:
 - On-chip DLPF for the gyro sensor. 
   The cutoff frequency is set to 98Hz and it is sampled at 1kHz.
-- Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
-- Low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance.
-  For this reason the D-term has an additional low-pass filter, configurable via [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
+- Low-pass filter on the gyro sensor data.
+  It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
+- A separate low-pass filter on the D-term.
+  The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance.
+  For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
 - A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)).
   Generally not used.
 
@@ -168,11 +170,10 @@ Set the cutoff frequency to a value before the noise starts to increase noticeab
 Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way. 
 
 Below is an example for three different filter values (40Hz, 70Hz, 90Hz). 
-At 90 Hz the general noise level starts to increase (especially for roll), 
-and thus a cutoff frequency of 70 Hz is a safe setting.
-![IMU_DGYRO_CUTOFF=40](../../images/racer_setup/actuator_controls_fft_dterm_40.png)
-![IMU_DGYRO_CUTOFF=70](../../images/racer_setup/actuator_controls_fft_dterm_70.png)
-![IMU_DGYRO_CUTOFF=90](../../images/racer_setup/actuator_controls_fft_dterm_90.png)
+At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting.
+![IMU_DGYRO_CUTOFF=40](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_40.png)
+![IMU_DGYRO_CUTOFF=70](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_70.png)
+![IMU_DGYRO_CUTOFF=90](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_90.png)
 
 > **Note** The plot cannot be compared between different vehicles, as the y axis scale can be different. 
 > On the same vehicle it is consistent and independent of the flight duration though.
