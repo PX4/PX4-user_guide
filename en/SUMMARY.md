@@ -160,7 +160,7 @@
     * [Pomegranate Systems Power Module](power_module/pomegranate_systems_pm.md)
   * [Distance Sensors \(Rangefinders\)](sensor/rangefinders.md)
     * [Lightware SFxx Lidar](sensor/sfxx_lidar.md)
-    * [uLanding Radar](sensor/ulanding_radar.md)
+    * [Ainstein US-D1 Standard Radar Altimeter](sensor/ulanding_radar.md)
     * [LeddarOne Lidar](sensor/leddar_one.md)
     * [Benewake TFmini Lidar](sensor/tfmini.md)
     * [Lidar-Lite](sensor/lidar_lite.md)
