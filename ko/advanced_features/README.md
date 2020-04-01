@@ -8,5 +8,6 @@
 * [장애물 회피](../computer_vision/obstacle_avoidance.md) (컴패니언 컴퓨터가 필요합니다)
 * [안전 착륙](../computer_vision/safe_landing.md) (보조 컴퓨터 필요)
 * [충돌 방지](../computer_vision/collision_prevention.md)
-* [항공 교통 회피: ADS-B / FLARM](../advanced_features/traffic_avoidance_adsb.md)
-* [항공 교통 회피: UTM](../advanced_features/traffic_avoidance_utm.md)
+* [Path Planning Interface](../computer_vision/path_planning_interface.md)
+* [Air Traffic Avoidance: ADS-B/FLARM](../advanced_features/traffic_avoidance_adsb.md)
+* [Air Traffic Avoidance: UTM](../advanced_features/traffic_avoidance_utm.md)

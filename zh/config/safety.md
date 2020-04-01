@@ -16,7 +16,6 @@ Each failsafe defines its own set of actions. Some of the more common failsafe a
 | [Hold mode](../flight_modes/hold.md)                           | The vehicle will enter *Hold mode*. For multicopters this means the vehicle will hover, while for fixed/wing the vehicle will circle.                                                                                                                                                                                                                                                                                         |
 | [返航模式](../flight_modes/return.md)                              | The vehicle will enter *Return mode*. Return behaviour can be set in the [Return Home Settings](#return_settings) (below).                                                                                                                                                                                                                                                                                                    |
 | [降落模式](../flight_modes/land.md)                                | The vehicle will enter *Land mode*, and lands immediately.                                                                                                                                                                                                                                                                                                                                                                    |
-| RC Auto Recovery (CASA Outback Challenge rules)                | TBD                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | [Flight termination](../advanced_config/flight_termination.md) | Turns off all controllers and sets all PWM outputs to their failsafe values (e.g. [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1), [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1)). The failsafe outputs can be used to deploy a parachute, landing gear or perform another operation. For a fixed-wing vehicle this might allow you to glide the vehicle to safety. |
 | Lockdown                                                       | Kills the motors (sets them to disarmed). This is the same as using the [kill switch](#kill_switch).                                                                                                                                                                                                                                                                                                                          |
 
@@ -61,11 +60,10 @@ The RC Loss failsafe is triggered if the RC transmitter link is lost.
 
 The settings and underlying parameters are shown below.
 
-| Setting             | 参数                                                                         | 参数描述                                                                                                                       |
-| ------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| RC Loss Timeout     | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Amount of time after losing the RC connection before the failsafe will trigger.                                            |
-| Failsafe Action     | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)     | Disabled, Loiter, Return, Land, RC Auto Recovery, Terminate, Lockdown.                                                     |
-| RC Loss Loiter Time | [NAV_RCL_LT](../advanced_config/parameter_reference.md#NAV_RCL_LT)       | If the *Failsafe Action* (`NAV_RCL_ACT`) is set to *CASA Outback Challenge rules* this sets the loiter time after RC loss. |
+| Setting         | 参数                                                                         | 参数描述                                                                            |
+| --------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| RC Loss Timeout | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Amount of time after losing the RC connection before the failsafe will trigger. |
+| Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)     | Disabled, Loiter, Return, Land, Terminate, Lockdown.                            |
 
 ### Data Link Loss Failsafe
 
@@ -75,10 +73,10 @@ The Data Link Loss failsafe is triggered if a telemetry link (connection to grou
 
 The settings and underlying parameters are shown below.
 
-| Setting                | 参数                                                                         | 参数描述                                                                                                                                                                                                                                                                                                                    |
-| ---------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger.                                                                                                                                                                                                                                       |
-| Failsafe Action        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | Disabled, Hold mode, Return mode, Land mode, Data Link Auto Recovery (CASA Outback Challenge rules), Terminate, Lockdown. Selecting the `Data Link Auto Recovery (CASA Outback Challenge rules)` action additionally enables the [Data Link Loss](../advanced_config/parameter_reference.md#data-link-loss) parameters. |
+| Setting                | 参数                                                                         | 参数描述                                                                              |
+| ---------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger. |
+| Failsafe Action        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | Disabled, Hold mode, Return mode, Land mode, Terminate, Lockdown.                 |
 
 ### Geofence Failsafe
 
@@ -158,8 +156,7 @@ The relevant parameters for all vehicles shown below (also see [GPS Failure navi
 | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.                                            |
 | [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | Position control navigation loss response during mission. Values: 0 - assume use of RC, 1 - Assume no RC. |
-| [CBRK_GPSFAIL](../advanced_config/parameter_reference.md#CBRK_GPSFAIL)           | Circuit breaker that can be used to disable GPS failure detection.                                        |
-| [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_GPSFAIL)         | Circuit breaker for position error check (disables error checks in all modes).                            |
+| [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR)       | Circuit breaker for position error check (disables error checks in all modes).                            |
 
 Parameters that only affect Fixed Wing vehicles:
 
@@ -199,11 +196,9 @@ The Traffic Avoidance Failsafe allows PX4 to respond to transponder data (e.g. f
 
 The relevant parameters are shown below:
 
-| 参数                                                                               | 参数描述                                                             |
-| -------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Set the failsafe action: Disabled, Warn, Return mode, Land mode. |
-| [NAV_TRAFF_AVOIDU](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOIDU) | Set the avoidance trigger distance for unmanned aviation.        |
-| [NAV_TRAFF_AVOIDM](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOIDM) | Set the avoidance trigger distance for manned aviation.          |
+| 参数                                                                             | 参数描述                                                             |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| [NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID) | Set the failsafe action: Disabled, Warn, Return mode, Land mode. |
 
 ### Adaptive QuadChute Failsafe
 

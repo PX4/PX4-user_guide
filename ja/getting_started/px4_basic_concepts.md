@@ -8,7 +8,7 @@
 
 ドローンは遠隔操縦または自律操縦可能な無人の”ロボット型”移動体です。
 
-ドローンは産業用や軍用等，[様々な用途で](http://px4.io/applications/)多くの人に利用されています。 その活用例としては以下などがあります。(もちろん，これに限られません): 空撮．運送，レース，探査，調査等
+Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). その活用例としては以下などがあります。(もちろん，これに限られません): 空撮．運送，レース，探査，調査等
 
 > **Tip** ドローンには空，水上，海中用のものがあります。 これらは (より正確に言うと) Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) などと呼ばれます。
 
@@ -104,13 +104,19 @@ PX4 can be controlled from a separate on-vehicle companion computer via a serial
 - [オフボードモード](../flight_modes/offboard.md) - 地上局(GCS) や機載コンピュータからPX4を用いて飛行を行うためのモード。 
 - [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
 
-## Removable Memory/Logging
+## SD Cards (Removable Memory) {#sd_cards}
 
-PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md) (SD support may not be present on every flight controller).
+PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
 
-> **Tip** Pixhawk でサポートされているSDカードの容量は最大 32GBです。
+By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
-A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
+> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
+
+SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
+
+- Disable notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
+- [Stream logs](https://dev.px4.io/master/en/log/logging.html#log-streaming) to another component (companion).
+- Store missions in RAM/FLASH. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/Firmware/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 ## Arming and Disarming {#arming}
 
@@ -145,14 +151,14 @@ PX4 has configurable failsafe systems to protect and recover your vehicle if som
 
 The main failsafe areas are listed below:
 
-- バッテリー残量低下
-- 無線通信 (RC) ロスト
-- 位置情報ロスト (自己位置推定精度の低下)
-- オフボード通信のロスト (例： 機載コンピュータからの通信ロスト)
-- データリンクのロスト (例： GCSとのテレメトリー通信ロスト).
-- ジオフェンス逸脱(円柱状のエリアに飛行範囲を制限します)
-- ミッションフェイルセーフ (前回設定した自動飛行経路が，新しい環境で実行されるのを防ぎます) 。
-- 航空機回避 (ADSB等のトランスポンダからのデータを受けて起動されます) 。
+- Low Battery
+- Remote Control (RC) Loss
+- Position Loss (global position estimate quality is too low).
+- Offboard Loss (e.g. lose connection to companion computer)
+- Data Link Loss (e.g. lose telemetry connection to GCS).
+- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
+- Mission Failsafe (prevent a previous mission being run at a new takeoff location).
+- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
 
 For more information see: [Safety](../config/safety.md) (Basic Configuration).
 

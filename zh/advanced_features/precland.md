@@ -16,7 +16,7 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 ### 固件配置
 
-精确着陆需要模块 ` irlock ` 和 ` landing_target_estimator ` ，默认情况下不包含在 PX4 固件中。 可以通过在飞行控制器的相关[配置](https://github.com/PX4/Firmware/tree/master/cmake/configs)，即 编译脚本 和 启动脚本 中添加（或取消注释）以下行来包含它们：
+精确着陆需要模块 ` irlock ` 和 ` landing_target_estimator ` ，默认情况下不包含在 PX4 固件中。 They can be included by adding (or uncommenting) the following lines in the relevant configuration file for your flight controller (e.g. [Firmware/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake)):
 
     drivers/irlock
     modules/landing_target_estimator
@@ -26,7 +26,7 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 ## 软件配置（参数）
 
-使用` landing_target_estimator `和` navigator `参数配置精准着陆，这些参数分别在“Landing target estimator”和“Precision land”组中找到。 最重要的参数将在下面讨论。
+Precision landing is configured with the `landing_target_estimator` and `navigator` parameters, which are found in the "Landing target estimator" and "Precision land" groups, respectively. 最重要的参数将在下面讨论。
 
 参数[ LTEST_MODE ](../advanced_config/parameter_reference.md#LTEST_MODE) 决定信标是被认为静止的还是移动的。 如果 <LT> LTEST_MODE </code>被设置为移动的（例如，它所安装得多旋翼飞行器将要在运动车辆上着陆），则信标测量仅用于在精准着陆控制器中产生位置设定点。 如果<LT> LTEST_MODE </code> 被设置为静止得，则飞行器位置估计器（EKF2 或 LPE）也使用信标测量结果。
 
