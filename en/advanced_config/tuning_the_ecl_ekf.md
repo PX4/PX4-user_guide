@@ -9,14 +9,14 @@ This tutorial answers common questions about use of the ECL EKF algorithm.
 
 The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
 
-* Quaternion defining the rotation from North, East, Down local earth frame to X,Y,Z body frame
-* Velocity at the IMU - North,East,Down \(m/s\)
-* Position at the IMU - North,East,Down \(m\)
-* IMU delta angle bias estimates - X,Y,Z \(rad\)
-* IMU delta velocity bias estimates - X,Y,Z\(m/s\)
-* Earth Magnetic field components - North,East,Down \(gauss\)
-* Vehicle body frame magnetic field bias - X,Y,Z \(gauss\)
-* Wind velocity - North,East \(m/s\)
+* Quaternion defining the rotation from North, East, Down local earth frame to X, Y, Z body frame
+* Velocity at the IMU - North, East, Down \(m/s\)
+* Position at the IMU - North, East, Down \(m\)
+* IMU delta angle bias estimates - X, Y, Z \(rad\)
+* IMU delta velocity bias estimates - X, Y, Z\(m/s\)
+* Earth Magnetic field components - North, East, Down \(gauss\)
+* Vehicle body frame magnetic field bias - X, Y, Z \(gauss\)
+* Wind velocity - North, East \(m/s\)
 
 The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU. 
 Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time.
@@ -52,24 +52,27 @@ This minimum data set is required for all EKF modes of operation. Other sensor d
 
 Three axis body fixed magnetometer data (or external vision system pose data) at a minimum rate of 5Hz is required. Magnetometer data can be used in two ways:
 
-* Magnetometer measurements are converted to a yaw angle using the tilt estimate and magnetic declination. 
-  This yaw angle is then used as an observation by the EKF. 
-  This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases. 
+* Magnetometer measurements are converted to a yaw angle using the tilt estimate and magnetic declination.
+  This yaw angle is then used as an observation by the EKF.
+  This method is less accurate and does not allow for learning of body frame field offsets, however it is more robust to magnetic anomalies and large start-up gyro biases.
   It is the default method used during start-up and on ground.
-* The  XYZ magnetometer readings are used as separate observations. 
-  This method is more accurate and allows body frame offsets to be learned, but assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies. 
-  It is the default method when the vehicle is airborne and has climbed past 1.5 m altitude.
+* The XYZ magnetometer readings are used as separate observations.
+  This method is more accurate and allows body frame offsets to be learned, but assumes the earth magnetic field environment only changes slowly and performs less well when there are significant external magnetic anomalies.
 
-The logic used to select the mode is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
+The logic used to select these modes is set by the [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) parameter.
+
+The option is available to operate without a magnetometer, either by replacing it using [yaw from a dual antenna GPS](#yaw_measurements) or using the IMU measurements and GPS velocity data to [estimate yaw from vehicle movement](#yaw_from_gps_velocity).
+
 
 ### Height
 
-A source of height data - either GPS, barometric pressure, range finder or external vision at a minimum rate of 5Hz is required. 
-Note: The primary source of height data is controlled by the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
+A source of height data - either GPS, barometric pressure, range finder or external vision at a minimum rate of 5Hz is required.
 
-If these measurements are not present, the EKF will not start. 
+> **Note** The primary source of height data is controlled by the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
+
+If these measurements are not present, the EKF will not start.
 When these measurements have been detected, the EKF will initialise the states and complete the tilt and yaw alignment. 
-When tilt and yaw alignment is complete, the EKF can then transition to other modes of operation  enabling use of additional sensor data:
+When tilt and yaw alignment is complete, the EKF can then transition to other modes of operation enabling use of additional sensor data:
 
 #### Correction for Static Pressure Position Error
 
@@ -100,19 +103,38 @@ GPS measurements will be used for position and velocity if the following conditi
   These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters. 
 * GPS height can be used directly by the EKF via setting of the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
 
-#### Yaw Measurements
+#### Yaw Measurements {#yaw_measurements}
 
-Some GPS receivers such as the [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) can be used to provide a heading measurement that replaces the use of magnetometer data. 
-This can be a significant advantage when operating in an environment where large magnetic anomalies are present, or at latitudes here the earth's magnetic field has a high inclination. 
+Some GPS receivers such as the [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) can be used to provide a heading measurement that replaces the use of magnetometer data.
+This can be a significant advantage when operating in an environment where large magnetic anomalies are present, or at latitudes here the earth's magnetic field has a high inclination.
 Use of GPS yaw measurements is enabled by setting bit position 7 to 1 (adding 128) in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
+
+#### Yaw From GPS Velocity {#yaw_from_gps_velocity}
+
+The EKF runs an additional multi-hypothesis filter internally that uses multiple 3-state Extended Kalman Filters (EKF's) whose states are NE velocity and yaw angle.
+These individual yaw angle estimates are then combined using a Gaussian Sum Filter (GSF). The individual 3-state EKF's use IMU and GPS horizontal velocity data (plus optional airspeed data) and do not rely on any prior knowledge of the yaw angle or magnetometer measurements.
+This provides a backup to the yaw from the main filter and is used to reset the yaw for the main 24-state EKF when a post-takeoff loss of navigation indicates that the yaw estimate from the magnetometer is bad.
+This will result in an `Emergency yaw reset - magnetometer use stopped` message information message at the GCS.
+
+Data from this estimator is logged when ekf2 replay logging is enabled and can be viewed in the `yaw_estimator_status` message.
+The individual yaw estimates from the individual 3-state EKF yaw estimators are in the `yaw` fields.
+The GSF combined yaw estimate is in the `yaw_composite` field.
+The variance for the GSF yaw estimate is in the `yaw_variance` field.
+All angles are in radians.
+Weightings applied by the GSF to the individual 3-state EKF outputs are in the`weight` fields.
+
+This also makes it possible to operate without any magnetometer data or dual antenna GPS receiver for yaw provided some horizontal movement after takeoff can be performed to enable the yaw to become observable.
+To use this feature, set [EKF2_MAG_TYPE](../advanced_config/parameter_reference.md#EKF2_MAG_TYPE) to `none` (5) to disable magnetometer use.
+Once the vehicle has performed sufficient horizontal movement to make the yaw observable, the main 24-state EKF will align it's yaw to the GSF estimate and commence use of GPS.
+
 
 #### Dual Receivers
 
 Data from GPS receivers can be blended using an algorithm that weights data based on reported accuracy (this works best if both receivers output data at the same rate and use the same accuracy).
-The mechanism also provides automatic failover if data from a receiver is lost (it allows, for example, a standard GPS to be used as a backup to a more accurate RTK receiver). 
+The mechanism also provides automatic failover if data from a receiver is lost (it allows, for example, a standard GPS to be used as a backup to a more accurate RTK receiver).
 This is controlled by the [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter. 
 
-The [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter is set by default to disable blending and always use the first receiver, so it will have to be set to select which receiver accuracy metrics are used to decide how much each receiver output contributes to the blended solution. 
+The [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter is set by default to disable blending and always use the first receiver, so it will have to be set to select which receiver accuracy metrics are used to decide how much each receiver output contributes to the blended solution.
 Where different receiver models are used, it is important that the [EKF2_GPS_MASK](../advanced_config/parameter_reference.md#EKF2_GPS_MASK) parameter is set to a value that uses accuracy metrics that are supported by both receivers. 
 For example do not set bit position 0 to `true` unless the drivers for both receivers publish values in the `s_variance_m_s` field of the `vehicle_gps_position` message that are comparable.
 This can be difficult with receivers from different manufacturers due to the different way that accuracy is defined, e.g. CEP vs 1-sigma, etc.
@@ -208,7 +230,7 @@ EKF_AID_MASK value | Set bits | Description
 73 | GPS + EV_POS + ROTATE_EV | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead)
 24 | EV_POS + EV_YAW | Heading w.r.t. external vision frame
 72 | EV_POS + ROTATE_EV | Heading w.r.t. North
-272 | EV_VEL + EV_YAW | hHading w.r.t. external vision frame
+272 | EV_VEL + EV_YAW | Heading w.r.t. external vision frame
 320 | EV_VEL + ROTATE_EV | Heading w.r.t. North
 280 | EV_POS + EV_VEL + EV_YAW | Heading w.r.t. external vision frame
 328 | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North
@@ -237,7 +259,7 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 
 ### Advantages
 
-* The ecl EKF is able to fuse data from sensors with different time delays and data rates in a mathematically consistent way which improves accuracy during dynamic manoeuvres once time delay parameters are set correctly.
+* The ecl EKF is able to fuse data from sensors with different time delays and data rates in a mathematically consistent way which improves accuracy during dynamic maneuvers once time delay parameters are set correctly.
 * The ecl EKF is capable of fusing a large range of different sensor types.
 * The ecl EKF detects and reports statistically significant inconsistencies in sensor data, assisting with diagnosis of sensor errors.
 * For fixed wing operation, the ecl EKF estimates wind speed with or without an airspeed sensor and is able to use the estimated wind in combination with airspeed measurements and sideslip assumptions to extend the dead-reckoning time available if GPS is lost in flight.
@@ -472,7 +494,7 @@ Magnetometer test levels are only affected to a small extent.
 
 Large gyro bias offsets are normally characterised by a change in the value of delta angle bias greater than 5E-4 during flight (equivalent to ~3 deg/sec) and can also cause a large increase in the magnetometer test ratio if the yaw axis is affected. 
 Height is normally unaffected other than extreme cases.
-Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time time settle before flying. 
+Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time settle before flying. 
 Pre-flight checks performed by the commander should prevent arming if the position is diverging.
 
 \(insert example plots showing bad gyro bias here\)
