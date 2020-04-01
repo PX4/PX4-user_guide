@@ -108,7 +108,7 @@ This is the filtering pipeline for the controllers in PX4:
 
 - On-chip DLPF for the gyro sensor. The cutoff frequency is set to 98Hz and it is sampled at 1kHz.
 - Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
-- Low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has an additional low-pass filter, configurable via [MC_DTERM_CUTOFF](../advanced_config/parameter_reference.md#MC_DTERM_CUTOFF).
+- A separate low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
 - A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Generally not used.
 
 To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters. However this is a trade-off as it will also increase the noise of the signal, which is fed to the motors. Noise on the motors has the following consequences:
@@ -129,9 +129,10 @@ Filter tuning is best done by reviewing flight logs. You can do multiple flights
 
 The performed flight maneuver can simply be hovering in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) with some rolling and pitching to all directions and some increased throttle periods. The total duration does not need to be more than 30 seconds. In order to better compare, the maneuver should be similar in all tests.
 
-First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([MC_DTERM_CUTOFF](../advanced_config/parameter_reference.md#MC_DTERM_CUTOFF) = 30). Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz). Then tune the D-term filter (`MC_DTERM_CUTOFF`) in the same way.
+First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30).  
+Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz). Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way.
 
-Below is an example for three different filter values (40Hz, 70Hz, 90Hz). At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting. ![MC_DTERM_CUTOFF=40](../../images/racer_setup/actuator_controls_fft_dterm_40.png) ![MC_DTERM_CUTOFF=70](../../images/racer_setup/actuator_controls_fft_dterm_70.png) ![MC_DTERM_CUTOFF=90](../../images/racer_setup/actuator_controls_fft_dterm_90.png)
+Below is an example for three different filter values (40Hz, 70Hz, 90Hz). At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting. ![IMU_DGYRO_CUTOFF=40](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_90.png)
 
 > **Note** The plot cannot be compared between different vehicles, as the y axis scale can be different. On the same vehicle it is consistent and independent of the flight duration though.
 
