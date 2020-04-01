@@ -4,7 +4,7 @@ The [E-Flite Convergence](https://www.modelflight.com.au/e-flite-convergence-vto
 
 {% youtube %} http://www.youtube.com/watch?v=E61P2f2WPNU {% endyoutube %}
 
-## Hardware setup
+## Hardware Setup
 
 The convergence needs 7 PWM signals and is connected to a Pixfalcon in the following way (matching the airframe configuration in PX4, left/right seen looking from behind the plane):
 
@@ -21,15 +21,15 @@ The convergence needs 7 PWM signals and is connected to a Pixfalcon in the follo
 
 The Pixfalcon can be mounted at the same place the original autopilot was.
 
-![](../../images/eflight_convergence_pixfalcon_mounting.jpg)
+![Mount Pixfalcon](../../images/eflight_convergence_pixfalcon_mounting.jpg)
 
 The telemetry module fits into the bay meant to hold FPV transmission gear.
 
-![](../../images/eflight_convergence_telemetry_module.jpg)
+![Mount telemetry module](../../images/eflight_convergence_telemetry_module.jpg)
 
 For the GPS we cut out a section of foam inside the "cockpit". That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
 
-![](../../images/eflight_convergence_gps_mounting.jpg)
+![Mount GPS](../../images/eflight_convergence_gps_mounting.jpg)
 
 ## Configuration
 
@@ -37,8 +37,8 @@ Before the autopilot is configured normally (radio, sensors, flight modes), sele
 
 If the airframe is not yet visible in QGC, set the following parameters and restart:
 
-- SYS\_AUTOSTART: 13012
-- SYS\_AUTOCONFIG: 1
+- `SYS_AUTOSTART`: 13012
+- `SYS_AUTOCONFIG`: 1
 
 Notes:
 

@@ -16,7 +16,7 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ### 펌웨어 구성
 
-정밀 착륙은 기본적으로 PX4 펌웨어에 포함되지 않은 모듈 `irlock` 및 `landing_target_estimator`가 필요합니다. 비행 제어기와 관련된 [config](https://github.com/PX4/Firmware/tree/master/cmake/configs)에 다음 라인을 추가하여 (또는 주석 마크를 지워서) 모듈을 포함(include)시킬 수 있습니다.
+정밀 착륙은 기본적으로 PX4 펌웨어에 포함되지 않은 모듈 `irlock` 및 `landing_target_estimator`가 필요합니다. They can be included by adding (or uncommenting) the following lines in the relevant configuration file for your flight controller (e.g. [Firmware/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake)):
 
     drivers/irlock
     modules/landing_target_estimator
@@ -26,7 +26,7 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
 
 ## 소프트웨어 구성(파라미터)
 
-정밀 착륙은 `landing_target_estimator ` 및 `navigator` 매개변수를 사용하여 구성됩니다. 위의 매개변수는 각각 "Landing target estimator"와 "Precision land" 그룹에서 찾을 수 있습니다. 가장 중요한 파라미터는 아래에 설명되어 있습니다.
+Precision landing is configured with the `landing_target_estimator` and `navigator` parameters, which are found in the "Landing target estimator" and "Precision land" groups, respectively. 가장 중요한 파라미터는 아래에 설명되어 있습니다.
 
 매개 변수 [LTEST_MODE](../advanced_config/parameter_reference.md#LTEST_MODE)는 비컨이 정지하거나 또는 움직이는지 결정합니다. `LTEST_MODE `이 이동으로 설정된 경우(예: 착륙할 멀티콥터에 설치된 경우), 비컨 측정은 정밀 랜딩 컨트롤러에서 목표 좌표를 생성하는 데에만 사용됩니다. `LTEST_MODE`가 고정으로 설정되면 비컨 측정은 기체 위치 추정기 (EKF2 또는 LPE)에서도 사용됩니다.
 

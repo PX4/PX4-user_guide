@@ -9,7 +9,7 @@ Key information:
 
 {% youtube %}https://www.youtube.com/watch?v=wMYgqvsNEwQ{% endyoutube %}
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
+![QAV Racer complete](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview.jpg) ![QAV Racer complete 2](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/preview2.jpg)
 
 ## Parts List
 
@@ -99,7 +99,7 @@ I tested all ESC motor pairs and their rotation directions using a cheap PWM ser
 
 You'll need the [hardware documentation of the Pixracer](../flight_controller/pixracer.md) for this step to find all needed connectors. I tried to route all the cables under the Pixracer board to have a clean build and save space for FPV camera and transmitter in the future.
 
-I mounted the Pixracer using the nylon spacers and screws that get shipped with the QAV-R frame but **put some small O-rings** between the board and the spacers to add a bit of vibration dampening. Make sure to **not tighten the screws too much or too less**, do it such that the board clearly touches both sides but is not clamped with any tension. The board should not dangle in any way but be slightly movable if you apply force to it with your fingers.
+I mounted the Pixracer using the nylon spacers and screws that get shipped with the QAV-R frame but **put some small O-rings** between the board and the spacers to add a bit of vibration dampening. Make sure to **not tighten the screws too much or little**, do it such that the board clearly touches both sides but is not clamped with any tension. The board should not dangle in any way but be slightly movable if you apply force to it with your fingers.
 
 > **Warning** This can heavily influence the vibration noise level your gyroscope and accelerometer sensors measure during flight.
 
@@ -111,7 +111,11 @@ I mounted the Pixracer using the nylon spacers and screws that get shipped with 
 
 I hooked up the FrSky S-BUS receiver using the cable shipped with the Pixracer but cut away the unnecessary cable branch.
 
-For the smart telemetry port I used the cable shipping with the receiver. I removed all unnecessary pins from the connector using tweezers and switched the white loose end cable to the correct pin of the connector to have the "smart" signal connected. I then soldered the loose end to a cable fitting the FrSky port following this schematic: ![schematic](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg) I also skipped the ground (GND) pin because like the voltage supply positive pin it is already connected through the RCin S-BUS cable.
+For the smart telemetry port I used the cable shipping with the receiver. I removed all unnecessary pins from the connector using tweezers and switched the white loose end cable to the correct pin of the connector to have the "smart" signal connected. I then soldered the loose end to a cable fitting the FrSky port following this schematic:
+
+![schematic](../../assets/flight_controller/pixracer/grau_b_pixracer_frskys.port_connection.jpg)
+
+I also skipped the ground (GND) pin because like the voltage supply positive pin it is already connected through the RCin S-BUS cable.
 
 ![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/rc-receiver-connections.jpg)
 
@@ -163,15 +167,15 @@ This are instruction for the optional 5.8GHz FPV live video transmission. You'll
 
 I first did a bench test to make sure everything is working correctly. For this connect the video signal cable that comes with your transmitter and plug it to the back of your FPV camera and to the matching plug of the transmitter. Screw the Then connect the JST power plug to your draft vehicle or to some other voltage source. The transmitter LED should light up. Use your 5.8GHz receiver device tuned in to the correct channel to check for the video. To configure the transmitter to an other channel and adjust the transmission power please refer to the [Tramp HV User Manual](https://www.immersionrc.com/?download=5016).
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-wiring.jpg)
+![FPV wiring](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-wiring.jpg)
 
 Like you can see I mounted the transmitter from the inside to the "roof" of the frame using a ziptie. Always put a self sticking piece of foam in between when mounting electronics like this to avoid physical damage during flight. Make sure to place the transmitter such that the antenna connector fits to the dedicated hole of the frame.
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-tx.jpg)
+![Transmitter](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-tx.jpg)
 
 The magnificent FPV camera set in the part list comes not only with the best FPV lens I've seen so far but also includes multiple camera mounts one of which is very flexible for adjusting the camera angle and nicely fits into the QAV-R frame. I mounted it like you can see in the next picture. The two screws and nuts to lock the camera mount to the frame were taken from the spare ones remaining from the frame set.
 
-![](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
+![Camera](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/fpv-cam.jpg)
 
 ## Software Configuration
 

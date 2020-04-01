@@ -4,7 +4,7 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
 
 *Pixhawk 4 Mini* was designed and developed in collaboration with Holybro<sup>&reg;</sup> and Auterion<sup>&reg;</sup>. It is based on the [Pixhawk](https://pixhawk.org/) **FMUv5** design standard and is optimized to run PX4 flight control software.
 
-<img src="../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png" width="350px" title="Pixhawk 4 Mini Iso" />
+![Pixhawk4 mini](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png)
 
 ## Quick Summary
 

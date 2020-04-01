@@ -34,15 +34,15 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 
 ## Documentation
 
-[DroPix User's Guide](https://drotek.com/docs/docs-dropix/)
+[DroPix User's Guide](https://drotek.gitbook.io/dropix-user-guide/)
 
 ## Wiring Guides
 
-The following diagrams show the Dropix connector information (for more information see the [drotek documentation](https://drotek.com/docs/docs-dropix/)).
+The following diagrams show the Dropix connector information (for more information see the [drotek documentation](https://drotek.gitbook.io/dropix-user-guide/)).
 
-<img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" width="500px" />
+<img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" alt="front connectors" width="500px" />
 
-<img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" width="500px" />
+<img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" alt="front connectors" width="500px" />
 
 ## Building Firmware
 

@@ -47,7 +47,7 @@ Then connect the battery and arm the vehicle. The ESCs should initialize and the
 
 ## ESC Commands {#commands}
 
-Commands can be sent to the ESC via the [MAVLink shell](https://dev.px4.io/master/en/debug/system_console.html#mavlink_shell). See [here](https://dev.px4.io/master/en/middleware/modules_driver.html#dshot) for a full reference of the supported commands.
+Commands can be sent to the ESC via the [MAVLink shell](https://dev.px4.io/master/en/debug/mavlink_shell.html). See [here](https://dev.px4.io/master/en/middleware/modules_driver.html#dshot) for a full reference of the supported commands.
 
 The most important ones are:
 - Make the first motor beep (helps with identifying motors):

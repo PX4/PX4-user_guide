@@ -1,6 +1,8 @@
 # Aerotenna OcPoC-Zynq Mini Flight Controller
 
-The [OcPoC-Zynq Mini](https://aerotenna.com/ocpoc-zynq/) is a FPGA+ARM SoC based flight control platform. OcPoC-Zynq's enhanced I/O flexibility and increased processing power makes it a great solution for commercial UAS developers and researchers. The FPGA's I/O flexibility allows for rapid sensor integration and customization of the flight controller hardware, allowing for capabilities such as triple redundancy in GPS, magnetometers, and IMUs. OcPoC-Zynq maintains also lightweight, compact footprint, leaving more space and weight on the airframe for sensor and peripheral expansion.
+The [OcPoC-Zynq Mini](https://aerotenna.readme.io/docs/ocpoc-mini-zynq-specifications) is a FPGA+ARM SoC based flight control platform.
+
+OcPoC-Zynq's enhanced I/O flexibility and increased processing power makes it a great solution for commercial UAS developers and researchers. The FPGA's I/O flexibility allows for rapid sensor integration and customization of the flight controller hardware, allowing for capabilities such as triple redundancy in GPS, magnetometers, and IMUs. OcPoC-Zynq maintains also lightweight, compact footprint, leaving more space and weight on the airframe for sensor and peripheral expansion.
 
 Main documentation is available on [Aerotenna's User Hub](https://aerotenna.readme.io/docs/ocpoc-mini-zynq-specifications) for hardware setup, FAQs, and various tutorials including FPGA and kernel development.
 
@@ -29,7 +31,7 @@ Main documentation is available on [Aerotenna's User Hub](https://aerotenna.read
     - CSI
     - GSI
     - CAN
-- Availability: [Aerotenna Store](https://aerotenna.com/shop/ocpoc-zynq-mini/)
+- Availability: [Ainstein Store](https://sensing.ai/products/ocpoc%E2%84%A2-with-xilinx-zynq%C2%AE-mini-soc-flight-controller)
 
 ## Pinouts and SD Card Setup
 
@@ -56,6 +58,6 @@ OcPoc Port | Device | Port
 (OcPoC Port 2) | /dev/ttyS2 | TELEM3
 (OcPoC Port 6) | /dev/ttyS3 | GPS/Compass #1
 (OcPoC Port 4) | /dev/ttyPS1 | TELEM1 / Radio Telemetry
-(OcPoC Port 8) | /dev/ttyS6 | TELEM2 / uLanding Radar Altimeter
+(OcPoC Port 8) | /dev/ttyS6 | TELEM2 / Ainstein US-D1 (a.k.a uLanding) Radar Altimeter
 (OcPoC Port 7) | /dev/ttyS6 | GPS/Compass #2 
 -->

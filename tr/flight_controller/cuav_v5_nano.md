@@ -102,7 +102,7 @@ The product package includes a convenient debug cable that can be connected to t
 > 
 > Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines. For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
 > 
-> For more information see [Using JTAG for hardware debugging](#issue_jtag).
+> For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
 ## Serial Port Mapping
 
@@ -121,7 +121,7 @@ The product package includes a convenient debug cable that can be connected to t
 
 *V5 nano* must be powered from the `Power` connector during flight, and may also/alternatively be powered from `USB` for bench testing.
 
-> **Note** The `PM2` connector cannot not be used for powering the *V5 nano* (see [this issue](#issue_pm2)).
+> **Note** The `PM2` connector cannot not be used for powering the *V5 nano* (see [this issue](#compatibility_pm2)).
 
 <span></span>
 
@@ -141,55 +141,42 @@ The *V5 nano* has no over current protection.
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-## Known Issues
+## Compatibility
 
-The issues below refer to the *batch number* in which they first appear. The batch number is the last two digits of the *serial number* that appears on a sticker on the side of the flight controller. For example, the serial number V031907XXXX**01** indicates the flight controller was in batch 01.
+CUAV adopts some differentiated designs and is incompatible with some hardware, which will be described below.
 
-#### GPS not compatible with other devices (Critical) - Batch 01 {#issue_gps_compatible}
+#### Neo v2.0 GPS not compatible with other devices {#compatibility_gps}
 
-The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
+The *Neo v2.0 GPS* that is recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
 
-The GPS will not work with other flight controllers, and is the only GPS unit that can be used with the *CUAV V5+* and *CUAV V5 nano*. <!-- Nano/80/V5_NANO_RC01_2019_05_29 -->
+The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-v2-pro/en/#enable) can also be used, and is compatible with other flight controllers.
 
-- *Found:* Batch 01
-- *Fixed:* -
-
-#### PM2 cannot power the flight controller {#issue_pm2}
-
-`PM2` can only measure battery voltage and current, but **not** power the flight controller.
-
-> **Warning** We recommend you do not connect a power module to this connector when using PX4.
-
-- *Found:* Batch 01
-- *Fixed:* -
-
-#### Volt regulation varies greater than +/- 5%
-
-The 5 volt pins on all connectors will be lower when powered from USB than the Power Module (the pins will measure approximately 4.69V when only powered by USB, and 5.28 Volts when connected to the Power Module).
-
-We recommend that when using USB with the *V5 nano* you *also connect the power module* (to avoid under-powering any connected peripherals).
-
-> **Warning** Remove propellers *before* connecting the power module (this is important whenever bench testing with powered motors).
-
-- *Found:* Batch 01
-- *Fixed:* -
-
-#### Using JTAG for hardware debugging {#issue_jtag}
+#### Using JTAG for hardware debugging {#compatibility_jtag}
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
-Some JTAG use this voltage to set the IO levels when communicating to the target.
+Some JTAG probes use this voltage to set the IO levels when communicating to the target.
 
-For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of `DSM`/`SBUS`/`RSSI` pin 4 as Pin 1 on the debug connector (`Vtref`).
+For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-#### HV\_PM power module output is unfused {#issue_pm_unfused}
+#### PM2 cannot power the flight controller {#compatibility_pm2}
 
-> **Warning** This is a serious safety issue.
+`PM2` can only measure battery voltage and current, but **not** power the flight controller.
 
-The *HV\_PM* power module supplied with the kit is not protected by a fuse:
+> **Warning** PX4 does not support this interface.
 
-- Power **must** be turned off while connecting peripherals.
-- Improper wiring can lead to *personal harm* or equipment damage!
+## Known Issues
+
+The issues below refer to the *batch number* in which they first appear. The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller. For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
+
+#### SBUS / DSM / RSSI interface Pin1 unfused {#pin1_unfused}
+
+> **Warning** This is a safety issue.
+
+Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this can lead to equipment damage!
+
+- *Found:* Batches V01190904xxxx
+- *Fixed:* Batches later than V01190904xxxx
 
 ## Further Information
 

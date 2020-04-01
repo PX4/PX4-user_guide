@@ -152,11 +152,11 @@ To watch the live stream of either camera `qcamvid` can be used. Run the followi
 
 Use `qcamvid -h` to have a look at all the options.
 
-To watch the live stream in QGroundControl, it has to be built with gstreamer (see [here](https://github.com/mavlink/qgroundcontrol/tree/master/src/VideoStreaming)).
+To watch the live stream in QGroundControl, it has to be built with gstreamer (see [here](https://dev.qgroundcontrol.com/en/getting_started/#video-streaming)).
 
-Once installed and conneted to the Snapdragon Flight's network, the following changes have to be made in QGroundControl.
+Once installed and conneted to the Snapdragon Flight's network, the following changes have to be made in *QGroundControl*.
 
-![](../../assets/videostreaming/QGC_snapdragon_streaming_settings.png)
+![Snapdragon streaming settings in QGC](../../assets/videostreaming/QGC_snapdragon_streaming_settings.png)
 
 ## Accessing I/O Data
 

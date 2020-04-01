@@ -16,7 +16,7 @@
 | Power2        | 连接I2C总线的智能电池                                                                        |
 | TF CARD       | 用于日志存储的SD卡（出厂时SD已经装配好）。                                                             |
 | M1~M8         | PWM输出接口 可以使用它控制电机或舵机。                                                               |
-| A1~A8         | PWM输出口.可以使用它控制电机或舵机。                                                                |
+| A1~A8         | PWM outputs. Can be used to control motors or servos.                               |
 | DSU7          | 用于FMU调试，读取调试信息。                                                                     |
 | I2C1/I2C2     | 连接I2C总线设备；比如外部指南针。                                                                  |
 | CAN1/CAN2     | 用于连接UAVCAN设备,比如CAN GPS。                                                             |
@@ -71,10 +71,7 @@
 > 
 > V5+套装包含*HV_PM*电源模块，该模块支持2~10S LiPo电池。 将*HW_PM*模块的6引脚连接到飞行控制器的`Power1`接口。
 > 
-> > **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_plus.md#issue_pm_unfused)).
-> 
-> - Power **must** be turned off while connecting peripherals.
-> - Improper wiring can lead to *personal harm* or equipment damage!
+> > **Warning** The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
 > 
 > ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 > 
@@ -90,7 +87,7 @@
 > 
 > ## SD Card (Optional) {#sd_card}
 > 
-> An SD card is inserted in the factory (you do not need to do anything).
+> An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
 > 
 > ## Motors
 > 
@@ -109,4 +106,4 @@
 > - [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html) (CUAV)
 > - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165) (CUAV)
 > - [CUAV Github](https://github.com/cuav) (CUAV)
-> - [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2B_BASE) (CUAV)
+> - [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE) (CUAV)

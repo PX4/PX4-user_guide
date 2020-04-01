@@ -115,13 +115,13 @@ The vehicle-based radio should be connected to the **TELEM1** port as shown belo
 
 ![Pixhawk 4/Telemetry Radio](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
 
-## SD Card (Optional)
+## SD Card (Optional) {#sd_card}
 
-SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). Insert the card (included in Pixhawk 4 kit) into *Pixhawk 4* as shown below.
+SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the card (included in Pixhawk 4 kit) into *Pixhawk 4* as shown below.
 
 ![Pixhawk 4/SD Card](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 
-> **Tip** The SanDisk Extreme U3 32GB is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
+> **Tip** For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
 
 ## Motors
 

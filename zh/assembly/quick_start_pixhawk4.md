@@ -115,13 +115,13 @@ GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, �
 
 ![Pixhawk 4 数传电台](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
 
-## SD 卡
+## SD Card (Optional) {#sd_card}
 
-SD卡通常是用来 [记录并分析飞行数据](../getting_started/flight_reporting.md)。 将内存卡 (包含在 Pixhawk 套件中) 插入 *Pixhawk 4 * 中，如下所示。
+SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. 将内存卡 (包含在 Pixhawk 套件中) 插入 *Pixhawk 4 * 中，如下所示。
 
 ![Pixhawk 4/SD 卡](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 
-> **Tip**（开发者指南）[强烈推荐使用](https://dev.px4.io/master/en/log/logging.html#sd-cards)SanDisk Extreme U3 32GB。
+> **Tip** For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
 
 ## 电机
 
