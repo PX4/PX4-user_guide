@@ -27,27 +27,33 @@ Vehicle flight characteristics are better if the corresponding desired setpoint 
   Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
 
 
-<!-- 
-## Definitions
+## Flight Modes Trajectory Support {#modes}
 
-The position controller ([diagram here](https://dev.px4.io/master/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop.
-Depending on the control (flight) mode either both loops are active or just the velocity control loop.
+[Mission mode](../flight_modes/mission.md) used the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory all the time.
 
-For the remainder of this topic the term **position-control** represents the case where both loops are active while **velocity-control** refers to the case when only the velocity control loop is in use.
--->
+[Position mode](../flight_modes/position_mc.md) supports all the [trajectory types](#trajectory_implementation) listed below.
+It uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default; the other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+
+No other modes support trajectory tuning.
+
 
 ## Trajectory Implementations {#trajectory_implementation}
 
-A number of *trajectory implementations* are provided:
+The following list provides an *overview* of the different trajectory implementations:
 
-- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) 
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) (Default)
   - Used when smooth motion is required (e.g.: filming, mapping, cargo).
   - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
   - May not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
-  - Set in position mode using `MPC_POS_MODE=3`
-- ?
+  - Set in position mode using `MPC_POS_MODE=3`.
+- [Slew-rate](../config_mc/mc_slew_rate_type_trajectory.md)
+  - Used when quick response is more important than smooth motion (e.g.: aggressive flight with position hold).
+  - This is a simple implementation where the jerk and acceleration is limited using slew-rates.
+  - It allows asymmetric profiles based on user intention (smooth acceleration and quick stop).	
+  - The jerk and acceleration limits are not hard constraints.
+  - Set in position mode using `MPC_POS_MODE=1`.
+- **Simple position control**
+  - Sticks map directly to velocity setpoints without smoothing.
+  - Useful for velocity control tuning.
+  - Set in position mode using `MPC_POS_MODE=0`.
 
-Different modes support different trajectory types:
-- [Mission mode](../flight_modes/mission.md) supports **only** the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory.
-- [Position mode](../flight_modes/position_mc.md) uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default. 
-The other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
