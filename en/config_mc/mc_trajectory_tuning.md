@@ -2,7 +2,7 @@
 
 This document provides an overview of the multicopter tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements or direction changes in missions, the maximum allowed velocity, etc.
 
-In other worlds, this topic explains how to tune the parameters that affect the value of a *desired setpoint* rather than those that affect how well the vehicle *tracks* the setpoint).
+In other words, this topic explains how to tune the parameters that affect the value of a *desired setpoint* rather than those that affect how well the vehicle *tracks* the setpoint).
 
 The algorithm that generates those setpoints is called a "trajectory generator".
 
@@ -56,4 +56,3 @@ The following list provides an *overview* of the different trajectory implementa
   - Sticks map directly to velocity setpoints without smoothing.
   - Useful for velocity control tuning.
   - Set in position mode using `MPC_POS_MODE=0`.
-
