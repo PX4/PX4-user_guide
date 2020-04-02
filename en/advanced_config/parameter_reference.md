@@ -14248,9 +14248,23 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="VT_B_DEC_FF">VT_B_DEC_FF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Backtransition deceleration setpoint to pitch feedforward gain</p>   </td>
+ <td style="vertical-align: top;">0 > 0.2 (0.05)</td>
+ <td style="vertical-align: top;">0.12</td>
+ <td style="vertical-align: top;">rad*s*s/m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_B_DEC_I">VT_B_DEC_I</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Backtransition deceleration setpoint to pitch I gain</p>   </td>
+ <td style="vertical-align: top;">0 > 0.3 (0.05)</td>
+ <td style="vertical-align: top;">0.1</td>
+ <td style="vertical-align: top;">rad*s/m</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="VT_B_DEC_MSS">VT_B_DEC_MSS</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Approximate deceleration during back transition</p><p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in mission mode. A lower value will make the VTOL transition further from the destination waypoint.</p>   </td>
- <td style="vertical-align: top;">0.00 > 20.00 (1)</td>
+ <td style="vertical-align: top;"><p>Approximate deceleration during back transition</p><p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in mission mode. A lower value will make the VTOL transition further from the destination waypoint. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
+ <td style="vertical-align: top;">0.5 > 10 (0.1)</td>
  <td style="vertical-align: top;">2.0</td>
  <td style="vertical-align: top;">m/s/s</td>
 </tr>
