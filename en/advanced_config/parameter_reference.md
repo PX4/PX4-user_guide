@@ -5368,12 +5368,12 @@ Setting this parameter to 0 disables the filter</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_POS_MODE">MPC_POS_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Manual-Position control sub-mode</p><p><strong>Comment:</strong> The supported sub-modes are: 0 Default position control where sticks map to position/velocity directly. Maximum speeds is MPC_VEL_MANUAL. 1 Smooth position control where setpoints are adjusted based on acceleration limits and jerk limits. 2 Sport mode that is the same Default position control but with velocity limits set to the maximum allowed speeds (MPC_XY_VEL_MAX) 3 Smooth position control with maximum acceleration and jerk limits (different algorithm than 1).</p> <strong>Values:</strong><ul>
-<li><strong>0:</strong> Default position control</li> 
+ <td style="vertical-align: top;"><p>Manual-Position control sub-mode</p><p><strong>Comment:</strong> The supported sub-modes are: 0 Simple position control where sticks map directly to velocity setpoints without smoothing. Useful for velocity control tuning. 1 Smooth position control with maximum acceleration and jerk limits based on slew-rates. 3 Smooth position control with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1).</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Simple position control</li> 
 
 <li><strong>1:</strong> Smooth position control</li> 
 
-<li><strong>3:</strong> Smooth position control (Velocity)</li> 
+<li><strong>3:</strong> Smooth position control (Jerk optimized)</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
