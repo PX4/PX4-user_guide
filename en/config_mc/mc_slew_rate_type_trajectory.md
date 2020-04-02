@@ -17,7 +17,7 @@ This topic explains how the trajectory type can be tuned.
 In [Position mode](../flight_modes/position_mc.md) the stick inputs are mapped to either **position-control** or **velocity-control**.
 
 > **Note** The position controller ([diagram here](https://dev.px4.io/master/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop.
-Depending on the control (flight) mode either both loops are active or just the velocity control loop.
+Depending on the mode and situation either both loops are active or just the velocity control loop.
 >
 > For the remainder of this topic the term **position-control** represents the case where both loops are active while **velocity-control** refers to the case when only the velocity control loop is in use.
 
