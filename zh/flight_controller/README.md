@@ -6,7 +6,6 @@
 
 * [Pixhawk系列](../flight_controller/pixhawk_series.md) - 在Nuttx OS上运行PX4的开放式硬件飞行控制器。 有许多外形，有针对许多用例和细分市场的版本。 
 * 用于计算密集型任务的自动驾驶仪： 
-  * [高通骁龙](../flight_controller/snapdragon_flight.md) - 与集成的机载计算机的高端自动驾驶仪。
   * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
 
@@ -43,7 +42,7 @@
 * [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 * [ModalAI](../flight_controller/modalai.md) 
   * [Flight Core](../flight_controller/modalai_fc_v1.md)
-* [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
 * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
 * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
+* [Snapdragon Flight (Discontinued)](../flight_controller/snapdragon_flight.md)
