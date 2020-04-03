@@ -1,5 +1,9 @@
 # Installing Software on the Snapdragon
-To get the platform running with the complete VIO system running, multiple pieces are required. 
+
+> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version).
+  This documentation is provided for existing users, but will be removed in a future release.
+
+To get the platform running with the complete VIO system running, multiple pieces are required.
 The following is an overview of the different versions used. Detailed installation instructions are provided below.
 
 | Software         | Tested version                     | Link/commit ID                                |
