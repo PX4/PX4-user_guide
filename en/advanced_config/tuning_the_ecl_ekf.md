@@ -298,29 +298,57 @@ The index map for covariances\[28\] is as follows:
 * \[22 ... 23\] Wind velocity NE \(m/s\)^2
 * \[24 ... 28\] Not Used
 
-### Observation Innovations
+### Observation Innovations & Innovation Variances
 
-* Magnetometer XYZ \(gauss\) : Refer to `mag_field[3]` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
-* Yaw angle \(rad\) : Refer to `heading` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
-* Velocity and position innovations : Refer to vel\_pos\_innov\[6\] in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg). The index map for vel\_pos\_innov\[6\] is as follows:
-  * \[0 ... 2\] Velocity NED \(m/s\)
-  * \[3 ... 5\] Position NED \(m\)
-* True Airspeed \(m/s\) : Refer to `airspeed` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
-* Synthetic sideslip \(rad\) : Refer to `beta` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
-* Optical flow XY \(rad/sec\) : Refer to `flow` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
-* Height above ground \(m\) : Refer to `hagl` in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [estimator_innovations.msg](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+The messages are all have the same field names/types (but different units).
 
-### Observation Innovation Variances
+> **Note** The messages have the same fields because they are generated from the same field definition. 
+  The `# TOPICS` line (at the end of [the file](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg)) lists the names of a set of messages to be created):
+  ```
+  # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
+  ```
 
-* Magnetometer XYZ \(gauss^2\) : Refer to mag\_innov\_var\[3\] in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg). 
-* Yaw angle \(rad^2\) : Refer to heading\_innov\_var in the ekf2\_innovations message.
-* Velocity and position innovations : Refer to vel\_pos\_innov\_var\[6\] in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg). The index map for vel\_pos\_innov\_var\[6\] is as follows:
-  * \[0 ... 2\] Velocity NED \(m/s\)^2
-  * \[3 ... 5\] Position NED \(m^2\)
-* True Airspeed \(m/s\)^2 : Refer to airspeed\_innov\_var in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
-* Synthetic sideslip \(rad^2\) : Refer to beta\_innov\_var in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
-* Optical flow XY \(rad/sec\)^2 : Refer to flow\_innov\_var in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
-* Height above ground \(m^2\) : Refer to hagl\_innov\_var in [estimator\_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
+Some of the observations are:
+* Magnetometer XYZ (gauss, gauss^2) : `mag_field[3]`
+* Yaw angle (rad, rad^2) : `heading`
+* True Airspeed (m/s, (m/s)^2) : `airspeed`
+* Synthetic sideslip (rad, rad^2) : `beta`
+* Optical flow XY (rad/sec, (rad/s)^2) : `flow`
+* Height above ground (m, m^2) : `hagl`
+* Drag specific force ((m/s)^2): `drag`
+* Velocity and position innovations : per sensor
+
+In addition, each sensor has its own fields for horizontal and vertical position and/or velocity values (where appropriate).
+These are largely self documenting, and are reproduced below:
+```
+# GPS
+float32[2] gps_hvel	# horizontal GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+float32    gps_vvel	# vertical GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+float32[2] gps_hpos	# horizontal GPS position innovation (m) and innovation variance (m**2)
+float32    gps_vpos	# vertical GPS position innovation (m) and innovation variance (m**2)
+
+# External Vision
+float32[2] ev_hvel	# horizontal external vision velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+float32    ev_vvel	# vertical external vision velocity innovation (m/sec) and innovation variance ((m/sec)**2)
+float32[2] ev_hpos	# horizontal external vision position innovation (m) and innovation variance (m**2)
+float32    ev_vpos	# vertical external vision position innovation (m) and innovation variance (m**2)
+
+# Fake Position and Velocity
+float32[2] fake_hvel	# fake horizontal velocity innovation (m/s) and innovation variance ((m/s)**2)
+float32    fake_vvel	# fake vertical velocity innovation (m/s) and innovation variance ((m/s)**2)
+float32[2] fake_hpos	# fake horizontal position innovation (m) and innovation variance (m**2)
+float32    fake_vpos	# fake vertical position innovation (m) and innovation variance (m**2)
+
+# Height sensors
+float32 rng_vpos	# range sensor height innovation (m) and innovation variance (m**2)
+float32 baro_vpos	# barometer height innovation (m) and innovation variance (m**2)
+
+# Auxiliary velocity
+float32[2] aux_hvel	# horizontal auxiliar velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
+float32    aux_vvel	# vertical auxiliar velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
+```
+
 
 ### Output Complementary Filter
 
