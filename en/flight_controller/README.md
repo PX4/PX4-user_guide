@@ -6,10 +6,9 @@ There are a number of options:
 
 * [Pixhawk Series](../flight_controller/pixhawk_series.md) - Open hardware flight controllers that run PX4 on NuttX OS. With many form factors, there are versions targeted towards many use cases and market segments 
 * Autopilots for computationally intensive tasks:
-  * [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) - High-end autopilot with integrated onboard computer.
   * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
-  
+
 > **Tip** You can also try PX4 on a [Complete Vehicle](../complete_vehicles/README.md) (consumer drones and reference platforms that can run PX4).
 
 
@@ -44,7 +43,7 @@ The list of boards documented in this library can be found in the sidebar (repro
 * [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 * [ModalAI](../flight_controller/modalai.md)
   * [Flight Core](../flight_controller/modalai_fc_v1.md)
-* [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
 * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
 * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
+* [Snapdragon Flight (Discontinued)](../flight_controller/snapdragon_flight.md)
