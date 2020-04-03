@@ -1,4 +1,9 @@
-# Snapdragon Flight Autopilot
+# Snapdragon Flight Autopilot (Discontinued)
+
+> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version).
+  This documentation is provided for existing users, but will be removed in a future release.
+
+https://www.intrinsyc.com/qualcomm-flight-pro-development-kit/
 
 The *Qualcomm Snapdragon Flight* platform is a high-end autopilot / onboard computer which runs the PX4 Flight Stack on the DSP on the QuRT real time operating system using the [DSPAL API](https://github.com/ATLFlight/dspal) for POSIX compatibility. 
 In comparison to [Pixhawk](../flight_controller/pixhawk.md) it adds a camera and WiFi and high-end processing power, and different IO.
@@ -28,7 +33,7 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 * Accelerometer / Gyro / Mag: Invensense MPU-9250 9-Axis Sensor, 3x3mm QFN, on bus SPI1
 * Baro: Bosch BMP280 barometric pressure sensor, on bus I2C3
 * Power: 5VDC via external 2S-6S battery regulated down to 5V via APM adapter
-* Availability: [Intrinsyc Store](http://shop.intrinsyc.com/products/snapdragon-flight-dev-kit) 
+* Availability: *No longer available*
 
 
 ## Connectivity
