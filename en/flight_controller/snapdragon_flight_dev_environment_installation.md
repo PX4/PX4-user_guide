@@ -1,5 +1,8 @@
 # Snapdragon Development Environment Installation
 
+> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version).
+  This documentation is provided for existing users, but will be removed in a future release.
+
 This topic explains how to set up the *Qualcomm Snapdragon Flight* development toolchain on a Linux computer.
 
 > ***Note*** The firmware for the *Qualcomm Snapdragon Flight* must be built manually (Firmware is not supplied for automatic download via *QGroundControl*).
