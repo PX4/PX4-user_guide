@@ -94,7 +94,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
-The datasheet from Hex manufacturing can be found [here](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf).
+All other Cube documentation, including pinouts can be found at [docs.cubepilot.org](https://docs.cubepilot.org/user-guides/) (e.g. [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview), [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board) etc.).
 
 ## Serial Port Mapping
 
