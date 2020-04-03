@@ -1,5 +1,7 @@
 # Snapdragon Advanced
 
+> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version). This documentation is provided for existing users, but will be removed in a future release.
+
 This page is a collection of useful commands and instructions which might come in handy when working with the Snapdragon platform.
 
 ## Connect to Snapdragon
