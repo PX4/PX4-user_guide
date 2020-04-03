@@ -9,7 +9,8 @@ The *Takeoff* flight mode causes the vehicle to take off to a specified height a
 > * The vehicle must be armed before this mode can be engaged.
 > * This mode is automatic - no user intervention is *required* to control the vehicle.
 > * RC control switches can be used to change flight modes on any vehicle.
-    The effect of RC stick movement depends on the vehicle type.
+>   The effect of RC stick movement depends on the vehicle type.
+> * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 
 The specific behaviour for each vehicle type is described below.
 

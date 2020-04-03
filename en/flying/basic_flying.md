@@ -38,8 +38,7 @@ Above this value all controllers are enabled and the vehicle goes to the throttl
 > **Note** The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)).
 
 <span></span>
-> **Note** A poorly tuned vehicle may flip on takeoff.
-  The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines in this case (see [failure detector attitude trigger settings](../config/safety.md#attitude_trigger)).
+> **Note** The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 
 
 ## Landing
