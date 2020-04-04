@@ -34,26 +34,26 @@
 
 [安全](../config/safety.md)话题解释了如何将*飞行终止*设置为针对特定故障安全检查而执行的[故障保护动作](../config/safety.md#failsafe_actions)。
 
-The [Failure Detector](../config/safety.md#failure_detector) can also (optionally) be configured to trigger flight termination if the vehicle flips (exceeds a certain attitude) or if failure is detected by an external automatic trigger system (ATS):
+如果载具翻转（超过一定姿态）或外部自动触发系统（ATS）检测到故障，则[故障检测器](../config/safety.md#failure_detector)也可以（可选）通过配置来触发飞行终止，如下所示：
 
-- Enable the failure detector during flight by setting [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM).
-- [Safety > Failure Detector > Attitude Trigger](../config/safety.md#attitude_trigger) explains how to configure the attitude limits that trigger *Flight termination*. > **Note** During *takeoff* excessive attitutes will trigger *lockdown* (kill motors, but not launch parachute) rather than flight termination. This is always enabled, irrespective of the value of `CBRK_FLIGHTTERM`.
-- [Safety > External Automatic Trigger System (ATS)](../config/safety.md#external_ats) explains how to configure an external trigger system.
+- 设置 [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) 启用故障检测器（默认情况下禁用）。
+- 通过[安全 > 故障检测器 > 姿态触发器](../config/safety.md#attitude_trigger)可以配置触发*飞行终止*的姿态极限值。 > **Note** 在*起飞期间*，超过限制值的姿态将触发*上锁*（制动电机但不启动降落伞），而不是飞行终止。 无论 `CBRK_FLIGHTTERM` 为何值，此选项始终启用。
+- [通过安全 > 外部自动触发系统（ATS）](../config/safety.md#external_ats)可以配置外部触发系统。
 
-For each MAIN output to which a safety device is attached, where "n" is the PWM port number, set:
+对于每个与安全装置相连的 MAIN 输出，其中“n”指 PWM 端口号：
 
-- [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) to the device's "OFF" PWM value.
-- [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1) to the device's "ON" PWM value.
+- 将 [PWM_MAIN_DISn](../advanced_config/parameter_reference.md#PWM_MAIN_DIS1) 设置为设备的“OFF”PWM值。
+- 将 [PWM_MAIN_FAILn](../advanced_config/parameter_reference.md#PWM_MAIN_FAIL1) 设置为设备的“ON”PWM值。
 
-For each AUX output to which a safety device is attached, where "n" is the PWM port number, set:
+对于每个与安全装置相连的 AUX 输出，其中“n”指 PWM 端口号：
 
-- [PWM_AUX_DIS1](../advanced_config/parameter_reference.md#PWM_AUX_DIS1) to the device's "OFF" PWM value.
-- [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) to the device's "ON" PWM value.
+- 将 [PWM_AUX_DISn](../advanced_config/parameter_reference.md#PWM_AUX_DIS1) 设置为设备的“OFF”PWM值。
+- 将 [PWM_AUX_FAILn](../advanced_config/parameter_reference.md#PWM_AUX_FAIL1) 设置为设备的“ON”PWM值。
 
-Finally, set the `PWM_AUX_FAILn` and `PWM_MAIN_FAILn` PWM values for any motors.
+最后，设置任意电机的 `PWM_AUX_FAILn` and `PWM_MAIN_FAILn` PWM值。
 
-## Logic Diagram
+## 逻辑图解
 
-The diagram below shows the logical flow around flight termination.
+下图显示了飞行终止的逻辑流程。
 
-![Logic diagram](../../assets/config/flight_termination_logic_diagram.png)
+![逻辑图解](../../assets/config/flight_termination_logic_diagram.png)
