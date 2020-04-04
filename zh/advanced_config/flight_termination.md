@@ -1,28 +1,28 @@
 # 飞行终止配置
 
-*飞行终止* [故障保护动作](../config/safety.md#failsafe_actions) 可由 [安全检查](../config/safety.md)（例如任何载具类型或任何飞行模式下的 RC 丢失、违反地理围栏等）或者故障检测器触发。 
+*飞行终止*[故障保护动作](../config/safety.md#failsafe_actions)可由[安全检查](../config/safety.md)（例如任何载具类型或任何飞行模式下的 RC 丢失、违反地理围栏等）或者故障检测器触发。 
 
 当*飞行终止*激活时，PX4 同时关闭所有控制器，并将所有 PWM 输出设置为其故障保护值。
 
-Depending on what devices are connected, the PWM failsafe outputs can be used to:
+根据所连接的设备，PWM 故障保护输出可以用来完成以下动作：
 
-- Deploy a [parachute](../peripherals/parachute.md).
-- Extend retractable landing gear.
-- Move a PWM-connected gimbal to a safe orientation (or retract it) in order to protect the camera.
-- Trigger an inflatable device like an airbag.
-- Trigger an alarm.
+- 展开[降落伞](../peripherals/parachute.md)。
+- 伸展可伸缩起落架。
+- 将连接了 PWM 的云台移动到安全的方向（或将它回收）以保护摄像机。
+- 触发一个重启装置，比如安全气囊。
+- 触发警报。
 
-There is no way to recover from flight termination. After triggering you should unplug the battery as soon as possible. You will need to reboot/power cycle the vehicle before it can be used again.
+飞行终止是无法取消的。 在飞行终止触发后，您应尽快拔下电池。 您需要在重启载具或重新上电后才能再次使用。
 
-> **Tip** PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
-
-<span></span>
-
-> **Tip** Failsafe values are applied to all outputs on termination. There is no way to configure independent time-based (or other) triggering of the motors or specific safety devices.
+> **Tip** PX4 不知道连接了哪些安全设备——它仅仅将一组预设的 PWM 值应用于安全设备的输出。
 
 <span></span>
 
-> **Note** This is *not* an independent *Flight Termination System*. If power is lost or if the autopilot crashes completely, the failsafe devices will not be triggered.
+> **Tip** 故障保护值被应用于终端的所有输出。 无法配置基于独立时间（或其他）触发的电机或特定安全装置。
+
+<span></span>
+
+> **Note** 这*不是*一个独立的*飞行终止系统*。 如果断电或自动驾驶仪完全崩溃，则不会触发故障安全设备。
 
 ## Hardware Configuration
 
