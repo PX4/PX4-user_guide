@@ -24,15 +24,15 @@
 
 > **Note** 这*不是*一个独立的*飞行终止系统*。 如果断电或自动驾驶仪完全崩溃，则不会触发故障安全设备。
 
-## Hardware Configuration
+## 硬件配置
 
-Any *safety device(s)* (e.g. a [parachute](../peripherals/parachute.md)) that can be triggered by changing a PWM value can be used, and may be connected to any free PWM port (both MAIN and AUX).
+可以使用通过改变 PWM 值触发的任何*安全装置*（例如[降落伞](../peripherals/parachute.md)），此外可以连接到任何空闲的 PWM 端口（MAIN 端口和 AUX 端口均可）。
 
-> **Note** If you're using Pixhawk-series board you will have to separately power the servo rail (i.e. from a 5V BEC, which is often also available from your ESC).
+> **Note** 如果您使用的是 Pixhawk 系列电路板，则必须单独为伺服导轨供电（通常可利用您无刷电调上的 5V BEC 供电）。
 
-## Software Configuration
+## 软件配置
 
-The [Safety](../config/safety.md) topic explains how to set the *flight termination* as the [failsafe action](../config/safety.md#failsafe_actions) to be performed for particular failsafe check.
+[安全](../config/safety.md)话题解释了如何将*飞行终止*设置为针对特定故障安全检查而执行的[故障保护动作](../config/safety.md#failsafe_actions)。
 
 The [Failure Detector](../config/safety.md#failure_detector) can also (optionally) be configured to trigger flight termination if the vehicle flips (exceeds a certain attitude) or if failure is detected by an external automatic trigger system (ATS):
 
