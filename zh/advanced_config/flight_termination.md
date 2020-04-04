@@ -1,8 +1,8 @@
-# Flight Termination Configuration
+# 飞行终止配置
 
-The *Flight termination* [failsafe action](../config/safety.md#failsafe_actions) may be triggered by a [safety check](../config/safety.md) (e.g. RC Loss, geofence violation, etc. on any vehicle type or in any flight mode), or by the [Failure Detector](../config/safety.md#failure_detector).
+*飞行终止* [故障保护动作](../config/safety.md#failsafe_actions) 可由 [安全检查](../config/safety.md)（例如任何载具类型或任何飞行模式下的 RC 丢失、违反地理围栏等）或者故障检测器触发。 
 
-When *Flight termination* is activated, PX4 simultaneously turns off all controllers and sets all PWM outputs to their failsafe values.
+当*飞行终止*激活时，PX4 同时关闭所有控制器，并将所有 PWM 输出设置为其故障保护值。
 
 Depending on what devices are connected, the PWM failsafe outputs can be used to:
 
