@@ -33,6 +33,7 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
   * Servo Rail Input: 0~24V
   * Max current sensing: 120A
 * Weight and Dimensions: 
+  * Weight: 37.2g
   * Dimensions: 38x55x15.5mm
 * Other Characteristics: 
   * Operating temperature: -40 ~ 85°c
