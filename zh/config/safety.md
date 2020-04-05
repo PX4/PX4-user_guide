@@ -29,13 +29,13 @@ Each failsafe defines its own set of actions. Some of the more common failsafe a
 
 The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* **Gear** icon (Vehicle Setup - top toolbar) and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the return actions *Return* and *Land*.
 
-![Safety Setup (QGC)](../../images/qgc/setup/safety_setup.png)
+![安全设置（QGC）](../../images/qgc/setup/safety_setup.png)
 
 ### Low Battery Failsafe
 
 The low battery failsafe is triggered when the battery capacity drops below one (or more warning) level values.
 
-![Safety - Battery (QGC)](../../images/qgc/setup/safety_battery.png)
+![安全 - 电池（QGC）](../../images/qgc/setup/safety_battery.png)
 
 The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`). With this configuration the failsafe will trigger warning, then return, and finally landing if capacity drops below the respective levels.
 
@@ -54,7 +54,7 @@ The settings and underlying parameters are shown below.
 
 The RC Loss failsafe is triggered if the RC transmitter link is lost.
 
-![Safety - RC Loss (QGC)](../../images/qgc/setup/safety_rc_loss.png)
+![安全 - 遥控丢失（QGC）](../../images/qgc/setup/safety_rc_loss.png)
 
 > **Note** PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
 
@@ -69,7 +69,7 @@ The settings and underlying parameters are shown below.
 
 The Data Link Loss failsafe is triggered if a telemetry link (connection to ground station) is lost when flying a [mission](../flying/missions.md).
 
-![Safety - Data Link Loss (QGC)](../../images/qgc/setup/safety_data_link_loss.png)
+![安全 - 数据链路丢失（QGC）](../../images/qgc/setup/safety_data_link_loss.png)
 
 The settings and underlying parameters are shown below.
 
@@ -82,7 +82,7 @@ The settings and underlying parameters are shown below.
 
 The *Geofence Failsafe* is a "virtual" cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
 
-![Safety - Geofence (QGC)](../../images/qgc/setup/safety_geofence.png)
+![安全 - 地理围栏（QGC）](../../images/qgc/setup/safety_geofence.png)
 
 > **Tip** PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
 
@@ -109,7 +109,7 @@ The following settings also apply, but are not displayed in the QGC UI.
 
 *Return* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. This section shows how to set the land/loiter behaviour after returning.
 
-![Safety - Return Home Settings (QGC)](../../images/qgc/setup/safety_return_home.png)
+![安全 - 返航设置（QGC）](../../images/qgc/setup/safety_return_home.png)
 
 The settings and underlying parameters are shown below:
 
@@ -126,7 +126,7 @@ The settings and underlying parameters are shown below:
 
 *Land at the current position* is a common [failsafe action](#failsafe_actions) that engages [Land Mode](../flight_modes/land.md). This section shows how to control when and if the vehicle automatically disarms after landing. For Multicopters (only) you can additionally set the descent rate.
 
-![Safety - Land Mode Settings (QGC)](../../images/qgc/setup/safety_land_mode.png)
+![安全 - 降落模式设置（QGC）](../../images/qgc/setup/safety_land_mode.png)
 
 The settings and underlying parameters are shown below:
 
@@ -287,17 +287,17 @@ The relevant parameters are shown below:
 > 
 > ## 其他安全设置
 > 
-> ### 自动上锁超时 {#auto-disarming-timeouts}
+> ### 超时自动上锁 {#auto-disarming-timeouts}
 > 
-> You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
+> 如果起飞，并且/或者着陆后的响应速度太慢，您可以设置超时自动上锁（上锁会断开电机的电源，导致螺旋桨不会旋转）。
 > 
-> The [relevant parameters](../advanced_config/parameters.md) are shown below:
+> [相关参数](../advanced_config/parameters.md)显示如下：
 > 
-> | Parameter                                                                                                  | Description                                                |
-> | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-> | <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | Timeout for auto-disarm after landing.                     |
-> | <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | Timeout for auto disarm if vehicle is too slow to takeoff. |
+> | 参数                                                                                                         | 描述                |
+> | ---------------------------------------------------------------------------------------------------------- | ----------------- |
+> | <span id="COM_DISARM_LAND"></span>[COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND)   | 降落后自动上锁的超时时间。     |
+> | <span id="COM_DISARM_PRFLT"></span>[COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT) | 如果起飞速度太慢，将启动自动上锁。 |
 > 
-> ## Further Information
+> ## 更多信息
 > 
-> * [QGroundControl User Guide > Safety Setup](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
+> * [QGroundControl 用户手册 > 安全设置](https://docs.qgroundcontrol.com/en/SetupView/Safety.html)
