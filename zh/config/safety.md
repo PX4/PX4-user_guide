@@ -247,47 +247,47 @@ The relevant parameters are shown below:
 > | <span id="FD_EXT_ATS_EN"></span>[FD_EXT_ATS_EN](../advanced_config/parameter_reference.md#FD_EXT_ATS_EN)     | 启用 AUX5 或 MAIN5（取决于飞控板）上的 PWM 输入，以便从外部自动触发系统（ATS）启用故障保护。 默认值：禁用。 |
 > | <span id="FD_EXT_ATS_TRIG"></span>[FD_EXT_ATS_TRIG](../advanced_config/parameter_reference.md#FD_EXT_ATS_TRIG) | 来自外部自动触发系统的用于接通故障保护的 PWM 阈值。 默认值：1900m/s。                        |
 > 
-> ## 紧急开关 {#safety_switch}
+> ## 应急开关 {#safety_switch}
 > 
-> Remote control switches can be configured (as part of *QGroundControl* [Flight Mode Setup](../config/flight_mode.md)) to allow you to take rapid corrective action in the event of a problem or emergency; for example, to stop all motors, or activate [Return mode](#return_switch).
+> 可以配置遥控开关（*QGroundControl* [飞行模式设置](../config/flight_mode.md)的一部分），以便在出现问题或发生紧急情况时及时采取矫正措施；例如，制动所有电机或激活[返航模式](#return_switch)。
 > 
-> This section lists the available emergency switches.
+> 本节列出了可用的应急开关。
 > 
-> ### Kill Switch {#kill_switch}
+> ### 急停开关 {#kill_switch}
 > 
-> A kill switch immediately stops all motor outputs (and if flying, the vehicle will start to fall)! The motors will restart if the switch is reverted within 5 seconds. After 5 seconds the vehicle will automatically disarm; you will need to arm it again in order to start the motors.
+> 急停开关会立即终止所有电机的输出（如果正处于飞行状态，载具将开始降落）！ 如果开关在 5 秒内复位，电机将重启。 5 秒后，载具将自动上锁；您需要再次解锁才能启动电机。
 > 
-> ### Arm/Disarm Switch {#arming_switch}
+> ### 解锁/上锁开关 {#arming_switch}
 > 
-> The arm/disarm switch is a *direct replacement* for the default stick-based arming/disarming mechanism (and serves the same purpose: making sure there is an intentional step involved before the motors start/stop). It might be used in preference to the default mechanism because:
+> 解锁/上锁开关是对默认杆状安全开关机制的*直接替换*（二者作用相同：确保在电机启动/停止之前有一个需要用户留意的步骤）。 它可能优先于默认机制使用，原因如下：
 > 
-> * Of a preference of a switch over a stick motion.
-> * It avoids accidentally triggering arming/disarming in-air with a certain stick motion.
-> * There is no delay (it reacts immediately).
+> * 这种机制偏向于切换动作而不是持续运动。
+> * 这种机制可以避免因为某种意外误触而引发的飞行期间解锁/上锁。
+> * 这种机制没有延迟（立即作出反应）。
 > 
-> The arm/disarm switch immediately disarms (stop) motors for those [flight modes](../getting_started/flight_modes.md) that *support disarming in flight*. This includes:
+> 对于那些*支持在飞行期间上锁*的飞行模式<1>，解锁/上锁开关会立即上锁（制动）电机。 支持飞行期间上锁的模式如下：</p> 
 > 
-> * *Manual mode*
-> * *Acro mode*
-> * *自稳*
-> * *Rattitude*
+> * *手动模式*
+> * *特技模式*
+> * *自稳模式*
+> * *半自稳模式*
 > 
-> For modes that do not support disarming in flight, the switch is ignored during flight, but may be used after landing is detected. This includes *Position mode* and autonomous modes (e.g. *Mission*, *Land* etc.).
+> 对于不支持在飞行期间上锁的模式，在飞行期间会忽略该开关信号，但在检测到着陆后可以使用该开关。 不支持飞行期间上锁的模式包括*定点模式*和自主模式（例如*任务模式*、*降落模式*等）。
 > 
-> > **Note** [Auto disarm timeouts](#auto-disarming-timeouts) (e.g. via [COM_DISARM_LAND](#COM_DISARM_LAND)) are independent of the arm/disarm switch - ie even if the switch is armed the timeouts will still work.
+> > **Note** [自动上锁超时](#auto-disarming-timeouts)（如由 [COM_DISARM_LAND](#COM_DISARM_LAND) 导致）独立于解锁/上锁开关——即使解锁开关已超时，操作仍然有效。
 > 
 > <!--
 > **Note** This can also be done by [manually setting](../advanced_config/parameters.md) the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter to the corresponding switch RC channel.
   If the switch positions are reversed, change the sign of the parameter [RC_ARMSWITCH_TH](../advanced_config/parameter_reference.md#RC_ARMSWITCH_TH) (or also change its value to alter the threshold value).
 -->
 > 
-> ### Return Switch {#return_switch}
+> ### 返航开关 {#return_switch}
 > 
-> A return switch can be used to immediately engage [Return mode](../flight_modes/return.md).
+> 返航开关可以立即启动[返航模式](../flight_modes/return.md)。
 > 
-> ## Other Safety Settings
+> ## 其他安全设置
 > 
-> ### Auto-disarming Timeouts {#auto-disarming-timeouts}
+> ### 自动上锁超时 {#auto-disarming-timeouts}
 > 
 > You can set timeouts to automatically disarm a vehicle if it is too slow to takeoff, and/or after landing (disarming the vehicle removes power to the motors, so the propellers won't spin).
 > 
