@@ -4,7 +4,7 @@
 
 * 이륙 (Takeo) </ 0> 비행 모드는 기체가 지정된 높이로 떨어져 나가고 추가 입력을 기다립니다.</p> 
 
-> **Note** * This mode requires GPS. * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. The effect of RC stick movement depends on the vehicle type.
+> **Note** * This mode requires GPS. * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. The effect of RC stick movement depends on the vehicle type. * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 
 The specific behaviour for each vehicle type is described below.
 
@@ -55,14 +55,15 @@ Once the altitude error < <a href="#FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</a>, regula
 <p>The <em>runway takeoff mode</em> has the following phases:</p>
 
 <ol start="1">
-<li><strong> 스로틀 램프 </ 0> : 이륙을위한 최소 속도 (<a href="#FW_AIRSPD_MIN"> FW_AIRSPD_MIN </ 1> x <a href="#RWTO_AIRSPD_SCL"> RWTO_AIRSPD_SCL </ 2>)에 도달 할 때까지 활주로에 고정 (피치 고정, ) </li>
+<li><strong>Throttle ramp</strong>: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff (<a href="#FW_AIRSPD_MIN">FW_AIRSPD_MIN</a> x <a href="#RWTO_AIRSPD_SCL">RWTO_AIRSPD_SCL</a>).</li>
 <li><strong> 이륙 </ 0> : 피치를 높이고 기체 고도> 항법 고도 (<a href="#RWTO_NAV_ALT"> RWTO_NAV_ALT </ 1>)까지 계속하십시오.</li>
 <li>
 
 
 
 <strong> 등산 </ 0> :지면 위의 고도 <a href="#FW_CLMBOUT_DIFF"> FW_CLMBOUT_DIFF </ 1>까지 상승하십시오.
- 이 단계에서는 롤 및 제목 제한이 제거됩니다.</li>
+
+이 단계에서는 롤 및 제목 제한이 제거됩니다.</li>
 </ol>
 
 <p>RC stick movement is ignored.</p>

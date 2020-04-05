@@ -6,7 +6,6 @@
 
 * [Pixhawk Series](../flight_controller/pixhawk_series.md) - NuttX OS에서 PX4를 실행하는 개방형 하드웨어 비행 컨트롤러. 다양한 폼 팩터를 통해 많은 유스 케이스 및 시장 부문을 대상으로 한 버전이 있습니다. 
 * Autopilots for computationally intensive tasks: 
-  * [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) - 온보드 컴퓨터가 통합 된 하이 엔드 자동 조종 장치.
   * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
 
@@ -43,7 +42,7 @@
 * [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
 * [ModalAI](../flight_controller/modalai.md) 
   * [Flight Core](../flight_controller/modalai_fc_v1.md)
-* [Snapdragon Flight](../flight_controller/snapdragon_flight.md)
 * [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
 * [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
 * [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
+* [Snapdragon Flight (Discontinued)](../flight_controller/snapdragon_flight.md)

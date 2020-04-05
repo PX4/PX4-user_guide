@@ -4,7 +4,7 @@
 
 *起飞*飞行模式使飞机起飞到指定高度并等待进一步指令。
 
-> **Note** * This mode requires GPS. * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. The effect of RC stick movement depends on the vehicle type.
+> **Note** * This mode requires GPS. * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. The effect of RC stick movement depends on the vehicle type. * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 
 下面描述每种类型飞机的具体行为。
 
@@ -32,7 +32,7 @@ In *catapult/hand launch mode* the vehicle will perform a full throttle climbout
 
 The *runway takeoff mode* has the following phases:
 
-1. **油门斜坡**：飞机依附在跑道上（俯仰固定，无滚转，航向保持），直到达到起最小起飞空速（[ FW_AIRSPD_MIN ](#FW_AIRSPD_MIN) x [ RWTO_AIRSPD_SCL ](#RWTO_AIRSPD_SCL)） 
+1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)).
 2. **起飞**：增加俯仰直到飞机高度>导航高度（[ RWTO_NAV_ALT ](#RWTO_NAV_ALT)）。
 3. ** 爬出**：爬升至地面以上的高度> [ FW_CLMBOUT_DIFF ](#FW_CLMBOUT_DIFF)。 在此阶段中, 将移除滚转和航向限制。
 
