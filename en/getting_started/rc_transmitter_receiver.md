@@ -97,6 +97,7 @@ In addition to the transmitter/receiver pairs being compatible, the receiver mus
 As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
 
 - Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
+- Graupner receiver SUMD ouput must connect to a **SPKT/DSM** input.
 - PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
 - PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
