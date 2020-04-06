@@ -2,22 +2,22 @@
 
 本文主要回答使用 ECL EKF 算法的常见问题。
 
-> **提示：** [PX4 状态估计概述](https://youtu.be/HkYRJJoyBwQ)视频， *PX4 开发者峰会 2019*， (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+> **提示：** [PX4 状态估计概述](https://youtu.be/HkYRJJoyBwQ)视频， *PX4 开发者峰会 2019*， (Dr. Paul Riseborough) 对状态估计器进行了概述，并且还进一步介绍了2018/2019年以来的重大变化以及2020年期间计划的改进措施。
 
-## What is the ECL EKF?
+## 什么是 ECL EKF？
 
-The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
+估计和控制库（ECL）使用扩展卡尔曼滤波算法（EKF）来处理传感器的测量信息，并提供如下状态量的估计值：
 
-* Quaternion defining the rotation from North, East, Down local earth frame to X, Y, Z body frame
-* Velocity at the IMU - North, East, Down \(m/s\)
-* Position at the IMU - North, East, Down \(m\)
-* IMU delta angle bias estimates - X, Y, Z \(rad\)
-* IMU delta velocity bias estimates - X, Y, Z\(m/s\)
-* Earth Magnetic field components - North, East, Down \(gauss\)
-* Vehicle body frame magnetic field bias - X, Y, Z \(gauss\)
-* Wind velocity - North, East \(m/s\)
+* 定义由北-东-地的当地地理坐标系到X-Y-Z机体坐标系旋转角度的姿态四元数
+* IMU传感器位置处的速度-北-东-地 \(m/s\)
+* IMU传感器位置处的空间坐标 - 北-东-地 \(m\)
+* IMU 角度误差估计 - X, Y, Z \(rad\)
+* IMU 速度误差估计 - X, Y, Z\(m/s\)
+* 地理地磁 - 北-东-地 \(gauss\)
+* 机体偏置磁场 - X, Y, Z \(gauss\)
+* 风速 - 北-东 \(m/s\)
 
-The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU. Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time. The delay compensation for each sensor is controlled by the [EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
+EKF在延迟的“融合时程”下运行，从而适应不同传感器测量值相对IMU的时间延迟。 为了保证所有传感器数据都能在在正确的时间内使用，每个传感器的数据都是按照先入先出（FIFO）队列进行缓存，并由EKF从缓存区中读取。 每个传感器的延迟补偿通过[EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) 参数进行控制。
 
 A complementary filter is used to propagate the states forward from the 'fusion time horizon' to current time using the buffered IMU data. The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
 
