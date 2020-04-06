@@ -1,8 +1,8 @@
 # 使用 ECL EKF
 
-This tutorial answers common questions about use of the ECL EKF algorithm.
+本文主要回答使用 ECL EKF 算法的常见问题。
 
-> **Tip** The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the *PX4 Developer Summit 2019* (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+> **提示：** [PX4 状态估计概述](https://youtu.be/HkYRJJoyBwQ)视频， *PX4 开发者峰会 2019*， (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
 
 ## What is the ECL EKF?
 
