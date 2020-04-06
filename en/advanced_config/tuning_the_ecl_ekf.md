@@ -301,10 +301,10 @@ The index map for covariances\[28\] is as follows:
 ### Observation Innovations & Innovation Variances
 
 The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [estimator_innovations.msg](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).
-The messages are all have the same field names/types (but different units).
+The messages all have the same field names/types (but different units).
 
 > **Note** The messages have the same fields because they are generated from the same field definition. 
-  The `# TOPICS` line (at the end of [the file](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg)) lists the names of a set of messages to be created):
+  The `# TOPICS` line (at the end of [the file](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg)) lists the names of the set of messages to be created):
   ```
   # TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios
   ```
