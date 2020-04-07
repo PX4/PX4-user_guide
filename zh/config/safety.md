@@ -1,4 +1,4 @@
-# Safety Configuration (Failsafes)
+# 安全配置（故障保护） 
 
 PX4 has a number of safety features to protect and recover your vehicle if something goes wrong:
 
