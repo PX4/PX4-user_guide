@@ -29,6 +29,7 @@ This list is not exhaustive - there are other compatible flight controllers and 
   - [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
   - [ModalAI](../flight_controller/modalai.md)
     - [Flight Core v1](../flight_controller/modalai_fc_v1.md)
+  - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
 - [Experimental/Discontinued Autopilots](../flight_controller/autopilot_experimental.md)
   - [Aerotenna OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
   - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
