@@ -84,21 +84,21 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的载具�
 
 ![安全 - 地理围栏（QGC）](../../images/qgc/setup/safety_geofence.png)
 
-> **Tip** PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
+> **Tip** PX4 单独支持更复杂的地理围栏几何结构，如多个任意多边形和圆形内外的区域，设置操作为：[飞行 > 地理围栏](../flying/geofence.md)。
 
-The settings and underlying [geofence parameters](../advanced_config/parameter_reference.md#geofence) are shown below.
+设置和基本[地理围栏参数](../advanced_config/parameter_reference.md#geofence)如下所示。
 
-| Setting          | 参数                                                                             | 参数描述                                                            |
-| ---------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------- |
-| Action on breach | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION)               | None, Warning, Hold mode, Return mode, Terminate.               |
-| Max Radius       | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | Horizontal radius of geofence cylinder. Geofence disabled if 0. |
-| Max Altitude     | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | Height of geofence cylinder. Geofence disabled if 0.            |
+| 设置         | 参数                                                                             | 参数描述                         |
+| ---------- | ------------------------------------------------------------------------------ | ---------------------------- |
+| 冲出围栏时的响应动作 | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION)               | 无，警告，保持模式，返航模式，终止。           |
+| 最大半径       | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | 地理围栏圆柱体的水平半径。 如果为 0，则禁用地理围栏。 |
+| 最大高度       | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | 地理围栏圆柱体的高度。 如果为 0，则禁用地理围栏。   |
 
-> **Note** Setting `GF_ACTION` to terminate will kill the vehicle on violation of the fence. Due to the inherent danger of this, this function is disabled using [CBRK_FLIGHTTERM](#CBRK_FLIGHTTERM), which needs to be reset to 0 to really shut down the system.
+> **Note** 通过设置 `GF_ACTION` 来终止飞行将导致载具因违反地理围栏而急停。 由于这种情况具有一定的危险性，可以利用 [CBRK_FLIGHTTERM](#CBRK_FLIGHTTERM) 禁用此功能（需要将其重置为0才能真正关闭系统）。
 
-The following settings also apply, but are not displayed in the QGC UI.
+如下设置也适用，但不显示在 QGC 用户界面中。
 
-| Setting                                                         | 参数                                                                           | 参数描述                                                                                                                  |
+| 设置                                                              | 参数                                                                           | 描述                                                                                                                    |
 | --------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | Geofence altitude mode                                          | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | Altitude reference used: 0 = WGS84, 1 = AMSL.                                                                         |
 | Geofence counter limit                                          | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered. |
