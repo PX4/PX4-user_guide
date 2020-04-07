@@ -88,7 +88,7 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的载具�
 
 设置和基本[地理围栏参数](../advanced_config/parameter_reference.md#geofence)如下所示。
 
-| 设置         | 参数                                                                             | 参数描述                         |
+| 设置         | 参数                                                                             | 描述                           |
 | ---------- | ------------------------------------------------------------------------------ | ---------------------------- |
 | 冲出围栏时的响应动作 | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION)               | 无，警告，保持模式，返航模式，终止。           |
 | 最大半径       | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | 地理围栏圆柱体的水平半径。 如果为 0，则禁用地理围栏。 |
@@ -124,16 +124,16 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的载具�
 
 ### 降落模式设置
 
-*Land at the current position* is a common [failsafe action](#failsafe_actions) that engages [Land Mode](../flight_modes/land.md). This section shows how to control when and if the vehicle automatically disarms after landing. For Multicopters (only) you can additionally set the descent rate.
+*在当前位置降落*是一种常见的[故障保护动作](#failsafe_actions)，采用降落模式启动。 本节介绍何时及是否使载具在降落后自动上锁的设置方式。 对于多旋翼飞机（仅限），您可以另外设置降落速度。
 
 ![安全 - 降落模式设置（QGC）](../../images/qgc/setup/safety_land_mode.png)
 
-The settings and underlying parameters are shown below:
+设置和基本参数如下所示。
 
-| Setting              | 参数                                                                             | 参数描述                                                                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Disarm After         | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | Select checkbox to specify that the vehicle will disarm after landing. The value must be non-zero but can be a fraction of a second. |
-| Landing Descent Rate | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | Rate of descent (MC only).                                                                                                           |
+| 设置    | 参数                                                                             | 描述                                      |
+| ----- | ------------------------------------------------------------------------------ | --------------------------------------- |
+| 几秒后锁定 | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 选中复选框以指定载具在降落后上锁。 该值必须是非零的，但可以是小于一秒的小数。 |
+| 降落速率  | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | 下降速率（仅限多旋翼）。                            |
 
 ## Other Failsafe Settings {#failsafe_other}
 
