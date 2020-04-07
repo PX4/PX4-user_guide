@@ -91,9 +91,7 @@ In this case the output of the controller is simply the sum of the proportional,
 
 ##### Standard Form {#standard_form}
 
-The *standard form* is mathematically equivalent to the *parallel form* but facilitates manual tuning as the K gain represents the global "aggressiveness" of the controller. 
-The integral gain is the inverse of the integrator time constant and represents how fast the integrator grows compared to the proportional gain.
-Similarly, the derivative gain is the derivative time constant and represents how much damping is added to the system.
+This form is mathematically equivalent to the parallel form, but the main advantage is that (even if it seems counter intuitive) it decouples the proportional gain tuning from the integral and derivative gains. This means that a new platform can easily be tuned by taking the gains of a drone with similar size/inertia and simply adjust the K gain to have it flying properly.
 
 ![PID_Standard](../../images/mc_pid_tuning/PID_algorithm_Standard.png)
 
@@ -139,6 +137,10 @@ It is required but should be set only as high as needed to avoid overshoots.
 - If the **D** gain is too high: the motors become twitchy (and maybe hot), because the **D** term amplifies noise.
 - If the **D** gain is too low: you see overshoots after a step-input.
 
+Typical values are:
+- standard form (**P** = 1): between 0.01 (4" racer) and 0.04 (500 size), for any value of **K**
+- parallel form (**K** = 1): between 0.0004 and 0.005, depending on the value of **P**
+
 ##### Integral Gain (I)
 
 The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time.
@@ -149,7 +151,10 @@ It is important (especially when flying *Acro mode*), but it should not be set t
   If it drifts back, increase the **I** gain.
   A low **I** gain is also visible in a log, when there is an offset between the desired and the actual rate over a longer time.
 
-Typical values are between 0.3 and 0.5, and the pitch gain usually needs to be a bit higher.
+Typical values are:
+- standard form (**P** = 1): between 0.5 (VTOL plane), 1 (500 size) and 8 (4" racer), for any value of **K**
+- parallel form (**K** = 1): between 0.3 and 0.5 if **P** is around 0.15
+The pitch gain usually needs to be a bit higher than the roll gain.
 
 #### Testing Procedure
 
