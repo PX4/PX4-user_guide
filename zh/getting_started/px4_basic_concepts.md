@@ -77,15 +77,15 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 - [遥控设置](../config/radio.md) - *QGC 地面站* 中的遥控配置。
 - [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
-- [ FrSky遥测](../peripherals/frsky_telemetry.md) - 设置 RC 发射机以从 PX4 接收遥测/状态更新。
+- [FrSky 数传](../peripherals/frsky_telemetry.md) - 设置遥控发射机以从 PX4 接收数传/状态更新。
 
 ## 地面站游戏手柄控制器 {#joystick}
 
-A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) shown below. Joysticks are also commonly used to fly the vehicle in simulation.
+通过 *QGC 地面站* 连接 [计算机游戏手柄](../config/joystick.md) 也可以用来手动控制 PX4（QGC 将游戏手柄的动作转换为 MAVLink 消息通过数传链接发送）。 This approach is used by ground control units that have an integrated ground control station, like the *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) shown below. Joysticks are also commonly used to fly the vehicle in simulation.
 
 ![Joystick MicroNav.](../../assets/peripherals/joystick/micronav.jpg)
 
-## Safety Switch {#safety_switch}
+## 安全开关 {#safety_switch}
 
 It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
 
@@ -95,22 +95,22 @@ It is common for vehicles to have a *safety switch* that must be engaged before 
 
 [数传电台](../telemetry/README.md) 可以在诸如 *QGC 地面站* 与运行 PX4 的机体之间提供无线 MAVLink 连接。 This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
-## Offboard/Companion Computer
+## Offboard/机载计算机
 
 PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
 > **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 
 - [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。 
-- [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
+- [机器人 API](https://dev.px4.io/master/en/robotics/)（PX4开发人员指南）
 
-## SD Cards (Removable Memory) {#sd_cards}
+## SD卡（可移除储存器） {#sd_cards}
 
 PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
 
 By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
-> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
+> **Tip** Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 [强烈推荐使用](https://dev.px4.io/master/en/log/logging.html#sd-cards) SanDisk Extreme U3 32GB（开发者指南）。
 
 SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
 
@@ -118,7 +118,7 @@ SD cards are never-the-less optional. Flight controllers that do not include an 
 - [Stream logs](https://dev.px4.io/master/en/log/logging.html#log-streaming) to another component (companion).
 - Store missions in RAM/FLASH. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/Firmware/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
-## Arming and Disarming {#arming}
+## 解锁和加锁 {#arming}
 
 Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
 
@@ -145,20 +145,20 @@ A detailed overview of arming and arming configuration can be found here: [Prear
 
 ## 安全设置（故障保护） {#safety}
 
-PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+PX4 具有可配置的故障安全系统，可在出现问题时保护和挽回您的飞行器！ 这些允许您指定可以安全飞行的区域和条件，以及触发故障保护时将执行的操作（例如，着陆、保持位置或返回指定点）。
 
 > **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 
-The main failsafe areas are listed below:
+主要的故障保护范围如下：
 
 - Low Battery 低电量
 - Remote Control (RC) Loss 遥控信号丢失
-- Position Loss (global position estimate quality is too low). 位置信息丢失（全局位置估计质量太低）
-- Offboard Loss (e.g. lose connection to companion computer) 机载计算机控制指令丢失（如与机载计算机失去连接）
-- Data Link Loss (e.g. lose telemetry connection to GCS).
-- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
-- Mission Failsafe (prevent a previous mission being run at a new takeoff location).
-- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
+- Position Loss 位置信息丢失（全局位置估计质量太低）
+- Offboard Loss 机载计算机控制指令丢失（如与机载计算机失去连接）
+- Data Link Loss 数传信号丢失（如失去与地面站的数传连接）
+- Geofence Breach 超出地理围栏 (限制飞行器在虚拟圆柱体内飞行)
+- Mission Failsafe 任务故障保护（防止先前的任务在新的起飞地点运行）
+- Traffic avoidance 交通避障（由来自如 ADS-B 转发器的数据触发）
 
 有关详细信息，请参阅：[安全性](../config/safety.md)（基本配置）。
 
