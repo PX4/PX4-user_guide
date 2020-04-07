@@ -1,4 +1,6 @@
-# CUAV v5
+# CUAV v5 (Discontinued)
+
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 *CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 
 The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. 

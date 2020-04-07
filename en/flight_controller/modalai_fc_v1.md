@@ -1,8 +1,12 @@
 # ModalAI Flight Core v1
 
-The ModalAI Flight Core is a flight controller for PX4, made in the USA. The Flight Core can be paired with [ModalAI VOXL](https://docs.modalai.com/voxl-datasheet/) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
+The ModalAI Flight Core is a flight controller for PX4, made in the USA.
+The Flight Core can be paired with [ModalAI VOXL](https://docs.modalai.com/voxl-datasheet/) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
 
 ![FlightCoreV1](../../assets/flight_controller/modalai/fc_v1/main.jpg)
+
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 
 ## Quick Summary
 
@@ -10,7 +14,8 @@ The main hardware documentation can be found [here](https://docs.modalai.com/fli
 
 ## PX4 Firwmare
 
-Although supported in PX4 v1.10, a few issues have been addressed since than which are currently being maintained by ModalAI [here](https://github.com/modalai/px4-firmware/tree/modalai-1.10).  These changes are mostly picked up in the master branch after the v1.10 release, with ongoing development for improvments in VIO and VOA being added as needed and then upstreamed.
+Although supported in PX4 v1.10, a few issues have been addressed since than which are currently being maintained by ModalAI [here](https://github.com/modalai/px4-firmware/tree/modalai-1.10).
+These changes are mostly picked up in the master branch after the v1.10 release, with ongoing development for improvements in VIO and VOA being added as needed and then upstreamed.
 
 More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
 

@@ -309,16 +309,18 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_SOURCE">BAT1_SOURCE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery 1 monitoring source</p><p><strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Battery 1 monitoring source</p><p><strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages. If the value is set to 'ESCs', the battery information are taken from the esc_status message. This requires the ESC to provide both voltage as well as current.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Power Module</li> 
 
 <li><strong>1:</strong> External</li> 
+
+<li><strong>2:</strong> ESCs</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">mAh</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT1_V_CHANNEL">BAT1_V_CHANNEL</strong> (INT32)</td>
@@ -433,16 +435,18 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_SOURCE">BAT2_SOURCE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Battery 2 monitoring source</p><p><strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Battery 2 monitoring source</p><p><strong>Comment:</strong> This parameter controls the source of battery data. The value 'Power Module' means that measurements are expected to come from a power module. If the value is set to 'External' then the system expects to receive mavlink battery status messages. If the value is set to 'ESCs', the battery information are taken from the esc_status message. This requires the ESC to provide both voltage as well as current.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Power Module</li> 
 
 <li><strong>1:</strong> External</li> 
+
+<li><strong>2:</strong> ESCs</li> 
 </ul>
   <p><b>Reboot required:</b> True</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">mAh</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT2_V_CHANNEL">BAT2_V_CHANNEL</strong> (INT32)</td>

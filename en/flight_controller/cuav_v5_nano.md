@@ -4,16 +4,17 @@
 
 The autopilot is small enough to use in 220mm racing drones, but remains powerful enough for most drone use.
 
-> **Note** The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has an all-in-one form factor, fewer PWM ports (can't be used for [airframes](../airframes/airframe_reference.md) that use AUX ports), and does not have internal damping.
-
 ![V5 nano - Hero image](../../assets/flight_controller/cuav_v5_nano/v5_nano_01.png)
 
+> **Note** The V5 nano is similar to the [CUAV V5+](../flight_controller/cuav_v5_plus.md), but has an all-in-one form factor, fewer PWM ports (can't be used for [airframes](../airframes/airframe_reference.md) that use AUX ports), and does not have internal damping.
 
 Some of its main features include:
 - Full compatibility with the [Pixhawk project](https://pixhawk.org/) **FMUv5** design standard and uses the [Pixhawk Connector Standard](https://pixhawk.org/pixhawk-connector-standard/) for all external interfaces.
 - More advanced processor, RAM and flash memory than FMU v3, along with more stable and reliable sensors.
 - Firmware-compatible with PX4.
-- Generous 2.6mm spacing for for I/O pins, making it easier to use all the interfaces. 
+- Generous 2.6mm spacing for for I/O pins, making it easier to use all the interfaces.
+
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 
 
 ### Quick Summary

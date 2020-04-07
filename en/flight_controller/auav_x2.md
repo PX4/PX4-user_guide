@@ -1,6 +1,6 @@
 # AUAV-X2 Autopilot (Discontinued)
 
-> **Warning** This board has been discontinued and is no longer commercially available.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
 

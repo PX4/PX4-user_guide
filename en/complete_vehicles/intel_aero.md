@@ -1,7 +1,6 @@
 # Intel Aero Ready to Fly Drone
 
-> **Warning** The *Intel Aero* has been discontinued, and is no longer being supported.
-  The PX4 port is therefore deprecated, and will be removed from the codelines in future releases.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 The *Intel Aero Ready to Fly Drone*® is a UAV development platform.
 Part of this is the *Intel Aero Compute Board*, running Linux on a Quad-core CPU. 

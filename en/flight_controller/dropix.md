@@ -6,6 +6,8 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 
 ![Dropix](../../assets/flight_controller/dropix/dropix_flight_controller_hero.jpg)
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 
 ## Key Features
 

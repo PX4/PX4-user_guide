@@ -1,6 +1,6 @@
 # Pixhawk Mini (Discontinued)
 
-> **Warning** This product is no longer manufactured or available from 3DR.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 The 3DR<sup>&reg;</sup> *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk (designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>).
 It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
