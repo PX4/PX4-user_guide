@@ -1,4 +1,6 @@
-# HKPilot32 Flight Controller
+# HKPilot32 Flight Controller (Discontinued)
+
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 The Hobbyking<sup>&reg;</sup> *HKPilot32 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
 
@@ -53,7 +55,7 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 
 ## 编译固件
 
-> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 

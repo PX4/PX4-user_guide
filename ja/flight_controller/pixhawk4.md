@@ -6,6 +6,8 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
 
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+
 ## Quick Summary
 
 * Main FMU Processor: STM32F765 

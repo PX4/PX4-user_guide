@@ -2,6 +2,8 @@
 
 The *Omnibus F4 SD* is a controller board designed for racers. In contrast to a typical racer board it has some additional features, such as an SD card and a faster CPU.
 
+<img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
+
 These are the main differences compared to a [Pixracer](../flight_controller/pixracer.md):
 
 * Lower price
@@ -13,7 +15,9 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 
 > **Tip** All the usual PX4 features can still be used for your racer!
 
-<img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
+<span></span>
+
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 ## Key Features
 

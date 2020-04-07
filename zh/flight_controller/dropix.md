@@ -6,6 +6,8 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 
 ![Dropix](../../assets/flight_controller/dropix/dropix_flight_controller_hero.jpg)
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## 主要特性
 
 * Advanced 32 bit ARM Cortex® M4 Processor running NuttX RTOS
@@ -46,7 +48,7 @@ The following diagrams show the Dropix connector information (for more informati
 
 ## 编译固件
 
-> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
