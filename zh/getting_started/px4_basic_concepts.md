@@ -87,44 +87,44 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 ## 安全开关 {#safety_switch}
 
-It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+机体通常必须有一个 *安全开关*，然后才能使用 [解锁](#arming)（解锁后，电机会供电，螺旋桨开始旋转）。 通常，安全开关被整合到GPS设备中，但也可能是一个单独的物理组件。
 
-> **Note** A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+> **Note** 解锁后的机体是有潜在危险的。 安全开关是防止意外解锁发生的一个附加机制。
 
 ## 数传电台
 
-[数传电台](../telemetry/README.md) 可以在诸如 *QGC 地面站* 与运行 PX4 的机体之间提供无线 MAVLink 连接。 This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[数传电台](../telemetry/README.md) 可以在诸如 *QGC 地面站* 与运行 PX4 的机体之间提供无线 MAVLink 连接。 这使得飞机飞行中调试参数、实时检查遥测信息、更改任务等等成为了可能。
 
 ## Offboard/机载计算机
 
-PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+PX4 可以通过串行接线或 WiFi 由独立的机载伴飞计算机进行控制。 机载计算机通常使用 MAVLink API（如 MAVSDK 或 MAVROS）进行通信。
 
-> **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
+> **Note** 使用机器人 API 需要软件开发技能，但不在本指南的范围之内。
 
 - [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。 
 - [机器人 API](https://dev.px4.io/master/en/robotics/)（PX4开发人员指南）
 
 ## SD卡（可移除储存器） {#sd_cards}
 
-PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
+PX4 使用 SD 储存卡存储 [飞行日志](../getting_started/flight_reporting.md)，而且还需要内存卡才能使用 UAVCAN 外围设备，运行 [飞行任务](../flying/missions.md)。
 
-By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
+默认情况下，如果没有 SD 卡，PX4 将在启动时播放 [格式化失败（2-声短响）](../getting_started/tunes.md#format-failed) 两次（且上述需要储存卡的功能都不可用）。
 
 > **Tip** Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 [强烈推荐使用](https://dev.px4.io/master/en/log/logging.html#sd-cards) SanDisk Extreme U3 32GB（开发者指南）。
 
-SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
+SD 卡在某些情况下也是可选的。 不包含 SD 卡槽的飞行控制器可以：
 
-- Disable notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
-- [Stream logs](https://dev.px4.io/master/en/log/logging.html#log-streaming) to another component (companion).
-- Store missions in RAM/FLASH. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/Firmware/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+- 使用参数 [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 禁用通知蜂鸣器。
+- [推流日志](https://dev.px4.io/master/en/log/logging.html#log-streaming) 到另一个组件（机载计算机）。
+- 在 RAM/FLASH 中储存任务。<!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/Firmware/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 ## 解锁和加锁 {#arming}
 
-Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
+机体是有可移动的部件的，其中一些在通电后会有潜在的危险性（特别是电机和螺旋桨）！
 
-To reduce the chance of accidents:
+为了减少事故概率：
 
-- PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
+- 当不在使用时， PX4 机体是 *加锁状态的*（未供电的），必须在起飞前进行 *解锁*。
 - Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can succeed.
 - Arming is prevented if the vehicle is not in a "healthy" state.
 - A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
