@@ -2,23 +2,23 @@
 
 本主题提供了无人机和使用 PX4 的基本介绍（主要面向新手用户，但对有经验的用户也是一个很好的介绍）。
 
-如果你已经熟悉了基本概念，你可以转到[基本组件](../assembly/README.md)以了解如何连接特定的自驾仪硬件。 要加载固件并使用 *QGroundControl* 设置飞行器，请查看[基本配置](../config/README.md)。
+如果你已经熟悉了基本概念，你可以转到 [基本组装](../assembly/README.md) 以了解如何连接特定的自驾仪硬件。 要加载固件并使用 *QGC 地面站* 设置飞行器，请查看 [基本配置](../config/README.md)。
 
 ## 无人机是什么？
 
-无人机是无人驾驶的 ”机器人“ 设备，可以远程或自动控制。
+无人机是无人驾驶的“机器人”设备，可以远程或自动控制。
 
 Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). 这包括（非详尽）：航空摄影/录像，载货，竞速，搜索和测绘等。
 
 > **Tip**存在用于空中、地面、海洋和水下各种不同类型的无人机。 这些（更正式地）被称为无人驾驶飞行器（UAV），无人驾驶飞行器系统（UAS），无人驾驶地面车辆（UGV），无人驾驶水面船只（USV），无人驾驶水下潜航器（UUV）。
 
-无人机的 ”大脑“ 被称为自动驾驶仪。 它由在 *设备控制器</ 0>（“飞行控制器”）硬件上运行的 *飞行堆栈* 软件组成。</p> 
+无人机的“大脑”被称为自动驾驶仪。 它由在 *载具控制器*（“飞行控制器”）硬件上运行的 *飞行栈* 软件组成。
 
-## PX4 Autopilot {#autopilot}
+## PX4 自动驾驶仪 {#autopilot}
 
-[PX4](http://px4.io/) is powerful open source autopilot *flight stack*.
+[PX4](http://px4.io/) 是强大的开源自动驾驶仪 *飞行栈*。
 
-Some of PX4's key features are:
+PX4 的一些主要功能包括：
 
 - 可控制[许多不同的设备机架/类型](../airframes/airframe_reference.md)，包括：飞机（多旋翼，固定翼和垂直起降），地面车辆和水下潜航器。 
 - 适用于[设备控制器](#vehicle_controller)，传感器和其他外围设备的硬件选择。
@@ -26,9 +26,9 @@ Some of PX4's key features are:
 
 PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
 
-## QGroundControl {#qgc}
+## QGC 地面站 {#qgc}
 
-Dronecode地面控制站称为[ QGroundControl ](http://qgroundcontrol.com/)。 您可以使用* QGroundControl *将（闪存）PX4 加载到[飞行器控制硬件上](flight_controller_selection.md)，您可以设置飞行器，更改不同参数，获取实时飞行信息以及创建和执行完全自主的任务。
+Dronecode 地面控制站称为 [QGroundControl](http://qgroundcontrol.com/)。 您可以使用* QGroundControl *将（闪存）PX4 加载到[飞行器控制硬件上](flight_controller_selection.md)，您可以设置飞行器，更改不同参数，获取实时飞行信息以及创建和执行完全自主的任务。
 
 *QGroundControl* 可以在 Windows，Android，MacOS 或 Linux 上运行。 从 [这里](http://qgroundcontrol.com/downloads/) 下载并安装。
 
@@ -40,7 +40,7 @@ PX4最初设计为在 [Pixhawk Series](../flight_controller/pixhawk_series.md) �
 
 更多信息，请参阅：[飞行控制器选择](flight_controller_selection.md)。
 
-## Sensors
+## 传感器
 
 PX4 使用传感器来确定飞行器状态（稳定和启用自动控制所需）。 系统*最低要求 *陀螺仪，加速度计，磁力计（罗盘）和气压计。 需要 GPS 或其他定位系统来启用所有自动[模式](../getting_started/flight_modes.md#categories)和一些辅助模式。 固定翼和 VTOL 飞行器还应包括空速传感器（强烈推荐）。
 
@@ -65,9 +65,9 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 有关电池和电池配置的信息，请参见[电池配置](../config/battery.md)和[基本组件](../assembly/README.md)（例如[ Pixhawk 4 接线快速入门>电源](../assembly/quick_start_pixhawk4.md#power)）。
 
-## Radio Control (RC) {#rc_systems}
+## 无线电控制（遥控） {#rc_systems}
 
-[无线电控制（RC ）](../getting_started/rc_transmitter_receiver.md)系统用于*手动 *控制飞行器。 它由一个遥控装置组成，使用发射机来与飞行器上的接收机通信。 一些 RC 系统还可以接自动驾驶仪传回的收遥测信息。
+[无线电控制（RC）](../getting_started/rc_transmitter_receiver.md)系统用于 *手动 * 控制机体。 它由一个遥控装置组成，使用发射机来与飞行器上的接收机通信。 一些 RC 系统还可以接自动驾驶仪传回的收遥测信息。
 
 > **Note** PX4 在自主飞行模式中不需要遥控系统。
 
@@ -91,7 +91,7 @@ It is common for vehicles to have a *safety switch* that must be engaged before 
 
 > **Note** A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
 
-## Data/Telemetry Radios
+## 数传电台
 
 [Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
@@ -101,7 +101,7 @@ PX4 can be controlled from a separate on-vehicle companion computer via a serial
 
 > **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 
-- [板外控制模式](../flight_modes/offboard.md) - 用于从 GCS 或机载计算机对 PX4 进行板外控制的飞行模式。 
+- [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。 
 - [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
 
 ## SD Cards (Removable Memory) {#sd_cards}
@@ -151,27 +151,27 @@ PX4 has configurable failsafe systems to protect and recover your vehicle if som
 
 The main failsafe areas are listed below:
 
-- Low Battery
-- Remote Control (RC) Loss
-- Position Loss (global position estimate quality is too low).
-- Offboard Loss (e.g. lose connection to companion computer)
+- Low Battery 低电量
+- Remote Control (RC) Loss 遥控信号丢失
+- Position Loss (global position estimate quality is too low). 位置信息丢失（全局位置估计质量太低）
+- Offboard Loss (e.g. lose connection to companion computer) 机载计算机控制指令丢失（如与机载计算机失去连接）
 - Data Link Loss (e.g. lose telemetry connection to GCS).
 - Geofence Breach (restrict vehicle to flight within a virtual cylinder).
 - Mission Failsafe (prevent a previous mission being run at a new takeoff location).
 - Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
 
-For more information see: [Safety](../config/safety.md) (Basic Configuration).
+有关详细信息，请参阅：[安全性](../config/safety.md)（基本配置）。
 
-## Heading and Directions
+## 朝向与航向
 
-All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
+所有车辆，船只和飞机都具有朝向或基于其前进运动的航向。
 
 ![Frame Heading](../../images/frame_heading.png)
 
-It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
+知道机体朝向，以使自驾仪与设备运动矢量对齐是重要的。 即使多旋翼从各个方向都对称，但其也有朝向！ 通常制造商使用彩色螺旋桨或带颜色的机臂来表示朝向。
 
 ![Frame Heading TOP](../../images/frame_heading_top.png)
 
-In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
+在我们的插图中，我们将使用红色的前螺旋桨来显示多旋翼的朝向。
 
-You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
+您可以在 [飞行控制器方向](../config/flight_controller_orientation.md) 中深入了解朝向。
