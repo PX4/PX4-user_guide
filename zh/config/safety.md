@@ -33,54 +33,54 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的载具�
 
 ### 低电量故障保护
 
-当电池电量低于一个（或多个警告）级别值时，会触发低电量故障保护。
+当电池电量低于一个（或多个警告）水平值时，会触发低电量故障保护。
 
 ![安全 - 电池（QGC）](../../images/qgc/setup/safety_battery.png)
 
 最常见的配置是按上述方式设置参数的值和相应故障保护动作（ `警告 > 故障安全 > Emergency`)。 通过如此配置，故障保护将触发警告，随后返航，最后在电池电量过低时降落。
 
-也可以在[电池故障保护等级](#BAT_CRIT_THR)达到指定级别时，将*故障保护动作*设置为警告、返航或降落。
+也可以在[电池故障保护等级](#BAT_CRIT_THR)达到指定水平时，将*故障保护动作*设置为警告、返航或降落。
 
 设置和基本参数如下所示。
 
-| 设置                                              | 参数                                                                             | 描述                                                                                                                                                                        |
-| ----------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 故障保护动作                                          | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR Warn, then return, then land based on each of the level settings below. |
-| Battery Warn Level                              | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | Percentage capacity for warnings (or other actions).                                                                                                                      |
-| <span id="BAT_CRIT_THR"></span>Battery Failsafe Level | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | Percentage capacity for Return action (or other actions if a single action selected).                                                                                     |
-| Battery Emergency Level                         | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.                                                                                                             |
+| 设置                                | 参数                                                                             | 描述                                               |
+| --------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------ |
+| 故障保护动作                            | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | 当电池电量过低时，根据下面的每个水平值执行警告、返航、降落三者之一，或分别设置警告、返航或降落。 |
+| 电池警告水平                            | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | 需做出警告（或其他动作）的电量百分比。                              |
+| <span id="BAT_CRIT_THR"></span>电池故障保护水平 | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | 电量低于该百分比则返航（或者执行其他事前选择动作）。                       |
+| 电量紧急水平                            | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | 电量低于该百分比则（立即）触发降落动作。                             |
 
-### RC Loss Failsafe {#rc_loss_failsafe}
+### 遥控信号丢失故障保护 {#rc_loss_failsafe}
 
-The RC Loss failsafe is triggered if the RC transmitter link is lost.
+如果遥控传输的通信链路丢失，则触发遥控信号丢失故障保护。
 
 ![安全 - 遥控丢失（QGC）](../../images/qgc/setup/safety_rc_loss.png)
 
-> **Note** PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
+> **Note** 为了*检测遥控信号丢失情况*，可能还需要配置 PX4 和接收机：[无线电设置 > 遥控信号丢失检测](../config/radio.md#rc_loss_detection)。
 
-The settings and underlying parameters are shown below.
+设置和基本参数如下所示。
 
-| Setting         | 参数                                                                         | 参数描述                                                                            |
-| --------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| RC Loss Timeout | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | Amount of time after losing the RC connection before the failsafe will trigger. |
-| Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)     | Disabled, Loiter, Return, Land, Terminate, Lockdown.                            |
+| 设置       | 参数                                                                         | 描述                  |
+| -------- | -------------------------------------------------------------------------- | ------------------- |
+| 遥控信号丢失超时 | [COM_RC_LOSS_T](../advanced_config/parameter_reference.md#COM_RC_LOSS_T) | 遥控信号失联后到故障保险触发前的时间。 |
+| 故障保护动作   | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)     | 禁用，悬停，返航，降落，终止，锁定。  |
 
-### Data Link Loss Failsafe
+### 数据链路丢失故障保护
 
-The Data Link Loss failsafe is triggered if a telemetry link (connection to ground station) is lost when flying a [mission](../flying/missions.md).
+如果在执行任务时数传链路（与地面站的连接）丢失，则会触发数据链路丢失故障保护。
 
 ![安全 - 数据链路丢失（QGC）](../../images/qgc/setup/safety_data_link_loss.png)
 
-The settings and underlying parameters are shown below.
+设置和基本参数如下所示。
 
-| Setting                | 参数                                                                         | 参数描述                                                                              |
-| ---------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| Data Link Loss Timeout | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | Amount of time after losing the data connection before the failsafe will trigger. |
-| Failsafe Action        | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | Disabled, Hold mode, Return mode, Land mode, Terminate, Lockdown.                 |
+| 设置       | 参数                                                                         | 描述                   |
+| -------- | -------------------------------------------------------------------------- | -------------------- |
+| 数据链路丢失超时 | [COM_DL_LOSS_T](../advanced_config/parameter_reference.md#COM_DL_LOSS_T) | 数据连接断开后到故障保护触发之前的时间。 |
+| 故障保护动作   | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DLL_ACT)     | 禁用，悬停，返航，降落，终止，锁定。   |
 
-### Geofence Failsafe
+### 地理围栏故障保护
 
-The *Geofence Failsafe* is a "virtual" cylinder centered around the home position. If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
+地理围栏故障保护是一个以初始位置为中心“虚拟”圆柱体。 如果载具在圆柱体的半径以外或在高于圆柱体的高度移动，将触发特定的故障保护动作。
 
 ![安全 - 地理围栏（QGC）](../../images/qgc/setup/safety_geofence.png)
 
