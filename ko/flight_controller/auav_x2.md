@@ -1,6 +1,6 @@
 # AUAV-X2 오토파일럿(계속)
 
-> 경고 이 보드는 중단되었으며 더 이상 상업적으로 사용할 수 없습니다.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 [AUAV <sup>&reg; </sup>](http://www.auav.com/) *AUAV-X2 오토파일럿 *은 Pixhawk <sup>을 기반으로 합니다. 이 프로그램은 <a href="http://nuttx.org"> NuttX </a> OS에서 PX4를 실행합니다.</p> 
 
