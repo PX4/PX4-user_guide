@@ -4,6 +4,8 @@ The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully sta
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## Quick Summary
 
 MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. 

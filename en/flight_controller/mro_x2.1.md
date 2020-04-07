@@ -4,6 +4,8 @@ The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>
 
 ![mRo X2.1](../../assets/flight_controller/mro/mro_x2.1.jpg)
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## Quick Summary
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
