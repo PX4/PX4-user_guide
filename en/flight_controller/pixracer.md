@@ -4,6 +4,7 @@ The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing qu
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 
 ## Key Features
 

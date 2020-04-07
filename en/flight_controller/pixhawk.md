@@ -1,6 +1,6 @@
 # 3DR Pixhawk 1 Flight Controller (Discontinued)
 
-> **Warning** This board has been discontinued and is no longer commercially available.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
   You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
 
 The *3DR Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). 

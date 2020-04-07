@@ -4,7 +4,7 @@
 
 These boards are maintained, updated, tested and otherwise supported by the PX4 project maintainers and Dronecode test team.
 
-> **Tip** For more information about PX4 project autopilot board support levels see: [pixhawk.org](https://pixhawk.org/).
+> **Tip** For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
 
 The boards in this category are:
 

@@ -2,7 +2,7 @@
 
 This category is for experimental and discontinued autopilots (and autopilot "platforms") that are *not supported* by either the PX4 project team or by a manufacturer.
 
-> **Tip** For more information about PX4 project autopilot board support levels see: [pixhawk.org](https://pixhawk.org/).
+> **Tip** For more information about PX4 project autopilot board support levels see: [px4.io/autopilots/](https://px4.io/autopilots/).
 
 Boards in this category must work with at least one PX4 release for a defined vehicle type.
 They may not be compatible with the current PX4 release, and compatibility is not maintained by the project for future releases.
@@ -20,7 +20,7 @@ Discontinued:
 - [3DR Pixhawk Mini](../flight_controller/pixhawk_mini.md) (Pixhawk FMUv2)
 - [HobbyKing HKPilot32](../flight_controller/HKPilot32.md) (Pixhawk FMUv2)
 - [Holybro Pixfalcon](../flight_controller/pixfalcon.md) (Pixhawk FMUv2)
-- [mRo AUAV-X2 (Discontinued)](../flight_controller/auav_x2.md)  (Pixhawk FMUv2)
+- [mRo AUAV-X2](../flight_controller/auav_x2.md)  (Pixhawk FMUv2)
 - [CUAV v5](../flight_controller/cuav_v5.md) (Pixhawk FMUv5)
 - [Intel® Aero RTF Drone](../complete_vehicles/intel_aero.md) (Complete Vehicle)
 - [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md) (Complete Vehicle)

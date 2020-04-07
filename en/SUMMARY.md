@@ -183,7 +183,7 @@
 * [Autopilot Hardware](flight_controller/README.md)
   * [Pixhawk Series](flight_controller/pixhawk_series.md)
     * [Silicon Errata](flight_controller/silicon_errata.md)
-  * [Pixhawk Standard/Supported Autopilots](flight_controller/autopilot_pixhawk_standard.md)
+  * [Pixhawk Standard Autopilots](flight_controller/autopilot_pixhawk_standard.md)
     * [mRo Pixhawk (FMUv2)](flight_controller/mro_pixhawk.md)
     * [mRo Pixracer (FMUv4)](flight_controller/pixracer.md)
     * [Hex Cube Black (FMUv3)](flight_controller/pixhawk-2.md)
