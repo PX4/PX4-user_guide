@@ -98,31 +98,31 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的载具�
 
 如下设置也适用，但不显示在 QGC 用户界面中。
 
-| 设置                                                              | 参数                                                                           | 描述                                                                                                                    |
-| --------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| Geofence altitude mode                                          | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | Altitude reference used: 0 = WGS84, 1 = AMSL.                                                                         |
-| Geofence counter limit                                          | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | Set how many subsequent position measurements outside of the fence are needed before geofence violation is triggered. |
-| Geofence source                                                 | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | Set whether position source is estimated global position or direct from the GPS device.                               |
-| <span id="CBRK_FLIGHTTERM"></span>Circuit breaker for flight termination | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | Enables/Disables flight termination action (disabled by default).                                                     |
+| 设置                               | 参数                                                                           | 描述                               |
+| -------------------------------- | ---------------------------------------------------------------------------- | -------------------------------- |
+| 地理围栏定高模式                         | [GF_ALTMODE](../advanced_config/parameter_reference.md#GF_ALTMODE)           | 使用的高度参考值：0 = WGS84，1 = AMSL。     |
+| 地理围栏计数限制                         | [GF_COUNT](../advanced_config/parameter_reference.md#GF_COUNT)               | 设定需要检测到多少次在围栏之外的位置才能触发违反地理围栏的事件。 |
+| 地理围栏来源                           | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURCE)             | 设置定位是来自全局位置估计还是直接来自 GPS 设备。      |
+| <span id="CBRK_FLIGHTTERM"></span>飞行终止断路器 | [CBRK_FLIGHTTERM](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM) | 启用/禁用飞行终止操作（默认禁用）。               |
 
-### Return Mode Settings {#return_settings}
+### 返航设置 {#return_settings}
 
-*Return* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position. This section shows how to set the land/loiter behaviour after returning.
+返航是一种常见的故障保护动作，这将启动返航模式，使载具返回起飞位置。 本节说明如何设置返航后的降落/悬停行为。
 
 ![安全 - 返航设置（QGC）](../../images/qgc/setup/safety_return_home.png)
 
-The settings and underlying parameters are shown below:
+设置和基本地参数如下所示。
 
-| Setting           | 参数                                                                             | 参数描述                                                                                                   |
-| ----------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| Climb to altitude | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | Vehicle ascend to this minimum height (if below it) for the return flight.                             |
-| Return behaviour  |                                                                                | Choice list of *Return then*: Land, Loiter and do not land, or Loiter and land after a specified time. |
-| Loiter Altitude   | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | If return with loiter is selected you can also specify the altitude at which the vehicle hold.         |
-| Loiter Time       | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | If return with loiter then land is selected you can also specify how long the vehicle will hold.       |
+| 设置   | 参数                                                                             | 描述                               |
+| ---- | ------------------------------------------------------------------------------ | -------------------------------- |
+| 爬升高度 | [RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | 返航飞行时，载具上升到该最低高度（如果低于）。          |
+| 返航行为 |                                                                                | *返航动作*的选择：降落，悬停且不降落，或一定时间后悬停并降落。 |
+| 悬停高度 | [RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | 如果选择了返航并悬停，您还可以指定载具保持的高度。        |
+| 悬停时间 | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | 如果选择返航并悬停随后降落，您还可以指定载具将保持悬停多长时间。 |
 
-> **Note** The return behavour is defined by [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY). If negative the vehicle will land immediately. Additional information can be found in [Return mode](../flight_modes/return.md).
+> **Note** 返航行为由 [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY) 定义。 如果该参数为负值，载具将立即着陆。 更多信息可参阅[返航模式](../flight_modes/return.md)。
 
-### Land Mode Settings
+### 降落模式设置
 
 *Land at the current position* is a common [failsafe action](#failsafe_actions) that engages [Land Mode](../flight_modes/land.md). This section shows how to control when and if the vehicle automatically disarms after landing. For Multicopters (only) you can additionally set the descent rate.
 
