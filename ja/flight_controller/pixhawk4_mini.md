@@ -6,6 +6,8 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
 
 ![Pixhawk4 mini](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png)
 
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+
 ## Quick Summary
 
 * Main FMU Processor: STM32F765 
