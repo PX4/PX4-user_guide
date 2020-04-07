@@ -91,7 +91,8 @@ In this case the output of the controller is simply the sum of the proportional,
 
 ##### Standard Form {#standard_form}
 
-This form is mathematically equivalent to the parallel form, but the main advantage is that (even if it seems counter intuitive) it decouples the proportional gain tuning from the integral and derivative gains. This means that a new platform can easily be tuned by taking the gains of a drone with similar size/inertia and simply adjust the K gain to have it flying properly.
+This form is mathematically equivalent to the parallel form, but the main advantage is that (even if it seems counter intuitive) it decouples the proportional gain tuning from the integral and derivative gains.
+This means that a new platform can easily be tuned by taking the gains of a drone with similar size/inertia and simply adjust the K gain to have it flying properly.
 
 ![PID_Standard](../../images/mc_pid_tuning/PID_algorithm_Standard.png)
 
