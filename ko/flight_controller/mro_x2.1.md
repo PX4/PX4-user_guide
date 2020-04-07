@@ -4,6 +4,12 @@
   <img src="../../assets/flight_controller/mro/mro_x2.1.jpg" alt="mRo X2.1" />
 </p>
 
+<blockquote>
+  <p>
+    <strong>Note</strong> This flight controller is <a href="../flight_controller/autopilot_manufacturer_supported.md">manufacturer supported</a>.
+  </p>
+</blockquote>
+
 <h2>
   Quick Summary
 </h2>
