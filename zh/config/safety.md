@@ -27,25 +27,25 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的载具�
 
 ## QGroundControl 安全设置 {#qgc_safety_setup}
 
-The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* **Gear** icon (Vehicle Setup - top toolbar) and then **Safety** in the sidebar). This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the return actions *Return* and *Land*.
+通过依次单击 *QGroundControl* **Gear** 图标（位于载具设置 - 顶部工具栏），然后单击侧栏中的**安全**来访问 *QGroundControl* 安全设置页面。 其中包括最重要的故障保护设置（电池故障，遥控信号丢失等）和返航动作的设置（*返航*和*降落*）。
 
 ![安全设置（QGC）](../../images/qgc/setup/safety_setup.png)
 
-### Low Battery Failsafe
+### 低电量故障保护
 
-The low battery failsafe is triggered when the battery capacity drops below one (or more warning) level values.
+当电池电量低于一个（或多个警告）级别值时，会触发低电量故障保护。
 
 ![安全 - 电池（QGC）](../../images/qgc/setup/safety_battery.png)
 
-The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`). With this configuration the failsafe will trigger warning, then return, and finally landing if capacity drops below the respective levels.
+最常见的配置是按上述方式设置参数的值和相应故障保护动作（ `警告 > 故障安全 > Emergency`)。 通过如此配置，故障保护将触发警告，随后返航，最后在电池电量过低时降落。
 
-It is also possible to set the *Failsafe Action* to warn, return, or land when the [Battery Failsafe Level](#BAT_CRIT_THR) failsafe level is reached.
+也可以在[电池故障保护等级](#BAT_CRIT_THR)达到指定级别时，将*故障保护动作*设置为警告、返航或降落。
 
-The settings and underlying parameters are shown below.
+设置和基本参数如下所示。
 
-| Setting                                         | 参数                                                                             | 参数描述                                                                                                                                                                      |
+| 设置                                              | 参数                                                                             | 描述                                                                                                                                                                        |
 | ----------------------------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Failsafe Action                                 | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR Warn, then return, then land based on each of the level settings below. |
+| 故障保护动作                                          | [COM_LOW_BAT_ACT](../advanced_config/parameter_reference.md#COM_LOW_BAT_ACT) | Warn, Return, or Land based when capacity drops below [Battery Failsafe Level](#BAT_CRIT_THR), OR Warn, then return, then land based on each of the level settings below. |
 | Battery Warn Level                              | [BAT_LOW_THR](../advanced_config/parameter_reference.md#BAT_LOW_THR)         | Percentage capacity for warnings (or other actions).                                                                                                                      |
 | <span id="BAT_CRIT_THR"></span>Battery Failsafe Level | [BAT_CRIT_THR](../advanced_config/parameter_reference.md#BAT_CRIT_THR)       | Percentage capacity for Return action (or other actions if a single action selected).                                                                                     |
 | Battery Emergency Level                         | [BAT_EMERGEN_THR](../advanced_config/parameter_reference.md#BAT_EMERGEN_THR) | Percentage capacity for triggering Land (immediately) action.                                                                                                             |
