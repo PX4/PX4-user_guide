@@ -81,7 +81,7 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 ## 地面站游戏手柄控制器 {#joystick}
 
-通过 *QGC 地面站* 连接 [计算机游戏手柄](../config/joystick.md) 也可以用来手动控制 PX4（QGC 将游戏手柄的动作转换为 MAVLink 消息通过数传链接发送）。 This approach is used by ground control units that have an integrated ground control station, like the *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) shown below. Joysticks are also commonly used to fly the vehicle in simulation.
+通过 *QGC 地面站* 连接 [计算机游戏手柄](../config/joystick.md) 也可以用来手动控制 PX4（QGC 将游戏手柄的动作转换为 MAVLink 消息通过数传链接发送）。 这种方法被一些集成了地面站的地面端遥控器所使用的，如下图中的 *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) 所示。 游戏手柄也经常被用于无人机的飞行仿真中。
 
 ![Joystick MicroNav.](../../assets/peripherals/joystick/micronav.jpg)
 
@@ -147,7 +147,7 @@ A detailed overview of arming and arming configuration can be found here: [Prear
 
 PX4 具有可配置的故障安全系统，可在出现问题时保护和挽回您的飞行器！ 这些允许您指定可以安全飞行的区域和条件，以及触发故障保护时将执行的操作（例如，着陆、保持位置或返回指定点）。
 
-> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+> **Note** 您只能为 *第一个* 故障保护事件指定操作。 一旦发生故障保护，系统将执行特殊处理代码，以便后续故障保护触发器由单独的系统层级和飞行器特定代码管理。
 
 主要的故障保护范围如下：
 
