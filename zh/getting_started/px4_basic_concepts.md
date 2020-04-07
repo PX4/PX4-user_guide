@@ -125,13 +125,13 @@ SD 卡在某些情况下也是可选的。 不包含 SD 卡槽的飞行控制器
 为了减少事故概率：
 
 - 当不在使用时， PX4 机体是 *加锁状态的*（未供电的），必须在起飞前进行 *解锁*。
-- Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can succeed.
-- Arming is prevented if the vehicle is not in a "healthy" state.
-- A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
+- 一些机体还需要长按 [安全开关](../getting_started/px4_basic_concepts.md#safety_switch) 后才能解锁成功。
+- 机体如果不是在“健康”状态，则会解锁不通过。
+- 机体也会在着陆后或者飞手长时间未执行起飞时，自动切回到加锁状态。
 
-Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is also possible to configure PX4 to arm using an RC button on the RC control (and arming commands can be sent from a ground station).
+解锁默认情况下（美国手发射机）可以通过保持遥控油门+ YAW 摇杆到*右下角*一秒钟来解锁，要想加锁，则保持摇杆在左下角。 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送解锁命令）。
 
-A detailed overview of arming and arming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
+还有更细节的解锁和加锁的配置的详细解读可以在这里找到：[解锁前，解锁，加锁配置](../advanced_config/prearm_arm_disarm.md)。
 
 ## 飞行模式 {#flight_modes}
 
@@ -166,11 +166,11 @@ PX4 具有可配置的故障安全系统，可在出现问题时保护和挽回�
 
 所有车辆，船只和飞机都具有朝向或基于其前进运动的航向。
 
-![Frame Heading](../../images/frame_heading.png)
+![机架朝向](../../images/frame_heading.png)
 
 知道机体朝向，以使自驾仪与设备运动矢量对齐是重要的。 即使多旋翼从各个方向都对称，但其也有朝向！ 通常制造商使用彩色螺旋桨或带颜色的机臂来表示朝向。
 
-![Frame Heading TOP](../../images/frame_heading_top.png)
+![机架朝向 TOP](../../images/frame_heading_top.png)
 
 在我们的插图中，我们将使用红色的前螺旋桨来显示多旋翼的朝向。
 
