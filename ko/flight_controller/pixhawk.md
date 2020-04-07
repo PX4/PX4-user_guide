@@ -1,8 +1,8 @@
-# Pixhawk 1 비행 컨트롤러
+# 3DR Pixhawk 1 Flight Controller (Discontinued)
 
-*Pixhawk<sup>&reg;</sup> 1* 오토파일럿은 [Pixhawk-project](https://pixhawk.org/) **FMUv2** 오픈 하드웨어를 기반으로 설계된 범용 비행 컨틀롤러 입니다(PX4FMU와 PX4IO의 기능을 결합한). 이것은 PX4를 [NuttX](http://nuttx.org) OS위에서 실행합니다.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available. You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
 
-> **Tip** Originally manufactured by 3DR<sup>&reg;</sup> this board was the original standard microcontroller platform for PX4. While the board is no longer manufactured by 3DR, you can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
+The *3DR Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). 이것은 PX4를 [NuttX](http://nuttx.org) OS위에서 실행합니다.
 
 ![Pixhawk Image](../../assets/hardware/hardware-pixhawk.png)
 
