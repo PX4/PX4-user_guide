@@ -1,5 +1,7 @@
 # BeagleBone Blue
 
+> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+
 [BeagleBone Blue](https://beagleboard.org/blue) is an all-in-one Linux-based computer. Although it is optimized for robotics, this compact and inexpensive board has all necessary sensors and peripherals needed by a flight controller. This topic shows how to set up the board to run PX4 with [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) robotics package.
 
 ![BeagleBone - labelled diagram](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
