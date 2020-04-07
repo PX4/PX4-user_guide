@@ -6,25 +6,25 @@ This topic explains several methods for updating the Pixhawk bootloader.
 
 > **Note** Hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 
-## QGroundControl Bootloader Update {#qgc_bootloader_update}
+## QGC 地面站 Bootloader 更新 {#qgc_bootloader_update}
 
-The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. 您可以通过设置参数：[SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)，以便在下次重新启动时启动 bootloader 更新。
 
 > **Note** This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
 
 The steps are:
 
-1. Insert an SD card (enables boot logging to debug any problems).
+1. 插入 SD 卡（启用引导日志记录，便于调试任何可能的问题。）
 2. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader.
     
     > **Tip** The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
     
     ![FMUv2 更新](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
-3. Wait for the vehicle to reboot.
+3. 等待飞控重启。
 
-4. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
-5. Reboot (disconnect/reconnect the board). The bootloader update will only take a few seconds.
+4. [找到并启用](../advanced_config/parameters.md) 参数 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)。
+5. 重新启动（断开/重新连接飞控板）。 Bootloader 更新只需要几秒钟即可完成。
 
 Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
 
@@ -72,7 +72,7 @@ The following steps explain how you can "manually" update the bootloader using t
 
 After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
 
-## Other Boards (Non-Pixhawk) {#non-pixhawk}
+## 其他飞控板（非Pixhawk） {#non-pixhawk}
 
 Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
 
