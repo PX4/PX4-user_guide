@@ -1,4 +1,6 @@
-# CUAV v5
+# CUAV v5 (Discontinued)
+
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 *CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 该控制器基于[Pixhawk项目](https://pixhawk.org/)的**FMUv5** 开源硬件设计。 它在[NuttX](http://nuttx.org) OS操作系统上运行PX4，并与PX4固件完全兼容。 它主要面向学术和商业开发者。
 
@@ -49,13 +51,13 @@
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 
-> **Warning** RCIN接口仅限于为遥控接收机供电，不能连接任何电源/负载。
+> **Warning**The RCIN interface is limited to powering the rc receiver and cannot be connected to any power/load.
 
 ## 额定电压
 
 *CUAV v5* can be triple-redundant on the power supply if three power sources are supplied. 三个电源口：**POWER1**, **POWER2** and **USB**。 
 
-> **Note**输出电源轨** FMU PWM OUT**和**IO PWM OUT** （0V至36V）不为飞行控制器供电（并且不由其供电)。 您必须在**POWER1** 、**POWER2** 或 **USB** 任一接口中接入电源，否则主板将断开供电。
+> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 
 **正常运行最大额定值**
 
@@ -66,7 +68,7 @@
 
 ## 编译固件
 
-> **Tip**大多数用户将不需要构建此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
