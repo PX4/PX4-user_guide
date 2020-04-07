@@ -4,6 +4,8 @@ The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>
 
 ![mRo X2.1](../../assets/flight_controller/mro/mro_x2.1.jpg)
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## 总览
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
@@ -69,7 +71,7 @@ This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://sto
 
 ## 编译固件
 
-> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
