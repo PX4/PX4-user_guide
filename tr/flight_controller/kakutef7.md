@@ -4,6 +4,8 @@ The *Kakute F7* from Holybro is a flight controller board designed for racers.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## Key Features
 
 * Main System-on-Chip: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html) 
