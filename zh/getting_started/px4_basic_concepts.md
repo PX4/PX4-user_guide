@@ -8,9 +8,9 @@
 
 无人机是无人驾驶的“机器人”设备，可以远程或自动控制。
 
-Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). 这包括（非详尽）：航空摄影/录像，载货，竞速，搜索和测绘等。
+无人机可被用于 [消费级、工业级、政府、军工应用](https://px4.io/ecosystem/commercial-systems/)。 这包括（非详尽）：航空摄影/录像，载货，竞速，搜索和测绘等。
 
-> **Tip**存在用于空中、地面、海洋和水下各种不同类型的无人机。 这些（更正式地）被称为无人驾驶飞行器（UAV），无人驾驶飞行器系统（UAS），无人驾驶地面车辆（UGV），无人驾驶水面船只（USV），无人驾驶水下潜航器（UUV）。
+> **Tip** 存在用于空中、地面、海洋和水下各种不同类型的无人机。 这些（更正式地）被称为无人驾驶飞行器（UAV），无人驾驶飞行器系统（UAS），无人驾驶地面车辆（UGV），无人驾驶水面船只（USV），无人驾驶水下潜航器（UUV）。
 
 无人机的“大脑”被称为自动驾驶仪。 它由在 *载具控制器*（“飞行控制器”）硬件上运行的 *飞行栈* 软件组成。
 
@@ -24,19 +24,19 @@ PX4 的一些主要功能包括：
 - 适用于[设备控制器](#vehicle_controller)，传感器和其他外围设备的硬件选择。
 - 灵活而强大的[飞行模式](#flight_modes)和[安全功能](#safety)。
 
-PX4 is a core part of a broader drone platform that includes the [QGroundControl](#qgc) ground station, [Pixhawk hardware](https://pixhawk.org/), and [MAVSDK](http://mavsdk.mavlink.io) for integration with companion computers, cameras and other hardware using the MAVLink protocol. PX4 is supported by the [Dronecode Project](https://www.dronecode.org/).
+PX4 是一个大型无人机平台的核心部分，它们都包括 [QGC 地面站](#qgc)，[Pixhawk 硬件](https://pixhawk.org/)，还有[MAVSDK](http://mavsdk.mavlink.io) 用于与机载计算机集成，相机还有其他使用 MAVLink 协议的硬件。 PX4 由 [Dronecode 项目](https://www.dronecode.org/) 支持。
 
 ## QGC 地面站 {#qgc}
 
-Dronecode 地面控制站称为 [QGroundControl](http://qgroundcontrol.com/)。 您可以使用* QGroundControl *将（闪存）PX4 加载到[飞行器控制硬件上](flight_controller_selection.md)，您可以设置飞行器，更改不同参数，获取实时飞行信息以及创建和执行完全自主的任务。
+Dronecode 地面控制站称为 [QGC 地面站](http://qgroundcontrol.com/)。 您可以使用* QGroundControl *将（闪存）PX4 加载到[飞行器控制硬件上](flight_controller_selection.md)，您可以设置飞行器，更改不同参数，获取实时飞行信息以及创建和执行完全自主的任务。
 
 *QGroundControl* 可以在 Windows，Android，MacOS 或 Linux 上运行。 从 [这里](http://qgroundcontrol.com/downloads/) 下载并安装。
 
 ![QGC 主屏幕](../../images/qgc_main_screen.jpg)
 
-## Vehicle/Flight Controller Board {#vehicle_controller}
+## 机体/飞行控制板 {#vehicle_controller}
 
-PX4最初设计为在 [Pixhawk Series](../flight_controller/pixhawk_series.md) 控制器上运行，但现在可以在 Linux 计算机和其他硬件上运行。 选择飞行控制板时，您应当考虑飞行器的物理尺寸限制，想要执行的活动，还有必不可少的成本。
+PX4最初设计为在 [Pixhawk 系列](../flight_controller/pixhawk_series.md) 飞控上运行，但现在可以在 Linux 计算机和其他硬件上运行。 选择飞行控制板时，您应当考虑飞行器的物理尺寸限制，想要执行的活动，还有必不可少的成本。
 
 更多信息，请参阅：[飞行控制器选择](flight_controller_selection.md)。
 
@@ -49,17 +49,17 @@ PX4 使用传感器来确定飞行器状态（稳定和启用自动控制所需�
 - [传感器](../getting_started/sensor_selection.md) 
 - [外设](../peripherals/README.md)
 
-## ESCs & Motors
+## 电调 & 电机
 
 许多 PX4 无人机使用无刷电机，其由飞行控制器通过电子调速器（ESC）驱动（ESC将来自飞行控制器的信号转换为合适的功率水平，传递给电机）。
 
-有关 PX4 支持的 ESC/Motors 的信息，请参阅：
+有关 PX4 支持的电调和电机的信息，请参阅：
 
 - [电调 & 电机](../peripherals/esc_motors.md)
 - [电调校准](../advanced_config/esc_calibration.md)
-- [ESC 固件和协议概述](https://oscarliang.com/esc-firmware-protocols/)（oscarliang.com）
+- [电调固件和协议概述](https://oscarliang.com/esc-firmware-protocols/)（oscarliang.com）
 
-## Battery/Power
+## 电池/电源
 
 PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*电源模块 *或*电源管理板 *连接到系统，它为飞行控制器和 ESC（用于电动机）提供单独的动力。
 
@@ -67,19 +67,19 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 
 ## 无线电控制（遥控） {#rc_systems}
 
-[无线电控制（RC）](../getting_started/rc_transmitter_receiver.md)系统用于 *手动 * 控制机体。 它由一个遥控装置组成，使用发射机来与飞行器上的接收机通信。 一些 RC 系统还可以接自动驾驶仪传回的收遥测信息。
+[遥控（RC）](../getting_started/rc_transmitter_receiver.md)系统用于 *手动* 控制机体。 它由一个遥控装置组成，使用发射机来与飞行器上的接收机通信。 一些 RC 系统还可以接自动驾驶仪传回的收遥测信息。
 
 > **Note** PX4 在自主飞行模式中不需要遥控系统。
 
 ![Taranis X9D遥控器。](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
 
-[ RC系统选择](../getting_started/rc_transmitter_receiver.md)说明如何选择 RC 系统。 其他相关主题包括：
+[遥控系统选择](../getting_started/rc_transmitter_receiver.md) 说明如何选择遥控系统。 其他相关主题包括：
 
-- [无线电/远程控制设置](../config/radio.md) - * QGroundControl *中的遥控配置。
+- [遥控设置](../config/radio.md) - *QGC 地面站* 中的遥控配置。
 - [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
 - [ FrSky遥测](../peripherals/frsky_telemetry.md) - 设置 RC 发射机以从 PX4 接收遥测/状态更新。
 
-## GCS Joystick Controller {#joystick}
+## 地面站游戏手柄控制器 {#joystick}
 
 A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) shown below. Joysticks are also commonly used to fly the vehicle in simulation.
 
@@ -93,7 +93,7 @@ It is common for vehicles to have a *safety switch* that must be engaged before 
 
 ## 数传电台
 
-[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+[数传电台](../telemetry/README.md) 可以在诸如 *QGC 地面站* 与运行 PX4 的机体之间提供无线 MAVLink 连接。 This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
 ## Offboard/Companion Computer
 
@@ -133,17 +133,17 @@ Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/
 
 A detailed overview of arming and arming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
-## Flight Modes {#flight_modes}
+## 飞行模式 {#flight_modes}
 
-Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
+飞行模式为用户（飞手）提供不同类型/级别的飞行器自动化和自动驾驶辅助。 自主模式完全由自驾仪控制，无需飞手/遥控输入。 例如，它们可用于自动执行诸如起飞，返回 Home 点和着陆等常见任务。 其他自主模式执行预编程任务，跟随 GPS 信标，或接受来自机载计算机或地面站的命令。
 
-*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
+*手动模式* 由用户（通过遥控控制杆/手柄）在自驾仪的协助下实现控制。 不同的手动模式可以实现不同的飞行特性 - 例如，某些模式可以实现特技动作，而其他模式则无法翻转并且会抗风以保持位置/航向。
 
-> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+> **Tip** 并非所有的飞行模式都适用于所有飞行器，并且某些模式只能在满足特定条件时使用（例如，许多模式需要全局位置估计）。
 
-An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+可用飞行模式的概述 [可在这里找到](../getting_started/flight_modes.md)。 [飞行模式配置](../config/flight_mode.md) 中提供了有关如何设置遥控开关以打开不同飞行模式的说明。
 
-## Safety Settings (Failsafe) {#safety}
+## 安全设置（故障保护） {#safety}
 
 PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
