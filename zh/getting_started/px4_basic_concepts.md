@@ -131,7 +131,7 @@ SD 卡在某些情况下也是可选的。 不包含 SD 卡槽的飞行控制器
 
 解锁默认情况下（美国手发射机）可以通过保持遥控油门+ YAW 摇杆到*右下角*一秒钟来解锁，要想加锁，则保持摇杆在左下角。 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送解锁命令）。
 
-还有更细节的解锁和加锁的配置的详细解读可以在这里找到：[解锁前，解锁，加锁配置](../advanced_config/prearm_arm_disarm.md)。
+A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
 ## 飞行模式 {#flight_modes}
 
