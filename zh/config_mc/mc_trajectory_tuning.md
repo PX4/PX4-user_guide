@@ -1,6 +1,10 @@
 # Multicopter Setpoint Tuning (Trajectory Generator)
 
-This document provides an overview of the multicopter tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements or direction changes in missions, the maximum allowed velocity, etc. (i.e. the parameters that affect the value of a desired setpoint rather than those that affect how well the vehicle *tracks* the setpoint). The algorithm that generates those setpoints is called a "trajectory generator".
+This document provides an overview of the multicopter tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements or direction changes in missions, the maximum allowed velocity, etc.
+
+In other words, this topic explains how to tune the parameters that affect the value of a *desired setpoint* rather than those that affect how well the vehicle *tracks* the setpoint).
+
+The algorithm that generates those setpoints is called a "trajectory generator".
 
 > **Warning** 本指南适用于高级用户/专家。
 
@@ -10,34 +14,40 @@ This document provides an overview of the multicopter tuning parameters that cha
 
 ## 综述
 
-P/PID控制器的输入是飞行器尝试跟踪的*期望设定值*。 [PID调参](../config_mc/pid_tuning_guide_multicopter.md) ("低级"调参) 的目标是减小设定值和估计值之间的误差。 较小的PID增益将导致飞行器的不稳定
+The input to the P/PID controller is a *desired setpoint* that the vehicle should attempt to track. [PID Tuning](../config_mc/pid_tuning_guide_multicopter.md) ("Lower level tuning") aims to reduce the error between the desired setpoint and the estimate of the vehicle state.
 
-传递给 P/PID 控制器的所需设定值本身是根据摇杆位置（在遥控模式下）或从任务指令的要求设定值计算的。 设定值（“更高级别”）调整用于指定所需设定值和所需设定值之间的映射。 较差的的设定值不会导致不稳定，但可能导致对设定值变化的响应速度变慢。
+The *desired setpoint* passed to the P/PID controller is itself calculated from a *demanded setpoint* based on a stick position (in RC modes) or from a mission command. The demanded setpoint can change very quickly (e.g. if a user moves stick from zero to maximum value as a "step"). Vehicle flight characteristics are better if the corresponding desired setpoint changes as a "ramp".
 
-> **Tip** 所要求的设定值可能会很快改变（例如, 如果用户一下子从零设置为到最大价值）。 如果缓慢调整相应的目标设定值, 飞行器的特性就会更好。
+*Setpoint value tuning* ("higher level tuning") is used to specify the mapping between the *demanded* and the *desired* setpoints - i.e. defining the "ramp" at which the desired setpoint follows the demanded setpoint.
 
-The setpoint-value tuning parameters can be split into two groups: tuning parameters for position mode and tuning parameters for mission mode. 某些参数将同时对两种模式产生影响。
+> **Tip** Poorly tuned [P/PID Gains](../config_mc/pid_tuning_guide_multicopter.md) can lead to instability. Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
 
-## Definitions
+## Flight Modes Trajectory Support {#modes}
 
-The position controller ([diagram here](https://dev.px4.io/master/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop. 根据 飞行模式, 两个回路都是活动的, 或者只有速度控制回路是活动的。
+[Mission mode](../flight_modes/mission.md) used the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory all the time.
 
-对于本文档的其余部分，** 位置控制 ** 代表两个控制回路都有效的情况，而 ** 速度控制 ** 指的是仅使用速度控制回路的情况。
+[Position mode](../flight_modes/position_mc.md) supports all the [trajectory types](#trajectory_implementation) listed below. It uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default; the other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-## Implementations
+[Altitude mode](../flight_modes/altitude_mc.md) similarly uses the [trajectory types](#trajectory_implementation) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
 
-Two different implementations are available for each mode and can be selected using the parameters [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) and [MPC_AUTO_MODE](../advanced_config/parameter_reference.md#MPC_AUTO_MODE).
+No other modes support trajectory tuning.
 
-Click on the links below to learn more about those implementations and how to configure them:
+## Trajectory Implementations {#trajectory_implementation}
 
-- [Slew-rate](../config_mc/mc_slew_rate_type_trajectory.md) (`MPC_POS_MODE=1`, `MPC_POS_MODE=2`, `MPC_AUTO_MODE=0`) - Used when quick response is more important than smooth motion (e.g.: inspection, aggressive flight with position hold, fast missions).
-  
-  - This is a simple implementation where the jerk and acceleration is limited using slew-rates.
-  - In manual mode, it allows asymmetric profiles based on user intention (smooth acceleration and quick stop).
-  - The jerk and acceleration limits are not hard constraints.
+The following list provides an *overview* of the different trajectory implementations:
 
-- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) (`MPC_POS_MODE=3`, `MPC_AUTO_MODE=1`) - Used when smooth motion is required (e.g.: filming, mapping, cargo).
-  
+- [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) (Default) 
+  - Used when smooth motion is required (e.g.: filming, mapping, cargo).
   - Generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
-
-> **Tip** The jerk-limited (smooth) type is used by default for all frames in both manual and auto modes; this may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
+  - May not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
+  - Set in position mode using `MPC_POS_MODE=3`.
+- [Slew-rate](../config_mc/mc_slew_rate_type_trajectory.md) 
+  - Used when quick response is more important than smooth motion (e.g.: aggressive flight with position hold).
+  - This is a simple implementation where the jerk and acceleration is limited using slew-rates.
+  - It allows asymmetric profiles based on user intention (smooth acceleration and quick stop). 
+  - The jerk and acceleration limits are not hard constraints.
+  - Set in position mode using `MPC_POS_MODE=1`.
+- **Simple position control** 
+  - Sticks map directly to velocity setpoints without smoothing.
+  - Useful for velocity control tuning.
+  - Set in position mode using `MPC_POS_MODE=0`.
