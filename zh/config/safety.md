@@ -167,15 +167,15 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的载具�
 | [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)   | 以一定的横滚/侧倾角盘旋。                      |
 | [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | 盘旋时的油门量。                           |
 
-### Offboard Loss Failsafe
+### Offboard 中断故障保护
 
-The *Offboard Loss Failsafe* is triggered if the offboard link is lost while under Offboard control. Different failsafe behaviour can be specified based on whether or not there is also an RC connection available.
+如果在 Offboard 控制模式下发生 Offboard 通信链路中断，则会触发 *Offboard 中断故障保护*。 可以根据是否还有可用的遥控连接来指定不同的故障保护行为。
 
-The relevant parameters are shown below:
+相关参数如下：
 
-| 参数                                                                           | 参数描述                                                                                                              |
+| 参数                                                                           | 描述                                                                                                                |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | Delay after loss of offboard connection before the failsafe is triggered.                                         |
+| [COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T)   | Offboard 连接中断后到触发故障保护前的延迟。                                                                                        |
 | [COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT)       | Failsafe action if no RC is available: Land mode, Hold mode, Return mode.                                         |
 | [COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Failsafe action if RC is available: Position mode, Altitude mode, Manual mode, Return mode, Land mode, Hold mode. |
 
