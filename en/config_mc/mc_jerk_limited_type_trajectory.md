@@ -1,12 +1,13 @@
 # Jerk-limited Type Trajectory for Multicopters
 
-The Jerk-limited trajectory type should be used when smooth motion is required in response to user stick input or mission changes (e.g.: for filming, mapping, cargo).
+The Jerk-limited trajectory type provides smooth motion in response to user stick input or mission changes (e.g.: for filming, mapping, cargo).
 It generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
 
-Enable this trajectory type using the following parameter settings: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE), [MPC_AUTO_MODE=1](../advanced_config/parameter_reference.md#MPC_AUTO_MODE).
+This trajectory type is always enabled in [Mission mode](../flight_modes/mission.md).
+To enable it in [Position mode](../flight_modes/position_mc.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
-> **Note** The jerk-limited type is used *by default* on all airframes, in both auto and position modes. 
-  [Setpoint Tuning (Trajectory Generator)](../config_mc/mc_trajectory_tuning.md) also supports [MC Slew-rate Trajectory Tuning](../config_mc/mc_slew_rate_type_trajectory.md) for a faster (albeit "jerky") response.
+> **Note** The jerk-limited type is used *by default* in position mode.
+  It may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
 
 
 ## Trajectory Generator
@@ -57,7 +58,6 @@ Z-axis:
 
 Distance to velocity gains when close to a waypoint:
 - [MPC_XY_TRAJ_P](../advanced_config/parameter_reference.md#MPC_XY_TRAJ_P)
-- [MPC_Z_TRAJ_P](../advanced_config/parameter_reference.md#MPC_Z_TRAJ_P)
 
 ### Related Parameters
 
