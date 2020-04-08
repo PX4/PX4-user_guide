@@ -196,7 +196,6 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 * The ecl EKF is a complex algorithm that requires a good understanding of extended Kalman filter theory and its application to navigation problems to tune successfully. It is therefore more difficult for users that are not achieving good results to know what to change.
 * The ecl EKF uses more RAM and flash space.
 * The ecl EKF uses more logging space.
-* The ecl EKF has had less flight time.
 
 ### Advantages
 
