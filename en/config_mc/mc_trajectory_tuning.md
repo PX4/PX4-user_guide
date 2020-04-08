@@ -34,6 +34,8 @@ Vehicle flight characteristics are better if the corresponding desired setpoint 
 [Position mode](../flight_modes/position_mc.md) supports all the [trajectory types](#trajectory_implementation) listed below.
 It uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default; the other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
 
+[Altitude mode](../flight_modes/altitude_mc.md) similarly uses the [trajectory types](#trajectory_implementation) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
+
 No other modes support trajectory tuning.
 
 
