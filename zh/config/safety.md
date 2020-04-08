@@ -214,11 +214,11 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 故障检测器允许机体在意外翻转或收到外部故障检测系统通知时执行保护措施。
 
-在飞行期间，如果满足故障条件，可以用故障检测器触发[飞行终止](../advanced_config/flight_termination.md)，随后可以发射[降落伞](../peripherals/parachute.md)或执行一些其他操作。
+During **flight**, the failure detector can be used to trigger [flight termination](../advanced_config/flight_termination.md) if failure conditions are met, which may then launch a [parachute](../peripherals/parachute.md) or perform some other action.
 
 > **Note** 飞行期间的故障检测默认被停用（通过设置参数启用：CBRK_FLIGHTTERM=0）。</p> </blockquote> 
 > 
-> 在起飞过程中，如果机体发生翻转，故障检测器的[姿态触发器](#attitude_trigger)会触发[上锁动作](#action_lockdown)（与飞行终止不同，上锁虽然会制动电机，但不会发射降落伞或执行其他故障动作）。 请注意，无论 `CBRK_FLIGHTERM` 参数为何值，起飞时总是启用此检查。
+> During **takeoff** the failure detector [attitude trigger](#attitude_trigger) invokes the [lockdown action](#action_lockdown) if the vehicle flips (lockdown kills the motors but, unlike flight termination, will not launch a parachute or perform other failure actions). Note that this check is *always enabled on takeoff*, irrespective of the `CBRK_FLIGHTTERM` parameter.
 > 
 > 故障检测器在所有机体类型和飞行模式下均处于激活状态，但*预期*会翻转的机体类型除外（即 [Acro 特技模式（MC）](../flight_modes/altitude_mc.md)，[Acro 特技模式（FW）](../flight_modes/altitude_fw.md)，[Rattitude 半自稳模式](../flight_modes/rattitude_mc.md)和 Manual 手动模式（FW））。</p> 
 > 
