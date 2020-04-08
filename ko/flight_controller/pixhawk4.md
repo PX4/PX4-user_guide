@@ -6,6 +6,8 @@
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright 이미지" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 이미지" />
 
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+
 ## 빠른 요약
 
 * 메인 FMU 프로세서: STM32F765 
@@ -49,7 +51,7 @@
 
 ![Pixhawk 4 커넥터들](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
-> **경고** **DSM/SBUS RC** 와 **PPM RC** 포트들은 RC 수신기 전용 입니다. 이 포트들은 전원이 공급되고 있습니다. 절대 서보나 전원공급기나 기타 배터리 (또는 다른 수신기) 들과 연결하면 안됩니다.
+> **Warning** The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
 
 ## 핀아웃 Pinouts
 

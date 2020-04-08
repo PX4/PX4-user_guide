@@ -1,6 +1,6 @@
 # AUAV-X2 自动驾驶仪 (停产)
 
-> **Warning** 这个板子已经停产, 不再有商业用途。
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 [AUAV<sup>&reg;</sup> ](http://www.auav.com/) *AUAV-X2 autopilot* 基于[Pixhawk<sup>&reg;</sup>-项目](https://pixhawk.org/) ** FMUv2** 开放硬件设计。 它在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
 
