@@ -9,6 +9,8 @@ Manufacturer-supported autopilots are maintained and supported by a board manufa
 
 The boards in this category are:
 
+- [CUAV V5+](../flight_controller/cuav_v5_plus.md) (FMUv5)
+- [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) (FMUv5)
 - [mRobotics-X2.1](../flight_controller/mro_x2.1.md) (FMUv2)
 - [Drotek DroPix](../flight_controller/dropix.md) (FMUv2)
 - [HEX Cube Yellow](http://www.proficnc.com/all-products/187-the-cube.html) (www.proficnc.com)
