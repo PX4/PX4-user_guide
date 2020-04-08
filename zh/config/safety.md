@@ -135,37 +135,37 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的载具�
 | 几秒后锁定 | [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) | 选中复选框以指定载具在降落后上锁。 该值必须是非零的，但可以是小于一秒的小数。 |
 | 降落速率  | [MPC_LAND_SPEED](../advanced_config/parameter_reference.md#MPC_LAND_SPEED)   | 下降速率（仅限多旋翼）。                            |
 
-## Other Failsafe Settings {#failsafe_other}
+## 其他故障保护设置 {#failsafe_other}
 
-This section contains information about failsafe settings that cannot be configured through the *QGroundControl* [Safety Setup](#qgc_safety_setup) page.
+本节包含无法通过 QGroundControl 安全设置页面配置的故障保护设置的信息。
 
-### Position (GPS) Loss Failsafe
+### 位置（GPS）丢失故障保护
 
-The *Position Loss Failsafe* is triggered if the quality of the PX4 position estimate falls below acceptable levels (this might be caused by GPS loss) while in a mode that requires an acceptable position estimate.
+如果在对位置估计有要求的模式下，PX 4位置估计的精度低于要求（这可能是由 GPS 丢失引起的），则会触发位置丢失故障保护。
 
-The failure action is controlled by [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL), based on whether RC control is assumed to be available (and altitude information):
+故障动作由 [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL) 控制, 基于遥控控制（和高度信息）是否可用：
 
-* `0`: Remote control available. Switch to *Altitude mode* if a height estimate is available, otherwise *Stabilized mode*.
-* `1`: Remote control *not* available. Switch to *Land mode* if a height estimate is available, otherwise enter flight termination.
+* `0`：遥控控制可用。 如果高度估计值可用，则切换到*定高模式*，否则为*自稳模式*。
+* `1`：遥控控制*不*可用。 如果高度估计值可用，则切换到*降落模式*，否则进入飞行终止。
 
-Fixed Wing vehicles additionally have a parameter ([NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT)) for defining how long they will loiter (circle) after losing position before attempting to land.
+此外，固定翼机体还有一个参数（[NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT)），用于定义机体在丢失位置到试图降落这段时间内将悬停（盘旋）多长时间。
 
-The relevant parameters for all vehicles shown below (also see [GPS Failure navigation parameters](../advanced_config/parameter_reference.md#gps-failure-navigation)):
+以下为所有机体的相关参数(另见 [GPS 故障导航参数](../advanced_config/parameter_reference.md#gps-failure-navigation))：
 
-| 参数                                                                               | 参数描述                                                                                                      |
-| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | Delay after loss of position before the failsafe is triggered.                                            |
-| [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | Position control navigation loss response during mission. Values: 0 - assume use of RC, 1 - Assume no RC. |
-| [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR)       | Circuit breaker for position error check (disables error checks in all modes).                            |
+| 参数                                                                               | 描述                                        |
+| -------------------------------------------------------------------------------- | ----------------------------------------- |
+| [COM_POS_FS_DELAY](../advanced_config/parameter_reference.md#COM_POS_FS_DELAY) | 失去位置后到触发故障保护前的延迟。                         |
+| [COM_POSCTL_NAVL](../advanced_config/parameter_reference.md#COM_POSCTL_NAVL)   | 执行任务期间的位置控制导航丢失响应。 值：0——假设使用遥控，1——假设没有遥控。 |
+| [CBRK_VELPOSERR](../advanced_config/parameter_reference.md#CBRK_VELPOSERR)       | 用于位置错误检查的断路器（在所有模式下禁用错误检查）。               |
 
-Parameters that only affect Fixed Wing vehicles:
+仅影响固定翼机体的参数：
 
-| 参数                                                                     | 参数描述                                                                                                |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | Loiter time (waiting for GPS recovery before it goes into flight termination). Set to 0 to disable. |
-| [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P)   | Fixed pitch angle while circling.                                                                   |
-| [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)   | Fixed roll/bank angle while circling.                                                               |
-| [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | Thrust while circling.                                                                              |
+| 参数                                                                     | 描述                                 |
+| ---------------------------------------------------------------------- | ---------------------------------- |
+| [NAV_GPSF_LT](../advanced_config/parameter_reference.md#NAV_GPSF_LT) | 悬停时间（以在飞行终止前等待 GPS 恢复）。 设置为 0 以禁用。 |
+| [NAV_GPSF_P](../advanced_config/parameter_reference.md#NAV_GPSF_P)   | 以一定的俯仰角盘旋。                         |
+| [NAV_GPSF_R](../advanced_config/parameter_reference.md#NAV_GPSF_R)   | 以一定的横滚/侧倾角盘旋。                      |
+| [NAV_GPSF_TR](../advanced_config/parameter_reference.md#NAV_GPSF_TR) | 盘旋时的油门量。                           |
 
 ### Offboard Loss Failsafe
 
