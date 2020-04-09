@@ -19,17 +19,17 @@
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
 3. 选择 **Set Orientations** 按钮。 <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
-4. 选择 **AutoPilot Orientation** (如 [calculated above](#calculating-orientation))。
+4. 选择 **自驾仪方向（AutoPilot Orientation）**（[之前计算的值](#calculating-orientation)）。
     
     <img src="../../images/qgc/setup/sensor_orientation_selector_values.jpg" style="width: 200px;" />
 
-5. 同样的选择 **External Compass Orientation**（只有当您的飞行器有外部罗盘时，才会显示此选项）。
+5. 同样的选择 **外置罗盘方向（External Compass Orientation）**（只有当您的飞行器有外部罗盘时，才会显示此选项）。
 
 6. 点击 **OK**。
 
-## 微调
+## 优化调整
 
-您可以使用 [校准地平（Level Horizon Calibration）](../config/level_horizon_calibration.md) 补偿飞行控制器方向中小误差并校平飞行视图中的地平线。
+您可以使用 [校准地平（Level Horizon Calibration）](../config/level_horizon_calibration.md) 补偿飞控方向的少量误差，并校平飞行视图中的地平线。
 
 ## 更多信息
 
