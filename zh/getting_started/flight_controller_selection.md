@@ -17,14 +17,14 @@ PX4 能够在很多飞控板上运行（见 [自驾仪硬件](../flight_controll
 
 ## 用于计算密集型任务的无人机
 
-These flight controllers (and development platforms) offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
+这些飞行控制器（和开发平台）提供机载“协同计算”，以实现计算机视觉和其他计算密集型任务。
 
-| 控制器                                                                    | 参数描述                                                                    |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RaPi can be connected to an autopilot and used as a companion computer. |
+| 控制器                                                                    | 描述                     |
+| ---------------------------------------------------------------------- | ---------------------- |
+| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | 树莓派可以连接到自动驾驶仪并用作机载计算机。 |
 
 ## 可运行 PX4 的商业无人机
 
-PX4 is available on many popular commercial drone products, including some that ship with PX4 and others that can be updated with PX4 (allowing you to add mission planning and other PX4 Flight modes to your vehicle).
+PX4 适用于许多流行的商用无人机产品，包括一些搭载 PX4 以及可以用 PX4 升级的产品（允许您将任务规划和其他 PX4 飞行模式添加至您的无人机）。
 
-For more information see [Complete Vehicles](../complete_vehicles/README.md).
+详情见 [Complete Vehicles](../complete_vehicles/README.md)。
