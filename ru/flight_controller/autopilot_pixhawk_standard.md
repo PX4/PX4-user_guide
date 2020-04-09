@@ -1,6 +1,6 @@
 # Pixhawk Standard Autopilots
 
-[Pixhawk series](../flight_controller/pixhawk_series.md) boards that fully comply with the [Pixhawk Standard](https://pixhawk.org/) (including use of the Pixhawk trademark) are supported by the PX4 project.
+[Pixhawk series](../flight_controller/pixhawk_series.md) boards that fully comply with the [Pixhawk Standard](https://pixhawk.org/) (including use of the Pixhawk trademark), and that are still being manufactured, are supported by the PX4 project.
 
 These boards are maintained, updated, tested and otherwise supported by the PX4 project maintainers and Dronecode test team.
 
