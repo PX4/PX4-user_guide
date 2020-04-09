@@ -44,8 +44,7 @@ The Flight Core can be paired with [ModalAI VOXL](https://docs.modalai.com/voxl-
 
 ## PX4 Firwmare Compatibility
 
-Although supported in PX4 v1.10, a few issues have been addressed since then that are currently being maintained by ModalAI [here](https://github.com/modalai/px4-firmware/tree/modalai-1.10).
-These changes are mostly picked up in the master branch after the v1.10 release, with ongoing development for improvements in VIO and VOA being added as needed and then upstreamed.
+PX4 v1.11 brings stable support to this flight controller.  A branched v1.10 version maintained by ModalAI is also [available here](https://github.com/modalai/px4-firmware/tree/modalai-1.10), which include changes with ongoing development for improvements in VIO and VOA, which will be later upstreamed.
 
 More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
 
@@ -64,9 +63,9 @@ This board supported in QGroundControl 4.0 and later.
 
 ### Orientation
 
-The diagram below shows the recommended orientation, which corresponds to `ROTATION_NONE` on PX4 master branch (and on the [ModalAI-maintained PX4 v1.10 branch](https://github.com/modalai/px4-firmware/tree/modalai-1.10))
+The diagram below shows the recommended orientation, which corresponds to `ROTATION_NONE` starting with PX4 v1.11 (and on the [ModalAI-maintained PX4 v1.10 branch](https://github.com/modalai/px4-firmware/tree/modalai-1.10))
 
-> **Note** For *PX4 v1.10* stable releases from *QGroundControl* (only) use `ROTATION_YAW_180` for the above orientation.
+> **Note** If using the unrecommended *PX4 v1.10* stable releases from *QGroundControl* (only) use `ROTATION_YAW_180` for the above orientation.
 
 ![FlightCoreV1Orientation](../../assets/flight_controller/modalai/fc_v1/orientation.png)
 
@@ -84,11 +83,11 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 | J4  | VOXL Spare Communications Interface Connector (TELEM3) |
 | J5  | Telemetry Connector (TELEM1) |
 | J6  | VOXL-Power Management Input / Expansion |
-| J7  |  8-Channel PWM Output Connector |
+| J7  | 8-Channel PWM Output Connector |
 | J8  | CAN Bus Connector |
 | J9  | PPM RC In |
 | J10  | External GPS & Magnetometer Connector |
-| J12  | Spektrum UART Connector |
+| J12  | RC input |
 | J13  | I2C Display (Spare Sensor Connector) / Safety Button Input |
 
 ![FlightCoreV1Bottom](../../assets/flight_controller/modalai/fc_v1/bottom.png)
