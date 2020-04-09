@@ -29,7 +29,7 @@
 
 ## 微调
 
-您可以使用 [Level Horizon Calibration](../config/level_horizon_calibration.md) 补偿飞行控制器方向中小错点并稳定飞行视图中的地平线。
+您可以使用 [校准地平（Level Horizon Calibration）](../config/level_horizon_calibration.md) 补偿飞行控制器方向中小误差并校平飞行视图中的地平线。
 
 ## 更多信息
 
