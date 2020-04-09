@@ -1,8 +1,8 @@
 # 机架参考
 
-> **Note** **该列表是从源码自动生成的**。
+> **Note** **This list is [auto-generated](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py) from the source code**.
 > 
-> **AUX** 通道仅在Pixhawk飞控板上可用 (标签为 **AUX OUT**)。
+> **AUX** channels may not be present on some flight controllers. If present, PWM AUX channels are commonly labelled **AUX OUT**.
 
 该页列出所有PX4支持的机架型号，包括电机分配和序号。 **绿色**为顺时针转动的电机，**蓝色**为逆时针转动的电机。
 
