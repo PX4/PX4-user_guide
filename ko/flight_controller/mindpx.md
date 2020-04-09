@@ -14,7 +14,7 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 MindPX는 Pixhawk <sup> & reg; </ 0>에서 분기 된 차세대 자동 조종 장치로 개략도와 구조가 수정되었으며 무인 기체를 더욱 스마트하고 사용하기 쉽게 만드는 새로운 기능으로 더욱 강화되었습니다.</p> 
 
 <p>
-  MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs).<br /> This means that MindPX can support more complicated VTOL configurations and more fine control. It is especially meaningful for those FMU-V4 based flight controllers as MindPX implements main and aux output in one single FMU.
+  MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs). This means that MindPX can support more complicated VTOL configurations and more fine control. It is especially meaningful for those FMU-V4 based flight controllers as MindPX implements main and aux output in one single FMU.
 </p>
 
 <p>
