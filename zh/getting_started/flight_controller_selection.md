@@ -2,7 +2,7 @@
 
 在选择飞控板时你应当考虑飞机的物理尺寸限制、想要进行的活动以及必不可少的成本。
 
-PX4 能够在很多飞控板上运行（见 [自驾仪硬件](../flight_controller/README.md)，或 [Github](https://github.com/PX4/Firmware/#supported-hardware) 上的受支持的飞控板列表）。 A subset of the available options are listed below.
+PX4 能够在很多飞控板上运行（见 [自驾仪硬件](../flight_controller/README.md)，或 [Github](https://github.com/PX4/Firmware/#supported-hardware) 上的受支持的飞控板列表）。 下文列出了一部分可供选择的飞控。
 
 ## Pixhawk 系列
 
