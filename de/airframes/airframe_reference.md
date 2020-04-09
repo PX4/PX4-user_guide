@@ -1,8 +1,8 @@
 # Airframes Reference
 
-> **Note** **This list is auto-generated from the source code**.
+> **Note** **This list is [auto-generated](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py) from the source code**.
 > 
-> The **AUX** channels are only available on Pixhawk Boards (labeled with **AUX OUT**).
+> **AUX** channels may not be present on some flight controllers. If present, PWM AUX channels are commonly labelled **AUX OUT**.
 
 This page lists all supported airframes and types including the motor assignment and numbering. The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
 
