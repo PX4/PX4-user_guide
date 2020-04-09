@@ -1,8 +1,8 @@
 # 에어프레임 참조
 
-> **참고** **이 목록은 소스 코드에서 자동으로 생성됩니다**.
+> **Note** **This list is [auto-generated](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py) from the source code**.
 > 
-> **AUX** 채널은 Pixhawk 보드(**AUX OUT** 레이블로 표시됨)에서만 사용할 수 있습니다.
+> **AUX** channels may not be present on some flight controllers. If present, PWM AUX channels are commonly labelled **AUX OUT**.
 
 이 페이지에는 모터 할당과 번호 지정을 포함한 지원되는 모든 기체 프레임이 나열됩니다 **녹색 모터**는 시계 방향으로 회전합니다. **파란색 모터**는 반시계 방향으로 회전합니다.
 
