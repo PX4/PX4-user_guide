@@ -12,15 +12,15 @@
 
 ## 定点模式
 
-In [Position mode](../flight_modes/position_mc.md) the stick inputs are mapped to either **position-control** or **velocity-control**.
+在[定点模式](../flight_modes/position_mc.md)中， 摇杆输入映射为**位置-控制**或**速度-控制**。
 
-> **Note** The position controller ([diagram here](https://dev.px4.io/master/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop. Depending on the mode and situation either both loops are active or just the velocity control loop.
+> **Note** 位置控制器（[此图](https://dev.px4.io/master/en/flight_stack/controller_diagrams.html#multicopter-position-controller)）由一个外环 **P** 位置控制回路和一个内环 **PID** 速度控制回路组成。 根据模式和情况启用两个回路或仅启用速度控制回路。
 > 
-> For the remainder of this topic the term **position-control** represents the case where both loops are active while **velocity-control** refers to the case when only the velocity control loop is in use.
+> 对于本话题的其余部分，术语“**位置控制**”代表两个回路均被启用，而“**速度控制**”指的是仅启用速度控制回路的情况。
 
-Position-control is active when the stick inputs are within the deadzone [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ), and velocity-control otherwise.
+当摇杆输入在死区 [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)内时，位置控制被启用，否则启用速度控制。
 
-All the parameters below are tuning parameters and cannot be mapped directly to the physical quantity.
+以下所有参数都是可调节参数，不能被直接映射为物理量。
 
 #### MPC_ACC_HOR_MAX
 
