@@ -1,23 +1,23 @@
-# 多旋翼的颠簸有限型轨迹
+# 多旋翼的冲击有限型轨迹
 
-颠簸有限的轨迹类型能响应用户摇杆输入或任务的变化（例如：航拍，测绘，货运）并为机体提供平滑的运动。 It generates symmetric smooth S-curves where the jerk and acceleration limits are always guaranteed.
+冲击有限的轨迹类型能响应用户摇杆输入或任务的变化（例如：航拍，测绘，货运）并为机体提供平滑的运动。 它能产生对称的平滑 S 型曲线使冲击和加速度的极限始终得到保证。
 
-This trajectory type is always enabled in [Mission mode](../flight_modes/mission.md). To enable it in [Position mode](../flight_modes/position_mc.md) set the parameter: [MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+此轨迹类型始终在[任务模式](../flight_modes/mission.md)下启用。 若要在[定点模式](../flight_modes/position_mc.md)启用，请设置参数：[MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE)。
 
-> **Note** The jerk-limited type is used *by default* in position mode. It may not be suitable for vehicles/use-cases that require a faster response - e.g. racer quads.
+> **Note** 在位置模式下，默认使用冲击有限型轨迹。 但它可能不适合需要更快响应的机体/使用案例——例如穿越机。
 
-## Trajectory Generator
+## 轨迹生成器
 
-The graph below shows a typical jerk-limited profile with the following constraints:
+下图显示了具有如下约束的典型冲击限制剖面：
 
-- `jMax`: maximum jerk
-- `a0`: initial acceleration 
-- `aMax`: maximum acceleration
-- `a3`: final acceleration (always 0)
-- `v0`: initial velocity
-- `vRef`: desired velocity
+- `jMax`：最大冲击
+- `jMax`：初始加速度 
+- `aMax`：最大加速度
+- `a3`：最终加速度（始终为 0）
+- `v0`：初始速度
+- `vRef`：期望速度
 
-The constraints `jMax`, `aMax` are configurable by the user via parameters and can be different in manual position control and auto mode.
+其中，约束 `jMax`、`aMax` 由用户通过参数页配置，在手动定点控制和自动模式下可能有所不同。
 
 The resulting velocity profile is often called "S-Curve".
 
