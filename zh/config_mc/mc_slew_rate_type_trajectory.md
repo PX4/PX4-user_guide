@@ -1,16 +1,16 @@
-# Slew-rate Type Trajectory for Multicopters
+# 多旋翼的转换速率型轨迹
 
-> **Tip** The trajectory type can be enabled in [Position mode](../flight_modes/position_mc.md) (only) using the following parameter setting: [MPC_POS_MODE=1](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+> **Tip** 该轨迹类型可以通过设置以下参数：[MPC_POS_MODE=1](../advanced_config/parameter_reference.md#MPC_POS_MODE) 在[定点模式](../flight_modes/position_mc.md)（仅限）下启用。
 > 
-> [MC Jerk-limited Trajectory Tuning](../config_mc/mc_jerk_limited_type_trajectory.md) is an alternative trajectory that provides for smoother responses.
+> [多旋翼的冲击有限型轨迹调整](../config_mc/mc_jerk_limited_type_trajectory.md)是另一种提供更平滑响应的轨迹。
 
-The Slew Rate trajectory type is a simple implementation where the jerk and acceleration is limited using slew-rates (jerk and acceleration limits are not hard constraints).
+转换速率轨迹类型是一种简单的实现方式，在这种情况下，冲击和加速度使用转换速率进行限制（冲击和加速度限制不是硬约束）。
 
-It allows asymmetric profiles based on user intention (smooth acceleration and quick stop), and should be used when a quick (and potentially "jerky") response to stick input is more important than ensuring smooth acceleration and deceleration (e.g.: for aggressive flight with position hold).
+它允许非对称配置的用户意图（平滑加速及快速停止），并且应该在响应快速摇杆输入（可能是“冲击”）优先于保证平滑加减速时使用（例如，对于具有位置保持的攻击性飞行）。
 
-This topic explains how the trajectory type can be tuned.
+本话题解释了如何调整轨迹类型。
 
-## Position Mode
+## 定点模式
 
 In [Position mode](../flight_modes/position_mc.md) the stick inputs are mapped to either **position-control** or **velocity-control**.
 
