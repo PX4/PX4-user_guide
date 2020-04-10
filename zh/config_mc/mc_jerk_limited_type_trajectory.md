@@ -21,11 +21,11 @@
 
 所得的速度剖面通常称为“S-曲线”。
 
-![Jerk-limited trajectory](../../images/jerk_limited_trajectory_1d.png)
+![冲击限制型轨迹](../../images/jerk_limited_trajectory_1d.png)
 
 ## 手动模式
 
-在手动定点模式下，把摇杆映射到一个对应于 [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL) 的完整摇杆挠度的速度。
+在手动定点模式下，通过摇杆控制速度，在这种情况下，通过参数 [MPC_VEL_MANUAL](../advanced_config/parameter_reference.md#MPC_VEL_MANUAL) 定义完整的摇杆挠度。
 
 ### 约束
 
