@@ -8,6 +8,8 @@ The landing logic has several phases, as shown below. In the first phase the veh
 
 The flare landing altitude is relative to the altitude that the FW vehicle "thinks" is ground level. In [Land mode](../flight_modes/land.md) the ground altitude is not known and the vehicle will use assume it is at 0m (sea level). Often the ground level will be much higher than sea level, so the vehicle will land in the first phase (it will land on the ground before it reaches the flare altitude).
 
+Terrain information from the lidar sensor can be used to solve this problem by setting [FW_LND_USETER](#FW_LND_USETER) to 1. This enables the vehicle to use a distance sensor to estimate the terrain for landing
+
 In a mission, [Return mode](../flight_modes/return.md), or if the vehicle has a range sensor fitted then ground level can be accurately estimated and landing behaviour will be as shown in the preceding diagram.
 
 Landing is further affected by the following parameters:
@@ -23,3 +25,4 @@ Parameter | Description
 <span id="FW_LND_FL_PMIN"></span>[FW_LND_FL_PMIN](../advanced_config/parameter_reference.md#FW_LND_FL_PMIN) | Minimum pitch during flare. A positive sign means nose up Applied once `FW_LND_TLALT` is reached
 <span id="FW_LND_FL_PMAX"></span>[FW_LND_FL_PMAX](../advanced_config/parameter_reference.md#FW_LND_FL_PMAX) | Maximum pitch during flare. A positive sign means nose up Applied once `FW_LND_TLALT` is reached
 <span id="FW_LND_AIRSPD_SC"></span>[FW_LND_AIRSPD_SC](../advanced_config/parameter_reference.md#FW_LND_AIRSPD_SC) | Min. airspeed scaling factor for landing. Comment: Multiplying this factor with the minimum airspeed of the plane gives the target airspeed the landing approach. `FW_AIRSPD_MIN x FW_LND_AIRSPD_SC`
+<span id="FW_LND_USETER"></span>[FW_LND_USETER](../advanced_config/parameter_reference.md#FW_LND_USETER) | Use terrain information estimated by a distance sensor
