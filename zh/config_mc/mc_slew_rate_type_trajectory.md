@@ -16,7 +16,7 @@
 
 > **Note** 位置控制器（[此图](https://dev.px4.io/master/en/flight_stack/controller_diagrams.html#multicopter-position-controller)）由一个外环 **P** 位置控制回路和一个内环 **PID** 速度控制回路组成。 根据模式和情况启用两个回路或仅启用速度控制回路。
 > 
-> 对于本话题的其余部分，术语“**位置控制**”代表两个回路均被启用，而“**速度控制**”指的是仅启用速度控制回路的情况。
+> 对于本话题的其余部分，术语“**位置-控制**”代表两个回路均被启用，而“**速度-控制**”指的是仅启用速度控制回路的情况。
 
 当摇杆输入在死区 [MPC_HOLD_DZ](../advanced_config/parameter_reference.md#MPC_HOLD_DZ)内时，位置控制被启用，否则启用速度控制。
 
@@ -40,13 +40,13 @@
 
 ![Slewrate Reset](../../images/slewrate_reset.svg)
 
-如果不重置（如顶部图所示），在发送停止指令时（摇杆输入值为 0），速度设定值将以` MPC_ACC_HOR_MAX `所示的最大速率缓降。 由于滞后，机体将先在停止指令发送之前的行进方向上继续加速，然后缓慢减速至零。 With the reset of the velocity setpoint to the current velocity, the delay due to the lag during stop demand can be overcome.
+如果不重置（如顶部图所示），在发送停止指令时（摇杆输入值为 0），速度设定值将以` MPC_ACC_HOR_MAX `所示的最大速率缓降。 由于滞后，机体将先在停止指令发送之前的行进方向上继续加速，然后缓慢减速至零。 通过将速度设定值重置为当前速度，可以克服停止指令导致的延迟。
 
-#### MPC_ACC_UP_MAX and MPC_ACC_DOWN_MAX
+#### MPC_ACC_UP_MAX 和 MPC_ACC_DOWN_MAX
 
-`MPC_ACC_UP_MAX` >= `MPC_ACC_DOWN_MAX`, otherwise the firmware will overwrite the given values.
+`MPC_ACC_UP_MAX` >= `MPC_ACC_DOWN_MAX`，否则固件将重写给定值以满足此条件。
 
-- **position-control:** the limit in velocity setpoint change in z-direction is given by [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX).
+- **位置-控制：**速度设定值在 z 方向的变化上限由参数 [MPC_ACC_UP_MAX](../advanced_config/parameter_reference.md#MPC_ACC_UP_MAX) 给出。
 - **velocity-control:** the limit in velocity setpoint change for stick input is `MPC_ACC_UP_MAX` for upward and [MPC_ACC_DOWN_MAX](../advanced_config/parameter_reference.md#MPC_ACC_DOWN_MAX) for downward direction.
 
 #### MPC_JERK_MAX and MPC_JERK_MIN
