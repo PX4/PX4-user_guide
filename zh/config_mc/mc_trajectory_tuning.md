@@ -1,16 +1,16 @@
 # 多旋翼设定值调整（轨迹生成器）
 
-This document provides an overview of the multicopter tuning parameters that change the *user experience*: how fast the vehicle reacts to stick movements or direction changes in missions, the maximum allowed velocity, etc.
+本文概述了改变*用户体验*的多旋翼可调整参数：机体对摇杆运动或任务方向变化的反应速度、最大允许速度等。
 
-In other words, this topic explains how to tune the parameters that affect the value of a *desired setpoint* rather than those that affect how well the vehicle *tracks* the setpoint).
+换言之，本话题解释了如何调整那些影响*期望设定点*的参数，而不是那些影响机体*轨迹跟踪*性能的参数。
 
-The algorithm that generates those setpoints is called a "trajectory generator".
+生成这些设定点的算法称为“轨迹生成器”。
 
 > **Warning** 本指南适用于高级用户/专家。
 
 <span></span>
 
-> **Tip** Follow the instructions in the [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) *before* doing any of the tuning described here. Do not use these tuning parameters to fix bad tracking or vibration!
+> **Tip** 在做任何本文所述的调校*之前*，请先按照[多旋翼 PID 调整指南](../config_mc/pid_tuning_guide_multicopter.md)中的说明进行操作。 请不要试图通过调整这些参数来修复错误的轨迹或抖动。
 
 ## 综述
 
