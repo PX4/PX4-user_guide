@@ -1,6 +1,6 @@
 # 多旋翼的抖动限制型轨迹
 
-抖动有限的轨迹类型能响应用户摇杆输入或任务的变化（例如：航拍，测绘，货运）并为机体提供平滑的运动。 它能产生对称的平滑 S-曲线使冲击和加速度的极限始终得到保证。
+抖动有限的轨迹类型能响应用户摇杆输入或任务的变化（例如：航拍，测绘，货运）并为机体提供平滑的运动。 它能产生对称的平滑 S-曲线使抖动和加速度的极限始终得到保证。
 
 此轨迹类型始终在[任务模式](../flight_modes/mission.md)下启用。 若要在[定点模式](../flight_modes/position_mc.md)启用，请设置参数：[MPC_POS_MODE=3](../advanced_config/parameter_reference.md#MPC_POS_MODE)。
 
@@ -21,7 +21,7 @@
 
 所得的速度剖面通常称为“S-曲线”。
 
-![冲击限制型轨迹](../../images/jerk_limited_trajectory_1d.png)
+![抖动限制型轨迹](../../images/jerk_limited_trajectory_1d.png)
 
 ## 手动模式
 
@@ -42,7 +42,7 @@ Z轴：
 
 ## 自动模式
 
-在自动模式下，所需的速度是[MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)，但该值会根据到下一个航点的距离、航线中可能的最大速度以及所需的最大加速度和冲击自动调整。
+在自动模式下，所需的速度是[MPC_XY_CRUISE](../advanced_config/parameter_reference.md#MPC_XY_CRUISE)，但该值会根据到下一个航点的距离、航线中可能的最大速度以及所需的最大加速度和抖动自动调整。
 
 ### 约束
 
