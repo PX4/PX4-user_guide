@@ -20,13 +20,13 @@ P/PID 控制器的输入是机体尝试跟踪的*期望设定值*。 [PID 调参
 
 *设定值整定*（“较高级整定”）用于指定*要求设定值*和*期望设定值*之间的映射，即用来定义期望设定点到期望设定点间的“斜坡”映射。
 
-> **Tip** P/PID 增益<1>整定不当会导致机体不稳定。 *设定值*整定不当不会导致机体不稳定，但可能会导致大机体幅度抖动或对设定值变化地响应不灵敏。</p> </blockquote> 
+> **Tip** P/PID 增益<1>整定不当会导致机体不稳定。 *设定值*整定不当不会导致机体不稳定，但可能会导致产生非常大的加加速度或对设定值变化地响应不灵敏。</p> </blockquote> 
 > 
 > ## 飞行模式轨迹支持 {#modes}
 > 
-> [任务模式](../flight_modes/mission.md)始终使用[抖动限制型](../config_mc/mc_jerk_limited_type_trajectory.md)轨迹。
+> [任务模式](../flight_modes/mission.md)始终使用[加加速度限制型](../config_mc/mc_jerk_limited_type_trajectory.md)轨迹。
 > 
-> [位置模式](../flight_modes/position_mc.md)支持下文列出的所有[轨迹类型](#trajectory_implementation)。 默认情况下使用抖动限制型轨迹；若要使用其他轨迹类型可以利用 [MPC_POS_MOD](../advanced_config/parameter_reference.md#MPC_POS_MODE) 设置。
+> [位置模式](../flight_modes/position_mc.md)支持下文列出的所有[轨迹类型](#trajectory_implementation)。 默认情况下使用加加速度限制型轨迹；若要使用其他轨迹类型可以利用 [MPC_POS_MOD](../advanced_config/parameter_reference.md#MPC_POS_MODE) 设置。
 > 
 > [定高模式](../flight_modes/altitude_mc.md)同样使用 [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) 所指的[轨迹类型](#trajectory_implementation)，但*仅*用于平滑垂直分量（即仅在控制高度时使用）。
 > 
@@ -36,16 +36,16 @@ P/PID 控制器的输入是机体尝试跟踪的*期望设定值*。 [PID 调参
 > 
 > 下表*概述*了不同类型的轨迹实现：
 > 
-> - [抖动限制型](../config_mc/mc_jerk_limited_type_trajectory.md) （默认） 
+> - [加加速度限制型](../config_mc/mc_jerk_limited_type_trajectory.md) （默认） 
 >   - 当需要平滑运动时使用（例如：航拍、测绘、货运）。
->   - 生成对称平滑 S-曲线，使抖动和加速度的极限始终得到保证。
+>   - 生成对称平滑 S-曲线，使加加速度和加速度的极限始终得到保证。
 >   - 可能不适合于那些需要较快响应的机体/使用案例——例如穿越机。
 >   - 通过设置 `MPC_POS_MODE=3` 在位置模式中启用。
 > - [旋转速率型](../config_mc/mc_slew_rate_type_trajectory.md) 
 >   - 当快速响应比平滑运动更重要时使用（例如：位置保持状态下的激烈飞行)。
->   - 这是一个简单的实现方法，在这种情况下，抖动和加速度通过旋转速率进行限制。
+>   - 这是一个简单的实现方法，在这种情况下，加加速度和加速度通过旋转速率进行限制。
 >   - 它允许基于用户意图的不对称配置（平稳加速和快速停止）。 
->   - 抖动和加速度限制不是硬性约束。
+>   - 加加速度和加速度限制不是硬性约束。
 >   - 通过设置 `MPC_POS_MODE=1` 在位置模式中启用。
 > - **简单位置控制** 
 >   - 将摇杆直接映射为速度设置值而不进行平滑处理。
