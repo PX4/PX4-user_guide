@@ -20,17 +20,17 @@ P/PID 控制器的输入是机体尝试跟踪的*期望设定值*。 [PID 调参
 
 *设定值整定*（“较高级整定”）用于指定*要求设定值*和*期望设定值*之间的映射，即用来定义期望设定点到期望设定点间的“斜坡”映射。
 
-> **Tip** P/PID 增益<1>整定不当会导致机体不稳定。 Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.</p> </blockquote> 
+> **Tip** P/PID 增益<1>整定不当会导致机体不稳定。 *设定值*整定不当不会导致机体不稳定，但可能会导致大机体幅度抖动或对设定值变化地响应不灵敏。</p> </blockquote> 
 > 
 > ## Flight Modes Trajectory Support {#modes}
 > 
-> [Mission mode](../flight_modes/mission.md) used the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory all the time.
+> [任务模式](../flight_modes/mission.md)始终使用[冲击限制型](../config_mc/mc_jerk_limited_type_trajectory.md)轨迹。
 > 
-> [Position mode](../flight_modes/position_mc.md) supports all the [trajectory types](#trajectory_implementation) listed below. It uses the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory by default; the other types can be set using [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE).
+> [位置模式](../flight_modes/position_mc.md)支持下文列出的所有[轨迹类型](#trajectory_implementation)。 默认情况下使用冲击限制型轨迹；若要使用其他轨迹类型可以利用 [MPC_POS_MOD](../advanced_config/parameter_reference.md#MPC_POS_MODE) 设置。
 > 
-> [Altitude mode](../flight_modes/altitude_mc.md) similarly uses the [trajectory types](#trajectory_implementation) selected by [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE), but *only* for smoothing the vertical component (i.e. when controlling the altitude).
+> [定高模式](../flight_modes/altitude_mc.md)同样使用 [MPC_POS_MODE](../advanced_config/parameter_reference.md#MPC_POS_MODE) 所指的[轨迹类型](#trajectory_implementation)，但*仅*用于平滑垂直分量（即仅在控制高度时使用）。
 > 
-> No other modes support trajectory tuning.
+> 其他模式不支持轨迹调整。
 > 
 > ## Trajectory Implementations {#trajectory_implementation}
 > 
