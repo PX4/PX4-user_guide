@@ -6,6 +6,8 @@
 
 <img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 正侧面图" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk 4 图像" />
 
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+
 ## 总览
 
 * 主 FMU 处理器：STM32F765 
@@ -49,7 +51,7 @@
 
 ![Pixhawk 4 连接器](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
-> **Warning** **DSM/SBUS RC** 与 **PPM RC** 接口仅可用于遥控接收机。 这两个接口已经供电！ 不要把舵机、电源、电池（或是连接了这些设备的接收机）连接到上面。
+> **Warning** The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
 
 ## 针脚定义
 
@@ -77,7 +79,7 @@
 
 *Pixhawk 4* 可以实现电源三度冗余。 三个供电轨道为：**POWER1**，**POWER2** 和 **USB**。
 
-> **Note** 输出端电源排针 **FMU PWM OUT** 和 **IO PWM OUT**（0V至36V）不为飞控板供电（并且飞控也不为它供电）。 您必须在 **POWER1**、**POWER2** 或 **USB** 任一接口中供电，否则飞控板将不会启动。
+> **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 
 **正常运行最大额定值**
 
@@ -100,7 +102,7 @@
 
 ## Building Firmware
 
-> **Tip** 多数用户不需要自己构建固件！ It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 为此目标 [构建(build) PX4](https://dev.px4.io/master/en/setup/building_px4.html)：
 

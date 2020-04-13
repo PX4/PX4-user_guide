@@ -15,7 +15,7 @@ Some of its main features include:
 - Built-in vibration dampening system with high performance shock absorption system.
 - Multiple-redundant sensor and power systems for improved flight safety and stability.
 
-> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 
 ## Quick Summary

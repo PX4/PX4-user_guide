@@ -1,27 +1,27 @@
-# Pixfalcon Flight Controller
+# Pixfalcon Flight Controller (Discontinued)
+
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size.
 
-![](../../assets/hardware/hardware-pixfalcon.png)
+![Pixfalcon hero image](../../assets/hardware/hardware-pixfalcon.png)
 
 ## 总览
 
-    * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
-      * CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
-      * RAM: 256 KB SRAM (L1)
-    * Failsafe System-on-Chip: STM32F100
-      * CPU: 24 MHz ARM Cortex M3
-      * RAM: 8 KB SRAM
-    * GPS: U-Blox<sup>&reg;</sup> M8 (bundled)
-    
+* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+  * CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
+  * RAM: 256 KB SRAM (L1)
+* Failsafe System-on-Chip: STM32F100 
+  * CPU: 24 MHz ARM Cortex M3
+  * RAM: 8 KB SRAM
+* GPS: U-Blox<sup>&reg;</sup> M8 (bundled)
 
 ### Connectivity
 
-    * 1x I2C
-    * 2x UART (one for Telemetry / OSD, no flow control)
-    * 8x PWM with manual override
-    * S.BUS / PPM input
-    
+* 1x I2C
+* 2x UART (one for Telemetry / OSD, no flow control)
+* 8x PWM with manual override
+* S.BUS / PPM input
 
 ## 访问链接:
 
@@ -40,7 +40,7 @@ Optional hardware:
 
 ## 编译固件
 
-> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
