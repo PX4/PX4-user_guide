@@ -8,7 +8,7 @@ This section contains information about complete vehicles that run PX4.
 - Consumer drones run PX4 natively/"out of the box":
   * Multicopter
     * [Teal One](https://tealdrones.com/teal-one/)
-    * [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) 
+    * [NXP HoverGames.com KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) 
   * VTOL
     * [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 - Consumer drones that can be updated to run PX4 (from other flight stacks):
