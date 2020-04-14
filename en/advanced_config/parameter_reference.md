@@ -5316,14 +5316,14 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;"><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Altitude for 1. step of slow landing (descend)</p><p><strong>Comment:</strong> Below this altitude: - descending velocity gets limited to a value between "MPC_Z_VEL_MAX" and "MPC_LAND_SPEED" - horizontal velocity gets limited to a value between "MPC_VEL_MANUAL" and "MPC_LAND_VEL_XY" for a smooth descent and landing experience. Value needs to be higher than "MPC_LAND_ALT2"</p>   </td>
  <td style="vertical-align: top;">0 > 122 </td>
- <td style="vertical-align: top;">10.0</td>
+ <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_ALT2">MPC_LAND_ALT2</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Altitude for 2. step of slow landing (landing)</p><p><strong>Comment:</strong> Below this altitude descending and horizontal velocities get limited to "MPC_LAND_SPEED" and "MPC_LAND_VEL_XY", respectively. Value needs to be lower than "MPC_LAND_ALT1"</p>   </td>
  <td style="vertical-align: top;">0 > 122 </td>
- <td style="vertical-align: top;">5.0</td>
+ <td style="vertical-align: top;">2.0</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
@@ -8294,14 +8294,14 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><strong id="RC_ACRO_TH">RC_ACRO_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for selecting acro mode</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_ARMSWITCH_TH">RC_ARMSWITCH_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for the arm switch</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.25</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -8322,28 +8322,28 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><strong id="RC_GEAR_TH">RC_GEAR_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for the landing gear switch</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.25</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_KILLSWITCH_TH">RC_KILLSWITCH_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for the kill switch</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.25</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_LOITER_TH">RC_LOITER_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for selecting loiter mode</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAN_TH">RC_MAN_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for the manual switch</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -9040,28 +9040,28 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><strong id="RC_OFFB_TH">RC_OFFB_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for selecting offboard mode</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_POSCTL_TH">RC_POSCTL_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for selecting posctl mode</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_RATT_TH">RC_RATT_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for selecting rattitude mode</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_RETURN_TH">RC_RETURN_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for selecting return to launch mode</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -9075,7 +9075,7 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;"><strong id="RC_TRANS_TH">RC_TRANS_TH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Threshold for the VTOL transition switch</p><p><strong>Comment:</strong> 0-1 indicate where in the full channel range the threshold sits 0 : min 1 : max sign indicates polarity of comparison positive : true when channel>th negative : true when channel<th</p>   </td>
  <td style="vertical-align: top;">-1 > 1 </td>
- <td style="vertical-align: top;">0.25</td>
+ <td style="vertical-align: top;">0.75</td>
  <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
@@ -14446,6 +14446,13 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
 <tr>
  <td style="vertical-align: top;"><strong id="VT_TILT_MC">VT_TILT_MC</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Position of tilt servo in mc mode</p>   </td>
+ <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_TILT_SPINUP">VT_TILT_SPINUP</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Tilt actuator control value commanded when disarmed and during the first second after arming</p><p><strong>Comment:</strong> This specific tilt during spin-up is necessary for some systems whose motors otherwise don't spin-up freely.</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.01)</td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>

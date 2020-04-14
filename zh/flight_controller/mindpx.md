@@ -4,6 +4,8 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 
 ![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
 
+> **Note** These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## 总览
 
 > **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
@@ -68,7 +70,7 @@ For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/ass
 
 ### 编译固件
 
-> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 

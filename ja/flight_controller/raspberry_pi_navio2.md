@@ -1,5 +1,7 @@
 # Raspberry Pi 2/3 Navio2 Autopilot
 
+> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+
 ![Ra Pi Image](../../assets/hardware/hardware-rpi2.jpg)
 
 ## Developer Quick Start
@@ -10,7 +12,7 @@ Use the [Emlid RT Raspbian image for Navio 2](https://docs.emlid.com/navio2/Navi
 
 > **Important** Make sure not to upgrade the system (more specifically the kernel). By upgrading, a new kernel can get installed which lacks the necessary HW support (you can check with `ls /sys/class/pwm`, the directory should not be empty).
 
-### Setting up access
+### Setting up Access
 
 The Raspbian image has SSH setup already. Username is "pi" and password is "raspberry". You can connect to your RPi2/3 over a network (Ethernet is set to come up with DHCP by default) and then proceed to configure WiFi access. We assume that the username and password remain at their defaults for the purpose of this guide.
 
@@ -33,7 +35,7 @@ The existing Navio RGB overlay claims GPIOs used by PX4 for RGB Led. Edit `/boot
     #dtoverlay=navio-rgb
     
 
-### Changing hostnames
+### Changing Hostnames
 
 To avoid conflicts with any other RPis on the network, we advise you to change the default hostname to something sensible. We used "px4autopilot" for our setup. Connect to the Pi via SSH and follow the below instructions.
 
@@ -104,7 +106,7 @@ And that's it. You should be able to access your Pi directly by its hostname fro
 
 In order to allow the PX4 development environment to automatically push executables to your board, you need to configure passwordless access to the RPi. We use the public-key authentication method for this.
 
-To generate new SSH keys enter the following commands (Choose a sensible hostname such as ```<YOURNANME>@<YOURDEVICE>```. Here we have used ```pi@px4autopilot```)
+To generate new SSH keys enter the following commands (Choose a sensible hostname such as `<YOURNANME>@<YOURDEVICE>`. Here we have used `pi@px4autopilot`)
 
 These commands need to be run on the HOST development computer!
 
@@ -121,7 +123,7 @@ ls ~/.ssh
 authorized_keys  id_rsa  id_rsa.pub  known_hosts
 ```
 
-The ```id_rsa``` file is your private key. Keep this on the development computer. The ```id_rsa.pub``` file is your public key. This is what you put on the targets you want to connect to.
+The `id_rsa` file is your private key. Keep this on the development computer. The `id_rsa.pub` file is your public key. This is what you put on the targets you want to connect to.
 
 To copy your public key to your Raspberry Pi, use the following command to append the public key to your authorized_keys file on the Pi, sending it over SSH:
 
@@ -155,7 +157,7 @@ rm hello.txt
 
 This should copy over a "hello.txt" file into the home folder of your RPi. Validate that the file was indeed copied, and you can proceed to the next step.
 
-### Native builds (optional)
+### Native Builds (optional)
 
 You can run PX4 builds directly on the Pi if you desire. This is the *native* build. The other option is to run builds on a development computer which cross-compiles for the Pi, and pushes the PX4 executable binary directly to the Pi. This is the *cross-compiler* build, and the recommended one for developers due to speed of deployment and ease of use.
 
@@ -170,6 +172,6 @@ sudo apt-get install cmake python-empy
 
 Then clone the Firmware directly onto the Pi.
 
-### Building the code
+### Building the Code
 
 Continue with our [standard build system installation](https://dev.px4.io/master/en/setup/dev_env_linux.html).

@@ -1,5 +1,7 @@
 # BeagleBone Blue
 
+> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+
 [BeagleBone Blue](https://beagleboard.org/blue) 是一台基于 Linux 的一体机。 它针对机器人技术进行了优化，这种紧凑且便宜的电路板具有飞行控制器所需的所有必要传感器和外围设备。 本主题说明如何设置电路板以使用 [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) 机器人软件包运行 PX4。
 
 ![BeagleBone - 标记图](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
@@ -13,7 +15,7 @@
 
 有关闪存操作系统映像的信息可以在 [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware) 上找到。 其他有用的信息可以在 [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;) 中找到。
 
-> **Tip**您可以选择更新到实时内核，如果这样做，请重新检查 *librobotcontrol* 是否与实时内核一起正常工作。
+> **Tip** Optionally you can update to a realtime kernel, and if you do, re-check if *librobotcontrol* works properly with the realtime kernel.
 
 The latest OS images at time of updating this document is [bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz).
 

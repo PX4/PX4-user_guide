@@ -1,6 +1,8 @@
 # Crazyflie 2.0
 
-The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
+> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+
+The Crazyflie line of micro quads was created by Bitcraze AB.An overview of the Crazyflie 2.0 can be [found here](https://www.bitcraze.io/crazyflie-2/).
 
 ![Crazyflie2 Image](../../assets/flight_controller/crazyflie/crazyflie2_hero.png)
 
@@ -19,7 +21,7 @@ The Crazyflie line of micro quads was created by Bitcraze AB. An overview of the
 
 * [Crazyflie 2.0](https://store.bitcraze.io/collections/kits/products/crazyflie-2-0).
 * [Crazyradio PA 2.4 GHz USB dongle](https://store.bitcraze.io/collections/kits/products/crazyradio-pa): used for wireless communication between *QGroundControl* and Crazyflie 2.0.
-* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals. 
+* [Breakout deck](https://store.bitcraze.io/collections/decks/products/breakout-deck): breakout expansion board for connecting new peripherals.
 * [Flow deck](https://store.bitcraze.io/collections/decks/products/flow-deck): contains an optical flow sensor to measure movements of the ground and a distance sensor to measure the distance to the ground. This will be useful for precise altitude and position control.
 * [Z-ranger deck](https://store.bitcraze.io/collections/decks/products/z-ranger-deck) has the same distance sensor as the Flow deck to measure the distance to the ground. This will be useful for precise altitude control.
 * [SD-card deck](https://store.bitcraze.io/collections/decks/products/sd-card-deck): used for high speed onboard logging to a micro SD card.

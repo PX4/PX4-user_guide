@@ -12,8 +12,8 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 
 MindPX is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>, been revised in schematic and structure, and been further enhanced with new features to make un-manned vehicle more smart and more friendly to use.
 
-MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs).  
-This means that MindPX can support more complicated VTOL configurations and more fine control. 
+MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs).
+This means that MindPX can support more complicated VTOL configurations and more fine control.
 It is especially meaningful for those FMU-V4 based flight controllers as MindPX implements main and aux output in one single FMU.
 
 ![](../../assets/hardware/hardware-mindpx-specs.png)
@@ -65,7 +65,8 @@ It is especially meaningful for those FMU-V4 based flight controllers as MindPX 
 
 ### Radio Receiver
 
-MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SBUS/DSM/DSM2/DSMX.  MindPX also support FrSky<sup>&reg;</sup> bi-direction telemetry D and S.Port. 
+MindPX supports a wide variety of radio receivers (since V2.6) including: PPM/SBUS/DSM/DSM2/DSMX.
+MindPX also support FrSky<sup>&reg;</sup> bi-direction telemetry D and S.Port.
 
 For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
@@ -93,7 +94,8 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 ## Where to Buy
 
-MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet.
+You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ## Serial Port Mapping
 
@@ -110,4 +112,5 @@ UART8 | /dev/ttyS6 | ?
 
 ## Support
 
-Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.
+Please visit http://www.mindpx.org for more information.
+Or you can send email to [support@mindpx.net](mailto:support@mindpx.net) for any inquiries or help.
