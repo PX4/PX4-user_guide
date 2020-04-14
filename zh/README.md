@@ -1,6 +1,6 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 徽标" width="180px" /></a></div>
 
-# PX4 Autopilot User Guide ({{ book.px4_version }})
+# PX4 自动驾驶用户指南
 
 [![版本发布](https://img.shields.io/badge/release-{{ book.px4_version }}-blue.svg)](https://github.com/PX4/Firmware/releases) [![讨论](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 
@@ -54,7 +54,7 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 核心开发团队和社区活跃与以下论坛和聊天频道：
 
-- [PX4 Discuss](http://discuss.px4.io/)（*推荐*）
+- [PX4 Discuss](http://discuss.px4.io/)（*英文*） [DimianZhan社区](http://shequ.dimianzhan.com)（中文）
 - [Slack](http://slack.px4.io) （注册链接，注册时加载验证码可能需要翻墙）
 
 ## 报告Bug & 问题
@@ -67,21 +67,21 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 有关如何参与代码和文档的信息，请参阅开发人员指南：
 
-- [贡献代码](https://dev.px4.io/en/contribute/)
-- [文档撰写](https://dev.px4.io/en/contribute/docs.html)
-- [参与翻译](https://dev.px4.io/en/contribute/docs.html)
+- [贡献代码](https://dev.px4.io/master/en/contribute/)
+- [文档撰写](https://dev.px4.io/master/en/contribute/docs.html)
+- [参与翻译（中文翻译组长微信：253331754，QQ：76006963）](https://dev.px4.io/master/en/contribute/docs.html)
 
 ## 许可证
 
-根据许可 [BSD 3 条款许可证](https://opensource.org/licenses/BSD-3-Clause) 的细则，PX4 代码可自由使用和修改。 本文档可在 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 下进行许可 。 有关详细信息，请参阅：[PX4 开发指南 > 许可证](https://dev.px4.io/en/contribute/licenses.html)。
+根据许可 [BSD 3 条款许可证](https://opensource.org/licenses/BSD-3-Clause) 的细则，PX4 代码可自由使用和修改。 本文档可在 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 下进行许可 。 详情请看[PX4 开发者指南>许可证](https://dev.px4.io/master/en/contribute/licenses.html)
 
 ### 图标
 
 此库中使用的以下图标是单独授权的（如下所示）：
 
-<img src="../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" /> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 的 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 制作 <em>placeholder</em> 图标由 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 授权。
+<img src="../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" /> [www.flaticon.com](https://www.flaticon.com/ "Flaticon") 的 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 制作 <em>placeholder</em> 图标由 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 授权。
 
-<img src="../assets/site/automatic_mode.svg" title="自动模式" width="30px" /> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 的 <a href="http://www.freepik.com" title="Freepik">Freepik</a> 制作的 <em>camera-automatic-mode</em> 图标由 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 授权。
+<img src="../assets/site/automatic_mode.svg" title="自动模式" width="30px" /> [www.flaticon.com](https://www.flaticon.com/ "Flaticon") 的 <a href="http://www.freepik.com" title="Freepik">Freepik</a> 制作的 <em>camera-automatic-mode</em> 图标由 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 授权。
 
 ## 管理
 

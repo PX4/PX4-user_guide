@@ -20,7 +20,7 @@ An overview of those parameters and their use case is shown below:
 - [FW_PSP_OFF](../advanced_config/parameter_reference.md#FW_PSP_OFF) applies an offset to the pitch setpoint. 
   This is used to set the angle of attack at which your aircraft needs to fly at cruise speed.
 - [FW_AIRSPD_TRIM](../advanced_config/parameter_reference.md#FW_AIRSPD_TRIM) is used by the rate controllers to scale their output depending on the measured airspeed. 
-  See [Airspeed Scaling](https://dev.px4.io/en/flight_stack/controller_diagrams.html#airspeed-scaling) for more details.
+  See [Airspeed Scaling](https://dev.px4.io/master/en/flight_stack/controller_diagrams.html#airspeed-scaling) for more details.
 - [TRIM_ROLL](../advanced_config/parameter_reference.md#TRIM_ROLL), [TRIM_PITCH](../advanced_config/parameter_reference.md#TRIM_PITCH) and [TRIM_YAW](../advanced_config/parameter_reference.md#TRIM_YAW) apply trim to the control signals *before* mixing. 
   For example, if you have two servos for the elevator, `TRIM_PITCH` applies trim to both of them. 
   These are used when your control surfaces are aligned but the aircraft pitches/rolls/yaws up/down/left/right during manual (not stabilized) flight or if the control signal has a constant offset during stabilized flight.

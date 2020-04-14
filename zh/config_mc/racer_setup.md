@@ -58,7 +58,6 @@ After having built the racer, you will need to configure the software. Go throug
 These parameters are important:
 
 - Enable One-Shot by setting [PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE) to 0.
-- Enable `SYS_FMU_TASK` (explained [below](#control_latency)).
 - Set the maximum roll-, pitch- and yaw rates for Manual/Stabilized mode as desired: [MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX), [MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX) and [MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX). The maximum tilt angle is configured with [MPC_MAN_TILT_MAX](../advanced_config/parameter_reference.md#MPC_MAN_TILT_MAX).
 - The minimum thrust [MPC_MANTHR_MIN](../advanced_config/parameter_reference.md#MPC_MANTHR_MIN) should be set to 0.
 - Disable RC input filtering by setting [RC_FLT_CUTOFF](../advanced_config/parameter_reference.md#RC_FLT_CUTOFF) to 0.
@@ -97,7 +96,7 @@ These are the factors that affect the latency:
 
 - A soft airframe or soft vibration mounting increases latency (they act as a filter).
 - Low-pass filters in software and on the sensor chip trade off increased latency for improved noise filtering.
-- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver. Enable [SYS_FMU_TASK](../advanced_config/parameter_reference.md#SYS_FMU_TASK) to reduce latency (default on [Pixracer](../flight_controller/pixracer.md) and [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)).
+- PX4 software internals: the sensor signals need to be read in the driver and then pass through the controller to the output driver.
 - The IO chip (MAIN pins) adds about 5.4 ms latency compared to using the AUX pins (this does not apply to a *Pixracer* or *Omnibus F4*, but does apply to a Pixhawk). To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
 - PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0) 
 
@@ -109,7 +108,7 @@ This is the filtering pipeline for the controllers in PX4:
 
 - On-chip DLPF for the gyro sensor. The cutoff frequency is set to 98Hz and it is sampled at 1kHz.
 - Low-pass filter on the gyro sensor data. It can be configured with the [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) parameter.
-- Low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has an additional low-pass filter, configurable via [MC_DTERM_CUTOFF](../advanced_config/parameter_reference.md#MC_DTERM_CUTOFF).
+- A separate low-pass filter on the D-term. The D-term is most susceptible to noise while slightly increased latency does not negatively affect performance. For this reason the D-term has a separately-configurable low-pass filter, [IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF).
 - A slewrate filter on the motor outputs ([MOT_SLEW_MAX](../advanced_config/parameter_reference.md#MOT_SLEW_MAX)). Generally not used.
 
 To reduce the control latency, we want to increase the cutoff frequency for the low-pass filters. However this is a trade-off as it will also increase the noise of the signal, which is fed to the motors. Noise on the motors has the following consequences:
@@ -130,9 +129,10 @@ Filter tuning is best done by reviewing flight logs. You can do multiple flights
 
 The performed flight maneuver can simply be hovering in [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md) with some rolling and pitching to all directions and some increased throttle periods. The total duration does not need to be more than 30 seconds. In order to better compare, the maneuver should be similar in all tests.
 
-First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([MC_DTERM_CUTOFF](../advanced_config/parameter_reference.md#MC_DTERM_CUTOFF) = 30). Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz). Then tune the D-term filter (`MC_DTERM_CUTOFF`) in the same way.
+First tune the gyro filter [IMU_GYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_GYRO_CUTOFF) by increasing it in steps of 10 Hz while using a low D-term filter value ([IMU_DGYRO_CUTOFF](../advanced_config/parameter_reference.md#IMU_DGYRO_CUTOFF) = 30).  
+Upload the logs to https://logs.px4.io and compare the *Actuator Controls FFT* plot. Set the cutoff frequency to a value before the noise starts to increase noticeably (for frequencies around and above 60 Hz). Then tune the D-term filter (`IMU_DGYRO_CUTOFF`) in the same way.
 
-Below is an example for three different filter values (40Hz, 70Hz, 90Hz). At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting. ![MC_DTERM_CUTOFF=40](../../images/racer_setup/actuator_controls_fft_dterm_40.png) ![MC_DTERM_CUTOFF=70](../../images/racer_setup/actuator_controls_fft_dterm_70.png) ![MC_DTERM_CUTOFF=90](../../images/racer_setup/actuator_controls_fft_dterm_90.png)
+Below is an example for three different filter values (40Hz, 70Hz, 90Hz). At 90 Hz the general noise level starts to increase (especially for roll), and thus a cutoff frequency of 70 Hz is a safe setting. ![IMU_DGYRO_CUTOFF=40](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_40.png) ![IMU_DGYRO_CUTOFF=70](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_70.png) ![IMU_DGYRO_CUTOFF=90](../../assets/airframes/multicopter/racer_setup/actuator_controls_fft_dgyrocutoff_90.png)
 
 > **Note** The plot cannot be compared between different vehicles, as the y axis scale can be different. On the same vehicle it is consistent and independent of the flight duration though.
 

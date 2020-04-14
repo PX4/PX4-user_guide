@@ -11,7 +11,7 @@ The module is readily available.
 A few vendors are listed below.
 
 * [Sparkfun](https://www.sparkfun.com/products/13678)
-* [GearBeast](https://us.gearbest.com/boards-shields/pp_009604906563.html?wid=1433363)
+* [GearBeast](https://us.gearbest.com/boards-shields/pp_009604906563.html)
 
 
 ## Module Setup

@@ -27,127 +27,133 @@ Cube在[购买时](../flight_controller/pixhawk-2.md#stores)提供大多数（�
 
 <span></span>
 
-> **Tip** 有关更多可用端口的详细信息，请参阅 [Cube > Ports](../flight_controller/pixhawk-2.md#ports)。
-
-## 飞控的安装和方向
-
-安装电路时尽可能靠近飞行器的重心， 理想情况是安装方向向上箭头指向飞行器前方 （注意电路上的 *微小的*箭头）。
-
-![Cube 安装 - 朝向](../../assets/flight_controller/cube/cube_mount_front.jpg)
-
-> **Note** 如飞行控制器不能被安装在推荐/默认的方向（例如，由于空间限制）你需要更改自动驾驶仪软件来配置实际的安装方向： [飞行控制器方向](../config/flight_controller_orientation.md)。
-
-Cube可以使用减振泡沫板安装（包括在套件中）或者用螺钉安装。 在Cube的附件中有安装螺钉，是为1.8mm厚的框架板设计的。 用户定制螺钉应该是M2.5，长度6mm~7.55mm。
-
-![Cube 安装 - 安装板](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
-
-## GPS + 罗盘 + 安全开关 + LED {#gps}
-
-推荐的 GPS 在 *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md)，其中都包含一个GPS模块、罗盘、安全开关和 [LEDs](../getting_started/led_meanings.md)。
-
-> **Note** 模块之间的差别是 *Here+* 支持通过 [RTK](../advanced_features/rtk-gps.md) 实现厘米级定位。 除此以外在使用/安装是相同的。
-
-模块在安装时应尽可能远离其他电子元器件，方向标记朝向飞行器前方（将罗盘和其他电子元器件分开可以减少干扰）。 它必须使用8-针电缆连接到 `GPS1` 端口。
-
-下图显示了模块及其连接方式。
-
-![Cube 连接图](../../assets/flight_controller/cube/here_plus_connector.png)
-
-> **Note** GPS模块内集成的安全开关 *默认是启用的*（当启用时，PX4将不会让您解锁飞行器）。 如需关闭安全开关，请按住安全开关1秒钟。 您可以在完成任务后再次按下安全开关以启用并锁定飞行器 （因为这是出于安全考虑的机制，无论出于何种原因，您将无法通过遥控器或地面站来远程解锁您的载具）。
+> **Note** The port labeled `GPS2` maps to `TEL4` in PX4 (i.e. if connecting to the port labeled `GPS2`, assign the [serial port configuration parameter](../peripherals/serial_configuration.md) for the connected hardware to `TEL4`).
 
 <span></span>
 
-> **Tip** 如果您想要使用旧的6-线GPS模块，套件将使用电缆来连接GPS和 [安全开关](#safety_switch)。
+> **Tip** More information about available ports can be found here: [Cube > Ports](../flight_controller/pixhawk-2.md#ports).
+
+## 飞控的安装和方向
+
+Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the *subtle* arrow marker on top of the cube)
+
+![Cube Mount - Direction of Front](../../assets/flight_controller/cube/cube_mount_front.jpg)
+
+> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+
+The Cube can be mounted using either vibration-damping foam pads (included in the kit) or mounting screws. The mounting screws in the Cube accessories are designed for a 1.8mm thick frameboard. Customized screws are supposed to be M2.5 with thread length inside Cube in range 6mm~7.55mm.
+
+![Cube Mount - Mounting Plate](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
+
+## GPS + 罗盘 + 安全开关 + LED {#gps}
+
+The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md).
+
+> **Note** The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../advanced_features/rtk-gps.md). Otherwise they are used/connected in the same way.
+
+The module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference). It must be connected to the `GPS1` port using the supplied 8-pin cable.
+
+The diagram below shows a schematic view of the module and its connections.
+
+![Here+ Connector Diagram](../../assets/flight_controller/cube/here_plus_connector.png)
+
+> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+
+<span></span>
+
+> **Tip** If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety_switch).
 
 ## 安全开关 {#safety_switch}
 
-*专用的* Cube 安全开关只有在您使用推荐的 [GPS](#gps) 时是必须的（包含一个内部的安全开关）。
+The *dedicated* safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
 
-如果您在没有GPS的情况下飞行，您必须将安全开关连接到 `GPS1` 端口为了能解锁和起飞飞行器（或者如果使用旧的6-GPS时通过提供的电缆）。
+If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (or via a supplied cable if using an old-style 6-pin GPS).
 
 ## 蜂鸣器
 
-蜂鸣器提供声音信号显示无人机状态。 它应该按照如图所示的方式连接到USB端口（不需要进一步的配置）。
+The buzzer provides audio signals to that indicate UAV status. This should be connected to the USB port as shown (no further configuration is required).
 
-![Cube 蜂鸣器](../../assets/flight_controller/cube/cube_buzzer.jpg)
+![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
 ## 无线电遥控 {#rc_control}
 
-如果您想要 *手动* 控制您的飞行器，需要使用[remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) （PX4在自动飞行模式下可以不需要遥控器）。
+A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-您需要 [选择一个兼容的发射/接收机](../getting_started/rc_transmitter_receiver.md) 并 *对频* 使它们能够通信 (对频方法参考发射/接收机的说明书)。
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
-下面介绍如何连接不同种类的接收机。
+The instructions below show how to connect the different types of receivers.
 
 ### PPM-SUM / Futaba S.Bus 接收机
 
-使用提供的3-线电缆，连接 ground(-),power(+),and signal(S) wires 到 RC 针。
+Connect the ground(-),power(+),and signal(S) wires to the RC pins using the provided 3-wire servo cable.
 
 ![Cube - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
 
 ### Spektrum Satellite 接收机
 
-Spektrum DSM, DSM2, and DSM-X Satellite RC 接收机连接到 **SPKT/DSM** 端口。
+Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM** port.
 
 ![Cube - Spektrum](../../assets/flight_controller/cube/cube_rc_spektrum.jpg)
 
 ### PWM 接收机
 
-Cube 不能之间连接 PPM or PWM 接收机， *每个通道有独立的连接线*。 因此PWM 接收机必须连接到 **RCIN** 端口 *通过* 一个 PPM 解码模块，可以在 hex.aero 或者proficnc.com 网站购买。
+The Cube cannot directly connect to PPM or PWM receivers that have an *individual wire for each channel*. PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
 
 ## 电源 {#power}
 
-Cube 通常通过电源模块使用锂电池供电 (LiPo) (随套件提供)，连接在 **POWER1** 端口。 电源模块提供可靠的供应和电压/电流显示，并可单独为在多旋翼飞行器驱动电机的ESCs供电。
+Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
-下图显示了一种典型多旋翼飞行器的电源设置。
+A typical power setup for a Multicopter vehicle is shown below.
 
-![Power 设置 - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
+![Power Setup - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
 <!-- HOw is the power rail powered for servos - power rail? Plane/Vtol would be cool to show here too -->
 
 ## 数传系统（可选） {#telemetry}
 
-数传系统允许您通过地面站对飞行器进行通信、监控和控制 (例如，您可以指定无人机飞行到指定位置或上传新的任务)。
+A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
-通信通道通过 [数传电台](../telemetry/README.md)。 机载无线数传模块应该连接到 **TELEM1** 端口（如果连接在这个端口，则无需进一步配置）。 另一个数传模块连接到您的地面站电脑或移动设备 （通常通过USB连接）。
+The communication channel is via [Telemetry Radios](../telemetry/README.md). The vehicle-based radio should be connected to the **TELEM1** port (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
-![数传电台](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
+![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
 ## SD 卡（可选）
 
-SD卡通常用来 [记录并分析飞行数据](../getting_started/flight_reporting.md)。 下图显示将SD卡插入Cube（如果尚未插入）。
+SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the Micro-SD card into Cube as shown (if not already present).
 
-![Cube - 安装SD卡](../../assets/flight_controller/cube/cube_sdcard.jpg)
+![Cube - Mount SDCard](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
-> **Tip** [强烈推荐使用](https://dev.px4.io/en/log/logging.html#sd-cards)SanDisk Extreme U3 32GB（开发者指南）。
+> **Tip** For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
 
 ## 电机
 
-电机和舵机按照 [机架参考列表](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **MAIN** 和 **AUX** 端口。
+Motors/servos are connected to the **MAIN** and **AUX** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
-![Cube - 电机连接](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
+![Cube - Motor Connections](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
-> **Note**本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果您的机架没有在参考列表里，您可以使用对应类型的“通用”机架）。
+> **Note** This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 
 <span></span>
 
-> **Caution** 该参考列表并不是与机架类型完全匹配的（例如，您不能将油门应用在其他所有机型的输出端口上）。 请确保为您的飞行器使用正确的映射。
+> **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 
 ## 其它外设
 
-针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
+The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+
+> **Note** If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
 
 ## 配置
 
-使用 [QGroundContro](http://qgroundcontrol.com/) 进行配置。
+Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
 
-下载、安装和运行 *QGroundControl* 后，按照如图所示的方式将您的电脑和飞控连接。
+After downloading, installing and running *QGroundControl*, connect the board to your computer as shown.
 
-![Cube - USB 连接到电脑](../../assets/flight_controller/cube/cube_usb_connection.jpg)
+![Cube - USB Connection to Computer](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 
-一般配置信息在以下内容中介绍：Autopilot Configuration</0 >。</p> 
+Basic/common configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
-QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)。
+QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 

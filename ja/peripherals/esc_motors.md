@@ -1,12 +1,13 @@
-# ESCs & Motors
+# ESC & モータ
 
-Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
+多くのPX4ドローンでは，Electronic Speed Controller (ESC) によって駆動される，ブラシレスモータを使用します。(ESCはフライトコントローラからの信号を受けて，モータへ供給する動力を適切に制御します)。
 
-PX4 supports [ESCs that take a PWM input](../peripherals/pwm_escs_and_servo.md), ESCs that use the ESC *OneShot* standard, [UAVCAN ESCs](../peripherals/uavcan_escs.md), PCA9685 ESC (via I2C), and some UART ESCs (from Yuneec). At time of writing PX4 does not support the *DShot* protocol.
+PX4は [PWM入力を受け付けるESC](../peripherals/pwm_escs_and_servo.md)をはじめ, *OneShot*, [DShot](../peripherals/dshot.md), [UAVCAN](../peripherals/uavcan_escs.md), PCA9685(I2C), UART(Yuneec社) などのESCに対応しています。
 
-For more information see:
+それぞれの詳細は以下を参照ください：
 
-* [PWM ESCs and Servos](../peripherals/pwm_escs_and_servo.md)
-* [UAVCAN ESCs](../peripherals/uavcan_escs.md)
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
+* [PWM ESC ・ サーボ](../peripherals/pwm_escs_and_servo.md)
+* [DShot](../peripherals/dshot.md)
+* [UAVCAN対応ESC](../peripherals/uavcan_escs.md)
+* [ESCキャリブレーション](../advanced_config/esc_calibration.md)
+* [ESC ファームウェアとプロトコルの概要](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)

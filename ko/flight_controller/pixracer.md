@@ -4,6 +4,8 @@ The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing qu
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+
 ## Key Features
 
 * Main System-on-Chip: [STM32F427VIT6 rev.3](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
@@ -63,11 +65,17 @@ One of the main features of the board is its ability to use Wifi for flashing ne
 
 ## Connectors
 
-All connectors follow the [Dronecode connector standard](https://wiki.dronecode.org/workgroup/connectors/start). Unless noted otherwise all connectors are JST GH.
+All connectors follow the [Pixhawk connector standard](https://pixhawk.org/pixhawk-connector-standard/). Unless noted otherwise all connectors are JST GH.
 
 ## Pinouts
 
-TELEM1, TELEM2+OSD ports
+![Pixracer top pinouts](../../assets/flight_controller/pixracer/pixracer_r09_top_pinouts.jpg)
+
+![Pixracer bottom pinouts](../../assets/flight_controller/pixracer/pixracer_r09_bot_pinouts.jpg)
+
+![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
+
+#### TELEM1, TELEM2+OSD ports
 
 | Pin     | Signal    | Volt  |
 | ------- | --------- | ----- |
@@ -78,7 +86,7 @@ TELEM1, TELEM2+OSD ports
 | 5 (blk) | RTS (OUT) | +3.3V |
 | 6 (blk) | GND       | GND   |
 
-GPS port
+#### GPS port
 
 | Pin     | Signal   | Volt  |
 | ------- | -------- | ----- |
@@ -89,7 +97,7 @@ GPS port
 | 5 (blk) | I2C1 SDA | +3.3V |
 | 6 (blk) | GND      | GND   |
 
-FrSky Telemetry / SERIAL4
+#### FrSky Telemetry / SERIAL4
 
 | Pin     | Signal   | Volt  |
 | ------- | -------- | ----- |
@@ -98,7 +106,7 @@ FrSky Telemetry / SERIAL4
 | 3 (blk) | RX (IN)  | +3.3V |
 | 4 (blk) | GND      | GND   |
 
-RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
+#### RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
 
 | Pin     | Signal  | Volt  |
 | ------- | ------- | ----- |
@@ -108,7 +116,7 @@ RC Input (accepts PPM / S.BUS / Spektrum / SUMD / ST24)
 | 4 (blk) | VDD 3V3 | +3.3V |
 | 5 (blk) | GND     | GND   |
 
-CAN
+#### CAN
 
 | Pin     | Signal | Volt |
 | ------- | ------ | ---- |
@@ -117,7 +125,7 @@ CAN
 | 3 (blk) | CAN_L  | +12V |
 | 4 (blk) | GND    | GND  |
 
-POWER
+#### POWER
 
 | Pin     | Signal  | Volt  |
 | ------- | ------- | ----- |
@@ -128,7 +136,7 @@ POWER
 | 5 (blk) | GND     | GND   |
 | 6 (blk) | GND     | GND   |
 
-SWITCH
+#### SWITCH
 
 | Pin     | Signal           | Volt  |
 | ------- | ---------------- | ----- |
@@ -138,7 +146,9 @@ SWITCH
 | 4 (blk) | BUZZER-          | -     |
 | 5 (blk) | BUZZER+          | -     |
 
-Dronecode debug port (JST SM06B connector)
+#### Debug Port
+
+This is a [Pixhawk Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
 
 | Pin     | Signal           | Volt  |
 | ------- | ---------------- | ----- |
@@ -149,11 +159,21 @@ Dronecode debug port (JST SM06B connector)
 | 5 (blk) | SWCLK            | +3.3V |
 | 6 (blk) | GND              | GND   |
 
-![Pixracer top pinouts](../../assets/flight_controller/pixracer/pixracer_r09_top_pinouts.jpg)
+For information about wiring and using this port see:
 
-![Pixracer bottom pinouts](../../assets/flight_controller/pixracer/pixracer_r09_bot_pinouts.jpg)
+* [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (Note, the FMU console maps to UART7).
+* [SWD (JTAG) Hardware Debugging Interface](http://dev.px4.io/master/en/debug/swd_debug.html#pixhawk_debug_port_6_pin_sh)
 
-![Pixracer esp](../../assets/flight_controller/pixracer/pixracer_r09_esp_01.jpg)
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | WiFi (ESP8266)        |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |
 
 ## Schematics
 
@@ -168,7 +188,7 @@ The following PDF files are provided for *convenience only*:
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make px4_fmu-v4_default
     

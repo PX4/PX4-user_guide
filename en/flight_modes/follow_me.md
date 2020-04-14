@@ -36,7 +36,7 @@ https://www.youtube.com/watch?v=RxDL4CtkzAQ
 
 The following flight precautions should be observed:
 - Follow me mode should only be used in wide open areas that are unobstructed by trees, power lines, houses, etc.
-  - Set the [follow-me height](#NAV_FT_MIN_HT) to a value that is well above any surrounding obstructions
+  - Set the [follow-me height](#NAV_MIN_FT_HT) to a value that is well above any surrounding obstructions.
     By *default* this is 8 metres/26 feet above the home (arming) position.
 - It is *safer* to manually fly to a safe height before engaging follow-me mode than to engage follow-me mode when landed (even though the mode implements auto take off).
 - Give your vehicle sufficient room to stop, especially when it is moving fast.

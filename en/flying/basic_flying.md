@@ -20,22 +20,25 @@ To arm the drone:
   [Vehicle Status Notifications](../getting_started/vehicle_status.md) (including on-vehicle LEDs, audio notifications and *QGroundControl* updates) can tell you when the vehicle is ready to fly (and help you work out the cause when it is not ready to fly).
 
 <span></span>
-> **Note** The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](#disarm) if you take too long to take off!
+> **Note** The vehicle will (by [default](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)) automatically [disarm](../advanced_config/prearm_arm_disarm.md#auto-disarming) (turn off motors) if you take too long to take off!
   This is a safety measure to ensure that vehicles return to a safe state when not in use.
 
 <span id="takeoff-and-landing"></span>
 ## Takeoff
 
-The easiest way to takeoff is to use the automatic [Takeoff mode](../flight_modes/takeoff.md) (remembering that you need to [arm the vehicle](#arm) before you can engage the vehicle motors).
+The easiest way to takeoff (after [arming the vehicle](#arm)) is to use the automatic [Takeoff mode](../flight_modes/takeoff.md).
+Usually this is triggered from an [RC switch](../config/flight_mode.md) or ground station.
 
-Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. 
+Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%.
 Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 
-> **Note** The vehicle may disarm if you take too long to take off after arming. 
-  The timout can be tuned using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT).
+> **Tip** The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles!
 
 <span></span>
-> **Tip** The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles.
+> **Note** The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)).
+
+<span></span>
+> **Note** The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 
 
 ## Landing
@@ -57,7 +60,7 @@ Note that vehicles automatically disarm on landing by default:
 
 ## Flight Controls/Commands
 
-All flying, including takeoff and landing, is controlled using the 4 basic commands: roll, yaw, pitch and throttle. 
+All flying, including takeoff and landing, is controlled using the 4 basic commands: roll, yaw, pitch and throttle.
 
 ![RC Basic Commands](../../images/rc_basic_commands.png)
 
@@ -87,16 +90,14 @@ Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement
 - Throttle => Changed forward speed.
 
 
-> **Note** The best turn for airplanes is called a coordinated turn, 
-  and is performed using roll and little yaw at the same time. 
+> **Note** The best turn for airplanes is called a coordinated turn, and is performed using roll and little yaw at the same time.
   This maneuver requires experience!
 
 
 ## Assisted Flight
 
-Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving. 
-New users should [configure their transmitter](../config/flight_mode.md) to use flight modes where 
-the autopilot automatically compensates for erratic user input or environmental factors. 
+Even with an understanding of how the vehicle is controlled, flight in fully manual mode can be quite unforgiving.
+New users should [configure their transmitter](../config/flight_mode.md) to use flight modes where the autopilot automatically compensates for erratic user input or environmental factors.
 
 The following three modes are highly recommended for new users:
 

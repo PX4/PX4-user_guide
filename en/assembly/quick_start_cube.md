@@ -27,6 +27,9 @@ The image below shows how to connect the most important sensors and peripherals.
 6. [Power System](#power) — Powers Cube and the motor ESCs. Consists of LiPo battery, power module, and optional battery warning system (audio warning if battery power goes below a predefined level). 
 
 <span></span>
+> **Note** The port labeled `GPS2` maps to `TEL4` in PX4 (i.e. if connecting to the port labeled `GPS2`, assign the [serial port configuration parameter](../peripherals/serial_configuration.md) for the connected hardware to `TEL4`). 
+
+<span></span>
 > **Tip** More information about available ports can be found here: [Cube > Ports](../flight_controller/pixhawk-2.md#ports).
 
 ## Mount and Orient Controller
@@ -133,11 +136,12 @@ The communication channel is via [Telemetry Radios](../telemetry/README.md). The
 
 ## SD Card (Optional)
 
-SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). Insert the Micro-SD card into Cube as shown (if not already present).
+SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware.
+Insert the Micro-SD card into Cube as shown (if not already present).
 
 ![Cube - Mount SDCard](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
-> **Tip** The SanDisk Extreme U3 32GB is [highly recommended](https://dev.px4.io/en/log/logging.html#sd-cards) (Developer Guide).
+> **Tip** For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
 
 
 ## Motors
@@ -155,6 +159,8 @@ Motors/servos are connected to the **MAIN** and **AUX** ports in the order speci
 ## Other Peripherals
 
 The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+
+> **Note** If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
 
 
 ## Configuration

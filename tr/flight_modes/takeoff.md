@@ -4,7 +4,7 @@
 
 The *Takeoff* flight mode causes the vehicle to take off to a specified height and wait for further input.
 
-> **Note** * This mode requires GPS. * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. The effect of RC stick movement depends on the vehicle type.
+> **Note** * This mode requires GPS. * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. The effect of RC stick movement depends on the vehicle type. * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 
 The specific behaviour for each vehicle type is described below.
 
@@ -32,7 +32,7 @@ In *catapult/hand launch mode* the vehicle will perform a full throttle climbout
 
 The *runway takeoff mode* has the following phases:
 
-1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)) 
+1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)).
 2. **Takeoff**: Increase pitch and continue until vehicle altitude > navigation altitude ([RWTO_NAV_ALT](#RWTO_NAV_ALT)).
 3. **Climbout**: Climb until altitude above ground level > [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF). In this phase roll and heading restrictions are removed.
 

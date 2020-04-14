@@ -16,6 +16,14 @@ You can also use the *Pattern* tool to automate creation of survey grids.
 
 ![planning-mission](../../images/planning_mission.jpg)
 
+### Setting Vehicle Yaw
+
+If set, a multi-rotor vehicle will yaw to face the **Heading** value specified in the target waypoint (corresponding to [MAV_CMD_NAV_WAYPOINT.param4](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT)).
+
+If **Heading** has not been explicitly set for the target waypoint (`param4=NaN`) then the vehicle will yaw towards a location specified in the parameter [MPC_YAW_MODE](../advanced_config/parameter_reference.md#MPC_YAW_MODE).
+By default this is the next waypoint.
+
+Vehicle types that cannot independently control yaw and direction of travel will ignore yaw settings (e.g. Fixed Wing).
 
 ## Flying Missions
 

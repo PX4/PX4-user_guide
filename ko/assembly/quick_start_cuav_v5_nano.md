@@ -13,7 +13,7 @@ The image below shows how to connect the most important sensors and peripherals 
 | Main interface  | Function                                                                                                                                                                                           |
 |:--------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Power           | Connect Power module; Provides Power and ANALOG voltage and current measurements.                                                                                                                  |
-| PM2             | [Do not use with PX4](../flight_controller/cuav_v5_nano.md#issue_pm2)                                                                                                                              |
+| PM2             | [Do not use with PX4](../flight_controller/cuav_v5_nano.md#compatibility_pm2)                                                                                                                      |
 | TF CARD         | SD card for log storage (comes with card)                                                                                                                                                          |
 | M1~M8           | PWM outputs. Can be used to control motors or servos.                                                                                                                                              |
 | A1~A3           | Capture pins (not *currently* supported on PX4).                                                                                                                                                   |
@@ -37,7 +37,7 @@ The image below shows how to connect the most important sensors and peripherals 
 
 The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
 
-> **Note** Other GPS modules may not work (see [this issue](../flight_controller/cuav_v5_nano.md#issue_gps_compatible)).
+> **Note** Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)).
 
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (Neo GPS arrow is in the same direction as the flight control arrow). Connect to the flight control GPS interface using a cable.
 
@@ -69,12 +69,9 @@ The V5 nano has a dedicated DSM cable. If using a Spektrum satellite receiver, t
 
 ## Power
 
-The *v5 nano* kit includes the *HV\_PM* module, which supports 2~10S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
+The *v5 nano* kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries. Connect the 6pin connector of the *HW\_PM* module to the flight control `Power` interface.
 
-> **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_nano.md#issue_pm_unfused)).
-
-- Power **must** be turned off while connecting peripherals.
-- Improper wiring can lead to *personal harm* or equipment damage!
+> **Warning** The supplied power module is unfused. Power **must** be turned off while connecting peripherals.
 
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_06.png)
 
@@ -90,7 +87,7 @@ The communication channel is via Telemetry Radios. The vehicle-based radio shoul
 
 ## SD Card (Optional) {#sd_card}
 
-An SD card is inserted in the factory (you do not need to do anything).
+An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
 
 ## Motors
 

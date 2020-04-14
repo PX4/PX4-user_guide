@@ -1,12 +1,16 @@
 # Snapdragon Advanced
 
+> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version).
+  This documentation is provided for existing users, but will be removed in a future release.
+
 This page is a collection of useful commands and instructions which might come in handy when working with the Snapdragon platform.
 
 ## Connect to Snapdragon
 
 ### Over FTDI
 
-Connect the small debug header shipped with the Snapdragon and the FTDI cable.
+The kit comes with a breakout board with three pins to access the console.
+Connect the bundled FTDI cable to the supplied header and the breakout board to the expansion connector.
 
 On Linux, open a console using:
 
@@ -35,14 +39,35 @@ To get a shell, do:
 adb shell
 ```
 
-### DSP Debug Monitor
+### DSP Debug Monitor/Console
 
-You can also run *mini-dm* provided by hexagon to see the output of the DSP:
+When you are connected to your Snapdragon board via USB you have access to the PX4 shell on the DSP (POSIX).
+The interaction with the DSP side (QuRT) is enabled with the `qshell` posix app and its QuRT companion.
+
+With the Snapdragon connected via USB, open the mini-dm to see the output of the DSP:
 ```
 ${HEXAGON_SDK_ROOT}/tools/debug/mini-dm/Linux_Debug/mini-dm
 ```
 
 > **Note** Alternatively, especially on Mac, you can also use [nano-dm](https://github.com/kevinmehall/nano-dm).
+
+Run the main app on the linaro side:
+```sh
+cd /home/linaro
+./px4 -s px4.config
+```
+
+You can now use all apps loaded on the DSP from the linaro shell with the following syntax:
+```sh
+pxh> qshell command [args ...]
+```
+
+For example, to see the available QuRT apps:
+```sh
+pxh> qshell list_tasks
+```
+
+The output of the executed command is displayed on the minidm.
 
 ## Serial ports
 
@@ -55,7 +80,7 @@ The APIs to set up and use the UART are described in [dspal](https://github.com/
 
 > **Todo** These are notes for advanced developers.
 
-Connect to the Linux shell (see [console instructions](https://dev.px4.io/en/debug/system_console.html#snapdragon-flight-wiring-the-console)).
+Connect to the Linux shell (see [console instructions](https://dev.px4.io/master/en/debug/system_console.html#snapdragon-flight-wiring-the-console)).
 
 ### Access point mode
 
@@ -142,11 +167,11 @@ qcamvid -c hires -r 720p -s -t 600
 ```
 Use `qcamvid -h` to have a look at all the options.
 
-To watch the live stream in QGroundControl, it has to be built with gstreamer (see [here](https://github.com/mavlink/qgroundcontrol/tree/master/src/VideoStreaming)).
+To watch the live stream in QGroundControl, it has to be built with gstreamer (see [here](https://dev.qgroundcontrol.com/en/getting_started/#video-streaming)).
 
-Once installed and conneted to the Snapdragon Flight's network, the following changes have to be made in QGroundControl.
+Once installed and conneted to the Snapdragon Flight's network, the following changes have to be made in *QGroundControl*.
 
-![](../../assets/videostreaming/QGC_snapdragon_streaming_settings.png)
+![Snapdragon streaming settings in QGC](../../assets/videostreaming/QGC_snapdragon_streaming_settings.png)
 
 ## Accessing I/O Data
 
@@ -343,7 +368,7 @@ If you get errors like the above when starting px4, try
 - and [updating the ADSP firmware](../flight_controller/snapdragon_flight_software_installation.md#update-dsp-processor-firmware).
   Also try to do this from a native Linux installation instead of a virtual machine.
   There have been [reports](https://github.com/PX4/Firmware/issues/5303) where it didn't seem to work when done in a virtual machine.
-- then [rebuild the px4 software](https://dev.px4.io/en/setup/building_px4.html), by first completely deleting your existing Firmware repo and then re-cloning it [as described here](https://dev.px4.io/master/en/setup/building_px4.html#get_px4_code)
+- then [rebuild the px4 software](https://dev.px4.io/master/en/setup/building_px4.html), by first completely deleting your existing Firmware repo and then re-cloning it [as described here](https://dev.px4.io/master/en/setup/building_px4.html#get_px4_code)
 - and finally [rebuild and re-run it](https://dev.px4.io/master/en/setup/building_px4.html#qurt--snapdragon-based-boards)
 - make sure the executable bit of `/usr/local/qr-linux/q6-admin.sh` is set:
   ```

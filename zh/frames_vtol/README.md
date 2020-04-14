@@ -20,10 +20,6 @@ PX4支持几乎所有的垂起的配置（支持配置的完整集合可以在 [
 
 ### Tiltrotor
 
-[FireFly Y6 Tiltrotor](../frames_vtol/vtol_tiltrotor_birdseyeview_firefly_y6_pixfalcon.md)
-
-{% youtube %}https://www.youtube.com/watch?v=Vsgh5XnF44Y&vq=hd720{% endyoutube %}
-
 [Convergence Tiltrotor](../frames_vtol/vtol_tiltrotor_eflite_convergence_pixfalcon.md)
 
 {% youtube %} https://youtu.be/E61P2f2WPNU {% endyoutube %}

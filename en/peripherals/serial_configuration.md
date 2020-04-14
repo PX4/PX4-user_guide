@@ -1,7 +1,6 @@
 # Serial Port Configuration
 
-Most serial (UART) ports on a Pixhawk board can be fully configured via parameters
-(exceptions are ports that are used for a very specific purpose like RC input, or which are not configurable like `SERIAL 5`).
+Many serial (UART) ports on a Pixhawk board can be fully configured via parameters: e.g.: `GPS1`, `TELEM1`, `TELEM2`, `TELEM4` (`UART+I2C`).
 
 The configuration makes it easy to (for example):
 - change the baudrate on a port.
@@ -9,12 +8,14 @@ The configuration makes it easy to (for example):
 - setup dual GPS.
 - enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
 
+> **Note** Some ports cannot be configured because they are used for a very specific purpose like RC input or the system console (`SERIAL 5`).
+
 ## Pre-configured Ports {#default_port_mapping}
 
 The following functions are typically mapped to the same specific serial ports on all boards, and are hence mapped by default:
 
 - MAVLink is mapped to the `TELEM 1` port with baudrate 57600 (for a [telemetry module](../telemetry/README.md)).
-- GPS 1 ([gps driver](https://dev.px4.io/en/middleware/modules_driver.html#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
+- GPS 1 ([gps driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
 
 All other ports have no assigned functions by default (are disabled).
 
@@ -57,7 +58,7 @@ For example, to enable the sf0x driver, you would remove the `#` at the beginnin
 #distance_sensor/sf0x
 ```
 
-You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/en/setup/building_px4.html) (PX4 Development Guide).
+You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/master/en/setup/building_px4.html) (PX4 Development Guide).
 
 
 ## Further Information

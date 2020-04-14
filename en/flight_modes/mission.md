@@ -56,12 +56,14 @@ For more information about mission planning, see:
 
 ## Mission Parameters
 
-Mission behaviour is affected by a number of parameters. 
-These cover, for example, how the vehicle will behave if it looses connection to its remote control during a mission ([NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)), 
-the fixed-wing loiter radius ([NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_LOITER_RAD)), 
-acceptance radius for reaching a waypoint etc.
+Mission behaviour is affected by a number of parameters, most of which are documented in [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission).
+A very small subset are listed below.
 
-These are documented here: [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission)
+Parameter | Description
+--- | ---
+<span id="NAV_RCL_ACT"></span>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.
+<span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT) | Fixed-wing loiter radius.
+<span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | If enabled for auto modes, stick movement gives control back to the pilot (switches to [Position mode](../flight_modes/position_mc.md) - except when vehicle is handling a critical battery failsafe). Enabled by default.
 
 
 ## Supported Mission Commands {#mission_commands}
@@ -127,13 +129,13 @@ Note:
 
 PX4 expects to follow a straight line from the previous waypoint to the current target (it does not plan any other kind of path between waypoints - if you need one you can simulate this by adding additional waypoints).
 
-MC vehicles will change the *speed* when approach/leaving a waypoint based on whether it uses [slew-rate](../config_mc/mc_slew_rate_type_trajectory.md#mission-mode) or [jerk-limited](
-../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) tuning.
+MC vehicles will change the *speed* when approaching or leaving a waypoint based on the [jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) tuning.
+
 
 Vehicles switch to the next waypoint as soon as they enter the acceptance radius. 
 - For MC this radius is defined by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)
 - For FW the radius is defined by the "L1 distance".
-  - The L1 distance is computed from two parameters: [L1_DAMPING](../advanced_config/parameter_reference.md#L1_DAMPING) and [L1_PERIOD](../advanced_config/parameter_reference.md#L1_PERIOD), and the current ground speed.
+  - The L1 distance is computed from two parameters: [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) and [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD), and the current ground speed.
   - By default, it's about 70 meters.
   - The equation is:
     $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}_{ {xy}_{ground} } \right \|$$

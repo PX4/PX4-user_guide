@@ -60,18 +60,18 @@ This section lists all hardware for the frame and the autopilot installation.
 
 ### Electronics
 
-| Description                                                                | Quantity |
-| -------------------------------------------------------------------------- | -------- |
-| Motors - DR2205 KV2300                                                     | 4        |
-| Fully assembled Power Management Board with ESCs                           | 4        |
-| Holybro power module                                                       | 1        |
-| Fr-sky D4R-II receiver                                                     | 1        |
-| Pixhawk 4 mini                                                             | 1        |
-| Holybro GPS Neo-M8N                                                        | 1        |
-| Holybro [Micro FPV Radio telemetry set](http://www.holybro.com/product/17) | 1        |
-| Battery lumenier 1300 mAh 4S 14.8V                                         | 1        |
-| Vtx 5.8gHz                                                                 | 1        |
-| FPV camera (Complete Kit - only)                                           | 1        |
+| Description                                                                                                    | Quantity |
+| -------------------------------------------------------------------------------------------------------------- | -------- |
+| Motors - DR2205 KV2300                                                                                         | 4        |
+| Fully assembled Power Management Board with ESCs                                                               | 4        |
+| Holybro power module                                                                                           | 1        |
+| Fr-sky D4R-II receiver                                                                                         | 1        |
+| Pixhawk 4 mini                                                                                                 | 1        |
+| Holybro GPS Neo-M8N                                                                                            | 1        |
+| Holybro [Micro FPV Radio telemetry set](http://www.holybro.com/product/micro-transceiver-telemetry-radio-set/) | 1        |
+| Battery lumenier 1300 mAh 4S 14.8V                                                                             | 1        |
+| Vtx 5.8gHz                                                                                                     | 1        |
+| FPV camera (Complete Kit - only)                                                                               | 1        |
 
 The image below shows both frame and electronic components.
 

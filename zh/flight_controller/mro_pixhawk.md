@@ -2,15 +2,13 @@
 
 The *mRo Pixhawk<sup>&reg;</sup>* is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md). It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
-> **Tip** The controller can be used as a drop-in replacement for the 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md).
-
-<span></span>
-
-> **Note** The main difference is that it is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design, which corrects a bug that limited the original Pixhawk 1 to 1MB of flash.
+> **Tip** The controller can be used as a drop-in replacement for the 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md). The main difference is that it is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design, which corrects a bug that limited the original Pixhawk 1 to 1MB of flash.
 
 ![mRo Pixhawk Image](../../assets/flight_controller/mro/mro_pixhawk.jpg)
 
 Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
+
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 
 ## 主要特性
 
@@ -58,14 +56,33 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 
 > **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make px4fmu-v3_default
     
 
-## 引脚和原理图
+## Debug Ports
 
-该控制器基于[Pixhawk项目](https://pixhawk.org/)的**FMUv3** 开源硬件设计。
+See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
+
+## Pinouts
+
+See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | IO debug              |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |
+
+## Schematics
+
+The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design.
 
 * [FMUv3 schematic](https://github.com/PX4/Hardware/raw/master/FMUv3_REV_D/Schematic%20Print/Schematic%20Prints.PDF) -- Schematic and layout
 

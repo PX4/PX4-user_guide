@@ -23,7 +23,7 @@
 
 3. 기체가 재부팅 될 때까지 기다리십시오.
 
-4. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 매개변수를 찾아서 [활성화](../advanced_config/parameters.md#parameter-configuration)하십시오.
+4. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 파라미터를 [찾아서 활성화](../advanced_config/parameters.md) 하십시오.
 5. 재부팅하십시오 (보드의 연결을 끊고 다시 연결하십시오.). 부트로더 업데이트는 수 초 안에 완료됩니다.
 
 일반적으로 이 단계에서 올바른/새 부트로더를 사용하여 [펌웨어를 다시 업데이트](../config/firmware.md) 할 수 있습니다.
@@ -76,4 +76,4 @@
 
 [Pixhawk Series](../flight_controller/pixhawk_series.md)에 포함되지 않은 보드들은 고유의 부트로더 업데이트 메커니즘을 가질 수 있습니다.
 
-For boards that are preflashed with Betaflight, see [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md).
+Betaflight 로 미리 플래쉬 되어 있는 보드의 경우, [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md)을 확인하십시오.

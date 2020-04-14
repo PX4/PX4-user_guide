@@ -29,4 +29,4 @@ SiK 라디오용 하드웨어는 다양한 범위 및 폼 팩터를 지원하는
 
 ## 고급 설정/구성
 
-PX4 개발자 설명서에는 펌웨어 및 AT-명령 기반 구성에 대한 추가 정보 가 있습니다. 개발자가 아닌 경우에는 이 작업을 수행할 필요가 없습니다.</p>
+The PX4 Developer Guide has [additional information](https://dev.px4.io/master/en/data_links/sik_radio.html) about building firmware and AT-command based configuration. 개발자가 아닌 경우에는 이 작업을 수행할 필요가 없습니다.

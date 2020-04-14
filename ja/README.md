@@ -67,13 +67,13 @@ PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 
 コードや，ドキュメントについて貢献する方法は，開発者ガイドに記載されています:
 
-- [コード](https://dev.px4.io/en/contribute/)
-- [ドキュメント](https://dev.px4.io/en/contribute/docs.html)
-- [翻訳](https://dev.px4.io/en/contribute/docs.html)
+- [コード](https://dev.px4.io/master/en/contribute/)
+- [ドキュメント](https://dev.px4.io/master/en/contribute/docs.html)
+- [翻訳](https://dev.px4.io/master/en/contribute/docs.html)
 
 ## ライセンス
 
-PX4のコードは[BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)の下で，自由に使用・改造することができます． このドキュメントは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)ライセンスの元に管理されています． より詳しい情報は，以下を参照してください: [PX4 Development Guide > Licences](https://dev.px4.io/en/contribute/licenses.html).
+PX4のコードは[BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)の下で，自由に使用・改造することができます． このドキュメントは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)ライセンスの元に管理されています． For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/master/en/contribute/licenses.html).
 
 ### アイコン
 

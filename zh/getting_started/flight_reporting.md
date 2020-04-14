@@ -42,7 +42,7 @@ Logging may further be configured using the [SD Logging](../advanced_config/para
 | [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | 创建非常小的额外“任务日志”。  
 此日志*不* 能使用 *Flight Review*，但当您需要一个用于地理标记或法规遵从性的小日志时，该日志非常有用。          |
 
-> **Note** *Developers* can further configure what information is logged via the [logger](https://dev.px4.io/en/middleware/modules_system.html#logger) module (you would use this, for example, if you want to log your own topics). For more information see: [Logging](https://dev.px4.io/en/log/logging.html) (PX4 Developer Guide).
+> **Note** *Developers* can further configure what information is logged via the [logger](https://dev.px4.io/master/en/middleware/modules_system.html#logger) module (you would use this, for example, if you want to log your own topics). For more information see: [Logging](https://dev.px4.io/master/en/log/logging.html) (PX4 Developer Guide).
 
 ## Key Links
 

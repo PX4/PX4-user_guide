@@ -1,4 +1,6 @@
-# CUAV v5
+# CUAV v5 (Discontinued)
+
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 *CUAV v5*<sup>&reg;</sup> (previously "Pixhack v5") is an advanced autopilot designed and made by CUAV<sup>&reg;</sup>. 
 The board is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design. 
@@ -70,14 +72,15 @@ Under these conditions all power sources will be used in this order to power the
 > **Tip** Most users will not need to build this firmware!
   It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
 make px4_fmu-v5_default
 ```
 
 ## Debug Port
 
-The system's serial console and SWD interface operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector.
+The [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port.
+Simply connect the FTDI cable to the Debug & F7 SWD connector.
 To access the I/O Debug port, the user must remove the CUAV v5 shell.
 Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
 
@@ -96,6 +99,19 @@ pin | CUAV v5 debug
 6 | VCC 
 
 
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+UART1 | /dev/ttyS0 | GPS
+USART2 | /dev/ttyS1 | TELEM1 (flow control)
+USART3 | /dev/ttyS2 | TELEM2 (flow control)
+UART4 | /dev/ttyS3 | TELEM4
+USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector
+UART7 | /dev/ttyS5 | Debug Console
+UART8 | /dev/ttyS6 | PX4IO
+
+
 ## Peripherals
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
@@ -105,13 +121,13 @@ pin | CUAV v5 debug
 
 ## Supported Platforms / Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. 
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 
 ## Further info
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165). 
-- [CUAV v5 docs](http://doc.cuav.net/flight-controller/pixhack-v5/en/) 
+- [CUAV v5 docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5.html) 
 - [CUAV Github](https://github.com/cuav) 
 
 

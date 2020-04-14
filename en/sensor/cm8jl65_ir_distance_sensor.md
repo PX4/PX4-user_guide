@@ -1,6 +1,6 @@
 # Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor
 
-The [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-ToF-Infrared-Distance-Measuring-Sensor-p-4028.html) is a very small IR distance sensor with a 0.17m-8m range and millimeter resolution.
+The [Lanbao PSK-CM8JL65-CC5](https://www.seeedstudio.com/PSK-CM8JL65-CC5-Infrared-Distance-Measuring-Sensor-p-4028.html) is a very small IR distance sensor with a 0.17m-8m range and millimeter resolution.
 It must be connected to a UART/serial bus. 
 
 - Dimensions: 38 mm x 18mm x 7mm
@@ -27,5 +27,5 @@ The pinouts are labeled on the bottom of the sensor:
   distance_sensor/cm8jl65
   ```
   
-In order to use the sensor for *collision prevention* you will further need to set the parameters [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) and [MPC_COL_PREV_D](../advanced_config/parameter_reference.md#MPC_COL_PREV_D).
+In order to use the sensor for *collision prevention* you will further need to set the parameters [SENS_CM8JL65_R_0](../advanced_config/parameter_reference.md#SENS_CM8JL65_R_0) and [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST).
 For more information see: [Collision Prevention](../computer_vision/collision_prevention.md#rangefinder).

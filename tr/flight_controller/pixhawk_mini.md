@@ -1,6 +1,6 @@
 # Pixhawk Mini (Discontinued)
 
-> **Warning** This product is no longer manufactured or available from 3DR.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 The 3DR<sup>&reg;</sup> *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk (designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>). It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
 
@@ -261,3 +261,18 @@ The wiring and configuration of other components is covered within the topics fo
 General configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
+
+## Building Firmware
+
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+
+    make px4_fmu-v2_default
+    
+
+## Debug Port
+
+This board does not have a debug port (i.e it does not have a port for accessing the [System Console](http://dev.px4.io/master/en/debug/system_console.html) or [SWD (JTAG) Hardware Debugging Interface](http://dev.px4.io/master/en/debug/swd_debug.html).
+
+Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.

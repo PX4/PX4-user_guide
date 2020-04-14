@@ -20,7 +20,7 @@ The setpoint-value tuning parameters can be split into two groups: tuning parame
 
 ## Definitions
 
-位置控制器 ([ diagram here ](https://dev.px4.io/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) 由外环的** P ** 位置控制回路和内环的 ** PID ** 速度控制回路组成。 根据 飞行模式, 两个回路都是活动的, 或者只有速度控制回路是活动的。
+The position controller ([diagram here](https://dev.px4.io/master/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop. 根据 飞行模式, 两个回路都是活动的, 或者只有速度控制回路是活动的。
 
 对于本文档的其余部分，** 位置控制 ** 代表两个控制回路都有效的情况，而 ** 速度控制 ** 指的是仅使用速度控制回路的情况。
 

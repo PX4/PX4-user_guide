@@ -9,7 +9,7 @@ ESP8266 是一款低成本且易于使用的 Wi-Fi 模块，具有完整的 TCP/
 该模块是现成的。 下面列出了一些供应商。
 
 - [Sparkfun](https://www.sparkfun.com/products/13678)
-- [GearBeast](https://us.gearbest.com/boards-shields/pp_009604906563.html?wid=1433363)
+- [GearBeast](https://us.gearbest.com/boards-shields/pp_009604906563.html)
 
 ## 模块设置
 

@@ -27,127 +27,133 @@
 
 <span></span>
 
-> **Tip** 사용 가능한 포트에 대한 자세한 내용은 여기에서 확인할 수 있습니다. [Cube > Ports ](../flight_controller/pixhawk-2.md#ports).
-
-## 컨트롤러 장착 및 정렬
-
-Cube를 가능한 (이상적으로는) 윗면이 위로 향하도록 하여 기체의 무게 중심에 가깝게, 그리고 화살표를 기체의 앞면을 가르키도록 장착하십시오 (큐브 윗면에 그려진 *화살표 마크*를 참고하십시오).
-
-![Cube 장착 - 전면 방향](../../assets/flight_controller/cube/cube_mount_front.jpg)
-
-> **참고** 만약 컨트롤러를 권장된/기본 방향으로 장착할 수 없다면 (예: 물리적 제약), 비행 제어 소프트웨어 상 비행 제어 장치의 방향을 실제 [비행 제어 장치의 방향](../config/flight_controller_orientation.md)대로 설정해야 합니다.
-
-Cube를 (키트에 포함된) 진동 감쇠 폼 패드 또는 장착 나사를 사용해 장착할 수 있습니다. Cube 액세서리에 포함된 장착 1.8mm 두께의 프레임보드 전용으로 설계되었습니다. 커스텀 나사는 나사산 길이가 6mm~7.55mm인 M2.5 나사여야 합니다.
-
-![Cube 마운트 - 장착 플레이트](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
-
-## GPS + 나침반 + 안전 스위치 + LED {#gps}
-
-권장되는 GPS모듈은 *Here*과 [Here+](../gps_compass/rtk_gps_hex_hereplus.md)입니다. 두 기기 모두 GPS 모듈, 나침반, 안전 스위치 그리고 [LEDs](../getting_started/led_meanings.md)를 통합한 모듈입니다.
-
-> **참고** 두 모듈은 *Here+*는 [RTK](../advanced_features/rtk-gps.md)를 통한 센티미터 단위의 위치 제어를 제공하는 점이 다릅니다. RTK 지원을 제외하면, 두 모듈은 같은 방식으로 사용/연결됩니다.
-
-모듈은 방향 마커가 기체 앞쪽으로 향하도록 가능한 프레임에서 멀리 장착해야 합니다 (다른 전자 장치와 나침반을 분리하면 간섭이 줄어듭니다). 제공된 8핀 케이블을 사용하여 `GPS1` 포트에 연결해야 합니다..
-
-아래의 다이어그램은 모듈과 모듈 연결의 개요를 보여줍니다.
-
-![Here+ 연결 다이어그램](../../assets/flight_controller/cube/here_plus_connector.png)
-
-> **참고 ** GPS 모듈의 내장 안전 스위치는 *기본적으로* "활성화"됩니다.(활성화된 경우, PX4는 기체 시동을 허용하지 않습니다). 비활성화하려면 안전 스위치를 1초간 길게 누르십시오. 안전 스위치를 다시 눌러 안전 장치를 활성화하고 기체 시동을 끌 수 있습니다 (어떤 이유로든 조종기나 지상국 프로그램이 기체 시동을 끌 수 없을 때 유용합니다).
+> **Note** The port labeled `GPS2` maps to `TEL4` in PX4 (i.e. if connecting to the port labeled `GPS2`, assign the [serial port configuration parameter](../peripherals/serial_configuration.md) for the connected hardware to `TEL4`).
 
 <span></span>
 
-> **팁** 구형 6핀 GPS 모듈을 사용하려면, GPS와 [안전 스위치](#safety_switch)를 모두 연결하는 데 사용할 수 있는 케이블이 키트에 함께 제공됩니다.
+> **Tip** More information about available ports can be found here: [Cube > Ports](../flight_controller/pixhawk-2.md#ports).
+
+## 컨트롤러 장착 및 정렬
+
+Mount the Cube as close as possible to your vehicle’s center of gravity, ideally oriented top-side up and with the arrow pointing towards the front of the vehicle (note the *subtle* arrow marker on top of the cube)
+
+![Cube Mount - Direction of Front](../../assets/flight_controller/cube/cube_mount_front.jpg)
+
+> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+
+The Cube can be mounted using either vibration-damping foam pads (included in the kit) or mounting screws. The mounting screws in the Cube accessories are designed for a 1.8mm thick frameboard. Customized screws are supposed to be M2.5 with thread length inside Cube in range 6mm~7.55mm.
+
+![Cube Mount - Mounting Plate](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
+
+## GPS + 나침반 + 안전 스위치 + LED {#gps}
+
+The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md).
+
+> **Note** The difference between the modules is that *Here+* supports centimeter level positioning via [RTK](../advanced_features/rtk-gps.md). Otherwise they are used/connected in the same way.
+
+The module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference). It must be connected to the `GPS1` port using the supplied 8-pin cable.
+
+The diagram below shows a schematic view of the module and its connections.
+
+![Here+ Connector Diagram](../../assets/flight_controller/cube/here_plus_connector.png)
+
+> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+
+<span></span>
+
+> **Tip** If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety_switch).
 
 ## 안전 스위치 {#safety_switch}
 
-Cube와 함께 구성된 *전용* 안전 스위치는 (내장 안전 스위치를 포함한) 권장 [GPS](#gps)를 사용하지 않을 경우에만 필요합니다.
+The *dedicated* safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
 
-GPS 없이 비행하는 경우, 기체에 시동을 걸고 비행하기 위해 안전 스위치는 반드시 `GPS1` 포트(또는 구형 6핀 케이블 사용시 제공된 케이블을 통해)에 장착되어어야 합니다.
+If you are flying without the GPS you must attach the switch directly to the `GPS1` port in order to be able to arm the vehicle and fly (or via a supplied cable if using an old-style 6-pin GPS).
 
 ## 버저
 
-버저는 UAV 상태를 나타내는 오디오 신호를 보냅니다. 버저는 아래와 같이 USB포트에 연결됩니다. (추가적인 설정이 필요하지 않습니다)
+The buzzer provides audio signals to that indicate UAV status. This should be connected to the USB port as shown (no further configuration is required).
 
-![Cube 버저](../../assets/flight_controller/cube/cube_buzzer.jpg)
+![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
 ## 라디오 컨트롤 {#rc_control}
 
-[리모트 컨트롤(RC) 라디오 시스템](../getting_started/rc_transmitter_receiver.md)은 기체를 *수동으로* 제어할 때 필요합니다 (PX4에는 자율 비행 모드를 위한 라디오 시스템이 필요하지 않습니다).
+A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-기체와 조종자가 서로 통신하기 위해 [호환되는 송신기/수신기를 선택하고](../getting_started/rc_transmitter_receiver.md), 송신기와 수신기를 *바인드*해야 합니다 (송신기와 수신기에 포함된 지시사항을 읽으십시오).
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
-아래 지침은 다른 종류의 수신기를 연결하는 방법을 설명합니다.
+The instructions below show how to connect the different types of receivers.
 
 ### PPM-SUM / Futaba S.BUS 수신기
 
-제공된 3-와이어 서보 케이블로 접지(-), 전원(+) 및 신호(S) 와이어를 RC 핀에 연결합니다.
+Connect the ground(-),power(+),and signal(S) wires to the RC pins using the provided 3-wire servo cable.
 
 ![Cube - RCIN](../../assets/flight_controller/cube/cube_rc_in.jpg)
 
 ### Spektrum Satellite 수신기
 
-Spktrum DSM, DSM2 및 DSM-X Satellite RC 수신기는 **SPKT/DSM** 포트에 연결합니다.
+Spektrum DSM, DSM2, and DSM-X Satellite RC receivers connect to the **SPKT/DSM** port.
 
 ![Cube - Spektrum](../../assets/flight_controller/cube/cube_rc_spektrum.jpg)
 
 ### PWM 수신기
 
-Cube는 *각각의 채널이 개별적으로 배선된* PPM 또는 PWM 수신기에 바로 연결할 수 없습니다. PWM 수신기는 hex.aero 또는 proficnc.com에서 구매할 수 있는 *PPM 인코더 모듈*을 통해 **RCIN**포트에 연결해야 합니다.
+The Cube cannot directly connect to PPM or PWM receivers that have an *individual wire for each channel*. PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder module, which may be purchased from hex.aero or proficnc.com.
 
 ## 전원 공급 {#power}
 
-Cube는 일반적으로 **POWER1** 포트에 연결된 전원 모듈(키트와 함께 제공)을 통해 리튬 이온 폴리머(LiPo) 배터리에서 전원을 공급받습니다. 전원 모듈은 보드에 안정적인 전원 공급 및 전압/전류 표시를 제공하며 멀티콥터 기체의 모터를 구동하는 데 사용되는 ESC에 개별적으로 전원을 공급할 수 있습니다.
+Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port. The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle.
 
-멀티콥터 기체의 일반적인 전원 설정은 다음과 같습니다.
+A typical power setup for a Multicopter vehicle is shown below.
 
-![전원 설정 - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
+![Power Setup - MC](../../assets/flight_controller/cube/cube_wiring_power_mc.jpg)
 
 <!-- HOw is the power rail powered for servos - power rail? Plane/Vtol would be cool to show here too -->
 
 ## 텔레메트리 시스템 (선택 사항) {#telemetry}
 
-텔레메트리 시스템은 지상국과 비행 중인 기체와 통신, 모니터링, 제어할 수 있도록 합니다 (예: 기체를 특정 위치로 움직이도록 지시하거나, 새로운 미션을 업로드할 수 있습니다).
+A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
-통신 채널은 [텔레메트리 라디오](../telemetry/README.md)를 경유합니다. 기체의 텔레메트리를 **TELEM1** 포트에 연결해야 합니다 (이 포트에 연결된 경우 추가 구성이 필요하지 않음). 다른 텔레메트리는 일반적으로 지상국 컴퓨터나 모바일 장치에 (USB를 통해) 연결됩니다.
+The communication channel is via [Telemetry Radios](../telemetry/README.md). The vehicle-based radio should be connected to the **TELEM1** port (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually via USB).
 
-![텔레메트리 라디오](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
+![Telemetry Radio](../../assets/flight_controller/cube/cube_schematic_telemetry.jpg)
 
 ## SD 카드 (선택 사항)
 
-SD 카드는 일반적으로 [세부 비행 기록 및 분석](../getting_started/flight_reporting.md)에 사용됩니다. Micro-SD 카드를 그림과 같이 큐브에 삽입합니다.
+SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the Micro-SD card into Cube as shown (if not already present).
 
-![Cube - SDCard 장착](../../assets/flight_controller/cube/cube_sdcard.jpg)
+![Cube - Mount SDCard](../../assets/flight_controller/cube/cube_sdcard.jpg)
 
-> **팁** SanDisk Extreme U3 32GB가 [매우 권장됩니다](https://dev.px4.io/en/log/logging.html#sd-cards) (개발자 설명서).
+> **Tip** For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
 
 ## 모터
 
-모터/서보는 **MAIN**과 **AUX**포트에 [기체 프레임 참고문헌](../airframes/airframe_reference.md)에 기체별로 정의된 특정 순서로 연결해야 합니다.
+Motors/servos are connected to the **MAIN** and **AUX** ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
-![Cube - 모터 연결](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
+![Cube - Motor Connections](../../assets/flight_controller/cube/cube_main_aux_outputs.jpg)
 
-> **참고** 이 참고사항은 모든 지원되는 기체/기기 프레임의 출력 포트의 모터/서보 연결 리스트입니다 (만약 프레임이 참고사항에 기재되어 있지 않다면, 올바른 유형의 "일반" 프레임을 사용하십시오).
+> **Note** This reference lists the output port to motor/servo mapping for all supported air and ground frames (if your frame is not listed in the reference then use a "generic" airframe of the correct type).
 
 <span></span>
 
-> **주의** 출력 포트 연결은 모든 프레임에 대해 일관되지 않습니다 (예: 비행기 프레임에서 모터 스로틀이 동일한 출력이 아닐 수 있음). 가지고 있는 기체의 프레임에 대해 올바르게 모터를 연결했는지 다시 한 번 확인하십시오.
+> **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 
 ## 그 외 주변 장치
 
-선택적인 주변 장치의 배선 및 구성은 개별 [주변 장치](../peripherals/README.md)에 대한 항목에서 다룹니다.
+The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
+
+> **Note** If connecting peripherals to the port labeled `GPS2`, assign the PX4 [serial port configuration parameter](../peripherals/serial_configuration.md) for the hardware to `TEL4` (not GPS2).
 
 ## 설정
 
-설정은 [QgroundControl](http://qgroundcontrol.com/)을 사용해 이뤄집니다.
+Configuration is performed using [QGroundContro](http://qgroundcontrol.com/).
 
-*QGroundControl*를 다운로드/설치/실행한 후, 아래와 같이 비행 제어 장치를 컴퓨터에 연결합니다.
+After downloading, installing and running *QGroundControl*, connect the board to your computer as shown.
 
-![Cube - 컴퓨터 USB 연결](../../assets/flight_controller/cube/cube_usb_connection.jpg)
+![Cube - USB Connection to Computer](../../assets/flight_controller/cube/cube_usb_connection.jpg)
 
-기본적/일반적인 설정은 [비행 제어 장치 설정](../config/README.md)에서 다룹니다.
+Basic/common configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
-QuadPlane에 대한 자세한 설정은 [QuadPlane VTOL 설정](../config_vtol/vtol_quad_configuration.md)에서 다룹니다.
+QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
 

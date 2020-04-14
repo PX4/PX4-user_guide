@@ -15,7 +15,7 @@ RTK setup and use on PX4 via *QGroundControl* is largely plug and play \(see [RT
 
 ## Wiring and Connections
 
-C-RTK GPS comes with a cable that terminates in a 6-pin connector and 4-pin connector that are compatible with [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/Instructions.html). The 6-pin connector provides the interface for RTK GPS, and should be connected to the flight controller's GPS port. The 4-pin connector is an m8n (standard) GPS interface that is intended for (optional) use as a second GPS.
+C-RTK GPS comes with a cable that terminates in a 6-pin connector and 4-pin connector that are compatible with [Pixhack v3](http://doc.cuav.net/gps/c-rtk/en/c-rtk/hardware-connection.html). The 6-pin connector provides the interface for RTK GPS, and should be connected to the flight controller's GPS port. The 4-pin connector is an m8n (standard) GPS interface that is intended for (optional) use as a second GPS.
 
 > **Tip** At time of writing PX4 does not yet fully support a second GPS. The 4-pin port need not be connected.
 

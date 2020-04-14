@@ -30,9 +30,9 @@ PX4 supports: SF11/c and SF/LW20. PX4 can also be used with the following discon
 
 PX4 supports the following models connected via the I2C bus: TeraRanger One, TeraRanger Evo 60m and TeraRanger Evo 600Hz.
 
-### uLanding Radar
+### Ainstein US-D1 Standard Radar Altimeter
 
-The [*Aerotenna* uLanding Radar](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of 45m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
+The *Ainstein* [US-D1 Standard Radar Altimeter](../sensor/ulanding_radar.md) is compact microwave rangefinder that has been optimised for use on UAVs. It has a sensing range of around 50m. A particular advantages of this product are that it can operate effectively in all weather conditions and over all terrain types (including water).
 
 ### LeddarOne
 
@@ -45,10 +45,6 @@ The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low po
 ### PSK-CM8JL65-CC5
 
 The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution. It must be connected to a UART/serial bus.
-
-### Other
-
-PX4 also supports the Bebop rangefinder.
 
 ## Configuration/Setup {#configuration}
 
@@ -96,11 +92,11 @@ listener distance_sensor 5
 
 > **Note** The *QGroundControl MAVLink Console* works when connected to Pixhawk or other NuttX targets, but not the Simulator. On the Simulator you can run the commands directly in the terminal.
 
-For more information see: [Sensor/Topic Debugging using the Listener Command](https://dev.px4.io/en/debug/sensor_uorb_topic_debugging.html) (PX4 Development Guide).
+For more information see: [Sensor/Topic Debugging using the Listener Command](https://dev.px4.io/master/en/debug/sensor_uorb_topic_debugging.html) (PX4 Development Guide).
 
 ## Simulation {#simulation}
 
-Lidar and sonar rangefinders can be used in the [Gazebo Simulator](https://dev.px4.io/en/simulation/gazebo.html) (PX4 Development Guide). To do this you must start the simulator using a vehicle model that includes the rangefinder.
+Lidar and sonar rangefinders can be used in the [Gazebo Simulator](https://dev.px4.io/master/en/simulation/gazebo.html) (PX4 Development Guide). To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
 The iris optical flow model includes a Lidar rangefinder:
 

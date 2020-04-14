@@ -1,6 +1,6 @@
 # Wing Wing Z-84 Pixracer Build
 
-The Wing Wing Z-84 is our gold standard airframe: Small, rugged and just large enough to host a [Pixracer](../flight_controller/pixracer.md).
+The Wing Wing Z-84 is our gold standard airframe - small, rugged and just large enough to host a [Pixracer](../flight_controller/pixracer.md).
 
 Key information:
 
@@ -16,7 +16,7 @@ Key information:
 One of these:
 
 - [Banggood](https://www.banggood.com/Wing-Wing-Z-84-Z84-EPO-845mm-Wingspan-Flying-Wing-PNP-p-973125.html)
-- [Hobbyking US Warehouse](https://hobbyking.com/en_us/catalogsearch/result/?q=z-84&order=relevance&dir=asc)
+- [Hobbyking US Warehouse](https://hobbyking.com/en_us/wing-wing-z-84-epo-845mm-kit.html)
 
 > **Tip** PNF (or "PNP") versions include motor, propeller and electronic speed controller. The "kit" version does not include these components, which must be purchased separately.
 
@@ -25,7 +25,7 @@ One of these:
 One of these (any small (>=12A) ESC will do):
 
 - [Blue Series 12A ESC](https://hobbyking.com/en_us/hobbyking-12a-blueseries-brushless-speed-controller.html) (Hobbyking)
-- [Lumenier Regler 30A BLHeli_S ESC OPTO](https://www.brack.ch/lumenier-regler-30a-blhelis-esc-opto-2-4s-589152) (Brack - Switzerland)
+- [Lumenier Regler 30A BLHeli_S ESC OPTO](https://www.getfpv.com/lumenier-30a-blheli-s-esc-opto-2-4s.html) (GetFPV)
 
 ### Autopilot and Essential Components
 
@@ -56,7 +56,7 @@ The wiring below is valid for Pixhawk and Pixracer. Use the main outputs, not th
 
 The images below give a rough idea about the assembly process, which is simple and can be done with a hot glue gun.
 
-![wing\_wing\_build01](../../images/wing_wing_build01.jpg) ![wing\_wing\_build02](../../images/wing_wing_build02.jpg) ![wing\_wing\_build03](../../images/wing_wing_build03.jpg) ![wing\_wing\_build04](../../images/wing_wing_build04.jpg) ![wing\_wing\_build09](../../images/wing_wing_build09.jpg) ![Wing Wing Z-84 build](../../images/wing_wing_build11.jpg)
+![wing wing build01](../../images/wing_wing_build01.jpg) ![wing wing build02](../../images/wing_wing_build02.jpg) ![wing wing build03](../../images/wing_wing_build03.jpg) ![wing wing build04](../../images/wing_wing_build04.jpg) ![wing wing build09](../../images/wing_wing_build09.jpg) ![Wing Wing Z-84 build](../../images/wing_wing_build11.jpg)
 
 ## Airframe Configuration
 

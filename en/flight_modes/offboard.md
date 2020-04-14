@@ -98,6 +98,7 @@ See https://github.com/PX4/Firmware/pull/12149 and https://github.com/PX4/Firmwa
 
     The values are:
     - 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
+    * Velocity setpoint (only `vx`, `yy`, `vz`)
   - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
@@ -109,6 +110,11 @@ See https://github.com/PX4/Firmware/pull/12149 and https://github.com/PX4/Firmwa
     - 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
   - PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
+* [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
+  * The following input combinations are supported:
+    * Attitude/orientation (`SET_ATTITUDE_TARGET.q`) with thrust setpoint (`SET_ATTITUDE_TARGET.thrust`).
+      > **Note** Only the yaw setting is actually used/extracted.
+
 ## Offboard Parameters
 
 *Offboard mode* is affected by the following parameters:
@@ -118,7 +124,7 @@ Parameter | Description
 <span id="COM_OF_LOSS_T"></span>[COM_OF_LOSS_T](../advanced_config/parameter_reference.md#COM_OF_LOSS_T) | Time-out (in seconds) to wait when offboard connection is lost before triggering offboard lost failsafe (`COM_OBL_ACT` and `COM_OBL_RC_ACT`)
 <span id="COM_OBL_ACT"></span>[COM_OBL_ACT](../advanced_config/parameter_reference.md#COM_OBL_ACT) | Mode to switch to if offboard control is lost when *not* connected to RC (Values are - 0: [Land](../flight_modes/land.md), 1: [Hold](../flight_modes/hold.md), 2: [Return ](../flight_modes/return.md)).
 <span id="COM_OBL_RC_ACT"></span>[COM_OBL_RC_ACT](../advanced_config/parameter_reference.md#COM_OBL_RC_ACT) | Mode to switch to if offboard control is lost while still connected to RC control (Values are - 0: *Position*, 1: [Altitude](../flight_modes/altitude_mc.md), 2: *Manual*, 3: [Return ](../flight_modes/return.md), 4: [Land](../flight_modes/land.md)).
-
+<span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | If enabled for offboard mode, stick movement immediately gives control back to the pilot (switches to [Position mode](../flight_modes/position_mc.md)).
 
 ## Developer Resources
 
@@ -126,6 +132,6 @@ Typically developers do not directly work at the MAVLink layer, but instead use 
 
 The following resources may be useful for a developer audience:
 
-* [Offboard Control from Linux](https://dev.px4.io/en/ros/offboard_control.html) (PX4 Devguide)
-* [MAVROS Offboard control example](https://dev.px4.io/en/ros/mavros_offboard.html) (PX4 Devguide)
+* [Offboard Control from Linux](https://dev.px4.io/master/en/ros/offboard_control.html) (PX4 Devguide)
+* [MAVROS Offboard control example](https://dev.px4.io/master/en/ros/mavros_offboard.html) (PX4 Devguide)
 

@@ -6,104 +6,110 @@
 
 1. 运行 *QGroundControl*
 2. 刷固件
-3. 再启动界面选择合适的VTOL机型，如果你的机型没有列出的话，请选择Fun Cub VTOL机型。 
+3. 再启动界面选择合适的VTOL机型，如果你的机型没有列出的话，请选择Fun Cub VTOL机型。
 
 ### 飞行模式/模式转换
 
-在 *QGroundControl* 地面站中在进行RC遥控器校准的时候给你的遥控器设置一个四旋翼-固定翼模式转换按钮，或者通过调整参数 [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW)来设置这个按钮也行。
+In *QGroundControl* assign a switch of your remote to the transition function during the RC calibration step or by setting [RC_MAP_TRANS_SW](../advanced_config/parameter_reference.md#RC_MAP_TRANS_SW).
 
-这个按钮可以让你在固定翼和多旋翼两个模式进行切换。 这个按钮在关闭的时候是多旋翼模式。
+这个按钮可以让你在固定翼和多旋翼两个模式进行切换。 The switch in the off-position means that you are flying in multicopter mode.
 
 ### 多旋翼/固定翼调参
 
-在你尝试着第一次从多旋翼模式转换到固定翼模式之前，你需要先确保你的VTOL飞机在多旋翼模式已经调好了。 这样做的原因之一是，如果转换出了问题 ，它可以安全地以多旋翼模式返航。 如果你多旋翼模式没调好的话，可能会炸机。
+Before you attempt your first transition to fixed wing flight you need to make absolutely sure that your VTOL is well tuned in multirotor mode. One reason is this is the mode you will return to if something goes wrong with a transition and it could be it will be moving fairly quickly already. 如果你多旋翼模式没调好的话，可能会炸机。
 
-如果你有跑道并且起飞重量不是太大的话，你最好也把固定翼模式调好。 如果你还没调好的话，你可以把它调到固定翼模式来搞这个。 如果出了什么问题，你要随时准备切换回多旋翼模式。
+If you have a runway available and the total weight isn’t too high you will also want to tune fixed wing flight as well. If not then you will be attempting this when it switches to fixed wing mode. If something goes wrong you need to be ready (and able) to switch back to multirotor mode.
 
-请遵循固定翼和多旋翼的调参指南分别把两种模式的参数调好。
+Follow the the respective tuning guides on how to tune multirotors and fixed wings.
 
 ### 转换调参
 
-尽管你看起来好像是在玩一个可以在两种模式下飞行的飞机（多旋翼模式起降、固定翼模式前飞），但实际上你还有一个中间状态要调整：转换状态。 把转换模式调好对于安全地切入固定翼模式是很重要的，举个例子，如果你的空速太低的话在转换时飞机有可能会失速。
+While it might seem that you are dealing with a vehicle that can fly in two modes (multirotor for vertical takeoffs and landings and fixed wing for forwards flight) there is an additional state you also need to tune: transition.
 
-#### 过渡阶段油门
+Getting your transition tuning right is important for obtaining a safe entry into fixed wing mode, for example, if your airspeed is too slow when it transitions it might stall.
 
-参数: [VT_TRANS_THR](../advanced_config/parameter_reference.md#VT_TRANS_THR)
+#### Transition Throttle {#transition_throttle}
 
-过渡油门定义了在过渡过程中的最大油门。 这个值不要设的太低，否则你可能会永远达不到转换空速。 如果你把这个值设得太高的话，飞机可能会使用比你预计的更多的能量。 对于你的第一次模式切换来说，这个值高了要比低了好。
+Parameter: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
 
-#### 前转换时间
+Front transition throttle defines the target throttle for the pusher/puller motor during the front transition.
 
-参数: [VT_F_TRANS_DUR](../advanced_config/parameter_reference.md#VT_F_TRANS_DUR)
+This must be set high enough to ensure that the transition airspeed is reached. If your vehicle is equipped with an airspeed sensor then you can increase this parameter to make the front transition complete faster. For your first transition you are better off setting the value higher than lower.
 
-前转换指的是从多旋翼模式转换到固定翼模式。 这个参数是你从转换到到达最大油门所用的秒数。（用 `VT_TRANS_THR`来定义） 设为0意味着转换时的油门立刻达到设定值。 如果你希望这个过程平滑一点的话你可以设一个大一点的值，比如说3.
+Parameter: [VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)
 
-注意一旦加速阶段结束，油门会达到设定值并且会保持这个值直到飞机飞到转换空速。
+Generally back-transition throttle can be set to 0 since forward thrust is not (in most cases) desirable. If the motor controller supports reverse thrust however, you can achieve this by setting a negative value.
+
+#### Forward Transition Pusher/Puller Ramp-up Time
+
+Parameter: [VT_PSHER_RMP_DT](../advanced_config/parameter_reference.md#VT_PSHER_RMP_DT)
+
+A forward transition refers to the transition from multirotor to fixed wing mode. This is the amount of time in seconds that should be spent ramping up the throttle to the target value (defined by `VT_F_TRANS_THR`). A value of 0 will result in commanding the transition throttle value being set immediately. If you wish to smooth the throttling up you can increase this to a larger value, such as 3.
+
+Note that once the ramp up period ends throttle will be at its target setting and will remain there until (hopefully) the transition speed is reached.
 
 #### 混合控制空速
 
-参数: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
+Parameter: [VT_ARSP_BLEND](../advanced_config/parameter_reference.md#VT_ARSP_BLEND)
 
-默认情况下，当空速接近转换空速的时候，多旋翼的姿态控制会减弱，而固定翼的控制则会开始增加，直到转换完成。
+By default, as the airspeed gets close to the transition speed, multirotor attitude control will be reduced and fixed wing control will start increasing continuously until the transition occurs.
 
-把这个值设为0，在转换之前将完全使用多旋翼控制，完全不使用固定翼控制，直到转换完成。
+Disable blending by setting this parameter to 0 which will keep full multirotor control and zero fixed wing control until the transition occurs.
 
 #### 转换空速
 
-参数: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
+Parameter: [VT_ARSP_TRANS](../advanced_config/parameter_reference.md#VT_ARSP_TRANS)
 
-当达到这个空速的时候，飞机将会从多旋翼模式转换到固定翼模式。 把空速计调好是非常重要的。 你是否选择了一个高于你飞机失速速度（检查一下参数FW\_AIRSPD\_MIN）的转换空速也是非常重要的，因为这一点目前还没法自动检查。
+This is the airspeed which, when reached, will trigger the transition out of multirotor mode into fixed wing mode. It is critical that you have properly calibrated your airspeed sensor. It is also important that you pick an airspeed that is comfortably above your airframes stall speed (check `FW_AIRSPD_MIN`) as this is currently not checked.
 
 #### 固定翼永久稳定模式
 
-参数: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
+Parameter: [VT_FW_PERM_STAB](../advanced_config/parameter_reference.md#VT_FW_PERM_STAB)
 
-打开永久稳定模式将会使固定翼一直在自稳模式下飞行。 只要转换到固定翼模式，他就会自动自稳。
+Activating permanent stabilisation will result in fixed wing flight being stabilised by the autopilot at all times. As soon as a transition to fixed wing occurs it will be stabilised.
 
-注意如果你还没有调过你的固定翼，你应该把这个模式关掉，直到你确定了你能在这种模式下飞得很好。
+Note that if you have not yet tuned your fixed wing mode you should leave this off until you are sure it behaves well in this mode.
 
-### 过渡模式小提示 {#transitioning_tips.sectionedit9}
+### 过渡模式小提示 {#transitioning_tips}
 
-正如之前已经说过的，确保你的多旋翼模式已经调好了。 如果在转换的时候出了一些问题，你可以调回多旋翼模式，转换应该是很顺滑的。
+As already mentioned make sure you have a well tuned multirotor mode. If during a transition something goes wrong you will switch back to this mode and it should be quite smooth.
 
-在飞行之前制定以下计划：在多旋翼、过渡、固定翼三个模式下，如果出了问题你该怎么办。
+Before you fly have a plan for what you will do in each of the three phases (multirotor, transition, fixed wing) when you are in any of them and something goes wrong.
 
-电池电量：给多旋翼模式留足够的着陆电量。 别把电池电量用得太低，因为你在多旋翼模式下会需要更多的能量来着陆。 稳住，不要浪。
+Battery levels: leave enough margin for a multirotor transition for landing at the end of your flight. Don’t run your batteries too low as you will need more power in multirotor mode to land. Be conservative.
 
 #### 过渡模式：
 
-确保你离地面至少有20米高，并且有足够的空间来完成本次转换。 你的垂起固定翼在过渡阶段很可能会掉高，尤其是如果空速不够大的话。
+Make sure you are at least 20 meters above ground and have enough room to complete a transition. It could be that your VTOL will lose height when it switches to fixed wing mode, especially if the airspeed isn’t high enough.
 
-如果有条件的话，尽量迎风进行转换，否则它在转换之前可能会飘得很远。
+Transition into the wind, whenever possible otherwise it will travel further from you before it transitions.
 
-确保你的垂起固定翼在开始转换之前悬停得很稳。
+Make sure the VTOL is in a stable hover before you start the transition.
 
 #### 过渡：从多旋翼过渡到固定翼模式（前过渡）
 
-开始你的过渡。 飞机应该在50~100m之间进行过渡。 如果感觉飞机飞的不太稳的话，就放弃这次过渡然后着陆或者飞回初始点悬停然后着陆。 试着增加过渡油门(`VT_TRANS_THR`). 同时你还应该减少过渡时间(`VT_F_TRANS_DUR`).
+Start your transition. It should transition within 50 – 100 meters. If it doesn’t or it isn’t flying in a stable fashion abort the transition (see below) and land or hover back to the start position and land. Try increasing the [transition throttle](#transition_throttle) (`VT_F_TRANS_THR`) value. Also consider reducing the transition duration (`VT_F_TRANS_DUR`) if you are not using an airspeed sensor. If you are using an airspeed sensor consider lowering the transition airspeed but stay well above the stall speed.
 
-一旦你看到转换开始进行了，要准备处理掉高和迅速增大的油门。
+As soon as you notice the transition happen be ready to handle height loss which may include throttling up quickly.
 
-> **Caution** 我们讨论了以下的特性，但是具体代码还没搞： 在转换时，多旋翼电机将会停转，而固定翼电机将会保持`VT_TRANS_THR` 不变，直到你移动油门杆（这里假设你在手动模式下。）
+> **Caution** The following feature has been discussed but not implemented yet: Once the transition happens the multirotor motors will stop and the pusher/puller throttle will remain at the `VT_F_TRANS_THR` level until you move the throttle stick, assuming you are in manual mode.
 
 #### 过渡：从固定翼模式过渡到多旋翼模式（后转换）
 
-当你后转换到多旋翼模式时让你的飞机以一种直线水平的方式飞行并且减小它的速度，按下转换开关，他就会立刻开启所有的多旋翼电机并且关掉固定翼电机，这个转换应该是很顺滑的。
+When you transition back to multirotor mode bring your aircraft in on a straight level approach and reduce its speed, flip the transition switch and it will start the multirotor motors and stop the pusher/puller prop immediately and should result in a fairly smooth gliding transition.
 
-考虑到在你转换到多旋翼模式时，飞控会把油门拉满。 由于飞机仍然在飞，你会发现你有很多时间来把飞机调整到悬停。
+Consider that the throttle value you have when you transition will command the amount of thrust your multirotor has at the moment of the switch. Because the wing will still be flying you’ll find you have plenty of time to adjust your throttle to achieve/hold a hover.
 
-对于更多得后转换配置，请看 [后转换调参指南](vtol_back_transition_tuning.md)
+For advanced tuning of the back-transition please refer to the [Back-transition Tuning Guide](vtol_back_transition_tuning.md)
 
 #### 紧急切出过渡模式 {#aborting_a_transition}
 
-知道如何在过渡模式的 * 过程中 * 改出过渡模式是很重要的。
+It’s important to know what to expect when you revert a transition command *during* a transition.
 
-当你正在进行**多旋翼到固定翼模式** 的过渡(过渡按钮正在固定翼模式下) ，那么只要把过渡按钮打回去(关闭/四旋翼模式) 在过渡完成*之前*，它就会立刻回到多旋翼模式。
+When transitioning from **multirotor to fixed wing** (transition switch is on/fixed wing) then reverting the switch back (off/multirotor position) *before* the transition happens it will immediately return to multirotor mode.
 
-如果你正处于 **固定翼到多旋翼** 的过渡阶段，因为这个过渡是即时发生的，所以其实并不存在什么改出的方法，除非你在玩的是倾转式垂直起降固定翼。 如果你想要回到固定翼模式，那么你就需要完成整个的过渡过程。 如果飞机还在以比较快的速度飞的话，整个转换应该会很快。
+When transitioning from **fixed wing to multirotor** for this type of VTOL the switch is immediate so there isn’t really a backing out option here, unlike for tilt rotor VTOLs. If you want it to go back into fixed wing you will need to go through the full transition. If it’s still travelling fast this should happen quickly.
 
 ### 技术支持
 
-如果你有任何的有关于垂直起降固定翼转换或者配置的问题的话，请看 <http://discuss.px4.io/c/vtol>.
-
- 
+If you have any questions regarding your VTOL conversion or configuration please see <https://discuss.px4.io/c/px4/vtol>.

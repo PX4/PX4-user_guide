@@ -4,6 +4,8 @@ The *Kakute F7* from Holybro is a flight controller board designed for racers.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## Key Features
 
 * Main System-on-Chip: [STM32F745VGT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f745vg.html) 
@@ -47,7 +49,7 @@ This is the silkscreen for the *Kakute F7*, showing the top of the board:
 | R3, T3   | UART3 RX and TX                                                      | NuttX debug console |
 | R4, T4   | UART4 RX and TX                                                      | GPS1                |
 | R6, T6   | UART6 RX and TX                                                      | RC port             |
-| R7, T7   | UART7 RX and TX (RX is located in the plug for use with 4-in-1 ESCs) |                     |
+| R7, T7   | UART7 RX and TX (RX is located in the plug for use with 4-in-1 ESCs) | DShot telemetry     |
 | LED      | WS2182 addressable LED signal wire (not tested)                      |                     |
 | Buz-     | Piezo buzzer negative leg (Connect buzzer positive leg to 5V pad)    |                     |
 | 3V3      | 3.3V output (200 mA max)                                             |                     |
@@ -63,7 +65,7 @@ The board comes pre-installed with [Betaflight](https://github.com/betaflight/be
 
 ## Building Firmware
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make holybro_kakutef7_default
     
@@ -83,3 +85,35 @@ In addition to the [basic configuration](../config/README.md), the following par
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG) | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 | [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.            |
+
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| USART1 | /dev/ttyS0 | TELEM1                |
+| USART2 | /dev/ttyS1 | TELEM2                |
+| USART3 | /dev/ttyS2 | Debug Console         |
+| UART4  | /dev/ttyS3 | GPS1                  |
+| USART6 | /dev/ttyS4 | RC SBUS               |
+| UART7  | /dev/ttyS5 | ESC telemetry (DShot) |
+
+
+## Debug Port
+
+### System Console
+
+UART3 RX and TX are configured for use as the [System Console](https://dev.px4.io/master/en/debug/system_console.html).
+
+### SWD
+
+The [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) pins are:
+
+- `SWCLK`: Test Point 2 (Pin 72 on the CPU)
+- `SWDIO`: Test Point 3 (Pin 76 on CPU)
+- `GND`: As marked on board
+- `VDD_3V3`: As marked on board
+
+These are shown below.
+
+![SWD Pins on Kakute F7 - CLK SWO](../../assets/flight_controller/kakutef7/debug_swd_port.jpg) ![SWD Pins on Kakute F7:  GND and VDD_3V3](../../assets/flight_controller/kakutef7/debug_swd_port_gnd_vcc3_3.jpg)

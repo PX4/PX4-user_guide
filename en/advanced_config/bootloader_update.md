@@ -24,7 +24,7 @@ The steps are:
 
    ![FMUv2 update](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 1. Wait for the vehicle to reboot.
-1. [Find and enable](../advanced_config/parameters.md#parameter-configuration) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+1. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 1. Reboot (disconnect/reconnect the board).
    The bootloader update will only take a few seconds.
    

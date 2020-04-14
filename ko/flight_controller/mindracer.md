@@ -1,8 +1,10 @@
 # MindRacer Hardware
 
-The AirMind<sup>&reg; <a href="http://mindpx.net">MindRacer</a> series is a fully stackable flight platform for miniature UAVs.</sup>.
+The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight platform for miniature UAVs.</sup>.
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
+
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 ## Quick Summary
 
@@ -46,7 +48,7 @@ MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimin
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make airmind_mindpx-v2_default
     

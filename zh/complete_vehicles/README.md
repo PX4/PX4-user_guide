@@ -2,18 +2,18 @@
 
 This section contains information about complete vehicles that run PX4.
 
-> **Note** This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/technology/airframes/) and in the [Airframes Reference](../airframes/airframe_reference.md).
+> **Note** This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
 
 - Consumer drones run PX4 natively/"out of the box": 
   - Multicopter 
     - [Teal One](https://tealdrones.com/teal-one/)
+    - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) 
   - VTOL 
     - [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
 - Consumer drones that can be updated to run PX4 (from other flight stacks):
   
   - [Crazyflie 2.0](../complete_vehicles/crazyflie2.md)
-  - [Parrot Bebop](../complete_vehicles/bebop.md)
   - [BetaFPV Beta75X 2S Brushless Whoop](../complete_vehicles/betafpv_beta75x.md) <!--  Whole-vehicle hardware reference platforms that use PX4: -->
 
 - Consumer drones run a custom version of PX4 (supported by their vendors):
@@ -30,3 +30,5 @@ This section contains information about complete vehicles that run PX4.
   - VTOL 
     - [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
     - [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
+- Drone Development Kits 
+  - [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - Multicopter used for PX4 computer vision development

@@ -1,6 +1,6 @@
 # AUAV-X2 오토파일럿(계속)
 
-> 경고 이 보드는 중단되었으며 더 이상 상업적으로 사용할 수 없습니다.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 [AUAV <sup>&reg; </sup>](http://www.auav.com/) *AUAV-X2 오토파일럿 *은 Pixhawk <sup>을 기반으로 합니다. 이 프로그램은 <a href="http://nuttx.org"> NuttX </a> OS에서 PX4를 실행합니다.</p> 
 
@@ -168,3 +168,107 @@
       <strong>Note</strong> As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are <a href="https://github.com/PX4/Hardware">available</a>.
     </p>
   </blockquote>
+  
+  <h2>
+    Serial Port Mapping
+  </h2>
+  
+  <table>
+    <tr>
+      <th>
+        UART
+      </th>
+      
+      <th>
+        Device
+      </th>
+      
+      <th>
+        Port
+      </th>
+    </tr>
+    
+    <tr>
+      <td>
+        UART1
+      </td>
+      
+      <td>
+        /dev/ttyS0
+      </td>
+      
+      <td>
+        IO debug
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        USART2
+      </td>
+      
+      <td>
+        /dev/ttyS1
+      </td>
+      
+      <td>
+        TELEM1 (flow control)
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        USART3
+      </td>
+      
+      <td>
+        /dev/ttyS2
+      </td>
+      
+      <td>
+        TELEM2 (flow control)
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        UART4
+      </td>
+      
+      <td>
+        
+      </td>
+      
+      <td>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        UART7
+      </td>
+      
+      <td>
+        CONSOLE
+      </td>
+      
+      <td>
+        
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        UART8
+      </td>
+      
+      <td>
+        SERIAL4
+      </td>
+      
+      <td>
+        
+      </td>
+    </tr>
+  </table>

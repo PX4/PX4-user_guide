@@ -8,6 +8,8 @@ CUAV *Pixhack v3* 飞行控制器是一款灵活轻便的自动驾驶仪，主�
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+
 ## 快速预览
 
 * 微处理器： 
@@ -48,14 +50,24 @@ CUAV *Pixhack v3* 飞行控制器是一款灵活轻便的自动驾驶仪，主�
 
 ## 编译固件
 
-> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-为此目标 [编译 PX4](https://dev.px4.io/en/setup/building_px4.html)：
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make px4_fmu-v3_default
     
 
 ## 引脚和原理图
 
-* 开源硬件资料： https://github.com/cuav/CUAV_Hardware/tree/master/Pixhack_V3
-* 文档和接线指南: http://doc.cuav.net/PixHack/pixhack-v3.html
+* [Documentation/wiring guides](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | IO debug              |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |

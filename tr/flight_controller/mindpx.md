@@ -4,6 +4,8 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 
 ![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
 
+> **Note** These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## Quick Summary
 
 > **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
@@ -70,7 +72,7 @@ For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/ass
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make airmind_mindpx-v2_default
     
@@ -81,13 +83,25 @@ MindPX has a USB-TO-UART Bridge IC on the board. A micro-USB to USB type A cable
 
 And the max BAUD rate is the same with px4 family, which is up to 921600.
 
-### User Guide
+## User Guide
 
 > **Note** The user guide is [here](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
-## Where to buy
+## Where to Buy
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+
+## Serial Port Mapping
+
+| UART   | Device     | Port          |
+| ------ | ---------- | ------------- |
+| USART1 | /dev/ttyS0 | RC            |
+| USART2 | /dev/ttyS1 | TELEM1        |
+| USART3 | /dev/ttyS2 | TELEM2        |
+| UART4  | /dev/ttyS3 | GPS1          |
+| USART6 | /dev/ttyS4 | ?             |
+| UART7  | /dev/ttyS5 | Debug Console |
+| UART8  | /dev/ttyS6 | ?             |
 
 ## Support
 

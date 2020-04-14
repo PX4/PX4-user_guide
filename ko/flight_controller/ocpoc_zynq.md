@@ -1,8 +1,12 @@
 # Aerotenna OcPoC-Zynq 미니 비행 컨트롤러
 
- OcPoC-Zynq Mini </ 0>는 FPGA + ARM SoC 기반의 비행 제어 플랫폼입니다. OcPoC-Zynq의 향상된 I / O 유연성과 향상된 처리 능력으로 상용 UAS 개발자 및 연구원에게 훌륭한 솔루션입니다. FPGA의 I / O 유연성은 신속한 센서 통합과 비행 컨트롤러 하드웨어의 맞춤화를 가능하게하여 GPS, 자기 계측기 및 IMU의 3 중 중복과 같은 기능을 지원합니다. OcPoC-Zynq은 센서 및 주변 장치 확장을 위해 기체에 더 많은 공간과 무게를두고 가볍고 컴팩트 한 풋 프린트를 유지합니다.</p> 
+> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 
-주요 문서는 하드웨어 설정, FAQ 및 FPGA 및 커널 개발을 포함한 다양한 자습서에 대한  Aerotenna의 사용자 허브 </ 0>에서 사용할 수 있습니다.</p> 
+The [OcPoC-Zynq Mini](https://aerotenna.readme.io/docs/ocpoc-mini-zynq-specifications) is a FPGA+ARM SoC based flight control platform.
+
+OcPoC-Zynq's enhanced I/O flexibility and increased processing power makes it a great solution for commercial UAS developers and researchers. The FPGA's I/O flexibility allows for rapid sensor integration and customization of the flight controller hardware, allowing for capabilities such as triple redundancy in GPS, magnetometers, and IMUs. OcPoC-Zynq maintains also lightweight, compact footprint, leaving more space and weight on the airframe for sensor and peripheral expansion.
+
+Main documentation is available on [Aerotenna's User Hub](https://aerotenna.readme.io/docs/ocpoc-mini-zynq-specifications) for hardware setup, FAQs, and various tutorials including FPGA and kernel development.
 
 ![ocpoc-zynq-mini](../../assets/hardware/hardware-ocpoc-zynq-mini.jpg)
 
@@ -29,17 +33,33 @@
     - CSI 
     - GSI 
     - CAN
-- 이용 가능 여부 :  Aerotenna Store </ 0></li> </ul> 
+- Availability: [Ainstein Store](https://sensing.ai/products/ocpoc%E2%84%A2-with-xilinx-zynq%C2%AE-mini-soc-flight-controller)
+
+## 핀아웃 및 SD 카드 설정
+
+Pinouts for the default OcPoC-Zynq configuration and full step-by-step instructions for first time setup are available on [Aerotenna's User Hub](https://aerotenna.readme.io/docs/ocpoc-mini-zynq-specifications).
+
+## OcPoC-Zynq 용 PX4 구현
+
+After setting up the PX4 development environment and cloning the [PX4 Firmware](https://github.com/PX4/Firmware), you can build PX4 for OcPoC-Zynq with the following commands (for Aerotenna's default ubuntu-armhf root file system):
+
+    make aerotenna_ocpoc_ubuntu
     
-    ## 핀아웃 및 SD 카드 설정
-    
-    기본 OcPoC-Zynq 구성을위한 핀아웃과 최초 설치를위한 전체 단계별 지침은  Aerotenna의 사용자 허브 </ 0>에서 제공됩니다.</p> 
-    
-    ## OcPoC-Zynq 용 PX4 구현
-    
-    After setting up the PX4 development environment and cloning the [PX4 Firmware](https://github.com/PX4/Firmware), you can build PX4 for OcPoC-Zynq with the following commands (for Aerotenna's default ubuntu-armhf root file system):
-    
-        make aerotenna_ocpoc_ubuntu
-        
-    
-    OcPoC-Zynq에서 PX4를 처음 설정할 때의 전체 단계별 지침은 사용자 허브 페이지  OcPoC Zynq Mini의 PX4 </ 0>를 참조하십시오. 참고 : 현재 PX4 펌웨어는 OcPoC-Zynq 용 사전 빌드 된 바이너리가 QGroundControl을 통해 제공되지 않으므로 소스에서 빌드해야합니다.</p>
+
+See the user hub page [PX4 on OcPoC Zynq Mini](https://aerotenna.readme.io/docs/px4-setup) for full step-by-step instructions for first time setup of PX4 on OcPoC-Zynq.
+
+> **Note** At the present time PX4 firmware must be built from source as no pre-built binaries for OcPoC-Zynq are supplied through QGroundControl.
+
+<!-- 
+## Serial Port Mapping
+
+OcPoc Port | Device | Port
+--- | --- | ---
+(OcPoC Port 5) | /dev/ttyS0 | TELEM4 / uSharp-Patch
+(OcPoC Port 9) | /dev/ttyS1 | GPS/Compass 3
+(OcPoC Port 2) | /dev/ttyS2 | TELEM3
+(OcPoC Port 6) | /dev/ttyS3 | GPS/Compass #1
+(OcPoC Port 4) | /dev/ttyPS1 | TELEM1 / Radio Telemetry
+(OcPoC Port 8) | /dev/ttyS6 | TELEM2 / Ainstein US-D1 (a.k.a uLanding) Radar Altimeter
+(OcPoC Port 7) | /dev/ttyS6 | GPS/Compass #2 
+-->

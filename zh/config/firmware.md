@@ -53,7 +53,7 @@
 
 如果 *QGroundControl* 安装FMUv2 固件（请参阅安装过程中的控制台），并且您有一个更新的飞控板，则可能需要更新bootloader，以访问飞行控制器上的所有内存。
 
-> **Note** 早期FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu-versions) 飞行控制器有一个[硬件问题](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata)，这限制它们只能使用 1MB 的闪存空间。 这一问题已在更新的板上修复，但是您可能需要更新工厂提供的bootloader，以便安装FMUv3 固件，并访问所有 2MB 内存。
+> **Note** Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. 这一问题已在更新的板上修复，但是您可能需要更新工厂提供的bootloader，以便安装FMUv3 固件，并访问所有 2MB 内存。
 
 要更新bootloader，请执行以下操作：
 
@@ -64,7 +64,7 @@
     
     等待飞控重启。
 
-3. [找到并启用](../advanced_config/parameters.md#parameter-configuration) 参数 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)。
+3. [Find and enable](../advanced_config/parameters.md) the parameter [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
 
 4. 重新启动（断开/重新连接飞控板）。 Bootloader更新只需要几秒钟即可完成。
 5. 然后再重新 [更新固件](../config/firmware.md) 。 这一次 *QGroundControl* 会自动识别到硬件支持 FMUv3，并相应地安装固件。

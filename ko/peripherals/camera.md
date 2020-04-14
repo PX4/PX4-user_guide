@@ -4,9 +4,19 @@
 
 펄스가 보내지는 것 외에도 시퀀스 번호 (따라서 현재 세션의 이미지 시퀀스 번호)와 해당 타임 스탬프가 포함 된 MAVLink 메시지가 게시됩니다.
 
-## 트리거 모드
+## 트리거 설정 {#trigger_setup_qgc}
 
- TRIG_MODE </ 0> 매개 변수로 제어되는 네 가지 모드가 지원됩니다. </p> 
+Camera triggering is usually configured from the *QGroundControl* [Vehicle Setup > Camera](https://docs.qgroundcontrol.com/en/SetupView/Camera.html#px4-camera-setup) section.
+
+![Trigger pins](../../assets/camera/trigger_pins.png)
+
+The different [trigger modes](#trigger_mode), [backend interfaces](#trigger_backend) and [hardware setup](#hardware_setup) are described below (these can also be set directly from [parameters](../advanced_config/parameters.md)).
+
+> **Note** The camera settings section is not available by default for FMUv2-based flight controllers (e.g. 3DR Pixhawk) because the camera module is not automatically included in firmware. For more information see [Finding/Updating Parameters > Parameters Not In Firmware](../advanced_config/parameters.md#parameter-not-in-firmware).
+
+## 트리거 모드 {#trigger_mode}
+
+Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
 MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 비활성화 할 수있는 기본 간격계와 같은 기능을합니다. 자세한 내용은 <a href="#command_interface"> 명령 인터페이스 </ 0>를 참조하십시오.
 </td>
@@ -29,24 +39,21 @@ MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 
 </table>
 
 <blockquote>
-  <p><strong> 정보 </ 0> 처음 카메라 트리거 응용 프로그램을 사용하는 경우 <code> TRIG_MODE </ 1> 매개 변수를 변경 한 후 다시 부팅해야합니다.</p>
-</blockquote>
+  <p><strong>Info</strong> If it is your first time enabling the camera trigger app, remember to reboot after changing the <code>TRIG_MODE` parameter.</p> </blockquote> 
 
-<h2>하드웨어 구성 트리거</h2>
+## 트리거 하드웨어 설정 {#hardware_setup}
 
-<p>You can choose which pins to use for triggering using the <a href="../advanced_config/parameter_reference.md#TRIG_PINS">TRIG_PINS</a> parameter.
-The default is 56, which means that trigger is enabled on <em>FMU</em> pins 5 and 6.</p>
+You can choose which pins to use for triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
-<blockquote>
-  <p><strong>Note</strong> On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to <code>AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano). At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.</p> </blockquote> 
+> **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano). At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
 
 <span></span>
 
 > **Warning** With `TRIG_PINS` set to its **default** value of 56, you can use the AUX pins 1, 2, 3 and 4 as actuator outputs (for servos/ESCs). Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs. **DO NOT CHANGE THE DEFAULT VALUE OF `TRIG_PINS` IF YOU NEED ACTUATOR OUTPUTS.**
 
-## 트리거 인터페이스 백엔드
+## 트리거 인터페이스 백엔드 {#trigger_backend}
 
-The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter :
+The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter:
 
 enables the GPIO interface. AUX 출력은 매  TRIG_INTERVAL </ 1> 지속 시간마다 (` TRIG_POLARITY </ 0> 매개 변수에 따라) 높거나 낮게 펄스됩니다. 이것은 대부분의 표준 머신 비전 카메라를 직접 트리거하는 데 사용될 수 있습니다. PX4FMU 시리즈 하드웨어 (Pixhawk, Pixracer 등)에서 AUX 핀의 신호 레벨은 3.3v입니다.</td>
 </tr>
@@ -65,7 +72,7 @@ enables the GPIO interface. AUX 출력은 매  TRIG_INTERVAL </ 1> 지속 시간
 </tbody>
 </table>
 
-<h2>Other Parameters</h2>
+<h2>기타 패러미터들</h2>
 
 <table>
 <thead>
@@ -92,7 +99,7 @@ enables the GPIO interface. AUX 출력은 매  TRIG_INTERVAL </ 1> 지속 시간
 
 <p>The full list of parameters pertaining to the camera trigger module can be found on the <a href="../advanced_config/parameter_reference.md#camera-trigger">parameter reference</a> page.</p>
 
-<h2 id="command_interface">명령 인터페이스</h2>
+<h2 id="command_interface">Command Interface</h2>
 
 <p><strong>TODO : NEEDS UPDATING updating</strong></p>
 
@@ -109,7 +116,9 @@ enables the GPIO interface. AUX 출력은 매  TRIG_INTERVAL </ 1> 지속 시간
 </tbody>
 </table>
 
-<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL">MAV_CMD_DO_DIGICAM_CONTROL</a> - Accepted in all modes. This is used by the GCS to test-shoot the camera from the user interface. The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.</p>
+<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL">MAV_CMD_DO_DIGICAM_CONTROL</a> - Accepted in all modes.
+This is used by the GCS to test-shoot the camera from the user interface.
+The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.</p>
 
 <table>
 <thead>
@@ -130,16 +139,16 @@ enables the GPIO interface. AUX 출력은 매  TRIG_INTERVAL </ 1> 지속 시간
 
 This command is autogenerated during missions to trigger the camera based on survey missions from the GCS.
 
-## 테스트 트리거 기능
+## Testing Trigger Functionality
 
 1. PX4 콘솔에서 : ```카메라_트리거 테스트```
 2. From *QGroundControl*:
     
-    메인 인스트루먼트 패널에서 "Trigger Camera"를 클릭하십시오. 이러한 샷은 위치 정보 태그 지정을 위해 기록되거나 계산되지 않습니다.
+    Click on **Trigger Camera** in the main instrument panel. 이러한 샷은 위치 정보 태그 지정을 위해 기록되거나 계산되지 않습니다.
     
     ![QGC 테스트 카메라](../../assets/camera/qgc_test_camera.png)
 
-## Sony QX-1 예제 (사진 측량법)
+## Sony QX-1 example (Photogrammetry)
 
 ![photogrammetry](../../assets/camera/photogrammetry.png)
 
@@ -147,22 +156,19 @@ In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony
 
 ### 트리거 설정
 
-The camera trigger can be configured from QGroundControl's "Camera" page under the settings tab
+The recommended camera settings are:
 
-* `TRIG_INTERFACE`: 2, Seagull MAP2. 
-* `TRIG_MODE`: 4, Mission controlled. 
+* `TRIG_INTERFAC=2` (Seagull MAP2).
+* `TRIG_MODE=4` (Mission controlled).
+* Leave the remaining parameters at their defaults.
 
-Leave the rest of the parameters at their defaults.
-
-![Trigger pins](../../assets/camera/trigger_pins.png)
-
-You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot. Pin 1 goes to AUX 5, and Pin 2 to AUX 6. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
+You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot. Pin 1 goes to `AUX 5`, and Pin 2 to `AUX 6`. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
 
 ### 카메라 구성
 
 We use a Sony QX-1 with a 16-50mm f3.5-5.6 lens for this example.
 
-To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed :
+To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed:
 
 * 무한대까지 수동 초점
 * 카메라를 연속 촬영 모드로 설정하십시오.
@@ -190,7 +196,7 @@ We use [Pix4D](https://pix4d.com/) for 3D reconstruction.
 
 ![GeoTag](../../assets/camera/geotag.jpg)
 
-## 카메라 -IMU 동기화 예 (VIO)
+## Camera-IMU sync example (VIO)
 
 In this example, we will go over the basics of synchronising IMU measurements with visual data to build a stereo Visual-Inertial Navigation System (VINS). To be clear, the idea here isn't to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VIO algorithm.
 

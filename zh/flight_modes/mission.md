@@ -47,13 +47,17 @@
   
   ## 任务参数
   
-  任务行为受许多参数的影响。 这些内容涵盖了，例如，在任务期间（ NAV_RCL_ACT </ 0>）失去与遥控器的连接时飞机的行为方式，固定翼留待半径（ NAV_LOITER_RAD </ 1>），到达航路点的接收半径等。</p> 
+  Mission behaviour is affected by a number of parameters, most of which are documented in [Parameter Reference > Mission](../advanced_config/parameter_reference.md#mission). A very small subset are listed below.
   
-  这些记录在此处：[参数参考>任务](../advanced_config/parameter_reference.md#mission)
+  | Parameter                                                                                               | Description                                                                                                                                                                                                                |
+  | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | <span id="NAV_RCL_ACT"></span>[NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT)         | RC loss failsafe mode (what the vehicle will do if it looses RC connection) - e.g. enter hold mode, return mode, terminate etc.                                                                                            |
+  | <span id="NAV_LOITER_RAD"></span>[NAV_LOITER_RAD](../advanced_config/parameter_reference.md#NAV_RCL_ACT)      | Fixed-wing loiter radius.                                                                                                                                                                                                  |
+  | <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | If enabled for auto modes, stick movement gives control back to the pilot (switches to [Position mode](../flight_modes/position_mc.md) - except when vehicle is handling a critical battery failsafe). Enabled by default. |
   
   ## 支持的任务命令 {#mission_commands}
   
-  PX4在任务模式下“接受”以下MAVLink任务命令（注意：下面列出的警告）。 Unless otherwise noted, the implementation is as defined in the MAVLink specification.
+  PX4 "accepts" the following MAVLink mission commands in Mission mode (note: caveats below list). Unless otherwise noted, the implementation is as defined in the MAVLink specification.
   
   * [MAV_CMD_NAV_WAYPOINT](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_WAYPOINT) 
     * *参数3*（飞越）被忽略。 如果*参数1*（time_inside）> 0，则始终启用飞越。
@@ -97,7 +101,7 @@
   * [MAV_CMD_DO_SET_ROI_WPNEXT_OFFSET](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ROI_WPNEXT_OFFSET)
   * [MAV_CMD_DO_SET_ROI_NONE](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ROI_NONE)
   
-  注：
+  Note:
   
   * PX4解析上述消息，但它们不是必须*操作</ 0>。 例如，某些消息是特定于飞机类型的。</li> 
     
@@ -105,4 +109,18 @@
     * 并非所有消息/命令都通过*QGroundControl*公开。
     * The list may become out of date as messages are added. 您可以通过检查代码来检查当前设置。 在[/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp)中支持`MavlinkMissionManager:: parse_mavlink_mission_item` （在[此git变更列表](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)中生成的列表）。
       
-      > 如果您发现丢失/不正确的消息，请添加错误修复或PR。</ul>
+      > 如果您发现丢失/不正确的消息，请添加错误修复或PR。</ul> 
+    
+    ## Inter-Waypoint Trajectory
+    
+    PX4 expects to follow a straight line from the previous waypoint to the current target (it does not plan any other kind of path between waypoints - if you need one you can simulate this by adding additional waypoints).
+    
+    MC vehicles will change the *speed* when approach/leaving a waypoint based on whether it uses [slew-rate](../config_mc/mc_slew_rate_type_trajectory.md#mission-mode) or [jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md#auto-mode) tuning.
+    
+    Vehicles switch to the next waypoint as soon as they enter the acceptance radius.
+    
+    * For MC this radius is defined by [NAV_ACC_RAD](../advanced_config/parameter_reference.md#NAV_ACC_RAD)
+    * For FW the radius is defined by the "L1 distance". 
+      * The L1 distance is computed from two parameters: [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) and [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD), and the current ground speed.
+      * By default, it's about 70 meters.
+      * The equation is: $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}*{ {xy}*{ground} } \right \|$$

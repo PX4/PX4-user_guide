@@ -16,4 +16,4 @@
 > 
 > ## Wiring and Connections
 > 
-> 모듈 입력 / 출력은  여기에 표시됩니다. </ 0> (Drotek docs)</p>
+> 모듈 입력 / 출력은  여기에 표시됩니다. </ 0> (Drotek docs) <!-- link private 18Nov2019 --></p>

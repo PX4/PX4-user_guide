@@ -8,7 +8,7 @@
 
 ドローンは遠隔操縦または自律操縦可能な無人の”ロボット型”移動体です。
 
-ドローンは産業用や軍用等，[様々な用途で](http://px4.io/applications/)多くの人に利用されています。 その活用例としては以下などがあります。(もちろん，これに限られません): 空撮．運送，レース，探査，調査等
+Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). その活用例としては以下などがあります。(もちろん，これに限られません): 空撮．運送，レース，探査，調査等
 
 > **Tip** ドローンには空，水上，海中用のものがあります。 これらは (より正確に言うと) Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV) などと呼ばれます。
 
@@ -32,7 +32,7 @@ PX4は地上局ソフト [QGroundControl](#qgc) や，[Pixhawk ハードウェ�
 
 *QGroundControl* は，Windows・Android・MacOS・Linuxで動作します。 ダウンロード・インストールは [こちら](http://qgroundcontrol.com/downloads/)から。
 
-![QGC Main Screen](../../images/qgc_main_screen.jpg)
+![QGCメインスクリーン](../../images/qgc_main_screen.jpg)
 
 ## 機体コントローラ {#vehicle_controller}
 
@@ -79,50 +79,83 @@ PX4ドローンの多くはリチウムポリマー(LiPo) バッテリーによ�
 - [Flying 101](../flying/basic_flying.md) - 遠隔操縦を使用しての飛行方法。
 - [FrSky テレメトリー](../peripherals/frsky_telemetry.md) - RC送信機を用いたPX4からのテレメトリー・ステータス情報の受信設定方法。
 
-## データ/テレメトリー 無線
+## GCS Joystick Controller {#joystick}
 
-[データ/テレメトリー無線](../telemetry/README.md) を用いると，*QGroundControl* などの地上局と，PX4が動作している機体の間でMAVLinkを用いた無線通信が可能となります。 これによって，フライト中にパラメータのチューニングを行ったり，リアルタイムでの機体状態の確認，ミッションの変更などが可能になります。
+A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) shown below. Joysticks are also commonly used to fly the vehicle in simulation.
 
-## オフボード/コンパニオン コンピュータ
+![Joystick MicroNav.](../../assets/peripherals/joystick/micronav.jpg)
 
-PX4 は，機載のコンピュータからシリアル通信やwifi通信を介して制御することが可能です。 機載コンピュータは通常，MAVSDKやMAVROSといったMAVLink APIを用いて通信を行います。
+## Safety Switch {#safety_switch}
+
+It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+
+> **Note** アーミングされた機体は危険です。 そのため，不意にアーミングされてしまうことがないよう，セーフティスイッチが設けられています。
+
+## Data/Telemetry Radios
+
+[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
+
+## Offboard/Companion Computer
+
+PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
 > **Note** ロボティクスAPIを使用するにはソフトウェア開発に関するスキルが必要です。本スキルについては本ガイドの対象外です。
 
 - [オフボードモード](../flight_modes/offboard.md) - 地上局(GCS) や機載コンピュータからPX4を用いて飛行を行うためのモード。 
-- [ロボティクスAPI APIs](https://dev.px4.io/en/robotics/) (PX4 Developer Guideへ移動します。)
+- [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
 
-## 取り外し可能メモリー/ロギング
+## SD Cards (Removable Memory) {#sd_cards}
 
-PX4 は[flight logs](../getting_started/flight_reporting.md) の保存にSDカードを使用します(一部のフライトコントローラでは，SDカードの使用が不可能な場合があります)。
+PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
 
-> **Tip** Pixhawk でサポートされているSDカードの容量は最大 32GBです。
+By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
-推奨SDカードの一覧は以下にあります: [Developer Guide > ロギング](http://dev.px4.io/en/log/logging.html#sd-cards)
+> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
 
-## フライトモード {#flight_modes}
+SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
 
-必要な自動操縦のタイプや，ユーザ(操縦者) のレベルに応じて，様々なフライトモードの選択が可能です。 *Autonomousモード* ではオートパイロットによって完全に制御が行われ，パイロットからの遠隔操縦は不要です。 これらは，例えば離陸やホームポジションへの帰還，着陸などの共通タスクを自動化するために使用されます。 他のautonomousモードは，GPS位置情報を用いた設定経路の自動飛行や，オフボードコンピュータ/地上局からの命令 にそった飛行などが可能です。
+- Disable notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
+- [Stream logs](https://dev.px4.io/master/en/log/logging.html#log-streaming) to another component (companion).
+- Store missions in RAM/FLASH. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/Firmware/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
-*Manual モード* はオートパイロットからの補助を利用しつつ，(RCシステムやジョイスティックを介した) ユーザからの指令で操縦する場合に使用されます。 適切なマニュアルモードを選択することで，目的に沿った飛行特性を実現することができます。例えば，一部のモードでは宙返りなどのアクロバティックな動作が可能な一方で，他のモードでは風に対して自動で位置/飛行コースの保持が可能であったりします。
+## Arming and Disarming {#arming}
 
-> **Tip** すべての機体で，すべてのフライトモードが可能なわけではありません。また，一部のモードは特定の条件が揃った時のみ使用可能です(例： 多くのモードは，GPSなどによる位置推定データを必要とします。)。
+Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
 
-フライトモードの概要については[こちら](../getting_started/flight_modes.md)をご参照ください。 無線操縦のスイッチを用いたフライトモードの切り替え方法については [Flight Mode Configuration](../config/flight_mode.md)に記載があります。
+To reduce the chance of accidents:
 
-## セーフティ設定 (フェイルセーフ) {#safety}
+- PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
+- Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can succeed.
+- Arming is prevented if the vehicle is not in a "healthy" state.
+- A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
 
-PX4では機体に問題が発生した際に，不具合からシステムを保護・回復するためのフェールセーフシステムを設定可能です。 安全に飛行可能なエリアや条件を設定し，もし当該条件から外れるイベントが発生した場合，フェールセーフアクション(例：着陸・一時停止・設定箇所への帰還) がトリガーされます。
+Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is also possible to configure PX4 to arm using an RC button on the RC control (and arming commands can be sent from a ground station).
 
-> **Note** *最初の* フェイルセーフイベントに対するアクションのみ，設定が可能です。 一旦，システムがフェイルセーフ状態に移行すると，そのアクションによって発生した副次的なフェイルセーフイベントは異なるシステムレベル/機体固有のコードに応じて管理されます。
+A detailed overview of arming and arming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
-主なフェイルセーフ項目は以下の通りです。:
+## Flight Modes {#flight_modes}
 
-- バッテリー残量低下
-- 無線通信 (RC) ロスト
-- 位置情報喪失 (自己位置推定精度の悪化)
-- オフボード通信の喪失 (例： 機載コンピュータからの通信ロスト)
-- データリンクのロスト (例： GCSとのテレメトリー通信ロスト).
+Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
+
+*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
+
+> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
+
+An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
+
+## Safety Settings (Failsafe) {#safety}
+
+PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+
+> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
+
+The main failsafe areas are listed below:
+
+- Low Battery
+- Remote Control (RC) Loss
+- Position Loss (global position estimate quality is too low).
+- Offboard Loss (e.g. lose connection to companion computer)
+- Data Link Loss (e.g. lose telemetry connection to GCS).
 - Geofence Breach (restrict vehicle to flight within a virtual cylinder).
 - Mission Failsafe (prevent a previous mission being run at a new takeoff location).
 - Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).

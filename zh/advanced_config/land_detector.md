@@ -4,7 +4,7 @@ The land detector is a dynamic vehicle model representing key vehicle states fro
 
 ## 自动加锁
 
-The land-detector automatically disarms the vehicle on landing.
+当飞行器着陆时着陆检测器会自动加锁飞行器
 
 You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (or turn off auto-disarming by setting the parameter to -1).
 
@@ -27,7 +27,8 @@ You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISA
 完整的相关参数集可在 [LNDFW](../advanced_config/parameter_reference.md#land-detector) 前缀下查阅。 这两个参数有时需要调整:
 
 - [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX)\----飞机降落时允许的最大空速。 默认值 8 m 时一个可靠的在空速传感器精度和足够快的触发速度之间的权衡。 越好的空速传感器允许此参数的值越低。
-- [LNDFW_VELI_MAX](../advanced_config/parameter_reference.md#LNDFW_VELI_MAX) -飞机降落时允许的最大空速。 This parameter can be adjusted to ensure a sooner or later land detection on throwing the airframe for hand-launches.
+- [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum horizontal velocity for the system to be still be considered landed. 
+- [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum vertical velocity for the system to be still be considered landed. This parameter can be adjusted to ensure land detection triggers earlier or later on throwing the airframe for hand-launches.
 
 ## 地面探测器的状态 {#states}
 

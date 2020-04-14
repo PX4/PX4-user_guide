@@ -383,7 +383,7 @@ th {
                   </td>
                   
                   <td>
-                    Vehicle ascends to a safe height and then returns to its home position and circles.
+                    Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).
                   </td>
                 </tr>
                 
@@ -807,7 +807,7 @@ th {
                                           </td>
                                           
                                           <td>
-                                            Vehicle ascends to a safe height and then returns to its home position and lands.
+                                            Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).
                                           </td>
                                         </tr>
                                         

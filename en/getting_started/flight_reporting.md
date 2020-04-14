@@ -45,9 +45,9 @@ Parameter | Description
 [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) | Logging profile. Use this to enable less common logging/analysis (e.g. for EKF2 replay, high rate logging for PID & filter tuning, thermal temperature calibration).
 [SDLOG_MISSION](../advanced_config/parameter_reference.md#SDLOG_MISSION) | Create very small additional "Mission Log".<br>This log can *not* be used with *Flight Review*, but is useful when you need a small log for geotagging or regulatory compliance.
 
-> **Note** *Developers* can further configure what information is logged via the [logger](https://dev.px4.io/en/middleware/modules_system.html#logger) module
+> **Note** *Developers* can further configure what information is logged via the [logger](https://dev.px4.io/master/en/middleware/modules_system.html#logger) module
   (you would use this, for example, if you want to log your own topics).
-  For more information see: [Logging](https://dev.px4.io/en/log/logging.html) (PX4 Developer Guide).
+  For more information see: [Logging](https://dev.px4.io/master/en/log/logging.html) (PX4 Developer Guide).
 
 ## Key Links
 

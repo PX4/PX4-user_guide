@@ -4,7 +4,9 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
 
 *Pixhawk 4 Mini* was designed and developed in collaboration with Holybro<sup>&reg;</sup> and Auterion<sup>&reg;</sup>. It is based on the [Pixhawk](https://pixhawk.org/) **FMUv5** design standard and is optimized to run PX4 flight control software.
 
-<img src="../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png" width="350px" title="Pixhawk 4 Mini Iso" />
+![Pixhawk4 mini](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_iso_1.png)
+
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 
 ## Quick Summary
 
@@ -33,6 +35,7 @@ The *Pixhawk<sup>&reg;</sup> 4 Mini* autopilot is designed for engineers and hob
   * Servo Rail Input: 0~24V
   * Max current sensing: 120A
 * Weight and Dimensions: 
+  * Weight: 37.2g
   * Dimensions: 38x55x15.5mm
 * Other Characteristics: 
   * Operating temperature: -40 ~ 85°c
@@ -61,7 +64,7 @@ Download *Pixhawk 4 Mini* pinouts from [here](https://github.com/PX4/px4_user_gu
 
 *Pixhawk 4 Mini* can have power supply redundancy — if two power sources are supplied. The power rails are: **POWER** and **USB**.
 
-> **Note** The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#voltage-ratings) to one of **POWER** or **USB** or the board will be unpowered.
+> **Note** The output power rail of **MAIN OUT** does not power the flight controller board (and is not powered by it). You must [supply power](../assembly/quick_start_pixhawk4_mini.md#power) to one of **POWER** or **USB** or the board will be unpowered.
 
 **Normal Operation Maximum Ratings**
 
@@ -86,18 +89,31 @@ The [*Pixhawk 4 Mini* Wiring Quick Start](../assembly/quick_start_pixhawk4_mini.
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make px4_fmu-v5_default
     
 
 ## Debug Port
 
-The system's serial console and SWD interface run on the **FMU Debug** port. In order to access these ports, the user must remove the *Pixhawk 4 Mini* casing.
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) run on the **FMU Debug** port. In order to access these ports, the user must remove the *Pixhawk 4 Mini* casing.
 
 ![Pixhawk 4 Mini FMU Debug](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_fmu_debug.png)
 
-The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard Dronecode debug connector pinout. Please refer to the [wiring](https://dev.px4.io/en/debug/system_console.html) page for details of how to wire up this port.
+The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation). The pinout uses the standard [Pixhawk debug connector](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) pinout. Please refer to the [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                                  |
+| ------ | ---------- | ------------------------------------- |
+| UART1  | /dev/ttyS0 | GPS                                   |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control)                 |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control)                 |
+| UART4  | /dev/ttyS3 | TELEM4                                |
+| USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector |
+| UART7  | /dev/ttyS5 | Debug Console                         |
+| UART8  | /dev/ttyS6 | Not connected (no PX4IO)              |
+
 
 ## Peripherals
 

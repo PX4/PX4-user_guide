@@ -95,6 +95,5 @@ PX4 和 *Pixhawk*兼容的接收机如下所示：
 
 ## 相关章节
 
-* [遥控系统选择](../getting_started/rc_transmitter_receiver.md) - 选择一个兼容的遥控系统。
-* [遥控器设置](../config/radio.md) - 使用 PX4设置你的遥控器。
-* [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
+* [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
+* [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.

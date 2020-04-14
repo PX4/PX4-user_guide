@@ -24,9 +24,15 @@ If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../ad
 >
 > To use DShot you therefore normally set `SYS_USE_IO=0` (which makes the ports labeled AUX behave *as though* they were the ports labeled MAIN), and connect your ESCs to the corresponding AUX-labeled outputs.
 > Any outputs that would normally be assigned to AUX ports in the [airframe reference](../airframes/airframe_reference.md) are no longer available.
+>
+> Developers might alternatively modify the [airframe AUX mixer](http://dev.px4.io/master/en/airframes/adding_a_new_frame.html#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
 
 <span></span>
-> **Note** Developers might alternatively modify the [airframe AUX mixer](http://dev.px4.io/master/en/airframes/adding_a_new_frame.html#mixer-file) so that the multirotor outputs are on the AUX port rather than MAIN.
+> **Note** FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts.
+> The other pins cannot be used as motor/servo outputs.
+
+<span></span>
+> **Tip** You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port). 
 
 
 ## Configuration {#configuration}
@@ -46,7 +52,7 @@ The ESCs should initialize and the motors turn in the correct directions.
 
 ## ESC Commands {#commands}
 
-Commands can be sent to the ESC via the [MAVLink shell](https://dev.px4.io/master/en/debug/system_console.html#mavlink_shell).
+Commands can be sent to the ESC via the [MAVLink shell](https://dev.px4.io/master/en/debug/mavlink_shell.html).
 See [here](https://dev.px4.io/master/en/middleware/modules_driver.html#dshot) for a full reference of the supported commands.
 
 The most important ones are:

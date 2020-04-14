@@ -8,7 +8,7 @@
 
 无人机是无人驾驶的 ”机器人“ 设备，可以远程或自动控制。
 
-无人机可应用在消费、工业、军事等领域的[诸多使用情形和应用案例](http://px4.io/applications/)。 这包括（非详尽）：航空摄影/录像，载货，竞速，搜索和测绘等。
+Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). 这包括（非详尽）：航空摄影/录像，载货，竞速，搜索和测绘等。
 
 > **Tip**存在用于空中、地面、海洋和水下各种不同类型的无人机。 这些（更正式地）被称为无人驾驶飞行器（UAV），无人驾驶飞行器系统（UAS），无人驾驶地面车辆（UGV），无人驾驶水面船只（USV），无人驾驶水下潜航器（UUV）。
 
@@ -79,66 +79,99 @@ PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*�
 - [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
 - [ FrSky遥测](../peripherals/frsky_telemetry.md) - 设置 RC 发射机以从 PX4 接收遥测/状态更新。
 
+## GCS Joystick Controller {#joystick}
+
+A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) shown below. Joysticks are also commonly used to fly the vehicle in simulation.
+
+![Joystick MicroNav.](../../assets/peripherals/joystick/micronav.jpg)
+
+## Safety Switch {#safety_switch}
+
+It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
+
+> **Note** A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
+
 ## Data/Telemetry Radios
 
-[数据/遥测无线电](../telemetry/README.md)可以在诸如* QGroundControl *的地面控制站与运行 PX4 的飞行器之间提供无线 MAVLink 连接。 这使得飞机飞行时调试、检查数传、更改任务等等成为了可能。
+[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
 ## Offboard/Companion Computer
 
-PX4 可以通过串行电缆或 wifi 由独立的机载计算机进行控制。 The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
+PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
-> **Note**使用 Robotics API 需要软件开发技能，并且超出了本指南的范围。
+> **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 
 - [板外控制模式](../flight_modes/offboard.md) - 用于从 GCS 或机载计算机对 PX4 进行板外控制的飞行模式。 
-- [Robotics APIs ](https://dev.px4.io/en/robotics/)（PX4开发人员指南）
+- [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
 
-## Removable Memory/Logging
+## SD Cards (Removable Memory) {#sd_cards}
 
-PX4 使用 SD 存储卡存储[飞行日志](../getting_started/flight_reporting.md)（并不是每个飞行控制器都支持 SD 卡）。
+PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
 
-> **Tip** Pixhawk 主板支持的最大 SD 卡大小为 32 GB 。
+By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
-许多推荐的 SD 卡列在：开发人员指南>日志记录</ 0>中</p> 
+> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
+
+SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
+
+- Disable notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
+- [Stream logs](https://dev.px4.io/master/en/log/logging.html#log-streaming) to another component (companion).
+- Store missions in RAM/FLASH. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/Firmware/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+
+## Arming and Disarming {#arming}
+
+Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
+
+To reduce the chance of accidents:
+
+- PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
+- Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can succeed.
+- Arming is prevented if the vehicle is not in a "healthy" state.
+- A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
+
+Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is also possible to configure PX4 to arm using an RC button on the RC control (and arming commands can be sent from a ground station).
+
+A detailed overview of arming and arming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
 ## Flight Modes {#flight_modes}
 
-飞行模式为用户（飞行员）提供不同类型/级别的飞行器自动化和自动驾驶辅助。 自主模式完全由自驾仪控制，无需飞行员/遥控输入。 例如，它们用于自动执行诸如起飞，返回原位和着陆等常见任务。 其他自主模式执行预编程任务，跟随 GPS 信标，或接受来自机载计算机或地面站的命令。
+Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
 
-*手动模式 *由用户（通过 RC 控制杆/操纵杆）在自驾仪的帮助下实现控制。 不同的手动模式可以实现不同的飞行特性- 例如，某些模式可以实现特技动作，然而其他模式则无法翻转或抵抗风以保持位置/航向。
+*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
 
-> **Tip**并非所有的飞行模式都适用于所有飞行器，并且某些模式只能在满足特定条件时使用（例如，许多模式需要全局位置估计）。
+> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
 
-可用飞行模式的概述可在 [这里](../getting_started/flight_modes.md)找到。 [飞行模式配置 ](../config/flight_mode.md)中提供了有关如何设置遥控开关以打开不同飞行模式的说明。
+An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
 ## Safety Settings (Failsafe) {#safety}
 
-PX4 具有可配置的故障安全系统，可在出现问题时保护和恢复您的飞行器！ 这些允许您指定可以安全飞行的区域和条件，以及触发故障保护时将执行的操作（例如，着陆，保持位置或返回指定点）。
+PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
-> **Note**您只能为 *第一个* 故障保护事件指定操作。 一旦发生故障保护，系统将执行特殊处理代码，以便后续故障保护触发器由单独的系统层级和飞行器特定代码管理。
+> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 
-主要的故障保护事件如下：
+The main failsafe areas are listed below:
 
-- 低电量
-- 遥控(RC) 信号丢失
-- 位置信息丢失（全局位置估计质量太低）
-- 机载计算机控制指令丢失（如与机载计算机失去连接）
-- 数传信号丢失（如失去与 GCS 的遥测连接）
-- 超出地理围栏 (限制飞行器在虚拟圆柱体内飞行)。
-- 任务故障保护（防止先前的任务在新的起飞地点运行）。
-- 交通避障（由来自如 ADS-B 转发器的数据触发）。
+- Low Battery
+- Remote Control (RC) Loss
+- Position Loss (global position estimate quality is too low).
+- Offboard Loss (e.g. lose connection to companion computer)
+- Data Link Loss (e.g. lose telemetry connection to GCS).
+- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
+- Mission Failsafe (prevent a previous mission being run at a new takeoff location).
+- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
 
-有关详细信息，请参阅：[安全](../config/safety.md)（基本配置）。
+For more information see: [Safety](../config/safety.md) (Basic Configuration).
 
 ## Heading and Directions
 
-所有车辆，船只和飞机都具有航向（机头朝向）或基于其前进运动的方向。
+All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
 
-![机架航向](../../images/frame_heading.png)
+![Frame Heading](../../images/frame_heading.png)
 
-知道设备航向，以使自驾仪与设备运动矢量对齐是重要的。 即使多旋翼从各个方向都对称，但其也有航向。 通常制造商使用彩色螺旋桨或带颜色的机臂来表示航向。
+It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
 
-![机架航向 TOP](../../images/frame_heading_top.png)
+![Frame Heading TOP](../../images/frame_heading_top.png)
 
-在我们的插图中，我们将使用红色的前螺旋桨来显示多旋翼的航向。
+In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
 
-您可以在 [飞行控制器方向](../config/flight_controller_orientation.md) 中深入了解航向。
+You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)

@@ -7,8 +7,26 @@ The *Radio Setup* screen is used to configure the mapping of your remote control
 Before you can calibrate the radio system the receiver and transmitter must be connected/bound. The process for binding a transmitter and receiver pair is hardware specific (see your RC manual for instructions).
 
 > **Note** If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*, as [shown below](#spektrum_bind).
-> 
+
+<span></span>
+
 > **Note** If you are using a *FrSky* receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
+
+## RC Loss Detection {#rc_loss_detection}
+
+PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#rc_loss_failsafe).
+
+RC receivers have different ways of indicating signal loss:
+
+* Output nothing (automatically detected by PX4)
+* Output a low throttle value value (you can configure PX4 to detect this).
+* Output the last received signal (*cannot be detected by PX4* as it looks like valid input).
+
+If your RC receiver does not support outputting no signal on RC loss, you must configure it to set throttle low instead, and set the corresponding value in [RC_FAILS_THR](../advanced_config/parameter_reference.md#RC_FAILS_THR).
+
+The way to do this is to set the RC controller trim and throttle stick as low as possible, and use the resulting output PWM value in both PX4 and the receiver (read your receiver manual to determine how to set the RC loss value). Then reset the throttle stick trim back to its normal position. This process ensures that the RC loss value is below the minimum value output by the receiver in normal operation.
+
+> **Note** Do not use a receiver that cannot support one of the two supported RC loss detection methods!
 
 ## Performing the Calibration
 
@@ -106,7 +124,7 @@ To map a PARAM tuning channel to a parameter:
 1. Open the **Parameters** sidebar. 
 2. Select the parameter to map to your transmitter (this will open the *Parameter Editor*).
 3. Check the **Advanced Settings** checkbox.
-4. Click the **Set RC to Param...** button (this will pop-up the forground dialog displayed below)
+4. Click the **Set RC to Param...** button (this will pop-up the foreground dialog displayed below)
     
     ![Map tuning channels to parameters](../../images/qgc/setup/parameters_radio_channel_mapping.jpg)
 
@@ -121,3 +139,4 @@ To map a PARAM tuning channel to a parameter:
 
 * [QGroundControl > Radio Control](https://docs.qgroundcontrol.com/en/SetupView/Radio.html)
 * [PX4 Setup Video - @4m30s](https://youtu.be/91VGmdSlbo4?t=4m30s) (Youtube)
+* [RC System Selection](../getting_started/rc_transmitter_receiver.md) - Choose a compatible RC system.

@@ -1,4 +1,4 @@
-# Companion Computer Peripherals
+# 機載PC用周辺機器
 
 This section contains information about peripherals for connecting Pixhawk (PX4) to a companion computer, and peripherals that might be connected to such a companion computer (and potentially triggered/accessed by PX4).
 
@@ -21,7 +21,6 @@ The FTDI USB adapters are the most common way of communicating between companion
 | [PixDev FTDI JST-GH Breakout](https://pixdev.myshopify.com/products/ftdi-breakout-jst-gh)                               | Yes               | Yes          | Yes        | Yes    |
 | [mRo USB FTDI Serial to JST-GH (Basic)](https://store.mrobotics.io/USB-FTDI-Serial-to-JST-GH-p/mro-ftdi-jstgh01-mr.htm) | Capable           | Capable      | No         | Yes    |
 | [SparkFun FTDI Basic Breakout](https://www.sparkfun.com/products/9873)                                                  | Yes               | No           | Yes        | No     |
-| [Hyperion Adapter USB-FTDI](https://www.brack.ch/hyperion-adapter-usb-ftdi-510688)                                      | Yes               | No           | Yes        | No     |
 
 ### Logic Level Shifters
 
@@ -44,8 +43,8 @@ Stereo cameras are typically used for depth perception, path planning and SLAM. 
 
 - [Intel® RealSense™ Depth Camera D435](https://click.intel.com/intelr-realsensetm-depth-camera-d435.html)
 - [Intel® RealSense™ Depth Camera D415](https://click.intel.com/intelr-realsensetm-depth-camera-d415.html)
-- [DUO MLX](https://duo3d.com/product/duo-minilx-lv1)
 - [Ironsides](https://www.perceptin.io/products)
+- [DUO MLX](https://duo3d.com/product/duo-minilx-lv1) <!-- note, timeout on link 18Nov2019 -->
 
 ## Data Telephony (LTE) {#data_telephony}
 

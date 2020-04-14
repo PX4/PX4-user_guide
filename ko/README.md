@@ -67,13 +67,13 @@ PX4를 사용하는 데 문제가 있으면 먼저 [위의 지원 채널](#suppo
 
 코드 및 설명서에 기여하는 방법에 대한 정보는 개발자 설명서에서 확인할 수 있습니다.
 
-- [코드](https://dev.px4.io/en/contribute/)
-- [문서](https://dev.px4.io/en/contribute/docs.html)
-- [번역](https://dev.px4.io/en/contribute/docs.html)
+- [코드](https://dev.px4.io/master/en/contribute/)
+- [문서](https://dev.px4.io/master/en/contribute/docs.html)
+- [번역](https://dev.px4.io/master/en/contribute/docs.html)
 
 ## 라이센스
 
-PX4 코드는 자유롭게 사용하고 [ BSD 3절의 라이센스](https://opensource.org/licenses/BSD-3-Clause) 조건에 따라 수정할 수 있습니다. 본 문서는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)에 따라 사용이 허가되었습니다. 자세한 내용은 [PX4 개발 설명서 > 라이센스](https://dev.px4.io/en/contribute/licenses.html)를 참조하십시오.
+PX4 코드는 자유롭게 사용하고 [ BSD 3절의 라이센스](https://opensource.org/licenses/BSD-3-Clause) 조건에 따라 수정할 수 있습니다. 본 문서는 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)에 따라 사용이 허가되었습니다. 자세한 내용은 [PX4 개발 설명서 > 라이센스](https://dev.px4.io/master/en/contribute/licenses.html)를 참조하십시오.
 
 ### 아이콘
 

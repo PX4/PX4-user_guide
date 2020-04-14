@@ -1,8 +1,8 @@
 # Intel Aero Ready to Fly Drone
 
-> **Warning** The *Intel Aero* has been discontinued, and is no longer being supported. The PX4 port is therefore deprecated, and will be removed from the codelines in future releases.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
-The *Intel Aero Ready to Fly Drone*® is a UAV development platform. Part of this is the [Intel Aero Compute Board](https://software.intel.com/en-us/aero/dev-kit), running Linux on a Quad-core CPU. The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX. These are integrated in the same package on the *Intel Aero Ready to Fly Drone*, which also includes the vision accessory kit.
+The *Intel Aero Ready to Fly Drone*® is a UAV development platform. Part of this is the *Intel Aero Compute Board*, running Linux on a Quad-core CPU. The other part is an STM32 microcontroller that is connected to it and that runs PX4 on NuttX. These are integrated in the same package on the *Intel Aero Ready to Fly Drone*, which also includes the vision accessory kit.
 
 ![Intel Aero RTF](../../assets/hardware/intel_aero/intel-aero-rtf.jpg)
 
@@ -123,9 +123,9 @@ After setting up the PX4 development environment, follow these steps update the 
 ## Connecting QGroundControl via Network
 
 1. Make sure you are connected to the board with WiFi or USB Network
-2. ssh to the board and make sure MAVLink forwarding runs. By default it automatically starts when booting. It can be started manually with: ```systemctl start mavlink-router```
-3. Start QGroundControl and it should automatically connect.
-4. Instead of starting QGroundControl, you can open a [NuttX shell](https://dev.px4.io/master/en/debug/system_console.html#mavlink_shell) with: ```./Tools/mavlink_shell.py 0.0.0.0:14550```
+2. SSH to the board and make sure MAVLink forwarding runs. By default it automatically starts when booting. It can be started manually with: ```systemctl start mavlink-router```
+3. Start *QGroundControl* and it should automatically connect.
+4. Instead of starting *QGroundControl*, you can open a [MAVLink shell](https://dev.px4.io/master/en/debug/mavlink_shell.html) using the script: ```./Tools/mavlink_shell.py 0.0.0.0:14550```
 
 ## Connecting LeddarOne Range Finder {#leddarone}
 

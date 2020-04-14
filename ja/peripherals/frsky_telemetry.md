@@ -1,4 +1,4 @@
-# FrSky Telemetry
+# FrSkyテレメトリー
 
 FrSky telemetry allows you to access vehicle [telemetry/status](#messages) information on a compatible RC transmitter.
 

@@ -379,7 +379,7 @@ th {
                                 </td>
                                 
                                 <td>
-                                  飞机上升到一个安全的高度，然后返回到它起始位置并转圈。
+                                  Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).
                                 </td>
                               </tr>
                               
@@ -803,7 +803,7 @@ th {
                                                         </td>
                                                         
                                                         <td>
-                                                          Vehicle ascends to a safe height and then returns to its home position and lands.
+                                                          Vehicle flies a clear path to a safe location. The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined).
                                                         </td>
                                                       </tr>
                                                       

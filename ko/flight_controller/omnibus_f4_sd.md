@@ -2,6 +2,8 @@
 
 The *Omnibus F4 SD* is a controller board designed for racers. In contrast to a typical racer board it has some additional features, such as an SD card and a faster CPU.
 
+<img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
+
 These are the main differences compared to a [Pixracer](../flight_controller/pixracer.md):
 
 * Lower price
@@ -13,7 +15,9 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 
 > **Tip** All the usual PX4 features can still be used for your racer!
 
-<img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
+<span></span>
+
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 ## Key Features
 
@@ -133,6 +137,14 @@ Here is an example implementation. I used a Spektrum plug to get 3.3v from the D
 
 ![Omnibus F4 SD Pullup Implementation](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
 
+## Serial Port Mapping
+
+| UART   | Device     | Port     |
+| ------ | ---------- | -------- |
+| USART1 | /dev/ttyS0 | SerialRX |
+| USART4 | /dev/ttyS1 | TELEM1   |
+| USART6 | /dev/ttyS2 | GPS      |
+
 ## RC Telemetry
 
 The Omnibus supports telemetry to the RC Transmitter using [FrSky Telemetry](../peripherals/frsky_telemetry.md) or [CRSF Crossfire Telemetry](#crsf_telemetry).
@@ -177,7 +189,7 @@ The board comes pre-installed with [Betaflight](https://github.com/betaflight/be
 
 ## Building Firmware
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make omnibus_f4sd_default
     

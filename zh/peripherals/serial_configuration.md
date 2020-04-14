@@ -1,6 +1,6 @@
 # 串口配置
 
-Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (用于非常特定目的的端口除外，如RC输入，或不可配置的串口，如 `SERIAL 5`)。
+Many serial (UART) ports on a Pixhawk board can be fully configured via parameters: e.g.: `GPS1`, `TELEM1`, `TELEM2`, `TELEM4` (`UART+I2C`).
 
 通过配置，可以轻松地(例如)：
 
@@ -9,16 +9,18 @@ Pixhawk 飞控板上的大多数串口 (UART) 可以通过参数完全配置 (�
 * 设置双 GPS
 * 启用在串口上运行的传感器，例如某些 [距离传感器](../sensor/rangefinders.md) 。
 
+> **Note** Some ports cannot be configured because they are used for a very specific purpose like RC input or the system console (`SERIAL 5`).
+
 ## 端口预配置 {#default_port_mapping}
 
 以下功能通常映射到所有板上的相同的特定串口，默认情况下映射为：
 
 * MAVLink 被映射到 `Telem 1` 端口，端口的波特率为 57600 (对于[遥测模块](../telemetry/README.md))。
-* GPS 1 ([gps driver](https://dev.px4.io/en/middleware/modules_driver.html#gps)) 映射到 `GPS 1` 端口，端口具有*自动* 波特率(在此设置下，GPS 将自动检测波特率-除了 Trimble MB-2，它需要115200的波特率)。
+* GPS 1 ([gps driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
 
 默认情况下，所有其他端口都没有指定的功能(禁用)。
 
-> **Tip** 通过分别将 [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) 和 [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) 设置为 *Disabled*，可以禁用上述端口映射。
+> **Tip** The ports mappings above can be disabled by setting [MAV_0_CONFIG](../advanced_config/parameter_reference.md#MAV_0_CONFIG) and [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG) to *Disabled*, respectively.
 
 ## 如何配置端口
 
@@ -50,7 +52,7 @@ You can include the missing driver in firmware by uncommenting (or adding) the d
     #distance_sensor/sf0x
     
 
-然后，您需要为平台编译固件，如 [编译 PX4 软件](https://dev.px4.io/en/setup/building_px4.html) (PX4 开发指南) 中所述。
+You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/master/en/setup/building_px4.html) (PX4 Development Guide).
 
 ## 更多信息
 

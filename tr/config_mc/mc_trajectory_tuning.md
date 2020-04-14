@@ -20,7 +20,7 @@ The setpoint-value tuning parameters can be split into two groups: tuning parame
 
 ## Definitions
 
-The position controller ([diagram here](https://dev.px4.io/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop. Depending on the control (flight) mode either both loops are active or just the velocity control loop.
+The position controller ([diagram here](https://dev.px4.io/master/en/flight_stack/controller_diagrams.html#multicopter-position-controller)) consists of an outer **P** position-control loop and an inner **PID** velocity-control loop. Depending on the control (flight) mode either both loops are active or just the velocity control loop.
 
 For the remainder of this topic the term **position-control** represents the case where both loops are active while **velocity-control** refers to the case when only the velocity control loop is in use.
 

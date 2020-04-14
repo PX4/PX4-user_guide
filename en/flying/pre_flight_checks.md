@@ -8,7 +8,7 @@ The sections below list the errors, their likely causes and solutions, and any p
 
 ## EKF Preflight Checks/Errors
 
-The following errors (with associated checks and parameters) are reported by the [EKF](https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html) (and propagate to *QGroundControl*):
+The following errors (with associated checks and parameters) are reported by the [EKF](https://dev.px4.io/master/en/tutorials/tuning_the_ecl_ekf.html) (and propagate to *QGroundControl*):
 
 `PREFLIGHT FAIL: EKF HGT ERROR`:
 * This error is produced when the IMU and height measurement data are inconsistent.
@@ -28,7 +28,9 @@ The following errors (with associated checks and parameters) are reported by the
 `PREFLIGHT FAIL: EKF YAW ERROR`:
 * This error is produced when the yaw angle estimated using gyro data and the yaw angle from the magnetometer or external vision system are inconsistent.
 * Check the IMU data for large yaw rate offsets and check the magnetometer alignment and calibration.
-* The check is controlled by the [COM_ARM_EKF_POS](../advanced_config/parameter_reference.md#COM_ARM_EKF_POS) parameter
+* The check is controlled by the [COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) parameter
+* The default value of 0.5 allows the differences between the navigation yaw angle and magnetic yaw angle (magnetometer or external vision) to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences.
+* It can fail if the yaw gyro has a large offset or if the vehicle is moved or rotated in the presence of a bad magnetic interference or magnetometer calibration.
 
 `PREFLIGHT FAIL: EKF HIGH IMU ACCEL BIAS`:
 * This error is produced when the IMU accelerometer bias estimated by the EKF is excessive. 
@@ -52,7 +54,7 @@ The following errors (with associated checks and parameters) are reported by the
 * This error message is produced when the difference in measurements from different compass sensors is too great.
 * It indicates bad calibration, orientation or magnetic interference.
 * This check only applies to when more than one compass/magnetometer is connected.
-* The check is controlled by the [COM_ARM_MAG](../advanced_config/parameter_reference.md#COM_ARM_MAG) parameter.
+* The check is controlled by the [COM_ARM_MAG_ANG](../advanced_config/parameter_reference.md#COM_ARM_MAG_ANG) parameter.
 
 `PREFLIGHT FAIL: EKF INTERNAL CHECKS`:
 * This error message is generated if the innovation magnitudes of either the horizontal GPS velocity, magnetic yaw, vertical GPS velocity or vertical position sensor (Baro by default but could be range finder or GPS if non-standard parameters are being used) are excessive. Innovations are the difference between the value predicted by the inertial navigation calculation and measured by the sensor.
@@ -73,9 +75,4 @@ The following parameters also affect preflight checks.
 The [COM_ARM_WO_GPS](../advanced_config/parameter_reference.md#COM_ARM_WO_GPS) parameter controls whether or not arming is allowed without a global position estimate. 
 - `1` (default): Arming *is* allowed without a position estimate for flight modes that do not require position information (only).
 - `0`: Arming is allowed only if EKF is providing a global position estimate and EFK GPS quality checks are passing
-
-
-### COM_ARM_EKF_YAW
-
-The [COM_ARM_EKF_YAW](../advanced_config/parameter_reference.md#COM_ARM_EKF_YAW) parameter determines the maximum difference (in radians) between the navigation yaw angle and magnetic yaw angle (magnetometer or external vision) allowed before preflight checks fail. The default value of 0.5 allows the differences to be no more than 50% of the maximum tolerated by the EKF and provides some margin for error increase when flight commences. It can fail if the yaw gyro has a large offset or if the vehicle is moved or rotated in the presence of a bad magnetic interference or magnetometer calibration.
 

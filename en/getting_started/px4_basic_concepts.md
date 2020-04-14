@@ -9,11 +9,11 @@ To load firmware and set up the vehicle with *QGroundControl*, see [Basic Config
 
 A drone is an unmanned "robotic" vehicle that can be remotely or autonomously controlled.
 
-Drones are used for many consumer, industrial and military [use cases and applications](http://px4.io/applications/). 
-These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc. 
+Drones are used for many [consumer, industrial, government and military applications](https://px4.io/ecosystem/commercial-systems/). 
+These include (non exhaustively): aerial photography/video, carrying cargo, racing, search and surveying etc.
 
 > **Tip** Different types of drones exist for use in air, ground, sea, and underwater. 
-These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
+  These are (more formally) referred to as Unmanned Aerial Vehicles (UAV), Unmanned Aerial Systems (UAS), Unmanned Ground Vehicles (UGV), Unmanned Surface Vehicles (USV), Unmanned Underwater Vehicles (UUV).
 
 The "brain" of the drone is called an autopilot.
 It consists of *flight stack* software running on *vehicle controller* ("flight controller") hardware.
@@ -94,6 +94,14 @@ Some RC systems can additionally receive telemetry information back from the aut
 * [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
 * [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
 
+## GCS Joystick Controller {#joystick}
+
+A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link).
+This approach is used by ground control units that have an integrated ground control station, like the *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) shown below.
+Joysticks are also commonly used to fly the vehicle in simulation.
+
+![Joystick MicroNav.](../../assets/peripherals/joystick/micronav.jpg)
+
 
 ## Safety Switch {#safety_switch}
 
@@ -117,36 +125,40 @@ The companion computer will usually communicate using a MAVLink API like the MAV
 > **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 
 * [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
-* [Robotics APIs](https://dev.px4.io/en/robotics/) (PX4 Developer Guide)
+* [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
 
 
-## Removable Memory/Logging
+## SD Cards (Removable Memory) {#sd_cards}
 
-PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md) (SD support may not be present on every flight controller).
+PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
+
+By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
 > **Tip** The maximum supported SD card size on Pixhawk boards is 32GB.
+  The *SanDisk Extreme U3 32GB* is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
 
-A number of recommended cards are listed in: [Developer Guide > Logging](http://dev.px4.io/en/log/logging.html#sd-cards)
+SD cards are never-the-less optional.
+Flight controllers that do not include an SD Card slot may:
+- Disable notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
+- [Stream logs](https://dev.px4.io/master/en/log/logging.html#log-streaming) to another component (companion).
+- Store missions in RAM/FLASH. 
+  <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/Firmware/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 
-## Disarmed/Pre-armed/Armed {#arming}
+## Arming and Disarming {#arming}
 
 Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
 
-To reduce the chance of accidents, PX4 has explicit state(s) for powering the vehicle components:
-- **Disarmed:** There is no power to motors or actuators.
-- **Pre-armed:** Actuators and other non-dangerous electronics are powered.
-  - In this state you can move ailerons, flaps etc, but motors/propellers are locked.
-- **Armed:** Vehicle is fully powered, including motors/propellers.
+To reduce the chance of accidents:
+- PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
+- Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can succeed.
+- Arming is prevented if the vehicle is not in a "healthy" state.
+- A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
 
-By default, a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) is used to enter the pre-armed state.
-Arming is then enabled using an arming sequence, switch or MAVLink command. 
+Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left).
+It is also possible to configure PX4 to arm using an RC button on the RC control (and arming commands can be sent from a ground station).
 
-The vehicle is initially disarmed, and must be armed before flight; if you don't take off quickly enough it will automatically disarm (returning the vehicle to a safe state).
-Similarly, when you land the vehicle will usually automatically disarm so that it can be approached safely.
-
-> **Note** The arming behaviour can be [configured](../advanced_config/prearm_arm_disarm.md) (e.g. the time until vehicle automatically disarms after landing).
-
+A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
 
 ## Flight Modes {#flight_modes}

@@ -80,8 +80,12 @@
                     "text": "master"
                 },
                 {
+                    "value": "https://docs.px4.io/v1.10/en/",
+                    "text": "v1.10 - stable"
+                },
+                {
                     "value": "https://docs.px4.io/v1.9.0/en/",
-                    "text": "v1.9 - stable"
+                    "text": "v1.9"
                 },
                 {
                     "value": "https://docs.px4.io/v1.8.2/en/",

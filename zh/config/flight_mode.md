@@ -121,7 +121,7 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 This mode is demonstrated in the [autopilot setup video here](https://youtu.be/91VGmdSlbo4?t=6m53s) (youtube).
 
-> **Note** This flight mode selection mechanism is relatively complicated due to the way that PX4 works out which mode should be selected. You may be able to gain some insight from this [flow chart](https://dev.px4.io/en/concept/flight_modes.html#flight-mode-evaluation-diagram) (PX4 Developer Guide).
+> **Note** This flight mode selection mechanism is relatively complicated due to the way that PX4 works out which mode should be selected. You may be able to gain some insight from this [flow chart](https://dev.px4.io/master/en/concept/flight_modes.html#flight-mode-evaluation-diagram) (PX4 Developer Guide).
 
 ## 更多信息
 

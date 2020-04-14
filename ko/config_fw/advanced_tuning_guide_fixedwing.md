@@ -14,7 +14,7 @@ This guide offers some help in tuning the high-level fixed-wing controllers need
 
 ## TECS Tuning (Altitude and Airspeed)
 
-TECS (Total Energy Control System) is a guidance algorithm for fixed-wing aircraft that coordinates throttle and pitch angle setpoints to control the aircraft's altitude and airspeed. For a detailed description of the TECS algorithm and the control diagram, see [Controller Diagrams](https://dev.px4.io/en/flight_stack/controller_diagrams).
+TECS (Total Energy Control System) is a guidance algorithm for fixed-wing aircraft that coordinates throttle and pitch angle setpoints to control the aircraft's altitude and airspeed. For a detailed description of the TECS algorithm and the control diagram, see [Controller Diagrams](https://dev.px4.io/master/en/flight_stack/controller_diagrams).
 
 A well-tuned attitude controller is required before tuning TECS: [PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md).
 

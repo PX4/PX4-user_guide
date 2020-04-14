@@ -12,12 +12,15 @@ You will need:
 
 ## Supported RTK Devices
 
-PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS and products that incorporate it. The following RTK-compatible devices have been tested.
+PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS and products that incorporate it. The following RTK-compatible devices have been tested.
 
 - [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)
 - [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)
 - [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
 - [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
+- [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)
+- [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
+- [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
 
 > **Note** Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
 
@@ -103,7 +106,7 @@ Some RTK GPS units (i.e. with multiple antennas) can output a yaw angle, which c
 
 ### Dual Receivers
 
-A second GPS receiver can be used as a backup (either RTK or non RTK). See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#GPS) section.
+A second GPS receiver can be used as a backup (either RTK or non RTK). See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
 
 <!-- 
 
@@ -113,4 +116,4 @@ A second GPS receiver can be used as a backup (either RTK or non RTK). See the [
 
 ## Vehicle Setup Example
 
-The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](https://dev.px4.io/en/airframes_multicopter/dji_flamewheel_450.html) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
+The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](https://dev.px4.io/master/en/airframes_multicopter/dji_flamewheel_450.html) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.

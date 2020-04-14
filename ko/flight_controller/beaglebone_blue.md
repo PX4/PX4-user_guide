@@ -1,5 +1,7 @@
 # 비글본 블루
 
+> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+
 [ BeagleBone Blue ](https://beagleboard.org/blue)은 일체형 Linux 기반 시스템입니다. 로봇 공학용으로 최적화되었지만, 작고 저렴한 이 보드에는 비행 조종사가 필요로 하는 모든 필요한 센서와 주변 장치가 있습니다. 이 항목에서는 [librobotcontrol ](https://github.com/StrawsonDesign/librobotcontrol) 로보틱 패키지로 PX4를 실행하도록 보드를 설정하는 방법을 설명합니다.
 
 ![비글본 - 라벨로 표시된 다이어그램](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
@@ -13,115 +15,134 @@
 
 깜박이는 OS 이미지에 대한 정보는 [ 이 페이지 ](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware)에서 확인할 수 있습니다. 기타 유용한 정보는 [FAQ ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;)에서 확인할 수 있습니다.
 
-## 로봇 제어 라이브러리
+> **Tip** Optionally you can update to a realtime kernel, and if you do, re-check if *librobotcontrol* works properly with the realtime kernel.
 
-[ BeagleBone Blue ](https://beagleboard.org/blue)에서 PX4는 [librobot control ](https://github.com/StrawsonDesign/librobotcontrol) 버전 1.0.0 이상을 필요로 합니다.
+The latest OS images at time of updating this document is [bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.9-iot-armhf-2019-08-03-4gb.img.xz).
 
-BeagleBoard OS 이미지는 *librobotcontrol *이 미리 설치되어 있지만 모든 OS 이미지에서 제대로 작동하지 않을 수 있습니다.
+## Cross Compiler Build (Recommend)
 
-*librobotcontrol *이 제대로 작동하는지 확인하는 한 가지 방법은 *librobot control *과 함께 제공되는 *rc_test_drivers*를 실행하는 것입니다. 다음 예와 같이 모든 테스트를 통과해야 합니다. 선택적으로 *rc_test_bmp*, *rc_test_mpu* 등과 같은 다른 테스트를 실행합니다.
+The recommended way to build PX4 for *BeagleBone Blue* is to compile on a development computer and upload the PX4 executable binary directly to the BeagleBone Blue.
+
+> **Tip** This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
+
+<span></span>
+
+> **Note** The PX4 build requires [librobotcontrol](http://strawsondesign.com/docs/librobotcontrol/) which is automatically included in the build (but it can be installed and tested independently if required).
+
+### Beaglebone Blue WIFI Setup
+
+For easy access to your board, you can connect it to your home network via wifi.
+
+The steps are (execute on the board):
 
 ```sh
-debian@beaglebone:~$ rc_test_drivers
-
-Kernel: 4.14.56-ti-rt-r64
-BeagleBoard.org Debian Image 2018-07-22
-Debian: 9.5
-
-PASSED: gpio 0
-PASSED: gpio 1
-PASSED: gpio 2
-PASSED: gpio 3
-PASSED: pwm1
-PASSED: pwm2
-PASSED: eqep0
-PASSED: eqep1
-PASSED: eqep2
-PASSED: pru-rproc
-PASSED: uart1
-PASSED: uart2
-
+sudo su
+connmanctl
+connmanctl>scan wifi
+connmanctl>services
+#(at this point you should see your network SSID appear.)
+connmanctl>agent on
+connmanctl>connect <SSID>
+connmanctl>quit
 ```
 
-> **Tip ** 선택적으로 실시간 커널로 업데이트할 수 있으며, 그럴 경우 *librobot controlled *이 실시간 커널과 제대로 작동하는지 다시 확인합니다.
+### SSH root Login on Beaglebone
 
-The latest OS images at time of updating this document is [bone-debian-9.5-iot-armhf-2018-10-07-4gb.img.xz](https://debian.beagleboard.org/images/bone-debian-9.5-iot-armhf-2018-10-07-4gb.img.xz).
+Root login can be enabled on the board with:
 
-### 로봇 제어 라이브러리 설정
+```sh
+sudo su
+echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
+```
 
-PX4를 빌드하려면 이 라이브러리에 대한 추가 설정 단계가 있습니다.
+### Cross Compiler Setup
 
-Here are steps to build the *librobotcontrol* with PX4 extensions natively on a BeagleBone board:
+1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). For *rsync* over SSH with key authentication, follow the steps here (on the development machine):
+    
+    1. Generate an SSH key if you have not previously done so:
+        
+            ssh-keygen -t rsa
+            
+        
+        1. ENTER //no passphrase
+        2. ENTER
+        3. ENTER
+    
+    2. Define the BeagleBone Blue board as `beaglebone` in **/etc/hosts** and copy the public SSH key to the board for password-less SSH access:
+        
+            ssh-copy-id root@beaglebone
+            
+    
+    3. Alternatively you can use the beaglebone's IP directly: ```ssh-copy-id root@<IP>```
+    4. When prompted if you trust: yes
+    5. Enter root password
 
-    sh
-       git clone https://github.com/StrawsonDesign/librobotcontrol.git
-       cd librobotcontrol
-       make EXT_CFLAGS=-DRC_AUTOPILOT_EXT
-       sudo make install
+2. Cross Compile Setup
+    
+    1. Toolchain download
+        
+        1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*. Here is an example of using soft link to select which version of the toolchain you want to use:
+            
+                mkdir -p /opt/bbblue_toolchain/gcc-arm-linux-gnueabihf
+                chmod -R 777 /opt/bbblue_toolchain
+                
+            
+            ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
+            
+            > **Tip** GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
+            
+            Download and unpack [gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf](https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz) to the bbblue_toolchain folder.
+            
+            Different ARM Cross Compiler versions for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/).
+            
+            > **Tip** The GCC version of the toolchain should be compatible with kernel in *BeagleBone Blue*.
+            
+            General rule of thumb is to choose a toolchain where the version of GCC is not higher than the version of GCC which comes with the OS image on *BeagleBone Blue*.
+        
+        2. Add it to the PATH in ~/.profile as shown below
+            
+            ```sh
+            export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf/bin
+            ```
+            
+            > **Note** Logout and Login to apply the change, or execute the same line on your current shell.
+            
+            Follow the [Development Environment Setup](https://dev.px4.io/master/en/setup/dev_env_linux_ubuntu.html) instructions.
+            
+            You may have to edit the upload target to match with your setup:
+            
+                nano Firmware/boards/beaglebone/blue/cmake/upload.cmake
+                
+                #in row 37 change debian@beaglebone.lan --> root@beaglebone (or root@<IP>)
+                
 
-> **Tip** `EXT_CFLAGS` was added after version 1.0.4. If it's not in your version of **librobotcontrol/library/Makefile**, add it to `CLFAGS`, e.g., `CFLAGS := $(EXT_CFLAGS) -g -fPIC -I $(INCLUDEDIR)`
+### Cross Compile and Upload
+
+Compile and Upload
+
+    make beaglebone_blue_default upload
+    
+
+> **Note** Without upload, files stored local in build folder.
+
+To test the uploaded files, run the following commands on the *BeagleBone Blue* board:
+
+```sh
+cd /home/debian/px4 
+sudo ./bin/px4 -s px4.config 
+```
+
+> **Note** Currently *librobotcontrol* requires root access.
+
+## Native Builds (optional) {#native_builds}
+
+You can also natively build PX4 builds directly on the BeagleBone Blue.
 
 After acquiring the pre-built library,
 
 1. Select the *librobotcontrol* installation directory, and set it in the `LIBROBOTCONTROL_INSTALL_DIR` environment variable so that other unwanted headers will not be included
 2. Install **robotcontrol.h** and **rc/\*** into `$LIBROBOTCONTROL_INSTALL_DIR/include`
 3. Install pre-built native (ARM) version of librobotcontrol.\* into `$LIBROBOTCONTROL_INSTALL_DIR/lib`
-
-At this point the BeagleBone Blue target can be built on both cross compile host system and native build system, i.e.,
-
-```sh
-make posix_bbblue_cross [upload]
-```
-
-## 교차 컴파일러 빌드
-
-The recommended way to build PX4 for *BeagleBone Blue* is to compile on a development computer and upload the PX4 executable binary directly to the BeagleBone Blue.
-
-> **Tip** This approach is recommended over [native build](#native_builds) due to speed of deployment and ease of use.
-
-### 크로스 컴파일러 설정
-
-ARM Cross Compiler for *BeagleBone Blue* can be found at [Linaro Toolchain Binaries site](http://www.linaro.org/downloads/). The following is an example setup on development host.
-
-1. First install the toolchain into */opt/bbblue_toolchain/gcc-arm-linux-gnueabihf*. Here is an example of using soft link to select which version of the toolchain you want to use:
-    
-    ```sh
-    ...@ubuntu:/opt/bbblue_toolchain$ ls -l
-        lrwxrwxrwx 1 root root   51 Mar 22 16:10 gcc-arm-linux-gnueabihf -> gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
-        drwxr-xr-x 8 root root 4096 May 17  2017 gcc-linaro-6.3.1-2017.05-x86_64_arm-linux-gnueabihf
-        drwxr-xr-x 8 root root 4096 Nov 19 03:51 gcc-linaro-6.4.1-2017.11-x86_64_arm-linux-gnueabihf
-    ```
-
-2. Add it to the PATH in ~/.profile as shown below
-    
-    ```sh
-    export PATH=$PATH:/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/bin
-    export CrossCompiler=/opt/bbblue_toolchain/gcc-arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
-    ```
-
-> **Tip** GCC in the toolchain should be compatible with kernel in *BeagleBone Blue*. General rule of thumb is to choose a toolchain where version of GCC is not higher than version of GCC which comes with the OS image on *BeagleBone Blue*.
-
-### 교차 컴파일 및 업로드
-
-1. First set up *rsync* (this is is used to transfer files from the development computer to the target board over a network - WiFi or Ethernet). 
-    - For *rsync* over SSH with key authentication, follow steps similar to those for [Raspberry Pi/Navio](../flight_controller/raspberry_pi_navio2.md)
-    - On the development computer, define the BeagleBone Blue board as `BBBluePX4` in **/etc/hosts**
-2. Run the following command to build and upload files: 
-        sh
-        make posix_bbblue_cross upload
-
-To test the uploaded files, run the following commands on the *BeagleBone Blue* board:
-
-```sh
-cd /home/dbian/px4 
-sudo ./bin/px4 -s px4.config 
-```
-
-> **Note** Currently *librobotcontrol* requires root access.
-
-## 기본 빌드(옵션) {#native_builds}
-
-You can also natively build PX4 builds directly on the BeagleBone Blue.
 
 Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
@@ -131,7 +152,13 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
         sudo apt-get install cmake python-empy
 
 2. Clone the PX4 Firmware directly onto the BeagleBone Blue.
-3. Continue with the [standard build system installation](https://dev.px4.io/en/setup/dev_env_linux.html).
+3. Continue with the [standard build system installation](https://dev.px4.io/master/en/setup/dev_env_linux.html).
+
+## Chnages in config
+
+All changes can be made in de px4.config file directly on beaglebone. For example, you can change the WIFI to wlan.
+
+> **Note** If you want to change permanently, you have to change **Firmware/posix-configs/bbblue/px4.config** on the Build Machine before build.
 
 ## 부팅 중 자동 시작
 
@@ -142,7 +169,7 @@ Here is an example [/etc/rc.local]:
 #
 # rc.local
 #
-# 이 스크립트는 각 Multiuser 런레벨 끝에서 실행됩니다
+# This script is executed at the end of each multiuser runlevel.
 # Make sure that the script will "exit 0" on success or any other
 # value on error.
 #
@@ -151,38 +178,38 @@ Here is an example [/etc/rc.local]:
 #
 # By default this script does nothing.
 
-# 서비스가 시작될 때까지 대기
+# wait for services to start up
 /bin/sleep 25
 
-cd /home/dbian/px4 
+cd /home/debian/px4 
 
-/home/dbian/px4/bin/px4 -s /home/dbian/px4/px4/config > /home/debian/px4/PX4.log & 
+/home/debian/px4/bin/px4 -d -s /home/debian/px4/px4.config > /home/debian/px4/PX4.log & 
 
-0번 출구
+exit 0
 ```
 
 Below is a *systemd* service example [/lib/systemd/system/px4-quad-copter.service]:
 
 ```sh
-[단위]
-설명=PX4 쿼드콥터 서비스
+[Unit]
+Description=PX4 Quadcopter Service
 After=networking.service network-online.target 
-시작 한계IntervalSec=0
+StartLimitIntervalSec=0
 Conflicts=px4-fixed-wing.service
 
-[서비스]
-WorkingDirectory=/홈/디비언/px4
-사용자=루트
-ExecStart=/home/dbian/px4/bin/px4 -s /home/dbian/px4/px4.config 
+[Service]
+WorkingDirectory=/home/debian/px4
+User=root
+ExecStart=/home/debian/px4/bin/px4 -d -s /home/debian/px4/px4.config  
 
-재시작=실패 시
+Restart=on-failure
 RestartSec=1
 
-[설치]
-WantedBy=멀티 사용자.target
+[Install]
+WantedBy=multi-user.target
 ```
 
-### 여러가지 종류의
+### Miscellaneous
 
 #### 파워 서보 레일
 
@@ -194,7 +221,7 @@ BeagleBone Blue has some unique features such as multiple choices of WiFi interf
 
 #### SBUS 신호 변환기
 
-SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](https://dev.px4.io/en/tutorials/linux_sbus.html) contains a SBUS signal inverter circuit.
+SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal. UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal. [This tutorial](https://dev.px4.io/master/en/tutorials/linux_sbus.html) contains a SBUS signal inverter circuit.
 
 #### 일반적인 연결
 

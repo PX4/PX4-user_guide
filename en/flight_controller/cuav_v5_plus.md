@@ -15,6 +15,8 @@ Some of its main features include:
 - Built-in vibration dampening system with high performance shock absorption system.
 - Multiple-redundant sensor and power systems for improved flight safety and stability.
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 
 ## Quick Summary
 
@@ -97,18 +99,55 @@ The *V5+* has short circuit protection.
 > **Tip** Most users will not need to build this firmware!
   It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
 make px4_fmu-v5_default
 ```
 
 ## Debug Port
 
-The system's serial console and SWD interface operate on the **FMU Debug** port.
-Simply connect the FTDI cable to the Debug & F7 SWD connector (the product list contains the CUAV FTDI cable).
-It does not have an I/O debug interface.
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port (`DSU7`).
+The board does not have an I/O debug interface.
 
-> **Warning**  See also: [Using JTAG for hardware debugging](#issue_jtag)
+![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
+
+The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | 5V+ | +5V
+2 (blk) | DEBUG TX (OUT) | +3.3V
+3 (blk) | DEBUG RX (IN) | +3.3V
+4 (blk) | FMU_SWDIO | +3.3V
+5 (blk) | FMU_SWCLK | +3.3V
+6 (blk) | GND | GND
+
+The product package includes a convenient debug cable that can be connected to the `DSU7` port.
+This splits out an FTDI cable for connecting the [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) to a computer USB port, and SWD pins used for SWD/JTAG debugging.
+The provided debug cable does not connect to the SWD port `Vref` pin (1).
+
+![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
+
+> **Warning** The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
+>
+> Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
+> For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+>
+>For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+
+
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+UART1 | /dev/ttyS0 | GPS
+USART2 | /dev/ttyS1 | TELEM1 (flow control)
+USART3 | /dev/ttyS2 | TELEM2 (flow control)
+UART4 | /dev/ttyS3 | TELEM4
+USART6 | /dev/ttyS4 | TX is RC input from SBUS_RC connector
+UART7 | /dev/ttyS5 | Debug Console
+UART8 | /dev/ttyS6 | PX4IO
+
 
 ## Peripherals {#optional-hardware}
 
@@ -121,32 +160,7 @@ It does not have an I/O debug interface.
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
 The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
-
-## Known Issues
-
-The issues below refer to the *batch number* in which they first appear. 
-The batch number is the last two digits of the *serial number* that appears on a sticker on the side of the flight controller. 
-For example, the serial number V011907XXXX**01** indicates the flight controller was in batch 01.
-
-#### GPS not compatible with other devices (Critical)
-
-The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
-The GPS will not work with other flight controllers, and is the only GPS unit that can be used with the *CUAV V5+* and *CUAV V5 nano*.
-<!-- 5+/90/V5+ 20190523 RC01 -->
-
-- *Found:* Batch 01
-- *Fixed:* -
-
-#### Volt regulation varies greater than +/- 5%
-
-The 5 volt pins on all connectors will be lower when powered from USB than the Power Module (the pins will measure approximately 4.69V when only powered by USB, and 5.28 Volts when connected to the Power Module).
-
-We recommend that when using USB with the *V5+* you *also connect the power module* (to avoid under-powering any connected peripherals).
-
-> **Warning** Remove propellers *before* connecting the power module (this is important whenever bench testing with powered motors).
-
-- *Found:* Batch 01
-- *Fixed:* -
+## Notes
 
 #### Do not plug Digital or Analog PM onto connectors configured for other type of PM
 
@@ -155,11 +169,17 @@ Specifically this will stop the GPS's compass due to contention, and may also da
 
 Similarly, a digital PM plugged into a analog connector will not work, and may also damage/destroy the power module (longer term).
 
-- *Found:* Batch 01
-- *Fixed:* -
+## Compatibility 
 
+CUAV adopts some differentiated designs and is incompatible with some hardware, which will be described below.
 
-#### Using JTAG for hardware debugging {#issue_jtag}
+#### GPS not compatible with other devices {#compatibility_gps}
+
+The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
+
+The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-v2-pro/en/#enable) can also be used, and is compatible with other flight controllers.
+
+#### Using JTAG for hardware debugging {#compatibility_jtag}
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
@@ -167,13 +187,20 @@ Some JTAG use this voltage to set the IO levels when communicating to the target
 
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-#### The HV\_PM power module output is unfused {#issue_pm_unfused}
+## Known Issues
 
-> **Warning** This is a serious safety issue.
+The issues below refer to the *batch number* in which they first appear.
+The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller.
+For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
-- Power **must** be turned off while connecting peripherals.
-- Improper wiring can lead to *personal harm* or equipment damage!
+#### SBUS / DSM / RSSI interface Pin1 unfused {#pin1_unfused}
 
+> **Warning** This is a safety issue.
+
+Please do not connect other equipment (except RC receiver) on SBUS / DSM / RSSI interface - this may lead to equipment damage.
+
+- *Found:* Batches V01190904xxxx
+- *Fixed:* Batches later than V01190904xxxx
 
 ## Further Information
 
@@ -181,6 +208,6 @@ For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of 
 - [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)
 - [CUAV Github](https://github.com/cuav)
-- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2B_BASE)
+- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE)
 - [CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
 - [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)

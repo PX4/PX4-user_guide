@@ -16,22 +16,24 @@ PX4 provides a number of (progressively more effective) methods that can be used
 
 Later methods build on preceding methods. The approach you use will depend on whether the vehicle's power module can measure current.
 
-## Basic Battery Settings (default) {#basic_settings}
+> **Note** The instructions below refer to battery 1 calibration parameters: `BAT1_*`. Other batteries use the `BATx_*` parameters, where `x` is the battery number. All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
 
-> **Note** This default/basic power configuration results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+## Basic Battery Settings (default) {#basic_settings}
 
 The basic battery settings configure PX4 to use the default method for capacity estimate. This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells).
 
-To configure the basic settings:
+> **Note** This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
+
+To configure the basic settings for battery 1:
 
 1. Start *QGroundControl* and connect the vehicle.
 2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Power** in the sidebar.
 
-You are presented with the basic settings that characterize your battery. The sections below explain what values to set for each field.
+You are presented with the basic settings that characterize the battery. The sections below explain what values to set for each field.
 
 ![QGC Power Setup](../../assets/qgc/qgc_setup_power_px4.jpg)
 
-> **Note** The basic settings below correspond to [parameters](../advanced_config/parameters.md): [BAT_N_CELLS](../advanced_config/parameter_reference.md#BAT_N_CELLS), [BAT_V_EMPTY](../advanced_config/parameter_reference.md#BAT_V_EMPTY), [BAT_V_CHARGED](../advanced_config/parameter_reference.md#BAT_V_CHARGED).
+> **Note** At time of writing *QGroundControl* only allows you to set values for battery 1 in this view. For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
 
 ### Number of Cells (in Series)
 
@@ -41,12 +43,14 @@ This sets the number of cells connected in series in the battery. Typically this
 
 If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell. The table below shows the voltage-to-cell relationship for LiPo batteries:
 
-* 1S - 3.7V
-* 2S - 7.4V
-* 3S - 11.1V
-* 4S - 14.8V
-* 5S - 18.5V
-* 6S - 22.2V
+- 1S - 3.7V
+- 2S - 7.4V
+- 3S - 11.1V
+- 4S - 14.8V
+- 5S - 18.5V
+- 6S - 22.2V
+
+> **Note** This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS) and [BAT2_N_CELLS](../advanced_config/parameter_reference.md#BAT2_N_CELLS)
 
 ### Full Voltage (per cell)
 
@@ -56,6 +60,10 @@ The value should be set slightly lower that the nominal maximum cell voltage for
 
 > **Note** The voltage of a full battery may drop a small amount over time after charging. Setting a slightly-lower than maximum value compensates for this drop.
 
+<span></span>
+
+> **Note** This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_V_CHARGED](../advanced_config/parameter_reference.md#BAT1_V_CHARGED) and [BAT2_V_CHARGED](../advanced_config/parameter_reference.md#BAT2_V_CHARGED).
+
 ### Empty Voltage (per cell)
 
 This sets the nominal minimum safe voltage of each cell (use below this voltage may damage the battery).
@@ -64,19 +72,23 @@ This sets the nominal minimum safe voltage of each cell (use below this voltage 
 
 A rule of thumb for LiPo batteries:
 
-* 3.7V without load is a conservative minimum value.
-* 3.5 V under load (while flying) is closer to the true minimum. At this voltage you should land immediately. 
-* 3.2V under load will cause damage to the battery. 
+- 3.7V without load is a conservative minimum value.
+- 3.5 V under load (while flying) is closer to the true minimum. At this voltage you should land immediately. 
+- 3.2V under load will cause damage to the battery. 
 
 > **Tip** Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
 
-### Voltage divider
+<span></span>
+
+> **Note** This setting corresponds to [parameter](../advanced_config/parameters.md): [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY) and [BAT2_V_EMPTY](../advanced_config/parameter_reference.md#BAT2_V_EMPTY).
+
+### Voltage Divider
 
 If you have a vehicle that measures voltage through a power module and the ADC of the flight controller then you should check and calibrate the measurements once per board. To calibrate you'll need a multimeter.
 
 The easiest way to calibrate the divider is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
 
-> **Note** This setting corresponds to parameter: [BAT_A_PER_V](../advanced_config/parameter_reference.md#BAT_A_PER_V).
+> **Note** This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
 
 ### Amps per volt {#current_divider}
 
@@ -85,6 +97,8 @@ The easiest way to calibrate the divider is by using *QGroundControl* and follow
 If you are using [Current-based Load Compensation](#current_based_load_compensation) or [Current Integration](#current_integration) the amps per volt divider must be calibrated.
 
 The easiest way to calibrate the dividers is by using *QGroundControl* and following the step-by-step guide on [Setup > Power Setup](https://docs.qgroundcontrol.com/en/SetupView/Power.html) (QGroundControl User Guide).
+
+> **Note** This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
 
 ## Voltage-based Estimation with Load Compensation {#load_compensation}
 
@@ -96,8 +110,8 @@ Load compensation attempts to counteract the fluctuation in measured voltage/est
 
 PX4 supports two load compensation methods, which are enabled by [setting](../advanced_config/parameters.md) either of the two parameters below:
 
-* [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
-* [BAT_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
+- [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
+- [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
 
 ### Current-based Load Compensation (recommended) {#current_based_load_compensation}
 
@@ -105,7 +119,7 @@ This load compensation method relies on current measurement to determine load. I
 
 To enable this feature:
 
-1. Set the parameter [BAT_R_INTERNAL](../advanced_config/parameter_reference.md#BAT_R_INTERNAL) to to the internal resistance of your battery. > **Tip** There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
+1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of battery 1 (and repeat for other batteries). > **Tip** There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
 2. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 
 ### Thrust-based Load Compensation {#thrust_based_load_compensation}
@@ -116,7 +130,7 @@ This load compensation method estimates the load based on the total thrust that 
 
 To enable this feature:
 
-1. Set the parameter [BAT_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
+1. Set the parameter [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
 
 ## Voltage-based Estimation Fused with Current Integration {#current_integration}
 
@@ -130,7 +144,7 @@ To enable this feature:
     
     > **Tip** Including calibrating the [Amps per volt divider](#current_divider) setting.
 
-2. Set the parameter [BAT_CAPACITY](../advanced_config/parameter_reference.md#BAT_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
+2. Set the parameter [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
     
     > **Note** Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
 
@@ -145,3 +159,10 @@ At system startup PX4 first uses a voltage-based estimate to determine the initi
 If you always start with a healthy full battery, this approach is similar to that used by a smart battery.
 
 > **Note** Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the *initial* capacity. Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
+
+## Parameter Migration Notes
+
+Multiple battery support was added after PX4 v1.10, resulting in the creation of new parameters with prefix `BAT1_` corresponding to all the old parameters with prefix `BAT_`. Changes to `BAT_` and `BAT1_` are currently synchronised:
+
+- If either the old or new parameters is changed, the value is copied into the other parameter (they are kept in sync in both directions).
+- If the old/new parameters are different at boot, then the value of the old `BAT_` parameter is copied into the new `BAT1_` parameter.

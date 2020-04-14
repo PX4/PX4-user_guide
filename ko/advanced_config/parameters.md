@@ -1,16 +1,16 @@
-# 파라미터 구성
+# 파라미터 찾기/갱신
 
-많은 PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md) (예: [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보 등)를 사용해 조정됩니다.
+PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md)를 사용하여 설정/조정될 수 있습니다(예. [멀티콥터 PID 계수](../config_mc/pid_tuning_guide_multicopter.md), 캘리브레이션 정보, 등.).
 
-*QGroundControl 파라미터 화면*에서 기체와 관련된 **어떤 파라미터**도 수정할 수 있습니다. 상단 메뉴의 톱니 바퀴 아이콘을 클릭한 다음 좌측 메뉴의 파라미터를 클릭하여 파라미터 화면에 진입합니다.
+*QGroundControl 파라미터* 화면은 기체와 관련된 **어떤 **파라미터든지 찾고 수정할 수 있도록 허용합니다. 상단 메뉴의 톱니 바퀴 아이콘을 클릭한 다음 좌측 메뉴의 파라미터를 클릭하여 파라미터 화면에 진입합니다.
 
-> **참고** 파라미터 화면은 일반적으로 수정이 더 필요한 파라미터에 액세스할 때 필요합니다 (예: 새 기체 튜닝) 가장 일반적으로 사용되는 파라미터는 [기본 설정](../config/README.md) 섹션에 설명된 전용 설정 화면을 통해 보다 편리하게 설정됩니다.
+> **참고** 일반적으로 사용되는 대부분의 파라미터는 [기본 설정](../config/README.md) 에서 설명한 설정 전용 화면을 이용하면 더 편하게 설정할 수 있습니다. *파라미터* 화면은 새 기체를 튜닝한다거나 하는 덜 일반적인 파라미터를 수정할 때 사용됩니다.
 
 <span></span>
 
-> **참고** 일부 파라미터는 비행 중에 변경할 수 있지만 권장하지 않습니다 (설명서에 명시된 경우 제외).
+> **경고** 일부 파라미터는 비행중에 변경할 수 있지만 추천하는 방법은 아닙니다(가이드에 명시된 경우를 제외하고).
 
-## 파라미터 찾기
+## 파라미터 찾기 {#finding}
 
 *검색* 필드에 용어를 입력하여 파라미터를 검색 할 수 있습니다. 검색은 입력된 하위 문자열을 포함하는 모든 파라미터 이름 및 설명을 나열합니다 (검색을 초기화하려면 **지우기**를 누릅니다).
 
@@ -20,26 +20,57 @@
 
 ![파라미터 화면](../../images/qgc/setup/parameters_px4.jpg)
 
-## 파라미터 변경
+> **Tip** If you can't find an expected parameter, see the [next section](#missing).
 
-파라미터의 값을 변경하려면 그룹 또는 검색 목록에서 파라미터 행을 클릭하십시오. 그러면 값을 업데이트 할 수있는 사이드 대화 상자가 열립니다 (이 대화 상자는 파라미터에 대한 추가 세부 정보- 변경 사항을 적용하려면 재부팅 필요 여부 포함-를 제공합니다.)
+## Missing Parameters {#missing}
 
-![파라미터 값 변경](../../images/qgc/setup/parameters_changing.png)
+Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
 
-> **참고** **저장**을 클릭하면 파라미터가 연결된 기체에 자동으로 업로드됩니다. 파라미터 변경 사항을 기체에 적용하려면 비행 컨트롤러를 재부팅해야합니다.
+### Conditional Parameters
 
-## 도구
+A parameter may not be displayed if it is conditional on another parameter that is not enabled.
 
-화면의 오른쪽 상단에있는 **도구** 메뉴에서 추가 옵션을 선택할 수 있습니다.
+You can usually find out what parameters are conditional by searching the [full parameter reference](../advanced_config/parameter_reference.md) and other documentation. In particular [serial port configuration parameters](../peripherals/serial_configuration.md) depend on what service is assigned to a serial port.
 
-![도구 메뉴](../../images/qgc/setup/parameters_tools_menu.png)
+### Parameter Not In Firmware
 
-**새로 고침** <br />파라미터 값을 기체로부터 다시 요청해 새로고침합니다.
+A parameter may not be present in the firmware because you're using a different version of PX4 or because you're using a build in which the associated module is not included.
 
-**기본값으로 재설정** <br />모든 파라미터를 펌웨어 기본값으로 재설정합니다.
+New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
 
-**파일에서 불러오기 / 파일에 저장** <br />기존 파일에서 파라미터를 불러오거나 현재 파라미터 설정을 파일에 저장합니다.
+The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
 
-**Clear RC to Param** <br />RC 송신기 컨트롤과 파라미터 간의 모든 관련 항목을 지웁니다. 자세한 내용은 [라디오 설정> Param Tuning Channels](../config/radio.md#param-tuning-channels)를 참조하십시오.
+- Check if you can update your board to run FMUv3 firmware, which includes all modules: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader)
+- If your board can only run FMUv2 firmware you will need to [rebuild PX4](https://dev.px4.io/master/en/setup/building_px4.html) with the missing modules enabled. You can see these commented out in [boards/px4/fmu-v2/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v2/default.cmake): 
+        DRIVERS
+            adc
+            #barometer # all available barometer drivers
+            barometer/ms5611
+            #batt_smbus
+            #camera_capture > 
+    
+    **Note** You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
 
-**기체 재부팅** <br />기체을 재부팅합니다 (일부 파라미터의 변경 후 요구됩니다).
+## Changing a Parameter {#changing}
+
+To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
+
+![Changing a parameter value](../../images/qgc/setup/parameters_changing.png)
+
+> **Note** When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+
+## Tools
+
+You can select additional options from the **Tools** menu on the top right hand side of the screen.
+
+![Tools menu](../../images/qgc/setup/parameters_tools_menu.png)
+
+**Refresh** <br />Refresh the parameter values by re-requesting all of them from the vehicle.
+
+**Reset all to defaults** <br />Reset all parameters to their original default values.
+
+**Load from file / Save to file** <br />Load parameters from an existing file or save your current parameter settings to a file.
+
+**Clear RC to Param** <br />This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
+
+**Reboot Vehicle** <br />Reboot the vehicle (required after changing some parameters).

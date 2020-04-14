@@ -8,6 +8,8 @@ The board is a variant of the SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) flight contro
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+
 ## Quick Summary
 
 * Microprocessor: 
@@ -50,12 +52,22 @@ The board can be purchased from:
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/en/setup/building_px4.html) for this target:
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
     make px4_fmu-v3_default
     
 
 ## Pinouts and Schematics
 
-* Open hardware files: https://github.com/cuav/CUAV_Hardware/tree/master/Pixhack_V3
-* Documentation/wiring guides: http://doc.cuav.net/PixHack/pixhack-v3.html
+* [Documentation/wiring guides](http://doc.cuav.net/flight-controller/pixhack/en/pixhack-v3.html)
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | IO debug              |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |

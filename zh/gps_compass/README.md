@@ -4,11 +4,13 @@ PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS,
 
 PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2C总线）、HMC5883/HMC5983（I2C或SPI）、IST8310（I2C）和 LIS3MDL（I2C或SPI）。
 
+> **Note** The set of supported compasses can be inferred from the [magnetometer drivers](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) in the source code.
+
 最多可以连接4个内部或外部磁强计，但实际上只有一个磁强计可用作标题源。 系统根据其内部优先级自动选择可用的最佳罗盘（外部磁强计具有更高的优先级）。 如果主指南针在飞行中失败它将跳转到下一个指南针。 如果它在飞行前失败，将无法起飞。
 
 ![GPS + Compass](../../images/gps_compass.jpg)
 
-> **Tip** 在使用 [Pixhawk-系列](../flight_controller/pixhawk_series.md) 飞行控制器时，我们建议使用安装在远离飞机/esc电源线的地方使用 *整合GPS和罗盘* - 通常安装在基座或机翼上（适用于固定翼飞机）。 内部指南针 *可能* 在较大的机型（如垂直起降机型）上有用，在这些车辆上，通过安装Pixhawk距离电源线很远，可以减少电磁干扰。 On small vehicles an external compass is almost always required.
+> **Tip** When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing). The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
 
 ## GPS (Only) Options
 
@@ -30,11 +32,11 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
 
 GPS与罗盘的连接说明通常由厂家（至少支持更通用的 [自驾仪](../flight_controller/README.md)）提供
 
-> **Note** [Pixhawk系列](../flight_controller/pixhawk_series.md) 控制器通常有一个标记明确的端口用于连接GPS，指南针连接I2C或SPI总线（取决于设备）。 [Zubax GNSS 2](https://zubax.com/products/gnss_2) 也可以通过 [UAVCAN](https://dev.px4.io/en/uavcan/) 连接。
+> **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). The [Zubax GNSS 2](https://zubax.com/products/gnss_2) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
 
 <span></span>
 
-> **Tip** 连接GPS模块时，请注意引脚。 虽然这些都是软件兼容，有几个不同的引脚。
+> **Tip** Pay attention to pinout when connecting the GPS module. While these are all software-compatible, there are several different pin orderings.
 
 ## RTK-GPS Devices
 
@@ -54,7 +56,7 @@ To use a secondary GPS, attach it to any free port, and then perform a [Serial P
 
 The following steps show how to configure a secondary GPS on the `TELEM 2` port in *QGroundControl*:
 
-1. [Find and set](../advanced_config/parameters.md#finding-a-parameter) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**. 
+1. [Find and set](../advanced_config/parameters.md) the parameter [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to **TELEM 2**. 
   - Open *QGroundControl* and navigate to the **Vehicle Setup > Parameters** section.
   - Select the **GPS** tab (1), then open the [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) parameter (2) and select *TELEM 2* from the dropdown list (3). ![QGC Serial Example](../../assets/peripherals/qgc_serial_config_example.png)
 2. Reboot the vehicle in order to make the other parameters visible.
@@ -73,7 +75,7 @@ Additional configuration can be [performed](../advanced_config/parameters.md) us
 ## Developer Information
 
 - GPS/RTK-GPS 
-  - [RTK-GPS](https://dev.px4.io/en/advanced/rtk_gps.html) 
-  - [GPS driver](https://dev.px4.io/en/middleware/modules_driver.html#gps)
-  - [UAVCAN Example](https://dev.px4.io/en/uavcan/)
-- [Magnetometer drivers](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) (source code)
+  - [RTK-GPS](https://dev.px4.io/master/en/advanced/rtk_gps.html) 
+  - [GPS driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)
+  - [UAVCAN Example](https://dev.px4.io/master/en/uavcan/)
+- [Driver source code](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) (Compasses)
