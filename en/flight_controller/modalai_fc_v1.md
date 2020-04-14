@@ -44,7 +44,10 @@ The Flight Core can be paired with [ModalAI VOXL](https://docs.modalai.com/voxl-
 
 ## PX4 Firwmare Compatibility
 
-PX4 v1.11 brings stable support to this flight controller.  A branched v1.10 version maintained by ModalAI is also [available here](https://github.com/modalai/px4-firmware/tree/modalai-1.10), which include changes with ongoing development for improvements in VIO and VOA, which will be later upstreamed.
+*Flight Core v1* is fully compatible with the official PX4 Firmware from PX4 v1.11.
+
+ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/modalai-1.10) for PX4 v1.10.
+This includes improvements in VIO and VOA that are planned to be upstreamed.
 
 More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
 
@@ -65,9 +68,9 @@ This board supported in QGroundControl 4.0 and later.
 
 The diagram below shows the recommended orientation, which corresponds to `ROTATION_NONE` starting with PX4 v1.11 (and on the [ModalAI-maintained PX4 v1.10 branch](https://github.com/modalai/px4-firmware/tree/modalai-1.10))
 
-> **Note** If using the unrecommended *PX4 v1.10* stable releases from *QGroundControl* (only) use `ROTATION_YAW_180` for the above orientation.
-
 ![FlightCoreV1Orientation](../../assets/flight_controller/modalai/fc_v1/orientation.png)
+
+> **Warning** For *PX4 v1.10* stable releases from *QGroundControl* use `ROTATION_YAW_180` for the above orientation.
 
 ### Connectors
 
