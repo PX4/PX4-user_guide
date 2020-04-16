@@ -4,18 +4,18 @@
 
 이 섹션에서는 픽스호크 부트로더를 업데이트하는 여러 방법에 대해 설명합니다.
 
-> **Note** 하드웨어는 보통 적정 버전의 부트로더가 미리 설치되어 있습니다. FMUv2 펌웨어가 설치된 픽스호크 보드를 업데이트해야 하는 경우라면 다음과 같이 업데이트 할 수 있습니다: [펌웨어 > FMUv2 부트로더 업데이트](../config/firmware.md#bootloader)
+> **Note** 하드웨어에는 보통 적정 버전의 부트로더가 미리 설치되어 제공됩니다. FMUv2 펌웨어가 설치된 최신 버전의 픽스호크 보드를 업데이트해야 하는 경우에는 다음을 참고하십시오: [펌웨어 > FMUv2 부트로더 업데이트](../config/firmware.md#bootloader)
 
 ## QGroundControl 부트로더 업데이트 {#qgc_bootloader_update}
 
-*Qgroundcontrol*을 사용해 적절한/최신 버전의 펌웨어를 설치하는 방법이 가장 쉽습니다. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 매개변수를 설정해 다음 재시작시 부트로더 업데이트를 시작할 수 있습니다.
+*Qgroundcontrol*을 사용해 적절한/최신 버전의 펌웨어를 설치하는 것이 가장 쉬운 방법입니다. [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) 매개변수를 설정하여 다음 재시작시 부트로더 업데이트를 시작할 수 있습니다.
 
-> **Note** 이 방법은 펌웨어에 매개변수 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)가 있을 때만 사용할 수 있습니다. 현재는 FMUv2와 커스텀 펌웨어 일부에서만 사용 가능합니다.
+> **Note** 이 방법은 펌웨어에 매개변수 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)가 있을 때만 사용할 수 있습니다. ( 현재는 FMUv2와 일부 커스텀 펌웨어에서만 사용 가능합니다.)
 
 단계는 다음과 같습니다:
 
 1. SD카드를 삽입합니다 (발생할 수 있는 문제들의 디버그를 위한 부트 로그 기록을 가능하게 합니다.)
-2. 새로운/적절한 부트로더를 포함하는 이미지로 [부트로더를 업데이트](../config/firmware.md#custom)합니다.
+2. 적절한 부트로더를 포함하는 이미지로 [부트로더를 업데이트](../config/firmware.md#custom)합니다.
     
     > **팁** 업데이트된 부트로더는 커스텀 펌웨어 (예 - 개발 팀 펌웨어)나 최신 마스터 버전일 수 있습니다.
     
