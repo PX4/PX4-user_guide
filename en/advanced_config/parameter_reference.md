@@ -1032,6 +1032,13 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_CPU_MAX">COM_CPU_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum allowed CPU load to still allow arming</p><p><strong>Comment:</strong> A negative value disables the check.</p>   </td>
+ <td style="vertical-align: top;">-1 > 100 (1)</td>
+ <td style="vertical-align: top;">90.0</td>
+ <td style="vertical-align: top;">%</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_DISARM_LAND">COM_DISARM_LAND</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Time-out for auto disarm after landing</p><p><strong>Comment:</strong> A non-zero, positive value specifies the time-out period in seconds after which the vehicle will be automatically disarmed in case a landing situation has been detected during this period. A zero or negative value means that automatic disarming triggered by landing detection is disabled.</p>   </td>
  <td style="vertical-align: top;"></td>
