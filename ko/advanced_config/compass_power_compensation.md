@@ -1,10 +1,10 @@
-# Compass Power Compensation
+# 나침반 전력 보상
 
-Compasses (magnetometers) should be mounted as far as possible from cables that carry large currents, as these induce magnetic fields that may corrupt the compass readings.
+나침반 (지자기센서)은 자기장을 유도하여 나침반의 읽음값을 변화시킬 수 있으므로 큰 전류를 전달하는 케이블에서 최대한 멀리 설치해야합니다.
 
-This topic explains how to compensate for the induced magnetic fields in the cases where moving the compass is not realistic.
+이 항목에서는 나침반 이동이 현실적이 아닌 경우에 대해 유도된 자기장을 보정하는 방법에 대해 설명합니다.
 
-> **Tip** Moving the compass away from power-carrying cables is the easiest and most effective way to fix this issue, because the strength of the magnetic fields decreases quadratically with the distance from the cable.
+> ** 팁 ** 자기장 강도는 케이블과의 거리에 따라 2차 식(포물선)의 형태로 급격하게 감소하기 때문에 나침반을 전원 공급 케이블에서 멀리 옮기는 것이 문제를 해결하는 가장 쉽고 효과적인 방법입니다.
 
 <span></span>
 > **Note** The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
