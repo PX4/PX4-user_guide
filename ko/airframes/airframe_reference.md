@@ -42,7 +42,7 @@
 </tr>
 </tbody></table>
 
-## Copter
+## 콥터
 
 ### 동축반전식 헬리콥터
 
@@ -56,7 +56,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 좌측 경사판 서보모터, 피치 축</li><li><b>MAIN2</b>: 우측 경사판 서보모터, 롤 축</li><li><b>MAIN3</b>: 상부 rotor (CCW)</li><li><b>MAIN4</b>: 하부 rotor (CW)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 좌측 경사판 서보모터, 피치 축</li><li><b>MAIN2</b>: 우측 경사판 서보모터, 롤 축</li><li><b>MAIN3</b>: 상부 로터(반시계방향)</li><li><b>MAIN4</b>: 하부 하부로터(시계방향)</li></ul></td>
 </tr>
   </table>
 </div>
@@ -78,7 +78,7 @@
 </tr>
 </tbody></table>
 
-### 도데카로터 콕스
+### Dodecarotor Cox
 
 <div>
   <img src="../../assets/airframes/types/DodecaRotorXCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -106,7 +106,7 @@
   </tr>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
- <td style="vertical-align: top;">일반 도데카로터 콕스 지오메트리</td>
+ <td style="vertical-align: top;">일반 Dodecarotor cox의 기하 구조</td>
  <td style="vertical-align: top;"><p>관리자: William Peale <develop707@gmail.com></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
 
 </tr>
@@ -158,7 +158,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터1</li><li><b>MAIN2</b>: 모터2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: RC AUX1 채널의 피드스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터1</li><li><b>MAIN2</b>: 모터2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>AUX1</b>: RC AUX1 채널의 입력</li><li><b>AUX2</b>: RC AUX2 채널의 입력</li><li><b>AUX3</b>: RC AUX3 채널의 입력</li></ul></td>
 </tr>
   </table>
 </div>
@@ -174,7 +174,7 @@
   </tr>
 <tbody>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
- <td style="vertical-align: top;">일반 헥사로터 + 지오메트리</td>
+ <td style="vertical-align: top;">일반 헥사로터 + 기하 구조</td>
  <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
 
 </tr>
@@ -191,9 +191,40 @@
         공통 출력
       </th>
     </tr>
-<tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 전면 우측 상단, CW; 각도:60; 방향:CW</li><li><b>MAIN2</b>: 전면 우측 하단, CCW; 각도:60; 방향:CCW</li><li><b>MAIN3</b>: 후면 상단, CW; 각도:180; 방향:CW</li><li><b>MAIN4</b>: 후면 하단, CCW; 각도:180; 방향:CCW</li><li><b>MAIN5</b>: 전면 좌측 상단, CW; 각도:-60; 방향:CW</li><li><b>MAIN6</b>: 전면 좌측 하단, CCW; 각도:-60; 방향:CCW</li><li><b>AUX1</b>: RC AUX1 채널의 피드-스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드-스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드-스루</li></ul></td>
-</tr>
+    
+    <tr>
+      <td style="vertical-align: top;">
+        <ul>
+          <li>
+            <b>MAIN1</b>: 전면 우측 상단, CW; 각도:60; 방향:CW
+          </li>
+          <li>
+            <b>MAIN2</b>: 전면 우측 하단, CCW; 각도:60; 방향:CCW
+          </li>
+          <li>
+            <b>MAIN3</b>: 후면 상단, CW; 각도:180; 방향:CW
+          </li>
+          <li>
+            <b>MAIN4</b>: 후면 하단, CCW; 각도:180; 방향:CCW
+          </li>
+          <li>
+            <b>MAIN5</b>: 전면 좌측 상단, CW; 각도:-60; 방향:CW
+          </li>
+          <li>
+            <b>MAIN6</b>: 전면 좌측 하단, CCW; 각도:-60; 방향:CCW
+          </li>
+          <li>
+            <b>AUX1</b>: RC AUX1 채널의 입력
+          </li>
+          <li>
+            <b>AUX2</b>: RC AUX2 채널의 입력
+          </li>
+          <li>
+            <b>AUX3</b>: RC AUX3 채널의 입력
+          </li>
+        </ul>
+      </td>
+    </tr>
   </table>
 </div>
 
@@ -241,13 +272,13 @@
     </th>
   </tr>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
- <td style="vertical-align: top;">일반 X형 헥사로터 지오메트리</td>
- <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p><p><b>특정 출력:</b><ul><li><b>AUX1</b>: RC AUX1 채널의 피드-스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드-스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드-스루</li></ul></p></td>
+ <td style="vertical-align: top;">일반 X형 헥사로터 기하구조</td>
+ <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p><p><b>특정 출력:</b><ul><li><b>AUX1</b>: RC AUX1 채널의 입력</li><li><b>AUX2</b>: RC AUX2 채널의 입력</li><li><b>AUX3</b>: RC AUX3 채널의 입력</li></ul></p></td>
 
 </tr>
 <tr id="copter_hexarotor_x_uvify_draco-r">
  <td style="vertical-align: top;">UVify Draco-R</td>
- <td style="vertical-align: top;"><p>관리자: Hyon Lim <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 6002</p><p><b>특정 출력:</b><ul><li><b>AUX1</b>: RC AUX1 채널의 피드-스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드-스루</li></ul></p></td>
+ <td style="vertical-align: top;"><p>관리자: Hyon Lim <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 6002</p><p><b>특정 출력:</b><ul><li><b>AUX1</b>: RC AUX1 채널의 입력</li><li><b>AUX2</b>: RC AUX2 채널의 입력</li></ul></p></td>
 
 </tr>
 </table>
@@ -298,7 +329,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: RC AUX1 채널의 피드-스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드-스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드-스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: RC AUX1 채널의 입력</li><li><b>AUX2</b>: RC AUX2 채널의 입력</li><li><b>AUX3</b>: RC AUX3 채널의 입력</li></ul></td>
 </tr>
   </table>
 </div>
@@ -314,7 +345,7 @@
   </tr>
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
- <td style="vertical-align: top;">일반 +형 옥토콥터 지오메트리</td>
+ <td style="vertical-align: top;">일반 +형 옥토콥터 기하구조</td>
  <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
 
 </tr>
@@ -348,7 +379,7 @@
   </tr>
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10">
- <td style="vertical-align: top;">Generic 10" Octo coaxial geometry</td>
+ <td style="vertical-align: top;">일반 10" 옥타 동축반전 기하구조</td>
  <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
 
 </tr>
@@ -366,7 +397,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: RC AUX1 채널의 피드-스루</li><li><b>AUX2</b>: RC AUX2 채널의 피드-스루</li><li><b>AUX3</b>: RC AUX3 채널의 피드-스루</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 모터 1</li><li><b>MAIN2</b>: 모터 2</li><li><b>MAIN3</b>: 모터 3</li><li><b>MAIN4</b>: 모터 4</li><li><b>MAIN5</b>: 모터 5</li><li><b>MAIN6</b>: 모터 6</li><li><b>MAIN7</b>: 모터 7</li><li><b>MAIN8</b>: 모터 8</li><li><b>AUX1</b>: RC AUX1 채널의 입력</li><li><b>AUX2</b>: RC AUX2 채널의 입력</li><li><b>AUX3</b>: RC AUX3 채널의 입력</li></ul></td>
 </tr>
   </table>
 </div>
@@ -382,7 +413,7 @@
   </tr>
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
- <td style="vertical-align: top;">Generic Octocopter X geometry</td>
+ <td style="vertical-align: top;">일반 옥타콥터 X 기하구조</td>
  <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
 
 </tr>
