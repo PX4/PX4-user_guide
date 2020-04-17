@@ -1,10 +1,10 @@
 # 에어프레임 참조
 
-> **Note** **This list is [auto-generated](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py) from the source code**.
+> **참고** **이 목록은 소스 코드에서 [자동 생성](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py)됩니다**.
 > 
-> **AUX** channels may not be present on some flight controllers. If present, PWM AUX channels are commonly labelled **AUX OUT**.
+> 일부 비행 컨트롤러에는 **AUX** 채널이 없을 수 있습니다. 존재하는 경우 PWM AUX 채널은 일반적으로 AUX OUT으로 표시됩니다.
 
-이 페이지에는 모터 할당과 번호 지정을 포함한 지원되는 모든 기체 프레임이 나열됩니다 **녹색 모터**는 시계 방향으로 회전합니다. **파란색 모터**는 반시계 방향으로 회전합니다.
+이 페이지에는 모터 할당과 번호 지정을 포함한 지원되는 모든 기체 프레임이 나열되어 있습니다. **녹색 모터**는 시계 방향으로 회전합니다. **파란색 모터**는 반시계 방향으로 회전합니다.
 
 ## Autogyro
 
@@ -20,7 +20,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: 엘리베이터</li><li><b>MAIN4</b>: 러더</li><li><b>MAIN5</b>: 러더 (두번째, 선택적)</li><li><b>MAIN6</b>: 쓰로틀</li><li><b>MAIN7</b>: 휠</li><li><b>AUX1</b>: 프리로테이터를 위한 RC AUX1 채널의 피드-스루 (선택적)</li><li><b>AUX2</b>: 릴리즈 장치를 위한 RC AUX2 채널의 피드-스루 (선택적)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: rudder (두번째, 선택)</li><li><b>MAIN6</b>: throttle</li><li><b>MAIN7</b>: wheel</li><li><b>AUX1</b>: 프리로테이터를 위한 RC AUX1 채널의 입력 (선택적)</li><li><b>AUX2</b>: 릴리즈 장치를 위한 RC AUX2 채널의 입력 (선택적)</li></ul></td>
 </tr>
   </table>
 </div>
