@@ -1033,7 +1033,7 @@ Set -1 to disable the check</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_CPU_MAX">COM_CPU_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum allowed CPU load to still allow arming</p><p><strong>Comment:</strong> A negative value disables the check.</p>   </td>
+ <td style="vertical-align: top;"><p>Maximum allowed CPU load to still arm</p><p><strong>Comment:</strong> A negative value disables the check.</p>   </td>
  <td style="vertical-align: top;">-1 > 100 (1)</td>
  <td style="vertical-align: top;">90.0</td>
  <td style="vertical-align: top;">%</td>
