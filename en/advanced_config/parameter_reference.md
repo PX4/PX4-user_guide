@@ -9322,14 +9322,14 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians</p>   <
  <td style="vertical-align: top;"><strong id="GND_SPEED_D">GND_SPEED_D</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Speed proportional gain</p><p><strong>Comment:</strong> This is the derivative gain for the speed closed loop controller</p>   </td>
  <td style="vertical-align: top;">0.00 > 50.0 (0.005)</td>
- <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">0.001</td>
  <td style="vertical-align: top;">%m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GND_SPEED_I">GND_SPEED_I</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Speed Integral gain</p><p><strong>Comment:</strong> This is the integral gain for the speed closed loop controller</p>   </td>
  <td style="vertical-align: top;">0.00 > 50.0 (0.005)</td>
- <td style="vertical-align: top;">0.1</td>
+ <td style="vertical-align: top;">3.0</td>
  <td style="vertical-align: top;">%m/s</td>
 </tr>
 <tr>
