@@ -1,10 +1,10 @@
-# Land Detector Configuration
+# 착륙 감지기 설정
 
-The land detector is a dynamic vehicle model representing key vehicle states from ground contact through to landed. This topic explains the main parameters you may wish to tune in order to improve landing behaviour.
+착륙 감지기는 지면과의 접촉 및 착륙을 포함하는 기체의 핵심 상태를 포함하는 역학모델입니다. 이 문서는 기체의 착륙을 개선하기 위해 조정할 수 있는 계수들에 대해 설명합니다
 
 ## Auto-Disarming
 
-The land-detector automatically disarms the vehicle on landing.
+착륙 감지기가 착륙시 자동으로 기체를 Disarm합니다. 
 
 You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (or turn off auto-disarming by setting the parameter to -1).
 
