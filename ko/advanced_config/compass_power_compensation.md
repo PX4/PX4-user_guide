@@ -20,7 +20,7 @@
 ## 나침반 보정 방법 {#how}
 
 1. 드론의 펌웨어 버전이 전력 보정을 지원하는지 확인하십시오.  (현재 마스터 버전 또는 v.1.11.0 릴리즈)
-1. [ 표준 나침반 교정](../config/compass.md#compass-calibration)을 수행하십시오.
+1. [표준 나침반 캘리브레이션](../config/compass.md#compass-calibration)을 수행하십시오.
 1. 부팅시 데이터 로깅을 활성화하기 위해 [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) 매개 변수를 2로 설정하십시오.
 1. 더 많은 데이터 포인트를 취득을 위해 [ SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 매개 변수를 *high rate *(bit 2)으로 설정하십시오.
 1. 드론이 움직이지 않도록 고정하고 프로펠러를 부착하십시오(모터가 비행 중과 동일한 전류를 소비하게 됩니다). 이 예에서는 스트랩을 사용하여 드론을 고정시킵니다.
