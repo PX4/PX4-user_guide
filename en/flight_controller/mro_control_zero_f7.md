@@ -11,8 +11,6 @@ All accessed using front and rear 30pin Molex PicoClasp connectors.
 A durable plastic case, conformal board coating, and optional temperature calibration included.
 
 
-
-
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 
@@ -60,7 +58,6 @@ A durable plastic case, conformal board coating, and optional temperature calibr
 
 
 
-<!--
 ## Building Firmware
 
 > **Tip** Most users will not need to build this firmware!
@@ -68,29 +65,54 @@ A durable plastic case, conformal board coating, and optional temperature calibr
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
-
+make mro_ctrl-zero-f7
 ```
+
 
 ## Debug Ports
 
-See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
+### Console Port
+
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) runs on `USART7` using the pins listed below.
+This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
+
+mRo control zero f7 | | FTDI | 
+--- | --- | --- | ---
+17 | USART7 Tx   | 5 | FTDI RX (yellow)
+19 | USART7 Rx   | 4 | FTDI TX (orange)
+6  | USART21 GND | 1 | FTDI GND (black)
+
+
+### SWD Port
+
+The [SWD port](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) for FMU debugging is shown below.
+
+<!-- insert image here -->
+
+Use TC2030 debug connector cable (like this one: [TC2030-IDC-NL](https://www.tag-connect.com/product/tc2030-idc-nl)) to attach to either a BlackMagic probe or a ST-LINK V2 debugger.
+
 
 ## Pinouts
 
-See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
+![mRo Control Zero F7](../../assets/flight_controller/mro_control_zero_f7/mro_control_pinouts.jpg)
+
 
 ## Serial Port Mapping
 
 UART | Device | Port
 --- | --- | ---
-UART1 | /dev/ttyS0 | IO debug
-USART2 | /dev/ttyS1 | TELEM1 (flow control)
-USART3 | /dev/ttyS2 | TELEM2 (flow control)
-UART4 | | 
-UART7 | CONSOLE
-UART8 | SERIAL4
+USART2 | /dev/ttyS0 | TELEM1 (flow control)
+USART3 | /dev/ttyS1 | TELEM2 (flow control)
+UART4 | /dev/ttyS2 | GPS1
+USART6 | /dev/ttyS3 | Flex port (can be configured as SPI or UART with Flow Control).
+UART7 | /dev/ttyS4 | CONSOLE
+UART8 | /dev/ttyS5  | <!-- #FRSKY -->
 
--->
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+<!-- https://github.com/PX4/Firmware/blob/master/boards/mro/ctrl-zero-f7/nuttx-config/nsh/defconfig#L202-L207 -->
+
+
 
 ## Further Information
 
