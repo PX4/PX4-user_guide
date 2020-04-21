@@ -1,18 +1,18 @@
 # 비행 중단 설정
 
-*비행중단* [failsafe 행동은](../config/safety.md#failsafe_actions) [safety check](../config/safety.md)(예를 들어 RC 놓침, 지오펜스 충돌 등, etc. 어떤 타입의 기체거나 어떤 종류의 비행 보드이거나), 또는 [실패 감지기](../config/safety.md#failure_detector) 에 의해 실시 될 것 입니다.
+*비행 중단* [failsafe](../config/safety.md#failsafe_actions)는 안전 점검</1>(예. 기체 유형과 비행 모드가 무엇이든 RC 연결 끊김, geofence를 벗어남 등이 발생할 때)또는 [Failure Detector](../config/safety.md#failure_detector)에 의해 작동합니다. </p> 
 
-*비행 중단*이 활성화 되었을 대, PX4는 동시에 모든 모터를 끄고 모든 PWM 출력을 failsafe 값으로 설정합니다.
+*비행 중단*이 활성화되면, PX4는 동시에 모든 컨트롤러를 중단하고 모든 PWM출력값을 failsafe 값으로 변경합니다.
 
 연결된 장치에 따라 PWM failsafe 출력은 다음과 같이 활용 될 수 있습니다.
 
 - [낙하산](../peripherals/parachute.md) 펼치기.
-- 랜딩기억 펼치기.
+- 랜딩기어 펼치기.
 - 카메라를 보호하기 위해 PWM방식으로 연결된 짐벌을 안전 각도(또는 수납 위치) 로 움직이기.
 - 에어백 같은 팽창 장비 가동하기.
 - 알람 울리기.
 
-비행 중단으로부터 복구되는 방법은 없습니다. 한번 가동 되면 가능한 빨리 배터리를 분리해야 합니다. You will need to reboot/power cycle the vehicle before it can be used again.
+비행 중단을 취소하고 되돌리는 방법은 없습니다. 비행 중단이 시행되면 가능한 빨리 배터리를 분리하십시오. You will need to reboot/power cycle the vehicle before it can be used again.
 
 > **Tip** PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
 
