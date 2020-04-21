@@ -85,11 +85,13 @@ mRo control zero f7 | | FTDI |
 
 ### SWD Port
 
-The [SWD port](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) for FMU debugging is shown below.
+The [SWD port](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) for FMU debugging is a TC2030 debug connector, as shown below.
 
-<!-- insert image here -->
+![mro swd port](../../assets/flight_controller/mro_control_zero_f7/mro_control_zero_f7_swd.jpg)
 
-Use TC2030 debug connector cable (like this one: [TC2030-IDC-NL](https://www.tag-connect.com/product/tc2030-idc-nl)) to attach to either a BlackMagic probe or a ST-LINK V2 debugger.
+The easiest way to connect to this is to use the [TC2030 IDC NL cable](https://www.tag-connect.com/product/tc2030-idc-nl) below to attach to either a BlackMagic probe or a ST-LINK V2 debugger.
+
+![tc2030 idc nl cable](../../assets/flight_controller/mro_control_zero_f7/tc2030_idc_nl.jpg)
 
 
 ## Pinouts
@@ -106,7 +108,7 @@ USART3 | /dev/ttyS1 | TELEM2 (flow control)
 UART4 | /dev/ttyS2 | GPS1
 USART6 | /dev/ttyS3 | Flex port (can be configured as SPI or UART with Flow Control).
 UART7 | /dev/ttyS4 | CONSOLE
-UART8 | /dev/ttyS5  | <!-- #FRSKY -->
+UART8 | /dev/ttyS5  | Free serial port (typically for FrSky telemetry)
 
 
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
