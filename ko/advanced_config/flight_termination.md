@@ -12,31 +12,31 @@
 - 에어백 같은 팽창 장비 가동하기.
 - 알람 울리기.
 
-비행 중단을 취소하고 되돌리는 방법은 없습니다. 비행 중단이 시행되면 가능한 빨리 배터리를 분리하십시오. You will need to reboot/power cycle the vehicle before it can be used again.
+비행 중단을 취소하고 되돌리는 방법은 없습니다. 비행 중단이 시행되면 가능한 빨리 배터리를 분리하십시오. 기체를 다시 사용하기 전에 재부팅하거나 전원을 껐다 켜야 합니다.
 
-> **Tip** PX4 does not know what safety devices are attached - it just applies a predefined set of PWM values to its outputs.
-
-<span></span>
-
-> **Tip** Failsafe values are applied to all outputs on termination. There is no way to configure independent time-based (or other) triggering of the motors or specific safety devices.
+> **팁** PX4는 어떤 안전 장비가 기체에 장착되어있는지 알지 못합니다. PX4는 단순히 사전 정의된 PWM값을 출력으로 적용하게 됩니다.
 
 <span></span>
 
-> **Note** This is *not* an independent *Flight Termination System*. If power is lost or if the autopilot crashes completely, the failsafe devices will not be triggered.
+> **팁** Failsafe 값은 종료시 모든 출력에 적용됩니다. There is no way to configure independent time-based (or other) triggering of the motors or specific safety devices.
+
+<span></span>
+
+> **Note** 이것은 독립적인 *비행 중단 시스템*이 *아닙니다*. 전력이 손실되거나 Autopilot이 완전히 부서지면 failsafe 장치는 작동하지 않습니다. 
 
 ## 하드웨어 설정
 
-Any *safety device(s)* (e.g. a [parachute](../peripherals/parachute.md)) that can be triggered by changing a PWM value can be used, and may be connected to any free PWM port (both MAIN and AUX).
+PWM 값을 변경하여 작동하는 모든 *안전 장치* (예 : [낙하산](../peripherals/parachute.md))를 사용할 수 있으며, 비어있는 아무 PWM 포트(MAIN과 AUX 모두를 포함)에 안전 장치를 연결할 수 있습니다
 
-> **Note** If you're using Pixhawk-series board you will have to separately power the servo rail (i.e. from a 5V BEC, which is often also available from your ESC).
+> **참고** Pixhawk 시리즈 보드를 사용하는 경우 서보 레일에 별도로 전원을 공급해야합니다. (예 : ESC에 많이 사용하는 5V BEC)
 
 ## 소프트웨어 설정
 
-The [Safety](../config/safety.md) topic explains how to set the *flight termination* as the [failsafe action](../config/safety.md#failsafe_actions) to be performed for particular failsafe check.
+[안전](../config/safety.md) 주제는 *비행 중단*을 특정 failsafe 점검을 위해 수행되는 failsafe 작동</ 2>로 설정하는 방법을 설명합니다.</p> 
 
-The [Failure Detector](../config/safety.md#failure_detector) can also (optionally) be configured to trigger flight termination if the vehicle flips (exceeds a certain attitude) or if failure is detected by an external automatic trigger system (ATS):
+[Failure Detector](../config/safety.md#failure_detector)는 차량이 뒤집히거나(특정 자세를 초과한 경우) 외부 자동 트리거 시스템(ATS)에 의해 고장이 감지되는 경우 비행 종료를 시작하도록 선택적으로 구성 할 수 있습니다.
 
-- Enable the failure detector during flight by setting [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM).
+- [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)을 설정하여 failure detector를 활성화하십시오.
 - [Safety > Failure Detector > Attitude Trigger](../config/safety.md#attitude_trigger) explains how to configure the attitude limits that trigger *Flight termination*. > **Note** During *takeoff* excessive attitutes will trigger *lockdown* (kill motors, but not launch parachute) rather than flight termination. This is always enabled, irrespective of the value of `CBRK_FLIGHTTERM`.
 - [Safety > External Automatic Trigger System (ATS)](../config/safety.md#external_ats) explains how to configure an external trigger system.
 
