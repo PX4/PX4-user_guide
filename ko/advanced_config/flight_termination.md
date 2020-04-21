@@ -37,7 +37,7 @@ PWM 값을 변경하여 작동하는 모든 *안전 장치* (예 : [낙하산](.
 [Failure Detector](../config/safety.md#failure_detector)는 차량이 뒤집히거나(특정 자세를 초과한 경우) 외부 자동 트리거 시스템(ATS)에 의해 고장이 감지되는 경우 비행 종료를 시작하도록 선택적으로 구성 할 수 있습니다.
 
 - [CBRK_FLIGHTTERM=0](../advanced_config/parameter_reference.md#CBRK_FLIGHTTERM)을 설정하여 failure detector를 활성화하십시오.
-- [Safety > Failure Detector > Attitude Trigger](../config/safety.md#attitude_trigger) explains how to configure the attitude limits that trigger *Flight termination*. > **Note** During *takeoff* excessive attitutes will trigger *lockdown* (kill motors, but not launch parachute) rather than flight termination. This is always enabled, irrespective of the value of `CBRK_FLIGHTTERM`.
+- [Safety > Failure Detector > Attitude Trigger](../config/safety.md#attitude_trigger)는 *비행 중단*을 시작하는 한계 attitude를 구성하는 방법을 설명합니다. > **Note** During *takeoff* excessive attitutes will trigger *lockdown* (kill motors, but not launch parachute) rather than flight termination. This is always enabled, irrespective of the value of `CBRK_FLIGHTTERM`.
 - [Safety > External Automatic Trigger System (ATS)](../config/safety.md#external_ats) explains how to configure an external trigger system.
 
 For each MAIN output to which a safety device is attached, where "n" is the PWM port number, set:
