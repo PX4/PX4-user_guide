@@ -18,16 +18,16 @@
 
 - [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)-시스템의 호버 스로틀(기본값 50%) 고도를 보다 정확하게 제어하고 정확한 착륙 감지 보장하기 때문에 이 파라미터를 올바르게 설정하는 것이 중요합니다. 페이로드가 장착되지 않은 레이서 또는 대형 촬영용 드론은 훨씬 낮은 값의 세팅이 필요할 수 있습니다. (예. 35%)
     
-    > **참고** 부정확한 `MPC_THR_HOVER`설정은 지면과의 접촉이나 공중에 있을 때에 maybe-landed detection을 유발할 수 있습니다.(특히 [Position mode](../flight_modes/position_mc.md)나 [Altitude mode](../flight_modes/altitude_mc.md)일 때 그렇습니다.) This causes the vehicle to "twitch" (turn down the motors, and then immediately turn them back up).
+    > **참고** 부정확한 `MPC_THR_HOVER`설정은 지면과의 접촉이나 공중에 있을 때에 maybe-landed detection을 유발할 수 있습니다.(특히 [Position mode](../flight_modes/position_mc.md)나 [Altitude mode](../flight_modes/altitude_mc.md)일 때 그렇습니다.) 이 현상은 기체의 요동(모터를 껐다가 즉시 모터가 켜지는 현상)을 유발합니다.
 
-- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system. This should be set to enable a controlled descent.
+- [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - 시스템의 전체 최소 스로틀 이 설정은 제어된 강하가 가능하게 합니다.
 
-## Fixed Wing Configuration
+## 고정익 설정
 
-The complete set of relevant parameters is available under the [LNDFW](../advanced_config/parameter_reference.md#land-detector) prefix. These two parameters are sometimes worth tuning:
+관련 파라미터는 [LNDFW](../advanced_config/parameter_reference.md#land-detector) 접두사로 나열되어 있습니다. 이 두 파라미터는 때때로 조정할 가치가 있습니다:
 
-- [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) - the maximum airspeed allowed for the system still to be considered landed. The default of 8 m/s is a reliable tradeoff between airspeed sensing accuracy and triggering fast enough. Better airspeed sensors should allow lower values of this parameter.
-- [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum horizontal velocity for the system to be still be considered landed. 
+- [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX) -시스템이 착륙한 것으로 간주되는 최대 대기속도. 기본값인 8m/s는 속도 감지 정확도와 충분히 빠른 트리거를 안정적으로 절충합니다. 좋은 대기속도 센서는 이 파라미터 값을 낮출 수 있게 합니다.
+- [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - 시스템이 착륙하는 것으로 간주되는 최대 수평 속도 
 - [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum vertical velocity for the system to be still be considered landed. This parameter can be adjusted to ensure land detection triggers earlier or later on throwing the airframe for hand-launches.
 
 ## Land Detector States {#states}
