@@ -58,7 +58,26 @@ For more information see:
 * [Peripherals](../peripherals/README.md)
 
 
-## ESCs & Motors
+## Outputs: Motors, Servos, Actuators {#outputs}
+
+PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
+
+The outputs are divided into `MAIN` and `AUX` outputs, and individually numbered (i.e. `MAINn` and `AUXn`, where `n` is 1 to 6 or 8).
+The specific purpose for each output is hard coded on a per-airframe basis.
+Typically the `MAIN` port is used for core flight controls while `AUX` is used for non-critical actuators/payloads (though `AUX` may be used for flight controls if there aren't enough `MAIN` ports for the vehicle type- e.g. VTOL).
+
+For example, in a [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) the `MAIN` outputs 1-4 are used for corresponding motors, while the remaining `MAIN` and some `AUX` outputs are used for RC passthrough.
+
+> **Tip** The output mapping for all airframes is given in the [Airframe Reference](../airframes/airframe_reference.md).
+
+The actual ports used for the outputs on the [flight controller](#vehicle_controller) depends on the hardware and PX4 configuration.
+Usually the ports are mapped to PWM outputs (which are screen printed `MAIN` or `AUX`), but they may also be mapped to UAVCAN nodes.
+
+> **Warning** Some flight controllers may only have `MAIN` ports, or may have only 6 outputs on either `MAIN` or `AUX`.
+  Ensure you select a controller that has enough of the right types of ports for your [airframe](../airframes/airframe_reference.md).
+
+
+## ESCs & Motors {#esc_and_motors}
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) 
 (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
