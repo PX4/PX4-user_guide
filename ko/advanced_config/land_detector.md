@@ -10,15 +10,15 @@
 
 ## 멀티콥터 설정
 
-The complete set of relevant landing detector parameters are listed in the parameter reference with the prefix [LNDMC](../advanced_config/parameter_reference.md#land-detector) (these can be edited in QGroundControl via the [parameter editor](../advanced_config/parameters.md)).
+착륙 감지기와 연관된 파라미터의 전체 리스트는 파라미터 레퍼런스에 접두사 [LNDMC](../advanced_config/parameter_reference.md#land-detector)으로 나열되어 있습니다(QGroundControl의 파라미터 편집기를 통해 수정할 수 있습니다.)
 
-> **Tip** Information about how the parameters affect landing can be found below in [Land Detector States](#states).
+> **팁** 파라미터가 착륙에 미치는 영향은 아래 [시동 감지기 상태](#states)에서 확인할 수 있습니다.
 
-Other key parameters that you may need to tune in order to improve landing behaviour on particular airframes are:
+특정 기체에서 착륙 동작을 개선하기 위해 조정해야 할 다른 주요 파라미터는 다음과 같습니다.
 
-- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - the hover throttle of the system (default is 50%). It is important to set this correctly as it makes altitude control more accurate and ensures correct land detection. A racer or a big camera drone without payload mounted might need a much lower setting (e.g. 35%).
+- [MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)-시스템의 호버 스로틀(기본값 50%) 고도를 보다 정확하게 제어하고 정확한 착륙 감지 보장하기 때문에 이 파라미터를 올바르게 설정하는 것이 중요합니다. 페이로드가 장착되지 않은 레이서 또는 대형 촬영용 드론은 훨씬 낮은 값의 세팅이 필요할 수 있습니다. (예. 35%)
     
-    > **Note** Incorrectly setting `MPC_THR_HOVER` may result in ground-contact or maybe-landed detection while still in air (in particular, while descending in [Position mode](../flight_modes/position_mc.md) or [Altitude mode](../flight_modes/altitude_mc.md)). This causes the vehicle to "twitch" (turn down the motors, and then immediately turn them back up).
+    > **참고** 부정확한 `MPC_THR_HOVER`설정은 지면과의 접촉이나 공중에 있을 때에 maybe-landed detection을 유발할 수 있습니다.(특히 [Position mode](../flight_modes/position_mc.md)나 [Altitude mode](../flight_modes/altitude_mc.md)일 때 그렇습니다.) This causes the vehicle to "twitch" (turn down the motors, and then immediately turn them back up).
 
 - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) - the overall minimum throttle of the system. This should be set to enable a controlled descent.
 
