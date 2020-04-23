@@ -211,7 +211,7 @@ Optical flow data will be used if the following conditions are met:
 * Bit position 1 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 * The quality metric returned by the flow sensor is greater than the minimum requirement set by the [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) parameter.
 
-### External Vision System
+### External Vision System {#ekf2_extvis}
 
 Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 
