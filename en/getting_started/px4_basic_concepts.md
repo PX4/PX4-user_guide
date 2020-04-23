@@ -62,7 +62,7 @@ For more information see:
 
 PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
-The outputs are divided into `MAIN` and `AUX` outputs, and individually numbered (i.e. `MAINn` and `AUXn`, where `n` is 1 to 6 or 8).
+The outputs are divided into `MAIN` and `AUX` outputs, and individually numbered (i.e. `MAINn` and `AUXn`, where `n` is 1 to usually 6 or 8).
 The specific purpose for each output is hard coded on a per-airframe basis.
 Typically the `MAIN` port is used for core flight controls while `AUX` is used for non-critical actuators/payloads (though `AUX` may be used for flight controls if there aren't enough `MAIN` ports for the vehicle type- e.g. VTOL).
 
@@ -71,10 +71,23 @@ For example, in a [Generic Quadcopter](../airframes/airframe_reference.md#copter
 > **Tip** The output mapping for all airframes is given in the [Airframe Reference](../airframes/airframe_reference.md).
 
 The actual ports used for the outputs on the [flight controller](#vehicle_controller) depends on the hardware and PX4 configuration.
-Usually the ports are mapped to PWM outputs (which are screen printed `MAIN` or `AUX`), but they may also be mapped to UAVCAN nodes.
+*Usually* the ports are mapped to PWM outputs, which are commonly screen printed `MAIN` or `AUX`.
 
+> **Note** Pixhawk controllers have a "main" FMU board and *may* have a separate IO board.
+  If there is an IO board, the `AUX` ports are connected directly to the FMU and the `MAIN` ports are connected to the IO board.
+  Otherwise the `MAIN` ports are connected to the FMU, and there are no `AUX` ports.
+  The output ports on the FMU can use [D-shot](../peripherals/dshot.md) or *One-shot* protocols (as well as PWM), which provide much lower-latency behaviour.
+  This can be useful for racers and other airframes that require better performance.
+
+<span></span>
 > **Warning** Some flight controllers may only have `MAIN` ports, or may have only 6 outputs on either `MAIN` or `AUX`.
-  Ensure you select a controller that has enough of the right types of ports for your [airframe](../airframes/airframe_reference.md).
+  Ensure you select a controller that has enough of the right types of ports/outputs for your [airframe](../airframes/airframe_reference.md).
+
+The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.html)). 
+The (same) airframe mapping of outputs to nodes is used in this case. 
+
+> **Note** In theory there can be many more than 6-8 outputs in `AUX` and `MAIN` (i.e. a UAVCAN bus is not limited to this few nodes).
+  The limit is chosen because most flight controllers only have this many PWM/Dshot/Oneshot outputs.
 
 
 ## ESCs & Motors {#esc_and_motors}
