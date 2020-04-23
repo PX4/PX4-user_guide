@@ -4966,7 +4966,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -4988,7 +4988,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -5010,7 +5010,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
