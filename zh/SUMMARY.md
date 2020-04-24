@@ -219,7 +219,7 @@
       * [Configuration](flight_controller/snapdragon_flight_configuration.md)
       * [Snapdragon Advanced](flight_controller/snapdragon_flight_advanced.md)
     * [3DR Pixhawk 1 (Discontinued)](flight_controller/pixhawk.md)
-    * [3DR Pixhawk Mini (Discontinued)](flight_controller/pixhawk_mini.md)
+    * [3DR Pixhawk Mini](flight_controller/pixhawk_mini.md)
 * [成品机](complete_vehicles/README.md) 
   * [PX4 视觉套机](complete_vehicles/px4_vision_kit.md)
   * [MindRacer BNF & RTF](complete_vehicles/mindracer_BNF_RTF.md) 
