@@ -37,4 +37,4 @@ This section lists the autopilot hardware documented in this library (that can b
   - [Qualcomm Snapdragon Flight (Discontinued)](../flight_controller/snapdragon_flight.md)
   - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
   - [3DR Pixhawk 1 (FMUv2) (Discontinued)](../flight_controller/pixhawk.md)
-  - [3DR Pixhawk Mini (FMUv2) (Discontinued)](../flight_controller/pixhawk_mini.md)
+  - [3DR Pixhawk Mini (FMUv2)](../flight_controller/pixhawk_mini.md)
