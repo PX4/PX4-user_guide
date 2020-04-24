@@ -1,6 +1,6 @@
-# Pixhawk Mini (Discontinued)
+# Pixhawk Mini
 
-> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
+> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 
 The 3DR<sup>&reg;</sup> *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk (designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>). It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
 
@@ -53,6 +53,10 @@ Wiring information is available [below](#wiring).
 - **GNSS receiver:** ublox<sup>&reg;</sup> Neo-M8N; compass HMC5983
 - **Weight:** 22.4g
 - **Dimensions:** 37x37x12mm
+
+## Purchase
+
+[shop.holybro.com](https://shop.holybro.com/pixhawk-mini_p1078.html)
 
 ## Connector assignments
 
