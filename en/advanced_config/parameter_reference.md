@@ -4966,7 +4966,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -4988,7 +4988,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -5010,7 +5010,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -14427,6 +14427,13 @@ tailsitter, tiltrotor: main throttle</p>   </td>
  <td style="vertical-align: top;">900 > 2000 (1)</td>
  <td style="vertical-align: top;">900</td>
  <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_MC_ON_FMU">VT_MC_ON_FMU</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable the usage of AUX outputs for hover motors</p><p><strong>Comment:</strong> Set this parameter to true if the vehicle's hover motors are connected to the FMU (AUX) port. Not required for boards that only have a FMU, and no IO. Only applies for standard VTOL and tiltrotor.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_MOT_ID">VT_MOT_ID</strong> (INT32)</td>
