@@ -89,10 +89,11 @@ The [SWD port](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) for FMU 
 
 ![mro swd port](../../assets/flight_controller/mro_control_zero_f7/mro_control_zero_f7_swd.jpg)
 
-The easiest way to connect to this is to use the [TC2030 IDC NL cable](https://www.tag-connect.com/product/tc2030-idc-nl) below to attach to either a BlackMagic probe or a ST-LINK V2 debugger.
+You can use the [Tag Connect](https://www.tag-connect.com/) cable [TC2030 IDC NL](https://www.tag-connect.com/product/tc2030-idc-nl) below (with associated [retaining clip](https://www.tag-connect.com/product/tc2030-clip-retaining-clip-board-for-tc2030-nl-cables)) to attach to either a BlackMagic probe or a ST-LINK V2 debugger.
 
 ![tc2030 idc nl cable](../../assets/flight_controller/mro_control_zero_f7/tc2030_idc_nl.jpg)
 
+There is also an [ARM20-CTX 20-Pin to TC2030-IDC adapter](https://www.tag-connect.com/product/arm20-ctx-20-pin-to-tc2030-idc-adapter-for-cortex) that can be used with other debug probes.
 
 ## Pinouts
 
