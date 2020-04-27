@@ -67,9 +67,9 @@ For example, the images below show the PWM output ports for [Pixhawk 4](/flight_
 ![Pixhawk 4 output ports](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 mini MAIN ports](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
 The outputs are divided into `MAIN` and `AUX` outputs, and individually numbered (i.e. `MAINn` and `AUXn`, where `n` is 1 to usually 6 or 8).
-The specific purpose for each output is hard coded on a per-airframe basis.
 
-> **Tip** The output mapping for all airframes is given in the [Airframe Reference](../airframes/airframe_reference.md).
+> **Tip** The specific purpose for each output is hard coded on a per-airframe basis.
+  The output mapping for all airframes is given in the [Airframe Reference](../airframes/airframe_reference.md).
 
 <span></span>
 > **Warning** A flight controller may only have `MAIN` outputs (like the *Pixhawk 4 Mini*), or may have only 6 outputs on either `MAIN` or `AUX`.
