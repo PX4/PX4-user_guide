@@ -58,7 +58,46 @@ For more information see:
 * [Peripherals](../peripherals/README.md)
 
 
-## ESCs & Motors
+## Outputs: Motors, Servos, Actuators {#outputs}
+
+PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
+
+For example, the images below show the PWM output ports for [Pixhawk 4](/flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
+
+![Pixhawk 4 output ports](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 mini MAIN ports](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
+
+The outputs are divided into `MAIN` and `AUX` outputs, and individually numbered (i.e. `MAINn` and `AUXn`, where `n` is 1 to usually 6 or 8).
+
+> **Tip** The specific purpose for each output is hard coded on a per-airframe basis.
+  The output mapping for all airframes is given in the [Airframe Reference](../airframes/airframe_reference.md).
+
+<span></span>
+> **Warning** A flight controller may only have `MAIN` outputs (like the *Pixhawk 4 Mini*), or may have only 6 outputs on either `MAIN` or `AUX`.
+  Ensure that you select a controller that has enough of the right types of ports/outputs for your [airframe](../airframes/airframe_reference.md).
+
+Typically the `MAIN` port is used for core flight controls while `AUX` is used for non-critical actuators/payloads (though `AUX` may be used for flight controls if there aren't enough `MAIN` ports for the vehicle type- e.g. VTOL).
+For example, in a [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) the `MAIN` outputs 1-4 are used for corresponding motors, while the remaining `MAIN` and some `AUX` outputs are used for RC passthrough.
+
+The actual ports/bus used for the outputs on the [flight controller](#vehicle_controller) depends on the hardware and PX4 configuration.
+*Usually* the ports are mapped to PWM outputs as shown above, which are commonly screen printed `MAIN OUT` and `AUX OUT`.
+
+They might also be marked as `FMU PWM OUT` or `IO PWM Out` (or similar). 
+Pixhawk controllers have a "main" FMU board and *may* have a separate IO board.
+If there is an IO board, the `AUX` ports are connected directly to the FMU and the `MAIN` ports are connected to the IO board.
+Otherwise the `MAIN` ports are connected to the FMU, and there are no `AUX` ports.
+The FMU output ports can use [D-shot](../peripherals/dshot.md) or *One-shot* protocols (as well as PWM), which provide much lower-latency behaviour.
+This can be useful for racers and other airframes that require better performance.
+  
+The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.html)). 
+The (same) airframe mapping of outputs to nodes is used in this case. 
+
+
+**Notes:**
+- There are only 6-8 outputs in `MAIN` and `AUX` because most flight controllers only have this many PWM/Dshot/Oneshot outputs.
+  In theory there can be many more outputs if the bus supports it (i.e. a UAVCAN bus is not limited to this few nodes).
+
+
+## ESCs & Motors {#esc_and_motors}
 
 Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) 
 (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
