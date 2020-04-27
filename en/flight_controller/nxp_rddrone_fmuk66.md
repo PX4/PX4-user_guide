@@ -1,6 +1,6 @@
 # NXP RDDRONE-FMUK66 FMU
 
-RDDRONE-FMUK66 FMU is a reference design using NXP Semiconductor components that closely follows Pixhawk v4 specifications while adding two wire automotive Ethernet 100BASET1 and secure element A71CH (RevC) or SE050 (RevD).
+RDDRONE-FMUK66 FMU is a reference design using NXP Semiconductor components that closely follows Pixhawk FMUv4 specifications while adding two wire automotive Ethernet 100BASET1 and secure element A71CH (RevC) or SE050 (RevD).
 NXP provides the schematics, gerbers, BOM and source files so that anyone can duplicate, change or repurpose this design.
 
 This is the official FMU for use with [HoverGames](https://www.hovergames.com/).
@@ -25,18 +25,18 @@ The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs
   - Accel/Magnetometer: FXOS8700CQ
   - Gyro: FXAS21002CQ
   - Magnetometer: BMM150
-  - Barometer ML3115A2
-  - Barometer BMP280
+  - Barometer: ML3115A2
+  - Barometer: BMP280
 - **GPS:**
   - ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
 
 
-This FMU is provided only as a kit, and includes Segger Jlink EDU mini debugger, DCD-LZ debugger adapter, USB-TTL-3V3 console cable, HolyBro GPS module, battery power module, SDCard and case, screws and stickers.
-Telemetry radios (HGD-TELEM433 and HGD-TELEM915) must be purchased separately to match ISM band frequencies used in your country.
+This FMU is provided only as a kit, and includes [Segger Jlink EDU mini debugger](https://www.segger.com/products/debug-probes/j-link/models/j-link-edu-mini/), DCD-LZ debugger adapter, USB-TTL-3V3 console cable, HolyBro GPS module, battery power module, SDCard and case, screws and stickers.
+Telemetry radios ([HGD-TELEM433](https://www.nxp.com/part/HGD-TELEM433) and [HGD-TELEM915](https://www.nxp.com/part/HGD-TELEM915)) must be purchased separately to match ISM band frequencies used in your country.
 
 ![RDDRONE-FMUK66 FMU Kit](../../assets/flight_controller/nxp_rddrone_fmuk66/RDDRONE-FMUK66-KIT-IMG.webp)
 
-A "Lite" version RDDRONE-FMUK66L is also available which does not include the power module, GPS, Jlink or USB-TTL-3V3 console cable or SDCard.
+A "Lite" version RDDRONE-FMUK66L is also available which does not include the power module, GPS, Jlink or USB-TTL-3V3 console cable or SDCard.[Scroll down to see FMUK66L in the buy section of the FMUK66 buy page](https://www.nxp.com/design/designs/px4-robotic-drone-fmu-rddrone-fmuk66:RDDRONE-FMUK66#buy)
 
 Additional information can be found in the [Technical Data Sheet](https://www.nxp.com/design/designs/px4-robotic-drone-fmu-rddrone-fmuk66:RDDRONE-FMUK66). <!-- www.nxp.com/rddrone-fmuk66 -->
 
