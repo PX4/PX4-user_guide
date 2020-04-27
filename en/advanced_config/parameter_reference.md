@@ -13428,8 +13428,9 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_A_ENABLE">TC_A_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thermal compensation for accelerometer sensors</p>   </td>
- <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;"><p>Thermal compensation for accelerometer sensors</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -13666,8 +13667,9 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B_ENABLE">TC_B_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thermal compensation for barometric pressure sensors</p>   </td>
- <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;"><p>Thermal compensation for barometric pressure sensors</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -14072,8 +14074,9 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G_ENABLE">TC_G_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thermal compensation for rate gyro sensors</p>   </td>
- <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;"><p>Thermal compensation for rate gyro sensors</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
 </tr>
