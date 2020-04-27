@@ -49,129 +49,157 @@ PX4 使用传感器来确定飞行器状态（稳定和启用自动控制所需�
 - [传感器](../getting_started/sensor_selection.md) 
 - [外设](../peripherals/README.md)
 
-## 电调 & 电机
+## Outputs: Motors, Servos, Actuators {#outputs}
 
-许多 PX4 无人机使用无刷电机，其由飞行控制器通过电子调速器（ESC）驱动（ESC将来自飞行控制器的信号转换为合适的功率水平，传递给电机）。
+PX4 uses *outputs* to control: motor speed (e.g. via [ESC](#esc_and_motors)), flight surfaces like ailerons and flaps, camera triggers, parachutes, grippers, and many other types of payloads.
 
-有关 PX4 支持的电调和电机的信息，请参阅：
+For example, the images below show the PWM output ports for [Pixhawk 4](/flight_controller/pixhawk4.md) and [Pixhawk 4 mini](../flight_controller/pixhawk4_mini.md).
 
-- [电调 & 电机](../peripherals/esc_motors.md)
-- [电调校准](../advanced_config/esc_calibration.md)
-- [电调固件和协议概述](https://oscarliang.com/esc-firmware-protocols/)（oscarliang.com）
+![Pixhawk 4 output ports](../../assets/flight_controller/pixhawk4/pixhawk4_main_aux_ports.jpg) ![Pixhawk4 mini MAIN ports](../../assets/flight_controller/pixhawk4mini/pixhawk4mini_pwm.png)
 
-## 电池/电源
+The outputs are divided into `MAIN` and `AUX` outputs, and individually numbered (i.e. `MAINn` and `AUXn`, where `n` is 1 to usually 6 or 8).
 
-PX4 无人机通常由锂聚合物（LiPo）电池供电。 电池通常使用*电源模块 *或*电源管理板 *连接到系统，它为飞行控制器和 ESC（用于电动机）提供单独的动力。
+> **Tip** The specific purpose for each output is hard coded on a per-airframe basis. The output mapping for all airframes is given in the [Airframe Reference](../airframes/airframe_reference.md).
 
-有关电池和电池配置的信息，请参见[电池配置](../config/battery.md)和[基本组件](../assembly/README.md)（例如[ Pixhawk 4 接线快速入门>电源](../assembly/quick_start_pixhawk4.md#power)）。
+<span></span>
 
-## 无线电控制（遥控） {#rc_systems}
+> **Warning** A flight controller may only have `MAIN` outputs (like the *Pixhawk 4 Mini*), or may have only 6 outputs on either `MAIN` or `AUX`. Ensure that you select a controller that has enough of the right types of ports/outputs for your [airframe](../airframes/airframe_reference.md).
 
-[遥控（RC）](../getting_started/rc_transmitter_receiver.md)系统用于 *手动* 控制机体。 它由一个遥控装置组成，使用发射机来与飞行器上的接收机通信。 一些 RC 系统还可以接自动驾驶仪传回的收遥测信息。
+Typically the `MAIN` port is used for core flight controls while `AUX` is used for non-critical actuators/payloads (though `AUX` may be used for flight controls if there aren't enough `MAIN` ports for the vehicle type- e.g. VTOL). For example, in a [Generic Quadcopter](../airframes/airframe_reference.md#copter_quadrotor_x_generic_quadcopter) the `MAIN` outputs 1-4 are used for corresponding motors, while the remaining `MAIN` and some `AUX` outputs are used for RC passthrough.
 
-> **Note** PX4 在自主飞行模式中不需要遥控系统。
+The actual ports/bus used for the outputs on the [flight controller](#vehicle_controller) depends on the hardware and PX4 configuration. *Usually* the ports are mapped to PWM outputs as shown above, which are commonly screen printed `MAIN OUT` and `AUX OUT`.
 
-![Taranis X9D遥控器。](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
+They might also be marked as `FMU PWM OUT` or `IO PWM Out` (or similar). Pixhawk controllers have a "main" FMU board and *may* have a separate IO board. If there is an IO board, the `AUX` ports are connected directly to the FMU and the `MAIN` ports are connected to the IO board. Otherwise the `MAIN` ports are connected to the FMU, and there are no `AUX` ports. The FMU output ports can use [D-shot](../peripherals/dshot.md) or *One-shot* protocols (as well as PWM), which provide much lower-latency behaviour. This can be useful for racers and other airframes that require better performance.
 
-[遥控系统选择](../getting_started/rc_transmitter_receiver.md) 说明如何选择遥控系统。 其他相关主题包括：
+The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.html)). The (same) airframe mapping of outputs to nodes is used in this case.
 
-- [遥控设置](../config/radio.md) - *QGC 地面站* 中的遥控配置。
-- [飞行 101](../flying/basic_flying.md) - 学习如何使用遥控器飞行。
-- [FrSky 数传](../peripherals/frsky_telemetry.md) - 设置遥控发射机以从 PX4 接收数传/状态更新。
+**Notes:**
 
-## 地面站游戏手柄控制器 {#joystick}
+- There are only 6-8 outputs in `MAIN` and `AUX` because most flight controllers only have this many PWM/Dshot/Oneshot outputs. In theory there can be many more outputs if the bus supports it (i.e. a UAVCAN bus is not limited to this few nodes).
 
-通过 *QGC 地面站* 连接 [计算机游戏手柄](../config/joystick.md) 也可以用来手动控制 PX4（QGC 将游戏手柄的动作转换为 MAVLink 消息通过数传链接发送）。 这种方法被一些集成了地面站的地面端遥控器所使用的，如下图中的 *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) 所示。 游戏手柄也经常被用于无人机的飞行仿真中。
+## ESCs & Motors {#esc_and_motors}
+
+Many PX4 drones use brushless motors that are driven by the flight controller via an Electronic Speed Controller (ESC) (the ESC converts a signal from the flight controller to an appropriate level of power delivered to the motor).
+
+For information about what ESC/Motors are supported by PX4 see:
+
+- [ESC & Motors](../peripherals/esc_motors.md)
+- [ESC Calibration](../advanced_config/esc_calibration.md)
+- [ESC Firmware and Protocols Overview](https://oscarliang.com/esc-firmware-protocols/) (oscarliang.com)
+
+## Battery/Power
+
+PX4 drones are mostly commonly powered from Lithium-Polymer (LiPo) batteries. The battery is typically connected to the system using a *Power Module* or *Power Management Board*, which provide separate power for the flight controller and to the ESCs (for the motors).
+
+Information about batteries and battery configuration can be found in [Battery Configuration](../config/battery.md) and the guides in [Basic Assembly](../assembly/README.md) (e.g. [Pixhawk 4 Wiring Quick Start > Power](../assembly/quick_start_pixhawk4.md#power)).
+
+## Radio Control (RC) {#rc_systems}
+
+A [Radio Control \(RC\)](../getting_started/rc_transmitter_receiver.md) system is used to *manually* control the vehicle. It consists of a remote control unit that uses a transmitter to communicate stick/control positions with a receiver based on the vehicle. Some RC systems can additionally receive telemetry information back from the autopilot.
+
+> **Note** PX4 does not require a remote control system for autonomous flight modes.
+
+![Taranis X9D Transmitter](../../assets/hardware/transmitters/frsky_taranis_x9d_transmitter.jpg)
+
+[RC System Selection](../getting_started/rc_transmitter_receiver.md) explains how to choose an RC system. Other related topics include:
+
+- [Radio/Remote Control Setup](../config/radio.md) - Remote control configuration in *QGroundControl*.
+- [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.
+- [FrSky Telemetry](../peripherals/frsky_telemetry.md) - Set up the RC transmitter to receive telemetry/status updates from PX4.
+
+## GCS Joystick Controller {#joystick}
+
+A [computer joystick](../config/joystick.md) connected through *QGroundControl* can also be used to manually control PX4 (QGC converts joystick movements into MAVLink messages that are sent over the telemetry link). This approach is used by ground control units that have an integrated ground control station, like the *UAVComponents* [MicroNav](https://www.uavcomp.com/command-control/micronav/) shown below. Joysticks are also commonly used to fly the vehicle in simulation.
 
 ![Joystick MicroNav.](../../assets/peripherals/joystick/micronav.jpg)
 
-## 安全开关 {#safety_switch}
+## Safety Switch {#safety_switch}
 
-机体通常必须有一个 *安全开关*，然后才能使用 [解锁](#arming)（解锁后，电机会供电，螺旋桨开始旋转）。 通常，安全开关被整合到GPS设备中，但也可能是一个单独的物理组件。
+It is common for vehicles to have a *safety switch* that must be engaged before the vehicle can be [armed](#arming) (when armed, motors are powered and propellers can turn). Commonly the safety switch is integrated into a GPS unit, but it may also be a separate physical component.
 
-> **Note** 解锁后的机体是有潜在危险的。 安全开关是防止意外解锁发生的一个附加机制。
+> **Note** A vehicle that is armed is potentially dangerous. The safety switch is an additional mechanism that prevents arming from happening by accident.
 
-## 数传电台
+## Data/Telemetry Radios
 
-[数传电台](../telemetry/README.md) 可以在诸如 *QGC 地面站* 与运行 PX4 的机体之间提供无线 MAVLink 连接。 这使得飞机飞行中调试参数、实时检查遥测信息、更改任务等等成为了可能。
+[Data/Telemetry Radios](../telemetry/README.md) can provide a wireless MAVLink connection between a ground control station like *QGroundControl* and a vehicle running PX4. This makes it possible to tune parameters while a vehicle is in flight, inspect telemetry in real-time, change a mission on the fly, etc.
 
-## Offboard/机载计算机
+## Offboard/Companion Computer
 
-PX4 可以通过串行接线或 WiFi 由独立的机载伴飞计算机进行控制。 机载计算机通常使用 MAVLink API（如 MAVSDK 或 MAVROS）进行通信。
+PX4 can be controlled from a separate on-vehicle companion computer via a serial cable or wifi. The companion computer will usually communicate using a MAVLink API like the MAVSDK or MAVROS.
 
-> **Note** 使用机器人 API 需要软件开发技能，但不在本指南的范围之内。
+> **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 
-- [Offboard 模式](../flight_modes/offboard.md) - 用于从地面站或机载计算机对 PX4 进行 Offboard 控制的飞行模式。 
-- [机器人 API](https://dev.px4.io/master/en/robotics/)（PX4开发人员指南）
+- [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
+- [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
 
-## SD卡（可移除储存器） {#sd_cards}
+## SD Cards (Removable Memory) {#sd_cards}
 
-PX4 使用 SD 储存卡存储 [飞行日志](../getting_started/flight_reporting.md)，而且还需要内存卡才能使用 UAVCAN 外围设备，运行 [飞行任务](../flying/missions.md)。
+PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_reporting.md), and they are also required in order to use UAVCAN peripherals and fly [missions](../flying/missions.md).
 
-默认情况下，如果没有 SD 卡，PX4 将在启动时播放 [格式化失败（2-声短响）](../getting_started/tunes.md#format-failed) 两次（且上述需要储存卡的功能都不可用）。
+By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
-> **Tip** Pixhawk 飞控板支持的最大 SD 卡大小为 32 GB 。 [强烈推荐使用](https://dev.px4.io/master/en/log/logging.html#sd-cards) SanDisk Extreme U3 32GB（开发者指南）。
+> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
 
-SD 卡在某些情况下也是可选的。 不包含 SD 卡槽的飞行控制器可以：
+SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
 
-- 使用参数 [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER) 禁用通知蜂鸣器。
-- [推流日志](https://dev.px4.io/master/en/log/logging.html#log-streaming) 到另一个组件（机载计算机）。
-- 在 RAM/FLASH 中储存任务。<!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/Firmware/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
+- Disable notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
+- [Stream logs](https://dev.px4.io/master/en/log/logging.html#log-streaming) to another component (companion).
+- Store missions in RAM/FLASH. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/Firmware/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
-## 解锁和加锁 {#arming}
+## Arming and Disarming {#arming}
 
-机体是有可移动的部件的，其中一些在通电后会有潜在的危险性（特别是电机和螺旋桨）！
+Vehicles may have moving parts, some of which are potentially dangerous when powered (in particular motors and propellers)!
 
-为了减少事故概率：
+To reduce the chance of accidents:
 
-- 当不在使用时， PX4 机体是 *加锁状态的*（未供电的），必须在起飞前进行 *解锁*。
-- 一些机体还需要长按 [安全开关](../getting_started/px4_basic_concepts.md#safety_switch) 后才能解锁成功。
-- 机体如果不是在“健康”状态，则会解锁不通过。
-- 机体也会在着陆后或者飞手长时间未执行起飞时，自动切回到加锁状态。
+- PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
+- Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can succeed.
+- Arming is prevented if the vehicle is not in a "healthy" state.
+- A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
 
-解锁默认情况下（美国手发射机）可以通过保持遥控油门+ YAW 摇杆到*右下角*一秒钟来解锁，要想加锁，则保持摇杆在左下角。 还可以使用遥控上的按钮来配置 PX4 解锁（也可以从地面站发送解锁命令）。
+Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is also possible to configure PX4 to arm using an RC button on the RC control (and arming commands can be sent from a ground station).
 
 A detailed overview of arming and disarming configuration can be found here: [Prearm, Arm, Disarm Configuration](../advanced_config/prearm_arm_disarm.md).
 
-## 飞行模式 {#flight_modes}
+## Flight Modes {#flight_modes}
 
-飞行模式为用户（飞手）提供不同类型/级别的飞行器自动化和自动驾驶辅助。 自主模式完全由自驾仪控制，无需飞手/遥控输入。 例如，它们可用于自动执行诸如起飞，返回 Home 点和着陆等常见任务。 其他自主模式执行预编程任务，跟随 GPS 信标，或接受来自机载计算机或地面站的命令。
+Flight modes provide different types/levels of vehicle automation and autopilot assistance to the user (pilot). *Autonomous modes* are fully controlled by the autopilot, and require no pilot/remote control input. These are used, for example, to automate common tasks like takeoff, returning to the home position, and landing. Other autonomous modes execute pre-programmed missions, follow a GPS beacon, or accept commands from an offboard computer or ground station.
 
-*手动模式* 由用户（通过遥控控制杆/手柄）在自驾仪的协助下实现控制。 不同的手动模式可以实现不同的飞行特性 - 例如，某些模式可以实现特技动作，而其他模式则无法翻转并且会抗风以保持位置/航向。
+*Manual modes* are controlled by the user (via the RC control sticks/joystick) with assistance from the autopilot. Different manual modes enable different flight characteristics - for example, some modes enable acrobatic tricks, while others are impossible to flip and will hold position/course against wind.
 
-> **Tip** 并非所有的飞行模式都适用于所有飞行器，并且某些模式只能在满足特定条件时使用（例如，许多模式需要全局位置估计）。
+> **Tip** Not all flight modes are available on all vehicle types, and some modes can only be used when specific conditions have been met (e.g. many modes require a global position estimate).
 
-可用飞行模式的概述 [可在这里找到](../getting_started/flight_modes.md)。 [飞行模式配置](../config/flight_mode.md) 中提供了有关如何设置遥控开关以打开不同飞行模式的说明。
+An overview of the available flight modes [can be found here](../getting_started/flight_modes.md). Instructions for how to set up your remote control switches to turn on different flight modes is provided in [Flight Mode Configuration](../config/flight_mode.md).
 
-## 安全设置（故障保护） {#safety}
+## Safety Settings (Failsafe) {#safety}
 
-PX4 具有可配置的故障安全系统，可在出现问题时保护和挽回您的飞行器！ 这些允许您指定可以安全飞行的区域和条件，以及触发故障保护时将执行的操作（例如，着陆、保持位置或返回指定点）。
+PX4 has configurable failsafe systems to protect and recover your vehicle if something goes wrong! These allow you to specify areas and conditions under which you can safely fly, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
-> **Note** 您只能为 *第一个* 故障保护事件指定操作。 一旦发生故障保护，系统将执行特殊处理代码，以便后续故障保护触发器由单独的系统层级和飞行器特定代码管理。
+> **Note** You can only specify the action for the *first* failsafe event. Once a failsafe occurs the system will enter special handling code, such that subsequent failsafe triggers are managed by separate system level and vehicle specific code.
 
-主要的故障保护范围如下：
+The main failsafe areas are listed below:
 
-- Low Battery 低电量
-- Remote Control (RC) Loss 遥控信号丢失
-- Position Loss 位置信息丢失（全局位置估计质量太低）
-- Offboard Loss 机载计算机控制指令丢失（如与机载计算机失去连接）
-- Data Link Loss 数传信号丢失（如失去与地面站的数传连接）
-- Geofence Breach 超出地理围栏 (限制飞行器在虚拟圆柱体内飞行)
-- Mission Failsafe 任务故障保护（防止先前的任务在新的起飞地点运行）
-- Traffic avoidance 交通避障（由来自如 ADS-B 转发器的数据触发）
+- Low Battery
+- Remote Control (RC) Loss
+- Position Loss (global position estimate quality is too low).
+- Offboard Loss (e.g. lose connection to companion computer)
+- Data Link Loss (e.g. lose telemetry connection to GCS).
+- Geofence Breach (restrict vehicle to flight within a virtual cylinder).
+- Mission Failsafe (prevent a previous mission being run at a new takeoff location).
+- Traffic avoidance (triggered by transponder data from e.g. ADSB transponders).
 
-有关详细信息，请参阅：[安全性](../config/safety.md)（基本配置）。
+For more information see: [Safety](../config/safety.md) (Basic Configuration).
 
-## 朝向与航向
+## Heading and Directions
 
-所有车辆，船只和飞机都具有朝向或基于其前进运动的航向。
+All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
 
-![机架朝向](../../images/frame_heading.png)
+![Frame Heading](../../images/frame_heading.png)
 
-知道机体朝向，以使自驾仪与设备运动矢量对齐是重要的。 即使多旋翼从各个方向都对称，但其也有朝向！ 通常制造商使用彩色螺旋桨或带颜色的机臂来表示朝向。
+It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
 
-![机架朝向 TOP](../../images/frame_heading_top.png)
+![Frame Heading TOP](../../images/frame_heading_top.png)
 
-在我们的插图中，我们将使用红色的前螺旋桨来显示多旋翼的朝向。
+In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
 
-您可以在 [飞行控制器方向](../config/flight_controller_orientation.md) 中深入了解朝向。
+You can read in depth about heading in [Flight Controller Orientation](../config/flight_controller_orientation.md)
