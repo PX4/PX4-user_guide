@@ -10582,7 +10582,9 @@ for current-based compensation [G/kA]</p>   </td>
 
 <li><strong>1:</strong> Throttle-based compensation</li> 
 
-<li><strong>2:</strong> Current-based compensation</li> 
+<li><strong>2:</strong> Current-based compensation (battery_status instance 0)</li> 
+
+<li><strong>3:</strong> Current-based compensation (battery_status instance 1)</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
