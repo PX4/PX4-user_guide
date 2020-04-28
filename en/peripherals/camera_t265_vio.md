@@ -1,4 +1,4 @@
-# T265 VIO Camera Setup Guide
+# T265 Intel Realsense Tracking Camera (VIO)
 
 The [Intel Realsense Tracking Camera T265](https://www.intelrealsense.com/tracking-camera-t265/) is a [VIO](https://dev.px4.io/master/en/advanced/computer_vision.html) (or V-SLAM) camera produced by Intel.
 It provides odometry information which can be used to augment or replace other positioning systems on PX4.
