@@ -18,7 +18,7 @@ The FTDI USB adapters are the most common way of communicating between companion
 They are usually plug and play as long as the IO of the adapter is set to 3.3v.
 In order to utilize the full capability/reliability of the serial link offered on the Pixhawk hardware, flow control is recommended.
 
-#### Where To Buy and Features
+Options are listed below:
 
 Device | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH
 --- | --- | --- | --- | ---
@@ -32,25 +32,31 @@ Device | 3.3v IO (Default) | Flow Control | Tx/Rx LEDs | JST-GH
 On occasion a companion computer may expose hardware level IO that is often run at 1.8v or 5v, while the Pixhawk hardware operates at 3.3v IO. 
 In order to resolve this, a level shifter can be implemented to safely convert the transmitting/receiving signal voltage.
 
-#### Where To Buy
-
+Options include:
 * [SparkFun Logic Level Converter - Bi-Directional](https://www.sparkfun.com/products/12009)
 * [4-channel I2C-safe Bi-directional Logic Level Converter - BSS138](https://www.adafruit.com/product/757)
 
 ## Cameras
 
-Cameras are among the most common form of data collection on a drone whether it be hobbyist, educational, or industrial use.
+Cameras are used image and video capture, and more generally to provide data for [computer vision](../computer_vision/README.md) applications (in this case the "cameras" may only provide processed data, not raw images)
 
 ### Stereo Cameras
 
 Stereo cameras are typically used for depth perception, path planning and SLAM. 
 They are in no way guaranteed to be plug and play with your companion computer.
 
-#### Where To Buy
+Popular stereo cameras include:
 * [Intel® RealSense™ Depth Camera D435](https://click.intel.com/intelr-realsensetm-depth-camera-d435.html)
 * [Intel® RealSense™ Depth Camera D415](https://click.intel.com/intelr-realsensetm-depth-camera-d415.html)
 * [Ironsides](https://www.perceptin.io/products)
 * [DUO MLX](https://duo3d.com/product/duo-minilx-lv1) <!-- note, timeout on link 18Nov2019 -->
+
+### VIO Cameras/Sensors
+
+The following sensors can be used for [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md):
+
+- [T265 Realsense Tracking Camera](../peripherals/camera_t265_vio.md)
+
 
 ## Data Telephony (LTE) {#data_telephony}
 
