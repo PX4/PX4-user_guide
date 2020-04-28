@@ -14326,9 +14326,9 @@ tailsitter, tiltrotor: main throttle</p><p><strong>Comment:</strong> Note for st
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_DWN_PITCH_MAX">VT_DWN_PITCH_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum allowed down-pitch the controller is able to demand. This prevents large, negative
-lift values being created when facing strong winds. The vehicle will use the pusher motor
-to accelerate forward if necessary</p>   </td>
+ <td style="vertical-align: top;"><p>Maximum allowed angle the vehicle is allowed to pitch down to generate forward force
+when fixed-wing forward actuation is active (seeVT_FW_TRHUST_EN).
+If demanded down pitch exceeds this limmit, the fixed-wing forward actuators are used instead</p>   </td>
  <td style="vertical-align: top;">0.0 > 45.0 </td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;"></td>
@@ -14341,10 +14341,33 @@ to accelerate forward if necessary</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="VT_FWD_THRUST_EN">VT_FWD_THRUST_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable/disable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down).
+This technique can be used to avoid the plane having to pitch down in order to move forward.
+This prevents large, negative lift values being created when facing strong winds.
+Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL).
+Only active if demaded down pitch is above VT_DWN_PITCH_MAX, and uses VT_FWD_THRUST_SC to get from
+demanded down pitch to fixed-wing actuation</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable FW forward actuation in hover.</li> 
+
+<li><strong>1:</strong> Enable FW forward actuation in hover in altitude, position and auto modes (except LANDING).</li> 
+
+<li><strong>2:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT1.</li> 
+
+<li><strong>3:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT2.</li> 
+
+<li><strong>4:</strong> Enable FW forward actuation in hover in altitude, position and auto modes.</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Fixed wing thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to fixed wing thrust being used as source for forward acceleration in multirotor mode. This technique can be used to avoid the plane having to pitch down a lot in order to move forward. Setting this value to 0 (default) will disable this strategy.</p>   </td>
+ <td style="vertical-align: top;"><p>Fixed-wing actuator thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Only active if demaded down pitch is above VT_DWN_PITCH_MAX. Enabled via VT_FWD_THRUST_EN.</p>   </td>
  <td style="vertical-align: top;">0.0 > 2.0 </td>
- <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">0.7</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
