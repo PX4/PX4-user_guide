@@ -4,19 +4,22 @@ The ModalAI Flight Core is a flight controller for PX4, made in the USA. The Fli
 
 ![FlightCoreV1](../../assets/flight_controller/modalai/fc_v1/main.jpg)
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
+
 ## Quick Summary
 
 The main hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
 
 ## PX4 Firwmare
 
-Although supported in PX4 v1.10, a few issues have been addressed since than which are currently being maintained by ModalAI [here](https://github.com/modalai/px4-firmware/tree/modalai-1.10).  These changes are mostly picked up in the master branch after the v1.10 release, with ongoing development for improvments in VIO and VOA being added as needed and then upstreamed.
+Although supported in PX4 v1.10, a few issues have been addressed since than which are currently being maintained by ModalAI [here](https://github.com/modalai/px4-firmware/tree/modalai-1.10). These changes are mostly picked up in the master branch after the v1.10 release, with ongoing development for improvements in VIO and VOA being added as needed and then upstreamed.
 
 More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
 
 ## QGroundControl Support
 
-This board is slated to be supported starting in QGroundControl 3.5.7 (or the release after 3.5.6).
+This board supported in QGroundControl 4.0 and later.
 
 ## Specification
 
@@ -99,6 +102,21 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 ```
 make modalai_fc-v1
 ```
+
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| USART1 | /dev/ttyS0 | GPS1 (J10)                               |
+| USART2 | /dev/ttyS1 | TELEM3 (J4)                              |
+| USART3 | /dev/ttyS2 | Debug Console (J2)                       |
+| UART4  | /dev/ttyS3 | Expansion UART (J6)                      |
+| UART5  | /dev/ttyS4 | TELEM2, Primary VOXL Communications (J1) |
+| USART6 | /dev/ttyS5 | RC (J12)                                 |
+| UART7  | /dev/ttyS6 | TELEM1 (J5)                              |
+| UART8  | /dev/ttyS7 | N/A                                      |
+
 
 ## Support
 

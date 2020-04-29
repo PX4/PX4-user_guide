@@ -6,7 +6,7 @@ The *PX4 Vision Autonomy DevKit* is a robust and inexpensive kit for enabling co
 
 The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* flight controller, *UP Core* companion computer, and Occipital *Structure Core* depth camera sensor.
 The vehicle comes with software for PX4 [Obstacle Avoidance](../computer_vision/obstacle_avoidance.md) and [Collision Prevention](../computer_vision/collision_prevention.md) enabled “out of the box”.
-Developers can use the kit to try out other features provided by the PX4 Avoidance project, modify the existing code, or experiment with completely new computer vision-based functionality.
+Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery).
 It also covers the first flight, and how to get started with modifying the computer vision code.
@@ -14,19 +14,18 @@ It also covers the first flight, and how to get started with modifying the compu
 
 ## Warnings & Notifications
 
-1. Do not power the *UP Core* computer using the power socket (this may destroy the computer).
-   The *UP Core* should only be powered using the battery.
-
-   ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
-
 1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras).
-   Consequently it can’t be used for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
-   
+   Consequently it can’t be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
+
 1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS co-ordinates).
    Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
-   
+
 1. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions).
-   This is why the boot image is supplied on a *USB2* memory stick.
+   This is why the boot image is supplied on a *USB2.0* memory stick.
+
+1. The *UP Core* should only be powered using the battery (do not remove the *UP Core* power socket safety cover).
+
+   ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
 ## Getting to Know Your DevKit
 
@@ -44,10 +43,10 @@ The DevKit contains following components:
   - 1x *UP Core* computer (with Ubuntu and PX4 avoidance)
     - Atom CPU
     - FTDI UART connected to flight controller
-    - `USB1`: USB3 A port used for booting PX4 avoidance environment from a USB2 stick (connecting a USB3 peripheral may jam GPS).
-    - `USB2`: USB2 port on a JST-GH connector. 
+    - `USB1`: USB3.0 A port used for booting PX4 avoidance environment from a USB2.0 stick (connecting a USB3.0 peripheral may jam GPS).
+    - `USB2`: USB2.0 port on a JST-GH connector. 
       Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
-    - `USB3`: USB2 JST-GH port connected to depth camera
+    - `USB3`: USB2.0 JST-GH port connected to depth camera
     - `HDMI`: HDMI out
     - SD card slot
     - WiFi (attached to external antenna #1). 
@@ -59,9 +58,8 @@ The DevKit contains following components:
   - ROS Melodic
   - Occipital Structure Core ROS driver 
   - MAVROS
-  - PX4 Avoidance
-- Assorted cables, propellers, and other accessories.
-  To be used to attach additional peripherals.
+  - [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
+- Assorted cables, propellers, and other accessories (these can be used to attach additional peripherals).
 
 
 ## What Else do you Need?
@@ -94,15 +92,24 @@ In addition, users will need ground station hardware/software:
 
    ![Raise GPS mast](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
+1. Insert the pre-imaged USB2.0 stick from the kit into the *UP Core* port labeled `USB1` (highlighted below).
+
+   ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 1. Power the vehicle with a fully charged battery.
    > **Note**  Ensure propellers are removed before connecting the battery.
-1. Connect the *Pixhawk 4* and ground station using a USB cable.
+1. Connect the ground station to the vehicle WiFi network (after a few seconds) using the following default credentials:
+   - **SSID:** pixhawk4
+   - **Password:** pixhawk4
+
+   > **Tip** WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`.
+     The baud rate must not be changed from 921600.
+
 1. Start *QGroundControl* on the ground station.
 1. [Configure/calibrate](../config/README.md) the vehicle:
-   > **Note** The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup).
-     You will however need to calibrate the radio system (that you just connected) and it is worth doing the following basic checks.
 
-   - [Confirm that the Airframe](../config/airframe.md) is set to **PX4 Vision Devkit Platform**.
+   > **Note** The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup).
+     You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+
    - [Calibrate the Radio System](../config/radio.md)
    - [Calibrate the Compass](../config/compass.md)
 1. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
@@ -129,16 +136,14 @@ In addition, users will need ground station hardware/software:
 
 ## Fly the Drone (with avoidance) {#fly_drone}
 
-When the vehicle setup is complete:
 
-1. Insert the pre-imaged USB2 stick from the kit into the *UP Core* port `USB1` (highlighted below).
+When the vehicle setup described above is complete:
 
-   ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 1. Connect the battery to power the vehicle.
 
 1. Wait until the boot sequence completes and the avoidance system has started (the vehicle will reject arming commands during boot).
 
-   > **Tip** The boot/startup process takes about 2.5 minutes from USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+   > **Tip** The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
 
 1. Check that the avoidance system has started properly:
 
@@ -148,13 +153,7 @@ When the vehicle setup is complete:
    - A red laser is visible on the front of the *Structure Core* camera.
 1. Wait for the GPS LED to turn green.
    This means that the vehicle has a GPS fix and is ready to fly!
-1. Connect the ground station to the vehicle WiFi network using the following default credentials:
-   - **SSID:** pixhawk4
-   - **Password:** pixhawk4
-
-   > **Note** WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`.
-     The baud rate must not be changed from 921600.
-
+1. Connect the ground station to the vehicle WiFi network.
 1. Find a safe outdoor location for flying, ideally with a tree or some other convenient obstacle for testing PX4 Vision.
 
 1. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes/position_mc.md) and fly manually towards an obstacle.
@@ -185,9 +184,11 @@ PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/e
 
 ### Installing the image on the Companion Computer {#install_image_mission_computer}
 
-You can install the image on the *UP Core* and boot from internal memory (instead of the USB).
+You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
 
-> **Tip** This is recommended because booting from internal memory is much faster (~30 seconds vs 2.5 minutes), it frees up a USB port, and may well provide more memory than your USB stick. 
+This is recommended because booting from internal memory is much faster, frees up a USB port, and may well provide more memory than your USB stick. 
+
+> **Note** Booting from internal memory takes around 30 seconds while booting from the supplied USB2 stick boots in about a minute (other cards may take several times longer).
 
 To flash the USB image to the *UP Core*:
 
@@ -209,8 +210,8 @@ To flash the USB image to the *UP Core*:
 
 ### Boot the Companion Computer {#boot_mission_computer}
 
-First insert the provided USB2 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery.
-The avoidance system should start within about 2.5 minutes.
+First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery.
+The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
 
 > **Tip** [Fly the Drone (with avoidance)](#fly_drone) additionally explains how to verify that the avoidance system is active.
 
@@ -282,7 +283,7 @@ To integrate a different planner, this needs to be disabled.
    catkin build local_planner
    ```
 
-The ROS workspace is placed in `~/catkin_ws`. 
+The ROS workspace is placed in `~/catkin_ws`.
 For reference on developing in ROS and using the catkin workspace, see the [ROS catkin tutorials](http://wiki.ros.org/catkin/Tutorials).
 
 
@@ -290,14 +291,18 @@ For reference on developing in ROS and using the catkin workspace, see the [ROS 
 
 The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
 
-Modification of PX4 code is not needed to meet most computer vision use cases.
-To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+You can also modify PX4 itself, and [install it as custom firmware](../config/firmware.md#custom):
+- You will need to connect *QGroundControl* to the kit's *Pixhawk 4* **via USB** in order to update firmware.
+- Select the *PX4 Vision DevKit* airframe after loading new firmware:
+  ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
-> **Note** Firmware modification is not recommended in the *Early Adopter Edition* (we suggest that you use the shipped version).
+> **Note** Modification of PX4 code is not *needed* to meet most computer vision use cases.
+  To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+
 
 ## Other Development Resources
 
-- [*UP Core* Wiki ](https://wiki.up-community.org/Ubuntu) - companion computer technical information
+- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - companion computer technical information
 - [Occipital Developer Forum](https://structure.io/developers) - *Structure Core* camera information
 - [Pixhawk 4 Overview](../flight_controller/pixhawk4.md)
 - [PX4 Avoidance software/documentation](https://github.com/PX4/avoidance)

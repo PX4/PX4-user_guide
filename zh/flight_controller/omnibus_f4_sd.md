@@ -2,6 +2,8 @@
 
 The *Omnibus F4 SD* is a controller board designed for racers. In contrast to a typical racer board it has some additional features, such as an SD card and a faster CPU.
 
+<img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
+
 These are the main differences compared to a [Pixracer](../flight_controller/pixracer.md):
 
 * Lower price
@@ -13,7 +15,9 @@ These are the main differences compared to a [Pixracer](../flight_controller/pix
 
 > **Tip** All the usual PX4 features can still be used for your racer!
 
-<img src="../../assets/flight_controller/omnibus_f4_sd/board.jpg" width="400px" title="Omnibus F4 SD" />
+<span></span>
+
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 ## 主要特性
 
@@ -133,6 +137,14 @@ Here is an example implementation. I used a Spektrum plug to get 3.3v from the D
 
 ![Omnibus F4 SD Pullup Implementation](../../assets/flight_controller/omnibus_f4_sd/pullup.jpg)
 
+## Serial Port Mapping
+
+| UART   | Device     | Port     |
+| ------ | ---------- | -------- |
+| USART1 | /dev/ttyS0 | SerialRX |
+| USART4 | /dev/ttyS1 | TELEM1   |
+| USART6 | /dev/ttyS2 | GPS      |
+
 ## RC Telemetry
 
 The Omnibus supports telemetry to the RC Transmitter using [FrSky Telemetry](../peripherals/frsky_telemetry.md) or [CRSF Crossfire Telemetry](#crsf_telemetry).
@@ -175,7 +187,7 @@ The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-S
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed. Download the [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 
-## 编译固件
+## Building Firmware
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
@@ -193,7 +205,7 @@ The firmware can be installed in any of the normal ways:
 
 In addition to the [basic configuration](../config/README.md), the following parameters are important:
 
-| 参数                                                                       | Setting                                                                                                                 |
+| Parameter                                                                | Setting                                                                                                                 |
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | [SYS_HAS_MAG](../advanced_config/parameter_reference.md#SYS_HAS_MAG)   | This should be disabled since the board does not have an internal mag. You can enable it if you attach an external mag. |
 | [SYS_HAS_BARO](../advanced_config/parameter_reference.md#SYS_HAS_BARO) | Disable this if your board does not have a barometer.                                                                   |

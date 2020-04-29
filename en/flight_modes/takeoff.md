@@ -4,12 +4,13 @@
 
 The *Takeoff* flight mode causes the vehicle to take off to a specified height and wait for further input.
 
-> **Note** 
+> **Note**
 > * This mode requires GPS.
 > * The vehicle must be armed before this mode can be engaged.
 > * This mode is automatic - no user intervention is *required* to control the vehicle.
 > * RC control switches can be used to change flight modes on any vehicle.
-    The effect of RC stick movement depends on the vehicle type.
+>   The effect of RC stick movement depends on the vehicle type.
+> * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 
 The specific behaviour for each vehicle type is described below.
 
@@ -33,16 +34,17 @@ The aircraft takes off in the current direction using either *catapult/hand-lau
 The mode defaults to catapult/hand launch, but can be set to runway takeoff using [RWTO_TKOFF](#RWTO_TKOFF).
 
 In *catapult/hand launch mode* the vehicle will perform a full throttle climbout (ramp up to [RWTO_MAX_THR](#RWTO_MAX_THR) in about 2 seconds).
-Once the altitude error < [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF), regular navigation will proceed. 
+Once the altitude error < [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF), regular navigation will proceed.
 
 > **Note** In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met.
   For catapult launch this is some acceleration threshold.
 
 The *runway takeoff mode* has the following phases:
 
-1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)) 
+1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)).
 1. **Takeoff**: Increase pitch and continue until vehicle altitude > navigation altitude ([RWTO_NAV_ALT](#RWTO_NAV_ALT)).
-1. **Climbout**: Climb until altitude above ground level > [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF). In this phase roll and heading restrictions are removed.
+1. **Climbout**: Climb until altitude above ground level > [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF).
+   In this phase roll and heading restrictions are removed.
 
 RC stick movement is ignored.
 

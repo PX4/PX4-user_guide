@@ -27,7 +27,11 @@ An exemplary setup is the [PX4Flow](../sensor/px4flow.md) and [Lidar-Lite](../se
 
 #### PX4Flow
 
-The easiest way to calculate the optical flow is to use the [PX4Flow](../sensor/px4flow.md) board (see link for setup information).
+[PX4Flow](../sensor/px4flow.md) is an optical flow camera that works indoors and and in low outdoor light conditions without the need for an illumination LED. It is one of the easiest and most established ways to calculate the optical flow.
+
+#### PMW3901-Based Sensors
+
+[PMW3901](../sensor/pmw3901.md) is an optical flow tracking sensor similar to what you would find in a computer mouse, but adapted to work between 80 mm and infinity. It is used in a number of products, including some from: Bitcraze, Tindie, Hex, Thone and Alientek.
 
 #### Other Cameras
 
@@ -35,7 +39,7 @@ It is also possible to use a board/quad that has an integrated camera (e.g. Snap
 
 ### Range Finder
 
-You can use any supported [distance sensor](../sensor/rangefinders.md). However we recommend using a LIDAR over a Sonar, because of robustness and accuracy.
+You can use any supported [distance sensor](../sensor/rangefinders.md). However we recommend using LIDAR rather than sonar sensors, because of their robustness and accuracy.
 
 ## Estimators
 

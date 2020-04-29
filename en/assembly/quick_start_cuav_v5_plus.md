@@ -15,16 +15,16 @@ We'll go through each of these in detail in the following sections.
 
 | Main interface | Function |
 | :--- | :--- |
-| Power1 | Connect power module. Power input with **ANALOG* voltage and current detection. Do not use a Digital PM on this connector! |
+| Power1 | Connect power module. Power input with *analog* voltage and current detection. Do not use a Digital PM on this connector! |
 | Power2 | Connect i2c smart battery. | 
 | TF CARD | SD card for log storage (card pre-inserted in factory). |
 | M1~M8 | PWM outputs. Can be used to control motors or servos. |
-| A1~A8 | PWM outputs .Can be used to control motors or servos. |
+| A1~A6 | PWM outputs. Can be used to control motors or servos. |
 | DSU7 | Used for FMU debug, reading debug information. |
 | I2C1/I2C2 | Connect an I2C device such as an external compass. |
 | CAN1/CAN2| Connect UAVCAN devices such as CAN GPS.  |
 | TYPE-C\(USB\)| Connect to a computer for communication between the flight controller and the computer, such as loading firmware. |
-| SBUS OUT| Connect SBUS camera Gimbals |
+| SBUS OUT| Connect SBUS devices (e.g. camera gimbals). |
 | GPS&SAFETY | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface. |
 | TELEM1/TELEM2 | Connect to the Telemetry System. |
 | DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module.
@@ -39,12 +39,12 @@ We'll go through each of these in detail in the following sections.
 
 The recommended GPS module is the *Neo v2 GPS*, which contains GPS, compass, safety switch, buzzer, LED status light.
 
-> **Note** Other GPS modules may not work (see [this issue](../flight_controller/cuav_v5_nano.md#issue_gps_compatible)).
+> **Note** Other GPS modules may not work (see [this compatibility issue](../flight_controller/cuav_v5_nano.md#compatibility_gps)\)).
 
 The GPS/Compass module should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (*Neo v2 GPS* arrow is in the same direction as the flight control arrow).
 Connect to the flight control GPS interface using a cable.
 
-> **Note** If you use CAN GPS, please use the cable to connect to the flight control CAN interface.
+> **Note** If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable), please use the cable to connect to the flight control CAN interface.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 
@@ -70,16 +70,15 @@ The figure below shows how you can access your remote receiver (please find the 
 ## Spektrum Satellite Receivers
 
 The V5+ has a dedicated DSM cable.
-If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface. 
+If using a Spektrum satellite receiver, this should be connected to the flight controller DSM/SBUS/RSSI interface.
 
 ## Power
 
-The V5+ kit includes the *HV\_PM* module, which supports 2~10S LiPo batteries.
+The V5+ kit includes the *HV\_PM* module, which supports 2~14S LiPo batteries.
 Connect the 6pin connector of the *HW\_PM* module to the flight control `Power1` interface.
 
-> **Warning** The supplied power module is unfused (see [this issue](../flight_controller/cuav_v5_plus.md#issue_pm_unfused)).
-   - Power **must** be turned off while connecting peripherals.
-   - Improper wiring can lead to *personal harm* or equipment damage!
+> **Warning** The supplied power module is unfused.
+  Power **must** be turned off while connecting peripherals.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
@@ -98,7 +97,7 @@ The other radio is connected to your ground station computer or mobile device (u
 
 ## SD Card (Optional) {#sd_card}
 
-An SD card is inserted in the factory (you do not need to do anything).
+An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
 
 ## Motors
 
@@ -116,7 +115,7 @@ Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
 - [Airframe build-log using CUAV v5+ on a DJI FlameWheel450](../frames_multicopter/dji_f450_cuav_5plus.md)
 - [CUAV V5+ Manual](http://manual.cuav.net/V5-Plus.pdf)  (CUAV)
-- [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html)  (CUAV)
+- [CUAV V5+ docs](http://doc.cuav.net/flight-controller/v5-autopilot/en/v5+.html) (CUAV)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165)  (CUAV)
 - [CUAV Github](https://github.com/cuav)  (CUAV)
-- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2B_BASE)  (CUAV)
+- [Base board design reference](https://github.com/cuav/hardware/tree/master/V5_Autopilot/V5%2B/V5%2BBASE) (CUAV)

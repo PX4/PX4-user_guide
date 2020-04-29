@@ -50,4 +50,11 @@ Motor settings:
 > **Note** There is no way to recover from a Termination state!
   Reboot/power cycle the vehicle before your next test.
 
+## Parachute Testing {#testing}
+
+The parachute will trigger during [flight termination](../advanced_config/flight_termination.md).
+
+The easiest way to test a (real) parachute is to enable the [failure detector attitude trigger](../config/safety.md#attitude_trigger) and tip the vehicle over.
+
+You can also simulate a parachute/flight termination in Gazebo: [PX4 Dev Guide > Simulation > Gazebo > Simulated Parachute/Flight Termination](http://dev.px4.io/master/en/simulation/gazebo.html#flight_termination).
 

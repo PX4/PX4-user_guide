@@ -1,15 +1,20 @@
 # MindRacer Hardware
 
-The AirMind<sup>&reg; [MindRacer](http://mindpx.net) series is a fully stackable flight platform for miniature UAVs.</sup>.
+The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight *platform* for miniature UAVs.
+The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicles/mindracer210.md) and [NanoMind 110](../complete_vehicles/nanomind110.md).
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## Quick Summary
 
-MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. 
-MindRacer is a platform rather than a flight controller.
+MindRacer is a fully stackable flight platform for miniature UAVs.
+Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity.
+MindRacer is a *platform* rather than a flight controller.
 
-MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts. Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
+MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts.
+Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
 
 > **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/mindracer_spec_v1.2.pdf).
 
@@ -55,11 +60,12 @@ make airmind_mindpx-v2_default
 
 ### Companion PC Connection
 
-MindRacer has an attached Adapt IO board. 
+MindRacer has an attached Adapt IO board.
 
-![](../../assets/hardware/hardware-mindracer-conn.png)
+![Attached Adapt IO board](../../assets/hardware/hardware-mindracer-conn.png)
 
-MindRacer has a built-in UART-to-USB converter. To connect a companion computer, stack MindRacer on an interface board, and connect the companion computer to the USB port on the interface board.
+MindRacer has a built-in UART-to-USB converter.
+To connect a companion computer, stack MindRacer on an interface board, and connect the companion computer to the USB port on the interface board.
 
 And the max BAUD rate is the same with px4 family, which is up to 921600.
 
@@ -69,8 +75,10 @@ And the max BAUD rate is the same with px4 family, which is up to 921600.
 
 ## Where to Buy
 
-MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog). You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
+MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog).
+You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
 ## Support
 
-Please visit http://www.mindpx.org for more information. Or you can send email to [support@mindpx.net](mailto::support@mindpx.net) for any inquiries or help.
+Please visit http://www.mindpx.org for more information.
+Or you can send email to [support@mindpx.net](mailto::support@mindpx.net) for any inquiries or help.

@@ -15,6 +15,7 @@
 * [Airspeed](../config/airspeed.md) (fixed-wing/VTOL)
 * [Level Horizon Calibration](../config/level_horizon_calibration.md)
 * [Radio Setup](../config/radio.md)
+* [Joystick Setup](../config/joystick.md)
 * [Flight Modes](../config/flight_mode.md) (Optional)
 * [Battery](../config/battery.md) (optional)
 * [Safety](../config/safety.md) (optional)

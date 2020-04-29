@@ -1,4 +1,6 @@
-# Snapdragon Flight Autopilot
+# Snapdragon Flight Autopilot (Discontinued)
+
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 The *Qualcomm Snapdragon Flight* platform is a high-end autopilot / onboard computer which runs the PX4 Flight Stack on the DSP on the QuRT real time operating system using the [DSPAL API](https://github.com/ATLFlight/dspal) for POSIX compatibility. In comparison to [Pixhawk](../flight_controller/pixhawk.md) it adds a camera and WiFi and high-end processing power, and different IO.
 
@@ -27,7 +29,7 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 * Accelerometer / Gyro / Mag: Invensense MPU-9250 9-Axis Sensor, 3x3mm QFN, on bus SPI1
 * Baro: Bosch BMP280 barometric pressure sensor, on bus I2C3
 * Power: 5VDC via external 2S-6S battery regulated down to 5V via APM adapter
-* Availability: [Intrinsyc Store](http://shop.intrinsyc.com/products/snapdragon-flight-dev-kit)
+* Availability: *No longer available*
 
 ## Connectivity
 
@@ -42,7 +44,7 @@ More information about the Snapdragon Flight platform is in the official [Qualco
 
 ## Recommended Wiring
 
-![](../../assets/hardware/snapdragon/snapdragon_wiring.jpg)
+![Snapdragon wiring](../../assets/hardware/snapdragon/snapdragon_wiring.jpg)
 
 ## Pinouts
 
@@ -112,10 +114,10 @@ The default mapping of the serial ports is as follows:
 
 For a custom UART to BAM mapping, create a file called **blsp.config** and *adb* push it to **/usr/share/data/adsp**. For example, to keep the default mapping, your **blsp.config** should look as follows:
 
-    tty-1 bam-9 2-wire  
-    tty-2 bam-6 2-wire  
-    tty-3 bam-8 2-wire  
-    tty-4 bam-2 2-wire  
+    tty-1 bam-9 2-wire
+    tty-2 bam-6 2-wire
+    tty-3 bam-8 2-wire
+    tty-4 bam-2 2-wire
     
 
 Be sure to include the text "2-wire" at the end of each line to allow the UART to use only the TX and RX pins specified in the tables below. If 2-wire is not specified (or if the file is not present on the target) the UART will default to using 4-wire mode and will require an additional two pins for RTS/CTS flow control.  

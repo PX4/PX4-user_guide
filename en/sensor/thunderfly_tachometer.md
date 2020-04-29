@@ -17,10 +17,13 @@ It also has an LED that offers basic diagnostic information.
 The board is equipped with a (two troughpass) I²C connectors for connecting to PX4 and has a 3-pin connector that can be used to connect to various sensors:
 - TFRPM01 may be connected to any I²C port.
 - TFRPM01 has 3pin pin-header connector (with pull-up equipped input) that can be connected to different probe types.
-  - The sensor/probe hardware needs an pulse signal. The signal input accept +5V TTL logic or [open collector](https://en.wikipedia.org/wiki/Open_collector) outputs. Maximum pulse frequency is 20 kHz with 50% duty cycle.
-  - The probe connector provide +5V power supply from I²C bus, the maximum power which could be used is limited by RC filter (see schematics. for details)
+  - The sensor/probe hardware needs an pulse signal.
+    The signal input accepts +5V TTL logic or [open collector](https://en.wikipedia.org/wiki/Open_collector) outputs.
+    Maximum pulse frequency is 20 kHz with 50% duty cycle.
+  - The probe connector provide +5V power supply from I²C bus, the maximum power which could be used is limited by RC filter (see schematics for details).
 
-TFRPM01A electronics is equipped by signaling LED which could be used for correct probe connection diagnostic. The LED lights up in case where the pulse input is grounded or exposed to logical 0.  Therefore is easy to check the probe is working correctly by spinning of rotor manually.
+TFRPM01A electronics is equipped with a signaling LED that can be used to check that the probe is connected properly.
+The LED lights up when the pulse input is grounded or exposed to logical 0, so you can check the probe is working correctly just by manually spinning a rotor.
 
 ### Hall-Effect Sensor Probe
 

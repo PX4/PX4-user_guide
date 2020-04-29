@@ -4,6 +4,8 @@ The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>
 
 ![mRo X2.1](../../assets/flight_controller/mro/mro_x2.1.jpg)
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## 总览
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
@@ -25,7 +27,7 @@ The diagram below provides a side-by-side comparison with a Pixhawk 1. The mRo f
 ## Connectivity
 
 * 2.54mm headers:
-* GPS (USART4) with I2C
+* GPS (UART4) with I2C
 * CAN Bus
 * RC input
 * PPM input
@@ -43,8 +45,8 @@ The diagram below provides a side-by-side comparison with a Pixhawk 1. The mRo f
 * AirSpeed Sensor
 * USART2 (Telem 1)
 * USART3 (Telem 2)
-* USART7 (Console)
-* USART8 (OSD)
+* UART7 (Console)
+* UART8 (OSD)
 
 ## PX4 BootLoader Issue
 
@@ -69,7 +71,7 @@ This product can be ordered at the [mRobotics<sup>&reg;</sup> Store](https://sto
 
 ## 编译固件
 
-> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
@@ -79,3 +81,15 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 ## Schematics
 
 The board is documented on the mRo hardware repo: [x21_V2_schematic.pdf](https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf).
+
+## Serial Port Mapping
+
+| UART   | Device     | Port            |
+| ------ | ---------- | --------------- |
+| USART1 | /dev/ttyS0 | IO debug        |
+| USART2 | /dev/ttyS1 | SERIAL1         |
+| USART3 | /dev/ttyS2 | TELEM2          |
+| UART4  | /dev/ttyS3 | GPS/I2C         |
+| USART6 | /dev/ttyS4 | PX4IO           |
+| UART7  | /dev/ttyS5 | SERIAL5 CONSOLE |
+| UART8  | /dev/ttyS6 | SERIAL4         |

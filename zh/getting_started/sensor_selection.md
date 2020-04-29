@@ -30,30 +30,38 @@ PX4 支持许多全球导航卫星系统（GNSS）接收器和罗盘（磁力计
 
 有关更多信息和推荐的硬件，请参阅：[空速传感器](../sensor/airspeed.md)。
 
-## 距离传感器
+## Tachometer
 
-距离传感器用于精准着陆，避障和地形跟随。
+Tachometers ([revolution-counter sensors](https://en.wikipedia.org/wiki/Tachometer#In_automobiles,_trucks,_tractors_and_aircraft)) are *highly recommended* for rotor-wing frames because they allow the autopilot to detect stall or another rotor failure (for rotor-wing flight it is the rotation of blades that guarantees lift not airspeed or ground speed).
 
-PX4 支持许多实惠的距离传感器，使用不同的技术，并支持不同的范围和功能。 有关更多信息，请参阅：[距离传感器](../sensor/rangefinders.md)。
+![Digital RPM Sensor - TFRPM01A](../../assets/hardware/sensors/tfrpm/tfrpm01_electronics.jpg)
 
-<img src="../../images/lidar_lite_1.png" title="激光测距仪" width="500px" />
+For more information and recommended hardware see: [Sensors > Tachometers](../sensor/tachometers.md).
 
-## 光流
+## Distance
 
-[PX4Flow](../sensor/px4flow.md) 是可以跟踪运动的光流智能相机，并具有集成的声纳传感器。 PX4 将光流传感器输出与来自其他定位源（例如 GPS）的信息融合，以提供更准确的位置锁定。 该传感器可以用于没有 GPS 信号的室内。
+Distance sensors are used for precision landing, object avoidance and terrain following.
 
-![px4flow-底面](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
+PX4 supports many affordable distance sensors, using different technologies, and supporting different ranges and features. For more information see: [Distance Sensors](../sensor/rangefinders.md).
 
-一些选项包括：
+<img src="../../images/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
+
+## Optical Flow
+
+[PX4Flow](../sensor/px4flow.md) is an optical flow smart camera that can track motion, and has as integrated sonar sensor. PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. This sensor can be used indoors, when no GPS signal is available.
+
+![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg)
+
+Some options include:
 
 * [ 3DR PX4Flow 智能相机（光流传感器）](https://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/)
 * [HK Pilot32 带声呐的光流套件](https://hobbyking.com/en_us/hk-pilot32-optical-flow-kit-with-sonar.html) (好盈) - 软件兼容, 但接口不兼容。
 
-## 传感器接线 {#wiring}
+## Sensor Wiring {#wiring}
 
-传感器接线信息通常在飞控和传感器本身的制造商文档中提供。
+Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.
 
-另外，请参阅：
+In addition, see:
 
 * [基本组件](../assembly/README.md)包含飞控快速入门指南。 其包括核心传感器到特定飞控硬件的接线。
 * [飞控](../flight_controller/README.md) 主题通常包含接线信息。

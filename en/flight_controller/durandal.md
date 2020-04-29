@@ -15,6 +15,8 @@ At high level, some of the key features are:
 
 A summary of the key features, [assembly](../assembly/quick_start_durandal.md), and [purchase](#purchase) links can be found below.
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 
 ## Quick Summary
 
@@ -144,10 +146,22 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 make holybro_durandal-v1_default
 ```
 
+## Serial Port Mapping
 
-## Debug Port
+UART | Device | Port
+--- | --- | ---
+USART1 | /dev/ttyS0 | GPS1
+USART2 | /dev/ttyS1 | TELEM1
+USART3 | /dev/ttyS2 | TELEM2
+UART4 | /dev/ttyS3 | TELEM4/GPS2
+USART6 | /dev/ttyS4 | TELEM3
+UART7 | /dev/ttyS5 | Debug Console
+UART8 | /dev/ttyS6 | PX4IO
 
-The PX4 FMU serial console and SWD interface run on the [Debug port](#debug_port).
+
+## Debug Port {#debug_port}
+
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) run on the *Debug Port*.
 
 The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation).
 The pinout uses the standard Dronecode debug connector pinout.

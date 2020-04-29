@@ -6,6 +6,8 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 
 ![Dropix](../../assets/flight_controller/dropix/dropix_flight_controller_hero.jpg)
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 
 ## Key Features
 
@@ -36,15 +38,15 @@ The DroPix system includes integrated multithreading, a Unix/Linux-like programm
 
 ## Documentation
 
-[DroPix User's Guide](https://drotek.com/docs/docs-dropix/)
+[DroPix User's Guide](https://drotek.gitbook.io/dropix-user-guide/)
 
 ## Wiring Guides
 
-The following diagrams show the Dropix connector information (for more information see the [drotek documentation](https://drotek.com/docs/docs-dropix/)).
+The following diagrams show the Dropix connector information (for more information see the [drotek documentation](https://drotek.gitbook.io/dropix-user-guide/)).
 
-<img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" width="500px" />
+<img src="../../assets/flight_controller/dropix/dropix_connectors_front.jpg" alt="front connectors" width="500px" />
 
-<img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" width="500px" />
+<img src="../../assets/flight_controller/dropix/dropix_connectors_side_and_back.jpg" alt="front connectors" width="500px" />
 
 
 ## Building Firmware
@@ -56,3 +58,14 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 ```
 make px4_fmu-v2_default
 ```
+
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+UART1 | /dev/ttyS0 | IO debug
+USART2 | /dev/ttyS1 | TELEM1 (flow control)
+USART3 | /dev/ttyS2 | TELEM2 (flow control)
+UART4 | | 
+UART7 | CONSOLE
+UART8 | SERIAL4

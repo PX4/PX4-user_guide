@@ -1,6 +1,6 @@
 # Pixhawk Mini (Discontinued)
 
-> **Warning** This product is no longer manufactured or available from 3DR.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 The 3DR<sup>&reg;</sup> *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk (designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>). It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
 
@@ -273,6 +273,6 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 ## Debug Port
 
-This board does not have a debug port (i.e it does not have a port for accessing the [System Console](http://dev.px4.io/master/en/debug/system_console.html) or SWD (JTAG) debug interface.
+This board does not have a debug port (i.e it does not have a port for accessing the [System Console](http://dev.px4.io/master/en/debug/system_console.html) or [SWD (JTAG) Hardware Debugging Interface](http://dev.px4.io/master/en/debug/swd_debug.html).
 
 Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
