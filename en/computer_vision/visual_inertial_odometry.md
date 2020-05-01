@@ -132,7 +132,7 @@ Perform the following checks to verify that VIO is working properly *before* you
   PX4 will stop streaming the `ODOMETRY` message back.
 
 If those steps are consistent, you can try your first flight:
-1. Put the vehicle on the ground and start streaming MoCap feedback (as above).
+1. Put the vehicle on the ground and start streaming `ODOMETRY` feedback (as above).
    Lower your throttle stick and arm the motors.
 
    At this point, with the left stick at the lowest position, switch to position control.
