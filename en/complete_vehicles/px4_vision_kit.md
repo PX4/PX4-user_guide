@@ -125,7 +125,7 @@ In addition, users will need ground station hardware/software:
 
    ![Motor Order Diagram](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
-   - The propellers directions can be determined from the labels: *6045* (clockwise) and _6045_**R** (reversed).
+   - The propellers directions can be determined from the labels: *6045* (normal, counter-clockwise) and _6045_**R** (reversed, clockwise).
 
      ![Propeller identification](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 
