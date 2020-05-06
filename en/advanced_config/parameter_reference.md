@@ -10758,6 +10758,14 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="IMU_INTEG_RATE">IMU_INTEG_RATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>IMU integration rate</p><p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">100 > 1000 </td>
+ <td style="vertical-align: top;">200</td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="INA226_CONFIG">INA226_CONFIG</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>INA226 Power Monitor Config</p>   </td>
  <td style="vertical-align: top;">0 > 65535 (1)</td>
