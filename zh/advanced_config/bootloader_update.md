@@ -1,10 +1,10 @@
 # Bootloader 更新
 
-The [PX4 bootloader](https://github.com/PX4/Bootloader) is used to load firmware for Pixhawk boards (PX4FMU, PX4IO) and [PX4FLOW](../sensor/px4flow.md).
+[PX4 bootloader](https://github.com/PX4/Bootloader)用于为Pixhawk板(PX4FMU, PX4IO)和[PX4FLOW](../sensor/px4flow.md)加载固件。
 
-This topic explains several methods for updating the Pixhawk bootloader.
+此篇介绍了更新Pixhawk bootloader的几种常见方法。
 
-> **Note** Hardware usually comes with an appropriate bootloader version pre-installed. A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
+> **Note** 硬件通常会预先安装匹配版本的引导程序。 如果需要给新版本的 Pixhawk 板安装FMUv2固件，应先更新Bootloader：[固件>FMUv2 Bootloader更新](../config/firmware.md#bootloader)
 
 ## QGC 地面站 Bootloader 更新 {#qgc_bootloader_update}
 
