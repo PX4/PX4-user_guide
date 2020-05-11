@@ -24,6 +24,7 @@ This section lists the autopilot hardware documented in this library (that can b
   - [Holybro Kakute F7](../flight_controller/kakutef7.md)
   - [Holybro Durandal](../flight_controller/durandal.md)
   - [ModalAI Flight Core v1](../flight_controller/modalai_fc_v1.md)
+  - [NXP RDDRONE-FMUK66 FMU](../flight_controller/nxp_rddrone_fmuk66.md)
   - [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
   - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
 - [Experimental/Discontinued Autopilots](../flight_controller/autopilot_experimental.md) 
