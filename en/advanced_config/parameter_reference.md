@@ -943,14 +943,14 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  <td style="vertical-align: top;"><p>Maximum value of EKF accelerometer delta velocity bias estimate that will allow arming.
 Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than EKF2_ABL_LIM * FILTER_UPDATE_PERIOD_MS * 0.001 so this parameter must be less than that to be useful</p>   </td>
  <td style="vertical-align: top;">0.001 > 0.01 (0.0001)</td>
- <td style="vertical-align: top;">1.73e-3</td>
+ <td style="vertical-align: top;">0.0022</td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_EKF_GB">COM_ARM_EKF_GB</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum value of EKF gyro delta angle bias estimate that will allow arming</p>   </td>
  <td style="vertical-align: top;">0.0001 > 0.0017 (0.0001)</td>
- <td style="vertical-align: top;">8.7e-4</td>
+ <td style="vertical-align: top;">0.0011</td>
  <td style="vertical-align: top;">rad</td>
 </tr>
 <tr>
@@ -1030,6 +1030,13 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Enabled (1)</td>
  <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_CPU_MAX">COM_CPU_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Maximum allowed CPU load to still arm</p><p><strong>Comment:</strong> A negative value disables the check.</p>   </td>
+ <td style="vertical-align: top;">-1 > 100 (1)</td>
+ <td style="vertical-align: top;">90.0</td>
+ <td style="vertical-align: top;">%</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_DISARM_LAND">COM_DISARM_LAND</strong> (FLOAT)</td>
@@ -4959,7 +4966,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -4981,7 +4988,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -5003,7 +5010,7 @@ Does not affect MAVLINK_ROI input</p>   </td>
 <li><strong>6:</strong> AUX6</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -9315,14 +9322,14 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians</p>   <
  <td style="vertical-align: top;"><strong id="GND_SPEED_D">GND_SPEED_D</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Speed proportional gain</p><p><strong>Comment:</strong> This is the derivative gain for the speed closed loop controller</p>   </td>
  <td style="vertical-align: top;">0.00 > 50.0 (0.005)</td>
- <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">0.001</td>
  <td style="vertical-align: top;">%m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="GND_SPEED_I">GND_SPEED_I</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Speed Integral gain</p><p><strong>Comment:</strong> This is the integral gain for the speed closed loop controller</p>   </td>
  <td style="vertical-align: top;">0.00 > 50.0 (0.005)</td>
- <td style="vertical-align: top;">0.1</td>
+ <td style="vertical-align: top;">3.0</td>
  <td style="vertical-align: top;">%m/s</td>
 </tr>
 <tr>
@@ -10575,7 +10582,9 @@ for current-based compensation [G/kA]</p>   </td>
 
 <li><strong>1:</strong> Throttle-based compensation</li> 
 
-<li><strong>2:</strong> Current-based compensation</li> 
+<li><strong>2:</strong> Current-based compensation (battery_status instance 0)</li> 
+
+<li><strong>3:</strong> Current-based compensation (battery_status instance 1)</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
@@ -10746,6 +10755,14 @@ is less than 50% of this value</p>   </td>
 </td>
  <td style="vertical-align: top;">0 > 2000 </td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="IMU_INTEG_RATE">IMU_INTEG_RATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>IMU integration rate</p><p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">100 > 1000 </td>
+ <td style="vertical-align: top;">200</td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
@@ -13421,8 +13438,9 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_A_ENABLE">TC_A_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thermal compensation for accelerometer sensors</p>   </td>
- <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;"><p>Thermal compensation for accelerometer sensors</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -13659,8 +13677,9 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B_ENABLE">TC_B_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thermal compensation for barometric pressure sensors</p>   </td>
- <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;"><p>Thermal compensation for barometric pressure sensors</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -14065,8 +14084,9 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G_ENABLE">TC_G_ENABLE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Thermal compensation for rate gyro sensors</p>   </td>
- <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;"><p>Thermal compensation for rate gyro sensors</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -14314,9 +14334,9 @@ tailsitter, tiltrotor: main throttle</p><p><strong>Comment:</strong> Note for st
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_DWN_PITCH_MAX">VT_DWN_PITCH_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum allowed down-pitch the controller is able to demand. This prevents large, negative
-lift values being created when facing strong winds. The vehicle will use the pusher motor
-to accelerate forward if necessary</p>   </td>
+ <td style="vertical-align: top;"><p>Maximum allowed angle the vehicle is allowed to pitch down to generate forward force
+when fixed-wing forward actuation is active (seeVT_FW_TRHUST_EN).
+If demanded down pitch exceeds this limmit, the fixed-wing forward actuators are used instead</p>   </td>
  <td style="vertical-align: top;">0.0 > 45.0 </td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;"></td>
@@ -14329,10 +14349,33 @@ to accelerate forward if necessary</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="VT_FWD_THRUST_EN">VT_FWD_THRUST_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable/disable usage of fixed-wing actuators in hover to generate forward force (instead of pitching down).
+This technique can be used to avoid the plane having to pitch down in order to move forward.
+This prevents large, negative lift values being created when facing strong winds.
+Fixed-wing forward actuators refers to puller/pusher (standard VTOL), or forward-tilt (tiltrotor VTOL).
+Only active if demaded down pitch is above VT_DWN_PITCH_MAX, and uses VT_FWD_THRUST_SC to get from
+demanded down pitch to fixed-wing actuation</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disable FW forward actuation in hover.</li> 
+
+<li><strong>1:</strong> Enable FW forward actuation in hover in altitude, position and auto modes (except LANDING).</li> 
+
+<li><strong>2:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT1.</li> 
+
+<li><strong>3:</strong> Enable FW forward actuation in hover in altitude, position and auto modes if above MPC_LAND_ALT2.</li> 
+
+<li><strong>4:</strong> Enable FW forward actuation in hover in altitude, position and auto modes.</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="VT_FWD_THRUST_SC">VT_FWD_THRUST_SC</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Fixed wing thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to fixed wing thrust being used as source for forward acceleration in multirotor mode. This technique can be used to avoid the plane having to pitch down a lot in order to move forward. Setting this value to 0 (default) will disable this strategy.</p>   </td>
+ <td style="vertical-align: top;"><p>Fixed-wing actuator thrust scale for hover forward flight</p><p><strong>Comment:</strong> Scale applied to the demanded down-pitch to get the fixed-wing forward actuation in hover mode. Only active if demaded down pitch is above VT_DWN_PITCH_MAX. Enabled via VT_FWD_THRUST_EN.</p>   </td>
  <td style="vertical-align: top;">0.0 > 2.0 </td>
- <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">0.7</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -14420,6 +14463,13 @@ tailsitter, tiltrotor: main throttle</p>   </td>
  <td style="vertical-align: top;">900 > 2000 (1)</td>
  <td style="vertical-align: top;">900</td>
  <td style="vertical-align: top;">us</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VT_MC_ON_FMU">VT_MC_ON_FMU</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable the usage of AUX outputs for hover motors</p><p><strong>Comment:</strong> Set this parameter to true if the vehicle's hover motors are connected to the FMU (AUX) port. Not required for boards that only have a FMU, and no IO. Only applies for standard VTOL and tiltrotor.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_MOT_ID">VT_MOT_ID</strong> (INT32)</td>

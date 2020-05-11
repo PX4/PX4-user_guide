@@ -19,6 +19,6 @@ The boards in this category are:
 - [Holybro Durandal](../flight_controller/durandal.md)
 - [ModalAI Flight Core v1](../flight_controller/modalai_fc_v1.md)
 - [mRobotics-X2.1](../flight_controller/mro_x2.1.md) (FMUv2)
-- [mRo Control Zero](https://store.mrobotics.io/mRo-Control-Zero-F7-p/mro-ctrl-zero-f7.htm) (store.mrobotics.io)
+- [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
 - [NXP FMUK66](../flight_controller/nxp_rddrone_fmuk66.md) (ww.nxp.com)
 - [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
