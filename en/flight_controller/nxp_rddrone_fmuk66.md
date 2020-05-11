@@ -5,15 +5,13 @@ NXP provides the schematics, gerbers, BOM and source files so that anyone can du
 
 This is the official FMU for use with [HoverGames](https://www.hovergames.com/).
 
-
-<!--- ![RDDRONE-FMUK66 FMU Hero Image](../../assets/flight_controller/nxp_rddrone_fmuk66/nxp_rddrone_fmuk66_bottom.jpg)
--->
-
 ![RDDRONE-FMUK66 FMU Hero Image1](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_020.jpg)
 
 ![RDDRONE-FMUK66 FMU Hero Image2](../../assets/flight_controller/nxp_rddrone_fmuk66/HoverGamesDrone_14042019_XL_021.jpg)
 
-The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs/REACH directives
+The NXP FMU and included peripherals have been tested to comply with FCC/CE/RoHs/REACH directives.
+
+> **Note** These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 
 ## Quick Summary
@@ -54,7 +52,7 @@ Additional information can be found in the [Technical Data Sheet](https://www.nx
 > **Note** *RDDRONE-FMUK66* FMU is also included in the complete HoverGames drone kit: [KIT-HGDRONEK66](https://www.nxp.com/applications/solutions/industrial/aerospace-and-mobile-robotics/uavs-drones-and-rovers/nxp-hovergames-drone-kit-including-rddrone-fmuk66-and-peripherals:KIT-HGDRONEK66#buy)
 
 
-
+<!--
 ## Connectors
 
 [Connector Diagram]
@@ -67,7 +65,7 @@ Additional information can be found in the [Technical Data Sheet](https://www.nx
 
 [Dimensions]
 
-
+-->
 
 ## Assembly/Setup
 
@@ -80,7 +78,7 @@ https://nxp.gitbook.io/hovergames
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
-make XXXXXX
+make nxp_fmuk66-v3_default
 ```
 
 
@@ -92,12 +90,13 @@ NXP's DCD-LZ is a 7 pin JST-GH connector and adds the nRST/MCU_RESET pin to the 
 
 The DCD-LZ breakout adapter permits the use of a standard 10 pin JTAG/SWD interface (i.e. using the Segger Jlink) and a standard 5 pin FTDI USB-TTL-3V3 type cable.
 
-
+<!--
 
 ## Peripherals
 
 * [List of anything people should use with this hardware]
 
+-->
 
 ## Supported Platforms / Airframes
 
