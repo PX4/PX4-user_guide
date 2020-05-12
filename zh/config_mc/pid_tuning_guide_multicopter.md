@@ -8,7 +8,7 @@
 
 ## 简介
 
-PX4 使用 ** P ** 比例、** I ** 积分、** D ** 微分 (PID) 控制器, 是使用最广泛的控制技术。
+PX4 uses **P**roportional, **I**ntegral, **D**erivative (PID) controllers (these are the most widespread control technique).
 
 The controllers are layered, which means a higher-level controller passes its results to a lower-level controller. The lowest-level controller is the the **rate controller**, then there is the **attitude contoller**, and then the **velocity & position controller**. The PID tuning needs to be done in the same order, starting with the rate controller, as it will affect all other controllers.
 
@@ -40,91 +40,141 @@ The controllers are layered, which means a higher-level controller passes its re
 
 ### 速率控制器
 
-角速度控制是最内环的控制器，它用三个独立的PID控制来控制角速度
-
-- 滚转角速度控制 ([MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_ROLLRATE_I](../advanced_config/parameter_reference.md#MC_ROLLRATE_I), [MC_ROLLRATE_D](../advanced_config/parameter_reference.md#MC_ROLLRATE_D)) 
-- 俯仰角速度控制 ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D))
-- 偏航角速度控制([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D)) 
+The rate controller is the inner-most loop with three independent PID controllers to control the body rates (yaw, pitch, roll).
 
 > **注意** 把角速度控制器调好是非常重要的，因为它会影响到 *所有的*飞行模式。 角速度控制器跳得好不好可以在[位置模式](../flight_modes/position_mc.md)中显现出来，举个例子，你的飞机可能会「抽搐」（飞行器无法很好地悬停在空中）
 
-角速度控制器可以在[特技模式](../flight_modes/acro_mc.md)或者[手动/自稳模式](../flight_modes/manual_stabilized_mc.md)中调整。
+#### Rate Controller Architecture/Form
 
-- *我们更推荐特技模式，* 但这种模式比较难飞。 如果你选择特技模式，记得把把特技模式指数因子都禁用了： 
+PX4 supports two (mathematically equivalent) forms of the PID rate controller in a single "mixed" implementation: [Parallel](#parallel_form) and [Standard](#standard_form).
+
+Users can select the form that is used by setting the proportional gain for the other form to "1" (i.e. in the diagram below set **K** to 1 for the parallel form, or **P** to 1 for the standard form - this will replace either the K or P blocks with a line).
+
+![PID_Mixed](../../images/mc_pid_tuning/PID_algorithm_Mixed.png) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1hXnAJVRyqNAdcreqNa5W4PQFkYnzwgOO/view?usp=sharing -->
+
+- *G(s)* represents the angular rates dynamics of a vehicle
+- *r* is the rate setpoint
+- *y* is the body angular rate (measured by a gyro)
+- *e* is the error between the rate setpoint and the measured rate
+- *u* is the output of the PID controller
+
+The two forms are described below.
+
+> **Note** The derivative term (**D**) is on the feedback path in order to avoid an effect known as the [derivative kick](http://brettbeauregard.com/blog/2011/04/improving-the-beginner%E2%80%99s-pid-derivative-kick/).
+
+<span></span>
+
+> **Tip** For more information see:
+
+    - [Not all PID controllers are the same](https://www.controleng.com/articles/not-all-pid-controllers-are-the-same/) (www.controleng.com) 
+    - [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
+    
+
+##### Parallel Form {#parallel_form}
+
+The *parallel form* is the simplest form, and is (hence) commonly used in textbooks. In this case the output of the controller is simply the sum of the proportional, integral and derivative actions.
+
+![PID_Parallel](../../images/mc_pid_tuning/PID_algorithm_Parallel.png)
+
+##### Standard Form {#standard_form}
+
+This form is mathematically equivalent to the parallel form, but the main advantage is that (even if it seems counter intuitive) it decouples the proportional gain tuning from the integral and derivative gains. This means that a new platform can easily be tuned by taking the gains of a drone with similar size/inertia and simply adjust the K gain to have it flying properly.
+
+![PID_Standard](../../images/mc_pid_tuning/PID_algorithm_Standard.png)
+
+#### Rate PID Tuning
+
+The related parameters for the tuning of the PID rate controllers are:
+
+- Roll rate control ([MC_ROLLRATE_P](../advanced_config/parameter_reference.md#MC_ROLLRATE_P), [MC_ROLLRATE_I](../advanced_config/parameter_reference.md#MC_ROLLRATE_I), [MC_ROLLRATE_D](../advanced_config/parameter_reference.md#MC_ROLLRATE_D), [MC_ROLLRATE_K](../advanced_config/parameter_reference.md#MC_ROLLRATE_K))
+- Pitch rate control ([MC_PITCHRATE_P](../advanced_config/parameter_reference.md#MC_PITCHRATE_P), [MC_PITCHRATE_I](../advanced_config/parameter_reference.md#MC_PITCHRATE_I), [MC_PITCHRATE_D](../advanced_config/parameter_reference.md#MC_PITCHRATE_D), [MC_PITCHRATE_K](../advanced_config/parameter_reference.md#MC_PITCHRATE_K))
+- Yaw rate control ([MC_YAWRATE_P](../advanced_config/parameter_reference.md#MC_YAWRATE_P), [MC_YAWRATE_I](../advanced_config/parameter_reference.md#MC_YAWRATE_I), [MC_YAWRATE_D](../advanced_config/parameter_reference.md#MC_YAWRATE_D), [MC_YAWRATE_K](../advanced_config/parameter_reference.md#MC_YAWRATE_K))
+
+The rate controller can be tuned in [Acro mode](../flight_modes/acro_mc.md) or [Manual/Stabilized mode](../flight_modes/manual_stabilized_mc.md):
+
+- *Acro mode* is preferred, but is harder to fly. If you choose this mode, disable all stick expo: 
   - `MC_ACRO_EXPO` = 0, `MC_ACRO_EXPO_Y` = 0, `MC_ACRO_SUPEXPO` = 0, `MC_ACRO_SUPEXPOY` = 0
   - `MC_ACRO_P_MAX` = 200, `MC_ACRO_R_MAX` = 200
   - `MC_ACRO_Y_MAX` = 100
-- *手动/自稳模式*更好飞，但这种模式也比较难观察姿态和角速度控制器到底调好了没。
+- *Manual/Stabilized mode* is simpler to fly, but it is also more difficult to see if the attitude or the rate controller needs more tuning.
 
-万一你的飞行器完全飞不起来，我们给你以下几点建议：
+If the vehicle does not fly at all:
 
-- If you notice strong oscillations when first trying to takeoff (to the point where it does not fly), decrease all **P** and **D** gains until it takes off.
-- 但如果你的飞行器对遥控器的所有指令都没什么反应的话，可以增加**P**增益试试。
+- If there are strong oscillations when first trying to takeoff (to the point where it does not fly), decrease all **P** and **D** gains until it takes off.
+- If the reaction to RC movement is minimal, increase the **P** gains.
 
-在实际中，*手动模式*和*特技模式*的调参套路差不多：一步步地迭代调整滚转和俯仰的**P**和**D**增益，然后再调**I**增益。 Initially you can use the same values for roll and pitch, and once you have good values, you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed). 偏航那就很简单了，四旋翼对偏航角不是很敏感，我们甚至可以直接把偏航的D设为0。
+The actual tuning is roughly the same in *Manual mode* or *Acro mode*: You iteratively tune the **P** and **D** gains for roll and pitch, and then the **I** gain. Initially you can use the same values for roll and pitch, and once you have good values, you can fine-tune them by looking at roll and pitch response separately (if your vehicle is symmetric, this is not needed). For yaw it is very similar, except that **D** can be left at 0.
 
-#### P增益
+##### Proportional Gain (P/K)
 
-**P**增益(比例增益) 用来减小误差。 它可以加快响应速度，因此应该在不引入震荡的前提下设的尽量的高。
+The proportional gain is used to minimize the tracking error (below we use **P** to refer to both **P** or **K**). It is responsible for a quick response and thus should be set as high as possible, but without introducing oscillations.
 
-- 如果**P**增益太高了，会有高频率的振荡。
-- 如果 **P** 增益太低了: 
-  - 飞行器会对遥控器的输入很迟钝。
-  - 如果是在*特技模式*下，飞行器会漂移，你会一直要矫正它来让它水平。
+- If the **P** gain is too high: you will see high-frequency oscillations.
+- If the **P** gain is too low: 
+  - the vehicle will react slowly to input changes.
+  - In *Acro mode* the vehicle will drift, and you will constantly need to correct to keep it level.
 
-#### D 增益
+##### Derivative Gain (D)
 
-**D增益**(微分增益) 用来增加阻尼，可以防止超调。 同样地，这个值应该尽量设大一些来避免超调。
+The **D** (derivative) gain is used for rate damping. It is required but should be set only as high as needed to avoid overshoots.
 
-- **D增益**太大，电机可能会抽搐、发热(也有可能不会) 。这是因为**D**项同时也会放大震动等带来的噪声。
-- **D增益**太低会导致超调，即相比设定的值「冲过头了」。
+- If the **D** gain is too high: the motors become twitchy (and maybe hot), because the **D** term amplifies noise.
+- If the **D** gain is too low: you see overshoots after a step-input.
 
-#### I增益
+Typical values are:
 
-**I**（积分）增益可以「记住误差」。 如果你发现过了一段时间了，角速度还是达不到设定值，那就该增加** I **了。 它很重要(尤其在*特技模式*下) ，但我们不应该把它设得太高。
+- standard form (**P** = 1): between 0.01 (4" racer) and 0.04 (500 size), for any value of **K**
+- parallel form (**K** = 1): between 0.0004 and 0.005, depending on the value of **P**
 
-- 如果积分增益太高：你会看到缓慢的振荡。
-- If the I gain is too low: this is best tested in *Acro mode*, by tilting the vehicle to one side about 45 degrees, and keeping it like that. 他应该始终保持相同的角度。 如果它往回漂移，增加** I **。 通过观察日志我们也可以发现** I **增益太小的问题，可以看到实际的角速度过很久也达不到期望的角速度。
+##### Integral Gain (I)
 
-I 增益一般在0.3~0.5之间，俯仰角的一般要大一点。
+The **I** (integral) gain keeps a memory of the error. The **I** term increases when the desired rate is not reached over some time. It is important (especially when flying *Acro mode*), but it should not be set too high.
 
-#### 测试步骤
+- If the I gain is too high: you will see slow oscillations.
+- If the I gain is too low: this is best tested in *Acro mode*, by tilting the vehicle to one side about 45 degrees, and keeping it like that. It should keep the same angle. If it drifts back, increase the **I** gain. A low **I** gain is also visible in a log, when there is an offset between the desired and the actual rate over a longer time.
 
-要测试现在的增益，可以给一个在悬停状况下给一个**脉冲输入**（打一下杆再回来）然后观察飞行器的反应。 他应该反应很快，振荡和超调量都不大。(有种「锁定」的感觉)。
+Typical values are:
+
+- standard form (**P** = 1): between 0.5 (VTOL plane), 1 (500 size) and 8 (4" racer), for any value of **K**
+- parallel form (**K** = 1): between 0.3 and 0.5 if **P** is around 0.15 The pitch gain usually needs to be a bit higher than the roll gain.
+
+#### Testing Procedure
+
+To test the current gains, provide a fast **step-input** when hovering and observe how the vehicle reacts. It should immediately follow the command, and neither oscillate, nor overshoot (it feels 'locked-in').
 
 You can create a step-input for example for roll, by quickly pushing the roll stick to one side, and then let it go back quickly (be aware that the stick will oscillate too if you just let go of it, because it is spring-loaded — a well-tuned vehicle will follow these oscillations).
 
-> **Note** 一个调得很好的旋翼在*特技模式*不会随便超某个方向倾斜，即使不做任何矫正也能保持姿态几十秒。
+> **Note** A well-tuned vehicle in *Acro mode* will not tilt randomly towards one side, but keeps the attitude for tens of seconds even without any corrections.
 
-#### 日志
+#### Logs
 
-看看日志有助于你看看你调的参咋样。 下面是一份调得比较好的滚转和偏航角速度的日志。
+Looking at a log helps to evaluate tracking performance as well. Here is an example for good roll and yaw rate tracking:
 
-![滚转角速度跟踪](../../images/mc_pid_tuning/roll_rate_tracking.png) ![偏航角速度跟踪](../../images/mc_pid_tuning/yaw_rate_tracking.png)
+![roll rate tracking](../../images/mc_pid_tuning/roll_rate_tracking.png) ![yaw rate tracking](../../images/mc_pid_tuning/yaw_rate_tracking.png)
 
-下面这份日志显示了滚转角速度对阶跃输入和脉冲输入的一个比较好的反应。 你可以看到飞行器的超调量非常小。 ![roll rate tracking flips](../../images/mc_pid_tuning/roll_rate_tracking_flip.png)
+And here is a good example for the roll rate tracking with several flips, which create an extreme step-input. You can see that the vehicle overshoots only by a very small amount: ![roll rate tracking flips](../../images/mc_pid_tuning/roll_rate_tracking_flip.png)
 
 ### 角度控制
 
-角度控制环控制机体的姿态角，并通过设定的角度和实际角度误差来设定期望角速度，反过来想可能会比较直观，即用角速度来补偿角度。该控制环有以下参数可以调：
+This controls the orientation and outputs desired body rates with the following tuning parameters:
 
-- 滚转角控制 ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
-- 俯仰角控制 ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P)
-- 偏航角控制([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
+- Roll control ([MC_ROLL_P](../advanced_config/parameter_reference.md#MC_ROLL_P))
+- Pitch control ([MC_PITCH_P](../advanced_config/parameter_reference.md#MC_PITCH_P)
+- Yaw control ([MC_YAW_P](../advanced_config/parameter_reference.md#MC_YAW_P))
 
-姿态角控制环调起来就容易多了。 其实大多数时候默认值就够了，完全不用调。
+The attitude controller is much easier to tune. In fact, most of the time the defaults do not need to be changed at all.
 
-角度控制环可以在*手动/自稳模式*下调，逐渐增大**P**增益。 如果看到有振荡或者超调，就说明调得太高了。
+To tune the attitude controller, fly in *Manual/Stabilized mode* and increase the **P** gains gradually. If you start to see oscillations or overshoots, the gains are too high.
 
-下面这几个参数也可以调整 这些参数决定了绕三个轴的最大角速度：
+The following parameters can also be adjusted. These determine the maximum rotation rates around all three axes:
 
-- 最大滚转角速度 ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
-- 最大俯仰角速度 ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX)
-- 最大偏航角速度 ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
+- Maximum roll rate ([MC_ROLLRATE_MAX](../advanced_config/parameter_reference.md#MC_ROLLRATE_MAX))
+- Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX)
+- Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
 ### Thrust Curve {#thrust_curve}
 
-以上的调整都是在悬停油门的基础上的。 但当你增大油门的时候，你可能会看到控制性能又不太好了，机体又开始振荡了。
+The tuning above optimises performance around the hover throttle. But it can be that you start to see oscillations when going towards full throttle.
 
 To counteract that adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
 
@@ -167,10 +217,7 @@ It can happen that one of the motor commands becomes negative, for example for a
 
 Both modes are shown below with a 2D illustration for two motors and a torque command for roll <span style="color:#9673A6">r</span>. On the left motor <span style="color:#9673A6">r</span> is added to the commanded thrust, while on the right motor it is subtracted from it. The motor thrusts are in <span style="color:#6A9153">green</span>. With Airmode enabled, the commanded thrust is increased by <span style="color:#B85450">b</span>. When it is disabled, <span style="color:#9673A6">r</span> is reduced.
 
-    ![Airmode](../../images/mc_pid_tuning/MC_PID_tuning-Airmode.svg)
-    
-
-<!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
+![Airmode](../../images/mc_pid_tuning/MC_PID_tuning-Airmode.svg) <!-- The drawing is on draw.io: https://drive.google.com/file/d/1N0qjbiJX6JuEk2I1-xFvigLEPKJRIjBP/view?usp=sharing
      On the first Tab
 -->
 

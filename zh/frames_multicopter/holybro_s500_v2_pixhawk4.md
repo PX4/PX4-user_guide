@@ -1,4 +1,4 @@
-# Holybro S500 V2 + Pixhawk 4 Build
+# Holybro S500 V2 + Pixhawk 4 装机
 
 This topic provides full instructions for building the kit and configuring PX4 using *QGroundControl*.
 

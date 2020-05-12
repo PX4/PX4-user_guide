@@ -1,8 +1,8 @@
-# Offboard Mode
+# 오프보드(Offboard) 모드
 
 [<img src="../../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" />](../getting_started/flight_modes.md#key_position_fixed)
 
-The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink. The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
+오프보드 모드에서는 기체가 mavlink를 통해서 전달된 위치, 속도, 자세등을 따라갑니다 셋포인트 명령은 컴페니언 컴퓨터에서 MAVLink API (예, [MAVSDK](https://mavsdk.mavlink.io/) 또는 [MAVROS](https://github.com/mavlink/mavros))를 통해 전달할 수 있습니다. 일반적으로 시리얼 케이블 또는 와이파이를 통해 기체의 fcu와 연결합니다.
 
 > **Note** * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc. * RC control is disabled except to change modes. * The vehicle must be armed before this mode can be engaged. * The vehicle must be already be receiving a stream of target setpoints before this mode can be engaged. * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
 
@@ -50,16 +50,38 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
   
-  * The following input combinations are supported: <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
     * Position setpoint (only `x`, `y`, `z`)
+      
+      * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
+        
+        > **Note** The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+        
+        The values are:
+        
+        * 4096: Takeoff setpoint.
+        * 8192: Land setpoint.
+        * 12288: Loiter setpoint (fly a circle centred on setpoint).
+        * 16384: Idle setpoint (zero throttle, zero roll / pitch).
   * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   
-  * The following input combinations are supported: <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported (via `type_mask`): <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
+      
+      * Specify the *type* of the setpoint in `type_mask` (if these bits are not set the vehicle will fly in a flower-like pattern):
+        
+        > **Note** The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+        
+        The values are:
+        
+        * 4096: Takeoff setpoint.
+        * 8192: Land setpoint.
+        * 12288: Loiter setpoint (fly a circle centred on setpoint).
+        * 16384: Idle setpoint (zero throttle, zero roll / pitch).
   * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
@@ -75,17 +97,28 @@ See https://github.com/PX4/Firmware/pull/12149 and https://github.com/PX4/Firmwa
 
 * [SET_POSITION_TARGET_LOCAL_NED](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_LOCAL_NED)
   
-  * The following input combinations are supported: <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
     * Position setpoint (only `x`, `y`, `z`)
+      
+      * Specify the *type* of the setpoint in `type_mask`:
+        
+        > **Note** The *setpoint type* values below are not part of the MAVLink standard for the `type_mask` field.
+        
+        The values are:
+        
+        * 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
     * Velocity setpoint (only `vx`, `yy`, `vz`)
   * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   
-  * The following input combinations are supported: <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
+  * The following input combinations are supported (in `type_mask`): <!-- https://github.com/PX4/Firmware/blob/master/src/lib/FlightTasks/tasks/Offboard/FlightTaskOffboard.cpp#L166-L170 -->
     
     * Position setpoint (only `lat_int`, `lon_int`, `alt`)
+  * Specify the *type* of the setpoint in `type_mask` (not part of the MAVLink standard). The values are: 
+    * Following bits not set then normal behaviour.
+    * 12288: Loiter setpoint (vehicle stops when close enough to setpoint).
   * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)

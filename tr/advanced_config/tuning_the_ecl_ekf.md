@@ -79,7 +79,7 @@ The EKF2 module models the error as a body fixed ellipsoid that specifies the fr
 GPS measurements will be used for position and velocity if the following conditions are met:
 
 * GPS use is enabled via setting of the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
-* GPS quality checks have passed. These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters. 
+* GPS quality checks have passed. These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters.
 * GPS height can be used directly by the EKF via setting of the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
 
 #### Yaw Measurements {#yaw_measurements}
@@ -156,7 +156,7 @@ Optical flow data will be used if the following conditions are met:
 * Bit position 1 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 * The quality metric returned by the flow sensor is greater than the minimum requirement set by the [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) parameter.
 
-### External Vision System
+### External Vision System {#ekf2_extvis}
 
 Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 
@@ -196,7 +196,6 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 * The ecl EKF is a complex algorithm that requires a good understanding of extended Kalman filter theory and its application to navigation problems to tune successfully. It is therefore more difficult for users that are not achieving good results to know what to change.
 * The ecl EKF uses more RAM and flash space.
 * The ecl EKF uses more logging space.
-* The ecl EKF has had less flight time.
 
 ### Advantages
 
@@ -205,7 +204,7 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 * The ecl EKF detects and reports statistically significant inconsistencies in sensor data, assisting with diagnosis of sensor errors.
 * For fixed wing operation, the ecl EKF estimates wind speed with or without an airspeed sensor and is able to use the estimated wind in combination with airspeed measurements and sideslip assumptions to extend the dead-reckoning time available if GPS is lost in flight.
 * The ecl EKF estimates 3-axis accelerometer bias which improves accuracy for tailsitters and other vehicles that experience large attitude changes between flight phases.
-* The federated architecture (combined attitude and position/velocity estimation) means that attitude estimation benefits from all sensor measurements. This should provide the potential for improved attitude estimation if tuned correctly. 
+* The federated architecture (combined attitude and position/velocity estimation) means that attitude estimation benefits from all sensor measurements. This should provide the potential for improved attitude estimation if tuned correctly.
 
 ## How do I check the EKF performance?
 
