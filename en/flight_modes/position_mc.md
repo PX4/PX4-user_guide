@@ -31,6 +31,8 @@ RC/manual mode where RPT sticks control *speed* in corresponding directions. Cen
   * Yaw stick controls rate of angular rotation above the horizontal plane.
 * Takeoff:
   * When landed, the vehicle will take off if the throttle stick is raised above 62.5% percent (of the full range from bottom).
+* Landing:
+  * When close to the ground ([MPC_LAND_ALT2](#MPC_LAND_ALT2)), horizontal velocity is limited ([MPC_LAND_VEL_XY](#MPC_LAND_VEL_XY)).
 
 > **Note**
 >  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
