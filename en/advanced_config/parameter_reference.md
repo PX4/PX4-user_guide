@@ -1855,7 +1855,7 @@ Increasing it makes the multi-rotor wind estimates adjust more slowly</p>   </td
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Measurement noise for vision angle observations used to lower bound or replace the uncertainty included in the message</p>   </td>
- <td style="vertical-align: top;">0.01 > ? </td>
+ <td style="vertical-align: top;">0.05 > ? </td>
  <td style="vertical-align: top;">0.05</td>
  <td style="vertical-align: top;">rad</td>
 </tr>
