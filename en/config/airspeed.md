@@ -28,6 +28,11 @@ To calibrate the airspeed sensor:
 
 After calibration a quick test is to press your finger against the tip of the pitot and hold it. You should see the system read and hold a positive airspeed until you release.
 
+## Warning
+
+Some airspeed sensors are susceptible to light and show erroneous airspeed values if hit by sunlight. Make sure to install your airspeed sensor internally or cover it by a lightproof casing.
+
+
 ## Further Information
 
 * [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#airspeed)
