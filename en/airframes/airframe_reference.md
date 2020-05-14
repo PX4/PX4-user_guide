@@ -1054,7 +1054,7 @@ This page lists all supported airframes and types including
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor right</li><li><b>MAIN2</b>: motor left</li><li><b>MAIN5</b>: elevon right</li><li><b>MAIN6</b>: elevon left</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor right</li><li><b>MAIN2</b>: motor left</li><li><b>MAIN5</b>: elevon left</li><li><b>MAIN6</b>: elevon right</li></ul></td>
 </tr>
 </tbody></table>
 </div>
