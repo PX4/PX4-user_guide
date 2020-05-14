@@ -8,8 +8,12 @@
 
 该指南阐述了无人机准备飞行所需的最少附加步骤（安装遥控器系统和电池等）。 也包括如何起飞，以及如何修改计算机视觉代码。
 
-
 ## 警告&通知
+
+The kit is currently an "early adopter" release. Contact sales01@holybro.com for sales enquiries.
+
+
+## 开始了解你的开发套件
 
 1. 不要直接使用电源为 *UP Core* 计算机供电（可能会摧毁计算机）。 *UP Core* 只能使用电池供电。
 
@@ -21,14 +25,14 @@
 
    ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
-## 开始了解你的开发套件
+## 你需要什么其他的东西
 
 ![Schematic Overview](../../assets/hardware/px4_vision_devkit/px4_vision_schematic_overview.jpg)
 
 
 ![Schematic Layered](../../assets/hardware/px4_vision_devkit/px4_vision_schematic_layered.png)
 
-开发套件包含以下组件：
+该套件中包含了必要的无人机硬件，电池和遥控须要单独购买：
 - 带有如下组件的 PX4 视觉无人机套件：
   - 一个Pixhawk 4飞控（包含定制化的PX4固件）
   - 一个 PMW3901 光流传感器
@@ -53,9 +57,9 @@
 - Assorted cables, propellers, and other accessories (these can be used to attach additional peripherals).
 
 
-## 你需要什么其他的东西
+## 首次使用
 
-该套件中包含了必要的无人机硬件，电池和遥控须要单独购买：
+此外，用户也需要地面站硬件/软件：
 - 电池：
   - 带 XT60 母头的 4S 锂电池
   - 小于115毫米长度（以适合电源插座和 GPS 支架之间的空间）
@@ -64,11 +68,11 @@
   - 带有 R-XSR 接收机的 *FrSky Taranis* 发射机是一个受欢迎的配置。
 - 一个 H2.0 头的内六角螺丝刀（用来打开顶部的螺丝来安装接收机）
 
-此外，用户也需要地面站硬件/软件：
+当载具设置完成时：
 - 可运行 [QGC地面站（QGroundControl）](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) 的笔记本电脑或者平板。
 
 
-## 首次使用
+## First-time Setup
 
 1. 将接收机（套件中不包含）固定在无人机上，
    - 使用H2.0 十六进制键工具移除/取消顶部板块(在电池进入的地方)。
@@ -123,10 +127,10 @@
      ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
 
 
-## 让无人机飞起来（带避障） {#fly_drone}
+## Fly the Drone (with avoidance) {#fly_drone}
 
 
-当载具设置完成时：
+When the vehicle setup described above is complete:
 
 1. 将套件中预先烧录好镜像的U盘插入上面的**`USB1`（下面高亮的）
 
@@ -199,7 +203,7 @@ First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, a
 
 If you've already [installed the image on the companion computer](#install_image_mission_computer) you can just power the vehicle (i.e. no USB stick is needed). The avoidance system should be up and running within around 30 seconds.
 
-按以下步骤登录到机载计算机：
+Once started the companion computer can be used both as a computer vision development environment and for running the software.
 
 
 ### 登录到机载计算机 {#login_mission_computer}
