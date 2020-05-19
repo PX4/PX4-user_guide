@@ -33,3 +33,5 @@ This section contains information about complete vehicles that run PX4.
     - [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
 - Drone Development Kits 
   - [PX4 Vision DevKit](../complete_vehicles/px4_vision_kit.md) - Multicopter used for PX4 computer vision development
+- Drone Reference Platforms 
+  - [Intel® Aero RTF Drone](../complete_vehicles/intel_aero.md) (Discontinued)
