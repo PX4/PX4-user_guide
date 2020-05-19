@@ -215,7 +215,6 @@
     * [CUAV v5 (Discontinued)](flight_controller/cuav_v5.md)
     * [HobbyKing HKPilot32 (Discontinued)](flight_controller/HKPilot32.md)
     * [Holybro Pixfalcon (Discontinued)](flight_controller/pixfalcon.md)
-    * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
     * [mRo AUAV-X2 (Discontinued)](flight_controller/auav_x2.md)
     * [Raspberry Pi 2/3 Navio2](flight_controller/raspberry_pi_navio2.md)
     * [Snapdragon Flight (Discontinued)](flight_controller/snapdragon_flight.md) 
@@ -233,6 +232,7 @@
     * [NanoMind 110](complete_vehicles/nanomind110.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](complete_vehicles/betafpv_beta75x.md)
   * [Holybro Kopis 2](complete_vehicles/holybro_kopis2.md)
+  * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
 * [開発](development/development.md)
 
 ## Dronecode ショートカット
