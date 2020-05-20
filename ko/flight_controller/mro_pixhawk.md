@@ -37,7 +37,11 @@
         </li>
         
         <li>
-          32 비트 STM32F103 failsafe 코 프로세서
+          32 bit STM32F100 failsafe co-processor
+        </li>
+        
+        <li>
+          24 MHz/8 KB RAM/64 KB Flash
         </li></ul></li> 
         
         <li>

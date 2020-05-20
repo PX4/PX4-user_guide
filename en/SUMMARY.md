@@ -204,6 +204,7 @@
     * [Holybro Kakute F7](flight_controller/kakutef7.md)
     * [Holybro Durandal](flight_controller/durandal.md)
     * [mRobotics-X2.1 (FMUv2)](flight_controller/mro_x2.1.md)
+    * [NXP RDDRONE-FMUK66 FMU](flight_controller/nxp_rddrone_fmuk66.md)
     * [Omnibus F4 SD](flight_controller/omnibus_f4_sd.md)
     * [mRo Control Zero F7)](flight_controller/mro_control_zero_f7.md)
     * [ModalAI Flight Core v1](flight_controller/modalai_fc_v1.md)
@@ -214,7 +215,6 @@
     * [CUAV v5 (Discontinued)](flight_controller/cuav_v5.md)
     * [HobbyKing HKPilot32 (Discontinued)](flight_controller/HKPilot32.md)
     * [Holybro Pixfalcon (Discontinued)](flight_controller/pixfalcon.md)
-    * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
     * [mRo AUAV-X2 (Discontinued)](flight_controller/auav_x2.md)
     * [Raspberry Pi 2/3 Navio2](flight_controller/raspberry_pi_navio2.md)
     * [Snapdragon Flight (Discontinued)](flight_controller/snapdragon_flight.md)
@@ -232,6 +232,7 @@
     * [NanoMind 110](complete_vehicles/nanomind110.md)
   * [BetaFPV Beta75X 2S Brushless Whoop](complete_vehicles/betafpv_beta75x.md)
   * [Holybro Kopis 2](complete_vehicles/holybro_kopis2.md)
+  * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
 * [Development](development/development.md)
 
 ## Dronecode Shortcuts

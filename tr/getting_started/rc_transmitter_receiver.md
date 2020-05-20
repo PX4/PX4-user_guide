@@ -76,6 +76,7 @@ In addition to the transmitter/receiver pairs being compatible, the receiver mus
 As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
 
 * Spektrum and DSM receivers must connect to a **SPKT/DSM** input.
+* Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input.
 * PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
 * PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
@@ -92,6 +93,18 @@ Instructions for connecting to specific flight controllers are given in the foll
 Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other. The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions).
 
 If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
+
+## Set Signal-Loss Behaviour
+
+RC receivers have different ways of indicating signal loss:
+
+* Output nothing (automatically detected by PX4)
+* Output a low throttle value value (you can [configure PX4 to detect this](../config/radio.md#rc_loss_detection)).
+* Output the last received signal (PX4 cannot handle this case!)
+
+Choose a receiver that can emit nothing (preferred) when RC is lost, or a low throttle value. This behaviour may require hardware configuration of the receiver (check the manual).
+
+For more information see [Radio Control Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
 
 ## Related Topics
 

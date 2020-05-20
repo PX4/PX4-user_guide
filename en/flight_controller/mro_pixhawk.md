@@ -16,7 +16,8 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 * Microprocessor:
   * 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
   * 168 MHz/256 KB RAM/2 MB Flash
-  * 32 bit STM32F103 failsafe co-processor
+  * 32 bit STM32F100 failsafe co-processor
+  * 24 MHz/8 KB RAM/64 KB Flash
 * Sensors:
   * ST Micro L3GD20 3-axis 16-bit gyroscope
   * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer

@@ -76,8 +76,9 @@ UAV用の最も一般的なRCシステムの *形態* は以下の通りです�
 一般的な説明として，受信機はそのプロトコルに応じて，フライトコントローラの適切なポートに接続する必要があります:
 
 * Spektrum および DSM 受信機は **SPKT/DSM** 入力ポートに接続してください。
-* PPM-Sum および S.BUS 受信機は**RC** 入力ポート(大抵，RCまたはRCINとラベリングされています)にグラウンド，電源，信号線を接続してください。
-* 各チャンネル毎への出力信号を持ったPPM受信機の場合，[このような](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) PPMエンコーダ(一つの信号線に全チャンネル情報を流すPPM-Sum受信機) を*介して*，RCINポートに接続してください。
+* Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input.
+* PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
+* PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 いくつかのフライトコントローラへの接続例は，以下のクイックスタートガイドにて参照可能です:
 
@@ -93,7 +94,19 @@ RCシステムをキャリブレーション/使用する前に，送受信機�
 
 もし *Spektrum* 受信機を使用している場合，*QGroundControl*を用いて，バインドモードに移行することが可能です。: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
 
-## 関連トピック
+## Set Signal-Loss Behaviour
 
-* [RCシステムのセットアップ](../config/radio.md) - PX4を用いたRCシステムの設定について。
-* [Flying 101](../flying/basic_flying.md) - RCシステムを用いた飛行方法について説明します。
+RC receivers have different ways of indicating signal loss:
+
+* Output nothing (automatically detected by PX4)
+* Output a low throttle value value (you can [configure PX4 to detect this](../config/radio.md#rc_loss_detection)).
+* Output the last received signal (PX4 cannot handle this case!)
+
+Choose a receiver that can emit nothing (preferred) when RC is lost, or a low throttle value. This behaviour may require hardware configuration of the receiver (check the manual).
+
+For more information see [Radio Control Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
+
+## Related Topics
+
+* [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
+* [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.

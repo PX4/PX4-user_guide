@@ -8,6 +8,10 @@ The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pi
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
 
+## Purchase
+
+The kit is currently an "early adopter" release. Contact sales01@holybro.com for sales enquiries.
+
 
 ## Warnings & Notifications
 
@@ -114,7 +118,7 @@ In addition, users will need ground station hardware/software:
 
    ![Motor Order Diagram](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
 
-   - The propellers directions can be determined from the labels: *6045* (clockwise) and _6045_**R** (reversed).
+   - The propellers directions can be determined from the labels: *6045* (normal, counter-clockwise) and _6045_**R** (reversed, clockwise).
 
      ![Propeller identification](../../assets/hardware/px4_vision_devkit/propeller_directions.jpg)
 

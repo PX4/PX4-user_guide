@@ -11,6 +11,11 @@ Developers can use the kit to try out other features provided by the [PX4 Avoida
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery).
 It also covers the first flight, and how to get started with modifying the computer vision code.
 
+## Purchase
+
+The kit is currently an "early adopter" release.
+Contact sales01@holybro.com for sales enquiries.
+
 
 ## Warnings & Notifications
 
