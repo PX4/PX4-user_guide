@@ -943,14 +943,14 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  <td style="vertical-align: top;"><p>Maximum value of EKF accelerometer delta velocity bias estimate that will allow arming.
 Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than EKF2_ABL_LIM * FILTER_UPDATE_PERIOD_MS * 0.001 so this parameter must be less than that to be useful</p>   </td>
  <td style="vertical-align: top;">0.001 > 0.01 (0.0001)</td>
- <td style="vertical-align: top;">1.73e-3</td>
+ <td style="vertical-align: top;">0.0022</td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_EKF_GB">COM_ARM_EKF_GB</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum value of EKF gyro delta angle bias estimate that will allow arming</p>   </td>
  <td style="vertical-align: top;">0.0001 > 0.0017 (0.0001)</td>
- <td style="vertical-align: top;">8.7e-4</td>
+ <td style="vertical-align: top;">0.0011</td>
  <td style="vertical-align: top;">rad</td>
 </tr>
 <tr>
@@ -1855,7 +1855,7 @@ Increasing it makes the multi-rotor wind estimates adjust more slowly</p>   </td
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EVA_NOISE">EKF2_EVA_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Measurement noise for vision angle observations used to lower bound or replace the uncertainty included in the message</p>   </td>
- <td style="vertical-align: top;">0.01 > ? </td>
+ <td style="vertical-align: top;">0.05 > ? </td>
  <td style="vertical-align: top;">0.05</td>
  <td style="vertical-align: top;">rad</td>
 </tr>
@@ -5229,6 +5229,14 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;">[deg]</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MC_MAN_TILT_TAU">MC_MAN_TILT_TAU</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Manual tilt input filter time constant
+Setting this parameter to 0 disables the filter</p>   </td>
+ <td style="vertical-align: top;">0.0 > 2.0 </td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes down</p>   </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
@@ -7547,20 +7555,6 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;">0 > 2200 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;">us</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RC_FLT_CUTOFF">RC_FLT_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Cutoff frequency for the low pass filter on roll, pitch, yaw and throttle</p><p><strong>Comment:</strong> Does not get set unless below RC_FLT_SMP_RATE/2 because of filter instability characteristics. Set to 0 to disable the filter.</p>   </td>
- <td style="vertical-align: top;">0 > ? </td>
- <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">Hz</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RC_FLT_SMP_RATE">RC_FLT_SMP_RATE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Sample rate of the remote control values for the low pass filter on roll, pitch, yaw and throttle</p><p><strong>Comment:</strong> Has an influence on the cutoff frequency precision.</p>   </td>
- <td style="vertical-align: top;">1.0 > ? </td>
- <td style="vertical-align: top;">50.0</td>
- <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_AUX1">RC_MAP_AUX1</strong> (INT32)</td>
@@ -10755,6 +10749,14 @@ is less than 50% of this value</p>   </td>
 </td>
  <td style="vertical-align: top;">0 > 2000 </td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="IMU_INTEG_RATE">IMU_INTEG_RATE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>IMU integration rate</p><p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">100 > 1000 </td>
+ <td style="vertical-align: top;">200</td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>

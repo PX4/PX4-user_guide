@@ -21,22 +21,19 @@ Key benefits of using a *Pixhawk series* controller include:
 
 ## Supported Boards {#recommended}
 
-The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) as reference hardware. These are the controllers that are fully compatible with the Pixhawk standard (including use of trademarks).
+The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) as reference hardware. These are the controllers that are fully compatible with the Pixhawk standard (including use of trademarks) and that are still being manufactured.
 
 > **Note** The PX4 maintenance and test teams maintain and support these standard boards.
 
 The list of boards boards supported by the PX4 project is reproduced below:
 
-* [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
+* [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
+* [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
+* [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4)
 * [mRo Pixracer](../flight_controller/pixracer.md) (FMUv4)
 * [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
 * [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
-* [Drotek Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) (FMUv4)
-* [Holybro Pixhawk 4](../flight_controller/pixhawk4.md) (FMUv5)
-* [Holybro Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md) (FMUv5)
-* [CUAV v5](../flight_controller/cuav_v5.md) (FMUv5)
-* [CUAV V5+](../flight_controller/cuav_v5_plus.md) (FMUv5)
-* [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) (FMUv5)
+* [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
 
 Pixhawk-like boards that are not fully compliant with the specification may be [manufacturer-supported](../flight_controller/autopilot_manufacturer_supported.md), [experimental/discontinued](../flight_controller/autopilot_experimental.md), or unsupported.
 
