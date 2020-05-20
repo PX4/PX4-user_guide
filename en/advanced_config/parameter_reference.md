@@ -5229,6 +5229,14 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;">[deg]</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="MC_MAN_TILT_TAU">MC_MAN_TILT_TAU</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Manual tilt input filter time constant
+Setting this parameter to 0 disables the filter</p>   </td>
+ <td style="vertical-align: top;">0.0 > 2.0 </td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_DOWN_MAX">MPC_ACC_DOWN_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes down</p>   </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
@@ -7547,20 +7555,6 @@ default 1.5 turns per second</p>   </td>
  <td style="vertical-align: top;">0 > 2200 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;">us</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RC_FLT_CUTOFF">RC_FLT_CUTOFF</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Cutoff frequency for the low pass filter on roll, pitch, yaw and throttle</p><p><strong>Comment:</strong> Does not get set unless below RC_FLT_SMP_RATE/2 because of filter instability characteristics. Set to 0 to disable the filter.</p>   </td>
- <td style="vertical-align: top;">0 > ? </td>
- <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">Hz</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="RC_FLT_SMP_RATE">RC_FLT_SMP_RATE</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Sample rate of the remote control values for the low pass filter on roll, pitch, yaw and throttle</p><p><strong>Comment:</strong> Has an influence on the cutoff frequency precision.</p>   </td>
- <td style="vertical-align: top;">1.0 > ? </td>
- <td style="vertical-align: top;">50.0</td>
- <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RC_MAP_AUX1">RC_MAP_AUX1</strong> (INT32)</td>
