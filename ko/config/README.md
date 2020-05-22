@@ -1,10 +1,10 @@
-# Basic Configuration
+# 기본 설정
 
-*QGroundControl* is used to install [firmware](../config/firmware.md) onto the flight controller hardware, specify an [airframe](../config/airframe.md), and configure the core sensors that PX4 needs to be present on every vehicle (compass, GPS, gyro etc.).
+*QGroundControl*은 PX4 Controller에 [firmware](../config/firmware.md)를 설치하고 [airframe](../config/airframe.md)을 설정합니다. 이는 PX4 기기에 반드시 있어야 하는 주요 센서를(GPS, 나침반, 자이로 등) 구성하는데 사용됩니다.
 
-> ** 팁 </ 0>이 섹션을 시작하기 전에  QGroundControl 다운로드 </ 1>를 설치하고 ** 데스크톱 </ 0> 컴퓨터에 설치하십시오 (* QGroundControl </ 2>은 기체를 지원하지 않습니다) 모바일 플랫폼의 구성).</p> </blockquote> 
+> **Tip** 시작하기 전에 [QGroundControl](http://qgroundcontrol.com/downloads/)을 다운받고, 해당 파일을 **Desktop** 컴퓨터에 설치하십시오. (*QGroundControl*은 모바일 플랫폼에서 설정을 지원하지 않습니다).
 > 
-> This section contains *essential* configuration topics:
+> 이 섹션에는 *필수적으로* 설정해줘야 하는 주제가 포함되어 있습니다.
 > 
 > * [Firmware](../config/firmware.md)
 > * [Airframe](../config/airframe.md)
@@ -21,19 +21,19 @@
 > * [Safety](../config/safety.md) (optional)
 > * [Motors/Servos](../config/motors.md)
 > 
-> > ** 참고 </ 0>  지원 기체 </ 1>의 경우이 기본 구성 만 필요합니다 새로운 기체를 만드는 경우 기체 튜닝을 수행해야합니다 ( 고급 구성 </ 0> 참조).</p> </blockquote> 
+> > **Note** PX4에서 지원하는 [supported airframe](../config/airframe.md)의 경우 기본적인 설정만 해주면 됩니다. 만약 기기를 새롭게 개발한 경우 별도의 튜닝을 수행해야합니다.([Advanced Configuration](../advanced_config/README.md) 참고) 
 > > 
-> > ## 비디오 설명서
+> > ## 영상 가이드
 > > 
-> > The video below shows the calibration process in detail.
+> > 아래 링크에서 설정 과정을 영상으로 확인할 수 있습니다.
 > > 
 > > {% youtube %} https://www.youtube.com/watch?v=91VGmdSlbo4 {% endyoutube %}
 > > 
-> > ## Support
+> > ## 질문
 > > 
-> > If you need help with the configuration you can ask for help on the [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage).
+> > 설정 과정에 도움이 필요하다면 [QGroundControl Support forum](http://discuss.px4.io/c/qgroundcontrol/qgroundcontrol-usage)에서 질문할 수 있습니다.
 > > 
-> > ## Further Information
+> > ## 추가 정보
 > > 
-> > * [QGroundControl> 설정](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
-> > *  고급 구성 </ 0> (덜 고급 센서 및 주변 장치 및 기체 / 매개 변수 조정 관련 고급 주제).</li> </ul>
+> > * [QGroundControl> Setup](https://docs.qgroundcontrol.com/en/SetupView/SetupView.html)
+> > * [Advanced Configuration](../advanced_config/README.md) (세부적인 설정 방법: 기타 센서 및 주변기기 연동, 튜닝 방법).
