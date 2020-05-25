@@ -1,41 +1,40 @@
 # 가속도 센서
 
-You will need to calibrate your accelerometer on first use or if the flight controller orientation is changed. Otherwise you should not need to recalibrate (except perhaps in winter, if you have a flight controller that was not [thermally calibrated](../advanced_config/sensor_thermal_calibration.md) in the factory).
+첫 번째로 사용하거나, PX4 Controller의 방향이 변경된 경우 가속도 센서를 수정해야 합니다. 그렇지 않고 기존에 사용하고 있던 경우 가속도 센서를 수정할 필요가 없습니다. (온도가 낮아지는 겨울철이나, 제조단계에서 [별도의 열 교정을 받지 않은 경우](../advanced_config/sensor_thermal_calibration.md)는 수정해야되는 상황이 생길 수 있습니다.)
 
-> **Note** Poor accelerometer calibration is generally caught by preflight checks and arming-denied messages (QGC warnings typically refer to "high accelerometer bias" and "consistency check failures").
+> **Note** 잘못된 가속도 센서 수정은 preflight 단계 혹은 arming-denied 메시지에 의해 확인됩니다. (QGC 경고는 일반적으로 "높은 가속도 값"이나 "일관성 검사 실패"를 의미합니다.)
 
-*QGroundControl* will guide you to place and hold your vehicle in a number of orientations (you will be prompted when to move between positions).
+*QGroundControl*은 드론을 여러 방향으로 배치하고, 안정적으로 움직일 수 있도록 안내합니다. (다른 위치로 이동할 때 프롬포트가 표시됩니다)
 
-> **Tip** This is similar to [compass calibration](../config/compass.md) except that you hold the vehicle still (rather than rotate it) in each orientation.
+> **Tip** 이러한 동작은 [나침반 교정](../config/compass.md)과 유사한데, 각 방향에서 회전하지 않고 가만히 동작한다는 점에서 차이가 있습니다.
 
 <span></span>
 
-> **Note** The calibration uses a least squares 'fit' algorithm that doesn't reaquire you to have "perfect" 90 degree orientations. Provided each axis is pointed mostly up and down at some time in the calibration sequence, and the vehicle is held stationary, the precise orientation doesn't matter.
+> **Note** 가속도 센서 수정은 "완벽한" 90도 방향을 가질 필요가 없는 최소 제곱의 '완화된' 알고리즘을 사용하고 있습니다. 센서 교정 단계에서 드론의 각 축은 대부분 위-아래 방향으로 향하고, 드론이 정지해 있다면 정확한 방향은 크게 문제가 되지 않습니다.
 
-## 캘리브레이션 수행
+## 가속도 센서 수정
 
-The calibration steps are:
+단계는 다음과 같습니다:
 
-1. *QGroundControl *을 시작하고 기체에 연결합니다.
-2. 상단 툴바에서 ** 기어 </ 0> 아이콘 (기체 설정) 을 선택한 다음 사이드 바에서 ** 센서 </ 0>를 선택하십시오.</li> 
+1. *QGroundControl*을 시작하고 드론에 연결합니다.
+2. 상단 툴바에서 **기어** 아이콘 (기체 설정) 을 선택한 다음, 사이드 바에서 **센서**를 선택하십시오.
+3. **가속도 센서** 버튼을 클릭하십시오.
     
-    * **가속도 센서** 버튼을 클릭하십시오.
-        
-        ![가속도 센서 캘리브레이션](../../assets/qgc/setup/sensor/accelerometer.jpg)
-        
-        > **참고** 미리 [비행 컨트롤러 방향](../config/flight_controller_orientation.md)을 설정해야합니다. 미리 설정하지 않았다면, 여기에서 설정할 수 있습니다.
+    ![가속도 센서 캘리브레이션](../../assets/qgc/setup/sensor/accelerometer.jpg)
     
-    * 캘리브레이션을 시작하려면 **확인**을 클릭하십시오.
+    > **참고** 미리 [비행 컨트롤러 방향](../config/flight_controller_orientation.md)을 설정해야합니다. 미리 설정하지 않았다면, 여기에서 설정할 수 있습니다.
+
+4. 캘리브레이션을 시작하려면 **확인**을 클릭하십시오.
+
+5. 화면에 표시된 *그림대로* 기체를 놓으십시오. 기체를 움직이고 나면 (기체의 방향과 일치하는 이미지가 노란색으로 바뀝니다) 기체를 그 상태로 유지하십시오. 현재 방향에 대해 캘리브레이션이 완료되면 화면의 캘리브레이션 그림이 녹색으로 바뀝니다.
     
-    * 화면에 표시된 *그림대로* 기체를 놓으십시오. 기체를 움직이고 나면 (기체의 방향과 일치하는 이미지가 노란색으로 바뀝니다) 기체를 그 상태로 유지하십시오. 현재 방향에 대해 캘리브레이션이 완료되면 화면의 캘리브레이션 그림이 녹색으로 바뀝니다.
-        
-        ![가속도 센서 캘리브레이션](../../assets/qgc/setup/sensor/accelerometer_positions_px4.jpg)
-    
-    * 기체의 모든 방향에 대해 캘리브레이션 과정을 반복합니다.</ol> 
-    
-    Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
-    
-    ## 추가 정보
-    
-    * [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#accelerometer)
-    * [PX4 설치 비디오 - @1m46s](https://youtu.be/91VGmdSlbo4?t=1m46s) (Youtube)
+    ![가속도 센서 캘리브레이션](../../assets/qgc/setup/sensor/accelerometer_positions_px4.jpg)
+
+6. 기체의 모든 방향에 대해 캘리브레이션 과정을 반복합니다.
+
+Once you've calibrated the vehicle in all the positions *QGroundControl* will display *Calibration complete* (all orientation images will be displayed in green and the progress bar will fill completely). You can then proceed to the next sensor.
+
+## 추가 정보
+
+* [QGroundControl 사용 설명서 > 센서](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#accelerometer)
+* [PX4 설치 비디오 - @1m46s](https://youtu.be/91VGmdSlbo4?t=1m46s) (Youtube)
