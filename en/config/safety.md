@@ -231,7 +231,10 @@ Parameter | Description
 ### Adaptive QuadChute Failsafe
 
 Failsafe for when a pusher motor fails (or airspeed sensor) and a VTOL vehicle can no longer achieve a desired altitude setpoint in fixed-wing mode.
-If triggered, the vehicle will transition to multicopter mode and enter failsafe Return mode.
+If triggered, the vehicle will transition to multicopter mode and enter failsafe [Return mode](../flight_modes/return.md).
+
+> **Note** You can pause *Return mode* and transition back to fixed wing if desired.
+  Note that if the condition that caused the failsafe still exists, it may trigger again!
 
 The relevant parameters are shown below:
 
