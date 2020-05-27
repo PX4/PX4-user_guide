@@ -32,12 +32,18 @@ Parameter | Description
 
 The aircraft takes off in the current direction using either *catapult/hand-launch mode* or *runway takeoff mode*.
 The mode defaults to catapult/hand launch, but can be set to runway takeoff using [RWTO_TKOFF](#RWTO_TKOFF).
+RC stick movement is ignored in both cases.
 
-In *catapult/hand launch mode* the vehicle will perform a full throttle climbout (ramp up to [RWTO_MAX_THR](#RWTO_MAX_THR) in about 2 seconds).
+### Catapult/Hand Launch {#hand_launch}
+
+In *catapult/hand launch mode* the vehicle waits to detect launch (based on acceleration trigger).
+On launch it ramps up to full throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout, with 10 degree takeoff pitch. 
 Once the altitude error < [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF), regular navigation will proceed.
 
 > **Note** In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met.
   For catapult launch this is some acceleration threshold.
+
+### Runway Takeoff {#runway_launch}
 
 The *runway takeoff mode* has the following phases:
 
@@ -46,7 +52,8 @@ The *runway takeoff mode* has the following phases:
 1. **Climbout**: Climb until altitude above ground level > [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF).
    In this phase roll and heading restrictions are removed.
 
-RC stick movement is ignored.
+
+### Fixed Wing Takeoff Parameters
 
 Takeoff is affected by the following parameters:
 
