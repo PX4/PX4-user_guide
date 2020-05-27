@@ -5519,17 +5519,17 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_XY_VEL_D">MPC_XY_VEL_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential gain for horizontal velocity error. Small values help reduce fast oscillations. If value is too big oscillations will appear again</p>   </td>
- <td style="vertical-align: top;">0.005 > 0.1 </td>
- <td style="vertical-align: top;">0.01</td>
+ <td style="vertical-align: top;"><strong id="MPC_XY_VEL_D_ACC">MPC_XY_VEL_D_ACC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Differential gain for horizontal velocity error. Small values help reduce fast oscillations. If value is too big oscillations will appear again</p><p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
+ <td style="vertical-align: top;">0.1 > 2.0 </td>
+ <td style="vertical-align: top;">0.2</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_XY_VEL_I">MPC_XY_VEL_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integral gain for horizontal velocity error</p><p><strong>Comment:</strong> Non-zero value allows to eliminate steady state errors in the presence of disturbances like wind.</p>   </td>
- <td style="vertical-align: top;">0.0 > 3.0 </td>
- <td style="vertical-align: top;">0.02</td>
+ <td style="vertical-align: top;"><strong id="MPC_XY_VEL_I_ACC">MPC_XY_VEL_I_ACC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Integral gain for horizontal velocity error</p><p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m velocity integral Non-zero value allows to eliminate steady state errors in the presence of disturbances like wind.</p>   </td>
+ <td style="vertical-align: top;">0.0 > 60.0 </td>
+ <td style="vertical-align: top;">0.4</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -5540,10 +5540,10 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_XY_VEL_P">MPC_XY_VEL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for horizontal velocity error</p>   </td>
- <td style="vertical-align: top;">0.06 > 0.15 </td>
- <td style="vertical-align: top;">0.09</td>
+ <td style="vertical-align: top;"><strong id="MPC_XY_VEL_P_ACC">MPC_XY_VEL_P_ACC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Proportional gain for horizontal velocity error</p><p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s velocity error</p>   </td>
+ <td style="vertical-align: top;">1.2 > 3.0 </td>
+ <td style="vertical-align: top;">1.8</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -5568,17 +5568,17 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_Z_VEL_D">MPC_Z_VEL_D</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Differential gain for vertical velocity error</p>   </td>
- <td style="vertical-align: top;">0.0 > 0.1 </td>
+ <td style="vertical-align: top;"><strong id="MPC_Z_VEL_D_ACC">MPC_Z_VEL_D_ACC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Differential gain for vertical velocity error</p><p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s^2 velocity derivative</p>   </td>
+ <td style="vertical-align: top;">0.0 > 2.0 </td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_Z_VEL_I">MPC_Z_VEL_I</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Integral gain for vertical velocity error</p><p><strong>Comment:</strong> Non zero value allows hovering thrust estimation on stabilized or autonomous takeoff.</p>   </td>
- <td style="vertical-align: top;">0.01 > 0.1 </td>
- <td style="vertical-align: top;">0.1</td>
+ <td style="vertical-align: top;"><strong id="MPC_Z_VEL_I_ACC">MPC_Z_VEL_I_ACC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Integral gain for vertical velocity error</p><p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m velocity integral Non zero value allows hovering thrust estimation on stabilized or autonomous takeoff.</p>   </td>
+ <td style="vertical-align: top;">0.2 > 2.0 </td>
+ <td style="vertical-align: top;">2.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -5596,10 +5596,10 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="MPC_Z_VEL_P">MPC_Z_VEL_P</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Proportional gain for vertical velocity error</p>   </td>
- <td style="vertical-align: top;">0.1 > 0.4 </td>
- <td style="vertical-align: top;">0.2</td>
+ <td style="vertical-align: top;"><strong id="MPC_Z_VEL_P_ACC">MPC_Z_VEL_P_ACC</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Proportional gain for vertical velocity error</p><p><strong>Comment:</strong> defined as correction acceleration in m/s^2 per m/s velocity error</p>   </td>
+ <td style="vertical-align: top;">2.0 > 8.0 </td>
+ <td style="vertical-align: top;">4.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
