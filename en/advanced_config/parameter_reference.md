@@ -847,7 +847,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CBRK_FLIGHTTERM">CBRK_FLIGHTTERM</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Circuit breaker for flight termination</p><p><strong>Comment:</strong> Setting this parameter to 121212 will disable the flight termination action if triggered by the FailureDetector logic or if FMU is lost. This circuit breaker does not affect the RC loss, data link loss and geofence safety logic.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Circuit breaker for flight termination</p><p><strong>Comment:</strong> Setting this parameter to 121212 will disable the flight termination action if triggered by the FailureDetector logic or if FMU is lost. This circuit breaker does not affect the RC loss, data link loss, geofence, and takeoff failure detection safety logic.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 > 121212 </td>
  <td style="vertical-align: top;">121212</td>
@@ -3406,7 +3406,7 @@ automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is r
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FD_FAIL_P">FD_FAIL_P</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>FailureDetector Max Pitch</p><p><strong>Comment:</strong> Maximum pitch angle before FailureDetector triggers the attitude_failure flag If flight termination is enabled (@CBRK_FLIGHTTERM set to 0), the autopilot will terminate the flight and set all the outputs to their failsafe value as soon as the attitude_failure flag is set. Setting this parameter to 0 disables the check</p>   </td>
+ <td style="vertical-align: top;"><p>FailureDetector Max Pitch</p><p><strong>Comment:</strong> Maximum pitch angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
  <td style="vertical-align: top;">60 > 180 </td>
  <td style="vertical-align: top;">60</td>
  <td style="vertical-align: top;">degrees</td>
@@ -3420,7 +3420,7 @@ automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is r
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FD_FAIL_R">FD_FAIL_R</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>FailureDetector Max Roll</p><p><strong>Comment:</strong> Maximum roll angle before FailureDetector triggers the attitude_failure flag If flight termination is enabled (@CBRK_FLIGHTTERM set to 0), the autopilot will terminate the flight and set all the outputs to their failsafe value as soon as the attitude_failure flag is set. Setting this parameter to 0 disables the check</p>   </td>
+ <td style="vertical-align: top;"><p>FailureDetector Max Roll</p><p><strong>Comment:</strong> Maximum roll angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
  <td style="vertical-align: top;">60 > 180 </td>
  <td style="vertical-align: top;">60</td>
  <td style="vertical-align: top;">degrees</td>
