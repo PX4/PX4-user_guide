@@ -14,7 +14,7 @@ It also covers the first flight, and how to get started with modifying the compu
 ## Purchase
 
 The kit is currently an "early adopter" release.
-Contact sales01@holybro.com for sales enquiries.
+Contact sale01@holybro.com for sales enquiries.
 
 
 ## Warnings & Notifications
