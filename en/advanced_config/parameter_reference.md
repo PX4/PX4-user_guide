@@ -1792,7 +1792,7 @@ Use EKF2_FUSE_BETA to activate sideslip fusion</p>   </td>
  <td style="vertical-align: top;"><strong id="EKF2_BARO_NOISE">EKF2_BARO_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Measurement noise for barometric altitude</p>   </td>
  <td style="vertical-align: top;">0.01 > 15.0 </td>
- <td style="vertical-align: top;">2.0</td>
+ <td style="vertical-align: top;">3.5</td>
  <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
