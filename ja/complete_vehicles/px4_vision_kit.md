@@ -10,7 +10,7 @@ The guide explains the minimal additional setup required to get the vehicle read
 
 ## Purchase
 
-The kit is currently an "early adopter" release. Contact sales01@holybro.com for sales enquiries.
+The kit is currently an "early adopter" release. Contact sale01@holybro.com for sales enquiries.
 
 
 ## Warnings & Notifications
