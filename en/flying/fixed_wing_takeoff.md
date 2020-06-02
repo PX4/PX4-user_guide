@@ -51,5 +51,7 @@ To launch in a mission:
 1. Launch/throw the vehicle (firmly) directly into the wind.
    For hand launch ensure that the vehicle is level.
 
-Once launch/flight is detected the vehicle climbs out (using the minimum pitch parameter in the the Takeoff waypoint) until it reaches < `FW_CLMBOUT_DIFF` below the takeoff waypoint altitude.
-The mission then transitions to the next waypoint.
+Once launch/flight is detected the vehicle climbs out (using the minimum pitch parameter in the the Takeoff waypoint) and navigates  towards the location of the Takeoff waypoint.
+It continues climbing until it reaches < `FW_CLMBOUT_DIFF` below the takeoff waypoint altitude (if it reaches the target waypoint before achieving this altitude it spirals up to this level).
+
+The mission transitions to the next waypoint when it has reached the altitude (within `FW_CLMBOUT_DIFF`) and location.
