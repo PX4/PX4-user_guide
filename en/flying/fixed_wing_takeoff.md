@@ -14,8 +14,8 @@ The sections below explain the main methods.
 ### Catapult/Hand-Launch Mode
 
 When armed and in takeoff mode the vehicle waits to detect launch (i.e. from acceleration due to catapult or hand launch). 
-On launch detection, the vehicle ramps up to to maximum throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout at a 10 degree pitch.
-The vehicle climbout phase ends once the vehicle reaches the correct altitude (defined by [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF)), after which regular navigation proceeds.
+On launch detection, the vehicle ramps up to to maximum throttle ([RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout at a 10 degree pitch.
+The vehicle climbout phase ends once the vehicle reaches the correct altitude (defined by [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF)), after which regular navigation proceeds.
 All RC stick movement is ignored until climbout ends.
 
 > **Warning** The default climbout pitch may not be suitable for some vehicles. <!-- see https://github.com/PX4/Firmware/pull/9243 -->
