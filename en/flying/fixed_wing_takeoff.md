@@ -20,16 +20,15 @@ All RC stick movement is ignored until climbout ends.
 
 > **Warning** The default climbout pitch may not be suitable for some vehicles. <!-- see https://github.com/PX4/Firmware/pull/9243 -->
 
-<span></span>
-> **Tip** The vehicle must be flat and level on release (it is important the nose is neither up or down, and that the vehicle is not rolling/yawing).
-
 To launch in this mode:
 - Arm the vehicle.
 - Put the vehicle into *Takeoff mode*.
 - Launch/throw the vehicle (firmly) directly into the wind.
-  For hand launch ensure that the vehicle is level.
-  
 
+
+> **Note** Most traditional fixed-wing vehicles must be flat and level on release (it is important the nose is neither up or down, and that the vehicle is not rolling/yawing).
+
+<span></span>
 > **Tip** Some users report improved takeoff performance by pre-triggering launch detection and ramping up to full throttle before release (to trigger launch detection pump/shake the aircraft forward).
 
 
