@@ -41,7 +41,7 @@ The mode is documented in [Takeoff Mode > Fixed Wing > Runway Takeoff](../flight
 
 ## Mission Takeoff {#mission}
 
-You can also hand/catapult a fixed wing vehicle in a mission.
+You can also hand/catapult launch a fixed wing vehicle in a mission.
 
 To launch in a mission:
 1. Add a fixed wing takeoff item to the **start** of the mission.
@@ -51,5 +51,5 @@ To launch in a mission:
 1. Launch/throw the vehicle (firmly) directly into the wind.
    For hand launch ensure that the vehicle is level.
 
-Once launch/flight is detected the vehicle climbs out (using the minimum pitch parameter in the the Takeoff waypoint) until it reaches < `FW_CLMBOUT_DIFF`below the takeoff waypoint altitude.
+Once launch/flight is detected the vehicle climbs out (using the minimum pitch parameter in the the Takeoff waypoint) until it reaches < `FW_CLMBOUT_DIFF` below the takeoff waypoint altitude.
 The mission then transitions to the next waypoint.
