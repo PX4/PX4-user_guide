@@ -65,6 +65,8 @@ Parameter | Description
 
 ## VTOL
 
-A VTOL follows the TAKEOFF behavior and parameters of [Fixed Wing](#fixed_wing) when in FW mode, and of [Multicopter](#multi-copter-mc) when in MC mode.
+VTOLs default to MC mode on boot, and it is generally expected that they will take off in [multicopter mode](#multi-copter-mc) (and also safer).
+
+That said, if transitioned to Fixed wing before takeoff, they will takeoff in [Fixed Wing](#fixed_wing) mode.
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
