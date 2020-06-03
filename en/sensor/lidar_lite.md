@@ -44,12 +44,13 @@ Pin | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | Comment
 --- | ---   | --- | ---
 1   | VCC   | AUX 6 (center) | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.
 2   | RESET | AUX 6 (bottom) | Reset line of the sensor
-3   | PWM   | AUX 5 (bottom) | PWM input of the Lidar Lite. **Needs a 470 Ohm pull-down (to GND), Do not use a 1 K0hm resistor.**
+3   | PWM   | AUX 5 (bottom) | PWM output of the Lidar Lite. **Needs a 470 Ohm pull-down (to GND), Do not use a 1 K0hm resistor.**
 4   | SCL   | - | Not connected
 5   | SDA   | - | Not connected
 6   | GND   | AUX 6 (top)    | Ground
 
-The wiring for LidarLite v2 is shown below. Lidar-Lite v3 is wired similarly, except that the pin-numbering on the connector is reversed.
+The wiring for LidarLite v2 is shown below.
+Lidar-Lite v3 is wired similarly, except that the pin-numbering on the connector is reversed.
 
 ![Lidar Lite 2 Interface wiring](../../assets/hardware/sensors/lidar_lite/lidar_lite_2_interface_wiring.jpg)
 
@@ -67,7 +68,8 @@ TBD
 
 The rangefinder/port is enabled using [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS) - set to `1` for PWM, or `2` for I2C.
 
-> **Tip** The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`drivers/ll40ls`) to the board configuration.
+> **Tip** The driver for this rangefinder is usually present in firmware.
+  If missing, you would also need to add the driver (`drivers/ll40ls`) to the board configuration.
 
 ## Further Information
 
