@@ -37,7 +37,7 @@ RC stick movement is ignored in both cases.
 ### Catapult/Hand Launch {#hand_launch}
 
 In *catapult/hand launch mode* the vehicle waits to detect launch (based on acceleration trigger).
-On launch it ramps up to full throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout, with 10 degree takeoff pitch. 
+On launch it ramps up to full throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout, with *minimum* 10 degree takeoff pitch. 
 Once the altitude error < [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF), regular navigation will proceed.
 
 > **Note** In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met.
