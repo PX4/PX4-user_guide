@@ -2042,7 +2042,7 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;"><strong id="EKF2_GPS_V_NOISE">EKF2_GPS_V_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Measurement noise for gps horizontal velocity</p>   </td>
  <td style="vertical-align: top;">0.01 > 5.0 </td>
- <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">0.3</td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
@@ -9155,6 +9155,30 @@ default 1.5 turns per second</p>   </td>
 </tr>
 </tbody></table>
 
+## Return To Land
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="RTL_PLD_MD">RTL_PLD_MD</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>RTL precision land mode</p><p><strong>Comment:</strong> Use precision landing when doing an RTL landing phase.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> No precision landing</li> 
+
+<li><strong>1:</strong> Opportunistic precision landing</li> 
+
+<li><strong>2:</strong> Required precision landing</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+</tbody></table>
+
 ## Roboclaw
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -10753,7 +10777,7 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_INTEG_RATE">IMU_INTEG_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>IMU integration rate</p><p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>IMU integration rate</p><p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities. Recommended to set this to a multiple of the estimator update period (currently 10 ms for ekf2).</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">100 > 1000 </td>
  <td style="vertical-align: top;">200</td>
