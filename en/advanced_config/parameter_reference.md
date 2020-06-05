@@ -514,7 +514,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  <td style="vertical-align: top;"><strong id="BAT_CRIT_THR">BAT_CRIT_THR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Critical threshold</p><p><strong>Comment:</strong> Sets the threshold when the battery will be reported as critically low. This has to be lower than the low threshold. This threshold commonly will trigger RTL.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">0.05 > 0.1 (0.01)</td>
+ <td style="vertical-align: top;">0.05 > 0.25 (0.01)</td>
  <td style="vertical-align: top;">0.07</td>
  <td style="vertical-align: top;">norm</td>
 </tr>
@@ -522,7 +522,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  <td style="vertical-align: top;"><strong id="BAT_EMERGEN_THR">BAT_EMERGEN_THR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Emergency threshold</p><p><strong>Comment:</strong> Sets the threshold when the battery will be reported as dangerously low. This has to be lower than the critical threshold. This threshold commonly will trigger landing.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">0.03 > 0.07 (0.01)</td>
+ <td style="vertical-align: top;">0.03 > 0.1 (0.01)</td>
  <td style="vertical-align: top;">0.05</td>
  <td style="vertical-align: top;">norm</td>
 </tr>
@@ -530,7 +530,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  <td style="vertical-align: top;"><strong id="BAT_LOW_THR">BAT_LOW_THR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Low threshold</p><p><strong>Comment:</strong> Sets the threshold when the battery will be reported as low. This has to be higher than the critical threshold.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">0.12 > 0.4 (0.01)</td>
+ <td style="vertical-align: top;">0.12 > 0.5 (0.01)</td>
  <td style="vertical-align: top;">0.15</td>
  <td style="vertical-align: top;">norm</td>
 </tr>
