@@ -9584,7 +9584,7 @@ to takeoff is reached</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SDLOG_PROFILE">SDLOG_PROFILE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Logging topic profile (integer bitmask)</p><p><strong>Comment:</strong> This integer bitmask controls the set and rates of logged topics. The default allows for general log analysis and estimator replay, while keeping the log file size reasonably small. Enabling multiple sets leads to higher bandwidth requirements and larger log files. Set bits true to enable: 0 : Default set (used for general log analysis) 1 : Full rate estimator (EKF2) replay topics 2 : Topics for thermal calibration (high rate raw IMU and Baro sensor data) 3 : Topics for system identification (high rate actuator control and IMU data) 4 : Full rates for analysis of fast maneuvers (RC, attitude, rates and actuators) 5 : Debugging topics (debug_*.msg topics, for custom code) 6 : Topics for sensor comparison (low rate raw IMU, Baro and Magnetomer data) 7 : Topics for computer vision and collision avoidance</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Default set (general log analysis)</li> 
+ <td style="vertical-align: top;"><p>Logging topic profile (integer bitmask)</p><p><strong>Comment:</strong> This integer bitmask controls the set and rates of logged topics. The default allows for general log analysis and estimator replay, while keeping the log file size reasonably small. Enabling multiple sets leads to higher bandwidth requirements and larger log files. Set bits true to enable: 0 : Default set (used for general log analysis) 1 : Full rate estimator (EKF2) replay topics 2 : Topics for thermal calibration (high rate raw IMU and Baro sensor data) 3 : Topics for system identification (high rate actuator control and IMU data) 4 : Full rates for analysis of fast maneuvers (RC, attitude, rates and actuators) 5 : Debugging topics (debug_*.msg topics, for custom code) 6 : Topics for sensor comparison (low rate raw IMU, Baro and Magnetomer data) 7 : Topics for computer vision and collision avoidance 8 : Raw FIFO high-rate IMU (Gyro) 9 : Raw FIFO high-rate IMU (Accel)</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Default set (general log analysis)</li> 
   <li><strong>1:</strong> Estimator replay (EKF2)</li> 
   <li><strong>2:</strong> Thermal calibration</li> 
   <li><strong>3:</strong> System identification</li> 
@@ -9592,10 +9592,12 @@ to takeoff is reached</p>   </td>
   <li><strong>5:</strong> Debug</li> 
   <li><strong>6:</strong> Sensor comparison</li> 
   <li><strong>7:</strong> Computer Vision and Avoidance</li> 
+  <li><strong>8:</strong> Raw FIFO high-rate IMU (Gyro)</li> 
+  <li><strong>9:</strong> Raw FIFO high-rate IMU (Accel)</li> 
 </ul>
  <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">0 > 255 </td>
+ <td style="vertical-align: top;">0 > 1023 </td>
  <td style="vertical-align: top;">3</td>
  <td style="vertical-align: top;"></td>
 </tr>
