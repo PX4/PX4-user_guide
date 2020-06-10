@@ -1,10 +1,12 @@
 # Flight Controller/Sensor Orientation
 
-By default the flight controller (and external compass(es), if present) should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle. If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
+By default the flight controller (and external compass(es), if present) should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle.
+If the board or an external compass are mounted in any other orientation then you will need configure this in the firmware.
 
 ## Calculating Orientation
 
-YAW, PITCH and/or ROLL offsets are calculated relative to the forward-facing-upright orientation (clock-wise rotation around the Z, Y and X axis, respectively). This frame is referred to as the *body frame* and the default orientation as `ROTATION_NONE`.
+YAW, PITCH and/or ROLL offsets of the flight controller are calculated relative to the vehicle forward-facing-upright orientation (clock-wise rotation around the Z, Y and X axis, respectively).
+This frame is referred to as the *body frame* and the default orientation as `ROTATION_NONE`.
 
 <img src="../../images/fc_orientation_1.png" style="width: 600px;"/>
 
