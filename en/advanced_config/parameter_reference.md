@@ -1480,6 +1480,13 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;">sec</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_POWER_COUNT">COM_POWER_COUNT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Required number of redundant power modules</p><p><strong>Comment:</strong> This configures a check to verify the expected number of 5V rail power supplies are present. By default only one is expected. Note: CBRK_SUPPLY_CHK disables all power checks including this one.</p>   </td>
+ <td style="vertical-align: top;">0 > 4 </td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_PREARM_MODE">COM_PREARM_MODE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Condition to enter prearmed mode</p><p><strong>Comment:</strong> Condition to enter the prearmed state, an intermediate state between disarmed and armed in which non-throttling actuators are active.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
