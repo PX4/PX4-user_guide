@@ -4,10 +4,7 @@
 
 <img src="http://www.femtomes.com/image/PX4/MINI_II_Receiver.jpg" width="500px" title="mini2" />
 
-
-
 ## Required Firmware Options
-
 
 The following firmware options need to be selected when buying the device:
 
@@ -20,17 +17,13 @@ The following firmware options need to be selected when buying the device:
 
 ## Purchase
 
-
 * [http://www.femtomes.com](http://www.femtomes.com)
 * [sales@femtomes.com](mailto:sales@femtomes.com)
-* 86-10-53779838
-
+* TEL: +86-10-53779838
 
 ## Functional Ports
 
 <img src="http://www.femtomes.com/image/PX4/MINI_II_1.jpg" width="500px" title="mini2port" />
-
-
 
 ## Wiring and Connections
 
@@ -58,6 +51,5 @@ COMPACT, DUAL ANTENNA, DUAL FREQUENCY GNSS OEM BOARD DELIVERS CENTIMETER ACCURAT
 COMPACT, QUADRUPLE FREQUENCY GNSS OEM BOARD DELIVERS CENTIMETER ACCURATE POSITIONS
 
 <img src="http://www.femtomes.com/image/PX4/FB_2.jpg" width="400px" title="FB6A0" />
-
 
 Detailed product instructions can be obtained on the official website or by contacting us.
