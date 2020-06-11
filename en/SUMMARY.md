@@ -68,6 +68,7 @@
   * [First Flight Guidelines](flying/first_flight_guidelines.md)
   * [Flying 101](flying/basic_flying.md)
     * [Landing \(Fixed Wing\)](flying/fixed_wing_landing.md)
+    * [Takeoff \(Fixed Wing\)](flying/fixed_wing_takeoff.md)
   * [Missions](flying/missions.md)
   * [GeoFence](flying/geofence.md)
   * [Safety Point Planning](flying/plan_safety_points.md)
