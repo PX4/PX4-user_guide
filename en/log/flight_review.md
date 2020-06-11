@@ -180,19 +180,23 @@ Very high (unsafe) vibration levels.
 ![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
 
-### Raw high-rate IMU data plots{#fifo_logging}
+### Raw hHgh-rate IMU Data Plots {#fifo_logging}
+
 For an in-depth analysis there is an option to log the raw IMU data at full rate (several kHz, depending on the IMU).
-This allows to inspect much higher frequencies than with normal logging, and selecting vibration mounts or configuring low-pass and notch filters appropriately.
+This allows inspection of much higher frequencies than with normal logging, which can help when selecting vibration mounts or configuring low-pass and notch filters appropriately.
 
 To use it, some parameters need to be changed:
-- set [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) to 400. This is required to reduce the amount of logged data
-- use a good SD card, as the IMU data requires a high logging bandwidth
-- enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries.
+- Set [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) to 400.
+  This is required to reduce the amount of logged data
+- Use a good SD card, as the IMU data requires a high logging bandwidth
+  > **Tip** See [Logging > SD Cards](https://dev.px4.io/master/en/log/logging.html#sd-cards) for a comparison of popular SD card.
+- Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries.
   If you are using a really good SD card (Flight Review will show dropouts if the logging rate gets too high), you can:
   - either enable both accel and gyro profiles
   - or enable accel/gyro plus the default logging profile
 
 Example plot:
+
 ![high-rate accel power spectral density](../../assets/flight_log_analysis/flight_review/accel_spectral_density_fifo.png)
 
 > **Note** Data of the first IMU is logged, which is not necessarily the same as the one used for flying.
