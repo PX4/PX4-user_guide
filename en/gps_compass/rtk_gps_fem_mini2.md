@@ -11,25 +11,19 @@
 
 The following firmware options need to be selected when buying the device:
 
-•	5Hz 10Hz 20Hz 
-
-•	INS 
-
-•	HEADING
-
-•	OBS
-
-•	RTK
-
-•	BASE 
-
+- 5Hz 10Hz 20Hz 
+- INS 
+- HEADING
+- OBS
+- RTK
+- BASE 
 
 ## Purchase
 
 
 * [http://www.femtomes.com](http://www.femtomes.com)
-* [sales@femtomes.com](http://www.femtomes.com)
-* [86-10-53779838](http://www.femtomes.com)
+* [sales@femtomes.com](mailto:sales@femtomes.com)
+* 86-10-53779838
 
 
 ## Functional Ports
