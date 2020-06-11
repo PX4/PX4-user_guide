@@ -38,7 +38,7 @@ RC stick movement is ignored in both cases.
 
 In *catapult/hand launch mode* the vehicle waits to detect launch (based on acceleration trigger).
 On launch it ramps up to full throttle ([RWTO_MAX_THR](#RWTO_MAX_THR)) in about 2 seconds and then performs a full throttle climbout, with *minimum* 10 degree takeoff pitch. 
-Once the altitude error < [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF), regular navigation will proceed.
+Once it reaches [FW_CLMBOUT_DIFF](#FW_CLMBOUT_DIFF) it will transition to [Hold mode](../flight_modes/hold.md) and loiter.
 
 > **Note** In addition to the behaviour discussed above there is also a launch detector that may block the launch sequence from starting until some condition is met.
   For catapult launch this is some acceleration threshold.
@@ -61,7 +61,7 @@ Parameter | Description
 --- | ---
 <span id="RWTO_TKOFF"></span>[RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF) | Runway takeoff with landing gear. Default: disabled.
 <span id="RWTO_MAX_THR"></span>[RWTO_MAX_THR](../advanced_config/parameter_reference.md#RWTO_MAX_THR) | Max throttle during runway takeoff.
-<span id="FW_CLMBOUT_DIFF"></span>[FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF) | Climbout Altitude difference.
+<span id="FW_CLMBOUT_DIFF"></span>[FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF) | Climbout Altitude difference. This is used as the target altitude if taking off without a takeoff altitude setpoint (there is no setpoint in takeoff mode, but there is in missions).
 <span id="FW_AIRSPD_MIN"></span>[FW_AIRSPD_MIN](../advanced_config/parameter_reference.md#FW_AIRSPD_MIN) | Minimum Airspeed, below which the TECS controller will try to increase airspeed more aggressively.
 <span id="RWTO_AIRSPD_SCL"></span>[RWTO_AIRSPD_SCL](../advanced_config/parameter_reference.md#RWTO_AIRSPD_SCL) | Min. airspeed scaling factor for takeoff. Pitch is increased when the airspeed reaches: `FW_AIRSPD_MIN` * `RWTO_AIRSPD_SCL`
 <span id="RWTO_NAV_ALT"></span>[RWTO_NAV_ALT](../advanced_config/parameter_reference.md#RWTO_NAV_ALT) | Altitude above ground level (AGL) at which we have enough ground clearance to allow some roll. Until `RWTO_NAV_ALT` is reached the plane is held level and only rudder is used to keep the heading (see <span id="RWTO_HDG"></span>[RWTO_HDG](../advanced_config/parameter_reference.md#RWTO_HDG)). This should be below `FW_CLMBOUT_DIFF` if `FW_CLMBOUT_DIFF` > 0.
