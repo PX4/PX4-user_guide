@@ -180,7 +180,7 @@ Very high (unsafe) vibration levels.
 ![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
 
-### Raw hHgh-rate IMU Data Plots {#fifo_logging}
+### Raw High-rate IMU Data Plots {#fifo_logging}
 
 For an in-depth analysis there is an option to log the raw IMU data at full rate (several kHz, depending on the IMU).
 This allows inspection of much higher frequencies than with normal logging, which can help when selecting vibration mounts or configuring low-pass and notch filters appropriately.
