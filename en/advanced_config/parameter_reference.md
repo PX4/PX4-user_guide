@@ -11125,7 +11125,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">0 > 5 </td>
+ <td style="vertical-align: top;">0 > 6 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
