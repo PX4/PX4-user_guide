@@ -68,6 +68,7 @@
   * [첫 비행을 위한 가이드라인](flying/first_flight_guidelines.md)
   * [비행 튜토리얼](flying/basic_flying.md) 
     * [착륙 \(고정익\)](flying/fixed_wing_landing.md)
+    * [Takeoff \(Fixed Wing\)](flying/fixed_wing_takeoff.md)
   * [미션](flying/missions.md)
   * [지오펜스](flying/geofence.md)
   * [안전 지점 설정하기](flying/plan_safety_points.md)
