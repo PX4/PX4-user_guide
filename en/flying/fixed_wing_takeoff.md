@@ -6,6 +6,17 @@ In all cases the vehicle takes off at a predefined pitch in its current directio
 
 The sections below explain the main methods.
 
+## Position Flight Mode {#position}
+
+The vehicle will takeoff in [Position mode](../flight_modes/position_fw.md) if it detects sufficient launch acceleration when launched at an altitude below [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF).
+
+To launch in this mode:
+- Arm the vehicle.
+- Put the vehicle into *Position mode*.
+- Launch/throw the vehicle (firmly) directly into the wind.
+
+The vehicle will ascend to `FW_CLMBOUT_DIFF` using the same climbout behaviour as for [Takeoff mode](#takeoff).
+It will then continue in *Postion mode*.
 
 ## Takeoff Flight Mode {#takeoff}
 
