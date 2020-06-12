@@ -1,8 +1,8 @@
-# Mounting the Flight Controller
+# 安装固定飞控
 
-## Orientation
+## 方向
 
-Almost all Flight Controllers have a *heading mark arrow* (shown below). The controller should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle (on all aircraft frames - airplane, multirotor, VTOL, ground vehicles etc.).
+基本上所有的飞控都会标示*指向箭头*（如下图所示）。 The controller should be placed on the frame top-side up, oriented so that the arrow points towards the front of the vehicle (on all aircraft frames - airplane, multirotor, VTOL, ground vehicles etc.).
 
 ![FC Heading Mark](../../images/fc_heading_mark_1.png)
 
