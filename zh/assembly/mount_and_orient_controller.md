@@ -18,4 +18,4 @@
 
 应遵循飞控文档中建议的安装方式。
 
-> **Tip** [使用飞行回顾分析日志 > 振动](../log/flight_review.md#vibration) 解释如何检测振动水平是否可以接受。如果遇到了问题，[振动隔离](../assembly/vibration_isolation.md)提供了一些可能的解决办法。
+> **Tip** [使用Flight Review进行日志分析 > 振动](../log/flight_review.md#vibration) 解释如何检测振动水平是否可以接受。如果遇到了问题，[振动隔离](../assembly/vibration_isolation.md)提供了一些可能的解决办法。
