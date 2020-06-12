@@ -59,7 +59,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
-    make px4fmu-v3_default
+    make px4_fmu-v3_default
     
 
 ## Debug Ports
