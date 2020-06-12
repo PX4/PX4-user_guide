@@ -161,7 +161,7 @@
                   To <a href="https://dev.px4.io/master/en/setup/building_px4.html">build PX4</a> for this target:
                 </p>
                 
-                <pre><code>make px4fmu-v3_default
+                <pre><code>make px4_fmu-v3_default
 </code></pre>
                 
                 <h2>
