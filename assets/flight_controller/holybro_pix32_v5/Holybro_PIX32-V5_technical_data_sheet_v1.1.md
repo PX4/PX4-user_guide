@@ -1,1 +1,0 @@
-Holybro_PIX32-V5_technical_data_sheet_v1.1
