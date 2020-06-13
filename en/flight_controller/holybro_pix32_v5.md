@@ -1,23 +1,26 @@
-# Pixhawk 4
+# Holybro Pix32 v5
 
-*Pixhawk 4*<sup>&reg;</sup> is an advanced autopilot designed and made in collaboration with Holybro<sup>&reg;</sup> and the PX4 team. It is optimized to run PX4 version 1.7, suitable for academic and commercial developers.
+*Pix32 v5*<sup>&reg;</sup> is an advanced autopilot designed and made by Holybro<sup>&reg;</sup>. It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 
-It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+<img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3112.JPG" width="420px" title="Pix32 v5 Image" /> <img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG" width="420px" title="Pix32 v5 With Base Image" />
 
-<img src="../../assets/flight_controller/pixhawk4/pixhawk4_hero_upright.jpg" width="200px" title="Pixhawk4 Upright Image" /> <img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" />
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 ## Quick Summary
 
 * Main FMU Processor: STM32F765
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
+  
 * IO Processor: STM32F100
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
+  
 * On-board sensors:
   * Accel/Gyro: ICM-20689
   * Accel/Gyro: BMI055
   * Magnetometer: IST8310
   * Barometer: MS5611
 * GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
+
 * Interfaces:
   * 8-16 PWM outputs (8 from IO, 8 from FMU)
   * 3 dedicated PWM/Capture inputs on FMU
@@ -25,45 +28,61 @@ It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardwa
   * Dedicated R/C input for Spektrum / DSM and S.Bus with analog / PWM RSSI input
   * Dedicated S.Bus servo output
   * 5 general purpose serial ports
+    * 2 with full flow control
+    * 1with separate 1.5A current limit
   * 3 I2C ports
   * 4 SPI buses
+    * 1 internal high speed SPI sensor bus with 4 chip selects and 6 DRDYs
+    * 1 internal low noise SPI bus dedicated for
+    * Barometer with 2 chip selects, no DRDYs
+    * 1 internal SPI bus dedicated for FRAM
+    * Supports dedicated SPI calibration EEPROMlocated on sensor module
+    * 1 external SPI buses
   * Up to 2 CANBuses for dual CAN with serial ESC
-  * Analog inputs for voltage / current of 2 batteries
-* Power System:
+    * Each CANBus has individual silent controls or ESC RX-MUX control
+    * Analog inputs for voltage / current of 2 batteries
+    * 2 additional analog inputs
+
+* Electrical System:
   * Power module output: 4.9~5.5V
+  * Max input voltage: 6V
+  * Max current sensing: 120A
   * USB Power Input: 4.75~5.25V
   * Servo Rail Input: 0~36V
+  
 * Weight and Dimensions:
-  * Weight: 15.8g
-  * Dimensions: 44x84x12mm
-* Other Characteristics:
+  * Dimensions: 45x45x13.5mm
+  * Weight: 33.0g
+  
+* Environmental Data, Quality & Reliability:
   * Operating temperature: -40 ~ 85°c
+  * Storage temp. -40~85℃
+  * CE
+  * FCC
+  * RoHS compliant (lead-free)
 
-Additional information can be found in the [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf).
+Additional information can be found in the [Pix32 V5 Technical Data Sheet](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf).
 
 
 ## Purchase
 
-Order from [Holybro](https://shop.holybro.com/pixhawk-4beta-launch_p1089.html).
+Order from [Holybro](https://shop.holybro.com/pix32-v5_p1218.html).
 
 
 ## Connectors
 
-![Pixhawk 4 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
-
-> **Warning** The **DSM/SBUS RC** and **PPM RC** ports are for RC receivers only. These are powered! NEVER connect any servos, power supplies or batteries (or to any connected receiver).
-
+![Pix32 v5 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
 
 ## Pinouts
 
-Download *Pixhawk 4* pinouts from [here](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf).
-
-> **Note** Connector pin assignments are left to right (i.e. Pin 1 is the left-most pin).
-  The exception is the [debug port(s)](#debug_port) (pin 1 is the right-most, as shown below).
+Download *pix32 v5* pinouts from [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
 
 ## Dimensions
 
-![Pixhawk 4 Dimensions](../../assets/flight_controller/pixhawk4/pixhawk4_dimensions.jpg)
+![Pix32 v5 Dimensions](../../assets/flight_controller/holybro_pix32_v5/Dimensions_no_border.jpg)
+
+________________________________________________________________________________________________________
+
 
 ## Voltage Ratings
 
@@ -99,14 +118,14 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 ```
 make px4_fmu-v5_default
 ```
+__________________________________________________________________________________________
 
 
 ## Debug Port {#debug_port}
 
 The system's [serial console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface runs on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port.
-In order to access these ports, the user must remove the *Pixhawk 4* casing.
 
-![Pixhawk 4 Debug Ports](../../assets/flight_controller/pixhawk4/pixhawk4_debug_port.jpg)
+<img src="../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Diagram.jpg" width="420px" title="Pix32 v5 With Base Image" /><img src="../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Table.jpg" width="420px" title="Pix32 v5 Image" /> 
 
 The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
 For wiring information see:
@@ -115,7 +134,7 @@ For wiring information see:
 
 ## Peripherals
 
-* [Digital Airspeed Sensor](https://drotek.com/shop/en/home/848-sdp3x-airspeed-sensor-kit-sdp33.html)
+* [Digital Airspeed Sensor](../sensor/airspeed.md)
 * [Telemetry Radio Modules](../telemetry/README.md)
 * [Rangefinders/Distance sensors](../sensor/rangefinders.md)
 
@@ -125,10 +144,13 @@ For wiring information see:
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 
-## Further info
+## Additional Information
 
-- [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
+- [Pix32 v5 Technical Data Sheet](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
+- [Pix32 v5 Pinouts](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf)
+- [Pix32 v5 Base Schematic Diagram](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
+- [Pix32 v5 Base Components Layout](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-ComponentsLayout.pdf)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
+
 - [Pixhawk 4 Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
-- [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 - [Pixhawk 4 Quick Start Guide (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
