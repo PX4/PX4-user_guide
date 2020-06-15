@@ -188,10 +188,10 @@ This allows inspection of much higher frequencies than with normal logging, whic
 To use it, some parameters need to be changed:
 - Set [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) to 400.
   This is required to reduce the amount of logged data
-- Use a good SD card, as the IMU data requires a high logging bandwidth
+- Use a good SD card, as the IMU data requires a high logging bandwidth (Flight Review will show dropouts if the logging rate gets too high).
   > **Tip** See [Logging > SD Cards](https://dev.px4.io/master/en/log/logging.html#sd-cards) for a comparison of popular SD card.
 - Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries.
-  If you are using a really good SD card (Flight Review will show dropouts if the logging rate gets too high), you can:
+  If you are using a really good SD card (seeing few/no dropouts), you can:
   - either enable both accel and gyro profiles
   - or enable accel/gyro plus the default logging profile
 
