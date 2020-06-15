@@ -68,7 +68,8 @@ Lidar-Lite v3 is wired similarly, except that the pin-numbering on the connector
 
 ### I2C Interface Wiring
 
-TBD
+The I2C wiring is the same for any other distance sensor.
+Simply connect the SLA, SLC, GND and VCC to the corresponding (same) pins on the flight controller and the sensor.
 
 
 ## Software Configuration
