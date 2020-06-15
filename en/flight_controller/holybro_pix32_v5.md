@@ -10,17 +10,14 @@
 
 * Main FMU Processor: STM32F765
   * 32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 512KB RAM
-  
 * IO Processor: STM32F100
   * 32 Bit Arm® Cortex®-M3, 24MHz, 8KB SRAM
-  
 * On-board sensors:
   * Accel/Gyro: ICM-20689
   * Accel/Gyro: BMI055
   * Magnetometer: IST8310
   * Barometer: MS5611
 * GPS: ublox Neo-M8N GPS/GLONASS receiver; integrated magnetometer IST8310
-
 * Interfaces:
   * 8-16 PWM outputs (8 from IO, 8 from FMU)
   * 3 dedicated PWM/Capture inputs on FMU
@@ -42,18 +39,15 @@
     * Each CANBus has individual silent controls or ESC RX-MUX control
     * Analog inputs for voltage / current of 2 batteries
     * 2 additional analog inputs
-
 * Electrical System:
   * Power module output: 4.9~5.5V
   * Max input voltage: 6V
   * Max current sensing: 120A
   * USB Power Input: 4.75~5.25V
   * Servo Rail Input: 0~36V
-  
 * Weight and Dimensions:
   * Dimensions: 45x45x13.5mm
   * Weight: 33.0g
-  
 * Environmental Data, Quality & Reliability:
   * Operating temperature: -40 ~ 85°c
   * Storage temp. -40~85℃
@@ -63,30 +57,20 @@
 
 Additional information can be found in the [Pix32 V5 Technical Data Sheet](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf).
 
-
 ## Purchase
 
-Order from [Holybro](https://shop.holybro.com/pix32-v5_p1218.html).
-
-
-## Connectors
-
-![Pix32 v5 connectors](../../assets/flight_controller/pixhawk4/pixhawk4-connectors.jpg)
+Order from [Holybro website](https://shop.holybro.com/pix32-v5_p1218.html).
 
 ## Pinouts
 
 Download *pix32 v5* pinouts from [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
 
 ## Dimensions
-
-![Pix32 v5 Dimensions](../../assets/flight_controller/holybro_pix32_v5/Dimensions_no_border.jpg)
-
-________________________________________________________________________________________________________
-
+<img src="../../assets/flight_controller/holybro_pix32_v5/Dimensions_no_border.jpg" width="700px" title="Pix32 v5 Image" /> 
 
 ## Voltage Ratings
 
-*Pixhawk 4* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
+*Pix32 v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 
@@ -103,12 +87,6 @@ Under these conditions the system will not draw any power (will not be operation
 1. **USB** input (operational range 4.1V to 5.7V, 0V to 6V undamaged)
 1. Servo input: VDD_SERVO pin of **FMU PWM OUT** and **I/O PWM OUT** (0V to 42V undamaged)
 
-
-## Assembly/Setup
-
-The [Pixhawk 4 Wiring Quick Start](../assembly/quick_start_pixhawk4.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
-
-
 ## Building Firmware
 
 > **Tip** Most users will not need to build this firmware!
@@ -118,12 +96,12 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 ```
 make px4_fmu-v5_default
 ```
-__________________________________________________________________________________________
 
+## Debug Port
 
-## Debug Port {#debug_port}
+The system's [serial console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface runs on the **FMU Debug** port
 
-The system's [serial console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface runs on the **FMU Debug** port, while the I/O console and SWD interface can be accessed via **I/O Debug** port.
+<!--while the I/O console and SWD interface can be accessed via **I/O Debug** port.-->
 
 <img src="../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Diagram.jpg" width="420px" title="Pix32 v5 With Base Image" /><img src="../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Table.jpg" width="420px" title="Pix32 v5 Image" /> 
 
@@ -151,6 +129,3 @@ Any multicopter / airplane / rover or boat that can be controlled with normal RC
 - [Pix32 v5 Base Schematic Diagram](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-Schematic_diagram.pdf)
 - [Pix32 v5 Base Components Layout](http://www.holybro.com/manual/Holybro_PIX32-V5-BASE-ComponentsLayout.pdf)
 - [FMUv5 reference design pinout](https://docs.google.com/spreadsheets/d/1-n0__BYDedQrc_2NHqBenG1DNepAgnHpSGglke-QQwY/edit#gid=912976165).
-
-- [Pixhawk 4 Wiring QuickStart](../assembly/quick_start_pixhawk4.md)
-- [Pixhawk 4 Quick Start Guide (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
