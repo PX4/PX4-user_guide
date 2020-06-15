@@ -3,7 +3,7 @@
 [MINI2 Receiver](http://www.femtomes.com) supports the absolute accuracy positioning of Global Navigation Satellite System (GNSS).
 This delivers the quickest and most reliable RTK initializations for centimeter level positioning.
 Mainly facing to applications of high-precision positioning, navigation and mapping, etc. 
-Customers benefit from the Ethernet connectivity available on the board, allowing high speed data transfer and configuration viastandard web browsers.
+Customers benefit from the Ethernet connectivity available on the board, allowing high speed data transfer and configuration via standard web browsers.
 Serial port, USB and CAN are also supported.
 
 <img src="http://www.femtomes.com/image/PX4/MINI_II_Receiver.jpg" width="500px" title="mini2" />
