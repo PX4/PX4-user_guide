@@ -9677,13 +9677,6 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="SIM_GPS_NOISE_X">SIM_GPS_NOISE_X</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Simulator GPS noise multiplier</p>   </td>
- <td style="vertical-align: top;">0 > 10 (0.1)</td>
- <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">%</td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="SIM_GYRO_BLOCK">SIM_GYRO_BLOCK</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Simulator block gyroscope data</p><p><strong>Comment:</strong> Enable to block the publication of any incoming simulation gyroscope data.</p>   </td>
  <td style="vertical-align: top;"></td>
