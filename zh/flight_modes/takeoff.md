@@ -55,7 +55,11 @@ Takeoff is affected by the following parameters:高于地平面（AGL）的高�
 </h2>
 
 <p>
-  A VTOL follows the TAKEOFF behavior and parameters of <a href="#fixed_wing">Fixed Wing</a> when in FW mode, and of <a href="#multi-copter-mc">Multicopter</a> when in MC mode.
+  VTOLs default to MC mode on boot, and it is generally expected that they will take off in <a href="#multi-copter-mc">multicopter mode</a> (and also safer).
+</p>
+
+<p>
+  That said, if transitioned to Fixed wing before takeoff, they will takeoff in <a href="#fixed_wing">Fixed Wing</a> mode.
 </p>
 
 <!-- this maps to AUTO_TAKEOFF in dev -->
