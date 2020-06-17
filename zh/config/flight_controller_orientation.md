@@ -4,17 +4,19 @@
 
 ## 计算朝向
 
-偏航、俯仰和滚转偏移按照相对前向垂直方向计算（分别围绕Z、Y、X轴顺时针方向旋转）。 这一框架被称为 *body frame* 默认的朝向是 `ROTATION_NONE`。
+ROLL, PITCH and/or YAW offsets of the flight controller are calculated relative to the vehicle around the forward, right, down axes.
+
+The axes to rotate around stay the same from one rotation step to the next one. So the frame to perform the rotation in stays fixed. This is also known as *extrinsic rotation*.
 
 <img src="../../images/fc_orientation_1.png" style="width: 600px;" />
 
-例如，下面显示的飞行器只有Z轴的旋转，对应`ROTATION_NONE`，`ROTATION_YAW_90`，`ROTATION_YAW_180`，`ROTATION_YAW_270`。
+For example, the vehicles shown below have rotations around the z-axis (only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
-![Yaw 旋转](../../images/yaw_rotation.png)
+![Yaw Rotation](../../images/yaw_rotation.png)
 
 ## 设置朝向
 
-设置朝向步骤如下：
+To set the orientations:
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
@@ -29,7 +31,7 @@
 
 ## 优化调整
 
-您可以使用 [校准地平（Level Horizon Calibration）](../config/level_horizon_calibration.md) 补偿飞控方向的少量误差，并校平飞行视图中的地平线。
+You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
 
 ## 更多信息
 

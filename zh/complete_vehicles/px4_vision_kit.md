@@ -10,7 +10,7 @@
 
 ## 警告&通知
 
-The kit is currently an "early adopter" release. Contact sales01@holybro.com for sales enquiries.
+The kit is currently an "early adopter" release. Contact sale01@holybro.com for sales enquiries.
 
 
 ## 开始了解你的开发套件

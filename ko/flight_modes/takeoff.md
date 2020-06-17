@@ -42,15 +42,21 @@ The specific behaviour for each vehicle type is described below.
 <h2 id="fixed_wing">Fixed Wing (FW)</h2>
 
 <p>The aircraft takes off in the current direction using either <em>catapult/hand-launch mode</em> or <em>runway takeoff mode</em>.
-The mode defaults to catapult/hand launch, but can be set to runway takeoff using <a href="#RWTO_TKOFF">RWTO_TKOFF</a>.</p>
+The mode defaults to catapult/hand launch, but can be set to runway takeoff using <a href="#RWTO_TKOFF">RWTO_TKOFF</a>.
+RC stick movement is ignored in both cases.</p>
 
-<p>In <em>catapult/hand launch mode</em> the vehicle will perform a full throttle climbout (ramp up to <a href="#RWTO_MAX_THR">RWTO_MAX_THR</a> in about 2 seconds).
-Once the altitude error < <a href="#FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</a>, regular navigation will proceed.</p>
+<h3 id="hand_launch">Catapult/Hand Launch</h3>
+
+<p>In <em>catapult/hand launch mode</em> the vehicle waits to detect launch (based on acceleration trigger).
+On launch it ramps up to full throttle (<a href="#RWTO_MAX_THR">RWTO_MAX_THR</a>) in about 2 seconds and then performs a full throttle climbout, with <em>minimum</em> 10 degree takeoff pitch. 
+Once it reaches <a href="#FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</a> it will transition to <a href="../flight_modes/hold.md">Hold mode</a> and loiter.</p>
 
 <blockquote>
   <p><strong> 참고 </ 0> 위에 논의 된 동작 외에도 일부 조건이 충족 될 때까지 시작 시퀀스가 ​​시작되지 않도록 차단하는 시작 탐지기가 있습니다.
     투석기 발사의 경우 이는 약간의 가속 임계 값입니다.</p>
 </blockquote>
+
+<h3 id="runway_launch">Runway Takeoff</h3>
 
 <p>The <em>runway takeoff mode</em> has the following phases:</p>
 
@@ -66,7 +72,7 @@ Once the altitude error < <a href="#FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</a>, regula
 이 단계에서는 롤 및 제목 제한이 제거됩니다.</li>
 </ol>
 
-<p>RC stick movement is ignored.</p>
+<h3>Fixed Wing Takeoff Parameters</h3>
 
 <p>Takeoff is affected by the following parameters:</p>
 
@@ -91,7 +97,7 @@ Once the altitude error < <a href="#FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</a>, regula
 <tr>
   <td><span id="FW_CLMBOUT_DIFF"></span><a href="../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</a>
 </td>
-  <td>등반 고도 차이.</td>
+  <td>Climbout Altitude difference. This is used as the target altitude if taking off without a takeoff altitude setpoint (there is no setpoint in takeoff mode, but there is in missions).</td>
 </tr>
 <tr>
   <td><span id="FW_AIRSPD_MIN"></span><a href="../advanced_config/parameter_reference.md#FW_AIRSPD_MIN">FW_AIRSPD_MIN</a></td>
@@ -121,6 +127,8 @@ Once the altitude error < <a href="#FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</a>, regula
 
 <h2>VTOL</h2>
 
-<p>A VTOL follows the TAKEOFF behavior and parameters of <a href="#fixed_wing">Fixed Wing</a> when in FW mode, and of <a href="#multi-copter-mc">Multicopter</a> when in MC mode.</p>
+<p>VTOLs default to MC mode on boot, and it is generally expected that they will take off in <a href="#multi-copter-mc">multicopter mode</a> (and also safer).</p>
+
+<p>That said, if transitioned to Fixed wing before takeoff, they will takeoff in <a href="#fixed_wing">Fixed Wing</a> mode.</p>
 
 <!-- this maps to AUTO_TAKEOFF in dev -->

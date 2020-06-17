@@ -4,17 +4,19 @@
 
 ## 방향 계산
 
-YAW, PITCH 및/또는 ROLL 오프셋은 기본 정방향(각각 Z, Y, X축을 중심으로 시계 방향)에 따라 계산됩니다. 이러한 프레임은 *body frame*이라고 불리며, 기본 방향은 `ROTATION_NONE`입니다.
+ROLL, PITCH and/or YAW offsets of the flight controller are calculated relative to the vehicle around the forward, right, down axes.
+
+The axes to rotate around stay the same from one rotation step to the next one. So the frame to perform the rotation in stays fixed. This is also known as *extrinsic rotation*.
 
 <img src="../../images/fc_orientation_1.png" style="width: 600px;" />
 
-예를 들어, 아래에 표시된 기체는 Z축을 중심으로 각각 다음과 같이 회전합니다: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
+For example, the vehicles shown below have rotations around the z-axis (only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
-![Yaw 회전](../../images/yaw_rotation.png)
+![Yaw Rotation](../../images/yaw_rotation.png)
 
 ## 방향 설정
 
-방향을 설정하려면
+To set the orientations:
 
 1. *QGroundControl *을 시작하고 기체를 연결합니다.
 2. 상단 툴바에서 **톱니바퀴** 아이콘(기체 설정)을 선택한 다음 사이드 바에서 **센서**를 선택하십시오.
@@ -29,7 +31,7 @@ YAW, PITCH 및/또는 ROLL 오프셋은 기본 정방향(각각 Z, Y, X축을 �
 
 ## 미세 조정
 
-[수평 조정 캘리브레이션](../config/level_horizon_calibration.md)을 사용하여 컨트롤러 방향 정렬의 어긋남을 캘리브레이션하고 비행 HUD의 수평을 맞출 수 있습니다.
+You can use [Level Horizon Calibration](../config/level_horizon_calibration.md) to compensate for small miss-alignments in controller orientation and to level the horizon in flight view.
 
 ## 추가 정보
 

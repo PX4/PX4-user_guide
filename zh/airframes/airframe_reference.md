@@ -2,13 +2,13 @@
 
 > **Note** **This list is [auto-generated](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py) from the source code**.
 > 
-> **AUX** channels may not be present on some flight controllers. If present, PWM AUX channels are commonly labelled **AUX OUT**.
+> 某些飞行控制器可能会缺少**AUX** 通道。 如果有，PWM AUX通道一般标注为**AUX OUT**。
 
 该页列出所有PX4支持的机架型号，包括电机分配和序号。 **绿色**为顺时针转动的电机，**蓝色**为逆时针转动的电机。
 
-## Autogyro
+## 旋翼机
 
-### Autogyro
+### 旋翼机
 
 <div>
   <img src="../../assets/airframes/types/Autogyro.svg" width="29%" style="max-height: 180px;" /> 
@@ -42,9 +42,9 @@
 </tr>
 </tbody></table>
 
-## Copter
+## 直升机
 
-### Coaxial Helicopter
+### 共轴双旋翼直升机
 
 <div>
   <img src="../../assets/airframes/types/HelicopterCoaxial.svg" width="29%" style="max-height: 180px;" /> 

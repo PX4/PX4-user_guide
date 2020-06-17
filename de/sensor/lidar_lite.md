@@ -35,14 +35,16 @@ The standard wiring instructions for Lidar-Lite 3 (from the [Operation Manual](h
 
 The pin connections for wiring LidarLite to the *Pixhawk 1* AUX ports (PWM interface) are shown below.
 
-| Pin | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | Comment                                                                                            |
-| --- | ------------------- | ----------------- | -------------------------------------------------------------------------------------------------- |
-| 1   | VCC                 | AUX 6 (center)    | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                 |
-| 2   | RESET               | AUX 6 (bottom)    | Reset line of the sensor                                                                           |
-| 3   | PWM                 | AUX 5 (bottom)    | PWM input of the Lidar Lite. **Needs a 470 Ohm pull-down (to GND), Do not use a 1 K0hm resistor.** |
-| 4   | SCL                 | -                 | Not connected                                                                                      |
-| 5   | SDA                 | -                 | Not connected                                                                                      |
-| 6   | GND                 | AUX 6 (top)       | Ground                                                                                             |
+| Pin | Lidar-Lite (v2, v3) | Pixhawk AUX Servo | Comment                                                                                             |
+| --- | ------------------- | ----------------- | --------------------------------------------------------------------------------------------------- |
+| 1   | VCC                 | AUX 6 (center)    | Power supply. 4.75-5.5V DC Nominal, Maximum 6V DC.                                                  |
+| 2   | RESET               | AUX 6 (bottom)    | Reset line of the sensor                                                                            |
+| 3   | PWM                 | AUX 5 (bottom)    | PWM output of the Lidar Lite. **Needs a 470 Ohm pull-down (to GND), Do not use a 1 K0hm resistor.** |
+| 4   | SCL                 | -                 | Not connected                                                                                       |
+| 5   | SDA                 | -                 | Not connected                                                                                       |
+| 6   | GND                 | AUX 6 (top)       | Ground                                                                                              |
+
+> **Note** On a flight controller that has no AUX port the equivalent MAIN pins are used (e.g. the PWM output on the lidar instead maps to MAIN 5). The pin numbers are hard-coded.
 
 The wiring for LidarLite v2 is shown below. Lidar-Lite v3 is wired similarly, except that the pin-numbering on the connector is reversed.
 
@@ -54,7 +56,7 @@ The wiring for LidarLite v2 is shown below. Lidar-Lite v3 is wired similarly, ex
 
 ### I2C Interface Wiring
 
-TBD
+The I2C wiring is the same for any other distance sensor. Simply connect the SLA, SLC, GND and VCC to the corresponding (same) pins on the flight controller and the sensor.
 
 ## Software Configuration
 

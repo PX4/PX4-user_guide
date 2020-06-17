@@ -4,7 +4,9 @@ By default the flight controller (and external compass(es), if present) should b
 
 ## Calculating Orientation
 
-YAW, PITCH and/or ROLL offsets are calculated relative to the forward-facing-upright orientation (clock-wise rotation around the Z, Y and X axis, respectively). This frame is referred to as the *body frame* and the default orientation as `ROTATION_NONE`.
+ROLL, PITCH and/or YAW offsets of the flight controller are calculated relative to the vehicle around the forward, right, down axes.
+
+The axes to rotate around stay the same from one rotation step to the next one. So the frame to perform the rotation in stays fixed. This is also known as *extrinsic rotation*.
 
 <img src="../../images/fc_orientation_1.png" style="width: 600px;" />
 
