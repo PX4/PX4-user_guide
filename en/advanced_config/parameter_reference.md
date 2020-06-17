@@ -5357,10 +5357,10 @@ Setting this parameter to 0 disables the filter</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_VEL_XY">MPC_LAND_VEL_XY</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal velocity during landing
+ <td style="vertical-align: top;"><p>Maximum horizontal position mode velocity when close to ground/home altitude
 Set the value higher than the otherwise expected maximum to disable any slowdown</p>   </td>
  <td style="vertical-align: top;">0 > ? </td>
- <td style="vertical-align: top;">2.</td>
+ <td style="vertical-align: top;">10.0</td>
  <td style="vertical-align: top;">m/s</td>
 </tr>
 <tr>
