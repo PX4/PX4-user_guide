@@ -2,7 +2,7 @@
 
 *Pix32 v5*<sup>&reg;</sup> is an advanced autopilot designed and made by Holybro<sup>&reg;</sup>. It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS. It can be regarded as a variant version of Pixhawk4.
 
-The Pix32 v5 is comprised of a separate flight controller and carrier board which are connected by a 100pin connector. It is designed for those pilots who need a high power, flexible and customisable flight control system. This design allows users to ether use the carrier board made by Holybro or customize their own.
+The Pix32 v5 is comprised of a separate flight controller and carrier board which are connected by a 100pin connector. It is designed for those pilots who need a high power, flexible and customisable flight control system. This design allows users to either use the carrier board made by Holybro or customize their own.
 
 <img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3112.JPG" width="420px" title="Pix32 v5 Image" /> <img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG" width="420px" title="Pix32 v5 With Base Image" />
 
