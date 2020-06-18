@@ -13074,27 +13074,6 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="TC_A0_SCL_0">TC_A0_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - X axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_SCL_1">TC_A0_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Y axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A0_SCL_2">TC_A0_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Z axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="TC_A0_TMAX">TC_A0_TMAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Accelerometer calibration maximum temperature</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -13207,27 +13186,6 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="TC_A1_SCL_0">TC_A1_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - X axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_SCL_1">TC_A1_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Y axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A1_SCL_2">TC_A1_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Z axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="TC_A1_TMAX">TC_A1_TMAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Accelerometer calibration maximum temperature</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -13337,27 +13295,6 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>ID of Accelerometer that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_SCL_0">TC_A2_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - X axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_SCL_1">TC_A2_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Y axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_A2_SCL_2">TC_A2_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Accelerometer scale factor - Z axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -13481,13 +13418,6 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="TC_B0_SCL">TC_B0_SCL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer scale factor - X axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="TC_B0_TMAX">TC_B0_TMAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Barometer calibration maximum temperature</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -13558,13 +13488,6 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="TC_B1_SCL">TC_B1_SCL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer scale factor - X axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="TC_B1_TMAX">TC_B1_TMAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Barometer calibration maximum temperature</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -13632,13 +13555,6 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>ID of Barometer that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_B2_SCL">TC_B2_SCL</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Barometer scale factor - X axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -13717,27 +13633,6 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>ID of Gyro that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_SCL_0">TC_G0_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - X axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_SCL_1">TC_G0_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Y axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G0_SCL_2">TC_G0_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Z axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -13853,27 +13748,6 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="TC_G1_SCL_0">TC_G1_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - X axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_SCL_1">TC_G1_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Y axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G1_SCL_2">TC_G1_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Z axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="TC_G1_TMAX">TC_G1_TMAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -13983,27 +13857,6 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>ID of Gyro that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_SCL_0">TC_G2_SCL_0</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - X axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_SCL_1">TC_G2_SCL_1</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Y axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="TC_G2_SCL_2">TC_G2_SCL_2</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Gyro scale factor - Z axis</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">1.0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
