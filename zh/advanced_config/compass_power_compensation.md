@@ -1,8 +1,8 @@
-# Compass Power Compensation
+# 磁航向电源补偿
 
-Compasses (magnetometers) should be mounted as far as possible from cables that carry large currents, as these induce magnetic fields that may corrupt the compass readings.
+指南针（磁力计）应该安装在尽可能远离通过大电流的线缆的位置，因为它们诱发的磁场会干扰指南针的读数。
 
-This topic explains how to compensate for the induced magnetic fields in the cases where moving the compass is not realistic.
+本文解释了如何在不能改变磁航向计安装位置的情况下如何补偿诱发磁场带来的影响。
 
 > **Tip** Moving the compass away from power-carrying cables is the easiest and most effective way to fix this issue, because the strength of the magnetic fields decreases quadratically with the distance from the cable.
 
