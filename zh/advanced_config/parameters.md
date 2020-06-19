@@ -49,15 +49,15 @@
             #batt_smbus
             #camera_capture > 
     
-    **Note** 您可能还需要禁用其他的模块才能使重生成的固件适于1MB的闪存. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+    **Note** 您可能还需要禁用其他的模块才能使重生成的固件适于1MB的闪存. 找到可以移除的模块需要一些试错， 还取决于你要求载具达到哪些使用案例。
 
-## Changing a Parameter {#changing}
+## 修改参数 {#changing}
 
-To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
+通过单击 参数组中 或 参数搜索结果列表中 的参数行来改变参数的值。 单击后屏幕侧边会显示一个对话框，您在其中更改参数的值（这个对话框还提供了该参数的额外细节信息——包括是否需要重启才能使参数生效）。
 
 ![Changing a parameter value](../../images/qgc/setup/parameters_changing.png)
 
-> **Note** When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+> **Note** 当单击**保存(Save)**按钮后，参数会自动且静默地上传到连接的载具。 Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
 
 ## Tools
 
