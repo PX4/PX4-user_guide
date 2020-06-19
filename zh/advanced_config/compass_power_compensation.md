@@ -13,23 +13,23 @@
 
 只有当下述的全部条件都满足时才建议采用电源补偿：
 1. 磁航向计无法远离动力线缆。
-1. There is a strong correlation between the compass readings and the thrust setpoint, and/or the battery current. ![Corrupted mag](../../assets/advanced_config/corrupted_mag.png)
+1. 磁航向计读数与油门杆位与/或电池电流有强相关性。![Corrupted mag](../../assets/advanced_config/corrupted_mag.png)
 
-1. The drone cables are all fixed in place/do not move (calculated compensation parameters will be invalid if the current-carrying cables can move).
+1. 无人机的线缆都是固定的或不会移动的（当通电的线缆能够移动会导致计算出的补偿参数失效）。
 
-## How to Compensate the Compass {#how}
+## 如何补偿磁航向计 {#how}
 
-1. Make sure your drone runs a Firmware version supporting power compensation (current master, or releases from v.1.11.0).
-1. Perform the [standard compass calibration](../config/compass.md#compass-calibration).
-1. Set the parameter [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) to 2 to enable logging of data from boot.
-1. Set the parameter [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *high rate* (bit 2) to get more data points.
-1. Secure the drone so that it cannot move, and attach the propellers (so the motors can draw the the same current as in flight). This example secures the vehicle using straps.
+1. 确保无人机运行在支持电源补偿的固件版本上（当前的Master版，或v1.11.0之后的版本）。
+1. 执行标准的[指南针校准](../config/compass.md#compass-calibration)流程。
+1. 将参数[SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) 设为2，使系统一启动就开始记录日志。
+1. 将参数[SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 复选框的*高采样率 (high rate)* (bit 2)选中，以获得更多的数据采样点。
+1. 固定好无人机使其无法移动，然后装好螺旋桨（这样电机可以获得与实际飞行中同样大的电流）。 本例中用带子固定了无人机。
 
    ![strap](../../assets/advanced_config/strap.png)
-1. Power the vehicle and switch into [ACRO flight mode](../flight_modes/acro_mc.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).
-   - Arm the vehicle and slowly raise the throttle to the maximum
-   - Slowly lower the throttle down to zero
-   - Disarm the vehicle > **Note** Perform the test carefully and closely monitor the vibrations.
+1. 给无人机上电，并切换到[特技 (ACRO) 飞行模式](../flight_modes/acro_mc.md) （此模式下无人机不会试图去补偿带子对运动造成的影响）。
+   - 解锁无人机，然后缓缓将油门推到最大。
+   - 慢慢将油门降到0
+   - 给无人机加锁 > **Note** 谨慎地进行测试，并密切注意振动情况。
 1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
    ```cmd
    python mag_compensation.py ~/path/to/log/logfile.ulg
