@@ -36,15 +36,15 @@
 
 如果使用了不同版本的PX4或者你的固件版本中没有包含相关的模块都会导致固件中没有该参数。
 
-每一版PX4都会增加一些新的参数，原有的参数有时也会被删除或改名。 You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
+每一版PX4都会增加一些新的参数，原有的参数有时也会被删除或改名。 您可以通过查阅对应版本的[全部参数参考 (full parameter reference)](../advanced_config/parameter_reference.md)来检查一个参数是否*应该*存在。 您还可以在源代码和发布说明中查找参数。
 
-The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
+固件中缺少参数的另一个原因相关的模块没有被导入。 这一问题（尤其）在*FMUv2固件*常见，因为PX4必须删减许多模块才能放进它只有1M的闪存中。 解决此问题有两种方法：
 
-- Check if you can update your board to run FMUv3 firmware, which includes all modules: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader)
-- If your board can only run FMUv2 firmware you will need to [rebuild PX4](https://dev.px4.io/master/en/setup/building_px4.html) with the missing modules enabled. You can see these commented out in [boards/px4/fmu-v2/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v2/default.cmake): 
+- 检查你的控制板是否可以升级到包含了所有模块的FMUv3固件：[固件 > FMUv2 Bootloader 升级](../config/firmware.md#bootloader)
+- 如果你的控制板只能运行FMUv2固件，你就要引入确实的模块后[重生成PX4](https://dev.px4.io/master/en/setup/building_px4.html)。 在[boards/px4/fmu-v2/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v2/default.cmake)文件中看到注释掉的模块: 
         DRIVERS
             adc
-            #barometer # all available barometer drivers
+            #barometer # 全部支持的气压计驱动
             barometer/ms5611
             #batt_smbus
             #camera_capture > 
