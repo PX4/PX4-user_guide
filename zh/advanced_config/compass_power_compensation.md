@@ -30,13 +30,13 @@
    - 解锁无人机，然后缓缓将油门推到最大。
    - 慢慢将油门降到0
    - 给无人机加锁 > **Note** 谨慎地进行测试，并密切注意振动情况。
-1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
+1. 获取ulog文件，并用python脚本[mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py)来确定补偿参数。
    ```cmd
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-   > **Note** If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
-1. The script will return the parameter identification for thrust as well as for current and print them to the console. The figures that pop up from the script show the "goodness of fit" for each compass instance, and how the data would look if compensated with the suggested values. If a current measurement is available, using the current-compensation usually yields the better results. Here is an example of a log, where the current fit is good, but the thrust parameters are unusable as the relationship is not linear. ![line fit](../../assets/advanced_config/line_fit.png)
+   > **Note** 如果你的日志文件中不包含电池电流的测数，你就需要在python脚本中注释掉相关的代码行，这样就只通过推力计算。
+1. 这个脚本将返回基于推力和基于电流的补偿参数，并打印输出到控制台。 The figures that pop up from the script show the "goodness of fit" for each compass instance, and how the data would look if compensated with the suggested values. If a current measurement is available, using the current-compensation usually yields the better results. Here is an example of a log, where the current fit is good, but the thrust parameters are unusable as the relationship is not linear. ![line fit](../../assets/advanced_config/line_fit.png)
 
 1. Once the parameters are identified, the power compensation must be enabled by setting [CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP) to 1 (when using thrust parameters) or 2 (when using current parameters). Additionally, the compensation parameters for each axis of each compass must be set.
 
