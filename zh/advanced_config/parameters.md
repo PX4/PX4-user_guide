@@ -10,7 +10,7 @@
 
 > **Waring**虽然某些参数可以在飞行中更改，但不建议这样做 (除非在本指南中有明确说明)。
 
-## Finding a Parameter {#finding}
+## 查找参数 {#finding}
 
 可以通过在 * 搜索(Search) * 框中输入一个相关字眼来搜索参数。 和搜索字眼相关的所有参数名称和说明将会以列表形式显示 (按 ** 清除(Clear) ** 重置搜索)。
 
@@ -20,13 +20,13 @@
 
 ![Parameters Screen](../../images/qgc/setup/parameters_px4.jpg)
 
-> **Tip** If you can't find an expected parameter, see the [next section](#missing).
+> **Tip** 如果找不到期望的参数，请参阅[下一节](#missing)。
 
-## Missing Parameters {#missing}
+## 找不到参数 {#missing}
 
-Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
+一般情况下，与以其他参数为先决条件，或者固件中没有该参数，是部分参数不可见的原因（参见下文）。
 
-### Conditional Parameters
+### 受条件限制的参数
 
 A parameter may not be displayed if it is conditional on another parameter that is not enabled.
 
