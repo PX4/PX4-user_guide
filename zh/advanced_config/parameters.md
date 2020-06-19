@@ -57,19 +57,19 @@
 
 ![Changing a parameter value](../../images/qgc/setup/parameters_changing.png)
 
-> **Note** 当单击**保存(Save)**按钮后，参数会自动且静默地上传到连接的载具。 Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
+> **Note** 当单击**保存(Save)**按钮后，参数会自动且静默地上传到连接的载具。 对于不同的参数，你可能需要重启飞控才能使改变的参数生效。
 
-## Tools
+## 工具（Tools）菜单
 
-You can select additional options from the **Tools** menu on the top right hand side of the screen.
+您可以在屏幕右上角的**工具 (Tools)**菜单中选择更多的选项。
 
 ![Tools menu](../../images/qgc/setup/parameters_tools_menu.png)
 
-**Refresh** <br />Refresh the parameter values by re-requesting all of them from the vehicle.
+**刷新 (Refresh)** <br />用从载具上重新请求的所有参数值刷新地面站上的参数值。
 
-**Reset all to defaults** <br />Reset all parameters to their original default values.
+**重置所有参数为默认值 (Reset all to defaults)** <br />将全部参数重置为原始默认值。
 
-**Load from file / Save to file** <br />Load parameters from an existing file or save your current parameter settings to a file.
+**从文件读取 / 写入文件 (Load from file / Save to file)** <br />从已有文件中读取参数，或将当前的参数设置写入文件。
 
 **Clear RC to Param** <br />This clears all associations between RC transmitter controls and parameters. For more information see: [Radio Setup > Param Tuning Channels](../config/radio.md#param-tuning-channels).
 
