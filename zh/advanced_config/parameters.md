@@ -22,21 +22,21 @@
 
 > **Tip** 如果找不到期望的参数，请参阅[下一节](#missing)。
 
-## 找不到参数 {#missing}
+## 找不到的参数 {#missing}
 
 一般情况下，与以其他参数为先决条件，或者固件中没有该参数，是部分参数不可见的原因（参见下文）。
 
 ### 受条件限制的参数
 
-A parameter may not be displayed if it is conditional on another parameter that is not enabled.
+如果一个参数所依赖的参数没有激活，则该参数不会被显示。
 
-You can usually find out what parameters are conditional by searching the [full parameter reference](../advanced_config/parameter_reference.md) and other documentation. In particular [serial port configuration parameters](../peripherals/serial_configuration.md) depend on what service is assigned to a serial port.
+您可以通过检索[全部参数参考 (full parameter reference)](../advanced_config/parameter_reference.md)和其他文档来找到哪些参数是受条件限制的。 特别是[串行端口配置参数 (serial port configuration parameters)](../peripherals/serial_configuration.md)，它取决于分配给串行端口的服务。
 
-### Parameter Not In Firmware
+### 固件中没有的参数
 
-A parameter may not be present in the firmware because you're using a different version of PX4 or because you're using a build in which the associated module is not included.
+如果使用了不同版本的PX4或者你的固件版本中没有包含相关的模块都会导致固件中没有该参数。
 
-New parameters are added in each PX4 version, and existing parameters are sometimes removed or renamed. You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
+每一版PX4都会增加一些新的参数，原有的参数有时也会被删除或改名。 You can check whether a parameter *should* be present by reviewing the [full parameter reference](../advanced_config/parameter_reference.md) for the version you're targeting. You can also search for the parameter in the source tree and in the release notes.
 
 The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
 
