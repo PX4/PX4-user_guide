@@ -36,8 +36,8 @@
    ```
 
    > **Note** 如果你的日志文件中不包含电池电流的测数，你就需要在python脚本中注释掉相关的代码行，这样就只通过推力计算。
-1. 这个脚本将返回基于推力和基于电流的补偿参数，并打印输出到控制台。 The figures that pop up from the script show the "goodness of fit" for each compass instance, and how the data would look if compensated with the suggested values. If a current measurement is available, using the current-compensation usually yields the better results. Here is an example of a log, where the current fit is good, but the thrust parameters are unusable as the relationship is not linear. ![line fit](../../assets/advanced_config/line_fit.png)
+1. 这个脚本将返回基于推力和基于电流的补偿参数，并打印输出到控制台。 脚本弹出的数值显示了每个罗盘匹配的程度，以及使用了建议的补偿值后数据将是什么样的。 如果有电流测数，那么依据电流补偿通常可以获得更好的结果。 这里是一个日志的例子，电流匹配得很好，然而因为不是线性关系推力参数则完全不可用。 ![line fit](../../assets/advanced_config/line_fit.png)
 
-1. Once the parameters are identified, the power compensation must be enabled by setting [CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP) to 1 (when using thrust parameters) or 2 (when using current parameters). Additionally, the compensation parameters for each axis of each compass must be set.
+1. 一旦确定了参数，必须通过将[CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP)设为1（使用推力参数时）或2（使用电流参数时）来激活电源补偿。 Additionally, the compensation parameters for each axis of each compass must be set.
 
    ![comp params](../../assets/advanced_config/comp_params.png)
