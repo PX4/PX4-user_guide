@@ -4,15 +4,15 @@
 
 本文解释了如何在不能改变磁航向计安装位置的情况下如何补偿诱发磁场带来的影响。
 
-> **Tip** Moving the compass away from power-carrying cables is the easiest and most effective way to fix this issue, because the strength of the magnetic fields decreases quadratically with the distance from the cable.
+> **Tip**使磁航向计远离动力电缆是最简单和最有效的避免诱发磁场干扰的方法，因为磁场强度是按与电缆的距离的二次方衰减的。
 
 <span></span>
-> **Note** The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
+> **Note** 下述过程基于多旋翼无人机演示，但同样适用于其他类型的载具。
 
-## When is Power Compensation Applicable? {#when}
+## 电源补偿的适用条件 {#when}
 
-Performing this power compensation is advisable only if all the following statements are true:
-1. The compass cannot be moved away from the power-carrying cables.
+只有当下述的全部条件都满足时才建议采用电源补偿：
+1. 磁航向计无法远离动力线缆。
 1. There is a strong correlation between the compass readings and the thrust setpoint, and/or the battery current. ![Corrupted mag](../../assets/advanced_config/corrupted_mag.png)
 
 1. The drone cables are all fixed in place/do not move (calculated compensation parameters will be invalid if the current-carrying cables can move).
