@@ -49,7 +49,7 @@
             #batt_smbus
             #camera_capture > 
     
-    **Note** You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
+    **Note** 您可能还需要禁用其他的模块才能使重生成的固件适于1MB的闪存. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
 
 ## Changing a Parameter {#changing}
 
