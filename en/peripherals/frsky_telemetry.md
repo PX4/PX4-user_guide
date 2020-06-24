@@ -9,24 +9,29 @@ PX4 supports both [S.Port](#s_port) (new) and D (old) FrSky telemetry ports.
 
 ## Hardware Setup
 
-A typical hardware setup for the Pixhawk/S.Port telemetry connection is shown below.
-
-![FrSky-Taranis-Telemetry](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
-
-> **Note** The diagram below shows *only* the connection for telemetry!
-  You will still need to [separately connect the reciever for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers).
-
-The setup includes:
+FrSky telemetry requires:
 
 * An [FrSky-compatible RC transmitter](#transmitters) like the FrSky Taranis X9D Plus.
 * An [FrSky telemetry-capable receiver](#receivers) like the XSR and X8R.
 * A cable to connect the FrSky receiver Smart Port to a flight controller UART.
 
+First [connect the reciever for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the reciever and the flight controller.
+
+Then set up FrSky telemetry by separately connecting the S.Port on the receiver to any free UART on the flight controller, and then [configure PX4 to run FrSky telemetry on that UART](#configure).
+
+If using an S.Port receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins (and then configure PX4).
+
+If using an receiver with an *inverted* S.Port you use a converter cable to split the S.Port into to uninverted TX and RX.
+An example of this connection for Pixhawk/S.Port telemetry is shown below.
+
+![FrSky-Taranis-Telemetry](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
+
   > **Warning** Except for [Pixracer](../flight_controller/pixracer.md), Pixhawk-series UART ports and receiver telemetry ports are incompatible, and must (usually) be connected via an adapter. 
   
   <span></span>
-  > **Tip** Usually it is cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
+  > **Tip** When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
     Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
+
 
 
 ### Ready-Made Cables {#ready_made_cable}
