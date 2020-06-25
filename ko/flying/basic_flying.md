@@ -26,6 +26,13 @@
 > 
 > 
 
+<span></span>
+
+> 
+> > **Note** A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wing mode can be enabled using [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+> 
+> 
+
 <span id="takeoff-and-landing"></span>
 
 > 
