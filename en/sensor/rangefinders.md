@@ -59,6 +59,9 @@ The [Benewake TFmini Lidar](../sensor/tfmini.md) is a tiny, low cost, and low po
 The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm8jl65_ir_distance_sensor.md) is a very small (38 mm x 18mm x 7mm, <10g) IR distance sensor with a 0.17m-8m range and millimeter resolution.
 It must be connected to a UART/serial bus. 
 
+### Avionics Anonymous UAVCAN Laser Altimeter Interface 
+
+The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../sensor/avanon_laser_interface.md) allows several common rangefinders to be connected to the UAVCAN bus, a more robust interface than I2C.
 
 ## Configuration/Setup {#configuration}
 

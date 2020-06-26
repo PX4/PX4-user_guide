@@ -19,7 +19,9 @@ Recommended digital airspeed sensors include:
 * [Sensirion SDP3X Differential Pressure Sensor](https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/)
 * [Holybro Digital Air Speed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
 
-All the sensors are connected via the I2C bus/port.
+All the above sensors are connected via the I2C bus/port.
+
+Alternatively, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer/) can be connected to the UAVCAN bus and additionally provides air temperature measurement and a barometer that can be plumbed for true static pressure measurement.
 
 
 ## Configuration
