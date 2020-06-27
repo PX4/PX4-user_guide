@@ -14037,6 +14037,22 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;">1</td>
  <td style="vertical-align: top;"></td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UAVCAN_RNG_MIN">UAVCAN_RNG_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>UAVCAN Rangefinder Minimum Valid Distance</p><p><strong>Comment:</strong> Minimum valid distance for UAVCAN-connected rangefinders. </p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.3</td>
+ <td style="vertical-align: top;">m</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UAVCAN_RNG_MAX">UAVCAN_RNG_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>UAVCAN Rangefinder Maximum Valid Distance</p><p><strong>Comment:</strong> Maximum valid distance for UAVCAN-connected rangefinders. </p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">200</td>
+ <td style="vertical-align: top;">m</td>
+</tr>
 </tbody></table>
 
 ## UUV Attitude Control
