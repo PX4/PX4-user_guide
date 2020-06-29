@@ -1,10 +1,24 @@
 # Avionics Anonymous Laser Altimeter Interface
 
-The Avionics Anonymous Laser Altimeter Interface allows several common rangefinders to be connected to the UAVCAN bus, a more robust interface than I2C.
+The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/) allows a [number of common rangefinders](#supported_rangefinders) to be connected via the UAVCAN bus (this is a more robust interface than I2C).
 
 ## Where to Buy
 
 * [AvAnon Laser Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/)
+
+## Supported Rangefinders {#supported_rangefinders}
+
+A full list supported rangefinders can be found on the link above. 
+
+At time of writing the following rangefinders are supported:
+
+- Lightware SF30/D
+- Lightware SF10/a
+- Lightware SF10/b
+- Lightware SF10/c
+- Lightware SF11/c
+- Lightware SF/LW20/b
+- Lightware SF/LW20/c
 
 
 ## Pinouts
@@ -18,6 +32,7 @@ Pin | Name | Description
 4   | GND | Signal/power ground.
 
 ### Laser Connector
+
 Pin | Name | Description
 --- | ---   | ---
 1   | POWER_OUT | Filtered power at the supply voltage.
@@ -28,10 +43,14 @@ Pin | Name | Description
 
 ## Wiring
 
-Per the pinout above or using the included cables, your laser is connected to the AvAnon interface board which is connected to one of the CAN ports on your autopilot. The interface board provides a filtered power output for your laser, but does not provide its own regulation, so your laser must be compatible with whatever voltage is supplied to the board.
+The rangefinder (laser) is connected to the AvAnon interface board, which is connected to one of the CAN ports on your autopilot.
+The wiring is as per the pinout above or using the included cables.
+
+The interface board provides a filtered power output for the laser, but does not provide its own regulation.
+Therefore the laser must be compatible with whatever voltage is supplied to the board.
 
 ## Software Configuration
 
-UAVCAN must be enabled, in any available mode. [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE).
+UAVCAN must be enabled by setting [UAVCAN_ENABLE](../advanced_config/parameter_reference.md#UAVCAN_ENABLE) non zero.
 
-The minimum and maximum valid range for your laser must be set in the parameters [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX).
+The minimum and maximum valid range for the laser must be set in the parameters [UAVCAN_RNG_MIN](../advanced_config/parameter_reference.md#UAVCAN_RNG_MIN) and [UAVCAN_RNG_MAX](../advanced_config/parameter_reference.md#UAVCAN_RNG_MAX).
