@@ -21,7 +21,7 @@ Recommended digital airspeed sensors include:
 
 All the above sensors are connected via the I2C bus/port.
 
-> **Note** Additionally, the [Avionics Anonymous Air Data Computer](../sensor/avanon_laser_interface.md) can be connected to the UAVCAN bus to enable true static pressure (via air temperature measurement and a barometer).
+> **Note** Additionally, the [Avionics Anonymous Air Data Computer](../sensor/avanon_laser_interface.md) can be connected to the UAVCAN bus to determine the true static pressure (via air temperature measurement and a barometer).
 
 
 ## Configuration
