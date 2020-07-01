@@ -1,24 +1,30 @@
-# Pixhawk 4 Wiring Quick Start
+# Pix32 v5 Wiring Quick Start
 
-This quick start guide shows how to power the [Pixhawk 4](../flight_controller/pixhawk4.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
+This quick start guide shows how to power the [Pix32v5](../flight_controller/holybro_pix32_v5.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
 
-<img src="../../assets/flight_controller/pixhawk4/pixhawk4_logo_view.jpg" width="420px" title="Pixhawk4 Image" /> 
+<img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG" width="420px" title="Pix32 v5 With Base Image" />
 
+## Unboxing
+
+Pix32 v5 is sold bundled with a number of different combinations of accessories, including the *pix32 v5 baseboard*, power module *PM02 V3*, and the *Pixhawk 4 GPS/Compass* (UBLOX NEO-M8N).
+
+The content of the box with the *PM02 V3* power module is shown below (the box also includes a pinout guide and power module instructions).
+
+![Pix32 v5 Box](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_unboxing_schematics.png)
 
 ## Wiring Chart Overview
 
 The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
 
-![Pixhawk 4 Wiring Overview](../../assets/flight_controller/pixhawk4/pixhawk4_wiring_overview.png)
+![Pix32 v5 Wiring Overview](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_wiring_overview.png)
 
-> **Tip** More information about available ports can be found here: [Pixhawk 4 > Connections](../flight_controller/pixhawk4.md#connectors).
-
+> **Tip** : More information about available ports can be found [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
 
 ## Mount and Orient Controller
 
-*Pixhawk 4* should be mounted on the frame using vibration-damping foam pads (included in the kit). It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
+*Pix32 v5*  should be mounted on the frame positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
-<img src="../../assets/flight_controller/pixhawk4/pixhawk4_mounting_and_foam.png" align="center"/>
+<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png" align="center"/>
 
 > **Note** If the controller cannot be mounted in the
   recommended/default orientation (e.g. due to space constraints) you will
