@@ -19,9 +19,9 @@ Estimation and Control Library (ECL)은 센서 측정값을 처리하고, 아래
 
 IMU와 다른 센서들이 동기화되지 않아 서로 다른 측정 시간을 갖는 것을 허용하기 위해, EKF는 지연된 '합성 시간축'에서 실행됩니다. 각 센서 데이터는 선입선출(FIFO) 버퍼에 저장되고 알맞은 시간에 사용되기 위해 EKF에 의해 출력됩니다. 각 센서에 대한 시간 지연 보정은 [EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) 매개변수에 의해 조정됩니다.
 
-A complementary filter is used to propagate the states forward from the 'fusion time horizon' to current time using the buffered IMU data. The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
+보완 필터는 버퍼링된 IMU 데이터를 사용하여 상태를 '합성 시간축'에서 현재 시간으로 전파하는 데 사용됩니다. 이 필터의 시간 상수는 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL)과 [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) 매개 변수에 의해 조정됩니다.
 
-> **Note** The 'fusion time horizon' delay and length of the buffers is determined by the largest of the `EKF2_*_DELAY` parameters. If a sensor is not being used, it is recommended to set its time delay to zero. Reducing the 'fusion time horizon' delay reduces errors in the complementary filter used to propagate states forward to current time.
+> **참고** '합성 시간축'의 시간 지연과 버퍼의 길이는 `EKF2_*_DELAY` 매개변수들 중에서 가장 큰 값에 의해 결정됩니다. 만약 센서가 사용되지 않는다면, 해당 센서의 시간 지연 매개변수를 0으로 맞추는 것을 권장합니다. Reducing the 'fusion time horizon' delay reduces errors in the complementary filter used to propagate states forward to current time.
 
 The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops. The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
 
