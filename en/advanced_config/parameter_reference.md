@@ -1355,6 +1355,13 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_LKDOWN_TKO">COM_LKDOWN_TKO</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Timeout for detecting a failure after takeoff</p><p><strong>Comment:</strong> A non-zero, positive value specifies the timeframe in seconds within failure detector is allowed to put the vehicle into a lockdown state if attitude exceeds the limits defined in FD_FAIL_P and FD_FAIL_R. The check is not executed for flight modes that do support acrobatic maneuvers, e.g: Acro (MC/FW), Rattitude and Manual (FW). A zero or negative value means that the check is disabled.</p>   </td>
+ <td style="vertical-align: top;">-1.0 > 5.0 </td>
+ <td style="vertical-align: top;">3.0</td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_LOW_BAT_ACT">COM_LOW_BAT_ACT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Battery failsafe mode</p><p><strong>Comment:</strong> Action the system takes at critical battery. See also BAT_CRIT_THR and BAT_EMERGEN_THR for definition of battery states.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Warning</li> 
@@ -3395,6 +3402,16 @@ Set to 0 to disable heading hold</p>   </td>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
  </thead>
 <tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="FD_ESCS_EN">FD_ESCS_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable checks on ESCs that report their arming state.
+If enabled, failure detector will verify that all the ESCs have successfully armed when the vehicle has transitioned to the armed state.
+Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback is received the failure detector will auto disarm the vehicle</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Enabled (1)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FD_EXT_ATS_EN">FD_EXT_ATS_EN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Enable PWM input on AUX5 or MAIN5 (depending on board) for engaging failsafe from an external
