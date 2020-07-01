@@ -15,3 +15,5 @@ The boards in this category are:
 - [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
 - [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
 - [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
+- [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv2)
+- [Holybro HKPilot32](../flight_controller/HKPilot32.md) (FMUv2)
