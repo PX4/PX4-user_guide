@@ -25,7 +25,7 @@ IMU와 다른 센서들이 동기화되지 않아 서로 다른 측정 시간을
 
 위치 및 속도 상태는 제어 루프로 출력되기 전에 IMU와 차체 프레임 사이의 오프셋을 고려하여 조정됩니다. 기체 프레임에 대한 IMU의 위치는 `EKF2_IMU_POS_X,Y,Z` 매개 변수에 의해 설정됩니다.
 
-EKF는 IMU데이터를 상태 예측에만 사용합니다. IMU data is not used as an observation in the EKF derivation. The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/EKF/matlab/scripts/Inertial Nav EKF/GenerateNavFilterEquations.m).
+EKF는 IMU 데이터를 상태 예측에만 사용합니다. IMU 데이터는 EKF 유도 과정에서 관측값으로 사용되지 않습니다. 공분산 예측, 상태 업데이트 및 공분산 행렬 업데이트에 사용되는 대수적 계산식은 Matlab symbolic toolbox를 사용하여 유도되었습니다. 계산식은 다음 링크에서 찾을 수 있습니다:[Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/EKF/matlab/scripts/Inertial Nav EKF/GenerateNavFilterEquations.m).
 
 ## What sensor measurements does it use?
 
