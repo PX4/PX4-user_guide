@@ -2,20 +2,20 @@
 
 이 튜토리얼은 ECL EKF 알고리즘 사용에 대한 일반적인 질문에 답변합니다.
 
-> **Tip** The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the *PX4 Developer Summit 2019* (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+> **팁** *PX4 Developer Summit 2019*에서 Paul Riseborough 박사가 발표한 [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ)는 추정기의 개요와 2018/2019년도의 주요 변화와 2020년도 까지의 예상 개선점에 대해 설명합니다. 
 
-## What is the ECL EKF?
+## ECL EKF가 무엇인가요?
 
-The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
+Estimation and Control Library (ECL)은 센서 측정값을 처리하고, 아래와 같은 상태를 추정하기 위해 확장 칼만 필터 (EKF) 알고리즘을 사용합니다:
 
-* Quaternion defining the rotation from North, East, Down local earth frame to X, Y, Z body frame
-* Velocity at the IMU - North, East, Down \(m/s\)
-* Position at the IMU - North, East, Down \(m\)
+* North, East, Down로 표현되는 국부 지면 좌표계 (local earth frame)로부터 X, Y, Z 기체 프레임으로의 회전을 정의하는 사원수 (Quaternion)
+* IMU에서의 속도 - North, East, Down \(m/s\)
+* IMU에서의 위치 - North, East, Down \(m/s\)
 * IMU delta angle bias estimates - X, Y, Z \(rad\)
-* IMU delta velocity bias estimates - X, Y, Z\(m/s\)
-* Earth Magnetic field components - North, East, Down \(gauss\)
-* Vehicle body frame magnetic field bias - X, Y, Z \(gauss\)
-* Wind velocity - North, East \(m/s\)
+* IMU delta velocity bias estimates - X, Y, Z \(m/s\)
+* 지구 자기장 요소 - North, East, Down \(gauss\)
+* 기체 프레임 자기장 편차 - X, Y, Z \(gauss\)
+* 풍속 - North, East \(m/s\)
 
 The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU. Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time. The delay compensation for each sensor is controlled by the [EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
 
