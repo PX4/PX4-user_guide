@@ -17,7 +17,7 @@ Estimation and Control Library (ECL)은 센서 측정값을 처리하고, 아래
 * 기체 프레임 자기장 편차 - X, Y, Z \(gauss\)
 * 풍속 - North, East \(m/s\)
 
-The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU. Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time. The delay compensation for each sensor is controlled by the [EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
+IMU와 다른 센서들이 동기화되지 않아 서로 다른 측정 시간을 갖는 것을 허용하기 위해, EKF는 지연된 '합성 시간축'에서 실행됩니다. 각 센서 데이터는 선입선출(FIFO) 버퍼에 저장되고 알맞은 시간에 사용되기 위해 EKF에 의해 출력됩니다. 각 센서에 대한 시간 지연 보정은 [EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) 매개변수에 의해 조정됩니다.
 
 A complementary filter is used to propagate the states forward from the 'fusion time horizon' to current time using the buffered IMU data. The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
 
