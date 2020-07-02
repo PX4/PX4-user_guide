@@ -4,7 +4,7 @@
 
 The Pix32 v5 is comprised of a separate flight controller and carrier board which are connected by a 100pin connector. It is designed for those pilots who need a high power, flexible and customisable flight control system. This design allows users to either use the carrier board made by Holybro or customize their own.
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3112.JPG" width="420px" title="Pix32 v5 Image" /> <img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG" width="420px" title="Pix32 v5 With Base Image" />
+<img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3112.JPG" width="460px" title="Pix32 v5 Image" /> <img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG" width="460px" title="Pix32 v5 With Base Image" />
 
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
@@ -96,7 +96,7 @@ Under these conditions the system will not draw any power (will not be operation
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
-make px4_fmu-v5_default
+make holybro_pix32v5_default
 ```
 
 ## Debug Port
