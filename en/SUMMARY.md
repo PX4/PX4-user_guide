@@ -19,6 +19,7 @@
   * [CUAV V5+ Wiring Quickstart](assembly/quick_start_cuav_v5_plus.md)
   * [CUAV V5 nano Wiring Quickstart](assembly/quick_start_cuav_v5_nano.md)
   * [Durandal Wiring Quickstart](assembly/quick_start_durandal.md)
+  * [Pix32 v5 Wiring Quickstart](assembly/quick_start_holybro_pix32_v5.md)
   * [Pixhawk 4 Wiring Quickstart](assembly/quick_start_pixhawk4.md)
   * [Pixhawk 4 Mini Wiring Quickstart](assembly/quick_start_pixhawk4_mini.md)
   * [Cube Wiring Quickstart](assembly/quick_start_cube.md)
