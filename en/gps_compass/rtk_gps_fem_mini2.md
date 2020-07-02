@@ -1,4 +1,4 @@
-# MINI2 receiver
+# Femtones MINI2 receiver
 
 [MINI2 Receiver](http://www.femtomes.com) supports the absolute accuracy positioning of Global Navigation Satellite System (GNSS). This delivers the quickest and most reliable RTK initializations for centimeter level positioning.Mainly facing to applications of high-precision positioning, navigation and mapping, etc. Customers benefit from the Computer Ethernet connectivity available on the board , allowing high speed data transfer and configuration viastandard web browsers. Serial port, USB and CAN are also supported.(Px4 drivers such as Ethernet, CAN and USB are under development and will be fully supported in the future)
 
@@ -36,9 +36,11 @@ The pins on the 12-pin connector are numbered as shown below
 
 
 ## Configuration
-For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other. The direction that they are facing does not matter as it can be configured with the GPS_YAW_OFFSET parameter.
 
-Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com)  will run using GPS_1_CONFIG, and set the baud rate to 115200 using SER_GPS1_BAUD.
+For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other.
+The direction that they are facing does not matter as it can be configured with the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) parameter.
+
+Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com)  will run using [GPS_1_CONFIG](../advanced_config/parameter_reference.md#GPS_1_CONFIG), and set the baud rate to 115200 using [SER_GPS1_BAUD](../advanced_config/parameter_reference.md#SER_GPS1_BAUD).
 
 
 
