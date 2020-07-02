@@ -2,13 +2,15 @@
 
 This quick start guide shows how to power the [Pix32v5](../flight_controller/holybro_pix32_v5.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG" width="420px" title="Pix32 v5 With Base Image" />
+<img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG" width="700px" title="Pix32 v5 With Base Image" />
 
 ## Unboxing
 
 Pix32 v5 is sold bundled with a number of different combinations of accessories, including the *pix32 v5 baseboard*, power module *PM02 V3*, and the *Pixhawk 4 GPS/Compass* (UBLOX NEO-M8N).
 
 The content of the box with the *PM02 V3* power module is shown below (the box also includes a pinout guide and power module instructions).
+
+<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_unboxing_schematics.png" width="900px" title="Pix32 v5 Unboxing" />
 
 ![Pix32 v5 Box](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_unboxing_schematics.png)
 
@@ -24,7 +26,7 @@ The image below shows how to connect the most important sensors and peripherals 
 
 *Pix32 v5*  should be mounted on the frame positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png" align="center"/>
+<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png" width="700px" title="Pix32 v5 With Orientation" />
 
 > **Note** If the controller cannot be mounted in the
   recommended/default orientation (e.g. due to space constraints) you will
@@ -41,7 +43,7 @@ It connects directly to the [GPS port](../flight_controller/holybro_pix32_v5.md#
 
 The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
-![Connect compass/GPS to Pixhawk 4](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.png) 
+<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.png" width="450px" title="Pix32 v5 With GPS" />
 
 > **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 
@@ -52,14 +54,14 @@ The recommended power modules are shown below.
 
 ### PM02 v3 Power Module {#pm02_v3}
 
-The [Power Module (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html) can be bundled with *Durandal*.
+The [Power Module (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html) can be bundled with *pix32 v5*.
 It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
 
 Connect the output of the *Power Module* as shown.
 
-![pix32 v5 PM02v3 Power connections](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_power.png)
+<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_power.png" width="450px" title="Pix32 v5 With Power Module" />
 
-- PM voltage/current port: connect to [POWER1](../flight_controller/durandal.md#power) port (or `POWER2`) using the 6-wire GH cable supplied.
+- PM voltage/current port: connect to POWER1 port (or `POWER2`) using the 6-wire GH cable supplied.
 - PM input (XT60 male connector): connect to the LiPo battery (2~12S).
 - PM power output (XT60 female connector): wire out to any motor ESCs.
 
@@ -95,16 +97,16 @@ A remote control (RC) radio system is required if you want to *manually* control
 
 You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver). 
 
-The instructions below show how to connect the different types of receivers to *Durandal*:
+The instructions below show how to connect the different types of receivers to *Pix32 v5* with Baseboard:
 
 
 - Spektrum/DSM receivers connect to the [DSM RC](../flight_controller/holybro_pix32_v5.md.md#dsm-rc-port) input.
-  
-  ![Pix32 v5 - receivers](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.png)
 
-- PPM and S.Bus receivers connect to the [SBUS_IN/PPM_IN](../flight_controller/holybro_pix32_v5.md#rc-in) input port (marked as RC IN, next to the MAIN/AUX inputs).
+  <img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.png" width="450px" title="Pix32 v5 With Base Image" />
   
-  ![Pix32 v5 - Back Pinouts (Schematic)](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
+- PPM and S.Bus receivers connect to the [SBUS_IN/PPM_IN](../flight_controller/holybro_pix32_v5.md#rc-in) input port (marked as RC IN)
+  
+  <img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png" width="450px" title="Pix32 v5 With Base Image" />
 
 - PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
@@ -117,14 +119,13 @@ Telemetry radios may be used to communicate and control a vehicle in flight from
 
 The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
 
-![Pix32 v5/Telemetry Radio](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_telemetry_radio.png)
-
+<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_telemetry_radio.png" width="400px" title="Pix32 v5 With Telemetry Radios" />
 
 ## SD Card (Optional)
 
-SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). Insert the card (included in Pixhawk 4 kit) into *Pixhawk 4* as shown below.
+SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). A micro SD card should come preinstalled on the pix32 v5, if you have your own micro SD card, insert the card into *pix32 v5* as shown below.
 
-![Pix32 v5 SD Card](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.png)
+<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.png" width="600px" title="Pix32 v5 With SD Card" />
 
 > **Tip** The SanDisk Extreme U3 32GB is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
 
@@ -159,11 +160,6 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 ![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg) --> 
 
 ## Further information
-
-- [Pixhawk 4](../flight_controller/holybro_pix32_v5.md) (Overview page)
-- [Pixhawk 4 Technical Data Sheet](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/pixhawk4/pixhawk4_technical_data_sheet.pdf)
-- [Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
-- [Pixhawk 4 Quick Start Guide (Holybro)](http://www.holybro.com/manual/Pixhawk4-quickstartguide.pdf)
 
 - [Pix32 v5 Overview](../flight_controller/holybro_pix32_v5.md) (Overview page)
 - [Pix32 v5 Technical Data Sheet](http://www.holybro.com/manual/Holybro_PIX32-V5_technical_data_sheet_v1.1.pdf)
