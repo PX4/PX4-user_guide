@@ -6,11 +6,9 @@ This quick start guide shows how to power the [Pix32v5](../flight_controller/hol
 
 ## Unboxing
 
-Pix32 v5 is sold bundled with a number of different combinations of accessories, including the *pix32 v5 baseboard*, power module *PM02 V3*, and the *Pixhawk 4 GPS/Compass* (UBLOX NEO-M8N).
+Pix32 v5 is sold bundled with a number of different combinations of accessories, including the *pix32 v5 Base board*, power module *PM02 V3*, and the *Pixhawk 4 GPS/Compass* (UBLOX NEO-M8N).
 
-The content of the box with the *PM02 V3* power module is shown below (the box also includes a pinout guide and power module instructions).
-
-<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_unboxing_schematics.png" width="900px" title="Pix32 v5 Unboxing" />
+The content of the box with the *PM02 V3* power module and *Pixhawk 4 GPS/Compass* is shown below. The box also includes a pinout guide and power module instructions, and Base board (not shown on the schematic below).
 
 ![Pix32 v5 Box](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_unboxing_schematics.png)
 
@@ -26,7 +24,7 @@ The image below shows how to connect the most important sensors and peripherals 
 
 *Pix32 v5*  should be mounted on the frame positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png" width="700px" title="Pix32 v5 With Orientation" />
+<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png" width="600px" title="Pix32 v5 With Orientation" />
 
 > **Note** If the controller cannot be mounted in the
   recommended/default orientation (e.g. due to space constraints) you will
