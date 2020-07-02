@@ -27,7 +27,7 @@ IMU와 다른 센서들이 동기화되지 않아 서로 다른 측정 시간을
 
 EKF는 IMU 데이터를 상태 예측에만 사용합니다. IMU 데이터는 EKF 유도 과정에서 관측값으로 사용되지 않습니다. 공분산 예측, 상태 업데이트 및 공분산 행렬 업데이트에 사용되는 대수적 계산식은 Matlab symbolic toolbox를 사용하여 유도되었습니다. 계산식은 다음 링크에서 찾을 수 있습니다:[Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/EKF/matlab/scripts/Inertial Nav EKF/GenerateNavFilterEquations.m).
 
-## What sensor measurements does it use?
+## EKF는 어떤 센서 측정값을 사용하나요?
 
 The EKF has different modes of operation that allow for different combinations of sensor measurements. On start-up the filter checks for a minimum viable combination of sensors and after initial tilt, yaw and height alignment is completed, enters a mode that provides rotation, vertical velocity, vertical position, IMU delta angle bias and IMU delta velocity bias estimates.
 
