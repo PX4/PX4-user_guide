@@ -1,8 +1,8 @@
 # MINI2 receiver
 
-[MINI2 Receiver](http://www.femtomes.com) supports the absolute accuracy positioning of Global Navigation Satellite System (GNSS). This delivers the quickest and most reliable RTK initializations for centimeter level positioning.Mainly facing to applications of high-precision positioning, navigation and mapping, etc. Customers benefit from the Ethernet connectivity available on the board, allowing high speed data transfer and configuration viastandard web browsers. Serial port, USB and CAN are also supported.
+[MINI2 Receiver](http://www.femtomes.com) supports the absolute accuracy positioning of Global Navigation Satellite System (GNSS). This delivers the quickest and most reliable RTK initializations for centimeter level positioning.Mainly facing to applications of high-precision positioning, navigation and mapping, etc. Customers benefit from the Computer Ethernet connectivity available on the board , allowing high speed data transfer and configuration viastandard web browsers. Serial port, USB and CAN are also supported.(Px4 drivers such as Ethernet, CAN and USB are under development and will be fully supported in the future)
 
-<img src="http://www.femtomes.com/image/PX4/MINI_II_Receiver.jpg" width="500px" title="mini2" />
+![MINI II Receiver](../../assets/hardware/gps/rtk_fem_miniII_receiver.jpg)
 
 ## Required Firmware Options
 
@@ -23,7 +23,7 @@ The following firmware options need to be selected when buying the device:
 
 ## Functional Ports
 
-<img src="http://www.femtomes.com/image/PX4/MINI_II_1.jpg" width="500px" title="mini2port" />
+![MINI II 1](../../assets/hardware/gps/rtk_fem_miniII_1.jpg)
 
 ## Wiring and Connections
 
@@ -31,25 +31,33 @@ The [MINI2 Receiver](http://www.femtomes.com) is connected to a UART on the flig
 To power the module you will need a separate 12V power supply 
 The pins on the 12-pin connector are numbered as shown below
 
-<img src="http://www.femtomes.com/image/PX4/MINI_II_2.jpg" width="300px" title="port" />
+![MINI_II_2](../../assets/hardware/gps/rtk_fem_miniII_2.jpg)
+
+
 
 ## Configuration
 For heading estimation the two antennas need to be on the same level and at least 30 cm apart from each other. The direction that they are facing does not matter as it can be configured with the GPS_YAW_OFFSET parameter.
 
 Configure the serial port on which the [MINI2 Receiver](http://www.femtomes.com)  will run using GPS_1_CONFIG, and set the baud rate to 115200 using SER_GPS1_BAUD.
 
+
+
+## Additional Information
+
+The MINI2  incorporates the following components. 
+
 [Built in FB672](http://www.femtomes.com)
 
 [FB672](http://www.femtomes.com) High-precision Heading 
-COMPACT, DUAL ANTENNA, DUAL FREQUENCY GNSS OEM BOARD DELIVERS CENTIMETER ACCURATE POSITIONS AND PRECISE HEADING
+Compact, Dual antena, Dual frequency GNSS OEM board，Delivers centimeter accurate position and precise heading.
 
-<img src="http://www.femtomes.com/image/PX4/FB_1.jpg" width="400px" title="FB672" />
+![FB672](../../assets/hardware/gps/rtk_fem_fb_1.jpg)
 
 [Built in FB6A0](http://www.femtomes.com)
 
 [FB6A0](http://www.femtomes.com) High precision positioning
-COMPACT, QUADRUPLE FREQUENCY GNSS OEM BOARD DELIVERS CENTIMETER ACCURATE POSITIONS
+Compact, Quadruple frequency GNSS OEM board， Delivers centimeter accurate position
 
-<img src="http://www.femtomes.com/image/PX4/FB_2.jpg" width="400px" title="FB6A0" />
+![FB6A0](../../assets/hardware/gps/rtk_fem_fb_2.jpg)
 
 Detailed product instructions can be obtained on the official website or by contacting us.
