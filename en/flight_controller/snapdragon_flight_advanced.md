@@ -1,5 +1,8 @@
 # Snapdragon Advanced
 
+> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version).
+  This documentation is provided for existing users, but will be removed in a future release.
+
 This page is a collection of useful commands and instructions which might come in handy when working with the Snapdragon platform.
 
 ## Connect to Snapdragon
@@ -164,11 +167,11 @@ qcamvid -c hires -r 720p -s -t 600
 ```
 Use `qcamvid -h` to have a look at all the options.
 
-To watch the live stream in QGroundControl, it has to be built with gstreamer (see [here](https://github.com/mavlink/qgroundcontrol/tree/master/src/VideoStreaming)).
+To watch the live stream in QGroundControl, it has to be built with gstreamer (see [here](https://dev.qgroundcontrol.com/en/getting_started/#video-streaming)).
 
-Once installed and conneted to the Snapdragon Flight's network, the following changes have to be made in QGroundControl.
+Once installed and conneted to the Snapdragon Flight's network, the following changes have to be made in *QGroundControl*.
 
-![](../../assets/videostreaming/QGC_snapdragon_streaming_settings.png)
+![Snapdragon streaming settings in QGC](../../assets/videostreaming/QGC_snapdragon_streaming_settings.png)
 
 ## Accessing I/O Data
 

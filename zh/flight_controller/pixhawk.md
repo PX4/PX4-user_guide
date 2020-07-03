@@ -1,8 +1,8 @@
-# Pixhawk 1 飞控
+# 3DR Pixhawk 1 Flight Controller (Discontinued)
 
-The *Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). It runs PX4 on the [NuttX](http://nuttx.org) OS.
+> **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available. You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
 
-> **Tip** Originally manufactured by 3DR<sup>&reg;</sup> this board was the original standard microcontroller platform for PX4. While the board is no longer manufactured by 3DR, you can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
+The *3DR Pixhawk<sup>&reg;</sup> 1* autopilot is a popular general purpose flight controller based on the [Pixhawk-project](https://pixhawk.org/) **FMUv2** open hardware design (it combines the functionality of the PX4FMU + PX4IO). It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
 ![Pixhawk  图像](../../assets/hardware/hardware-pixhawk.png)
 
@@ -221,6 +221,17 @@ Due to space constraints two ports are on one connector.
 | 2 (blk) | !IO_LED_SAFETY | GND   |
 | 3 (blk) | SAFETY           | GND   |
 
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | IO debug              |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |
+
 ## Debug Ports
 
 ### Console Port
@@ -254,7 +265,7 @@ The complete wiring is shown below.
 
 ### SWD Port
 
-The SWD (JTAG) ports are hidden under the cover (which must be removed for hardware debugging). There are separate ports for FMU and IO, as highlighted below.
+The [SWD](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) ports are hidden under the cover (which must be removed for hardware debugging). There are separate ports for FMU and IO, as highlighted below.
 
 ![Pixhawk SWD](../../assets/flight_controller/pixhawk1/pixhawk_swd.jpg)
 
@@ -266,7 +277,7 @@ The ports are ARM 10-pin JTAG connectors, which you will probably have to solder
 
 > **Note** All Pixhawk FMUv2 boards have a similar SWD port.
 
-## 编译固件
+## Building Firmware
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
@@ -285,6 +296,6 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
   * Mates: Hirose DF13 6 pos housing ([Digi-Key Link: Hirose DF13-6S-1.25C](https://www.digikey.com/products/en?keywords=H2182-ND))
 * **I2C and CAN**: Hirose DF13 4 pos ([Digi-Key Link: DF13A-4P-1.25H(20)](https://www.digikey.com/products/en?keywords=H3369-ND))
 
-## 支持的平台/机身
+## Supported Platforms / Airframes
 
 Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.

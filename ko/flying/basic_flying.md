@@ -26,23 +26,37 @@
 > 
 > 
 
+<span></span>
+
+> 
+> > **Note** A VTOL vehicle can only arm in multicopter mode (by default - arming in fixed-wing mode can be enabled using [CBRK_VTOLARMING](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
+> 
+> 
+
 <span id="takeoff-and-landing"></span>
 
 > 
 > ## Takeoff
 > 
-> The easiest way to takeoff is to use the automatic [Takeoff mode](../flight_modes/takeoff.md) (remembering that you need to [arm the vehicle](#arm) before you can engage the vehicle motors).
+> The easiest way to takeoff (after [arming the vehicle](#arm)) is to use the automatic [Takeoff mode](../flight_modes/takeoff.md). Usually this is triggered from an [RC switch](../config/flight_mode.md) or ground station.
 > 
 > Multicopter (and VTOL in multicopter mode) pilots can take off *manually* by enabling [position mode](../flight_modes/README.md#position_mc), arming the vehicle, and then raising the throttle stick above 62.5%. Above this value all controllers are enabled and the vehicle goes to the throttle level required for hovering ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER)).
 > 
-> > **Note** The vehicle may disarm if you take too long to take off after arming. The timout can be tuned using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT).
+> > **Tip** The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles!
 > 
 > 
 
 <span></span>
 
 > 
-> > **Tip** The automatic takeoff mode is highly recommended, in particular for Fixed Wing vehicles.
+> > **Note** The vehicle may disarm if you take too long to take off after arming (tune the timeout using [COM_DISARM_PRFLT](../advanced_config/parameter_reference.md#COM_DISARM_PRFLT)).
+> 
+> 
+
+<span></span>
+
+> 
+> > **Note** The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 > 
 > ## Landing
 > 

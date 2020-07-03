@@ -4,14 +4,15 @@ The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generati
 
 ![MindPX Controller](../../assets/hardware/hardware-mindpx.png)
 
+> **Note** These flight controllers are [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## 总览
 
 > **Note** The main hardware documentation is [here](http://mindpx.net/assets/accessories/Specification9.18_3_pdf.pdf).
 
 MindPX is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>, been revised in schematic and structure, and been further enhanced with new features to make un-manned vehicle more smart and more friendly to use.
 
-MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs).  
-This means that MindPX can support more complicated VTOL configurations and more fine control. It is especially meaningful for those FMU-V4 based flight controllers as MindPX implements main and aux output in one single FMU.
+MindPX increases total PWM output channels to 16 (8 main outputs + 8 aux outputs). This means that MindPX can support more complicated VTOL configurations and more fine control. It is especially meaningful for those FMU-V4 based flight controllers as MindPX implements main and aux output in one single FMU.
 
 ![](../../assets/hardware/hardware-mindpx-specs.png)
 
@@ -68,7 +69,7 @@ For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/ass
 
 ### 编译固件
 
-> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
@@ -81,14 +82,26 @@ MindPX has a USB-TO-UART Bridge IC on the board. A micro-USB to USB type A cable
 
 And the max BAUD rate is the same with px4 family, which is up to 921600.
 
-### User Guide
+## User Guide
 
 > **Note** The user guide is [here](http://mindpx.net/assets/accessories/UserGuide9.18_2_pdf.pdf).
 
-## Where to buy
+## Where to Buy
 
 MindRacer is available at [AirMind Store](http://drupal.xitronet.com/?q=catalog) on internet. You can also find MindRacer at Amazon<sup>&reg;</sup> or eBay<sup>&reg;</sup>.
 
-## 技术支持
+## Serial Port Mapping
+
+| UART   | Device     | Port          |
+| ------ | ---------- | ------------- |
+| USART1 | /dev/ttyS0 | RC            |
+| USART2 | /dev/ttyS1 | TELEM1        |
+| USART3 | /dev/ttyS2 | TELEM2        |
+| UART4  | /dev/ttyS3 | GPS1          |
+| USART6 | /dev/ttyS4 | ?             |
+| UART7  | /dev/ttyS5 | Debug Console |
+| UART8  | /dev/ttyS6 | ?             |
+
+## Support
 
 Please visit http://www.mindpx.org for more information. Or you can send email to <support@mindpx.net> for any inquiries or help.

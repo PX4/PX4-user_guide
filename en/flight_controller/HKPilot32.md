@@ -1,12 +1,19 @@
-# HKPilot32 Flight Controller
+# Holybro HKPilot32 Flight Controller
 
-The Hobbyking<sup>&reg;</sup> *HKPilot32 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
+The Hobbyking<sup>&reg;</sup> *HKPilot32 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design.
+It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
 
-> **Tip** The HKPilot32 is software compatible with the 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md). It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
+> **Tip** The HKPilot32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md).
+  It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
 
 ![HKPilot32](../../images/hkpilot32_flight_controller.jpg)
 
-As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files should be [available here](https://github.com/PX4/Hardware). 
+As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files should be [available here](https://github.com/PX4/Hardware).
+
+> **Note** This flight controller formerly known as the Hobbyking<sup>&reg;</sup> *HKPilot32* autopilot.
+
+<span><span>
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 
 
 ## Key Features
@@ -43,14 +50,14 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 
 ### Accessories
 
-* [Digital airspeed sensor](https://hobbyking.com/en_us/hkpilot-32-digital-air-speed-sensor-and-pitot-tube-set.html)
+* [Digital airspeed sensor](https://shop.holybro.com/c/digital-air-speed-sensor_0508)
 * [Hobbyking<sup>&reg;</sup> Wifi Telemetry](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
-* [Hobbyking OSD + EU Telemetry (433 MHz)](https://hobbyking.com/en_us/micro-hkpilot-telemetry-radio-module-with-on-screen-display-osd-unit-433mhz.html)
+* [Telemetry Radio EU (433 MHz)](https://shop.holybro.com/c/433mhz_0470)
+* [Telemetry Radio USA (915 MHz)](https://shop.holybro.com/c/915mhz_0471)
 
-## Availability
+## Purchase
 
-* [Hobbyking EU version (433 MHz)](https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-433mhz.html)
-* [Hobbyking US version (915 MHz)](https://hobbyking.com/en_us/hkpilot32-autonomous-vehicle-32bit-control-set-with-telemetry-and-gps-915mhz.html)
+[shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
 
 
 ## Building Firmware
@@ -75,3 +82,15 @@ The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open
 * [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
 
 > **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware). 
+
+
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+UART1 | /dev/ttyS0 | IO debug
+USART2 | /dev/ttyS1 | TELEM1 (flow control)
+USART3 | /dev/ttyS2 | TELEM2 (flow control)
+UART4 | | 
+UART7 | CONSOLE
+UART8 | SERIAL4

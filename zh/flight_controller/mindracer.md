@@ -1,12 +1,14 @@
 # MindRacer Hardware
 
-The AirMind<sup>&reg; <a href="http://mindpx.net">MindRacer</a> series is a fully stackable flight platform for miniature UAVs.</sup>.
+The AirMind<sup>&reg;</sup> [MindRacer](http://mindpx.net) series is a fully stackable flight *platform* for miniature UAVs. The platform currently has two RTF vehicles: [MindRacer 210](../complete_vehicles/mindracer210.md) and [NanoMind 110](../complete_vehicles/nanomind110.md).
 
 ![MindRacer](../../assets/hardware/hardware-mindracer.png)
 
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
 ## 总览
 
-MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. MindRacer is a platform rather than a flight controller.
+MindRacer is a fully stackable flight platform for miniature UAVs. Based on [MindPX](../flight_controller/mindpx.md), *MindRacer* further scales down in formfactor while focused on providing modularity. MindRacer is a *platform* rather than a flight controller.
 
 MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimination-protocol) concepts. Before SEP and WEP, soldering and wiring are always the major pain and efficiency killer during UAV manufacturing and tuning.
 
@@ -44,7 +46,7 @@ MindRacer implements the SEP (soldering-elimination-port) and WEP (wiring-elimin
 
 ### How to Build
 
-> **Tip**大多数用户将不需要建立此固件! 它是预构建的, 并在连接适当的硬件时由 *QGroundControl* 自动安装。
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
@@ -55,7 +57,7 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 MindRacer has an attached Adapt IO board.
 
-![](../../assets/hardware/hardware-mindracer-conn.png)
+![Attached Adapt IO board](../../assets/hardware/hardware-mindracer-conn.png)
 
 MindRacer has a built-in UART-to-USB converter. To connect a companion computer, stack MindRacer on an interface board, and connect the companion computer to the USB port on the interface board.
 

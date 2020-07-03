@@ -1,6 +1,6 @@
 # Lumenier QAV250 Pixhawk & AUAV-X2 Builds
 
-The [Lumenier QAV250 Mini FPV Quadcopter](http://www.lumenier.com/products/multirotors/qav250) is a small but fully functional FPV multicopter frame.
+The [Lumenier QAV250 Mini FPV Quadcopter](https://www.lumenier.com/products/legacy/qav250) is a small but fully functional FPV multicopter frame.
 This topic provides build guidance for using the frame with the *Pixhawk* and AUAV-X2 flight controllers.
 
 > **Note** Our [HolyBro QAV250 Pixhawk4-Mini Build](holybro_qav250_pixhawk4_mini.md) contains more complete build instructions for working with the QAV250.
@@ -13,8 +13,7 @@ Key information:
 
 ## Frame Assembly
 
-The frame assembly guide is here: [Build
-Manual](http://www.lumenier.com/products/multirotors/qav250/build-manual)
+The frame assembly guide is here: [Build Manual](https://www.lumenier.com/products/legacy/build-manual) <!-- QAV250 G10 Build Manual -->
 
 ## Pixhawk Guidance
 

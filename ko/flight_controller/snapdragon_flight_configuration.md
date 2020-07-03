@@ -1,5 +1,7 @@
 # Configure Snapdragon
 
+> **Note** The *Qualcomm Snapdragon Flight* is discontinued (it has been superseded but PX4 does not yet support the newer version). This documentation is provided for existing users, but will be removed in a future release.
+
 This topic explains how to configure the *Qualcomm Snapdragon Flight*.
 
 ## Autostart PX4 and Snap VIO

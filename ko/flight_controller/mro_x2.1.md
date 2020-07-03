@@ -4,6 +4,12 @@
   <img src="../../assets/flight_controller/mro/mro_x2.1.jpg" alt="mRo X2.1" />
 </p>
 
+<blockquote>
+  <p>
+    <strong>Note</strong> This flight controller is <a href="../flight_controller/autopilot_manufacturer_supported.md">manufacturer supported</a>.
+  </p>
+</blockquote>
+
 <h2>
   Quick Summary
 </h2>
@@ -61,7 +67,7 @@
                     2.54mm headers:
                   </li>
                   <li>
-                    I2C가 장착 된 GPS (USART4)
+                    GPS (UART4) with I2C
                   </li>
                   <li>
                     CAN Bus
@@ -118,11 +124,11 @@
                     </li>
                     
                     <li>
-                      USART7 (Console)
+                      UART7 (Console)
                     </li>
                     
                     <li>
-                      USART8 (OSD)
+                      UART8 (OSD)
                     </li></ul> 
                     
                     <h2>
@@ -193,3 +199,121 @@
                                 <p>
                                   The board is documented on the mRo hardware repo: <a href="https://github.com/mRoboticsIO/Hardware/blob/master/X2.1/Docs/x21_V2_schematic.pdf">x21_V2_schematic.pdf</a>.
                                 </p>
+                                
+                                <h2>
+                                  Serial Port Mapping
+                                </h2>
+                                
+                                <table>
+                                  <tr>
+                                    <th>
+                                      UART
+                                    </th>
+                                    
+                                    <th>
+                                      Device
+                                    </th>
+                                    
+                                    <th>
+                                      Port
+                                    </th>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      USART1
+                                    </td>
+                                    
+                                    <td>
+                                      /dev/ttyS0
+                                    </td>
+                                    
+                                    <td>
+                                      IO debug
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      USART2
+                                    </td>
+                                    
+                                    <td>
+                                      /dev/ttyS1
+                                    </td>
+                                    
+                                    <td>
+                                      SERIAL1
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      USART3
+                                    </td>
+                                    
+                                    <td>
+                                      /dev/ttyS2
+                                    </td>
+                                    
+                                    <td>
+                                      TELEM2
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      UART4
+                                    </td>
+                                    
+                                    <td>
+                                      /dev/ttyS3
+                                    </td>
+                                    
+                                    <td>
+                                      GPS/I2C
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      USART6
+                                    </td>
+                                    
+                                    <td>
+                                      /dev/ttyS4
+                                    </td>
+                                    
+                                    <td>
+                                      PX4IO
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      UART7
+                                    </td>
+                                    
+                                    <td>
+                                      /dev/ttyS5
+                                    </td>
+                                    
+                                    <td>
+                                      SERIAL5 CONSOLE
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td>
+                                      UART8
+                                    </td>
+                                    
+                                    <td>
+                                      /dev/ttyS6
+                                    </td>
+                                    
+                                    <td>
+                                      SERIAL4
+                                    </td>
+                                  </tr>
+                                </table>

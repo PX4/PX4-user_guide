@@ -1,11 +1,7 @@
 # Lumenier QAV250 Pixhawk Mini Build
 
-The [Lumenier QAV250 Mini FPV
-Quadcopter](http://www.lumenier.com/products/multirotors/qav250) is a
-small but fully functional FPV multicopter frame. This topic provides
-full build and configuration instructions for using the frame with
-the *Pixhawk Mini* flight controller, including how to install and
-configure the PX4 autopilot using *QGroundControl*.
+The [Lumenier QAV250 Mini FPV Quadcopter](https://www.lumenier.com/products/legacy/qav250) is a small but fully functional FPV multicopter frame.
+This topic provides full build and configuration instructions for using the frame with the *Pixhawk Mini* flight controller, including how to install and configure the PX4 autopilot using *QGroundControl*.
 
 Key information
 
@@ -18,9 +14,8 @@ mini](../../images/qav250_complete_build_with_pixhawk_mini.jpg)
 
 ## Bill of materials
 
-The components used in this build are listed below (along with links to
-where they can be purchased). In general we used hardware recommended by
-the manufacturers for the flight controller and frame.
+The components used in this build are listed below (along with links to where they can be purchased).
+In general we used hardware recommended by the manufacturers for the flight controller and frame.
 
 - **Flight controller:** [Pixhawk Mini (Discontinued)](../flight_controller/pixhawk_mini.md)
 - **Power module:** 3DR 10s Power Module (Discontinued)
@@ -168,7 +163,7 @@ shown in the picture.
 ![Attach flight controller cover plate](../../images/qav250_frame_assembly_add_flight_controller_cover_plate.jpg)
 
 Additional/manufacturer assembly can be found here: 
-[Lumenier QAV250 Carbon Fiber Build Manual](http://www.lumenier.com/products/multirotors/qav250/build-manual-carbon-fiber).
+[Lumenier QAV250 Carbon Fiber Build Manual](https://www.lumenier.com/products/legacy/build-manual-carbon-fiber).
 
 ## FULL Assembly with electronics
 

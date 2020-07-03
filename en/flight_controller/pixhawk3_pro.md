@@ -1,12 +1,14 @@
 # Pixhawk 3 Pro
 
-The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades
-and additional features. The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
+The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades and additional features.
+The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
 
-![](../../assets/hardware/hardware-pixhawk3_pro.jpg)
+![Pixhawk 3 Pro hero image](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
 > **Note** The main hardware documentation is here: https://pixhawk.drotek.com/en/
 
+<span></span>
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 
 ## Quick Summary
 
@@ -61,7 +63,16 @@ Pin | Signal | Volt
 
 For information about wiring and using this port see:
 - [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (Note, the FMU console maps to UART7).
-<!-- Add SWD cross link later -->
+- [SWD (JTAG) Hardware Debugging Interface](http://dev.px4.io/master/en/debug/swd_debug.html)
 
 
+## Serial Port Mapping
 
+UART | Device | Port
+--- | --- | ---
+UART1 | /dev/ttyS0 | WiFi
+USART2 | /dev/ttyS1 | TELEM1 (flow control)
+USART3 | /dev/ttyS2 | TELEM2 (flow control)
+UART4 | | 
+UART7 | CONSOLE
+UART8 | SERIAL4

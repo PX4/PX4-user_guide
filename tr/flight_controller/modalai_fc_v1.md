@@ -1,22 +1,11 @@
 # ModalAI Flight Core v1
 
-The ModalAI Flight Core is a flight controller for PX4, made in the USA. The Flight Core can be paired with [ModalAI VOXL](https://docs.modalai.com/voxl-datasheet/) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
+The ModalAI Flight Core v1 is a flight controller for PX4, made in the USA. The Flight Core can be paired with [ModalAI VOXL](https://docs.modalai.com/voxl-datasheet/) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
 
 ![FlightCoreV1](../../assets/flight_controller/modalai/fc_v1/main.jpg)
 
-## Quick Summary
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
-The main hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
-
-## PX4 Firwmare
-
-Although supported in PX4 v1.10, a few issues have been addressed since than which are currently being maintained by ModalAI [here](https://github.com/modalai/px4-firmware/tree/modalai-1.10).  These changes are mostly picked up in the master branch after the v1.10 release, with ongoing development for improvments in VIO and VOA being added as needed and then upstreamed.
-
-More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
-
-## QGroundControl Support
-
-This board is slated to be supported starting in QGroundControl 3.5.7 (or the release after 3.5.6).
 
 ## Specification
 
@@ -45,9 +34,24 @@ This board is slated to be supported starting in QGroundControl 3.5.7 (or the re
 |                  | I2C                                                                                                                                                             |
 |                  | GPIO                                                                                                                                                            |
 
+> **Note** More detailed hardware documentation can be found [here](https://docs.modalai.com/flight-core-datasheet/).
+
 ## Dimensions
 
 ![FlightCoreV1Dimensions](../../assets/flight_controller/modalai/fc_v1/dimensions.png)
+
+
+## PX4 Firwmare Compatibility
+
+*Flight Core v1* is fully compatible with the official PX4 Firmware from PX4 v1.11.
+
+ModalAI maintains a [branched PX4 version](https://github.com/modalai/px4-firmware/tree/modalai-1.10) for PX4 v1.10. This includes improvements in VIO and VOA that are planned to be upstreamed.
+
+More information about the firmware can be found [here](https://docs.modalai.com/flight-core-firmware/).
+
+## QGroundControl Support
+
+This board supported in QGroundControl 4.0 and later.
 
 ## Availability
 
@@ -55,15 +59,16 @@ This board is slated to be supported starting in QGroundControl 3.5.7 (or the re
 - Flight Core Board Only is available [here](https://shop.modalai.com/products/flight-core-pcb-only)
 - Flight Core assembled with VOXL and cameras is available at [here](https://shop.modalai.com/products/voxl-flight-deck-r1)
 
+
 ## Quick Start
 
 ### Orientation
 
-The diagram below shows the recommended orientation, which corresponds to `ROTATION_NONE` on PX4 master branch (and on the [ModalAI-maintained PX4 v1.10 branch](https://github.com/modalai/px4-firmware/tree/modalai-1.10))
-
-> **Note** For *PX4 v1.10* stable releases from *QGroundControl* (only) use `ROTATION_YAW_180` for the above orientation.
+The diagram below shows the recommended orientation, which corresponds to `ROTATION_NONE` starting with PX4 v1.11 (and on the [ModalAI-maintained PX4 v1.10 branch](https://github.com/modalai/px4-firmware/tree/modalai-1.10))
 
 ![FlightCoreV1Orientation](../../assets/flight_controller/modalai/fc_v1/orientation.png)
+
+> **Warning** For *PX4 v1.10* stable releases from *QGroundControl* use `ROTATION_YAW_180` for the above orientation.
 
 ### Connectors
 
@@ -83,7 +88,7 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 | J8        | CAN Bus Connector                                          |
 | J9        | PPM RC In                                                  |
 | J10       | External GPS & Magnetometer Connector                      |
-| J12       | Spektrum UART Connector                                    |
+| J12       | RC input                                                   |
 | J13       | I2C Display (Spare Sensor Connector) / Safety Button Input |
 
 ![FlightCoreV1Bottom](../../assets/flight_controller/modalai/fc_v1/bottom.png)
@@ -92,6 +97,7 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 
 The full user guide is available [here](https://docs.modalai.com/flight-core-manual/).
 
+
 ### How to Build
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
@@ -99,6 +105,20 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 ```
 make modalai_fc-v1
 ```
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
+| USART1 | /dev/ttyS0 | GPS1 (J10)                               |
+| USART2 | /dev/ttyS1 | TELEM3 (J4)                              |
+| USART3 | /dev/ttyS2 | Debug Console (J2)                       |
+| UART4  | /dev/ttyS3 | Expansion UART (J6)                      |
+| UART5  | /dev/ttyS4 | TELEM2, Primary VOXL Communications (J1) |
+| USART6 | /dev/ttyS5 | RC (J12)                                 |
+| UART7  | /dev/ttyS6 | TELEM1 (J5)                              |
+| UART8  | /dev/ttyS7 | N/A                                      |
+
 
 ## Support
 

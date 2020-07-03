@@ -16,7 +16,7 @@ Install a [range/distance sensor](../getting_started/sensor_selection.md#distanc
 
 ### Firmware Configuration
 
-Precision landing requires the modules `irlock` and `landing_target_estimator`, which are not included in the PX4 firmware by default. They can be included by adding (or uncommenting) the following lines in the relevant [config](https://github.com/PX4/Firmware/tree/master/cmake/configs) for your flight controller:
+Precision landing requires the modules `irlock` and `landing_target_estimator`, which are not included in the PX4 firmware by default. They can be included by adding (or uncommenting) the following lines in the relevant configuration file for your flight controller (e.g. [Firmware/boards/px4/fmu-v5/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake)):
 
     drivers/irlock
     modules/landing_target_estimator

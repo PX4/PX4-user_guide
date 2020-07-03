@@ -1,9 +1,11 @@
 # Kakute F7
 
-The *Kakute F7* from Holybro is a flight controller board designed for racers. 
+The *Kakute F7* from Holybro is a flight controller board designed for racers.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />
 
+
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 ## Key Features
 
@@ -94,6 +96,18 @@ Parameter | Setting
 [MOT_ORDERING](../advanced_config/parameter_reference.md#MOT_ORDERING) | If you use a 4-in-1 ESC with Betaflight/Cleanflight motor assignment, this parameter can be set accordingly.
 
 
+## Serial Port Mapping
+
+UART | Device | Port
+--- | --- | ---
+USART1 | /dev/ttyS0 | TELEM1
+USART2 | /dev/ttyS1 | TELEM2
+USART3 | /dev/ttyS2 | Debug Console
+UART4 | /dev/ttyS3 | GPS1
+USART6 | /dev/ttyS4 | RC SBUS
+UART7 | /dev/ttyS5 | ESC telemetry (DShot)
+
+
 ## Debug Port
 
 ### System Console
@@ -102,7 +116,7 @@ UART3 RX and TX are configured for use as the [System Console](https://dev.px4.i
 
 ### SWD
 
-The SWD (JTAG) pins are:
+The  [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) pins are:
 - `SWCLK`: Test Point 2 (Pin 72 on the CPU)
 - `SWDIO`: Test Point 3 (Pin 76 on CPU)
 - `GND`: As marked on board

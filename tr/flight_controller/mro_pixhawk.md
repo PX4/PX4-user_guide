@@ -2,22 +2,21 @@
 
 The *mRo Pixhawk<sup>&reg;</sup>* is a hardware compatible version of the original [Pixhawk 1](../flight_controller/pixhawk.md). It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
-> **Tip** The controller can be used as a drop-in replacement for the 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md).
-
-<span></span>
-
-> **Note** The main difference is that it is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design, which corrects a bug that limited the original Pixhawk 1 to 1MB of flash.
+> **Tip** The controller can be used as a drop-in replacement for the 3DR<sup>&reg;</sup> [Pixhawk 1](../flight_controller/pixhawk.md). The main difference is that it is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv3** open hardware design, which corrects a bug that limited the original Pixhawk 1 to 1MB of flash.
 
 ![mRo Pixhawk Image](../../assets/flight_controller/mro/mro_pixhawk.jpg)
 
 Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring Quickstart](../assembly/quick_start_pixhawk.md)
+
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 
 ## Key Features
 
 * Microprocessor: 
   * 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
   * 168 MHz/256 KB RAM/2 MB Flash
-  * 32 bit STM32F103 failsafe co-processor
+  * 32 bit STM32F100 failsafe co-processor
+  * 24 MHz/8 KB RAM/64 KB Flash
 * Sensors: 
   * ST Micro L3GD20 3-axis 16-bit gyroscope
   * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
@@ -60,7 +59,7 @@ Assembly/setup instructions for use with PX4 are provided here: [Pixhawk Wiring 
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 
-    make px4fmu-v3_default
+    make px4_fmu-v3_default
     
 
 ## Debug Ports
@@ -70,6 +69,17 @@ See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports)
 ## Pinouts
 
 See [3DR Pixhawk 1 > Pinouts](../flight_controller/pixhawk.md#pinouts)
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | IO debug              |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |
 
 ## Schematics
 

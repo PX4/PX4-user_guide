@@ -18,22 +18,23 @@ Key information:
 * Frame:            [DJI Flamewheel 450](http://www.dji.com/flame-wheel-arf)
 * Motors:           3DR Iris Plus 950kv rebranded T-Motors MN2213
 * ESCs:             Hobbywing XRotor 35A Micro 3-6S BLHeli
-* Blades:           Graupner 10"x5" (You need to print [these adapters](https://drive.google.com/open?id=0B2piootk_fIKMWhIVzVPWEFGLU0) to be M6 compatible) <!--TODO-->
+* Blades:           Graupner 10"x5" (You need to print [these adapters](https://drive.google.com/file/d/0B2piootk_fIKMWhIVzVPWEFGLU0/view) to be M6 compatible) <!--TODO-->
 * Distance sensor:  Lidar-Lite V3
 * GPS:              Here+ RTK GPS
 * Telemetry:        3DR Telemetry
 * Battery:          Roxxy LiPo - 4S, 4000mAh
 
-In addition we use a FrSky X4R-SB 3/16ch 2.4Ghz receiver and a FrSky Taranis controller. You will also need zip ties, double sided tape, a soldering iron and a 3D printer in case you use the same Blades, for this build. The GPS mast was reused from an Intel Aero.
+In addition we use a FrSky X4R-SB 3/16ch 2.4Ghz receiver and a FrSky Taranis controller.
+You will also need zip ties, double sided tape, a soldering iron and a 3D printer in case you use the same Blades, for this build.
+The GPS mast was reused from an Intel Aero.
 
-![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_open.JPG)
+![F450 setup - open](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_open.JPG)
 
 The *Pixhawk 3 Pro* can be attached using the double sided tape because the IMU inside is already dampened.
 
-In this setup the autopilot is rotated by 180 degrees so that it's easier to access
-the SD card. But if you rotate the base plate by 180 degrees instead, the flight
-controller board can be mounted facing forward. Either way works, just make sure
-to set the board rotation correctly in *QGroundControl* afterwards.
+In this setup the autopilot is rotated by 180 degrees so that it's easier to access the SD card.
+But if you rotate the base plate by 180 degrees instead, the flight controller board can be mounted facing forward.
+Either way works, just make sure to set the board rotation correctly in *QGroundControl* afterwards.
 
 
 ## Wiring and Connections
@@ -70,14 +71,12 @@ The pinout for the *Lidar Lite V3* and the *Pixhawk 3 Pro* I2C 1 port is as foll
 
 ### Here+ RTK GPS
 
-The Here+ GPS comes with an 8 pin connector suited for the Pixhawk 2. In order to
-use it with the *Pixhawk 3 Pro* (or a Pixracer), a 6 pin connector has to be used
-and pin 6 and 7 are not needed (see below). The additional pins are for the
-safety button and can be attached as well if needed.
-More information on the pinout can be found in [this document](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf),
-page 17.
+The Here+ GPS comes with an 8 pin connector suited for the Pixhawk 2.
+In order to use it with the *Pixhawk 3 Pro* (or a Pixracer), a 6 pin connector has to be used and pin 6 and 7 are not needed (see below).
+The additional pins are for the safety button and can be attached as well if needed.
+More information on the pinout can be found in [this document](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf), page 17.
 
-![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_gps.JPG)
+![Setup GPS](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_gps.JPG)
 
 | pin | Here+ GPS     | pin | Pixhawk 3 Pro GPS |
 | --- | ------------- | --- | ----------------- |
@@ -99,7 +98,7 @@ General documentation on how to setup your quad in *QGroundControl* can be found
 
 Select the airframe **DJI Flame Wheel 450** in **QGC > Airframe > Quadrotor x**.
 
-![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_airframe.png)
+![Select airframe QGC](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_airframe.png)
 
 
 ### RTK GPS

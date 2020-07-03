@@ -40,3 +40,4 @@ Once you've calibrated the vehicle in all the positions *QGroundControl* will di
 
 * [QGroundControl User Guide > Sensors](https://docs.qgroundcontrol.com/en/SetupView/sensors_px4.html#compass)
 * [PX4 Setup Video - @2m38s](https://youtu.be/91VGmdSlbo4?t=2m38s) (Youtube)
+* [Compass Power Compensation](../advanced_config/compass_power_compensation.md) (Advanced Configuration)

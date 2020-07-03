@@ -1,46 +1,46 @@
-# E-flite Convergence Tiltrotor VTOL (Pixfalcon)
+# E-Flite Convergence 倾转旋翼 （Pixfalcon）
 
-The [E-Flite Convergence](https://www.modelflight.com.au/e-flite-convergence-vtol-bnf-basic.html) can easily be converted to a fully autonomous VTOL with PX4. There is not much space but it's enough for a Pixfalcon with GPS and telemetry.
+E-Flite Convergence 这种机架可以通过PX4轻松变成具有完全自主飞行能力的垂直起降固定翼机型， 虽然空间受限，但是留给 Pixfalcon、GPS、接收机的空间也足够了
 
 {% youtube %} http://www.youtube.com/watch?v=E61P2f2WPNU {% endyoutube %}
 
-## 硬件设置
+## 硬件连接
 
-The convergence needs 7 PWM signals and is connected to a Pixfalcon in the following way (matching the airframe configuration in PX4, left/right seen looking from behind the plane):
+Convergence 机架需要按照以下方式，与飞控 Pixfalcon 之间连接7路 PWM 信号（与 PX4 中的机身布局相匹配，左右方向是从飞机尾部向机头方向观察来确定的）
 
-| Port   | 接口定义             |
-| ------ | ---------------- |
-| MAIN 1 | Motor right      |
-| MAIN 2 | Motor left       |
-| MAIN 3 | Motor back       |
-| MAIN 4 | empty            |
-| MAIN 5 | Tilt servo right |
-| MAIN 6 | Tilt servo left  |
-| MAIN 7 | Elevon right     |
-| MAIN 8 | Elevon left      |
+| Port   | 接口定义  |
+| ------ | ----- |
+| MAIN 1 | 右电机   |
+| MAIN 2 | 左电机   |
+| MAIN 3 | 尾电机   |
+| MAIN 4 | 空     |
+| MAIN 5 | 右倾转舵机 |
+| MAIN 6 | 左倾转舵机 |
+| MAIN 7 | 右翼升降舵 |
+| MAIN 8 | 左翼升降舵 |
 
-The Pixfalcon can be mounted at the same place the original autopilot was.
+Pixfalcon 硬件可以安装在飞机原始的飞控安装位置
 
-![](../../images/eflight_convergence_pixfalcon_mounting.jpg)
+![Mount Pixfalcon](../../images/eflight_convergence_pixfalcon_mounting.jpg)
 
-The telemetry module fits into the bay meant to hold FPV transmission gear.
+接收机模块安装在飞机原本需要安装 FPV 图传的空间内
 
-![](../../images/eflight_convergence_telemetry_module.jpg)
+![Mount telemetry module](../../images/eflight_convergence_telemetry_module.jpg)
 
-For the GPS we cut out a section of foam inside the "cockpit". That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
+对于GPS，我们在驾驶舱内泡沫上切出一块空间， 这样GPS可以放在机身内，良好内置不影响外观
 
-![](../../images/eflight_convergence_gps_mounting.jpg)
+![Mount GPS](../../images/eflight_convergence_gps_mounting.jpg)
 
 ## 配置
 
-Before the autopilot is configured normally (radio, sensors, flight modes), select the airframe configuration "E-flite Convergence" under "VTOL Tiltrotor" in QGC and restart.
+在飞控校准之前（遥控、传感器、飞行模式），在 QGC 中的机架部分，选择 VTOL Tiltrotor 菜单栏下的 E-Flite Convergence 选项，并在之后重启
 
-If the airframe is not yet visible in QGC, set the following parameters and restart:
+如果机架在 QGC 中无法显示，重新设置以下参数并重启
 
-- SYS\_AUTOSTART: 13012
-- SYS\_AUTOCONFIG: 1
+- `SYS_AUTOSTART`: 13012
+- `SYS_AUTOCONFIG`: 1
 
 备注：
 
-- Remember to assign the transition switch for switching to fixed-wing.
-- By default permanent stabilization is enabled. If you like fully manual flying in fixed-wing, set VT\_FW\_PERM\_STAB to 0.
+- 记得为转换到固定翼模式分配一个转换开关
+- 默认启用永久稳定， 如果想在手动模式下控制固定翼模式飞行，把 VT_FW_PERM_STAB 设置为 0

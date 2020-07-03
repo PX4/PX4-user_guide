@@ -76,8 +76,9 @@ PX4 和 *Pixhawk*兼容的接收机如下所示：
 另外，接收机连接到飞控还需要合适的波特率。
 
 * Spektrum 和 DSM 接收机使用** SPKT/DSM ** 接口连接。
-* PPM 和 S.Bus接收机可以直接连接在** RC **的地、正、信号引脚（通常标记为 RC 或 RCIN）。
-* PPM 接收机通过一个 PPM 编码器将每一个通道通过一根线连接到 RCIN 通道上[如这个所示](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)（PPM-Sum 接收机所有通道可以只需要一根信号线）。
+* Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input.
+* PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
+* PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
 特定遥控器的连接可以查阅下面提供的快速指南。
 
@@ -93,7 +94,19 @@ PX4 和 *Pixhawk*兼容的接收机如下所示：
 
 如果你使用* Spektrum *的接收机，你可以使用 *QGroundControl* 的[遥控器设置 > 对频 ](../config/radio.md#spektrum_bind)进行对频.
 
-## 相关章节
+## Set Signal-Loss Behaviour
+
+RC receivers have different ways of indicating signal loss:
+
+* Output nothing (automatically detected by PX4)
+* Output a low throttle value value (you can [configure PX4 to detect this](../config/radio.md#rc_loss_detection)).
+* Output the last received signal (PX4 cannot handle this case!)
+
+Choose a receiver that can emit nothing (preferred) when RC is lost, or a low throttle value. This behaviour may require hardware configuration of the receiver (check the manual).
+
+For more information see [Radio Control Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
+
+## Related Topics
 
 * [Radio Control Setup](../config/radio.md) - Configuring your radio with PX4.
 * [Flying 101](../flying/basic_flying.md) - Learn how to fly with a remote control.

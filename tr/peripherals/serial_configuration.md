@@ -1,6 +1,6 @@
 # Serial Port Configuration
 
-Most serial (UART) ports on a Pixhawk board can be fully configured via parameters (exceptions are ports that are used for a very specific purpose like RC input, or which are not configurable like `SERIAL 5`).
+Many serial (UART) ports on a Pixhawk board can be fully configured via parameters: e.g.: `GPS1`, `TELEM1`, `TELEM2`, `TELEM4` (`UART+I2C`).
 
 The configuration makes it easy to (for example):
 
@@ -8,6 +8,8 @@ The configuration makes it easy to (for example):
 * run MAVLink on a different port, or change the streamed messages.
 * setup dual GPS.
 * enable sensors that run on a serial port, such as some [distance sensors](../sensor/rangefinders.md).
+
+> **Note** Some ports cannot be configured because they are used for a very specific purpose like RC input or the system console (`SERIAL 5`).
 
 ## Pre-configured Ports {#default_port_mapping}
 
