@@ -1,7 +1,6 @@
 # Holybro pix32 Flight Controller
 
-The Holybro<sup>&reg;</sup> *pix32 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is also known as Pixhawk 2，with hardware version px4 2.4.6.  
-It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
+The Holybro<sup>&reg;</sup> *pix32 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is also known as Pixhawk 2，with hardware version px4 2.4.6. It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
 
 > **Tip** The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md).
   It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
@@ -48,17 +47,16 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 * External microUSB port
 * Molex PicoBlade connectors
 
+## Purchase
+
+[shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
+
 ### Accessories
 
 * [Digital airspeed sensor](https://shop.holybro.com/c/digital-air-speed-sensor_0508)
 * [Hobbyking<sup>&reg;</sup> Wifi Telemetry](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
 * [Telemetry Radio EU (433 MHz)](https://shop.holybro.com/c/433mhz_0470)
 * [Telemetry Radio USA (915 MHz)](https://shop.holybro.com/c/915mhz_0471)
-
-## Purchase
-
-[shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
-
 
 ## Building Firmware
 
