@@ -1,12 +1,13 @@
-# Holybro HKPilot32 Flight Controller
+# Holybro pix32 Flight Controller
 
-The Hobbyking<sup>&reg;</sup> *HKPilot32 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design.
-It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
+The Holybro<sup>&reg;</sup> *pix32 autopilot* (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design.
+This board is based on hardware version Pixhawk 2.4.6.
+It runs the PX4 flight stack on the [NuttX](http://nuttx.org) OS.
 
-> **Tip** The HKPilot32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md).
+> **Tip** The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md).
   It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
 
-![HKPilot32](../../images/hkpilot32_flight_controller.jpg)
+![pix32](../../images/holybro_pix32_flight_controller.png)
 
 As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files should be [available here](https://github.com/PX4/Hardware).
 
@@ -20,7 +21,7 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 
 * Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789)
   * CPU: 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
-  * RAM: 168 MHz/256 KB 
+  * RAM: 168 MHz/256 KB
   * Flash: 2 MB
 * Failsafe System-on-Chip: STM32F103
 * Sensors:
@@ -48,17 +49,16 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
 * External microUSB port
 * Molex PicoBlade connectors
 
+## Purchase
+
+[shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
+
 ### Accessories
 
 * [Digital airspeed sensor](https://shop.holybro.com/c/digital-air-speed-sensor_0508)
 * [Hobbyking<sup>&reg;</sup> Wifi Telemetry](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
 * [Telemetry Radio EU (433 MHz)](https://shop.holybro.com/c/433mhz_0470)
 * [Telemetry Radio USA (915 MHz)](https://shop.holybro.com/c/915mhz_0471)
-
-## Purchase
-
-[shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
-
 
 ## Building Firmware
 
@@ -81,7 +81,7 @@ The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open
 
 * [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
 
-> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware). 
+> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
 
 
 ## Serial Port Mapping
@@ -91,6 +91,6 @@ UART | Device | Port
 UART1 | /dev/ttyS0 | IO debug
 USART2 | /dev/ttyS1 | TELEM1 (flow control)
 USART3 | /dev/ttyS2 | TELEM2 (flow control)
-UART4 | | 
+UART4 | |
 UART7 | CONSOLE
 UART8 | SERIAL4
