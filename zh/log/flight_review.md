@@ -206,7 +206,7 @@ The *GPS Uncertainty* plot shows information from the GPS device:
 - Number of used satellites (should be around 12 or higher)
 - Horizontal position accuracy (should be below 1 meter)
 - Vertical position accuracy (should be below 2 meters)
-- GPS fix: this is 3 for a 3D GPS fix, 5 for RTK float and 6 for RTK fixed type
+- GPS fix: this is 3 for a 3D GPS fix, 4 for GPS + Dead Reckoning, 5 for RTK float and 6 for RTK fixed type
 
 ## GPS 噪声和干扰
 

@@ -93,11 +93,11 @@ In this return type the vehicle:
 
 ## Return Altitude {#return_altitude}
 
-A vehicle will usually first ascend to a safe altitude before returning (in order to avoid any obstacles between it and the destination).
+A vehicle will usually first ascend to a safe altitude before returning, in order to avoid any obstacles between it and the destination.
 
-> **Note** The exception is when executing a [mission path return](#mission_path_return) from within a mission. In this case the vehicle follows mission waypoints, which we assume avoid any obstacles).
+> **Note** This is true for most [return types](return_types). The exception is when executing a [mission path return](#mission_path_return) from within a mission, where the vehicle follows mission waypoints (we can assume these avoid any obstacles).
 
-The return altitude can be configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG) (which define a half cone centered around the destination - home location or safety point).
+The return altitude for a fixed-wing vehicle is configured using the parameter [RTL_RETURN_ALT](#RTL_RETURN_ALT). The return altitude for multicopter and VTOL vehicles is configured using the parameters [RTL_RETURN_ALT](#RTL_RETURN_ALT) and [RTL_CONE_ANG](#RTL_CONE_ANG), which define a half cone centered around the destination (home location or safety point).
 
 ![Return mode cone](../../assets/flying/rtl_cone.jpg)
 
@@ -149,7 +149,11 @@ Fixed-wing aircraft use a [mission landing return type](#mission_landing_return)
 - If a mission landing is defined, fly direct to the mission landing start point and then land.
 - Otherwise fly directly to the home position and circle above it at radius [NAV_LOITER_RAD](#NAV_LOITER_RAD).
 
-If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md). RC stick movement is ignored.
+If not following a mission landing, and [RTL_LAND_DELAY](#RTL_LAND_DELAY) is set to -1, the vehicle will land as described in the topic: [Landing (Fixed Wing)](../flying/fixed_wing_landing.md).
+
+The fixed wing [safe return altitude](#return_altitude) depends only on [RTL_RETURN_ALT](#RTL_RETURN_ALT) (the cone defined by [RTL_CONE_ANG](#RTL_CONE_ANG) is not used)
+
+RC stick movement is ignored.
 
 ### VTOL
 

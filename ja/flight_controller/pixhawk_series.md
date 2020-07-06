@@ -34,6 +34,8 @@ The list of boards boards supported by the PX4 project is reproduced below:
 * [CUAV Pixhack v3](../flight_controller/pixhack_v3.md) (FMUv3)
 * [Hex Cube Black](../flight_controller/pixhawk-2.md) (FMUv3)
 * [mRo Pixhawk](../flight_controller/mro_pixhawk.md) (FMUv2)
+* [Holybro HKPilot32](../flight_controller/HKPilot32.md) (FMUv2)
+* [Holybro Pixhawk Mini](../flight_controller/pixhawk_mini.md) (FMUv2)
 
 Pixhawk-like boards that are not fully compliant with the specification may be [manufacturer-supported](../flight_controller/autopilot_manufacturer_supported.md), [experimental/discontinued](../flight_controller/autopilot_experimental.md), or unsupported.
 
