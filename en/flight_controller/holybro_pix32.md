@@ -1,6 +1,8 @@
 # Holybro pix32 Flight Controller
 
-The Holybro<sup>&reg;</sup> *pix32 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is also known as Pixhawk 2，with hardware version px4 2.4.6. It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
+The Holybro<sup>&reg;</sup> *pix32 autopilot* (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design.
+This board is based on hardware version Pixhawk 2.4.6.
+It runs the PX4 flight stack on the [NuttX](http://nuttx.org) OS.
 
 > **Tip** The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md).
   It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
