@@ -1,8 +1,13 @@
 # Holybro Pix32 v5
 
-*Pix32 v5*<sup>&reg;</sup> is an advanced autopilot designed and made by Holybro<sup>&reg;</sup>. It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers. It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS. It can be regarded as a variant version of Pixhawk4.
+[Pix32 v5](https://shop.holybro.com/pix32-v5_p1218.html)<sup>&reg;</sup> is an advanced autopilot designed and made by Holybro<sup>&reg;</sup>.
+It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers.
+It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
+It can be regarded as a variant version of Pixhawk4.
 
-The Pix32 v5 is comprised of a separate flight controller and carrier board which are connected by a 100pin connector. It is designed for those pilots who need a high power, flexible and customisable flight control system. This design allows users to either use the carrier board made by Holybro or customize their own.
+The Pix32 v5 is comprised of a separate flight controller and carrier board which are connected by a 100pin connector.
+It is designed for those pilots who need a high power, flexible and customisable flight control system.
+This design allows users to either use the carrier board made by Holybro or customize their own.
 
 <img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3112.JPG" width="460px" title="Pix32 v5 Image" /> <img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG" width="460px" title="Pix32 v5 With Base Image" />
 
@@ -28,14 +33,14 @@ The Pix32 v5 is comprised of a separate flight controller and carrier board whic
   * Dedicated S.Bus servo output
   * 5 general purpose serial ports
     * 2 with full flow control
-    * 1with separate 1.5A current limit
+    * 1 with separate 1.5A current limit
   * 3 I2C ports
   * 4 SPI buses
     * 1 internal high speed SPI sensor bus with 4 chip selects and 6 DRDYs
     * 1 internal low noise SPI bus dedicated for
     * Barometer with 2 chip selects, no DRDYs
     * 1 internal SPI bus dedicated for FRAM
-    * Supports dedicated SPI calibration EEPROMlocated on sensor module
+    * Supports dedicated SPI calibration EEPROM located on sensor module
     * 1 external SPI buses
   * Up to 2 CANBuses for dual CAN with serial ESC
     * Each CANBus has individual silent controls or ESC RX-MUX control
@@ -121,7 +126,8 @@ For wiring information see:
 
 ## Supported Platforms / Airframes
 
-Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 
 ## Additional Information
