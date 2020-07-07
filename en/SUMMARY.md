@@ -196,7 +196,7 @@
     * [Hex Cube Black (FMUv3)](flight_controller/pixhawk-2.md)
     * [CUAV Pixhack v3 (FMUv3)](flight_controller/pixhack_v3.md)
     * [mRo Pixhawk (FMUv3)](flight_controller/mro_pixhawk.md)
-    * [Holybro HKPilot32 (FMUv2)](flight_controller/HKPilot32.md)
+    * [Holybro pix32 (FMUv2)](flight_controller/holybro_pix32.md)
     * [Holybro Pixhawk Mini (FMUv2)](flight_controller/pixhawk_mini.md)
   * [Manufacturer-Supported Autopilots](flight_controller/autopilot_manufacturer_supported.md)
     * [AirMind MindPX](flight_controller/mindpx.md)
