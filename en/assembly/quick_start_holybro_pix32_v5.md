@@ -1,8 +1,8 @@
 # Pix32 v5 Wiring Quick Start
 
-This quick start guide shows how to power the [Pix32v5](../flight_controller/holybro_pix32_v5.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
+This quick start guide shows how to power the [Holybro Pix32v5](../flight_controller/holybro_pix32_v5.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG" width="700px" title="Pix32 v5 With Base Image" />
+![Pix32 v5 With Base](../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG)
 
 ## Unboxing
 
@@ -18,7 +18,7 @@ The box also includes a pinout guide and power module instructions, and Base boa
 The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs).
 We'll go through each of these in detail in the following sections.
 
-![Pix32 v5 Wiring Overview](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_wiring_overview.png)
+![Pix32 v5 Wiring Overview](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_wiring_overview.jpg)
 
 > **Tip** More information about available ports can be found [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
 
@@ -26,7 +26,7 @@ We'll go through each of these in detail in the following sections.
 
 *Pix32 v5*  should be mounted on the frame positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow pointing towards the front of the vehicle.
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png" width="600px" title="Pix32 v5 With Orientation" />
+![Pix32 v5 With Orientation](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png)
 
 > **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
@@ -41,7 +41,7 @@ It connects directly to the [GPS port](../flight_controller/holybro_pix32_v5.md#
 
 The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.png" width="450px" title="Pix32 v5 With GPS" />
+![Pix32 v5 with GPS](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.jpg)
 
 > **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle).
   To disable the safety press and hold the safety switch for 1 second.
@@ -59,7 +59,7 @@ It provides regulated power to flight controller and sends battery voltage/curre
 
 Connect the output of the *Power Module* as shown.
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_power.png" width="450px" title="Pix32 v5 With Power Module" />
+![Pix32 v5 With Power Module](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_power.jpg)
 
 - PM voltage/current port: connect to POWER1 port (or `POWER2`) using the 6-wire GH cable supplied.
 - PM input (XT60 male connector): connect to the LiPo battery (2~12S).
@@ -99,13 +99,14 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers to *Pix32 v5* with Baseboard:
 
-- Spektrum/DSM receivers connect to the [DSM RC](../flight_controller/holybro_pix32_v5.md.md#dsm-rc-port) input.
+- Spektrum/DSM receivers connect to the [DSM RC](../flight_controller/holybro_pix32_v5.md#dsm-rc-port) input.
 
-  <img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.png" width="450px" title="Pix32 v5 With Base Image" />
+  ![Pix32v5 rc receivers](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.jpg)
   
 - PPM and S.Bus receivers connect to the [SBUS_IN/PPM_IN](../flight_controller/holybro_pix32_v5.md#rc-in) input port (marked as RC IN)
-  
-  <img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png" width="450px" title="Pix32 v5 With Base Image" />
+
+  ![Pinouts](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_pinouts_back_label.png)
+
 
 - PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
@@ -119,14 +120,14 @@ Telemetry radios may be used to communicate and control a vehicle in flight from
 The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required).
 The other radio is connected to your ground station computer or mobile device (usually by USB).
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_telemetry_radio.png" width="400px" title="Pix32 v5 With Telemetry Radios" />
+![Pix32 v5 With Telemetry Radios](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_telemetry_radio.jpg)
 
 ## SD Card (Optional)
 
 SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md).
 A micro SD card should come preinstalled on the pix32 v5, if you have your own micro SD card, insert the card into *pix32 v5* as shown below.
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.png" width="600px" title="Pix32 v5 With SD Card" />
+![Pix32 v5 With SD Card](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.jpg)
 
 > **Tip** The SanDisk Extreme U3 32GB is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
 
