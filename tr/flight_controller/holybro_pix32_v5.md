@@ -4,7 +4,7 @@
 
 The Pix32 v5 is comprised of a separate flight controller and carrier board which are connected by a 100pin connector. It is designed for those pilots who need a high power, flexible and customisable flight control system. This design allows users to either use the carrier board made by Holybro or customize their own.
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3112.JPG" width="460px" title="Pix32 v5 Image" /> <img src="../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG" width="460px" title="Pix32 v5 With Base Image" />
+![Pix32 v5 Image](../../assets/flight_controller/holybro_pix32_v5/IMG_3112.JPG) ![Pix32 v5 With Base](../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG)
 
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
@@ -63,12 +63,17 @@ Additional information can be found in the [Pix32 V5 Technical Data Sheet](http:
 
 Order from [Holybro website](https://shop.holybro.com/pix32-v5_p1218.html).
 
+## Assembly/Setup
+
+The [Pix32 v5 Wiring Quick Start](../assembly/quick_start_holybro_pix32_v5.md) provides instructions on how to assemble required/important peripherals including GPS, Power Management Board etc.
+
 ## Pinouts
 
 Download *pix32 v5* pinouts from [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
 
 ## Dimensions
-<img src="../../assets/flight_controller/holybro_pix32_v5/Dimensions_no_border.jpg" width="700px" title="Pix32 v5 Image" />
+
+![Pix32 v5 Image](../../assets/flight_controller/holybro_pix32_v5/Dimensions_no_border.jpg)
 
 ## Voltage Ratings
 
@@ -104,7 +109,7 @@ The system's [serial console](https://dev.px4.io/master/en/debug/system_console.
 
 <!--while the I/O console and SWD interface can be accessed via **I/O Debug** port.-->
 
-<img src="../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Diagram.jpg" width="420px" title="Pix32 v5 With Base Image" /><img src="../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Table.jpg" width="420px" title="Pix32 v5 Image" />
+![FMU debug port diagram](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Diagram.jpg) ![FMU Debug port table](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Table.jpg)
 
 The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug). For wiring information see:
 - [System Console > Pixhawk Debug Port](https://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (PX4 Developer Guide)
