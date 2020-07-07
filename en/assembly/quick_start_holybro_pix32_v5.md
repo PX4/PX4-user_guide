@@ -6,19 +6,21 @@ This quick start guide shows how to power the [Pix32v5](../flight_controller/hol
 
 ## Unboxing
 
-Pix32 v5 is sold bundled with a number of different combinations of accessories, including the *pix32 v5 Base board*, power module *PM02 V3*, and the *Pixhawk 4 GPS/Compass* (UBLOX NEO-M8N).
+Pix32 v5 is sold bundled with a number of different combinations of accessories, including the *pix32 v5 Base board*, power module *PM02 V3*, and the [Pixhawk 4 GPS/Compass](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) (UBLOX NEO-M8N).
 
-The content of the box with the *PM02 V3* power module and *Pixhawk 4 GPS/Compass* is shown below. The box also includes a pinout guide and power module instructions, and Base board (not shown on the schematic below).
+The content of the box with the *PM02 V3* power module and *Pixhawk 4 GPS/Compass* is shown below.
+The box also includes a pinout guide and power module instructions, and Base board (not shown on the schematic below).
 
 ![Pix32 v5 Box](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_unboxing_schematics.png)
 
 ## Wiring Chart Overview
 
-The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs). We'll go through each of these in detail in the following sections.
+The image below shows how to connect the most important sensors and peripherals (except the motor and servo outputs).
+We'll go through each of these in detail in the following sections.
 
 ![Pix32 v5 Wiring Overview](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_wiring_overview.png)
 
-> **Tip** : More information about available ports can be found [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
+> **Tip** More information about available ports can be found [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf).
 
 ## Mount and Orient Controller
 
@@ -26,24 +28,24 @@ The image below shows how to connect the most important sensors and peripherals 
 
 <img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_orientation.png" width="600px" title="Pix32 v5 With Orientation" />
 
-> **Note** If the controller cannot be mounted in the
-  recommended/default orientation (e.g. due to space constraints) you will
-  need to configure the autopilot software with the orientation that you
-  actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
+> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
+<span></span>
 > **Tip** The board has internal vibration-isolation.
   Do not use vibration-isolation foam to mount the controller (double sided tape is normally sufficient).
 
 ## GPS + Compass + Buzzer + Safety Switch + LED
 
-Pix32 v5 is designed to work well with the *Pixhawk 4 GPS module*, which has an integrated compass, safety switch, buzzer and LED.
+Pix32 v5 is designed to work well with the [Pixhawk 4 GPS module](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html), which has an integrated compass, safety switch, buzzer and LED.
 It connects directly to the [GPS port](../flight_controller/holybro_pix32_v5.md#gps) using the 10 pin cable.
 
 The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
 <img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_connection_gps_compass.png" width="450px" title="Pix32 v5 With GPS" />
 
-> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle).
+  To disable the safety press and hold the safety switch for 1 second.
+  You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 
 ## Power {#power}
 
@@ -97,7 +99,6 @@ You will need to [select a compatible transmitter/receiver](../getting_started/r
 
 The instructions below show how to connect the different types of receivers to *Pix32 v5* with Baseboard:
 
-
 - Spektrum/DSM receivers connect to the [DSM RC](../flight_controller/holybro_pix32_v5.md.md#dsm-rc-port) input.
 
   <img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_receivers_connection.png" width="450px" title="Pix32 v5 With Base Image" />
@@ -115,13 +116,15 @@ For more information about selecting a radio system, receiver compatibility, and
 
 Telemetry radios may be used to communicate and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 
-The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required). The other radio is connected to your ground station computer or mobile device (usually by USB).
+The vehicle-based radio should be connected to the **TELEM1** port as shown below (if connected to this port, no further configuration is required).
+The other radio is connected to your ground station computer or mobile device (usually by USB).
 
 <img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_telemetry_radio.png" width="400px" title="Pix32 v5 With Telemetry Radios" />
 
 ## SD Card (Optional)
 
-SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md). A micro SD card should come preinstalled on the pix32 v5, if you have your own micro SD card, insert the card into *pix32 v5* as shown below.
+SD cards are most commonly used to [log and analyse flight details](../getting_started/flight_reporting.md).
+A micro SD card should come preinstalled on the pix32 v5, if you have your own micro SD card, insert the card into *pix32 v5* as shown below.
 
 <img src="../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.png" width="600px" title="Pix32 v5 With SD Card" />
 
