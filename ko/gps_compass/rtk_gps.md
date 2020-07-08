@@ -21,6 +21,7 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 - [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)
 - [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
 - [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
+- [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) 
 
 > **Note** Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
 
@@ -40,7 +41,7 @@ Connect the base module to *QGroundControl* via USB. The base module must not be
 
 ### Telemetry Radio/WiFi
 
-The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../assembly/quick_start_pixhawk.md#telemetry-radios-optional). <!-- this should be a link to a telemetry topic, but we don't have one yet -->
+The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../telemetry/README.md).
 
 The link *must* use the MAVLink2 protocol as it makes more efficient use of the channel. This should be set by default, but if not, follow the [MAVLink2 configuration instructions](#mavlink2) below.
 
