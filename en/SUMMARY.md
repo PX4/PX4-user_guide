@@ -148,6 +148,7 @@
       * [Trimble MB-Two](gps_compass/rtk_gps_trimble_mb_two.md)
       * [Hex Here2](gps_compass/rtk_gps_hex_here2.md)
       * [Freefly RTK GPS](gps_compass/rtk_gps_freefly.md)
+      * [Femtones MINI2 Receiver](gps_compass/rtk_gps_fem_mini2.md)  
   * [Telemetry Radios](telemetry/README.md)
     * [SiK Radio](telemetry/sik_radio.md)
       * [RFD900 (SiK) Telemetry Radio](telemetry/rfd900_telemetry.md)
