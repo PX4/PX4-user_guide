@@ -11039,6 +11039,14 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;">hPa</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="SENS_BARO_RATE">SENS_BARO_RATE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Baro max rate</p><p><strong>Comment:</strong> Barometric air data maximum publication rate. This is an upper bound, actual barometric data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">1 > 200 </td>
+ <td style="vertical-align: top;">20.0</td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SENS_BOARD_ROT">SENS_BOARD_ROT</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Board rotation</p><p><strong>Comment:</strong> This parameter defines the rotation of the FMU board relative to the platform.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> No rotation</li> 
