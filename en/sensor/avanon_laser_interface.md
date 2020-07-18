@@ -44,7 +44,8 @@ Pin | Name | Description
 ## Wiring
 
 The rangefinder (laser) is connected to the AvAnon interface board, which is connected to one of the CAN ports on your autopilot.
-The wiring is as per the pinout above or using the included cables.
+The wiring is as per the pinout above, or the necessary cables can be purchased to connect to your system right out of the box. 
+These are available at the links [here](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/).
 
 The interface board provides a filtered power output for the laser, but does not provide its own regulation.
 Therefore the laser must be compatible with whatever voltage is supplied to the board.
