@@ -1,8 +1,8 @@
-# Hex Cube Yellow Flight Controller
+# Cube Orange Flight Controller
 
-The [Hex Cube Yellow](http://www.proficnc.com/61-system-kits2) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems. 
+The [Cube Orange](http://www.proficnc.com/61-system-kits2) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems. 
 
-![Cube Yellow](../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg)
+![Cube Orange](../../assets/flight_controller/cube/orange/cube_orange_hero.jpg)
 
 > **Tip** The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
 
@@ -15,7 +15,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 
 ## Key Features
 
-* 32bit STM32F777 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 512 KB).
+* 32bit STM32F427VIT6 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
 * 32 bit STM32F103 failsafe co-processor <!-- check -->
 * 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
 * Abundant connectivity options for additional peripherals (UART, I2C, CAN)
@@ -39,10 +39,10 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 ## Specifications
 
 * **Processor:**
-  * STM32F777 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
+  * STM32F427VIT6 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
   * 400 MHz
-  * 512 KB MB RAM
-  * 2 MB Flash
+  * 1 MB RAM
+  * 2 MB Flash \(fully accessible\)
 * **Failsafe co-processor:** <!-- inconsistent info on failsafe processor: 32 bit STM32F103 failsafe co-processor http://www.proficnc.com/all-products/191-pixhawk2-suite.html -->
   * STM32F100 (32bit *ARM Cortex-M3*)
   * 24 MHz
@@ -125,7 +125,7 @@ UART8  | /dev/ttyS6 | GPS2
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
-make hex_cube-yellow
+make hex_cube-orange
 ```
 
 ## Issues
