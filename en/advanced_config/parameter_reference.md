@@ -4,6 +4,231 @@
 <span></span>
 > **Note** If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](http://docs.px4.io/master/en/advanced_config/parameters.html#missing).
 
+## UAVCAN Motor Parameters
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="ctl_bw">ctl_bw</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Speed controller bandwidth</p><p><strong>Comment:</strong> Speed controller bandwidth, in Hz. Higher values result in faster speed and current rise times, but may result in overshoot and higher current consumption. For fixed-wing aircraft, this value should be less than 50 Hz; for multirotors, values up to 100 Hz may provide improvements in responsiveness.</p>   </td>
+ <td style="vertical-align: top;">10 > 250 </td>
+ <td style="vertical-align: top;">75</td>
+ <td style="vertical-align: top;">Hertz</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ctl_dir">ctl_dir</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Reverse direction</p><p><strong>Comment:</strong> Motor spin direction as detected during initial enumeration. Use 0 or 1 to reverse direction.</p>   </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ctl_gain">ctl_gain</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Speed (RPM) controller gain</p><p><strong>Comment:</strong> Speed (RPM) controller gain. Determines controller
+            aggressiveness; units are amp-seconds per radian. Systems with
+            higher rotational inertia (large props) will need gain increased;
+            systems with low rotational inertia (small props) may need gain
+            decreased. Higher values result in faster response, but may result
+            in oscillation and excessive overshoot. Lower values result in a
+            slower, smoother response.</p>   </td>
+ <td style="vertical-align: top;">0.00 > 1.00 </td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;">amp-seconds per radian</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ctl_hz_idle">ctl_hz_idle</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Idle speed (e Hz)</p><p><strong>Comment:</strong> Idle speed (e Hz)</p>   </td>
+ <td style="vertical-align: top;">0.0 > 100.0 </td>
+ <td style="vertical-align: top;">3.5</td>
+ <td style="vertical-align: top;">Hertz</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ctl_start_rate">ctl_start_rate</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Spin-up rate (e Hz/s)</p><p><strong>Comment:</strong> Spin-up rate (e Hz/s)</p>   </td>
+ <td style="vertical-align: top;">5 > 1000 </td>
+ <td style="vertical-align: top;">25</td>
+ <td style="vertical-align: top;">Hz/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="esc_index">esc_index</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Index of this ESC in throttle command messages.</p><p><strong>Comment:</strong> Index of this ESC in throttle command messages.</p>   </td>
+ <td style="vertical-align: top;">0 > 15 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;">Index</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="id_ext_status">id_ext_status</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Extended status ID</p><p><strong>Comment:</strong> Extended status ID</p>   </td>
+ <td style="vertical-align: top;">1 > 1000000 </td>
+ <td style="vertical-align: top;">20034</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="int_ext_status">int_ext_status</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Extended status interval (µs)</p><p><strong>Comment:</strong> Extended status interval (µs)</p>   </td>
+ <td style="vertical-align: top;">0 > 1000000 </td>
+ <td style="vertical-align: top;">50000</td>
+ <td style="vertical-align: top;">µs</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="int_status">int_status</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ESC status interval (µs)</p><p><strong>Comment:</strong> ESC status interval (µs)</p>   </td>
+ <td style="vertical-align: top;">? > 1000000 </td>
+ <td style="vertical-align: top;">50000</td>
+ <td style="vertical-align: top;">µs</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_i_max">mot_i_max</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Motor current limit in amps</p><p><strong>Comment:</strong> Motor current limit in amps. This determines the maximum
+            current controller setpoint, as well as the maximum allowable
+            current setpoint slew rate. This value should generally be set to
+            the continuous current rating listed in the motor’s specification
+            sheet, or set equal to the motor’s specified continuous power
+            divided by the motor voltage limit.</p>   </td>
+ <td style="vertical-align: top;">1 > 80 </td>
+ <td style="vertical-align: top;">12</td>
+ <td style="vertical-align: top;">Amps</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_kv">mot_kv</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Motor Kv in RPM per volt</p><p><strong>Comment:</strong> Motor Kv in RPM per volt. This can be taken from the motor’s
+            specification sheet; accuracy will help control performance but
+            some deviation from the specified value is acceptable.</p>   </td>
+ <td style="vertical-align: top;">0 > 4000 </td>
+ <td style="vertical-align: top;">2300</td>
+ <td style="vertical-align: top;">RPM/v</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_ls">mot_ls</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>READ ONLY: Motor inductance in henries.</p><p><strong>Comment:</strong> READ ONLY: Motor inductance in henries. This is measured on start-up.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">henries</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_num_poles">mot_num_poles</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Number of motor poles.</p><p><strong>Comment:</strong> Number of motor poles. Used to convert mechanical speeds to
+            electrical speeds. This number should be taken from the motor’s
+            specification sheet.</p>   </td>
+ <td style="vertical-align: top;">2 > 40 </td>
+ <td style="vertical-align: top;">14</td>
+ <td style="vertical-align: top;">Poles</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_rs">mot_rs</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>READ ONLY: Motor resistance in ohms</p><p><strong>Comment:</strong> READ ONLY: Motor resistance in ohms. This is measured on start-up. When
+            tuning a new motor, check that this value is approximately equal
+            to the value shown in the motor’s specification sheet.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">Ohms</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_v_accel">mot_v_accel</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Acceleration limit (V)</p><p><strong>Comment:</strong> Acceleration limit (V)</p>   </td>
+ <td style="vertical-align: top;">0.01 > 1.00 </td>
+ <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">Volts</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_v_max">mot_v_max</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Motor voltage limit in volts</p><p><strong>Comment:</strong> Motor voltage limit in volts. The current controller’s
+            commanded voltage will never exceed this value. Note that this may
+            safely be above the nominal voltage of the motor; to determine the
+            actual motor voltage limit, divide the motor’s rated power by the
+            motor current limit.</p>   </td>
+ <td style="vertical-align: top;">0 > ? </td>
+ <td style="vertical-align: top;">14.8</td>
+ <td style="vertical-align: top;">Volts</td>
+</tr>
+</tbody></table>
+
+## UAVCAN GNSS
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="gnss.dyn_model">gnss.dyn_model</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>GNSS dynamic model</p><p><strong>Comment:</strong> Dynamic model used in the GNSS positioning engine. 0 –
+        Automotive, 1 – Sea, 2 – Airborne.
+      </p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Automotive</li> 
+
+<li><strong>1:</strong> Sea</li> 
+
+<li><strong>2:</strong> Airborne</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 2 </td>
+ <td style="vertical-align: top;">2</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="gnss.old_fix_msg">gnss.old_fix_msg</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Broadcast old GNSS fix message</p><p><strong>Comment:</strong> Broadcast the old (deprecated) GNSS fix message
+        uavcan.equipment.gnss.Fix alongside the new alternative
+        uavcan.equipment.gnss.Fix2. It is recommended to
+        disable this feature to reduce the CAN bus traffic.
+      </p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Fix2</li> 
+
+<li><strong>1:</strong> Fix and Fix2</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="gnss.warn_dimens">gnss.warn_dimens</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>device health warning</p><p><strong>Comment:</strong> Set the device health to Warning if the dimensionality of
+              the GNSS solution is less than this value. 3 for the full (3D)
+              solution, 2 for planar (2D) solution, 1 for time-only solution,
+              0 disables the feature.
+      </p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> disables the feature</li> 
+
+<li><strong>1:</strong> time-only solution</li> 
+
+<li><strong>2:</strong> planar (2D) solution</li> 
+
+<li><strong>3:</strong> full (3D) solution</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 3 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="gnss.warn_sats">gnss.warn_sats</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p></p><p><strong>Comment:</strong> Set the device health to Warning if the number of satellites
+        used in the GNSS solution is below this threshold. Zero
+        disables the feature
+      </p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="uavcan.pubp-pres">uavcan.pubp-pres</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p></p><p><strong>Comment:</strong> Set the device health to Warning if the number of satellites
+        used in the GNSS solution is below this threshold. Zero
+        disables the feature
+      </p>   </td>
+ <td style="vertical-align: top;">0 > 1000000 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;">microseconds</td>
+</tr>
+</tbody></table>
+
 ## Airspeed Validator
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
