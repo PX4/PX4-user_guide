@@ -25,6 +25,8 @@ This list is not exhaustive - there are other compatible flight controllers and 
   - [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md)
   - [mRobotics-X2.1 (FMUv2)](../flight_controller/mro_x2.1.md)
   - [Drotek Dropix (FMUv2)](../flight_controller/dropix.md)
+  - [Hex Cube Orange (STM32H743)](../flight_controller/hex_cube_orange.md)
+  - [Hex Cube Yellow (STM32F777)](../flight_controller/hex_cube_yellow.md)
   - [Holybro Kakute F7](../flight_controller/kakutef7.md)
   - [Holybro Durandal](../flight_controller/durandal.md)
   - [ModalAI Flight Core v1](../flight_controller/modalai_fc_v1.md)
