@@ -15,8 +15,8 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 
 ## Key Features
 
-* 32bit STM32F427VIT6 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
-* 32 bit STM32F103 failsafe co-processor <!-- check -->
+* 32bit STM32H743ZI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 1MB).
+* 32 bit STM32F103 failsafe co-processor
 * 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
 * Abundant connectivity options for additional peripherals (UART, I2C, CAN)
 * Integrated backup system for in-flight recovery and manual override with dedicated processor and stand-alone power supply (fixed-wing use)
@@ -39,12 +39,12 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 ## Specifications
 
 * **Processor:**
-  * STM32F427VIT6 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
+  * STM32H743ZI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
   * 400 MHz
   * 1 MB RAM
   * 2 MB Flash \(fully accessible\)
 * **Failsafe co-processor:** <!-- inconsistent info on failsafe processor: 32 bit STM32F103 failsafe co-processor http://www.proficnc.com/all-products/191-pixhawk2-suite.html -->
-  * STM32F100 (32bit *ARM Cortex-M3*)
+  * STM32F103 (32bit *ARM Cortex-M3*)
   * 24 MHz
   * 8 KB SRAM
 * **Sensors:** (all connected via SPI)
