@@ -15,7 +15,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 
 ## Key Features
 
-* 32bit STM32F777 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 512 KB).
+* 32bit STM32F777VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 512 KB).
 * 32 bit STM32F103 failsafe co-processor <!-- check -->
 * 14 PWM / Servo outputs (8 with failsafe and manual override, 6 auxiliary, high-power compatible)
 * Abundant connectivity options for additional peripherals (UART, I2C, CAN)
@@ -39,7 +39,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 ## Specifications
 
 * **Processor:**
-  * STM32F777 (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
+  * STM32F777VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
   * 400 MHz
   * 512 KB MB RAM
   * 2 MB Flash
