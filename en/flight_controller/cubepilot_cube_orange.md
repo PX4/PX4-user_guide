@@ -125,7 +125,7 @@ UART8  | /dev/ttyS6 | GPS2
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
-make hex_cube-orange
+make cubepilot_cubeorange
 ```
 
 ## Issues
