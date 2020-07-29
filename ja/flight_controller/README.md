@@ -23,6 +23,8 @@ This section lists the autopilot hardware documented in this library (that can b
   - [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md)
   - [mRobotics-X2.1 (FMUv2)](../flight_controller/mro_x2.1.md)
   - [Drotek Dropix (FMUv2)](../flight_controller/dropix.md)
+  - [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
+  - [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) (CubePilot)
   - [Holybro Kakute F7](../flight_controller/kakutef7.md)
   - [Holybro Durandal](../flight_controller/durandal.md)
   - [ModalAI Flight Core v1](../flight_controller/modalai_fc_v1.md)
