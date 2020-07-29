@@ -9849,7 +9849,7 @@ to takeoff is reached</p>   </td>
  <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 > 1023 </td>
- <td style="vertical-align: top;">3</td>
+ <td style="vertical-align: top;">1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
