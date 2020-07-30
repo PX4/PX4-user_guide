@@ -11469,7 +11469,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_PAW3902">SENS_EN_PAW3902</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PAW3902 Optical Flow</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PAW3902 & PAW3903 Optical Flow</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
