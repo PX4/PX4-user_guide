@@ -126,7 +126,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
-make hex_cube-yellow
+make cubepilot_cubeyellow
 ```
 
 ## Issues
