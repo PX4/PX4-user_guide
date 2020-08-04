@@ -28,6 +28,7 @@ This list is not exhaustive - there are other compatible flight controllers and 
   - [Drotek Dropix (FMUv2)](../flight_controller/dropix.md)
   - [Holybro Kakute F7](../flight_controller/kakutef7.md)
   - [Holybro Durandal](../flight_controller/durandal.md)
+  - [Holybro Pix32 v5](../flight_controller/holybro_pix32_v5.md)
   - [ModalAI Flight Core v1](../flight_controller/modalai_fc_v1.md)
   - [mRobotics-X2.1 (FMUv2)](../flight_controller/mro_x2.1.md)
   - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
