@@ -216,6 +216,7 @@
     * [Omnibus F4 SD](flight_controller/omnibus_f4_sd.md)
     * [mRo Control Zero F7)](flight_controller/mro_control_zero_f7.md)
     * [ModalAI Flight Core v1](flight_controller/modalai_fc_v1.md)
+    * [SPRacingH7EXTREME](flight_controller/spracingh7extreme.md)
   * [Experimental/Discontinued Autopilots](flight_controller/autopilot_experimental.md)
     * [Aerotenna OcPoC-Zynq Mini](flight_controller/ocpoc_zynq.md)
     * [BeagleBone Blue](flight_controller/beaglebone_blue.md)

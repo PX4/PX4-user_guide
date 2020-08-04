@@ -33,6 +33,7 @@ This list is not exhaustive - there are other compatible flight controllers and 
   - [NXP RDDRONE-FMUK66 FMU](../flight_controller/nxp_rddrone_fmuk66.md)
   - [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
   - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
+  - [SPRacingH7EXTREME](../flight_controller/spracingh7extreme.md)
 - [Experimental/Discontinued Autopilots](../flight_controller/autopilot_experimental.md)
   - [Aerotenna OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
   - [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
