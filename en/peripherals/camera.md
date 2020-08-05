@@ -33,7 +33,10 @@ Mode | Description
 
 ## Trigger Hardware Configuration {#hardware_setup}
 
-You can choose which pins to use for triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
+On Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0) for triggering
+(this is automatically enabled when `TRIG_INTERFACE` is 0/GPIO or 1:Seagull).
+
+For other FMUv versions you choose the pins to use for GPIO or Seagull-based triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
 The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
 > **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). 
@@ -41,9 +44,9 @@ The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
   At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
 
 <span></span>
-> **Warning** With `TRIG_PINS` set to its **default** value of 56, you can use the AUX pins 1, 2, 3 and 4 as actuator outputs (for servos/ESCs).
-  Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs.
-  **DO NOT CHANGE THE DEFAULT VALUE OF `TRIG_PINS` IF YOU NEED ACTUATOR OUTPUTS.**
+> **Warning** With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs).
+  With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs.
+  Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
 
 ## Trigger Interface Backends {#trigger_backend}
 
