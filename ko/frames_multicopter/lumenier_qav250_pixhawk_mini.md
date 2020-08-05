@@ -8,8 +8,9 @@ Key information
 - **Flight controller:** Pixhawk Mini
 - **Assembly time (approx.):** 3.5 hours (2 for frame, 1.5 autopilot setup)
 
-![QAV250 - Complete build with pixhawk
-mini](../../images/qav250_complete_build_with_pixhawk_mini.jpg)
+![QAV250 - Complete build with pixhawk mini](../../images/qav250_complete_build_with_pixhawk_mini.jpg)
+
+![QAV250 - Complete build with pixhawk mini and props](../../images/qav250_complete_build.jpg)
 
 ## Bill of materials
 
