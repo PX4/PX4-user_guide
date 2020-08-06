@@ -62,9 +62,9 @@ ECL 可以在没有磁力计的情况下运行。 或者使用 [yaw from a dual 
 
 对于固定翼式运行平台，风速状态估计需要 [Airspeed](#airspeed) 和/或 [Synthetic Sideslip](#synthetic-sideslip) 融合才能启用。
 
-For multi-rotors, fusion of [Drag Specific Forces](#mc_wind_estimation_using_drag) can be enabled and tuned to provide the required wind velocity state estimates.
+对于多旋翼飞行器，可以启用并调整 [Drag Specific Forces](#mc_wind_estimation_using_drag) 的融合，以提供所需风速状态估计。
 
-The EKF2 module models the error as a body fixed ellipsoid that specifies the fraction of dynamic pressure that is added to/subtracted from the barometric pressure - before it is converted to a height estimate. See the following parameter documentation for information on how to use this feature:
+EKF2模块将误差建模为与机体固连的椭球体，在将其转换为高度估计之前，它指定了从大气气压中加/减的动态气压的分量。 关于如何使用此功能的信息，请参阅以下参数文档：
 
 * [EKF2_PCOEF_XP](../advanced_config/parameter_reference.md#EKF2_PCOEF_XP)
 * [EKF2_PCOEF_XN](../advanced_config/parameter_reference.md#EKF2_PCOEF_XN)
@@ -74,11 +74,11 @@ The EKF2 module models the error as a body fixed ellipsoid that specifies the fr
 
 ### GPS
 
-#### Position and Velocity Measurements
+#### 位置和速度测量
 
-GPS measurements will be used for position and velocity if the following conditions are met:
+如果满足以下条件，GPS 测量值将做为位置和速度使用：
 
-* GPS use is enabled via setting of the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
+* 通过设置 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数启用 GPS 的使用。
 * GPS quality checks have passed. These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters.
 * GPS height can be used directly by the EKF via setting of the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
 
