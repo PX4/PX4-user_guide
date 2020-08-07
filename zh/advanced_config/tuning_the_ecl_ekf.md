@@ -109,20 +109,20 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 
 #### GPS 性能要求
 
-For the ECL to accept GPS data for navigation, certain minimum requirements need to be satisfied over a period of 10 seconds (minimums are defined in the [EKF2_REQ_*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) parameters)
+为了 ECL 能接受 GPS 数据用于导航， 需要在10秒内满足某些最低要求(最小需要在 [EKF2_REQ_*](../advanced_config/parameter_reference.md#EKF2_REQ_EPH) 参数中定义)
 
-The table below shows the different metrics directly reported or calculated from the GPS data, and the minimum required values for the data to be used by ECL. In addition, the *Average Value* column shows typical values that might reasonably be obtained from a standard GNSS module (e.g. uBlox M8 series) - i.e. values that are considered good/acceptable.
+下表显示了根据 GPS 数据直接报告或计算的各种指标，和 ECL 使用的数据的最低要求值。 此外， *Average Value* 一列显示了可从标准 GNSS 模块合理获得的典型值（例如 uBlox M8 系列）- 即被认为是好的/可接受的值。
 
-| Metric               | Minimum required                                                                          | Average Value | Units | Notes                                                               |
-| -------------------- | ----------------------------------------------------------------------------------------- | ------------- | ----- | ------------------------------------------------------------------- |
-| eph                  | 3&nbsp;([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))         | 0.8           | m     | Standard deviation of horizontal position error                     |
-| epv                  | 5&nbsp;([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))         | 1.5           | m     | Standard deviation of vertical position error                       |
-| Number of satellites | 6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))     | 14            | -     |                                                                     |
-| Speed variance       | 0.5                                                                                       | 0.3           | m/s   |                                                                     |
-| Fix type             | 3                                                                                         | 4             | -     |                                                                     |
-| hpos_drift_rate    | 0.1&nbsp;([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01          | m/s   | Drift rate calculated from reported GPS position (when stationary). |
-| vpos_drift_rate    | 0.2&nbsp;([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02          | m/s   | Drift rate calculated from reported GPS altitude (when stationary). |
-| hspd                 | 0.1&nbsp;([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.01          | m/s   | Filtered magnitude of reported GPS horizontal velocity.             |
+| Metric               | Minimum required                                                                          | Average Value | Units | Notes                                                   |
+| -------------------- | ----------------------------------------------------------------------------------------- | ------------- | ----- | ------------------------------------------------------- |
+| eph                  | 3&nbsp;([EKF2_REQ_EPH](../advanced_config/parameter_reference.md#EKF2_REQ_EPH))         | 0.8           | m     | 水平位置误差的标准偏差                                             |
+| epv                  | 5&nbsp;([EKF2_REQ_EPV](../advanced_config/parameter_reference.md#EKF2_REQ_EPV))         | 1.5           | m     | 垂直位置误差的标准偏差                                             |
+| Number of satellites | 6&nbsp;([EKF2_REQ_NSATS](../advanced_config/parameter_reference.md#EKF2_REQ_NSATS))     | 14            | -     |                                                         |
+| Speed variance       | 0.5                                                                                       | 0.3           | m/s   |                                                         |
+| Fix type             | 3                                                                                         | 4             | -     |                                                         |
+| hpos_drift_rate    | 0.1&nbsp;([EKF2_REQ_HDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_HDRIFT)) | 0.01          | m/s   | 根据报告的 GPS 位置计算出的漂移率(在固定不动时)。                            |
+| vpos_drift_rate    | 0.2&nbsp;([EKF2_REQ_VDRIFT](../advanced_config/parameter_reference.md#EKF2_REQ_VDRIFT)) | 0.02          | m/s   | 根据所报告的GPS高度计算出的漂移率(在固定不动时)。                             |
+| hspd                 | 0.1&nbsp;([EKF2_REQ_SACC](../advanced_config/parameter_reference.md#EKF2_REQ_SACC))     | 0.01          | m/s   | Filtered magnitude of reported GPS horizontal velocity. |
 
 > **Note** The `hpos_drift_rate`, `vpos_drift_rate` and `hspd` are calculated over a period of 10 seconds and published in the `ekf2_gps_drift` topic. Note that `ekf2_gps_drift` is not logged!
 
