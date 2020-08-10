@@ -1,8 +1,10 @@
 # Cube Wiring Quick Start
 
-This quick start guide shows how to power the [Cube](../flight_controller/pixhawk-2.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
+This quick start guide shows how to power the *Cube*<sup>&reg;</sup> flight controllers and connect their most important peripherals.
 
-<img src="../../assets/flight_controller/cube/pixhawk2_cube_hero.png" width="400px" />
+<img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="350px" /> <img src="../../assets/flight_controller/cube/cube_black_hero.png" width="350px" /> <img src="../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg" width="150px" />
+
+> **Tip** The instructions apply to all Cube variants, including [Cube Black](../flight_controller/pixhawk-2.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md). Further/updated information may be available in the [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) (Cube Docs).
 
 ## Accessories
 
@@ -159,6 +161,10 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 
 ## Further information
 
-- [Cube](../flight_controller/pixhawk-2.md) <!-- - [pixhawk2 user manual copy]()  // fold out insert shipped with doc /assets/flight_controller/cube/cube_mount_front/pixhawk2 user manual copy.pdf -->
-    
-    <!-- - [Cube Quickstart]() (HEX) -->
+- [Cube Black](../flight_controller/pixhawk-2.md) 
+- [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md)
+- [Cube Orange](../flight_controller/cubepilot_cube_orange.md)
+- Cube Docs (Manufacturer): 
+  - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
+  - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
+  - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)

@@ -9,7 +9,7 @@
   * [安全降落](../computer_vision/safe_landing.md)（需要机载计算机）
   * [碰撞避免](../computer_vision/collision_prevention.md) （通过机载计算机或飞控的传感器）
   * [路径规划接口](../computer_vision/path_planning_interface.md) （开发者接口）
-  * [Motion Capture (MoCap)](../computer_vision/motion_capture.md)
+  * [动态捕捉(MoCap)](../computer_vision/motion_capture.md)
   * [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md)
 * [Iridium/RockBlock Satellite Communication System](../advanced_features/satcom_roadblock.md)
 * [Precision Landing](../advanced_features/precland.md)

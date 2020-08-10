@@ -103,7 +103,7 @@ The settings and underlying [geofence parameters](../advanced_config/parameter_r
 
 Setting | Parameter | Description
 --- | --- | ---
-Action on breach | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION) | None, Warning, Hold mode, Return mode, Terminate.
+Action on breach | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION) | None, Warning, Hold mode, Return mode, Terminate, Land.
 Max Radius | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | Horizontal radius of geofence cylinder. Geofence disabled if 0.
 Max Altitude | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | Height of geofence cylinder. Geofence disabled if 0.
 

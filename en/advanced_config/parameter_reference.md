@@ -4,6 +4,231 @@
 <span></span>
 > **Note** If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](http://docs.px4.io/master/en/advanced_config/parameters.html#missing).
 
+## UAVCAN Motor Parameters
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="ctl_bw">ctl_bw</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Speed controller bandwidth</p><p><strong>Comment:</strong> Speed controller bandwidth, in Hz. Higher values result in faster speed and current rise times, but may result in overshoot and higher current consumption. For fixed-wing aircraft, this value should be less than 50 Hz; for multirotors, values up to 100 Hz may provide improvements in responsiveness.</p>   </td>
+ <td style="vertical-align: top;">10 > 250 </td>
+ <td style="vertical-align: top;">75</td>
+ <td style="vertical-align: top;">Hertz</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ctl_dir">ctl_dir</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Reverse direction</p><p><strong>Comment:</strong> Motor spin direction as detected during initial enumeration. Use 0 or 1 to reverse direction.</p>   </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ctl_gain">ctl_gain</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Speed (RPM) controller gain</p><p><strong>Comment:</strong> Speed (RPM) controller gain. Determines controller
+            aggressiveness; units are amp-seconds per radian. Systems with
+            higher rotational inertia (large props) will need gain increased;
+            systems with low rotational inertia (small props) may need gain
+            decreased. Higher values result in faster response, but may result
+            in oscillation and excessive overshoot. Lower values result in a
+            slower, smoother response.</p>   </td>
+ <td style="vertical-align: top;">0.00 > 1.00 </td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;">amp-seconds per radian</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ctl_hz_idle">ctl_hz_idle</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Idle speed (e Hz)</p><p><strong>Comment:</strong> Idle speed (e Hz)</p>   </td>
+ <td style="vertical-align: top;">0.0 > 100.0 </td>
+ <td style="vertical-align: top;">3.5</td>
+ <td style="vertical-align: top;">Hertz</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="ctl_start_rate">ctl_start_rate</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Spin-up rate (e Hz/s)</p><p><strong>Comment:</strong> Spin-up rate (e Hz/s)</p>   </td>
+ <td style="vertical-align: top;">5 > 1000 </td>
+ <td style="vertical-align: top;">25</td>
+ <td style="vertical-align: top;">Hz/s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="esc_index">esc_index</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Index of this ESC in throttle command messages.</p><p><strong>Comment:</strong> Index of this ESC in throttle command messages.</p>   </td>
+ <td style="vertical-align: top;">0 > 15 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;">Index</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="id_ext_status">id_ext_status</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Extended status ID</p><p><strong>Comment:</strong> Extended status ID</p>   </td>
+ <td style="vertical-align: top;">1 > 1000000 </td>
+ <td style="vertical-align: top;">20034</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="int_ext_status">int_ext_status</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Extended status interval (µs)</p><p><strong>Comment:</strong> Extended status interval (µs)</p>   </td>
+ <td style="vertical-align: top;">0 > 1000000 </td>
+ <td style="vertical-align: top;">50000</td>
+ <td style="vertical-align: top;">µs</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="int_status">int_status</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ESC status interval (µs)</p><p><strong>Comment:</strong> ESC status interval (µs)</p>   </td>
+ <td style="vertical-align: top;">? > 1000000 </td>
+ <td style="vertical-align: top;">50000</td>
+ <td style="vertical-align: top;">µs</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_i_max">mot_i_max</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Motor current limit in amps</p><p><strong>Comment:</strong> Motor current limit in amps. This determines the maximum
+            current controller setpoint, as well as the maximum allowable
+            current setpoint slew rate. This value should generally be set to
+            the continuous current rating listed in the motor’s specification
+            sheet, or set equal to the motor’s specified continuous power
+            divided by the motor voltage limit.</p>   </td>
+ <td style="vertical-align: top;">1 > 80 </td>
+ <td style="vertical-align: top;">12</td>
+ <td style="vertical-align: top;">Amps</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_kv">mot_kv</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Motor Kv in RPM per volt</p><p><strong>Comment:</strong> Motor Kv in RPM per volt. This can be taken from the motor’s
+            specification sheet; accuracy will help control performance but
+            some deviation from the specified value is acceptable.</p>   </td>
+ <td style="vertical-align: top;">0 > 4000 </td>
+ <td style="vertical-align: top;">2300</td>
+ <td style="vertical-align: top;">RPM/v</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_ls">mot_ls</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>READ ONLY: Motor inductance in henries.</p><p><strong>Comment:</strong> READ ONLY: Motor inductance in henries. This is measured on start-up.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">henries</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_num_poles">mot_num_poles</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Number of motor poles.</p><p><strong>Comment:</strong> Number of motor poles. Used to convert mechanical speeds to
+            electrical speeds. This number should be taken from the motor’s
+            specification sheet.</p>   </td>
+ <td style="vertical-align: top;">2 > 40 </td>
+ <td style="vertical-align: top;">14</td>
+ <td style="vertical-align: top;">Poles</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_rs">mot_rs</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>READ ONLY: Motor resistance in ohms</p><p><strong>Comment:</strong> READ ONLY: Motor resistance in ohms. This is measured on start-up. When
+            tuning a new motor, check that this value is approximately equal
+            to the value shown in the motor’s specification sheet.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">Ohms</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_v_accel">mot_v_accel</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Acceleration limit (V)</p><p><strong>Comment:</strong> Acceleration limit (V)</p>   </td>
+ <td style="vertical-align: top;">0.01 > 1.00 </td>
+ <td style="vertical-align: top;">0.5</td>
+ <td style="vertical-align: top;">Volts</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="mot_v_max">mot_v_max</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Motor voltage limit in volts</p><p><strong>Comment:</strong> Motor voltage limit in volts. The current controller’s
+            commanded voltage will never exceed this value. Note that this may
+            safely be above the nominal voltage of the motor; to determine the
+            actual motor voltage limit, divide the motor’s rated power by the
+            motor current limit.</p>   </td>
+ <td style="vertical-align: top;">0 > ? </td>
+ <td style="vertical-align: top;">14.8</td>
+ <td style="vertical-align: top;">Volts</td>
+</tr>
+</tbody></table>
+
+## UAVCAN GNSS
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+ <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
+ <thead>
+   <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
+ </thead>
+<tbody>
+<tr>
+ <td style="vertical-align: top;"><strong id="gnss.dyn_model">gnss.dyn_model</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>GNSS dynamic model</p><p><strong>Comment:</strong> Dynamic model used in the GNSS positioning engine. 0 –
+        Automotive, 1 – Sea, 2 – Airborne.
+      </p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Automotive</li> 
+
+<li><strong>1:</strong> Sea</li> 
+
+<li><strong>2:</strong> Airborne</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 2 </td>
+ <td style="vertical-align: top;">2</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="gnss.old_fix_msg">gnss.old_fix_msg</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Broadcast old GNSS fix message</p><p><strong>Comment:</strong> Broadcast the old (deprecated) GNSS fix message
+        uavcan.equipment.gnss.Fix alongside the new alternative
+        uavcan.equipment.gnss.Fix2. It is recommended to
+        disable this feature to reduce the CAN bus traffic.
+      </p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Fix2</li> 
+
+<li><strong>1:</strong> Fix and Fix2</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="gnss.warn_dimens">gnss.warn_dimens</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>device health warning</p><p><strong>Comment:</strong> Set the device health to Warning if the dimensionality of
+              the GNSS solution is less than this value. 3 for the full (3D)
+              solution, 2 for planar (2D) solution, 1 for time-only solution,
+              0 disables the feature.
+      </p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> disables the feature</li> 
+
+<li><strong>1:</strong> time-only solution</li> 
+
+<li><strong>2:</strong> planar (2D) solution</li> 
+
+<li><strong>3:</strong> full (3D) solution</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 3 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="gnss.warn_sats">gnss.warn_sats</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p></p><p><strong>Comment:</strong> Set the device health to Warning if the number of satellites
+        used in the GNSS solution is below this threshold. Zero
+        disables the feature
+      </p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="uavcan.pubp-pres">uavcan.pubp-pres</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p></p><p><strong>Comment:</strong> Set the device health to Warning if the number of satellites
+        used in the GNSS solution is below this threshold. Zero
+        disables the feature
+      </p>   </td>
+ <td style="vertical-align: top;">0 > 1000000 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;">microseconds</td>
+</tr>
+</tbody></table>
+
 ## Airspeed Validator
 
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
@@ -776,9 +1001,9 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TRIG_PINS">TRIG_PINS</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Camera trigger pin</p><p><strong>Comment:</strong> Selects which FMU pin is used (range: AUX1-AUX6 on Pixhawk controllers with an I/O board, MAIN1-MAIN6 on controllers without an I/O board. The PWM interface takes two pins per camera, while relay triggers on every pin individually. Example: Value 56 would trigger on pins 5 and 6. For GPIO mode Pin 6 will be triggered followed by 5. With a value of 65 pin 5 will be triggered followed by 6. Pins may be non contiguous. I.E. 16 or 61. In GPIO mode the delay pin to pin is < .2 uS.</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>Camera trigger pin</p><p><strong>Comment:</strong> Selects which FMU pin is used (range: AUX1-AUX8 on Pixhawk controllers with an I/O board, MAIN1-MAIN8 on controllers without an I/O board. The PWM interface takes two pins per camera, while relay triggers on every pin individually. Example: Value 56 would trigger on pins 5 and 6. For GPIO mode Pin 6 will be triggered followed by 5. With a value of 65 pin 5 will be triggered followed by 6. Pins may be non contiguous. I.E. 16 or 61. In GPIO mode the delay pin to pin is < .2 uS. Note: only with a value of 56 or 78 it is possible to use the lower pins for actuator outputs (e.g. ESC's).</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">1 > 123456 </td>
+ <td style="vertical-align: top;">1 > 12345678 </td>
  <td style="vertical-align: top;">56</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -1352,6 +1577,13 @@ Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;"><p>Timeout value for disarming when kill switch is engaged</p>   </td>
  <td style="vertical-align: top;">0.0 > 30.0 (0.1)</td>
  <td style="vertical-align: top;">5.0</td>
+ <td style="vertical-align: top;">s</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_LKDOWN_TKO">COM_LKDOWN_TKO</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Timeout for detecting a failure after takeoff</p><p><strong>Comment:</strong> A non-zero, positive value specifies the timeframe in seconds within failure detector is allowed to put the vehicle into a lockdown state if attitude exceeds the limits defined in FD_FAIL_P and FD_FAIL_R. The check is not executed for flight modes that do support acrobatic maneuvers, e.g: Acro (MC/FW), Rattitude and Manual (FW). A zero or negative value means that the check is disabled.</p>   </td>
+ <td style="vertical-align: top;">-1.0 > 5.0 </td>
+ <td style="vertical-align: top;">3.0</td>
  <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
@@ -3396,6 +3628,16 @@ Set to 0 to disable heading hold</p>   </td>
  </thead>
 <tbody>
 <tr>
+ <td style="vertical-align: top;"><strong id="FD_ESCS_EN">FD_ESCS_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable checks on ESCs that report their arming state.
+If enabled, failure detector will verify that all the ESCs have successfully armed when the vehicle has transitioned to the armed state.
+Timeout for receiving an acknowledgement from the ESCs is 0.3s, if no feedback is received the failure detector will auto disarm the vehicle</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Enabled (1)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="FD_EXT_ATS_EN">FD_EXT_ATS_EN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Enable PWM input on AUX5 or MAIN5 (depending on board) for engaging failsafe from an external
 automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is required by ASTM F3322-18.</p>   <p><b>Reboot required:</b> true</p>
@@ -3646,9 +3888,11 @@ but also ignore less noise</p>   </td>
 <li><strong>3:</strong> Return mode</li> 
 
 <li><strong>4:</strong> Terminate</li> 
+
+<li><strong>5:</strong> Land mode</li> 
 </ul>
   </td>
- <td style="vertical-align: top;">0 > 4 </td>
+ <td style="vertical-align: top;">0 > 5 </td>
  <td style="vertical-align: top;">1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -3833,27 +4077,6 @@ Value 0 turns the functionality off</p>   </td>
  <td style="vertical-align: top;">-1 > 10000 </td>
  <td style="vertical-align: top;">-1.0</td>
  <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="LNDMC_FFALL_THR">LNDMC_FFALL_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Multicopter specific force threshold</p><p><strong>Comment:</strong> Multicopter threshold on the specific force measured by accelerometers in m/s^2 for free-fall detection</p>   </td>
- <td style="vertical-align: top;">0.1 > 10 </td>
- <td style="vertical-align: top;">2.0</td>
- <td style="vertical-align: top;">m/s^2</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="LNDMC_FFALL_TTRI">LNDMC_FFALL_TTRI</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Multicopter free-fall trigger time</p><p><strong>Comment:</strong> Seconds (decimal) that freefall conditions have to met before triggering a freefall. Minimal value is limited by LAND_DETECTOR_UPDATE_RATE=50Hz in landDetector.h</p>   </td>
- <td style="vertical-align: top;">0.02 > 5 </td>
- <td style="vertical-align: top;">0.3</td>
- <td style="vertical-align: top;">s</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="LNDMC_LOW_T_THR">LNDMC_LOW_T_THR</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Low throttle detection threshold</p><p><strong>Comment:</strong> Defines the commanded throttle value below which the land detector considers the vehicle to have "low thrust". This is one condition that is used to detect the ground contact state. The value is calculated as val = (MPC_THR_HOVER - MPC_THR_MIN) * LNDMC_LOW_T_THR + MPC_THR_MIN Increase this value if the system takes long time to detect landing.</p>   </td>
- <td style="vertical-align: top;">0.1 > 0.9 </td>
- <td style="vertical-align: top;">0.3</td>
- <td style="vertical-align: top;">norm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LNDMC_ROT_MAX">LNDMC_ROT_MAX</strong> (FLOAT)</td>
@@ -9605,7 +9828,7 @@ to takeoff is reached</p>   </td>
  <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 > 1023 </td>
- <td style="vertical-align: top;">3</td>
+ <td style="vertical-align: top;">1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10057,10 +10280,50 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>24:</strong> Pitch 90°</li> 
 
 <li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+
+<li><strong>42:</strong> Roll 270°, Yaw 270°</li> 
+
+<li><strong>43:</strong> Pitch 90°, Yaw 180°</li> 
+
+<li><strong>44:</strong> Pitch 9°, Yaw 180°</li> 
+
+<li><strong>45:</strong> Pitch 45°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 30 </td>
+ <td style="vertical-align: top;">-1 > 45 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10209,10 +10472,50 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>24:</strong> Pitch 90°</li> 
 
 <li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+
+<li><strong>42:</strong> Roll 270°, Yaw 270°</li> 
+
+<li><strong>43:</strong> Pitch 90°, Yaw 180°</li> 
+
+<li><strong>44:</strong> Pitch 9°, Yaw 180°</li> 
+
+<li><strong>45:</strong> Pitch 45°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 30 </td>
+ <td style="vertical-align: top;">-1 > 45 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10361,10 +10664,50 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>24:</strong> Pitch 90°</li> 
 
 <li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+
+<li><strong>42:</strong> Roll 270°, Yaw 270°</li> 
+
+<li><strong>43:</strong> Pitch 90°, Yaw 180°</li> 
+
+<li><strong>44:</strong> Pitch 9°, Yaw 180°</li> 
+
+<li><strong>45:</strong> Pitch 45°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 30 </td>
+ <td style="vertical-align: top;">-1 > 45 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10513,10 +10856,50 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>24:</strong> Pitch 90°</li> 
 
 <li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+
+<li><strong>42:</strong> Roll 270°, Yaw 270°</li> 
+
+<li><strong>43:</strong> Pitch 90°, Yaw 180°</li> 
+
+<li><strong>44:</strong> Pitch 9°, Yaw 180°</li> 
+
+<li><strong>45:</strong> Pitch 45°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 30 </td>
+ <td style="vertical-align: top;">-1 > 45 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10779,7 +11162,14 @@ is less than 50% of this value</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="IMU_INTEG_RATE">IMU_INTEG_RATE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>IMU integration rate</p><p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities. Recommended to set this to a multiple of the estimator update period (currently 10 ms for ekf2).</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>IMU integration rate</p><p><strong>Comment:</strong> The rate at which raw IMU data is integrated to produce delta angles and delta velocities. Recommended to set this to a multiple of the estimator update period (currently 10 ms for ekf2).</p> <strong>Values:</strong><ul>
+<li><strong>100:</strong> 100 Hz</li> 
+
+<li><strong>200:</strong> 200 Hz</li> 
+
+<li><strong>400:</strong> 400 Hz</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">100 > 1000 </td>
  <td style="vertical-align: top;">200</td>
@@ -10851,6 +11241,14 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;">500 > 1500 </td>
  <td style="vertical-align: top;">1013.25</td>
  <td style="vertical-align: top;">hPa</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SENS_BARO_RATE">SENS_BARO_RATE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Baro max rate</p><p><strong>Comment:</strong> Barometric air data maximum publication rate. This is an upper bound, actual barometric data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">1 > 200 </td>
+ <td style="vertical-align: top;">20.0</td>
+ <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_BOARD_ROT">SENS_BOARD_ROT</strong> (INT32)</td>
@@ -11050,7 +11448,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_PAW3902">SENS_EN_PAW3902</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>PAW3902 Optical Flow</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>PAW3902 & PAW3903 Optical Flow</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
@@ -14472,9 +14870,7 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_RC_HELP">MPC_LAND_RC_HELP</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable user assisted descent speed for autonomous land routine.
-When enabled, descent speed will be equal to MPC_LAND_SPEED at half throttle,
-MPC_Z_VEL_MAX_DN at zero throttle, and 0.5 * MPC_LAND_SPEED at full throttle</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Enable user assisted descent speed for autonomous land routine</p><p><strong>Comment:</strong> When enabled, descent speed will be: stick full up - 0 stick centered - MPC_LAND_SPEED stick full down - 2 * MPC_LAND_SPEED</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Fixed descent speed of MPC_LAND_SPEED</li> 
 
 <li><strong>1:</strong> User assisted descent speed</li> 

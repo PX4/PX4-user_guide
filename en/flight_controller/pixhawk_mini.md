@@ -1,8 +1,6 @@
-# Pixhawk Mini
+# Holybro Pixhawk Mini
 
-> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
-
-The 3DR<sup>&reg;</sup> *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk (designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>).
+The Holybro *Pixhawk<sup>&reg;</sup> Mini* autopilot is a next-generation evolution of the Pixhawk.
 It is about 1/3rd the size of the original Pixhawk and has more powerful processors and sensors.
 
 The Pixhawk Mini is based on the PX4 open-hardware project and has been optimized for the PX4 flight stack.
@@ -10,6 +8,12 @@ The Pixhawk Mini is based on the PX4 open-hardware project and has been optimize
 ![Pixhawk Mini](../../images/pixhawk_mini_hero.jpg)
 
 Wiring information is available [below](#wiring).
+
+> **Note** This flight controller was designed by 3DR in collaboration with HobbyKing<sup>&reg;</sup>.
+  It was formerly known as the 3DR Pixhawk Mini.
+
+<span></span>
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
 
 ## Specifications
 
@@ -57,7 +61,7 @@ Wiring information is available [below](#wiring).
 
 ## Purchase
 
-[shop.holybro.com](https://shop.holybro.com/pixhawk-mini_p1078.html)
+[shop.holybro.com](https://shop.holybro.com/c/pixhawk-mini_0461)
 
 ## Connector assignments
 
@@ -89,7 +93,7 @@ The Pixhawk Mini is shipped with new **GPS module**:
 
 ## Kit package
 
-The 3DR *Pixhawk Mini* is shipped with the following contents:
+The *Pixhawk Mini* is shipped with the following contents:
 
 Component | Image
 --- | --- 

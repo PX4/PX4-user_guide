@@ -31,7 +31,6 @@ An example is shown below.
 
 ![FrSky-Taranis-Telemetry](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
 
- 
 > **Tip** When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
   Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
   
