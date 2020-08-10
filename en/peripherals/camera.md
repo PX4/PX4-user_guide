@@ -33,10 +33,9 @@ Mode | Description
 
 ## Trigger Hardware Configuration {#hardware_setup}
 
-On Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0) for capturing.
-(this is automatically enabled when `TRIG_INTERFACE` is 0/GPIO or 1:Seagull).
+On Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0) to signal PX4 that an image has been captured (this is not available on earlier Pixhawk FMU versions).
 
-For other FMUv versions you choose the pins to use for GPIO, PWM or Seagull-based triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
+The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
 The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
 > **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). 
@@ -55,9 +54,9 @@ The camera trigger driver supports several backends - each for a specific applic
 Number | Description
 --- | ---
 1 | enables the GPIO interface. The AUX outputs are pulsed high or low (depending on the `TRIG_POLARITY` parameter) every [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) duration. This can be used to trigger most standard machine vision cameras directly. Note that on PX4FMU series hardware (Pixhawk, Pixracer, etc.), the signal level on the AUX pins is 3.3v.
-2  | Enables the Seagull MAP2 interface. This allows the use of the [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) to interface to a multitude of supported cameras. Pin 1 of the MAP2 should be connected to the lower AUX pin of `TRIG_PINS` (therefore, pin 1 to AUX 5 and pin 2 to AUX 6 by default). In this mode, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1.
+2  | Enables the Seagull MAP2 interface. This allows the use of the [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) to interface to a multitude of supported cameras. Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher AUX pins of `TRIG_PINS`, respectively (therefore, channel/pin 1 to AUX 5 and channel/pin 2 to AUX 6 by default). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1.
 3 | Enables the MAVLink interface. In this mode, no actual hardware output is used. Only the `CAMERA_TRIGGER` MAVLink message is sent by the autopilot (by default, if the MAVLink application is in `onboard` mode. Otherwise, a custom stream will need to be enabled).
-4 | Enables the generic PWM interface. This allows the use of [infrared triggers](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) or servos to trigger your camera.
+4 | Enables the generic PWM interface. This allows the use of [infrared triggers](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) or servos to trigger your camera. The trigger signal is duplicated on both pins specified using `TRIG_PINS`.
 
 ## Other Parameters 
 
@@ -118,7 +117,7 @@ In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony
 
 The recommended camera settings are:
 
-* `TRIG_INTERFAC=2` (Seagull MAP2).
+* `TRIG_INTERFACE=2` (Seagull MAP2).
 * `TRIG_MODE=4` (Mission controlled).
 * Leave the remaining parameters at their defaults.
 
@@ -177,7 +176,7 @@ The following diagram illustrates the sequence of events which must happen in or
 
 ![Sequence diag](../../assets/camera/sequence_diagram.jpg)
 
-<!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-edito
+<!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-editor
 {/% mermaid %/}
 sequenceDiagram
   Note right of PX4 : Time sync with mavros is done automatically
