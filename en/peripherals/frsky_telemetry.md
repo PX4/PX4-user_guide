@@ -13,34 +13,37 @@ FrSky telemetry requires:
 
 * An [FrSky-compatible RC transmitter](#transmitters) like the FrSky Taranis X9D Plus.
 * An [FrSky telemetry-capable receiver](#receivers) like the XSR and X8R.
-* A cable to connect the FrSky receiver Smart Port to a flight controller UART.
+* A cable to connect the FrSky receiver Smart Port (SPort) to a flight controller UART.
 
 First [connect the reciever for RC channels](../getting_started/rc_transmitter_receiver.md#connecting-receivers), e.g. connect the S.Bus ports on the reciever and the flight controller.
 
-Then set up FrSky telemetry by separately connecting the S.Port on the receiver to any free UART on the flight controller, and then [configure PX4 to run FrSky telemetry on that UART](#configure).
+Then set up FrSky telemetry by separately connecting the SPort on the receiver to any free UART on the flight controller, and then [configure PX4 to run FrSky telemetry on that UART](#configure).
 
-If using an S.Port receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins (and then configure PX4).
+This is done slightly differently, depending on whether the SPort receiver has a pin for an uninverted output, and/or the Pixhawk version.
 
-If using an receiver with an *inverted* S.Port you use a converter cable to split the S.Port into to uninverted TX and RX.
-An example of this connection for Pixhawk/S.Port telemetry is shown below.
+
+### Pixhawk FMUv4 (and prior)
+
+For Pixhawk FMUv4 and earlier, UART ports and receiver telemetry ports are typically incompatible (with the exception of [Pixracer](../flight_controller/pixracer.md)).
+
+Generally SPort receivers have an *inverted* S.Port signal and you have to use a converter cable to split the S.Port into uninverted TX and RX for connecting to the Pixhawk UART.
+An example is shown below.
 
 ![FrSky-Taranis-Telemetry](../../assets/hardware/telemetry/frsky_telemetry_overview.jpg)
 
-  > **Warning** Except for [Pixracer](../flight_controller/pixracer.md), Pixhawk-series UART ports and receiver telemetry ports are incompatible, and must (usually) be connected via an adapter. 
+ 
+> **Tip** When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
+  Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
   
-  <span></span>
-  > **Tip** When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
-    Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
+If using an SPort receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins.
+Then [configure PX4](#configure).
 
+### Pixhawk FMUv5/STM32F7 and later
 
+For Pixhawk FMUv5 and later (or more generally, autopilots with STM32F7, STM32H7, or later like [Durandal](http://docs.px4.io/master/en/flight_controller/durandal.html)) PX4 can read inverted S.Port signals directly (i.e. no special inverter cable is required).
 
-### Ready-Made Cables {#ready_made_cable}
-
-Ready-made cables (which include the required adapters) are available from:
-* [Craft and Theory](http://www.craftandtheoryllc.com/telemetry-cable). Versions are available with DF-13 compatible *PicoBlade connectors* (for FMUv2/3DR Pixhawk, FMUv2/HKPilot32) and *JST-GH connectors* (for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1).
-
-  <a href="http://www.craftandtheoryllc.com/telemetry-cable"><img src="../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg" alt="Purchase cable here from Craft and Theory"></a>
-
+On these flight controllers the connection is the same as for an uninverted signal; simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type).
+Then [configure PX4](#configure).
   
 ## PX4 Configuration {#configure}
 
@@ -164,11 +167,17 @@ R9 slim | 10km | S.Bus (16) | Smart Port | 43.3x26.8x13.9mm | 15.8g
 
 > **Note** The above table originates from http://www.redsilico.com/frsky-receiver-chart and FrSky [product documentation](https://www.frsky-rc.com/product-category/receivers/).
 
+## Ready-Made Cables {#ready_made_cable}
+
+Ready-made cables for use with Pixhawk FMUv4 and earlier (except for Pixracer) are available from:
+* [Craft and Theory](http://www.craftandtheoryllc.com/telemetry-cable). Versions are available with DF-13 compatible *PicoBlade connectors* (for FMUv2/3DR Pixhawk, FMUv2/HKPilot32) and *JST-GH connectors* (for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1).
+
+  <a href="http://www.craftandtheoryllc.com/telemetry-cable"><img src="../../assets/hardware/telemetry/craft_and_theory_frsky_telemetry_cables.jpg" alt="Purchase cable here from Craft and Theory"></a>
 
 
 ## DIY Cables {#diy_cables}
 
-It is possible to create your own cables.
+It is possible to create your own adapter cables.
 You will need connectors that are appropriate for your autopilot (e.g. *JST-GH connectors* for FMUv3/Pixhawk 2 "The Cube" and FMUv4/PixRacer v1, and DF-13 compatible *PicoBlade connectors* for older autopilots).
 
 The Pixracer includes electronics for converting between S.PORT and UART signals, but for other boards you will need a UART to S.PORT adapter. 
@@ -205,6 +214,10 @@ GND need not be connected as this will have been done when attaching to RC/SBus 
 
 [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) can be connected to TELEM4 (no additional software configuration is needed).
 You will need to connect via a UART to S.PORT adapter board, or a [ready-made cable](#ready_made_cable).
+
+### Pixhawk FMUv5 and later
+
+Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type).
 
 
 ### Other Boards {#pixhawk_v2}
