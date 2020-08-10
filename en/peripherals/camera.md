@@ -33,10 +33,10 @@ Mode | Description
 
 ## Trigger Hardware Configuration {#hardware_setup}
 
-On Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0) for triggering
+On Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0) for capturing.
 (this is automatically enabled when `TRIG_INTERFACE` is 0/GPIO or 1:Seagull).
 
-For other FMUv versions you choose the pins to use for GPIO or Seagull-based triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
+For other FMUv versions you choose the pins to use for GPIO, PWM or Seagull-based triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
 The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
 > **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). 
