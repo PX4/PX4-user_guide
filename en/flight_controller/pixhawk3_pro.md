@@ -5,7 +5,7 @@ The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
 
 ![Pixhawk 3 Pro hero image](../../assets/hardware/hardware-pixhawk3_pro.jpg)
 
-> **Note** The main hardware documentation is here: https://pixhawk.drotek.com/en/
+> **Note** The main hardware documentation is here: https://drotek.gitbook.io/pixhawk-3-pro/hardware
 
 <span></span>
 > **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
