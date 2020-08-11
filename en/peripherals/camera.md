@@ -33,8 +33,6 @@ Mode | Description
 
 ## Trigger Hardware Configuration {#hardware_setup}
 
-On Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0) to signal PX4 that an image has been captured (this is not available on earlier Pixhawk FMU versions).
-
 The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
 The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
@@ -46,6 +44,13 @@ The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 > **Warning** With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs).
   With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs.
   Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
+  
+Some cameras can provide image capture signalling to a flight controller camera-capture pin (this enables more accurate image timestamp than the time that the trigger command is sent).
+- Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
+- Other board use FMU PWM pin 6 (hardcoded) for camera capture.
+
+> **Note** The camera driver and camera capture driver emit the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message (with timestamp and image sequence number) when image capture is triggered and signaled, respectively.
+  PX4 determines which instance to use based on the (later) timestamp.
 
 ## Trigger Interface Backends {#trigger_backend}
 
