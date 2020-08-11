@@ -42,7 +42,7 @@ Then [configure PX4](#configure).
 
 For Pixhawk FMUv5 and later PX4 can read either inverted (or uninverted) S.Port signals directly - no special cable is required.
 
-> **Note** More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal](http://docs.px4.io/master/en/flight_controller/durandal.html) has a STM32H7 and can read inverter or uninverted S.Port signals directly).
+> **Note** More generally this is true on autopilots with STM32F7 or later (e.g. [Durandal](http://docs.px4.io/master/en/flight_controller/durandal.html) has a STM32H7 and can read inverted or uninverted S.Port signals directly).
 
 Simply attach one of the UART's TX pins to the SPort inverted or uninverted pin (PX4 will auto-detect and handle either type).
 Then [configure PX4](#configure).
