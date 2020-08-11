@@ -34,7 +34,9 @@ An example is shown below.
 > **Tip** When connecting to an inverted S.Port it is usually cheaper and easier to buy a [ready made cable](#ready_made_cable) that contains this adapter and has the appropriate connectors for the autopilot and receiver. 
   Creating a [DIY cable](#diy_cables) requires electronics assembly expertise.
   
-If using an SPort receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins.
+If using an S.Port receiver with a pin for *uninverted output* you can simply attach one of the UART's TX pins.
+<!-- FYI only: The uninverted output can be used in single-wire mode so you don't need both RX and TX wires.
+Discussion of that here: https://github.com/PX4/px4_user_guide/pull/755#pullrequestreview-464046128 -->
 
 Then [configure PX4](#configure).
 
