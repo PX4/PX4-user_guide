@@ -48,9 +48,9 @@ The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 Some cameras can provide image capture signalling to a flight controller camera-capture pin (this enables more accurate image timestamp than the time that the trigger command is sent).
 - Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
 - Other board use FMU PWM pin 6 (hardcoded) for camera capture.
-
-> **Note** The camera driver and camera capture driver emit the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message (with timestamp and image sequence number) when image capture is triggered and signaled, respectively.
-  PX4 determines which instance to use based on the (later) timestamp.
+ 
+> **Note** PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message (with timestamp and image sequence number).
+  If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
 
 ## Trigger Interface Backends {#trigger_backend}
 
