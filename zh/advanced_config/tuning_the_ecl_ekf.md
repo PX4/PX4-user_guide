@@ -173,19 +173,19 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 | 321              | GPS + EV_VEL + ROTATE_EV    | 航向相关/以北为正(**Recommended**)                   |
 | 73               | GPS + EV_POS + ROTATE_EV    | 航向相关/以北为正(*Not recommended*, 使用 `EV_VEL` 替代) |
 | 24               | EV_POS + EV_YAW             | 航向相关/跟随外部视觉系统                                |
-| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North                         |
-| 272              | EV_VEL + EV_YAW             | Heading w.r.t. external vision frame         |
-| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North                         |
-| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame         |
-| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                         |
+| 72               | EV_POS + ROTATE_EV          | 航向相关/以北为正                                    |
+| 272              | EV_VEL + EV_YAW             | 航向相关/跟随外部视觉系统                                |
+| 320              | EV_VEL + ROTATE_EV          | 航向相关/以北为正                                    |
+| 280              | EV_POS + EV_VEL + EV_YAW    | 航向相关/跟随外部视觉系统                                |
+| 328              | EV_POS + EV_VEL + ROTATE_EV | 航向相关/以北为正                                    |
 
-The EKF considers uncertainty in the visual pose estimate. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
+EKF 要考虑视觉姿态估计的不确定性。 此不确定性信息可以通过 MAVLink，在 [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) 消息中的协方差字段发送，也可以通过 [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE) ，[EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) 和 [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE) 参数设置。 你可以通过 [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD) 选择不确定性数据源。
 
-## How do I use the 'ecl' library EKF?
+## 我如何启用 'ecl' 库中的 EKF ？
 
-Set the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) parameter to 2 to use the ecl EKF.
+将 [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP) 参数设置为 2 以启用 ecl EKF。
 
-## What are the advantages and disadvantages of the ecl EKF over other estimators?
+## ecl EKF 和其它估计器相比的优点和缺点是什么？
 
 Like all estimators, much of the performance comes from the tuning to match sensor characteristics. Tuning is a compromise between accuracy and robustness and although we have attempted to provide a tune that meets the needs of most users, there will be applications where tuning changes are required.
 
