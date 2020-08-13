@@ -166,18 +166,18 @@ GPS接收器提供的数据可以用基于所报告数据的精确度的加权�
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 4 位为真，则外部视觉系统姿态数据将用于偏航估计。
 * 如果 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 参数中的第 6 位为真，则外部视觉参考帧偏移将被估计并用于旋转外部视觉系统数据。
 
-要么将第 4 位(`EV_YAW`)或将第 6 位(`EV_ROTATE`)设置为 true，但不能同时设置为 true。 Following [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) values are supported when using with an external vision system.
+要么将第 4 位(`EV_YAW`)或将第 6 位(`EV_ROTATE`)设置为 true，但不能同时设置为 true。 当与外部视觉系统一起使用时，支持以下 [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) 值。
 
-| EKF_AID_MASK value | Set bits                      | Description                                                    |
-| -------------------- | ----------------------------- | -------------------------------------------------------------- |
-| 321                  | GPS + EV_VEL + ROTATE_EV    | Heading w.r.t. North (**Recommended**)                         |
-| 73                   | GPS + EV_POS + ROTATE_EV    | Heading w.r.t. North (*Not recommended*, use `EV_VEL` instead) |
-| 24                   | EV_POS + EV_YAW             | Heading w.r.t. external vision frame                           |
-| 72                   | EV_POS + ROTATE_EV          | Heading w.r.t. North                                           |
-| 272                  | EV_VEL + EV_YAW             | Heading w.r.t. external vision frame                           |
-| 320                  | EV_VEL + ROTATE_EV          | Heading w.r.t. North                                           |
-| 280                  | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame                           |
-| 328                  | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                                           |
+| EKF_AID_MASK 值 | 设置位                           | 描述                                           |
+| ---------------- | ----------------------------- | -------------------------------------------- |
+| 321              | GPS + EV_VEL + ROTATE_EV    | 航向相关/以北为正(**Recommended**)                   |
+| 73               | GPS + EV_POS + ROTATE_EV    | 航向相关/以北为正(*Not recommended*, 使用 `EV_VEL` 替代) |
+| 24               | EV_POS + EV_YAW             | 航向相关/跟随外部视觉系统                                |
+| 72               | EV_POS + ROTATE_EV          | Heading w.r.t. North                         |
+| 272              | EV_VEL + EV_YAW             | Heading w.r.t. external vision frame         |
+| 320              | EV_VEL + ROTATE_EV          | Heading w.r.t. North                         |
+| 280              | EV_POS + EV_VEL + EV_YAW    | Heading w.r.t. external vision frame         |
+| 328              | EV_POS + EV_VEL + ROTATE_EV | Heading w.r.t. North                         |
 
 The EKF considers uncertainty in the visual pose estimate. This uncertainty information can be sent via the covariance fields in the MAVLink [ODOMETRY](https://mavlink.io/en/messages/common.html#ODOMETRY) message or it can be set through the parameters [EKF2_EVP_NOISE](../advanced_config/parameter_reference.md#EKF2_EVP_NOISE), [EKF2_EVV_NOISE](../advanced_config/parameter_reference.md#EKF2_EVV_NOISE) and [EKF2_EVA_NOISE](../advanced_config/parameter_reference.md#EKF2_EVA_NOISE). You can choose the source of the uncertainty with [EKF2_EV_NOISE_MD](../advanced_config/parameter_reference.md#EKF2_EV_NOISE_MD).
 
