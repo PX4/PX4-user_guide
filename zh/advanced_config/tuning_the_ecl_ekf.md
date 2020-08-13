@@ -337,23 +337,23 @@ EKF 包含针对严重条件状态和协方差更新的内部错误检查。 请
 
 ### EKF 数值误差
 
-EKF 对其所有计算使用单精度浮点运算，并使用一阶近似来推导协方差预测和更新方程，以降低处理要求。 This means that it is possible when re-tuning the EKF to encounter conditions where the covariance matrix operations become badly conditioned enough to cause divergence or significant errors in the state estimates.
+EKF 对其所有计算使用单精度浮点运算，并使用一阶近似来推导协方差预测和更新方程，以降低处理要求。 这意味着，当重新调整 EKF 时，可能遇到协方差矩阵运算条件恶劣，足以导致状态估计中的发散或显著误差的情况。
 
-To prevent this, every covariance and state update step contains the following error detection and correction steps:
+为防止这种情况，每个协方差和状态更新步骤都包含以下错误检测和更正步骤：
 
-* If the innovation variance is less than the observation variance (this requires a negative state variance which is impossible) or the covariance update will produce a negative variance for any of the states, then: 
-  * The state and covariance update is skipped
-  * The corresponding rows and columns in the covariance matrix are reset
-  * The failure is recorded in the [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) filter\_fault\_flags message
-* State variances (diagonals in the covariance matrix) are constrained to be non-negative.
-* An upper limit is applied to state variances.
-* Symmetry is forced on the covariance matrix.
+* 如果创新方差小于观察方差（这需要一个不可能的负状态方差）或协方差更新将为任何一个状态产生负方差，那么： 
+  * 跳过状态和协方差更新
+  * 协方差矩阵中的相应行和列被重置
+  * 失败记录在 [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) filter\_fault\_flags 消息中
+* 状态方差（协方差矩阵中的对角线）被约束为非负的。
+* 状态方差应用数值上限。
+* 协方差矩阵强制对称。
 
-After re-tuning the filter, particularly re-tuning that involve reducing the noise variables, the value of `estimator_status.gps_check_fail_flags` should be checked to ensure that it remains zero.
+重新调整过滤器后，特别是需要减少噪声变量的重新调整，应检查`estimator_status.gps_check_fail_flags` 的值，以确保它保持为零。
 
-## What should I do if the height estimate is diverging?
+## 如果高度估计值发散了怎么办?
 
-The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration. If this is occurring, then the following signs should be evident in the data
+在飞行期间 EKF 高度偏离 GPS 和高度计测量的最常见原因是由振动引起的 IMU 测量的削波和/或混叠。 如果发生这种情况，则数据中应显示以下迹象
 
 * [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] and [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
 * [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).hgt\_test\_ratio will be greater than 1.0
