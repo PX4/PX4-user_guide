@@ -187,17 +187,17 @@ EKF 要考虑视觉姿态估计的不确定性。 此不确定性信息可以通
 
 ## ecl EKF 和其它估计器相比的优点和缺点是什么？
 
-Like all estimators, much of the performance comes from the tuning to match sensor characteristics. Tuning is a compromise between accuracy and robustness and although we have attempted to provide a tune that meets the needs of most users, there will be applications where tuning changes are required.
+与所有估计器一样，大部分性能来自调整以匹配传感器特性。 Tuning 是准确性和鲁棒性之间的折衷，虽然我们试图提供满足大多数用户需求的调优，但是应用程序需要调整更改。
 
-For this reason, no claims for accuracy relative to the legacy combination of `attitude_estimator_q` + `local_position_estimator` have been made and the best choice of estimator will depend on the application and tuning.
+因此，对于 `attitude_estimator_q` + `local_position_estimator` 传统组合的精度没有任何要求，估计器的最佳选择将取决于应用和调整。
 
-### Disadvantages
+### 缺点
 
-* The ecl EKF is a complex algorithm that requires a good understanding of extended Kalman filter theory and its application to navigation problems to tune successfully. It is therefore more difficult for users that are not achieving good results to know what to change.
-* The ecl EKF uses more RAM and flash space.
-* The ecl EKF uses more logging space.
+* ecl EKF 是一种复杂的算法，需要很好地理解扩展卡尔曼滤波器理论及其应用于导航中的问题才能成功调整。 因此，不知道怎么修改，用户就很难得到好结果。
+* ecl EKF 使用更多 RAM 和闪存空间。
+* ecl EKF 使用更多的日志空间。
 
-### Advantages
+### 优点
 
 * The ecl EKF is able to fuse data from sensors with different time delays and data rates in a mathematically consistent way which improves accuracy during dynamic maneuvers once time delay parameters are set correctly.
 * The ecl EKF is capable of fusing a large range of different sensor types.
