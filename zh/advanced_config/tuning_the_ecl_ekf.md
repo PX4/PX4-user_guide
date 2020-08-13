@@ -257,18 +257,18 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 
 > **注意** 消息具有相同的字段，因为它们是从相同的字段定义生成的。 `# TOPICS` 行(位于 [the file](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg) 末尾)列出了要创建的消息集的名字： ```# TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios```
 
-Some of the observations are:
+一些观察值为：
 
-* Magnetometer XYZ (gauss, gauss^2) : `mag_field[3]`
-* Yaw angle (rad, rad^2) : `heading`
-* True Airspeed (m/s, (m/s)^2) : `airspeed`
-* Synthetic sideslip (rad, rad^2) : `beta`
-* Optical flow XY (rad/sec, (rad/s)^2) : `flow`
-* Height above ground (m, m^2) : `hagl`
-* Drag specific force ((m/s)^2): `drag`
-* Velocity and position innovations : per sensor
+* 磁力计 XYZ (gauss, gauss^2) : `mag_field[3]`
+* 偏航角度 (rad, rad^2) : `heading`
+* 空速真值 (m/s, (m/s)^2) : `airspeed`
+* 合成侧滑 (rad, rad^2) : `beta`
+* 光流 XY (rad/sec, (rad/s)^2) : `flow`
+* 距地高度 (m, m^2) : `hagl`
+* 阻力比力 ((m/s)^2): `drag`
+* 速度和位置新息：每个传感器
 
-In addition, each sensor has its own fields for horizontal and vertical position and/or velocity values (where appropriate). These are largely self documenting, and are reproduced below:
+此外，每个传感器都有其自己的字段，即横向和纵向位置和/或速度值（视情况而定）。 这些基本上是自我描述的，现摘录如下：
 
     # GPS
     float32[2] gps_hvel # horizontal GPS velocity innovation (m/sec) and innovation variance ((m/sec)**2)
@@ -297,14 +297,14 @@ In addition, each sensor has its own fields for horizontal and vertical position
     float32    aux_vvel # vertical auxiliar velocity innovation from landing target measurement (m/sec) and innovation variance ((m/sec)**2)
     
 
-### Output Complementary Filter
+### 输出互补滤波器
 
-The output complementary filter is used to propagate states forward from the fusion time horizon to current time. To check the magnitude of the angular, velocity and position tracking errors measured at the fusion time horizon, refer to `output_tracking_error[3]` in the `ekf2_innovations` message.
+输出互补滤波器用于将状态从融合时间范围向前传播到当前时间。 要检查在融合时间范围内测量的角度，速度和位置跟踪误差的大小，请参阅 `ekf2_innovations` 消息中的 `output_tracking_error[3]` 。
 
-The index map is as follows:
+索引映射如下：
 
-* [0] Angular tracking error magnitude (rad)
-* [1] Velocity tracking error magnitude (m/s). The velocity tracking time constant can be adjusted using the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED velocity outputs.
+* \[0\] 角度跟踪误差幅度 (rad)
+* \[1\] 速度跟踪误差幅度 (m/s)。 可以使用 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) 参数调整速度跟踪时间常数。 Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED velocity outputs.
 * [2] Position tracking error magnitude \(m\). The position tracking time constant can be adjusted using the [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED position outputs.
 
 ### EKF Errors
