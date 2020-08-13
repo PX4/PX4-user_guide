@@ -304,23 +304,23 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 索引映射如下：
 
 * \[0\] 角度跟踪误差幅度 (rad)
-* \[1\] 速度跟踪误差幅度 (m/s)。 可以使用 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) 参数调整速度跟踪时间常数。 Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED velocity outputs.
-* [2] Position tracking error magnitude \(m\). The position tracking time constant can be adjusted using the [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameter. Reducing this parameter reduces steady state errors but increases the amount of observation noise on the NED position outputs.
+* \[1\] 速度跟踪误差幅度 (m/s)。 可以使用 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) 参数调整速度跟踪时间常数。 减小此参数可减少稳态误差，但会增加 NED 速度输出上的观察噪声量。
+* \[2\] 位置跟踪误差幅度 \(m\)。 可以使用[EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) 参数调整位置跟踪时间常数。 减小此参数可减少稳态误差，但会增加 NED 位置输出上的观察噪声量。
 
-### EKF Errors
+### EKF 错误
 
-The EKF contains internal error checking for badly conditioned state and covariance updates. Refer to the filter\_fault\_flags in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
+EKF 包含针对严重条件状态和协方差更新的内部错误检查。 请参阅 [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) 中的 filter\_fault\_flags。
 
-### Observation Errors
+### 观察错误
 
-There are two categories of observation faults:
+有两种类型观察错误：
 
-* Loss of data. An example of this is a range finder failing to provide a return.
-* The innovation, which is the difference between the state prediction and sensor observation is excessive. An example of this is excessive vibration causing a large vertical position error, resulting in the barometer height measurement being rejected.
+* 数据丢失。 一个例子是测距仪无法提供返回数据。
+* 新息，即状态预测和传感器观察之间的差异过度。 这种情况的一个例子是过度振动导致大的垂直位置误差，导致气压计高度测量被拒绝。
 
-Both of these can result in observation data being rejected for long enough to cause the EKF to attempt a reset of the states using the sensor observations. All observations have a statistical confidence checks applied to the innovations. The number of standard deviations for the check are controlled by the `EKF2_*_GATE` parameter for each observation type.
+这两者都可能导致观察数据被拒绝，如果时间足够长，使得 EKF 尝试重置状态以使用传感器观察数据。 所有观察结果均对新息进行了统计置信度检查。 检查的标准偏差数由每种观察类型的 `EKF2_*_GATE` 参数控制。
 
-Test levels are available in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) as follows:
+测试级别在 [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) 中可用，如下所示：
 
 * `mag_test_ratio`: ratio of the largest magnetometer innovation component to the innovation test limit
 * `vel_test_ratio`: ratio of the largest velocity innovation component to the innovation test limit
