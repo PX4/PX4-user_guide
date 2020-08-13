@@ -322,22 +322,22 @@ EKF 包含针对严重条件状态和协方差更新的内部错误检查。 请
 
 测试级别在 [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) 中可用，如下所示：
 
-* `mag_test_ratio`: ratio of the largest magnetometer innovation component to the innovation test limit
-* `vel_test_ratio`: ratio of the largest velocity innovation component to the innovation test limit
-* `pos_test_ratio`: ratio of the largest horizontal position innovation component to the innovation test limit
-* `hgt_test_ratio`: ratio of the vertical position innovation to the innovation test limit
-* `tas_test_ratio`: ratio of the true airspeed innovation to the innovation test limit
-* `hagl_test_ratio`: ratio of the height above ground innovation to the innovation test limit
+* `mag_test_ratio`：磁力计最大新息分量与新息测试极限之比
+* `vel_test_ratio`：最大速度新息分量与新息测试极限的比率
+* `pos_test_ratio`：最大水平位置新息分量与新息测试极限的比率
+* `hgt_test_ratio`：垂直位置新息与新息测试限制的比率
+* `tas_test_ratio`：真正的空速新息与新息测试极限的比率
+* `hagl_test_ratio`：距地高度新息与新息测试限制的比率
 
-For a binary pass/fail summary for each sensor, refer to innovation\_check\_flags in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
+有关每个传感器的二进制通过/失败摘要，请参阅 [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) 中的 innovation\_check\_flags。
 
-### GPS Quality Checks
+### GPS 数据质量检查
 
-The EKF applies a number of GPS quality checks before commencing GPS aiding. These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters. The pass/fail status for these checks is logged in the [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).gps\_check\_fail\_flags message. This integer will be zero when all required GPS checks have passed. If the EKF is not commencing GPS alignment, check the value of the integer against the bitmask definition `gps_check_fail_flags` in [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).
+在开始 GPS 辅助之前，EKF 应用了许多 GPS 数据质量检查。 这些检查由 [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) 和 `EKF2_REQ_*` 参数控制。 这些检查的通过/失败状态记录在 [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).gps\_check\_fail\_flags 消息中。 所有必需的 GPS 检查通过后，此整数将为零。 如果 EKF 未开始 GPS 对齐，请根据 [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg)中的位掩码定义`gps_check_fail_flags` 检查整数的值。
 
-### EKF Numerical Errors
+### EKF 数值误差
 
-The EKF uses single precision floating point operations for all of its computations and first order approximations for derivation of the covariance prediction and update equations in order to reduce processing requirements. This means that it is possible when re-tuning the EKF to encounter conditions where the covariance matrix operations become badly conditioned enough to cause divergence or significant errors in the state estimates.
+EKF 对其所有计算使用单精度浮点运算，并使用一阶近似来推导协方差预测和更新方程，以降低处理要求。 This means that it is possible when re-tuning the EKF to encounter conditions where the covariance matrix operations become badly conditioned enough to cause divergence or significant errors in the state estimates.
 
 To prevent this, every covariance and state update step contains the following error detection and correction steps:
 
