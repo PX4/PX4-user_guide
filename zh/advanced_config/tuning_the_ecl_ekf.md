@@ -232,30 +232,30 @@ EKF 输出，状态和状态数据发布到许多 uORB 主题，这些主题在�
 * \[7 ... 9\] 位置 NED \(m\)
 * \[10 ... 12\] IMU 增量角度偏差 XYZ \(rad\)
 * \[13 ... 15\] IMU 增量速度偏差 XYZ \(m/s\)
-* \[16 ... 18\] Earth magnetic field NED \(gauss\)
-* \[19 ... 21\] Body magnetic field XYZ \(gauss\)
-* \[22 ... 23\] Wind velocity NE \(m/s\)
-* \[24 ... 32\] Not Used
+* \[16 ... 18\] 地球磁场 NED \(gauss\)
+* \[19 ... 21\] 机体磁场 XYZ \(gauss\)
+* \[22 ... 23\] 风速 NE \(m/s\)
+* \[24 ... 32\] 未使用
 
-### State Variances
+### 状态变量
 
-Refer to covariances\[28\] in [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg). The index map for covariances\[28\] is as follows:
+请参阅 [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) 中的 covariances\[28\]。 covariances\[28\] 的索引映射如下：
 
-* \[0 ... 3\] Quaternions
-* \[4 ... 6\] Velocity NED \(m/s\)^2
-* \[7 ... 9\] Position NED \(m^2\)
-* \[10 ... 12\] IMU delta angle bias XYZ \(rad^2\)
-* \[13 ... 15\] IMU delta velocity bias XYZ \(m/s\)^2
-* \[16 ... 18\] Earth magnetic field NED \(gauss^2\)
-* \[19 ... 21\] Body magnetic field XYZ \(gauss^2\)
-* \[22 ... 23\] Wind velocity NE \(m/s\)^2
-* \[24 ... 28\] Not Used
+* \[0 ... 3\] 四元数
+* \[4 ... 6\] 速度 NED \(m/s\)^2
+* \[7 ... 9\] 位置 NED \(m^2\)
+* \[10 ... 12\] IMU 增量角度偏差 XYZ \(rad^2\)
+* \[13 ... 15\] IMU 增量速度偏差 XYZ \(m/s\)^2
+* \[16 ... 18\] 地球磁场 NED \(gauss^2\)
+* \[19 ... 21\] 机体磁场 XYZ \(gauss^2\)
+* \[22 ... 23\] 风速 NE \(m/s\)^2
+* \[24 ... 28\] 未使用
 
-### Observation Innovations & Innovation Variances
+### 观察新息和新息变量
 
-The observation `estimator_innovations`, `estimator_innovation_variances`, and `estimator_innovation_test_ratios` message fields are defined in [estimator_innovations.msg](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg). The messages all have the same field names/types (but different units).
+观测 `estimator_innovations`, `estimator_innovation_variances`, 和 `estimator_innovation_test_ratios` 的消息字段定义于 [estimator_innovations.msg](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg)。 消息都有相同的字段名称/类型(但是单位不同)。
 
-> **Note** The messages have the same fields because they are generated from the same field definition. The `# TOPICS` line (at the end of [the file](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg)) lists the names of the set of messages to be created): ```# TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios```
+> **注意** 消息具有相同的字段，因为它们是从相同的字段定义生成的。 `# TOPICS` 行(位于 [the file](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg) 末尾)列出了要创建的消息集的名字： ```# TOPICS estimator_innovations estimator_innovation_variances estimator_innovation_test_ratios```
 
 Some of the observations are:
 
