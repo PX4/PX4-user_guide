@@ -355,37 +355,37 @@ EKF 对其所有计算使用单精度浮点运算，并使用一阶近似来推�
 
 在飞行期间 EKF 高度偏离 GPS 和高度计测量的最常见原因是由振动引起的 IMU 测量的削波和/或混叠。 如果发生这种情况，则数据中应显示以下迹象
 
-* [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] and [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
-* [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).hgt\_test\_ratio will be greater than 1.0
+* [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] 和 [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] 将具有相同的符号。
+* [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).hgt\_test\_ratio 将大于 1.0
 
-The recommended first step is to ensure that the autopilot is isolated from the airframe using an effective isolation mounting system. An isolation mount has 6 degrees of freedom, and therefore 6 resonant frequencies. As a general rule, the 6 resonant frequencies of the autopilot on the isolation mount should be above 25Hz to avoid interaction with the autopilot dynamics and below the frequency of the motors.
+建议第一步是确保使用有效的隔离安装系统将无人机与机身隔离。 隔离安装座具有 6 个自由度，因此具有 6 个谐振频率。 作为一般规则，隔离支架上的自动驾驶仪的 6 个共振频率应高于 25Hz，以避免与无人机动力学相互作用并低于电动机的频率。
 
-An isolation mount can make vibration worse if the resonant frequencies coincide with motor or propeller blade passage frequencies.
+如果谐振频率与电动机或螺旋桨叶片通过频率一致，则隔离安装件会使振动更严重。
 
-The EKF can be made more resistant to vibration induced height divergence by making the following parameter changes:
+通过进行以下参数更改，可以使 EKF 更加抵抗振动引起的高度发散：
 
-* Double the value of the innovation gate for the primary height sensor. If using barometric height this is [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE).
-* Increase the value of [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) to 0.5 initially. If divergence is still occurring, increase in further increments of 0.1 but do not go above 1.0
+* 将主要的高度传感器的新息通道的值加倍。 如果使用气压高度，则设置 [EKF2_BARO_GATE](../advanced_config/parameter_reference.md#EKF2_BARO_GATE)。
+* 初始化时将 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 的值增加到 0.5。 如果仍然出现发散，则进一步增加 0.1，但不要超过 1.0。
 
-Note that the effect of these changes will make the EKF more sensitive to errors in GPS vertical velocity and barometric pressure.
+注意 这些变化的影响将使 EKF 对 GPS 垂直速度和气压的误差更敏感。
 
-## What should I do if the position estimate is diverging?
+## 如果位置估计发散了应该怎么办?
 
-The most common causes of position divergence are:
+位置发散的最常见原因是：
 
-* High vibration levels. 
-  * Fix by improving mechanical isolation of the autopilot.
-  * Increasing the value of [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) and [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) can help, but does make the EKF more vulnerable to GPS glitches.
-* Large gyro bias offsets. 
-  * Fix by re-calibrating the gyro. Check for excessive temperature sensitivity (&gt; 3 deg/sec bias change during warm-up from a cold start and replace the sensor if affected of insulate to to slow the rate of temperature change.
-* Bad yaw alignment 
-  * Check the magnetometer calibration and alignment.
-  * Check the heading shown QGC is within within 15 deg truth
-* Poor GPS accuracy 
-  * Check for interference
-  * Improve separation and shielding
-  * Check flying location for GPS signal obstructions and reflectors \(nearby tall buildings\)
-* Loss of GPS
+* 高振动级别。 
+  * 通过改进无人机的机械隔离来解决。
+  * 增加 [EKF2_ACC_NOISE](../advanced_config/parameter_reference.md#EKF2_ACC_NOISE) 和 [EKF2_GYR_NOISE](../advanced_config/parameter_reference.md#EKF2_GYR_NOISE) 的值会有所帮助，但确实会使 EKF 更容易受到 GPS 故障的影响。
+* 过大的陀螺仪偏差偏移。 
+  * 通过重新校准陀螺仪来修复。 检查过高的温度灵敏度（在冷启动预热期间 &gt; 3 度/秒的偏差变化），如果受到隔热影响，则更换传感器以减缓温度变化的速度。
+* 不好的偏航对齐 
+  * 检查磁力计校准和对齐。
+  * 检查显示的航向 QGC 是否在 15 度以内
+* GPS 精度差 
+  * 检查是否有干扰
+  * 改善隔离和屏蔽
+  * 检查飞行位置是否有 GPS 信号障碍物和反射器（附近的高层建筑）
+* GPS 数据丢失
 
 Determining which of these is the primary cause requires a methodical approach to analysis of the EKF log data:
 
