@@ -398,29 +398,29 @@ EKF 对其所有计算使用单精度浮点运算，并使用一阶近似来推�
 * 绘制 EKF 内部高频振动指标： 
   * 增量角度圆锥振动 - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vibe\[0\]
   * 高频增量角度振动 - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vibe\[1\]
-  * High frequency delta velocity vibration - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vibe\[2\]
+  * 高频增量速度振动 - [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).vibe\[2\]
 
-During normal operation, all the test ratios should remain below 0.5 with only occasional spikes above this as shown in the example below from a successful flight:
+在正常操作期间，所有测试比率应保持在 0.5 以下，并且只有偶然的峰值高于此值，如下面成功飞行中的示例所示：
 
 ![Position, Velocity, Height and Magnetometer Test Ratios](../../assets/ecl/test_ratios_-_successful.png)
 
-The following plot shows the EKF vibration metrics for a multirotor with good isolation. The landing shock and the increased vibration during takeoff and landing can be seen. Insufficient data has been gathered with these metrics to provide specific advice on maximum thresholds.
+下图显示了具有良好隔离的多旋翼飞行器的 EKF 振动指标。 可以看到着陆冲击和起飞和着陆期间增加的振动。 如果收集的数据不足，使用这些指标无法提供有关最大阈值的具体建议。
 
 ![Vibration metrics - successful](../../assets/ecl/vibration_metrics_-_successful.png)
 
-The above vibration metrics are of limited value as the presence of vibration at a frequency close to the IMU sampling frequency (1 kHz for most boards) will cause offsets to appear in the data that do not show up in the high frequency vibration metrics. The only way to detect aliasing errors is in their effect on inertial navigation accuracy and the rise in innovation levels.
+上述振动指标的数值有限值，因为在接近 IMU 采样频率的频率下存在的振动（大多数电路板为 1kHz）将导致在高频振动指标中未显示的数据中出现偏移。 检测混叠误差的唯一方法是它们对惯性导航精度和新息水平的提高。
 
-In addition to generating large position and velocity test ratios of &gt; 1.0, the different error mechanisms affect the other test ratios in different ways:
+除了生成 &gt; 1.0 的大的位置和速度测试比率外，不同的误差机制还以不同的方式影响其它测试比率：
 
-### Determination of Excessive Vibration
+### 振动过大的测定
 
-High vibration levels normally affect vertical position and velocity innovations as well as the horizontal components. Magnetometer test levels are only affected to a small extent.
+高振动级别通常会影响垂直位置和速度新息以及水平分量。 磁力计测试级别仅受到很小程度的影响。
 
 \(insert example plots showing bad vibration here\)
 
-### Determination of Excessive Gyro Bias
+### 过度陀螺偏差的测定
 
-Large gyro bias offsets are normally characterised by a change in the value of delta angle bias greater than 5E-4 during flight (equivalent to ~3 deg/sec) and can also cause a large increase in the magnetometer test ratio if the yaw axis is affected. Height is normally unaffected other than extreme cases. Switch on bias value of up to 5 deg/sec can be tolerated provided the filter is given time settle before flying. Pre-flight checks performed by the commander should prevent arming if the position is diverging.
+大的陀螺偏差偏移通常的特征是在飞行期间增量角度偏差值的变化大于 5E-4（相当于 ~3 度/秒），并且如果偏航轴受到影响，也会导致磁强计测试比大幅增加。 除极端情况外，高度通常不受影响。 如果滤波器在飞行前给定时间稳定，则可以容忍接通最高 5 度/秒的偏差值。 Pre-flight checks performed by the commander should prevent arming if the position is diverging.
 
 \(insert example plots showing bad gyro bias here\)
 
