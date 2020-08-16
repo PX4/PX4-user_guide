@@ -1,8 +1,10 @@
 # SP Racing H7 EXTREME (PX4 Edition)
 
-The SP Racing H7 EXTREME is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(*) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
+The SP Racing H7 EXTREME is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(+) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
 
-It can be used easily for small to large quads but also for planes, octocoptors and more advanced frames.  It's best used with separate ESCs as it features a built-in power distribution board (PDB), but wiring up a 4in1 ESC is easy too.
+It can be used easily for small to large quads, planes, octocoptors and more advanced frames.
+It's best used with separate ESCs as it features a built-in power distribution board (PDB).
+Wiring up a 4in1 ESC is easy too.
 
 There is also a 12 pin stacking connector which provides 4 more motor outputs, SPI and a UART connectivity. 
 
@@ -15,7 +17,7 @@ There is also a 12 pin stacking connector which provides 4 more motor outputs, S
 ## Key Features
 
 * Main System-on-Chip: [STM32H750VBT6 rev.y/v](https://www.st.com/en/microcontrollers-microprocessors/stm32h750vb.html)
-  * CPU: 400/480Mhz(*) ARM Cortex M7 with single-precision FPU. (* 480Mhz with Rev V CPUs)
+  * CPU: 400/480Mhz(+) ARM Cortex M7 with single-precision FPU. (+ 480Mhz with Rev V CPUs)
   * RAM: 1MB
   * 16MB External Flash 4-bit QuadSPI in Memory Mapped mode for code *and* config.
 * On-board sensors:
@@ -71,7 +73,8 @@ The SPRacing H7 Extreme PX4 Edition is available from the [Seriously Pro shop](h
 
 ## Manual, Pinouts and Connection Diagrams
 
-The manual with pinouts can be downloaded from [here](http://seriouslypro.com/files/SPRacingH7EXTREME-Manual-latest.pdf).  See the [SP Racing H7 Extreme website](http://seriouslypro.com/spracingh7extreme) for other diagrams.
+The manual with pinouts can be downloaded from [here](http://seriouslypro.com/files/SPRacingH7EXTREME-Manual-latest.pdf).
+See the [SP Racing H7 Extreme website](http://seriouslypro.com/spracingh7extreme) for other diagrams.
 
 ## Credits
 
