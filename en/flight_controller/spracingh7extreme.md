@@ -71,7 +71,7 @@ The SPRacing H7 Extreme PX4 Editioin is available from the [Seriously Pro shop](
 
 ## Manual, Pinouts and Connection Diagrams
 
-The manual and connection diagrams can be downloaded from the [SP Racing H7 Extreme website](http://seriouslypro.com/spracingh7extreme)
+The manual with pinouts can be downloaded from [here](http://seriouslypro.com/files/SPRacingH7EXTREME-Manual-latest.pdf).  See the [SP Racing H7 Extreme website](http://seriouslypro.com/spracingh7extreme) for other diagrams.
 
 ## Credits
 
