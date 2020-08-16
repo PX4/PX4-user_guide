@@ -65,7 +65,7 @@ There is also a 12 pin stacking connector which provides 4 more motor outputs, S
 
 ## Where to Buy
 
-The SPRacing H7 Extreme PX4 Editioin is available from the [Seriously Pro shop](https://shop.seriouslypro.com/sp-racing-h7-extreme).
+The SPRacing H7 Extreme PX4 Edition is available from the [Seriously Pro shop](https://shop.seriouslypro.com/sp-racing-h7-extreme).
 
 > **Note** Select the PX4 edition when purchasing!
 
