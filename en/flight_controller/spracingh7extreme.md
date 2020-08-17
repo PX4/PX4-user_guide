@@ -6,11 +6,11 @@ It can be used easily for small to large quads, planes, octocoptors and more adv
 It's best used with separate ESCs as it features a built-in power distribution board (PDB).
 Wiring up a 4in1 ESC is easy too.
 
-There is also a 12 pin stacking connector which provides 4 more motor outputs, SPI and a UART connectivity. 
+There is also a 12 pin stacking connector which provides 4 more motor outputs, SPI and a UART connectivity.
 
-![SPRacingH7EXTREME PCB Top](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-top.jpg)
+![SP Racing H7 EXTREME PCB Top](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-top.jpg)
 
-![SPRacingH7EXTREME PCB Bottom](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
+![SP Racing H7 EXTREME PCB Bottom](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
 
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
