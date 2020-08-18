@@ -32,7 +32,7 @@ This section lists the autopilot hardware documented in this library (that can b
   - [mRo Control Zero](../flight_controller/mro_control_zero_f7.md)
   - [NXP RDDRONE-FMUK66 FMU](../flight_controller/nxp_rddrone_fmuk66.md)
   - [Omnibus F4 SD](../flight_controller/omnibus_f4_sd.md)
-  - [SPRacingH7EXTREME](../flight_controller/spracingh7extreme.md)
+  - [SP Racing H7 EXTREME](../flight_controller/spracingh7extreme.md)
 - [Experimental/Discontinued Autopilots](../flight_controller/autopilot_experimental.md) 
   - [3DR Pixhawk 1 (FMUv2) (Discontinued)](../flight_controller/pixhawk.md)
   - [Aerotenna OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md)
