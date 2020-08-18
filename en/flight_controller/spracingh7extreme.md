@@ -1,6 +1,6 @@
 # SP Racing H7 EXTREME (PX4 Edition)
 
-The SP Racing H7 EXTREME is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(+) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
+The [SP Racing H7 EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme) is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(+) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
 
 It can be used easily for small to large quads, planes, octocoptors and more advanced frames.
 It's best used with separate ESCs as it features a built-in power distribution board (PDB).
