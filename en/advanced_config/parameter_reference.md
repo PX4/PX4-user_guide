@@ -12346,6 +12346,22 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VOXLPM_SHUNT_BAT">VOXLPM_SHUNT_BAT</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>VOXL Power Monitor Shunt, Battery</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0.000000001 > 0.1 (.000000001)</td>
+ <td style="vertical-align: top;">0.00063</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="VOXLPM_SHUNT_REG">VOXLPM_SHUNT_REG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>VOXL Power Monitor Shunt, Regulator</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0.000000001 > 0.1 (.000000001)</td>
+ <td style="vertical-align: top;">0.0056</td>
+ <td style="vertical-align: top;"></td>
+</tr>
 </tbody></table>
 
 ## Serial
