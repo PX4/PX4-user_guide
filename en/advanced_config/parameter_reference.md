@@ -11058,6 +11058,21 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="BAT_SMBUS_MODEL">BAT_SMBUS_MODEL</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Battery device model</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> AutoDetect</li> 
+
+<li><strong>1:</strong> BQ40Z50 based</li> 
+
+<li><strong>2:</strong> BQ40Z80 based</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 2 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_AIR_CMODEL">CAL_AIR_CMODEL</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Airspeed sensor compensation model for the SDP3x</p><p><strong>Comment:</strong> Model with Pitot CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Model without Pitot (1.5 mm tubes) CAL_AIR_TUBED_MM: Not used, 1.5 mm tubes assumed. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor. Tube Pressure Drop CAL_AIR_TUBED_MM: Diameter in mm of the pitot and tubes, must have the same diameter. CAL_AIR_TUBELEN: Length of the tubes connecting the pitot to the sensor and the static + dynamic port length of the pitot.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Model with Pitot</li> 
@@ -11404,7 +11419,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_BATT">SENS_EN_BATT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>SMBUS Smart battery driver (BQ40Z50)</p>   <p><b>Reboot required:</b> true</p>
+ <td style="vertical-align: top;"><p>SMBUS Smart battery driver BQ40Z50 and BQ40Z80</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
