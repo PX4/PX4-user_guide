@@ -1773,8 +1773,8 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_RC_STICK_OV">COM_RC_STICK_OV</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>RC stick override threshold</p><p><strong>Comment:</strong> If an RC stick is moved more than by this amount the system will interpret this as override request by the pilot.</p>   </td>
- <td style="vertical-align: top;">5 > 40 (0.05)</td>
- <td style="vertical-align: top;">12.0</td>
+ <td style="vertical-align: top;">5 > 80 (0.05)</td>
+ <td style="vertical-align: top;">50.0</td>
  <td style="vertical-align: top;">%</td>
 </tr>
 <tr>
