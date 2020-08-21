@@ -1225,7 +1225,7 @@ Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than
  <td style="vertical-align: top;"><p>Maximum magnetic field inconsistency between units that will allow arming
 Set -1 to disable the check</p>   </td>
  <td style="vertical-align: top;">3 > 180 </td>
- <td style="vertical-align: top;">30</td>
+ <td style="vertical-align: top;">45</td>
  <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
@@ -9924,17 +9924,30 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC0_EN">CAL_ACC0_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Accelerometer 0 enabled</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Enabled (1)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC0_ID">CAL_ACC0_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_PRIO">CAL_ACC0_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Accelerometer 0 priority</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">50</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -9980,17 +9993,30 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC1_EN">CAL_ACC1_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Accelerometer 1 enabled</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Enabled (1)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC1_ID">CAL_ACC1_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC1_PRIO">CAL_ACC1_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Accelerometer 1 priority</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">50</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10036,17 +10062,30 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC2_EN">CAL_ACC2_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Accelerometer 2 enabled</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Enabled (1)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC2_ID">CAL_ACC2_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC2_PRIO">CAL_ACC2_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Accelerometer 2 priority</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">50</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10092,24 +10131,30 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_ACC_PRIME">CAL_ACC_PRIME</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Primary accel ID</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO0_EN">CAL_GYRO0_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro 0 enabled</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Enabled (1)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO0_ID">CAL_GYRO0_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of the Gyro that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO0_PRIO">CAL_GYRO0_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Gyro 0 priority</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">50</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10134,17 +10179,30 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO1_EN">CAL_GYRO1_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro 1 enabled</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Enabled (1)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO1_ID">CAL_GYRO1_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of the Gyro that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO1_PRIO">CAL_GYRO1_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Gyro 1 priority</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">50</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10169,17 +10227,30 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO2_EN">CAL_GYRO2_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Gyro 2 enabled</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Enabled (1)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO2_ID">CAL_GYRO2_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of the Gyro that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO2_PRIO">CAL_GYRO2_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Gyro 2 priority</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">50</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10204,24 +10275,30 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_GYRO_PRIME">CAL_GYRO_PRIME</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Primary gyro ID</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG0_EN">CAL_MAG0_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 0 enabled</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Enabled (1)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG0_ID">CAL_MAG0_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of Magnetometer the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_PRIO">CAL_MAG0_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Mag 0 priority</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">50</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10339,6 +10416,13 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_XODIAG">CAL_MAG0_XODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer X-axis off diagonal factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG0_XOFF">CAL_MAG0_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10359,6 +10443,13 @@ Y component of magnetometer in body frame axis
 and either current or throttle depending on value of CAL_MAG_COMP_TYP
 Unit for throttle-based compensation is [G] and
 for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_YODIAG">CAL_MAG0_YODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Y-axis off diagonal factor</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
@@ -10389,6 +10480,13 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG0_ZODIAG">CAL_MAG0_ZODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Z-axis off diagonal factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG0_ZOFF">CAL_MAG0_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10403,17 +10501,30 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG1_EN">CAL_MAG1_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 1 enabled</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Enabled (1)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG1_ID">CAL_MAG1_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of Magnetometer the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_PRIO">CAL_MAG1_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Mag 1 priority</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">50</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10531,6 +10642,13 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_XODIAG">CAL_MAG1_XODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer X-axis off diagonal factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG1_XOFF">CAL_MAG1_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10551,6 +10669,13 @@ Y component of magnetometer in body frame axis
 and either current or throttle depending on value of CAL_MAG_COMP_TYP
 Unit for throttle-based compensation is [G] and
 for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_YODIAG">CAL_MAG1_YODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Y-axis off diagonal factor</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
@@ -10581,6 +10706,13 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG1_ZODIAG">CAL_MAG1_ZODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Z-axis off diagonal factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG1_ZOFF">CAL_MAG1_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10595,17 +10727,30 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG2_EN">CAL_MAG2_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 2 enabled</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Enabled (1)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG2_ID">CAL_MAG2_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of Magnetometer the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG2_PRIO">CAL_MAG2_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Mag 2 priority</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">50</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10723,6 +10868,13 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG2_XODIAG">CAL_MAG2_XODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer X-axis off diagonal factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG2_XOFF">CAL_MAG2_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10743,6 +10895,13 @@ Y component of magnetometer in body frame axis
 and either current or throttle depending on value of CAL_MAG_COMP_TYP
 Unit for throttle-based compensation is [G] and
 for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG2_YODIAG">CAL_MAG2_YODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Y-axis off diagonal factor</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
@@ -10773,6 +10932,13 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG2_ZODIAG">CAL_MAG2_ZODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Z-axis off diagonal factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG2_ZOFF">CAL_MAG2_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10787,13 +10953,6 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG3_EN">CAL_MAG3_EN</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Mag 3 enabled</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Enabled (1)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG3_ID">CAL_MAG3_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of Magnetometer the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10801,8 +10960,28 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_PRIO">CAL_MAG3_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Mag 3 priority</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 3 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Internal mag</li> 
 
 <li><strong>0:</strong> No rotation</li> 
@@ -10915,6 +11094,13 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_XODIAG">CAL_MAG3_XODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer X-axis off diagonal factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG3_XOFF">CAL_MAG3_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10935,6 +11121,13 @@ Y component of magnetometer in body frame axis
 and either current or throttle depending on value of CAL_MAG_COMP_TYP
 Unit for throttle-based compensation is [G] and
 for current-based compensation [G/kA]</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_YODIAG">CAL_MAG3_YODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Y-axis off diagonal factor</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
  <td style="vertical-align: top;"></td>
@@ -10965,6 +11158,13 @@ for current-based compensation [G/kA]</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG3_ZODIAG">CAL_MAG3_ZODIAG</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer Z-axis off diagonal factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG3_ZOFF">CAL_MAG3_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Magnetometer Z-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10990,13 +11190,6 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>3:</strong> Current-based compensation (battery_status instance 1)</li> 
 </ul>
   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="CAL_MAG_PRIME">CAL_MAG_PRIME</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Primary mag ID</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
@@ -11101,8 +11294,15 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;">meter</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_MAG_ROT_AUTO">CAL_MAG_ROT_AUTO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Automatically set external rotations</p><p><strong>Comment:</strong> During calibration attempt to automatically determine the rotation of external magnetometers.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Enabled (1)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG_SIDES">CAL_MAG_SIDES</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Bitfield selecting mag sides for calibration</p><p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: DETECT_ORIENTATION_TAIL_DOWN = 1 DETECT_ORIENTATION_NOSE_DOWN = 2 DETECT_ORIENTATION_LEFT = 4 DETECT_ORIENTATION_RIGHT = 8 DETECT_ORIENTATION_UPSIDE_DOWN = 16 DETECT_ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Bitfield selecting mag sides for calibration</p><p><strong>Comment:</strong> If set to two side calibration, only the offsets are estimated, the scale calibration is left unchanged. Thus an initial six side calibration is recommended. Bits: ORIENTATION_TAIL_DOWN = 1 ORIENTATION_NOSE_DOWN = 2 ORIENTATION_LEFT = 4 ORIENTATION_RIGHT = 8 ORIENTATION_UPSIDE_DOWN = 16 ORIENTATION_RIGHTSIDE_UP = 32</p> <strong>Values:</strong><ul>
 <li><strong>34:</strong> Two side calibration</li> 
 
 <li><strong>38:</strong> Three side calibration</li> 
@@ -11651,6 +11851,14 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SENS_MAG_RATE">SENS_MAG_RATE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Magnetometer max rate</p><p><strong>Comment:</strong> Magnetometer data maximum publication rate. This is an upper bound, actual magnetometer data rate is still dependant on the sensor.</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">1 > 200 </td>
+ <td style="vertical-align: top;">50.0</td>
+ <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_MB12_0_ROT">SENS_MB12_0_ROT</strong> (INT32)</td>
