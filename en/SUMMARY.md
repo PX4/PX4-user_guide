@@ -142,6 +142,7 @@
   * [Serial Port Configuration](peripherals/serial_configuration.md)
   * [GPS/Compass](gps_compass/README.md)
     * [RTK GPS](gps_compass/rtk_gps.md)
+      * [Holybro H-RTK](gps_compass/rtk_gps_holybro_h-rtk.md)
       * [Hex Here+](gps_compass/rtk_gps_hex_hereplus.md)
       * [Drotek XL](gps_compass/rtk_gps_drotek_xl.md)
       * [CUAV C-RTK](gps_compass/rtk_gps_cuav_c-rtk.md)
