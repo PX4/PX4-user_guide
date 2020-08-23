@@ -8,16 +8,8 @@ Using RTK allows PX4 to get its position with centimeter-level accuracy, which i
 
 * [Holybro Website](https://shop.holybro.com/h-rtk-m8p_p1221.html)
 
-![h-rtk_rover](../../assets/hardware/gps/rtk_holybro_h-rtk_rover.jpg)
-*Holybro H-RTK M8p Rover*
-
-![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk.jpg)
-*Holybro H-RTK M8P*
-
-![h-rtk_base](../../assets/hardware/gps/rtk_holybro_h-rtk_base.jpg)
-*Holybro H-RTK M8p Base*
-
-
+![h-rtk_rover](../../assets/hardware/gps/rtk_holybro_h-rtk_all.jpg)
+*H-RTK M8P Rover, H-RTK M8P, H-RTK M8P Base*
 
 ## Configuration
 
@@ -31,11 +23,7 @@ All H-RTK GNSS models comes with a GH 10-pin connector/cable that is compatible 
 
 ## Pin Map
 
-![h-rtk_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_rover_pinmap.png)
-*Holybro H-RTK M8P Rover Pin Map*
-
-![h-rtk_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_pinmap.png)
-*Holybro H-RTK M8P Pin Map*
+![h-rtk_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_pinmap.jpg)
 
 ## Specification and Model Comparison
 
