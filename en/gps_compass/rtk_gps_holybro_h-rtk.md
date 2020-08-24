@@ -4,12 +4,13 @@ The [Holybro H-RTK M8P GNSS](http://www.holybro.com/product/h-rtk-m8p-rover-lite
 
 Using RTK allows PX4 to get its position with centimeter-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
+![h-rtk_rover](../../assets/hardware/gps/rtk_holybro_h-rtk_all.jpg)
+*H-RTK M8P Rover, H-RTK M8P, H-RTK M8P Base*
+
 ## Purchase
 
 * [Holybro Website](https://shop.holybro.com/h-rtk-m8p_p1221.html)
 
-![h-rtk_rover](../../assets/hardware/gps/rtk_holybro_h-rtk_all.jpg)
-*H-RTK M8P Rover, H-RTK M8P, H-RTK M8P Base*
 
 ## Configuration
 
@@ -17,11 +18,11 @@ RTK setup and use on PX4 via _QGroundControl_ is largely plug and play \(see [RT
 
 ## Wiring and Connections
 
-All H-RTK GNSS models comes with a GH 10-pin connector/cable that is compatible with [Pixhawk 4](../flight_controller/pixhawk4.md).
+All H-RTK GNSS models come with a GH 10-pin connector/cable that is compatible with [Pixhawk 4](../flight_controller/pixhawk4.md).
 
-> **Note** The cables/connectors may need to be modified in order to connect to other flight controller boards.
+> **Note** The cables/connectors may need to be modified in order to connect to other flight controller boards (see [pin map](#pin_map)below).
 
-## Pin Map
+## Pin Map {#pin_map}
 
 ![h-rtk_rover_pinmap](../../assets/hardware/gps/rtk_holybro_h-rtk_pinmap.jpg)
 
