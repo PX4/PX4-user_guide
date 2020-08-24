@@ -17,7 +17,7 @@
  <td style="vertical-align: top;"><p>Speed controller bandwidth</p><p><strong>Comment:</strong> Speed controller bandwidth, in Hz. Higher values result in faster speed and current rise times, but may result in overshoot and higher current consumption. For fixed-wing aircraft, this value should be less than 50 Hz; for multirotors, values up to 100 Hz may provide improvements in responsiveness.</p>   </td>
  <td style="vertical-align: top;">10 > 250 </td>
  <td style="vertical-align: top;">75</td>
- <td style="vertical-align: top;">Hertz</td>
+ <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ctl_dir">ctl_dir</strong> (INT32)</td>
@@ -37,28 +37,28 @@
             slower, smoother response.</p>   </td>
  <td style="vertical-align: top;">0.00 > 1.00 </td>
  <td style="vertical-align: top;">1</td>
- <td style="vertical-align: top;">amp-seconds per radian</td>
+ <td style="vertical-align: top;">C/rad</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ctl_hz_idle">ctl_hz_idle</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Idle speed (e Hz)</p><p><strong>Comment:</strong> Idle speed (e Hz)</p>   </td>
  <td style="vertical-align: top;">0.0 > 100.0 </td>
  <td style="vertical-align: top;">3.5</td>
- <td style="vertical-align: top;">Hertz</td>
+ <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ctl_start_rate">ctl_start_rate</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Spin-up rate (e Hz/s)</p><p><strong>Comment:</strong> Spin-up rate (e Hz/s)</p>   </td>
  <td style="vertical-align: top;">5 > 1000 </td>
  <td style="vertical-align: top;">25</td>
- <td style="vertical-align: top;">Hz/s</td>
+ <td style="vertical-align: top;">1/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="esc_index">esc_index</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Index of this ESC in throttle command messages.</p><p><strong>Comment:</strong> Index of this ESC in throttle command messages.</p>   </td>
  <td style="vertical-align: top;">0 > 15 </td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">Index</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="id_ext_status">id_ext_status</strong> (INT32)</td>
@@ -72,14 +72,14 @@
  <td style="vertical-align: top;"><p>Extended status interval (µs)</p><p><strong>Comment:</strong> Extended status interval (µs)</p>   </td>
  <td style="vertical-align: top;">0 > 1000000 </td>
  <td style="vertical-align: top;">50000</td>
- <td style="vertical-align: top;">µs</td>
+ <td style="vertical-align: top;">us</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="int_status">int_status</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ESC status interval (µs)</p><p><strong>Comment:</strong> ESC status interval (µs)</p>   </td>
  <td style="vertical-align: top;">? > 1000000 </td>
  <td style="vertical-align: top;">50000</td>
- <td style="vertical-align: top;">µs</td>
+ <td style="vertical-align: top;">us</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="mot_i_max">mot_i_max</strong> (FLOAT)</td>
@@ -91,7 +91,7 @@
             divided by the motor voltage limit.</p>   </td>
  <td style="vertical-align: top;">1 > 80 </td>
  <td style="vertical-align: top;">12</td>
- <td style="vertical-align: top;">Amps</td>
+ <td style="vertical-align: top;">A</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="mot_kv">mot_kv</strong> (INT32)</td>
@@ -100,14 +100,14 @@
             some deviation from the specified value is acceptable.</p>   </td>
  <td style="vertical-align: top;">0 > 4000 </td>
  <td style="vertical-align: top;">2300</td>
- <td style="vertical-align: top;">RPM/v</td>
+ <td style="vertical-align: top;">rpm/V</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="mot_ls">mot_ls</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>READ ONLY: Motor inductance in henries.</p><p><strong>Comment:</strong> READ ONLY: Motor inductance in henries. This is measured on start-up.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">henries</td>
+ <td style="vertical-align: top;">H</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="mot_num_poles">mot_num_poles</strong> (INT32)</td>
@@ -116,7 +116,7 @@
             specification sheet.</p>   </td>
  <td style="vertical-align: top;">2 > 40 </td>
  <td style="vertical-align: top;">14</td>
- <td style="vertical-align: top;">Poles</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="mot_rs">mot_rs</strong> (FLOAT)</td>
@@ -125,14 +125,14 @@
             to the value shown in the motor’s specification sheet.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">Ohms</td>
+ <td style="vertical-align: top;">Ohm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="mot_v_accel">mot_v_accel</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Acceleration limit (V)</p><p><strong>Comment:</strong> Acceleration limit (V)</p>   </td>
  <td style="vertical-align: top;">0.01 > 1.00 </td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">Volts</td>
+ <td style="vertical-align: top;">V</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="mot_v_max">mot_v_max</strong> (FLOAT)</td>
@@ -143,7 +143,7 @@
             motor current limit.</p>   </td>
  <td style="vertical-align: top;">0 > ? </td>
  <td style="vertical-align: top;">14.8</td>
- <td style="vertical-align: top;">Volts</td>
+ <td style="vertical-align: top;">V</td>
 </tr>
 </tbody></table>
 
@@ -225,7 +225,7 @@
       </p>   </td>
  <td style="vertical-align: top;">0 > 1000000 </td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">microseconds</td>
+ <td style="vertical-align: top;">us</td>
 </tr>
 </tbody></table>
 
@@ -338,7 +338,7 @@
  <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator true airspeed scale process noise</p><p><strong>Comment:</strong> Airspeed scale process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td style="vertical-align: top;">0 > 0.1 </td>
  <td style="vertical-align: top;">0.0001</td>
- <td style="vertical-align: top;">1/s</td>
+ <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="ASPD_STALL">ASPD_STALL</strong> (FLOAT)</td>
@@ -366,7 +366,7 @@
  <td style="vertical-align: top;"><p>Airspeed Selector: Wind estimator wind process noise</p><p><strong>Comment:</strong> Wind process noise of the internal wind estimator(s) of the airspeed selector.</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 </tbody></table>
 
@@ -806,7 +806,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 </td>
  <td style="vertical-align: top;">-1.0 > 0.2 </td>
  <td style="vertical-align: top;">-1.0</td>
- <td style="vertical-align: top;">Ohms</td>
+ <td style="vertical-align: top;">Ohm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="BAT_SOURCE">BAT_SOURCE</strong> (INT32)</td>
@@ -1211,7 +1211,7 @@ Note: ekf2 will limit the delta velocity bias estimate magnitude to be less than
  <td style="vertical-align: top;"><p>Maximum accelerometer inconsistency between IMU units that will allow arming</p>   </td>
  <td style="vertical-align: top;">0.1 > 1.0 (0.05)</td>
  <td style="vertical-align: top;">0.7</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_IMU_GYR">COM_ARM_IMU_GYR</strong> (FLOAT)</td>
@@ -1679,7 +1679,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </td>
  <td style="vertical-align: top;">1 > 100 </td>
  <td style="vertical-align: top;">1</td>
- <td style="vertical-align: top;">sec</td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POS_FS_EPH">COM_POS_FS_EPH</strong> (FLOAT)</td>
@@ -1709,7 +1709,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </td>
  <td style="vertical-align: top;">1 > 100 </td>
  <td style="vertical-align: top;">30</td>
- <td style="vertical-align: top;">sec</td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_POWER_COUNT">COM_POWER_COUNT</strong> (INT32)</td>
@@ -1878,14 +1878,14 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;"><p>Airfield home Lat</p><p><strong>Comment:</strong> Latitude of airfield home waypoint</p>   </td>
  <td style="vertical-align: top;">-900000000 > 900000000 </td>
  <td style="vertical-align: top;">-265847810</td>
- <td style="vertical-align: top;">deg * 1e7</td>
+ <td style="vertical-align: top;">deg*1e7</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_AH_LON">NAV_AH_LON</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Airfield home Lon</p><p><strong>Comment:</strong> Longitude of airfield home waypoint</p>   </td>
  <td style="vertical-align: top;">-1800000000 > 1800000000 </td>
  <td style="vertical-align: top;">1518423250</td>
- <td style="vertical-align: top;">deg * 1e7</td>
+ <td style="vertical-align: top;">deg*1e7</td>
 </tr>
 </tbody></table>
 
@@ -1903,7 +1903,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </td>
  <td style="vertical-align: top;">0.0 > 0.5 </td>
  <td style="vertical-align: top;">0.2</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ABL_ACCLIM">EKF2_ABL_ACCLIM</strong> (FLOAT)</td>
@@ -1912,7 +1912,7 @@ If the magnitude of the IMU accelerometer vector exceeds this value, the EKF del
 This reduces the adverse effect of high manoeuvre accelerations and IMU nonlinerity and scale factor errors on the delta velocity bias estimates</p>   </td>
  <td style="vertical-align: top;">20.0 > 200.0 </td>
  <td style="vertical-align: top;">25.0</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ABL_GYRLIM">EKF2_ABL_GYRLIM</strong> (FLOAT)</td>
@@ -1928,7 +1928,7 @@ This reduces the adverse effect of rapid rotation rates and associated errors on
  <td style="vertical-align: top;"><p>Accelerometer bias learning limit. The ekf delta velocity bias states will be limited to within a range equivalent to +- of this value</p>   </td>
  <td style="vertical-align: top;">0.0 > 0.8 </td>
  <td style="vertical-align: top;">0.4</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ABL_TAU">EKF2_ABL_TAU</strong> (FLOAT)</td>
@@ -1944,14 +1944,14 @@ This parameter controls the time constant of the decay</p>   </td>
  <td style="vertical-align: top;"><p>Process noise for IMU accelerometer bias prediction</p>   </td>
  <td style="vertical-align: top;">0.0 > 0.01 </td>
  <td style="vertical-align: top;">3.0e-3</td>
- <td style="vertical-align: top;">m/s**3</td>
+ <td style="vertical-align: top;">m/s^3</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_ACC_NOISE">EKF2_ACC_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Accelerometer noise for covariance prediction</p>   </td>
  <td style="vertical-align: top;">0.01 > 1.0 </td>
  <td style="vertical-align: top;">3.5e-1</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_AID_MASK">EKF2_AID_MASK</strong> (INT32)</td>
@@ -2040,7 +2040,7 @@ Use EKF2_FUSE_BETA to activate sideslip fusion</p>   </td>
 This should be adjusted to minimise variance of the X-axis drag specific force innovation sequence</p>   </td>
  <td style="vertical-align: top;">1.0 > 100.0 </td>
  <td style="vertical-align: top;">25.0</td>
- <td style="vertical-align: top;">kg/m**2</td>
+ <td style="vertical-align: top;">kg/m^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_BCOEF_Y">EKF2_BCOEF_Y</strong> (FLOAT)</td>
@@ -2048,7 +2048,7 @@ This should be adjusted to minimise variance of the X-axis drag specific force i
 This should be adjusted to minimise variance of the Y-axis drag specific force innovation sequence</p>   </td>
  <td style="vertical-align: top;">1.0 > 100.0 </td>
  <td style="vertical-align: top;">25.0</td>
- <td style="vertical-align: top;">kg/m**2</td>
+ <td style="vertical-align: top;">kg/m^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_BETA_GATE">EKF2_BETA_GATE</strong> (FLOAT)</td>
@@ -2082,7 +2082,7 @@ This should be adjusted to minimise variance of the Y-axis drag specific force i
 Increasing it makes the multi-rotor wind estimates adjust more slowly</p>   </td>
  <td style="vertical-align: top;">0.5 > 10.0 </td>
  <td style="vertical-align: top;">2.5</td>
- <td style="vertical-align: top;">(m/sec**2)**2</td>
+ <td style="vertical-align: top;">(m/s^2)^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_EAS_NOISE">EKF2_EAS_NOISE</strong> (FLOAT)</td>
@@ -2176,21 +2176,21 @@ Sets the number of standard deviations used by the innovation consistency test</
 </td>
  <td style="vertical-align: top;">0.0 > 0.2 </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">rad/sec</td>
+ <td style="vertical-align: top;">rad/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GND_EFF_DZ">EKF2_GND_EFF_DZ</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Baro deadzone range for height fusion</p><p><strong>Comment:</strong> Sets the value of deadzone applied to negative baro innovations. Deadzone is enabled when EKF2_GND_EFF_DZ > 0.</p>   </td>
  <td style="vertical-align: top;">0.0 > 10.0 </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">M</td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GND_MAX_HGT">EKF2_GND_MAX_HGT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Height above ground level for ground effect zone</p><p><strong>Comment:</strong> Sets the maximum distance to the ground level where negative baro innovations are expected.</p>   </td>
  <td style="vertical-align: top;">0.0 > 5.0 </td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">M</td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_CHECK">EKF2_GPS_CHECK</strong> (INT32)</td>
@@ -2297,7 +2297,7 @@ If no airspeed measurements are avalable, the EKF-GSF AHRS calculation will assu
  <td style="vertical-align: top;"><p>Process noise for IMU rate gyro bias prediction</p>   </td>
  <td style="vertical-align: top;">0.0 > 0.01 </td>
  <td style="vertical-align: top;">1.0e-3</td>
- <td style="vertical-align: top;">rad/s**2</td>
+ <td style="vertical-align: top;">rad/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GYR_NOISE">EKF2_GYR_NOISE</strong> (FLOAT)</td>
@@ -2383,7 +2383,7 @@ This is the amount of X-axis magnetometer bias learned by the EKF and saved from
 </td>
  <td style="vertical-align: top;">-0.5 > 0.5 </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">mGauss</td>
+ <td style="vertical-align: top;">mgauss</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_Y">EKF2_MAGBIAS_Y</strong> (FLOAT)</td>
@@ -2392,7 +2392,7 @@ This is the amount of Y-axis magnetometer bias learned by the EKF and saved from
 </td>
  <td style="vertical-align: top;">-0.5 > 0.5 </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">mGauss</td>
+ <td style="vertical-align: top;">mgauss</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_Z">EKF2_MAGBIAS_Z</strong> (FLOAT)</td>
@@ -2401,7 +2401,7 @@ This is the amount of Z-axis magnetometer bias learned by the EKF and saved from
 </td>
  <td style="vertical-align: top;">-0.5 > 0.5 </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">mGauss</td>
+ <td style="vertical-align: top;">mgauss</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGB_K">EKF2_MAGB_K</strong> (FLOAT)</td>
@@ -2418,7 +2418,7 @@ This is a reference variance used to calculate the fraction of learned magnetome
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">2.5E-7</td>
- <td style="vertical-align: top;">mGauss**2</td>
+ <td style="vertical-align: top;">mgauss^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
@@ -2426,14 +2426,14 @@ This is a reference variance used to calculate the fraction of learned magnetome
 This parameter is used when the magnetometer fusion method is set automatically (EKF2_MAG_TYPE = 0). If the filtered horizontal acceleration is greater than this parameter value, then the EKF will use 3-axis magnetomer fusion</p>   </td>
  <td style="vertical-align: top;">0.0 > 5.0 </td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">m/s**2</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAG_B_NOISE">EKF2_MAG_B_NOISE</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Process noise for body magnetic field prediction</p>   </td>
  <td style="vertical-align: top;">0.0 > 0.1 </td>
  <td style="vertical-align: top;">1.0e-4</td>
- <td style="vertical-align: top;">Gauss/s</td>
+ <td style="vertical-align: top;">gauss/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAG_CHECK">EKF2_MAG_CHECK</strong> (INT32)</td>
@@ -2462,7 +2462,7 @@ This parameter is used when the magnetometer fusion method is set automatically 
  <td style="vertical-align: top;"><p>Process noise for earth magnetic field prediction</p>   </td>
  <td style="vertical-align: top;">0.0 > 0.1 </td>
  <td style="vertical-align: top;">1.0e-3</td>
- <td style="vertical-align: top;">Gauss/s</td>
+ <td style="vertical-align: top;">gauss/s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAG_GATE">EKF2_MAG_GATE</strong> (FLOAT)</td>
@@ -2476,7 +2476,7 @@ This parameter is used when the magnetometer fusion method is set automatically 
  <td style="vertical-align: top;"><p>Measurement noise for magnetometer 3-axis fusion</p>   </td>
  <td style="vertical-align: top;">0.001 > 1.0 </td>
  <td style="vertical-align: top;">5.0e-2</td>
- <td style="vertical-align: top;">Gauss</td>
+ <td style="vertical-align: top;">gauss</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAG_TYPE">EKF2_MAG_TYPE</strong> (INT32)</td>
@@ -2542,7 +2542,7 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
  <td style="vertical-align: top;"><p>Maximum lapsed time from last fusion of measurements that constrain velocity drift before the EKF will report the horizontal nav solution as invalid</p>   </td>
  <td style="vertical-align: top;">500000 > 10000000 </td>
  <td style="vertical-align: top;">5000000</td>
- <td style="vertical-align: top;">uSec</td>
+ <td style="vertical-align: top;">us</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_OF_DELAY">EKF2_OF_DELAY</strong> (FLOAT)</td>
@@ -2843,7 +2843,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Process noise for wind velocity prediction</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 </td>
  <td style="vertical-align: top;">1.0e-1</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 </tbody></table>
 
@@ -2886,21 +2886,21 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
  <td style="vertical-align: top;"><p>Acro body x max rate</p><p><strong>Comment:</strong> This is the rate the controller is trying to achieve if the user applies full roll stick input in acro mode.</p>   </td>
  <td style="vertical-align: top;">45 > 720 </td>
  <td style="vertical-align: top;">90</td>
- <td style="vertical-align: top;">degrees</td>
+ <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_ACRO_Y_MAX">FW_ACRO_Y_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Acro body y max rate</p><p><strong>Comment:</strong> This is the body y rate the controller is trying to achieve if the user applies full pitch stick input in acro mode.</p>   </td>
  <td style="vertical-align: top;">45 > 720 </td>
  <td style="vertical-align: top;">90</td>
- <td style="vertical-align: top;">degrees</td>
+ <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_ACRO_Z_MAX">FW_ACRO_Z_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Acro body z max rate</p><p><strong>Comment:</strong> This is the body z rate the controller is trying to achieve if the user applies full yaw stick input in acro mode.</p>   </td>
  <td style="vertical-align: top;">10 > 180 </td>
  <td style="vertical-align: top;">45</td>
- <td style="vertical-align: top;">degrees</td>
+ <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FW_ARSP_MODE">FW_ARSP_MODE</strong> (INT32)</td>
@@ -3451,7 +3451,7 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><p>Catapult accelerometer threshold</p><p><strong>Comment:</strong> LAUN_CAT_A for LAUN_CAT_T serves as threshold to trigger launch detection.</p>   </td>
  <td style="vertical-align: top;">0 > ? (0.5)</td>
  <td style="vertical-align: top;">30.0</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LAUN_CAT_MDEL">LAUN_CAT_MDEL</strong> (FLOAT)</td>
@@ -3615,7 +3615,7 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"><p>Maximum vertical acceleration</p><p><strong>Comment:</strong> This is the maximum vertical acceleration (in m/s/s) either up or down that the controller will use to correct speed or height errors. The default value of 7 m/s/s (equivalent to +- 0.7 g) allows for reasonably aggressive pitch changes if required to recover from under-speed conditions.</p>   </td>
  <td style="vertical-align: top;">1.0 > 10.0 (0.5)</td>
  <td style="vertical-align: top;">7.0</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 </tbody></table>
 
@@ -3651,14 +3651,14 @@ automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is r
  <td style="vertical-align: top;"><p>The PWM threshold from external automatic trigger system for engaging failsafe</p><p><strong>Comment:</strong> External ATS is required by ASTM F3322-18.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">1900</td>
- <td style="vertical-align: top;">microseconds</td>
+ <td style="vertical-align: top;">us</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FD_FAIL_P">FD_FAIL_P</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>FailureDetector Max Pitch</p><p><strong>Comment:</strong> Maximum pitch angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
  <td style="vertical-align: top;">60 > 180 </td>
  <td style="vertical-align: top;">60</td>
- <td style="vertical-align: top;">degrees</td>
+ <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FD_FAIL_P_TTRI">FD_FAIL_P_TTRI</strong> (FLOAT)</td>
@@ -3672,7 +3672,7 @@ automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is r
  <td style="vertical-align: top;"><p>FailureDetector Max Roll</p><p><strong>Comment:</strong> Maximum roll angle before FailureDetector triggers the attitude_failure flag. The flag triggers flight termination (if @CBRK_FLIGHTTERM = 0), which sets outputs to their failsafe values. On takeoff the flag triggers lockdown (irrespective of @CBRK_FLIGHTTERM), which disarms motors but does not set outputs to failsafe values. Setting this parameter to 0 disables the check</p>   </td>
  <td style="vertical-align: top;">60 > 180 </td>
  <td style="vertical-align: top;">60</td>
- <td style="vertical-align: top;">degrees</td>
+ <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="FD_FAIL_R_TTRI">FD_FAIL_R_TTRI</strong> (FLOAT)</td>
@@ -3696,14 +3696,14 @@ automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is r
  <td style="vertical-align: top;"><p>Distance to follow target from</p><p><strong>Comment:</strong> The distance in meters to follow the target at</p>   </td>
  <td style="vertical-align: top;">1.0 > ? </td>
  <td style="vertical-align: top;">8.0</td>
- <td style="vertical-align: top;">meters</td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_FT_FS">NAV_FT_FS</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Side to follow target from</p><p><strong>Comment:</strong> The side to follow the target from (front right = 0, behind = 1, front = 2, front left = 3)</p>   </td>
  <td style="vertical-align: top;">0 > 3 </td>
  <td style="vertical-align: top;">1</td>
- <td style="vertical-align: top;">n/a</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_FT_RS">NAV_FT_RS</strong> (FLOAT)</td>
@@ -3712,14 +3712,14 @@ lower numbers increase the responsiveness to changing long lat
 but also ignore less noise</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 </td>
  <td style="vertical-align: top;">0.5</td>
- <td style="vertical-align: top;">n/a</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="NAV_MIN_FT_HT">NAV_MIN_FT_HT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum follow target altitude</p><p><strong>Comment:</strong> The minimum height in meters relative to home for following a target</p>   </td>
  <td style="vertical-align: top;">8.0 > ? </td>
  <td style="vertical-align: top;">8.0</td>
- <td style="vertical-align: top;">meters</td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 </tbody></table>
 
@@ -4256,14 +4256,14 @@ by initializing the estimator to the LPE_LAT/LON parameters when global informat
  <td style="vertical-align: top;"><p>Optical flow rotation (roll/pitch) noise gain</p>   </td>
  <td style="vertical-align: top;">0.1 > 10.0 </td>
  <td style="vertical-align: top;">7.0</td>
- <td style="vertical-align: top;">m/s / (rad)</td>
+ <td style="vertical-align: top;">m/s/rad</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_FLW_RR">LPE_FLW_RR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Optical flow angular velocity noise gain</p>   </td>
  <td style="vertical-align: top;">0.0 > 10.0 </td>
  <td style="vertical-align: top;">7.0</td>
- <td style="vertical-align: top;">m/s / (rad/s)</td>
+ <td style="vertical-align: top;">m/rad</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_FLW_SCALE">LPE_FLW_SCALE</strong> (FLOAT)</td>
@@ -4293,7 +4293,7 @@ by initializing the estimator to the LPE_LAT/LON parameters when global informat
  <td style="vertical-align: top;"><p>GPS delay compensaton</p>   </td>
  <td style="vertical-align: top;">0 > 0.4 </td>
  <td style="vertical-align: top;">0.29</td>
- <td style="vertical-align: top;">sec</td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_GPS_VXY">LPE_GPS_VXY</strong> (FLOAT)</td>
@@ -4378,7 +4378,7 @@ EPV used if greater than this value</p>   </td>
  <td style="vertical-align: top;"><p>Accel bias propagation noise density</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">1e-3</td>
- <td style="vertical-align: top;">(m/s^2)/s/sqrt(Hz)</td>
+ <td style="vertical-align: top;">m/s^3/sqrt(Hz)</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_PN_P">LPE_PN_P</strong> (FLOAT)</td>
@@ -4392,14 +4392,14 @@ EPV used if greater than this value</p>   </td>
  <td style="vertical-align: top;"><p>Terrain random walk noise density, hilly/outdoor (0.1), flat/Indoor (0.001)</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.001</td>
- <td style="vertical-align: top;">(m/s)/(sqrt(hz))</td>
+ <td style="vertical-align: top;">m/s/sqrt(Hz)</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_PN_V">LPE_PN_V</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Velocity propagation noise density</p><p><strong>Comment:</strong> Increase to trust measurements more. Decrease to trust model more.</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">(m/s)/s/sqrt(Hz)</td>
+ <td style="vertical-align: top;">m/s^2/sqrt(Hz)</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_SNR_OFF_Z">LPE_SNR_OFF_Z</strong> (FLOAT)</td>
@@ -4435,7 +4435,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
  <td style="vertical-align: top;"><p>Vision delay compensaton</p><p><strong>Comment:</strong> Set to zero to enable automatic compensation from measurement timestamps</p>   </td>
  <td style="vertical-align: top;">0 > 0.1 </td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">sec</td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="LPE_VIS_XY">LPE_VIS_XY</strong> (FLOAT)</td>
@@ -5369,7 +5369,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;"><p>Pitch P gain</p><p><strong>Comment:</strong> Pitch proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>   </td>
  <td style="vertical-align: top;">0.0 > 12 (0.1)</td>
  <td style="vertical-align: top;">6.5</td>
- <td style="vertical-align: top;">1/s</td>
+ <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_RATT_TH">MC_RATT_TH</strong> (FLOAT)</td>
@@ -5390,7 +5390,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;"><p>Roll P gain</p><p><strong>Comment:</strong> Roll proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>   </td>
  <td style="vertical-align: top;">0.0 > 12 (0.1)</td>
  <td style="vertical-align: top;">6.5</td>
- <td style="vertical-align: top;">1/s</td>
+ <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YAWRATE_MAX">MC_YAWRATE_MAX</strong> (FLOAT)</td>
@@ -5404,14 +5404,14 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;"><p>Yaw P gain</p><p><strong>Comment:</strong> Yaw proportional gain, i.e. desired angular speed in rad/s for error 1 rad.</p>   </td>
  <td style="vertical-align: top;">0.0 > 5 (0.1)</td>
  <td style="vertical-align: top;">2.8</td>
- <td style="vertical-align: top;">1/s</td>
+ <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_YAW_WEIGHT">MC_YAW_WEIGHT</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Yaw weight</p><p><strong>Comment:</strong> A fraction [0,1] deprioritizing yaw compared to roll and pitch in non-linear attitude control. Deprioritizing yaw is necessary because multicopters have much less control authority in yaw compared to the other axes and it makes sense because yaw is not critical for stable hovering or 3D navigation. For yaw control tuning use MC_YAW_P. This ratio has no inpact on the yaw gain.</p>   </td>
  <td style="vertical-align: top;">0.0 > 1.0 (0.1)</td>
  <td style="vertical-align: top;">0.4</td>
- <td style="vertical-align: top;">1/s</td>
+ <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_YAWRAUTO_MAX">MPC_YAWRAUTO_MAX</strong> (FLOAT)</td>
@@ -5435,14 +5435,14 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;"><p>Average delay of the range sensor message plus the tracking delay of the position controller in seconds</p><p><strong>Comment:</strong> Only used in Position mode.</p>   </td>
  <td style="vertical-align: top;">0 > 1 </td>
  <td style="vertical-align: top;">0.4</td>
- <td style="vertical-align: top;">seconds</td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CP_DIST">CP_DIST</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Minimum distance the vehicle should keep to all obstacles</p><p><strong>Comment:</strong> Only used in Position mode. Collision avoidance is disabled by setting this parameter to a negative value</p>   </td>
  <td style="vertical-align: top;">-1 > 15 </td>
  <td style="vertical-align: top;">-1.0</td>
- <td style="vertical-align: top;">meters</td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CP_GO_NO_DATA">CP_GO_NO_DATA</strong> (FLOAT)</td>
@@ -5456,7 +5456,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
  <td style="vertical-align: top;"><p>Angle left/right from the commanded setpoint by which the collision prevention algorithm can choose to change the setpoint direction</p><p><strong>Comment:</strong> Only used in Position mode.</p>   </td>
  <td style="vertical-align: top;">0 > 90 </td>
  <td style="vertical-align: top;">30.</td>
- <td style="vertical-align: top;">[deg]</td>
+ <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MC_MAN_TILT_TAU">MC_MAN_TILT_TAU</strong> (FLOAT)</td>
@@ -5471,28 +5471,28 @@ Setting this parameter to 0 disables the filter</p>   </td>
  <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes down</p>   </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR">MPC_ACC_HOR</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Acceleration for auto and for manual</p><p><strong>Comment:</strong> Note: In manual, this parameter is only used in MPC_POS_MODE 1.</p>   </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">3.0</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and for manual mode</p><p><strong>Comment:</strong> Maximum deceleration for MPC_POS_MODE 1. Maximum acceleration and deceleration for MPC_POS_MODE 3.</p>   </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_UP_MAX">MPC_ACC_UP_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum vertical acceleration in velocity controlled modes upward</p>   </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">4.0</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ALT_MODE">MPC_ALT_MODE</strong> (INT32)</td>
@@ -5513,7 +5513,7 @@ Setting this parameter to 0 disables the filter</p>   </td>
  <td style="vertical-align: top;"><p>Slow horizontal manual deceleration for manual mode</p><p><strong>Comment:</strong> Note: This is only used when MPC_POS_MODE is set to 1.</p>   </td>
  <td style="vertical-align: top;">0.5 > 10.0 (1)</td>
  <td style="vertical-align: top;">5.0</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_HOLD_DZ">MPC_HOLD_DZ</strong> (FLOAT)</td>
@@ -5541,21 +5541,21 @@ Setting this parameter to 0 disables the filter</p>   </td>
  <td style="vertical-align: top;"><p>Jerk limit in auto mode</p><p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility.</p>   </td>
  <td style="vertical-align: top;">1.0 > 80.0 (1)</td>
  <td style="vertical-align: top;">4.0</td>
- <td style="vertical-align: top;">m/s/s/s</td>
+ <td style="vertical-align: top;">m/s^3</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Maximum jerk limit</p><p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 1 or 3.</p>   </td>
  <td style="vertical-align: top;">0.5 > 500.0 (1)</td>
  <td style="vertical-align: top;">8.0</td>
- <td style="vertical-align: top;">m/s/s/s</td>
+ <td style="vertical-align: top;">m/s^3</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_MIN">MPC_JERK_MIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Velocity-based jerk limit</p><p><strong>Comment:</strong> If this is not zero, a velocity-based maximum jerk limit is used: the applied jerk limit linearly increases with the vehicle's velocity between MPC_JERK_MIN (zero velocity) and MPC_JERK_MAX (maximum velocity). This means that the vehicle's motions are smooth for low velocities, but still allows fast direction changes or breaking at higher velocities. Set this to zero to use a fixed maximum jerk limit (MPC_JERK_MAX). Note: This is only used when MPC_POS_MODE is set to 1.</p>   </td>
  <td style="vertical-align: top;">0 > 30.0 (1)</td>
  <td style="vertical-align: top;">8.0</td>
- <td style="vertical-align: top;">m/s/s/s</td>
+ <td style="vertical-align: top;">m/s^3</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_LAND_ALT1">MPC_LAND_ALT1</strong> (FLOAT)</td>
@@ -9337,7 +9337,7 @@ default 1.5 turns per second</p>   </td>
   </td>
  <td style="vertical-align: top;">0 > 90 </td>
  <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;">degrees</td>
+ <td style="vertical-align: top;">deg</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="RTL_DESCEND_ALT">RTL_DESCEND_ALT</strong> (FLOAT)</td>
@@ -11284,14 +11284,14 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"><p>Airspeed sensor tube diameter. Only used for the Tube Pressure Drop Compensation</p>   </td>
  <td style="vertical-align: top;">0.1 > 100 </td>
  <td style="vertical-align: top;">1.5</td>
- <td style="vertical-align: top;">millimeter</td>
+ <td style="vertical-align: top;">mm</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_AIR_TUBELEN">CAL_AIR_TUBELEN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Airspeed sensor tube length</p><p><strong>Comment:</strong> See the CAL_AIR_CMODEL explanation on how this parameter should be set.</p>   </td>
  <td style="vertical-align: top;">0.01 > 2.00 </td>
  <td style="vertical-align: top;">0.2</td>
- <td style="vertical-align: top;">meter</td>
+ <td style="vertical-align: top;">m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG_ROT_AUTO">CAL_MAG_ROT_AUTO</strong> (INT32)</td>
@@ -11395,7 +11395,7 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"><p>INA226 Power Monitor Config</p>   </td>
  <td style="vertical-align: top;">0 > 65535 (1)</td>
  <td style="vertical-align: top;">18139</td>
- <td style="vertical-align: top;">u</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="INA226_CURRENT">INA226_CURRENT</strong> (FLOAT)</td>
@@ -11807,21 +11807,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>Target IMU temperature</p>   </td>
  <td style="vertical-align: top;">0 > 85.0 </td>
  <td style="vertical-align: top;">55.0</td>
- <td style="vertical-align: top;">C</td>
+ <td style="vertical-align: top;">celcius</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_IMU_TEMP_I">SENS_IMU_TEMP_I</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>IMU heater controller integrator gain value</p>   </td>
  <td style="vertical-align: top;">0 > 1.0 </td>
  <td style="vertical-align: top;">0.025</td>
- <td style="vertical-align: top;">microseconds/C</td>
+ <td style="vertical-align: top;">us/C</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_IMU_TEMP_P">SENS_IMU_TEMP_P</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>IMU heater controller proportional gain value</p>   </td>
  <td style="vertical-align: top;">0 > 2.0 </td>
  <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;">microseconds/C</td>
+ <td style="vertical-align: top;">us/C</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_LEDDAR1_CFG">SENS_LEDDAR1_CFG</strong> (INT32)</td>
@@ -13173,42 +13173,42 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>Vehicle inertia about X axis</p><p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.005)</td>
  <td style="vertical-align: top;">0.025</td>
- <td style="vertical-align: top;">kg*m*m</td>
+ <td style="vertical-align: top;">kg m^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_IXY">SIH_IXY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Vehicle cross term inertia xy</p><p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
  <td style="vertical-align: top;">(0.005)</td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">kg*m*m</td>
+ <td style="vertical-align: top;">kg m^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_IXZ">SIH_IXZ</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Vehicle cross term inertia xz</p><p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
  <td style="vertical-align: top;">(0.005)</td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">kg*m*m</td>
+ <td style="vertical-align: top;">kg m^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_IYY">SIH_IYY</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Vehicle inertia about Y axis</p><p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.005)</td>
  <td style="vertical-align: top;">0.025</td>
- <td style="vertical-align: top;">kg*m*m</td>
+ <td style="vertical-align: top;">kg m^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_IYZ">SIH_IYZ</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Vehicle cross term inertia yz</p><p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. This value can be set to 0 for a quad symmetric about its center of mass.</p>   </td>
  <td style="vertical-align: top;">(0.005)</td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">kg*m*m</td>
+ <td style="vertical-align: top;">kg m^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_IZZ">SIH_IZZ</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Vehicle inertia about Z axis</p><p><strong>Comment:</strong> The intertia is a 3 by 3 symmetric matrix. It represents the difficulty of the vehicle to modify its angular rate.</p>   </td>
  <td style="vertical-align: top;">0.0 > ? (0.005)</td>
  <td style="vertical-align: top;">0.030</td>
- <td style="vertical-align: top;">kg*m*m</td>
+ <td style="vertical-align: top;">kg m^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_KDV">SIH_KDV</strong> (FLOAT)</td>
@@ -13236,35 +13236,35 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>Initial geodetic latitude</p><p><strong>Comment:</strong> This value represents the North-South location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td style="vertical-align: top;">-850000000 > 850000000 </td>
  <td style="vertical-align: top;">454671160</td>
- <td style="vertical-align: top;">1e-7 deg</td>
+ <td style="vertical-align: top;">deg*1e7</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_LOC_LON0">SIH_LOC_LON0</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Initial geodetic longitude</p><p><strong>Comment:</strong> This value represents the East-West location on Earth where the simulation begins. A value of 45 deg should be written 450000000. LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td style="vertical-align: top;">-1800000000 > 1800000000 </td>
  <td style="vertical-align: top;">-737578370</td>
- <td style="vertical-align: top;">1e-7 deg</td>
+ <td style="vertical-align: top;">deg*1e7</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_LOC_MU_X">SIH_LOC_MU_X</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>North magnetic field at the initial location</p><p><strong>Comment:</strong> This value represents the North magnetic field at the initial location. A magnetic field calculator can be found on the NOAA website Note, the values need to be converted from nano Tesla to Gauss LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td style="vertical-align: top;">-1.0 > 1.0 (0.001)</td>
  <td style="vertical-align: top;">0.179</td>
- <td style="vertical-align: top;">Gauss</td>
+ <td style="vertical-align: top;">gauss</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_LOC_MU_Y">SIH_LOC_MU_Y</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>East magnetic field at the initial location</p><p><strong>Comment:</strong> This value represents the East magnetic field at the initial location. A magnetic field calculator can be found on the NOAA website Note, the values need to be converted from nano Tesla to Gauss LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td style="vertical-align: top;">-1.0 > 1.0 (0.001)</td>
  <td style="vertical-align: top;">-0.045</td>
- <td style="vertical-align: top;">Gauss</td>
+ <td style="vertical-align: top;">gauss</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_LOC_MU_Z">SIH_LOC_MU_Z</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Down magnetic field at the initial location</p><p><strong>Comment:</strong> This value represents the Down magnetic field at the initial location. A magnetic field calculator can be found on the NOAA website Note, the values need to be converted from nano Tesla to Gauss LAT0, LON0, H0, MU_X, MU_Y, and MU_Z should ideally be consistent among each others to represent a physical ground location on Earth.</p>   </td>
  <td style="vertical-align: top;">-1.0 > 1.0 (0.001)</td>
  <td style="vertical-align: top;">0.504</td>
- <td style="vertical-align: top;">Gauss</td>
+ <td style="vertical-align: top;">gauss</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SIH_L_PITCH">SIH_L_PITCH</strong> (FLOAT)</td>
@@ -13381,21 +13381,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>Required temperature rise during thermal calibration</p><p><strong>Comment:</strong> A temperature increase greater than this value is required during calibration. Calibration will complete for each sensor when the temperature increase above the starting temeprature exceeds the value set by SYS_CAL_TDEL. If the temperature rise is insufficient, the calibration will continue indefinitely and the board will need to be repowered to exit.</p>   </td>
  <td style="vertical-align: top;">10 > ? </td>
  <td style="vertical-align: top;">24</td>
- <td style="vertical-align: top;">deg C</td>
+ <td style="vertical-align: top;">celcius</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_CAL_TMAX">SYS_CAL_TMAX</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Maximum starting temperature for thermal calibration</p><p><strong>Comment:</strong> Temperature calibration will not start if the temperature of any sensor is higher than the value set by SYS_CAL_TMAX.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">10</td>
- <td style="vertical-align: top;">deg C</td>
+ <td style="vertical-align: top;">celcius</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_CAL_TMIN">SYS_CAL_TMIN</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Minimum starting temperature for thermal calibration</p><p><strong>Comment:</strong> Temperature calibration for each sensor will ignore data if the temperature is lower than the value set by SYS_CAL_TMIN.</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">5</td>
- <td style="vertical-align: top;">deg C</td>
+ <td style="vertical-align: top;">celcius</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_HAS_BARO">SYS_HAS_BARO</strong> (INT32)</td>
@@ -14795,21 +14795,21 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"><p>Backtransition deceleration setpoint to pitch feedforward gain</p>   </td>
  <td style="vertical-align: top;">0 > 0.2 (0.05)</td>
  <td style="vertical-align: top;">0.12</td>
- <td style="vertical-align: top;">rad*s*s/m</td>
+ <td style="vertical-align: top;">rad s^2/m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_DEC_I">VT_B_DEC_I</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Backtransition deceleration setpoint to pitch I gain</p>   </td>
  <td style="vertical-align: top;">0 > 0.3 (0.05)</td>
  <td style="vertical-align: top;">0.1</td>
- <td style="vertical-align: top;">rad*s/m</td>
+ <td style="vertical-align: top;">rad s/m</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_DEC_MSS">VT_B_DEC_MSS</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Approximate deceleration during back transition</p><p><strong>Comment:</strong> The approximate deceleration during a back transition in m/s/s Used to calculate back transition distance in mission mode. A lower value will make the VTOL transition further from the destination waypoint. For standard vtol and tiltrotors a controller is used to track this value during the transition.</p>   </td>
  <td style="vertical-align: top;">0.5 > 10 (0.1)</td>
  <td style="vertical-align: top;">2.0</td>
- <td style="vertical-align: top;">m/s/s</td>
+ <td style="vertical-align: top;">m/s^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_B_REV_DEL">VT_B_REV_DEL</strong> (FLOAT)</td>
@@ -14974,7 +14974,7 @@ tailsitter, tiltrotor: main throttle</p>   </td>
  <td style="vertical-align: top;"><p>Airspeed less front transition time (open loop)</p><p><strong>Comment:</strong> The duration of the front transition when there is no airspeed feedback available.</p>   </td>
  <td style="vertical-align: top;">1.0 > 30.0 </td>
  <td style="vertical-align: top;">6.0</td>
- <td style="vertical-align: top;">seconds</td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="VT_IDLE_PWM_MC">VT_IDLE_PWM_MC</strong> (INT32)</td>
@@ -15074,7 +15074,7 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
  <td style="vertical-align: top;"><p>Weather-vane roll angle to yawrate</p><p><strong>Comment:</strong> The desired gain to convert roll sp into yaw rate sp.</p>   </td>
  <td style="vertical-align: top;">0.0 > 3.0 (0.01)</td>
  <td style="vertical-align: top;">1.0</td>
- <td style="vertical-align: top;">1/s</td>
+ <td style="vertical-align: top;">Hz</td>
 </tr>
 </tbody></table>
 
