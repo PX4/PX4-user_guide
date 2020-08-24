@@ -29,7 +29,7 @@ These flight controllers (and development platforms) offer on-vehicle "companion
 
 Controller | Description
 --- | ---
-[Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RaPi can be connected to an autopilot and used as a companion computer.
+[Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RasPi can be connected to an autopilot and used as a companion computer.
 
 
 ## Commercial UAVs that can run PX4

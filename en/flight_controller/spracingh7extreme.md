@@ -1,6 +1,6 @@
-# SP Racing H7 EXTREME (PX4 Edition)
+# SPRacingH7EXTREME (PX4 Edition)
 
-The [SP Racing H7 EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme) is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(+) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
+The [SPRacingH7EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme) is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(+) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
 
 It can be used easily for small to large quads, planes, octocoptors and more advanced frames.
 It's best used with separate ESCs as it features a built-in power distribution board (PDB).
@@ -8,9 +8,9 @@ Wiring up a 4in1 ESC is easy too.
 
 There is also a 12 pin stacking connector which provides 4 more motor outputs, SPI and a UART connectivity.
 
-![SP Racing H7 EXTREME PCB Top](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-top.jpg)
+![SPRacingH7EXTREME PCB Top](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-top.jpg)
 
-![SP Racing H7 EXTREME PCB Bottom](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
+![SPRacingH7EXTREME PCB Bottom](../../assets/flight_controller/spracingh7extreme/spracingh7extreme-bottom.jpg)
 
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
@@ -67,14 +67,14 @@ There is also a 12 pin stacking connector which provides 4 more motor outputs, S
 
 ## Where to Buy
 
-The SPRacing H7 Extreme PX4 Edition is available from the [Seriously Pro shop](https://shop.seriouslypro.com/sp-racing-h7-extreme).
+The SPRacingH7EXTREME is available from the [Seriously Pro shop](https://shop.seriouslypro.com/sp-racing-h7-extreme).
 
 > **Note** Select the PX4 edition when purchasing!
 
 ## Manual, Pinouts and Connection Diagrams
 
 The manual with pinouts can be downloaded from [here](http://seriouslypro.com/files/SPRacingH7EXTREME-Manual-latest.pdf).
-See the [SP Racing H7 Extreme website](http://seriouslypro.com/spracingh7extreme) for other diagrams.
+See the [SPRacingH7EXTREME website](http://seriouslypro.com/spracingh7extreme) for other diagrams.
 
 ## Credits
 
