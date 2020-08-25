@@ -1,7 +1,7 @@
-# ZOON Telemetry Radio
+# Dronee ZOON Telemetry Radio
 
-Dronee produce  2.4GHz Long Range Telemetry module with Lora Technology which has Mesh Technology. [SiK](../telemetry/sik_radio.md)-compatible telemetry radios that can be used with PX4. 
-2.4GHz
+The [Dronee ZOON]](https://dronee.aero/pages/zoon) is a  2.4GHz [SiK compatible](../telemetry/sik_radio.md) Long Range Telemetry radio (6-21Km) that uses a LoRa module with Mesh Technology. 
+
 ![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
 
 ## Purchase:
