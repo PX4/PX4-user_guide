@@ -152,6 +152,7 @@
       * [Trimble MB-Two](gps_compass/rtk_gps_trimble_mb_two.md)
   * [Telemetry Radios](telemetry/README.md)
     * [SiK Radio](telemetry/sik_radio.md)
+      * [ZOON 2.4Ghz Lora (SiK) Telemetry Radio](telemetry/dronee_zoon_sik_radio.md)
       * [RFD900 (SiK) Telemetry Radio](telemetry/rfd900_telemetry.md)
       * [HKPilot (SIK) Telemetry Radio](telemetry/hkpilot_sik_radio.md)
       * [HolyBro (SIK) Telemetry Radio](telemetry/holybro_sik_radio.md)
