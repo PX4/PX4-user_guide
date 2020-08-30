@@ -1,6 +1,8 @@
 # Holybro H-RTK M8P GNSS
 
-The [Holybro H-RTK M8P GNSS](http://www.holybro.com/product/h-rtk-m8p-rover-lite/) is an [RTK GNSS module](../gps_compass/rtk_gps.md) for mass market launched by Holybro. There are three models of Holybro H-RTK M8P to choose from, each with different antenna design to meet different needs. Refer to [Specification and Model Comparison section](#specification-and-model-comparison) for more details.
+The [Holybro H-RTK M8P GNSS](http://www.holybro.com/product/h-rtk-m8p-rover-lite/) is an [RTK GNSS module](../gps_compass/rtk_gps.md) for mass market launched by Holybro.
+There are three models of Holybro H-RTK M8P to choose from, each with different antenna design to meet different needs.
+Refer to [Specification and Model Comparison section](#specification-and-model-comparison) for more details.
 
 Using RTK allows PX4 to get its position with centimeter-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
@@ -30,5 +32,7 @@ All H-RTK GNSS models come with a GH 10-pin connector/cable that is compatible w
 ![h-rtk_spec](../../assets/hardware/gps/rtk_holybro_h-rtk-m8p_spec.png)
 
 ## GPS Accessories
+
+[H-RTK Accessories (Holybro Website)](https://shop.holybro.com/c/h-rtk_0512)
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk_mount_3.png)
