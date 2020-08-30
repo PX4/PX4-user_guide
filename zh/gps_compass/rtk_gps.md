@@ -21,7 +21,8 @@ The following RTK-compatible devices have been tested.
 - [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) 
 - [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)
 - [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
-- [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk.md)
+- [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
+- [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
 - [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
 - [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
 - [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
@@ -52,7 +53,7 @@ The link *must* use the MAVLink2 protocol as it makes more efficient use of the 
 
 The RTK GPS connection is essentially plug and play:
 
-1. 打开*QGroundControl*，使用 USB 连接基站的 RTK GPS 到地面站。 电脑会自动识别设备。 
+1. 打开*QGroundControl*，使用 USB 连接基站的 RTK GPS 到地面站。 电脑会自动识别设备。
 2. 启动飞机，确保飞机连接上*QGroundControl*地面站。
     
     > **Tip**当 RTK GPS 设备连接上，在上面工具栏的正常显示GPS的位置，会显示 RTK GPS 的状态。 当 RTK 正在被设置，会显示为红色，RTK GPS 激活后会变为白色。 点击图标，可以查看当前状态和 RTK 的精度。
@@ -113,10 +114,10 @@ To ensure MAVLink2 is used:
     
     A second GPS receiver can be used as a backup (either RTK or non RTK). See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
     
-    <!-- 
+    <!--
 
 - Video demonstration would be nice.
-- something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey. 
+- something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
     
     ## 飞机设置示例
