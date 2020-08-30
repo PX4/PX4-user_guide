@@ -1,8 +1,12 @@
 # Holybro H-RTK F9P GNSS
 
-The [Holybro H-RTK F9P GNSS](http://www.holybro.com/product/h-rtk-f9p/) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) series launched by Holybro. This system provides multi-band RTK with fast convergence times and reliable performance, concurrent reception of GPS, GLONASS, Galileo and BeiDou, and fast update rate for highly dynamic and high volume applications with centimeter-accuracy. It uses a UBLOX F9P module, a IST8310 compass, and a tri-colored LED indicator. It also has a integrated safety switch for a simple and convenient operation.
+The [Holybro H-RTK F9P GNSS](http://www.holybro.com/product/h-rtk-f9p/) is an multi-band high-precision [RTK GNSS System](../gps_compass/rtk_gps.md) series launched by Holybro. 
+This system provides multi-band RTK with fast convergence times and reliable performance, concurrent reception of GPS, GLONASS, Galileo and BeiDou, and fast update rate for highly dynamic and high volume applications with centimeter-accuracy.
+It uses a UBLOX F9P module, a IST8310 compass, and a tri-colored LED indicator.
+It also has a integrated safety switch, enabling simple and convenient operation.
 
-There are three models of Holybro H-RTK F9P to choose from, each with different antenna design to meet different needs. Refer to [Specification and Model Comparison section](#specification-and-model-comparison) for more details.
+There are three models of Holybro H-RTK F9P to choose from, each with different antenna design to meet different needs.
+Refer to [Specification and Model Comparison section](#specification-and-model-comparison) for more details.
 
 Using RTK allows PX4 to get its position with centimeter-level accuracy, which is much more accurate than can be provided by a normal GPS.
 
@@ -10,7 +14,7 @@ Using RTK allows PX4 to get its position with centimeter-level accuracy, which i
 
 ## Purchase
 
-* [H-RTK F9P (Holybro Website)](https://shop.holybro.com/h-rtk-f9p_p1226.html?)
+* [H-RTK F9P (Holybro Website)](https://shop.holybro.com/h-rtk-f9p_p1226.html)
 * [H-RTK Mount (Holybro Website)](https://shop.holybro.com/spare-parts-gps-mount_p1228.html)
 
 ## Configuration
@@ -33,5 +37,7 @@ All H-RTK GNSS models come with a GH 10-pin connector/cable that is compatible w
 ![h-rtk-f9p_spec](../../assets/hardware/gps/rtk_holybro_h-rtk-f9p_spec.png)
 
 ## GPS Accessories
+
+[H-RTK Mount (Holybro Website)](https://shop.holybro.com/spare-parts-gps-mount_p1228.html)
 
 ![h-rtk](../../assets/hardware/gps/rtk_holybro_h-rtk_mount_3.png)
