@@ -21,7 +21,8 @@ The following RTK-compatible devices have been tested.
 * [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md)  
 * [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)
 * [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
-* [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk.md)
+* [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
+* [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
 * [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
 * [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
 * [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
@@ -33,7 +34,7 @@ The following RTK-compatible devices have been tested.
 
 ### Rover RTK Module (Vehicle)
 
-Connect the vehicle-based module to the flight controller's GPS port (in the same way as any other GPS module). 
+Connect the vehicle-based module to the flight controller's GPS port (in the same way as any other GPS module).
 
 The actual cables/connectors required will depend on the flight controller and selected RTK module (see [documentation for the selected device](#supported-rtk-devices) for more information).
 
@@ -41,9 +42,9 @@ The actual cables/connectors required will depend on the flight controller and s
 
 Connect the base module to *QGroundControl* via USB.
 The base module must not be moved while it is being used.
-  
+
 > **Tip** Choose a position where it won't need to be moved, has a clear view of the sky, and is well separated from any buildings.
-  Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof. 
+  Often it is helpful to elevate the base GPS, by using a tripod or mounting it on a roof.
 
 ### Telemetry Radio/WiFi
 
@@ -57,35 +58,35 @@ This should be set by default, but if not, follow the [MAVLink2 configuration in
 
 The RTK GPS connection is essentially plug and play:
 
-1. Start *QGroundControl* and attach the base RTK GPS via USB to the ground station. The device is recognized automatically. 
+1. Start *QGroundControl* and attach the base RTK GPS via USB to the ground station. The device is recognized automatically.
 1. Start the vehicle and make sure it is connected to *QGroundControl*.
-   
+
    > **Tip** An RTK GPS status icon is displayed in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon).
      The icon is red while RTK is being set up, and then changes to white once RTK GPS is active.
-	 You can click the icon to see the current state and RTK accuracy. 
+	 You can click the icon to see the current state and RTK accuracy.
 1. *QGroundControl* then starts the RTK setup process (known as "Survey-In").
 
    Survey-In is a startup procedure to get an accurate position estimate of the base station.
    The process typically takes several minutes (it ends after reaching the minimum time and accuracy specified in the [RTK settings](#rtk-gps-settings)).
-   
+
    You can track the progress by clicking the RTK GPS status icon.
 
-   <img src="../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png" width="200px" title="survey-in" /> 
+   <img src="../../assets/qgc/setup/rtk/qgc_rtk_survey-in.png" width="200px" title="survey-in" />
 
 1. Once Survey-in completes:
 
    - The RTK GPS icon changes to white and *QGroundControl* starts to stream position data to the vehicle:
-   
+
      <img src="../../assets/qgc/setup/rtk/qgc_rtk_streaming.png" width="200px" title="RTK streaming" />
    - Vehicle GPS switches to RTK mode.
      The new mode is displayed in the *normal* GPS status icon (`3D RTK GPS Lock`):
 
      ![RTK GPS Status](../../assets/qgc/setup/rtk/qgc_rtk_gps_status.png)
-   
+
 
 ## Optional PX4 Configuration
 
-The following settings may need to be changed (using *QGroundControl*). 
+The following settings may need to be changed (using *QGroundControl*).
 
 ### RTK GPS settings
 
@@ -112,7 +113,7 @@ To ensure MAVLink2 is used:
 
 ### Tuning
 
-You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters. 
+You may also need to tune some parameters as the default parameters are tuned assuming a GPS accuracy in the order of meters, not centimeters.
 For example, you can decrease [EKF2_GPS_V_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_V_NOISE) and [EKF2_GPS_P_NOISE](../advanced_config/parameter_reference.md#EKF2_GPS_P_NOISE) to 0.2.
 
 
@@ -126,13 +127,12 @@ To enable this, set bit position 7 in [EKF2_AID_MASK](../advanced_config/paramet
 A second GPS receiver can be used as a backup (either RTK or non RTK).
 See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
 
-<!-- 
+<!--
 - Video demonstration would be nice.
-- something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey. 
+- something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
 
 
 ## Vehicle Setup Example
 
 The airframe build topic [DJI Flamewheel 450 with distance sensor and RTK GPS](https://dev.px4.io/master/en/airframes_multicopter/dji_flamewheel_450.html) describes an airframe setup with the Here+ RTK GPS and a Pixhawk 3 Pro.
-
