@@ -1,6 +1,6 @@
 # Dronee ZOON Telemetry Radio
 
-The [Dronee ZOON]](https://dronee.aero/pages/zoon) is a  2.4GHz [SiK compatible](../telemetry/sik_radio.md) Long Range Telemetry radio (6-21Km) that uses a LoRa module with Mesh Technology. 
+The [Dronee ZOON](https://dronee.aero/pages/zoon) is a  2.4GHz [SiK compatible](../telemetry/sik_radio.md) Long Range Telemetry radio (6-21Km) that uses a LoRa module with Mesh Technology. 
 
 ![SiK Radio](../../assets/hardware/telemetry/ZOON_Telemetry.png)
 
