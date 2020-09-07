@@ -1,43 +1,43 @@
-# Compass Power Compensation
+# 磁航向电源补偿
 
-Compasses (magnetometers) should be mounted as far as possible from cables that carry large currents, as these induce magnetic fields that may corrupt the compass readings.
+指南针（磁力计）应该安装在尽可能远离通过大电流的线缆的位置，因为它们诱发的磁场会干扰指南针的读数。
 
-This topic explains how to compensate for the induced magnetic fields in the cases where moving the compass is not realistic.
+本文解释了如何在不能改变磁航向计安装位置的情况下如何补偿诱发磁场带来的影响。
 
-> **Tip** Moving the compass away from power-carrying cables is the easiest and most effective way to fix this issue, because the strength of the magnetic fields decreases quadratically with the distance from the cable.
+> **Tip**使磁航向计远离动力电缆是最简单和最有效的避免诱发磁场干扰的方法，因为磁场强度是按与电缆的距离的二次方衰减的。
 
 <span></span>
-> **Note** The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
+> **Note** 下述过程基于多旋翼无人机演示，但同样适用于其他类型的载具。
 
-## When is Power Compensation Applicable? {#when}
+## 电源补偿的适用条件 {#when}
 
-Performing this power compensation is advisable only if all the following statements are true:
-1. The compass cannot be moved away from the power-carrying cables.
-1. There is a strong correlation between the compass readings and the thrust setpoint, and/or the battery current. ![Corrupted mag](../../assets/advanced_config/corrupted_mag.png)
+只有当下述的全部条件都满足时才建议采用电源补偿：
+1. 磁航向计无法远离动力线缆。
+1. 磁航向计读数与油门杆位与/或电池电流有强相关性。![失效的磁航向计](../../assets/advanced_config/corrupted_mag.png)
 
-1. The drone cables are all fixed in place/do not move (calculated compensation parameters will be invalid if the current-carrying cables can move).
+1. 无人机的线缆都是固定的或不会移动的（当通电的线缆能够移动会导致计算出的补偿参数失效）。
 
-## How to Compensate the Compass {#how}
+## 如何补偿磁航向计 {#how}
 
-1. Make sure your drone runs a Firmware version supporting power compensation (current master, or releases from v.1.11.0).
-1. Perform the [standard compass calibration](../config/compass.md#compass-calibration).
-1. Set the parameter [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) to 2 to enable logging of data from boot.
-1. Set the parameter [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *high rate* (bit 2) to get more data points.
-1. Secure the drone so that it cannot move, and attach the propellers (so the motors can draw the the same current as in flight). This example secures the vehicle using straps.
+1. 确保无人机运行在支持电源补偿的固件版本上（当前的Master版，或v1.11.0之后的版本）。
+1. 执行标准的[指南针校准](../config/compass.md#compass-calibration)流程。
+1. 将参数[SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) 设为2，使系统一启动就开始记录日志。
+1. 将参数[SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) 复选框的*高采样率 (high rate)* (bit 2)选中，以获得更多的数据采样点。
+1. 固定好无人机使其无法移动，然后装好螺旋桨（这样电机可以获得与实际飞行中同样大的电流）。 本例中用带子固定了无人机。
 
-   ![strap](../../assets/advanced_config/strap.png)
-1. Power the vehicle and switch into [ACRO flight mode](../flight_modes/acro_mc.md) (using this mode ensures the vehicle won't attempt to compensate for movement resulting from the straps).
-   - Arm the vehicle and slowly raise the throttle to the maximum
-   - Slowly lower the throttle down to zero
-   - Disarm the vehicle > **Note** Perform the test carefully and closely monitor the vibrations.
-1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
+   ![带子](../../assets/advanced_config/strap.png)
+1. 给无人机上电，并切换到[特技 (ACRO) 飞行模式](../flight_modes/acro_mc.md) （此模式下无人机不会试图去补偿带子对运动造成的影响）。
+   - 解锁无人机，然后缓缓将油门推到最大。
+   - 慢慢将油门降到0
+   - 给无人机加锁 > **Note** 谨慎地进行测试，并密切注意振动情况。
+1. 获取ulog文件，并用python脚本[mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py)来确定补偿参数。
    ```cmd
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
-   > **Note** If your log does not contain battery current measurements, you will need to comment out the respective lines in the python script, such that it does the calculation for thrust only.
-1. The script will return the parameter identification for thrust as well as for current and print them to the console. The figures that pop up from the script show the "goodness of fit" for each compass instance, and how the data would look if compensated with the suggested values. If a current measurement is available, using the current-compensation usually yields the better results. Here is an example of a log, where the current fit is good, but the thrust parameters are unusable as the relationship is not linear. ![line fit](../../assets/advanced_config/line_fit.png)
+   > **Note** 如果你的日志文件中不包含电池电流的测数，你就需要在python脚本中注释掉相关的代码行，这样就只通过推力计算。
+1. 这个脚本将返回基于推力和基于电流的补偿参数，并打印输出到控制台。 脚本弹出的数值显示了每个罗盘匹配的程度，以及使用了建议的补偿值后数据将是什么样的。 如果有电流测数，那么依据电流补偿通常可以获得更好的结果。 这里是一个日志的例子，电流匹配得很好，然而因为不是线性关系推力参数则完全不可用。 ![线性匹配](../../assets/advanced_config/line_fit.png)
 
-1. Once the parameters are identified, the power compensation must be enabled by setting [CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP) to 1 (when using thrust parameters) or 2 (when using current parameters). Additionally, the compensation parameters for each axis of each compass must be set.
+1. 一旦确定了参数，必须通过将[CAL_MAG_COMP_TYP](../advanced_config/parameter_reference.md#CAL_MAG_COMP_TYP)设为1（使用推力参数时）或2（使用电流参数时）来激活电源补偿。 此外，还要设置好每个罗盘每个轴的补偿参数值。
 
-   ![comp params](../../assets/advanced_config/comp_params.png)
+   ![补偿参数](../../assets/advanced_config/comp_params.png)

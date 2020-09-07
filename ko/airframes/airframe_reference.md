@@ -614,14 +614,14 @@
  <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4009</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_dji_flame_wheel_f330">
- <td style="vertical-align: top;">DJI Flame Wheel F330</td>
- <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4010</p></td>
+<tr id="copter_quadrotor_x_dji_f330_w/_dji_escs">
+ <td style="vertical-align: top;">DJI F330 w/ DJI ESCs</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4010</p></td>
 
 </tr>
-<tr id="copter_quadrotor_x_dji_flame_wheel_f450">
- <td style="vertical-align: top;">DJI Flame Wheel F450</td>
- <td style="vertical-align: top;"><p>관리자: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4011</p></td>
+<tr id="copter_quadrotor_x_dji_f450_w/_dji_escs">
+ <td style="vertical-align: top;">DJI F450 w/ DJI ESCs</td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4011</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_s500_generic">

@@ -21,6 +21,7 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 - [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)
 - [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
 - [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
+- [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) 
 
 > **Note**有一些 RTK 模块只能作为基站或移动站，有的则可以两用。
 
@@ -40,7 +41,7 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 
 ### 电台/WiFi
 
-飞机和地面站之间必须使用 [wifi 或电台](../assembly/quick_start_pixhawk.md#telemetry-radios-optional)连接。 <!-- this should be a link to a telemetry topic, but we don't have one yet -->
+The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../telemetry/README.md).
 
 链接*必须*使用 MAVLink2 协议，因为 MAVLink2 能更好的利用通道。 这个设置默认即可，如果不是默认数据，可以参考下面的[MAVLink2 设置介绍](#mavlink2)。
 
