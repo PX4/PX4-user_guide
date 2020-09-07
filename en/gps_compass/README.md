@@ -24,6 +24,9 @@ If it fails before flight, arming will be denied.
   > **Note** At time of writing PX4 does not support RTK GPS with this module (only "ordinary" GPS).
     Support is expected in the near future.
 
+## Compass (Only) Options
+* [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) (Tindie)
+
 ## Combined GPS/Compass Options
 
 Some popular GPS/compass options include:
@@ -36,11 +39,12 @@ Some popular GPS/compass options include:
 * [Here GNSS GPS (M8N)](https://www.getfpv.com/here-gnss-gps-m8n.html) (getfpv) 
 * [Zubax GNSS 2](https://zubax.com/products/gnss_2) (zubax.com)
 * [3DR uBlox GPS with Compass kit](https://www.getfpv.com/3dr-ublox-gps-with-compass-kit.html) (getfpv) - *Discontinued*
+* [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) (Tindie)
 
 Instructions for connecting the GPS and compass are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)). 
 
 > **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). 
-  The [Zubax GNSS 2](https://zubax.com/products/gnss_2) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
+  The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
 
 <span></span>
 > **Tip** Pay attention to pinout when connecting the GPS module. 
