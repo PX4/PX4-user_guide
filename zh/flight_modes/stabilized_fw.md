@@ -12,7 +12,7 @@
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![固定翼手动飞行](../../images/flight_modes/manual_stabilized_FW.png)
+![固定翼手动飞行](../../assets/flight_modes/manual_stabilized_FW.png)
 
 ## 技术描述
 
