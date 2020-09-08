@@ -56,7 +56,7 @@ The main rover-specific configuration is setting the correct frame:
 3. Scroll down the list to find the **Rover** icon. 
 4. Choose **Traxxas stampede vxl 2wd** from the drop down list.
 
-![Select Airframe](../../images/qgc/setup/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
+![Select Airframe](../../assets/airframes/rover/traxxas_stampede_vxl/airframe_px4_rover_traxxas_stampede_vxl_2wd.jpg)
 
 ## Usage
 
