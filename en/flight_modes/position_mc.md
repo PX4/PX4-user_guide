@@ -10,7 +10,7 @@ When the sticks are released/centered the vehicle will actively brake, level, an
 
 The diagram below shows the mode behaviour visually (for a mode 2 transmitter).
 
-![MC Position Mode](../../images/flight_modes/position_MC.png)
+![MC Position Mode](../../assets/flight_modes/position_MC.png)
 
 
 > **Warning** Care must be taken when landing in this mode. When first landing in this mode, be ready to switch 

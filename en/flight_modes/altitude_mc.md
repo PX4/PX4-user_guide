@@ -12,7 +12,7 @@ If the wind blows the aircraft will drift in the direction of the wind.
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![Altitude Control MC - Mode2 RC Controller](../../images/flight_modes/altitude_control_mode_copter.png)
+![Altitude Control MC - Mode2 RC Controller](../../assets/flight_modes/altitude_control_mode_copter.png)
 
 ## Technical Summary
 

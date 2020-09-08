@@ -54,7 +54,7 @@ During full stick input, the velocity setpoint will not change directly from `0 
 The actual velocity of the vehicle, however, will not track the setpoint perfectly, but rather will lag behind.
 The lag will be more significant the larger the value of `MPC_ACC_HOR`.
 
-![Slewrate Reset](../../images/slewrate_reset.svg)
+![Slewrate Reset](../../assets/config/mc/slewrate_reset.svg)
 
 Without the reset (the top graph), at the moment of the stop demand (stick equal 0) the velocity setpoint will ramp down with the maximum rate given by `MPC_ACC_HOR_MAX`.
 Due to the lag the vehicle will first continue to accelerate in the direction previous to the stop demand followed by slowly decelerating towards zero.

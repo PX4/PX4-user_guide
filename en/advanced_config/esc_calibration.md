@@ -28,19 +28,19 @@ To calibrate the ESCs:
 1. Disconnect the battery and connect the flight controller via USB (only).
 1. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
 
-   ![ESC Calibration step 1](../../images/qgc_esc_calibration.png)
+   ![ESC Calibration step 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
 
 1. Connect the battery when prompted:
 
-   ![ESC Calibration step 2](../../images/esc_calibration_step_2.png)
+   ![ESC Calibration step 2](../../assets/qgc/setup/esc/esc_calibration_step_2.png)
 
    The calibration will begin automatically:
 
-   ![ESC Calibration step 3](../../images/esc_calibration_step_3.png)
+   ![ESC Calibration step 3](../../assets/qgc/setup/esc/esc_calibration_step_3.png)
 
 1. Once the calibration complete you will be prompted to disconnect the battery.
 
-   ![ESC Calibration step 4](../../images/esc_calibration_step_4.png)
+   ![ESC Calibration step 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
 
 > **Note** High-quality controllers come with a factory calibration. 
