@@ -31,7 +31,7 @@ To configure the basic settings for battery 1:
 
 You are presented with the basic settings that characterize the battery. 以下部分说明了为每个字段设置的值。
 
-![QGC Power Setup](../../assets/qgc/qgc_setup_power_px4.jpg)
+![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
 
 > **Note** At time of writing *QGroundControl* only allows you to set values for battery 1 in this view. For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
 
