@@ -14,7 +14,7 @@ You can also use the *Pattern* tool to automate creation of survey grids.
 
 > **Tip** For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html).
 
-![planning-mission](../../images/planning_mission.jpg)
+![planning-mission](../../assets/flying/planning_mission.jpg)
 
 ### Setting Vehicle Yaw
 
