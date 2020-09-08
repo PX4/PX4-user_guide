@@ -10,7 +10,7 @@
 
 1. *QGroundControl *을 시작하고 기체를 연결합니다.
 2. 상단 툴바에서 **톱니바퀴** 아이콘(기체 설정)을 선택한 다음 사이드 바에서 **센서**를 선택하십시오.
-3. **수평 조정** 버튼을 클릭하십시오. ![Level Horizon calibration](../../images/qgc/setup/sensor_level_horizon.jpg) > **참고** 반드시 미리 [비행 컨트롤러 방향](../config/flight_controller_orientation.md)을 설정해야 합니다. 미리 설정하지 않았다면, 여기에서 설정할 수 있습니다. 
+3. **수평 조정** 버튼을 클릭하십시오. ![Level Horizon calibration](../../assets/qgc/setup/sensor/sensor_level_horizon.jpg) > **Note** You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). 미리 설정하지 않았다면, 여기에서 설정할 수 있습니다. 
 4. 기체를 평평한 바닥에 비행 컨트롤러 방향대로 수평을 유지하게 놓으십시오. 
     * 비행기의 경우 이 자세가 수평 비행 중의 자세입니다 (비행기는 날개가 약간 올라가는 경향이 있습니다!).
     * 헬리콥터의 경우 이 자세가 호버링 자세입니다.
