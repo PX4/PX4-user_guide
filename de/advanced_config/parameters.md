@@ -14,11 +14,11 @@ The *QGroundControl Parameters* screen allows you to find and modify **any** of 
 
 You can search for a parameter by entering a term in the *Search* field. This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search).
 
-![Parameters Search](../../images/qgc/setup/parameters_search.jpg)
+![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
 You can also browse the parameters by group by clicking on the buttons to the left (in the image below the *Battery Calibration* group is selected).
 
-![Parameters Screen](../../images/qgc/setup/parameters_px4.jpg)
+![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
 > **Tip** If you can't find an expected parameter, see the [next section](#missing).
 
@@ -55,7 +55,7 @@ The other reason that a parameter might not be in firmware is if its associated 
 
 To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
 
-![Changing a parameter value](../../images/qgc/setup/parameters_changing.png)
+![Changing a parameter value](../../assets/qgc/setup/parameters_changing/parameters_changing.png)
 
 > **Note** When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
 
@@ -63,7 +63,7 @@ To change the value of a parameter click on the parameter row in a group or sear
 
 You can select additional options from the **Tools** menu on the top right hand side of the screen.
 
-![Tools menu](../../images/qgc/setup/parameters_tools_menu.png)
+![Tools menu](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
 **Refresh** <br />Refresh the parameter values by re-requesting all of them from the vehicle.
 
