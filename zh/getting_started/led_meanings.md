@@ -17,7 +17,7 @@ RGB *UI LED*显示当前 飞行器*起飞准备* 的状态。 这通常是一个
 
 > **建议** 在遇到错误 (红色LED闪烁), 或者飞行器无法解除GPS锁 (LED从蓝色变为绿色) 时， 查看*QGroundControl*中详细的状态信息包括校准状态，在 [飞行前检查(内部)](../flying/pre_flight_checks.md)时会报告错误信息。 还要检查GPS模块是否正确连接，Pixhawk是否正确读取GPS信息，GPS是否发送正确的GPS位置。
 
-![LED灯含义](../../images/led_meanings.gif)
+![LED灯含义](../../assets/flight_controller/pixhawk_led_meanings.gif)
 
 * **[蓝色LED常亮] 解锁， GPS未锁定：** 表上飞行器已经解锁并且GPS模块没有位置锁。 当飞行器已经解锁，PX4会解锁对电机的控制，允许你操纵无人机飞行。 像往常一样，在解锁时要小心，因为大型螺旋桨在高速旋转时可能很危险。 飞行器在这种模式下无法执行引导任务。
 
