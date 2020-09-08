@@ -19,7 +19,9 @@ Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They 
 * [Sensirion SDP3X Differential Pressure Sensor](https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/)
 * [Holybro Digital Air Speed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
 
-Все датчики подключаемые через шину/порт I2C.
+All the above sensors are connected via the I2C bus/port.
+
+> **Note** Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the UAVCAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
 
 ## Настройка
 

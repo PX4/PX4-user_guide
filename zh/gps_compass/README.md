@@ -12,10 +12,6 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
 
 > **Tip** When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing). The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
 
-## GPS (Only) Options
-
-- [Emlid Reach M+](https://emlid.com/reach/) (emlid.com) > **Note** At time of writing PX4 does not support RTK GPS with this module (only "ordinary" GPS). Support is expected in the near future.
-
 ## Combined GPS/Compass Options
 
 一些流行的GSP/指南针选项包括：
@@ -29,15 +25,24 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
 - [Holybro Pixhawk 4 2nd GPS Module (6 pin)](https://shop.holybro.com/pixhawk4-2nd-gps-module_p1145.html) (Holybro Shop)
 - [Here GNSS GPS (M8N)](https://www.getfpv.com/here-gnss-gps-m8n.html) (getfpv)
 - [Zubax GNSS 2](https://zubax.com/products/gnss_2) (zubax.com)
+- [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) (Tindie)
 - [3DR uBlox GPS with Compass kit](https://www.getfpv.com/3dr-ublox-gps-with-compass-kit.html) (getfpv) - *Discontinued*
 
 GPS与罗盘的连接说明通常由厂家（至少支持更通用的 [自驾仪](../flight_controller/README.md)）提供
 
-> **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). The [Zubax GNSS 2](https://zubax.com/products/gnss_2) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
+> **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
 
 <span></span>
 
 > **Tip** Pay attention to pinout when connecting the GPS module. While these are all software-compatible, there are several different pin orderings.
+
+## GPS (Only) Options
+
+- [Emlid Reach M+](https://emlid.com/reach/) (emlid.com) > **Note** At time of writing PX4 does not support RTK GPS with this module (only "ordinary" GPS). Support is expected in the near future.
+
+## Compass (Only) Options
+
+- [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) (Tindie)
 
 ## RTK-GPS Devices
 

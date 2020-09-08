@@ -175,6 +175,7 @@
     * [Lidar-Lite](sensor/lidar_lite.md)
     * [TeraRanger](sensor/teraranger.md)
     * [Lanbao PSK-CM8JL65-CC5](sensor/cm8jl65_ir_distance_sensor.md)
+    * [Avionics Anonymous Laser Altimeter UAVCAN Interface](sensor/avanon_laser_interface.md)
   * [Tachometers (Revolution Counters)](sensor/tachometers.md) 
     * [Tachometers (Revolution Counters)](sensor/thunderfly_tachometer.md)
   * [대기속도 센서](sensor/airspeed.md)

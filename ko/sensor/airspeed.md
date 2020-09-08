@@ -19,7 +19,9 @@
 * [Sensirion SDP3X 차압 센서](https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/)
 * [Holybro Digital Air Speed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
 
-모든 센서는 I2C 버스 / 포트를 통해 연결됩니다.
+All the above sensors are connected via the I2C bus/port.
+
+> **Note** Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the UAVCAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
 
 ## Configuration
 
