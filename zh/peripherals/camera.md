@@ -30,6 +30,8 @@ Four different modes are supported, controlled by the [TRIG_MODE](../advanced_co
 
 ## Trigger Hardware Configuration {#hardware_setup}
 
+### Camera Triggering
+
 The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
 > **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano). At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
@@ -38,7 +40,11 @@ The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering
 
 > **Warning** With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs). With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs. Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
 
-Some cameras can provide image capture signalling to a flight controller camera-capture pin (this enables more accurate image timestamp than the time that the trigger command is sent).
+### Camera Capture
+
+Some cameras can provide image capture signalling to a flight controller camera-capture pin (this enables more accurate image timestamp than the time that the trigger command is sent). Camera capture/feedback is enabled by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
+
+The pin used depends on the hardware:
 
 * Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
 * Other board use FMU PWM pin 6 (hardcoded) for camera capture.
