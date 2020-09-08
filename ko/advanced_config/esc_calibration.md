@@ -26,18 +26,18 @@ ESC를 캘리브레이션하려면 다음을 수행하십시오.
 
 3. *QGroundControl* **설정 > 전원**을 연 다음 **캘리브레이션 시작** 버튼을 누릅니다.
     
-    ![ESC 캘리브레이션 단계 1](../../images/qgc_esc_calibration.png)
+    ![ESC 캘리브레이션 단계 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
 
 4. 다음 메시지가 나타나면 배터리를 연결하십시오.
     
-    ![ESC 캘리브레이션 단계 2](../../images/esc_calibration_step_2.png)
+    ![ESC 캘리브레이션 단계 2](../../assets/qgc/setup/esc/esc_calibration_step_2.png)
     
     캘리브레이션이 자동으로 시작됩니다.
     
-    ![ESC 캘리브레이션 단계 3](../../images/esc_calibration_step_3.png)
+    ![ESC 캘리브레이션 단계 3](../../assets/qgc/setup/esc/esc_calibration_step_3.png)
 
 5. 캘리브레이션이 완료되면 배터리를 분리하라는 메시지가 표시됩니다. 
     
-    ![ESC 캘리브레이션 단계 4](../../images/esc_calibration_step_4.png)
+    ![ESC 캘리브레이션 단계 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
 > **참고** 고품질 컨트롤러는 출고 시 공정 캘리브레이션이 되어 있습니다. *이론적으로* 캘리브레이션은 [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN)과 [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) 파라미터를 ESC 기술 사양에 기재된 값으로 설정하는 것으로 완료할 수 있습니다. 하지만 실제로는 PWM 입력 범위가 고품질 컨트롤러에서도 (출고 시 설정값과) 다를 수 있으므로 캘리브레이션이 권장됩니다.
