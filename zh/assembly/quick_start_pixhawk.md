@@ -2,7 +2,7 @@
 
 此快速入门指南演示如何为 * 3DR Pixhawk * 飞行控制器供电并连接其最重要的外围配件设备。
 
-![Pixhawk  图像](../../images/pixhawk_logo_view.jpg)
+![Pixhawk  图像](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
 > **Note** 3DR不再提供[3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html)。 可以使用其他公司基于 [ Pixhawk FMUv2 原理图 ](../flight_controller/pixhawk_series.md) 设计的飞行控制器配件 (他们采用相同的连接器、输出、功能等，例如 它们使用相同的连线线材）。
 
@@ -10,23 +10,23 @@
 
 下面的图片显示标准的 Pixhawk 连接 (除了电机和控制信号输出)。 我们将在下面各节中介绍每个主要部分。
 
-![Pixhawk 接线概览](../../images/pixhawk_wiring_overview.jpg)  
+![Pixhawk 接线概览](../../assets/flight_controller/pixhawk1/pixhawk_wiring_overview.jpg)  
 
 > ** Note **更详细的接线信息 [ 如下所示 ](#detailed-wiring-infographic-copter)。
 
 ## 飞控的安装和方向
 
-应使用减震泡沫垫 (包括在配件中) 将 * Pixhawk * 安装在机架上。 应该尽可能接近飞机的重心位置，正面朝上，方向箭头与飞机机头一致朝前
+应使用减震泡沫垫 (包括在配件中) 将 * Pixhawk * 安装在机架上。 It should be positioned as close to your vehicle’s center of gravity as possible, oriented top-side up with the arrow points towards the front of the vehicle.
 
-![Pixhawk安装和朝向](../../images/pixhawk_3dr_mounting_and_foam.jpg)
+![Pixhawk安装和朝向](../../assets/flight_controller/pixhawk1/pixhawk_3dr_mounting_and_foam.jpg)
 
-> **Note** 如果飞行控制器无法安装在推荐的默认方向 (例如, 由于空间限制), 则需要根据实际安装的方向来配置自动驾驶仪软件: [飞行控制器方向 ](../config/flight_controller_orientation.md)参数。
+> **Note** If the controller cannot be mounted in the recommended/default orientation (e.g. due to space constraints) you will need to configure the autopilot software with the orientation that you actually used: [Flight Controller Orientation](../config/flight_controller_orientation.md).
 
 ## 蜂鸣器与安全开关
 
 连接附带的蜂鸣器和安全开关, 如下所示 (这些都是强制性的)。
 
-![Pixhawk安装和朝向](../../images/pixhawk_3dr_buzzer_and_safety_switch.jpg)
+![Pixhawk安装和朝向](../../assets/flight_controller/pixhawk1/pixhawk_3dr_buzzer_and_safety_switch.jpg)
 
 ## GPS + 罗盘
 
@@ -34,7 +34,7 @@
 
 > **Note** 下图显示GPS和罗盘的接线方式。 GPS/罗盘在安装时应尽可能远离其他电子元器件，方向标记朝向飞行器前方(将罗盘和其他电子元器件分开可以减少干扰)。
 
-![将罗盘/GPS连接到Pixhawk](../../images/pixhawk_3dr_compass_gps.jpg)
+![将罗盘/GPS连接到Pixhawk](../../assets/flight_controller/pixhawk1/pixhawk_3dr_compass_gps.jpg)
 
 ## 电源
 
@@ -42,7 +42,7 @@
 
 电源模块为飞行控制器提供电源，并通过模块发送电流和电压信息(包括向飞行控制器和电机等供电)。
 
-![Pixhawk - 电源模块](../../images/pixhawk_3dr_power_module.jpg)
+![Pixhawk - 电源模块](../../assets/flight_controller/pixhawk1/pixhawk_3dr_power_module.jpg)
 
 > **Warning**电源模块只能向飞行控制器供电，不能连接到飞行控制器的其他输出端口向电机和其他硬件供电。 对于直升飞机没有影响，因为电机是分开供电的。
 
@@ -58,9 +58,9 @@
 
 下面的说明演示如何将不同类型的接收机连接到 Pixhawk:
 
-- Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。 ![Pixhawk - Spektrum接收机数传端口](../../images/pixhawk_3dr_receiver_spektrum.jpg)
+- Spektrum and DSM 接收机连接到 **SPKT/DSM** 输入端口。 ![Pixhawk - Spektrum接收机数传端口](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_spektrum.jpg)
 
-- PPM-SUM and S.BUS 接收机连接到如图所示的 **RC** 地线、电源线和信号线。 ![Pixhawk` - PPM/S.BUS接收机数传端口](../../images/pixhawk_3dr_receiver_ppm_sbus.jpg)
+- PPM-SUM and S.BUS 接收机连接到如图所示的 **RC** 地线、电源线和信号线。 ![Pixhawk` - PPM/S.BUS接收机数传端口](../../assets/flight_controller/pixhawk1/pixhawk_3dr_receiver_ppm_sbus.jpg)
 
 - PPM and PWM 接收机有 *每个通道单独的连接线* 必须连接在 **RC** 端口，*通过一个[类似这样的](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) PPM 编码器* (PPM-Sum 接收机每个通道使用单独的信号线).
 
@@ -70,7 +70,7 @@
 
 数传电台可用于地面站的通信和飞行控制 (例如, 您可以指定无人机飞行至特定位置, 或上传新的任务)。 如下图所示是数传连接到飞行器的方式。 另一个数传连接到你的地面站电脑或移动设备(通常使用USB)。
 
-![Pixhawk/数传](../../images/pixhawk_3dr_telemetry_radio.jpg)
+![Pixhawk/数传](../../assets/flight_controller/pixhawk1/pixhawk_3dr_telemetry_radio.jpg)
 
 <!-- what configuration is required once you've set up a radio) -->
 
@@ -104,7 +104,7 @@ QuadPlane的特定配置在以下内容中介绍：[QuadPlane VTOL Configuration
 
 ## 详细接线示意图(直升机)。
 
-![四旋翼Pixhawk接线图](../../images/pixhawk_infographic2.jpg)
+![四旋翼Pixhawk接线图](../../assets/flight_controller/pixhawk1/pixhawk_infographic2.jpg)
 
 ## 更多信息
 
