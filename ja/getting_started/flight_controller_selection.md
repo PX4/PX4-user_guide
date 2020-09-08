@@ -25,9 +25,9 @@ Also consider: [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md), [MindRacer
 
 These flight controllers (and development platforms) offer on-vehicle "companion computing", enabling computer vision and other computationally intensive tasks.
 
-| Controller                                                             | Description                                                             |
-| ---------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RaPi can be connected to an autopilot and used as a companion computer. |
+| Controller                                                             | Description                                                              |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RasPi can be connected to an autopilot and used as a companion computer. |
 
 ## Commercial UAVs that can run PX4
 

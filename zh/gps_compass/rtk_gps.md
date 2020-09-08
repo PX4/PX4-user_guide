@@ -12,16 +12,20 @@
 
 ## 支持的 RTK 设备
 
-PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS and products that incorporate it. 下面的 RTK 设备已经经过测试。
+PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS and products that incorporate it.
+
+The following RTK-compatible devices have been tested.
 
 - [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)
 - [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)
-- [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
-- [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
+- [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) 
 - [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)
+- [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
+- [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
+- [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
 - [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
 - [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
-- [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) 
+- [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
 
 > **Note**有一些 RTK 模块只能作为基站或移动站，有的则可以两用。
 
@@ -29,13 +33,13 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 
 ### RTK 移动站（飞机）
 
-连接飞机上的移动站到飞控的 GPS 端口上（其他的 GPS模块同理）。
+Connect the vehicle-based module to the flight controller's GPS port (in the same way as any other GPS module).
 
-实际的接线可能因飞控和 RTK 而有所差异（详情参看所[选设备的说明书](#supported-rtk-devices)）。
+The actual cables/connectors required will depend on the flight controller and selected RTK module (see [documentation for the selected device](#supported-rtk-devices) for more information).
 
 ### RTK 基站（地面端）
 
-使用 USB 连接基站到*QGroundControl*。 基站在使用中必须保持不动。
+Connect the base module to *QGroundControl* via USB. The base module must not be moved while it is being used.
 
 > **Tip**选择一个不会移动的地方，上方开阔，最好避开建筑物。 使用三脚架或安装在屋顶，效果更好。
 
@@ -43,13 +47,13 @@ PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blo
 
 The vehicle and ground control laptop must be connected via [wifi or a radio telemetry link](../telemetry/README.md).
 
-链接*必须*使用 MAVLink2 协议，因为 MAVLink2 能更好的利用通道。 这个设置默认即可，如果不是默认数据，可以参考下面的[MAVLink2 设置介绍](#mavlink2)。
+The link *must* use the MAVLink2 protocol as it makes more efficient use of the channel. This should be set by default, but if not, follow the [MAVLink2 configuration instructions](#mavlink2) below.
 
 ## RTK 连接步骤
 
-RTK GPS 是即插即用的。
+The RTK GPS connection is essentially plug and play:
 
-1. 打开*QGroundControl*，使用 USB 连接基站的 RTK GPS 到地面站。 电脑会自动识别设备。 
+1. 打开*QGroundControl*，使用 USB 连接基站的 RTK GPS 到地面站。 电脑会自动识别设备。
 2. 启动飞机，确保飞机连接上*QGroundControl*地面站。
     
     > **Tip**当 RTK GPS 设备连接上，在上面工具栏的正常显示GPS的位置，会显示 RTK GPS 的状态。 当 RTK 正在被设置，会显示为红色，RTK GPS 激活后会变为白色。 点击图标，可以查看当前状态和 RTK 的精度。
@@ -74,15 +78,15 @@ RTK GPS 是即插即用的。
 
 ## PX4 可用的设置
 
-下面的设置可能需要设置。（使用*QGroundControl*）。
+The following settings may need to be changed (using *QGroundControl*).
 
 ### RTK GPS 设置
 
 The RTK GPS settings are specified in the *QGroundControl* [General Settings](https://docs.qgroundcontrol.com/en/SettingsView/General.html#rtk_gps) (**SettingsView > General Settings > RTK GPS**).
 
-![RTK GPS 设置](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
+![RTK GPS Setup](../../assets/qgc/setup/rtk/settings_view_general_rtk_gps.jpg)
 
-这些设置定义了 RTK GPS 设置过程（称为“测量”）完成的最小持续时间和最小精度。
+These settings define the minimum duration and minimum accuracy for completing the RTK GPS setup process (known as "Survey-In).
 
 <span></span>
 
@@ -110,10 +114,10 @@ To ensure MAVLink2 is used:
     
     A second GPS receiver can be used as a backup (either RTK or non RTK). See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
     
-    <!-- 
+    <!--
 
 - Video demonstration would be nice.
-- something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey. 
+- something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
     
     ## 飞机设置示例

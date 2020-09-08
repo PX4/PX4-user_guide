@@ -8,8 +8,9 @@ Key information
 - **Flight controller:** Pixhawk Mini
 - **Assembly time (approx.):** 3.5 hours (2 for frame, 1.5 autopilot setup)
 
-![QAV250 - Complete build with pixhawk
-mini](../../images/qav250_complete_build_with_pixhawk_mini.jpg)
+![QAV250 - Complete build with pixhawk mini](../../images/qav250_complete_build_with_pixhawk_mini.jpg)
+
+![QAV250 - Complete build with pixhawk mini and props](../../images/qav250_complete_build.jpg)
 
 ## Bill of materials
 
@@ -24,7 +25,7 @@ The components used in this build are listed below (along with links to where th
 - **Receiver:** FR SKY D4R-II ([getfpv.com](http://www.getfpv.com/radios/receivers/frsky-d4r-ii-4ch-2-4ghz-accst-receiver-w-telemetry.html))
 - **Battery:** Lumenier 4S 1300 mAh ([getfpv.com](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html))
 
-备注：
+Notes:
 
 - The 4S Power Module that comes with the *Pixhawk Mini* can be used for the battery size above (instead of the 10S Power Module). Assembly is the same with either power module.
 - We also recommend these ESC: Lumenier 12 amp ESC w/ SimonK AutoShot (2-4s N-FET) ([getfpv.com](http://www.getfpv.com/lumenier-12a-esc-w-simonk-autoshot-2-4s-n-fet.html)).

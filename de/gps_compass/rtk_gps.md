@@ -12,16 +12,20 @@ You will need:
 
 ## Supported RTK Devices
 
-PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS and products that incorporate it. The following RTK-compatible devices have been tested.
+PX4 supports the [u-blox M8P](https://www.u-blox.com/en/product/neo-m8p), [u-blox F9P](https://www.u-blox.com/en/product/zed-f9p-module) and the [Trimble MB-Two](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) GPS and products that incorporate it.
+
+The following RTK-compatible devices have been tested.
 
 - [CUAV C-RTK GPS](../gps_compass/rtk_gps_cuav_c-rtk.md)
 - [Drotek XL RTK GPS](../gps_compass/rtk_gps_drotek_xl.md)
-- [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
-- [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
+- [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) 
 - [Freefly RTK GPS](../gps_compass/rtk_gps_freefly.md) (F9P)
+- [Here+ RTK GPS](../gps_compass/rtk_gps_hex_hereplus.md)
+- [Holybro H-RTK F9P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-f9p.md)
+- [Holybro H-RTK M8P GNSS](../gps_compass/rtk_gps_holybro_h-rtk-m8p.md)
 - [SparkFun GPS-RTK2 Board - ZED-F9P](https://www.sparkfun.com/products/15136) (www.sparkfun.com)
 - [SIRIUS RTK GNSS ROVER (F9P)](https://store-drotek.com/911-1010-sirius-rtk-gnss-rover-f9p.html#/158-sensor-no_magnetometer) (store-drotek.com)
-- [Femtones MINI2 Receiver](../gps_compass/rtk_gps_fem_mini2.md) 
+- [Trimble MB-Two](../gps_compass/rtk_gps_trimble_mb_two.md)
 
 > **Note** Some RTK modules can only be used in a particular role (base or rover), while others can be used interchangeably.
 
@@ -49,7 +53,7 @@ The link *must* use the MAVLink2 protocol as it makes more efficient use of the 
 
 The RTK GPS connection is essentially plug and play:
 
-1. Start *QGroundControl* and attach the base RTK GPS via USB to the ground station. The device is recognized automatically. 
+1. Start *QGroundControl* and attach the base RTK GPS via USB to the ground station. The device is recognized automatically.
 2. Start the vehicle and make sure it is connected to *QGroundControl*.
     
     > **Tip** An RTK GPS status icon is displayed in the top icon bar while an RTK GPS device is connected (in addition to the normal GPS status icon). The icon is red while RTK is being set up, and then changes to white once RTK GPS is active. You can click the icon to see the current state and RTK accuracy.
@@ -109,10 +113,10 @@ Some RTK GPS units (i.e. with multiple antennas) can output a yaw angle, which c
 
 A second GPS receiver can be used as a backup (either RTK or non RTK). See the [EKF2 GPS Configuration](../advanced_config/tuning_the_ecl_ekf.md#gps) section.
 
-<!-- 
+<!--
 
 - Video demonstration would be nice.
-- something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey. 
+- something that shows positioning of base, connection of RTK rover, survey in process. Some sort of short precision survey.
 -->
 
 ## Vehicle Setup Example

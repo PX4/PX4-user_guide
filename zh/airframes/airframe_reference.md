@@ -6,9 +6,45 @@
 
 该页列出所有PX4支持的机架型号，包括电机分配和序号。 **绿色**为顺时针转动的电机，**蓝色**为逆时针转动的电机。
 
-## 旋翼机
+## Airship
 
-### 旋翼机
+### Airship
+
+<div>
+  <img src="../../assets/airframes/types/Airship.svg" width="29%" style="max-height: 180px;" /> 
+  
+  <table style="float: right; width: 70%; font-size:1.5rem;">
+    <colgroup><col></colgroup> <tr>
+      <th>
+        常规输出接法
+      </th>
+    </tr>
+<tr>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: starboard thruster</li><li><b>MAIN2</b>: port thruster</li><li><b>MAIN3</b>: thrust tilt</li><li><b>MAIN4</b>: tail thruster</li></ul></td>
+</tr>
+  </table>
+</div>
+
+<table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
+  <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
+    <th>
+      参数名
+    </th>
+    
+    <th>
+    </th>
+  </tr>
+<tbody>
+<tr id="airship_airship_cloudship">
+ <td style="vertical-align: top;">Cloudship</td>
+ <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 2507</p></td>
+
+</tr>
+</tbody></table>
+
+## Autogyro
+
+### Autogyro
 
 <div>
   <img src="../../assets/airframes/types/Autogyro.svg" width="29%" style="max-height: 180px;" /> 
@@ -42,9 +78,9 @@
 </tr>
 </tbody></table>
 
-## 直升机
+## Copter
 
-### 共轴双旋翼直升机
+### Coaxial Helicopter
 
 <div>
   <img src="../../assets/airframes/types/HelicopterCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -158,7 +194,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor1</li><li><b>MAIN2</b>: motor2</li><li><b>MAIN3</b>: motor3</li><li><b>MAIN4</b>: motor4</li><li><b>MAIN5</b>: motor5</li><li><b>MAIN6</b>: motor6</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor1</li><li><b>MAIN2</b>: motor2</li><li><b>MAIN3</b>: motor3</li><li><b>MAIN4</b>: motor4</li><li><b>MAIN5</b>: motor5</li><li><b>MAIN6</b>: motor6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -332,7 +368,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -362,11 +398,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -457,7 +493,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -763,7 +799,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
 </tr>
   </table>
 </div>
@@ -911,7 +947,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -975,7 +1011,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -1076,8 +1112,8 @@
  <td style="vertical-align: top;"><p>Maintainer: Timothy Scott</p><p><code>SYS_AUTOSTART</code> = 50003</p><p><b>Specific Outputs:</b><ul><li><b>MAIN0</b>: Speed of left wheels</li><li><b>MAIN1</b>: Speed of right wheels</li></ul></p></td>
 
 </tr>
-<tr id="rover_rover_df_robot_gpx:asurada">
- <td style="vertical-align: top;">DF Robot GPX:Asurada</td>
+<tr id="rover_rover_nxp_cup_car:_df_robot_gpx">
+ <td style="vertical-align: top;">NXP Cup car: DF Robot GPX</td>
  <td style="vertical-align: top;"><p>Maintainer: Katrin Moritz</p><p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: Steering servo</li><li><b>MAIN3</b>: Speed of left wheels</li><li><b>MAIN4</b>: Speed of right wheels</li></ul></p></td>
 
 </tr>
@@ -1184,7 +1220,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        常规输出接法
+        Common Outputs
       </th>
     </tr>
 <tr>
@@ -1196,7 +1232,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      Name
     </th>
     
     <th>
