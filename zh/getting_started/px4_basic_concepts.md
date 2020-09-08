@@ -32,7 +32,7 @@ Dronecode 地面控制站称为 [QGC 地面站](http://qgroundcontrol.com/)。 �
 
 *QGroundControl* 可以在 Windows，Android，MacOS 或 Linux 上运行。 从 [这里](http://qgroundcontrol.com/downloads/) 下载并安装。
 
-![QGC 主屏幕](../../images/qgc_main_screen.jpg)
+![QGC 主屏幕](../../assets/concepts/qgc_main_screen.jpg)
 
 ## 机体/飞行控制板 {#vehicle_controller}
 
@@ -195,11 +195,11 @@ For more information see: [Safety](../config/safety.md) (Basic Configuration).
 
 All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
 
-![Frame Heading](../../images/frame_heading.png)
+![Frame Heading](../../assets/concepts/frame_heading.png)
 
 It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
 
-![Frame Heading TOP](../../images/frame_heading_top.png)
+![Frame Heading TOP](../../assets/concepts/frame_heading_top.png)
 
 In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
 
