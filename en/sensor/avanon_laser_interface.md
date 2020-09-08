@@ -1,6 +1,8 @@
-# Avionics Anonymous Laser Altimeter Interface
+# Avionics Anonymous Laser Altimeter UAVCAN Interface
 
 The [Avionics Anonymous Laser Altimeter Interface](https://www.tindie.com/products/avionicsanonymous/uavcan-laser-altimeter-interface/) allows a [number of common rangefinders](#supported_rangefinders) to be connected via the UAVCAN bus (this is a more robust interface than I2C).
+
+![Avionics Anonymous Laser Altimeter UAVCAN Interface](../../assets/hardware/sensors/avionics_anon_uavcan_alt_interface/avionics_anon_altimeter_uavcan_interface.jpg)
 
 ## Where to Buy
 
