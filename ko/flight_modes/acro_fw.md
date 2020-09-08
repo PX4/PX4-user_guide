@@ -6,7 +6,7 @@
 
 롤, 피치 및 요 스틱은 각 축을 중심으로 한 각도 회전 속도를 제어하고 조절판은 직접 출력 믹서로 전달됩니다. 스틱이 중앙에 놓여지면 기체는 회전을 멈추지만 현재 방향 (측면, 반전 등) 과 현재 모멘텀에 따라 움직입니다.
 
-![FW 수동 곡예 비행](../../images/flight_modes/manual_acrobatic_FW.png)
+![FW 수동 곡예 비행](../../assets/flight_modes/manual_acrobatic_FW.png)
 
 ## 기술적 설명
 

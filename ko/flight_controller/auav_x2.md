@@ -5,7 +5,7 @@
 [AUAV <sup>&reg; </sup>](http://www.auav.com/) *AUAV-X2 오토파일럿 *은 Pixhawk <sup>을 기반으로 합니다. 이 프로그램은 <a href="http://nuttx.org"> NuttX </a> OS에서 PX4를 실행합니다.</p> 
 
 <p>
-  <img src="../../images/auavx2_case2.jpg" alt="AUAVX2_case2" />
+  <img src="../../assets/flight_controller/auav_x2/auavx2_case2.jpg" alt="AUAVX2_case2" />
 </p>
 
 <h2>
@@ -114,7 +114,7 @@
 </h2>
 
 <p>
-  더 이상 생산하지 않습니다. 이것은 <a href="mro_x2.1.md"> mRo X2.1 </ 0>에 의해 대체되었습니다. mRobotics는 <0 /> AUAV 제품의 유통 업체는 2017 년 8 월입니다.</p> 
+  더 이상 생산하지 않습니다. 이것은 <a href="mro_x2.1.md"> mRo X2.1 </ 0>에 의해 대체되었습니다. mRobotics is the distributor for the AUAV Products from August 2017.</p> 
   
   <h2>
     주요 링크
@@ -134,19 +134,19 @@
   </h2>
   
   <p>
-    <img src="../../images/auav_x2_basic_setup_3.png" alt="AUAV-X2 기본 설정 3" />
+    <img src="../../assets/flight_controller/auav_x2/auav_x2_basic_setup_3.png" alt="AUAV-X2 기본 설정 3" />
   </p>
   
   <p>
-    <img src="../../images/auav_x2_basic_setup_2.jpg" alt="AUAV-X2 기본 설정 2" />
+    <img src="../../assets/flight_controller/auav_x2/auav_x2_basic_setup_2.jpg" alt="AUAV-X2 기본 설정 2" />
   </p>
   
   <p>
-    <img src="../../images/auav_x2_basic_setup_1.png" alt="AUAV-X2 기본 설정 1" />
+    <img src="../../assets/flight_controller/auav_x2/auav_x2_basic_setup_1.png" alt="AUAV-X2 기본 설정 1" />
   </p>
   
   <p>
-    <img src="../../images/auav_x2_airspeed_setup_3.png" alt="AUAV-X2-airpeed-setup 3" />
+    <img src="../../assets/flight_controller/auav_x2/auav_x2_airspeed_setup_3.png" alt="AUAV-X2-airpeed-setup 3" />
   </p>
   
   <h2>

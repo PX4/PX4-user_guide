@@ -64,7 +64,7 @@ Note that vehicles automatically disarm on landing by default:
 
 All flying, including takeoff and landing, is controlled using the 4 basic commands: roll, yaw, pitch and throttle.
 
-![RC Basic Commands](../../images/rc_basic_commands.png)
+![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
 
 In order to control your aircraft you need to understand how the basic Roll, Pitch, Yaw and Throttle commands affect movement in 3D space. This differs depending on whether you're controlling a forward-flying aircraft like a plane, or a "hover aircraft" like a multicopter.
 
@@ -72,7 +72,7 @@ In order to control your aircraft you need to understand how the basic Roll, Pit
 
 Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as shown below:
 
-![Basic Movements Multicopter](../../images/basic_movements_multicopter.png)
+![Basic Movements Multicopter](../../assets/flying/basic_movements_multicopter.png)
 
 - Pitch => Forward/back.
 - Roll => Left/right.
@@ -83,7 +83,7 @@ Hover aircraft (Copter, VTOL in hover mode) respond to the movement commands as 
 
 Forward-flying aircraft (planes, VTOL in forward flight) respond to the movement commands as shown below:
 
-![Basic Movements Forward](../../images/basic_movements_forward.png)
+![Basic Movements Forward](../../assets/flying/basic_movements_forward.png)
 
 - Pitch => Up/down.
 - Roll => Left/right and a turn.

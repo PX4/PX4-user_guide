@@ -14,11 +14,11 @@
 
 可以通过在 * 搜索(Search) * 框中输入一个相关字眼来搜索参数。 和搜索字眼相关的所有参数名称和说明将会以列表形式显示 (按 ** 清除(Clear) ** 重置搜索)。
 
-![搜索参数](../../images/qgc/setup/parameters_search.jpg)
+![搜索参数](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
 你也可以按组浏览参数, 方法是单击左侧的按钮 (在选中 * 电池校准(Battery Calibration) * 下的图像中)。
 
-![参数界面](../../images/qgc/setup/parameters_px4.jpg)
+![参数界面](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
 > **Tip** 如果找不到期望的参数，请参阅[下一节](#missing)。
 
@@ -55,7 +55,7 @@
 
 通过单击 参数组中 或 参数搜索结果列表中 的参数行来改变参数的值。 单击后屏幕侧边会显示一个对话框，您在其中更改参数的值（这个对话框还提供了该参数的额外细节信息——包括是否需要重启才能使参数生效）。
 
-![改变参数的值](../../images/qgc/setup/parameters_changing.png)
+![改变参数的值](../../assets/qgc/setup/parameters_changing/parameters_changing.png)
 
 > **Note** 当单击**保存(Save)**按钮后，参数会自动且静默地上传到连接的载具。 对于不同的参数，你可能需要重启飞控才能使改变的参数生效。
 
@@ -63,7 +63,7 @@
 
 您可以在屏幕右上角的**工具 (Tools)**菜单中选择更多的选项。
 
-![工具菜单](../../images/qgc/setup/parameters_tools_menu.png)
+![工具菜单](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
 **刷新 (Refresh)** <br />用从载具上重新请求的所有参数值刷新地面站上的参数值。
 

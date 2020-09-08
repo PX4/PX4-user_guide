@@ -29,13 +29,13 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 通过依次单击 *QGroundControl* **Gear** 图标（位于机体设置 - 顶部工具栏），然后单击侧栏中的**安全**来访问 *QGroundControl* 安全设置页面。 其中包括最重要的故障保护设置（电池故障，遥控信号丢失等）和返航动作的设置（*返航*和*降落*）。
 
-![安全设置（QGC）](../../images/qgc/setup/safety_setup.png)
+![安全设置（QGC）](../../assets/qgc/setup/safety/safety_setup.png)
 
 ### 低电量故障保护
 
 当电池电量低于一个（或多个警告）水平值时，会触发低电量故障保护。
 
-![安全 - 电池（QGC）](../../images/qgc/setup/safety_battery.png)
+![安全 - 电池（QGC）](../../assets/qgc/setup/safety/safety_battery.png)
 
 最常见的配置是按上述方式设置参数的值和相应故障保护动作（ `警告 > 故障安全 > Emergency`)。 通过如此配置，故障保护将触发警告，随后返航，最后在电池电量过低时降落。
 
@@ -54,7 +54,7 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 如果遥控传输的通信链路丢失，则触发遥控信号丢失故障保护。
 
-![安全 - 遥控丢失（QGC）](../../images/qgc/setup/safety_rc_loss.png)
+![安全 - 遥控丢失（QGC）](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
 > **Note** 为了*检测遥控信号丢失情况*，可能还需要配置 PX4 和接收机：[无线电设置 > 遥控信号丢失检测](../config/radio.md#rc_loss_detection)。
 
@@ -69,7 +69,7 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 如果在执行任务时数传链路（与地面站的连接）丢失，则会触发数据链路丢失故障保护。
 
-![安全 - 数据链路丢失（QGC）](../../images/qgc/setup/safety_data_link_loss.png)
+![安全 - 数据链路丢失（QGC）](../../assets/qgc/setup/safety/safety_data_link_loss.png)
 
 设置和基本参数如下所示。
 
@@ -82,7 +82,7 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 地理围栏故障保护是一个以初始位置为中心“虚拟”圆柱体。 如果机体在圆柱体的半径以外或在高于圆柱体的高度移动，将触发特定的故障保护动作。
 
-![安全 - 地理围栏（QGC）](../../images/qgc/setup/safety_geofence.png)
+![安全 - 地理围栏（QGC）](../../assets/qgc/setup/safety/safety_geofence.png)
 
 > **Tip** PX4 单独支持更复杂的地理围栏几何结构，如多个任意多边形和圆形内外的区域，设置操作为：[飞行 > 地理围栏](../flying/geofence.md)。
 
@@ -109,7 +109,7 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 *返航*是一种常见的[故障保护动作](#failsafe_actions)，这将启动[返航模式](../flight_modes/return.md)，使机体返回起飞位置。 本节说明如何设置返航后的降落/悬停行为。
 
-![安全 - 返航设置（QGC）](../../images/qgc/setup/safety_return_home.png)
+![安全 - 返航设置（QGC）](../../assets/qgc/setup/safety/safety_return_home.png)
 
 设置和基本地参数如下所示。
 
@@ -126,7 +126,7 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 *在当前位置降落*是一种常见的[故障保护动作](#failsafe_actions)，采用降落模式启动。 本节介绍何时及是否使载具在降落后自动上锁的设置方式。 对于多旋翼飞机（仅限），您可以另外设置降落速度。
 
-![安全 - 降落模式设置（QGC）](../../images/qgc/setup/safety_land_mode.png)
+![安全 - 降落模式设置（QGC）](../../assets/qgc/setup/safety/safety_land_mode.png)
 
 设置和基本参数如下所示。
 

@@ -14,7 +14,7 @@
 为了更改方向参数：
 
 1. 打开 QGroundControl 菜单: **Settings > Parameters > Sensor Calibration**.
-2. 更改以下参数： ![FC Orientation QGC v2](../../images/fc_orientation_qgc_v2.png)
+2. 更改以下参数： ![FC Orientation QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
 ## 参数信息
 

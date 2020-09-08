@@ -10,13 +10,13 @@
 2. 在工具栏上选择**齿轮**图标 (载具设置)，然后在侧边栏选择 **机架**。 
 3. 先选择你的机架符合的大致分类，然后在下拉菜单中选择最匹配的机架类型。
     
-    ![](../../images/qgc/setup/airframe_px4.jpg)
+    ![](../../assets/qgc/setup/airframe/airframe_px4.jpg)
     
     下面是一个从 *宽体四旋翼* 分类中选择 *3DR Iris 四旋翼* 的例子。
 
 4. 点击 **应用并重启**。 看到提示后点击 **应用** 保存设置并重启载具 (飞机)。
     
-    <img src="../../images/qgc/setup/airframe_px4_apply_prompt.jpg" width="300px" title="应用机架选择提示" />
+    <img src="../../assets/qgc/setup/airframe/airframe_px4_apply_prompt.jpg" width="300px" title="应用机架选择提示" />
 
 ## 更多信息：
 

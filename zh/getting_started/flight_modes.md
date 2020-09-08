@@ -103,7 +103,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/position_MC.png" alt="MC Position Mode" />
+              <img src="../../assets/flight_modes/position_MC.png" alt="MC Position Mode" />
             </p>
             
             <h3 id="altitude_mc">
@@ -129,7 +129,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/altitude_MC.png" alt="MC Altitude Mode" />
+              <img src="../../assets/flight_modes/altitude_MC.png" alt="MC Altitude Mode" />
             </p>
             
             <h3 id="manual_stabilized_mc">
@@ -159,7 +159,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_stabilized_MC.png" alt="MC Manual Flight" />
+              <img src="../../assets/flight_modes/manual_stabilized_MC.png" alt="MC Manual Flight" />
             </p>
             
             <h3 id="rattitude_mc">
@@ -197,7 +197,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_acrobatic_MC.png" alt="MC Manual Acrobatic Flight" />
+              <img src="../../assets/flight_modes/manual_acrobatic_MC.png" alt="MC Manual Acrobatic Flight" />
             </p>
             
             <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
@@ -219,7 +219,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <img src="../../images/flight_modes/orbit_MC.png" alt="Orbit Mode - MC" />
+              <img src="../../assets/flight_modes/orbit_MC.png" alt="Orbit Mode - MC" />
             </p>
             
             <h3 id="hold_mc">
@@ -349,7 +349,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/position_FW.png" alt="FW Position Mode" />
+              <img src="../../assets/flight_modes/position_FW.png" alt="FW Position Mode" />
             </p>
             
             <h3 id="altitude_fw">
@@ -379,7 +379,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </blockquote>
             
             <p>
-              <img src="../../images/flight_modes/altitude_FW.png" alt="FW Altitude Mode" />
+              <img src="../../assets/flight_modes/altitude_FW.png" alt="FW Altitude Mode" />
             </p>
             
             <h3 id="stabilized_fw">
@@ -409,7 +409,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_stabilized_FW.png" alt="FW Manual Flight" />
+              <img src="../../assets/flight_modes/manual_stabilized_FW.png" alt="FW Manual Flight" />
             </p>
             
             <h3 id="acro_fw">
@@ -429,7 +429,7 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             </p>
             
             <p>
-              <img src="../../images/flight_modes/manual_acrobatic_FW.png" alt="FW Manual Acrobatic Flight" />
+              <img src="../../assets/flight_modes/manual_acrobatic_FW.png" alt="FW Manual Acrobatic Flight" />
             </p>
             
             <h3 id="manual_fw">

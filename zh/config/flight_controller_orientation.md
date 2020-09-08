@@ -8,11 +8,11 @@ ROLL, PITCH and/or YAW offsets of the flight controller are calculated relative 
 
 The axes to rotate around stay the same from one rotation step to the next one. So the frame to perform the rotation in stays fixed. This is also known as *extrinsic rotation*.
 
-<img src="../../images/fc_orientation_1.png" style="width: 600px;" />
+<img src="../../assets/qgc/setup/sensor/fc_orientation_1.png" style="width: 600px;" />
 
 For example, the vehicles shown below have rotations around the z-axis (only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
-![Yaw Rotation](../../images/yaw_rotation.png)
+![Yaw Rotation](../../assets/qgc/setup/sensor/yaw_rotation.png)
 
 ## 设置朝向
 
@@ -20,10 +20,10 @@ To set the orientations:
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
-3. 选择 **Set Orientations** 按钮。 <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
+3. 选择 **Set Orientations** 按钮。 <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
 4. 选择 **自驾仪方向（AutoPilot Orientation）**（[之前计算的值](#calculating-orientation)）。
     
-    <img src="../../images/qgc/setup/sensor_orientation_selector_values.jpg" style="width: 200px;" />
+    <img src="../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg" style="width: 200px;" />
 
 5. 同样的选择 **外置罗盘方向（External Compass Orientation）**（只有当您的飞行器有外部罗盘时，才会显示此选项）。
 

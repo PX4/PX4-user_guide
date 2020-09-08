@@ -21,15 +21,15 @@ Convergence 机架需要按照以下方式，与飞控 Pixfalcon 之间连接7�
 
 Pixfalcon 硬件可以安装在飞机原始的飞控安装位置
 
-![Mount Pixfalcon](../../images/eflight_convergence_pixfalcon_mounting.jpg)
+![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
 接收机模块安装在飞机原本需要安装 FPV 图传的空间内
 
-![Mount telemetry module](../../images/eflight_convergence_telemetry_module.jpg)
+![Mount telemetry module](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
 
 对于GPS，我们在驾驶舱内泡沫上切出一块空间， 这样GPS可以放在机身内，良好内置不影响外观
 
-![Mount GPS](../../images/eflight_convergence_gps_mounting.jpg)
+![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
 ## 配置
 
