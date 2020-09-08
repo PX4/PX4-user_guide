@@ -45,7 +45,7 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 2. 打开您的 RC 遥控器发射机。
 3. 点击上方工具栏的 **Gear** 图标（飞行器设置），然后在左侧边栏选择 **Flight Modes** 。
     
-    ![Flight modes single-channel](../../images/qgc/setup/flight_modes_single_channel.jpg)
+    ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
     
     > **Tip** 如果界面中显示的是 *Multi Channel Mode*，点击 **Use Single Channel Mode Selection** 按钮来切换成单通道模式。
 
@@ -80,19 +80,19 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 首先设置您的遥控器发射机。 下面我们将演示如何将 Taranis 的 "SD" 开关映射到通道 5 。 这是在 Taranis 的 'mixer' 的界面中，如下所示：
 
-![Taranis - Map channel to switch](../../images/qgc/setup/single_channel_mode_selection_1.png)
+![Taranis - Map channel to switch](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_1.png)
 
-![Taranis - Configure channel](../../images/qgc/setup/single_channel_mode_selection_2.png)
+![Taranis - Configure channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
 
 然后, 您可以在 *QGroundControl* 选择单通道模式选项中选择通道和飞行模式：
 
-![QGC - Set mode channel](../../images/qgc/setup/single_channel_mode_selection_3.png)
+![QGC - Set mode channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_3.png)
 
 [Radio switch](../advanced_config/parameter_reference.md#radio-switches) 参数将特定功能映射到该通道。 假设你已经在您的发射器中映射了一个通道，您可以通过 [setting the parameter](../advanced_config/parameters.md) 来分配通道。
 
-例如，我们在 *QGroundControl* 中把通道 6 映射到 [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) 参数上去。
+For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter in *QGroundControl*.
 
-![QGC - Map ARM switch to channel](../../images/qgc/setup/single_channel_mode_selection_4.png)
+![QGC - Map ARM switch to channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_4.png)
 
 ## 多通道飞行模式选择 {#multi_channel}
 
@@ -106,7 +106,7 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 2. 打开 *QGroundControl* 并连接上飞机。
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
     
-    ![Flight modes multi-channel](../../images/qgc/setup/flight_modes_multi_channel.jpg)
+    ![Flight modes multi-channel](../../assets/qgc/setup/flight_modes/flight_modes_multi_channel.jpg)
     
     > **Tip** If the screen opens in *Single Channel Mode* click the **Use Multi Channel Mode Selection** button to change screen.
 
