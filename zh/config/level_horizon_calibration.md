@@ -10,7 +10,7 @@
 
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
-3. 点击 **Level Horizon** 按钮。 ![Level Horizon calibration](../../images/qgc/setup/sensor_level_horizon.jpg) > **Note** 您应该已经设置好 [Autopilot Orientation](../config/flight_controller_orientation.md)。 如果没有，也可以在这里设置。 
+3. 点击 **Level Horizon** 按钮。 ![Level Horizon calibration](../../assets/qgc/setup/sensor/sensor_level_horizon.jpg) > **Note** You should already have set the [Autopilot Orientation](../config/flight_controller_orientation.md). 如果没有，也可以在这里设置。 
 4. 将飞行器放置于水平方向： 
     * 这是飞行器在水平飞行时的位置（飞行器通常会向上轻微翘起！）
     * 对于旋翼机，这是悬停位置。
