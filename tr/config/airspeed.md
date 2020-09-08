@@ -12,7 +12,7 @@ To calibrate the airspeed sensor:
 2. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Sensors** in the sidebar.
 3. Click the **Airspeed** sensor button.
     
-    ![Airspeed calibration](../../images/qgc/setup/sensor_airspeed.jpg)
+    ![Airspeed calibration](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
 
 4. Shield the sensor from the wind (i.e. cup it with your hand). Take care not to block any of its holes.
 
