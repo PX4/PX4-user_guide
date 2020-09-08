@@ -27,7 +27,7 @@ RC control can be used to change the orbit altitude, radius, speed, and orbit di
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![Orbit Mode - MC](../../images/flight_modes/orbit_MC.png)
+![Orbit Mode - MC](../../assets/flight_modes/orbit_MC.png)
 
 The mode can be stopped by switching to any other flight mode (using RC or QGC).
 

@@ -11,7 +11,7 @@ When under manual control the roll and pitch sticks control the *angle* of the v
 As soon as you release the control sticks they will return to the center deadzone. The multicopter will level out and stop once the roll and pitch sticks are centered.
 The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately (see [below](#params)), and no external forces are applied (e.g. wind). The craft will drift in the direction of any wind and you have to control the throttle to hold altitude.
 
-![MC Manual Flight](../../images/flight_modes/manual_stabilized_MC.png)
+![MC Manual Flight](../../assets/flight_modes/manual_stabilized_MC.png)
 
 
 ## Technical Description

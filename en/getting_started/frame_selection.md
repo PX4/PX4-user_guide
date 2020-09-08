@@ -14,7 +14,7 @@ The [airframe reference](../airframes/airframe_reference.md) lists frames that h
 
 Once you select and buy or assemble your air-frame you will have to preset it in *QGroundControl* with a template during the [Initial Setup process](../config/README.md).
 
-![Frame Selection](../../images/frame_selection.png)
+![Frame Selection](../../assets/qgc/setup/airframe/frame_selection.png)
 
 <!-- 
 ### Types of VTOL
