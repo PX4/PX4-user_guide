@@ -10,7 +10,7 @@
 > 
 > As soon as you release the control sticks they will return to the center deadzone. 롤 포크와 피치 스틱이 중앙에 오면 멀티 피터가 수평을 유지하고 정지합니다. The vehicle will then hover in place/maintain altitude - provided it is properly balanced, throttle is set appropriately (see [below](#params)), and no external forces are applied (e.g. wind). 항공기는 바람의 방향으로 표류하고 고도를 유지하기 위해 스로틀을 제어해야합니다.
 > 
-> ![MC 수동 비행](../../images/flight_modes/manual_stabilized_MC.png)
+> ![MC 수동 비행](../../assets/flight_modes/manual_stabilized_MC.png)
 > 
 > ## Technical Description
 > 
