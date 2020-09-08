@@ -8,11 +8,11 @@ ROLL, PITCH and/or YAW offsets of the flight controller are calculated relative 
 
 The axes to rotate around stay the same from one rotation step to the next one. So the frame to perform the rotation in stays fixed. This is also known as *extrinsic rotation*.
 
-<img src="../../images/fc_orientation_1.png" style="width: 600px;" />
+<img src="../../assets/qgc/setup/sensor/fc_orientation_1.png" style="width: 600px;" />
 
 For example, the vehicles shown below have rotations around the z-axis (only) corresponding to: `ROTATION_NONE`, `ROTATION_YAW_90`,`ROTATION_YAW_180`,`ROTATION_YAW_270`.
 
-![Yaw Rotation](../../images/yaw_rotation.png)
+![Yaw Rotation](../../assets/qgc/setup/sensor/yaw_rotation.png)
 
 ## 방향 설정
 
@@ -20,10 +20,10 @@ To set the orientations:
 
 1. *QGroundControl *을 시작하고 기체를 연결합니다.
 2. 상단 툴바에서 **톱니바퀴** 아이콘(기체 설정)을 선택한 다음 사이드 바에서 **센서**를 선택하십시오.
-3. **방향 설정** 버튼을 클릭합니다. <img src="../../images/qgc/setup/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
+3. **방향 설정** 버튼을 클릭합니다. <img src="../../assets/qgc/setup/sensor/sensor_orientation_set_orientations.jpg" style="width: 600px;" />
 4. **비행 컨트롤러 방향**을 선택합니다([위에서 계산한 방법](#calculating-orientation)대로 선택하십시오).
     
-    <img src="../../images/qgc/setup/sensor_orientation_selector_values.jpg" style="width: 200px;" />
+    <img src="../../assets/qgc/setup/sensor/sensor_orientation_selector_values.jpg" style="width: 200px;" />
 
 5. 동일한 방법으로 **외부 나침반 방향 **을 선택합니다(이 선택 사항은 기체에 외부 나침반이 있을 때에만 표시됩니다).
 
