@@ -2,7 +2,7 @@
 
 Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
 
-![Цифровой датчик воздушной скорости](../../images/digital_airspeed_sensor.jpg)
+![Цифровой датчик воздушной скорости](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
 ## Hardware Options
 
