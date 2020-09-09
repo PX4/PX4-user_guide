@@ -47,20 +47,25 @@ The sections below explain what values to set for each field.
 
 ### Number of Cells (in Series)
 
-This sets the number of cells connected in series in the battery. Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5s").
+This sets the number of cells connected in series in the battery.
+Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
 
 > **Note** The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type.
-  The most common drone battery type (Lithium-Polymer - LiPo) has a nominal cell voltage of 3.7V.
+  Lithium-Polymer (LiPo) batteries are the most common type, and have a nominal cell voltage of 3.7V, while Lithium-Ion batteries have a nominal cell voltage of 3.6V.
   In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*.
   The battery voltage at the terminals is then a multiple of the cell voltage.
 
-If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell. The table below shows the voltage-to-cell relationship for LiPo batteries:
-* 1S - 3.7V
-* 2S - 7.4V
-* 3S - 11.1V
-* 4S - 14.8V
-* 5S - 18.5V
-* 6S - 22.2V
+If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell.
+The table below shows the voltage-to-cell relationship for these batteries:
+
+Cells | LiPo (V) | LiIon (V)
+--- | --- | ---
+1S | 3.7 | 3.6
+2S | 7.4 | 7.2
+3S | 11.1 | 10.8
+4S | 14.8 | 14.4
+5S |18.5 | 18
+6S | 22.2 | 21.6
 
 > **Note** This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS) and [BAT2_N_CELLS](../advanced_config/parameter_reference.md#BAT2_N_CELLS)
 
@@ -68,9 +73,14 @@ If the number of cells is not supplied you can calculate it by dividing the batt
 
 This sets the *nominal* maximum voltage of each cell (the lowest voltage at which the cell will be considered "full").
 
-The value should be set slightly lower that the nominal maximum cell voltage for the battery (4.2V for LiPo), but not so low that the estimated capacity is still 100% after a few minutes of flight. The default value is usually appropriate for LiPo batteries. 
+The value should be set slightly lower that the nominal maximum cell voltage for the battery, but not so low that the estimated capacity is still 100% after a few minutes of flight.
 
-> **Note**  The voltage of a full battery may drop a small amount over time after charging.
+Appropriate values to use are:
+- **LiPo:** 4.2V (default in *QGroundControl*)
+- **LiIon:** 3.5V
+
+
+> **Note** The voltage of a full battery may drop a small amount over time after charging.
   Setting a slightly-lower than maximum value compensates for this drop.
 
 <span></span>
@@ -78,16 +88,20 @@ The value should be set slightly lower that the nominal maximum cell voltage for
 
 ### Empty Voltage (per cell)
 
-This sets the nominal minimum safe voltage of each cell (use below this voltage may damage the battery).
+This sets the nominal minimum safe voltage of each cell (using below this voltage may damage the battery).
 
 > **Note** There is no single value at which a battery is said to be empty.
   If you choose a value that is too low the battery may be damaged due to deep discharge (and/or the vehicle may crash).
   If you choose a value that is too high you may unnecessarily curtail your flight.
 
-A rule of thumb for LiPo batteries:
-- 3.7V without load is a conservative minimum value.
-- 3.5 V under load (while flying) is closer to the true minimum. At this voltage you should land immediately. 
-- 3.2V under load will cause damage to the battery. 
+A rule of thumb for minimum per-cell voltages:
+
+Level | LiPo (V) | LiIon (V)
+--- | --- | ---
+Conservative (voltage under no-load) | 3.7 | 2.7
+"Real" minimum (voltage under load/while flying | 3.5 | 2.6
+Damage battery (voltage under load) | 3.2 | 2.5
+
 
 > **Tip** Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
 
