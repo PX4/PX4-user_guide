@@ -88,7 +88,7 @@ Otherwise the `MAIN` ports are connected to the FMU, and there are no `AUX` port
 The FMU output ports can use [D-shot](../peripherals/dshot.md) or *One-shot* protocols (as well as PWM), which provide much lower-latency behaviour.
 This can be useful for racers and other airframes that require better performance.
   
-The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.html)). 
+The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.md)). 
 The (same) airframe mapping of outputs to nodes is used in this case. 
 
 
