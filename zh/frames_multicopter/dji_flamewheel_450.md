@@ -8,9 +8,9 @@ Key information:
 - **Flight controller:** [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
 - **Positioning:** RTK GPS
 
-![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_full.JPG)
+![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_full.jpg)
 
-![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_back.JPG)
+![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_back.jpg)
 
 ## Parts List
 
@@ -28,7 +28,7 @@ Key information:
 
 In addition we use a FrSky X4R-SB 3/16ch 2.4Ghz receiver and a FrSky Taranis controller. You will also need zip ties, double sided tape, a soldering iron and a 3D printer in case you use the same Blades, for this build. The GPS mast was reused from an Intel Aero.
 
-![F450 setup - open](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_open.JPG)
+![F450 setup - open](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_open.jpg)
 
 The *Pixhawk 3 Pro* can be attached using the double sided tape because the IMU inside is already dampened.
 
@@ -68,7 +68,7 @@ The pinout for the *Lidar Lite V3* and the *Pixhawk 3 Pro* I2C 1 port is as foll
 
 The Here+ GPS comes with an 8 pin connector suited for the Pixhawk 2. In order to use it with the *Pixhawk 3 Pro* (or a Pixracer), a 6 pin connector has to be used and pin 6 and 7 are not needed (see below). The additional pins are for the safety button and can be attached as well if needed. More information on the pinout can be found in [this document](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf), page 17.
 
-![Setup GPS](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_gps.JPG)
+![Setup GPS](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_gps.jpg)
 
 | 引脚 | Here+ GPS  | 引脚 | Pixhawk 3 Pro GPS |
 | -- | ---------- | -- | ----------------- |
