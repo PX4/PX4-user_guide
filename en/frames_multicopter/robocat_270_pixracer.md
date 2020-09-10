@@ -65,7 +65,7 @@ Zip ties for the motor wires are worth discussing.
 If one arm breaks, the damage might be even bigger.
 For the required X Quad config, connect the four motors according to the layout shown below, so the MAIN1 connector should connect to ESC for motor 1, and so on.
 
-![Motor order connection for Quad - X configuration](../../assets/airframes/multicopter/motor_order_quad_x.png)
+![Motor order connection for Quad - X configuration](../../assets/airframes/multicopter/robocat_270_pixracer/motor_order_quad_x.png)
 
 ![red robo naked side](../../assets/airframes/multicopter/robocat_270_pixracer/red_robo_naked_side.jpg)
 
