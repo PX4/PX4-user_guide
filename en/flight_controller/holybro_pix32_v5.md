@@ -9,7 +9,7 @@ The Pix32 v5 is comprised of a separate flight controller and carrier board whic
 It is designed for those pilots who need a high power, flexible and customisable flight control system.
 This design allows users to either use the carrier board made by Holybro or customize their own.
 
-![Pix32 v5 Image](../../assets/flight_controller/holybro_pix32_v5/IMG_3112.JPG) ![Pix32 v5 With Base](../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG)
+![Pix32 v5 Image](../../assets/flight_controller/holybro_pix32_v5/IMG_3112.jpg) ![Pix32 v5 With Base](../../assets/flight_controller/holybro_pix32_v5/IMG_3165.jpg)
 
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 

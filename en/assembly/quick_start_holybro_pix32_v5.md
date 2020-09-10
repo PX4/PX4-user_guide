@@ -2,7 +2,7 @@
 
 This quick start guide shows how to power the [Holybro Pix32v5](../flight_controller/holybro_pix32_v5.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
 
-![Pix32 v5 With Base](../../assets/flight_controller/holybro_pix32_v5/IMG_3165.JPG)
+![Pix32 v5 With Base](../../assets/flight_controller/holybro_pix32_v5/IMG_3165.jpg)
 
 ## Unboxing
 
