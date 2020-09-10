@@ -55,7 +55,7 @@
 
 通过单击 参数组中 或 参数搜索结果列表中 的参数行来改变参数的值。 单击后屏幕侧边会显示一个对话框，您在其中更改参数的值（这个对话框还提供了该参数的额外细节信息——包括是否需要重启才能使参数生效）。
 
-![改变参数的值](../../assets/qgc/setup/parameters_changing/parameters_changing.png)
+![改变参数的值](../../assets/qgc/setup/parameters/parameters_changing.png)
 
 > **Note** 当单击**保存(Save)**按钮后，参数会自动且静默地上传到连接的载具。 对于不同的参数，你可能需要重启飞控才能使改变的参数生效。
 
