@@ -55,7 +55,7 @@ The other reason that a parameter might not be in firmware is if its associated 
 
 To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
 
-![Changing a parameter value](../../assets/qgc/setup/parameters_changing/parameters_changing.png)
+![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
 
 > **Note** When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
 

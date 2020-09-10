@@ -129,9 +129,6 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 make cubepilot_cubeorange
 ```
 
-## Issues
-
-CAN1 and CAN2 silk screen on the Cube are flipped (CAN1 is CAN2 and vice versa).
 
 ## Further Information/Documentation
 
