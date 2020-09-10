@@ -42,7 +42,7 @@ To launch in this mode:
 
 Runway takeoff mode is enabled using [RWTO_TKOFF](../advanced_config/parameter_reference.md#RWTO_TKOFF).
 
-The mode is documented in [Takeoff Mode > Fixed Wing > Runway Takeoff](../flight_modes/takeoff.html#runway_launch).
+The mode is documented in [Takeoff Mode > Fixed Wing > Runway Takeoff](../flight_modes/takeoff.md#runway_launch).
 
 
 ## Mission Takeoff {#mission}
