@@ -57,7 +57,7 @@ Radio calibration is demonstrated in the [autopilot setup video here](https://yo
 
 As well as calibrating your control sticks and other transmitter controls, there are a number of additional radio setup options that you may find useful on this screen.
 
-<img src="../../assets/qgc/setup/radio/radio/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
+<img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
 
 <span id="spektrum_bind"></span>
 
