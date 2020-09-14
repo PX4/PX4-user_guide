@@ -9933,6 +9933,8 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC0_PRIO">CAL_ACC0_PRIO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Accelerometer 0 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
 <li><strong>0:</strong>   Disabled</li> 
 
 <li><strong>1:</strong>   Min</li> 
@@ -9947,7 +9949,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10002,6 +10004,8 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC1_PRIO">CAL_ACC1_PRIO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Accelerometer 1 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
 <li><strong>0:</strong>   Disabled</li> 
 
 <li><strong>1:</strong>   Min</li> 
@@ -10016,7 +10020,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10071,6 +10075,8 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC2_PRIO">CAL_ACC2_PRIO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Accelerometer 2 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
 <li><strong>0:</strong>   Disabled</li> 
 
 <li><strong>1:</strong>   Min</li> 
@@ -10085,7 +10091,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10140,6 +10146,8 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO0_PRIO">CAL_GYRO0_PRIO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Gyro 0 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
 <li><strong>0:</strong>   Disabled</li> 
 
 <li><strong>1:</strong>   Min</li> 
@@ -10154,7 +10162,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10188,6 +10196,8 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO1_PRIO">CAL_GYRO1_PRIO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Gyro 1 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
 <li><strong>0:</strong>   Disabled</li> 
 
 <li><strong>1:</strong>   Min</li> 
@@ -10202,7 +10212,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10236,6 +10246,8 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO2_PRIO">CAL_GYRO2_PRIO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Gyro 2 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
 <li><strong>0:</strong>   Disabled</li> 
 
 <li><strong>1:</strong>   Min</li> 
@@ -10250,7 +10262,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10284,6 +10296,8 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG0_PRIO">CAL_MAG0_PRIO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Mag 0 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
 <li><strong>0:</strong>   Disabled</li> 
 
 <li><strong>1:</strong>   Min</li> 
@@ -10298,7 +10312,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10510,6 +10524,8 @@ for current-based compensation [G/kA]</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG1_PRIO">CAL_MAG1_PRIO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Mag 1 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
 <li><strong>0:</strong>   Disabled</li> 
 
 <li><strong>1:</strong>   Min</li> 
@@ -10524,7 +10540,7 @@ for current-based compensation [G/kA]</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10736,6 +10752,8 @@ for current-based compensation [G/kA]</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG2_PRIO">CAL_MAG2_PRIO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Mag 2 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
 <li><strong>0:</strong>   Disabled</li> 
 
 <li><strong>1:</strong>   Min</li> 
@@ -10750,7 +10768,7 @@ for current-based compensation [G/kA]</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -10962,6 +10980,8 @@ for current-based compensation [G/kA]</p>   </td>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG3_PRIO">CAL_MAG3_PRIO</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Mag 3 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
 <li><strong>0:</strong>   Disabled</li> 
 
 <li><strong>1:</strong>   Min</li> 
@@ -10976,7 +10996,7 @@ for current-based compensation [G/kA]</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">50</td>
+ <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
