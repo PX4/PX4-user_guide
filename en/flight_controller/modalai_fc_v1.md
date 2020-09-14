@@ -1,9 +1,11 @@
 # ModalAI Flight Core v1
 
-The ModalAI Flight Core v1 is a flight controller for PX4, made in the USA.
-The Flight Core can be paired with [ModalAI VOXL](https://docs.modalai.com/voxl-datasheet/) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
+The ModalAI [Flight Core v1](https://modalai.com/flight-core)([Datasheet](https://docs.modalai.com/flight-core-datasheet)) is a flight controller for PX4, made in the USA.
+The Flight Core can be paired with ModalAI [VOXL](https://modalai.com/voxl)([Datasheet](https://docs.modalai.com/voxl-datasheet/)) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
 
 ![FlightCoreV1](../../assets/flight_controller/modalai/fc_v1/main.jpg)
+
+Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](https://www.modalai.com/voxl-flight)([Datasheet](https://docs.modalai.com/voxl-flight-datasheet/)) which integrates the VOXL Companion Computer and Flight Core into a single PCB
 
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
@@ -57,10 +59,11 @@ This board supported in QGroundControl 4.0 and later.
 
 ## Availability
 
-- Flight Core Complete Kit is available [here](https://shop.modalai.com/products/flight-core)
+- Flight Core Complete Kit is available [here](https://modalai.com/flight-core)
 - Flight Core Board Only is available [here](https://shop.modalai.com/products/flight-core-pcb-only)
+- Flight Core integrated with VOXL Companion Computer on a single PCB [here](https://modalai.com/flight-core)
+- Flight Core integrated with VOXL Companion Computer and Obstacle Avoidance Cameras [VOXL Flight Deck](https://modalai.com/flight-deck)([Datasheet](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
 - Flight Core assembled with VOXL and cameras is available at [here](https://shop.modalai.com/products/voxl-flight-deck-r1)
-
 
 ## Quick Start
 
@@ -83,14 +86,14 @@ Detailed information about the pinouts can be found [here](https://docs.modalai.
 | J1  | VOXL Communications Interface Connector (TELEM2) |
 | J2  | Programming and Debug Connector |
 | J3  | USB Connector |
-| J4  | VOXL Spare Communications Interface Connector (TELEM3) |
+| J4  | UART2, UART ESC (TELEM3) |
 | J5  | Telemetry Connector (TELEM1) |
 | J6  | VOXL-Power Management Input / Expansion |
 | J7  | 8-Channel PWM Output Connector |
 | J8  | CAN Bus Connector |
 | J9  | PPM RC In |
 | J10  | External GPS & Magnetometer Connector |
-| J12  | RC input |
+| J12  | RC input, Spektrum/SBus/UART Connector |
 | J13  | I2C Display (Spare Sensor Connector) / Safety Button Input |
 
 ![FlightCoreV1Bottom](../../assets/flight_controller/modalai/fc_v1/bottom.png)
