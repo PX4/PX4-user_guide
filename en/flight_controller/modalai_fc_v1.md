@@ -5,7 +5,7 @@ The Flight Core can be paired with ModalAI [VOXL](https://modalai.com/voxl)([Dat
 
 ![FlightCoreV1](../../assets/flight_controller/modalai/fc_v1/main.jpg)
 
-Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](https://www.modalai.com/voxl-flight)([Datasheet](https://docs.modalai.com/voxl-flight-datasheet/)) which integrates the VOXL Companion Computer and Flight Core into a single PCB
+Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](https://www.modalai.com/voxl-flight)([Datasheet](https://docs.modalai.com/voxl-flight-datasheet/)) which integrates the VOXL Companion Computer and Flight Core into a single PCB.
 
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
