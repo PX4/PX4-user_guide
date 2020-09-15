@@ -1,11 +1,11 @@
 # ModalAI Flight Core v1
 
-The ModalAI [Flight Core v1](https://modalai.com/flight-core)([Datasheet](https://docs.modalai.com/flight-core-datasheet)) is a flight controller for PX4, made in the USA.
-The Flight Core can be paired with ModalAI [VOXL](https://modalai.com/voxl)([Datasheet](https://docs.modalai.com/voxl-datasheet/)) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
+The ModalAI [Flight Core v1](https://modalai.com/flight-core) ([Datasheet](https://docs.modalai.com/flight-core-datasheet)) is a flight controller for PX4, made in the USA.
+The Flight Core can be paired with ModalAI [VOXL](https://modalai.com/voxl) ([Datasheet](https://docs.modalai.com/voxl-datasheet/)) for obstacle avoidance and GPS-denied navigation, or used independently as a standalone flight controller.
 
 ![FlightCoreV1](../../assets/flight_controller/modalai/fc_v1/main.jpg)
 
-Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](https://www.modalai.com/voxl-flight)([Datasheet](https://docs.modalai.com/voxl-flight-datasheet/)) which integrates the VOXL Companion Computer and Flight Core into a single PCB.
+Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](https://www.modalai.com/voxl-flight) ([Datasheet](https://docs.modalai.com/voxl-flight-datasheet/)) which integrates the VOXL Companion Computer and Flight Core into a single PCB.
 
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
@@ -59,11 +59,11 @@ This board supported in QGroundControl 4.0 and later.
 
 ## Availability
 
-- Flight Core Complete Kit is available [here](https://modalai.com/flight-core)
-- Flight Core Board Only is available [here](https://shop.modalai.com/products/flight-core-pcb-only)
-- Flight Core integrated with VOXL Companion Computer on a single PCB [here](https://modalai.com/flight-core)
-- Flight Core integrated with VOXL Companion Computer and Obstacle Avoidance Cameras [VOXL Flight Deck](https://modalai.com/flight-deck)([Datasheet](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
-- Flight Core assembled with VOXL and cameras is available at [here](https://shop.modalai.com/products/voxl-flight-deck-r1)
+- [Flight Core Complete Kit](https://modalai.com/flight-core)
+- [Flight Core Board](https://shop.modalai.com/products/flight-core-pcb-only) (only)
+- [Flight Core integrated with VOXL Companion Computer on a single PCB](https://modalai.com/flight-core)
+- [Flight Core integrated with VOXL Companion Computer and Obstacle Avoidance Cameras (VOXL Flight Deck)](https://modalai.com/flight-deck) ([Datasheet](https://docs.modalai.com/voxl-flight-deck-platform-datasheet/))
+- [Flight Core assembled with VOXL and cameras](https://shop.modalai.com/products/voxl-flight-deck-r1)
 
 ## Quick Start
 
