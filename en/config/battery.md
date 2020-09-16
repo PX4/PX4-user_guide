@@ -51,7 +51,7 @@ This sets the number of cells connected in series in the battery.
 Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
 
 > **Note** The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type.
-  Lithium-Polymer (LiPo) batteries are the most common type, and have a nominal cell voltage of 3.7V, while Lithium-Ion batteries have a nominal cell voltage of 3.6V.
+  Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same *nominal* cell voltage of 3.7V.
   In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*.
   The battery voltage at the terminals is then a multiple of the cell voltage.
 
@@ -60,12 +60,12 @@ The table below shows the voltage-to-cell relationship for these batteries:
 
 Cells | LiPo (V) | LiIon (V)
 --- | --- | ---
-1S | 3.7 | 3.6
-2S | 7.4 | 7.2
-3S | 11.1 | 10.8
-4S | 14.8 | 14.4
-5S |18.5 | 18
-6S | 22.2 | 21.6
+1S | 3.7 | 3.7
+2S | 7.4 | 7.4
+3S | 11.1 | 11.1
+4S | 14.8 | 14.8
+5S |18.5 | 18.5
+6S | 22.2 | 22.2
 
 > **Note** This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS) and [BAT2_N_CELLS](../advanced_config/parameter_reference.md#BAT2_N_CELLS)
 
@@ -76,8 +76,8 @@ This sets the *nominal* maximum voltage of each cell (the lowest voltage at whic
 The value should be set slightly lower that the nominal maximum cell voltage for the battery, but not so low that the estimated capacity is still 100% after a few minutes of flight.
 
 Appropriate values to use are:
-- **LiPo:** 4.2V (default in *QGroundControl*)
-- **LiIon:** 3.5V
+- **LiPo:** 4.05V (default in *QGroundControl*)
+- **LiIon:** 4.05V
 
 
 > **Note** The voltage of a full battery may drop a small amount over time after charging.
@@ -98,9 +98,9 @@ A rule of thumb for minimum per-cell voltages:
 
 Level | LiPo (V) | LiIon (V)
 --- | --- | ---
-Conservative (voltage under no-load) | 3.7 | 2.7
-"Real" minimum (voltage under load/while flying | 3.5 | 2.6
-Damage battery (voltage under load) | 3.2 | 2.5
+Conservative (voltage under no-load) | 3.7 | 3
+"Real" minimum (voltage under load/while flying | 3.5 | 2.7
+Damage battery (voltage under load) | 3.0 | 2.5
 
 
 > **Tip** Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
