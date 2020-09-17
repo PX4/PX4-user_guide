@@ -4,7 +4,7 @@
 
 * 이륙 (Takeo) </ 0> 비행 모드는 기체가 지정된 높이로 떨어져 나가고 추가 입력을 기다립니다.</p> 
 
-> **Note** * This mode requires GPS. * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. The effect of RC stick movement depends on the vehicle type. * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+> **Note** * This mode requires GPS. * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe. * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 
 The specific behaviour for each vehicle type is described below.
 
@@ -34,7 +34,7 @@ The specific behaviour for each vehicle type is described below.
 </tr>
 <tr>
   <td><span id="COM_RC_OVERRIDE"></span><a href="../advanced_config/parameter_reference.md#COM_RC_OVERRIDE">COM_RC_OVERRIDE</a></td>
-  <td>If enabled stick movement gives control back to the pilot in <a href="../flight_modes/position_mc.md">Position mode</a> (except when vehicle is handling a critical battery failsafe). Enabled by default.</td>
+  <td>If enabled, stick movement on a multicopter (or VTOL in multicopter mode) gives control back to the pilot in <a href="../flight_modes/position_mc.md">Position mode</a> (except when vehicle is handling a critical battery failsafe). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default.</td>
 </tr>
 </tbody>
 </table>
