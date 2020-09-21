@@ -26,7 +26,7 @@ The approach you use will depend on whether the vehicle's power module can measu
   
 <span></span>
 > **Tip** In addition to PX4 configuration discussed here, you should ensure that the ESC's low voltage cutoff is either disabled or set below the expected minimum voltage.
-  This ensures that the battery failsafe behaviour is managed by PX4 (i.e. that the ESCs will not cut out while the battery still has charge according to the "empty-battery" setting that you have chosen).
+  This ensures that the battery failsafe behaviour is managed by PX4, and that ESCs will not cut out while the battery still has charge (according to the "empty-battery" setting that you have chosen).
 
 
 ## Basic Battery Settings (default) {#basic_settings}
