@@ -23,6 +23,10 @@ The approach you use will depend on whether the vehicle's power module can measu
 > **Note** The instructions below refer to battery 1 calibration parameters: `BAT1_*`. 
   Other batteries use the `BATx_*` parameters, where `x` is the battery number.
   All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
+  
+<span></span>
+> **Tip** In addition to PX4 configuration discussed here, you should ensure that the ESC's low voltage cutoff is either disabled or set below the expected minimum voltage.
+  This ensures that the battery failsafe behaviour is managed by PX4 (i.e. that the ESCs will not cut out while the battery still has charge according to the "empty-battery" setting that you have chosen).
 
 
 ## Basic Battery Settings (default) {#basic_settings}
