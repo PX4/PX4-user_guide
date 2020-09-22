@@ -1,6 +1,6 @@
-# 铱星/RockBlock卫通系统
+# 铱星/RockBlock卫星通讯系统
 
-A satellite communication system can be used to provide long range high latency link between a ground station and a vehicle.
+卫星通信系统可在地面站和车辆之间提供远距离、高延迟的连接。
 
 This topic describes how to set up a system that uses RockBlock as the service provider for the Iridium SBD Satellite Communication System. Given good signal quality, users can expect a latency between 10 to 15 seconds.
 
