@@ -2,17 +2,17 @@
 
 卫星通信系统可在地面站和车辆之间提供远距离、高延迟的连接。
 
-This topic describes how to set up a system that uses RockBlock as the service provider for the Iridium SBD Satellite Communication System. Given good signal quality, users can expect a latency between 10 to 15 seconds.
+本专题介绍如何建立一个使用RockBlock作为运营商的铱星短报文（Short Burst Data，SBD）卫星通信系统。 在信号质量良好的情况下，用户端延迟在10至15秒左右。
 
 ## 综述
 
-The following components are needed for the satellite communication link:
+卫星通信链接需要以下组成部件：
 
-* A [RockBlock 9603](http://www.rock7mobile.com/products-rockblock-9603) module connected to a Pixhawk flashed with the PX4 Autopilot.
-* A message relay server running Ubuntu Linux.
-* A ground station computer running *QGroundControl* on Ubuntu Linux
+* 一个连接到Pixhawk的 [RockBlock 9603](http://www.rock7mobile.com/products-rockblock-9603) 模块，要求Pixhawk已烧写PX4固件。
+* 运行 Ubuntu 系统的消息中继服务器。
+* 在 Ubuntu上运行 *QGroundControl* 的地面站
 
-The full system architecture is shown below:
+完整的系统架构如下：
 
 ![Architecture](../../assets/satcom/architecture.jpg)
 
