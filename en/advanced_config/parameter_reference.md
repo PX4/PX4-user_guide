@@ -10361,18 +10361,10 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
-
-<li><strong>42:</strong> Roll 270°, Yaw 270°</li> 
-
-<li><strong>43:</strong> Pitch 90°, Yaw 180°</li> 
-
-<li><strong>44:</strong> Pitch 9°, Yaw 180°</li> 
-
-<li><strong>45:</strong> Pitch 45°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 45 </td>
+ <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10589,18 +10581,10 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
-
-<li><strong>42:</strong> Roll 270°, Yaw 270°</li> 
-
-<li><strong>43:</strong> Pitch 90°, Yaw 180°</li> 
-
-<li><strong>44:</strong> Pitch 9°, Yaw 180°</li> 
-
-<li><strong>45:</strong> Pitch 45°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 45 </td>
+ <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10817,18 +10801,10 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
-
-<li><strong>42:</strong> Roll 270°, Yaw 270°</li> 
-
-<li><strong>43:</strong> Pitch 90°, Yaw 180°</li> 
-
-<li><strong>44:</strong> Pitch 9°, Yaw 180°</li> 
-
-<li><strong>45:</strong> Pitch 45°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 45 </td>
+ <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11045,18 +11021,10 @@ for current-based compensation [G/kA]</p>   </td>
 <li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
 
 <li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
-
-<li><strong>42:</strong> Roll 270°, Yaw 270°</li> 
-
-<li><strong>43:</strong> Pitch 90°, Yaw 180°</li> 
-
-<li><strong>44:</strong> Pitch 9°, Yaw 180°</li> 
-
-<li><strong>45:</strong> Pitch 45°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">-1 > 45 </td>
+ <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -11498,29 +11466,41 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 <li><strong>25:</strong> Pitch 270°</li> 
 
-<li><strong>26:</strong> Roll 270°, Yaw 270°</li> 
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
 
-<li><strong>27:</strong> Roll 180°, Pitch 270°</li> 
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
 
-<li><strong>28:</strong> Pitch 90°, Yaw 180</li> 
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
 
-<li><strong>29:</strong> Pitch 90°, Roll 90°</li> 
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
 
-<li><strong>30:</strong> Yaw 293°, Pitch 68°, Roll 90° (Solo)</li> 
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
 
-<li><strong>31:</strong> Pitch 90°, Roll 270°</li> 
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
 
-<li><strong>32:</strong> Pitch 9°, Yaw 180°</li> 
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
 
-<li><strong>33:</strong> Pitch 45°</li> 
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
 
-<li><strong>34:</strong> Pitch 315°</li> 
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
 
-<li><strong>35:</strong> Roll 90°, Yaw 270°</li> 
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
 </ul>
   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
