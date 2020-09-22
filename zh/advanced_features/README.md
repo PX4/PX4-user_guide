@@ -10,7 +10,7 @@
   * [碰撞避免](../computer_vision/collision_prevention.md) （通过机载计算机或飞控的传感器）
   * [路径规划接口](../computer_vision/path_planning_interface.md) （开发者接口）
   * [动态捕捉(MoCap)](../computer_vision/motion_capture.md)
-  * [Visual Inertial Odometry (VIO)](../computer_vision/visual_inertial_odometry.md)
-* [Iridium/RockBlock Satellite Communication System](../advanced_features/satcom_roadblock.md)
-* [Precision Landing](../advanced_features/precland.md)
-* [RTK GPS](../advanced_features/rtk-gps.md)
+  * [视觉惯性里程计(VIO)](../computer_vision/visual_inertial_odometry.md)
+* [铱星/RockBlock卫通系统](../advanced_features/satcom_roadblock.md)
+* [精准着陆](../advanced_features/precland.md)
+* [GPS载波相位差分技术(RTK GPS)](../advanced_features/rtk-gps.md)
