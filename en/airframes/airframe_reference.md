@@ -1132,7 +1132,7 @@ This page lists all supported airframes and types including
 <tbody>
 <tr id="vtol_vtol_octoplane_generic_octoplane_vtol">
  <td style="vertical-align: top;">Generic Octoplane VTOL</td>
- <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13050</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 13050</p></td>
 
 </tr>
 </tbody></table>

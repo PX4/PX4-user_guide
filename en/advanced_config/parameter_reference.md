@@ -1144,7 +1144,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 - 7bits to authentication method
 - one arm = 0
 - two step arm = 1
-* the MSB bit is not used to avoid problems in the conversion between int and uint</p><p><strong>Comment:</strong> Default value: (10 << 0 | 1000 << 8 | 0 << 24) = 256010 - authorizer system id = 10 - authentication method parameter = 10000msec of timeout - authentication method = during arm</p>   </td>
+* the MSB bit is not used to avoid problems in the conversion between int and uint</p><p><strong>Comment:</strong> Default value: (10 << 0 | 1000 << 8 | 0 << 24) = 256010 - authorizer system id = 10 - authentication method parameter = 1000 msec of timeout - authentication method = during arm</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">256010</td>
  <td style="vertical-align: top;"></td>
@@ -9856,20 +9856,6 @@ to takeoff is reached</p>   </td>
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="SIM_ACCEL_BLOCK">SIM_ACCEL_BLOCK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Simulator block accelerometer data</p><p><strong>Comment:</strong> Enable to block the publication of any incoming simulation accelerometer data.</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Disabled (0)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SIM_BARO_BLOCK">SIM_BARO_BLOCK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Simulator block barometer data</p><p><strong>Comment:</strong> Enable to block the publication of any incoming simulation barometer data.</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Disabled (0)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="SIM_BAT_DRAIN">SIM_BAT_DRAIN</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Simulator Battery drain interval</p>   </td>
  <td style="vertical-align: top;">1 > 86400 (1)</td>
@@ -9884,34 +9870,6 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;">0 > 100 (0.1)</td>
  <td style="vertical-align: top;">50.0</td>
  <td style="vertical-align: top;">%</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SIM_DPRES_BLOCK">SIM_DPRES_BLOCK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Simulator block differential pressure data</p><p><strong>Comment:</strong> Enable to block the publication of any incoming simulation differential pressure data.</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Disabled (0)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SIM_GPS_BLOCK">SIM_GPS_BLOCK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Simulator block GPS data</p><p><strong>Comment:</strong> Enable to block the publication of any incoming simulation GPS data.</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Disabled (0)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SIM_GYRO_BLOCK">SIM_GYRO_BLOCK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Simulator block gyroscope data</p><p><strong>Comment:</strong> Enable to block the publication of any incoming simulation gyroscope data.</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Disabled (0)</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="SIM_MAG_BLOCK">SIM_MAG_BLOCK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Simulator block magnetometer data</p><p><strong>Comment:</strong> Enable to block the publication of any incoming simulation magnetometer data.</p>   </td>
- <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">Disabled (0)</td>
- <td style="vertical-align: top;"></td>
 </tr>
 </tbody></table>
 
@@ -11823,6 +11781,19 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="SENS_IMU_MODE">SENS_IMU_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Sensors hub IMU mode</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Disabled</li> 
+
+<li><strong>1:</strong> Publish primary IMU selection</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SENS_IMU_TEMP">SENS_IMU_TEMP</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Target IMU temperature</p>   </td>
  <td style="vertical-align: top;">0 > 85.0 </td>
@@ -11870,6 +11841,19 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SENS_MAG_MODE">SENS_MAG_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Sensors hub mag mode</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Publish all magnetometers</li> 
+
+<li><strong>1:</strong> Publish primary magnetometer</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -13445,6 +13429,13 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">5</td>
  <td style="vertical-align: top;">celcius</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SYS_FAILURE_EN">SYS_FAILURE_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable failure injection</p><p><strong>Comment:</strong> If enabled allows MAVLink INJECT_FAILURE commands. WARNING: the failures can easily cause crashes and are to be used with caution!</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_HAS_BARO">SYS_HAS_BARO</strong> (INT32)</td>
