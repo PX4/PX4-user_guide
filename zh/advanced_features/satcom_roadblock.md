@@ -16,11 +16,11 @@
 
 ![Architecture](../../assets/satcom/architecture.jpg)
 
-> **Note** The setup was tested with the current release of *QGroundControl* running on Ubuntu 14.04 and 16.04.
+> **请注意：**该安装在将当前版本的*QGroundControl* 部署到Ubuntu 14.04 和 16.04上时测试通过。
 
-    - It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
-    - The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. 
-      The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
+    或许可以在其他地面站和操作系统上运行该系统， 但尚未对此进行测试（而且无法保证工作）。
+    -也可以使用 [RockBlock MK2]（http://www.rock7mobile.com/products-rockblock）模块。 
+      推荐使用RockBlock 9603模块，因为它不但功能相同，而且更小更轻。
     
 
 ## Costs
