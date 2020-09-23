@@ -73,7 +73,7 @@ PX4 允许您从地面站（平板电脑或者桌面电脑）或者遥控器来�
 
 此示例显示您将如何配置发射器和 PX4 ：
 
-* A 3-way switch to choose between flight modes using the single-channel mode setting approach (Manual, Altitude, Acro).
+* 一个在单通道模式下用于选择飞行模式（手动，高度，特技）的三段开关。
 * A 2-way switch that invokes some function (arm/disarm) (via a [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameter).
 
 > **Note** 本示例演示如何设置常用的 *FrSky taranis* 遥控器。 对于其他遥控器，配置可能会稍有不同。
