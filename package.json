@@ -1,0 +1,18 @@
+{
+  "name": "px4_user_guide",
+  "version": "master",
+  "main": "index.js",
+  "repository": "https://github.com/PX4/px4_user_guide.git",
+  "license": "CC-BY-4.0",
+  "devDependencies": {
+    "vuepress": "^1.5.4"
+  },
+
+  "scripts": {
+    "docs:devmem": "NODE_OPTIONS='--max-old-space-size=8192' vuepress dev . ",
+    "docs:dev": "vuepress dev . ",
+    "docs:build": "vuepress build .",
+    "docs:buildmem": "NODE_OPTIONS='--max-old-space-size=8192' vuepress build ."
+  }
+
+}
