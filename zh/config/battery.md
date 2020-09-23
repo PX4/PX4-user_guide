@@ -140,7 +140,7 @@ This load compensation method relies on current measurement to determine load. I
     
     To enable this feature:
     
-    1. First set up accurate voltage estimation using [current-based load compensation](#current_based_load_compensation).
+    1. 首先使用 [当前负载补偿](#current_based_load_compensation) 精确校准电压估计。
         
         > **Tip** Including calibrating the [Amps per volt divider](#current_divider) setting.
     
