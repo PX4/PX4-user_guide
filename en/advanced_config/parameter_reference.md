@@ -1762,7 +1762,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_RC_OVERRIDE">COM_RC_OVERRIDE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Enable RC stick override of auto and/or offboard modes</p><p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks immediately gives control back to the pilot (switches to manual position mode): bit 0: Enable for auto modes (except for in critical battery reaction), bit 1: Enable for offboard mode. Only has an effect on multicopters, and VTOLS in multicopter mode.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override in auto modes</li> 
+ <td style="vertical-align: top;"><p>Enable RC stick override of auto and/or offboard modes</p><p><strong>Comment:</strong> When RC stick override is enabled, moving the RC sticks according to COM_RC_STICK_OV immediately gives control back to the pilot (switches to manual position mode): bit 0: Enable for auto modes (except for in critical battery reaction), bit 1: Enable for offboard mode. Only has an effect on multicopters, and VTOLS in multicopter mode.</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> Enable override in auto modes</li> 
   <li><strong>1:</strong> Enable override in offboard mode</li> 
 </ul>
  </td>
@@ -1772,9 +1772,9 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_RC_STICK_OV">COM_RC_STICK_OV</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>RC stick override threshold</p><p><strong>Comment:</strong> If an RC stick is moved more than by this amount the system will interpret this as override request by the pilot.</p>   </td>
+ <td style="vertical-align: top;"><p>RC stick override threshold</p><p><strong>Comment:</strong> If COM_RC_OVERRIDE is enabled and the joystick input controlling the horizontally axis (right stick for RC in mode 2) is moved more than this threshold from the center the autopilot switches to position mode and the pilot takes over control.</p>   </td>
  <td style="vertical-align: top;">5 > 80 (0.05)</td>
- <td style="vertical-align: top;">50.0</td>
+ <td style="vertical-align: top;">30.0</td>
  <td style="vertical-align: top;">%</td>
 </tr>
 <tr>
