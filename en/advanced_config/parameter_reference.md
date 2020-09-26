@@ -2218,17 +2218,6 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;">ms</td>
 </tr>
 <tr>
- <td style="vertical-align: top;"><strong id="EKF2_GPS_MASK">EKF2_GPS_MASK</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Multi GPS Blending Control Mask</p><p><strong>Comment:</strong> Set bits in the following positions to set which GPS accuracy metrics will be used to calculate the blending weight. Set to zero to disable and always used first GPS instance. 0 : Set to true to use speed accuracy 1 : Set to true to use horizontal position accuracy 2 : Set to true to use vertical position accuracy</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> use speed accuracy</li> 
-  <li><strong>1:</strong> use hpos accuracy</li> 
-  <li><strong>2:</strong> use vpos accuracy</li> 
-</ul>
- </td>
- <td style="vertical-align: top;">0 > 7 </td>
- <td style="vertical-align: top;">0</td>
- <td style="vertical-align: top;"></td>
-</tr>
-<tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_POS_X">EKF2_GPS_POS_X</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>X position of GPS antenna in body frame (forward axis with origin relative to vehicle centre of gravity)</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -2262,13 +2251,6 @@ Sets the number of standard deviations used by the innovation consistency test</
  <td style="vertical-align: top;">0.01 > 10.0 </td>
  <td style="vertical-align: top;">0.5</td>
  <td style="vertical-align: top;">m</td>
-</tr>
-<tr>
- <td style="vertical-align: top;"><strong id="EKF2_GPS_TAU">EKF2_GPS_TAU</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Multi GPS Blending Time Constant</p><p><strong>Comment:</strong> Sets the longest time constant that will be applied to the calculation of GPS position and height offsets used to correct data from multiple GPS data for steady state position differences.</p>   </td>
- <td style="vertical-align: top;">1.0 > 100.0 </td>
- <td style="vertical-align: top;">10.0</td>
- <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_GPS_V_GATE">EKF2_GPS_V_GATE</strong> (FLOAT)</td>
@@ -11759,6 +11741,24 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">6</td>
  <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SENS_GPS_MASK">SENS_GPS_MASK</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Multi GPS Blending Control Mask</p><p><strong>Comment:</strong> Set bits in the following positions to set which GPS accuracy metrics will be used to calculate the blending weight. Set to zero to disable and always used first GPS instance. 0 : Set to true to use speed accuracy 1 : Set to true to use horizontal position accuracy 2 : Set to true to use vertical position accuracy</p>  <strong>Bitmask:</strong><ul>  <li><strong>0:</strong> use speed accuracy</li> 
+  <li><strong>1:</strong> use hpos accuracy</li> 
+  <li><strong>2:</strong> use vpos accuracy</li> 
+</ul>
+ </td>
+ <td style="vertical-align: top;">0 > 7 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SENS_GPS_TAU">SENS_GPS_TAU</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Multi GPS Blending Time Constant</p><p><strong>Comment:</strong> Sets the longest time constant that will be applied to the calculation of GPS position and height offsets used to correct data from multiple GPS data for steady state position differences.</p>   </td>
+ <td style="vertical-align: top;">1.0 > 100.0 </td>
+ <td style="vertical-align: top;">10.0</td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_IMU_MODE">SENS_IMU_MODE</strong> (INT32)</td>
