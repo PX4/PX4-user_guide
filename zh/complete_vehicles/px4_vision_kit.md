@@ -101,10 +101,10 @@
 1. 在地面站启动 *QGroundControl*。
 1. [配置/校准](../config/README.md) 无人机：
 
-   > **Note** The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
+   > **Note** 无人机要进行预先校准(例如使用固件、机架、电池和传感器所有安装)。 您需要校准无线电系统 (您刚刚连接) 并且进行以下的基本检查。
 
-   - [Calibrate the Radio System](../config/radio.md)
-   - [Calibrate the Compass](../config/compass.md)
+   - [校准遥控](../config/radio.md)
+   - [校准罗盘](../config/compass.md)
 1. (Optional) Configure a [Flight Mode selector switch](../config/flight_mode.md) on the remote controller.
 
    > **Note** Modes can also be changed using *QGroundControl*
