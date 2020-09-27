@@ -174,15 +174,15 @@
    > - [路径规划接口](../computer_vision/path_planning_interface.md) - API 用于实现自动模式中的避障功能。
    > - [防撞接口](../computer_vision/collision_prevention.md) - 基于无人机避障的API，在基于障碍地图的手动位置模式下(目前用于防撞)。
    > 
-   > ### Installing the image on the Companion Computer {#install_image_mission_computer}
+   > ### 在上位机上安装镜像 {#install_image_mission_computer}
    > 
-   > You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
+   > 您可以在 *UP Core* 上安装镜像，并从内部内存启动(而不是U盘)。
    > 
-   > This is recommended because booting from internal memory is much faster, frees up a USB port, and may well provide more memory than your USB stick. 
+   > 建议这样做是因为从内部内存启动得更快。 释放USB端口，也能提供比U盘更多的内存。 
    > 
-   > > **Note** Booting from internal memory takes around 30 seconds while booting from the supplied USB2 stick boots in about a minute (other cards may take several times longer).
+   > > **Note** 从内部存储器启动大约需要30秒，而从随附的USB2盘启动大约需要一分钟（其他卡可能要花几倍的时间）。
    > 
-   > To flash the USB image to the *UP Core*:
+   > 将USB镜像刷新到UP Core：
    > 
    > 1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
    > 2. [Login to the companion computer](#login_mission_computer) (as described above).
