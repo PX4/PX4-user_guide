@@ -1,11 +1,12 @@
 // .vuepress/config.js
 
-const englishSidebar = require('./english_sidebar.js');
+const getSidebar = require('./get_sidebar.js');
 
 
 module.exports = {
   base:'/px4_vuepress/',
   patterns : ['README.md','en/**/*.md','zh/**/*.md', '**/*.vue', '!**/node_modules' ], //only english, chinese at moment
+  //patterns : ['README.md','en/**/*.md', '**/*.vue', '!**/node_modules' ], //only english, chinese at moment
   locales: {
     // The key is the path for the locale to be nested under.
     // As a special case, the default locale can use '/' as its path.
@@ -45,7 +46,7 @@ module.exports = {
           { text: 'Nested', link: '/nested/' , ariaLabel: 'Nested' }
         ],
         sidebar: {
-          '/en/': englishSidebar.sidebar()
+          '/en/': getSidebar.sidebar('en')
         }
       },
       
@@ -65,10 +66,7 @@ module.exports = {
         ],
         algolia: {},
         sidebar: {
-          '/zh/': 
-              [
-              ['/zh/','PX4 自动驾驶用户指南']
-              ],
+          '/zh/': getSidebar.sidebar('zh');
         }
       }
     }
