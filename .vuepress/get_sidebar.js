@@ -68,6 +68,12 @@ try {
                 link_url = '/'+lang+'/'+link_url;
             }
             
+            //Tidy up some of the title escaping that isn't used by VuePress
+
+            link_title=link_title.replace('\\(','(')
+            link_title=link_title.replace('\\)',')')
+            link_title=link_title.replace('\\_','_')
+            
             //set indent_divider level (easier to think in levels, numbers of zero prefixes)            
             if (indent_divider == 0 & indent_level > 0.0) {
                 indent_divider=indent_level;
