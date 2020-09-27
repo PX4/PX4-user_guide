@@ -208,23 +208,23 @@
    > 
    > > **提示** [ 飞行无人机(带避障)](#fly_drone) 另外解释了如何验证避障系统是否有效。
    > 
-   > If you've already [installed the image on the companion computer](#install_image_mission_computer) you can just power the vehicle (i.e. no USB stick is needed). The avoidance system should be up and running within around 30 seconds.
+   > 如果您已经在机载计算机上安装了 [镜像](#install_image_mission_computer) 您只需为该无人机供电(即不需要U盘)。 避障系统应在30秒内启动并运行。
    > 
-   > Once started the companion computer can be used both as a computer vision development environment and for running the software.
+   > 机载计算机一旦启动，就可以用作计算机视力开发环境和运行软件的环境。
    > 
    > ### 登录到机载计算机 {#login_mission_computer}
    > 
-   > To login to the companion computer:
+   > 登录到机载计算机:
    > 
-   > 1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
+   > 1. 通过端口 `USB2` 将键盘和鼠标连接到 *UP Core*：
    >     
    >     ![UP Core：USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
    > 
-   > - Use the USB-JST cable from the kit to get a USB A connector
+   > - 使用套件中的 USB-JST电缆获取一个 USB A 连接器
    >     
    >     ![USB to JST cable](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
    > 
-   > - A USB hub can be attached to the cable if the keyboard and mouse have separate connectors.
+   > - 如果键盘和鼠标具有单独的接口，则可以将USB集线器连接到电缆。
    >     
    >     1. 连接显示器到 *UP Core* 的 HDMI 接口。
    >     ![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
