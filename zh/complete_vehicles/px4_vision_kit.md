@@ -96,10 +96,10 @@
    - **SSID：** pixhawk4
    - **密码：** pixhawk4
 
-   > **Tip** WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
+   > **提示** WiFi网络 SSID、密码和其他凭据可以在连接后更改(如果需要), 使用 web 浏览器打开 URL： `http://192. 68.4.1` 波特率不得从921600更改。
 
-1. Start *QGroundControl* on the ground station.
-1. [Configure/calibrate](../config/README.md) the vehicle:
+1. 在地面站启动 *QGroundControl*。
+1. [配置/校准](../config/README.md) 无人机：
 
    > **Note** The vehicle should arrive pre-calibrated (e.g. with firmware, airframe, battery, and sensors all setup). You will however need to calibrate the radio system (that you just connected) and it is often worth re-doing the compass calibration.
 
