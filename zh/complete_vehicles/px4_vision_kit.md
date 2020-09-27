@@ -93,8 +93,8 @@
 
    > **Note** 电池连接前移除螺旋桨。
 1. 使用以下默认凭据将地面站连接到无人机WiFi网络（几秒钟后）：
-   - **SSID:** pixhawk4
-   - **Password:** pixhawk4
+   - **SSID：** pixhawk4
+   - **密码：** pixhawk4
 
    > **Tip** WiFi network SSID, password, and other credentials may be changed after connecting (if desired), by using a web browser to open the URL: `http://192.168.4.1`. The baud rate must not be changed from 921600.
 
