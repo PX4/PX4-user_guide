@@ -161,12 +161,12 @@
    > 
    > ### PX4 Avoidance Overview
    > 
-   > The *PX4 Avoidance* system consists of computer vision software running on a companion computer (with attached depth camera) that provides obstacle and/or route information to the PX4 flight stack running on a *flight controller*.
+   > *PX4 避障* 系统由计算机视觉软件组成，这种软件运行在一个配套的计算机上(附着的深度摄像头)，为运行在一个 *飞控上的 PX4 飞行堆栈提供障碍和/或航线信息*
    > 
-   > Documentation about the companion computer vision/planning software can be found on github here: [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance). The project provides a number of different planner implementations (packaged as ROS nodes):
+   > 关于配套计算机视觉/规划软件的文档可以在 github 上找到： [PX4/avoidcen](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)。 该项目提供了许多不同的规划程序实现（打包为ROS节点）：
    > 
-   > - The PX4 Vision Kit runs the *localplanner* by default and this is the recommended starting point for your own software.
-   > - The *globalplanner* has not been tested with this kit.
+   > - 默认情况下，PX4 Vision Kit运行 *localplanner* ，这是您自己的软件的推荐起点。
+   > - *globalplanner* 尚未用这个工具包测试。
    > - The *landing planner* requires a downward facing camera, and cannot used without first modifying the camera mounting.
    > 
    > PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/en/) using these interfaces:
