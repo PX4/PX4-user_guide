@@ -10,7 +10,7 @@
 
 ## 警告&通知
 
-The kit is currently an "early adopter" release. Contact sale01@holybro.com for sales enquiries.
+这个工具包目前是一个“早期用户”版本。 请联系Sale01@holybro.com查询销售情况。
 
 
 ## 开始了解你的开发套件
@@ -21,7 +21,7 @@ The kit is currently an "early adopter" release. Contact sale01@holybro.com for 
 
 1. 只有在 GPS 工作正常时才能测试任务模式中的自主避障（飞行任务需要使用 GPS 配合）。 防撞功能需要在可获得位置的模式下进行测试，比如GPS或光流有比较好的定位。
 
-1. The *UP Core* should only be powered using the battery (do not remove the *UP Core* power socket safety cover).
+1. *UP Core* 只能使用电池供电(请勿卸下 *UP Core* 电源安全盖)。
 
    ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
@@ -53,11 +53,11 @@ The kit is currently an "early adopter" release. Contact sale01@holybro.com for 
   - ROS Melodic
   - Occipital Structure Core 相机 ROS 驱动
   - MAVROS
-  - [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
-- Assorted cables, propellers, and other accessories (these can be used to attach additional peripherals).
+  - [PX4 避障](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance)
+- 各式电缆、推进器和其他配件（可用于附加外设）。
 
 
-## 首次使用
+## 其他注意事项
 
 该套件中包含了必要的无人机硬件，电池和遥控须要单独购买：
 - 电池：
@@ -68,14 +68,14 @@ The kit is currently an "early adopter" release. Contact sale01@holybro.com for 
   - 带有 R-XSR 接收机的 *FrSky Taranis* 发射机是一个受欢迎的配置。
 - 一个 H2.0 头的内六角螺丝刀（用来打开顶部的螺丝来安装接收机）
 
-当载具设置完成时：
+此外，用户也需要地面站硬件/软件：
 - 可运行 [QGC地面站（QGroundControl）](https://docs.qgroundcontrol.com/en/getting_started/download_and_install.html) 的笔记本电脑或者平板。
 
 
-## First-time Setup
+## 首次使用
 
 1. 将接收机（套件中不包含）固定在无人机上，
-   - 使用H2.0 十六进制键工具移除/取消顶部板块(在电池进入的地方)。
+   - 使用 H2.0 头的内六角螺丝刀移除/取消顶部板块(在电池进入的地方)。
    - [将接收器连接到飞控](../assembly/quick_start_pixhawk4.md#radio-control)。
    - 重新安装上面的外壳。
    - 在无人机背部安装RC 接收器(使用双面胶或其他)。
@@ -91,7 +91,7 @@ The kit is currently an "early adopter" release. Contact sale01@holybro.com for 
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
 1. 使用 USB 线连接*Pixhawk 4* 和地面站。
 
-   > **Note**  Ensure propellers are removed before connecting the battery.
+   > **Note** 电池连接前移除螺旋桨。
 1. Connect the ground station to the vehicle WiFi network (after a few seconds) using the following default credentials:
    - **SSID:** pixhawk4
    - **Password:** pixhawk4
