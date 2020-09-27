@@ -149,15 +149,15 @@
    >     1. 等待 GPS 的 LED 变成绿色。 这意味着无人机的GPS已定位并且准备好起飞！
    > 
    > 1. 将地面站与无人机WiFi连接。
-   > 2. Find a safe outdoor location for flying, ideally with a tree or some other convenient obstacle for testing PX4 Vision.
+   > 2. 找到一个安全的户外位置进行飞行，最好是用树或其他方便的障碍测试PX4视觉。
    > 
-   > 3. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes/position_mc.md) and fly manually towards an obstacle. The vehicle should slow down and then stop within 6m of the obstacle (the distance can be [changed](../advanced_config/parameters.md) using the [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) parameter).
+   > 3. 测试 [防止碰撞](../computer_vision/collision_prevention.md), 启用 [位置模式](../flight_modes/position_mc.md) 并手动向障碍飞行。 无人机应减速，然后在障碍物距离小于6米时悬停(通过 [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) 参数，距离 [可调整](../advanced_config/parameters.md)  )。
    > 
-   > 4. To test [obstacle avoidance](../computer_vision/obstacle_avoidance.md), create a mission where the path is blocked by an obstacle. Then switch to [Mission Mode](../flight_modes/mission.md) to run the mission, and observe the vehicle moving around the obstacle and then returning to the planned course.
+   > 4. 要测试 [避障](../computer_vision/obstacle_avoidance.md)，创建一个被障碍阻止的路径。 然后切换到 [任务模式](../flight_modes/mission.md) 来运行任务。并观察无人机绕开障碍物，然后返回计划路线。
    > 
-   > ## Development using the Kit
+   > ## 使用套件开发
    > 
-   > The following sections explain how to use the kit as an environment for developing computer vision software.
+   > 以下各节说明如何将工具包用作开发计算机视觉软件的环境。
    > 
    > ### PX4 Avoidance Overview
    > 
