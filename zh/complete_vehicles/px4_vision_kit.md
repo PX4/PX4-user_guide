@@ -59,10 +59,10 @@ The kit is currently an "early adopter" release. Contact sale01@holybro.com for 
 
 ## 首次使用
 
-此外，用户也需要地面站硬件/软件：
+该套件中包含了必要的无人机硬件，电池和遥控须要单独购买：
 - 电池：
   - 带 XT60 母头的 4S 锂电池
-  - 小于115毫米长度（以适合电源插座和 GPS 支架之间的空间）
+  - 长度小于115毫米（以适合电源插座和 GPS 支架之间的空间）
 - 无线电控制系统
   - 可以使用各种 [PX4 兼容的遥控系统](../getting_started/rc_transmitter_receiver.md)。
   - 带有 R-XSR 接收机的 *FrSky Taranis* 发射机是一个受欢迎的配置。
