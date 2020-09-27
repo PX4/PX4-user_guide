@@ -184,73 +184,78 @@
    > 
    > 将USB镜像刷新到UP Core：
    > 
-   > 1. Insert the pre-flashed USB drive into the *UP Core* port labeled `USB1`.
-   > 2. [Login to the companion computer](#login_mission_computer) (as described above).
-   > 3. Open a terminal and run the following command to copy the image onto internal memory (eMMC). The terminal will prompt for a number of responses during the flashing process. 
+   > 1. 将预先烧录的USB驱动器插入标有 `USB1` 的 *UP Core* 端口中。
+   > 2.登录到配套计算机<0> （如上所述）。</li> 
    >     
-   >
+   >     - 打开终端，然后运行以下命令将映像复制到内部存储器（eMMC）。 终端将在刷新过程中提示您一些响应。 
+   >         
+   >         
    ```sh
    cd ~/catkin_ws/src/px4vision_ros
    sudo ./flash_emmc.sh
    ```
 
+   >     
+   >     > **Note** 保存到 *UP Core* 计算机的所有信息将在执行此脚本时被删除
    > 
-   > > **Note** All information saved in the *UP Core* computer will be removed when executing this script
- 
- 4. Pull out the USB stick.
- 
- 5. Restart the vehicle. The *UP Core* computer will now boot from internal memory (eMMC).
- 
- ### Boot the Companion Computer {#boot_mission_computer}
- 
- First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery. The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
- 
- > **Tip** [Fly the Drone (with avoidance)](#fly_drone) additionally explains how to verify that the avoidance system is active.
- 
- If you've already [installed the image on the companion computer](#install_image_mission_computer) you can just power the vehicle (i.e. no USB stick is needed). The avoidance system should be up and running within around 30 seconds.
- 
- Once started the companion computer can be used both as a computer vision development environment and for running the software.
- 
- ### 登录到机载计算机 {#login_mission_computer}
- 
- To login to the companion computer:
- 
- 1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
-     
-     ![UP Core：USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
- 
- - Use the USB-JST cable from the kit to get a USB A connector
-     
-     ![USB to JST cable](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
- 
- - A USB hub can be attached to the cable if the keyboard and mouse have separate connectors.
-     
-     1. 连接显示器到 *UP Core* 的 HDMI 接口。
-     ![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
-     
-     The Ubuntu login screen should then appear on the monitor. 
- 
- 1. Login to the *UP Core* using the credentials: 
-     - **用户名：**px4vision
-     - **密码：**px4vision
- 
- ### 开发/扩展 PX4 避障功能
- 
- The PX4 Vision’s *UP Core* computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS2). You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/Avoidance](https://github.com/PX4/avoidance) repo.
- 
- The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner. The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
- 
- The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
- 
- 1. Disable the avoidance process using the following command:
+   > - 拔出U盘。
+   > 
+   > - 重启无人机， *UP Core* 计算机现在将从内部内存（eMMC）引导。</ol> 
+   > 
+   > ### 开启上位机 {#boot_mission_computer}
+   > 
+   > 首先插入所提供的 USB2.0 盘 *UP 核心* 端口标签 `USB1` 然后用4S电池给无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
+   > 
+   > > **提示** [ 飞行无人机(带避障)](#fly_drone) 另外解释了如何验证避障系统是否有效。
+   > 
+   > If you've already [installed the image on the companion computer](#install_image_mission_computer) you can just power the vehicle (i.e. no USB stick is needed). The avoidance system should be up and running within around 30 seconds.
+   > 
+   > Once started the companion computer can be used both as a computer vision development environment and for running the software.
+   > 
+   > ### 登录到机载计算机 {#login_mission_computer}
+   > 
+   > To login to the companion computer:
+   > 
+   > 1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
+   >     
+   >     ![UP Core：USB2](../../assets/hardware/px4_vision_devkit/upcore_port_usb2.png)
+   > 
+   > - Use the USB-JST cable from the kit to get a USB A connector
+   >     
+   >     ![USB to JST cable](../../assets/hardware/px4_vision_devkit/usb_jst_cable.jpg)
+   > 
+   > - A USB hub can be attached to the cable if the keyboard and mouse have separate connectors.
+   >     
+   >     1. 连接显示器到 *UP Core* 的 HDMI 接口。
+   >     ![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
+   >     
+   >     The Ubuntu login screen should then appear on the monitor. 
+   > 
+   > 1. Login to the *UP Core* using the credentials: 
+   >     - **用户名：**px4vision
+   >     - **密码：**px4vision
+   > 
+   > ### 开发/扩展 PX4 避障功能
+   > 
+   > The PX4 Vision’s *UP Core* computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS2). You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/Avoidance](https://github.com/PX4/avoidance) repo.
+   > 
+   > The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner. The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
+   > 
+   > The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
+   > 
+   > 1. Disable the avoidance process using the following command: 
+   >     
+   >     
    ```sh
    systemctl stop avoidance.service
    ```
 
- 
- You can simply reboot the machine to restart the service.
- 
- Other useful commands are:
+   > 
+   > You can simply reboot the machine to restart the service.
+   > 
+   > Other useful commands are: 
+   > 
+   > 
    ```sh
    # restart service
    systemctl start avoidance.service
@@ -265,14 +270,18 @@
 
 2. The source code of the obstacle avoidance package can be found in https://github.com/PX4/avoidance which is located in `~/catkin_ws/src/avoidance`.
 
-3. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo:
+3. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo: 
+    
+    
    ```sh
    git pull origin
    git checkout origin/master
    ```
 
 
-4. Build the package
+4. Build the package 
+    
+    
    ```
    catkin build local_planner
    ```
