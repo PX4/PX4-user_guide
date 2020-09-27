@@ -229,7 +229,7 @@
    >     1. 连接显示器到 *UP Core* 的 HDMI 接口。
    >     ![UP Core: HDMI port](../../assets/hardware/px4_vision_devkit/upcore_port_hdmi.png)
    >     
-   >     The Ubuntu login screen should then appear on the monitor. 
+   >     Ubuntu 登录屏幕应显示在显示器上。 
    > 
    > 1. Login to the *UP Core* using the credentials: 
    >     - **用户名：**px4vision
