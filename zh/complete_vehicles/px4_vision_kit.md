@@ -134,21 +134,21 @@
    > 
    > 1. 连接电池来给无人机供电
    > 
-   > 2. 连接电池来给载具供电
+   > 2. 等到启动序列完成，并且避障系统已经启动（正在启动过程中时，飞机会拒绝解锁）
    >     
-   >     > **Tip** The boot/startup process takes around 1 minute from the supplied USB stick (or 30 seconds from [internal memory](#install_image_mission_computer)).
+   >     > **Tip** 从U盘启动/开始的流程大概会要1分钟（从内部存储大概需要30s）
    > 
-   > 3. 等到启动序列完成，并且避障系统已经启动（正在启动过程中时，飞机会拒绝解锁）
+   > 3. 检查避障系统是否已经正常启动
    > 
-   > - *QGC*显示通知日志消息：**避障系统已连接**
+   > - *QGroundControl* 通知日志显示消息： **避障系统已连接**。
    >     
    >     ![QGC Log showing avoidance system has started](../../assets/hardware/px4_vision_devkit/qgc_console_vision_system_started.jpg)
    > 
-   > - 在结构光相机的前部将会看到一个红的激光束
+   > - 可以在 *Structure Core* 摄像头前面看到红色光线。
    >     
-   >     1. 等待 GPS LED 变成绿色. 这意味着载具的GPS已定位并且准备好起飞！
+   >     1. 等待 GPS 的 LED 变成绿色。 这意味着无人机的GPS已定位并且准备好起飞！
    > 
-   > 1. Connect the ground station to the vehicle WiFi network.
+   > 1. 将地面站与无人机WiFi连接。
    > 2. Find a safe outdoor location for flying, ideally with a tree or some other convenient obstacle for testing PX4 Vision.
    > 
    > 3. To test [collision prevention](../computer_vision/collision_prevention.md), enable [Position Mode](../flight_modes/position_mc.md) and fly manually towards an obstacle. The vehicle should slow down and then stop within 6m of the obstacle (the distance can be [changed](../advanced_config/parameters.md) using the [CP_DIST](../advanced_config/parameter_reference.md#CP_DIST) parameter).
