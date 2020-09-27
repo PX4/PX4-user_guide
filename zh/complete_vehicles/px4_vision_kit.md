@@ -86,13 +86,13 @@
 
    ![Raise GPS mast](../../assets/hardware/px4_vision_devkit/raise_gps_mast.jpg)
 
-1. 用充好电的电池的为车辆供电。
+1. 将套件中预先烧录好镜像的U盘插入 *UP Core* 的端口 `USB1` （下面高亮的）
 
    ![UP Core: USB1 Port ](../../assets/hardware/px4_vision_devkit/upcore_port_usb1.png)
-1. 使用 USB 线连接*Pixhawk 4* 和地面站。
+1. 用充好电的电池的为无人机供电。
 
    > **Note** 电池连接前移除螺旋桨。
-1. Connect the ground station to the vehicle WiFi network (after a few seconds) using the following default credentials:
+1. 使用以下默认凭据将地面站连接到无人机WiFi网络（几秒钟后）：
    - **SSID:** pixhawk4
    - **Password:** pixhawk4
 
