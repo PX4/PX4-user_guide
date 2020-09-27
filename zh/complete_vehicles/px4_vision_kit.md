@@ -169,10 +169,10 @@
    > - *globalplanner* 尚未用这个工具包测试。
    > - The *landing planner* requires a downward facing camera, and cannot used without first modifying the camera mounting.
    > 
-   > PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/en/) using these interfaces:
+   > PX4 和配套的计算机使用如下接口通过 [MAVLink](https://mavlink.io/en/) 交换数据：
    > 
-   > - [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
-   > - [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
+   > - [路径规划接口](../computer_vision/path_planning_interface.md) - API 用于实现自动模式中的避障功能。
+   > - [防撞接口](../computer_vision/collision_prevention.md) - 基于无人机避障的API，在基于障碍地图的手动位置模式下(目前用于防撞)。
    > 
    > ### Installing the image on the Companion Computer {#install_image_mission_computer}
    > 
