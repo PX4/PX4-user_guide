@@ -8,7 +8,8 @@
     "@vuepress/plugin-back-to-top": "^1.6.0",
     "@vuepress/plugin-medium-zoom": "^1.6.0",
     "vuepress": "^1.5.4",
-    "vuepress-plugin-redirect": "^1.2.5"
+    "vuepress-plugin-redirect": "^1.2.5",
+    "vuepress-plugin-right-anchor": "^0.2.0"
   },
   "scripts": {
     "docs:devmem": "NODE_OPTIONS='--max-old-space-size=8192' vuepress dev . ",
