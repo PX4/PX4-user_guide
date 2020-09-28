@@ -4,25 +4,56 @@ const getSidebar = require('./get_sidebar.js');
 
 
 module.exports = {
-  base:'/px4_vuepress/',
+  base:'/px4_user_guide/',
   patterns : ['README.md','en/**/*.md','zh/**/*.md', '**/*.vue', '!**/node_modules' ], //only english, chinese at moment
-  //patterns : ['README.md','en/**/*.md', '**/*.vue', '!**/node_modules' ], //only english, chinese at moment
+  //patterns : ['README.md','en/**/*.md', '**/*.vue', '!**/node_modules' ], //only english
+  plugins: ['@vuepress/medium-zoom',
+      ['vuepress-plugin-redirect', 
+      {
+        // provide i18n redirection
+        // it will automatically redirect `/foo/bar/` to `/:locale/foo/bar/` if exists
+        locales: true,
+      }],
+      '@vuepress/back-to-top',
+      ],
   locales: {
     // The key is the path for the locale to be nested under.
     // As a special case, the default locale can use '/' as its path.
     '/en/': {
       lang: 'en-US', // this will be set as the lang attribute on <html>
       title: 'PX4 User Guide',
-      description: 'A wonderful descripption'
+      description: 'PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.'
     },
     '/zh/': {
       lang: 'zh-CN',
-      title: 'PX4 User Guide',
-      description: 'PX4 User Guide description'
+      title: 'PX4 自动驾驶用户指南',
+      description: 'PX4 is the Professional Autopilot. Developed by world-class developers from industry and academia, and supported by an active world wide community, it powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles.'
     }
   },
   themeConfig: {
     px4_version: 'master',
+    
+    
+    // Assumes GitHub. Can also be a full GitLab url.
+    //repo: 'PX4/Firmware',
+    // Customising the header label
+    // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
+    //repoLabel: 'Contribute!',
+    lastUpdated: 'Last Updated', // string | boolean
+
+    // Optional options for generating "Edit this page" link
+
+    // if your docs are in a different repo from your main project:
+    docsRepo: 'PX4/px4_user_guide',
+    // if your docs are not at the root of the repo:
+    //docsDir: 'docs',
+    // if your docs are in a specific branch (defaults to 'master'):
+    docsBranch: 'master',
+    // defaults to false, set to true to enable
+    editLinks: true,
+    // custom text for edit link. Defaults to "Edit this page"
+    editLinkText: 'Help us improve this page!',
+
     locales: {
       '/en/': {
         // text for the language dropdown
@@ -43,7 +74,12 @@ module.exports = {
         // algolia docsearch options for current locale
         algolia: {},
         nav: [
-          { text: 'Nested', link: '/nested/' , ariaLabel: 'Nested' }
+          { text: 'PX4', link: 'http://px4.io/' , ariaLabel: 'PX4 Site' },
+          { text: 'QGroundControl', link: 'http://qgroundcontrol.com/' , ariaLabel: 'QGC' },
+          { text: 'MAVSDK', link: 'https://www.dronecode.org/sdk/' , ariaLabel: 'MAVSDK' },
+          { text: 'MAVLINK', link: 'https://mavlink.io/en/' , ariaLabel: 'MAVLINK site' },
+          { text: 'Docs', link: 'https://www.dronecode.org/documentation/' , ariaLabel: 'Docs' },
+          { text: 'Support', link: 'http://discuss.px4.io/' , ariaLabel: 'Support' },
         ],
         sidebar: {
           '/en/': getSidebar.sidebar('en')
@@ -62,11 +98,16 @@ module.exports = {
           }
         },
         nav: [
-          { text: '嵌套', link: '/zh/nested/' }
+          { text: 'PX4', link: 'http://px4.io/' , ariaLabel: 'PX4 Site' },
+          { text: 'QGroundControl', link: 'http://qgroundcontrol.com/' , ariaLabel: 'QGC' },
+          { text: 'MAVSDK', link: 'https://www.dronecode.org/sdk/' , ariaLabel: 'MAVSDK' },
+          { text: 'MAVLINK', link: 'https://mavlink.io/en/' , ariaLabel: 'MAVLINK site' },
+          { text: 'Docs', link: 'https://www.dronecode.org/documentation/' , ariaLabel: 'Docs' },
+          { text: 'Support', link: 'http://discuss.px4.io/' , ariaLabel: 'Support' },
         ],
         algolia: {},
         sidebar: {
-          '/zh/': getSidebar.sidebar('zh');
+          '/zh/': ['/zh/', 'Test'] //getSidebar.sidebar('zh')
         }
       }
     }
