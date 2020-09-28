@@ -1,26 +1,26 @@
-# 铱星/RockBlock卫通系统
+# 铱星/RockBlock卫星通讯系统
 
-A satellite communication system can be used to provide long range high latency link between a ground station and a vehicle.
+卫星通信系统可在地面站和车辆之间提供远距离、高延迟的连接。
 
-This topic describes how to set up a system that uses RockBlock as the service provider for the Iridium SBD Satellite Communication System. Given good signal quality, users can expect a latency between 10 to 15 seconds.
+本专题介绍如何建立一个使用RockBlock作为运营商的铱星短报文（Short Burst Data，SBD）卫星通信系统。 在信号质量良好的情况下，用户端延迟在10至15秒左右。
 
 ## 综述
 
-The following components are needed for the satellite communication link:
+卫星通信链接需要以下组成部件：
 
-* A [RockBlock 9603](http://www.rock7mobile.com/products-rockblock-9603) module connected to a Pixhawk flashed with the PX4 Autopilot.
-* A message relay server running Ubuntu Linux.
-* A ground station computer running *QGroundControl* on Ubuntu Linux
+* 一个连接到Pixhawk的 [RockBlock 9603](http://www.rock7mobile.com/products-rockblock-9603) 模块，要求Pixhawk已烧写PX4固件。
+* 运行 Ubuntu 系统的消息中继服务器。
+* 在 Ubuntu上运行 *QGroundControl* 的地面站
 
-The full system architecture is shown below:
+完整的系统架构如下：
 
 ![Architecture](../../assets/satcom/architecture.jpg)
 
-> **Note** The setup was tested with the current release of *QGroundControl* running on Ubuntu 14.04 and 16.04.
+> **请注意：**该安装在将当前版本的*QGroundControl* 部署到Ubuntu 14.04 和 16.04上时测试通过。
 
-    - It may be possible to run the system on other ground stations and operating systems, but this has not been tested (and is not guaranteed to work).
-    - The [RockBlock MK2](http://www.rock7mobile.com/products-rockblock) module can also be used. 
-      The RockBlock 9603 module is recommended because it is smaller and lighter, while providing the same functionality.
+    或许可以在其他地面站和操作系统上运行该系统， 但尚未对此进行测试（而且无法保证工作）。
+    -也可以使用 [RockBlock MK2]（http://www.rock7mobile.com/products-rockblock）模块。 
+      推荐使用RockBlock 9603模块，因为它不但功能相同，而且更小更轻。
     
 
 ## Costs
