@@ -1,6 +1,6 @@
 {
   "name": "px4_user_guide",
-  "version": "master",
+  "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/PX4/px4_user_guide.git",
   "license": "CC-BY-4.0",
