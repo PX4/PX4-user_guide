@@ -15,6 +15,7 @@ module.exports = {
         locales: true,
       }],
       '@vuepress/back-to-top',
+      'vuepress-plugin-right-anchor', //This is actually "right side page TOC"
       ],
   locales: {
     // The key is the path for the locale to be nested under.
@@ -32,6 +33,7 @@ module.exports = {
   },
   themeConfig: {
     px4_version: 'master',
+    sidebarDepth:0,  //change to 1 if decide to use vuepress-plugin-right-anchor
     
     
     // Assumes GitHub. Can also be a full GitLab url.
@@ -107,7 +109,7 @@ module.exports = {
         ],
         algolia: {},
         sidebar: {
-          '/zh/': ['/zh/', 'Test'] //getSidebar.sidebar('zh')
+          '/zh/': getSidebar.sidebar('zh')
         }
       }
     }

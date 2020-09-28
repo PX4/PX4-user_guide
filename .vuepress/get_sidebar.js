@@ -93,7 +93,7 @@ module.exports = {
                           let new_parent = {};
                           new_parent.title = last_item.title;
                           new_parent.path = last_item.path;
-                          new_parent.sidebarDepth = 1;
+                          //new_parent.sidebarDepth = 1;
                           new_parent.children = [];
                           //console.log('  DEBUG:  Adding new_parent: ' + new_parent.title)
                           //console.log('    DEBUG:  path ' + new_parent.path)

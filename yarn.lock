@@ -7603,6 +7603,13 @@ vuepress-plugin-redirect@^1.2.5:
     "@shigma/stringify-object" "^3.3.0"
     vuepress-plugin-dehydrate "1.1.5"
 
+vuepress-plugin-right-anchor@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-right-anchor/-/vuepress-plugin-right-anchor-0.2.0.tgz#d44036e3f88d9880d87630ed880d1cba31fdd691"
+  integrity sha512-6w5js1j2G6Z6BnBFvO4EoMuX2s5eA1ci6iYEsuX9P41qLF4YEFgVtmd+uooMffgIg3QPDPqzkOoUaja1vFZRzw==
+  dependencies:
+    lodash.debounce "^4.0.8"
+
 vuepress-plugin-smooth-scroll@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-smooth-scroll/-/vuepress-plugin-smooth-scroll-0.0.3.tgz#6eff2d4c186cca917cc9f7df2b0af7de7c8c6438"
