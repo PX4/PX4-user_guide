@@ -62,7 +62,7 @@ Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_referen
 
 ### RC Loss Failsafe {#rc_loss_failsafe}
 
-The RC Loss failsafe is triggered if the RC transmitter link is lost.
+The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual modes* (RC loss does not trigger the failsafe in automatic modes - e.g. during missions).
 
 ![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
