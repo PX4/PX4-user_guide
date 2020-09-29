@@ -52,7 +52,7 @@ PX4有许多安全功能，可以在发生故障时保护并恢复您的机体�
 
 ### 遥控信号丢失故障保护 {#rc_loss_failsafe}
 
-如果遥控传输的通信链路丢失，则触发遥控信号丢失故障保护。
+The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual modes* (RC loss does not trigger the failsafe in automatic modes - e.g. during missions).
 
 ![安全 - 遥控丢失（QGC）](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
