@@ -8,7 +8,7 @@
 
 下图显示了模式行为（对于模式2发射器）。
 
-![多旋翼位置模式](../../images/flight_modes/position_MC.png)
+![多旋翼位置模式](../../assets/flight_modes/position_MC.png)
 
 > 在此模式下降落时必须小心。 首次在此模式下着陆时, 准备切换到 [手动/稳定模式](../flight_modes/manual_stabilized_mc.md), 以便能够锁定飞机。 如果正确地检测到着陆, 电机会在触地后停止旋转, 然后在不久后锁定。 如果电机继续在较高的转速旋转或开始加速旋转, 首先切换到[手动/稳定(多旋翼)](../flight_modes/manual_stabilized_mc.md), 然后锁定。 请注意，由于GPS漂移，飞机可能会翻倒在地面上。
 

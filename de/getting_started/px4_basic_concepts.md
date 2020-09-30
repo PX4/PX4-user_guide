@@ -32,7 +32,7 @@ The Dronecode ground control station is called [QGroundControl](http://qgroundco
 
 *QGroundControl* runs on Windows, Android, MacOS or Linux. Download and install it from [here](http://qgroundcontrol.com/downloads/).
 
-![QGC Main Screen](../../images/qgc_main_screen.jpg)
+![QGC Main Screen](../../assets/concepts/qgc_main_screen.jpg)
 
 ## Vehicle/Flight Controller Board {#vehicle_controller}
 
@@ -71,7 +71,7 @@ The actual ports/bus used for the outputs on the [flight controller](#vehicle_co
 
 They might also be marked as `FMU PWM OUT` or `IO PWM Out` (or similar). Pixhawk controllers have a "main" FMU board and *may* have a separate IO board. If there is an IO board, the `AUX` ports are connected directly to the FMU and the `MAIN` ports are connected to the IO board. Otherwise the `MAIN` ports are connected to the FMU, and there are no `AUX` ports. The FMU output ports can use [D-shot](../peripherals/dshot.md) or *One-shot* protocols (as well as PWM), which provide much lower-latency behaviour. This can be useful for racers and other airframes that require better performance.
 
-The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.html)). The (same) airframe mapping of outputs to nodes is used in this case.
+The output ports may also be mapped to UAVCAN nodes (e.g. UAVCAN [motor controllers](../peripherals/uavcan_escs.md)). The (same) airframe mapping of outputs to nodes is used in this case.
 
 **Notes:**
 
@@ -155,6 +155,7 @@ To reduce the chance of accidents:
 - PX4 vehicles are *disarmed* (unpowered) when not in use, and must be explicitly *armed* before taking off.
 - Some vehicles additionally require a [safety switch](../getting_started/px4_basic_concepts.md#safety_switch) be disengaged before arming can succeed.
 - Arming is prevented if the vehicle is not in a "healthy" state.
+- Arming is prevented if a VTOL vehicle is in fixed-wing mode ([by default](../advanced_config/parameter_reference.md#CBRK_VTOLARMING)).
 - A vehicle will also usually revert to the disarmed state after landing or if a pilot does not take off quickly enough.
 
 Arming is triggered by default (Mode 2 transmitters) by holding the RC throttle/yaw stick on the *bottom right* for one second (to disarm, hold stick on bottom left). It is also possible to configure PX4 to arm using an RC button on the RC control (and arming commands can be sent from a ground station).
@@ -194,11 +195,11 @@ For more information see: [Safety](../config/safety.md) (Basic Configuration).
 
 All the vehicles, boats and aircraft have a heading direction or an orientation based on their forward motion.
 
-![Frame Heading](../../images/frame_heading.png)
+![Frame Heading](../../assets/concepts/frame_heading.png)
 
 It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. Multicopters have a heading even when they are symmetrical from all sides! Usually manufacturers use a colored props or colored arms to indicate the heading.
 
-![Frame Heading TOP](../../images/frame_heading_top.png)
+![Frame Heading TOP](../../assets/concepts/frame_heading_top.png)
 
 In our illustrations we will use red coloring for the front propellers of multicopter to show heading.
 

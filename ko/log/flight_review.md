@@ -1,6 +1,6 @@
-# Log Analysis using Flight Review
+# Flight Review를 이용하여 로그 해석하기
 
-The [Flight Review](http://logs.px4.io) plots for a flight can be used to analyze general vehicle condition.
+[Flight Review](http://logs.px4.io) 는 기체의 상태를 점검하기 위해 사용할 수 있습니다
 
 The plots are meant to be self-explanatory, but it takes some experience to know what ranges are acceptable and what a plot should look like. This page explains how to interpret the plots and identify common problems.
 
@@ -150,6 +150,33 @@ Very high (unsafe) vibration levels.
 
 ![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
+### Raw High-rate IMU Data Plots {#fifo_logging}
+
+For an in-depth analysis there is an option to log the raw IMU data at full rate (several kHz, depending on the IMU). This allows inspection of much higher frequencies than with normal logging, which can help when selecting vibration mounts or configuring low-pass and notch filters appropriately.
+
+To use it, some parameters need to be changed:
+
+- Set [IMU_GYRO_RATEMAX](../advanced_config/parameter_reference.md#IMU_GYRO_RATEMAX) to 400. This ensures that the raw sensor data is is more efficiently packed when sent from the sensor to the rest of the system, and reduces the log size (without reducing useful data). <!-- Explanation in https://github.com/PX4/px4_user_guide/pull/751/files#r440509688
+  Data is sent in a fixed size array that will largely empty if sent at higher rate. The "empty data" is also logged.-->
+
+- Use a good SD card, as the IMU data requires a high logging bandwidth (Flight Review will show dropouts if the logging rate gets too high).
+    
+    > **Tip** See [Logging > SD Cards](https://dev.px4.io/master/en/log/logging.html#sd-cards) for a comparison of popular SD card.
+
+- Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries. If you are using a really good SD card (seeing few/no dropouts), you can: 
+    - either enable both accel and gyro profiles
+    - or enable accel/gyro plus the default logging profile
+
+Example plot:
+
+![high-rate accel power spectral density](../../assets/flight_log_analysis/flight_review/accel_spectral_density_fifo.png)
+
+> **Note** Data of the first IMU is logged, which is not necessarily the same as the one used for flying. This is mostly only important in cases where IMU's are mounted differently (e.g. hard-mounted vs. soft-mounted).
+
+<span></span>
+
+> **Note** Do not forget to restore the parameters after testing.
+
 ### Fixing Vibration Problems {#solutions}
 
 Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
@@ -179,7 +206,7 @@ The *GPS Uncertainty* plot shows information from the GPS device:
 - Number of used satellites (should be around 12 or higher)
 - Horizontal position accuracy (should be below 1 meter)
 - Vertical position accuracy (should be below 2 meters)
-- GPS fix: this is 3 for a 3D GPS fix, 5 for RTK float and 6 for RTK fixed type
+- GPS fix: this is 3 for a 3D GPS fix, 4 for GPS + Dead Reckoning, 5 for RTK float and 6 for RTK fixed type
 
 ## GPS Noise & Jamming
 

@@ -12,7 +12,7 @@ The vehicle will glide if the throttle is lowered to 0% (motor stops). In order 
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![FW Manual Flight](../../images/flight_modes/manual_stabilized_FW.png)
+![FW Manual Flight](../../assets/flight_modes/manual_stabilized_FW.png)
 
 
 ## Technical Description

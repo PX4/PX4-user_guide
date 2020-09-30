@@ -21,7 +21,7 @@
 
 所得的速度剖面通常称为“S-曲线”。
 
-![加加速度限制型轨迹](../../images/jerk_limited_trajectory_1d.png)
+![加加速度限制型轨迹](../../assets/config/mc/jerk_limited_trajectory_1d.png)
 
 ## 手动模式
 

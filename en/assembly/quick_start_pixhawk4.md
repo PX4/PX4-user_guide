@@ -118,7 +118,7 @@ The instructions below show how to connect the different types of receivers to *
 
 - PPM receivers connect to the **PPM RC** input port.
   
-  ![Pixhawk 4 - Radio port for PPM receivers](../../images/pixhawk_4_receiver_ppm.png)
+  ![Pixhawk 4 - Radio port for PPM receivers](../../assets/flight_controller/pixhawk4/pixhawk_4_receiver_ppm.png)
 
 - PPM and PWM receivers that have an *individual wire for each channel* must connect to the **PPM RC** port *via a PPM encoder* [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
@@ -168,11 +168,7 @@ General configuration information is covered in: [Autopilot Configuration](../co
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
-<!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? --> 
-
-<!--## Detailed Wiring Infographic (Copter) 
-
-![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg) --> 
+<!-- Nice to have detailed wiring infographic and instructions for different vehicle types. --> 
 
 ## Further information
 

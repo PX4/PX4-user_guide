@@ -10,7 +10,7 @@ The throttle determines airspeed (at 50% throttle the aircraft will hold its cur
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![FW Position Mode](../../images/flight_modes/position_FW.png)
+![FW Position Mode](../../assets/flight_modes/position_FW.png)
 
 
 ## Technical Description

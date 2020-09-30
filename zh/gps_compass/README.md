@@ -8,13 +8,9 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
 
 最多可以连接4个内部或外部磁强计，但实际上只有一个磁强计可用作标题源。 系统根据其内部优先级自动选择可用的最佳罗盘（外部磁强计具有更高的优先级）。 如果主指南针在飞行中失败它将跳转到下一个指南针。 如果它在飞行前失败，将无法起飞。
 
-![GPS + Compass](../../images/gps_compass.jpg)
+![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
 > **Tip** When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing). The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines. On small vehicles an external compass is almost always required.
-
-## GPS (Only) Options
-
-- [Emlid Reach M+](https://emlid.com/reach/) (emlid.com) > **Note** At time of writing PX4 does not support RTK GPS with this module (only "ordinary" GPS). Support is expected in the near future.
 
 ## Combined GPS/Compass Options
 
@@ -23,20 +19,30 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
 - [Ublox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) (Hobbyking)
 - [mRo GPS u-Blox Neo-M8N Dual Compass LIS3MDL+ IST8310](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) (mRo store)
 - [Drotek uBlox GPS/Compasses](https://drotek.com/shop/en/184-u-blox) (drotek)
-- [Holybro Micro M8N GPS Module](https://www.getfpv.com/holybro-micro-m8n-gps-module.html) (getfpv)
-- [Holybro Ublox NEO-M8N GPS Module](https://www.getfpv.com/holybro-ublox-neo-m8n-gps-module.html) (getfpv)
-- [Holybro Pixhawk 4 GPS Module](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) (UBLOX 8MN GPS + IST8310 compass + LED + Safety switch).
-- [Here GNSS GPS (M8N)](https://www.getfpv.com/here-gnss-gps-m8n.html) (getfpv) 
+- [Holybro Pix32 M8N GPS Module](https://shop.holybro.com/pix32-gps-module_p1099.html) ([Holybro Shop](https://shop.holybro.com/pix32-gps-module_p1099.html))) ([getfpv](https://www.getfpv.com/holybro-pix32-neo-m8n-gps.html))
+- [Holybro Micro M8N GPS Module](https://shop.holybro.com/micro-m8n-gps_p1009.html) ([Holybro Shop](https://shop.holybro.com/micro-m8n-gps_p1009.html))) ([getfpv](https://www.getfpv.com/holybro-micro-m8n-gps-module.html))
+- [Holybro Pixhawk 4 GPS Module (10 pin)](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) ([Holybro Shop](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html))) ([getfpv](https://www.getfpv.com/holybro-pixhawk-4-neo-m8n-gps.html))
+- [Holybro Pixhawk 4 2nd GPS Module (6 pin)](https://shop.holybro.com/pixhawk4-2nd-gps-module_p1145.html) (Holybro Shop)
+- [Here GNSS GPS (M8N)](https://www.getfpv.com/here-gnss-gps-m8n.html) (getfpv)
 - [Zubax GNSS 2](https://zubax.com/products/gnss_2) (zubax.com)
+- [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) (Tindie)
 - [3DR uBlox GPS with Compass kit](https://www.getfpv.com/3dr-ublox-gps-with-compass-kit.html) (getfpv) - *Discontinued*
 
 GPS与罗盘的连接说明通常由厂家（至少支持更通用的 [自驾仪](../flight_controller/README.md)）提供
 
-> **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). The [Zubax GNSS 2](https://zubax.com/products/gnss_2) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
+> **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
 
 <span></span>
 
 > **Tip** Pay attention to pinout when connecting the GPS module. While these are all software-compatible, there are several different pin orderings.
+
+## GPS (Only) Options
+
+- [Emlid Reach M+](https://emlid.com/reach/) (emlid.com) > **Note** At time of writing PX4 does not support RTK GPS with this module (only "ordinary" GPS). Support is expected in the near future.
+
+## Compass (Only) Options
+
+- [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) (Tindie)
 
 ## RTK-GPS Devices
 
@@ -75,7 +81,7 @@ Additional configuration can be [performed](../advanced_config/parameters.md) us
 ## Developer Information
 
 - GPS/RTK-GPS 
-  - [RTK-GPS](https://dev.px4.io/master/en/advanced/rtk_gps.html) 
+  - [RTK-GPS](https://dev.px4.io/master/en/advanced/rtk_gps.html)
   - [GPS driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)
   - [UAVCAN Example](https://dev.px4.io/master/en/uavcan/)
 - [Driver source code](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) (Compasses)

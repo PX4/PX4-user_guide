@@ -41,11 +41,11 @@ To calibrate the radio:
 1. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Radio** in the sidebar.
 1. Press **OK** to start the calibration.
    
-   ![Radio setup - before starting](../../images/qgc/setup/radio_start_setup.jpg)
+   ![Radio setup - before starting](../../assets/qgc/setup/radio/radio_start_setup.jpg)
    
 1. Set the [transmitter mode](../getting_started/rc_transmitter_receiver.md#transmitter_modes) radio button that matches your transmitter (this ensures that *QGroundControl* displays the correct stick positions for you to follow during calibration).
 
-   ![Radio setup - move sticks](../../images/qgc/setup/radio_sticks_throttle.jpg)
+   ![Radio setup - move sticks](../../assets/qgc/setup/radio/radio_sticks_throttle.jpg)
 
 1. Move the sticks to the positions indicated in the text (and on the transmitter image). Press **Next** when the sticks are in position. Repeat for all positions.
 1. When prompted, move all other switches and dials through their full range (you will be able to observe them moving on the *Channel Monitor*).
@@ -60,7 +60,7 @@ Radio calibration is demonstrated in the [autopilot setup video here](https://yo
 
 As well as calibrating your control sticks and other transmitter controls, there are a number of additional radio setup options that you may find useful on this screen.
 
-<img src="../../images/qgc/setup/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" /> 
+<img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
 
 <span id="spektrum_bind"></span>
 ### Spectrum Bind
@@ -73,7 +73,7 @@ To bind a Spektrum transmitter/receiver:
 1. Select the radio button for your receiver
 1. Press **OK**
 
-   ![Spektrum Bind](../../images/qgc/setup/radio_additional_setup_spectrum_bind_select_channels.jpg)
+   ![Spektrum Bind](../../assets/qgc/setup/radio/radio_additional_setup_spectrum_bind_select_channels.jpg)
 
 1. Power on your Spektrum transmitter while holding down the bind button.
 
@@ -90,7 +90,7 @@ To copy the trims:
 1. Center your sticks and move throttle all the way down. 
 1. Press **Ok**. 
 
-   ![Copy Trims](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
+   ![Copy Trims](../../assets/qgc/setup/radio/radio_additional_radio_setup_copy_trims.jpg)
    
 1. Reset the trims on your transmitter back to zero.
 
@@ -106,7 +106,7 @@ To use the AUX passthrough channels:
 1. Specify these channels to map to the AUX1 and AUX2 ports respectively, as shown below.
    Values are saved to the vehicle as soon as they are set.
 
-   ![AUX1 and AUX2 RC passthrough channels](../../images/qgc/setup/radio_additional_setup_aux_passthrough_channels.jpg)
+   ![AUX1 and AUX2 RC passthrough channels](../../assets/qgc/setup/radio/radio_additional_setup_aux_passthrough_channels.jpg)
 
 The flight controller will pass through the unmodified values from the specified channels out of AUX1/AUX2 to the connected servos/relays that drive your hardware.
 
@@ -126,7 +126,7 @@ To set up tuning channels:
 1. Select the mapping of *PARAM Tuning Id* to radio channels, using the selection lists.
    Values are saved to the vehicle as soon as they are set.
 
-   ![Map radio channels to tuning channels](../../images/qgc/setup/radio_additional_radio_setup_param_tuning.jpg)
+   ![Map radio channels to tuning channels](../../assets/qgc/setup/radio/radio_additional_radio_setup_param_tuning.jpg)
 
 To map a PARAM tuning channel to a parameter:
 
@@ -135,7 +135,7 @@ To map a PARAM tuning channel to a parameter:
 1. Check the **Advanced Settings** checkbox.
 1. Click the **Set RC to Param...** button (this will pop-up the foreground dialog displayed below)
 
-   ![Map tuning channels to parameters](../../images/qgc/setup/parameters_radio_channel_mapping.jpg)
+   ![Map tuning channels to parameters](../../assets/qgc/setup/radio/parameters_radio_channel_mapping.jpg)
 1. Select the tuning channel to map (1, 2 or 3) from the *Parameter Tuning ID* selection list.
 1. Press **OK** to close the dialog.
 1. Press **Save** to save all changes and close the *Parameter Editor*.

@@ -12,7 +12,7 @@
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![固定翼高度控制](../../images/flight_modes/altitude_control_mode_fw.png)
+![固定翼高度控制](../../assets/flight_modes/altitude_control_mode_fw.png)
 
 ## 技术总结
 

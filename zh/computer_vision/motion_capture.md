@@ -1,6 +1,6 @@
-# Motion Capture (MoCap)
+# 运动捕捉（MoCap）
 
-Motion Capture (MoCap) is a [computer vision](https://en.wikipedia.org/wiki/Computer_vision) technique for estimating the 3D *pose* (position and orientation) of a vehicle using a positioning mechanism that is *external* to the vehicle. It is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a *local* co-ordinate system.
+运动捕捉（MoCap）是一种使用 *外部* 定位设备，用于估计载具三维*姿态*（位置与方向）的 [计算机视觉](https://en.wikipedia.org/wiki/Computer_vision)技术。 It is commonly used to navigate a vehicle in situations where GPS is absent (e.g. indoors), and provides position relative to a *local* co-ordinate system.
 
 *MoCap* systems most commonly detect motion using infrared cameras, but other types of cameras, Lidar, or Ultra Wideband (UWB) may also be used.
 

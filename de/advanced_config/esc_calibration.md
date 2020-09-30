@@ -26,18 +26,18 @@ To calibrate the ESCs:
 
 3. Open the *QGroundControl* **Settings > Power**, then press the **Calibrate** button.
     
-    ![ESC Calibration step 1](../../images/qgc_esc_calibration.png)
+    ![ESC Calibration step 1](../../assets/qgc/setup/esc/qgc_esc_calibration.png)
 
 4. Connect the battery when prompted:
     
-    ![ESC Calibration step 2](../../images/esc_calibration_step_2.png)
+    ![ESC Calibration step 2](../../assets/qgc/setup/esc/esc_calibration_step_2.png)
     
     The calibration will begin automatically:
     
-    ![ESC Calibration step 3](../../images/esc_calibration_step_3.png)
+    ![ESC Calibration step 3](../../assets/qgc/setup/esc/esc_calibration_step_3.png)
 
 5. Once the calibration complete you will be prompted to disconnect the battery.
     
-    ![ESC Calibration step 4](../../images/esc_calibration_step_4.png)
+    ![ESC Calibration step 4](../../assets/qgc/setup/esc/esc_calibration_step_4.png)
 
 > **Note** High-quality controllers come with a factory calibration. In *theory* this means that they can be configured by just setting the [PWM_MIN](../advanced_config/parameter_reference.md#PWM_MIN) and [PWM_MAX](../advanced_config/parameter_reference.md#PWM_MAX) parameters to the values provided in the ESC technical specification. In practice the input range may differ even on high quality controllers, which is why calibration is recommended.

@@ -70,7 +70,7 @@ Before mounting all the components to the wing, use tape to hold them in the app
 
 Switch to the configuration section in [QGroundControl](../config/airframe.md) and select the airframe tab. Scroll down the list to find the *VTOL Duo Tailsitter* icon. Select the *Caipiroshka Duo Tailsitter* from the drop-down list.
 
-![](../../images/qgc/setup/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
+![caipiroshka](../../assets/airframes/vtol/caipiroshka/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
 
 ## Servo Connections
 

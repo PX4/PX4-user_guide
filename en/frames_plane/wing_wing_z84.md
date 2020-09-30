@@ -7,7 +7,7 @@ Key information:
 - **Frame:** Wing Wing Z-84
 - **Flight controller:** Pixracer
 
-![Wing Wing Z-84 build](../../images/wing_wing_build11.jpg)
+![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
 ## Parts List
 
@@ -33,8 +33,8 @@ One of these (any small (>=12A) ESC will do):
 
 - [Pixracer](../flight_controller/pixracer.md) kit (including GPS and power module)
 - FrSky D4R-II receiver or equivalent (jumpered to PPM sum output according to its manual)
-- [Mini telemetry set](../flight_controller/pixfalcon.md#availability) for HKPilot32
-- [Digital airspeed sensor](../flight_controller/pixfalcon.md#availability) for HKPilot32 / Pixfalcon
+- [Mini telemetry set](../flight_controller/pixfalcon.md#availability) for Holybro pix32
+- [Digital airspeed sensor](../flight_controller/pixfalcon.md#availability) for Holybro pix32 / Pixfalcon
 - 1800 mAh 2S LiPo Battery - e.g. [Team Orion 1800mAh 7.4V 50C 2S1P](https://teamorion.com/en/batteries-en/lipo/soft-case/team-orion-lipo-1800-2s-7-4v-50c-xt60-en/)
 
 
@@ -63,15 +63,15 @@ MAIN 4   | Throttle
 
 The images below give a rough idea about the assembly process, which is simple and can be done with a hot glue gun.
 
-![wing wing build01](../../images/wing_wing_build01.jpg)
-![wing wing build02](../../images/wing_wing_build02.jpg)
-![wing wing build03](../../images/wing_wing_build03.jpg)
-![wing wing build04](../../images/wing_wing_build04.jpg)
-![wing wing build09](../../images/wing_wing_build09.jpg)
-![Wing Wing Z-84 build](../../images/wing_wing_build11.jpg)
+![wing wing build01](../../assets/airframes/fw/wing_wing/wing_wing_build01.jpg)
+![wing wing build02](../../assets/airframes/fw/wing_wing/wing_wing_build02.jpg)
+![wing wing build03](../../assets/airframes/fw/wing_wing/wing_wing_build03.jpg)
+![wing wing build04](../../assets/airframes/fw/wing_wing/wing_wing_build04.jpg)
+![wing wing build09](../../assets/airframes/fw/wing_wing/wing_wing_build09.jpg)
+![Wing Wing Z-84 build](../../assets/airframes/fw/wing_wing/wing_wing_build11.jpg)
 
 ## Airframe Configuration
 
 Select the Z-84 in the flying wing section of the QGC airframe config:
 
-![QGC - select firmware for West Wing](../../images/qgc_firmware_flying_wing_west_wing.png)
+![QGC - select firmware for West Wing](../../assets/airframes/fw/wing_wing/qgc_firmware_flying_wing_west_wing.png)

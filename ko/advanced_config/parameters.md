@@ -14,11 +14,11 @@ PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md)를 �
 
 *검색* 필드에 용어를 입력하여 파라미터를 검색 할 수 있습니다. 검색은 입력된 하위 문자열을 포함하는 모든 파라미터 이름 및 설명을 나열합니다 (검색을 초기화하려면 **지우기**를 누릅니다).
 
-![파라미터 검색](../../images/qgc/setup/parameters_search.jpg)
+![파라미터 검색](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
 왼쪽 버튼을 클릭하여 그룹별로 파라미터를 탐색할 수 있습니다 (*Battery Calibration* 그룹 아래의 이미지가 선택됨).
 
-![파라미터 화면](../../images/qgc/setup/parameters_px4.jpg)
+![파라미터 화면](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
 > **Tip** If you can't find an expected parameter, see the [next section](#missing).
 
@@ -55,7 +55,7 @@ The other reason that a parameter might not be in firmware is if its associated 
 
 To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
 
-![Changing a parameter value](../../images/qgc/setup/parameters_changing.png)
+![Changing a parameter value](../../assets/qgc/setup/parameters/parameters_changing.png)
 
 > **Note** When you click **Save** the parameter is automatically and silently uploaded to the connected vehicle. Depending on the parameter, you may then need to reboot the flight controller for the change to take effect.
 
@@ -63,7 +63,7 @@ To change the value of a parameter click on the parameter row in a group or sear
 
 You can select additional options from the **Tools** menu on the top right hand side of the screen.
 
-![Tools menu](../../images/qgc/setup/parameters_tools_menu.png)
+![Tools menu](../../assets/qgc/setup/parameters/parameters_tools_menu.png)
 
 **Refresh** <br />Refresh the parameter values by re-requesting all of them from the vehicle.
 

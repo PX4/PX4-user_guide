@@ -36,14 +36,14 @@ Action | Description
 The *QGroundControl* Safety Setup page is accessed by clicking the *QGroundControl* **Gear** icon (Vehicle Setup - top toolbar) and then **Safety** in the sidebar).
 This includes the most important failsafe settings (battery, RC loss etc.) and the settings for the return actions *Return* and *Land*.
 
-![Safety Setup (QGC)](../../images/qgc/setup/safety_setup.png)
+![Safety Setup (QGC)](../../assets/qgc/setup/safety/safety_setup.png)
 
 
 ### Low Battery Failsafe
 
 The low battery failsafe is triggered when the battery capacity drops below one (or more warning) level values.
 
-![Safety - Battery (QGC)](../../images/qgc/setup/safety_battery.png)
+![Safety - Battery (QGC)](../../assets/qgc/setup/safety/safety_battery.png)
 
 The most common configuration is to set the values and action as above (with `Warn > Failsafe > Emergency`).
 With this configuration the failsafe will trigger warning, then return, and finally landing if capacity drops below the respective levels.
@@ -62,9 +62,9 @@ Battery Emergency Level | [BAT_EMERGEN_THR](../advanced_config/parameter_referen
 
 ### RC Loss Failsafe {#rc_loss_failsafe}
 
-The RC Loss failsafe is triggered if the RC transmitter link is lost.
+The RC Loss failsafe is triggered if the RC transmitter link is lost *in manual modes* (RC loss does not trigger the failsafe in automatic modes - e.g. during missions).
 
-![Safety - RC Loss (QGC)](../../images/qgc/setup/safety_rc_loss.png)
+![Safety - RC Loss (QGC)](../../assets/qgc/setup/safety/safety_rc_loss.png)
 
 > **Note** PX4 and the receiver may also need to be configured in order to *detect RC loss*: [Radio Setup > RC Loss Detection](../config/radio.md#rc_loss_detection).
 
@@ -80,7 +80,7 @@ Failsafe Action | [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RC
 
 The Data Link Loss failsafe is triggered if a telemetry link (connection to ground station) is lost when flying a [mission](../flying/missions.md).
 
-![Safety - Data Link Loss (QGC)](../../images/qgc/setup/safety_data_link_loss.png)
+![Safety - Data Link Loss (QGC)](../../assets/qgc/setup/safety/safety_data_link_loss.png)
 
 The settings and underlying parameters are shown below.
 
@@ -95,7 +95,7 @@ Failsafe Action | [NAV_DLL_ACT](../advanced_config/parameter_reference.md#NAV_DL
 The *Geofence Failsafe* is a "virtual" cylinder centered around the home position.
 If the vehicle moves outside the radius or above the altitude the specified *Failsafe Action* will trigger.
 
-![Safety - Geofence (QGC)](../../images/qgc/setup/safety_geofence.png)
+![Safety - Geofence (QGC)](../../assets/qgc/setup/safety/safety_geofence.png)
 
 > **Tip** PX4 separately supports more complicated GeoFence geometries with multiple arbitrary polygonal and circular inclusion and exclusion areas: [Flying > GeoFence](../flying/geofence.md).
 
@@ -103,7 +103,7 @@ The settings and underlying [geofence parameters](../advanced_config/parameter_r
 
 Setting | Parameter | Description
 --- | --- | ---
-Action on breach | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION) | None, Warning, Hold mode, Return mode, Terminate.
+Action on breach | [GF_ACTION](../advanced_config/parameter_reference.md#GF_ACTION) | None, Warning, Hold mode, Return mode, Terminate, Land.
 Max Radius | [GF_MAX_HOR_DIST](../advanced_config/parameter_reference.md#GF_MAX_HOR_DIST) | Horizontal radius of geofence cylinder. Geofence disabled if 0.
 Max Altitude | [GF_MAX_VER_DIST](../advanced_config/parameter_reference.md#GF_MAX_VER_DIST) | Height of geofence cylinder. Geofence disabled if 0.
 
@@ -124,7 +124,7 @@ Geofence source | [GF_SOURCE](../advanced_config/parameter_reference.md#GF_SOURC
 *Return* is a common [failsafe action](#failsafe_actions) that engages [Return mode](../flight_modes/return.md) to return the vehicle to the home position.
 This section shows how to set the land/loiter behaviour after returning.
 
-![Safety - Return Home Settings (QGC)](../../images/qgc/setup/safety_return_home.png)
+![Safety - Return Home Settings (QGC)](../../assets/qgc/setup/safety/safety_return_home.png)
 
 The settings and underlying parameters are shown below:
 
@@ -146,7 +146,7 @@ Loiter Time | [RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAN
 This section shows how to control when and if the vehicle automatically disarms after landing.
 For Multicopters (only) you can additionally set the descent rate.
 
-![Safety - Land Mode Settings (QGC)](../../images/qgc/setup/safety_land_mode.png)
+![Safety - Land Mode Settings (QGC)](../../assets/qgc/setup/safety/safety_land_mode.png)
 
 The settings and underlying parameters are shown below:
 
@@ -231,7 +231,10 @@ Parameter | Description
 ### Adaptive QuadChute Failsafe
 
 Failsafe for when a pusher motor fails (or airspeed sensor) and a VTOL vehicle can no longer achieve a desired altitude setpoint in fixed-wing mode.
-If triggered, the vehicle will transition to multicopter mode and enter failsafe Return mode.
+If triggered, the vehicle will transition to multicopter mode and enter failsafe [Return mode](../flight_modes/return.md).
+
+> **Note** You can pause *Return mode* and transition back to fixed wing if desired.
+  Note that if the condition that caused the failsafe still exists, it may trigger again!
 
 The relevant parameters are shown below:
 

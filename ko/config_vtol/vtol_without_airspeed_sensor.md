@@ -2,7 +2,7 @@
 
 > 경고 경고 : 속도 센서 사용을 권장합니다. 속도 센서가없는 VTOL에 대한 지원은 실험으로 간주되며 숙련 된 조종사 만 시도해야합니다.
 
-고정 날개는 속도 센서를 사용하여 항공기가 공중을 통해 이동하는 속도를 결정합니다. Depending on wind this could vary from groundspeed. Every airplane has a minimum airspeed below which the airplane will stall. In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor. The settings should also be applicable to non-VTOL fixed wings but this is currently untested.
+Fixed wings use airspeed sensors to determine the speed at which the airplane is moving through the air. Depending on wind this could vary from groundspeed. Every airplane has a minimum airspeed below which the airplane will stall. In mild weather conditions and with settings significantly above stall speed a VTOL can operate without the use of an airspeed sensor. The settings should also be applicable to non-VTOL fixed wings but this is currently untested.
 
 This guide will outline the parameter settings required to bypass the airspeed sensor for VTOL planes.
 
@@ -33,7 +33,7 @@ To bypass the flight checks you need to set the circuit breaker for the airspee
 
 > **Note** Enabling `CBRK_AIRSPD_CHK` will prevent the sensor driver from starting and prevent calibrarion (i.e. it does more than just bypassing flight checks).
 
-To tell the flight controller it will fly without an airspeed sensor you need to set the airspeed mode ([FW_ARSP_MODE](../advanced_config/parameter_reference.md#FW_ARSP_MODE)) to 'declare airspeed invalid' (2).
+To tell the flight controller that it is fling without an airspeed sensor you need to set the airspeed mode to 'Airspeed disabled' ([FW_ARSP_MODE=1](../advanced_config/parameter_reference.md#FW_ARSP_MODE)).
 
 Set the cruise throttle ([FW_THR_CRUISE](../advanced_config/parameter_reference.md#FW_THR_CRUISE)) to the percentage as determined from the log of the reference flight. Note that QGC scales this from 1..100 and the thrust value from the log is scaled from 0..1. 따라서 0.65의 추력을 65로 입력해야합니다. For safety reasons it is recommended to add +- 10% throttle to the determined value for testing a first flight.
 
@@ -41,7 +41,7 @@ Set the minimum front transition time ([VT_TRANS_MIN_TM](../advanced_config/para
 
 ### Optional Recommended Parameters
 
-Because the risk of stalling is real, it is recommended to set the 'fixed wing minimum altitude' aka 'QuadChute'  ([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT)). This will cause the VTOL to transition back to multicopter mode and initiate the [Return mode](../flight_modes/return.md) below a certain altitude. You could set this to 15 or 20 meters to give the multicopter time to recover from a stall.
+Because the risk of stalling is real, it is recommended to set the 'fixed wing minimum altitude' aka 'QuadChute' ([VT_FW_MIN_ALT](../advanced_config/parameter_reference.md#VT_FW_MIN_ALT)). This will cause the VTOL to transition back to multicopter mode and initiate the [Return mode](../flight_modes/return.md) below a certain altitude. You could set this to 15 or 20 meters to give the multicopter time to recover from a stall.
 
 The position estimator tested for this mode is EKF2, you can set this by changing the [SYS_MC_EST_GROUP](../advanced_config/parameter_reference.md#SYS_MC_EST_GROUP).
 

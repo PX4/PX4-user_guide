@@ -273,7 +273,7 @@ EKF outputs, states and status data are published to a number of uORB topics whi
 The following guide assumes that data has been logged using the *.ulog file format*.
 The **.ulog** format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
-Most of the EKF data is found in the [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
+Most of the EKF data is found in the [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
 
 A python script that automatically generates analysis plots and metadata can be found [here](https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/process_logdata_ekf.py).
 To use this script file, cd to the `Tools/ecl_ekf` directory and enter `python process_logdata_ekf.py <log_file.ulg>`.
@@ -446,7 +446,7 @@ After re-tuning the filter, particularly re-tuning that involve reducing the noi
 The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration.
 If this is occurring, then the following signs should be evident in the data
 
-* [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] and  [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
+* [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] and  [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
 * [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).hgt\_test\_ratio will be greater than 1.0
 
 The recommended first step is to ensure that the autopilot is isolated from the airframe using an effective isolation mounting system.

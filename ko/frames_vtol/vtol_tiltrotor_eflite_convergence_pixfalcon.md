@@ -21,15 +21,15 @@ The convergence needs 7 PWM signals and is connected to a Pixfalcon in the follo
 
 Pixfalcon은 원래 자동 조종 장치가 있던 동일한 장소에 장착 할 수 있습니다.
 
-![Mount Pixfalcon](../../images/eflight_convergence_pixfalcon_mounting.jpg)
+![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
 텔레 메 트리 모듈은 FPV 변속기를 수용 할 수있는 베이에 장착됩니다.
 
-![Mount telemetry module](../../images/eflight_convergence_telemetry_module.jpg)
+![Mount telemetry module](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
 
 GPS를 위해 우리는 "조종실"내부의 거품 섹션을 잘라 냈습니다. That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
 
-![Mount GPS](../../images/eflight_convergence_gps_mounting.jpg)
+![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
 ## Configuration
 

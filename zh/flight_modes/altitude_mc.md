@@ -10,7 +10,7 @@
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![高度控制MC - Mode2 RC控制器](../../images/flight_modes/altitude_control_mode_copter.png)
+![高度控制MC - Mode2 RC控制器](../../assets/flight_modes/altitude_control_mode_copter.png)
 
 ## 技术总结
 

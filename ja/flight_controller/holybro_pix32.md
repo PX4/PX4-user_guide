@@ -1,0 +1,88 @@
+# Holybro pix32 Flight Controller
+
+The Holybro<sup>&reg;</sup> [pix32 autopilot](https://shop.holybro.com/c/pixhawk-2_0460) (also known as "Pixhawk 2", and formerly as HKPilot32) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. This board is based on hardware version Pixhawk 2.4.6. It runs the PX4 flight stack on the [NuttX](http://nuttx.org) OS.
+
+![pix32](../../assets/flight_controller/holybro_pix32/pix32_hero.jpg)
+
+As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files should be [available here](https://github.com/PX4/Hardware).
+
+> **Tip** The Holybro pix32 is software compatible with the [3DR Pixhawk 1](../flight_controller/pixhawk.md). It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
+
+<span></span>
+
+> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+
+## Key Features
+
+* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+  * CPU: 32-bit STM32F427 Cortex<sup>&reg;</sup> M4 core with FPU
+  * RAM: 168 MHz/256 KB
+  * Flash: 2 MB
+* Failsafe System-on-Chip: STM32F103
+* Sensors: 
+  * ST Micro L3GD20 3-axis 16-bit gyroscope
+  * ST Micro LSM303D 3-axis 14-bit accelerometer / magnetometer
+  * Invensense<sup>&reg;</sup> MPU 6000 3-axis accelerometer/gyroscope
+  * MEAS MS5611 barometer
+* Dimensions/Weight 
+  * Size: 81x44x15mm
+  * Weight: 33.1g
+* GPS: U-blox<sup>&reg;</sup> super precision Neo-7M with compass
+* Input Voltage: 2~10s (7.4~37V)
+
+### Connectivity
+
+* 1x I2C
+* 2x CAN
+* 3.3 and 6.6V ADC inputs
+* 5x UART (serial ports), one high-power capable, 2x with HW flow control
+* Spektrum DSM / DSM2 / DSM-X® Satellite compatible input up to DX8 (DX9 and above not supported)
+* Futaba<sup>&reg;</sup> S.BUS compatible input and output
+* PPM sum signal
+* RSSI (PWM or voltage) input
+* SPI
+* External microUSB port
+* Molex PicoBlade connectors
+
+## Purchase
+
+[shop.holybro.com](https://shop.holybro.com/c/pixhawk-2_0460)
+
+### Accessories
+
+* [Digital airspeed sensor](https://shop.holybro.com/c/digital-air-speed-sensor_0508)
+* [Hobbyking<sup>&reg;</sup> Wifi Telemetry](https://hobbyking.com/en_us/apm-pixhawk-wireless-wifi-radio-module.html)
+* [Telemetry Radio EU (433 MHz)](https://shop.holybro.com/c/433mhz_0470)
+* [Telemetry Radio USA (915 MHz)](https://shop.holybro.com/c/915mhz_0471)
+
+## Building Firmware
+
+> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+
+    make px4_fmu-v2_default
+    
+
+## Debug Port
+
+See [3DR Pixhawk 1 > Debug Ports](../flight_controller/pixhawk.md#debug-ports).
+
+## Pinouts and Schematics
+
+The board is based on the [Pixhawk project](https://pixhawk.org/) **FMUv2** open hardware design.
+
+* [FMUv2 + IOv2 schematic](https://raw.githubusercontent.com/PX4/Hardware/master/FMUv2/PX4FMUv2.4.5.pdf) -- Schematic and layout
+
+> **Note** As a CC-BY-SA 3.0 licensed Open Hardware design, all schematics and design files are [available](https://github.com/PX4/Hardware).
+
+## Serial Port Mapping
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| UART1  | /dev/ttyS0 | IO debug              |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  |            |                       |
+| UART7  | CONSOLE    |                       |
+| UART8  | SERIAL4    |                       |

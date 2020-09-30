@@ -4,7 +4,7 @@
 
 [AUAV<sup>&reg;</sup> ](http://www.auav.com/) *AUAV-X2 autopilot* 基于[Pixhawk<sup>&reg;</sup>-项目](https://pixhawk.org/) ** FMUv2** 开放硬件设计。 它在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
 
-![AUAVX2_case2](../../images/auavx2_case2.jpg)
+![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
 ## 总览
 
@@ -42,8 +42,7 @@
 
 ## 访问链接
 
-已停产。 这已被 [mRo X2.1](mro_x2.1.md) 替代。 mRobotics 是  
-2017 年 8 月起，AUAV 产品经销商。
+已停产。 这已被 [mRo X2.1](mro_x2.1.md) 替代。 mRobotics is the distributor for the AUAV Products from August 2017.
 
 ## 主链接
 
@@ -52,13 +51,13 @@
 
 ## 接线指南
 
-![AUAV-X2-basic-setup 3](../../images/auav_x2_basic_setup_3.png)
+![AUAV-X2-basic-setup 3](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_3.png)
 
-![AUAV-X2-basic-setup 2](../../images/auav_x2_basic_setup_2.jpg)
+![AUAV-X2-basic-setup 2](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_2.jpg)
 
-![AUAV-X2-basic-setup 1](../../images/auav_x2_basic_setup_1.png)
+![AUAV-X2-basic-setup 1](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_1.png)
 
-![AUAV-X2-airspeed-setup 3](../../images/auav_x2_airspeed_setup_3.png)
+![AUAV-X2-airspeed-setup 3](../../assets/flight_controller/auav_x2/auav_x2_airspeed_setup_3.png)
 
 ## 原理图
 

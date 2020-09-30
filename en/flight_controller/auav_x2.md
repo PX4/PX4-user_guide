@@ -4,7 +4,7 @@
 
 The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
 
-![AUAVX2_case2](../../images/auavx2_case2.jpg)
+![AUAVX2_case2](../../assets/flight_controller/auav_x2/auavx2_case2.jpg)
 
 
 ## Quick Summary
@@ -44,8 +44,8 @@ The [AUAV<sup>&reg;</sup>](http://www.auav.com/) *AUAV-X2 autopilot* is based on
 ## Availability
 
 No longer in production. 
-This has been superceded by the [mRo X2.1](mro_x2.1.md). mRobotics is the  
-distributor for the AUAV Products from August 2017.
+This has been superceded by the [mRo X2.1](mro_x2.1.md).
+mRobotics is the distributor for the AUAV Products from August 2017.
 
 ## Key Links
 
@@ -55,13 +55,13 @@ distributor for the AUAV Products from August 2017.
 
 ## Wiring Guide
 
-![AUAV-X2-basic-setup 3](../../images/auav_x2_basic_setup_3.png)
+![AUAV-X2-basic-setup 3](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_3.png)
 
-![AUAV-X2-basic-setup 2](../../images/auav_x2_basic_setup_2.jpg)
+![AUAV-X2-basic-setup 2](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_2.jpg)
 
-![AUAV-X2-basic-setup 1](../../images/auav_x2_basic_setup_1.png)
+![AUAV-X2-basic-setup 1](../../assets/flight_controller/auav_x2/auav_x2_basic_setup_1.png)
 
-![AUAV-X2-airspeed-setup 3](../../images/auav_x2_airspeed_setup_3.png)
+![AUAV-X2-airspeed-setup 3](../../assets/flight_controller/auav_x2/auav_x2_airspeed_setup_3.png)
 
 
 

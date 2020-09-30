@@ -26,11 +26,11 @@ An aircraft must use a system that supports at least 4 channels (for roll, pitch
 
 The most popular *form* of remote control unit for UAVs is shown below. It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (i.e. aircraft need at least 4 channels).
 
-![RC Basic Commands](../../images/rc_basic_commands.png)
+![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
 
 There are numerous possible layouts for the control sticks, switches, etc. The more common layouts have been given specific "Mode" numbers. *Mode 1* and *Mode 2* (shown below) differ only in the placement of the throttle.
 
-![Mode1-Mode2](../../images/mode1_mode2.png)
+![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
 
 > **Note** The choice of mode is largely one of taste (*Mode 2* is more popular).
 

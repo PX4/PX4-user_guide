@@ -8,9 +8,9 @@ Key information:
 - **Flight controller:** [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md)
 - **Positioning:** RTK GPS
 
-![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_full.JPG)
+![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_full.jpg)
 
-![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_back.JPG)
+![](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_back.jpg)
 
 ## Parts List
 
@@ -28,7 +28,7 @@ In addition we use a FrSky X4R-SB 3/16ch 2.4Ghz receiver and a FrSky Taranis con
 You will also need zip ties, double sided tape, a soldering iron and a 3D printer in case you use the same Blades, for this build.
 The GPS mast was reused from an Intel Aero.
 
-![F450 setup - open](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_open.JPG)
+![F450 setup - open](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_open.jpg)
 
 The *Pixhawk 3 Pro* can be attached using the double sided tape because the IMU inside is already dampened.
 
@@ -76,7 +76,7 @@ In order to use it with the *Pixhawk 3 Pro* (or a Pixracer), a 6 pin connector h
 The additional pins are for the safety button and can be attached as well if needed.
 More information on the pinout can be found in [this document](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf), page 17.
 
-![Setup GPS](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_gps.JPG)
+![Setup GPS](../../assets/airframes/multicopter/Flamewheel_450/f450_setup_gps.jpg)
 
 | pin | Here+ GPS     | pin | Pixhawk 3 Pro GPS |
 | --- | ------------- | --- | ----------------- |

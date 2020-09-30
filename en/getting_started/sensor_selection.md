@@ -22,7 +22,7 @@ We recommend the use of an external "combined" compass/GPS module mounted as far
 
 Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/README.md).
 
-![GPS + Compass](../../images/gps_compass.jpg)
+![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
 
 ## Airspeed
@@ -31,7 +31,7 @@ Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
 
 They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
 
-![Digital airspeed sensor](../../images/digital_airspeed_sensor.jpg)
+![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
 For more information and recommended hardware see: [Airspeed Sensors](../sensor/airspeed.md).
 
@@ -48,9 +48,10 @@ For more information and recommended hardware see: [Sensors > Tachometers](../se
 
 Distance sensors are used for precision landing, object avoidance and terrain following.
 
-PX4 supports many affordable distance sensors, using different technologies, and supporting different ranges and features. For more information see: [Distance Sensors](../sensor/rangefinders.md).
+PX4 supports many affordable distance sensors, using different technologies, and supporting different ranges and features.
+For more information see: [Distance Sensors](../sensor/rangefinders.md).
 
-<img src="../../images/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
+<img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
 
 ## Optical Flow
 

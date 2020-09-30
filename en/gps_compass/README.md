@@ -1,6 +1,6 @@
 # GPS & Compass
 
-PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the UBlox, MTK Ashtech or Emlid protocols, or via UAVCAN. 
+PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS, Galileo, BeiDou, QZSS and SBAS) using receivers that communicate via the UBlox, MTK Ashtech or Emlid protocols, or via UAVCAN.
 It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
 PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI).
@@ -12,17 +12,12 @@ The system automatically chooses the best available compass based on their inter
 If the primary compass fails in-flight, it will failover to the next one.
 If it fails before flight, arming will be denied.
 
-![GPS + Compass](../../images/gps_compass.jpg)
+![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
-> **Tip** When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing). 
+> **Tip** When using [Pixhawk-series](../flight_controller/pixhawk_series.md) flight controllers, we recommend using a *combined GPS + Compass* mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
   The internal compass *may* be useful on larger vehicles (e.g. VTOL) where it is possible to reduce electromagnetic interference by mounting the Pixhawk a long way from power supply lines.
   On small vehicles an external compass is almost always required.
 
-## GPS (Only) Options
-
-* [Emlid Reach M+](https://emlid.com/reach/) (emlid.com)
-  > **Note** At time of writing PX4 does not support RTK GPS with this module (only "ordinary" GPS).
-    Support is expected in the near future.
 
 ## Combined GPS/Compass Options
 
@@ -30,22 +25,33 @@ Some popular GPS/compass options include:
 * [Ublox Neo-M8N GPS with Compass](https://hobbyking.com/en_us/ublox-neo-m8n-gps-with-compass.html?gclid=Cj0KCQjwqM3VBRCwARIsAKcekb3ojv1ZhLz1-GuvCsUuGT8ZZuw8meMIV_I6pgUCj6DJRzHBY9OApekaAgI5EALw_wcB&gclsrc=aw.ds&___store=en_us) (Hobbyking)
 * [mRo GPS u-Blox Neo-M8N Dual Compass LIS3MDL+ IST8310](https://store.mrobotics.io/ProductDetails.asp?ProductCode=mro-gps003-mr) (mRo store)
 * [Drotek uBlox GPS/Compasses](https://drotek.com/shop/en/184-u-blox) (drotek)
-* [Holybro Micro M8N GPS Module](https://www.getfpv.com/holybro-micro-m8n-gps-module.html) (getfpv)
-* [Holybro Ublox NEO-M8N GPS Module](https://www.getfpv.com/holybro-ublox-neo-m8n-gps-module.html) (getfpv)
-* [Holybro Pixhawk 4 GPS Module](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) (UBLOX 8MN GPS + IST8310 compass + LED + Safety switch).
-* [Here GNSS GPS (M8N)](https://www.getfpv.com/here-gnss-gps-m8n.html) (getfpv) 
+* [Holybro Pix32 M8N GPS Module](https://shop.holybro.com/pix32-gps-module_p1099.html) ([Holybro Shop](https://shop.holybro.com/pix32-gps-module_p1099.html))) ([getfpv](https://www.getfpv.com/holybro-pix32-neo-m8n-gps.html))
+* [Holybro Micro M8N GPS Module](https://shop.holybro.com/micro-m8n-gps_p1009.html) ([Holybro Shop](https://shop.holybro.com/micro-m8n-gps_p1009.html))) ([getfpv](https://www.getfpv.com/holybro-micro-m8n-gps-module.html))
+* [Holybro Pixhawk 4 GPS Module (10 pin)](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html) ([Holybro Shop](https://shop.holybro.com/pixhawk-4-gps-module_p1094.html))) ([getfpv](https://www.getfpv.com/holybro-pixhawk-4-neo-m8n-gps.html))
+* [Holybro Pixhawk 4 2nd GPS Module (6 pin)](https://shop.holybro.com/pixhawk4-2nd-gps-module_p1145.html) (Holybro Shop)
+* [Here GNSS GPS (M8N)](https://www.getfpv.com/here-gnss-gps-m8n.html) (getfpv)
 * [Zubax GNSS 2](https://zubax.com/products/gnss_2) (zubax.com)
+* [Avionics Anonymous UAVCAN GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) (Tindie)
 * [3DR uBlox GPS with Compass kit](https://www.getfpv.com/3dr-ublox-gps-with-compass-kit.html) (getfpv) - *Discontinued*
 
-Instructions for connecting the GPS and compass are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)). 
+Instructions for connecting the GPS and compass are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)).
 
 > **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). 
-  The [Zubax GNSS 2](https://zubax.com/products/gnss_2) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
+  The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
 
 <span></span>
-> **Tip** Pay attention to pinout when connecting the GPS module. 
+> **Tip** Pay attention to pinout when connecting the GPS module.
   While these are all software-compatible, there are several different pin orderings.
 
+## GPS (Only) Options
+
+* [Emlid Reach M+](https://emlid.com/reach/) (emlid.com)
+  > **Note** At time of writing PX4 does not support RTK GPS with this module (only "ordinary" GPS).
+    Support is expected in the near future.
+
+## Compass (Only) Options
+
+* [Avionics Anonymous UAVCAN Magnetometer](https://www.tindie.com/products/avionicsanonymous/uavcan-magnetometer/) (Tindie)
 
 ## RTK-GPS Devices
 
@@ -77,7 +83,7 @@ The following steps show how to configure a secondary GPS on the `TELEM 2` port 
   ![QGC Serial Baudrate Example](../../assets/peripherals/qgc_serial_baudrate_example.png)
 
 After setting up the second GPS port:
-1. Configure the ECL/EKF2 estimator to blend data from both GPS systems. 
+1. Configure the ECL/EKF2 estimator to blend data from both GPS systems.
    For detailed instructions see: [Using the ECL EKF > Dual Receivers](../advanced_config/tuning_the_ecl_ekf.md#dual-receivers).
 
 ### Compass
@@ -94,7 +100,7 @@ You may however wish to read them, as they will let you know which magnetometers
 ## Developer Information
 
 - GPS/RTK-GPS
-  - [RTK-GPS](https://dev.px4.io/master/en/advanced/rtk_gps.html) 
+  - [RTK-GPS](https://dev.px4.io/master/en/advanced/rtk_gps.html)
   - [GPS driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)
   - [UAVCAN Example](https://dev.px4.io/master/en/uavcan/)
 - [Driver source code](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) (Compasses)

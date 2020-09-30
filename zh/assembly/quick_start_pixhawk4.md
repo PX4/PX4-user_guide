@@ -101,7 +101,7 @@ GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, �
 
 - PPM 接收机连接到 **PPM RC** 输入端口。
     
-    ![Pixhawk 4 - PPM接收机的信号接口](../../images/pixhawk_4_receiver_ppm.png)
+    ![Pixhawk 4 - PPM接收机的信号接口](../../assets/flight_controller/pixhawk4/pixhawk_4_receiver_ppm.png)
 
 - PPM 和 *每个通道有单独连接线* 的 PWM 接收机需要连接在 **PPM RC** 端口，PWM信号需要通过一个[类似这样的](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html)* PPM 编码器*（PPM-Sum 接收机只需要一根信号线就包含所有通道）。
 
@@ -147,11 +147,7 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 
 四轴复合翼垂起的特定配置在以下内容中介绍：[四轴复合翼配置](../config_vtol/vtol_quad_configuration.md)。
 
-<!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
-
-<!--## Detailed Wiring Infographic (Copter) 
-
-![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg) -->
+<!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
 ## 更多信息
 
