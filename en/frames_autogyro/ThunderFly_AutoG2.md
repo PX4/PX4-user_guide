@@ -33,7 +33,7 @@ The printed rotor head consists of three parts. The bottom part is screwed using
 
 Rotor axis, made of M3x50 high tensile strength screw, goes through the third part. Bearings used are 623 2Z C3 SKF. At the end of this part, there are ball rods attached via M2.5 screws to servos positioned in the bottom part of the pylon. It is preferable to exchange these original servos for better quality ones as they are weak and in the original construction they help each other.
 
-![Rotorhead](../../assets/airframes/autogyro/auto-g2/modif_rh.jpg)
+![Rotorhead](../../assets/airframes/autogyro/auto-g2/modif_rh.png)
 
 ### Two-blade rotor
 Durafly Auto-G2 autogyro has originally a three-blade rotor. Our modification Auto-G2 uses a two-blade rotor. The reasons are reduced vibrations and easier construction. Printed central parts are designed to be used both with chinese Durafly blades or 3D printed blades.
@@ -50,7 +50,7 @@ It is possible to use a printed central part of the rotor with the original blad
 #### 3D printed rotor blades
 Alternatively, it is possible to print blades. They are still under development, but preliminary tests show they are of better quality mostly thanks to their precise shape and absence of longitudinal grooves. However, some of the production processes still need to be tuned.
 
-![Blades assembly](../../assets/airframes/autogyro/auto-g2/modif_blade.jpg)
+![Blades assembly](../../assets/airframes/autogyro/auto-g2/modif_blade.png)
 
 #### Balancing
 
@@ -64,7 +64,7 @@ If you want to launch an autogyro using a winch or if you want to launch it by t
 
 The whole part is glued, using a hot-melt adhesive, under the engine on the bottom part of an autogyro’s body. If an autogyro is towed by a rope its engine must not be turned on. It can be handled, for example, by nulling the engine’s output in the transmitter if the release device switch is closed.
 
-![Release device](../../assets/airframes/autogyro/auto-g2/modif_release.jpg)
+![Release device](../../assets/airframes/autogyro/auto-g2/modif_release.png)
 
 ## Parts List
 
