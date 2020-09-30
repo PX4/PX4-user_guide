@@ -45,7 +45,7 @@ To configure single-channel flight mode selection:
 2. Turn on your RC transmitter.
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
     
-    ![Flight modes single-channel](../../images/qgc/setup/flight_modes_single_channel.jpg)
+    ![Flight modes single-channel](../../assets/qgc/setup/flight_modes/flight_modes_single_channel.jpg)
     
     > **Tip** If the screen opens in *Multi Channel Mode* click the **Use Single Channel Mode Selection** button to change screen.
 
@@ -80,19 +80,19 @@ This example shows how you can configure a transmitter and PX4 with:
 
 First set up your transmitter. Below we show how to map the Taranis "SD" switch to channel 5. This is done in the Taranis UI 'mixer' page, as shown below:
 
-![Taranis - Map channel to switch](../../images/qgc/setup/single_channel_mode_selection_1.png)
+![Taranis - Map channel to switch](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_1.png)
 
-![Taranis - Configure channel](../../images/qgc/setup/single_channel_mode_selection_2.png)
+![Taranis - Configure channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_2.png)
 
 You can then select the channel and the flight modes in single channel mode selection option in *QGroundControl*:
 
-![QGC - Set mode channel](../../images/qgc/setup/single_channel_mode_selection_3.png)
+![QGC - Set mode channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_3.png)
 
 The [Radio switch](../advanced_config/parameter_reference.md#radio-switches) parameters map a particular function to a channel. Assuming you have already mapped a channel in your transmitter you can assign the channel by [setting the parameter](../advanced_config/parameters.md).
 
-For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter in *QGroundControl*
+For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/parameter_reference.md#RC_MAP_ARM_SW) parameter in *QGroundControl*.
 
-![QGC - Map ARM switch to channel](../../images/qgc/setup/single_channel_mode_selection_4.png)
+![QGC - Map ARM switch to channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_4.png)
 
 ## 다중 채널 비행 모드 선택 {#multi_channel}
 
@@ -106,7 +106,7 @@ To configure flight modes using the multi-channel UI:
 2. Start *QGroundControl* and connect the vehicle.
 3. Select the **Gear** icon (Vehicle Setup) in the top toolbar and then **Flight Modes** in the sidebar.
     
-    ![Flight modes multi-channel](../../images/qgc/setup/flight_modes_multi_channel.jpg)
+    ![Flight modes multi-channel](../../assets/qgc/setup/flight_modes/flight_modes_multi_channel.jpg)
     
     > **Tip** If the screen opens in *Single Channel Mode* click the **Use Multi Channel Mode Selection** button to change screen.
 

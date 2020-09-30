@@ -2,7 +2,9 @@
 
 The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 它基于 [Pixhawk 项目](https://pixhawk.org/) 的 **FMUv3** 开放硬件设计，在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
 
-<img src="../../assets/flight_controller/cube/pixhawk2_cube_hero.png" width="400px" />
+![Cube Black](../../assets/flight_controller/cube/cube_black_hero.png)
+
+> **Tip** The manufacturer [Cube Docs](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview) contain detailed information, including an overview of the [Differences between Cube Colours](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview#differences-between-cube-colours).
 
 The controller is designed to be used with a domain-specific carrier board in order to reduce the wiring, improve reliability, and ease of assembly. For example, a carrier board for a commercial inspection vehicle might include connections for a companion computer, while a carrier board for a racer could includes ESCs form the frame of the vehicle.
 
@@ -29,7 +31,11 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 
 ## Where to Buy {#stores}
 
-- [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
+[Cube Black](http://www.proficnc.com/61-system-kits) (ProfiCNC)
+
+## Assembly
+
+[Cube Wiring Quickstart](../assembly/quick_start_cube.md)
 
 ## Specifications
 
@@ -78,7 +84,7 @@ Under these conditions all power sources will be used in this order to power the
 
 #### 绝对最大额定值
 
-在以下条件下，系统不会获得任何供电（不可运行），但不会损坏。
+Under these conditions the system will not draw any power (will not be operational), but will remain intact.
 
 - Power module input (4.1V to 5.7V, 0V to 20V undamaged)
 - Servo rail input (4.1V to 5.7V, 0V to 20V)
@@ -88,33 +94,29 @@ Under these conditions all power sources will be used in this order to power the
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
-All other Cube documentation, including pinouts can be found at [docs.cubepilot.org](https://docs.cubepilot.org/user-guides/) (e.g. [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview), [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board) etc.).
-
-## Serial Port Mapping
-
-| UART   | Device     | Port                  |
-| ------ | ---------- | --------------------- |
-| UART1  | /dev/ttyS0 | IO debug              |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
-| UART4  |            |                       |
-| UART7  | CONSOLE    |                       |
-| UART8  | SERIAL4    |                       |
-
 ## Ports
 
 ### Top-Side (GPS, TELEM etc)
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
-### Serial Ports {#serial_ports}
+### Serial Port Mapping {#serial_ports}
 
-The serial port mappings are as below:
 
-- **GPS1:**/dev/ttyS3
-- **TEL1:** /dev/ttyS1
-- **TEL2:** /dev/ttyS2
-- **TEL4:** /dev/ttyS6 (ttyS4 UART) > **Note** `TEL4` is labeled as `GPS2` on Cube.
+
+| UART   | Device     | Port                  |
+| ------ | ---------- | --------------------- |
+| USART1 | /dev/ttyS0 | <!-- IO debug? -->    |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control) |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control) |
+| UART4  | /dev/ttyS3 | GPS1                  |
+| USART6 | /dev/ttyS4 | PX4IO                 |
+| UART7  | /dev/ttyS5 | CONSOLE               |
+| UART8  | /dev/ttyS6 | <!-- unknown -->      |
+
+<!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
+
+<!-- This originally said " **TEL4:** /dev/ttyS6 (ttyS4 UART): > **Note** `TEL4` is labeled as `GPS2` on Cube." -->
 
 ### Debug Ports
 
@@ -135,4 +137,12 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 ## Issues
 
-CAN1 and CAN2 silk screen on the Pixhawk 2.1 are flipped (CAN1 is CAN2 and vice versa).
+CAN1 and CAN2 silk screen on the Cube Black are flipped (CAN1 is CAN2 and vice versa).
+
+## Further Information/Documentation
+
+- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+- Cube Docs (Manufacturer): 
+  - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
+  - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
+  - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)

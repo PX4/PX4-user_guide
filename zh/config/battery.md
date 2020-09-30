@@ -31,7 +31,7 @@ To configure the basic settings for battery 1:
 
 You are presented with the basic settings that characterize the battery. 以下部分说明了为每个字段设置的值。
 
-![QGC Power Setup](../../assets/qgc/qgc_setup_power_px4.jpg)
+![地面站（QGC）电源设置](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
 
 > **Note** At time of writing *QGroundControl* only allows you to set values for battery 1 in this view. For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
 
@@ -117,52 +117,52 @@ PX4 supports two load compensation methods, which are enabled by [setting](../ad
 
 This load compensation method relies on current measurement to determine load. It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
 
-To enable this feature:
+要启用此功能：
 
-1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of battery 1 (and repeat for other batteries). > **Tip** There are LiPo chargers out there which can measure the internal resistance of your battery. A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
-2. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
-
-### Thrust-based Load Compensation {#thrust_based_load_compensation}
-
-This load compensation method estimates the load based on the total thrust that gets commanded to the motors.
-
-> **Caution** This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current. Use [Current-based Load Compensation](#current_based_load_compensation) instead if your vehicle has a current sensor.
-
-To enable this feature:
-
-1. Set the parameter [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
-
-## Voltage-based Estimation Fused with Current Integration {#current_integration}
-
-> **Note** This is the most accurate way to measure relative battery consumption. If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
-
-This method evaluates the remaining battery capacity by *fusing* the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. It requires hardware that can accurately measure current.
-
-To enable this feature:
-
-1. First set up accurate voltage estimation using [current-based load compensation](#current_based_load_compensation).
+1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of battery 1 (and repeat for other batteries). > **提示** 某些锂电池充电器可以测量您电池的内阻。 典型的数值是每个电池单体5毫欧，但这可能随单体的放电速率、使用时间和健康状况而变化。
+2. 您还应该在基本设置屏幕上校准</a> 安培每伏分压  。</li> </ol> 
     
-    > **Tip** Including calibrating the [Amps per volt divider](#current_divider) setting.
-
-2. Set the parameter [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
+    ### Thrust-based Load Compensation {#thrust_based_load_compensation}
     
-    > **Note** Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
-
-* * *
-
-**Additional information**
-
-The estimate of the charge that has been consumed over time is produced by mathematically integrating the measured current (this approach provides very accurate energy consumption estimates).
-
-At system startup PX4 first uses a voltage-based estimate to determine the initial battery charge. This estimate is then fused with the value from current integration to provide a combined better estimate. The relative value placed on each estimate in the fused result depends on the battery state. The emptier the battery gets, the more of the voltage based estimate gets fused in. This prevents deep discharge (e.g. because it was configured with the wrong capacity or the start value was wrong).
-
-If you always start with a healthy full battery, this approach is similar to that used by a smart battery.
-
-> **Note** Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the *initial* capacity. Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
-
-## Parameter Migration Notes
-
-Multiple battery support was added after PX4 v1.10, resulting in the creation of new parameters with prefix `BAT1_` corresponding to all the old parameters with prefix `BAT_`. Changes to `BAT_` and `BAT1_` are currently synchronised:
-
-- If either the old or new parameters is changed, the value is copied into the other parameter (they are kept in sync in both directions).
-- If the old/new parameters are different at boot, then the value of the old `BAT_` parameter is copied into the new `BAT1_` parameter.
+    This load compensation method estimates the load based on the total thrust that gets commanded to the motors.
+    
+    > **Caution** This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current. Use [Current-based Load Compensation](#current_based_load_compensation) instead if your vehicle has a current sensor.
+    
+    要启用此功能：
+    
+    1. Set the parameter [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
+    
+    ## Voltage-based Estimation Fused with Current Integration {#current_integration}
+    
+    > **Note** This is the most accurate way to measure relative battery consumption. If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
+    
+    This method evaluates the remaining battery capacity by *fusing* the voltage-based estimate for the available capacity with a current-based estimate of the charge that has been consumed. It requires hardware that can accurately measure current.
+    
+    To enable this feature:
+    
+    1. 首先使用 [当前负载补偿](#current_based_load_compensation) 精确校准电压估计。
+        
+        > **Tip** Including calibrating the [Amps per volt divider](#current_divider) setting.
+    
+    2. Set the parameter [BAT1_CAPACITY](../advanced_config/parameter_reference.md#BAT1_CAPACITY) to around 90% of the advertised battery capacity (usually printed on the battery label).
+        
+        > **Note** Do not set this value too high as this may result in a poor estimation or sudden drops in estimated capacity.
+    
+    * * *
+    
+    **Additional information**
+    
+    The estimate of the charge that has been consumed over time is produced by mathematically integrating the measured current (this approach provides very accurate energy consumption estimates).
+    
+    At system startup PX4 first uses a voltage-based estimate to determine the initial battery charge. This estimate is then fused with the value from current integration to provide a combined better estimate. The relative value placed on each estimate in the fused result depends on the battery state. The emptier the battery gets, the more of the voltage based estimate gets fused in. This prevents deep discharge (e.g. because it was configured with the wrong capacity or the start value was wrong).
+    
+    If you always start with a healthy full battery, this approach is similar to that used by a smart battery.
+    
+    > **Note** Current integration cannot be used on its own (without voltage-based estimation) because it has no way to determine the *initial* capacity. Voltage-estimation allows you to estimate the initial capacity and provides ongoing feedback of possible errors (e.g. if the battery is faulty, or if there is a mismatch between capacity calculated using different methods).
+    
+    ## Parameter Migration Notes
+    
+    Multiple battery support was added after PX4 v1.10, resulting in the creation of new parameters with prefix `BAT1_` corresponding to all the old parameters with prefix `BAT_`. Changes to `BAT_` and `BAT1_` are currently synchronised:
+    
+    - If either the old or new parameters is changed, the value is copied into the other parameter (they are kept in sync in both directions).
+    - If the old/new parameters are different at boot, then the value of the old `BAT_` parameter is copied into the new `BAT1_` parameter.

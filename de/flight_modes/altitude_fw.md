@@ -12,7 +12,7 @@ When all remote control inputs are centered (no roll, pitch, yaw, and ~50% throt
 
 The diagram below shows the mode behaviour visually (for a [mode 2 transmitter](../getting_started/rc_transmitter_receiver.md#transmitter_modes)).
 
-![Altitude Control FW](../../images/flight_modes/altitude_control_mode_fw.png)
+![Altitude Control FW](../../assets/flight_modes/altitude_control_mode_fw.png)
 
 ## Technical Summary
 

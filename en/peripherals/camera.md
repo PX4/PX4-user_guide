@@ -1,9 +1,14 @@
 # Camera Trigger
 
 The camera trigger driver allows the use of the AUX ports to send out pulses in order to trigger a camera.
-This can be used for multiple applications including timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
 
-In addition to a pulse being sent out, a MAVLink message is published containing a sequence number (thus the current session's image sequence number) and the corresponding timestamp.
+In addition to a pulse being sent out, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp.
+This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
+
+Cameras can also (optionally) use the flight controller [camera capture pin](#camera_capture) to signal the exact moment that a photo/frame is taken.
+This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+
+
 
 ## Trigger Configuration  {#trigger_setup_qgc}
 
@@ -33,7 +38,7 @@ Mode | Description
 
 ## Trigger Hardware Configuration {#hardware_setup}
 
-You can choose which pins to use for triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
+The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter.
 The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
 > **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). 
@@ -41,9 +46,9 @@ The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
   At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
 
 <span></span>
-> **Warning** With `TRIG_PINS` set to its **default** value of 56, you can use the AUX pins 1, 2, 3 and 4 as actuator outputs (for servos/ESCs).
-  Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs.
-  **DO NOT CHANGE THE DEFAULT VALUE OF `TRIG_PINS` IF YOU NEED ACTUATOR OUTPUTS.**
+> **Warning** With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs).
+  With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs.
+  Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
 
 ## Trigger Interface Backends {#trigger_backend}
 
@@ -52,9 +57,9 @@ The camera trigger driver supports several backends - each for a specific applic
 Number | Description
 --- | ---
 1 | enables the GPIO interface. The AUX outputs are pulsed high or low (depending on the `TRIG_POLARITY` parameter) every [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) duration. This can be used to trigger most standard machine vision cameras directly. Note that on PX4FMU series hardware (Pixhawk, Pixracer, etc.), the signal level on the AUX pins is 3.3v.
-2  | Enables the Seagull MAP2 interface. This allows the use of the [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) to interface to a multitude of supported cameras. Pin 1 of the MAP2 should be connected to the lower AUX pin of `TRIG_PINS` (therefore, pin 1 to AUX 5 and pin 2 to AUX 6 by default). In this mode, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1.
+2  | Enables the Seagull MAP2 interface. This allows the use of the [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) to interface to a multitude of supported cameras. Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher AUX pins of `TRIG_PINS`, respectively (therefore, channel/pin 1 to AUX 5 and channel/pin 2 to AUX 6 by default). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1.
 3 | Enables the MAVLink interface. In this mode, no actual hardware output is used. Only the `CAMERA_TRIGGER` MAVLink message is sent by the autopilot (by default, if the MAVLink application is in `onboard` mode. Otherwise, a custom stream will need to be enabled).
-4 | Enables the generic PWM interface. This allows the use of [infrared triggers](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) or servos to trigger your camera.
+4 | Enables the generic PWM interface. This allows the use of [infrared triggers](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) or servos to trigger your camera. The trigger signal is duplicated on both pins specified using `TRIG_PINS`.
 
 ## Other Parameters 
 
@@ -65,6 +70,30 @@ Parameter | Description
 [TRIG_ACT_TIME](../advanced_config/parameter_reference.md#TRIG_ACT_TIME) | Defines the time in milliseconds the trigger pin is held in the "active" state before returning to neutral. In PWM modes, the minimum is limited to 40 ms to make sure we always fit an activate pulse into the 50Hz PWM signal.
 
 The full list of parameters pertaining to the camera trigger module can be found on the [parameter reference](../advanced_config/parameter_reference.md#camera-trigger) page.
+
+## Camera Capture {#camera_capture}
+
+Cameras can also (optionally) use the flight controller [camera capture pin](#camera_capture) to signal the exact moment when a photo/frame is taken.
+This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+
+Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
+The capture pin used depends on the hardware:
+- Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
+- Other board use FMU PWM pin 6 (hardcoded) for camera capture.
+
+PX4 detects a rising edge with the appropriate voltage level on the camera capture pin (for Pixhawk flight controllers this is normally 3.3V).
+If the camera isn't outputing an appropriate voltage, then additional circuitry will be required to make the signal compatible.
+
+Cameras that have a hotshoe connector (for connecting a flash) can usually be connected via a hotshoe-adaptor.
+For example, the [Seagull #SYNC2 Universal Camera Hot Shoe Adapter](https://www.seagulluav.com/product/seagull-sync2/) is an optocoupler that decouples and shifts the flash voltage to the Pixhawk voltage.
+This slides into the flash slot on the top of the camera. 
+The red and black ouptputs are connected to the servo rail/ground and the white wire is connected to the input capture pin.
+
+![Seagull SYNC#2](../../assets/peripherals/camera_capture/seagull_sync2.png)
+
+ 
+> **Note** PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture.
+  If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
 
 ## Command Interface {#command_interface}
 
@@ -115,7 +144,7 @@ In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony
 
 The recommended camera settings are:
 
-* `TRIG_INTERFAC=2` (Seagull MAP2).
+* `TRIG_INTERFACE=2` (Seagull MAP2).
 * `TRIG_MODE=4` (Mission controlled).
 * Leave the remaining parameters at their defaults.
 
@@ -174,7 +203,7 @@ The following diagram illustrates the sequence of events which must happen in or
 
 ![Sequence diag](../../assets/camera/sequence_diagram.jpg)
 
-<!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-edito
+<!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-editor
 {/% mermaid %/}
 sequenceDiagram
   Note right of PX4 : Time sync with mavros is done automatically

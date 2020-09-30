@@ -92,7 +92,8 @@ Depending on the additional components you want to have onboard (e.g. GoPro in f
 Switch to the configuration section in [QGroundControl](../config/airframe.md) and select the airframe tab. 
 Scroll down the list to find the *VTOL Duo Tailsitter* icon. Select the *Caipiroshka Duo Tailsitter* from the drop-down list.
 
-![](../../images/qgc/setup/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
+![caipiroshka](../../assets/airframes/vtol/caipiroshka/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
+
 
 ## Servo Connections
 The descriptions in the table below are referring to the user facing the front of the vehicle when it lies flat on its belly on a table.

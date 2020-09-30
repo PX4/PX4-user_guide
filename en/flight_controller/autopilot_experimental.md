@@ -14,11 +14,9 @@ Experimental:
 - [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
 - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md) (Complete Vehicle)
 - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
-- [3DR Pixhawk Mini](../flight_controller/pixhawk_mini.md) (Pixhawk FMUv2)
 
 Discontinued:
 - [CUAV v5](../flight_controller/cuav_v5.md) (Pixhawk FMUv5)
-- [HobbyKing HKPilot32](../flight_controller/HKPilot32.md) (Pixhawk FMUv2)
 - [Holybro Pixfalcon](../flight_controller/pixfalcon.md) (Pixhawk FMUv2)
 - [Intel® Aero RTF Drone](../complete_vehicles/intel_aero.md) (Complete Vehicle)
 - [mRo AUAV-X2](../flight_controller/auav_x2.md)  (Pixhawk FMUv2)

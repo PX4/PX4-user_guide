@@ -137,11 +137,7 @@ General configuration information is covered in: [Autopilot Configuration](../co
 
 QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
-<!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? -->
-
-<!--## Detailed Wiring Infographic (Copter)
-
-![QuadCopter Pixhawk Wiring Infographic](../../images/pixhawk_infographic2.jpg) -->
+<!-- Nice to have detailed wiring infographic and instructions for different vehicle types. --> 
 
 ## Further information
 - [*Pixhawk 4 Mini*](../flight_controller/pixhawk4_mini.md)

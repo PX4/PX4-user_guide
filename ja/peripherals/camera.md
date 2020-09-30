@@ -30,24 +30,37 @@
 
 ## トリガーハードウェア設定 {#hardware_setup}
 
-どのピンを用いてトリガーを行うかは，[TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) パラメータを用いて設定することができます。 標準値は56となっており、これは *FMU* の5番と6番のピンを使用することを意味しています。
+### Camera Triggering
+
+The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. 標準値は56となっており、これは *FMU* の5番と6番のピンを使用することを意味しています。
 
 > **Note** FMU 基板と I/O 基板を両方有するPixhawkフライトコントローラでは、このFMUピン設定は `AUX5` と `AUX6` を使用することを意味します(例： Pixhawk 4, CUAV v5+)。 FMU基板のみを有するフライトコントローラでは、`MAIN5` と `MAIN6` です(例：Pixhawk 4 mini, CUAV v5 nano)。 現時点では，トリガー機能はFMUピンでのみ動作し，I/Oボード上のピンではトリガーを行うことはできません。
 
 <span></span>
 
-> **Warning** `TRIG_PINS` を **標準の** 56に設定した場合のみ、 AUXピンの1, 2, 3, 4番を(サーボ/ESCなどの) アクチュエータ出力として利用可能です。 ハードウェアタイマーの実装方法の都合で (1234 と 56 はそれぞれ2つの独立したタイマーで駆動される別々のグループとなっています), 本設定がカメラトリガーとFMUからのアクチュエータ出力を同時に可能とする唯一の設定です。 **アクチュエータ出力が必要な場合 `TRIG_PINS` の設定を絶対に変更しないでください。**
+> **Warning** With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs). With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs. Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
+
+### Camera Capture
+
+Some cameras can provide image capture signalling to a flight controller camera-capture pin (this enables more accurate image timestamp than the time that the trigger command is sent). Camera capture/feedback is enabled by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
+
+The pin used depends on the hardware:
+
+* Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
+* Other board use FMU PWM pin 6 (hardcoded) for camera capture.
+
+> **Note** PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message (with timestamp and image sequence number). If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
 
 ## トリガーインターフェースのバックエンド {#trigger_backend}
 
-カメラトリガードライバーは、用途に応じていくつかのバックエンドをサポートしており、[TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE)パラメータを用いて切り替えることができます。
+The camera trigger driver supports several backends - each for a specific application, controlled by the [TRIG_INTERFACE](../advanced_config/parameter_reference.md#TRIG_INTERFACE) parameter:
 
-| 番号 | 説明                                                                                                                                                                                                                                                                                           |
-| -- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1  | GPIOインターフェースを有効にします。 AUX出力からHIGHもしくはLOWのパルス信号 (`TRIG_POLARITY` パラメータによって極性は設定されます) が [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) で設定した間隔で出力されます。 本設定は多くのマシンビジョンカメラのトリガーに直接使用することができます。 なお、PX4FMUシリーズのハードウェア (Pixhawk, Pixracerなど) では信号レベルが3.3Vであることに注意してください。   |
-| 2  | Seagull MAP2用のインターフェースを有効にします。 本設定を選択すると、 [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) を用いて様々なカメラの制御が可能となります。 MAP2 の1番ピンは`TRIG_PINS`で支持されたAUXピンの小さい番号の方 (つまり、1番ピンはAUX 5に、2番ピンはAUX 6に) に接続するのが標準となります。 本モードでは、QX-1などのSonyのMultiportを使用するカメラを用いた場合、PX4は自動起動や電源保持機能もサポートします。 |
-| 3  | MAVLinkインターフェースを有効にします。 本モードでは，ハードウェア的な出力は行われません。 MAVLinkの `CAMERA_TRIGGER` メッセージのみが出力されます。(標準の設定では，`onboard`モードでのみ動作します。 その他のモードで使用する場合，カスタムのストリーミング設定を行う必要があります)。                                                                                                                          |
-| 4  | 汎用的なPWMインターフェースを有効にします。 本モードでは、 [赤外線トリガー](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) やサーボを用いたトリガーが可能となります。                                                                                                                                         |
+| 番号 | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| -- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1  | GPIOインターフェースを有効にします。 AUX出力からHIGHもしくはLOWのパルス信号 (`TRIG_POLARITY` パラメータによって極性は設定されます) が [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL) で設定した間隔で出力されます。 本設定は多くのマシンビジョンカメラのトリガーに直接使用することができます。 なお、PX4FMUシリーズのハードウェア (Pixhawk, Pixracerなど) では信号レベルが3.3Vであることに注意してください。                                                                                                                                                                                                                       |
+| 2  | Seagull MAP2用のインターフェースを有効にします。 本設定を選択すると、 [Seagull MAP2](http://www.seagulluav.com/product/seagull-map2/) を用いて様々なカメラの制御が可能となります。 Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher AUX pins of `TRIG_PINS`, respectively (therefore, channel/pin 1 to AUX 5 and channel/pin 2 to AUX 6 by default). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1. |
+| 3  | MAVLinkインターフェースを有効にします。 本モードでは，ハードウェア的な出力は行われません。 MAVLinkの `CAMERA_TRIGGER` メッセージのみが出力されます。(標準の設定では，`onboard`モードでのみ動作します。 その他のモードで使用する場合，カスタムのストリーミング設定を行う必要があります)。                                                                                                                                                                                                                                                                                                                                              |
+| 4  | 汎用的なPWMインターフェースを有効にします。 本モードでは、 [赤外線トリガー](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) やサーボを用いたトリガーが可能となります。 The trigger signal is duplicated on both pins specified using `TRIG_PINS`.                                                                                                                                                                                                                                                                                  |
 
 ## その他のパラメータ
 
@@ -57,15 +70,15 @@
 | [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)   | 連続する2つのトリガーイベント間の時間をミリ秒単位で設定します。                                                                              |
 | [TRIG_ACT_TIME](../advanced_config/parameter_reference.md#TRIG_ACT_TIME) | トリガー信号は”アクティブ”に保持される時間の長さをミリ秒単位で設定します。 PWMモードでは、アクティブパルスを常に50Hz PWM信号に適合させるために、最小値は40ミリ秒に制限されています。            |
 
-カメラトリガーモジュールに関連するパラメーターの完全なリストは、[パラメーターリファレンス](../advanced_config/parameter_reference.md#camera-trigger)ページにあります。
+The full list of parameters pertaining to the camera trigger module can be found on the [parameter reference](../advanced_config/parameter_reference.md#camera-trigger) page.
 
 ## コマンドインターフェイス {#command_interface}
 
-**TODO : アップデートが必要な項目です。**
+**TODO : NEEDS UPDATING updating**
 
-カメラトリガードライバーはいくつかのコマンドをサポートしています。:
+The camera trigger driver supports several commands:
 
-[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) は "コマンド制御"モードの最中に有効となります (`TRIG_MODE` 1)。
+[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Accepted in "command controlled" mode (`TRIG_MODE` 1).
 
 | コマンドパラメーター | 説明                                                     |
 | ---------- | ------------------------------------------------------ |
@@ -73,15 +86,15 @@
 | Param #2   | トリガーのサイクル時間をミリ秒単位で指定します。(`TRIG_INTERVAL` パラメータを設定します。) |
 | Param #3   | シーケンスのリセット(1を指定すると画像の連番のリセットを、0を指定すると現在のカウントを保持します。)   |
 
-[MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) はすべてのモードで利用可能です。 本コマンドは、地上局ソフトから試し撮りを行うために使用されます。 トリガードライバーは、MAVLinkで規定されているすべてのパラメータのサポートをまだ実現できていません。
+[MAV_CMD_DO_DIGICAM_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_DIGICAM_CONTROL) - Accepted in all modes. This is used by the GCS to test-shoot the camera from the user interface. The trigger driver does not yet support all camera control parameters defined by the MAVLink spec.
 
 | コマンドパラメータ | 説明                                     |
 | --------- | -------------------------------------- |
 | Param #5  | 1枚のみの撮影信号をトリガーします(1を指定すると1枚のみ撮影を行います)。 |
 
-[MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - "ミッション制御"モードでのみ有効です。 (`TRIG_MODE` 4)
+[MAV_CMD_DO_SET_CAM_TRIGG_DIST](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_CAM_TRIGG_DIST) - Accepted in "mission controlled" mode (`TRIG_MODE` 4)
 
-本コマンドはミッションの最中に地上局ソフトから指定されたミッションの設定に応じてトリガーが行われるたびに、自動生成されます。
+This command is autogenerated during missions to trigger the camera based on survey missions from the GCS.
 
 ## トリガー機能の動作確認
 
@@ -96,63 +109,63 @@
 
 ![photogrammetry](../../assets/camera/photogrammetry.png)
 
-本例では、Seagull MAP2トリガーケーブルをSony QX-1と組み合わせて、自動航行でサーベイミッションを行ったあとに、オルソモザイク画像を生成します。
+In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony QX-1 and use the setup to create orthomosaics after flying a fully autonomous survey mission.
 
-### トリガー設定
+### Trigger Settings
 
-推奨カメラ設定は以下の通りです。:
+The recommended camera settings are:
 
-* `TRIG_INTERFAC=2`(Seagull MAP2) とします 。
-* `TRIG_MODE=4` (Mission による制御) とします。
-* その他のパラメータはデフォルト値のままにします。
+* `TRIG_INTERFACE=2` (Seagull MAP2).
+* `TRIG_MODE=4` (Mission controlled).
+* Leave the remaining parameters at their defaults.
 
-Seagull MAP2をオートパイロットのAUX/FMUピンに接続します。 Pin 1 は`AUX 5`に、 Pin 2 は`AUX 6`に接続します。 MAP2 のもう一端はQX-1の "MULTI" ポートに接続します。
+You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot. Pin 1 goes to `AUX 5`, and Pin 2 to `AUX 6`. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
 
-### カメラ設定
+### Camera Configuration
 
-ここでは、Sony QX-1を16-50mm f3.5-5.6 レンズと組み合わせて使用します。
+We use a Sony QX-1 with a 16-50mm f3.5-5.6 lens for this example.
 
-カメラがトリガーされた際にオートフォーカスと測光の遅れを避けるために、次のガイドラインに従う必要があります。
+To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed:
 
-* マニュアルにてフォーカスを無限遠に設定
-* カメラを連続撮影モードに設定
-* 露出と絞りを手動で設定する
-* ISOは可能な限り低く設定する
-* シーンに応じて、ホワイトバランスを手動で設定する
+* Manual focus to infinity
+* Set camera to continuous shooting mode
+* Manually set exposure and aperture
+* ISO should be set as low as possible
+* Manual white balance suitable for scene
 
-### ミッションプランニング
+### Mission Planning
 
 ![QGC Survey Polygon](../../assets/camera/qgc_survey_polygon.jpeg)
 
 ![QGC Survey Parameters](../../assets/camera/qgc_survey_parameters.jpg)
 
-### ジオタグの付与
+### Geotagging
 
-フライト時のログと撮影写真をダウンロード/コピーし，QGroundControlを用いて，それらを開きます。 そして，"Start Tagging"をクリックします。
+Download/copy the logfile and images from the flight and point QGroundControl to them. Then click on "Start Tagging".
 
 ![QGC Geotagging](../../assets/camera/qgc_geotag.png)
 
-フリーのオンラインサービスである[Pic2Map](https://www.pic2map.com/)を使って、ジオタグを確認できます。 ただし、Pic2Mapは40枚までの画像に制限されています。
+You can verify the geotagging using a free online service like [Pic2Map](https://www.pic2map.com/). Note that Pic2Map is limited to only 40 images.
 
-### 3Dモデル構築
+### Reconstruction
 
-ここでは[Pix4D](https://pix4d.com/) を用いて3Dモデル構築を行います。
+We use [Pix4D](https://pix4d.com/) for 3D reconstruction.
 
 ![GeoTag](../../assets/camera/geotag.jpg)
 
 ## カメラ-IMU の同期例(VIO)
 
-本例では、IMUの測定値と視覚データを同期してステレオの視覚慣性航法システム（VINS）を構築する方法の基本について説明します。 正確に定義しておくと、ここでの目的は写真を撮ると同時にIMU測定を行うのではなく、VIOアルゴリズムに正確なデータを提供するために、画像に正確にタイムスタンプを付けることです。
+In this example, we will go over the basics of synchronising IMU measurements with visual data to build a stereo Visual-Inertial Navigation System (VINS). To be clear, the idea here isn't to take an IMU measurement exactly at the same time as we take a picture but rather to correctly time stamp our images so as to provide accurate data to our VIO algorithm.
 
-オートパイロットとコンパニオンコンピュータは異なる基準時間 (オートパイロットはブート時間、コンパニオンコンピュータはUNIX時間) を持っているため、いずれかの時間を調整する代わりに、直接クロック間の時間オフセットを検出します。 そして検出されたオフセットは，ミドルウェア間の変換コンポーネント(例：コンパニオンPC上のMAVROSとPX4の `mavlink_receiver`)によって，MAVLinkメッセージ (例： `HIGHRES_IMU`) のタイムスタンプから加減されます。 実際の同期アルゴリズムは、Network Time Protocol (NTP) アルゴリズムの修正版であり、指数移動平均を使用して、追跡された時間オフセットを平滑化して演算します。 MAVROSが十分な帯域を持ったオンボードリンク (MAVLinkモード `onboard`) で使用されている場合、この同期は自動的に行われます。
+The autopilot and companion have different clock bases (boot-time for the autopilot and UNIX epoch for companion), so instead of skewing either clock, we directly observe the time offset between the clocks. This offset is added or subtracted from the timestamps in the MAVLink messages (e.g `HIGHRES_IMU`) in the cross-middleware translator component (e.g MAVROS on the companion and `mavlink_receiver` in PX4). The actual synchronisation algorithm is a modified version of the Network Time Protocol (NTP) algorithm and uses an exponential moving average to smooth the tracked time offset. This synchronisation is done automatically if MAVROS is used with a high-bandwidth onboard link (MAVLink mode `onboard`).
 
-同期した画像と慣性測定値を取得するために、2つのカメラのトリガー入力をオートパイロットのGPIOピンに接続します。 撮影開始からの慣性測定のタイムスタンプと画像シーケンス番号が記録され、コンパニオンPCに送信されます (`CAMERA_TRIGGER`メッセージ)。そして，これらのパケットとカメラから取得した画像フレームがコンパニオンPCにバッファーされます。 画像と慣性計測データは，シーケンスナンバー (最初の画像は0となります) と ( `CAMERA_TRIGGER` メッセージからのタイムスタンプに基づいて) タイムスタンプされた画像データによってマッチングされ，パブリッシュされます。
+For acquiring synchronised image frames and inertial measurements, we connect the trigger inputs of the two cameras to a GPIO pin on the autopilot. The timestamp of the inertial measurement from start of exposure and a image sequence number is recorded and sent to the companion computer (`CAMERA_TRIGGER` message), which buffers these packets and the image frames acquired from the camera. They are matched based on the sequence number (first image frame is sequence 0), the images timestamped (with the timestamp from the `CAMERA_TRIGGER` message) and then published.
 
-以下の図は正確に画像にタイムスタンプを行うための，イベントの流れを説明したものです。
+The following diagram illustrates the sequence of events which must happen in order to correctly timestamp our images.
 
 ![Sequence diag](../../assets/camera/sequence_diagram.jpg)
 
-<!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-edito
+<!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-editor
 {/% mermaid %/}
 sequenceDiagram
   Note right of PX4 : Time sync with mavros is done automatically
@@ -169,24 +182,24 @@ end
 {/% endmermaid %/}
 -->
 
-### ステップ 1
+### Step 1
 
-まず，ドライバーをスタートコマンドを待機する状態にするため， TRIG_MODEパラメータに1をセットし，さらに残りのパラメータを取得するためにFCUを再起動します。
+First, set the TRIG_MODE to 1 to make the driver wait for the start command and reboot your FCU to obtain the remaining parameters.
 
-### ステップ 2
+### Step 2
 
-本例の目的達成のため，ここでは30 FPSで動作するPoint Grey Firefly MVカメラと連動するようにトリガーを構成します。
+For the purposes of this example we will be configuring the trigger to operate in conjunction with a Point Grey Firefly MV camera running at 30 FPS.
 
 * `TRIG_INTERVAL`: 33.33 ms
-* `TRIG_POLARITY`: 0 (アクティブロー)
-* `TRIG_ACT_TIME`: 0.5 ms. マニュアルでは、最小1マイクロ秒である必要があると規定されています。
-* `TRIG_MODE`: 1, トリガーを開始する前にカメラドライバーが画像を受信できるようにする必要があるため，このように設定します。 本設定は正しくシーケンス番号を処理するために重要です。
-* `TRIG_PINS`: 56, デフォルト値のままにします。
+* `TRIG_POLARITY`: 0 (active low)
+* `TRIG_ACT_TIME`: 0.5 ms. The manual specifies it only has to be a minimum of 1 microsecond.
+* `TRIG_MODE`: 1, because we want our camera driver to be ready to receive images before starting to trigger. This is essential to properly process sequence numbers.
+* `TRIG_PINS`: 56, Leave default.
 
-### ステップ 3
+### Step 3
 
-GNDピンとシグナルピンを介して，カメラとAUXポートを適切に接続します。
+Wire up your cameras to your AUX port by connecting the ground and signal pins to the appropriate place.
 
-### ステップ 4
+### Step 4
 
-前掲の図に準拠するように，ドライバーを適宜製作してください。 [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) カメラや [IEEE1394 準拠](https://github.com/andre-nguyen/camera1394) のカメラについては，実装方法のリファレンスが公開されています。
+You will have to modify your driver to follow the sequence diagram above. Public reference implementations for [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) cameras and for [IEEE1394 compliant](https://github.com/andre-nguyen/camera1394) cameras are available.

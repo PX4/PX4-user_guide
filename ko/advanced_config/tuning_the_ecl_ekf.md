@@ -1,33 +1,33 @@
-# Using the ECL EKF
+# ECL EKF 사용하기
 
-This tutorial answers common questions about use of the ECL EKF algorithm.
+이 튜토리얼은 ECL EKF 알고리즘 사용에 대한 일반적인 질문에 답변합니다.
 
-> **Tip** The [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ) video from the *PX4 Developer Summit 2019* (Dr. Paul Riseborough) provides an overview of the estimator, and additionally describes both the major changes from 2018/2019, and the expected improvements through 2020.
+> **팁** *PX4 Developer Summit 2019*에서 Paul Riseborough 박사가 발표한 [PX4 State Estimation Overview](https://youtu.be/HkYRJJoyBwQ)는 추정기의 개요와 2018/2019년도의 주요 변화와 2020년도 까지의 예상 개선점에 대해 설명합니다. 
 
-## What is the ECL EKF?
+## ECL EKF가 무엇인가요?
 
-The Estimation and Control Library (ECL) uses an Extended Kalman Filter (EKF) algorithm to process sensor measurements and provide an estimate of the following states:
+Estimation and Control Library (ECL)은 센서 측정값을 처리하고, 아래와 같은 상태를 추정하기 위해 확장 칼만 필터 (EKF) 알고리즘을 사용합니다:
 
-* Quaternion defining the rotation from North, East, Down local earth frame to X, Y, Z body frame
-* Velocity at the IMU - North, East, Down \(m/s\)
-* Position at the IMU - North, East, Down \(m\)
+* North, East, Down로 표현되는 국부 지면 좌표계 (local earth frame)로부터 X, Y, Z 기체 프레임으로의 회전을 정의하는 사원수 (Quaternion)
+* IMU에서의 속도 - North, East, Down \(m/s\)
+* IMU에서의 위치 - North, East, Down \(m/s\)
 * IMU delta angle bias estimates - X, Y, Z \(rad\)
-* IMU delta velocity bias estimates - X, Y, Z\(m/s\)
-* Earth Magnetic field components - North, East, Down \(gauss\)
-* Vehicle body frame magnetic field bias - X, Y, Z \(gauss\)
-* Wind velocity - North, East \(m/s\)
+* IMU delta velocity bias estimates - X, Y, Z \(m/s\)
+* 지구 자기장 요소 - North, East, Down \(gauss\)
+* 기체 프레임 자기장 편차 - X, Y, Z \(gauss\)
+* 풍속 - North, East \(m/s\)
 
-The EKF runs on a delayed 'fusion time horizon' to allow for different time delays on each measurement relative to the IMU. Data for each sensor is FIFO buffered and retrieved from the buffer by the EKF to be used at the correct time. The delay compensation for each sensor is controlled by the [EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) parameters.
+IMU와 다른 센서들이 동기화되지 않아 서로 다른 측정 시간을 갖는 것을 허용하기 위해, EKF는 지연된 '합성 시간축'에서 실행됩니다. 각 센서 데이터는 선입선출(FIFO) 버퍼에 저장되고 알맞은 시간에 사용되기 위해 EKF에 의해 출력됩니다. 각 센서에 대한 시간 지연 보정은 [EKF2_*_DELAY](../advanced_config/parameter_reference.md#ekf2) 매개변수에 의해 조정됩니다.
 
-A complementary filter is used to propagate the states forward from the 'fusion time horizon' to current time using the buffered IMU data. The time constant for this filter is controlled by the [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL) and [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) parameters.
+보완 필터는 버퍼링된 IMU 데이터를 사용하여 상태를 '합성 시간축'에서 현재 시간으로 전파하는 데 사용됩니다. 이 필터의 시간 상수는 [EKF2_TAU_VEL](../advanced_config/parameter_reference.md#EKF2_TAU_VEL)과 [EKF2_TAU_POS](../advanced_config/parameter_reference.md#EKF2_TAU_POS) 매개 변수에 의해 조정됩니다.
 
-> **Note** The 'fusion time horizon' delay and length of the buffers is determined by the largest of the `EKF2_*_DELAY` parameters. If a sensor is not being used, it is recommended to set its time delay to zero. Reducing the 'fusion time horizon' delay reduces errors in the complementary filter used to propagate states forward to current time.
+> **참고** '합성 시간축'의 시간 지연과 버퍼의 길이는 `EKF2_*_DELAY` 매개변수들 중에서 가장 큰 값에 의해 결정됩니다. 만약 센서가 사용되지 않는다면, 해당 센서의 시간 지연 매개변수를 0으로 맞추는 것을 권장합니다. "합성 시간축"의 지연을 줄이면 상태를 현재 시간으로 전달하는 데 사용되는 보완 필터의 오차가 줄어듭니다.
 
-The position and velocity states are adjusted to account for the offset between the IMU and the body frame before they are output to the control loops. The position of the IMU relative to the body frame is set by the `EKF2_IMU_POS_X,Y,Z` parameters.
+위치 및 속도 상태는 제어 루프로 출력되기 전에 IMU와 차체 프레임 사이의 오프셋을 고려하여 조정됩니다. 기체 프레임에 대한 IMU의 위치는 `EKF2_IMU_POS_X,Y,Z` 매개 변수에 의해 설정됩니다.
 
-The EKF uses the IMU data for state prediction only. IMU data is not used as an observation in the EKF derivation. The algebraic equations for the covariance prediction, state update and covariance update were derived using the Matlab symbolic toolbox and can be found here: [Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/EKF/matlab/scripts/Inertial Nav EKF/GenerateNavFilterEquations.m).
+EKF는 IMU 데이터를 상태 예측에만 사용합니다. IMU 데이터는 EKF 유도 과정에서 관측값으로 사용되지 않습니다. 공분산 예측, 상태 업데이트 및 공분산 행렬 업데이트에 사용되는 대수적 계산식은 Matlab symbolic toolbox를 사용하여 유도되었습니다. 계산식은 다음 링크에서 찾을 수 있습니다:[Matlab Symbolic Derivation](https://github.com/PX4/ecl/blob/master/EKF/matlab/scripts/Inertial Nav EKF/GenerateNavFilterEquations.m).
 
-## What sensor measurements does it use?
+## EKF는 어떤 센서 측정값을 사용하나요?
 
 The EKF has different modes of operation that allow for different combinations of sensor measurements. On start-up the filter checks for a minimum viable combination of sensors and after initial tilt, yaw and height alignment is completed, enters a mode that provides rotation, vertical velocity, vertical position, IMU delta angle bias and IMU delta velocity bias estimates.
 
@@ -210,7 +210,7 @@ For this reason, no claims for accuracy relative to the legacy combination of `a
 
 EKF outputs, states and status data are published to a number of uORB topics which are logged to the SD card during flight. The following guide assumes that data has been logged using the *.ulog file format*. The **.ulog** format data can be parsed in python by using the [PX4 pyulog library](https://github.com/PX4/pyulog).
 
-Most of the EKF data is found in the [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
+Most of the EKF data is found in the [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg) and [estimator\_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg) uORB messages that are logged to the .ulog file.
 
 A python script that automatically generates analysis plots and metadata can be found [here](https://github.com/PX4/Firmware/blob/master/Tools/ecl_ekf/process_logdata_ekf.py). To use this script file, cd to the `Tools/ecl_ekf` directory and enter `python process_logdata_ekf.py <log_file.ulg>`. This saves performance metadata in a csv file named **<log_file>.mdat.csv** and plots in a pdf file named `<log_file>.pdf`.
 
@@ -355,7 +355,7 @@ After re-tuning the filter, particularly re-tuning that involve reducing the noi
 
 The most common cause of EKF height diverging away from GPS and altimeter measurements during flight is clipping and/or aliasing of the IMU measurements caused by vibration. If this is occurring, then the following signs should be evident in the data
 
-* [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] and [ekf2_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
+* [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[2\] and [estimator_innovations](https://github.com/PX4/Firmware/blob/master/msg/estimator_innovations.msg).vel\_pos\_innov\[5\] will both have the same sign.
 * [estimator_status](https://github.com/PX4/Firmware/blob/master/msg/estimator_status.msg).hgt\_test\_ratio will be greater than 1.0
 
 The recommended first step is to ensure that the autopilot is isolated from the airframe using an effective isolation mounting system. An isolation mount has 6 degrees of freedom, and therefore 6 resonant frequencies. As a general rule, the 6 resonant frequencies of the autopilot on the isolation mount should be above 25Hz to avoid interaction with the autopilot dynamics and below the frequency of the motors.

@@ -70,7 +70,7 @@ Before mounting all the components to the wing, use tape to hold them in the app
 
 连接传感器 下拉列表，找到* VTOL Duo Tailsitter *图标， 选择下拉列表里的 *Caipiroshka Duo Tailsitter*。
 
-![](../../images/qgc/setup/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
+![caipiroshka](../../assets/airframes/vtol/caipiroshka/airframe_px4_vtol_caipiroshka_duo_tailsitter.jpg)
 
 ## 连接舵机
 

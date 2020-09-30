@@ -14,7 +14,7 @@
 방향 매개변수를 변경하려면:
 
 1. QGroundControl에서 다음의 메뉴를 엽니다: **설정> 매개 변수> 센서 캘리브레이션**.
-2. 아래와 같이 매개 변수를 변경하십시오: ![비행 컨트롤러 방향 QGC v2](../../images/fc_orientation_qgc_v2.png)
+2. 아래와 같이 매개 변수를 변경하십시오: ![비행 컨트롤러 방향 QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
 ## 매개변수 정보
 

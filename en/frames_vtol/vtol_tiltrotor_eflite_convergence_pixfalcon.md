@@ -25,16 +25,16 @@ MAIN 8 | Elevon left
 
 The Pixfalcon can be mounted at the same place the original autopilot was.
 
-![Mount Pixfalcon](../../images/eflight_convergence_pixfalcon_mounting.jpg)
+![Mount Pixfalcon](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_pixfalcon_mounting.jpg)
 
 The telemetry module fits into the bay meant to hold FPV transmission gear.
 
-![Mount telemetry module](../../images/eflight_convergence_telemetry_module.jpg)
+![Mount telemetry module](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_telemetry_module.jpg)
 
 For the GPS we cut out a section of foam inside the "cockpit".
 That way the GPS can be put inside the body and is nicely stowed away without compromising the looks :).
 
-![Mount GPS](../../images/eflight_convergence_gps_mounting.jpg)
+![Mount GPS](../../assets/airframes/vtol/eflite_convergence_pixfalcon/eflight_convergence_gps_mounting.jpg)
 
 
 ## Configuration

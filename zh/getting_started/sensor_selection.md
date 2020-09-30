@@ -18,7 +18,7 @@ PX4 支持许多全球导航卫星系统（GNSS）接收器和罗盘（磁力计
 
 常见的 GPS/罗盘硬件选项列于：[GPS/罗盘](../gps_compass/README.md)。
 
-![GPS + 罗盘](../../images/gps_compass.jpg)
+![GPS + 罗盘](../../assets/hardware/gps/gps_compass.jpg)
 
 ## 空速计
 
@@ -26,7 +26,7 @@ PX4 支持许多全球导航卫星系统（GNSS）接收器和罗盘（磁力计
 
 它们非常重要，因为自驾仪没有其他方法来检测失速。 对于固定翼飞行来说，保证升力的是空速而不是地速。
 
-![数字空速传感器](../../images/digital_airspeed_sensor.jpg)
+![数字空速传感器](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
 有关更多信息和推荐的硬件，请参阅：[空速传感器](../sensor/airspeed.md)。
 
@@ -44,7 +44,7 @@ Distance sensors are used for precision landing, object avoidance and terrain fo
 
 PX4 supports many affordable distance sensors, using different technologies, and supporting different ranges and features. For more information see: [Distance Sensors](../sensor/rangefinders.md).
 
-<img src="../../images/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
+<img src="../../assets/hardware/sensors/lidar_lite/lidar_lite_1.png" title="lidar_lite_1" width="500px" />
 
 ## Optical Flow
 

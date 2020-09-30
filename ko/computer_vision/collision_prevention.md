@@ -1,6 +1,6 @@
-# Collision Prevention
+# 충돌 방지
 
-*Collision Prevention* may be used to automatically slow and stop a vehicle before it can crash into an obstacle.
+*충돌방지* 기능은 기체가 장애물 앞에서 자동으로 속도를 늦추거나 멈추도록 합니다
 
 It can be enabled for multicopter vehicles in [Position mode](../flight_modes/position_mc.md), and can use sensor data from an offboard companion computer, offboard rangefinders over MAVLink, a rangefinder attached to the flight controller, or any combination of the above.
 

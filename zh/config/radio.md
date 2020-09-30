@@ -39,11 +39,11 @@ To calibrate the radio:
 3. 在上面的工具条中选择 **齿轮** 按钮，然后在左面的工具条中选择 **遥控器** 按钮。
 4. 点击 **OK** 开始。
     
-    ![遥控器设置-开始之前](../../images/qgc/setup/radio_start_setup.jpg)
+    ![遥控器设置-开始之前](../../assets/qgc/setup/radio/radio_start_setup.jpg)
 
 5. 设置和你遥控相匹配的 [发射机模式](../getting_started/rc_transmitter_receiver.md#transmitter_modes)（即左右手）（这个确保在下面的校准中 *QGroundControl* 准确显示摇杆的位置）
     
-    ![遥控器设置-移动摇杆](../../images/qgc/setup/radio_sticks_throttle.jpg)
+    ![遥控器设置-移动摇杆](../../assets/qgc/setup/radio/radio_sticks_throttle.jpg)
 
 6. 按照文字（在遥控器的图上）提示移动摇杆的位置。 当摇杆到达位置，点击 **下一步** 。 重复上述步骤。
 
@@ -57,7 +57,7 @@ Radio calibration is demonstrated in the [autopilot setup video here](https://yo
 
 As well as calibrating your control sticks and other transmitter controls, there are a number of additional radio setup options that you may find useful on this screen.
 
-<img src="../../images/qgc/setup/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
+<img src="../../assets/qgc/setup/radio/radio_additional_radio_setup.jpg" title="Radio setup - additional settings" width="300px" />
 
 <span id="spektrum_bind"></span>
 
@@ -71,7 +71,7 @@ To bind a Spektrum transmitter/receiver:
 2. 选择接收机上的 “radio” 按钮。
 3. 点击 **OK**。
     
-    ![Spektrum对频](../../images/qgc/setup/radio_additional_setup_spectrum_bind_select_channels.jpg)
+    ![Spektrum对频](../../assets/qgc/setup/radio/radio_additional_setup_spectrum_bind_select_channels.jpg)
 
 4. 按着对频按钮，打开你的 Spektrum 遥控器。
 
@@ -87,7 +87,7 @@ To copy the trims:
 2. 摇杆居中，油门杆最低。 
 3. 点击 **Ok** 。
     
-    ![复制微调](../../images/qgc/setup/radio_additional_radio_setup_copy_trims.jpg)
+    ![复制微调](../../assets/qgc/setup/radio/radio_additional_radio_setup_copy_trims.jpg)
 
 4. 设置遥控器器微调为0。
 
@@ -100,7 +100,7 @@ To use the AUX passthrough channels:
 1. 映射2个遥控器控制来隔离通道。 
 2. 如下所示，依次映射这些通道到端口 AUX1 和 AUX2。 设置后，保存到自驾仪。
     
-    ![遥控器的AUX1和AUX2通道](../../images/qgc/setup/radio_additional_setup_aux_passthrough_channels.jpg)
+    ![遥控器的AUX1和AUX2通道](../../assets/qgc/setup/radio/radio_additional_setup_aux_passthrough_channels.jpg)
 
 The flight controller will pass through the unmodified values from the specified channels out of AUX1/AUX2 to the connected servos/relays that drive your hardware.
 
@@ -117,7 +117,7 @@ To set up tuning channels:
 1. 映射3个遥控器通道（旋钮或滑块开关）来分离通道。
 2. 使用选择列表，选择*参数调试*映射到遥控器通道。 设置后，保存到自驾仪。
     
-    ![映射遥控器通道到调试通道](../../images/qgc/setup/radio_additional_radio_setup_param_tuning.jpg)
+    ![映射遥控器通道到调试通道](../../assets/qgc/setup/radio/radio_additional_radio_setup_param_tuning.jpg)
 
 To map a PARAM tuning channel to a parameter:
 
@@ -126,7 +126,7 @@ To map a PARAM tuning channel to a parameter:
 3. 选中**高级设置**复选框。
 4. Click the **Set RC to Param...** button (this will pop-up the foreground dialog displayed below)
     
-    ![映射调试通道到参数](../../images/qgc/setup/parameters_radio_channel_mapping.jpg)
+    ![映射调试通道到参数](../../assets/qgc/setup/radio/parameters_radio_channel_mapping.jpg)
 
 5. 从 *参数调整 id*选择列表中选择要映射的调整通道 (1、2或 3)。
 

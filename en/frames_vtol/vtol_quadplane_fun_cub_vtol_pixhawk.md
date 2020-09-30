@@ -7,9 +7,10 @@ Key information:
 - **Frame:** Multiplex FunCub
 - **Flight controller:** Pixhawk
 
-![Fun Cub VTOL](../../images/fun_cub_vtol_complete.jpg)
+![Fun Cub VTOL](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_vtol_complete.jpg)
 
-Unmodified, the Fun Cub is a relatively affordable plane and relatively easy to fly. After the conversion the plane is significantly heavier and less aerodynamic. It still flies quite well but needs around 75% throttle in forward flight.
+Unmodified, the Fun Cub is a relatively affordable plane and relatively easy to fly.
+After the conversion the plane is significantly heavier and less aerodynamic. It still flies quite well but needs around 75% throttle in forward flight.
 
 
 ## Bill of Materials
@@ -33,17 +34,14 @@ just fine - this is a Multiplex Fun Cub). The minimal equipment required is:
 
 The structure is made out of aluminum booms as shown below.
 
-![quad_frame](../../images/fun_cub_aluminium_frame_for_vtol.jpg)
-![Fun Cub -frame for vtol mounted](../../images/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
+![quad_frame](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol.jpg)
+![Fun Cub -frame for vtol mounted](../../assets/airframes/vtol/funcub_pixhawk/fun_cub_aluminium_frame_for_vtol_mounted.jpg)
 
 ## Wiring
 
-The outputs of Pixhawk should be wired like this (orientation as seen
-like "sitting in the plane").
+The outputs of Pixhawk should be wired like this (orientation as seen like "sitting in the plane").
 
-> **Success** The servo direction can be reversed using the
-  PWM\_REV parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel
-  tab, last item in the left menu)
+> **Success** The servo direction can be reversed using the PWM\_REV parameters in the PWM_OUTPUT group of *QGroundControl* (cogwheel tab, last item in the left menu)
   
 Port | Connection
 --- | --- 
@@ -62,10 +60,9 @@ For further instructions on wiring and configurations please see:
 
 ## Airframe Configuration
 
-Configure the frame as shown in QGroundControl below 
-(do not forget to click **Apply and Restart** in the top).
+Configure the frame as shown in QGroundControl below (do not forget to click **Apply and Restart** in the top).
 
-![QCG - Select Fun Cub Quad firmware](../../images/qgc_firmware_standard_vtol_fun_cub_quad.png)
+![QCG - Select Fun Cub Quad firmware](../../assets/airframes/vtol/funcub_pixhawk/qgc_firmware_standard_vtol_fun_cub_quad.png)
 
 ## Video
 

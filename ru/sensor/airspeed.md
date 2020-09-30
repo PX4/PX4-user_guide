@@ -2,7 +2,7 @@
 
 Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
 
-![Цифровой датчик воздушной скорости](../../images/digital_airspeed_sensor.jpg)
+![Цифровой датчик воздушной скорости](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
 ## Hardware Options
 
@@ -19,7 +19,9 @@ Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames. They 
 * [Sensirion SDP3X Differential Pressure Sensor](https://www.sensirion.com/en/flow-sensors/differential-pressure-sensors/worlds-smallest-differential-pressure-sensor/)
 * [Holybro Digital Air Speed Sensor](https://shop.holybro.com/digital-air-speed-sensor_p1029.html)
 
-Все датчики подключаемые через шину/порт I2C.
+All the above sensors are connected via the I2C bus/port.
+
+> **Note** Additionally, the [Avionics Anonymous Air Data Computer](https://www.tindie.com/products/avionicsanonymous/uavcan-air-data-computer-airspeed-sensor/) can be connected to the UAVCAN bus to determine not only high-accuracy airspeed, but also true static pressure and air temperature via onboard barometer and an OAT probe.
 
 ## Настройка
 

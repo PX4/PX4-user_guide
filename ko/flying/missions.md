@@ -14,7 +14,7 @@ You can also use the *Pattern* tool to automate creation of survey grids.
 
 > **Tip** For more information see the [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/PlanView/PlanView.html).
 
-![planning-mission](../../images/planning_mission.jpg)
+![planning-mission](../../assets/flying/planning_mission.jpg)
 
 ### Setting Vehicle Yaw
 
@@ -28,4 +28,4 @@ Vehicle types that cannot independently control yaw and direction of travel will
 
 Once the mission is uploaded, switch to the flight view. The mission is displayed in a way that makes it easy to track progress (it cannot be modified in this view).
 
-![flying-mission](../../images/flying_mission.jpg)
+![flying-mission](../../assets/flying/flying_mission.jpg)

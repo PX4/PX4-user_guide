@@ -24,7 +24,7 @@ The constraints `jMax`, `aMax` are configurable by the user via parameters and c
 
 The resulting velocity profile is often called "S-Curve".
 
-![Jerk-limited trajectory](../../images/jerk_limited_trajectory_1d.png)
+![Jerk-limited trajectory](../../assets/config/mc/jerk_limited_trajectory_1d.png)
 
 ## Manual Mode
 

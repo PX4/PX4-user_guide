@@ -12,7 +12,7 @@
 2. 在工具栏选择 **齿轮** 图标 (机体设置)，然后在侧边栏选择 **传感器**。
 3. 点击 **空速** 传感器按钮。
     
-    ![空速校准](../../images/qgc/setup/sensor_airspeed.jpg)
+    ![空速校准](../../assets/qgc/setup/sensor/sensor_airspeed.jpg)
 
 4. 将传感器与风隔离（即用手盖住传感器）。 注意不要阻挡任何孔。
 

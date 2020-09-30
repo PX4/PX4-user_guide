@@ -24,7 +24,7 @@ To save some weight and make power cabling easier, I removed the XT60 from the o
 
 Flying weight as pictured with 3S/1300mAh Nano-tech LiPo and Mobius camera, but no FPV gear is 547g and hover throttle is about 50%.
 
-![QAV250 Pixhawk Build showing power module](../../images/qav250_pixhawk_power_module.jpg)
+![QAV250 Pixhawk Build showing power module](../../assets/airframes/multicopter/lumenier_qav250_auav_x2/qav250_pixhawk_power_module.jpg)
 
 ## AUAV-X2 Guidance
 
@@ -38,4 +38,4 @@ The X2 is mounted in a sintered nylon case with a "baro chamber" which reduces s
 
 Also note that you must order the top and bottom case halves separately.
 
-![QAV250 with AUV-X2](../../images/qav250_auv_x2.png)
+![QAV250 with AUV-X2](../../assets/airframes/multicopter/lumenier_qav250_auav_x2/qav250_auv_x2.png)

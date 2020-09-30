@@ -43,13 +43,26 @@ MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 
 
 ## 트리거 하드웨어 설정 {#hardware_setup}
 
-You can choose which pins to use for triggering using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
+### Camera Triggering
+
+The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
 > **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano). At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
 
 <span></span>
 
-> **Warning** With `TRIG_PINS` set to its **default** value of 56, you can use the AUX pins 1, 2, 3 and 4 as actuator outputs (for servos/ESCs). Due to the way the hardware timers are handled (1234 and 56 are 2 different groups handled by 2 timers), this is the ONLY combination which allows the simultaneous usage of camera trigger and FMU actuator outputs. **DO NOT CHANGE THE DEFAULT VALUE OF `TRIG_PINS` IF YOU NEED ACTUATOR OUTPUTS.**
+> **Warning** With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs). With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs. Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
+
+### Camera Capture
+
+Some cameras can provide image capture signalling to a flight controller camera-capture pin (this enables more accurate image timestamp than the time that the trigger command is sent). Camera capture/feedback is enabled by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
+
+The pin used depends on the hardware:
+
+* Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
+* Other board use FMU PWM pin 6 (hardcoded) for camera capture.
+
+> **Note** PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message (with timestamp and image sequence number). If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
 
 ## 트리거 인터페이스 백엔드 {#trigger_backend}
 
@@ -59,53 +72,27 @@ enables the GPIO interface. AUX 출력은 매  TRIG_INTERVAL </ 1> 지속 시간
 </tr>
 <tr>
   <td>2</td>
-  <td>Seagull MAP2 인터페이스를 활성화합니다. 이를 통해 <a href="http://www.seagulluav.com/product/seagull-map2/"> Seagull MAP2 </ 0>를 사용하여 지원되는 여러 카메라에 연결할 수 있습니다. MAP2의 핀 1은 <code> TRIG_PINS </ 0>의 하위 AUX 핀에 연결되어야합니다 (따라서 기본적으로 핀 1 ~ AUX 5 및 핀 2 ~ AUX 6). 이 모드에서 PX4는 QX-1과 같은 Sony Multiport 카메라의 자동 전원 제어 및 연결 유지 기능도 지원합니다.</td>
-</tr>
-<tr>
-  <td>3</td>
-  <td>MAVLink 인터페이스를 사용합니다. 이 모드에서는 실제 하드웨어 출력이 사용되지 않습니다. <code> CAMERA_TRIGGER </ 0> MAVLink 메시지는 자동 조종 장치에 의해 전송됩니다 (MAVLink 응용 프로그램이 <code> 온보드 </ 0> 모드 인 경우 기본적으로). 그렇지 않으면 맞춤 스트림을 사용해야합니다.</td>
-</tr>
-<tr>
-  <td>4</td>
-  <td>범용 PWM 인터페이스를 사용합니다. 이렇게하면 <a href="https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html"> 적외선 트리거 </ 0> 또는 서보가 카메라를 트리거 할 수 있습니다.</td>
-</tr>
-</tbody>
-</table>
+  <td>Seagull MAP2 인터페이스를 활성화합니다. 이를 통해 <a href="http://www.seagulluav.com/product/seagull-map2/"> Seagull MAP2 </ 0>를 사용하여 지원되는 여러 카메라에 연결할 수 있습니다. Pin/Channel 1 (camera trigger) and Pin/Channel 2 (mode selector) of the MAP2 should be connected to the lower and higher AUX pins of <code>TRIG_PINS`, respectively (therefore, channel/pin 1 to AUX 5 and channel/pin 2 to AUX 6 by default). Using Seagull MAP2, PX4 also supports automatic power control and keep-alive functionalities of Sony Multiport cameras like the QX-1.</td> </tr> 
 
-<h2>기타 패러미터들</h2>
+</tbody> </table> 
 
-<table>
-<thead>
-<tr>
-  <th>Parameter</th>
-  <th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td><a href="../advanced_config/parameter_reference.md#TRIG_POLARITY">TRIG_POLARITY</a></td>
-  <td>GPIO 인터페이스를 사용하는 동안에 만 관련됩니다. 트리거 핀의 극성을 설정합니다. 액티브 하이는 핀이 로우로 정상적으로 당겨지고 트리거 이벤트에서 하이로 풀링됨을 의미합니다. 액티브 로우는 반대의 경우도 마찬가지입니다.</td>
-</tr>
-<tr>
-  <td><a href="../advanced_config/parameter_reference.md#TRIG_INTERVAL">TRIG_INTERVAL</a></td>
-  <td>두 개의 연속 트리거 이벤트 사이의 시간을 밀리 초 단위로 정의합니다.</td>
-</tr>
-<tr>
-  <td><a href="../advanced_config/parameter_reference.md#TRIG_ACT_TIME">TRIG_ACT_TIME</a></td>
-  <td>트리거 핀이 "활성"상태로 유지되어 중립으로 돌아 가기 전의 시간을 밀리 초 단위로 정의합니다. PWM 모드에서는 50Hz PWM 신호에 항상 활성화 펄스를 맞출 수 있도록 최소값이 40ms로 제한됩니다.</td>
-</tr>
-</tbody>
-</table>
+## 기타 패러미터들
 
-<p>The full list of parameters pertaining to the camera trigger module can be found on the <a href="../advanced_config/parameter_reference.md#camera-trigger">parameter reference</a> page.</p>
+| Parameter                                                                  | Description                                                                                                                  |
+| -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| [TRIG_POLARITY](../advanced_config/parameter_reference.md#TRIG_POLARITY)   | GPIO 인터페이스를 사용하는 동안에 만 관련됩니다. 트리거 핀의 극성을 설정합니다. 액티브 하이는 핀이 로우로 정상적으로 당겨지고 트리거 이벤트에서 하이로 풀링됨을 의미합니다. 액티브 로우는 반대의 경우도 마찬가지입니다. |
+| [TRIG_INTERVAL](../advanced_config/parameter_reference.md#TRIG_INTERVAL)   | 두 개의 연속 트리거 이벤트 사이의 시간을 밀리 초 단위로 정의합니다.                                                                                      |
+| [TRIG_ACT_TIME](../advanced_config/parameter_reference.md#TRIG_ACT_TIME) | 트리거 핀이 "활성"상태로 유지되어 중립으로 돌아 가기 전의 시간을 밀리 초 단위로 정의합니다. PWM 모드에서는 50Hz PWM 신호에 항상 활성화 펄스를 맞출 수 있도록 최소값이 40ms로 제한됩니다.           |
 
-<h2 id="command_interface">Command Interface</h2>
+The full list of parameters pertaining to the camera trigger module can be found on the [parameter reference](../advanced_config/parameter_reference.md#camera-trigger) page.
 
-<p><strong>TODO : NEEDS UPDATING updating</strong></p>
+## Command Interface {#command_interface}
 
-<p>The camera trigger driver supports several commands:</p>
+**TODO : NEEDS UPDATING updating**
 
-<p><a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL">MAV_CMD_DO_TRIGGER_CONTROL</a> - Accepted in "command controlled" mode (<code>TRIG_MODE` 1).</p> 
+The camera trigger driver supports several commands:
+
+[MAV_CMD_DO_TRIGGER_CONTROL](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_TRIGGER_CONTROL) - Accepted in "command controlled" mode (`TRIG_MODE` 1).
 
 트리거 사이클 시간 (밀리 초 단위) (` TRIG_INTERVAL </ 0> 매개 변수 설정)</td>
 </tr>
@@ -154,27 +141,27 @@ This command is autogenerated during missions to trigger the camera based on sur
 
 In this example, we will use a Seagull MAP2 trigger cable to interface to a Sony QX-1 and use the setup to create orthomosaics after flying a fully autonomous survey mission.
 
-### 트리거 설정
+### Trigger Settings
 
 The recommended camera settings are:
 
-* `TRIG_INTERFAC=2` (Seagull MAP2).
+* `TRIG_INTERFACE=2` (Seagull MAP2).
 * `TRIG_MODE=4` (Mission controlled).
 * Leave the remaining parameters at their defaults.
 
 You will need to connect the Seagull MAP2 to the auxiliary/FMU pins on your autopilot. Pin 1 goes to `AUX 5`, and Pin 2 to `AUX 6`. The other end of the MAP2 cable will go into the QX-1's "MULTI" port.
 
-### 카메라 구성
+### Camera Configuration
 
 We use a Sony QX-1 with a 16-50mm f3.5-5.6 lens for this example.
 
 To avoid autofocus and metering lag when the camera is triggered, the following guidelines should be followed:
 
-* 무한대까지 수동 초점
-* 카메라를 연속 촬영 모드로 설정하십시오.
-* 노출 및 조리개를 수동으로 설정합니다.
-* ISO는 가능한 한 낮게 설정해야합니다.
-* 장면에 적합한 수동 화이트 밸런스
+* Manual focus to infinity
+* Set camera to continuous shooting mode
+* Manually set exposure and aperture
+* ISO should be set as low as possible
+* Manual white balance suitable for scene
 
 ### Mission Planning
 
@@ -182,7 +169,7 @@ To avoid autofocus and metering lag when the camera is triggered, the following 
 
 ![QGC Survey Parameters](../../assets/camera/qgc_survey_parameters.jpg)
 
-### 위치 정보 태그 지정
+### Geotagging
 
 Download/copy the logfile and images from the flight and point QGroundControl to them. Then click on "Start Tagging".
 
@@ -190,7 +177,7 @@ Download/copy the logfile and images from the flight and point QGroundControl to
 
 You can verify the geotagging using a free online service like [Pic2Map](https://www.pic2map.com/). Note that Pic2Map is limited to only 40 images.
 
-### 재건
+### Reconstruction
 
 We use [Pix4D](https://pix4d.com/) for 3D reconstruction.
 
@@ -208,7 +195,7 @@ The following diagram illustrates the sequence of events which must happen in or
 
 ![Sequence diag](../../assets/camera/sequence_diagram.jpg)
 
-<!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-edito
+<!-- Could generate using Mermaid: https://mermaidjs.github.io/mermaid-live-editor
 {/% mermaid %/}
 sequenceDiagram
   Note right of PX4 : Time sync with mavros is done automatically
@@ -225,24 +212,24 @@ end
 {/% endmermaid %/}
 -->
 
-### 1 단계
+### Step 1
 
 First, set the TRIG_MODE to 1 to make the driver wait for the start command and reboot your FCU to obtain the remaining parameters.
 
-### 2 단계
+### Step 2
 
 For the purposes of this example we will be configuring the trigger to operate in conjunction with a Point Grey Firefly MV camera running at 30 FPS.
 
 * `TRIG_INTERVAL`: 33.33 ms
 * `TRIG_POLARITY`: 0 (active low)
-* `TRIG_ACT_TIME`: 0.5 ms. 설명서에 따르면 최소 1 마이크로 초 만 있으면됩니다.
-* ` TRIG_MODE </ 0> : 1, 왜냐하면 카메라 드라이버가 트리거를 시작하기 전에 이미지를받을 준비가되기 때문입니다. 이는 일련 번호를 올바르게 처리하는 데 필수적입니다.</li>
-<li><code>TRIG_PINS`: 56, Leave default.
+* `TRIG_ACT_TIME`: 0.5 ms. The manual specifies it only has to be a minimum of 1 microsecond.
+* `TRIG_MODE`: 1, because we want our camera driver to be ready to receive images before starting to trigger. This is essential to properly process sequence numbers.
+* `TRIG_PINS`: 56, Leave default.
 
-### 3 단계
+### Step 3
 
 Wire up your cameras to your AUX port by connecting the ground and signal pins to the appropriate place.
 
-### 4 단계
+### Step 4
 
 You will have to modify your driver to follow the sequence diagram above. Public reference implementations for [IDS Imaging UEye](https://github.com/ProjectArtemis/ueye_cam) cameras and for [IEEE1394 compliant](https://github.com/andre-nguyen/camera1394) cameras are available.

@@ -14,7 +14,7 @@ If there is a persistent drift bias (often seen in multirotors but not limited t
 To change the orientation parameters:
 
 1. Open QGroundControl menu: **Settings > Parameters > Sensor Calibration**.
-2. Change the parameters as shown below: ![FC Orientation QGC v2](../../images/fc_orientation_qgc_v2.png)
+2. Change the parameters as shown below: ![FC Orientation QGC v2](../../assets/qgc/setup/sensor/fc_orientation_qgc_v2.png)
 
 ## Parameter information
 

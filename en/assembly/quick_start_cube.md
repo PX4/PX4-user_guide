@@ -1,8 +1,11 @@
 # Cube Wiring Quick Start
 
-This quick start guide shows how to power the [Cube](../flight_controller/pixhawk-2.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
+This quick start guide shows how to power the *Cube*<sup>&reg;</sup> flight controllers and connect their most important peripherals.
 
-<img src="../../assets/flight_controller/cube/pixhawk2_cube_hero.png" width="400px" />
+<img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="350px" /> <img src="../../assets/flight_controller/cube/cube_black_hero.png" width="350px" /> <img src="../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg" width="150px" />
+
+> **Tip** The instructions apply to all Cube variants, including [Cube Black](../flight_controller/pixhawk-2.md), [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md) and [Cube Orange](../flight_controller/cubepilot_cube_orange.md).
+  Further/updated information may be available in the [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual) (Cube Docs).
 
 ## Accessories
 
@@ -61,7 +64,8 @@ The diagram below shows a schematic view of the module and its connections.
 
 ![Here+ Connector Diagram](../../assets/flight_controller/cube/here_plus_connector.png)
 
-> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle). To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
+> **Note** The GPS module's integrated safety switch is enabled *by default* (when enabled, PX4 will not let you arm the vehicle).
+  To disable the safety press and hold the safety switch for 1 second. You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 
 <span></span>
 > **Tip** If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety_switch).
@@ -178,10 +182,12 @@ QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration]
 <!-- what about config of other vtol types and plane. Do the instructions in these ones above apply for tailsitters etc? --> 
 
 
-
 ## Further information
 
-- [Cube](../flight_controller/pixhawk-2.md)
-<!-- - [pixhawk2 user manual copy]()  // fold out insert shipped with doc /assets/flight_controller/cube/cube_mount_front/pixhawk2 user manual copy.pdf --> 
-<!-- - [Cube Quickstart]() (HEX) --> 
-
+- [Cube Black](../flight_controller/pixhawk-2.md) 
+- [Cube Yellow](../flight_controller/cubepilot_cube_yellow.md)
+- [Cube Orange](../flight_controller/cubepilot_cube_orange.md)
+- Cube Docs (Manufacturer):
+  - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
+  - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
+  - [Mini Carrier Board](https://docs.cubepilot.org/user-guides/carrier-boards/mini-carrier-board)
