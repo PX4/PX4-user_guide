@@ -8,7 +8,7 @@
 
 ![Auto-G2](../../assets/airframes/autogyro/auto-g2/autog2_title.jpg)
 
-ThunderFly Auto-G2 autogyro is based on Durafly RC model [Auto-G2](https://hobbyking.com/en_us/duraflytm-auto-g2-gyrocopter-w-auto-start-system-821mm-pnf.html) available at HobbyKing with several parts of the original model substituted for 3D printable ones. All the added parts are available on [GitHub]() as an open-source project. Printed parts are designed in [OpenSCAD]().
+ThunderFly Auto-G2 autogyro is based on Durafly RC model [Auto-G2](https://hobbyking.com/en_us/duraflytm-auto-g2-gyrocopter-w-auto-start-system-821mm-pnf.html) available at HobbyKing with several parts of the original model substituted for 3D printable ones. All the added parts are available on [GitHub](https://github.com/ThunderFly-aerospace/TF-G2/) as an open-source project. Printed parts are designed in [OpenSCAD](https://www.openscad.org/).
 
 Durafly Auto-G2, in its original design, has a three-blade rotor with 400 mm long blades with a CLARK-Y profile. Rotor head allows tilting in the ROLL axis only. Autogyro is controlled by a rudder and an elevator. Durafly Auto-G2 autogyro box contains the autogyro polystyrene body, ESC, motor (probably 800kV), 4 servos, tail airfoils, 3 blades with rotor center parts, wire chassis and a prerotator.
 
@@ -45,7 +45,7 @@ Rotor’s central part consists of several components which have following roles
 
 #### HobbyKing rotor blades
 
-It is possible to use a printed central part of the rotor with the original blades. These blades can be bought on [HobbyKing](). Hobbyking blades differ in the position of center of gravity and it is therefore necessary to balance them properly.
+It is possible to use a printed central part of the rotor with the original blades. These blades can be bought on [HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html). Hobbyking blades differ in the position of center of gravity and it is therefore necessary to balance them properly.
 
 #### 3D printed rotor blades
 Alternatively, it is possible to print blades. They are still under development, but preliminary tests show they are of better quality mostly thanks to their precise shape and absence of longitudinal grooves. However, some of the production processes still need to be tuned.
