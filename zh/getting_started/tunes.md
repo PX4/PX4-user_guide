@@ -50,7 +50,9 @@
 
 在正常操作期间发出如下声音。
 
-#### 错误声音 {#error_tune_operational}<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
+<span id="error_tune_operational"></span>
+
+#### Error Tune<audio controls> <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio> 
 
 - 遥控丢失
 
