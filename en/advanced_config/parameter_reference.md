@@ -1778,6 +1778,13 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
  <td style="vertical-align: top;">%</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="COM_REARM_GRACE">COM_REARM_GRACE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rearming grace period</p><p><strong>Comment:</strong> Re-arming grace allows to rearm the drone with manual command without running prearmcheck during 5 s after disarming.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Enabled (1)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="COM_VEL_FS_EVH">COM_VEL_FS_EVH</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Horizontal velocity error threshold</p><p><strong>Comment:</strong> This is the horizontal velocity error (EVH) threshold that will trigger a failsafe. The default is appropriate for a multicopter. Can be increased for a fixed-wing.</p>   </td>
  <td style="vertical-align: top;"></td>
