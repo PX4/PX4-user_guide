@@ -4,7 +4,7 @@ PX4 contains functionality to calibrate and compensate rate gyro, accelerometer 
 
 This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation).
 
-> **Note** At time of writing (June2019/PX4 v1.9) thermal calibration of the magnetometer is not yet supported.
+> **Note** At time of writing (June2019/PX4 v1.9) thermal calibration of the magnetometer is not yet supported. 
 
 
 ## Test Setup/Best Practice {#test_setup}
@@ -35,8 +35,10 @@ PX4 supports two calibration procedures:
 * [onboard](#onboard_calibration) - calibration is run on the board itself. This method requires knowledge of the amount of temperature rise that is achievable with the test setup.
 * [offboard](#offboard_calibration) - compensation parameters are calculated on a development computer based on log information collected during the calibration procedure. This method allows users to visually check the quality of the data and curve-fit.
 
-The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate. 
+The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate.
 
+> **Note** After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors.
+  The normal calibration parameters (e.g. `SYS_CAL_*`) are no longer used and are reset to their default values.
 
 ### Onboard Calibration Procedure {#onboard_calibration}
 
@@ -62,7 +64,7 @@ Offboard calibration is run on a development computer using data collected durin
 To perform an offboard calibration:
 
 1. Ensure the frame type is set before calibration, otherwise calibration parameters will be lost when the board is setup.
-1. Power up the board and set the `TC_A_ENABLE`, `TC_B_ENABLE` and `TC_G_ENABLE` parameters to 1.
+1. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) and [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to `1`.
 1. Set all [CAL_GYRO*](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) and [CAL_ACC*](../advanced_config/parameter_reference.md#CAL_ACC0_EN) parameters to defaults.
 1. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot. 
 1. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
