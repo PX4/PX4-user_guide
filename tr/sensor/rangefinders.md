@@ -50,7 +50,9 @@ The [Lanbao PSK-CM8JL65-CC5 ToF Infrared Distance Measuring Sensor](../sensor/cm
 
 The [Avionics Anonymous UAVCAN Laser Altimeter Interface](../sensor/avanon_laser_interface.md) allows several common rangefinders (e.g. [Lightware SF11/c, SF30/D](../sensor/sfxx_lidar.md), etc) to be connected to the UAVCAN bus, a more robust interface than I2C.
 
-## Configuration/Setup {#configuration}
+<span id="configuration"></span>
+
+## Configuration/Setup
 
 Rangefinders are usually connected to either a serial (PWM) or I2C port (depending on the device driver), and are enabled on the port by setting a particular parameter.
 
@@ -68,7 +70,9 @@ The common rangefinder configuration is specified using [EKF2*RNG**](../advanced
 - [EKF2_RNG_SFE](../advanced_config/parameter_reference.md#EKF2_RNG_SFE) - Range finder range dependant noise scaler.
 - [EKF2_RNG_NOISE](../advanced_config/parameter_reference.md#EKF2_RNG_NOISE) - Measurement noise for range finder fusion
 
-## Testing {#testing}
+<span id="testing"></span>
+
+## Testing
 
 The easiest way to test the rangefinder is to vary the range and compare to the values detected by PX4. The sections below show some approaches to getting the measured range.
 
@@ -98,7 +102,9 @@ listener distance_sensor 5
 
 For more information see: [Sensor/Topic Debugging using the Listener Command](https://dev.px4.io/master/en/debug/sensor_uorb_topic_debugging.html) (PX4 Development Guide).
 
-## Simulation {#simulation}
+<span id="simulation"></span>
+
+## Simulation
 
 Lidar and sonar rangefinders can be used in the [Gazebo Simulator](https://dev.px4.io/master/en/simulation/gazebo.html) (PX4 Development Guide). To do this you must start the simulator using a vehicle model that includes the rangefinder.
 
