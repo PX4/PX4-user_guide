@@ -12,7 +12,9 @@ Before you can calibrate the radio system the receiver and transmitter must be c
 
 > **Note** If you are using a *FrSky* receiver, you can bind it with its transmitter, by following instructions [here](https://www.youtube.com/watch?v=1IYg5mQdLVI).
 
-## RC Loss Detection {#rc_loss_detection}
+<span id="rc_loss_detection"></span>
+
+## RC Loss Detection
 
 PX4 needs to be able to detect when the signal from the RC controller has been lost in order to be able to take [appropriate safety measures](../config/safety.md#rc_loss_failsafe).
 
