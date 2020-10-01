@@ -2,7 +2,7 @@
 
 [Autogyro](https://en.wikipedia.org/wiki/Autogyro) is a type of [rotor-wing](https://en.wikipedia.org/wiki/Rotorcraft). Compared to other designs it possesses following advantages:
 
-  * Ability to take off and land using only a very short runway.
+  * Ability to take off and land using only a very short runway compared to airplane.
   * High resistance to weather conditions, especially gusts of wind.
   * Possession of a non-powered rotor enabling it to operate in an autorotation mode (one of the helicopter’s emergency modes as well). Consequently, it does not need to actively change a flight mode in case of failure (it does not need a parachute or other actively working devices). Its flight is thus inherently stable at all times.
   * Absence of a [downwash](https://en.wikipedia.org/wiki/Downwash) during take-off or landing creating an unwanted swirling of dust.
