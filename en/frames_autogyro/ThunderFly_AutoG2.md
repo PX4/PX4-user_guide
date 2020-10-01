@@ -69,16 +69,16 @@ The whole part is glued, using a hot-melt adhesive, under the engine on the bott
 ## Parts List
 
 ### Electronic
- * Autopilot
- * GPS
- * Airspeed sensor
- * Stronger servos as a substitution for the original ones (optional)
+ * Autopilot ([HKpilot32](../flight_controller/HKpilot32.md), [CUAV nano](../flight_controller/cuav_v5_nano.md))
+ * GPS (GPS Modul NEO-6M, with patch antenna)
+ * Airspeed sensor ([SDP3x](Sensirion SDP3x))
+ * Stronger servos as a substitution for the original ones (optional), ([BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm))
  * Additional servo for release device (optional)
 
 ### Mechanical parts
 
- * Rotor head Bearing 623 2Z C3
- * Propeller (APC 10x7)
+ * Rotor head Bearing (623 2Z C3)
+ * Propeller ([APC 10x7](https://www.apcprop.com/product/10x7e/))
  * [Prop adapter](https://mpjet.com/shop/gb/prop-adapters/184-collet-prop-adapter-19-mm-4-mm-shaft-m629-standard.html)
 
 
@@ -102,10 +102,10 @@ The whole part is glued, using a hot-melt adhesive, under the engine on the bott
   * [Front wheels](https://github.com/ThunderFly-aerospace/Auto-G2/blob/master/CAD/stl/888_1011.stl)
 
 ### Recommended spare parts
-  * Servos with improved quality
-    * Propeller
-    * Rotor centre plate with deformation zones
-    * Rotor blades
+    * Servos with improved quality (recomended [BlueBird BMS-125WV](https://www.blue-bird-model.com/products_detail/411.htm), original servos are not very durable))
+    * Propeller ([APC 10x7](https://www.apcprop.com/product/10x7e/))
+    * Rotor centre plate with deformation zones (3D printed)
+    * Rotor blades ([HobbyKing](https://hobbyking.com/en_us/duraflytm-auto-g-gyrocopter-821mm-replacement-main-blade-1pcs-bag.html) or 3D printed)
 
 ## Video:
 
