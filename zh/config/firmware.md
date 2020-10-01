@@ -36,9 +36,11 @@
 
 接下来，您需要指定 [飞行器机架](../config/airframe.md) (然后是传感器、数传等)。
 
-## 安装PX4 Master, Beta或自定义固件 {#custom}
+<span id="custom"></span>
 
-安装不同版本的PX4：
+## Installing PX4 Master, Beta or Custom Firmware
+
+To install a different version of PX4:
 
 1. 如上所述连接飞行器，并选择 **PX4 飞行栈 vX.x.x Stagable Release** ![安装 PX4 版本](../../assets/qgc/setup/firmware/qgc_choose_firmware.jpg)
 2. 检查 **高级设置** 并从下拉列表中选择版本： 
@@ -47,15 +49,17 @@
     * **开发者构建 (master)** 最新的PX4/固件。
     * **自定义固件文件..:** 自定义固件文件 (例如，您在本地构建)。 如果选择 Custom firmware file ，您需要在下一步中从文件系统中选择自定义固件。
 
-固件更新和之前一样正常进行。
+Firmware update then continues as before.
 
-## FMUv2 Bootloader 更新 {#bootloader}
+<span id="bootloader"></span>
 
-如果 *QGroundControl* 安装FMUv2 固件（请参阅安装过程中的控制台），并且您有一个更新的飞控板，则可能需要更新bootloader，以访问飞行控制器上的所有内存。
+## FMUv2 Bootloader Update
+
+If *QGroundControl* installs the FMUv2 target (see console during installation), and you have a newer board, you may need to update the bootloader in order to access all the memory on your flight controller.
 
 > **Note** Early FMUv2 [Pixhawk-series](../flight_controller/pixhawk_series.md#fmu_versions) flight controllers had a [hardware issue](../flight_controller/silicon_errata.md#fmuv2--pixhawk-silicon-errata) that restricted them to using 1MB of flash memory. 这一问题已在更新的板上修复，但是您可能需要更新工厂提供的bootloader，以便安装FMUv3 固件，并访问所有 2MB 内存。
 
-要更新bootloader，请执行以下操作：
+To update the bootloader:
 
 1. 插入 SD 卡（启用引导日志记录，便于调试任何可能的问题。）
 2. [更新固件](../config/firmware.md) 至PX4 *master* 版本（当更新固件时，查看 **高级设置** 并从下拉列表选择**Developer Build (master)** ）。 *QGroundControl* 会自动识别到硬件支持 FMUv2，并安装相应的固件。
