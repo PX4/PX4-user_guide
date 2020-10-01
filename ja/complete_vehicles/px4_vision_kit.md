@@ -126,8 +126,8 @@ In addition, users will need ground station hardware/software:
 
      ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
 
-
-## Fly the Drone (with avoidance) {#fly_drone}
+<span id="fly_drone"></span>
+## Fly the Drone (with avoidance)
 
 
 When the vehicle setup described above is complete:
@@ -170,8 +170,8 @@ PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/e
 - [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
 - [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
 
-
-### Installing the image on the Companion Computer {#install_image_mission_computer}
+<span id="install_image_mission_computer"></span>
+### Installing the image on the Companion Computer
 
 You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
 
@@ -194,8 +194,8 @@ To flash the USB image to the *UP Core*:
 1. Pull out the USB stick.
 1. Restart the vehicle. The *UP Core* computer will now boot from internal memory (eMMC).
 
-
-### Boot the Companion Computer {#boot_mission_computer}
+<span id="boot_mission_computer"></span>
+### Boot the Companion Computer
 
 First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery. The avoidance system should start within about 1 minute (though this does depend on the USB stick supplied).
 
@@ -205,8 +205,8 @@ If you've already [installed the image on the companion computer](#install_image
 
 Once started the companion computer can be used both as a computer vision development environment and for running the software.
 
-
-### Login to the Companion Computer {#login_mission_computer}
+<span id="login_mission_computer"></span>
+### Login to the Companion Computer
 
 To login to the companion computer:
 1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
