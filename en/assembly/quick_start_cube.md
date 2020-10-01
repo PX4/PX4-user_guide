@@ -118,8 +118,6 @@ PWM receivers must therefore connect to the **RCIN** port *via* a PPM encoder mo
 which may be purchased from hex.aero or proficnc.com.
 
 
-
-<span id="power"></span>
 ## Power
 
 Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port.

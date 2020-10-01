@@ -48,7 +48,6 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
   You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 
 
-<span id="power"></span>
 ## Power
 
 You can use a power module or power distribution board to power motors/servos and measure power consumption.

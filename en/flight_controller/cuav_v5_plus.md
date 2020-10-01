@@ -66,7 +66,6 @@ Some of its main features include:
 
 [CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
 
-<span id="pinouts"></span>
 ## Pinouts
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).

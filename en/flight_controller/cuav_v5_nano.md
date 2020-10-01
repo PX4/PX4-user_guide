@@ -68,7 +68,6 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 [V5 nano Wiring Quickstart](../assembly/quick_start_cuav_v5_nano.md)
 
 
-<span id="pinouts"></span>
 ## Pinouts
 
 Download **V5 nano** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
