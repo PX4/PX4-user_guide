@@ -18,7 +18,9 @@ PX4 allows you to configure how pre-arming, arming and disarming work using para
 
 > **Note** Arming/disarming parameters can be found in [Parameter Reference > Commander](../advanced_config/parameter_reference.md#commander) (search for `COM_ARM_` and `COM_DISARM_*`).
 
-## Arming Gesture {#arm_disarm_gestures}
+<span id="arm_disarm_gestures"></span>
+
+## Arming Gesture
 
 By default, the vehicle is armed and disarmed by moving RC throttle/yaw sticks to particular extremes and holding them for 1 second.
 
@@ -40,8 +42,9 @@ The required hold time can be configured using [COM_RC_ARM_HYST](#COM_RC_ARM_HYS
 | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | <span id="COM_RC_ARM_HYST"></span>[COM_RC_ARM_HYST](../advanced_config/parameter_reference.md#COM_RC_ARM_HYST) | Time that RC stick must be held in arm/disarm position before arming/disarming occurs (default: 1 second). |
 
+<span id="arm_disarm_switch"></span>
 
-## Arming Button/Switch {#arm_disarm_switch}
+## Arming Button/Switch
 
 An *arming button* or "momentary switch" can be configured to trigger arm/disarm *instead* of [gesture-based arming](#arm_disarm_gestures) (setting an arming switch disables arming gestures). The button should be held down for ([nominally](#COM_RC_ARM_HYST)) one second to arm (when disarmed) or disarm (when armed).
 
