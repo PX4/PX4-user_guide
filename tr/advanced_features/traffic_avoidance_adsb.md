@@ -2,14 +2,15 @@
 
 PX4 can use [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast) or [FLARM](https://en.wikipedia.org/wiki/FLARM) transponders to support simple air traffic avoidance in [missions](../flight_modes/mission.md). If a potential collision is detected, PX4 can *warn*, immediately [land](../flight_modes/land.md), or [return](../flight_modes/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
 
-## Supported Hardware {#supported_hardware}
+<span id="supported_hardware"></span>
+## Supported Hardware
 
 PX4 traffic avoidance works with ADS-B or FLARM products that supply transponder data using the MAVLink [ADSB_VEHICLE](https://mavlink.io/en/messages/common.html#ADSB_VEHICLE) message.
 
 It has been tested with the following devices:
-
 - [PingRX ADS-B Receiver](https://uavionix.com/product/pingrx/) (uAvionix)
 - [FLARM](https://flarm.com/products/powerflarm/uav/)
+
 
 ## Hardware Setup
 
@@ -26,8 +27,8 @@ The PingRX MAVLink port uses a JST ZHR-4 mating connector with pinout as shown b
 | 3 (blk) | Power    | +4 to 6V     |
 | 4 (blk) | GND      | GND          |
 
-
 The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md). For other ports or boards, you will need to obtain your own cable.
+
 
 ## FLARM
 
@@ -42,8 +43,8 @@ FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the 
 | 5 (blk) | -        | +3.3V       |
 | 6 (blk) | GND      | GND         |
 
-
 > **Note** The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
+
 
 ## Software Configuration
 
@@ -68,11 +69,11 @@ You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/para
 
 Configure the action when there is a potential collision using the parameter below:
 
-| Parameter                                                                                                 | Description                                                                                                       |
-| --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| <span id="NAV_TRAFF_AVOID"></span>[NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode. |
-| <span id="NAV_TRAFF_A_RADM"></span>[NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | Set traffic avoidance distance for *manned* aviation                                                              |
-| <span id="NAV_TRAFF_A_RADU"></span>[NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | Set traffic avoidance distance for *unmanned* aviation                                                            |
+| Parameter                                                                                                         | Description                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| !!crwdBlockTags_5_sgaTkcolBdwrc!![NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode. |
+| !!crwdBlockTags_6_sgaTkcolBdwrc!![NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | Set traffic avoidance distance for *manned* aviation                                                              |
+| !!crwdBlockTags_7_sgaTkcolBdwrc!![NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | Set traffic avoidance distance for *unmanned* aviation                                                            |
 
 
 ## Implementation
@@ -80,6 +81,7 @@ Configure the action when there is a potential collision using the parameter bel
 PX4 listens for valid transponder reports during missions.
 
 If a valid transponder report is received, PX4 first uses the transponder position and heading information to estimate whether the vehicles will share a similar altitude before they pass each other. If they may then PX4 it estimates how the closest distance between the path to the next waypoint and the other vehicles predicted path. If the crossing point is less than the configured distance for altitude and path, the [Traffic Avoidance Failsafe](../config/safety.md#traffic-avoidance-failsafe) action is started, and the vehicle will either warn, land, or return. The detection distance can be configured separately for manned and unmanned aviation.
+
 
 The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/navigator_main.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/navigator/navigator_main.cpp)).
 
