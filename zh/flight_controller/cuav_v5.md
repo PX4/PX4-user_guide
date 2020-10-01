@@ -47,7 +47,9 @@
 
 从 [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz) 官方淘宝店采购。
 
-## 接口定义 {#connection}
+<span id="connection"></span>
+
+## Connection
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 
@@ -55,13 +57,13 @@
 
 ## 额定电压
 
-*CUAV v5* can be triple-redundant on the power supply if three power sources are supplied. 三个电源口：**POWER1**, **POWER2** and **USB**。 
+*CUAV v5* can be triple-redundant on the power supply if three power sources are supplied. The three power rails are: **POWER1**, **POWER2** and **USB**.
 
 > **Note** The output power rails **FMU PWM OUT** and **I/O PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWER1**, **POWER2** or **USB** or the board will be unpowered.
 
-**正常运行最大额定值**
+**Normal Operation Maximum Ratings**
 
-在这些条件下，所有电源将按此顺序用于为系统供电：
+Under these conditions all power sources will be used in this order to power the system:
 
 1. **POWER1** 和 **POWER2** 输入电压 (4.3 v 至 5.4 v)
 2. **USB** 输入电压 (4.75 v 至 5.25 v)
@@ -77,9 +79,9 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 
 ## Debug调试端口
 
-The [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port. 只需将FTDI电缆连接到Debug & F7 SWD连接器。 To access the I/O Debug port, the user must remove the CUAV v5 shell. 这两个端口都有标准串行引脚, 可以连接到标准的FTDI电缆(3.3 v,但耐压5v )。
+The [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector. To access the I/O Debug port, the user must remove the CUAV v5 shell. Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
 
-引脚排列如图所示
+The pinout is as shown.
 
 ![CUAV v5 debug](../../assets/flight_controller/cuav_v5/pixhack_v5_debug.jpg)
 
@@ -112,7 +114,7 @@ The [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html) 
 
 ## Supported Platforms / Airframes
 
-任何可用普通RC伺服系统或Futaba S-Bus伺服系统控制的多旋翼、固定翼、无人机、无人船。 全部可支持的机型可见 [机型参考](../airframes/airframe_reference.md)。
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos. The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## Further info
 
