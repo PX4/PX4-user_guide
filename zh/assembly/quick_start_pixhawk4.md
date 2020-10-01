@@ -115,17 +115,19 @@ GPS/指南针模块应尽可能安装在远离其他电子设备的位置上, �
 
 ![Pixhawk 4 数传电台](../../assets/flight_controller/pixhawk4/pixhawk4_telemetry_radio.jpg)
 
-## SD Card (Optional) {#sd_card}
+<span id="sd_card"></span>
 
-SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. 将内存卡 (包含在 Pixhawk 套件中) 插入 *Pixhawk 4 * 中，如下所示。
+## SD Card (Optional)
 
-![Pixhawk 4/SD 卡](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
+SD cards are highly recommended as they are needed to [log and analyse flight details](../getting_started/flight_reporting.md), to run missions, and to use UAVCAN-bus hardware. Insert the card (included in Pixhawk 4 kit) into *Pixhawk 4* as shown below.
+
+![Pixhawk 4/SD Card](../../assets/flight_controller/pixhawk4/pixhawk4_sd_card.png)
 
 > **Tip** For more information see [Basic Concepts > SD Cards (Removable Memory)](../getting_started/px4_basic_concepts.md#sd_cards).
 
 ## 电机
 
-电机和舵机按照 [机架参考](../airframes/airframe_reference.md) 中为您的飞机指定的顺序连接至 **I/O PWM OUT** （**MAIN**）和 **FMU PWM OUT**（**AUX**）端口。
+Motors/servos are connected to the **I/O PWM OUT** (**MAIN**) and **FMU PWM OUT** (**AUX**) ports in the order specified for your vehicle in the [Airframe Reference](../airframes/airframe_reference.md).
 
 > 本参考列出了所有支持的空中和地面机架的接口与电机/舵机的映射关系（如果你的机架没有在参考列表里，你可以使用对应类型的“通用”机架）。
 
@@ -135,17 +137,17 @@ SD cards are highly recommended as they are needed to [log and analyse flight de
 
 ## 其它外设
 
-针对可选/非通用组件的接线与配置，在 [外围设备](../peripherals/README.md) 独立主题中有详细的内容介绍。
+The wiring and configuration of optional/less common components is covered within the topics for individual [peripherals](../peripherals/README.md).
 
 ## 针脚定义
 
-[Pixhawk 4 针脚定义](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf)（从Holybro官网获取PDF）
+[Pixhawk 4 Pinouts](http://www.holybro.com/manual/Pixhawk4-Pinouts.pdf) (Holybro)
 
 ## 配置
 
-一般配置信息在以下内容中介绍：[自动驾驶仪配置 ](../config/README.md)。
+General configuration information is covered in: [Autopilot Configuration](../config/README.md).
 
-四轴复合翼垂起的特定配置在以下内容中介绍：[四轴复合翼配置](../config_vtol/vtol_quad_configuration.md)。
+QuadPlane specific configuration is covered here: [QuadPlane VTOL Configuration](../config_vtol/vtol_quad_configuration.md)
 
 <!-- Nice to have detailed wiring infographic and instructions for different vehicle types. -->
 
