@@ -28,7 +28,9 @@ While it might seem that you are dealing with a vehicle that can fly in two mode
 
 Getting your transition tuning right is important for obtaining a safe entry into fixed wing mode, for example, if your airspeed is too slow when it transitions it might stall.
 
-#### Transition Throttle {#transition_throttle}
+<span id="transition_throttle"></span>
+
+#### Transition Throttle
 
 Parameter: [VT_F_TRANS_THR](../advanced_config/parameter_reference.md#VT_F_TRANS_THR)
 
@@ -70,7 +72,9 @@ Activating permanent stabilisation will result in fixed wing flight being stabil
 
 Note that if you have not yet tuned your fixed wing mode you should leave this off until you are sure it behaves well in this mode.
 
-### 过渡模式小提示 {#transitioning_tips}
+<span id="transitioning_tips"></span>
+
+### Transitioning Tips
 
 As already mentioned make sure you have a well tuned multirotor mode. If during a transition something goes wrong you will switch back to this mode and it should be quite smooth.
 
@@ -102,7 +106,9 @@ Consider that the throttle value you have when you transition will command the a
 
 For advanced tuning of the back-transition please refer to the [Back-transition Tuning Guide](vtol_back_transition_tuning.md)
 
-#### 紧急切出过渡模式 {#aborting_a_transition}
+<span id="aborting_a_transition"></span>
+
+#### Aborting a Transition
 
 It’s important to know what to expect when you revert a transition command *during* a transition.
 
