@@ -9,7 +9,8 @@ This topic explains how to compensate for the induced magnetic fields in the cas
 <span></span>
 > **Note** The process is demonstrated for a multicopter, but is equally valid for other vehicle types.
 
-## When is Power Compensation Applicable? {#when}
+<span id="when"></span>
+## When is Power Compensation Applicable?
 
 Performing this power compensation is advisable only if all the following statements are true:
 1. The compass cannot be moved away from the power-carrying cables.
@@ -17,7 +18,8 @@ Performing this power compensation is advisable only if all the following statem
 
 1. The drone cables are all fixed in place/do not move (calculated compensation parameters will be invalid if the current-carrying cables can move).
 
-## How to Compensate the Compass {#how}
+<span id="how"></span>
+## How to Compensate the Compass
 
 1. Make sure your drone runs a Firmware version supporting power compensation (current master, or releases from v.1.11.0).
 1. Perform the [standard compass calibration](../config/compass.md#compass-calibration).
