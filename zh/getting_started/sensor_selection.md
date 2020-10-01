@@ -8,27 +8,29 @@
 
 下面我们介绍一些传感器。 最后有链接到关于 [传感器接线](#wiring) 的信息。
 
-## GPS&罗盘 {#gps_compass}
+<span id="gps_compass"></span>
 
-PX4 支持许多全球导航卫星系统（GNSS）接收器和罗盘（磁力计）。 它还支持 [实时动态（RTK）GPS接收器](../gps_compass/rtk_gps.md) ，它将 GPS 系统扩展到厘米级精度。
+## GPS & Compass
+
+PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
 
 > **Tip** [ Pixhawk 系列](../flight_controller/pixhawk_series.md) 控制器包括 *内置* 罗盘。 这对于大型飞行器（例如 VTOL ） *可能* 是有用的，其中可以通过远离电源线安装Pixhawk 来减少电磁干扰。 在小型飞行器上，几乎总是需要外置罗盘。
 
-我们建议使用安装在尽可能远离 电机/电调 电源线的外部“组合” 罗盘 / GPS 模块 - 通常在支座或机翼（固定翼）上。
+We recommend the use of an external "combined" compass/GPS module mounted as far away from the motor/ESC power supply lines as possible - typically on a pedestal or wing (for fixed-wing).
 
-常见的 GPS/罗盘硬件选项列于：[GPS/罗盘](../gps_compass/README.md)。
+Common GPS/compass hardware options are listed in: [GPS/Compass](../gps_compass/README.md).
 
-![GPS + 罗盘](../../assets/hardware/gps/gps_compass.jpg)
+![GPS + Compass](../../assets/hardware/gps/gps_compass.jpg)
 
 ## 空速计
 
-对于固定翼和 VTOL 机架，*强烈建议* 使用空速传感器。
+Airspeed sensors are *highly recommended* for fixed-wing and VTOL frames.
 
-它们非常重要，因为自驾仪没有其他方法来检测失速。 对于固定翼飞行来说，保证升力的是空速而不是地速。
+They are so important because the autopilot does not have other means to detect stall. For fixed-wing flight it is the airspeed that guarantees lift not ground speed!
 
-![数字空速传感器](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
+![Digital airspeed sensor](../../assets/hardware/sensors/airspeed/digital_airspeed_sensor.jpg)
 
-有关更多信息和推荐的硬件，请参阅：[空速传感器](../sensor/airspeed.md)。
+For more information and recommended hardware see: [Airspeed Sensors](../sensor/airspeed.md).
 
 ## Tachometer
 
@@ -57,7 +59,9 @@ Some options include:
 * [ 3DR PX4Flow 智能相机（光流传感器）](https://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/)
 * [HK Pilot32 带声呐的光流套件](https://hobbyking.com/en_us/hk-pilot32-optical-flow-kit-with-sonar.html) (好盈) - 软件兼容, 但接口不兼容。
 
-## Sensor Wiring {#wiring}
+<span id="wiring"></span>
+
+## Sensor Wiring
 
 Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.
 
