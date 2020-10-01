@@ -22,7 +22,9 @@ The *desired setpoint* passed to the P/PID controller is itself calculated from 
 
 > **Tip** Poorly tuned [P/PID Gains](../config_mc/pid_tuning_guide_multicopter.md) can lead to instability. Poorly tuned *setpoint values* cannot result in instability, but may result in either very jerky or very unresponsive reactions to setpoint changes.
 
-## Flight Modes Trajectory Support {#modes}
+<span id="modes"></span>
+
+## Flight Modes Trajectory Support
 
 [Mission mode](../flight_modes/mission.md) used the [Jerk-limited](../config_mc/mc_jerk_limited_type_trajectory.md) trajectory all the time.
 
@@ -32,7 +34,9 @@ The *desired setpoint* passed to the P/PID controller is itself calculated from 
 
 No other modes support trajectory tuning.
 
-## Trajectory Implementations {#trajectory_implementation}
+<span id="trajectory_implementation"></span>
+
+## Trajectory Implementations
 
 The following list provides an *overview* of the different trajectory implementations:
 
