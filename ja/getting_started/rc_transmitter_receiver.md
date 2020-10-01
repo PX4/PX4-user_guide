@@ -22,13 +22,15 @@ RCシステムの性能において，重要なのはいくつの"チャンネ�
 
 ## RCシステムの種別
 
-### 飛行体用RCシステム {#transmitter_modes}
+<span id="transmitter_modes"></span>
 
-UAV用の最も一般的なRCシステムの *形態* は以下の通りです。 このようなシステムでは，それぞれ独立したコントロール用スティックを持っており，それぞれ，ロール・ピッチ，スロットル・ヨーに割り当てられます(言い換えると，飛行体は4チャンネル以上を必要とします)。
+### Remote Control Units for Aircraft
+
+The most popular *form* of remote control unit for UAVs is shown below. It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (i.e. aircraft need at least 4 channels).
 
 ![RC Basic Commands](../../assets/flying/rc_basic_commands.png)
 
-コントロールスティックやスイッチなどの割り当てには，限りなくいくつものパターンが存在します。 中でも一般的ないくつかのレイアウトには，"モード"と呼ばれる番号が割り当てられています。 *モード 1* と *モード 2* (以下参照) はスロットルの配置が違うのみです。
+There are numerous possible layouts for the control sticks, switches, etc. The more common layouts have been given specific "Mode" numbers. *Mode 1* and *Mode 2* (shown below) differ only in the placement of the throttle.
 
 ![Mode1-Mode2](../../assets/concepts/mode1_mode2.png)
 
@@ -36,34 +38,36 @@ UAV用の最も一般的なRCシステムの *形態* は以下の通りです�
 
 ## 地上機用RCシステム
 
-地上機 (Unmanned Ground Vehicle, UGV) では，ステアリング指令と速度指令を送信するため，送信機には2チャンネル以上のチャンネルが必要です。 一般的には，ホイールとトリガーを持った送信機や，2つの1軸型のスティックを持った送信機，1つの2軸型のスティックを持った送信機などが用いられます。
+An Unmanned Ground Vehicle (UGV)/car minimally requires a 2 channel transmitter in order to send the values for steering and speed. Commonly transmitters set these values using a wheel and trigger, two single-axis control sticks, or a single dual-axis control stick.
 
-もちろん，もっと多くのチャンネル・制御機構を持った送信機を用いることで，追加のアクチュエータを動かしたり，オートパイロットのモード切替などを容易にすることができます。
+There is nothing to stop you using more channels/control mechanisms, and these can be very useful for engaging additional actuators and autopilot modes.
 
 ## RCシステムコンポーネントの選択
 
-まず，送信機と受信機は互いに互換性のあるものを選択しなくてはいけません。 さらに受信機は [PX4互換](#compatible_receivers)であり，フライトコントローラと接続可能でなくてはいけません。
+You will need to select a transmitter/receiver pair that are compatible with each other. In addition, receivers have to be be [compatible with PX4](#compatible_receivers) and the flight controller hardware.
 
-互換性を持ったRCシステムはたいていセットで販売されています。 たとえば，,[FrSky Taranis X9D と FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us) は一般的な組み合わせです。
+Compatible radio systems are often sold together. For example, [FrSky Taranis X9D and FrSky X8R](https://hobbyking.com/en_us/frsky-2-4ghz-accst-taranis-x9d-plus-and-x8r-combo-digital-telemetry-radio-system-mode-2.html?___store=en_us) are a popular combination.
 
 ### 送受信機ペア
 
-最も一般的なRCユニットのひとつは*FrSky Taranis X9D*です。 本ユニットでは， *FrSky X4R-SB* (S-BUS, 低遅延) や *X4R* (PPM-Sum, 従来一般的であった形式) 受信機と通信可能な送信モジュールが同梱されています。 また，カスタム送信モジュール用スロットもあり，改造可能なオープンソースのOpenTXファームウェアによって動作可能です。
+One of the most popular RC units is the *FrSky Taranis X9D*. It has an internal transmitter module can be used with the recommended *FrSky X4R-SB* (S-BUS, low delay) or *X4R* (PPM-Sum, legacy) receivers out of the box. It also has a custom radio transmitter module slot and customizable open source OpenTX Firmware.
 
 > **Note** 本ユニットでは，[FrSky](../peripherals/frsky_telemetry.md) モジュールと組み合わせることで，機体のテレメトリ情報を表示することも可能です。
 
-その他の一般的なRC送受信機の組み合わせは以下の通りです。
+Other popular transmitter/receiver pairs
 
 * FrSky送受信機を用いた，Turnigyシステム
 * Futaba社製送信機と，S-Bus互換受信機
 * 900MHz帯を用いた長距離・低遅延システム："Team Black Sheep Crossfire" や "Crossfire Micro" セットを互換送信機 (例：Taranis) と組み合わせたもの。
 * 433MHz帯を用いた長距離システム： ImmersionRC EzUHF セットを互換送信機(例：Taranis) と組み合わせたもの。
 
-### PX4互換受信機 {#compatible_receivers}
+<span id="compatible_receivers"></span>
 
-送信機と互換性があるだけでなく，受信機はPX4およびフライトコントローラ用ハードウェアと互換性を持つ必要があります。
+### PX4-Compatible Receivers
 
-*PX4* と *Pixhawk* は以下のシステムで動作が検証されています:
+In addition to the transmitter/receiver pairs being compatible, the receiver must also be compatible with PX4 and the flight controller hardware.
+
+*PX4* and *Pixhawk* have been validated with:
 
 * すべてのSpektrum DSM RC 受信機
 * すべてのFutaba社製 S.BUS および S.BUS2 RC 受信機
@@ -73,14 +77,14 @@ UAV用の最も一般的なRCシステムの *形態* は以下の通りです�
 
 ## 受信機の接続
 
-一般的な説明として，受信機はそのプロトコルに応じて，フライトコントローラの適切なポートに接続する必要があります:
+As general guidance, receivers connect to the flight controller using the port appropriate to their supported protocol:
 
 * Spektrum および DSM 受信機は **SPKT/DSM** 入力ポートに接続してください。
 * Graupner HoTT receivers: SUMD output must connect to a **SPKT/DSM** input.
 * PPM-Sum and S.BUS receivers must connect directly to the **RC** ground, power and signal pins (typically labeled RC or RCIN)
 * PPM receivers that have an individual wire for each channel must connect to the RCIN channel *via* a PPM encoder [like this one](http://www.getfpv.com/radios/radio-accessories/holybro-ppm-encoder-module.html) (PPM-Sum receivers use a single signal wire for all channels).
 
-いくつかのフライトコントローラへの接続例は，以下のクイックスタートガイドにて参照可能です:
+Instructions for connecting to specific flight controllers are given in the following quick-start guides:
 
 * [Pixhawk 1](../assembly/quick_start_pixhawk.md#radio-control)
 * [Pixracer](../assembly/quick_start_pixracer.md)
@@ -88,11 +92,13 @@ UAV用の最も一般的なRCシステムの *形態* は以下の通りです�
 
 > **Tip** より詳しい情報は，フライトコントローラの製造者のマニュアルを参照してください。
 
-## 送受信機のバインド {#binding}
+<span id="binding"></span>
 
-RCシステムをキャリブレーション/使用する前に，送受信機をお互いに認識させるため， *バインド* を行う必要があります。 バインドを行う手順はハードウェアによって異なります(ハードウェアのマニュアルを参照してください) 。
+## Binding Transmitter/Receiver
 
-もし *Spektrum* 受信機を使用している場合，*QGroundControl*を用いて，バインドモードに移行することが可能です。: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
+Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other. The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions).
+
+If you are using a *Spektrum* receiver, you can put it into bind mode using *QGroundControl*: [Radio Setup > Spectrum Bind](../config/radio.md#spektrum_bind).
 
 ## Set Signal-Loss Behaviour
 
