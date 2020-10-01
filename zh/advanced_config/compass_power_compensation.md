@@ -9,7 +9,8 @@
 <span></span>
 > **Note** 下述过程基于多旋翼无人机演示，但同样适用于其他类型的载具。
 
-## 电源补偿的适用条件 {#when}
+<span id="when"></span>
+## When is Power Compensation Applicable?
 
 只有当下述的全部条件都满足时才建议采用电源补偿：
 1. 磁航向计无法远离动力线缆。
@@ -17,7 +18,8 @@
 
 1. 无人机的线缆都是固定的或不会移动的（当通电的线缆能够移动会导致计算出的补偿参数失效）。
 
-## 如何补偿磁航向计 {#how}
+<span id="how"></span>
+## How to Compensate the Compass
 
 1. 确保无人机运行在支持电源补偿的固件版本上（当前的Master版，或v1.11.0之后的版本）。
 1. 执行标准的[指南针校准](../config/compass.md#compass-calibration)流程。
