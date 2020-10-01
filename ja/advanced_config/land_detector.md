@@ -30,7 +30,9 @@ The complete set of relevant parameters is available under the [LNDFW](../advanc
 - [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum horizontal velocity for the system to be still be considered landed. 
 - [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum vertical velocity for the system to be still be considered landed. This parameter can be adjusted to ensure land detection triggers earlier or later on throwing the airframe for hand-launches.
 
-## Land Detector States {#states}
+<span id="states"></span>
+
+## Land Detector States
 
 ### Multicopter Land Detection
 
