@@ -56,7 +56,9 @@ GPS configuration on Pixhawk is handled transparently for the user - simply conn
 
 > **Note** The default [Serial Port Configuration](../peripherals/serial_configuration.md#default_port_mapping) works for most devices. If you are using the *Trimble MB-Two* you will need to modify the configuration to explicitly set the rate to 115200 baud.
 
-### Secondary GPS (Dual GPS System) {#dual_gps}
+<span id="dual_gps"></span>
+
+### Secondary GPS (Dual GPS System)
 
 To use a secondary GPS, attach it to any free port, and then perform a [Serial Port Configuration](../peripherals/serial_configuration.md) to assign [GPS_2_CONFIG](../advanced_config/parameter_reference.md#GPS_2_CONFIG) to the selected port.
 
