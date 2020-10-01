@@ -10,7 +10,9 @@ The following sections explain how to configure the [return type](#return_types)
 
 > **Note** * This mode requires GPS. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 
-## Return Types (RTL_TYPE) {#return_types}
+<span id="return_types"></span>
+
+## Return Types (RTL_TYPE)
 
 PX4 provides four alternative approaches ([RTL_TYPE](#RTL_TYPE)) for finding an unobstructed path to a safe destination and/or landing:
 
@@ -21,7 +23,9 @@ PX4 provides four alternative approaches ([RTL_TYPE](#RTL_TYPE)) for finding an 
 
 More detailed explanations for each of the types are provided in the following sections.
 
-### Home/Rally Point Return Type (RTL_TYPE=0) {#home_return}
+<span id="home_return"></span>
+
+### Home/Rally Point Return Type (RTL_TYPE=0)
 
 In this return type the vehicle:
 
@@ -31,7 +35,9 @@ In this return type the vehicle:
 
 > **Note** If no rally points are defined, this is the same as a *Return to Launch* (RTL)/*Return to Home* (RTH).
 
-### Mission Landing/Rally Point Return Type (RTL_TYPE=1) {#mission_landing_return}
+<span id="mission_landing_return"></span>
+
+### Mission Landing/Rally Point Return Type (RTL_TYPE=1)
 
 In this return type the vehicle:
 
@@ -48,7 +54,9 @@ In this return type the vehicle:
 
 > **Warning** When this type is set PX4 will reject any mission without a valid landing pattern.
 
-### Mission Path Return Type (RTL_TYPE=2) {#mission_path_return}
+<span id="mission_path_return"></span>
+
+### Mission Path Return Type (RTL_TYPE=2)
 
 This return type uses the mission (if defined) to provide a safe return *path*, and the mission landing pattern (if defined) to provide landing behaviour. If there is a mission but no mission landing pattern, the mission is flown *in reverse*. Rally points, if any, are ignored.
 
@@ -82,7 +90,9 @@ If no mission is defined PX4 will fly directly to home location and land (rally 
 
 If the mission changes during return mode, then the behaviour is re-evaluated based on the new mission following the same rules as above (e.g. if the new mission has no landing sequence and you're in a mission, the mission is reversed).
 
-### Closest Safe Destination Return Type (RTL_TYPE=3) {#safety_point_return}
+<span id="safety_point_return"></span>
+
+### Closest Safe Destination Return Type (RTL_TYPE=3)
 
 In this return type the vehicle:
 
@@ -91,7 +101,9 @@ In this return type the vehicle:
 - If the destination is a mission landing pattern the vehicle will follow the pattern to land
 - If the destination is a home location or rally point, the vehicle will descend to the descent altitude ([RTL_DESCEND_ALT](#RTL_DESCEND_ALT)) and then [Land or waits](#arrival).
 
-## Return Altitude {#return_altitude}
+<span id="return_altitude"></span>
+
+## Return Altitude
 
 A vehicle will usually first ascend to a safe altitude before returning, in order to avoid any obstacles between it and the destination.
 
@@ -119,13 +131,17 @@ Note:
 - If [RTL_CONE_ANG](#RTL_CONE_ANG) is 90 degrees the vehicle will return at the greater of `RTL_DESCEND_ALT` and the current altitude.
 - The vehicle will always ascend at least [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) for the return.
 
-## Hover/Landing at Destination {#arrival}
+<span id="arrival"></span>
+
+## Hover/Landing at Destination
 
 Unless executing a mission landing (e.g. if executing a [home location return](#home_return) or [closest safe destination return](#safety_point_return)), the vehicle will arrive at its destination, and rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
 
 The vehicle will the loiter for a specified time ([RTL_LAND_DELAY](#RTL_LAND_DELAY)) and then land. If [RTL_LAND_DELAY=-1](#RTL_LAND_DELAY) it will loiter indefinitely.
 
-## Vehicle Default Behaviour {#default_configuration}
+<span id="default_configuration"></span>
+
+## Vehicle Default Behaviour
 
 The mode is *implemented* in almost exactly the same way in all vehicle types (the exception being that fixed wing vehicles will circle rather than hover when waiting), and are hence tuned using the same parameters.
 
@@ -164,8 +180,8 @@ VTOL aircraft use a [mission landing return type](#mission_landing_return) by de
 
 The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced_config/parameter_reference.md#return-mode) (and summarised below).
 
-| Parameter                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <span id="RTL_TYPE"></span>[RTL_TYPE](../advanced_config/parameter_reference.md#RTL_TYPE)                 | Return mechanism (path and destination).  
 `0`: Return to a rally point or home (whichever is closest) via direct path.  
 `1`: Return to a rally point or the mission landing pattern start point (whichever is closest), via direct path. If neither mission landing or rally points are defined return home via a direct path. If the destination is a mission landing pattern, follow the pattern to land.  
