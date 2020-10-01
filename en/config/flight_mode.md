@@ -35,7 +35,8 @@ It is also common to map switches to:
 
 > **Tip** The recommended approach is use *Single Channel Mode Selection* because it easy to understand and configure. 
 
-## Single-Channel Flight Mode Selection {#single_channel}
+<span id="single_channel"></span>
+## Single-Channel Flight Mode Selection
 
 The single-channel selection mode allows you to specify a "mode" channel and select up to 6 flight modes that will be activated based on the PWM value of the channel. You can also separately specify channels for mapping a kill switch, return to launch mode, and offboard mode.
 
@@ -63,7 +64,8 @@ To configure single-channel flight mode selection:
 
 All values are automatically saved as they are changed.
 
-### Single-Channel Setup Video Example (including Transmitter Setup) {#taranis_setup}
+<span id="taranis_setup"></span>
+### Single-Channel Setup Video Example (including Transmitter Setup)
 
 It is common to use the positions of a 2- and a 3-position switch on the transmitter to represent the 6 flight modes, and encode each combination of switches as a particular PWM value for the mode that will be sent on a single channel. 
 
@@ -99,7 +101,8 @@ For example, below we map channel 6 to the [RC_MAP_ARM_SW](../advanced_config/pa
 ![QGC - Map ARM switch to channel](../../assets/qgc/setup/flight_modes/single_channel_mode_selection_4.png)
 
 
-## Multi-Channel Flight Mode Selection {#multi_channel}
+<span id="multi_channel"></span>
+## Multi-Channel Flight Mode Selection
 
 > **Tip** We recommend you use [Single Channel Flight Mode](#single_channel) selection because the Multi Channel selection user interface can be confusing. If you do choose to use this method, then the best approach is to start assigning channels and take note of information displayed by *QGroundControl* following your selection. 
 

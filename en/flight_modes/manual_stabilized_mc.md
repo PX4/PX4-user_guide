@@ -21,7 +21,8 @@ The pilot's inputs are passed as roll and pitch angle commands and a yaw rate co
 > **Note**
 >  * Manual input is required (RC controller, or gamepad/thumbsticks through MAVLink).
 
-## Parameters {#params}
+<span id="params"></span>
+## Parameters
 
 Parameter | Description
 --- | ---

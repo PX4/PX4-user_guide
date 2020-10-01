@@ -134,7 +134,8 @@ sudo ./bin/px4 -s px4.config
 > **Note** Currently *librobotcontrol* requires root access.
 
 
-## Native Builds (optional) {#native_builds}
+<span id="native_builds"></span>
+## Native Builds (optional)
 
 You can also natively build PX4 builds directly on the BeagleBone Blue.
 

@@ -53,7 +53,8 @@ Mitochondrik based drives and ESC:
 > **Note** There are many other commercially available ESCs; please add new links as you find them!
 
 
-## Wiring/Connections {#connecting}
+<span id="connecting"></span>
+## Wiring/Connections
 
 Connect all of the on-board UAVCAN devices into a chain and make sure the bus is terminated at the end nodes.
 The order in which the ESCs are connected/chained does not matter.
@@ -88,12 +89,14 @@ The mechanism for enumerating each type of UAVCAN ESC is different (look up the 
 Setup information for some UAVCAN ESCs is provided below.
 
 
-### Sapog ESC setup {#sapog}
+<span id="sapog"></span>
+### Sapog ESC setup
 
 The following sections explain how to enumerate [Sapog-based](https://github.com/PX4/sapog#px4-sapog)-based ESCs with PX4.
 The instructions should work for any Sapog-based ESC design.
 
-#### ESC Enumeration using QGroundControl {#sapog_esc_qgc}
+<span id="sapog_esc_qgc"></span>
+#### ESC Enumeration using QGroundControl
 
 > **Tip** You can skip this section if there is only one ESC in your setup, because the ESC index is already set to zero by default.
 

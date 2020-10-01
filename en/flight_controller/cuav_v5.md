@@ -48,7 +48,8 @@ It is intended primarily for academic and commercial developers.
 
 Order from [CUAV](https://cuav.taobao.com/index.htm?spm=2013.1.w5002-16371268426.2.411f26d9E18eAz).
 
-## Connection {#connection}
+<span id="connection"></span>
+## Connection
 
 ![CUAV v5](../../assets/flight_controller/cuav_v5/pixhack_v5_connector.jpg)
 

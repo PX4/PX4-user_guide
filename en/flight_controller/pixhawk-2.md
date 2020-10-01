@@ -34,7 +34,8 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 * microSD card for high-rate logging over extended periods of time
 
 
-## Where to Buy {#stores}
+<span id="stores"></span>
+## Where to Buy
 
 [Cube Black](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
@@ -108,7 +109,8 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ![Cube Ports - Top (GPS, TELEM etc) and Main/AUX](../../assets/flight_controller/cube/cube_ports_top_main.jpg)
 
-### Serial Port Mapping {#serial_ports}
+<span id="serial_ports"></span>
+### Serial Port Mapping
 
 UART | Device | Port
 --- | --- | ---

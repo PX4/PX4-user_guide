@@ -102,7 +102,8 @@ I tested all ESC motor pairs and their rotation directions using a cheap PWM ser
 
 ![Motor test](../../assets/airframes/multicopter/qav_r_5_kiss_esc_racer/motor-test.jpg)
 
-## Connecting & Mounting Electronics {#mounting}
+<span id="mounting"></span>
+## Connecting & Mounting Electronics
 
 > **Tip**
 > Double check the pin assignment of every component you connect. Sadly not every hardware component out there is plug and play even if it may look like this at first glance.

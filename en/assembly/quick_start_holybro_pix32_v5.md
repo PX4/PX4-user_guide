@@ -47,12 +47,14 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
   To disable the safety press and hold the safety switch for 1 second.
   You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 
-## Power {#power}
+<span id="power"></span>
+## Power
 
 You can use a power module or power distribution board to power motors/servos and measure power consumption.
 The recommended power modules are shown below.
 
-### PM02 v3 Power Module {#pm02_v3}
+<span id="pm02_v3"></span>
+### PM02 v3 Power Module
 
 The [Power Module (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html) can be bundled with *pix32 v5*.
 It provides regulated power to flight controller and sends battery voltage/current to the flight controller.

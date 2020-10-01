@@ -38,7 +38,8 @@ This covers the common setup for obstacle avoidance and collision prevention, an
 The configuration information includes, among other things, how to set up safe landing for different cameras, sizes of vehicles, and the height at which the decision to land or not is taken.
 
 
-## Safe Landing Interface {#interface}
+<span id="interface"></span>
+## Safe Landing Interface
 
 PX4 uses the [Path Planning Interface](../computer_vision/path_planning_interface.md) for integrating path planning services from a companion computer (including [Obstacle Avoidance in missions](../computer_vision/obstacle_avoidance.md#mission_mode), [Safe Landing](../computer_vision/safe_landing.md), and future services).
 

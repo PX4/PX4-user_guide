@@ -48,12 +48,14 @@ The GPS/Compass should be mounted on the frame as far away from other electronic
   You can press the safety switch again to enable safety and disarm the vehicle (this can be useful if, for whatever reason, you are unable to disarm the vehicle from your remote control or ground station).
 
 
-## Power {#power}
+<span id="power"></span>
+## Power
 
 You can use a power module or power distribution board to power motors/servos and measure power consumption.
 The recommended power modules are shown below.
 
-### PM02 v3 Power Module {#pm02_v3}
+<span id="pm02_v3"></span>
+### PM02 v3 Power Module
 
 The [Power Module (PM02 v3)](https://shop.holybro.com/power-modulepm02-v3_p1185.html) can be bundled with *Durandal*.
 It provides regulated power to flight controller and sends battery voltage/current to the flight controller.
@@ -86,7 +88,8 @@ The power module has the following characteristics/limits:
 
 > **Note** See also [PM02v3 Power Module Manual](http://www.holybro.com/manual/Holybro_PM02_v3_PowerModule_Manual.pdf) (Holybro).
 
-### Pixhawk 4 Power Module (PM07) {#pm07}
+<span id="pm07"></span>
+### Pixhawk 4 Power Module (PM07)
 
 The [Pixhawk 4 Power Module (PM07)](https://shop.holybro.com/pixhawk-4-power-module-pm07_p1095.html) can be bundled/used with *Durandal*.
 It acts as both a power module and power distribution board, providing regulated power to flight controller and the ESCs, and sending battery voltage/current to the flight controller. 
@@ -178,7 +181,8 @@ The wiring and configuration of optional/less common components is covered withi
 
 [Durandal > Pinouts](../flight_controller/durandal.md#pinouts)
 
-## PX4 Configuration {#configuration}
+<span id="configuration"></span>
+## PX4 Configuration
 
 First you will need to install [PX4 "Master" Firmware](../config/firmware.md#custom) onto the controller using *QGroundControl*.
 > **Note** Durandal support will be in the *stable* PX4 release that follows PX4 v1.10.

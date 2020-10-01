@@ -17,7 +17,8 @@ Features that are common to many plots:
 - Mouse scrolling on a particular plot axis zooms that axis (horizontally or vertically).
 - Mouse scrolling inside the plot zooms both axes.
 
-## PID Tracking Performance {#tracking}
+<span id="tracking"></span>
+## PID Tracking Performance
 
 Depending on the flight mode, the vehicle controllers may attempt to track position, velocity, altitude or rate setpoints (the tracked setpoints depend on the mode, e.g.: in Stabilized mode there is no velocity setpoint).
 
@@ -180,7 +181,8 @@ Very high (unsafe) vibration levels.
 ![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
 
-### Raw High-rate IMU Data Plots {#fifo_logging}
+<span id="fifo_logging"></span>
+### Raw High-rate IMU Data Plots
 
 For an in-depth analysis there is an option to log the raw IMU data at full rate (several kHz, depending on the IMU).
 This allows inspection of much higher frequencies than with normal logging, which can help when selecting vibration mounts or configuring low-pass and notch filters appropriately.
@@ -207,7 +209,8 @@ Example plot:
 <span></span>
 > **Note** Do not forget to restore the parameters after testing.
 
-### Fixing Vibration Problems {#solutions}
+<span id="solutions"></span>
+### Fixing Vibration Problems
 
 Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
 

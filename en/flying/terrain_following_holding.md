@@ -7,7 +7,8 @@ PX4 also supports using a *distance sensor* as the [primary source of altitude d
 > **Note** PX4 does not "natively" support terrain following in missions.
   *QGroundControl* can be used to define missions that *approximately* follow terrain (this just sets waypoint altitudes based on height above terrain, where terrain height at waypoints is obtained from a map database).
 
-## Terrain Following {#terrain_following}
+<span id="terrain_following"></span>
+## Terrain Following
 
 *Terrain following* enables a vehicle to automatically maintain a relatively constant height above ground level when traveling at low altitudes.
 This is useful for avoiding obstacles and for maintaining constant height when flying over varied terrain (e.g. for aerial photography).
@@ -25,7 +26,8 @@ At higher altitudes (when the estimator reports that the distance sensor data is
 Terrain following is enabled by setting [MPC_ALT_MODE](../advanced_config/parameter_reference.md#MPC_ALT_MODE) to `1`.
 
 
-## Terrain Hold {#terrain_hold}
+<span id="terrain_hold"></span>
+## Terrain Hold
 
 *Terrain hold* uses a distance sensor to help a vehicle to better maintain a constant height above ground in altitude control modes, when horizontally stationary at low altitude.
 This allows a vehicle to avoid altitude changes due to barometer drift or excessive barometer interference from rotor wash.
@@ -41,7 +43,8 @@ Terrain holding is enabled by setting [MPC_ALT_MODE](../advanced_config/paramete
   If the distance to ground changes due to external forces, the altitude setpoint adjusts to keep the height above ground constant.
 
 
-## Distance Sensor as Primary Source of Height {#distance_sensor_primary_altitude_source}
+<span id="distance_sensor_primary_altitude_source"></span>
+## Distance Sensor as Primary Source of Height
 
 PX4 allows you to make a distance sensor the *primary source of altitude data* (in any flight mode/vehicle type).
 This may be useful when no barometer is available, or for applications when the vehicle is *guaranteed* to only fly over a near-flat surface (e.g. indoors).
@@ -64,7 +67,8 @@ When using a distance sensor as the primary source of height, fliers should be a
 The feature is enabled by setting: [EKF2_HGT_MODE=2](../advanced_config/parameter_reference.md#EKF2_HGT_MODE).
 
 
-## Range Aid {#range_aid}
+<span id="range_aid"></span>
+## Range Aid
 
 *Range Aid* uses a distance sensor as the primary source of height estimation during low speed/low altitude operation, but will otherwise use the primary source of altitude data defined in [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) (typically a barometer).
 It is primarily intended for *takeoff and landing*, in cases where the barometer setup is such that interference from rotor wash is excessive and can corrupt EKF state estimates.

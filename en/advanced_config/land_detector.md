@@ -39,7 +39,8 @@ These two parameters are sometimes worth tuning:
   This parameter can be adjusted to ensure land detection triggers earlier or later on throwing the airframe for hand-launches.
 
 
-## Land Detector States {#states}
+<span id="states"></span>
+## Land Detector States
 
 ### Multicopter Land Detection
 

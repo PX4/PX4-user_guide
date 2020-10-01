@@ -52,7 +52,8 @@ Customized screws are supposed to be M2.5 with thread length inside Cube in rang
 ![Cube Mount - Mounting Plate](../../assets/flight_controller/cube/cube_mount_plate_screws.jpg)
 
 
-## GPS + Compass + Safety Switch + LED {#gps}
+<span id="gps"></span>
+## GPS + Compass + Safety Switch + LED
 
 The recommended GPS modules are the *Here* and [Here+](../gps_compass/rtk_gps_hex_hereplus.md), both of which incorporate a GPS module, Compass, Safety Switch and [LEDs](../getting_started/led_meanings.md).
 
@@ -71,7 +72,8 @@ The diagram below shows a schematic view of the module and its connections.
 > **Tip** If you want to use an old-style 6-pin GPS module, the kit comes with a cable that you can use to connect both the GPS and [Safety Switch](#safety_switch).
 
 
-## Safety Switch {#safety_switch}
+<span id="safety_switch"></span>
+## Safety Switch
 
 The *dedicated* safety switch that comes with the Cube is only required if you are not using the recommended [GPS](#gps) (which has an inbuilt safety switch).
 
@@ -86,7 +88,8 @@ This should be connected to the USB port as shown (no further configuration is r
 ![Cube Buzzer](../../assets/flight_controller/cube/cube_buzzer.jpg)
 
 
-## Radio Control {#rc_control}
+<span id="rc_control"></span>
+## Radio Control
 
 A [remote control (RC) radio system](../getting_started/rc_transmitter_receiver.md) is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes). 
 
@@ -116,7 +119,8 @@ which may be purchased from hex.aero or proficnc.com.
 
 
 
-## Power {#power}
+<span id="power"></span>
+## Power
 
 Cube is typically powered from a Lithium Ion Polymer (LiPo) Battery via a Power Module (supplied with the kit) that is connected to the **POWER1** port.
 The power module provides reliable supply and voltage/current indication to the board and may separately supply power to ESCs that are used to drive motors on a multicopter vehicle. 
@@ -128,7 +132,8 @@ A typical power setup for a Multicopter vehicle is shown below.
 
 <!-- HOw is the power rail powered for servos - power rail? Plane/Vtol would be cool to show here too -->
 
-## Telemetry System (Optional) {#telemetry}
+<span id="telemetry"></span>
+## Telemetry System (Optional)
 
 A telemetry system allows you to communicate with, monitor, and control a vehicle in flight from a ground station (for example, you can direct the UAV to a particular position, or upload a new mission).
 

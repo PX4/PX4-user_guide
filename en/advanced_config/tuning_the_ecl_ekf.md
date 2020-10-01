@@ -103,13 +103,15 @@ GPS measurements will be used for position and velocity if the following conditi
   These checks are controlled by the [EKF2_GPS_CHECK](../advanced_config/parameter_reference.md#EKF2_GPS_CHECK) and `EKF2_REQ_*` parameters.
 * GPS height can be used directly by the EKF via setting of the [EKF2_HGT_MODE](../advanced_config/parameter_reference.md#EKF2_HGT_MODE) parameter.
 
-#### Yaw Measurements {#yaw_measurements}
+<span id="yaw_measurements"></span>
+#### Yaw Measurements
 
 Some GPS receivers such as the [Trimble MB-Two RTK GPS receiver](https://www.trimble.com/Precision-GNSS/MB-Two-Board.aspx) can be used to provide a heading measurement that replaces the use of magnetometer data.
 This can be a significant advantage when operating in an environment where large magnetic anomalies are present, or at latitudes here the earth's magnetic field has a high inclination.
 Use of GPS yaw measurements is enabled by setting bit position 7 to 1 (adding 128) in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter.
 
-#### Yaw From GPS Velocity {#yaw_from_gps_velocity}
+<span id="yaw_from_gps_velocity"></span>
+#### Yaw From GPS Velocity
 
 The EKF runs an additional multi-hypothesis filter internally that uses multiple 3-state Extended Kalman Filters (EKF's) whose states are NE velocity and yaw angle.
 These individual yaw angle estimates are then combined using a Gaussian Sum Filter (GSF). The individual 3-state EKF's use IMU and GPS horizontal velocity data (plus optional airspeed data) and do not rely on any prior knowledge of the yaw angle or magnetometer measurements.
@@ -190,7 +192,8 @@ Airspeed data will be used when it exceeds the threshold set by a positive value
 Fixed wing platforms can take advantage of an assumed sideslip observation of zero to improve wind speed estimation and also enable wind speed estimation without an airspeed sensor.
 This is enabled by setting the [EKF2_FUSE_BETA](../advanced_config/parameter_reference.md#EKF2_FUSE_BETA) parameter to 1.
 
-### Multicopter Wind Estimation using Drag Specific Forces {#mc_wind_estimation_using_drag}
+<span id="mc_wind_estimation_using_drag"></span>
+### Multicopter Wind Estimation using Drag Specific Forces
 
 Multi-rotor platforms can take advantage of the relationship between airspeed and drag force along the X and Y body axes to estimate North/East components of wind velocity.
 This is enabled by setting bit position 5 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter to true.
@@ -211,7 +214,8 @@ Optical flow data will be used if the following conditions are met:
 * Bit position 1 in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter is true.
 * The quality metric returned by the flow sensor is greater than the minimum requirement set by the [EKF2_OF_QMIN](../advanced_config/parameter_reference.md#EKF2_OF_QMIN) parameter.
 
-### External Vision System {#ekf2_extvis}
+<span id="ekf2_extvis"></span>
+### External Vision System
 
 Position, velocity or orientation measurements from an external vision system, e.g. Vicon, can be used:
 

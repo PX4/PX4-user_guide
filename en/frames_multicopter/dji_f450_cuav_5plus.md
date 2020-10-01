@@ -166,7 +166,8 @@ The final build is shown below:
 ![Finished Setup](../../assets/airframes/multicopter/dji_f450_cuav_5plus/f450_cuav5_plus_complete_2.jpg)
 
 
-## Vehicle Configuration/Calibration {#configure}
+<span id="configure"></span>
+## Vehicle Configuration/Calibration
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the frame.
 [Download and install](http://qgroundcontrol.com/downloads/) 

@@ -108,7 +108,8 @@ This is important for the [filter](#filters) tuning.
 There will be a second PID tuning round later.
 
 
-### Control Latency {#control_latency}
+<span id="control_latency"></span>
+### Control Latency
 
 The *control latency* is the delay from a physical disturbance of the vehicle until the motors react to the change.
 
@@ -123,7 +124,8 @@ These are the factors that affect the latency:
   To avoid the IO delay, disable [SYS_USE_IO](../advanced_config/parameter_reference.md#SYS_USE_IO) and attach the motors to the AUX pins instead.
 - PWM output signal: enable One-Shot to reduce latency ([PWM_RATE](../advanced_config/parameter_reference.md#PWM_RATE)=0) 
 
-### Filters {#filters}
+<span id="filters"></span>
+### Filters
 
 <!-- TODO: this probably should be documented somewhere else -->
 As mentioned in the previous section, filters affect the control latency. 

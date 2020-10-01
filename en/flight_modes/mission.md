@@ -66,7 +66,8 @@ Parameter | Description
 <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | If enabled, stick movement on a multicopter (or VTOL in multicopter mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md) (except when vehicle is handling a critical battery failsafe). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default.
 
 
-## Supported Mission Commands {#mission_commands}
+<span id="mission_commands"></span>
+## Supported Mission Commands
 
 PX4 "accepts" the following MAVLink mission commands in Mission mode (note: caveats below list).
 Unless otherwise noted, the implementation is as defined in the MAVLink specification.

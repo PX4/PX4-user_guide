@@ -31,7 +31,8 @@ This parameter is used for position-control in the horizontal direction, where t
 The limit for the rate of change of the velocity setpoint is defined by [MPC_ACC_HOR_MAX](../advanced_config/parameter_reference.md#MPC_ACC_HOR_MAX).
 This parameter should be set larger than any of the other acceleration related parameters in the horizontal direction.
 
-#### MPC_ACC_HOR and MPC_DEC_HOR_SLOW {#mpc_acc_hor-and-mpc_dec_hor_slow}
+<span id="mpc_acc_hor-and-mpc_dec_hor_slow"></span>
+#### MPC_ACC_HOR and MPC_DEC_HOR_SLOW
 
 In velocity-control the rate limit for the velocity setpoint is extracted from a linear map from stick input to acceleration limit with maximum [MPC_ACC_HOR](../advanced_config/parameter_reference.md#MPC_ACC_HOR) and minimum [MPC_DEC_HOR_SLOW](../advanced_config/parameter_reference.md#MPC_DEC_HOR_SLOW).
 For example, if the stick input is at `MPC_HOLD_DZ`, the limiting acceleration is `MPC_DEC_HOR_SLOW`.

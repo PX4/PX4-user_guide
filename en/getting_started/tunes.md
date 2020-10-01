@@ -89,7 +89,8 @@ Your browser does not support the audio element.
 
 These tones/tunes are emitted during normal operation.
 
-#### Error Tune {#error_tune_operational}
+<span id="error_tune_operational"></span>
+#### Error Tune
 <audio controls>
   <source src="../../assets/tunes/2_error_tune.mp3" type="audio/mpeg">
 Your browser does not support the audio element.

@@ -62,7 +62,8 @@ This is the silkscreen for the *Kakute F7*, showing the top of the board:
 | Boot | Bootloader button | |
 
 
-## PX4 Bootloader Update {#bootloader}
+<span id="bootloader"></span>
+## PX4 Bootloader Update
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). 
 Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed.

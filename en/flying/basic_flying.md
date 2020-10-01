@@ -5,7 +5,8 @@ This topic explains the basics of flying a vehicle using an [RC Transmitter](../
 > **Note** Before you fly for the first time you should read our [First Flight Guidelines](../flying/first_flight_guidelines.md).
 
 
-## Arm the Vehicle {#arm}
+<span id="arm"></span>
+## Arm the Vehicle
 
 Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming).
 This will power all motors and actuators; on a multicopter it will start propellers turning.

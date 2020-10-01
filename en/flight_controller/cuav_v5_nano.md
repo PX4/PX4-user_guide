@@ -62,12 +62,14 @@ Main FMU Processor: STM32F765◦32 Bit Arm® Cortex®-M7, 216MHz, 2MB memory, 51
 > **Note** Autopilot may be purchased with included Neo GPS module
 
 
-## Connections (Wiring) {#connection}
+<span id="connection"></span>
+## Connections (Wiring)
 
 [V5 nano Wiring Quickstart](../assembly/quick_start_cuav_v5_nano.md)
 
 
-## Pinouts {#pinouts}
+<span id="pinouts"></span>
+## Pinouts
 
 Download **V5 nano** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
@@ -82,7 +84,8 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 make px4_fmu-v5_default
 ```
 
-## Debug Port {#debug_port}
+<span id="debug_port"></span>
+## Debug Port
 
 The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port (`DSU7`).
 The board does not have an I/O debug interface.
@@ -142,7 +145,8 @@ UART8 | /dev/ttyS6 | Not connected (no PX4IO)
 The *V5 nano* has no over current protection.
 
 
-## Peripherals {#Optional-hardware}
+<span id="Optional-hardware"></span>
+## Peripherals
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
 * [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
@@ -157,13 +161,15 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 CUAV adopts some differentiated designs and is incompatible with some hardware, which will be described below.
 
-#### Neo v2.0 GPS not compatible with other devices {#compatibility_gps}
+<span id="compatibility_gps"></span>
+#### Neo v2.0 GPS not compatible with other devices
 
 The *Neo v2.0 GPS* that is recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
 
 The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-v2-pro/en/#enable) can also be used, and is compatible with other flight controllers.
 
-#### Using JTAG for hardware debugging {#compatibility_jtag}
+<span id="compatibility_jtag"></span>
+#### Using JTAG for hardware debugging
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
@@ -171,7 +177,8 @@ Some JTAG probes use this voltage to set the IO levels when communicating to the
 
 For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts of DSM/SBUS/RSSI pin 4 as Pin 1 on the debug connector (`Vtref`).
 
-#### PM2 cannot power the flight controller {#compatibility_pm2}
+<span id="compatibility_pm2"></span>
+#### PM2 cannot power the flight controller
 
 `PM2` can only measure battery voltage and current, but **not** power the flight controller.
 
@@ -183,7 +190,8 @@ The issues below refer to the *batch number* in which they first appear.
 The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller.
 For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
-#### SBUS / DSM / RSSI interface Pin1 unfused {#pin1_unfused}
+<span id="pin1_unfused"></span>
+#### SBUS / DSM / RSSI interface Pin1 unfused
 
 > **Warning** This is a safety issue. 
 

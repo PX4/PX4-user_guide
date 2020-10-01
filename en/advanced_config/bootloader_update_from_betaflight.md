@@ -4,7 +4,8 @@ This page documents how to flash the PX4 bootloader onto boards preflashed with 
 
 There are two options for flashing the bootloader: via *Betaflight Configurator* (easier), or building from source.
 
-### Bootloader Update using Betaflight Configurator {#betaflight_configurator}
+<span id="betaflight_configurator"></span>
+### Bootloader Update using Betaflight Configurator
 
 To install the PX4 bootloader using the *Betaflight Configurator*:
 1. You should have downloaded already the pre-built bootloader binary (this depends on the board you want to flash).
@@ -58,7 +59,8 @@ See the dfuse manual here: https://www.st.com/resource/en/user_manual/cd00155676
 Flash the **<target>.bin** file.
 
 
-## Reinstall Betaflight {#reinstall_betaflight}
+<span id="reinstall_betaflight"></span>
+## Reinstall Betaflight
 
 In order to switch back to *Betaflight*:
 - Backup the PX4 parameters, e.g. by [exporting](https://dev.px4.io/master/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters) them to an SD card

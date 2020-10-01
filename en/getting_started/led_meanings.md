@@ -5,7 +5,8 @@
 - The [Status LEDs](#status_led) provide status for the PX4IO and FMU SoC.
   They indicate power, bootloader mode and activity, and errors.
 
-## UI LED {#ui_led}
+<span id="ui_led"></span>
+## UI LED
 
 The RGB *UI LED* indicates the current *readiness for flight* status of the vehicle. 
 This is typically a superbright I2C peripheral, which may or may not be mounted on the flight controller board (i.e. FMUv4 does not have one on board, and typically uses an LED mounted on the GPS).
@@ -52,7 +53,8 @@ Attach your autopilot to a Ground Control Station to verify what the problem is.
 If you have completed the setup process and autopilot still appears as red and flashing, there may be another error.
 
 
-## Status LED {#status_led}
+<span id="status_led"></span>
+## Status LED
 
 Three *Status LEDs* provide status for the FMU SoC, and three more provide status for the PX4IO (if present). 
 They indicate power, bootloader mode and activity, and errors.

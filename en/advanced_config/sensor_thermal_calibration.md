@@ -7,7 +7,8 @@ This topic details the [test environment](#test_setup) and [calibration procedur
 > **Note** At time of writing (June2019/PX4 v1.9) thermal calibration of the magnetometer is not yet supported.
 
 
-## Test Setup/Best Practice {#test_setup}
+<span id="test_setup"></span>
+## Test Setup/Best Practice
 
 The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
 
@@ -29,7 +30,8 @@ If in doubt, check the safe operating range with your manufacturer.
 > **Tip** To check the status of the onboard thermal calibration use the MAVlink console (or NuttX console) to check the reported internal temp from the sensor. 
 
 
-## Calibration Procedures {#calibration_procedures}
+<span id="calibration_procedures"></span>
+## Calibration Procedures
 
 PX4 supports two calibration procedures: 
 * [onboard](#onboard_calibration) - calibration is run on the board itself. This method requires knowledge of the amount of temperature rise that is achievable with the test setup.
@@ -38,7 +40,8 @@ PX4 supports two calibration procedures:
 The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate. 
 
 
-### Onboard Calibration Procedure {#onboard_calibration}
+<span id="onboard_calibration"></span>
+### Onboard Calibration Procedure
 
 Onboard calibration is run entirely on the device. It require knowledge of the amount of temperature rise that is achievable with the test setup. 
 
@@ -55,7 +58,8 @@ To perform and onboard calibration:
 9. Perform a 6-point accel calibration via the system console using `commander calibrate accel` or via *QGroundControl*. If the board is being set-up for the first time, the gyro and magnetometer calibration will also need to be performed.
 8. The board should always be re-powered before flying after any sensor calibration, because sudden offset changes from calibration can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup. 
 
-### Offboard Calibration Procedure {#offboard_calibration}
+<span id="offboard_calibration"></span>
+### Offboard Calibration Procedure
 
 Offboard calibration is run on a development computer using data collected during the calibration test. This method provides a way to visually check the quality of data and curve fit.
 
@@ -79,7 +83,8 @@ To perform an offboard calibration:
 1. Power the board and perform a normal accelerometer sensor calibration using *QGroundControl*. It is important that this step is performed when board is within the calibration temperature range. The board must be repowered after this step before flying as the sudden offset changes can upset the navigation estimator and some parameters are not loaded by the algorithms that use them until the next startup.
 
 
-## Implementation Detail {#implementation}
+<span id="implementation"></span>
+## Implementation Detail
 
 Calibration refers to the process of measuring the change in sensor value across a range of internal temperatures, and performing a polynomial fit on the data to calculate a set of coefficients (stored as parameters) that can be used to correct the sensor data. Compensation refers to the process of using the internal temperature to calculate an offset that is subtracted from the sensor reading to correct for changing offset with temperature
 
