@@ -4,7 +4,12 @@
 
 > ** 참고 </ 0> 처음 비행하기 전에  첫 비행 지침 </ 1>을 읽어야합니다.</p> </blockquote> 
 > 
-> ## Arm the Vehicle {#arm}
+> 
+
+<span id="arm"></span>
+
+> 
+> ## Arm the Vehicle
 > 
 > Before you can fly the vehicle it must first be [armed](../getting_started/px4_basic_concepts.md#arming). This will power all motors and actuators; on a multicopter it will start propellers turning.
 > 
