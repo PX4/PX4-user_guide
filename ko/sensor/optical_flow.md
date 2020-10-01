@@ -43,7 +43,9 @@ You can use any supported [distance sensor](../sensor/rangefinders.md). However 
 
 ## Estimators
 
-### Extended Kalman Filter (EKF2) {#ekf2}
+<span id="ekf2"></span>
+
+### Extended Kalman Filter (EKF2)
 
 For optical flow fusion using EKF2, set the use optical flow flag in the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter, as shown using QGroundControl below:
 
