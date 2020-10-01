@@ -15,8 +15,8 @@ https://youtu.be/gWtrka2mK7U
 <span></span>
 > **Note** This (supported) solution uses ROS for routing VIO information to PX4. PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](https://dev.px4.io/master/en/ros/external_position_estimation.html#px4-mavlink-integration).
 
-
-## Supported Setup {#supported_setup}
+<span id="supported_setup"></span>
+## Supported Setup
 
 The supported setup uses the [T265 Intel Realsense Tracking Camera](../peripherals/camera_t265_vio.md) and ROS (running on a companion computer) to supply odometry information to PX4. The Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge) provides a bridge between this (particular) camera and ROS.
 
@@ -72,9 +72,8 @@ To setup the Bridge, ROS and PX4:
   > **Tip** You can use the *QGroundControl* [MAVLink Inspector](https://docs.qgroundcontrol.com/en/analyze_view/mavlink_inspector.html) to verify that you're getting `ODOMETRY` or `VISION_POSITION_ESTIMATE` messages (or check for `HEARTBEAT` messages that have the component id 197 (`MAV_COMP_ID_VISUAL_INERTIAL_ODOMETRY`)).
 - [Verify that VIO is Setup Correctly](#verify_estimate) before your first flight!
 
-
-
-### PX4 Tuning {#ekf2_tuning}
+<span id="ekf2_tuning"></span>
+### PX4 Tuning
 
 The following parameters must be set to use external position information with EKF2.
 
@@ -89,9 +88,8 @@ These can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2** (re
 
 For more detailed/additional information, see: [ECL/EKF Overview & Tuning > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system).
 
-
-
-#### Tuning EKF2_EV_DELAY {#tuning-EKF2_EV_DELAY}
+<span id="tuning-EKF2_EV_DELAY"></span>
+#### Tuning EKF2_EV_DELAY
 
 [EKF2_EV_DELAY](../advanced_config/parameter_reference.md#EKF2_EV_DELAY) is the *Vision Position Estimator delay relative to IMU measurements*. In other words, it is the difference between the vision system timestamp and the "actual" capture time that would have been recorded by the IMU clock (the "base clock" for EKF2).
 
@@ -105,8 +103,8 @@ A rough estimate of the delay can be obtained from logs by checking the offset b
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
 
-
-## Check/Verify VIO Estimate {#verify_estimate}
+<span id="verify_estimate"></span>
+## Check/Verify VIO Estimate
 
 Perform the following checks to verify that VIO is working properly *before* your first flight:
 
