@@ -61,7 +61,8 @@ Flow data should be coming through at 10Hz if the autopilot is connected via **U
 Flow data is transmitted over wireless channels at a lower rate.
 
 
-### Mounting/Orientation {#mounting}
+<span id="mounting"></span>
+### Mounting/Orientation
 
 The recommended mounting orientation is defined as Y on flow board pointing towards **front of vehicle**, as shown in the following picture.
 
@@ -75,7 +76,8 @@ Make sure the the PX4Flow board is well dampened.
 > **Warning** PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
   
 
-## PX4 Configuration {#px4_configuration}
+<span id="px4_configuration"></span>
+## PX4 Configuration
 
 The PX4Flow parameters that you may need to configure are listed below.
 
@@ -271,7 +273,8 @@ You can configure the image quality and output (the image output is only intende
 
   
 
-# PX4FLOW Developer Guide {#developer_guide}
+<span id="developer_guide"></span>
+# PX4FLOW Developer Guide
 
 ## Hardware Setup
 
@@ -436,7 +439,8 @@ VIDEO_RATE      | 50       | RW      | Time between images of video transmission
 
 ## Modes
 
-### VIDEO ONLY Mode {#VIDEO_ONLY}
+<span id="VIDEO_ONLY"></span>
+### VIDEO ONLY Mode
 
 Set `VIDEO_ONLY` to 1 for high resolution mode.
 In this mode the camera image is transmitted at a higher resolution to ease the lens focus process.

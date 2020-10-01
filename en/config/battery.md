@@ -25,7 +25,8 @@ The approach you use will depend on whether the vehicle's power module can measu
   All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
 
 
-## Basic Battery Settings (default) {#basic_settings}
+<span id="basic_settings"></span>
+## Basic Battery Settings (default)
 
 The basic battery settings configure PX4 to use the default method for capacity estimate. 
 This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells). 
@@ -102,7 +103,8 @@ The easiest way to calibrate the divider is by using *QGroundControl* and follow
 
 > **Note** This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
 
-### Amps per volt {#current_divider}
+<span id="current_divider"></span>
+### Amps per volt
 
 > **Tip** This setting is not needed if you are using the basic configuration (without load compensation etc.)
 
@@ -113,7 +115,8 @@ The easiest way to calibrate the dividers is by using *QGroundControl* and follo
 > **Note** This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
 
 
-## Voltage-based Estimation with Load Compensation {#load_compensation}
+<span id="load_compensation"></span>
+## Voltage-based Estimation with Load Compensation
 
 > **Note** With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
 
@@ -125,7 +128,8 @@ PX4 supports two load compensation methods, which are enabled by [setting](../ad
 * [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
 * [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
 
-### Current-based Load Compensation (recommended) {#current_based_load_compensation}
+<span id="current_based_load_compensation"></span>
+### Current-based Load Compensation (recommended)
 
 This load compensation method relies on current measurement to determine load.
 It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
@@ -137,7 +141,8 @@ To enable this feature:
      A typical value is 5mΩ per cell but this can vary with discharge current rating, age and health of the cells.
 1. You should also calibrate the [Amps per volt divider](#current_divider) in the basic settings screen.
 
-### Thrust-based Load Compensation {#thrust_based_load_compensation}
+<span id="thrust_based_load_compensation"></span>
+### Thrust-based Load Compensation
 
 This load compensation method estimates the load based on the total thrust that gets commanded to the motors. 
 
@@ -148,7 +153,8 @@ To enable this feature:
 1. Set the parameter [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
 
 
-## Voltage-based Estimation Fused with Current Integration {#current_integration}
+<span id="current_integration"></span>
+## Voltage-based Estimation Fused with Current Integration
 
 > **Note** This is the most accurate way to measure relative battery consumption. If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
 

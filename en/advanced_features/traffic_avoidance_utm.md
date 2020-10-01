@@ -18,7 +18,8 @@ Parameter | Description
 <span id="NAV_TRAFF_A_RADU"></span>[NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | Set traffic avoidance trigger distance for *unmanned* aviation
 
 
-## Implementation {#implementation}
+<span id="implementation"></span>
+## Implementation
 
 PX4 listens for `UTM_GLOBAL_POSITION` MAVLink messages during missions.
 When a valid message is received, its validity flags, position and heading are mapped into the same `transponder_report` UORB topic used for *ADS-B traffic avoidance*.

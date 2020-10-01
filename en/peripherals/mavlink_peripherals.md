@@ -47,7 +47,8 @@ The parameter used will depend on the [assigned serial port](../advanced_config/
 The value you use will depend on the type of connection and the capabilities of the connected MAVLink peripheral.
 
 
-## Default MAVLink Ports {#default_ports}
+<span id="default_ports"></span>
+## Default MAVLink Ports
 
 The `TELEM 1` port is almost always used for the GCS telemetry stream.
 

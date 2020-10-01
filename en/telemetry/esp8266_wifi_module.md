@@ -76,7 +76,8 @@ From the ESP8266, I left two wires connected to GPIO-0 and CH_PD free so I can b
 ![esp8266 flashing](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
 
 
-## Pixhawk/PX4 Setup & Configuration {#px4_config}
+<span id="px4_config"></span>
+## Pixhawk/PX4 Setup & Configuration
 
 > **Tip** If using PX4 1.8.2 (and earlier) you should connect the ESP8266 to TELEM2 and configure the port by [setting the parameter](../advanced_config/parameters.md) `SYS_COMPANION` to 1921600 (remember to reboot after setting the parameter).
   The following instructions assume you are using PX4 versions after 1.8.2

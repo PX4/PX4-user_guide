@@ -12,7 +12,8 @@ The screen is accessed by clicking the top menu *Gear* icon and then *Parameters
 > **Warning** While some parameters can be changed in flight, this is not recommended (except where explicitly stated in the guide).
 
 
-## Finding a Parameter {#finding}
+<span id="finding"></span>
+## Finding a Parameter
 
 You can search for a parameter by entering a term in the *Search* field.
 This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search).
@@ -26,7 +27,8 @@ You can also browse the parameters by group by clicking on the buttons to the le
 > **Tip** If you can't find an expected parameter, see the [next section](#missing).
 
 
-## Missing Parameters {#missing}
+<span id="missing"></span>
+## Missing Parameters
 
 Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
 
@@ -64,7 +66,8 @@ There are two options to solve this problem:
     Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
 
 
-## Changing a Parameter {#changing}
+<span id="changing"></span>
+## Changing a Parameter
 
 To change the value of a parameter click on the parameter row in a group or search list.
 This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).

@@ -61,11 +61,12 @@ Some of its main features include:
 
 > **Note** Autopilot may be purchased with included Neo GPS module
 
-## Connections (Wiring) {#connection}
+<span id="connection"></span>
+## Connections (Wiring)
 
 [CUAV V5+ Wiring Quickstart](../assembly/quick_start_cuav_v5_plus.md)
 
-## Pinouts {#pinouts}
+## Pinouts
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 
@@ -149,7 +150,8 @@ UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | PX4IO
 
 
-## Peripherals {#optional-hardware}
+<span id="optional-hardware"></span>
+## Peripherals
 
 * [Digital Airspeed Sensor](https://item.taobao.com/item.htm?spm=a1z10.3-c-s.w4002-16371268452.37.6d9f48afsFgGZI&id=9512463037)
 * [Telemetry Radio Modules](https://cuav.taobao.com/category-158480951.htm?spm=2013.1.w5002-16371268426.4.410b7a821qYbBq&search=y&catName=%CA%FD%B4%AB%B5%E7%CC%A8)
@@ -173,13 +175,15 @@ Similarly, a digital PM plugged into a analog connector will not work, and may a
 
 CUAV adopts some differentiated designs and is incompatible with some hardware, which will be described below.
 
-#### GPS not compatible with other devices {#compatibility_gps}
+<span id="compatibility_gps"></span>
+#### GPS not compatible with other devices
 
 The *Neo v2.0 GPS* recommended for use with *CUAV V5+* and *CUAV V5 nano* is not fully compatible with other Pixhawk flight controllers (specifically, the buzzer part is not compatible and there may be issues with the safety switch).
 
 The UAVCAN [NEO V2 PRO GNSS receiver](http://doc.cuav.net/gps/neo-v2-pro/en/#enable) can also be used, and is compatible with other flight controllers.
 
-#### Using JTAG for hardware debugging {#compatibility_jtag}
+<span id="compatibility_jtag"></span>
+#### Using JTAG for hardware debugging
 
 `DSU7` FMU Debug Pin 1 is 5 volts - not the 3.3 volts of the CPU.
 
@@ -193,7 +197,8 @@ The issues below refer to the *batch number* in which they first appear.
 The batch number is the four-digit production date behind V01 and is displayed on a sticker on the side of the flight controller.
 For example, the serial number Batch V011904((V01 is the number of V5, 1904 is the production date, that is, the batch number).
 
-#### SBUS / DSM / RSSI interface Pin1 unfused {#pin1_unfused}
+<span id="pin1_unfused"></span>
+#### SBUS / DSM / RSSI interface Pin1 unfused
 
 > **Warning** This is a safety issue.
 

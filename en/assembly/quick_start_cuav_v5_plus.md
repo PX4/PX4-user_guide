@@ -95,7 +95,8 @@ The other radio is connected to your ground station computer or mobile device (u
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_06.png)
 
-## SD Card (Optional) {#sd_card}
+<span id="sd_card"></span>
+## SD Card (Optional)
 
 An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
 
@@ -106,7 +107,8 @@ Motors/servos are connected to the MAIN and AUX ports in the order specified for
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_07.png)
 
 
-## Pinouts {#pinouts}
+<span id="pinouts"></span>
+## Pinouts
 
 Download **V5+** pinouts from [here](http://manual.cuav.net/V5-Plus.pdf).
 

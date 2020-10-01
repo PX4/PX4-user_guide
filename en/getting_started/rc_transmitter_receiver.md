@@ -31,7 +31,8 @@ Ground vehicles need at least two channels (steering + throttle). An 8 or 16 cha
 
 ## Types of Remote Controls
 
-### Remote Control Units for Aircraft {#transmitter_modes}
+<span id="transmitter_modes"></span>
+### Remote Control Units for Aircraft
 
 The most popular *form* of remote control unit for UAVs is shown below.
 It has separate control sticks for controlling roll/pitch and for throttle/yaw as shown (i.e. aircraft need at least 4 channels).
@@ -79,7 +80,8 @@ Other popular transmitter/receiver pairs
 * Long Range ~433MHz: ImmersionRC EzUHF set with a compatible remote (e.g. Taranis)
 
 
-### PX4-Compatible Receivers {#compatible_receivers}
+<span id="compatible_receivers"></span>
+### PX4-Compatible Receivers
 
 In addition to the transmitter/receiver pairs being compatible, the receiver must also be compatible with PX4 and the flight controller hardware.
 
@@ -110,7 +112,8 @@ Instructions for connecting to specific flight controllers are given in the foll
 > **Tip** See the manufacturer's flight controller setup guide for additional information.
 
 
-## Binding Transmitter/Receiver {#binding}
+<span id="binding"></span>
+## Binding Transmitter/Receiver
 
 Before you can calibrate/use a radio system you must *bind* the receiver and transmitter so that they communicate only with each other.
 The process for binding a transmitter and receiver pair is hardware specific (see your manual for instructions).

@@ -173,7 +173,8 @@ Pixhawk Mini features an advanced processor and sensor technology from ST Microe
   - The defective Pixhawk Minis will not calibrate without an external magnetometer or an attached GPS, even indoor.
   - When using an external GPS, [this is not a problem](https://github.com/PX4/Firmware/pull/7618#issuecomment-320270082) because the secondary ICM20608 provides the accelerometer and the gyro, while the external GPS provides the magnetometer.
 
-## Wiring Quick Start {#wiring}
+<span id="wiring"></span>
+## Wiring Quick Start
 
 > **Warning** The *Pixhawk Mini* is no longer manufactured or available from 3DR.
 

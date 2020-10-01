@@ -58,7 +58,8 @@ In order to use new sensors, or if you have made changes that significantly affe
 - [PX4 Developer Guide](http://dev.px4.io/) explains how to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
 
-## Forums and Chat {#support}
+<span id="support"></span>
+## Forums and Chat
 
 The core development team and community are active on the following forums and chat channels:
 

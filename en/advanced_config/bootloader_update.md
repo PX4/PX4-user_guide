@@ -7,8 +7,8 @@ This topic explains several methods for updating the Pixhawk bootloader.
 > **Note** Hardware usually comes with an appropriate bootloader version pre-installed.
   A case where you may need to update is newer Pixhawk boards that install FMUv2 firmware: [Firmware > FMUv2 Bootloader Update](../config/firmware.md#bootloader).
 
-
-## QGroundControl Bootloader Update {#qgc_bootloader_update}
+<span id="qgc_bootloader_update"></span>
+## QGroundControl Bootloader Update
 
 The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. 
 You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
@@ -31,7 +31,8 @@ The steps are:
 Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
 
 
-### Dronecode Probe Bootloader Update {#dronecode_probe}
+<span id="dronecode_probe"></span>
+### Dronecode Probe Bootloader Update
 
 The following steps explain how you can "manually" update the bootloader using the dronecode probe:
 
@@ -80,7 +81,8 @@ Reading symbols from px4fmuv5_bl.elf...done.
 
 After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
 
-## Other Boards (Non-Pixhawk) {#non-pixhawk}
+<span id="non-pixhawk"></span>
+## Other Boards (Non-Pixhawk)
 
 Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
 

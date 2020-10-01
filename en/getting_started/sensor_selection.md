@@ -9,7 +9,8 @@ The minimal set of sensors is incorporated into [Pixhawk Series](../flight_contr
 Below we describe some of the sensors. At the end there are links to information about [sensor wiring](#wiring).
 
 
-## GPS & Compass {#gps_compass}
+<span id="gps_compass"></span>
+## GPS & Compass
 
 PX4 supports a number of global navigation satellite system (GNSS) receivers and compasses (magnetometers). 
 It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gps.md), which extend GPS systems to centimetre-level precision.
@@ -66,7 +67,8 @@ Some options include:
 * [HK Pilot32 Optical Flow Kit With Sonar](https://hobbyking.com/en_us/hk-pilot32-optical-flow-kit-with-sonar.html) (Hobbyking) - Software-compatible, but not connector-compatible.
 
 
-## Sensor Wiring {#wiring}
+<span id="wiring"></span>
+## Sensor Wiring
 
 Sensor wiring information is usually provided in manufacturer documentation for flight controllers and the sensors themselves.
 

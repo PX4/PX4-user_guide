@@ -75,12 +75,14 @@ A summary of the key features, [assembly](../assembly/quick_start_durandal.md), 
 
 For more information see: [Durandal Technical Data Sheet](http://www.holybro.com/manual/Durandal_technical_data_sheet.pdf).
 
-## Purchase {#purchase}
+<span id="purchase"></span>
+## Purchase
 
 Order from [Holybro](https://shop.holybro.com/durandalbeta_p1189.html).
 
 
-## Connections {#connections}
+<span id="connections"></span>
+## Connections
 
 The locations of ports/connections are shown here (and below in the [pinouts section](#pinouts)).
 
@@ -159,7 +161,8 @@ UART7 | /dev/ttyS5 | Debug Console
 UART8 | /dev/ttyS6 | PX4IO
 
 
-## Debug Port {#debug_port}
+<span id="debug_port"></span>
+## Debug Port
 
 The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) run on the *Debug Port*.
 
@@ -233,7 +236,8 @@ Pin | Signal | Volt
 4 (black) | GND | GND
 
 
-#### GPS port {#gps}
+<span id="gps"></span>
+#### GPS port
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -248,7 +252,8 @@ Pin | Signal | Volt
 9 (black) | BUZZER | +5V
 10 (black) | GND | GND
 
-#### TELEM4 I2CB ports {#telem4_i2cb}
+<span id="telem4_i2cb"></span>
+#### TELEM4 I2CB ports
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -259,7 +264,8 @@ Pin | Signal | Volt
 5 (black) | SDA2 | +3.3V
 6 (black) | GND | GND
 
-#### TELEM3, TELEM2, TELEM1 port {#telem1_2_3}
+<span id="telem1_2_3"></span>
+#### TELEM3, TELEM2, TELEM1 port
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -270,7 +276,8 @@ Pin | Signal | Volt
 5 (black) | RTS (out) | +3.3V
 6 (black) | GND | GND
 
-#### POWER port {#power}
+<span id="power"></span>
+#### POWER port
 
 Pin | Signal | Volt
 --- | --- | ---
@@ -355,7 +362,8 @@ Pin | Signal | Volt
 
 ![Durandal - Left-side Pinouts (Schematic)](../../assets/flight_controller/durandal/durandal_pinouts_left.jpg)
 
-#### DEBUG port {#debug_port}
+<span id="debug_port"></span>
+#### DEBUG port
 
 Pin | Signal | Volt
 --- | --- | ---

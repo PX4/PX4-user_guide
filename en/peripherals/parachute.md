@@ -50,7 +50,8 @@ Motor settings:
 > **Note** There is no way to recover from a Termination state!
   Reboot/power cycle the vehicle before your next test.
 
-## Parachute Testing {#testing}
+<span id="testing"></span>
+## Parachute Testing
 
 The parachute will trigger during [flight termination](../advanced_config/flight_termination.md).
 

@@ -102,7 +102,8 @@ The other radio is connected to your ground station computer or mobile device (u
 ![quickstart](../../assets/flight_controller/cuav_v5_nano/connection/v5_nano_quickstart_07.png)
 
 
-## SD Card (Optional) {#sd_card}
+<span id="sd_card"></span>
+## SD Card (Optional)
 
 An [SD card](../getting_started/px4_basic_concepts.md#sd_cards) is inserted in the factory (you do not need to do anything).
 
