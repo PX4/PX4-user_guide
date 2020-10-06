@@ -13,9 +13,7 @@ It also covers the first flight, and how to get started with modifying the compu
 
 ## Purchase
 
-The kit is currently an "early adopter" release.
-Contact sale01@holybro.com for sales enquiries.
-
+More information about this kit can be found [here](http://www.holybro.com/product/px4-vision/) including a purchase link.
 
 ## Warnings & Notifications
 
