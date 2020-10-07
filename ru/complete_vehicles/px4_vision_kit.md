@@ -10,8 +10,7 @@ The guide explains the minimal additional setup required to get the vehicle read
 
 ## Purchase
 
-The kit is currently an "early adopter" release. Contact sale01@holybro.com for sales enquiries.
-
+Purchase link and more information about this kit [can be found here](http://www.holybro.com/product/px4-vision/).
 
 ## Warnings & Notifications
 
