@@ -23,6 +23,13 @@ The approach you use will depend on whether the vehicle's power module can measu
 > **Note** The instructions below refer to battery 1 calibration parameters: `BAT1_*`. 
   Other batteries use the `BATx_*` parameters, where `x` is the battery number.
   All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
+  
+<span></span>
+> **Tip** In addition to PX4 configuration discussed here, you should ensure that the ESC's low voltage cutoff is either disabled or set below the expected minimum voltage.
+  This ensures that the battery failsafe behaviour is managed by PX4, and that ESCs will not cut out while the battery still has charge (according to the "empty-battery" setting that you have chosen).
+  
+<span></span>
+> **Tip** [Battery-Type Comparison](#battery-type-comparison) below explains the difference between the main battery types, and how that impacts the battery settings.
 
 
 <span id="basic_settings"></span>
@@ -48,20 +55,25 @@ The sections below explain what values to set for each field.
 
 ### Number of Cells (in Series)
 
-This sets the number of cells connected in series in the battery. Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5s").
+This sets the number of cells connected in series in the battery.
+Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5S").
 
 > **Note** The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type.
-  The most common drone battery type (Lithium-Polymer - LiPo) has a nominal cell voltage of 3.7V.
+  Lithium-Polymer (LiPo) batteries and Lithium-Ion batteries both have the same *nominal* cell voltage of 3.7V.
   In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*.
   The battery voltage at the terminals is then a multiple of the cell voltage.
 
-If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell. The table below shows the voltage-to-cell relationship for LiPo batteries:
-* 1S - 3.7V
-* 2S - 7.4V
-* 3S - 11.1V
-* 4S - 14.8V
-* 5S - 18.5V
-* 6S - 22.2V
+If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell.
+The table below shows the voltage-to-cell relationship for these batteries:
+
+Cells | LiPo (V) | LiIon (V)
+--- | --- | ---
+1S | 3.7 | 3.7
+2S | 7.4 | 7.4
+3S | 11.1 | 11.1
+4S | 14.8 | 14.8
+5S |18.5 | 18.5
+6S | 22.2 | 22.2
 
 > **Note** This setting corresponds to [parameters](../advanced_config/parameters.md): [BAT1_N_CELLS](../advanced_config/parameter_reference.md#BAT1_N_CELLS) and [BAT2_N_CELLS](../advanced_config/parameter_reference.md#BAT2_N_CELLS)
 
@@ -69,9 +81,14 @@ If the number of cells is not supplied you can calculate it by dividing the batt
 
 This sets the *nominal* maximum voltage of each cell (the lowest voltage at which the cell will be considered "full").
 
-The value should be set slightly lower that the nominal maximum cell voltage for the battery (4.2V for LiPo), but not so low that the estimated capacity is still 100% after a few minutes of flight. The default value is usually appropriate for LiPo batteries. 
+The value should be set slightly lower that the nominal maximum cell voltage for the battery, but not so low that the estimated capacity is still 100% after a few minutes of flight.
 
-> **Note**  The voltage of a full battery may drop a small amount over time after charging.
+Appropriate values to use are:
+- **LiPo:** 4.05V (default in *QGroundControl*)
+- **LiIon:** 4.05V
+
+
+> **Note** The voltage of a full battery may drop a small amount over time after charging.
   Setting a slightly-lower than maximum value compensates for this drop.
 
 <span></span>
@@ -79,21 +96,26 @@ The value should be set slightly lower that the nominal maximum cell voltage for
 
 ### Empty Voltage (per cell)
 
-This sets the nominal minimum safe voltage of each cell (use below this voltage may damage the battery).
+This sets the nominal minimum safe voltage of each cell (using below this voltage may damage the battery).
 
 > **Note** There is no single value at which a battery is said to be empty.
   If you choose a value that is too low the battery may be damaged due to deep discharge (and/or the vehicle may crash).
   If you choose a value that is too high you may unnecessarily curtail your flight.
 
-A rule of thumb for LiPo batteries:
-- 3.7V without load is a conservative minimum value.
-- 3.5 V under load (while flying) is closer to the true minimum. At this voltage you should land immediately. 
-- 3.2V under load will cause damage to the battery. 
+A rule of thumb for minimum per-cell voltages:
+
+Level | LiPo (V) | LiIon (V)
+--- | --- | ---
+Conservative (voltage under no-load) | 3.7 | 3
+"Real" minimum (voltage under load/while flying | 3.5 | 2.7
+Damage battery (voltage under load) | 3.0 | 2.5
 
 > **Tip** Below the conservative range, the sooner you recharge the battery the better - it will last longer and lose capacity slower.
 
 <span></span>
 > **Note** This setting corresponds to [parameter](../advanced_config/parameters.md): [BAT1_V_EMPTY](../advanced_config/parameter_reference.md#BAT1_V_EMPTY) and [BAT2_V_EMPTY](../advanced_config/parameter_reference.md#BAT2_V_EMPTY). 
+
+
 
 ### Voltage Divider
 
@@ -190,3 +212,75 @@ Multiple battery support was added after PX4 v1.10, resulting in the creation of
 Changes to `BAT_` and `BAT1_` are currently synchronised:
 - If either the old or new parameters is changed, the value is copied into the other parameter (they are kept in sync in both directions).
 - If the old/new parameters are different at boot, then the value of the old `BAT_` parameter is copied into the new `BAT1_` parameter.
+
+
+## Battery-Type Comparison
+
+This section provides a comparative overview of several different battery types (in particular LiPo and Li-Ion).
+
+### Overview
+
+- Li-Ion batteries have a higher energy density than Lipo battery packs but that comes at the expense of lower discharge rates and increased battery cost.
+- LiPo batteries are readily available and can withstand higher discharge rates that are common in multi-rotor aircraft.
+- The choice needs to be made based on the vehicle and the mission being flown.
+  If absolute endurance is the aim then there is more of a benefit to flying to a Li-Ion battery but similarly, more caution needs to be taken.
+  As such, the decision should be made based on the factors surrounding the flight.
+
+
+### Advantages
+
+LiPo	
+- Very common
+- Wide range of sizes, capacities and voltages
+- Inexpensive
+- High discharge rates relative to capacity (high C ratings)
+- Higher charge rates
+
+Li-Ion
+- Much higher energy density (up to 60% higher)
+
+
+### Disadvantages:
+
+LiPo
+- Low (relative) energy density 
+- Quality can vary given abundance of suppliers
+
+Li-Ion
+- Not as common
+- Much more expensive
+- Not as widely available in large sizes and configurations
+- All cells are relatively small so larger packs are made up of many cells tied in series and parallel to create the required voltage and capacity
+- Lower discharge rates relative to battery size (C rating)
+- More difficult to adapt to vehicles that require high currents
+- Lower charging rates (relative to capacity)
+- Requires more stringent temperature monitoring during charge and discharge
+- Requires settings changes on the ESC to utilize max capacity ("standard" ESC low voltage settings are too high).
+- At close-to-empty the voltage of the battery is such that a ~3V difference is possible between a Lipo to Li-ion (while using a 6S battery).
+  This could have implications on thrust expectations. 
+
+
+### C Ratings
+
+- A C rating is simply a multiple of the stated capacity of any battery type.
+- A C rating is relevant (and differs) for both charge and discharge rates.
+  - For example, a 2000 mAh battery (irrespective of voltage) with a 10C discharge rate can safely and continuously discharge 20 amps of current (2000/1000=2Ah x 10C = 20 amps).
+- C Ratings are always given by the manufacturer (often on the outside of the battery pack).
+  While they can actually be calculated, you need several pieces of information, and to measure the internal resistance of the cells.
+- LiPo batteries will always have a higher C rating than a Li-Ion battery.
+  This is due to chemistry type but also to the internal resistance per cell (which is due to the chemistry type) leading to higher discharge rates for LiPo batteries.
+- Following manufacturer guidelines for both charge and discharge C ratings is very important for the health of your battery and to operate your vehicle safely (i.e. reduce fires, “puffing” packs and other suboptimal states during charging and discharging).
+
+
+### Energy Density
+
+- Energy density is how much energy is able to be stored relative to battery weight.
+  It is generally measured and compared in Watt Hour per Kilogram (Wh/Kg).
+  - Watt-hours are simply calculated by taking the nominal (i.e. not the fully charged voltage) multiplied by the capacity, e.g. 3.7v X 5 Ah = 18.5Wh.
+    If you had a 3 cell battery pack your pack would be 18.5Wh X 3 = 55 Wh of stored energy.
+- When you take battery weight into account you calculate energy density by taking the watt-hours and dividing them by weight.
+  - E.g. 55 Wh divided by (battery weight in grams divided by 1000).
+    Assuming this battery weighed 300 grams then 55/(300/1000)=185 Wh/Kg.
+- This number 185 Wh/Kg would be on the very high-end for a LiPo battery.
+  A Li-Ion battery on the other hand can reach 260 Wh/Kg, meaning per kilogram of battery onboard you can carry 75 more watt-hours. 
+  - If you know how many watts your vehicle takes to fly (which a battery current module can show you), you can equate this increased storage at no additional weight into increased flight time.
