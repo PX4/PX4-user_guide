@@ -13,7 +13,7 @@ It also covers the first flight, and how to get started with modifying the compu
 
 ## Purchase
 
-More information about this kit can be found [here](http://www.holybro.com/product/px4-vision/) including a purchase link.
+Purchase link and more information about this kit [can be found here](http://www.holybro.com/product/px4-vision/).
 
 ## Warnings & Notifications
 
