@@ -10,8 +10,7 @@
 
 ## 警告&通知
 
-这个工具包目前是一个“早期用户”版本。 请联系Sale01@holybro.com查询销售情况。
-
+Purchase link and more information about this kit [can be found here](http://www.holybro.com/product/px4-vision/).
 
 ## 开始了解你的开发套件
 
