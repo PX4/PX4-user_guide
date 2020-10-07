@@ -43,7 +43,7 @@
 * [机架组装](airframes/README.md) 
   * [机架参考](airframes/airframe_reference.md)
   * [Autogyros](frames_autogyro/README.md) 
-    * [ThunderFly Auto-G2 (HKPilot32)](frames_autogyro/ThunderFly_AutoG2.md)
+    * [ThunderFly Auto-G2 (Holybro pix32)](frames_autogyro/thunderfly_auto_g2.md)
   * [Multicopters](frames_multicopter/README.md) 
     * [DJI F450 (CUAV v5+)](frames_multicopter/dji_f450_cuav_5plus.md)
     * [DJI F450 (CUAV v5 nano)](frames_multicopter/dji_f450_cuav_5nano.md)
