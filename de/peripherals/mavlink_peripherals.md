@@ -43,7 +43,9 @@ Next you need to set the baud rate for the serial port you assigned above (in `M
 
 The parameter used will depend on the [assigned serial port](../advanced_config/parameter_reference.md#serial) - for example: `SER_GPS1_BAUD`, `SER_TEL2_BAUD`, etc. The value you use will depend on the type of connection and the capabilities of the connected MAVLink peripheral.
 
-## Default MAVLink Ports {#default_ports}
+<span id="default_ports"></span>
+
+## Default MAVLink Ports
 
 The `TELEM 1` port is almost always used for the GCS telemetry stream.
 

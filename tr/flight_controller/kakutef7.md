@@ -58,8 +58,9 @@ This is the silkscreen for the *Kakute F7*, showing the top of the board:
 | RSI      | Analog RSSI (0-3.3V) input from receiver                             |                     |
 | Boot     | Bootloader button                                                    |                     |
 
+<span id="bootloader"></span>
 
-## PX4 Bootloader Update {#bootloader}
+## PX4 Bootloader Update
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed. Download the [kakutef7_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/kakutef7/kakutef7_bl_0b3fbe2da0.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 

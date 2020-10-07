@@ -70,13 +70,17 @@ The two forms are described below.
     - [PID controller > Standard versus parallel (ideal) PID form](https://en.wikipedia.org/wiki/PID_controller#Standard_versus_parallel_(ideal)_PID_form) (Wikipedia)
     
 
-##### Parallel Form {#parallel_form}
+<span id="parallel_form"></span>
+
+##### Parallel Form
 
 The *parallel form* is the simplest form, and is (hence) commonly used in textbooks. In this case the output of the controller is simply the sum of the proportional, integral and derivative actions.
 
 ![PID_Parallel](../../assets/mc_pid_tuning/PID_algorithm_Parallel.png)
 
-##### Standard Form {#standard_form}
+<span id="standard_form"></span>
+
+##### Standard Form
 
 This form is mathematically equivalent to the parallel form, but the main advantage is that (even if it seems counter intuitive) it decouples the proportional gain tuning from the integral and derivative gains. This means that a new platform can easily be tuned by taking the gains of a drone with similar size/inertia and simply adjust the K gain to have it flying properly.
 
@@ -172,7 +176,9 @@ The following parameters can also be adjusted. These determine the maximum rotat
 - Maximum pitch rate ([MC_PITCHRATE_MAX](../advanced_config/parameter_reference.md#MC_PITCHRATE_MAX)
 - Maximum yaw rate ([MC_YAWRATE_MAX](../advanced_config/parameter_reference.md#MC_YAWRATE_MAX))
 
-### Thrust Curve {#thrust_curve}
+<span id="thrust_curve"></span>
+
+### Thrust Curve
 
 The tuning above optimises performance around the hover throttle. But it can be that you start to see oscillations when going towards full throttle.
 
@@ -204,7 +210,9 @@ turn off all [higher-level position controller tuning gains](../config_mc/mc_tra
 - [MPC_JERK_MIN](../advanced_config/parameter_reference.md#MPC_JERK_MIN) : 1
  -->
 
-### Airmode & Mixer Saturation {#airmode}
+<span id="airmode"></span>
+
+### Airmode & Mixer Saturation
 
 The rate controller outputs torque commands for all three axis (roll, pitch and yaw) and a scalar thrust value, which need to be converted into individual motor thrust commands. This step is called mixing.
 

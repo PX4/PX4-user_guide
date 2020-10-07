@@ -18,7 +18,9 @@
 
 Last of all, in [autonomous modes](#categories) RC stick movement will [by default](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) when flying as a multicopter (unless handling a critical battery failsafe). Stick movement is ignored for fixed-wing flight.
 
-## 自主和手动模式 {#categories}
+<span id="categories"></span>
+
+## Autonomous and Manual Modes
 
 Flight Modes are, generally speaking, either *manual* or *autonomous*. Manual modes are those where the user has control over vehicle movement via the RC control sticks (or joystick), while *autonomous* modes are fully controlled by the autopilot, and *require* no pilot/remote control input.
 
@@ -80,12 +82,26 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               飞行模式难度（简单到困难）
             </td></tr> </tbody> </table> 
             
-            <h2 id="mc_flight_modes">
-              多旋翼
+            <p>
+              
+
+<span id="mc_flight_modes"></span>
+
+            </p>
+            
+            <h2>
+              Multicopter
             </h2>
             
-            <h3 id="position_mc">
-              位置控制模式
+            <p>
+              
+
+<span id="position_mc"></span>
+
+            </p>
+            
+            <h3>
+              Position Mode
             </h3>
             
             <p>
@@ -106,8 +122,15 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <img src="../../assets/flight_modes/position_MC.png" alt="MC Position Mode" />
             </p>
             
-            <h3 id="altitude_mc">
-              高度模式
+            <p>
+              
+
+<span id="altitude_mc"></span>
+
+            </p>
+            
+            <h3>
+              Altitude Mode
             </h3>
             
             <p>
@@ -132,8 +155,15 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <img src="../../assets/flight_modes/altitude_MC.png" alt="MC Altitude Mode" />
             </p>
             
-            <h3 id="manual_stabilized_mc">
-              手动／自稳模式
+            <p>
+              
+
+<span id="manual_stabilized_mc"></span>
+
+            </p>
+            
+            <h3>
+              Manual/Stabilized Mode
             </h3>
             
             <p>
@@ -162,8 +192,15 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <img src="../../assets/flight_modes/manual_stabilized_MC.png" alt="MC Manual Flight" />
             </p>
             
-            <h3 id="rattitude_mc">
-              半自稳
+            <p>
+              
+
+<span id="rattitude_mc"></span>
+
+            </p>
+            
+            <h3>
+              Rattitude
             </h3>
             
             <p>
@@ -180,8 +217,15 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             
             <!-- Image missing: https://github.com/PX4/px4_user_guide/issues/189 -->
             
-            <h3 id="acro_mc">
-              特技模式
+            <p>
+              
+
+<span id="acro_mc"></span>
+
+            </p>
+            
+            <h3>
+              Acro Mode
             </h3>
             
             <p>
@@ -202,7 +246,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
             
             <!-- image above incorrect: https://github.com/PX4/px4_user_guide/issues/182 -->
             
-            <h3 id="orbit_mc">
+            <p>
+              
+
+<span id="orbit_mc"></span>
+
+            </p>
+            
+            <h3>
               Orbit Mode
             </h3>
             
@@ -222,7 +273,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <img src="../../assets/flight_modes/orbit_MC.png" alt="Orbit Mode - MC" />
             </p>
             
-            <h3 id="hold_mc">
+            <p>
+              
+
+<span id="hold_mc"></span>
+
+            </p>
+            
+            <h3>
               Hold Mode
             </h3>
             
@@ -234,7 +292,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <a href="../flight_modes/hold.md">Hold mode</a> causes the multicopter to stop and hover at its current position and altitude (maintaining position against wind and other forces). The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
             </p>
             
-            <h3 id="return_mc">
+            <p>
+              
+
+<span id="return_mc"></span>
+
+            </p>
+            
+            <h3>
               Return Mode
             </h3>
             
@@ -250,7 +315,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a mulitcopter will simply ascend to a safe height, fly to its home position, and then land.
             </p>
             
-            <h3 id="mission_mc">
+            <p>
+              
+
+<span id="mission_mc"></span>
+
+            </p>
+            
+            <h3>
               Mission Mode
             </h3>
             
@@ -268,7 +340,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               </p>
             </blockquote>
             
-            <h3 id="takeoff_mc">
+            <p>
+              
+
+<span id="takeoff_mc"></span>
+
+            </p>
+            
+            <h3>
               Takeoff Mode
             </h3>
             
@@ -280,7 +359,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <a href="../flight_modes/takeoff.md">Takeoff</a> mode causes the multicopter to climb vertically to takeoff altitude and hover in position.
             </p>
             
-            <h3 id="land_mc">
+            <p>
+              
+
+<span id="land_mc"></span>
+
+            </p>
+            
+            <h3>
               Land Mode
             </h3>
             
@@ -292,7 +378,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <a href="../flight_modes/land.md">Land mode</a> causes the multicopter to land at the location at which the mode was engaged.
             </p>
             
-            <h3 id="followme_mc">
+            <p>
+              
+
+<span id="followme_mc"></span>
+
+            </p>
+            
+            <h3>
               Follow Me Mode
             </h3>
             
@@ -304,7 +397,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <a href="../flight_modes/follow_me.md">Follow Me mode</a> causes a multicopter to autonomously follow and track a user providing their current position setpoint. Position setpoints might come from an Android phone/tablet running <em>QGroundControl</em> or from a MAVSDK app.
             </p>
             
-            <h3 id="offboard_mc">
+            <p>
+              
+
+<span id="offboard_mc"></span>
+
+            </p>
+            
+            <h3>
               Offboard Mode
             </h3>
             
@@ -322,11 +422,25 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               </p>
             </blockquote>
             
-            <h2 id="fw_flight_modes">
-              固定翼
+            <p>
+              
+
+<span id="fw_flight_modes"></span>
+
+            </p>
+            
+            <h2>
+              Fixed-Wing
             </h2>
             
-            <h3 id="position_fw">
+            <p>
+              
+
+<span id="position_fw"></span>
+
+            </p>
+            
+            <h3>
               Position Mode
             </h3>
             
@@ -352,7 +466,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <img src="../../assets/flight_modes/position_FW.png" alt="FW Position Mode" />
             </p>
             
-            <h3 id="altitude_fw">
+            <p>
+              
+
+<span id="altitude_fw"></span>
+
+            </p>
+            
+            <h3>
               Altitude Mode
             </h3>
             
@@ -382,7 +503,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <img src="../../assets/flight_modes/altitude_FW.png" alt="FW Altitude Mode" />
             </p>
             
-            <h3 id="stabilized_fw">
+            <p>
+              
+
+<span id="stabilized_fw"></span>
+
+            </p>
+            
+            <h3>
               Stabilized Mode
             </h3>
             
@@ -412,7 +540,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <img src="../../assets/flight_modes/manual_stabilized_FW.png" alt="FW Manual Flight" />
             </p>
             
-            <h3 id="acro_fw">
+            <p>
+              
+
+<span id="acro_fw"></span>
+
+            </p>
+            
+            <h3>
               Acro Mode
             </h3>
             
@@ -432,7 +567,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <img src="../../assets/flight_modes/manual_acrobatic_FW.png" alt="FW Manual Acrobatic Flight" />
             </p>
             
-            <h3 id="manual_fw">
+            <p>
+              
+
+<span id="manual_fw"></span>
+
+            </p>
+            
+            <h3>
               Manual Mode
             </h3>
             
@@ -463,7 +605,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               </p>
             </blockquote>
             
-            <h3 id="hold_fw">
+            <p>
+              
+
+<span id="hold_fw"></span>
+
+            </p>
+            
+            <h3>
               Hold Mode
             </h3>
             
@@ -475,7 +624,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <a href="../flight_modes/hold.md">Hold</a> causes a fixed-wing vehicle to start circling around the current position at its current altitude. The mode can be used to pause a mission or to help regain control of a vehicle in an emergency. It can be activated with a pre-programmed RC switch or the <em>QGroundControl</em> <strong>Pause</strong> button.
             </p>
             
-            <h3 id="return_fw">
+            <p>
+              
+
+<span id="return_fw"></span>
+
+            </p>
+            
+            <h3>
               Return Mode
             </h3>
             
@@ -491,7 +647,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               The return behaviour depends on parameter settings, and may follow a mission path and/or mission landing pattern (if defined). By default a fixed wing vehicle will ascend to a safe height and use a mission landing pattern if one exists, otherwise it will fly to the home position and circle.
             </p>
             
-            <h3 id="mission_fw">
+            <p>
+              
+
+<span id="mission_fw"></span>
+
+            </p>
+            
+            <h3>
               Mission Mode
             </h3>
             
@@ -509,7 +672,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               </p>
             </blockquote>
             
-            <h3 id="takeoff_fw">
+            <p>
+              
+
+<span id="takeoff_fw"></span>
+
+            </p>
+            
+            <h3>
               Takeoff Mode
             </h3>
             
@@ -521,7 +691,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <a href="../flight_modes/takeoff.md#fixed_wing">Takeoff</a> mode initiates the vehicle takeoff sequence. The specific launch behaviour depends on the configured takeoff mode (catapult/hand-launch mode or runway takeoff mode).
             </p>
             
-            <h3 id="land_fw">
+            <p>
+              
+
+<span id="land_fw"></span>
+
+            </p>
+            
+            <h3>
               Land Mode
             </h3>
             
@@ -533,7 +710,14 @@ The icons below are used within the document:<span id="key_manual"><a href="#key
               <a href="../flight_modes/land.md">Land mode</a> causes the vehicle to turn and land at the location at which the mode was engaged. Fixed wing landing logic and parameters are explained in the topic: <a href="../flying/fixed_wing_landing.md">Landing (Fixed Wing)</a>.
             </p>
             
-            <h3 id="offboard_fw">
+            <p>
+              
+
+<span id="offboard_fw"></span>
+
+            </p>
+            
+            <h3>
               Offboard Mode
             </h3>
             

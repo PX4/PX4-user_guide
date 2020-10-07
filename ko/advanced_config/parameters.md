@@ -10,19 +10,23 @@ PX4의 동작은 [파라미터](../advanced_config/parameter_reference.md)를 �
 
 > **경고** 일부 파라미터는 비행중에 변경할 수 있지만 추천하는 방법은 아닙니다(가이드에 명시된 경우를 제외하고).
 
-## 파라미터 찾기 {#finding}
+<span id="finding"></span>
 
-*검색* 필드에 용어를 입력하여 파라미터를 검색 할 수 있습니다. 검색은 입력된 하위 문자열을 포함하는 모든 파라미터 이름 및 설명을 나열합니다 (검색을 초기화하려면 **지우기**를 누릅니다).
+## Finding a Parameter
 
-![파라미터 검색](../../assets/qgc/setup/parameters/parameters_search.jpg)
+You can search for a parameter by entering a term in the *Search* field. This will show you a list of all parameter names and descriptions that contain the entered substring (press **Clear** to reset the search).
 
-왼쪽 버튼을 클릭하여 그룹별로 파라미터를 탐색할 수 있습니다 (*Battery Calibration* 그룹 아래의 이미지가 선택됨).
+![Parameters Search](../../assets/qgc/setup/parameters/parameters_search.jpg)
 
-![파라미터 화면](../../assets/qgc/setup/parameters/parameters_px4.jpg)
+You can also browse the parameters by group by clicking on the buttons to the left (in the image below the *Battery Calibration* group is selected).
+
+![Parameters Screen](../../assets/qgc/setup/parameters/parameters_px4.jpg)
 
 > **Tip** If you can't find an expected parameter, see the [next section](#missing).
 
-## Missing Parameters {#missing}
+<span id="missing"></span>
+
+## Missing Parameters
 
 Parameters are usually not visible because either they are conditional on other parameters, or they are not present in the firmware (see below).
 
@@ -51,7 +55,9 @@ The other reason that a parameter might not be in firmware is if its associated 
     
     **Note** You may also need to disable other modules in order to fit the rebuilt firmware into 1MB flash. Finding modules to remove requires some trial/error and depends on what use cases you need the vehicle to meet.
 
-## Changing a Parameter {#changing}
+<span id="changing"></span>
+
+## Changing a Parameter
 
 To change the value of a parameter click on the parameter row in a group or search list. This will open a side dialog in which you can update the value (this dialog also provides additional detailed information about the parameter - including whether a reboot is required for the change to take effect).
 

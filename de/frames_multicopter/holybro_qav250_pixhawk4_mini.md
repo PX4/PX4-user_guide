@@ -171,7 +171,9 @@ The steps to install the kit are:
 
 > **Note** If you have to wire the system yourself, the diagram below shows all the connections between camera, VTX and power module: ![QAV250 FPV Wiring](../../assets/airframes/multicopter/qav250_holybro_pixhawk4_mini/fpv_connection.jpg)
 
-## Install/Configure PX4 {#configure}
+<span id="configure"></span>
+
+## Install/Configure PX4
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 

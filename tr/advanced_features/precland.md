@@ -63,7 +63,9 @@ Precision landing can be initiated through the command line interface with
 
 In this case, the precision landing is always considered "required".
 
-### In a Mission {#mission}
+<span id="mission"></span>
+
+### In a Mission
 
 Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
 

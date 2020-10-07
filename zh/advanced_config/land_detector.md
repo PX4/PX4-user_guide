@@ -30,27 +30,29 @@ You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISA
 - [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum horizontal velocity for the system to be still be considered landed. 
 - [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum vertical velocity for the system to be still be considered landed. This parameter can be adjusted to ensure land detection triggers earlier or later on throwing the airframe for hand-launches.
 
-## 地面探测器的状态 {#states}
+<span id="states"></span>
+
+## Land Detector States
 
 ### 多旋翼的地面检测
 
-为了检测着陆，多旋翼飞行器首先必须经历三种不同的状态，其中每个状态包含来自先前状态的条件加上更严格的约束。 如果由于缺少传感器而无法达到条件，则默认情况下该条件为真。 例如，在[ Acro模式 ](../flight_modes/acro_mc.md)中并且除了陀螺仪传感器之外没有传感器处于活动状态，则检测仅依赖于推力输出和时间。
+In order to detect landing, the multicopter first has to go through three different states, where each state contains the conditions from the previous states plus tighter constraints. If a condition cannot be reached because of missing sensors, then the condition is true by default. For instance, in [Acro mode](../flight_modes/acro_mc.md) and no sensor is active except for the gyro sensor, then the detection solely relies on thrust output and time.
 
-为了进入下一个状态，每个条件必须在某个预定义的时间内为真。 如果一个条件失败，则陆地探测器立即退出当前状态。
+In order to proceed to the next state, each condition has to be true for some predefined time. If one condition fails, the land detector drops out of the current state immediately.
 
 #### 地面接触
 
-如果以下条件在 0.35 秒以内为真，则达到此状态：
+This state is reached if following conditions are true for 0.35 seconds:
 
 - 没有垂直运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 没有水平运动 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
 - lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * [LNDMC_LOW_T_THR](../advanced_config/parameter_reference.md#LNDMC_LOW_T_THR), or velocity setpoint is 0.9 of land speed but vehicle has no vertical movement.
 
-如果车辆处于位置或速度控制并且检测到地面接触， 位置控制器将沿主体x-y轴的推力矢量设置为零。
+If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
 
 #### 可能性着陆
 
-如果以下条件在 0.25 秒以内为真，则达到此状态：
+This state is reached if following conditions are true for 0.25 seconds:
 
 - 地面接触的所有条件都是真
 - 没有滚动运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
@@ -58,10 +60,10 @@ You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISA
 
 If the vehicle only has knowledge of thrust and angular rate, in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds.
 
-如果载具处于位置或速度控制并且检测到地面接触， 位置控制器将沿主体x-y轴的推力矢量设置为零。
+If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero.
 
 #### 降落完成
 
-如果以下条件在 0.3 秒以内为真，则达到此状态：
+This state is reached if following conditions are true for 0.3 seconds:
 
 - 可能降落的所有条件都是真

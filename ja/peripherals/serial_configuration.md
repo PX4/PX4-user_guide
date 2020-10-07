@@ -11,7 +11,9 @@ The configuration makes it easy to (for example):
 
 > **Note** Some ports cannot be configured because they are used for a very specific purpose like RC input or the system console (`SERIAL 5`).
 
-## Pre-configured Ports {#default_port_mapping}
+<span id="default_port_mapping"></span>
+
+## Pre-configured Ports
 
 The following functions are typically mapped to the same specific serial ports on all boards, and are hence mapped by default:
 
@@ -41,7 +43,9 @@ Port conflicts are handled by system startup, which ensures that at most one ser
 
 ## Troubleshooting
 
-### Configuration Parameter Missing from *QGroundControl* {#parameter_not_in_firmware}
+<span id="parameter_not_in_firmware"></span>
+
+### Configuration Parameter Missing from *QGroundControl*
 
 *QGroundControl* only displays the parameters for services/drivers that are present in firmware. If a parameter is missing, then you may need to add it in firmware.
 

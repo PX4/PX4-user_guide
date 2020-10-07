@@ -149,7 +149,9 @@ Here is an example implementation. I used a Spektrum plug to get 3.3v from the D
 
 The Omnibus supports telemetry to the RC Transmitter using [FrSky Telemetry](../peripherals/frsky_telemetry.md) or [CRSF Crossfire Telemetry](#crsf_telemetry).
 
-### CRSF Crossfire Telemetry {#crsf_telemetry}
+<span id="crsf_telemetry"></span>
+
+### CRSF Crossfire Telemetry
 
 TBS CRSF Crossfire telemetry is used to send telemetry data from the flight controller (the vehicle's attitude, battery, flight mode and GPS data) to the RC transmitter (Taranis).
 
@@ -183,7 +185,9 @@ Next update the TX/RX modules to use the CRSF protocol and set up telemetry. Ins
 
 The schematics are provided by [Airbot](https://myairbot.com/): [OmnibusF4-Pro-Sch.pdf](http://bit.ly/obf4pro).
 
-## PX4 Bootloader Update {#bootloader}
+<span id="bootloader"></span>
+
+## PX4 Bootloader Update
 
 The board comes pre-installed with [Betaflight](https://github.com/betaflight/betaflight/wiki). Before PX4 firmware can be installed, the *PX4 bootloader* must be flashed. Download the [omnibusf4sd_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/assets/flight_controller/omnibus_f4_sd/omnibusf4sd_bl_d52b70cb39.hex) bootloader binary and read [this page](../advanced_config/bootloader_update_from_betaflight.md) for flashing instructions.
 

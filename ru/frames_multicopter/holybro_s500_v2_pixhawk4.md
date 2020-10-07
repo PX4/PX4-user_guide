@@ -242,8 +242,8 @@ Fully assembled, the kit looks as shown below:
 
 ![Fully Assembled](../../assets/airframes/multicopter/s500_holybro_pixhawk4/s500_assembled.jpg)
 
-
-## Install/Configure PX4 {#configure}
+<span id="configure"></span>
+## Install/Configure PX4
 
 *QGroundControl* is used to install the PX4 autopilot and configure/tune it for the QAV250 frame. [Download and install](http://qgroundcontrol.com/downloads/) *QGroundControl* for your platform.
 

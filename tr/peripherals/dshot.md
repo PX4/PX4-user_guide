@@ -10,8 +10,8 @@ DShot is an alternative ESC protocol that has several advantages over PWM or One
 
 This topic shows how to connect and configure DShot ESCs.
 
-
-## Wiring/Connections {#wiring}
+<span id="wiring"></span>
+## Wiring/Connections
 
 DShot ESCs are connected and wired the same way as [PWM ESCs](pwm_escs_and_servo.md), and you can switch between these protocols just by changing software parameters (ESCs automatically detect the selected protocol on startup).
 
@@ -29,10 +29,10 @@ If using a Pixhawk that has ports labeled AUX and MAIN, set [SYS_USE_IO=0](../ad
 > **Note** FMUv5-based boards (e.g. Pixhawk 4 or CUAV Pixhawk V5+) support DShot only on the first four FMU pins due to hardware conflicts. The other pins cannot be used as motor/servo outputs.
 
 <span></span>
-> **Tip** You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port).
+> **Tip** You can't mix DShot ESCs/servos and PWM ESCs/servos on the FMU (DShot is enabled/disabled for *all* FMU pins on the port). 
 
-
-## Configuration {#configuration}
+<span id="configuration"></span>
+## Configuration
 
 > **Warning** Remove propellers before changing ESC configuration parameters!
 
@@ -44,8 +44,8 @@ Then connect the battery and arm the vehicle. The ESCs should initialize and the
 - If the motors do not spin in the correct direction (for the [selected airframe](../airframes/airframe_reference.md)), reverse them by sending an [ESC Command](#commands).
 - Adjust [DSHOT_MIN](../advanced_config/parameter_reference.md#DSHOT_MIN) so that the motors spin at lowest throttle (but the vehicle does not take off).
 
-
-## ESC Commands {#commands}
+<span id="commands"></span>
+## ESC Commands
 
 Commands can be sent to the ESC via the [MAVLink shell](https://dev.px4.io/master/en/debug/mavlink_shell.html). See [here](https://dev.px4.io/master/en/middleware/modules_driver.html#dshot) for a full reference of the supported commands.
 

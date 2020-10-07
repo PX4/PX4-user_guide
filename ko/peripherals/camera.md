@@ -1,8 +1,10 @@
 # 카메라 트리거
 
-카메라 트리거 드라이버는 AUX 포트를 사용하여 카메라를 트리거하기 위해 펄스를 전송합니다. 이것은 항공 측량 및 재구성을위한 타임 스탬핑 사진, 멀티 카메라 시스템 동기화 또는 시각 관성 내비게이션을 포함한 여러 애플리케이션에 사용될 수 있습니다
+The camera trigger driver allows the use of the AUX ports to send out pulses in order to trigger a camera.
 
-펄스가 보내지는 것 외에도 시퀀스 번호 (따라서 현재 세션의 이미지 시퀀스 번호)와 해당 타임 스탬프가 포함 된 MAVLink 메시지가 게시됩니다.
+In addition to a pulse being sent out, the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message is published containing a sequence number (i.e. the current session's image sequence number) and the corresponding timestamp. This timestamp can be used for several applications, including: timestamping photos for aerial surveying and reconstruction, synchronising a multi-camera system or visual-inertial navigation.
+
+Cameras can also (optionally) use the flight controller [camera capture pin](#camera_capture) to signal the exact moment that a photo/frame is taken. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
 
 ## 트리거 설정 {#trigger_setup_qgc}
 
@@ -43,8 +45,6 @@ MAVLink 명령 ` MAV_CMD_DO_TRIGGER_CONTROL </ 0>을 사용하여 활성화 및 
 
 ## 트리거 하드웨어 설정 {#hardware_setup}
 
-### Camera Triggering
-
 The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering (i.e. when not using a MAVLink camera) are set using the [TRIG_PINS](../advanced_config/parameter_reference.md#TRIG_PINS) parameter. The default is 56, which means that trigger is enabled on *FMU* pins 5 and 6.
 
 > **Note** On a Pixhawk flight controller that has both FMU and I/O boards these FMU pins map to `AUX5` and `AUX6` (e.g. Pixhawk 4, CUAV v5+). On a controller that only has an FMU, the pins map to `MAIN5` and `MAIN6` (e.g. Pixhawk 4 mini, CUAV v5 nano). At time of writing triggering only works on FMU pins - you can't trigger a camera using pins on the I/O board.
@@ -52,17 +52,6 @@ The pins used to trigger image capture for GPIO, PWM or Seagull-based triggering
 <span></span>
 
 > **Warning** With `TRIG_PINS=56` (default) you can use the AUX pins 1 to 4 as actuator outputs (for servos/ESCs). With `TRIG_PINS=78`, you can use the AUX pins 1-6 as actuator outputs. Any other combination of pins can be selected, but this will disable use of the other FMU pins as outputs.
-
-### Camera Capture
-
-Some cameras can provide image capture signalling to a flight controller camera-capture pin (this enables more accurate image timestamp than the time that the trigger command is sent). Camera capture/feedback is enabled by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK).
-
-The pin used depends on the hardware:
-
-* Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
-* Other board use FMU PWM pin 6 (hardcoded) for camera capture.
-
-> **Note** PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message (with timestamp and image sequence number). If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
 
 ## 트리거 인터페이스 백엔드 {#trigger_backend}
 
@@ -85,6 +74,23 @@ enables the GPIO interface. AUX 출력은 매  TRIG_INTERVAL </ 1> 지속 시간
 | [TRIG_ACT_TIME](../advanced_config/parameter_reference.md#TRIG_ACT_TIME) | 트리거 핀이 "활성"상태로 유지되어 중립으로 돌아 가기 전의 시간을 밀리 초 단위로 정의합니다. PWM 모드에서는 50Hz PWM 신호에 항상 활성화 펄스를 맞출 수 있도록 최소값이 40ms로 제한됩니다.           |
 
 The full list of parameters pertaining to the camera trigger module can be found on the [parameter reference](../advanced_config/parameter_reference.md#camera-trigger) page.
+
+## Camera Capture {#camera_capture}
+
+Cameras can also (optionally) use the flight controller [camera capture pin](#camera_capture) to signal the exact moment when a photo/frame is taken. This allows more precise mapping of images to GPS position for geotagging, or the right IMU sample for VIO synchronization, etc.
+
+Camera capture/feedback is enabled in PX4 by setting [CAM_CAP_FBACK = 1](../advanced_config/parameter_reference.md#CAM_CAP_FBACK). The capture pin used depends on the hardware:
+
+* Pixhawk FMUv5x boards use the board-specific camera capture pin (PI0).
+* Other board use FMU PWM pin 6 (hardcoded) for camera capture.
+
+PX4 detects a rising edge with the appropriate voltage level on the camera capture pin (for Pixhawk flight controllers this is normally 3.3V). If the camera isn't outputing an appropriate voltage, then additional circuitry will be required to make the signal compatible.
+
+Cameras that have a hotshoe connector (for connecting a flash) can usually be connected via a hotshoe-adaptor. For example, the [Seagull #SYNC2 Universal Camera Hot Shoe Adapter](https://www.seagulluav.com/product/seagull-sync2/) is an optocoupler that decouples and shifts the flash voltage to the Pixhawk voltage. This slides into the flash slot on the top of the camera. The red and black ouptputs are connected to the servo rail/ground and the white wire is connected to the input capture pin.
+
+![Seagull SYNC#2](../../assets/peripherals/camera_capture/seagull_sync2.png)
+
+> **Note** PX4 emits the MAVLink [CAMERA_TRIGGER](https://mavlink.io/en/messages/common.html#CAMERA_TRIGGER) message on both camera trigger and camera capture. If camera capture is configured, the timestamp from the camera capture driver is used, otherwise the triggering timestamp.
 
 ## Command Interface {#command_interface}
 

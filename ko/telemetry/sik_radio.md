@@ -8,7 +8,9 @@ SiK 라디오용 하드웨어는 다양한 범위 및 폼 팩터를 지원하는
 
 ![SiK Radio](../../assets/hardware/telemetry/holybro_sik_radio.jpg)
 
-## Vendors {#vendors}
+<span id="vendors"></span>
+
+## Vendors
 
 * [RFD900 Telemetry Radio](../telemetry/rfd900_telemetry.md)
 * [HKPilot Telemetry Radio](../telemetry/hkpilot_sik_radio.md)
@@ -17,16 +19,16 @@ SiK 라디오용 하드웨어는 다양한 범위 및 폼 팩터를 지원하는
 
 ## 설정/구성
 
-접지 스테이션 기반 라디오는 USB(기본적으로 플러그 앤 플레이)를 통해 연결됩니다.
+The ground station-based radio is connected via USB (essentially plug-n-play).
 
-기체 기반 라디오는 비행 컨트롤러의 ` TELEM1 ` 포트에 연결되며, 일반적으로 추가 구성이 필요하지 않습니다.
+The vehicle-based radio is connected to the flight-controller's `TELEM1` port, and typically requires no further configuration.
 
 ## 펌웨어 업데이트
 
-대부분의 [벤더 ](#vendors)에서 소싱된 하드웨어는 최신 펌웨어로 미리 구성되어야 합니다. 예를 들어 MAVLink 2에 대한 지원을 받으려면 이전 하드웨어를 새 펌웨어로 업데이트해야 할 수 있습니다.
+Hardware sourced from most [vendors](#vendors) should come pre-configured with the latest firmware. You may need to update older hardware with new firmware, for example to gain support for MAVLink 2.
 
-*QGroundControl *: [QGoundControl 사용자 설명서 > Loading Firmware ](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html)을(를) 사용하여 라디오 펌웨어를 업데이트할 수 있습니다.
+You can update the radio firmware using *QGroundControl*: [QGroundControl User Guide > Loading Firmware](https://docs.qgroundcontrol.com/en/SetupView/Firmware.html).
 
 ## 고급 설정/구성
 
-The PX4 Developer Guide has [additional information](https://dev.px4.io/master/en/data_links/sik_radio.html) about building firmware and AT-command based configuration. 개발자가 아닌 경우에는 이 작업을 수행할 필요가 없습니다.
+The PX4 Developer Guide has [additional information](https://dev.px4.io/master/en/data_links/sik_radio.html) about building firmware and AT-command based configuration. This should not be required by non-developers.

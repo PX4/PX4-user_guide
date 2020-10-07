@@ -19,7 +19,9 @@ Key benefits of using a *Pixhawk series* controller include:
 * Widely-used and thus well-tested/stable.
 * Automated update of latest firmware via *QGroundControl* (end-user friendly).
 
-## Supported Boards {#recommended}
+<span id="recommended"></span>
+
+## Supported Boards
 
 The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) as reference hardware. These are the controllers that are fully compatible with the Pixhawk standard (including use of trademarks) and that are still being manufactured.
 
@@ -51,7 +53,9 @@ Manufacturers are encouraged to take the [open designs](https://github.com/pixha
 
 The project also creates reference autopilot boards based on the open designs, and shares them under the same [licence](#licensing-and-trademarks).
 
-### FMU Versions {#fmu_versions}
+<span id="fmu_versions"></span>
+
+### FMU Versions
 
 The Pixhawk project has created a number of different open designs/schematics. All boards based on a design should be binary compatible (run the same firmware).
 
@@ -74,7 +78,9 @@ At very high level, the main differences are:
 * **FMUv4-PRO:** Slightly increased RAM. More serial ports. IO processor ([Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md))
 * **FMUv5:** New processor (F7). Much faster. More RAM. More CAN busses. Much more configurable.([Pixhawk 4](../flight_controller/pixhawk4.md),[CUAV v5](../flight_controller/cuav_v5.md),[CUAV V5+](../flight_controller/cuav_v5_plus.md),[CUAV V5 nano](../flight_controller/cuav_v5_nano.md))
 
-### Licensing and Trademarks {#licensing-and-trademarks}
+<span id="licensing-and-trademarks"></span>
+
+### Licensing and Trademarks
 
 Pixhawk project schematics and reference designs are licensed under [CC BY-SA 3](https://creativecommons.org/licenses/by-sa/3.0/legalcode).
 

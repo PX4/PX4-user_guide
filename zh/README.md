@@ -50,22 +50,24 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 - [PX4开发人员指南](http://dev.px4.io/) 解释了如何修改飞行算法、添加新模式、集成新硬件、从飞行控制器外部与 PX4 通信，以及如何为 PX4 做出贡献。
 
-## 论坛和交流 {#support}
+<span id="support"></span>
 
-核心开发团队和社区活跃与以下论坛和聊天频道：
+## Forums and Chat
+
+The core development team and community are active on the following forums and chat channels:
 
 - [PX4 Discuss](http://discuss.px4.io/)（*英文*） [DimianZhan社区](http://shequ.dimianzhan.com)（中文）
 - [Slack](http://slack.px4.io) （注册链接，注册时加载验证码可能需要翻墙）
 
 ## 报告Bug & 问题
 
-如果您在使用 PX4 时遇到任何问题，请先将其发布在 [支持频道](#support) 上（因为它们可能是由飞机配置引起的）。
+If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
 
-也有可能由开发团队指示，让你在 [Github](https://github.com/PX4/Firmware/issues) 上提出代码问题。 在可能的情况下，提供问题模板中要求的 [飞行日志](getting_started/flight_reporting.md) 和其他信息。
+If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
 ## 参与贡献
 
-有关如何参与代码和文档的信息，请参阅开发人员指南：
+Information on how to contribute to code and documentation can be found in the Developer Guide:
 
 - [贡献代码](https://dev.px4.io/master/en/contribute/)
 - [文档撰写](https://dev.px4.io/master/en/contribute/docs.html)
@@ -73,21 +75,21 @@ PX4 是一款*专业级飞控*。 它由来自业界和学术界的世界级开�
 
 ## 许可证
 
-根据许可 [BSD 3 条款许可证](https://opensource.org/licenses/BSD-3-Clause) 的细则，PX4 代码可自由使用和修改。 本文档可在 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) 下进行许可 。 详情请看[PX4 开发者指南>许可证](https://dev.px4.io/master/en/contribute/licenses.html)
+PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/master/en/contribute/licenses.html).
 
 ### 图标
 
-此库中使用的以下图标是单独授权的（如下所示）：
+The following icons used in this library are licensed separately (as shown below):
 
-<img src="../assets/site/position_fixed.svg" title="需要定位（例如GPS）" width="30px" /> [www.flaticon.com](https://www.flaticon.com/ "Flaticon") 的 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 制作 <em>placeholder</em> 图标由 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 授权。
+<img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> *placeholder* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-<img src="../assets/site/automatic_mode.svg" title="自动模式" width="30px" /> [www.flaticon.com](https://www.flaticon.com/ "Flaticon") 的 <a href="http://www.freepik.com" title="Freepik">Freepik</a> 制作的 <em>camera-automatic-mode</em> 图标由 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> 授权。
+<img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
 ## 管理
 
-PX4 飞行栈受 [Dronecode项目](https://www.dronecode.org/) 管理。
+The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
 
-<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode 徽标" width="110px"/></a>
-<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux 基金会徽标" width="80px" /></a>
+<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
+<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
 
 <div style="padding:10px">&nbsp;</div>

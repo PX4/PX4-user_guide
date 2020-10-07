@@ -26,8 +26,8 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 * High-power, multi-tone piezo audio indicator
 * microSD card for high-rate logging over extended periods of time
 
-
-## Where to Buy {#stores}
+<span id="stores"></span>
+## Where to Buy
 
 * [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 

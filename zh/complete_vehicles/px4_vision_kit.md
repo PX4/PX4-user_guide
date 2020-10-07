@@ -10,8 +10,7 @@
 
 ## 警告&通知
 
-这个工具包目前是一个“早期用户”版本。 请联系Sale01@holybro.com查询销售情况。
-
+Purchase link and more information about this kit [can be found here](http://www.holybro.com/product/px4-vision/).
 
 ## 开始了解你的开发套件
 
@@ -128,7 +127,9 @@
    >     
    >     ![Propeller nuts](../../assets/hardware/px4_vision_devkit/propeller_nuts.jpg)
    > 
-   > ## 测试飞行（带避障） {#fly_drone}
+   > <span id="fly_drone"></span> 
+   > 
+   > ## Fly the Drone (with avoidance)
    > 
    > When the vehicle setup described above is complete:
    > 
@@ -174,7 +175,9 @@
    > - [路径规划接口](../computer_vision/path_planning_interface.md) - API 用于实现自动模式中的避障功能。
    > - [防撞接口](../computer_vision/collision_prevention.md) - 基于无人机避障的API，在基于障碍地图的手动位置模式下(目前用于防撞)。
    > 
-   > ### 在上位机上安装镜像 {#install_image_mission_computer}
+   > <span id="install_image_mission_computer"></span> 
+   > 
+   > ### Installing the image on the Companion Computer
    > 
    > 您可以在 *UP Core* 上安装镜像，并从内部内存启动(而不是U盘)。
    > 
@@ -201,8 +204,9 @@
    > - 拔出U盘。
    > 
    > - 重启无人机， *UP Core* 计算机现在将从内部内存（eMMC）引导。</ol> 
+   > <span id="boot_mission_computer"></span> 
    > 
-   > ### 开启上位机 {#boot_mission_computer}
+   > ### Boot the Companion Computer
    > 
    > 首先插入所提供的 USB2.0 盘 *UP 核心* 端口标签 `USB1` 然后用4S电池给无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
    > 
@@ -212,7 +216,9 @@
    > 
    > 机载计算机一旦启动，就可以用作计算机视力开发环境和运行软件的环境。
    > 
-   > ### 登录到机载计算机 {#login_mission_computer}
+   > <span id="login_mission_computer"></span> 
+   > 
+   > ### Login to the Companion Computer
    > 
    > 登录到机载计算机:
    > 

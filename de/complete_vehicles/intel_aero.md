@@ -127,7 +127,9 @@ After setting up the PX4 development environment, follow these steps update the 
 3. Start *QGroundControl* and it should automatically connect.
 4. Instead of starting *QGroundControl*, you can open a [MAVLink shell](https://dev.px4.io/master/en/debug/mavlink_shell.html) using the script: ```./Tools/mavlink_shell.py 0.0.0.0:14550```
 
-## Connecting LeddarOne Range Finder {#leddarone}
+<span id="leddarone"></span>
+
+## Connecting LeddarOne Range Finder
 
 Connect the [LeddarOne](../sensor/leddar_one.md) to the Aero telemetry port. The pinout for the LeddarOne and Aero telemetry port (TELEM1) are as follows.
 
@@ -142,7 +144,9 @@ Connect the [LeddarOne](../sensor/leddar_one.md) to the Aero telemetry port. The
 
 To enable the rangefinder set the [SENS_LEDDAR1_CFG](../advanced_config/parameter_reference.md#SENS_LEDDAR1_CFG) parameter to TELEM1 and reboot the board (instructions for setting parameters [available here](../advanced_config/parameters.md)).
 
-## Connecting Lidar Lite Range Finder {#lidar_lite}
+<span id="lidar_lite"></span>
+
+## Connecting Lidar Lite Range Finder
 
 > **Warning** The Lidar Lite is not recommended for use with *Intel Aero Ready to Fly Drone*® due to measurements spikes.
 

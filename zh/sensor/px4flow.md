@@ -51,7 +51,9 @@ The steps are:
 
 Once enabled, the module will be detected on boot. Flow data should be coming through at 10Hz if the autopilot is connected via **USB**. Flow data is transmitted over wireless channels at a lower rate.
 
-### Mounting/Orientation {#mounting}
+<span id="mounting"></span>
+
+### Mounting/Orientation
 
 The recommended mounting orientation is defined as Y on flow board pointing towards **front of vehicle**, as shown in the following picture.
 
@@ -63,7 +65,9 @@ Make sure the the PX4Flow board is well dampened.
 
 > **Warning** PX4Flow emits a significant amount of electromagnetic radiation, and should be placed as far away from other electronics (in particular GPS modules) as possible (see [Hardware/issues/8](https://github.com/PX4/Hardware/issues/8) for more information).
 
-## PX4 Configuration {#px4_configuration}
+<span id="px4_configuration"></span>
+
+## PX4 Configuration
 
 The PX4Flow parameters that you may need to configure are listed below.
 
@@ -226,7 +230,9 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
   
   > **Tip** [Ask for help](../README.md#support) if you have a distorted image with visible dark lines (like the one below): ![Distorted video](../../assets/hardware/sensors/px4flow/px4flow_video_distorted.png)
 
-# PX4FLOW Developer Guide {#developer_guide}
+<span id="developer_guide"></span>
+
+# PX4FLOW Developer Guide
 
 ## Hardware Setup
 
@@ -375,7 +381,9 @@ This is a pattern correlation threshold for filtering bad matches. Lower means o
 
 ## Modes
 
-### VIDEO ONLY Mode {#VIDEO_ONLY}
+<span id="VIDEO_ONLY"></span>
+
+### VIDEO ONLY Mode
 
 Set `VIDEO_ONLY` to 1 for high resolution mode. In this mode the camera image is transmitted at a higher resolution to ease the lens focus process. No flow values are calculated in this mode.
 

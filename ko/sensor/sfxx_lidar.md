@@ -31,7 +31,9 @@ The following models are no longer available from the manufacturer.
 
 Check the tables above to confirm that which models can be connected to the I2C port.
 
-### Hardware {#i2c_hardware_setup}
+<span id="i2c_hardware_setup"></span>
+
+### Hardware
 
 Connect the Lidar the autopilot I2C port as shown below (in this case, for the [Pixhawk 1](../flight_controller/mro_pixhawk.md)).
 
@@ -39,19 +41,25 @@ Connect the Lidar the autopilot I2C port as shown below (in this case, for the [
 
 > **Note** Some older revisions cannot be used with PX4. Specifically they may be miss-configured to have an I2C address equal to `0x55`, which conflicts with `rgbled` module. On Linux systems you may be able to determine the address using [i2cdetect](http://manpages.ubuntu.com/manpages/bionic/en/man8/i2cdetect.8.html). If the I2C address is equal to `0x66` the sensor can be used with PX4.
 
-### Parameter Setup {#i2c_parameter_setup}
+<span id="i2c_parameter_setup"></span>
+
+### Parameter Setup
 
 Set the [SENS_EN_SF1XX](../advanced_config/parameter_reference.md#SENS_EN_SF1XX) parameter to match the rangefinder model and then reboot.
 
 ## Serial Setup
 
-### Hardware {#serial_hardware_setup}
+<span id="serial_hardware_setup"></span>
+
+### Hardware
 
 The lidar can be connected to any unused *serial port* (UART), e.g.: TELEM2, TELEM3, GPS2 etc.
 
 <!-- Would be good to show serial setup! -->
 
-### Parameter Setup {#serial_parameter_setup}
+<span id="serial_parameter_setup"></span>
+
+### Parameter Setup
 
 [Configure the serial port](../peripherals/serial_configuration.md) on which the lidar will run using [SENS_SF0X_CFG](../advanced_config/parameter_reference.md#SENS_SF0X_CFG). There is no need to set the baud rate for the port, as this is configured by the driver.
 

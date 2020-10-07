@@ -39,13 +39,25 @@ The specific behaviour for each vehicle type is described below.
 </tbody>
 </table>
 
-<h2 id="fixed_wing">Fixed Wing (FW)</h2>
+<p>
+
+<span id="fixed_wing"></span>
+
+</p>
+
+<h2>Fixed Wing (FW)</h2>
 
 <p>The aircraft takes off in the current direction using either <em>catapult/hand-launch mode</em> or <em>runway takeoff mode</em>.
 The mode defaults to catapult/hand launch, but can be set to runway takeoff using <a href="#RWTO_TKOFF">RWTO_TKOFF</a>.
 RC stick movement is ignored in both cases.</p>
 
-<h3 id="hand_launch">Catapult/Hand Launch</h3>
+<p>
+
+<span id="hand_launch"></span>
+
+</p>
+
+<h3>Catapult/Hand Launch</h3>
 
 <p>In <em>catapult/hand launch mode</em> the vehicle waits to detect launch (based on acceleration trigger).
 On launch it ramps up to full throttle (<a href="#RWTO_MAX_THR">RWTO_MAX_THR</a>) in about 2 seconds and then performs a full throttle climbout, with <em>minimum</em> 10 degree takeoff pitch. 
@@ -56,7 +68,13 @@ Once it reaches <a href="#FW_CLMBOUT_DIFF">FW_CLMBOUT_DIFF</a> it will transitio
     투석기 발사의 경우 이는 약간의 가속 임계 값입니다.</p>
 </blockquote>
 
-<h3 id="runway_launch">Runway Takeoff</h3>
+<p>
+
+<span id="runway_launch"></span>
+
+</p>
+
+<h3>Runway Takeoff</h3>
 
 <p>The <em>runway takeoff mode</em> has the following phases:</p>
 

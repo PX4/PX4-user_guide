@@ -50,22 +50,24 @@ PX4를 지원하는 Ready To Fly (RTF) 기체가 있는 경우:
 
 - [PX4 개발자 설명서](http://dev.px4.io/)에서는 비행 알고리즘 수정, 새 모드 추가, 새 하드웨어 통합, 비행 컨트롤러 외부에서 PX4와의 통신 및 PX4에 기여하는 방법에 대해 설명합니다.
 
-## 포럼 및 채팅 {#support}
+<span id="support"></span>
 
-핵심 개발 팀과 커뮤니티는 다음 포럼 및 채팅 채널에서 활발하게 활동합니다.
+## Forums and Chat
+
+The core development team and community are active on the following forums and chat channels:
 
 - [PX4 토론](http://discuss.px4.io/) (*권장*)
 - [Slack](http://slack.px4.io) (회원가입 필요)
 
 ## 버그&문제점 보고
 
-PX4를 사용하는 데 문제가 생긴다면, 먼저 [위의 지원 채널](#support)에 게시하십시오 (기체 설정으로 문제가 발생할 수 있기 때문입니다.)
+If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
 
-개발 팀의 요청에 따라 [Github](https://github.com/PX4/Firmware/issues)에 코드 문제를 제기할 수 있습니다. 가능한 경우, 문제 템플릿에 [비행 기록](getting_started/flight_reporting.md)과 기타 정보를 제공해 주십시오.
+If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/Firmware/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
 ## 기여하기
 
-코드 및 설명서에 기여하는 방법에 대한 정보는 개발자 설명서에서 확인할 수 있습니다.
+Information on how to contribute to code and documentation can be found in the Developer Guide:
 
 - [코드](https://dev.px4.io/master/en/contribute/)
 - [문서](https://dev.px4.io/master/en/contribute/docs.html)
@@ -73,21 +75,21 @@ PX4를 사용하는 데 문제가 생긴다면, 먼저 [위의 지원 채널](#s
 
 ## 라이센스
 
-PX4 코드는 허용 조건에 따라 자유롭게 사용하고 수정할 수 있습니다 [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). 이 설명서는 [CC BY 4.0 ](https://creativecommons.org/licenses/by/4.0/)에 따른 라이센스가 부여됩니다. 자세한 내용은 [PX4 개발 설명서 > 라이센스](https://dev.px4.io/master/en/contribute/licenses.html)를 참조하십시오.
+PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/master/en/contribute/licenses.html).
 
 ### 아이콘
 
-이 라이브러리에서 사용되는 다음 아이콘은 별도로 라이센스가 부여됩니다 (아래 그림 참조):
+The following icons used in this library are licensed separately (as shown below):
 
-<img src="../assets/site/position_fixed.svg" title="요청된 위치 고정(예, GPS)" width="30px" /> *placeholder* 아이콘은 <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>에서 만들었으며, <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>라이센스가 부여됩니다.
+<img src="../assets/site/position_fixed.svg" title="Position fix required (e.g. GPS)" width="30px" /> *placeholder* icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-<img src="../assets/site/automatic_mode.svg" title="자동 모드" width="30px" /> *카메라 자동 모드* 아이콘은 <a href="http://www.freepik.com" title="Freepik">Freepik</a>의 <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>에서 만들었으며, <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0</a>라이센스가 부여됩니다.
+<img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
 ## 관리
 
-PX4 비행 스택은 [Dronecode Project](https://www.dronecode.org/)의 주관으로 관리됩니다.
+The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
 
-<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode 로고" width="110px"/></a>
-<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="리눅스 재단 로고" width="80px" /></a>
+<a href="https://www.dronecode.org/" style="padding:20px"><img src="https://mavlink.io/assets/site/logo_dronecode.png" alt="Dronecode Logo" width="110px"/></a>
+<a href="https://www.linuxfoundation.org/projects" style="padding:20px;"><img src="https://mavlink.io/assets/site/logo_linux_foundation.png" alt="Linux Foundation Logo" width="80px" /></a>
 
 <div style="padding:10px">&nbsp;</div>

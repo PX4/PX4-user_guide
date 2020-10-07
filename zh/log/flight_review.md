@@ -14,19 +14,21 @@
 - 鼠标在特定的绘图轴上滚动可缩放该轴 (水平或垂直)。
 - 鼠标在图形内滚动可缩放两个轴。
 
-## PID 性能跟踪 {#tracking}
+<span id="tracking"></span>
 
-根据飞行模式, 车辆控制器可能会尝试跟踪位置、速度、高度或速率设定值 (跟踪的设定值取决于模式, 例如: 在稳定模式下没有速度设定值)。
+## PID Tracking Performance
 
-**估计**线 (红色) 应与 **设定**线 (绿色) 密切匹配。 如果没有，在大多数情况下，需要调整该控制器的 PID 增益。
+Depending on the flight mode, the vehicle controllers may attempt to track position, velocity, altitude or rate setpoints (the tracked setpoints depend on the mode, e.g.: in Stabilized mode there is no velocity setpoint).
 
-[多轴 PID 调优指南](../config_mc/pid_tuning_guide_multicopter.md)包含示例图和有关分析跟踪性能的信息。
+The **Estimated** line (red) should closely match with the **Setpoint** (green). If they do not, in most cases the PID gains of that controller need to be tuned.
+
+The [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md) contains example plots and information about analysing tracking performance.
 
 > **Tip** 特别是对于速率控制器, 启用高速日志记录配置文件 ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) 在缩放时获取更多详细信息是很有用的。
 
 ## 振动
 
-振动是多旋翼飞机中最常见的问题之一。 高振动可能导致：
+Vibration is one of the most common problems for multirotor vehicles. High vibration levels can lead to:
 
 - 飞行效率低, 飞行时间缩短
 - 电机温度升高
@@ -35,11 +37,11 @@
 - 传感器接线
 - 位置估计失败，可能偏离飞行。
 
-因此，必须对振动水平保持警惕，并在必要时改进设置。
+It is therefore important to keep an eye on the vibration levels and improve the setup if needed.
 
-有一个时刻的振动明显过高，但是总体而言震动小更好。 然而在 "一切都好" 和 "水平太高" 之间有很大的差距。 这个范围取决于许多因素, 包括车辆的大小 - 因为较大的车辆有更高的惯性, 允许更多的软件过滤 (同时较大的车辆上的振动是较低的频率)。
+There is a point where vibration levels are clearly too high, and generally lower vibration levels are better. However there is a broad range between 'everything is ok' and 'the levels are too high'. This range depends on a number of factors, including vehicle size - as larger vehicles have higher inertia, allowing for more software filtering (at the same time the vibrations on larger vehicles are of lower frequency).
 
-下面的段落和部分提供了关于使用什么图来检查振动水平以及如何分析它们的信息。
+The following paragraphs and sections provide information about what plots to use for checking vibration levels, and how to analyse them.
 
 > **Tip** 在分析振动时, 值得查看多个图表 (不同的图表可以更好地突出显示一些问题)。
 
@@ -47,110 +49,112 @@
 
 > **Note** 您需要启用高速日志记录配置文件 ([SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE)) 才能看到此图形。
 
-此图显示了基于执行器控制信号 (速率控制器的 PID 输出) 的横滚、俯仰和偏航轴的频率图。 它有助于识别频率峰值和配置软件过滤器。 在最低端 (低于20赫兹) 时应该只有一个峰值, 其余的应该是低和平的。
+This graph shows a frequency plot for the roll, pitch and yaw axis based on the actuator controls signal (the PID output from the rate controller). It helps to identify frequency peaks and configuring the software filters. There should only be a single peak at the lowest end (below around 20 Hz), the rest should be low and flat.
 
-请注意, 不同车辆的 y 轴缩放是不同的, 但同一车辆的日志可以直接相互比较。
+Note that the y-axis scaling is different for different vehicles, but logs from the same vehicle can be directly compared to each other.
 
 #### 例子：良好的振动
 
-[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 框架 (极好的振动)。
+[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
 
-![低振动 QAV-R 5 Racer - FFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
+![Low vibration QAV-R 5 Racer - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_good_actuator_controls_fft.png)
 
 > **Note**，上述卓越机型的振动特性意味着我们可以大大提高[软件过滤器](../config_mc/racer_setup.md#filters)的截止频率 (减少控制延迟) 。
 
-DJI F450 框架 (良好振动)。
+DJI F450 frame (good vibration).
 
-![低振动 DJI F450 - FFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
+![Low vibration DJI F450 - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_actuator_controls_fft.png)
 
-S500 框架：
+S500 frame:
 
-![低振动S500启动器控制 - FFFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
+![Low vibration S500 actuator controls - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_actuator_controls_fft.png)
 
 > **Note** 虽然上面的图看起来不错，但[同一次飞行的原始加速度图](#raw_acc_s500)显示，x 和 y 的振动水平有点高。 这是一个很好的例子，说明为什么值得对比几个图！
 
 #### 例子：不好的振动
 
-这个例子显示了频率峰值接近 50 Hz (这是由于“松动”起落架引起的情况)。
+This example shows a peak in frequency close to 50 Hz (in this case due to "loose" landing gear).
 
-![在着陆设备中振动 - FFT 绘图](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_actuator_controls_fft.png)
+![Vibrations in landing gear - FFT plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_actuator_controls_fft.png)
 
 ### 加速度功率谱密度
 
-这是一个二的维频率图，显示原始加速度计数据随时间的频率响应 (它显示 x、y 和 z 轴的和) 。 面积越黄，此时的频率响应和频率就越高。
+This is a 2D frequency plot showing the frequency response of the raw accelerometer data over time (it displays the sum for the x, y and z axis). The more yellow an area is, the higher the frequency response at that time and frequency.
 
-理想的情况是，只有少数赫兹的最低部分是黄色，其余部分大多为绿色或蓝色。
+Ideally only the lowest part up to a few Hz is yellow, and the rest is mostly green or blue.
 
 #### 例子：良好的振动
 
-[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 框架 (极好的振动)。
+[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
 
-![低振动 QAV-R 5 Racer - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png) <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
+![Low vibration QAV-R 5 Racer - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png) <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
-DJI F450 框架 (良好振动)。 ![低振动DJI F450 - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
+DJI F450 frame (good vibration). ![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
 > **注意** 您可以在大约 100 Hz 上看到双向旋转频率。
 
-S500 框架： ![低振动DJI F500 - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
+S500 frame: ![Vibration S500 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_spectral.png)
 
 #### 例子：不好的振动
 
-100Hz 左右的强黄线表明了一个潜在的问题，需要进一步研究 (首先查看其他图表)。
+The strong yellow lines at around 100Hz indicate a potential issue that requires further investigation (starting with a review of the other charts).
 
-![光谱密度图中的高振动](../../assets/flight_log_analysis/flight_review/vibrations_too_high_spectral.png)
+![High vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_too_high_spectral.png)
 
-这个例子显示了频率峰值接近 50 Hz (这是由于起落架“松动“”引起的情况)。
+This plot below shows a peak in frequency close to 50 Hz (in this case due to "loose" landing gear).
 
 > **Tip** 这可能是一个问题，因为它是一个与车辆动力学强相关的低频信息。 由于默认过滤器设置，50 到 80 Hz 的振动将不会被过滤。
 
-![在着陆设备中振动 - 光谱密度绘图](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_spectral.png)
+![Vibrations in landing gear - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_spectral.png)
 
-非常高（不安全）振动！ 注意图表几乎完全黄色。
+Extremely high (unsafe) vibration! Note that the graph is almost completely yellow.
 
 > **警告** 如此高的振动下不能飞行。
 
-![光谱密度图中的高振动](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_spectral.png)
+![Exceedingly high vibration in spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_spectral.png)
 
 ### 原始加速度
 
-此图展示了x、y 和 z 轴的原加速计测量。 理想情况下，每条线都很细，能清楚地显示车辆的加速度。
+This graph shows the raw accelerometer measurements for the x, y and z axis. Ideally each line is thin and clearly shows the vehicle's accelerations.
 
-根据经验，如果 z 轴图形在悬停或低速飞行时接触 x/y轴 图形，则振动水平太高。
+As a rule of thumb if the z-axis graph is touching the x/y-axis graph during hover or slow flight, the vibration levels are too high.
 
 > **Tip** 使用此图的最佳方法是将图像放大一点，使其显示飞行器悬停的部分。
 
 #### 例子：良好的振动
 
-[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) 框架 (极好的振动)。
+[QAV-R 5" Racer](../frames_multicopter/qav_r_5_kiss_esc_racer.md) frame (excellent vibration).
 
-![低振动 QAV-R 5 Racer - 原始加速。 绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
+![Low vibration QAV-R 5 Racer - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
 
-DJI F450 框架 (良好振动)。 ![低振动 DJI F450 - FFT 绘图. 绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
+DJI F450 frame (good vibration). ![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
 <!-- https://logs.px4.io/plot_app?log=cd88b091-ec89-457c-85f6-e63e4fa0f51d -->
 
 #### 例子：不好的振动
 
 <span id="raw_acc_s500"></span>
-S500 框架： x 和 y 轴的边界振动水平有点高 (这是典型的S500机身)。 这是它开始对飞行性能产生负面影响的极限。
+S500 frame. Borderline vibration levels - a bit high for x and y (which is typical for an S500 airframe). This is at the limit where it starts to negatively affect flight performance.
 
-![Borderline 振动 S500 x, y - 原始加速。 绘图](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
+![Borderline vibration S500 x, y - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_s500_accel.png)
 
-振动太高。 注意 z 轴与 x/y 轴重叠的图形：
+Vibration too high. Note how the graph of the z-axis overlaps with the x/y-axis graph:
 
-![在着陆设备中振动 - FFT 绘图. 绘图](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_accel.png)
+![Vibrations in landing gear - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_landing_gear_accel.png)
 
-振动太高。 注意 z 轴与 x/y 轴重叠的图形：
+Vibration levels are too high. Note how the graph of the z-axis overlaps with the x/y-axis graph:
 
-![初始加速度震动大 绘图](../../assets/flight_log_analysis/flight_review/vibrations_too_high_accel.png)
+![High vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_too_high_accel.png)
 
-高度（不安全）振动。
+Very high (unsafe) vibration levels.
 
 > **警告** 如此高的振动下不能飞行。
 
-![初始加速度振动极高 绘图](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
+![Exceedingly high vibration in raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_exceedingly_high_accel.png)
 
-### Raw High-rate IMU Data Plots {#fifo_logging}
+<span id="fifo_logging"></span>
+
+### Raw High-rate IMU Data Plots
 
 For an in-depth analysis there is an option to log the raw IMU data at full rate (several kHz, depending on the IMU). This allows inspection of much higher frequencies than with normal logging, which can help when selecting vibration mounts or configuring low-pass and notch filters appropriately.
 
@@ -177,7 +181,9 @@ Example plot:
 
 > **Note** Do not forget to restore the parameters after testing.
 
-### Fixing Vibration Problems {#solutions}
+<span id="solutions"></span>
+
+### Fixing Vibration Problems
 
 Often a source of vibration (or combination of multiple sources) cannot be identified from logs alone.
 
@@ -291,7 +297,7 @@ They show a vehicle that has very low vibration:
 
 ![Low vibration QAV-R 5 Racer - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_good_spectral.png)
 
-![Low vibration QAV-R 5 Racer - raw accel. 绘图](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
+![Low vibration QAV-R 5 Racer - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_good_accel.png)
 
 ### DJI F450
 
@@ -307,7 +313,7 @@ They show a vehicle that has low vibration (but not as low as the QAV-R above!):
 
 ![Low vibration DJI F450 - spectral density plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_spectral.png)
 
-![Low vibration DJI F450 - raw accel. 绘图](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
+![Low vibration DJI F450 - raw accel. plot](../../assets/flight_log_analysis/flight_review/vibrations_f450_accel.png)
 
 ### S500
 

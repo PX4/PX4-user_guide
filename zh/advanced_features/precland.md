@@ -63,9 +63,11 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 在这种情况下，精准着陆始终被视为“必需的”。
 
-### 在任务中 {#mission}
+<span id="mission"></span>
 
-精准着陆可以作为 [任务](../flying/missions.md) 的一部分启动，使用 [ MAV_CMD_NAV_LAND ](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) 并适当设置 ` param2 ` ：
+### In a Mission
+
+Precision landing can be initiated as part of a [mission](../flying/missions.md) using [MAV_CMD_NAV_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_LAND) with `param2` set appropriately:
 
 - `param2` = 0: 正常着陆而不使用信标。
 - ` param2 ` = 1：*随机的* 精准着陆。
@@ -73,32 +75,32 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 ## 仿真
 
-可以在 [SITL Gazebo](https://dev.px4.io/master/en/simulation/gazebo.html) 中使用 IR-LOCK 传感器和信标进行精准着陆仿真。
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/master/en/simulation/gazebo.html).
 
-可以运行下列命令来开启拥有 IR-LOCK 信标，带测距传感器的飞行器，IR-LOCK 摄像头的仿真世界：
+To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
 
     make px4_sitl gazebo_iris_irlock
     
 
-你可以通过在 Gazebo GUI 中移动信标或通过改变在 [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42) 中的位置来改变信标的位置。
+You can change the location of the beacon either by moving it in the Gazebo GUI or by changing its location in the [Gazebo world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/iris_irlock.world#L42).
 
 ## 工作原理
 
 ### 着陆目标估计器
 
-`landing_target_estimator` 从 ` irlock ` 驱动中获取测量结果以及估计的地形高度，来估计信标相对于飞行器的位置。
+The `landing_target_estimator` takes measurements from the `irlock` driver as well as the estimated terrain height to estimate the beacon's position relative to the vehicle.
 
-`irlock_report ` 中的测量值包含从图像中心到信标的角度的正切值。 换句话说，测量值是指向信标的矢量的 x 和 y 分量，其中 z 分量具有长度“1”。 这意味着将测量结果缩放从摄像头到信标的距离这么多倍，将得到从摄像头到信标的（方向）矢量。 然后根据飞机的姿态估计将相对位置旋转到北对齐，机身水平的坐标系中。 相对位置测量的 x 和 y 分量都在单独的卡尔曼滤波器中滤波，卡尔曼滤波器用作简单的低通滤波器，其也产生速度估计并允许异常值剔除。
+The measurements in `irlock_report` contain the tangent of the angles from the image center to the beacon. In other words, the measurements are the x and y components of the vector pointing towards the beacon, where the z component has length "1". This means that scaling the measurement by the distance from the camera to the beacon results in the vector from the camera to the beacon. This relative position is then rotated into the north-aligned, level body frame using the vehicle's attitude estimate. Both x and y components of the relative position measurement are filtered in separate Kalman Filters, which act as simple low-pass filters that also produce a velocity estimate and allow for outlier rejection.
 
-每当新的` irlock_report `融合到估计中时，` landing_target_estimator `就发布估计的相对位置和速度。 如果未看到信标或信标测量结果被拒绝，则不会发布任何内容。 着陆目标估计发布在` landing_target_pose ` uORB 消息中。
+The `landing_target_estimator` publishes the estimated relative position and velocity whenever a new `irlock_report` is fused into the estimate. Nothing is published if the beacon is not seen or beacon measurements are rejected. The landing target estimate is published in the `landing_target_pose` uORB message.
 
 ### 改进的飞行器位置估计
 
-如果使用参数` LTEST_MODE `将信标指定为静止，则可以借助信标测量来改善飞行器的位置/速度估计。 这是通过融合信标的速度为飞行器负速度的测量来完成的。
+If the beacon is specified to be stationary using the parameter `LTEST_MODE`, the vehicle's position/velocity estimate can be improved with the help of the beacon measurements. This is done by fusing the beacon's velocity as a measurement of the negative velocity of the vehicle.
 
 ### 精准着陆过程
 
-精准着陆由三个阶段组成：
+The precision land procedure consists of three phases:
 
 1. **水平接近：**飞行器在保持其当前高度的同时水平接近信标。 一旦信标相对于车辆的位置差异低于阈值（[ PLD_HACC_RAD ](../advanced_config/parameter_reference.md#PLD_HACC_RAD)），就进入下一阶段。 如果信标在此阶段丢失（不可见超过时长[ PLD_BTOUT ](../advanced_config/parameter_reference.md#PLD_BTOUT)），则启动搜索程序（在必须的精准降落模式）或飞行器正常着陆（在随机的精准降落模式）。
 
@@ -106,6 +108,6 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 3. **最终接近：**当飞行器接近地面（高度小于[ PLD_FAPPR_ALT ](../advanced_config/parameter_reference.md#PLD_FAPPR_ALT)）时，飞行器会下降，同时保持在信标中心上方。 如果信标在此阶段丢失，则会继续下降，与精准着陆的类型无关。
 
-在步骤 1. 和步骤 2.中 搜索次数最多达 [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH) 次。
+Search procedures are initiated in 1. and 2. a maximum of [PLD_MAX_SRCH](../advanced_config/parameter_reference.md#PLD_MAX_SRCH) times.
 
-![精准着陆流程图](../../assets/precision_land/precland-flow-diagram.png)
+![Precision Landing Flow Diagram](../../assets/precision_land/precland-flow-diagram.png)

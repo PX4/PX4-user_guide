@@ -18,9 +18,11 @@ PX4提供了许多（逐步更有效）的方法，可用于估计容量：
 
 > **Note** The instructions below refer to battery 1 calibration parameters: `BAT1_*`. Other batteries use the `BATx_*` parameters, where `x` is the battery number. All battery calibration parameters [are listed here](../advanced_config/parameter_reference.md#battery-calibration).
 
-## 基本电池设置(默认) {#basic_settings}
+<span id="basic_settings"></span>
 
-基本电池设置将PX4配置为使用默认方法进行容量估算。 该方法将测量的原始电池电压与“空”和“满”状态电池电压之间的范围进行比较（按电池数量换算）。
+## Basic Battery Settings (default)
+
+The basic battery settings configure PX4 to use the default method for capacity estimate. This method compares the measured raw battery voltage to the range between cell voltages for "empty" and "full" cells (scaled by the number of cells).
 
 > **Note** This approach results in relatively coarse estimations due to fluctuations in the estimated charge as the measured voltage changes under load.
 
@@ -29,19 +31,19 @@ To configure the basic settings for battery 1:
 1. 打开 *QGroundControl* 并连接上飞机。
 2. 在上面的工具条中选择 **齿轮** 按钮，然后在左面的工具条中选择 **电源** 按钮。
 
-You are presented with the basic settings that characterize the battery. 以下部分说明了为每个字段设置的值。
+You are presented with the basic settings that characterize the battery. The sections below explain what values to set for each field.
 
-![地面站（QGC）电源设置](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
+![QGC Power Setup](../../assets/qgc/setup/power/qgc_setup_power_px4.jpg)
 
 > **Note** At time of writing *QGroundControl* only allows you to set values for battery 1 in this view. For vehicles with multiple batteries you'll need to directly [set the parameters](../advanced_config/parameters.md) for battery 2 (`BAT2_*`), as described in the following sections.
 
 ### 电池芯数（串联）
 
-这设置了电池中串联的电池数量。 通常，这将作为数字写在电池上，后跟“S”（例如“3S”，“5s”）。
+This sets the number of cells connected in series in the battery. Typically this will be written on the battery as a number followed by "S" (e.g "3S", "5s").
 
 > **Note** The voltage across a single galvanic battery cell is dependent on the chemical properties of the battery type. The most common drone battery type (Lithium-Polymer - LiPo) has a nominal cell voltage of 3.7V. In order to achieve higher voltages (which will more efficiently power a vehicle), multiple cells are connected in *series*. The battery voltage at the terminals is then a multiple of the cell voltage.
 
-如果未提供电池数量，您可以通过将电池电压除以单个电池的标称电压来计算它。 下表显示了LiPo电池的电压 - 电池关系：
+If the number of cells is not supplied you can calculate it by dividing the battery voltage by the nominal voltage for a single cell. The table below shows the voltage-to-cell relationship for LiPo batteries:
 
 - 1S - 3.7V
 - 2S - 7.4V
@@ -54,9 +56,9 @@ You are presented with the basic settings that characterize the battery. 以下�
 
 ### Full Voltage (per cell)
 
-这设置每个电池单元的*标称</ 0>最大电压（电池单元状态是“满”的最低电压）。</p> 
+This sets the *nominal* maximum voltage of each cell (the lowest voltage at which the cell will be considered "full").
 
-该值应设置为略低于电池的标称最大电压（LiPo为4.2V），但不能太低，以至于飞行几分钟后估计的容量仍为100％。 默认值通常适用于LiPo电池。
+The value should be set slightly lower that the nominal maximum cell voltage for the battery (4.2V for LiPo), but not so low that the estimated capacity is still 100% after a few minutes of flight. The default value is usually appropriate for LiPo batteries.
 
 > **Note** The voltage of a full battery may drop a small amount over time after charging. Setting a slightly-lower than maximum value compensates for this drop.
 
@@ -90,7 +92,9 @@ The easiest way to calibrate the divider is by using *QGroundControl* and follow
 
 > **Note** This setting corresponds to parameters: [BAT1_V_DIV](../advanced_config/parameter_reference.md#BAT1_V_DIV) and [BAT2_V_DIV](../advanced_config/parameter_reference.md#BAT2_V_DIV).
 
-### 安培/伏特 {#current_divider}
+<span id="current_divider"></span>
+
+### Amps per volt
 
 > **Tip** This setting is not needed if you are using the basic configuration (without load compensation etc.)
 
@@ -100,7 +104,9 @@ The easiest way to calibrate the dividers is by using *QGroundControl* and follo
 
 > **Note** This setting corresponds to parameter(s): [BAT1_A_PER_V](../advanced_config/parameter_reference.md#BAT1_A_PER_V) and [BAT2_A_PER_V](../advanced_config/parameter_reference.md#BAT2_A_PER_V).
 
-## 基于电压估计的负载补偿 {#load_compensation}
+<span id="load_compensation"></span>
+
+## Voltage-based Estimation with Load Compensation
 
 > **Note** With well configured load compensation the voltage used for battery capacity estimation is much more stable, varying far less when flying up and down.
 
@@ -113,26 +119,38 @@ PX4 supports two load compensation methods, which are enabled by [setting](../ad
 - [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) - [Current-based Load Compensation](#current_based_load_compensation) (recommended).
 - [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) - [Thrust-based Load Compensation](#thrust_based_load_compensation).
 
-### 基于电流的负载补偿（推荐） {#current_based_load_compensation}
+<span id="current_based_load_compensation"></span>
+
+### Current-based Load Compensation (recommended)
 
 This load compensation method relies on current measurement to determine load. It is far more accurate than [Thrust-based Load Compensation](#thrust_based_load_compensation) but requires that you have a current sensor.
 
-要启用此功能：
+To enable this feature:
 
 1. Set the parameter [BAT1_R_INTERNAL](../advanced_config/parameter_reference.md#BAT1_R_INTERNAL) to the internal resistance of battery 1 (and repeat for other batteries). > **提示** 某些锂电池充电器可以测量您电池的内阻。 典型的数值是每个电池单体5毫欧，但这可能随单体的放电速率、使用时间和健康状况而变化。
 2. 您还应该在基本设置屏幕上校准</a> 安培每伏分压  。</li> </ol> 
     
-    ### Thrust-based Load Compensation {#thrust_based_load_compensation}
+    
+
+<span id="thrust_based_load_compensation"></span>
+
+    
+    ### Thrust-based Load Compensation
     
     This load compensation method estimates the load based on the total thrust that gets commanded to the motors.
     
     > **Caution** This method is not particularly accurate because there's a delay between thrust command and current, and because the thrust in not linearly proportional to the current. Use [Current-based Load Compensation](#current_based_load_compensation) instead if your vehicle has a current sensor.
     
-    要启用此功能：
+    To enable this feature:
     
     1. Set the parameter [BAT1_V_LOAD_DROP](../advanced_config/parameter_reference.md#BAT1_V_LOAD_DROP) to how much voltage drop a cell shows under the load of full throttle.
     
-    ## Voltage-based Estimation Fused with Current Integration {#current_integration}
+    
+
+<span id="current_integration"></span>
+
+    
+    ## Voltage-based Estimation Fused with Current Integration
     
     > **Note** This is the most accurate way to measure relative battery consumption. If set up correctly with a healthy and fresh charged battery on every boot, then the estimation quality will be comparable to that from a smart battery (and theoretically allow for accurate remaining flight time estimation).
     

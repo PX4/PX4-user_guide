@@ -62,7 +62,9 @@ ESP8266固件具有以下 *工厂* 设置：
 
 ![eSP8266 下载](../../assets/hardware/telemetry/esp8266_flashing_ftdi.jpg)
 
-## Pixhawk/PX4 Setup & Configuration {#px4_config}
+<span id="px4_config"></span>
+
+## Pixhawk/PX4 Setup & Configuration
 
 > **Tip** If using PX4 1.8.2 (and earlier) you should connect the ESP8266 to TELEM2 and configure the port by [setting the parameter](../advanced_config/parameters.md) `SYS_COMPANION` to 1921600 (remember to reboot after setting the parameter). The following instructions assume you are using PX4 versions after 1.8.2
 
