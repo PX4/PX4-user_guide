@@ -9888,6 +9888,101 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC0_ROT">CAL_ACC0_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of accelerometer 0 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC0_XOFF">CAL_ACC0_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -9955,6 +10050,101 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC1_ROT">CAL_ACC1_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of accelerometer 1 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10030,6 +10220,101 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC2_ROT">CAL_ACC2_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of accelerometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_ACC2_XOFF">CAL_ACC2_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10072,6 +10357,172 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC3_ID">CAL_ACC3_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of the Accelerometer that the calibration is for</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC3_PRIO">CAL_ACC3_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Accelerometer 3 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC3_ROT">CAL_ACC3_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of accelerometer 3 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC3_XOFF">CAL_ACC3_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer X-axis offset</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC3_XSCALE">CAL_ACC3_XSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer X-axis scaling factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC3_YOFF">CAL_ACC3_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Y-axis offset</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC3_YSCALE">CAL_ACC3_YSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Y-axis scaling factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC3_ZOFF">CAL_ACC3_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Z-axis offset</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_ACC3_ZSCALE">CAL_ACC3_ZSCALE</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer Z-axis scaling factor</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">1.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO0_ID">CAL_GYRO0_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>ID of the Gyro that the calibration is for</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10097,6 +10548,101 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO0_ROT">CAL_GYRO0_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of gyro 0 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 41 </td>
  <td style="vertical-align: top;">-1</td>
  <td style="vertical-align: top;"></td>
 </tr>
@@ -10151,6 +10697,101 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO1_ROT">CAL_GYRO1_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of gyro 1 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO1_XOFF">CAL_GYRO1_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10201,6 +10842,101 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO2_ROT">CAL_GYRO2_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of gyro 2 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO2_XOFF">CAL_GYRO2_XOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro X-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
@@ -10216,6 +10952,151 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_GYRO2_ZOFF">CAL_GYRO2_ZOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro Z-axis offset</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO3_ID">CAL_GYRO3_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of the Gyro that the calibration is for</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO3_PRIO">CAL_GYRO3_PRIO</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Gyro 3 priority</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong>  Uninitialized</li> 
+
+<li><strong>0:</strong>   Disabled</li> 
+
+<li><strong>1:</strong>   Min</li> 
+
+<li><strong>25:</strong>  Low</li> 
+
+<li><strong>50:</strong>  Medium (Default)</li> 
+
+<li><strong>75:</strong>  High</li> 
+
+<li><strong>100:</strong> Max</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO3_ROT">CAL_GYRO3_ROT</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Rotation of gyro 3 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
+
+<li><strong>0:</strong> No rotation</li> 
+
+<li><strong>1:</strong> Yaw 45°</li> 
+
+<li><strong>2:</strong> Yaw 90°</li> 
+
+<li><strong>3:</strong> Yaw 135°</li> 
+
+<li><strong>4:</strong> Yaw 180°</li> 
+
+<li><strong>5:</strong> Yaw 225°</li> 
+
+<li><strong>6:</strong> Yaw 270°</li> 
+
+<li><strong>7:</strong> Yaw 315°</li> 
+
+<li><strong>8:</strong> Roll 180°</li> 
+
+<li><strong>9:</strong> Roll 180°, Yaw 45°</li> 
+
+<li><strong>10:</strong> Roll 180°, Yaw 90°</li> 
+
+<li><strong>11:</strong> Roll 180°, Yaw 135°</li> 
+
+<li><strong>12:</strong> Pitch 180°</li> 
+
+<li><strong>13:</strong> Roll 180°, Yaw 225°</li> 
+
+<li><strong>14:</strong> Roll 180°, Yaw 270°</li> 
+
+<li><strong>15:</strong> Roll 180°, Yaw 315°</li> 
+
+<li><strong>16:</strong> Roll 90°</li> 
+
+<li><strong>17:</strong> Roll 90°, Yaw 45°</li> 
+
+<li><strong>18:</strong> Roll 90°, Yaw 90°</li> 
+
+<li><strong>19:</strong> Roll 90°, Yaw 135°</li> 
+
+<li><strong>20:</strong> Roll 270°</li> 
+
+<li><strong>21:</strong> Roll 270°, Yaw 45°</li> 
+
+<li><strong>22:</strong> Roll 270°, Yaw 90°</li> 
+
+<li><strong>23:</strong> Roll 270°, Yaw 135°</li> 
+
+<li><strong>24:</strong> Pitch 90°</li> 
+
+<li><strong>25:</strong> Pitch 270°</li> 
+
+<li><strong>26:</strong> Pitch 180°, Yaw 90°</li> 
+
+<li><strong>27:</strong> Pitch 180°, Yaw 270°</li> 
+
+<li><strong>28:</strong> Roll 90°, Pitch 90°</li> 
+
+<li><strong>29:</strong> Roll 180°, Pitch 90°</li> 
+
+<li><strong>30:</strong> Roll 270°, Pitch 90°</li> 
+
+<li><strong>31:</strong> Roll 90°, Pitch 180°</li> 
+
+<li><strong>32:</strong> Roll 270°, Pitch 180°</li> 
+
+<li><strong>33:</strong> Roll 90°, Pitch 270°</li> 
+
+<li><strong>34:</strong> Roll 180°, Pitch 270°</li> 
+
+<li><strong>35:</strong> Roll 270°, Pitch 270°</li> 
+
+<li><strong>36:</strong> Roll 90°, Pitch 180°, Yaw 90°</li> 
+
+<li><strong>37:</strong> Roll 90°, Yaw 270°</li> 
+
+<li><strong>38:</strong> Roll 90°, Pitch 68°, Yaw 293°</li> 
+
+<li><strong>39:</strong> Pitch 315°</li> 
+
+<li><strong>40:</strong> Roll 90°, Pitch 315°</li> 
+
+<li><strong>41:</strong> Roll 270°, Yaw 180°</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">-1 > 41 </td>
+ <td style="vertical-align: top;">-1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO3_XOFF">CAL_GYRO3_XOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro X-axis offset</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO3_YOFF">CAL_GYRO3_YOFF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro Y-axis offset</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="CAL_GYRO3_ZOFF">CAL_GYRO3_ZOFF</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro Z-axis offset</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
@@ -10252,8 +11133,8 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG0_ROT">CAL_MAG0_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 0 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Internal mag</li> 
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 0 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
 
@@ -10472,8 +11353,8 @@ for current-based compensation [G/kA]</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG1_ROT">CAL_MAG1_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 1 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Internal mag</li> 
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 1 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
 
@@ -10692,8 +11573,8 @@ for current-based compensation [G/kA]</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG2_ROT">CAL_MAG2_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Internal mag</li> 
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 2 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
 
@@ -10912,8 +11793,8 @@ for current-based compensation [G/kA]</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="CAL_MAG3_ROT">CAL_MAG3_ROT</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Rotation of magnetometer 3 relative to airframe</p><p><strong>Comment:</strong> An internal magnetometer will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
-<li><strong>-1:</strong> Internal mag</li> 
+ <td style="vertical-align: top;"><p>Rotation of magnetometer 3 relative to airframe</p><p><strong>Comment:</strong> An internal sensor will force a value of -1, so a GCS should only attempt to configure the rotation if the value is greater than or equal to zero.</p> <strong>Values:</strong><ul>
+<li><strong>-1:</strong> Internal</li> 
 
 <li><strong>0:</strong> No rotation</li> 
 
@@ -14055,6 +14936,118 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_ID">TC_A3_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Accelerometer that the calibration is for</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_TMAX">TC_A3_TMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">100.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_TMIN">TC_A3_TMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_TREF">TC_A3_TREF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">25.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X0_0">TC_A3_X0_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - X axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X0_1">TC_A3_X0_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Y axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X0_2">TC_A3_X0_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^0 polynomial coefficient - Z axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X1_0">TC_A3_X1_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - X axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X1_1">TC_A3_X1_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Y axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X1_2">TC_A3_X1_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^1 polynomial coefficient - Z axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X2_0">TC_A3_X2_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - X axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X2_1">TC_A3_X2_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Y axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X2_2">TC_A3_X2_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^2 polynomial coefficient - Z axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X3_0">TC_A3_X3_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - X axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X3_1">TC_A3_X3_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Y axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_A3_X3_2">TC_A3_X3_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Accelerometer offset temperature ^3 polynomial coefficient - Z axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="TC_A_ENABLE">TC_A_ENABLE</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Thermal compensation for accelerometer sensors</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -14267,6 +15260,76 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_B2_X5">TC_B2_X5</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Barometer offset temperature ^5 polynomial coefficient</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_B3_ID">TC_B3_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Barometer that the calibration is for</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_B3_TMAX">TC_B3_TMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Barometer calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">75.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_B3_TMIN">TC_B3_TMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Barometer calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">5.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_B3_TREF">TC_B3_TREF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Barometer calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">40.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_B3_X0">TC_B3_X0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Barometer offset temperature ^0 polynomial coefficient</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_B3_X1">TC_B3_X1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Barometer offset temperature ^1 polynomial coefficients</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_B3_X2">TC_B3_X2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Barometer offset temperature ^2 polynomial coefficient</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_B3_X3">TC_B3_X3</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Barometer offset temperature ^3 polynomial coefficient</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_B3_X4">TC_B3_X4</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Barometer offset temperature ^4 polynomial coefficient</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_B3_X5">TC_B3_X5</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Barometer offset temperature ^5 polynomial coefficient</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
@@ -14611,6 +15674,118 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="TC_G2_X3_2">TC_G2_X3_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Z axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_ID">TC_G3_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>ID of Gyro that the calibration is for</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_TMAX">TC_G3_TMAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration maximum temperature</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">100.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_TMIN">TC_G3_TMIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration minimum temperature</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_TREF">TC_G3_TREF</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro calibration reference temperature</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">25.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X0_0">TC_G3_X0_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - X axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X0_1">TC_G3_X0_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Y axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X0_2">TC_G3_X0_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^0 polynomial coefficient - Z axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X1_0">TC_G3_X1_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - X axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X1_1">TC_G3_X1_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Y axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X1_2">TC_G3_X1_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^1 polynomial coefficient - Z axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X2_0">TC_G3_X2_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - X axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X2_1">TC_G3_X2_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Y axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X2_2">TC_G3_X2_2</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^2 polynomial coefficient - Z axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X3_0">TC_G3_X3_0</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - X axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X3_1">TC_G3_X3_1</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Y axis</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="TC_G3_X3_2">TC_G3_X3_2</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Gyro rate offset temperature ^3 polynomial coefficient - Z axis</p>   </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0.0</td>
