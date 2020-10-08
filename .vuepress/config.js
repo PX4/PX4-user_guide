@@ -100,6 +100,19 @@ module.exports = {
           },
       
           { text: 'Support', link: 'http://discuss.px4.io/' , ariaLabel: 'Support' },
+          {
+            text: 'Version',
+            ariaLabel: 'Versions Menu',
+            items: [
+              { text: 'master', link: '/' },
+              { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
+              { text: 'v1.10', link: 'https://dev.qgroundcontrol.com/en/' },
+              { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
+              { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
+              
+            ]
+          },
+          
         ],
         sidebar: {
           '/en/': getSidebar.sidebar('en')
@@ -122,8 +135,32 @@ module.exports = {
           { text: 'QGroundControl', link: 'http://qgroundcontrol.com/' , ariaLabel: 'QGC' },
           { text: 'MAVSDK', link: 'https://www.dronecode.org/sdk/' , ariaLabel: 'MAVSDK' },
           { text: 'MAVLINK', link: 'https://mavlink.io/en/' , ariaLabel: 'MAVLINK site' },
-          { text: 'Docs', link: 'https://www.dronecode.org/documentation/' , ariaLabel: 'Docs' },
+          {
+            text: 'Docs',
+            ariaLabel: 'Documentation Menu',
+            items: [
+              { text: 'PX4 Developer Guide', link: 'https://dev.px4.io/master/en/' },
+              { text: 'QGroundControl User Guide', link: 'https://docs.qgroundcontrol.com/en/' },
+              { text: 'QGroundControl Developer Guide', link: 'https://dev.qgroundcontrol.com/en/' },
+              { text: 'MAVLink Guide', link: 'https://mavlink.io/en/' },
+              { text: 'MAVSDK', link: 'https://mavsdk.mavlink.io/' },
+              { text: 'Dronecode Camera Manager', link: 'https://camera-manager.dronecode.org/en/' },    
+              
+            ]
+          },
           { text: 'Support', link: 'http://discuss.px4.io/' , ariaLabel: 'Support' },
+          {
+            text: 'Version',
+            ariaLabel: 'Versions Menu',
+            items: [
+              { text: 'master', link: '/' },
+              { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
+              { text: 'v1.10', link: 'https://dev.qgroundcontrol.com/en/' },
+              { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
+              { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
+              
+            ]
+          },
         ],
         algolia: {},
         sidebar: {
