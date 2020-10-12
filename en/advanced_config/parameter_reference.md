@@ -12143,6 +12143,22 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="IMU_GYRO_FFT_MAX">IMU_GYRO_FFT_MAX</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>IMU gyro FFT maximum frequency</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">1 > 1000 </td>
+ <td style="vertical-align: top;">200.0</td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="IMU_GYRO_FFT_MIN">IMU_GYRO_FFT_MIN</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>IMU gyro FFT minimum frequency</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">1 > 1000 </td>
+ <td style="vertical-align: top;">30.0</td>
+ <td style="vertical-align: top;">Hz</td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_NF_BW">IMU_GYRO_NF_BW</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Notch filter bandwidth for gyro</p><p><strong>Comment:</strong> The frequency width of the stop band for the 2nd order notch filter on the primary gyro. See "IMU_GYRO_NF_FREQ" to activate the filter and to set the notch frequency. Applies to both angular velocity and angular acceleration sent to the controllers.</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -14285,6 +14301,13 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">5</td>
  <td style="vertical-align: top;">celcius</td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="SYS_FAC_CAL_MODE">SYS_FAC_CAL_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Enable factory calibration mode</p><p><strong>Comment:</strong> If enabled, future sensor calibrations will be stored to /fs/mtd_caldata. Note: this is only supported on boards with a separate calibration storage /fs/mtd_caldata.</p>   </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SYS_FAILURE_EN">SYS_FAILURE_EN</strong> (INT32)</td>
