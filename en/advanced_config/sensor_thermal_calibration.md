@@ -38,7 +38,7 @@ PX4 supports two calibration procedures:
 The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate.
 
 > **Note** After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors.
-  The normal calibration parameters (e.g. `SYS_CAL_*`) are no longer used and are reset to their default values.
+  The normal `SYS_CAL_*` calibration parameters are no longer used (and in some cases may be reset).
 
 ### Onboard Calibration Procedure {#onboard_calibration}
 
