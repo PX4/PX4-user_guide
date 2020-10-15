@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'px4io/px4-docs:2020-01-05'
+      image 'px4io/px4-docs:latest'
     }
   }
   stages {
@@ -14,16 +14,16 @@ pipeline {
       steps {
         sh('export')
         checkout(scm)
-        sh('gitbook install')
-        sh('gitbook build')
-        stash(includes: '_book/', name: 'gitbook')
+        sh('yarn install')
+        sh('yarn docs:build')
+        stash(includes: '.vuepress/dist/', name: 'vuepress')
         // publish html
         publishHTML(target: [
           reportTitles: 'PX4 User Guide',
           allowMissing: false,
           alwaysLinkToLastBuild: true,
           keepAll: true,
-          reportDir: '_book',
+          reportDir: '.vuepress/dist/',
           reportFiles: '*',
           reportName: 'PX4 User Guide'
         ])
@@ -47,7 +47,7 @@ pipeline {
           sh('rm -rf docs.px4.io/${BRANCH_NAME}')
           sh('mkdir -p docs.px4.io/${BRANCH_NAME}')
           sh('cp -r _book/* docs.px4.io/${BRANCH_NAME}/')
-          sh('cd docs.px4.io; git add ${BRANCH_NAME}; git commit -a -m "gitbook build update `date`"')
+          sh('cd docs.px4.io; git add ${BRANCH_NAME}; git commit -a -m "docs build update `date`"')
           sh('cd docs.px4.io; git push origin master')
           
         }
@@ -60,6 +60,7 @@ pipeline {
       when {
         anyOf {
           branch "master";
+          branch "px4_vue_testing";          
           branch "v1.*"
         }
       }
