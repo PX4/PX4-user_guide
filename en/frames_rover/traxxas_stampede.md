@@ -44,7 +44,7 @@ The CAD files are provided [here](https://github.com/PX4/px4_user_guide/raw/mast
 ## Output Connections
 
 PWM Output | Actuator
--- | --
+--- | ---
 MAIN2 | Steering servo
 MAIN4 | ESC input
 
