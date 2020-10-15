@@ -149,7 +149,7 @@ Parameter | Option
 --- | ---
 App to use | `No App`
 VESC ID | `1,2,...`
-CAN Status Message Mode | `CAN_STATUS_1_2_3_4_5`
+Can Status Message Mode | `CAN_STATUS_1_2_3_4_5`
 CAN Baud Rate | `CAN_BAUD_500K`
 CAN Mode | `UAVCAN`
 UAVCAN ESC Index | `0,1,...`
