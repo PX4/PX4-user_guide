@@ -60,8 +60,8 @@ pipeline {
       }
       when {
         anyOf {
-          branch "master";
-          branch "px4_vue_testing";          
+          branch "master"
+          branch "px4_vue_testing"
           branch "v1.*"
         }
       }
