@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'px4io/px4-docs:latest'
+      image 'px4io/px4-docs:2020-10-15' 
     }
   }
   stages {
@@ -9,12 +9,13 @@ pipeline {
     stage('Build') {
       environment {
         HOME = "${WORKSPACE}"
+        THEBRANCHNAME="${BRANCH_NAME}"
       }
 
       steps {
         sh('export')
         checkout(scm)
-        sh('yarn install')
+        sh('yarn install --ignore-engines')
         sh('yarn docs:build')
         stash(includes: '.vuepress/dist/', name: 'vuepress')
         // publish html
@@ -41,7 +42,7 @@ pipeline {
 
       steps {
         sh('export')
-        unstash('gitbook')
+        unstash('vuepress')
         withCredentials([usernamePassword(credentialsId: 'px4buildbot_github_personal_token', passwordVariable: 'GIT_PASS', usernameVariable: 'GIT_USER')]) {
           sh('git clone https://${GIT_USER}:${GIT_PASS}@github.com/PX4/docs.px4.io.git')
           sh('rm -rf docs.px4.io/${BRANCH_NAME}')
