@@ -4,9 +4,16 @@ const getSidebar = require('./get_sidebar.js');
 
 
 module.exports = {
-  base:'/px4_user_guide/',
-  patterns : ['README.md','en/**/*.md','zh/**/*.md', '**/*.vue', '!**/node_modules' ], //only english, chinese at moment
-  //patterns : ['README.md','en/**/*.md', '**/*.vue', '!**/node_modules' ], //only english
+  base: process.env.BRANCH_NAME ? "/"+process.env.BRANCH_NAME+"/" : '/px4_user_guide/',
+  patterns : ['README.md',
+      'en/**/*.md',
+      'zh/**/*.md',
+      // 'de/**/*.md',
+      // 'ja/**/*.md',
+      // 'ru/**/*.md',
+      '!**/node_modules' 
+      ], 
+
   plugins: ['@vuepress/medium-zoom',
       ['vuepress-plugin-redirect', 
       {
