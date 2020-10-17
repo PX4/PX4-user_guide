@@ -220,9 +220,9 @@ echo "25" > /sys/class/gpio/unexport
 #### CSI camera
 > **Enable CSI camera will stop anything works on I2C-0.**
 
-```
+```shell
 sudo raspi-config
 ```
-"Interfaceing Options" -> "Camera"
+"Interfacing Options" -> "Camera"
 ### Building the code
 Continue with our [standard build system installation](https://dev.px4.io/master/en/setup/dev_env_linux.html).
