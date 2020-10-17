@@ -64,6 +64,7 @@ Mapped to `/dev/ttySC0`
 | 4(blk) | nc | +3v3 |
 | 5(blk) | nc | +3v3 |
 | 6(blk) | GND | GND |
+
 #### Telemetry connector
 Mapped to `/dev/ttySC1`
 | Pin | Signal | Volt |
@@ -74,6 +75,7 @@ Mapped to `/dev/ttySC1`
 | 4(blk) | CTS | +3v3 |
 | 5(blk) | RTS | +3v3 |
 | 6(blk) | GND | GND |
+
 #### External I2C connector
 Mapped to `/dev/i2c-0`
 | Pin | Signal | Volt |
@@ -82,6 +84,7 @@ Mapped to `/dev/i2c-0`
 | 2(blk) | SCL | +3v3(pullups) |
 | 3(blk) | SDA | +3v3(pullups) |
 | 4(blk) | GND | GND |
+
 #### RC & ADC2/3/4
 RC mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | Pin | Signal | Volt |
@@ -89,6 +92,7 @@ RC mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | 1(red) | RC | +3V3~+5V |
 | 2(blk) | VCC | +5V |
 | 3(blk) | GND | GND |
+
 ADC1 is internally connected to voltage divider for battery voltage monitoring.
 ADC2 would be connected to an external current sensor in the future.
 ADC3 would be connected to an analog airspeed sensor.
@@ -98,6 +102,7 @@ ADC4 has a jumper cap between ADC and VCC, to monitor system voltage level.
 | 1(red) | ADCx | 0V~+5V |
 | 2(blk) | VCC | +5V |
 | 3(blk) | GND | GND |
+
 > ADC3 & 4 have an alternative VCC source. When 'Vref' switch is on, 'VCC' pin is driven by REF5050 with higher accuracy and stability.
 
 #### Unused GPIO available on top of the board
@@ -119,6 +124,7 @@ ADC4 has a jumper cap between ADC and VCC, to monitor system voltage level.
 | 14 | 16 | 27 | 36 |
 | 15 | 26 | 25 | 37 |
 | 16 | GND | GND | GND |
+
 ### Switches
 #### RC Inverter
 This switch will decide the signal polarity of RX line.
@@ -137,6 +143,7 @@ This switch is directly connected to Pin22(BCM25). System rc script will check i
 ### OS Image
 Use the latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) image.
 Assume you already get a working ssh connection to RPi.
+
 ### Setting up Access (Optional)
 #### mDNS
 mDNS helps you connect to your pi with hostname instead of IP address.
