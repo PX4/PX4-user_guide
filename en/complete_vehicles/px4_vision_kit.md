@@ -50,17 +50,20 @@ The PX4 Vision DevKit contains following components:
   - 1x PMW3901 optical flow sensor
   - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
   - 1x Structure Core depth camera
+    - 160 deg Wide Vision Camera
+    - Stereo Infrared Cameras
+    - Onboard IMU
+    - Powerful Depth ASIC    
   - 1x *UP Core* computer (4GB memory & 64GB eMMC with Ubuntu and PX4 avoidance)
-    - Atom CPU
+    - Intel® Atom™ x5-z8350 (up to 1.92 GHz)
+    - Compatible OS: Microsoft Windows 10 full version, Linux (ubilinux, Ubuntu, Yocto), Android
     - FTDI UART connected to flight controller
     - `USB1`: USB3.0 A port used for booting PX4 avoidance environment from a USB2.0 stick (connecting a USB3.0 peripheral may jam GPS).
-    - `USB2`: USB2.0 port on a JST-GH connector.
-      Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
+    - `USB2`: USB2.0 port on a JST-GH connector. Can be used for second camera, LTE, etc. (or keyboard/mouse during development).
     - `USB3`: USB2.0 JST-GH port connected to depth camera
     - `HDMI`: HDMI out
     - SD card slot
-    - WiFi (attached to external antenna #1).
-      Allows computer to access home WiFi network for Internet access/updates.
+    - WiFi 802.11 b/g/n @ 2.4 GHz (attached to external antenna #1). Allows computer to access home WiFi network for Internet access/updates.
 
 
 - Mechanical Specification:
