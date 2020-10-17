@@ -38,9 +38,9 @@ The guide explains the minimal additional setup required to get the vehicle read
    ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
 ## What is Inside
-![Whats inside](../../assets/hardware/px4_vision_devkit/px4_vision_whats_inside_top.jpg)
+![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside_top.jpg)
 
-![Whats inside](../../assets/hardware/px4_vision_devkit/px4_vision_whats_inside.jpg)
+![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
 ![Schematic Layered](../../assets/hardware/px4_vision_devkit/Explode-view.png)
 
