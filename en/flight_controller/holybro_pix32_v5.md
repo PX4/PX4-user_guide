@@ -1,6 +1,6 @@
 # Holybro Pix32 v5
 
-[Pix32 v5](https://shop.holybro.com/pix32-v5_p1218.html)<sup>&reg;</sup> is an advanced autopilot designed and made by Holybro<sup>&reg;</sup>.
+[Pix32 v5](https://shop.holybro.com/pix32-v5_p1218.html)<sup>&reg;</sup> is an advanced autopilot flight controller designed and made by Holybro<sup>&reg;</sup>.
 It is optimized to run on PX4 firmware, which is intended for both academic and commercial developers.
 It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 It can be regarded as a variant version of Pixhawk4.
