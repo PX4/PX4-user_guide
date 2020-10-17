@@ -94,9 +94,13 @@ RC mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | 3(blk) | GND | GND |
 
 ADC1 is internally connected to voltage divider for battery voltage monitoring.
+
 ADC2 would be connected to an external current sensor in the future.
+
 ADC3 would be connected to an analog airspeed sensor.
+
 ADC4 has a jumper cap between ADC and VCC, to monitor system voltage level.
+
 | Pin | Signal | Volt |
 | -- | -- | -- |
 | 1(red) | ADCx | 0V~+5V |
