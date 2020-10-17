@@ -6,7 +6,7 @@ The [*PX4 Vision Autonomy Development Kit*](http://www.holybro.com/product/px4-v
 
 The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
-This vehicle comes with no software preinstalled. There is a pre-imaged USB stick that has a reference implementation of the PX4/[Avoidance](../computer_vision/obstacle_avoidance.md) local planner software provided by Auterion. This is a basic software used only as a reference to show the basic function the PX4 vision can do. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+> **Please Note**: This vehicle comes with no software preinstalled. There is a pre-imaged USB stick that has a reference implementation of the PX4/[Avoidance](../computer_vision/obstacle_avoidance.md) local planner software provided by *Auterion*. This is a basic software used only as a reference to show the basic function the PX4 vision can do. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
 
@@ -15,8 +15,8 @@ The guide explains the minimal additional setup required to get the vehicle read
 - [Holybro Website](https://shop.holybro.com/px4-vision_p1225.html?)
 
 ## Px4 Vision Guide Content
-- [Warnings & Notifications](#Warnings-and-Notifications)
-- [What is Inside](#What-is-inside)
+- [Warnings & Notifications](#warnings-and-notifications)
+- [What is Inside](#what-is-inside)
 - [What Else Do You Need](#what-else-do-you-need)
 - [First-time Setup](#first-time-setup)
 - [Fly the Drone with avoidance](#fly-the-drone-with-avoidance)
