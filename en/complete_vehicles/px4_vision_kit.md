@@ -42,7 +42,7 @@ The guide explains the minimal additional setup required to get the vehicle read
 
 ![Whats inside](../../assets/hardware/px4_vision_devkit/holybro_px4_vision_whats_inside.jpg)
 
-![Schematic Layered](../../assets/hardware/px4_vision_devkit/Explode-view.png)
+<img src="../../assets/hardware/px4_vision_devkit/Explode-view.png" width="500px" title="Pixhawk4 Upright Image" />
 
 The PX4 Vision DevKit contains following components:
 - Core Components:
@@ -50,10 +50,10 @@ The PX4 Vision DevKit contains following components:
   - 1x PMW3901 optical flow sensor
   - 1x TOF Infrared distance sensor (PSK‐CM8JL65‐CC5)
   - 1x Structure Core depth camera
-    - 160 deg Wide Vision Camera
-    - Stereo Infrared Cameras
+    - 160 deg wide vision camera
+    - Stereo infrared cameras
     - Onboard IMU
-    - Powerful Depth ASIC    
+    - Powerful NU3000 Multi-core depth Processor    
   - 1x *UP Core* computer (4GB memory & 64GB eMMC with Ubuntu and PX4 avoidance)
     - Intel® Atom™ x5-z8350 (up to 1.92 GHz)
     - Compatible OS: Microsoft Windows 10 full version, Linux (ubilinux, Ubuntu, Yocto), Android
