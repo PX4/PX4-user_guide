@@ -96,13 +96,14 @@ Scroll down the list to find the *VTOL Duo Tailsitter* icon. Select the *Caipiro
 
 
 ## Servo Connections
+
 The descriptions in the table below are referring to the user facing the front of the vehicle when it lies flat on its belly on a table.
 
-| Output | Rate | Actuator |
-| --- | --- | --- |
-| MAIN1 | 400 Hz | Right (starboard) motor controller |
-| MAIN2 | 400 Hz | Left (port) motor controller |
-| MAIN3 | 400 Hz | Empty |
-| MAIN4 | 400 Hz | Empty |
-| MAIN5 | 50 Hz | Right (starboard) aileron servo |
-| MAIN6 | 50 Hz | Left (port) aileron servo |
+Output | Rate | Actuator
+--- | --- | ---
+MAIN1 | 400 Hz | Right (starboard) motor controller
+MAIN2 | 400 Hz | Left (port) motor controller
+MAIN3 | 400 Hz | Empty
+MAIN4 | 400 Hz | Empty
+MAIN5 | 50 Hz | Right (starboard) aileron servo
+MAIN6 | 50 Hz | Left (port) aileron servo
