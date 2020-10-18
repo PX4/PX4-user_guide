@@ -145,7 +145,7 @@
    > 
    > 1. 螺旋桨按照下面的方向安装：
    >     
-   >     ![电机订购图](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
+   >     ![电机顺序示意图](../../assets/hardware/px4_vision_devkit/motor_order_diagram.png)
    > 
    > - 螺旋桨方向可以从标签中确定：*6045* (顺时针) 和_6045_**R** (逆时针)。
    >     
