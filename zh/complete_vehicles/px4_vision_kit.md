@@ -285,7 +285,7 @@ Purchase link and more information about this kit [can be found here](http://www
    ```
 
 
-4. Build the package 
+4. 构建软件包 
     
     
    ```
@@ -293,33 +293,33 @@ Purchase link and more information about this kit [can be found here](http://www
    ```
 
 
-The ROS workspace is placed in `~/catkin_ws`. For reference on developing in ROS and using the catkin workspace, see the [ROS catkin tutorials](http://wiki.ros.org/catkin/Tutorials).
+ROS工作区位于 `~/catkin_ws`。 关于在 ROS中开发和使用 catkin 工作区，请参阅 [ROS catkin教程](http://wiki.ros.org/catkin/Tutorials)。
 
 ### 开发 PX4 固件
 
-The kit is designed for creating computer vision software that runs on the companion computer, and which integrates with PX4’s flexible path planning and collision prevention interfaces.
+该套件旨在创建可在机载计算机上运行的计算机视觉软件，并与PX4的灵活路径规划和防撞界面集成在一起。
 
-You can also modify PX4 itself, and [install it as custom firmware](../config/firmware.md#custom):
+您也可以修改 PX4 本身，然后 [将其安装为自定义固件](../config/firmware.md#custom)：
 
-- You will need to connect *QGroundControl* to the kit's *Pixhawk 4* **via USB** in order to update firmware.
-- Select the *PX4 Vision DevKit* airframe after loading new firmware: ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
+- 您需要通过 **USB** 将 *QGroundControl* 连接到套件的 *Pixhawk 4* 来更新固件。
+- 加载新固件后选择 *PX4 Vision DevKit* 机架： ![Airframe Selection - PX4 Vision DevKit](../../assets/hardware/px4_vision_devkit/qgc_airframe_px4_vision_devkit_platform.jpg)
 
-> **Note** Modification of PX4 code is not *needed* to meet most computer vision use cases. To discuss the interfaces or how to integrate other features join the PX4 slack channel: #computer-vision.
+> **Note** *不需要* 修改即可满足大多数计算机视觉用例的需要。 要讨论接口或如何集成其他功能，请加入PX4 slack 通道：＃computer-vision。
 
-## Other Development Resources
+## 其他拓展资源
 
-- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - companion computer technical information
-- [Occipital Developer Forum](https://structure.io/developers) - *Structure Core* camera information
-- [Pixhawk 4 Overview](../flight_controller/pixhawk4.md)
-- [PX4 Avoidance software/documentation](https://github.com/PX4/avoidance)
-- [Path Planning Interface](../computer_vision/path_planning_interface.md)
+- [*UP Core* Wiki](https://wiki.up-community.org/Ubuntu) - 机载计算机技术信息
+- [Occipital Developer Forum](https://structure.io/developers) - *结构核心* 相机信息
+- [Pixhawk 4 概述](../flight_controller/pixhawk4.md)
+- [PX4 避障软件/文档](https://github.com/PX4/avoidance)
+- [路径规划接口](../computer_vision/path_planning_interface.md)
 
-## How to get Technical Support?
+## 如何获得技术支持？
 
-For hardware issues, please contact Holybro at: [productservice@holybro.com](mailto:productservice@holybro.com).
+硬件问题，请联系 Holybro： [productservice@holybro.com](mailto:productservice@holybro.com)。
 
-For software issues, use the following [community support channels](README.md#support):
+软件问题，请使用以下 [社区支持频道](README.md#support)：
 
-- PX4 discuss: [Computer Vision](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance) category.
+- PX4 讨论： [计算机视觉](https://discuss.px4.io/c/Vision-based-navigation-and-obstacle-avoidance) 类别。
 - PX4 slack channel: #avoidance
 
