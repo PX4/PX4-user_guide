@@ -129,9 +129,9 @@ Purchase link and more information about this kit [can be found here](http://www
    > 
    > <span id="fly_drone"></span> 
    > 
-   > ## Fly the Drone (with avoidance)
+   > ## 测试飞行（带避障）
    > 
-   > When the vehicle setup described above is complete:
+   > 当无人机按上述安装完成时：
    > 
    > 1. 连接电池来给无人机供电
    > 
@@ -168,7 +168,7 @@ Purchase link and more information about this kit [can be found here](http://www
    > 
    > - 默认情况下，PX4 Vision Kit运行 *localplanner* ，这是您自己的软件的推荐起点。
    > - *globalplanner* 尚未用这个工具包测试。
-   > - The *landing planner* requires a downward facing camera, and cannot used without first modifying the camera mounting.
+   > - *降落计划器* 需要一个向下的摄像头，并且必须先修改相机的安装座才能使用。
    > 
    > PX4 和配套的计算机使用如下接口通过 [MAVLink](https://mavlink.io/en/) 交换数据：
    > 
@@ -177,7 +177,7 @@ Purchase link and more information about this kit [can be found here](http://www
    > 
    > <span id="install_image_mission_computer"></span> 
    > 
-   > ### Installing the image on the Companion Computer
+   > ### 在机载计算机上安装镜像
    > 
    > 您可以在 *UP Core* 上安装镜像，并从内部内存启动(而不是U盘)。
    > 
@@ -206,7 +206,7 @@ Purchase link and more information about this kit [can be found here](http://www
    > - 重启无人机， *UP Core* 计算机现在将从内部内存（eMMC）引导。</ol> 
    > <span id="boot_mission_computer"></span> 
    > 
-   > ### Boot the Companion Computer
+   > ### 开启机载计算机
    > 
    > 首先插入所提供的 USB2.0 盘 *UP 核心* 端口标签 `USB1` 然后用4S电池给无人机供电。 避障系统应在大约1分钟内启动(这取决于所提供的U盘)。
    > 
@@ -218,7 +218,7 @@ Purchase link and more information about this kit [can be found here](http://www
    > 
    > <span id="login_mission_computer"></span> 
    > 
-   > ### Login to the Companion Computer
+   > ### 登录机载计算机
    > 
    > 登录到机载计算机:
    > 
@@ -237,15 +237,15 @@ Purchase link and more information about this kit [can be found here](http://www
    >     
    >     Ubuntu 登录屏幕应显示在显示器上。 
    > 
-   > 1. Login to the *UP Core* using the credentials: 
+   > 1. 使用凭据登录到 *UP Core* 
    >     - **用户名：**px4vision
    >     - **密码：**px4vision
    > 
    > ### 开发/扩展 PX4 避障功能
    > 
-   > The PX4 Vision’s *UP Core* computer provides a complete and fully configured environment for extending PX4 Avoidance software (and more generally, for developing new computer vision algorithms using ROS2). You should develop and test your software on the vehicle, sync it to your own git repository, and share any fixes and improvements with the wider PX4 community on the github [PX4/Avoidance](https://github.com/PX4/avoidance) repo.
+   > PX4 视觉的 *UP Core* 计算机为扩展PX4规避软件（以及更广泛地用于使用ROS2开发新的计算机视觉算法）提供了完整且配置完整的环境。 您可以在无人机上开发和测试您的软件，将其同步到自己的git存储库，并在github [PX4/Avoidance](https://github.com/PX4/avoidance) 存储库上与更广泛的PX4社区共享所有修复和改进。
    > 
-   > The catkin workspace is at `~/catkin_ws`, and is preconfigured for running the PX4 avoidance local planner. The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
+   > Catkin工作区是 `~/catkin_ws`,并且已预先配置为运行PX4避障本地计划程序。 The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
    > 
    > The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
    > 
