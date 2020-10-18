@@ -245,11 +245,11 @@ Purchase link and more information about this kit [can be found here](http://www
    > 
    > PX4 视觉的 *UP Core* 计算机为扩展PX4规避软件（以及更广泛地用于使用ROS2开发新的计算机视觉算法）提供了完整且配置完整的环境。 您可以在无人机上开发和测试您的软件，将其同步到自己的git存储库，并在github [PX4/Avoidance](https://github.com/PX4/avoidance) 存储库上与更广泛的PX4社区共享所有修复和改进。
    > 
-   > Catkin工作区是 `~/catkin_ws`,并且已预先配置为运行PX4避障本地计划程序。 The launch-from-boot file (`avoidance.launch`) is in the `px4vision_ros` package (modify this file to change what planner is launched).
+   > Catkin工作区是 `~/catkin_ws`,并且已预先配置为运行PX4避障本地计划程序。 引导启动文件 (`撤销.launch`) 位于 `px4vision_ros` 软件包中（修改此文件以更改启动计划程序的文件）。
    > 
-   > The avoidance package is started on boot. To integrate a different planner, this needs to be disabled.
+   > 避障程序包在引导时启动。 要集成其他规划，需要禁用此功能。
    > 
-   > 1. Disable the avoidance process using the following command: 
+   > 1. 使用以下指令禁用避障程序： 
    >     
    >     
    ```sh
@@ -257,9 +257,9 @@ Purchase link and more information about this kit [can be found here](http://www
    ```
 
    > 
-   > You can simply reboot the machine to restart the service.
+   > 您只需重启机器即可重启服务。
    > 
-   > Other useful commands are: 
+   > 其他有用的指令是： 
    > 
    > 
    ```sh
@@ -274,9 +274,9 @@ Purchase link and more information about this kit [can be found here](http://www
    ```
 
 
-2. The source code of the obstacle avoidance package can be found in https://github.com/PX4/avoidance which is located in `~/catkin_ws/src/avoidance`.
+2. 避障碍包的源代码可在 https://github.com/PX4/evidence 中查找，该代码位于 `~/catkin_ws/src/evering` 中。
 
-3. Make changes to the code! To get the latest code of avoidance pull the code from the avoidance repo: 
+3. 更改代码！ 要获取最新的避障代码，请从避障仓库中提取代码： 
     
     
    ```sh
