@@ -17,8 +17,8 @@ For example, the vehicles shown below have rotations around the z-axis (only) co
 
 ![Yaw Rotation](../../assets/qgc/setup/sensor/yaw_rotation.png)
 
-> **Note** If using a VTOL Tailsitter airframe the vehicle orientation must be set according to its multirotor, or hovering, configuration.
-This also applies for all consequent sensor calibrations.
+> **Note** For a VTOL Tailsitter airframe set the vehicle orientation according to its multirotor (hovering) configuration.
+  This also applies to all other sensor calibrations.
 
 
 ## Setting the Orientation
