@@ -1,6 +1,6 @@
-# HEX/ProfiCNC Here2 RTK GPS
+# HEX/ProfiCNC Here2 GPS
 
-The [Here2 RTK GPS receiver](http://www.proficnc.com/all-products/152-gps-module.html) is a new [RTK GPS module](../gps_compass/rtk_gps.md) from HEX that provides highly reliable navigation. Using RTK, PX4 can get its position with centimetre-level accuracy, which is much more accurate than can be provided by a normal GPS.
+The [Here2 GPS receiver](http://www.proficnc.com/all-products/152-gps-module.html) is an update to the Here GPS module from HEX.
 
 Main features include:
 - Concurrent reception of upto 3 GNSS (GPS, Galileo, GLOSNASS, BeiDou)
@@ -20,7 +20,7 @@ Main features include:
 
 ## Configuration
 
-RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
+Setup and use on PX4 is largely plug and play.
 
 > **Note** If the GPS is *not detected* then [update the Here2 firmware](https://docs.cubepilot.org/user-guides/here-2/updating-here-2-firmware).
 
@@ -28,7 +28,8 @@ RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK
 
 The Here2 GPS comes with an 8 pin connector that can be inserted directly into the [Pixhawk 2](http://www.hex.aero/wp-content/uploads/2016/07/DRS_Pixhawk-2-17th-march-2016.pdf) GPS UART port.
 
-The Pixhawk 3 Pro and Pixracer have a 6 pin GPS port connector. For these controllers you can modify the GPS cable (as shown below) to remove pin 6 and 7. 
+The Pixhawk 3 Pro and Pixracer have a 6 pin GPS port connector.
+For these controllers you can modify the GPS cable (as shown below) to remove pin 6 and 7. 
 
 <img src="../../assets/hardware/gps/rtk_here_plug_gps_to_6pin_connector.jpg" width="500px" /> 
 
@@ -79,4 +80,3 @@ The Here2 GPS pinout is provided below. This can be used to help modify the conn
 - **Protocols & Interfaces:**
   - **UART/I2C/CAN:** JST_GH Main interface, Switch internally.
   - **STM32 Main Programming Interface:** JST_SUR
-  
