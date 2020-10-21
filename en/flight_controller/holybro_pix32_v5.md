@@ -5,9 +5,9 @@ It is optimized to run on PX4 firmware, which is intended for both academic and 
 It is based on the [Pixhawk-project](https://pixhawk.org/) **FMUv5** open hardware design and runs PX4 on the [NuttX](http://nuttx.org) OS.
 It can be regarded as a variant version of Pixhawk4.
 
-The Pix32 v5 is comprised of a separate flight controller and carrier board which are connected by a 100pin connector.
-It is designed for those pilots who need a high power, flexible and customisable flight control system.
-This design allows users to either use the base boards made by Holybro or customize their own.
+The Pix32 v5 is designed for pilots who need a high power, flexible and customisable flight control system.
+It is comprised of a separate flight controller and carrier (base) board, which are connected by a 100pin connector.
+This design allows users to either select a base board made by Holybro, or customize their own.
 
 ![Pix32 v5 Family](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_family.jpg)
 
@@ -77,7 +77,9 @@ The [Pix32 v5 Wiring Quick Start](../assembly/quick_start_holybro_pix32_v5.md) p
 
 ## Pinouts
 
-Download pinouts for *pix32 v5* baseboard [here](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf) or *pix32 v5* mini baseboard [here](http://www.holybro.com/manual/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf).
+Download pinouts here:
+- [*pix32 v5* baseboard](http://www.holybro.com/manual/Holybro_PIX32-V5_PINOUTS_V1.1.pdf) 
+- [*pix32 v5* mini baseboard](http://www.holybro.com/manual/Holybro_Pix32-V5-Base-Mini-Pinouts.pdf)
 
 ## Dimensions
 
