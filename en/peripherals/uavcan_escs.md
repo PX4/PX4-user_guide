@@ -141,8 +141,25 @@ There is some guidance here: [Quick start guide for Myxa v0.1](https://forum.zub
 
 ### VESC ESC Setup
 
-For VESC the preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool).
+For [VESC ESCs](https://vesc-project.com/) the preferred tool for motor enumeration is the [VESC tool](https://vesc-project.com/vesc_tool).
+In addition to the normal motor configuration that you will have to setup in the VESC tool, you will also need to properly setup the app configuration.
+The recommended app setup is as follows:
 
+Parameter | Option
+--- | ---
+App to use | `No App`
+VESC ID | `1,2,...`
+Can Status Message Mode | `CAN_STATUS_1_2_3_4_5`
+CAN Baud Rate | `CAN_BAUD_500K`
+CAN Mode | `UAVCAN`
+UAVCAN ESC Index | `0,1,...`
+
+
+VESC ID should have the same motor numbering as in PX4 convention, starting at `1` for top-right motor, `2` for bottom-left motor etc.
+However the `UAVCAN ESC Index` starts from `0`, and as such it is always one index lower than the `VESC ID`.
+For example, in a quadcopter the bottom left motor will have `VESC ID = 2` and `UAVCAN ESC Index = 1`.
+
+Finally the `CAN Baud Rate` must match the value set in [UAVCAN_BITRATE](../advanced_config/parameter_reference.md#UAVCAN_BITRATE).
 
 ## Further Information
 
