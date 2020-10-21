@@ -19,8 +19,12 @@ In overview:
 
 > **Note** If using RTK with a fixed base station the secondary GPS will show the RTK state w.r.t. the base station.
 
-The two antennas need to be on the same level/horizontal plane.
+Ideally the two antennas should be identical, on the same level/horizontal plane and oriented the same way, and on an identical ground plane size and shape ([Application note](https://www.u-blox.com/sites/default/files/ZED-F9P-MovingBase_AppNote_%28UBX-19009093%29.pdf), section *System Level Considerations*)). 
+
 Otherwise the antennas can be positioned as needed, but the [GPS_YAW_OFFSET](../advanced_config/parameter_reference.md#GPS_YAW_OFFSET) must be configured.
-This offset is the angle made by the line between the two GPS modules relative to the vehicle x-axis (the line between the front and back of the vehicle, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
+This offset is the angle made by the *baseline* (the line between the two GPS modules) relative to the vehicle x-axis (front/back axis, as shown [here](../config/flight_controller_orientation.md#calculating-orientation)).
+
+> **Note** The application note does not state the minimal required separation between modules.
+  50cm has been used in test vehicles running PX4.
 
 To activate heading fusion for the attitude estimation, set the [EKF2_AID_MASK](../advanced_config/parameter_reference.md#EKF2_AID_MASK) parameter to enable *GPS yaw fusion*.
