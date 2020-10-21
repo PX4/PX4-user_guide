@@ -2,14 +2,19 @@
 
 PX4 contains functionality to calibrate and compensate rate gyro, accelerometer and barometric pressure sensors for the effect of changing sensor temperature on sensor bias.
 
-This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures). At the end there is a description of the [implementation](#implementation).
+This topic details the [test environment](#test_setup) and [calibration procedures](#calibration_procedures).
+At the end there is a description of the [implementation](#implementation).
 
-> **Note** At time of writing (June2019/PX4 v1.9) thermal calibration of the magnetometer is not yet supported.
-
+> **Note** After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors.
+  Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal"  `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
+  
+<span></span>
+> **Note** At time of writing (PX4 v1.11) thermal calibration of the magnetometer is not yet supported.
 
 ## Test Setup/Best Practice {#test_setup}
 
-The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature. Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
+The [calibration procedures](#calibration_procedures) described in the following sections are ideally run in an *environment chamber* (a temperature and humidity controlled environment) as the board is heated from the lowest to the highest operating/calibration temperature.
+Before starting the calibration, the board is first *cold soaked* (cooled to the minimum temperature and allowed to reach equilibrium).
 
 For the cold soak you can use a regular home freezer to achieve -20C, and commercial freezers can achieve of the order of -40C. 
 The board should be placed in a ziplock/anti-static bag containing a silica packet, 
@@ -37,8 +42,6 @@ PX4 supports two calibration procedures:
 
 The offboard approach is more complex and slower, but requires less knowledge of the test setup and is easier to validate.
 
-> **Note** After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors.
-  The normal `SYS_CAL_*` calibration parameters are no longer used (and in some cases may be reset).
 
 ### Onboard Calibration Procedure {#onboard_calibration}
 
