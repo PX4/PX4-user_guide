@@ -6,7 +6,10 @@ The [*PX4 Vision Autonomy Development Kit*](http://www.holybro.com/product/px4-v
 
 The kit contains a near-ready-to-fly carbon-fiber quadcopter equipped with a *Pixhawk 4* flight controller, a *UP Core* companion computer (4GB memory & 64GB eMMC), and a Occipital *Structure Core* depth camera sensor.
 
-> **Note**: This vehicle comes with no software preinstalled. There is a pre-imaged USB stick that has a reference implementation of the PX4/[Avoidance](../computer_vision/obstacle_avoidance.md) local planner software provided by *Auterion*. This is a basic software used only as a reference to show the basic function the PX4 vision can do. Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
+> **Note** This vehicle comes with no pre-installed software.
+  A pre-imaged USB stick that contains a reference implementation of the [PX4/Avoidance](../computer_vision/obstacle_avoidance.md) local planner software is provided by *Auterion*.
+   This software provides only a very basic example of what you can do with the PX4 Vision Autonomy Kit.
+   Developers can use the kit to try out other features provided by the [PX4 Avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) project, modify the existing code, or experiment with completely new computer vision-based functionality.
 
 The guide explains the minimal additional setup required to get the vehicle ready to fly (installing an RC system and battery). It also covers the first flight, and how to get started with modifying the computer vision code.
 
@@ -27,13 +30,13 @@ The guide explains the minimal additional setup required to get the vehicle read
 
 ## Warnings and Notifications
 
-1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras). Consequently it can’t be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
-
-2. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS co-ordinates). Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
-
-3. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions). This is why the boot image is supplied on a *USB2.0* memory stick.
-
-4. The *UP Core* should only be powered using the battery (do not remove the *UP Core* power socket safety cover).
+1. The kit is intended for computer vision projects that use a forward-facing camera (it does not have downward or rear-facing depth cameras).
+   Consequently it can’t be used (without modification) for testing [Safe Landing](../computer_vision/safe_landing.md), or other features that require a downward-facing camera.
+1. Obstacle avoidance in missions can only be tested when GPS is available (missions use GPS co-ordinates).
+   Collision prevention can be tested in position mode provided there is a good position lock from either GPS or optical flow.
+1. The port labeled `USB1` may jam the GPS if used with a *USB3* peripheral (disable GPS-dependent functionality including missions).
+   This is why the boot image is supplied on a *USB2.0* memory stick.
+1. The *UP Core* should only be powered using the battery (do not remove the *UP Core* power socket safety cover).
 
    ![Warning - do not connect power port](../../assets/hardware/px4_vision_devkit/warning_power_port.png)
 
@@ -208,8 +211,8 @@ PX4 and the companion computer exchange data over [MAVLink](https://mavlink.io/e
 - [Path Planning Interface](../computer_vision/path_planning_interface.md) - API for implementing avoidance features in automatic modes.
 - [Collision Prevention Interface](../computer_vision/collision_prevention.md) - API for vehicle based avoidance in manual position mode based on an obstacle map (currently used for collision prevention).
 
-
-### Installing the image on the Companion Computer {#install_image_mission_computer}
+<span id="install_image_mission_computer"></span>
+### Installing the image on the Companion Computer
 
 You can install the image on the *UP Core* and boot from internal memory (instead of the USB stick).
 
@@ -234,7 +237,7 @@ To flash the USB image to the *UP Core*:
 1. Restart the vehicle.
    The *UP Core* computer will now boot from internal memory (eMMC).
 
-
+<span id="boot_mission_computer"></span>
 ### Boot the Companion Computer {#boot_mission_computer}
 
 First insert the provided USB2.0 stick into the *UP Core* port labeled `USB1`, and then power the vehicle using a 4S battery.
@@ -247,8 +250,8 @@ The avoidance system should be up and running within around 30 seconds.
 
 Once started the companion computer can be used both as a computer vision development environment and for running the software.
 
-
-### Login to the Companion Computer {#login_mission_computer}
+<span id="login_mission_computer"></span>
+### Login to the Companion Computer
 
 To login to the companion computer:
 1. Connect a keyboard and mouse to the *UP Core* via port `USB2`:
@@ -328,7 +331,7 @@ You can also modify PX4 itself, and [install it as custom firmware](../config/fi
 
 ## Px4 Vision Carrier Board Pinouts
 
-The Carrier board pinouts can be download from [Holybro's website.](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf)
+The Carrier board pinouts can be download from [Holybro's website](http://www.holybro.com/manual/PX4_Vision_carrier_board_pinouts_v1.1.pdf).
 
 ## Other Development Resources
 
