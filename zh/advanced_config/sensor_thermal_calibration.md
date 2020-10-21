@@ -4,7 +4,11 @@ px4 包含校准和补偿速率陀螺仪、加速度计和气压传感器的功�
 
 本主题详细介绍了 [测试环境](#test_setup) 和 [校准过程](#calibration_procedures)。 最后是 [实施过程](#implementation) 的描述。
 
-> **Note** At time of writing (June2019/PX4 v1.9) thermal calibration of the magnetometer is not yet supported.
+> **Note** After thermal calibration the thermal calibration parameters (`TC_*`) are used for *all* calibration/compensation of the respective sensors. Any subsequent standard calibration will therefore update `TC_*` parameters and not the "normal" `SYS_CAL_*` calibration parameters (and in some cases these parameters may be reset).
+
+<span></span>
+
+> **Note** At time of writing (PX4 v1.11) thermal calibration of the magnetometer is not yet supported.
 
 <span id="test_setup"></span>
 
@@ -61,7 +65,7 @@ Offboard calibration is run on a development computer using data collected durin
 To perform an offboard calibration:
 
 1. 确保在校准前设置机架类型，否则在设置飞控板时校准参数将丢失。
-2. 上电并将参数 ` TC_A_ENABLE `，` TC_B_ENABLE ` 和 ` TC_G_ENABLE ` 设置为1。
+2. Power up the board and set the [TC_A_ENABLE](../advanced_config/parameter_reference.md#TC_A_ENABLE), [TC_B_ENABLE](../advanced_config/parameter_reference.md#TC_B_ENABLE) and [TC_G_ENABLE](../advanced_config/parameter_reference.md#TC_G_ENABLE) parameters to `1`.
 3. 将所有 [ CAL_GYRO * ](../advanced_config/parameter_reference.md#CAL_GYRO0_EN) 和 [ CAL_ACC * ](../advanced_config/parameter_reference.md#CAL_ACC0_EN)参数设置为默认值。
 4. Set the [SDLOG_MODE](../advanced_config/parameter_reference.md#SDLOG_MODE) parameter to 2 to enable logging of data from boot. 
 5. Set the [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) checkbox for *thermal calibration* (bit 2) to log the raw sensor data required for calibration.
