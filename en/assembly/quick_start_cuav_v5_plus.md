@@ -13,21 +13,21 @@ We'll go through each of these in detail in the following sections.
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_01.png)
 
 
-| Main interface | Function |
-| :--- | :--- |
-| Power1 | Connect power module. Power input with *analog* voltage and current detection. Do not use a Digital PM on this connector! |
-| Power2 | Connect i2c smart battery. | 
-| TF CARD | SD card for log storage (card pre-inserted in factory). |
-| M1~M8 | PWM outputs. Can be used to control motors or servos. |
-| A1~A6 | PWM outputs. Can be used to control motors or servos. |
-| DSU7 | Used for FMU debug, reading debug information. |
-| I2C1/I2C2 | Connect an I2C device such as an external compass. |
-| CAN1/CAN2| Connect UAVCAN devices such as CAN GPS.  |
-| TYPE-C\(USB\)| Connect to a computer for communication between the flight controller and the computer, such as loading firmware. |
-| SBUS OUT| Connect SBUS devices (e.g. camera gimbals). |
-| GPS&SAFETY | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface. |
-| TELEM1/TELEM2 | Connect to the Telemetry System. |
-| DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module.
+Main interface | Function
+:--- | :---
+Power1 | Connect power module. Power input with *analog* voltage and current detection. Do not use a Digital PM on this connector!
+Power2 | Connect i2c smart battery.
+TF CARD | SD card for log storage (card pre-inserted in factory).
+M1~M8 | PWM outputs. Can be used to control motors or servos.
+A1~A6 | PWM outputs. Can be used to control motors or servos.
+DSU7 | Used for FMU debug, reading debug information.
+I2C1/I2C2 | Connect an I2C device such as an external compass.
+CAN1/CAN2| Connect UAVCAN devices such as CAN GPS.
+TYPE-C\(USB\)| Connect to a computer for communication between the flight controller and the computer, such as loading firmware.
+SBUS OUT| Connect SBUS devices (e.g. camera gimbals).
+GPS&SAFETY | Connect to Neo GPS, which includes GPS, safety switch, buzzer interface.
+TELEM1/TELEM2 | Connect to the Telemetry System.
+DSM/SBUS/RSSI | Includes DSM, SBUS, RSSI signal input interface, DSM interface can be connected to DSM satellite receiver, SBUS interface to SBUS remote control receiver, RSSI for signal strength return module.
 
 > **Note** For more interface information, please read [V5+ Manual](http://manual.cuav.net/V5-Plus.pdf).
 
