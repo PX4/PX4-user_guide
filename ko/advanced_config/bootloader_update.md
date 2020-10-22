@@ -39,11 +39,11 @@ The following steps explain how you can "manually" update the bootloader using t
 1. 부트로더를 포함한 바이너리를 만드십시오 (개발자 팀에서 다운받거나, 직접 소스를 빌드하십시오).
 2. USB로 컴퓨터와 Dronecode probe를 연결하십시오. 
 3. 바이너리가 들어 있는 디렉토리에서 아래 커맨드를 터미널에 입력하십시오. 
-        cmd
+        bash
         arm-none-eabi-gdb px4fmuv5_bl.elf
 
 4. *gdb terminal*이 나타나고, 아래와 같은 결과를 출력합니다. 
-        cmd
+        bash
         GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
         Copyright (C) 2017 Free Software Foundation, Inc.
         License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
