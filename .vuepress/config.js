@@ -54,6 +54,7 @@ module.exports = {
     // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
     //repoLabel: 'Contribute!',
     lastUpdated: 'Last Updated', // string | boolean
+    // lastUpdated: false, // This might be enabled to speed up builds
 
     // Optional options for generating "Edit this page" link
 
