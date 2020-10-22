@@ -33,7 +33,7 @@
    - 스로틀을 천천히 0까지 낮춥니다.
    - 기체 시동을 끄십시오. > **참고** 진동을 면밀히 관찰하고, 신중하게 테스트를 진행하십시오.
 1. ulog를 검색하고, python 스크립트 [mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py)를 사용하여 보정 매개변수를 확인하십시오.
-   ```cmd
+   ```bash
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 

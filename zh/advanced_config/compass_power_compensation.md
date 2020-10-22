@@ -33,7 +33,7 @@
    - 慢慢将油门降到0
    - 给无人机加锁 > **Note** 谨慎地进行测试，并密切注意振动情况。
 1. 获取ulog文件，并用python脚本[mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py)来确定补偿参数。
-   ```cmd
+   ```bash
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 
