@@ -36,7 +36,7 @@ Performing this power compensation is advisable only if all the following statem
    - Disarm the vehicle
    > **Note** Perform the test carefully and closely monitor the vibrations.
 1. Retrieve the ulog and use the python script [mag_compensation.py](https://github.com/PX4/Firmware/blob/master/src/lib/mag_compensation/python/mag_compensation.py) to identify the compensation parameters.
-   ```cmd
+   ```bash
    python mag_compensation.py ~/path/to/log/logfile.ulg
    ```
 

@@ -39,11 +39,11 @@ The following steps explain how you can "manually" update the bootloader using t
 1. Get a binary containing the bootloader (either from dev team or build it yourself).
 1. Connect the Dronecode probe to your PC via USB. 
 1. Go into the directory containing the binary and run the following command in the terminal:
-   ```cmd
+   ```bash
    arm-none-eabi-gdb px4fmuv5_bl.elf
    ```
 1. The *gdb terminal* appears and it should display the following output:
-   ```cmd
+   ```bash
 GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
 Copyright (C) 2017 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
