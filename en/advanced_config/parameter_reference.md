@@ -6,7 +6,7 @@
 
 ## UAVCAN Motor Parameters
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -149,7 +149,7 @@
 
 ## UAVCAN GNSS
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -231,7 +231,7 @@
 
 ## Airspeed Validator
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -372,7 +372,7 @@
 
 ## Attitude Q estimator
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -455,7 +455,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 
 ## Battery Calibration
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -866,7 +866,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 
 ## Camera Capture
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -883,7 +883,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 
 ## Camera Control
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -929,7 +929,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 
 ## Camera trigger
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -1044,7 +1044,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 
 ## Circuit Breaker
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -1134,7 +1134,7 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
 
 ## Commander
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -1799,7 +1799,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 
 ## DShot
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -1871,7 +1871,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 
 ## Data Link Loss
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -1902,7 +1902,7 @@ See COM_OBL_ACT and COM_OBL_RC_ACT to configure action</p>   </td>
 
 ## EKF2
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -2842,7 +2842,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 
 ## Events
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -2868,7 +2868,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 
 ## FW Attitude Control
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -3240,7 +3240,7 @@ This is the ratio of static pressure error to dynamic pressure generated by a wi
 
 ## FW L1 Control
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -3426,7 +3426,7 @@ Set to 0 to disable heading hold</p>   </td>
 
 ## FW Launch detection
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -3471,7 +3471,7 @@ Set to 0 to disable heading hold</p>   </td>
 
 ## FW TECS
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -3614,7 +3614,7 @@ Set to 0 to disable heading hold</p>   </td>
 
 ## Failure Detector
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -3678,7 +3678,7 @@ automatic trigger system (ATS)</p><p><strong>Comment:</strong> External ATS is r
 
 ## Follow target
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -3718,7 +3718,7 @@ but also ignore less noise</p>   </td>
 
 ## GPS
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -3825,7 +3825,7 @@ but also ignore less noise</p>   </td>
 
 ## GPS Failure Navigation
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -3863,7 +3863,7 @@ but also ignore less noise</p>   </td>
 
 ## Geofence
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -3938,7 +3938,7 @@ but also ignore less noise</p>   </td>
 
 ## Hover Thrust Estimator
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -3969,7 +3969,7 @@ but also ignore less noise</p>   </td>
 
 ## Iridium SBD
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -4030,7 +4030,7 @@ Value 0 turns the functionality off</p>   </td>
 
 ## Land Detector
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -4110,7 +4110,7 @@ Value 0 turns the functionality off</p>   </td>
 
 ## Landing target Estimator
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -4174,7 +4174,7 @@ Value 0 turns the functionality off</p>   </td>
 
 ## Local Position Estimator
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -4469,7 +4469,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 ## MAVLink
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -4870,7 +4870,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 ## MKBLCTRL Testmode
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -4887,7 +4887,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 ## Mission
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -5109,7 +5109,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 ## Mixer Output
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -5145,7 +5145,7 @@ Used to calculate increased terrain random walk nosie due to movement</p>   </td
 
 ## Mount
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -5332,7 +5332,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
 
 ## Multicopter Attitude Control
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -5405,7 +5405,7 @@ if required by the gimbal (only in AUX output mode)</p>   </td>
 
 ## Multicopter Position Control
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -5838,7 +5838,7 @@ the setpoint will be capped to MPC_XY_VEL_MAX</p>   </td>
 
 ## Multicopter Rate Control
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -6033,7 +6033,7 @@ default 1.5 turns per second</p>   </td>
 
 ## OSD
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -6058,7 +6058,7 @@ default 1.5 turns per second</p>   </td>
 
 ## PWM Outputs
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -6889,7 +6889,7 @@ default 1.5 turns per second</p>   </td>
 
 ## Peripheral
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -6907,7 +6907,7 @@ default 1.5 turns per second</p>   </td>
 
 ## Precision Land
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -6959,7 +6959,7 @@ default 1.5 turns per second</p>   </td>
 
 ## RTPS
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -7027,7 +7027,7 @@ default 1.5 turns per second</p>   </td>
 
 ## Radio Calibration
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -8496,7 +8496,7 @@ default 1.5 turns per second</p>   </td>
 
 ## Radio Switches
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -9294,7 +9294,7 @@ default 1.5 turns per second</p>   </td>
 
 ## Return Mode
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -9368,7 +9368,7 @@ default 1.5 turns per second</p>   </td>
 
 ## Return To Land
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -9392,7 +9392,7 @@ default 1.5 turns per second</p>   </td>
 
 ## Roboclaw
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -9431,7 +9431,7 @@ default 1.5 turns per second</p>   </td>
 
 ## Roboclaw driver
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -9511,7 +9511,7 @@ default 1.5 turns per second</p>   </td>
 
 ## Rover Position Control
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -9647,7 +9647,7 @@ At a control output of 1, the steering wheels are at GND_MAX_ANG radians</p>   <
 
 ## Runway Takeoff
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -9738,7 +9738,7 @@ to takeoff is reached</p>   </td>
 
 ## SD Logging
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -9830,7 +9830,7 @@ to takeoff is reached</p>   </td>
 
 ## SITL
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -9856,7 +9856,7 @@ Particularly useful for testing different low-battery behaviour</p>   </td>
 
 ## Sensor Calibration
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -12044,7 +12044,7 @@ is less than 50% of this value</p>   </td>
 
 ## Sensors
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -13483,7 +13483,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 ## Serial
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -14071,7 +14071,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 ## Simulation In Hardware
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -14214,7 +14214,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 ## System
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -14408,7 +14408,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 ## Telemetry
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -14484,7 +14484,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 ## Testing
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -14620,7 +14620,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 ## Thermal Compensation
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -15830,7 +15830,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 ## UAVCAN
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -15909,7 +15909,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 ## UUV Attitude Control
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -16001,7 +16001,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 
 ## VTOL Attitude Control
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
@@ -16311,7 +16311,7 @@ to fixed wing mode. Zero or negative values will produce an instant throttle ris
 
 ## Miscellaneous
 
-<table style="width: 100%; table-layout:fixed; font-size:1.5rem; overflow: auto; display:block;">
+<table>
  <colgroup><col style="width: 23%"><col style="width: 46%"><col style="width: 11%"><col style="width: 11%"><col style="width: 9%"></colgroup>
  <thead>
    <tr><th>Name</th><th>Description</th><th>Min > Max (Incr.)</th><th>Default</th><th>Units</th></tr>
