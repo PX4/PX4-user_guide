@@ -12531,7 +12531,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_SF0X">SENS_EN_SF0X</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Lightware Laser Rangefinder hardware model</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Lightware Laser Rangefinder hardware model (serial)</p> <strong>Values:</strong><ul>
 <li><strong>1:</strong> SF02</li> 
 
 <li><strong>2:</strong> SF10/a</li> 
@@ -13342,7 +13342,7 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="SENS_SF0X_CFG">SENS_SF0X_CFG</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Serial Configuration for Lightware Laser Rangefinder</p><p><strong>Comment:</strong> Configure on which serial port to run Lightware Laser Rangefinder.</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Serial Configuration for Lightware Laser Rangefinder (serial)</p><p><strong>Comment:</strong> Configure on which serial port to run Lightware Laser Rangefinder (serial).</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
 
 <li><strong>6:</strong> UART 6</li> 
