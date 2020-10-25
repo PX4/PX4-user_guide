@@ -1,19 +1,23 @@
 # BeagleBone Blue
 
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://beagleboard.org/blue) for support or compliance issues.
+
+<span></span>
+
 > **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 
-[BeagleBone Blue](https://beagleboard.org/blue) 是一台基于 Linux 的一体机。 它针对机器人技术进行了优化，这种紧凑且便宜的电路板具有飞行控制器所需的所有必要传感器和外围设备。 本主题说明如何设置电路板以使用 [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) 机器人软件包运行 PX4。
+[BeagleBone Blue](https://beagleboard.org/blue) is an all-in-one Linux-based computer. Although it is optimized for robotics, this compact and inexpensive board has all necessary sensors and peripherals needed by a flight controller. This topic shows how to set up the board to run PX4 with [librobotcontrol](https://github.com/StrawsonDesign/librobotcontrol) robotics package.
 
-![BeagleBone - 标记图](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
+![BeagleBone - labelled diagram](../../assets/hardware/BeagleBone_Blue_balloons.jpg)
 
 ## 操作系统映像
 
-可以在这里找到 *BeagleBone Blue* 图像：
+*BeagleBone Blue* images can be found here:
 
 - [最新的稳定 OS 映像](https://beagleboard.org/latest-images)。
 - [测试 OS 映像](https://rcn-ee.net/rootfs/bb.org/testing/)（经常更新）。
 
-有关闪存操作系统映像的信息可以在 [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware) 上找到。 其他有用的信息可以在 [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;) 中找到。
+Information about flashing OS images can be found on [this page](https://github.com/beagleboard/beaglebone-blue/wiki/Flashing-firmware). Other useful information can be found in the [FAQ](https://github.com/beagleboard/beaglebone-blue/wiki/Frequently-Asked-Questions-&lpar;FAQ&rpar;).
 
 > **Tip** Optionally you can update to a realtime kernel, and if you do, re-check if *librobotcontrol* works properly with the realtime kernel.
 
