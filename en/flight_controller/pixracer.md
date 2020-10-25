@@ -1,6 +1,10 @@
-# Pixracer
+# mRo Pixracer
 
-The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing quads and planes. In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built Wifi, new sensors, convenient full servo headers, CAN and supports 2M flash.
+> **Warning** PX4 does not manufacture this (or any) autopilot.
+  Contact the [manufacturer](https://store.mrobotics.io/) for support or compliance issues.
+
+The Pixhawk<sup>&reg;</sup> XRacer board family is optimized for small racing quads and planes.
+In contrast to [Pixfalcon](../flight_controller/pixfalcon.md) and [Pixhawk](../flight_controller/pixhawk.md) it has in-built Wifi, new sensors, convenient full servo headers, CAN and supports 2M flash.
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 

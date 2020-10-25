@@ -1,5 +1,8 @@
 # Durandal Wiring Quick Start
 
+> **Warning** PX4 does not manufacture this (or any) autopilot.
+  Contact the [manufacturer](https://shop.holybro.com/) for support or compliance issues.
+
 This quick start guide shows how to power the Holybro [Durandal](../flight_controller/durandal.md)<sup>&reg;</sup> flight controller and connect its most important peripherals.
 
 ![Durandal](../../assets/flight_controller/durandal/durandal_hero.jpg)

@@ -1,5 +1,8 @@
 # 3DR Pixhawk 1 Flight Controller (Discontinued)
 
+> **Warning** PX4 does not manufacture this (or any) autopilot.
+  Contact the manufacturer for support or compliance issues.
+
 > **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
   You can use the [mRo Pixhawk](../flight_controller/mro_pixhawk.md) as a drop-in replacement.
 
