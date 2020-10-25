@@ -1,8 +1,12 @@
 # Pixracer接线指南
 
-> **Warning** 建设中。
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for support or compliance issues.
 
-这个快速指南会告诉你如何给 [Pixracer](../flight_controller/pixracer.md) 飞控供电和连接跟它配合的组件。
+<span></span>
+
+> **Warning** Under construction.
+
+This quick start guide shows how to power the [Pixracer](../flight_controller/pixracer.md) flight controller and connect its most important peripherals.
 
 <img src="../../assets/flight_controller/pixracer/pixracer_hero_grey.jpg" width="300px" title="pixracer + 8266 grey" />
 
@@ -18,11 +22,11 @@
 
 ### 电台/远程 控制
 
-如果你想*手动*控制你的飞机，你需要一个遥控器（PX4在自动飞行模式可以不需要遥控器）。
+A remote control (RC) radio system is required if you want to *manually* control your vehicle (PX4 does not require a radio system for autonomous flight modes).
 
-你需要[一个兼容的发射/接收机](../getting_started/rc_transmitter_receiver.md)，并*对好频*（对频方法参考说明书）。
+You will need to [select a compatible transmitter/receiver](../getting_started/rc_transmitter_receiver.md) and then *bind* them so that they communicate (read the instructions that come with your specific transmitter/receiver).
 
-下面介绍如何连接不同的接收机：
+The instructions below show how to connect the different types of receivers:
 
 - Frsky 的接收机通过所示的端口连接, 并可以使用提供的 I/o 连接器。
     
