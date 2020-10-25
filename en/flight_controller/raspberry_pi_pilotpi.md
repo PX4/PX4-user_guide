@@ -3,10 +3,10 @@
 > **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 
 The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi.
-It is designed to be a low cost but strong scalability platform with convenient continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community.
+It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community.
 PCB and schematic are open source as well.
 
-![PilotPi over RPi 4B](../../assets/hardware/pilotpi/hardware-pilotpi4b.jpg)
+![PilotPi with RPi 4B](../../assets/hardware/pilotpi/hardware-pilotpi4b.jpg)
 
 ## Quick Summary
 
@@ -25,12 +25,12 @@ PCB and schematic are open source as well.
 * Power:
   * 3~6S battery with built-in voltage sensing.
   * Power the Pi through USB cable
-* Availability: *prepare for shipping*
+* Availability: *preparing for shipping*
 
 
 ## Connectivity
 
-Shield itself provides:
+Shield provides:
 * 16x PWM outputting channels
 * GPS connector
 * Telemetry connector
@@ -39,9 +39,9 @@ Shield itself provides:
 * 3x ADC channels range 0~5V
 * 2\*8 2.54mm unused GPIO connector
 
-Direct access from RPi:
+Direct accessible from RPi:
 * 4x USB connector
-* CSI connector(**Note:** conflicts with external I2C bus)
+* CSI connector(**Note:** conflict with external I2C bus)
 * etc.
 
 ## Recommended Wiring
@@ -51,39 +51,39 @@ Direct access from RPi:
 
 ## Pinouts
 
-> **Warning** It still uses old GH1.25 connector. Wiring is compatible with Pixhawk 2.4.8
+> **Warning** It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
 
 ### Connectors
 #### GPS connector
 Mapped to `/dev/ttySC0`
 | Pin | Signal | Volt |
 | -- | -- | -- |
-| 1(red) | VCC | +5V |
-| 2(blk) | TX | +3v3 |
-| 3(blk) | RX | +3v3 |
-| 4(blk) | nc | +3v3 |
-| 5(blk) | nc | +3v3 |
-| 6(blk) | GND | GND |
+| 1 | VCC | +5V |
+| 2 | TX | +3v3 |
+| 3 | RX | +3v3 |
+| 4 | nc | +3v3 |
+| 5 | nc | +3v3 |
+| 6 | GND | GND |
 
 #### Telemetry connector
 Mapped to `/dev/ttySC1`
 | Pin | Signal | Volt |
 | -- | -- | -- |
-| 1(red) | VCC | +5V |
-| 2(blk) | TX | +3v3 |
-| 3(blk) | RX | +3v3 |
-| 4(blk) | CTS | +3v3 |
-| 5(blk) | RTS | +3v3 |
-| 6(blk) | GND | GND |
+| 1 | VCC | +5V |
+| 2 | TX | +3v3 |
+| 3 | RX | +3v3 |
+| 4 | CTS | +3v3 |
+| 5 | RTS | +3v3 |
+| 6 | GND | GND |
 
 #### External I2C connector
 Mapped to `/dev/i2c-0`
 | Pin | Signal | Volt |
 | -- | -- | -- |
-| 1(red) | VCC | +5V |
-| 2(blk) | SCL | +3v3(pullups) |
-| 3(blk) | SDA | +3v3(pullups) |
-| 4(blk) | GND | GND |
+| 1 | VCC | +5V |
+| 2 | SCL | +3v3(pullups) |
+| 3 | SDA | +3v3(pullups) |
+| 4 | GND | GND |
 
 #### RC & ADC2/3/4
 RC mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
@@ -94,15 +94,15 @@ RC mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | 3(blk) | GND | GND |
 
 - ADC1 is internally connected to voltage divider for battery voltage monitoring.
-- ADC2 would be connected to an external current sensor in the future.
-- ADC3 would be connected to an analog airspeed sensor.
+- ADC2 is left unused.
+- ADC3 can be connected to an analog airspeed sensor.
 - ADC4 has a jumper cap between ADC and VCC, to monitor system voltage level.
 
 | Pin | Signal | Volt |
 | -- | -- | -- |
-| 1(red) | ADCx | 0V~+5V |
-| 2(blk) | VCC | +5V |
-| 3(blk) | GND | GND |
+| 1 | ADCx | 0V~+5V |
+| 2 | VCC | +5V |
+| 3 | GND | GND |
 
 > ADC3 & 4 have an alternative VCC source. When 'Vref' switch is on, 'VCC' pin is driven by REF5050 with higher accuracy and stability.
 
@@ -129,20 +129,21 @@ RC mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 ### Switches
 #### RC Inverter
 This switch will decide the signal polarity of RX line.
-UART_RX = SW xor RC_INPUT
-* On: suitable with SBUS
+`UART_RX = SW xor RC_INPUT`
+
+* On: suitable with SBUS (signal inverted)
 * Off: preserved
 #### Vref
 ADC 3 & 4 will have VCC driven by:
 * Vref output from REF5050 if on
-* 5V pin from RPi if off
+* 5V pin directly from RPi if off
 #### Boot Mode
-This switch is directly connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should be started or not.
+This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
 * On: start PX4 automatically
 * Off: don' t start PX4
 ## Developer Quick Start
 ### OS Image
-Use the latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) image.
+The latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) image is always recommended.
 Assume you already get a working ssh connection to RPi.
 
 ### Setting up Access (Optional)
@@ -154,7 +155,7 @@ sudo raspi-config
 Navigate to "Network Options" -> "Hostname". Set and exit.
 You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well. 
 
-### Setting up hardware function
+### Setting up OS
 #### config.txt
 ```shell
 sudo nano /boot/config.txt
@@ -171,7 +172,7 @@ dtparam=spi=on
 enable_uart=1
 # enable I2C-0
 dtparam=i2c_vc=on
-# switch BT to miniuart
+# switch Bluetooth to miniuart
 dtoverlay=miniuart-bt
 ```
 #### cmdline.txt
@@ -180,6 +181,7 @@ sudo raspi-config
 ```
 "Interfacing Options" -> "Serial" -> login shell = No -> hardware = Yes
 Enable UART but without a login shell on it.
+
 ```shell
 sudo nano /boot/cmdline.txt
 ```
@@ -188,9 +190,9 @@ The whole file would be:
 ```shell
 console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait isolcpus=2
 ```
-This tells Linux kernel do not schedule any process on CPU core 2. We will manually run PX4 onto that core later.
+This one tells Linux kernel do not schedule any process on CPU core 2. We will manually run PX4 onto that core later.
 
-Reboot and ssh to your Pi.
+Reboot and ssh into your Pi.
 
 Check UART interface:
 ```shell
@@ -215,16 +217,17 @@ In this section we will configure the auto-start script in rc.local.
 ```shell
 sudo nano /etc/rc.local
 ```
-Append below to the file above `exit 0`:
+Append below context to the file above `exit 0`:
 ```shell
 echo "25" > /sys/class/gpio/export
 echo "in" > /sys/class/gpio/gpio25/direction
 if [ $(cat /sys/class/gpio/gpio25/value) -eq 1 ] ; then
-        echo "launch PX4"
+        echo "Launching PX4"
         cd /home/pi/px4 ; nohup taskset -c 2 ./bin/px4 -d -s pilotpi_mc.config 2 &> 1 > /home/pi/px4/px4.log &
 fi
 echo "25" > /sys/class/gpio/unexport
 ```
+Save and exit.
 #### CSI camera
 > **Enable CSI camera will stop anything works on I2C-0.**
 
