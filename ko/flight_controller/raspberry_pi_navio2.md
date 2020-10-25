@@ -1,6 +1,6 @@
 # Raspberry Pi 2/3 Navio2 Autopilot
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://emlid.com/) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://emlid.com/) for hardware support or compliance issues.
 
 <span></span>
 
