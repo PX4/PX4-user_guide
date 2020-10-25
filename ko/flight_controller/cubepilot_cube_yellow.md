@@ -1,6 +1,6 @@
 # Cube Yellow Flight Controller
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 
 The [Cube Yellow](http://www.proficnc.com/61-system-kits2) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
