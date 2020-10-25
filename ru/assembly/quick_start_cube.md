@@ -1,5 +1,7 @@
 # Cube Wiring Quick Start
 
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for support or compliance issues.
+
 This quick start guide shows how to power the *Cube*<sup>&reg;</sup> flight controllers and connect their most important peripherals.
 
 <img src="../../assets/flight_controller/cube/orange/cube_orange_hero.jpg" width="350px" /> <img src="../../assets/flight_controller/cube/cube_black_hero.png" width="350px" /> <img src="../../assets/flight_controller/cube/yellow/cube_yellow_hero.jpg" width="150px" />
