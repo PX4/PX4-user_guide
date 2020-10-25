@@ -1,5 +1,7 @@
 # Pixhack v3
 
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for support or compliance issues.
+
 CUAV *Pixhack v3* 飞行控制器是一款灵活轻便的自动驾驶仪，主要面向于商用无人系统制造商。
 
 该控制器是SOLO Pixhawk<sup>&reg;</sup> 2 (PH2) 飞行控制器的变形体，后者又基于[Pixhawk](https://pixhawk.org/)项目的**FMUv3**开放式硬件设计。 它在[NuttX](http://nuttx.org) OS上运行PX4，并且与PX4和ArduPilot<sup>&reg;</sup>（APM）固件完全兼容。
