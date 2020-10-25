@@ -1,6 +1,6 @@
 # 비글본 블루
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://beagleboard.org/blue) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://beagleboard.org/blue) for hardware support or compliance issues.
 
 <span></span>
 
