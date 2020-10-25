@@ -1,6 +1,6 @@
 # mRo Pixhawk Flight Controller (Pixhawk 1)
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 
 * mRo Pixhawk <sup> & reg; </ 1> </ 0>은 원본 <a href="../flight_controller/pixhawk.md"> Pixhawk 1 </ 2>의 하드웨어 호환 버전입니다. It runs PX4 on the <a href="http://nuttx.org">NuttX</a> OS.</p> 
 
