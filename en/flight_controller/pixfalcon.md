@@ -1,5 +1,9 @@
 # Pixfalcon Flight Controller (Discontinued)
 
+> **Warning** PX4 does not manufacture this (or any) autopilot.
+  Contact the [manufacturer](https://shop.holybro.com/) for support or compliance issues.
+  
+<span></span>
 > **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybro.com/)) is binary-compatible (FMUv2) derivative of the [Pixhawk 1](../flight_controller/pixhawk.md) design that has been optimized for space-constrained applications such as FPV racers. It has less IO to allow for the reduction in size.

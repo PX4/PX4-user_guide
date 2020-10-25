@@ -1,5 +1,9 @@
 # Snapdragon Flight Autopilot (Discontinued)
 
+> **Warning** PX4 does not manufacture this (or any) autopilot.
+  Contact the [manufacturer](https://www.intrinsyc.com/) for support or compliance issues.
+
+<span></span>
 > **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.
 
 The *Qualcomm Snapdragon Flight* platform is a high-end autopilot / onboard computer which runs the PX4 Flight Stack on the DSP on the QuRT real time operating system using the [DSPAL API](https://github.com/ATLFlight/dspal) for POSIX compatibility. 

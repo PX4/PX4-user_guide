@@ -1,5 +1,8 @@
 # CUAV V5+ Wiring Quick Start
 
+> **Warning** PX4 does not manufacture this (or any) autopilot.
+  Contact the [manufacturer](https://store.cuav.net/) for support or compliance issues.
+
 This quick start guide shows how to power the [CUAV V5+](../flight_controller/cuav_v5_plus.md) flight controller and connect its most important peripherals.
  
 ![V5+ AutoPilot - Hero Image](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)

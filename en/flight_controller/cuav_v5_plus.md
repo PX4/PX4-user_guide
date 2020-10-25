@@ -1,5 +1,8 @@
 # CUAV V5+ Autopilot
 
+> **Warning** PX4 does not manufacture this (or any) autopilot.
+  Contact the [manufacturer](https://store.cuav.net/) for support or compliance issues.
+
 *V5+*<sup>&reg;</sup> is an advanced autopilot manufactured by CUAV<sup>&reg;</sup>.
 It was designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
 

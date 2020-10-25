@@ -1,5 +1,8 @@
 # Kakute F7
 
+> **Warning** PX4 does not manufacture this (or any) autopilot.
+  Contact the [manufacturer](https://shop.holybro.com/) for support or compliance issues.
+
 The *Kakute F7* from Holybro is a flight controller board designed for racers.
 
 <img src="../../assets/flight_controller/kakutef7/board.jpg" width="400px" title="Kakute F7" />

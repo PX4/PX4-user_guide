@@ -1,5 +1,9 @@
 # BeagleBone Blue
 
+> **Warning** PX4 does not manufacture this (or any) autopilot.
+  Contact the [manufacturer](https://beagleboard.org/blue) for support or compliance issues.
+
+<span></span>
 > **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 
 [BeagleBone Blue](https://beagleboard.org/blue) is an all-in-one Linux-based computer.
