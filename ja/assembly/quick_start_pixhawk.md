@@ -1,5 +1,7 @@
 # Pixhawk Wiring Quick Start
 
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for support or compliance issues.
+
 This quick start guide shows how to power the *3DR Pixhawk* flight controller and connect its most important peripherals.
 
 ![Pixhawk Image](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
