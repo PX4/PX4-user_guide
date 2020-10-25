@@ -1,4 +1,6 @@
-# mRo-X2.1 자동 조종 장치 mRo-X2.1 자동 조종 장치는  Pixhawk <sup> & reg; </ 2> -project <strong> FMUv2 </ 3> 오픈 하드웨어 디자인을 기반으로합니다. It runs PX4 on the <a href="http://nuttx.org">NuttX</a> OS.</p> 
+# mRo-X2.1 자동 조종 장치
+
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for support or compliance issues. mRo-X2.1 자동 조종 장치는  Pixhawk <sup> & reg; </ 2> -project <strong> FMUv2 </ 3> 오픈 하드웨어 디자인을 기반으로합니다. It runs PX4 on the <a href="http://nuttx.org">NuttX</a> OS.</p> 
 
 <p>
   <img src="../../assets/flight_controller/mro/mro_x2.1.jpg" alt="mRo X2.1" />
