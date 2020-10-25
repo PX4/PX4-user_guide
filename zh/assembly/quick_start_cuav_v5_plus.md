@@ -1,5 +1,7 @@
 # CUAV V5+ 快速接线指南
 
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
+
 本快速入门指南介绍了如何为 [CUAV V5+](../flight_controller/cuav_v5_plus.md) 飞行控制器供电以及如何连接其最主要的外部设备。
 
 ![V5+ AutoPilot - Hero Image](../../assets/flight_controller/cuav_v5_plus/v5+_01.png)
@@ -27,21 +29,21 @@
 | DSM/SBUS/RSSI | 包含DSM、SBUS、RSSI信号输入接口；DSM接口可以连接DSM卫星接收机，SBUS接口可以连接SBUS总线的遥控器接收机，RSSI连接RSSI信号强度回传模块。 |
 
 
-> **Note** 更多的接口信息，请阅读[V5+手册](http://manual.cuav.net/V5-Plus.pdf)。
+> **Note** 如果无法以推荐/默认方向安装控制器（例如，由于空间限制），则需要以实际使用的方向配置自动驾驶仪参数：[飞控的安装方向](../advanced_features/rtk-gps.md)。
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_02.png)
 
-> **Note** 如果无法以推荐/默认方向安装控制器（例如，由于空间限制），则需要以实际使用的方向配置自动驾驶仪参数：[飞控的安装方向](../advanced_features/rtk-gps.md)。
+> **Note**如果使用其它GPS模块可能无法工作（阅读[此问题](../flight_controller/cuav_v5_nano.md#issue_gps_compatible)）
 
 ## GPS + 罗盘 + 安全开关 + LED
 
 推荐的 GPS 模块是 *Neo v2 GPS *，其中包含GPS、指南针、安全开关、蜂窝、LED 状态灯。
 
-> **Note**如果使用其它GPS模块可能无法工作（阅读[此问题](../flight_controller/cuav_v5_nano.md#issue_gps_compatible)）
+> **Note** 如果您使用 CAN GPS，请使用电缆连接到飞行控制CAN 接口。
 
 GPS/罗盘在安装时应尽可能远离其它电子元器件，方向标记朝向飞行器前方(将罗盘和其它电子元器件分开可以减少干扰)。 使用电缆连接到飞行控制器GPS接口。
 
-> **Note** 如果您使用 CAN GPS，请使用电缆连接到飞行控制CAN 接口。
+> **Note** If you use the [NEO V2 PRO GNSS (CAN GPS)](http://doc.cuav.net/gps/neo-v2-pro/en/#enable), please use the cable to connect to the flight control CAN interface.
 
 ![V5+ AutoPilot](../../assets/flight_controller/cuav_v5_plus/connection/v5+_quickstart_03.png)
 

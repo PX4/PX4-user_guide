@@ -1,5 +1,7 @@
 # SPRacingH7EXTREME (PX4 Edition)
 
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.seriouslypro.com) for hardware support or compliance issues.
+
 The [SPRacingH7EXTREME](https://shop.seriouslypro.com/sp-racing-h7-extreme) is a feature packed FC/PDB with DUAL ICM20602 gyros, H7 400/480Mhz(+) CPU, high-precision BMP388 barometer, SD Card socket, current sensor, 8 easily accessible motor outputs, OSD, Microphone, Audio output, and more.
 
 It can be used easily for small to large quads, planes, octocoptors and more advanced frames. It's best used with separate ESCs as it features a built-in power distribution board (PDB). Wiring up a 4in1 ESC is easy too.
