@@ -1,6 +1,6 @@
 # Hex Cube Black Flight Controller
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
 
 The [Hex Cube Black](http://www.proficnc.com/61-system-kits2) flight controller (previously known as Pixhawk 2.1) is a flexible autopilot intended primarily for manufacturers of commercial systems. 它基于 [Pixhawk 项目](https://pixhawk.org/) 的 **FMUv3** 开放硬件设计，在 [NuttX](http://nuttx.org) 操作系统上运行 PX4。
 
