@@ -1,10 +1,12 @@
 # Pixhawk快速使用指导
 
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.mrobotics.io/) for support or compliance issues.
+
 此快速入门指南演示如何为 * 3DR Pixhawk * 飞行控制器供电并连接其最重要的外围配件设备。
 
 ![Pixhawk  图像](../../assets/flight_controller/pixhawk1/pixhawk_logo_view.jpg)
 
-> **Note** 3DR不再提供[3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html)。 可以使用其他公司基于 [ Pixhawk FMUv2 原理图 ](../flight_controller/pixhawk_series.md) 设计的飞行控制器配件 (他们采用相同的连接器、输出、功能等，例如 它们使用相同的连线线材）。
+> **Note** The [3DR Pixhawk](https://dev.px4.io/hardware-pixhawk.html) is no longer available from 3DR. Other flight controllers based on the [Pixhawk FMUv2 architecture](../flight_controller/pixhawk_series.md) are available from other companies (these share the same connections, outputs, functions, etc. and are wired in a similar way).
 
 ## 接线介绍
 
@@ -12,7 +14,7 @@
 
 ![Pixhawk 接线概览](../../assets/flight_controller/pixhawk1/pixhawk_wiring_overview.jpg)  
 
-> ** Note **更详细的接线信息 [ 如下所示 ](#detailed-wiring-infographic-copter)。
+> **Note** More detailed wiring information is [shown below](#detailed-wiring-infographic-copter).
 
 ## 飞控的安装和方向
 
@@ -32,7 +34,7 @@
 
 使用套件中提供的6线电缆连接GPS(必须) 到GPS端口。 可以选择将使用4线电缆将罗盘连接到I2C端口(Pixhawk有外部罗盘，必要时可以使用)。
 
-> **Note** 下图显示GPS和罗盘的接线方式。 GPS/罗盘在安装时应尽可能远离其他电子元器件，方向标记朝向飞行器前方(将罗盘和其他电子元器件分开可以减少干扰)。
+> **Note** The diagram shows a combined GPS and Compass. The GPS/Compass should be mounted on the frame as far away from other electronics as possible, with the direction marker towards the front of the vehicle (separating the compass from other electronics will reduce interference).
 
 ![将罗盘/GPS连接到Pixhawk](../../assets/flight_controller/pixhawk1/pixhawk_3dr_compass_gps.jpg)
 
@@ -44,7 +46,7 @@
 
 ![Pixhawk - 电源模块](../../assets/flight_controller/pixhawk1/pixhawk_3dr_power_module.jpg)
 
-> **Warning**电源模块只能向飞行控制器供电，不能连接到飞行控制器的其他输出端口向电机和其他硬件供电。 对于直升飞机没有影响，因为电机是分开供电的。
+> **Warning** The power module supplies the flight controller itself, but cannot power servos and other hardware connected to the controller's output ports (rail). For copter this does not matter because the motors are separately powered.
 
 对于飞机和VTOL，输出电路需要单独供电为了驱动电机的方向和升降。 通常主要的推拉电机使用集成 [BEC](https://en.wikipedia.org/wiki/Battery_eliminator_circuit) 的ESC控制，ESC可以连接到Pixhawk的输出电路。 如果没有，您需要将一个5V BEC连接到Pixhawk的空闲端口(没有电源，伺服电机将不会工作)。
 
@@ -78,15 +80,15 @@
 
 在[Airframe Reference](../airframes/airframe_reference.md)中列出了支持所有飞行或地面机型的MAIN/AUX 输出端口映射和电机/伺服电机。
 
-> **Caution** 不同机型间的映射不是完全一致的 (比如，您不能将油门输出应用在其他机型相同的输出上)。 请确保为您的飞行器使用正确的映射。
+> **Caution** The mapping is not consistent across frames (e.g. you can't rely on the throttle being on the same output for all plane frames). Make sure to use the correct mapping for your vehicle.
 
 <span></span>
 
-> **Tip** 如果您的机型没有列入参考机型中那么使用正确类型中的"generic"一般机型.
+> **Tip** If your frame is not listed in the reference then use a "generic" airframe of the correct type.
 
 <span></span>
 
-> **Note** 外部电路必须单独供电，如上文中的 [Power](#power) 部分所述。
+> **Note** The output rail must be separately powered, as discussed in the [Power](#power) section above.
 
 <!-- INSERT image of the motor AUX/MAIN ports? -->
 
