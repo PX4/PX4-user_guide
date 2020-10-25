@@ -1,6 +1,6 @@
 # Pixhawk 4 接线快速入门
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
 
 本快速入门指南演示如何为 [Pixhawk 4](../flight_controller/pixhawk4.md) 飞行控制器供电，并连接主要的外围设备。
 
