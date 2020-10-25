@@ -1,6 +1,6 @@
 # CUAV V5+ 快速接线指南
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
 
 本快速入门指南介绍了如何为 [CUAV V5+](../flight_controller/cuav_v5_plus.md) 飞行控制器供电以及如何连接其最主要的外部设备。
 
