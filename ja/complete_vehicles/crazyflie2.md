@@ -1,6 +1,6 @@
 # Crazyflie 2.0
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://www.bitcraze.io/) for hardware support or compliance issues.
 
 <span></span>
 
