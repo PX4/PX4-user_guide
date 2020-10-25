@@ -1,6 +1,6 @@
 # DroPix Flight Controller
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.drotek.com/) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.drotek.com/) for hardware support or compliance issues.
 
 The Drotek<sup>&reg;</sup> *DroPix autopilot* is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs the PX4 Flight Stack on the [NuttX](http://nuttx.org) OS.
 
