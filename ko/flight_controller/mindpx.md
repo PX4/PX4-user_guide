@@ -1,5 +1,7 @@
 # MindPX 하드웨어
 
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](http://mindpx.net) for support or compliance issues.
+
 The AirMind<sup>&reg;</sup> [MindPX](http://mindpx.net) series is a new generation autopilot system branched from Pixhawk<sup>&reg;</sup>.
 
 ![MindPX Controller
