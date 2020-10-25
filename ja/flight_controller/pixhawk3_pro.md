@@ -1,6 +1,6 @@
 # Pixhawk 3 Pro
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store-drotek.com/) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
 
 The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades and additional features. The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
 
