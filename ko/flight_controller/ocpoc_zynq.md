@@ -1,6 +1,6 @@
 # Aerotenna OcPoC-Zynq 미니 비행 컨트롤러
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://ainstein.ai/) for support or compliance issues.
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://ainstein.ai/) for hardware support or compliance issues.
 
 <span></span>
 
