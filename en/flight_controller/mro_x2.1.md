@@ -1,7 +1,7 @@
 # mRo-X2.1 Autopilot
 
 > **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](https://store.mrobotics.io/) for support or compliance issues.
+  Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
 
 The [mRo-X2.1 autopilot](http://www.mRobotics.io/) is based on the [Pixhawk<sup>&reg;</sup>-project](https://pixhawk.org/) **FMUv2** open hardware design. It runs PX4 on the [NuttX](http://nuttx.org) OS.
 

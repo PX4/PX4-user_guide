@@ -1,7 +1,7 @@
 # CUAV v5 (Discontinued)
 
 > **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](https://store.cuav.net/) for support or compliance issues.
+  Contact the [manufacturer](https://store.cuav.net/) for hardware support or compliance issues.
   
 <span></span>
 > **Warning** This flight controller has been [discontinued](../flight_controller/autopilot_experimental.md) and is no longer commercially available.

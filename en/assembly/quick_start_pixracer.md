@@ -1,7 +1,7 @@
 # Pixracer Wiring Quick Start
 
 > **Warning** PX4 does not manufacture this (or any) autopilot.
-  Contact the [manufacturer](https://store.mrobotics.io/) for support or compliance issues.
+  Contact the [manufacturer](https://store.mrobotics.io/) for hardware support or compliance issues.
   
 <span></span>
 > **Warning** Under construction.
