@@ -1,5 +1,7 @@
 # CUAV V5 nano Autopilot
 
+> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store.cuav.net/) for support or compliance issues.
+
 **V5 nano**<sup>&reg;</sup> is an autopilot for space-constrained applications, designed by CUAV<sup>&reg;</sup> in collaboration with the PX4 team.
 
 The autopilot is small enough to use in 220mm racing drones, but remains powerful enough for most drone use.
