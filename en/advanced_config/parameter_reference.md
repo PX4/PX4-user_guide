@@ -12147,6 +12147,14 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="IMU_GYRO_FFT_EN">IMU_GYRO_FFT_EN</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>IMU gyro FFT enable</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="IMU_GYRO_FFT_MAX">IMU_GYRO_FFT_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>IMU gyro FFT maximum frequency</p>   <p><b>Reboot required:</b> true</p>
 </td>
@@ -12159,7 +12167,7 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"><p>IMU gyro FFT minimum frequency</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">1 > 1000 </td>
- <td style="vertical-align: top;">30.0</td>
+ <td style="vertical-align: top;">50.0</td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
