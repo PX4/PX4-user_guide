@@ -1,5 +1,8 @@
 # RPi PilotPi Shield
 
+> **Warning** PX4 does not manufacture this (or any) autopilot.
+  Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
+
 > **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 
 The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi.
@@ -27,10 +30,10 @@ PCB and schematic are open source as well.
   * Power the Pi through USB cable
 * Availability: *preparing for shipping*
 
-
 ## Connectivity
 
 Shield provides:
+
 * 16x PWM outputting channels
 * GPS connector
 * Telemetry connector
@@ -40,6 +43,7 @@ Shield provides:
 * 2\*8 2.54mm unused GPIO connector
 
 Direct accessible from RPi:
+
 * 4x USB connector
 * CSI connector(**Note:** conflict with external I2C bus)
 * etc.
@@ -54,8 +58,11 @@ Direct accessible from RPi:
 > **Warning** It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
 
 ### Connectors
+
 #### GPS connector
+
 Mapped to `/dev/ttySC0`
+
 | Pin | Signal | Volt |
 | -- | -- | -- |
 | 1 | VCC | +5V |
@@ -66,7 +73,9 @@ Mapped to `/dev/ttySC0`
 | 6 | GND | GND |
 
 #### Telemetry connector
+
 Mapped to `/dev/ttySC1`
+
 | Pin | Signal | Volt |
 | -- | -- | -- |
 | 1 | VCC | +5V |
@@ -77,7 +86,9 @@ Mapped to `/dev/ttySC1`
 | 6 | GND | GND |
 
 #### External I2C connector
+
 Mapped to `/dev/i2c-0`
+
 | Pin | Signal | Volt |
 | -- | -- | -- |
 | 1 | VCC | +5V |
@@ -86,7 +97,9 @@ Mapped to `/dev/i2c-0`
 | 4 | GND | GND |
 
 #### RC & ADC2/3/4
+
 RC mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
+
 | Pin | Signal | Volt |
 | -- | -- | -- |
 | 1(red) | RC | +3V3~+5V |
@@ -107,6 +120,7 @@ RC mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 > ADC3 & 4 have an alternative VCC source. When 'Vref' switch is on, 'VCC' pin is driven by REF5050 with higher accuracy and stability.
 
 #### Unused GPIO available on top of the board
+
 | Shield Pin | BCM | WiringPi | RPi Pin |
 | -- | -- | -- | -- |
 | 1 | 3V3 | 3v3 | 3V3 |
@@ -127,40 +141,59 @@ RC mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | 16 | GND | GND | GND |
 
 ### Switches
+
 #### RC Inverter
+
 This switch will decide the signal polarity of RX line.
+
 `UART_RX = SW xor RC_INPUT`
 
 * On: suitable with SBUS (signal inverted)
 * Off: preserved
+
 #### Vref
+
 ADC 3 & 4 will have VCC driven by:
 * Vref output from REF5050 if on
 * 5V pin directly from RPi if off
+
 #### Boot Mode
+
 This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
+
 * On: start PX4 automatically
 * Off: don' t start PX4
+
 ## Developer Quick Start
+
 ### OS Image
+
 The latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) image is always recommended.
 Assume you already get a working ssh connection to RPi.
 
 ### Setting up Access (Optional)
+
 #### Hostname and mDNS
+
 mDNS helps you connect to your pi with hostname instead of IP address.
+
 ```shell
 sudo raspi-config
 ```
+
 Navigate to "Network Options" -> "Hostname". Set and exit.
 You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well. 
 
 ### Setting up OS
+
 #### config.txt
+
 ```shell
 sudo nano /boot/config.txt
 ```
+
 Replace the file with:
+
 ```shell
 # enable sc16is752 overlay
 dtoverlay=sc16is752-spi1
@@ -175,49 +208,65 @@ dtparam=i2c_vc=on
 # switch Bluetooth to miniuart
 dtoverlay=miniuart-bt
 ```
+
 #### cmdline.txt
+
 ```shell
 sudo raspi-config
 ```
+
 "Interfacing Options" -> "Serial" -> login shell = No -> hardware = Yes
 Enable UART but without a login shell on it.
 
 ```shell
 sudo nano /boot/cmdline.txt
 ```
+
 Append `isolcpus=2` behind the last word.
 The whole file would be:
+
 ```shell
 console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait isolcpus=2
 ```
+
 This one tells Linux kernel do not schedule any process on CPU core 2. We will manually run PX4 onto that core later.
 
 Reboot and ssh onto your Pi.
 
 Check UART interface:
+
 ```shell
 ls /dev/tty*
 ```
+
 There should be `/dev/ttyAMA0`, `/dev/ttySC0` and `/dev/ttySC1`.
 
-Check I2C interface
+Check I2C interface:
+
 ```shell
 ls /dev/i2c*
 ```
+
 There should be `/dev/i2c-0` and `/dev/i2c-1`
 
 Check SPI interface
+
 ```shell
 ls /dev/spidev*
 ```
+
 There should be `/dev/spidev0.0`.
 
 #### rc.local
+
 In this section we will configure the auto-start script in rc.local.
+
 ```shell
 sudo nano /etc/rc.local
 ```
+
 Append below context to the file above `exit 0`:
+
 ```shell
 echo "25" > /sys/class/gpio/export
 echo "in" > /sys/class/gpio/gpio25/direction
@@ -227,17 +276,23 @@ if [ $(cat /sys/class/gpio/gpio25/value) -eq 1 ] ; then
 fi
 echo "25" > /sys/class/gpio/unexport
 ```
+
 Save and exit.
+
 > Don' t forget to turn off the switch when it is not needed.
 
 #### CSI camera
+
 > **Enable CSI camera will stop anything works on I2C-0.**
 
 ```shell
 sudo raspi-config
 ```
+
 "Interfacing Options" -> "Camera"
+
 ### Building the code
+
 To get the *very latest* version onto your computer, enter the following command into a terminal:
 
 ```sh
@@ -253,7 +308,9 @@ Set the IP (or hostname) of your RPi using:
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
+
 or
+
 ```sh
 export AUTOPILOT_HOST=pi_hostname.local
 ```
@@ -282,23 +339,52 @@ sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 Now px4 is started with multi-rotor configuration.
 
 ### Post-configuration
+
 You need to check these extra items to get your vechicle work properly.
+
 #### Mixer file
+
 Mixer file is defined in `pilotpi_xx.conf`:
+
 ```sh
-mixer load 
+mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
 ```
+
 All available mixers are stored in `etc/mixers`. You can create one by yourself as well.
+
 #### External compass
 In the startup script(`*.config`), you will find
+
 ```sh
-#hmc5883 start
-#ist8310 start
+# external GPS & compass
+gps start -d /dev/ttySC0 -i uart -p ubx -s
+#hmc5883 start -X
+#ist8310 start -X
 ```
+
 Uncomment the correct one for your case.
-Not sure which compass comes up with your GPS module? Execute the following command and see the output:
+Not sure which compass comes up with your GPS module? Execute the following commands and see the output:
+
 ```sh
 sudo apt-get update
 sudo apt-get install i2c-tools
-i2cdetect -y 1
+i2cdetect -y 0
 ```
+
+Sample output:
+
+```
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- 0e -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- 1e -- 
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+70: -- -- -- -- -- -- -- --
+```
+
+`1e` indicates a HMC5883 based compass is mounted on external I2C bus. Similarly, IST8310 has a value of `0e`.
+
+> Generally you only have one of them. Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
