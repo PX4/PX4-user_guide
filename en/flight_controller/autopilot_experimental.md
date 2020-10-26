@@ -14,6 +14,7 @@ Experimental:
 - [BeagleBone Blue](../flight_controller/beaglebone_blue.md)
 - [Bitcraze Crazyflie 2.0](../complete_vehicles/crazyflie2.md) (Complete Vehicle)
 - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
+- [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md)
 
 Discontinued:
 - [CUAV v5](../flight_controller/cuav_v5.md) (Pixhawk FMUv5)
