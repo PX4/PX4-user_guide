@@ -2376,7 +2376,7 @@ This is the amount of X-axis magnetometer bias learned by the EKF and saved from
 </td>
  <td style="vertical-align: top;">-0.5 > 0.5 </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">mgauss</td>
+ <td style="vertical-align: top;">gauss</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_Y">EKF2_MAGBIAS_Y</strong> (FLOAT)</td>
@@ -2385,7 +2385,7 @@ This is the amount of Y-axis magnetometer bias learned by the EKF and saved from
 </td>
  <td style="vertical-align: top;">-0.5 > 0.5 </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">mgauss</td>
+ <td style="vertical-align: top;">gauss</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGBIAS_Z">EKF2_MAGBIAS_Z</strong> (FLOAT)</td>
@@ -2394,7 +2394,7 @@ This is the amount of Z-axis magnetometer bias learned by the EKF and saved from
 </td>
  <td style="vertical-align: top;">-0.5 > 0.5 </td>
  <td style="vertical-align: top;">0.0</td>
- <td style="vertical-align: top;">mgauss</td>
+ <td style="vertical-align: top;">gauss</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAGB_K">EKF2_MAGB_K</strong> (FLOAT)</td>
@@ -2411,7 +2411,7 @@ This is a reference variance used to calculate the fraction of learned magnetome
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">2.5E-7</td>
- <td style="vertical-align: top;">mgauss^2</td>
+ <td style="vertical-align: top;">gauss^2</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="EKF2_MAG_ACCLIM">EKF2_MAG_ACCLIM</strong> (FLOAT)</td>
