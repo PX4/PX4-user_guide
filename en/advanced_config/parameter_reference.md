@@ -2543,7 +2543,7 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
 Assumes measurement is timestamped at trailing edge of integration period</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 > 300 </td>
- <td style="vertical-align: top;">5</td>
+ <td style="vertical-align: top;">20</td>
  <td style="vertical-align: top;">ms</td>
 </tr>
 <tr>
