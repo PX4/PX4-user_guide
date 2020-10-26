@@ -353,7 +353,7 @@ Execute the command in firmware folder:
 
 > If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
 
-> You can compile without upload too. Just remove `upload` target.
+> You can compile without uploading too. Just remove `upload` target.
 
 ### Post-configuration
 
