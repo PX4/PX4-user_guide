@@ -147,7 +147,7 @@ The latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/ras
 Assume you already get a working ssh connection to RPi.
 
 ### Setting up Access (Optional)
-#### mDNS
+#### Hostname and mDNS
 mDNS helps you connect to your pi with hostname instead of IP address.
 ```shell
 sudo raspi-config
@@ -192,7 +192,7 @@ console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.re
 ```
 This one tells Linux kernel do not schedule any process on CPU core 2. We will manually run PX4 onto that core later.
 
-Reboot and ssh into your Pi.
+Reboot and ssh onto your Pi.
 
 Check UART interface:
 ```shell
@@ -228,6 +228,8 @@ fi
 echo "25" > /sys/class/gpio/unexport
 ```
 Save and exit.
+> Don' t forget to turn off the switch when it is not needed.
+
 #### CSI camera
 > **Enable CSI camera will stop anything works on I2C-0.**
 
@@ -236,4 +238,67 @@ sudo raspi-config
 ```
 "Interfacing Options" -> "Camera"
 ### Building the code
-Continue with our [standard build system installation](https://dev.px4.io/master/en/setup/dev_env_linux.html).
+To get the *very latest* version onto your computer, enter the following command into a terminal:
+
+```sh
+git clone https://github.com/PX4/Firmware.git --recursive
+```
+
+> **Note** This is all you need to do just to build the latest code. 
+
+#### Cross build for Raspberry Pi OS
+
+Set the IP (or hostname) of your RPi using:
+
+```sh
+export AUTOPILOT_HOST=192.168.X.X
+```
+or
+```sh
+export AUTOPILOT_HOST=pi_hostname.local
+```
+
+Build the executable file:
+
+```sh
+cd Firmware
+make scumaker_pilotpi_default
+```
+
+Then upload it with:
+
+```sh
+cd Firmware
+make scumaker_pilotpi_default upload
+```
+
+Connect over ssh and run it with:
+
+```sh
+cd px4
+sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
+```
+
+Now px4 is started with multi-rotor configuration.
+
+### Post-configuration
+You need to check these extra items to get your vechicle work properly.
+#### Mixer file
+Mixer file is defined in `pilotpi_xx.conf`:
+```sh
+mixer load 
+```
+All available mixers are stored in `etc/mixers`. You can create one by yourself as well.
+#### External compass
+In the startup script(`*.config`), you will find
+```sh
+#hmc5883 start
+#ist8310 start
+```
+Uncomment the correct one for your case.
+Not sure which compass comes up with your GPS module? Execute the following command and see the output:
+```sh
+sudo apt-get update
+sudo apt-get install i2c-tools
+i2cdetect -y 1
+```
