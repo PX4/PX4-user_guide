@@ -68,8 +68,8 @@ Mapped to `/dev/ttySC0`
 | 1 | VCC | +5V |
 | 2 | TX | +3v3 |
 | 3 | RX | +3v3 |
-| 4 | nc | +3v3 |
-| 5 | nc | +3v3 |
+| 4 | NC | +3v3 |
+| 5 | NC | +3v3 |
 | 6 | GND | GND |
 
 #### Telemetry connector
@@ -338,9 +338,26 @@ sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 
 Now px4 is started with multi-rotor configuration.
 
+### Alternative build method(using docker)
+
+Sometimes our development environment may contain a newer version of tool chain, which won't generate proper binaries for RPi, and is hard to downgrade. The following method can provide the same tool-sets deployed in CI.
+
+If you are compiling for the first time with docker, please refer to the [offical docs](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites).
+
+Execute the command in firmware folder:
+
+```sh
+./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
+```
+> **Note** mDNS is not supported within docker. You must specify the correct IP address.
+
+> If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+
+> You can compile without upload too. Just remove `upload` target.
+
 ### Post-configuration
 
-You need to check these extra items to get your vechicle work properly.
+You need to check these extra items to get your vehicle work properly.
 
 #### Mixer file
 
