@@ -3,6 +3,7 @@
 > **Warning** PX4 does not manufacture this (or any) autopilot.
   Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
 
+<span></span>
 > **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 
 The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi.
@@ -283,7 +284,7 @@ Save and exit.
 
 #### CSI camera
 
-> **Enable CSI camera will stop anything works on I2C-0.**
+> **Warning** Enable CSI camera will stop anything works on I2C-0.
 
 ```shell
 sudo raspi-config
@@ -349,11 +350,18 @@ Execute the command in firmware folder:
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
-> **Note** mDNS is not supported within docker. You must specify the correct IP address.
+> **Note** mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
 
+<span></span>
 > If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
-
+> 
 > You can compile without uploading too. Just remove `upload` target.
+
+It is also possible to just compile the code with command:
+
+```sh
+./Tools/docker_run.sh "make scumaker_pilotpi"
+```
 
 ### Post-configuration
 
