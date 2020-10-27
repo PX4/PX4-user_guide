@@ -54,7 +54,7 @@ Direct accessible from RPi:
 ![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
 ![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
-## Pinouts
+## Pinout
 
 > **Warning** It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
 
@@ -99,13 +99,13 @@ Mapped to `/dev/i2c-0`
 
 #### RC & ADC2/3/4
 
-RC mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
+RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 
 | Pin | Signal | Volt |
 | -- | -- | -- |
-| 1(red) | RC | +3V3~+5V |
-| 2(blk) | VCC | +5V |
-| 3(blk) | GND | GND |
+| 1 | RC | +3V3~+5V |
+| 2 | VCC | +5V |
+| 3 | GND | GND |
 
 - ADC1 is internally connected to voltage divider for battery voltage monitoring.
 - ADC2 is left unused.
