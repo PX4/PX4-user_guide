@@ -4,7 +4,9 @@
 
 The vehicle obeys a position, velocity or attitude setpoint provided over MAVLink. The setpoint may be provided by a MAVLink API (e.g. [MAVSDK](https://mavsdk.mavlink.io/) or [MAVROS](https://github.com/mavlink/mavros)) running on a companion computer (and usually connected via serial cable or wifi).
 
-> **Note** * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc. * RC control is disabled except to change modes. * The vehicle must be armed before this mode can be engaged. * The vehicle must be already be receiving a stream of target setpoints before this mode can be engaged. * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz.
+> **Tip** Not all co-ordinate frames and field values allowed by MAVLink are supported for all setpoint messages and vehicles. Read the sections below *carefully* to ensure only supported values are used. Note also that setpoints must be streamed at > 2Hz before entering the mode and while the mode is operational.
+> 
+> **Note** * This mode requires position or pose/attitude information - e.g. GPS, optical flow, visual-inertial odometry, mocap, etc. * RC control is disabled except to change modes. * The vehicle must be armed before this mode can be engaged. * The vehicle must be already be receiving a **stream of target setpoints (>2Hz)** before this mode can be engaged. * The vehicle will exit the mode if target setpoints are not received at a rate of > 2Hz. * Not all co-ordinate frames and field values allowed by MAVLink are supported.
 
 ## Description
 
@@ -28,7 +30,7 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
     * Velocity setpoint (only `vx`, `yy`, `vz`)
     * *Thrust* setpoint (only `afx`, `afy`, `afz`) > **Note** Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
-  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
+  * * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED) and [MAV_FRAME_BODY_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_BODY_NED).
 
 * [SET_POSITION_TARGET_GLOBAL_INT](https://mavlink.io/en/messages/common.html#SET_POSITION_TARGET_GLOBAL_INT)
   
@@ -38,7 +40,7 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
     * Velocity setpoint (only `vx`, `yy`, `vz`)
     * *Thrust* setpoint (only `afx`, `afy`, `afz`) > **Note** Acceleration setpoint values are mapped to create a normalized thrust setpoint (i.e. acceleration setpoints are not "properly" supported).
     * Position setpoint **and** velocity setpoint (the velocity setpoint is used as feedforward; it is added to the output of the position controller and the result is used as the input to the velocity controller).
-  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
+  * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
   
@@ -83,7 +85,7 @@ Offboard mode requires an active connection to a remote MAVLink system (e.g. com
         * 8192: Land setpoint.
         * 12288: Loiter setpoint (fly a circle centred on setpoint).
         * 16384: Idle setpoint (zero throttle, zero roll / pitch).
-  * PX4 supports the coordinate frames (`coordinate_frame` field): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
+  * PX4 supports the following `coordinate_frame` values (only): [MAV_FRAME_GLOBAL](https://mavlink.io/en/messages/common.html#MAV_FRAME_GLOBAL).
 
 * [SET_ATTITUDE_TARGET](https://mavlink.io/en/messages/common.html#SET_ATTITUDE_TARGET)
   
