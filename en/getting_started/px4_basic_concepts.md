@@ -256,6 +256,8 @@ All the vehicles, boats and aircraft have a heading direction or an orientation 
 
 ![Frame Heading](../../assets/concepts/frame_heading.png)
 
+> **Note** For a VTOL Tailsitter the heading is relative to the multirotor configuration (i.e. vehicle pose during, takeoff, hovering, landing).
+
 It is important to know the vehicle heading direction in order to align the autopilot with the vehicle vector of movement. 
 Multicopters have a heading even when they are symmetrical from all sides!
 Usually manufacturers use a colored props or colored arms to indicate the heading.
