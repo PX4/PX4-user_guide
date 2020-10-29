@@ -2517,7 +2517,7 @@ Baro and Magnetometer data will be averaged before downsampling, other data will
  <td style="vertical-align: top;"><strong id="EKF2_MULTI_IMU">EKF2_MULTI_IMU</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Multi-EKF IMUs</p><p><strong>Comment:</strong> Maximum number of IMUs to use for Multi-EKF. Set 0 to disable. Requires SENS_IMU_MODE 0.</p>   <p><b>Reboot required:</b> true</p>
 </td>
- <td style="vertical-align: top;">0 > 3 </td>
+ <td style="vertical-align: top;">0 > 4 </td>
  <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
