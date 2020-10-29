@@ -97,7 +97,7 @@ Under these conditions all power sources will be used in this order to power the
 
 To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
 ```
-make cuav_x7pro_default
+make cuav_nora_default
 ```
 
 ## Over Current Protection
