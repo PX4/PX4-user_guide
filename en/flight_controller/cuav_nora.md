@@ -5,7 +5,7 @@
 
 The [Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup>  flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
 
-![CUAV x7](../../assets/flight_controller/cuav_x7/x7.jpg)
+![CUAV x7](../../assets/flight_controller/cuav_nora/nora.png)
 
 It is a variant of X7. It adopts an integrated motherboard (soft and hard board), which reduces the internal connectors of the flight control, improves the reliability of the flight control, and places all the interfaces on the side, making the wiring more concise.
 
@@ -67,7 +67,7 @@ It is a variant of X7. It adopts an integrated motherboard (soft and hard board)
 
 ## Connections (Wiring)
 
-[CUAV X7 Wiring Quickstart](../assembly/quick_start_cuav_x7.md)
+[CUAV nora Wiring Quickstart](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 
 ## Size and Pinouts
 
