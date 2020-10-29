@@ -10,8 +10,8 @@ Manufacturer-supported autopilots are maintained and supported by a board manufa
 The boards in this category are:
 - [AirMind MindPX](../flight_controller/mindpx.md)
 - [AirMind MindRacer](../flight_controller/mindracer.md)
-- [CUAV X7](../flight_controller/cuav_x7.md) 
-- [CUAV Nora](../flight_controller/cuav_nora.md)
+- [CUAV X7](../flight_controller/cuav_x7.md) (CUAV X7）
+- [CUAV Nora](../flight_controller/cuav_nora.md)（CUAV X7)
 - [CUAV V5+](../flight_controller/cuav_v5_plus.md) (FMUv5)
 - [CUAV V5 nano](../flight_controller/cuav_v5_nano.md) (FMUv5)
 - [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
