@@ -138,13 +138,13 @@ The provided debug cable does not connect to the SWD port `Vref` pin (1).
 >
 >For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
+## Supported Platforms / Airframes
+
+Any multicopter / airplane / rover or boat that can be controlled with normal RC servos or Futaba S-Bus servos.
+The complete set of supported configurations can be seen in the [Airframes Reference](../airframes/airframe_reference.md).
 
 ## Further info
 
-* [Quick start](http://doc.cuav.net/flight-controller/v5-autopilot/zh-hans/quick-start/quick-start-nora.html)
-
+* [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
+* [CUAV docs](http://doc.cuav.net)
 * [x7 schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
-
-* [Ardupilot wiki](http://ardupilot.org/copter/docs/common-cuav-v5plus-overview.html)
-
-* [PX4 user guide](https://docs.px4.io/master/en)
