@@ -62,7 +62,8 @@ It is a variant of X7. It adopts an integrated motherboard (soft and hard board)
 
 ## Purchase
 
-[CUAV Store](https://store.cuav.net)
+[CUAV Store](https://store.cuav.net)<\br>
+[CUAV Aliexpress](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
 
 
 ## Connections (Wiring)
@@ -71,9 +72,9 @@ It is a variant of X7. It adopts an integrated motherboard (soft and hard board)
 
 ## Size and Pinouts
 
-![CUAV x7](../../assets/flight_controller/cuav_x7/x7-size.jpg)
+![CUAV x7](../../assets/flight_controller/cuav_nora/nora-size.jpg)
 
-![X7 pinouts](../../assets/flight_controller/cuav_x7/x7-pinouts.jpg)
+![X7 pinouts](../../assets/flight_controller/cuav_nora/nora-pinouts.jpg)
 
 > **Warning**The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
 
@@ -101,8 +102,8 @@ make cuav_x7pro_default
 
 ## Over Current Protection
 
-The *X7* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
-The *X7* has short circuit protection.
+The *nora* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
+The *nora* has short circuit protection.
 
 > **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
 
@@ -145,6 +146,6 @@ The complete set of supported configurations can be seen in the [Airframes Refer
 
 ## Further info
 
-* [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
+* [Quick start](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-nora.html)
 * [CUAV docs](http://doc.cuav.net)
-* [x7 schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
+* [nora schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
