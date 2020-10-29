@@ -7608,10 +7608,10 @@ vuepress-plugin-redirect@^1.2.5:
     "@shigma/stringify-object" "^3.3.0"
     vuepress-plugin-dehydrate "1.1.5"
 
-vuepress-plugin-right-anchor@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-right-anchor/-/vuepress-plugin-right-anchor-0.2.0.tgz#d44036e3f88d9880d87630ed880d1cba31fdd691"
-  integrity sha512-6w5js1j2G6Z6BnBFvO4EoMuX2s5eA1ci6iYEsuX9P41qLF4YEFgVtmd+uooMffgIg3QPDPqzkOoUaja1vFZRzw==
+vuepress-plugin-right-anchor@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-right-anchor/-/vuepress-plugin-right-anchor-0.4.4.tgz#81d14ce1f21b037529fc9098d3cb091c668e605f"
+  integrity sha512-NjxAtPfAbkCNDhSlEGHEoSFjPcH5xlXvtoBZXp0u7LzgdlgTwvDVPnw10RvIPajNNwxfC2g6zLrOzXP8LIauRg==
   dependencies:
     lodash.debounce "^4.0.8"
 
