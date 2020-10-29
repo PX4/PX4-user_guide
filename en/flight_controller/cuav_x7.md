@@ -59,3 +59,57 @@ The flight controller adopts a modular design and can be matched with different 
   * Internal shock absorption
   
 > ** NOTE** When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
+
+## Purchase
+
+[CUAV Store](https://store.cuav.net)
+
+
+## Connections (Wiring)
+
+[CUAV X7 Wiring Quickstart](../assembly/quick_start_cuav_x7.md)
+
+## Size and Pinouts{#pinouts}
+
+![X7 pinouts](../assets/x7/x7-size.jpg)
+
+![X7 pinouts](../assets/x7/x7-pinouts.jpg)
+
+> **Warning**The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
+
+## Voltage Ratings
+
+* Nora AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
+
+> **Note** The output power rails ** PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered. 
+
+**Normal Operation Maximum Ratings**
+
+Under these conditions all power sources will be used in this order to power the system:
+1. **POWERA** and **POWERC** inputs (4.3V to 5.4V)
+2. **USB** input (4.75V to 5.25V)
+
+## Building Firmware
+
+> **Tip** Most users will not need to build this firmware!
+  It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+
+To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+```
+make cuav_x7pro_default
+```
+
+## Debug Port
+
+The system's serial console and SWD interface operate on the **DSU7** port. Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
+
+
+## Further info
+
+* [Quick start](http://doc.cuav.net/flight-controller/v5-autopilot/zh-hans/quick-start/quick-start-nora.html)
+
+* [x7 schematic](https://github.com/cuav/hardware/tree/master/X7_Autopilot)
+
+* [Ardupilot wiki](http://ardupilot.org/copter/docs/common-cuav-v5plus-overview.html)
+
+* [PX4 user guide](https://docs.px4.io/master/en)
