@@ -99,9 +99,44 @@ To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this ta
 make cuav_x7pro_default
 ```
 
+## Over Current Protection
+
+The *X7* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
+The *X7* has short circuit protection.
+
+> **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
+
 ## Debug Port
 
 The system's serial console and SWD interface operate on the **DSU7** port. Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
+
+The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port (`DSU7`).
+
+![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
+
+The debug port (`DSU7`) uses a [JST BM06B](https://www.digikey.com.au/product-detail/en/jst-sales-america-inc/BM06B-GHS-TBT-LF-SN-N/455-1582-1-ND/807850) connector and has the following pinout:
+
+Pin | Signal | Volt
+--- | --- | ---
+1 (red) | 5V+ | +5V
+2 (blk) | DEBUG TX (OUT) | +3.3V
+3 (blk) | DEBUG RX (IN) | +3.3V
+4 (blk) | FMU_SWDIO | +3.3V
+5 (blk) | FMU_SWCLK | +3.3V
+6 (blk) | GND | GND
+
+CUAV provides a dedicated debugging cable, which can be connected to the `DSU7` port.
+This splits out an FTDI cable for connecting the [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) to a computer USB port, and SWD pins used for SWD/JTAG debugging.
+The provided debug cable does not connect to the SWD port `Vref` pin (1).
+
+![CUAV Debug cable](../../assets/flight_controller/cuav_v5_plus/cuav_v5_debug_cable.jpg)
+
+> **Warning** The SWD Vref pin (1) uses 5V as Vref but the CPU is run at 3.3V!
+>
+> Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
+> For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
+>
+>For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
 
 ## Further info
