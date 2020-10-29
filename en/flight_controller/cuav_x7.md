@@ -25,3 +25,37 @@ The flight controller adopts a modular design and can be matched with different 
 
 <span></span>
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
+
+## Quick Summary{#quick-Summary}
+
+* Main FMU Processor: STM32H743
+* On-board sensors:
+  * Accelerometer/Gyroscope: ICM-20689
+  * Accelerometer/Gyroscope: ICM-20649
+  * Accelerometer/Gyroscope: BMI088
+  * Magnetometer: RM3100
+  * Barometer: MS5611*2
+  
+* Interfaces:
+   * 14 PWM outputs （12 supports Dshot）
+   * Support multiple RC inputs (SBUs / CPPM / DSM)
+   * Analogue / PWM RSSI input
+   * 2 GPS ports(GPS and UART4 ports)
+   * 4 i2c buses(Two i2c dedicated ports)
+   * 2 CAN bus ports
+   * 2 Power ports(Power A is common adc interface, Power C is uavcan battery interface)
+   * 2  ADC intput
+   * 1 USB ports 
+* Power System:
+  * Power: 4.3~5.4V
+  * USB Input: 4.75~5.25V
+  * Servo Rail Input: 0~36V
+* Weight and Dimensions:
+  * Weight: 101 g
+* Other Characteristics:
+  * Operating temperature: -20 ~ 80°c（Measured value）
+  * Three imus
+  * Supports temperature compensation
+  * Internal shock absorption
+  
+> ** NOTE** When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
