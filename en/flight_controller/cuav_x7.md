@@ -62,12 +62,12 @@ The flight controller adopts a modular design and can be matched with different 
 
 ## Purchase
 
-[CUAV Store](https://store.cuav.net)
-
+[CUAV Store](https://store.cuav.net)<\br>
+[CUAV aliexpress](https://www.aliexpress.com/item/4001042683738.html?spm=a2g0o.detail.1000060.2.1ebb2a9d3WDryi&gps-id=pcDetailBottomMoreThisSeller&scm=1007.13339.169870.0&scm_id=1007.13339.169870.0&scm-url=1007.13339.169870.0&pvid=f0df2481-1c0a-44eb-92a4-9c11c6cb3d06&_t=gps-id:pcDetailBottomMoreThisSeller,scm-url:1007.13339.169870.0,pvid:f0df2481-1c0a-44eb-92a4-9c11c6cb3d06,tpp_buckets:668%230%23131923%2320_668%23808%234094%23518_668%23888%233325%2319_668%234328%2319934%23630_668%232846%238115%23807_668%232717%237566%23827_668%231000022185%231000066058%230_668%233468%2315607%2376)
 
 ## Connections (Wiring)
 
-[CUAV X7 Wiring Quickstart](../assembly/quick_start_cuav_x7.md)
+[CUAV X7 Wiring Quickstart](http://doc.cuav.net/flight-controller/x7/en/quick-start/quick-start-x7.html)
 
 ## Size and Pinouts
 
