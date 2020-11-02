@@ -80,7 +80,7 @@ To tune this gain, set the other gains to zero.
 
 ### Tuning the Trim Offsets with the Integrator Gain
 
-- [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual roll value (this will most likely require looking at a log file).
+- [FW_PR_I](../advanced_config/parameter_reference.md#FW_PR_I) - start with a value of 0.01. Increase this value (doubling each time) until there is no offset between commanded and actual pitch value (this will most likely require looking at a log file).
 
 ## Adjusting the Time Constant of the Outer Loop
 
