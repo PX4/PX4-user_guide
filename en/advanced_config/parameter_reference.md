@@ -3394,6 +3394,18 @@ Set to 0 to disable heading hold</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="FW_POSCTL_INV_ST">FW_POSCTL_INV_ST</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>RC stick mapping fixed-wing</p><p><strong>Comment:</strong> Set RC/joystick configuration for fixed-wing position and altitude controlled flight.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Normal stick configuration (airspeed on throttle stick, altitude on pitch stick)</li> 
+
+<li><strong>1:</strong> Alternative stick configuration (altitude on throttle stick, airspeed on pitch stick)</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="FW_P_LIM_MAX">FW_P_LIM_MAX</strong> (FLOAT)</td>
  <td style="vertical-align: top;"><p>Positive pitch limit</p><p><strong>Comment:</strong> The maximum positive pitch the controller will output.</p>   </td>
  <td style="vertical-align: top;">0.0 > 60.0 (0.5)</td>
