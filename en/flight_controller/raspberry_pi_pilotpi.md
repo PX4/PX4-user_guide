@@ -10,7 +10,7 @@ The *PilotPi* shield is a fully functional solution to run PX4 autopilot directl
 It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community.
 PCB and schematic are open source as well.
 
-![PilotPi with RPi 4B](../../assets/hardware/pilotpi/hardware-pilotpi4b.jpg)
+![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
 ## Quick Summary
 
@@ -174,4 +174,4 @@ Refer to those instructions based on the OS running on your RPi.
 
 [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
 
-[Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_rpios.md)
+[Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
