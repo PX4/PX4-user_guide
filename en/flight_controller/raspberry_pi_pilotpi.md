@@ -121,7 +121,7 @@ RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | 2 | VCC | +5V |
 | 3 | GND | GND |
 
-> ADC3 & 4 have an alternative VCC source. When 'Vref' switch is on, 'VCC' pin is driven by REF5050 with higher accuracy and stability.
+> ADC3 & 4 have an alternative VCC source. When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 
 #### Unused GPIO available on top of the board
 
