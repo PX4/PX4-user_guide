@@ -15945,6 +15945,74 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="UAVCAN_LGT_ANTCL">UAVCAN_LGT_ANTCL</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN ANTI_COLLISION light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the ANTI_COLLISION lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Always off</li> 
+
+<li><strong>1:</strong> When autopilot is armed</li> 
+
+<li><strong>2:</strong> When autopilot is prearmed</li> 
+
+<li><strong>3:</strong> Always on</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 3 </td>
+ <td style="vertical-align: top;">2</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UAVCAN_LGT_LAND">UAVCAN_LGT_LAND</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN LIGHT_ID_LANDING light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the LIGHT_ID_LANDING lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Always off</li> 
+
+<li><strong>1:</strong> When autopilot is armed</li> 
+
+<li><strong>2:</strong> When autopilot is prearmed</li> 
+
+<li><strong>3:</strong> Always on</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 3 </td>
+ <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UAVCAN_LGT_NAV">UAVCAN_LGT_NAV</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN RIGHT_OF_WAY light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the RIGHT_OF_WAY lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Always off</li> 
+
+<li><strong>1:</strong> When autopilot is armed</li> 
+
+<li><strong>2:</strong> When autopilot is prearmed</li> 
+
+<li><strong>3:</strong> Always on</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 3 </td>
+ <td style="vertical-align: top;">3</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="UAVCAN_LGT_STROB">UAVCAN_LGT_STROB</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>UAVCAN STROBE light operating mode</p><p><strong>Comment:</strong> This parameter defines the minimum condition under which the system will command the STROBE lights on 0 - Always off 1 - When autopilot is armed 2 - When autopilot is prearmed 3 - Always on</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Always off</li> 
+
+<li><strong>1:</strong> When autopilot is armed</li> 
+
+<li><strong>2:</strong> When autopilot is prearmed</li> 
+
+<li><strong>3:</strong> Always on</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 3 </td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="UAVCAN_NODE_ID">UAVCAN_NODE_ID</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>UAVCAN Node ID</p><p><strong>Comment:</strong> Read the specs at http://uavcan.org to learn more about Node ID.</p>   <p><b>Reboot required:</b> true</p>
 </td>
