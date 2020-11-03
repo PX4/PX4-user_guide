@@ -49,7 +49,7 @@ To install PX4:
     2. Check **Advanced settings** and select the version from the dropdown list: 
         * **Standard Version (stable):** The default version (i.e. no need to use advanced settings to install this!)
         * **Beta Testing (beta):** A beta/candidate release. Only available when a new release is being prepared.
-        * **Developer Build (master):** The latest build of PX4/Firmware.
+        * **Developer Build (master):** The latest build of PX4/PX4-Autopilot.
         * **Custom Firmware file...:** A custom firmware file (e.g. that you have built locally). If you select this you will have to choose the custom firmware from the file system in the next step.
     
     Firmware update then continues as before.
