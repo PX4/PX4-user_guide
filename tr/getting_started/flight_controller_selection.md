@@ -2,7 +2,7 @@
 
 You should select a board that suits the physical constraints of your vehicle, the activities you wish to perform, and of course cost.
 
-PX4 can run on many flight controller boards (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/Firmware/#supported-hardware)). A subset of the available options are listed below.
+PX4 can run on many flight controller boards (see [Autopilot Hardware](../flight_controller/README.md), or the list of supported boards [here on Github](https://github.com/PX4/PX4-Autopilot/#supported-hardware)). A subset of the available options are listed below.
 
 ## Pixhawk Series
 
