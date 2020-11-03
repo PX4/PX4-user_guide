@@ -13,7 +13,7 @@ Before analyzing a flight log it is important to establish its context:
 * If the analysis is done after a malfunction, did the log capture the crash or did it stop mid-air?
 * Did all controllers track their references? The easiest way to establish this is to compare attitude roll and pitch rates to their set points.
 * Does the sensor data look valid? Was there very strong vibration \(a reasonable threshold for strong vibration is anything with a peak-to-peak of more than 2-3 m/s/s\).
-* If the root cause is not specific to the vehicle make sure to report it with a link to the log file \(and video if one exists\) on the [PX4 issue tracker](https://github.com/px4/firmware/issues/new).
+* If the root cause is not specific to the vehicle make sure to report it with a link to the log file \(and video if one exists\) on the [PX4 issue tracker](https://github.com/PX4/PX4-Autopilot/issues/new).
 
 ## Ruling Out Power Failures
 
