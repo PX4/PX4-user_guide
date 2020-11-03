@@ -115,7 +115,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
             
             You may have to edit the upload target to match with your setup:
             
-                nano Firmware/boards/beaglebone/blue/cmake/upload.cmake
+                nano PX4-Autopilot/boards/beaglebone/blue/cmake/upload.cmake
                 
                 #in row 37 change debian@beaglebone.lan --> root@beaglebone (or root@<IP>)
                 
@@ -164,7 +164,7 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
 
 All changes can be made in de px4.config file directly on beaglebone. For example, you can change the WIFI to wlan.
 
-> **Note** If you want to change permanently, you have to change **Firmware/posix-configs/bbblue/px4.config** on the Build Machine before build.
+> **Note** If you want to change permanently, you have to change **PX4-Autopilot/posix-configs/bbblue/px4.config** on the Build Machine before build.
 
 ## 부팅 중 자동 시작
 
