@@ -45,7 +45,7 @@ New parameters are added in each PX4 version, and existing parameters are someti
 The other reason that a parameter might not be in firmware is if its associated module has not been included. This is a problem (in particular) for *FMUv2 firmware*, which omits many modules so that PX4 can fit into the 1MB of available flash. There are two options to solve this problem:
 
 - 检查你的控制板是否可以升级到包含了所有模块的FMUv3固件：[固件 > FMUv2 Bootloader 升级](../config/firmware.md#bootloader)
-- 如果你的控制板只能运行FMUv2固件，你就要引入确实的模块后[重生成PX4](https://dev.px4.io/master/en/setup/building_px4.html)。 在[boards/px4/fmu-v2/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v2/default.cmake)文件中看到注释掉的模块: 
+- 如果你的控制板只能运行FMUv2固件，你就要引入确实的模块后[重生成PX4](https://dev.px4.io/master/en/setup/building_px4.html)。 You can see these commented out in [boards/px4/fmu-v2/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v2/default.cmake): 
         DRIVERS
             adc
             #barometer # 全部支持的气压计驱动
