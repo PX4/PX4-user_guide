@@ -173,6 +173,6 @@ The startup sequence is:
 
 
 <!-- Discussion:
-https://github.com/PX4/Firmware/pull/12806#discussion_r318337567 
+https://github.com/PX4/PX4-Autopilot/pull/12806#discussion_r318337567 
 https://github.com/PX4/px4_user_guide/issues/567#issue-486653048
 -->
