@@ -110,8 +110,8 @@ UART7  | /dev/ttyS5 | CONSOLE
 UART8  | /dev/ttyS6 | GPS2
   
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
-<!-- https://github.com/PX4/Firmware/blob/master/boards/hex/cube-orange/default.cmake -->
-<!-- https://github.com/PX4/Firmware/blob/master/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/default.cmake -->
+<!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/nuttx-config/nsh/defconfig#L194-L200 -->
 
 
 ### Debug Ports

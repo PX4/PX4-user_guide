@@ -48,7 +48,7 @@ Order this module from:
 In order to use the PX4Flow board, connect it to the I2C bus (on any Pixhawk series controller) and enable the driver using [SENS_EN_PX4FLOW](../advanced_config/parameter_reference.md#SENS_EN_PX4FLOW).
 
 > **Warning** PX4FLOW does not work on FMUv5 (Pixhawk 4) for PX4 versions less than **1.9.0**.
-  All other PX4/Firmware versions should work.
+  All other PX4/PX4-Autopilot versions should work.
 
 The steps are:
 - In *QGroundControl*:
@@ -292,7 +292,7 @@ You can configure the image quality and output (the image output is only intende
 * PC with *QGroundControl* installed
 * PX4FLOW Firmware (Firmware source code on Github: [PX4/Flow](https://github.com/PX4/Flow))
 
-> **Note** PX4 *driver* code can be found here: [PX4/Firmware/src/drivers/px4flow](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/px4flow)
+> **Note** PX4 *driver* code can be found here: [PX4/PX4-Autopilot/src/drivers/px4flow](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/optical_flow/px4flow)
 
 ## Build
 

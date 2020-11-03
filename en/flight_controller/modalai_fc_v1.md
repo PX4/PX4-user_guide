@@ -22,7 +22,7 @@ Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](h
 | Memory           | 256Kb FRAM   |
 |                  | 2Mbit Flash  |
 |                  | 512Kbit SRAM |
-| Firmware         | [PX4](https://github.com/PX4/Firmware/tree/master/boards/modalai/fc-v1) |
+| Firmware         | [PX4](https://github.com/PX4/PX4-Autopilot/tree/master/boards/modalai/fc-v1) |
 | IMUs             | [ICM-20602](https://www.invensense.com/products/motion-tracking/6-axis/icm-20602/) (SPI1) |
 |                  | ICM-42688 (SPI2) |
 |                  | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6) |

@@ -68,7 +68,7 @@ After setting up the PX4 development environment, follow these steps to install 
    
 1. Download the source code of the PX4 autopilot:
    ```
-   git clone https://github.com/PX4/Firmware.git
+   git clone https://github.com/PX4/PX4-Autopilot.git
    ```
 1. Navigate into the top directory of the source code and compile it using:
    ```
@@ -80,7 +80,7 @@ After setting up the PX4 development environment, follow these steps to install 
 1. Wait for completion.
 1. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html).
 
-> **Note** If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/Firmware/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`.
+> **Note** If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`.
   This should be done using *menuconfig*:
   ```
   make bitcraze_crazyflie_default menuconfig

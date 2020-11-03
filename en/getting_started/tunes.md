@@ -4,12 +4,12 @@
 
 The set of standard sounds are listed below.
 
-> **Note** **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/Firmware/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tune_control](https://dev.px4.io/master/en/middleware/modules_system.html#tunecontrol) module.
+> **Note** **Developers:** Tunes are defined in [/lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc) and can be tested using the [tune_control](https://dev.px4.io/master/en/middleware/modules_system.html#tunecontrol) module.
 
 ## Boot/Startup
 
 These tunes are played during the boot sequence.
-<!-- https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/rcS --> 
+<!-- https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d/rcS --> 
 
 
 #### Startup Tone
