@@ -28,7 +28,7 @@ Wiring information is available [below](#wiring).
 **Sensors:**
 
 - **Accel/Gyro/Mag:** MPU9250
-  - [deprecated](https://github.com/PX4/Firmware/pull/7618) by the PX4 firmware
+  - [deprecated](https://github.com/PX4/PX4-Autopilot/pull/7618) by the PX4 firmware
 - **Accel/Gyro:** ICM20608
 - **Barometer:** MS5611
 
@@ -169,12 +169,12 @@ Pixhawk Mini features an advanced processor and sensor technology from ST Microe
 
 ## Known issues
 
-- Some Pixhawk Minis have a [hardware defect](https://github.com/PX4/Firmware/issues/7327#issuecomment-317132917) that makes the internal MPU9250 IMU unreliable.
-  - The problem is only present in older hardware revisions, because [it was fixed at some point by the manufacturer](https://github.com/PX4/Firmware/issues/7327#issuecomment-372393609).
+- Some Pixhawk Minis have a [hardware defect](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-317132917) that makes the internal MPU9250 IMU unreliable.
+  - The problem is only present in older hardware revisions, because [it was fixed at some point by the manufacturer](https://github.com/PX4/PX4-Autopilot/issues/7327#issuecomment-372393609).
   - To check whether a specific board is affected or not, leave the board disconnected for some time, then power it on and try to start the mpu9250 driver from the PX4 command line. If the board is affected, the driver will not start.
-  - The MPU9250 is [disabled by default](https://github.com/PX4/Firmware/pull/7618) on the PX4 firmware.
+  - The MPU9250 is [disabled by default](https://github.com/PX4/PX4-Autopilot/pull/7618) on the PX4 firmware.
   - The defective Pixhawk Minis will not calibrate without an external magnetometer or an attached GPS, even indoor.
-  - When using an external GPS, [this is not a problem](https://github.com/PX4/Firmware/pull/7618#issuecomment-320270082) because the secondary ICM20608 provides the accelerometer and the gyro, while the external GPS provides the magnetometer.
+  - When using an external GPS, [this is not a problem](https://github.com/PX4/PX4-Autopilot/pull/7618#issuecomment-320270082) because the secondary ICM20608 provides the accelerometer and the gyro, while the external GPS provides the magnetometer.
 
 <span id="wiring"></span>
 ## Wiring Quick Start

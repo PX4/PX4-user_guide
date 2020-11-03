@@ -26,7 +26,7 @@ The parameters for each instance are:
   - *ExtVision* or *ExtVisionMin*: Messages for offboard vision systems (ExtVision needed for VIO).
   - *Iridium*: Messages for an [Iridium satellite communication system](../advanced_features/satcom_roadblock.md).
   
-  > **Note** If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_main.cpp).
+  > **Note** If you need to find the specific set of message for each mode search for `MAVLINK_MODE_` in [/src/modules/mavlink/mavlink_main.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_main.cpp).
 
   <span></span>
   > **Tip** The mode defines the *default* messages and rates.

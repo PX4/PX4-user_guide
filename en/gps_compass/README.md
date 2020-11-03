@@ -5,7 +5,7 @@ It also supports [Real Time Kinematic (RTK) GPS Receivers](../gps_compass/rtk_gp
 
 PX4 can be used with the following compass parts (magnetometers): Bosch BMM 150 MEMS (via I2C bus), HMC5883 / HMC5983 (I2C or SPI), IST8310 (I2C) and LIS3MDL (I2C or SPI).
 
-> **Note** The set of supported compasses can be inferred from the [magnetometer drivers](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) in the source code.
+> **Note** The set of supported compasses can be inferred from the [magnetometer drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) in the source code.
 
 Up to 4 internal or external magnetometers can be connected, though only one will actually be used as a heading source.
 The system automatically chooses the best available compass based on their internal priority (external magnetometers have a higher priority).
@@ -105,4 +105,4 @@ You may however wish to read them, as they will let you know which magnetometers
   - [RTK-GPS](https://dev.px4.io/master/en/advanced/rtk_gps.html)
   - [GPS driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)
   - [UAVCAN Example](https://dev.px4.io/master/en/uavcan/)
-- [Driver source code](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) (Compasses)
+- [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) (Compasses)

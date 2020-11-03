@@ -31,5 +31,5 @@ PX4 setup information can be found in: [Basic Configuration > Airspeed](../confi
 
 ## Developer Information
 
-- [Airspeed drivers](https://github.com/PX4/Firmware/tree/master/src/drivers/differential_pressure) (source code)
+- [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure) (source code)
 

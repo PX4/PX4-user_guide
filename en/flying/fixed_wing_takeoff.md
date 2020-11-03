@@ -29,7 +29,7 @@ On launch detection, the vehicle ramps up to to maximum throttle ([RWTO_MAX_THR]
 The vehicle climbout phase ends once the vehicle reaches the correct altitude (defined by [FW_CLMBOUT_DIFF](../advanced_config/parameter_reference.md#FW_CLMBOUT_DIFF)), after which regular navigation proceeds.
 All RC stick movement is ignored until climbout ends.
 
-> **Warning** The default climbout pitch may not be suitable for some vehicles. <!-- see https://github.com/PX4/Firmware/pull/9243 -->
+> **Warning** The default climbout pitch may not be suitable for some vehicles. <!-- see https://github.com/PX4/PX4-Autopilot/pull/9243 -->
 
 To launch in this mode:
 - Arm the vehicle.

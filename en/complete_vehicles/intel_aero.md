@@ -119,7 +119,7 @@ roslaunch local_planner local_planner_aero.launch
 After setting up the PX4 development environment, follow these steps update the PX4 software:
 
 1. Do a full update of all software on the vehicle (https://github.com/intel-aero/meta-intel-aero/wiki/Upgrade-To-Latest-Software-Release)
-1. Grab the [Firmware](https://github.com/PX4/Firmware)
+1. Grab the [Firmware](https://github.com/PX4/PX4-Autopilot)
 1. Compile with `make intel_aerofc-v1_default`
 1. Configure the target hostname
 

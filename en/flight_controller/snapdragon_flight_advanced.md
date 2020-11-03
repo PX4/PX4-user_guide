@@ -348,7 +348,7 @@ If you have changed the source, presumably added functions and you see `undefine
 
 - Do the declaration and definition of your function match one to one?
 - Is your code actually getting compiled?
-Is the module listed in the [cmake config](https://github.com/PX4/Firmware/blob/master/boards/atlflight/eagle/qurt-default.cmake)
+Is the module listed in the [cmake config](https://github.com/PX4/PX4-Autopilot/blob/master/boards/atlflight/eagle/qurt-default.cmake)
 - Is the (added) file included in the `CMakeLists.txt`?
 - Try adding it to the POSIX build and running the compilation. The POSIX linker will inform you about linking errors at compile/linking time.
 
@@ -367,8 +367,8 @@ If you get errors like the above when starting px4, try
 - [upgrading the Linux image](../flight_controller/snapdragon_flight_software_installation.md#update-linux-image)
 - and [updating the ADSP firmware](../flight_controller/snapdragon_flight_software_installation.md#update-dsp-processor-firmware).
   Also try to do this from a native Linux installation instead of a virtual machine.
-  There have been [reports](https://github.com/PX4/Firmware/issues/5303) where it didn't seem to work when done in a virtual machine.
-- then [rebuild the px4 software](https://dev.px4.io/master/en/setup/building_px4.html), by first completely deleting your existing Firmware repo and then re-cloning it [as described here](https://dev.px4.io/master/en/setup/building_px4.html#get_px4_code)
+  There have been [reports](https://github.com/PX4/PX4-Autopilot/issues/5303) where it didn't seem to work when done in a virtual machine.
+- then [rebuild the px4 software](https://dev.px4.io/master/en/setup/building_px4.html), by first completely deleting your existing PX4-Autopilot repo and then re-cloning it [as described here](https://dev.px4.io/master/en/setup/building_px4.html#get_px4_code)
 - and finally [rebuild and re-run it](https://dev.px4.io/master/en/setup/building_px4.html#qurt--snapdragon-based-boards)
 - make sure the executable bit of `/usr/local/qr-linux/q6-admin.sh` is set:
   ```

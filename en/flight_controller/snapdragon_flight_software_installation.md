@@ -11,7 +11,7 @@ The following is an overview of the different versions used. Detailed installati
 | ROS              | indigo                             | [here](http://wiki.ros.org/indigo) |
 | MAVROS           | 0.23.1                             | [here](https://github.com/mavlink/mavros/tree/0.23.1) |
 | MAVLink          | release/kinetic/mavlink/2018.5.5-0 | [here](https://github.com/mavlink/mavlink-gbp-release/tree/upstream/2018.5.5) |
-| PX4              | master                             | [here](https://github.com/PX4/Firmware) |
+| PX4              | master                             | [here](https://github.com/PX4/PX4-Autopilot) |
 | Snap VIO         | master                             | [here](https://github.com/PX4/ros-examples) |
 | Snapdragon-Linux | 3.1.3.1                            | [here](https://support.intrinsyc.com/projects/snapdragon-flight/files) |
 | DSP Firmware     | 3.1.3.1                            | [here](https://support.intrinsyc.com/projects/snapdragon-flight/files) |
@@ -86,12 +86,12 @@ If you haven't yet cloned the Firmware repo:
 cd ~
 mkdir src
 cd src
-git clone git@github.com:PX4/Firmware.git
+git clone git@github.com:PX4/PX4-Autopilot.git
 ```
 
 Once you're in your local copy of the Firmware:
 ```
-cd Firmware
+cd PX4-Autopilot
 git submodule update --init --recursive
 export FC_ADDON=<location-of-extracted-flight-controller-addon>
 make clean

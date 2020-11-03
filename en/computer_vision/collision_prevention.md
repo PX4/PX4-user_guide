@@ -122,7 +122,7 @@ Other sensors may be enabled, but this requires modification of driver code to s
   This should be done by mimicking the `SENS_CM8JL65_R_0` parameter (though you might also hard-code the orientation in the sensor *module.yaml* file to something like `sf0x start -d ${SERIAL_DEV} -R 25` - where 25 is equivalent to `ROTATION_DOWNWARD_FACING`).
 - Modify the driver to set the *field of view* in the distance sensor UORB topic (`distance_sensor_s.h_fov`).
 
-> **Tip** You can see the required modifications from the [feature PR](https://github.com/PX4/Firmware/pull/12179).
+> **Tip** You can see the required modifications from the [feature PR](https://github.com/PX4/PX4-Autopilot/pull/12179).
   Please contribute back your changes!
 
 
@@ -149,7 +149,7 @@ In order to emit `OBSTACLE_DISTANCE` messages you must use the *rqt_reconfigure*
 *Collision Prevention* can also be tested using Gazebo.
 See [PX4/avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) for setup instructions.
 
-<!-- PR companion collision prevention (initial): https://github.com/PX4/Firmware/pull/10785 -->
-<!-- PR for FC sensor collision prevention: https://github.com/PX4/Firmware/pull/12179 -->
+<!-- PR companion collision prevention (initial): https://github.com/PX4/PX4-Autopilot/pull/10785 -->
+<!-- PR for FC sensor collision prevention: https://github.com/PX4/PX4-Autopilot/pull/12179 -->
 
 
