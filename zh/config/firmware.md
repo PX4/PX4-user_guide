@@ -46,7 +46,7 @@ To install a different version of PX4:
 2. 检查 **高级设置** 并从下拉列表中选择版本： 
     * **标准版本 (稳定)** 默认版本 (即不需要使用高级设置来安装!)
     * **Beta 测试(beta)：** 测试/候选版本。 只有当新版本准备完毕时才可用。
-    * **开发者构建 (master)** 最新的PX4/固件。
+    * **Developer Build (master):** The latest build of PX4/PX4-Autopilot.
     * **自定义固件文件..:** 自定义固件文件 (例如，您在本地构建)。 如果选择 Custom firmware file ，您需要在下一步中从文件系统中选择自定义固件。
 
 Firmware update then continues as before.
