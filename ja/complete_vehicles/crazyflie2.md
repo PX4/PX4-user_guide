@@ -52,14 +52,14 @@ After setting up the PX4 development environment, follow these steps to install 
 
 5. Flash bootloader using *dfu-util* and unplug Crazyflie 2.0 when done: ```sudo dfu-util -d 0483:df11 -a 0 -s 0x08000000 -D ./build/crazyflie_bl/crazyflie_bl.bin``` When powering on the Crazyflie 2.0 the yellow LED should blink.
 
-6. Download the source code of the PX4 autopilot: ```git clone https://github.com/PX4/Firmware.git```
+6. Download the source code of the PX4 autopilot: ```git clone https://github.com/PX4/PX4-Autopilot.git```
 
 7. Navigate into the top directory of the source code and compile it using: ```make bitcraze_crazyflie_default upload```
 8. When prompted to plug in device, plug in Crazyflie 2.0. The yellow LED should start blinking indicating bootloader mode. Then the red LED should turn on indicating that the flashing process has started.
 9. Wait for completion.
 10. Done! Calibrate the sensors using [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Sensors.html).
 
-> **Note** If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/Firmware/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`. This should be done using *menuconfig*: ```make bitcraze_crazyflie_default menuconfig``` or *qconfig* (Check *Low-level console support* under *Serial Driver Support* in GUI): ```make bitcraze_crazyflie_default qconfig```
+> **Note** If QGroundControl does not connect with the vehicle, ensure that in [nuttx-config](https://github.com/PX4/PX4-Autopilot/blob/master/boards/bitcraze/crazyflie/nuttx-config/nsh/defconfig) for crazyflie `# CONFIG_DEV_LOWCONSOLE is not set` is replaced by `CONFIG_DEV_LOWCONSOLE=y`. This should be done using *menuconfig*: ```make bitcraze_crazyflie_default menuconfig``` or *qconfig* (Check *Low-level console support* under *Serial Driver Support* in GUI): ```make bitcraze_crazyflie_default qconfig```
 
 ## Wireless Setup Instructions
 
