@@ -96,18 +96,16 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ## Serial Port Mapping
 
-
-
-| UART   | Device     | Port                           |
-| ------ | ---------- | ------------------------------ |
+| UART   | Device     | Port                                     |
+| ------ | ---------- | ---------------------------------------- |
 | USART1 | /dev/ttyS0 | <!-- # IO DEBUG:/dev/ttyS0 -->
 |
-| USART2 | /dev/ttyS1 | TELEM1 (flow control)          |
-| USART3 | /dev/ttyS2 | TELEM2 (flow control)          |
-| UART4  | /dev/ttyS3 | GPS1                           |
-| USART6 | /dev/ttyS4 | PX4IO                          |
-| UART7  | /dev/ttyS5 | CONSOLE                        |
-| UART8  | /dev/ttyS6 | GPS2                           |
+| USART2 | /dev/ttyS1 | TELEM1 (flow control)                    |
+| USART3 | /dev/ttyS2 | TELEM2 (flow control)                    |
+| UART4  | /dev/ttyS3 | GPS1                                     |
+| USART6 | /dev/ttyS4 | PX4IO                                    |
+| UART7  | /dev/ttyS5 | CONSOLE                                  |
+| UART8  | /dev/ttyS6 | GPS2                                     |
   
 <!-- Note: Got ports using https://github.com/PX4/px4_user_guide/pull/672#issuecomment-598198434 -->
 <!-- https://github.com/PX4/PX4-Autopilot/blob/master/boards/hex/cube-orange/default.cmake -->
