@@ -5,19 +5,21 @@
 ### OS Image
 
 The latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) image is always recommended.
-Assume you already get a working ssh connection to RPi.
+
+To install you must already have a working SSH connection to RPi.
 
 ### Setting up Access (Optional)
 
 #### Hostname and mDNS
 
-mDNS helps you connect to your pi with hostname instead of IP address.
+mDNS helps you connect to your RasPi with hostname instead of IP address.
 
 ```sh
 sudo raspi-config
 ```
 
-Navigate to "Network Options" -> "Hostname". Set and exit.
+Navigate to **Network Options > Hostname**.
+Set and exit.
 You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well. 
 
 ### Setting up OS
@@ -51,23 +53,24 @@ dtoverlay=miniuart-bt
 sudo raspi-config
 ```
 
-"Interfacing Options" -> "Serial" -> login shell = No -> hardware = Yes
+**Interfacing Options > Serial > login shell = No > hardware = Yes**.
 Enable UART but without a login shell on it.
 
 ```sh
 sudo nano /boot/cmdline.txt
 ```
 
-Append `isolcpus=2` behind the last word.
+Append `isolcpus=2` after the last word.
 The whole file would be:
 
 ```sh
 console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait isolcpus=2
 ```
 
-This one tells Linux kernel do not schedule any process on CPU core 2. We will manually run PX4 onto that core later.
+This tells the Linux kernel not to schedule any process on CPU core 2.
+We will manually run PX4 onto that core later.
 
-Reboot and ssh onto your Pi.
+Reboot and SSH onto your RasPi.
 
 Check UART interface:
 
@@ -115,7 +118,7 @@ echo "25" > /sys/class/gpio/unexport
 
 Save and exit.
 
-> Don' t forget to turn off the switch when it is not needed.
+> **Note** Don't forget to turn off the switch when it is not needed.
 
 #### CSI camera
 
@@ -171,11 +174,12 @@ cd px4
 sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
-Now px4 is started with multi-rotor configuration.
+Now PX4 is started with multi-rotor configuration.
 
 ### Alternative build method (using docker)
 
-Sometimes our development environment may contain a newer version of tool chain, which won't generate proper binaries for RPi, and is hard to downgrade. The following method can provide the same tool-sets deployed in CI.
+Sometimes our development environment may contain a newer version of tool chain, which won't generate proper binaries for RPi, and is hard to downgrade.
+The following method can provide the same tool-sets deployed in CI.
 
 If you are compiling for the first time with docker, please refer to the [offical docs](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites).
 
@@ -246,4 +250,5 @@ Sample output:
 
 `1e` indicates a HMC5883 based compass is mounted on external I2C bus. Similarly, IST8310 has a value of `0e`.
 
-> Generally you only have one of them. Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
+> **Note** Generally you only have one of them.
+  Other devices will also be displayed here if they are connected to external I2C bus.(`/dev/i2c-0`)
