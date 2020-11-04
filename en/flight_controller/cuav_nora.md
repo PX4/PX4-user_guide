@@ -1,13 +1,16 @@
-# CUAV  Flight Controller
+# CUAV Nora Flight Controller
 
 > **Warning** PX4 does not manufacture this (or any) autopilot.
   Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
 
-The [Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup>  flight controller is a high-performance autopilot. It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
+The [Nora](http://doc.cuav.net/flight-controller/x7/en/nora.html)<sup>&reg;</sup> flight controller is a high-performance autopilot.
+It is an ideal choice for industrial drones and large-scale heavy-duty drones.
+It is mainly supplied to commercial manufacturers.
 
 ![CUAV x7](../../assets/flight_controller/cuav_nora/nora.png)
 
-It is a variant of X7. It adopts an integrated motherboard (soft and hard board), which reduces the internal connectors of the flight control, improves the reliability of the flight control, and places all the interfaces on the side, making the wiring more concise.
+Nora is a variant of the CUAV X7.
+It adopts an integrated motherboard (soft and hard board), which reduces flight controller's internal connectors, improves reliability, and places all the interfaces on the side (making the wiring more concise).
 
 ## Features
 
@@ -21,7 +24,8 @@ It is a variant of X7. It adopts an integrated motherboard (soft and hard board)
 * Car-grade RM3100 compass
 * High performance processor
 
-> **Tip** The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) contain detailed information,If this document conflicts with the [CUAV Docs](https://doc.cuav.net/x7/en/nora.html), please follow the description in the [CUAV Docs](https://doc.cuav.net/x7/en/nora.html).
+> **Tip** The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) contain detailed information. 
+  If this document conflicts with the [CUAV Docs](https://doc.cuav.net/x7/en/nora.html), please follow the description in the [CUAV Docs](https://doc.cuav.net/x7/en/nora.html).
 
 <span></span>
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
@@ -58,12 +62,13 @@ It is a variant of X7. It adopts an integrated motherboard (soft and hard board)
   * Supports temperature compensation
   * Internal shock absorption
   
-> ** NOTE** When it runs PX4 firmware, only 8 pwm works, the remaining 6 pwm are still being adapted, so it is not compatible with VOLT now.
+> **Note** When it runs PX4 firmware, only 8 PWM outputs work.
+  The remaining 6 PWM ports are still being adapted (so it is not compatible with VOLT at time of writing).
 
 ## Purchase
 
-[CUAV Store](https://store.cuav.net)<\br>
-[CUAV Aliexpress](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
+- [CUAV Store](https://store.cuav.net)<\br>
+- [CUAV Aliexpress](https://www.aliexpress.com/item/4001042501927.html?gps-id=8041884&scm=1007.14677.110221.0&scm_id=1007.14677.110221.0&scm-url=1007.14677.110221.0&pvid=3dc0a3ba-fa82-43d2-b0b3-6280e4329cef&spm=a2g0o.store_home.promoteRecommendProducts_7913969.58)
 
 
 ## Connections (Wiring)
@@ -82,7 +87,8 @@ It is a variant of X7. It adopts an integrated motherboard (soft and hard board)
 
 * Nora AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
 
-> **Note** The output power rails ** PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered. 
+> **Note** The output power rails ** PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+  You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered. 
 
 **Normal Operation Maximum Ratings**
 
@@ -109,7 +115,8 @@ The *nora* has short circuit protection.
 
 ## Debug Port
 
-The system's serial console and SWD interface operate on the **DSU7** port. Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
+The system's serial console and SWD interface operate on the **DSU7** port.
+Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
 
 The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port (`DSU7`).
 
