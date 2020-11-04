@@ -3807,6 +3807,25 @@ but also ignore less noise</p>   </td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="GPS_1_PROTOCOL">GPS_1_PROTOCOL</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Protocol for Main GPS</p><p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Auto detect</li> 
+
+<li><strong>1:</strong> u-blox</li> 
+
+<li><strong>2:</strong> MTK</li> 
+
+<li><strong>3:</strong> Ashtech / Trimble</li> 
+
+<li><strong>4:</strong> Emlid Reach</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 4 </td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="GPS_2_CONFIG">GPS_2_CONFIG</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Serial Configuration for Secondary GPS</p><p><strong>Comment:</strong> Configure on which serial port to run Secondary GPS.</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Disabled</li> 
@@ -3833,6 +3852,25 @@ but also ignore less noise</p>   </td>
 </td>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">0</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="GPS_2_PROTOCOL">GPS_2_PROTOCOL</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Protocol for Secondary GPS</p><p><strong>Comment:</strong> Select the GPS protocol over serial. Auto-detection will probe all protocols, and thus is a bit slower.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Auto detect</li> 
+
+<li><strong>1:</strong> u-blox</li> 
+
+<li><strong>2:</strong> MTK</li> 
+
+<li><strong>3:</strong> Ashtech / Trimble</li> 
+
+<li><strong>4:</strong> Emlid Reach</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 4 </td>
+ <td style="vertical-align: top;">1</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -3864,6 +3902,19 @@ but also ignore less noise</p>   </td>
 </td>
  <td style="vertical-align: top;">0 > 9 </td>
  <td style="vertical-align: top;">7</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="GPS_UBX_MODE">GPS_UBX_MODE</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>u-blox GPS Mode</p><p><strong>Comment:</strong> Select the u-blox configuration setup. Most setups will use the default, including RTK and dual GPS without heading. The Heading mode requires 2 F9P devices to be attached. The main GPS will act as rover and output heading information, whereas the secondary will act as moving base, sending RTCM on UART2 to the rover GPS. RTK is still possible with this setup.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> Default</li> 
+
+<li><strong>1:</strong> Heading</li> 
+</ul>
+  <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;">0 > 1 </td>
+ <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
