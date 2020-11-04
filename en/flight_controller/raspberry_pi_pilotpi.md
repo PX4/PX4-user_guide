@@ -7,7 +7,8 @@
 > **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
 
 The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi.
-It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community.
+It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides.
+No proprietary driver is required, as all components have upstream support from RPi and PX4 community.
 PCB and schematic are open source as well.
 
 ![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
@@ -55,6 +56,7 @@ Direct accessible from RPi:
 ## Recommended Wiring
 
 ![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
+
 ![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
 ## Pinout
@@ -121,7 +123,8 @@ RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 | 2 | VCC | +5V |
 | 3 | GND | GND |
 
-> ADC3 & 4 have an alternative VCC source. When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+> **Note** ADC3 & 4 have an alternative VCC source
+  When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
 
 #### Unused GPIO available on top of the board
 
@@ -148,9 +151,7 @@ RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
 
 #### RC Inverter
 
-This switch will decide the signal polarity of RX line.
-
-`UART_RX = SW xor RC_INPUT`
+This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INPUT`
 
 * On: suitable with SBUS (signal inverted)
 * Off: preserved
@@ -163,15 +164,14 @@ ADC 3 & 4 will have VCC driven by:
 
 #### Boot Mode
 
-This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
+This switch is connected to Pin22(BCM25).
+System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
 
 * On: start PX4 automatically
 * Off: don' t start PX4
 
 ## Developer Quick Start
 
-Refer to those instructions based on the OS running on your RPi.
-
-[Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
-
-[Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
+Refer to specific instructions for the OS running on your RPi:
+- [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
+- [Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
