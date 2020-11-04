@@ -76,7 +76,7 @@
   * [MAV_CMD_DO_SET_ROI_LOCATION](https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_ROI_LOCATION)
   * [MAV_CMD_NAV_VTOL_TAKEOFF](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_TAKEOFF)
     
-    * `MAV_CMD_NAV_VTOL_TAKEOFF.param2` (transition heading) is ignored. Instead the heading to the next waypoint is used for the transition heading. <!-- at LEAST until PX4 v1.11: https://github.com/PX4/Firmware/issues/12660 -->
+    * `MAV_CMD_NAV_VTOL_TAKEOFF.param2` (transition heading) is ignored. Instead the heading to the next waypoint is used for the transition heading. <!-- at LEAST until PX4 v1.11: https://github.com/PX4/PX4-Autopilot/issues/12660 -->
   
   * [MAV_CMD_NAV_VTOL_LAND](https://mavlink.io/en/messages/common.html#MAV_CMD_NAV_VTOL_LAND)
   
@@ -116,7 +116,7 @@
     
     * 对于任务命令，PX4通常不支持本地坐标系（例如，[MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)）。
     * 并非所有消息/命令都通过*QGroundControl*公开。
-    * The list may become out of date as messages are added. 您可以通过检查代码来检查当前设置。 在[/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/Firmware/blob/master/src/modules/mavlink/mavlink_mission.cpp)中支持`MavlinkMissionManager:: parse_mavlink_mission_item` （在[此git变更列表](https://github.com/PX4/Firmware/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)中生成的列表）。
+    * The list may become out of date as messages are added. 您可以通过检查代码来检查当前设置。 Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp) (list generated in [this git changelist](https://github.com/PX4/PX4-Autopilot/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)).
       
       > 如果您发现丢失/不正确的消息，请添加错误修复或PR。</ul> 
     

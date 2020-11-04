@@ -13,7 +13,7 @@
 * 如果分析是在故障发生之后进行的，那么日志是捕捉到了这次故障还是在半空中停止了记录呢？
 * 所有的控制器都跟踪到了它的设定值吗？ 最简单的方法是将的横滚和俯仰的角速度与它们的设定值进行比较。
 * 传感器数据看起来有效吗？ 是否有非常强的震动（一个合理的判断强烈震动的阈值是所有的峰峰值是否超过 2-3m/s/s）。
-* 如果根本原因不针对于特定车辆，请确保在 [PX4问题跟踪器](https://github.com/px4/firmware/issues/new) 的报告中有日志文件的链接（以及视频如果有的话）。
+* If the root cause is not specific to the vehicle make sure to report it with a link to the log file \(and video if one exists\) on the [PX4 issue tracker](https://github.com/PX4/PX4-Autopilot/issues/new).
 
 ## 排除电力故障
 

@@ -29,4 +29,4 @@ All the above sensors are connected via the I2C bus/port.
 
 ## Информация для разработчиков
 
-* [Драйверы сенсоров воздушной скорости](https://github.com/PX4/Firmware/tree/master/src/drivers/differential_pressure) (исходный код)
+* [Airspeed drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/differential_pressure) (source code)

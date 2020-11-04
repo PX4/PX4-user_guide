@@ -4,7 +4,7 @@ PX4 supports global navigation satellite systems (GNSS) (including GPS, GLONASS,
 
 PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2C总线）、HMC5883/HMC5983（I2C或SPI）、IST8310（I2C）和 LIS3MDL（I2C或SPI）。
 
-> **Note** The set of supported compasses can be inferred from the [magnetometer drivers](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) in the source code.
+> **Note** The set of supported compasses can be inferred from the [magnetometer drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) in the source code.
 
 最多可以连接4个内部或外部磁强计，但实际上只有一个磁强计可用作标题源。 系统根据其内部优先级自动选择可用的最佳罗盘（外部磁强计具有更高的优先级）。 如果主指南针在飞行中失败它将跳转到下一个指南针。 如果它在飞行前失败，将无法起飞。
 
@@ -87,4 +87,4 @@ Additional configuration can be [performed](../advanced_config/parameters.md) us
   - [RTK-GPS](https://dev.px4.io/master/en/advanced/rtk_gps.html)
   - [GPS driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)
   - [UAVCAN Example](https://dev.px4.io/master/en/uavcan/)
-- [Driver source code](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer) (Compasses)
+- [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) (Compasses)
