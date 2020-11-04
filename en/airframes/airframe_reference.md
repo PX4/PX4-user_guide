@@ -556,6 +556,11 @@ This page lists all supported airframes and types including
  <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 4016</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
 
 </tr>
+<tr id="copter_quadrotor_x_nxp_hovergames">
+ <td style="vertical-align: top;">NXP HoverGames</td>
+ <td style="vertical-align: top;"><p>Maintainer: Iain Galloway <iain.galloway@nxp.com></p><p><code>SYS_AUTOSTART</code> = 4017</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+
+</tr>
 <tr id="copter_quadrotor_x_hobbyking_micro_pcb">
  <td style="vertical-align: top;">Hobbyking Micro PCB</td>
  <td style="vertical-align: top;"><p>Maintainer: Thomas Gubler <thomas@px4.io></p><p><code>SYS_AUTOSTART</code> = 4020</p></td>
