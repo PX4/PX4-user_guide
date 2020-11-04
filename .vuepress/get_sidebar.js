@@ -52,6 +52,15 @@ module.exports = {
                   indent_level=match[1].length;
                   link_title = match[2];
                   link_url = match[3].trim();
+			  }
+              catch (err) { //Just skip empty lines that don't match
+                  //console.log(err)
+                  //console.log("DEBUG: Couldn't match line, skip line using return")
+				  return;
+              }
+
+			  
+              try {
 
                   if (link_url.endsWith('README.md')) {
                       link_url=link_url.replace('README.md', '');
@@ -84,11 +93,11 @@ module.exports = {
                       first_iteration = false;
                   }
                   else{
-                      //Process the last line, based on whehter it is a parent, peer or child
-                      //console.log(' DEBUG: HANDLING (last):' + last_item.title + 'last_item.level:' + last_item.level)
+                      //Process the prevous line, based on whether it is a parent, peer or child
+                      //console.log(' DEBUG: HANDLING (previous):' + last_item.title + ' ' + 'last_item.level: ' + last_item.level)
                       //console.log('  DEBUG indent_level: '+ indent_level);
                       if (indent_level > lastlevel) {
-                          //console.log('  NEST: (child)'+ lastlevel+'/'+ indent_level)
+                          //console.log('  DEBUG:NEST: (child)'+ lastlevel+'/'+ indent_level)
                           //The parent of this is a new child group. So we need to create it as such and make it a parent.
                           let new_parent = {};
                           new_parent.title = last_item.title;
@@ -100,43 +109,58 @@ module.exports = {
                           parents.push(new_parent)
                           }
                       else if (indent_level < lastlevel) {
-                          do {
-                              //we have gone up at least one level with new line
-                              //Last line needs to be added to its parent.
+						  //we have gone up at least one level with new line
+						  //Last line needs to be added to its parent.
+						  //console.log('DEBUG: Gone UP from level: '+ indent_level + ' TO: ' + lastlevel)
+						  finished_collection = parents.pop();
+						  let entry = new Array(last_item.path,last_item.title);
+						  //console.log('   - DEBUG: Current_parent: '+ finished_collection.title)
+						  //console.log('   - DEBUG: Current_parent.children: '+ finished_collection.children)
+						  if (typeof finished_collection.children !== 'undefined') {
+						      //console.log('   - DEBUG: Add' + entry + ' to group (has child var)' + finished_collection.title);
+						      finished_collection.children.push(entry);
+						  }
+						  else {
+						      //parent is array
+						      //console.log('   - DEBUG: Add ' + entry + ' to TOP level');
+						      finished_collection.push(entry);
+						  }
+						  //Then need to pop current parent and add finished collection to its parent
                 
-                              finished_collection = parents.pop();
-                              let entry = new Array(last_item.path,last_item.title);
-                              //console.log('   - DEBUG: Current_parent: '+ finished_collection.title)
-                              //console.log('   - DEBUG: Current_parent.children: '+ finished_collection.children)
-                              if (typeof finished_collection.children !== 'undefined') {
-                                  //console.log('   - DEBUG: Add to group (has child var)' + finished_collection.title);
-                                  finished_collection.children.push(entry);
-                              }
-                              else {
-                                  //parent is array
-                                  console.log('   - DEBUG: Add to top level');
-                                  finished_collection.push(entry);
-                              }
-                              //Then need to pop current parent and add it as complete thingy to its parent
-                
-                              //console.log('  - DEBUG: Group Finished:'+ lastlevel+'/'+ indent_level + ': ' + finished_collection.title)
-                              current_parent = parents.pop();
-                              if (typeof current_parent.children !== 'undefined') {
-                                  //console.log('  DEBUG: Add finished_collection to its parent (group)' + current_parent.title);
+						  //console.log('  - DEBUG: Group Finished:'+ lastlevel+'/'+ indent_level + ': ' + finished_collection.title)
+						  current_parent = parents.pop();
+						  //console.log('  DEBUG: Add finished_collection ' + finished_collection.title + 'to parent:' + current_parent);
+						  if (typeof current_parent.children !== 'undefined') {
+                                  //console.log('   DEBUG: Parent is group');
                                   current_parent.children.push(finished_collection);
-                                  }
-                              else {
-                                  //parent is array
-                                  //console.log('  DEBUG: Add finished_collection to top level:' + current_parent);
-                                  current_parent.push(finished_collection);
-                              }
-                              parents.push(current_parent); //Add back the parent.
-                              //add parent to its parent.
-                
-                              //console.log('  DEBUG: current parent pop debug:'+current_parent)
-                              lastlevel--;
+						  }
+						  else {
+						      //parent is array
+						      //console.log('   DEBUG: Parent is array (top level)');
+						      current_parent.push(finished_collection);
+						  }
+						  parents.push(current_parent); //Add back the parent to the parent array.
+						  
+						  //If we went up multiple levels lets add current parent to its parent in loop						 
+                          while (indent_level < --lastlevel) {
+							  //Here we have no item. Group has finished (with a group)
+							  //So add the current parent (finished) to its parent. 
+							  //console.log('DEBUG: Gone UP from level: '+ indent_level + ' TO: ' + lastlevel)
+							  finished_collection = parents.pop();
+							  current_parent = parents.pop();
+							  //console.log('  DEBUG: Add finished_collection: ' + finished_collection.title + ' to its parent (group): ' + current_parent.title);
+							  if (typeof current_parent.children !== 'undefined') {
+                                  //console.log('   DEBUG: Parent is a group');
+                                  current_parent.children.push(finished_collection);
+							  }
+							  else {
+							      //parent is array
+						          //console.log('    DEBUG: Parent is an array');
+						          current_parent.push(finished_collection);
+							  }
+						      parents.push(current_parent); //Add back the parent to the parent array.   
                           }
-                          while (indent_level < lastlevel)
+                          
                       }
                       else {
                           //console.log('  - DEBUG: Same level item - just add to the current parent - indent:'+ indent_level)
@@ -150,7 +174,7 @@ module.exports = {
                           }
                           else {
                               //parent is array
-                              //console.log('   - DEBUG: Add to top level');
+                              //console.log('   - DEBUG: Parent is array so Add to top level');
                               current_parent.push(entry);
                           }
                           parents.push(current_parent); //Add back the parent.
@@ -166,8 +190,8 @@ module.exports = {
                   lastlevel=indent_level; //reset
                   }
               catch (err) {
-                  //console.log(err)
-                  //console.log("SOME TERRIBLE PROBLEM")
+                  console.log(err)
+                  //console.log(" DEBUG SOME ACTUAL PROBLEM")
               }
         
         
@@ -181,4 +205,5 @@ module.exports = {
       return module_sidebar;
    }
 }
+
 
