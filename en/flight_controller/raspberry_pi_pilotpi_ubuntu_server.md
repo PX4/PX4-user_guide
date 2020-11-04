@@ -1,6 +1,6 @@
 # PilotPi with Ubuntu Server
 
-> **Warning** Some of users may run Ubuntu Server on RPi 4B, which will consume a lot of current and generate a lot of heat. Please take more care about the safety.
+> **Warning** Some of users may run Ubuntu Server on RPi 4B, which will consume a lot of current and generate a lot of heat. Please take more care about the heat dissipation and power consumption when you try to fly with high computational load.
 
 ## Developer Quick Start
 
