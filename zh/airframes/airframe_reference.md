@@ -1,6 +1,6 @@
 # 机架参考
 
-> **Note** **This list is [auto-generated](https://github.com/PX4/PX4-Autopilot/edit/master/Tools/px4airframes/markdownout.py) from the source code**.
+> **Note** **This list is [auto-generated](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py) from the source code**.
 > 
 > 某些飞行控制器可能会缺少**AUX** 通道。 如果有，PWM AUX通道一般标注为**AUX OUT**。
 
