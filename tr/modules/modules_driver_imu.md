@@ -581,7 +581,7 @@ mpu9250 <command> [arguments...]
    status        print status info
 ```
 ## mpu9520
-Source: [drivers/imu/invensense/mpu9250](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/invensense/mpu9250)
+Source: [drivers/imu/invensense/mpu6500](https://github.com/PX4/Firmware/tree/master/src/drivers/imu/invensense/mpu6500)
 
 ### Usage {#mpu9520_usage}
 ```
@@ -597,7 +597,6 @@ mpu9520 <command> [arguments...]
      [-m <val>]  SPI mode
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
-     [-M]        Enable Magnetometer (AK8963)
      [-R <val>]  Rotation
                  default: 0
 
