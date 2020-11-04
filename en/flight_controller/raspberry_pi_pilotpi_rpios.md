@@ -188,9 +188,10 @@ Execute the command in firmware folder:
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
-> **Note** mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
+> **Note** mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 
 <span></span>
+
 > If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
 > 
 > You can compile without uploading too. Just remove `upload` target.
@@ -198,7 +199,7 @@ Execute the command in firmware folder:
 It is also possible to just compile the code with command:
 
 ```sh
-./Tools/docker_run.sh "make scumaker_pilotpi"
+./Tools/docker_run.sh "make scumaker_pilotpi_default"
 ```
 
 ### Post-configuration

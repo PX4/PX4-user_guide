@@ -27,7 +27,7 @@ Please refer to official [cdimage](https://cdimage.ubuntu.com/releases/) page fo
 
 ### First boot
 
-It's strongly recommended to have a wired ethernet connection between your home router and RPi, or a pair of monitor and keyboard, to setup RPi's WiFi for the first time.
+It's strongly recommended to have a wired ethernet connection between your home router and RPi, and a pair of monitor and keyboard, to setup RPi's WiFi for the first time.
 
 #### Before booting
 
@@ -36,6 +36,12 @@ Mount the SD card onto your computer and modify the network settings. Please fol
 Now plug the SD card onto your Pi and boot for the first time. Make sure you have shell access to it. Either ssh connection over wired Ethernet, or direct accessing with keyboard and monitor is OK.
 
 #### WiFi region
+
+First install required package:
+
+```sh
+sudo apt-get install crda
+```
 
 Edit the file `/etc/default/crda` to change the correct WiFi region. [Reference List](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
 
@@ -105,8 +111,16 @@ dtoverlay=miniuart-bt
 
 #### cmdline.txt
 
+On Ubuntu Server 20.04:
+
 ```sh
 sudo nano /boot/firmware/cmdline.txt
+```
+
+On Ubuntu Server 18.04 or earlier, `nobtcmd.txt` and `btcmd.txt` should be modified both.
+
+```sh
+sudo nano /boot/firmware/nobtcmd.txt
 ```
 
 Find `console=/dev/ttyAMA0,115200` and remove that part to disable the login shell on serial interface.
@@ -238,8 +252,6 @@ make scumaker_pilotpi_default upload
 
 #### Alternative build method for armhf (using docker)
 
-Sometimes our development environment may contain a newer version of tool chain, which won't generate proper binaries for RPi, and is hard to downgrade. The following method can provide the same tool-sets deployed in CI.
-
 If you are compiling for the first time with docker, please refer to the [offical docs](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites).
 
 Execute the command in firmware folder:
@@ -257,7 +269,7 @@ Execute the command in firmware folder:
 It is also possible to just compile the code with command:
 
 ```sh
-./Tools/docker_run.sh "make scumaker_pilotpi"
+./Tools/docker_run.sh "make scumaker_pilotpi_default"
 ```
 
 #### Build for arm64 target
@@ -275,6 +287,28 @@ Then upload it with:
 
 ```sh
 make scumaker_pilotpi_arm64 upload
+```
+
+#### Alternative build method for arm64 (using docker)
+
+If you are compiling for the first time with docker, please refer to the [offical docs](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites).
+
+Execute the command in firmware folder:
+
+```sh
+./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
+```
+> **Note** mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
+
+<span></span>
+> If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+> 
+> You can compile without uploading too. Just remove `upload` target.
+
+It is also possible to just compile the code with command:
+
+```sh
+./Tools/docker_run.sh "make scumaker_pilotpi_arm64"
 ```
 
 #### Manually run PX4
