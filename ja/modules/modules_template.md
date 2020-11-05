@@ -18,8 +18,9 @@ CLI usage example:
 module start -f -p 42
 ```
 
+<a id="module_usage"></a>
 
-### Usage {#module_usage}
+### Usage
 ```
 module <command> [arguments...]
  Commands:
@@ -39,8 +40,9 @@ Source: [examples/work_item](https://github.com/PX4/Firmware/tree/master/src/exa
 ### Description
 Example of a simple module running out of a work queue.
 
+<a id="work_item_example_usage"></a>
 
-### Usage {#work_item_example_usage}
+### Usage
 ```
 work_item_example <command> [arguments...]
  Commands:
