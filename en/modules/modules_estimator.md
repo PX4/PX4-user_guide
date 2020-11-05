@@ -8,7 +8,8 @@ Source: [modules/attitude_estimator_q](https://github.com/PX4/Firmware/tree/mast
 Attitude estimator q.
 
 
-### Usage {#AttitudeEstimatorQ_usage}
+<a id="AttitudeEstimatorQ_usage"></a>
+### Usage
 ```
 AttitudeEstimatorQ <command> [arguments...]
  Commands:
@@ -32,7 +33,8 @@ the estimation of a scale factor from IAS to CAS, it runs several wind estimator
 and also publishes those.
 
 
-### Usage {#airspeed_estimator_usage}
+<a id="airspeed_estimator_usage"></a>
+### Usage
 ```
 airspeed_estimator <command> [arguments...]
  Commands:
@@ -55,7 +57,8 @@ ekf2 can be started in replay mode (`-r`): in this mode it does not access the s
 timestamps from the sensor topics.
 
 
-### Usage {#ekf2_usage}
+<a id="ekf2_usage"></a>
+### Usage
 ```
 ekf2 <command> [arguments...]
  Commands:
@@ -74,7 +77,8 @@ Source: [modules/local_position_estimator](https://github.com/PX4/Firmware/tree/
 Attitude and position estimator using an Extended Kalman Filter.
 
 
-### Usage {#local_position_estimator_usage}
+<a id="local_position_estimator_usage"></a>
+### Usage
 ```
 local_position_estimator <command> [arguments...]
  Commands:
@@ -91,7 +95,8 @@ Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/Firmware/tree
 ### Description
 
 
-### Usage {#mc_hover_thrust_estimator_usage}
+<a id="mc_hover_thrust_estimator_usage"></a>
+### Usage
 ```
 mc_hover_thrust_estimator <command> [arguments...]
  Commands:

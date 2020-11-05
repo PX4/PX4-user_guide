@@ -15,7 +15,8 @@ Source: [drivers/adc/board_adc](https://github.com/PX4/Firmware/tree/master/src/
 ADC driver.
 
 
-### Usage {#adc_usage}
+<a id="adc_usage"></a>
+### Usage
 ```
 adc <command> [arguments...]
  Commands:
@@ -30,7 +31,8 @@ adc <command> [arguments...]
 ## ads1115
 Source: [drivers/adc/ads1115](https://github.com/PX4/Firmware/tree/master/src/drivers/adc/ads1115)
 
-### Usage {#ads1115_usage}
+<a id="ads1115_usage"></a>
+### Usage
 ```
 ads1115 <command> [arguments...]
  Commands:
@@ -57,7 +59,8 @@ OSD driver for the ATXXXX chip that is mounted on the OmnibusF4SD board for exam
 
 It can be enabled with the OSD_ATXXXX_CFG parameter.
 
-### Usage {#atxxxx_usage}
+<a id="atxxxx_usage"></a>
+### Usage
 ```
 atxxxx <command> [arguments...]
  Commands:
@@ -90,7 +93,8 @@ batt_smbus -X write_flash 19069 2 27 0
 ```
 
 
-### Usage {#batt_smbus_usage}
+<a id="batt_smbus_usage"></a>
+### Usage
 ```
 batt_smbus <command> [arguments...]
  Commands:
@@ -128,7 +132,8 @@ batt_smbus <command> [arguments...]
 ## blinkm
 Source: [drivers/lights/blinkm](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/blinkm)
 
-### Usage {#blinkm_usage}
+<a id="blinkm_usage"></a>
+### Usage
 ```
 blinkm <command> [arguments...]
  Commands:
@@ -159,7 +164,8 @@ blinkm <command> [arguments...]
 ## bst
 Source: [drivers/telemetry/bst](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/bst)
 
-### Usage {#bst_usage}
+<a id="bst_usage"></a>
+### Usage
 ```
 bst <command> [arguments...]
  Commands:
@@ -198,7 +204,8 @@ dshot save -m 1
 ```
 After saving, the reversed direction will be regarded as the normal one. So to reverse again repeat the same commands.
 
-### Usage {#dshot_usage}
+<a id="dshot_usage"></a>
+### Usage
 ```
 dshot <command> [arguments...]
  Commands:
@@ -282,7 +289,8 @@ Source: [examples/fake_gyro](https://github.com/PX4/Firmware/tree/master/src/exa
 ### Description
 
 
-### Usage {#fake_gyro_usage}
+<a id="fake_gyro_usage"></a>
+### Usage
 ```
 fake_gyro <command> [arguments...]
  Commands:
@@ -300,7 +308,8 @@ Source: [examples/fake_magnetometer](https://github.com/PX4/Firmware/tree/master
 Publish the earth magnetic field as a fake magnetometer (sensor_mag).
 Requires vehicle_attitude and vehicle_gps_position.
 
-### Usage {#fake_magnetometer_usage}
+<a id="fake_magnetometer_usage"></a>
+### Usage
 ```
 fake_magnetometer <command> [arguments...]
  Commands:
@@ -343,7 +352,8 @@ Initiate warm restart of GPS device
 gps reset warm
 ```
 
-### Usage {#gps_usage}
+<a id="gps_usage"></a>
+### Usage
 ```
 gps <command> [arguments...]
  Commands:
@@ -387,7 +397,8 @@ every 0.5 seconds. With this flag set, you can plug in a battery after the drive
 this flag set, the battery must be plugged in before starting the driver.
 
 
-### Usage {#ina226_usage}
+<a id="ina226_usage"></a>
+### Usage
 ```
 ina226 <command> [arguments...]
  Commands:
@@ -411,7 +422,8 @@ ina226 <command> [arguments...]
 ## irlock
 Source: [drivers/irlock](https://github.com/PX4/Firmware/tree/master/src/drivers/irlock)
 
-### Usage {#irlock_usage}
+<a id="irlock_usage"></a>
+### Usage
 ```
 irlock <command> [arguments...]
  Commands:
@@ -432,7 +444,8 @@ irlock <command> [arguments...]
 ## lsm303agr
 Source: [drivers/magnetometer/lsm303agr](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm303agr)
 
-### Usage {#lsm303agr_usage}
+<a id="lsm303agr_usage"></a>
+### Usage
 ```
 lsm303agr <command> [arguments...]
  Commands:
@@ -456,7 +469,8 @@ lsm303agr <command> [arguments...]
 ## paw3902
 Source: [drivers/optical_flow/paw3902](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/paw3902)
 
-### Usage {#paw3902_usage}
+<a id="paw3902_usage"></a>
+### Usage
 ```
 paw3902 <command> [arguments...]
  Commands:
@@ -480,7 +494,8 @@ paw3902 <command> [arguments...]
 ## pca9685
 Source: [drivers/pca9685](https://github.com/PX4/Firmware/tree/master/src/drivers/pca9685)
 
-### Usage {#pca9685_usage}
+<a id="pca9685_usage"></a>
+### Usage
 ```
 pca9685 <command> [arguments...]
  Commands:
@@ -524,7 +539,8 @@ Use the `mixer` command to load mixer files.
 The number X can be acquired by executing
 `pca9685_pwm_out status` when this driver is running.
 
-### Usage {#pca9685_pwm_out_usage}
+<a id="pca9685_pwm_out_usage"></a>
+### Usage
 ```
 pca9685_pwm_out <command> [arguments...]
  Commands:
@@ -541,7 +557,8 @@ pca9685_pwm_out <command> [arguments...]
 ## pcf8583
 Source: [drivers/rpm/pcf8583](https://github.com/PX4/Firmware/tree/master/src/drivers/rpm/pcf8583)
 
-### Usage {#pcf8583_usage}
+<a id="pcf8583_usage"></a>
+### Usage
 ```
 pcf8583 <command> [arguments...]
  Commands:
@@ -560,7 +577,8 @@ pcf8583 <command> [arguments...]
 ## pmw3901
 Source: [drivers/optical_flow/pmw3901](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/pmw3901)
 
-### Usage {#pmw3901_usage}
+<a id="pmw3901_usage"></a>
+### Usage
 ```
 pmw3901 <command> [arguments...]
  Commands:
@@ -619,7 +637,8 @@ pwm_out test
 Use the `pwm` command for further configurations (PWM rate, levels, ...), and the `mixer` command to load
 mixer files.
 
-### Usage {#pwm_out_usage}
+<a id="pwm_out_usage"></a>
+### Usage
 ```
 pwm_out <command> [arguments...]
  Commands:
@@ -685,7 +704,8 @@ mix them with any loaded mixer and output the result to the
 It is used in SITL and HITL.
 
 
-### Usage {#pwm_out_sim_usage}
+<a id="pwm_out_sim_usage"></a>
+### Usage
 ```
 pwm_out_sim <command> [arguments...]
  Commands:
@@ -700,7 +720,8 @@ pwm_out_sim <command> [arguments...]
 ## px4flow
 Source: [drivers/optical_flow/px4flow](https://github.com/PX4/Firmware/tree/master/src/drivers/optical_flow/px4flow)
 
-### Usage {#px4flow_usage}
+<a id="px4flow_usage"></a>
+### Usage
 ```
 px4flow <command> [arguments...]
  Commands:
@@ -734,7 +755,8 @@ This module does the RC input parsing and auto-selecting the method. Supported m
 - TBS Crossfire (CRSF)
 
 
-### Usage {#rc_input_usage}
+<a id="rc_input_usage"></a>
+### Usage
 ```
 rc_input <command> [arguments...]
  Commands:
@@ -751,7 +773,8 @@ rc_input <command> [arguments...]
 ## rgbled
 Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/rgbled_ncp5623c)
 
-### Usage {#rgbled_usage}
+<a id="rgbled_usage"></a>
+### Usage
 ```
 rgbled <command> [arguments...]
  Commands:
@@ -813,7 +836,8 @@ All available commands are:
  - `$ roboclaw status`
  - `$ roboclaw stop`
 	
-### Usage {#roboclaw_usage}
+<a id="roboclaw_usage"></a>
+### Usage
 ```
 roboclaw <command> [arguments...]
  Commands:
@@ -827,7 +851,8 @@ This module is responsible for the safety button.
 Pressing the safety button 3 times quickly will trigger a GCS pairing request.
 
 
-### Usage {#safety_button_usage}
+<a id="safety_button_usage"></a>
+### Usage
 ```
 safety_button <command> [arguments...]
  Commands:
@@ -854,7 +879,8 @@ The module is typically started with:
 tap_esc start -d /dev/ttyS2 -n <1-8>
 
 
-### Usage {#tap_esc_usage}
+<a id="tap_esc_usage"></a>
+### Usage
 ```
 tap_esc <command> [arguments...]
  Commands:
@@ -872,7 +898,8 @@ Source: [drivers/tone_alarm](https://github.com/PX4/Firmware/tree/master/src/dri
 This module is responsible for the tone alarm.
 
 
-### Usage {#tone_alarm_usage}
+<a id="tone_alarm_usage"></a>
+### Usage
 ```
 tone_alarm <command> [arguments...]
  Commands:
@@ -904,7 +931,8 @@ vmount stop
 vmount test yaw 30
 ```
 
-### Usage {#vmount_usage}
+<a id="vmount_usage"></a>
+### Usage
 ```
 vmount <command> [arguments...]
  Commands:
@@ -921,7 +949,8 @@ vmount <command> [arguments...]
 ## voxlpm
 Source: [drivers/power_monitor/voxlpm](https://github.com/PX4/Firmware/tree/master/src/drivers/power_monitor/voxlpm)
 
-### Usage {#voxlpm_usage}
+<a id="voxlpm_usage"></a>
+### Usage
 ```
 voxlpm [arguments...]
    start

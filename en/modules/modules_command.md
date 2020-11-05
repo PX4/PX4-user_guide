@@ -4,7 +4,8 @@
 Source: [systemcmds/bl_update](https://github.com/PX4/Firmware/tree/master/src/systemcmds/bl_update)
 
 Utility to flash the bootloader from a file
-### Usage {#bl_update_usage}
+<a id="bl_update_usage"></a>
+### Usage
 ```
 bl_update [arguments...]
    setopt        Set option bits to unlock the FLASH (only needed if in locked
@@ -16,7 +17,8 @@ bl_update [arguments...]
 Source: [systemcmds/dumpfile](https://github.com/PX4/Firmware/tree/master/src/systemcmds/dumpfile)
 
 Dump file utility. Prints file size and contents in binary mode (don't replace LF with CR LF) to stdout.
-### Usage {#dumpfile_usage}
+<a id="dumpfile_usage"></a>
+### Usage
 ```
 dumpfile [arguments...]
      <file>      File to dump
@@ -34,7 +36,8 @@ dyn ./hello.px4mod start
 ```
 
 
-### Usage {#dyn_usage}
+<a id="dyn_usage"></a>
+### Usage
 ```
 dyn [arguments...]
      <file>      File containing the module
@@ -51,7 +54,8 @@ Calibration procedure (running the command will guide you through it):
 - Make sure safety is off
 - Run this command
 
-### Usage {#esc_calib_usage}
+<a id="esc_calib_usage"></a>
+### Usage
 ```
 esc_calib [arguments...]
      [-d <val>]  Select PWM output device
@@ -80,7 +84,8 @@ Test the GPS failsafe by stopping GPS:
 
 failure gps off
 
-### Usage {#failure_usage}
+<a id="failure_usage"></a>
+### Usage
 ```
 failure [arguments...]
    help          Show this help text
@@ -95,7 +100,8 @@ failure [arguments...]
 Source: [systemcmds/gpio](https://github.com/PX4/Firmware/tree/master/src/systemcmds/gpio)
 
 This command is used to read and write GPIOs.
-### Usage {#gpio_usage}
+<a id="gpio_usage"></a>
+### Usage
 ```
 gpio [arguments...]
    read
@@ -116,7 +122,8 @@ Hardfault utility
 
 Used in startup scripts to handle hardfaults
 
-### Usage {#hardfault_log_usage}
+<a id="hardfault_log_usage"></a>
+### Usage
 ```
 hardfault_log <command> [arguments...]
  Commands:
@@ -139,7 +146,8 @@ hardfault_log <command> [arguments...]
 Source: [systemcmds/i2cdetect](https://github.com/PX4/Firmware/tree/master/src/systemcmds/i2cdetect)
 
 Utility to scan for I2C devices on a particular bus.
-### Usage {#i2cdetect_usage}
+<a id="i2cdetect_usage"></a>
+### Usage
 ```
 i2cdetect [arguments...]
      [-b <val>]  I2C bus
@@ -165,7 +173,8 @@ led_control blink -c blue -l 0 -n 5
 ```
 
 
-### Usage {#led_control_usage}
+<a id="led_control_usage"></a>
+### Usage
 ```
 led_control <command> [arguments...]
  Commands:
@@ -203,7 +212,8 @@ Utility to listen on uORB topics and print the data to the console.
 
 The listener can be exited any time by pressing Ctrl+C, Esc, or Q.
 
-### Usage {#listener_usage}
+<a id="listener_usage"></a>
+### Usage
 ```
 listener <command> [arguments...]
  Commands:
@@ -224,7 +234,8 @@ Load or append mixer files to the ESC driver.
 
 Note that the driver must support the used ioctl's, which is the case on NuttX, but for example not on RPi.
 
-### Usage {#mixer_usage}
+<a id="mixer_usage"></a>
+### Usage
 ```
 mixer <command> [arguments...]
  Commands:
@@ -254,7 +265,8 @@ When starting, a background task is started, runs for several seconds (as specif
 motor_ramp sine -a 1100 -r 0.5
 ```
 
-### Usage {#motor_ramp_usage}
+<a id="motor_ramp_usage"></a>
+### Usage
 ```
 motor_ramp [arguments...]
      ramp|sine|square mode
@@ -276,7 +288,8 @@ Utility to test motors.
 
 WARNING: remove all props before using this command.
 
-### Usage {#motor_test_usage}
+<a id="motor_test_usage"></a>
+### Usage
 ```
 motor_test <command> [arguments...]
  Commands:
@@ -297,7 +310,8 @@ motor_test <command> [arguments...]
 Source: [systemcmds/mtd](https://github.com/PX4/Firmware/tree/master/src/systemcmds/mtd)
 
 Utility to mount and test partitions (based on FRAM/EEPROM storage as defined by the board)
-### Usage {#mtd_usage}
+<a id="mtd_usage"></a>
+### Usage
 ```
 mtd <command> [arguments...]
  Commands:
@@ -330,7 +344,8 @@ Start an NSH shell on a given port.
 This was previously used to start a shell on the USB serial port.
 Now there runs mavlink, and it is possible to use a shell over mavlink.
 
-### Usage {#nshterm_usage}
+<a id="nshterm_usage"></a>
+### Usage
 ```
 nshterm [arguments...]
      <file:dev>  Device on which to start the shell (eg. /dev/ttyACM0)
@@ -363,7 +378,8 @@ param set SYS_AUTOCONFIG 1
 reboot
 ```
 
-### Usage {#param_usage}
+<a id="param_usage"></a>
+### Usage
 ```
 param <command> [arguments...]
  Commands:
@@ -426,7 +442,8 @@ param <command> [arguments...]
 Source: [systemcmds/perf](https://github.com/PX4/Firmware/tree/master/src/systemcmds/perf)
 
 Tool to print performance counters
-### Usage {#perf_usage}
+<a id="perf_usage"></a>
+### Usage
 ```
 perf [arguments...]
    reset         Reset all counters
@@ -471,7 +488,8 @@ pwm test -c 13 -p 1200
 ```
 
 
-### Usage {#pwm_usage}
+<a id="pwm_usage"></a>
+### Usage
 ```
 pwm <command> [arguments...]
  Commands:
@@ -531,7 +549,8 @@ pwm <command> [arguments...]
 Source: [systemcmds/reboot](https://github.com/PX4/Firmware/tree/master/src/systemcmds/reboot)
 
 Reboot the system
-### Usage {#reboot_usage}
+<a id="reboot_usage"></a>
+### Usage
 ```
 reboot [arguments...]
      [-b]        Reboot into bootloader
@@ -541,7 +560,8 @@ reboot [arguments...]
 Source: [systemcmds/sd_bench](https://github.com/PX4/Firmware/tree/master/src/systemcmds/sd_bench)
 
 Test the speed of an SD Card
-### Usage {#sd_bench_usage}
+<a id="sd_bench_usage"></a>
+### Usage
 ```
 sd_bench [arguments...]
      [-b <val>]  Block size for each read/write
@@ -568,7 +588,8 @@ system_time set 1600775044
 system_time get
 ```
 
-### Usage {#system_time_usage}
+<a id="system_time_usage"></a>
+### Usage
 ```
 system_time <command> [arguments...]
  Commands:
@@ -580,7 +601,8 @@ system_time <command> [arguments...]
 Source: [systemcmds/top](https://github.com/PX4/Firmware/tree/master/src/systemcmds/top)
 
 Monitor running processes and their CPU, stack usage, priority and state
-### Usage {#top_usage}
+<a id="top_usage"></a>
+### Usage
 ```
 top [arguments...]
    once          print load only once
@@ -590,7 +612,8 @@ Source: [systemcmds/usb_connected](https://github.com/PX4/Firmware/tree/master/s
 
 Utility to check if USB is connected. Was previously used in startup scripts.
 A return value of 0 means USB is connected, 1 otherwise.
-### Usage {#usb_connected_usage}
+<a id="usb_connected_usage"></a>
+### Usage
 ```
 usb_connected [arguments...]
 ```
@@ -598,7 +621,8 @@ usb_connected [arguments...]
 Source: [systemcmds/ver](https://github.com/PX4/Firmware/tree/master/src/systemcmds/ver)
 
 Tool to print various version information
-### Usage {#ver_usage}
+<a id="ver_usage"></a>
+### Usage
 ```
 ver <command> [arguments...]
  Commands:

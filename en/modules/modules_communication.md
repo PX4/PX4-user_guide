@@ -4,7 +4,8 @@
 Source: [drivers/telemetry/frsky_telemetry](https://github.com/PX4/Firmware/tree/master/src/drivers/telemetry/frsky_telemetry)
 
 FrSky Telemetry support. Auto-detects D or S.PORT protocol.
-### Usage {#frsky_telemetry_usage}
+<a id="frsky_telemetry_usage"></a>
+### Usage
 ```
 frsky_telemetry <command> [arguments...]
  Commands:
@@ -56,7 +57,8 @@ mavlink start -u 14556 -r 1000000
 mavlink stream -u 14556 -s HIGHRES_IMU -r 50
 ```
 
-### Usage {#mavlink_usage}
+<a id="mavlink_usage"></a>
+### Usage
 ```
 mavlink <command> [arguments...]
  Commands:
@@ -108,7 +110,8 @@ mavlink <command> [arguments...]
 ## micrortps_client
 Source: [modules/micrortps_bridge/micrortps_client](https://github.com/PX4/Firmware/tree/master/src/modules/micrortps_bridge/micrortps_client)
 
-### Usage {#micrortps_client_usage}
+<a id="micrortps_client_usage"></a>
+### Usage
 ```
 micrortps_client <command> [arguments...]
  Commands:
@@ -170,7 +173,8 @@ Monitor topic publication rates. Besides `top`, this is an important command for
 uorb top
 ```
 
-### Usage {#uorb_usage}
+<a id="uorb_usage"></a>
+### Usage
 ```
 uorb <command> [arguments...]
  Commands:

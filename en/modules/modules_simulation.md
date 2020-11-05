@@ -22,7 +22,8 @@ Most of the variables are declared global in the .hpp file to avoid stack overfl
 
 
 
-### Usage {#sih_usage}
+<a id="sih_usage"></a>
+### Usage
 ```
 sih <command> [arguments...]
  Commands:

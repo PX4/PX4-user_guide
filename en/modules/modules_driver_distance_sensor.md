@@ -22,7 +22,8 @@ Stop driver
 leddar_one stop
 ```
 
-### Usage {#leddar_one_usage}
+<a id="leddar_one_usage"></a>
+### Usage
 ```
 leddar_one <command> [arguments...]
  Commands:
@@ -43,7 +44,8 @@ I2C bus driver for Lightware SFxx series LIDAR rangefinders: SF10/a, SF10/b, SF1
 
 Setup/usage information: https://docs.px4.io/master/en/sensor/sfxx_lidar.html
 
-### Usage {#lightware_laser_i2c_usage}
+<a id="lightware_laser_i2c_usage"></a>
+### Usage
 ```
 lightware_laser_i2c <command> [arguments...]
  Commands:
@@ -84,7 +86,8 @@ Stop driver
 lightware_laser_serial stop
 ```
 
-### Usage {#lightware_laser_serial_usage}
+<a id="lightware_laser_serial_usage"></a>
+### Usage
 ```
 lightware_laser_serial <command> [arguments...]
  Commands:
@@ -107,7 +110,8 @@ The sensor/driver must be enabled using the parameter SENS_EN_LL40LS.
 
 Setup/usage information: https://docs.px4.io/master/en/sensor/lidar_lite.html
 
-### Usage {#ll40ls_usage}
+<a id="ll40ls_usage"></a>
+### Usage
 ```
 ll40ls <command> [arguments...]
  Commands:
@@ -130,7 +134,8 @@ ll40ls <command> [arguments...]
 ## mappydot
 Source: [drivers/distance_sensor/mappydot](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/mappydot)
 
-### Usage {#mappydot_usage}
+<a id="mappydot_usage"></a>
+### Usage
 ```
 mappydot <command> [arguments...]
  Commands:
@@ -149,7 +154,8 @@ mappydot <command> [arguments...]
 ## mb12xx
 Source: [drivers/distance_sensor/mb12xx](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/mb12xx)
 
-### Usage {#mb12xx_usage}
+<a id="mb12xx_usage"></a>
+### Usage
 ```
 mb12xx <command> [arguments...]
  Commands:
@@ -185,7 +191,8 @@ running. A simple algorithm to detect false readings is implemented at the drive
 the quality of data that is being published. The driver will not publish data at all if it deems the sensor data
 to be invalid or unstable.
 
-### Usage {#pga460_usage}
+<a id="pga460_usage"></a>
+### Usage
 ```
 pga460 <command> [arguments...]
  Commands:
@@ -201,7 +208,8 @@ pga460 <command> [arguments...]
 ## srf02
 Source: [drivers/distance_sensor/srf02](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/srf02)
 
-### Usage {#srf02_usage}
+<a id="srf02_usage"></a>
+### Usage
 ```
 srf02 <command> [arguments...]
  Commands:
@@ -231,7 +239,8 @@ The sensor/driver must be enabled using the parameter SENS_EN_TRANGER.
 
 Setup/usage information: https://docs.px4.io/master/en/sensor/rangefinders.html#teraranger-rangefinders
 
-### Usage {#teraranger_usage}
+<a id="teraranger_usage"></a>
+### Usage
 ```
 teraranger <command> [arguments...]
  Commands:
@@ -272,7 +281,8 @@ Stop driver
 tfmini stop
 ```
 
-### Usage {#tfmini_usage}
+<a id="tfmini_usage"></a>
+### Usage
 ```
 tfmini <command> [arguments...]
  Commands:
@@ -310,7 +320,8 @@ Stop driver
 ulanding_radar stop
 ```
 
-### Usage {#ulanding_radar_usage}
+<a id="ulanding_radar_usage"></a>
+### Usage
 ```
 ulanding_radar <command> [arguments...]
  Commands:
@@ -325,7 +336,8 @@ ulanding_radar <command> [arguments...]
 ## vl53l0x
 Source: [drivers/distance_sensor/vl53l0x](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/vl53l0x)
 
-### Usage {#vl53l0x_usage}
+<a id="vl53l0x_usage"></a>
+### Usage
 ```
 vl53l0x <command> [arguments...]
  Commands:
@@ -346,7 +358,8 @@ vl53l0x <command> [arguments...]
 ## vl53l1x
 Source: [drivers/distance_sensor/vl53l1x](https://github.com/PX4/Firmware/tree/master/src/drivers/distance_sensor/vl53l1x)
 
-### Usage {#vl53l1x_usage}
+<a id="vl53l1x_usage"></a>
+### Usage
 ```
 vl53l1x <command> [arguments...]
  Commands:
