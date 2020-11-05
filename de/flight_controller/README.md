@@ -46,3 +46,4 @@ This section lists the autopilot hardware documented in this library (that can b
   - [mRo AUAV-X2 (Discontinued)](../flight_controller/auav_x2.md)
   - [Qualcomm Snapdragon Flight (Discontinued)](../flight_controller/snapdragon_flight.md)
   - [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)
+  - [Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md)
