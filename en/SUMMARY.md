@@ -250,11 +250,10 @@
   * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
 * [Development](development/development.md)
 
-## Dronecode Shortcuts
-
-* [PX4 Developer Guide](https://dev.px4.io/master/en/)
-* [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/)
-* [QGroundControl Developer Guide](https://dev.qgroundcontrol.com/en/)
-* [MAVLink Guide](https://mavlink.io/en/)
-* [MAVSDK](https://mavsdk.mavlink.io/)
-* [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/)
+* [Dronecode Shortcuts]()
+  * [PX4 Developer Guide](https://dev.px4.io/master/en/)
+  * [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/)
+  * [QGroundControl Developer Guide](https://dev.qgroundcontrol.com/en/)
+  * [MAVLink Guide](https://mavlink.io/en/)
+  * [MAVSDK](https://mavsdk.mavlink.io/)
+  * [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/)

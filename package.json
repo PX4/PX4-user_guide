@@ -1,0 +1,24 @@
+{
+  "name": "px4_user_guide",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/PX4/px4_user_guide.git",
+  "license": "CC-BY-4.0",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.6.0",
+    "@vuepress/plugin-google-analytics": "^1.6.0",
+    "@vuepress/plugin-medium-zoom": "^1.6.0",
+    "lodash.debounce": "^4.0.8",
+    "vuepress": "^1.5.4",
+    "vuepress-plugin-redirect": "^1.2.5"
+  },
+  "scripts": {
+    "docs:devmem": "NODE_OPTIONS='--max-old-space-size=8192' vuepress dev . ",
+    "docs:dev": "vuepress dev . ",
+    "docs:buildnorm": "vuepress build .",
+    "docs:build": "NODE_OPTIONS='--max-old-space-size=8192' vuepress build ."
+  },
+  "dependencies": {
+    "vuepress-plugin-right-anchor": "^0.4.4"
+  }
+}

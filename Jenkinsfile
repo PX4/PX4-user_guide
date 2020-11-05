@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'px4io/px4-docs:2020-01-05'
+      image 'px4io/px4-docs:2020-10-15' 
     }
   }
   stages {
@@ -9,21 +9,23 @@ pipeline {
     stage('Build') {
       environment {
         HOME = "${WORKSPACE}"
+        THEBRANCHNAME="${BRANCH_NAME}"
       }
 
       steps {
         sh('export')
         checkout(scm)
-        sh('gitbook install')
-        sh('gitbook build')
-        stash(includes: '_book/', name: 'gitbook')
+        sh('printenv | sort')
+        sh('yarn install --ignore-engines')
+        sh('yarn docs:build')
+        stash(includes: '.vuepress/dist/', name: 'vuepress')
         // publish html
         publishHTML(target: [
           reportTitles: 'PX4 User Guide',
           allowMissing: false,
           alwaysLinkToLastBuild: true,
           keepAll: true,
-          reportDir: '_book',
+          reportDir: '.vuepress/dist/',
           reportFiles: '*',
           reportName: 'PX4 User Guide'
         ])
@@ -41,13 +43,13 @@ pipeline {
 
       steps {
         sh('export')
-        unstash('gitbook')
+        unstash('vuepress')
         withCredentials([usernamePassword(credentialsId: 'px4buildbot_github_personal_token', passwordVariable: 'GIT_PASS', usernameVariable: 'GIT_USER')]) {
           sh('git clone https://${GIT_USER}:${GIT_PASS}@github.com/PX4/docs.px4.io.git')
           sh('rm -rf docs.px4.io/${BRANCH_NAME}')
           sh('mkdir -p docs.px4.io/${BRANCH_NAME}')
-          sh('cp -r _book/* docs.px4.io/${BRANCH_NAME}/')
-          sh('cd docs.px4.io; git add ${BRANCH_NAME}; git commit -a -m "gitbook build update `date`"')
+          sh('cp -r .vuepress/dist/* docs.px4.io/${BRANCH_NAME}/')
+          sh('cd docs.px4.io; git add ${BRANCH_NAME}; git commit -a -m "docs build update `date`"')
           sh('cd docs.px4.io; git push origin master')
           
         }
@@ -59,7 +61,7 @@ pipeline {
       }
       when {
         anyOf {
-          branch "master";
+          branch "master";       
           branch "v1.*"
         }
       }
