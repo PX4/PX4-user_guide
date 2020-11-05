@@ -1,6 +1,6 @@
 <div style="float:right; padding:10px; margin-right:20px;"><a href="http://px4.io/"><img src="../assets/site/logo_pro_small.png" title="PX4 로고" width="180px" /></a></div>
 
-# PX4 오토파일럿 사용자 설명서 ({{ $themeConfig.px4_version }})
+# PX4 Autopilot User Guide ({{ $themeConfig.px4_version }})
 
 [![릴리즈](https://img.shields.io/badge/release-master-blue.svg)](https://github.com/PX4/PX4-Autopilot/releases) [![논의](https://img.shields.io/badge/discuss-px4-ff69b4.svg)](http://discuss.px4.io/) [![Slack](https://px4-slack.herokuapp.com/badge.svg)](http://slack.px4.io)
 

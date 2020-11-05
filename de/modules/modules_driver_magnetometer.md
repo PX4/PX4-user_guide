@@ -2,7 +2,9 @@
 ## ak09916
 Source: [drivers/magnetometer/akm/ak09916](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/akm/ak09916)
 
-### Usage {#ak09916_usage}
+<a id="ak09916_usage"></a>
+
+### Usage
 ```
 ak09916 <command> [arguments...]
  Commands:
@@ -23,7 +25,9 @@ ak09916 <command> [arguments...]
 ## ak8963
 Source: [drivers/magnetometer/akm/ak8963](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/akm/ak8963)
 
-### Usage {#ak8963_usage}
+<a id="ak8963_usage"></a>
+
+### Usage
 ```
 ak8963 <command> [arguments...]
  Commands:
@@ -44,7 +48,9 @@ ak8963 <command> [arguments...]
 ## bmm150
 Source: [drivers/magnetometer/bmm150](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/bmm150)
 
-### Usage {#bmm150_usage}
+<a id="bmm150_usage"></a>
+
+### Usage
 ```
 bmm150 <command> [arguments...]
  Commands:
@@ -71,7 +77,9 @@ bmm150 <command> [arguments...]
 ## hmc5883
 Source: [drivers/magnetometer/hmc5883](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/hmc5883)
 
-### Usage {#hmc5883_usage}
+<a id="hmc5883_usage"></a>
+
+### Usage
 ```
 hmc5883 <command> [arguments...]
  Commands:
@@ -98,7 +106,9 @@ hmc5883 <command> [arguments...]
 ## ist8308
 Source: [drivers/magnetometer/isentek/ist8308](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/isentek/ist8308)
 
-### Usage {#ist8308_usage}
+<a id="ist8308_usage"></a>
+
+### Usage
 ```
 ist8308 <command> [arguments...]
  Commands:
@@ -119,7 +129,9 @@ ist8308 <command> [arguments...]
 ## ist8310
 Source: [drivers/magnetometer/isentek/ist8310](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/isentek/ist8310)
 
-### Usage {#ist8310_usage}
+<a id="ist8310_usage"></a>
+
+### Usage
 ```
 ist8310 <command> [arguments...]
  Commands:
@@ -142,7 +154,9 @@ ist8310 <command> [arguments...]
 ## lis2mdl
 Source: [drivers/magnetometer/lis2mdl](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lis2mdl)
 
-### Usage {#lis2mdl_usage}
+<a id="lis2mdl_usage"></a>
+
+### Usage
 ```
 lis2mdl <command> [arguments...]
  Commands:
@@ -168,7 +182,9 @@ lis2mdl <command> [arguments...]
 ## lis3mdl
 Source: [drivers/magnetometer/lis3mdl](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lis3mdl)
 
-### Usage {#lis3mdl_usage}
+<a id="lis3mdl_usage"></a>
+
+### Usage
 ```
 lis3mdl <command> [arguments...]
  Commands:
@@ -196,7 +212,9 @@ lis3mdl <command> [arguments...]
 ## lsm9ds1_mag
 Source: [drivers/magnetometer/lsm9ds1_mag](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/lsm9ds1_mag)
 
-### Usage {#lsm9ds1_mag_usage}
+<a id="lsm9ds1_mag_usage"></a>
+
+### Usage
 ```
 lsm9ds1_mag <command> [arguments...]
  Commands:
@@ -220,7 +238,9 @@ lsm9ds1_mag <command> [arguments...]
 ## qmc5883l
 Source: [drivers/magnetometer/qmc5883l](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/qmc5883l)
 
-### Usage {#qmc5883l_usage}
+<a id="qmc5883l_usage"></a>
+
+### Usage
 ```
 qmc5883l <command> [arguments...]
  Commands:
@@ -241,7 +261,9 @@ qmc5883l <command> [arguments...]
 ## rm3100
 Source: [drivers/magnetometer/rm3100](https://github.com/PX4/Firmware/tree/master/src/drivers/magnetometer/rm3100)
 
-### Usage {#rm3100_usage}
+<a id="rm3100_usage"></a>
+
+### Usage
 ```
 rm3100 <command> [arguments...]
  Commands:

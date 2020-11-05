@@ -6,9 +6,9 @@ Source: [modules/simulator/battery_simulator](https://github.com/PX4/Firmware/tr
 
 ### Description
 
+<a id="battery_simulator_usage"></a>
 
-
-### Usage {#battery_simulator_usage}
+### Usage
 ```
 battery_simulator <command> [arguments...]
  Commands:
@@ -31,8 +31,9 @@ The provided functionality includes:
 ### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
 
+<a id="battery_status_usage"></a>
 
-### Usage {#battery_status_usage}
+### Usage
 ```
 battery_status <command> [arguments...]
  Commands:
@@ -48,9 +49,9 @@ Source: [modules/camera_feedback](https://github.com/PX4/Firmware/tree/master/sr
 
 ### Description
 
+<a id="camera_feedback_usage"></a>
 
-
-### Usage {#camera_feedback_usage}
+### Usage
 ```
 camera_feedback <command> [arguments...]
  Commands:
@@ -67,7 +68,9 @@ Source: [modules/commander](https://github.com/PX4/Firmware/tree/master/src/modu
 ### Description
 The commander module contains the state machine for mode switching and failsafe behavior.
 
-### Usage {#commander_usage}
+<a id="commander_usage"></a>
+
+### Usage
 ```
 commander <command> [arguments...]
  Commands:
@@ -120,8 +123,9 @@ Reading and writing a single item is always atomic. If multiple items need to be
 
 **DM_KEY_FENCE_POINTS** and **DM_KEY_SAFE_POINTS** items: the first data element is a `mission_stats_entry_s` struct, which stores the number of items for these types. These items are always updated atomically in one transaction (from the mavlink mission manager). During that time, navigator will try to acquire the geofence item lock, fail, and will not check for geofence violations.
 
+<a id="dataman_usage"></a>
 
-### Usage {#dataman_usage}
+### Usage
 ```
 dataman <command> [arguments...]
  Commands:
@@ -157,7 +161,9 @@ Keep printing all messages in the background:
 dmesg -f &
 ```
 
-### Usage {#dmesg_usage}
+<a id="dmesg_usage"></a>
+
+### Usage
 ```
 dmesg <command> [arguments...]
  Commands:
@@ -170,8 +176,9 @@ Source: [modules/esc_battery](https://github.com/PX4/Firmware/tree/master/src/mo
 ### Description
 This implements using information from the ESC status and publish it as battery status.
 
+<a id="esc_battery_usage"></a>
 
-### Usage {#esc_battery_usage}
+### Usage
 ```
 esc_battery <command> [arguments...]
  Commands:
@@ -187,8 +194,9 @@ Source: [examples/gyro_fft](https://github.com/PX4/Firmware/tree/master/src/exam
 
 ### Description
 
+<a id="gyro_fft_usage"></a>
 
-### Usage {#gyro_fft_usage}
+### Usage
 ```
 gyro_fft <command> [arguments...]
  Commands:
@@ -207,7 +215,9 @@ Background process running periodically on the LP work queue to regulate IMU tem
 
 This task can be started at boot from the startup scripts by setting SENS_EN_THERMAL or via CLI.
 
-### Usage {#heater_usage}
+<a id="heater_usage"></a>
+
+### Usage
 ```
 heater <command> [arguments...]
  Commands:
@@ -236,7 +246,9 @@ Every type is implemented in its own class with a common base class. The base cl
 
 The module runs periodically on the HP work queue.
 
-### Usage {#land_detector_usage}
+<a id="land_detector_usage"></a>
+
+### Usage
 ```
 land_detector <command> [arguments...]
  Commands:
@@ -256,7 +268,9 @@ Background process running periodically on the low priority work queue to calcul
 
 On NuttX it also checks the stack usage of each process and if it falls below 300 bytes, a warning is output, which will also appear in the log file.
 
-### Usage {#load_mon_usage}
+<a id="load_mon_usage"></a>
+
+### Usage
 ```
 load_mon <command> [arguments...]
  Commands:
@@ -299,7 +313,9 @@ Or if already running:
 logger on
 ```
 
-### Usage {#logger_usage}
+<a id="logger_usage"></a>
+
+### Usage
 ```
 logger <command> [arguments...]
  Commands:
@@ -334,8 +350,9 @@ Source: [drivers/pwm_input](https://github.com/PX4/Firmware/tree/master/src/driv
 ### Description
 Measures the PWM input on AUX5 (or MAIN5) via a timer capture ISR and publishes via the uORB 'pwm_input` message.
 
+<a id="pwm_input_usage"></a>
 
-### Usage {#pwm_input_usage}
+### Usage
 ```
 pwm_input <command> [arguments...]
  Commands:
@@ -357,8 +374,9 @@ The rc_update module handles RC channel mapping: read the raw input channels (`i
 ### Implementation
 To reduce control latency, the module is scheduled on input_rc publications.
 
+<a id="rc_update_usage"></a>
 
-### Usage {#rc_update_usage}
+### Usage
 ```
 rc_update <command> [arguments...]
  Commands:
@@ -383,7 +401,9 @@ The module is typically used together with uORB publisher rules, to specify whic
 
 The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html) page.
 
-### Usage {#replay_usage}
+<a id="replay_usage"></a>
+
+### Usage
 ```
 replay <command> [arguments...]
  Commands:
@@ -406,7 +426,9 @@ Background process running periodically on the LP work queue to perform housekee
 
 The tasks can be started via CLI or uORB topics (vehicle_command from MAVLink, etc.).
 
-### Usage {#send_event_usage}
+<a id="send_event_usage"></a>
+
+### Usage
 ```
 send_event <command> [arguments...]
  Commands:
@@ -431,8 +453,9 @@ The provided functionality includes:
 ### Implementation
 It runs in its own thread and polls on the currently selected gyro topic.
 
+<a id="sensors_usage"></a>
 
-### Usage {#sensors_usage}
+### Usage
 ```
 sensors <command> [arguments...]
  Commands:
@@ -450,8 +473,9 @@ Source: [modules/temperature_compensation](https://github.com/PX4/Firmware/tree/
 ### Description
 The temperature compensation module allows all of the gyro(s), accel(s), and baro(s) in the system to be temperature compensated. The module monitors the data coming from the sensors and updates the associated sensor_thermal_cal topic whenever a change in temperature is detected. The module can also be configured to perform the coeffecient calculation routine at next boot, which allows the thermal calibration coeffecients to be calculated while the vehicle undergoes a temperature cycle.
 
+<a id="temperature_compensation_usage"></a>
 
-### Usage {#temperature_compensation_usage}
+### Usage
 ```
 temperature_compensation <command> [arguments...]
  Commands:
@@ -487,7 +511,9 @@ Play system tune #2:
 tune_control play -t 2
 ```
 
-### Usage {#tune_control_usage}
+<a id="tune_control_usage"></a>
+
+### Usage
 ```
 tune_control <command> [arguments...]
  Commands:
@@ -514,8 +540,9 @@ Source: [systemcmds/work_queue](https://github.com/PX4/Firmware/tree/master/src/
 
 Command-line tool to show work queue status.
 
+<a id="work_queue_usage"></a>
 
-### Usage {#work_queue_usage}
+### Usage
 ```
 work_queue <command> [arguments...]
  Commands:

@@ -248,13 +248,14 @@
   * [BetaFPV Beta75X 2S Brushless Whoop](complete_vehicles/betafpv_beta75x.md)
   * [Holybro Kopis 2](complete_vehicles/holybro_kopis2.md)
   * [Intel® Aero RTF Drone (Discontinued)](complete_vehicles/intel_aero.md)
-* [開発](development/development.md)
 
-## Dronecode ショートカット
+* [Development](development/development.md)
 
-* [PX4 開発者用ガイド](https://dev.px4.io/master/en/)
-* [QGroundControlユーザガイド](https://docs.qgroundcontrol.com/en/)
-* [QGroundControl開発者用ガイド](https://dev.qgroundcontrol.com/en/)
-* [MAVLinkガイド](https://mavlink.io/en/)
-* [MAVSDK](https://mavsdk.mavlink.io/)
-* [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/)
+* [Dronecode Shortcuts]()
+  
+  * [PX4 Developer Guide](https://dev.px4.io/master/en/)
+  * [QGroundControl User Guide](https://docs.qgroundcontrol.com/en/)
+  * [QGroundControl Developer Guide](https://dev.qgroundcontrol.com/en/)
+  * [MAVLink Guide](https://mavlink.io/en/)
+  * [MAVSDK](https://mavsdk.mavlink.io/)
+  * [Dronecode Camera Manager](https://camera-manager.dronecode.org/en/)
