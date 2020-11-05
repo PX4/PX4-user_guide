@@ -210,7 +210,7 @@
     * [AirMind MindPX](flight_controller/mindpx.md)
     * [AirMind MindRacer](flight_controller/mindracer.md)
     * [CUAV X7](flight_controller/cuav_x7.md)
-    * [CUAV Nora](flight_controller/cuav_Nora.md)
+    * [CUAV Nora](flight_controller/cuav_nora.md)
     * [CUAV V5+ (FMUv5)](flight_controller/cuav_v5_plus.md)
     * [CUAV V5 nano (FMUv5)](flight_controller/cuav_v5_nano.md)
     * [Cube Orange (CubePilot)](flight_controller/cubepilot_cube_orange.md)
