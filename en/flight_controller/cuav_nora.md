@@ -24,8 +24,8 @@ It adopts an integrated motherboard (soft and hard board), which reduces flight 
 * Car-grade RM3100 compass
 * High performance processor
 
-> **Tip** The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) contain detailed information. 
-  If this document conflicts with the [CUAV Docs](https://doc.cuav.net/x7/en/nora.html), please follow the description in the [CUAV Docs](https://doc.cuav.net/x7/en/nora.html).
+> **Tip** The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/nora.html) are the canonical reference for Nora.
+  They should be used by preference as they contain the most complete and up to date information.
 
 <span></span>
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
@@ -81,13 +81,13 @@ It adopts an integrated motherboard (soft and hard board), which reduces flight 
 
 ![X7 pinouts](../../assets/flight_controller/cuav_nora/nora-pinouts.jpg)
 
-> **Warning**The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
+> **Warning** The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
 
 ## Voltage Ratings
 
-* Nora AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
+Nora AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
 
-> **Note** The output power rails ** PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+> **Note** The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
   You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered. 
 
 **Normal Operation Maximum Ratings**
@@ -108,8 +108,8 @@ make cuav_nora_default
 
 ## Over Current Protection
 
-The *nora* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
-The *nora* has short circuit protection.
+The *Nora* has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
+The *Nora* has short circuit protection.
 
 > **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
 
@@ -142,7 +142,7 @@ The provided debug cable does not connect to the SWD port `Vref` pin (1).
 > Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
 > For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
 >
->For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+> For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
 ## Supported Platforms / Airframes
 
