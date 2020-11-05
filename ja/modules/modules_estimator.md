@@ -7,8 +7,9 @@ Source: [modules/attitude_estimator_q](https://github.com/PX4/Firmware/tree/mast
 ### Description
 Attitude estimator q.
 
+<a id="AttitudeEstimatorQ_usage"></a>
 
-### Usage {#AttitudeEstimatorQ_usage}
+### Usage
 ```
 AttitudeEstimatorQ <command> [arguments...]
  Commands:
@@ -25,8 +26,9 @@ Source: [modules/airspeed_selector](https://github.com/PX4/Firmware/tree/master/
 ### Description
 This module provides a single airspeed_validated topic, containing indicated (IAS), calibrated (CAS), true airspeed (TAS) and the information if the estimation currently is invalid and if based sensor readings or on groundspeed minus windspeed. Supporting the input of multiple "raw" airspeed inputs, this module automatically switches to a valid sensor in case of failure detection. For failure detection as well as for the estimation of a scale factor from IAS to CAS, it runs several wind estimators and also publishes those.
 
+<a id="airspeed_estimator_usage"></a>
 
-### Usage {#airspeed_estimator_usage}
+### Usage
 ```
 airspeed_estimator <command> [arguments...]
  Commands:
@@ -47,8 +49,9 @@ The documentation can be found on the [ECL/EKF Overview & Tuning](https://docs.p
 
 ekf2 can be started in replay mode (`-r`): in this mode it does not access the system time, but only uses the timestamps from the sensor topics.
 
+<a id="ekf2_usage"></a>
 
-### Usage {#ekf2_usage}
+### Usage
 ```
 ekf2 <command> [arguments...]
  Commands:
@@ -66,8 +69,9 @@ Source: [modules/local_position_estimator](https://github.com/PX4/Firmware/tree/
 ### Description
 Attitude and position estimator using an Extended Kalman Filter.
 
+<a id="local_position_estimator_usage"></a>
 
-### Usage {#local_position_estimator_usage}
+### Usage
 ```
 local_position_estimator <command> [arguments...]
  Commands:
@@ -83,8 +87,9 @@ Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/Firmware/tree
 
 ### Description
 
+<a id="mc_hover_thrust_estimator_usage"></a>
 
-### Usage {#mc_hover_thrust_estimator_usage}
+### Usage
 ```
 mc_hover_thrust_estimator <command> [arguments...]
  Commands:
