@@ -14,9 +14,9 @@ This simulator publishes the sensors signals corrupted with realistic noise in o
 ### Implementation
 The simulator implements the equations of motion using matrix algebra. Quaternion representation is used for the attitude. Forward Euler is used for integration. Most of the variables are declared global in the .hpp file to avoid stack overflow.
 
+<a id="sih_usage"></a>
 
-
-### Usage {#sih_usage}
+### Usage
 ```
 sih <command> [arguments...]
  Commands:
