@@ -98,13 +98,13 @@ There should be `/dev/spidev0.0`.
 
 #### rc.local
 
-In this section we will configure the auto-start script in rc.local.
+In this section we will configure the auto-start script in **rc.local**.
 
 ```sh
 sudo nano /etc/rc.local
 ```
 
-Append below context to the file above `exit 0`:
+Append below content to the file above `exit 0`:
 
 ```sh
 echo "25" > /sys/class/gpio/export
@@ -128,7 +128,7 @@ Save and exit.
 sudo raspi-config
 ```
 
-"Interfacing Options" -> "Camera"
+**Interfacing Options > Camera**
 
 ### Building the code
 
@@ -176,9 +176,22 @@ sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 
 Now PX4 is started with multi-rotor configuration.
 
+If you encountered the similar problem executing `bin/px4` on your Pi as following:
+
+```
+bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
+```
+
+Then you should compile with docker instead.
+
+Before proceeding to next step, clear the existing building at first:
+
+```sh
+rm -rf build/scumaker_pilotpi_default
+```
+
 ### Alternative build method (using docker)
 
-Sometimes our development environment may contain a newer version of tool chain, which won't generate proper binaries for RPi, and is hard to downgrade.
 The following method can provide the same tool-sets deployed in CI.
 
 If you are compiling for the first time with docker, please refer to the [offical docs](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites).

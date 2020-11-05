@@ -267,7 +267,7 @@ Execute the command in firmware folder:
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
 ```
-> **Note** mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
+> **Note** mDNS is not supported within docker. You must specify the correct IP address every time when uploading.
 
 <span></span>
 > **Note** If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
@@ -327,6 +327,22 @@ sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
 Now PX4 is started with multi-rotor configuration.
+
+If you encountered the similar problem executing `bin/px4` on your Pi as following:
+
+```
+bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
+```
+
+Then you should compile with docker instead.
+
+Before proceeding to next step, clear the existing building at first:
+
+```sh
+rm -rf build/scumaker_pilotpi_*
+```
+
+Then go back to the corresponding chapter above.
 
 ### Post-configuration
 
