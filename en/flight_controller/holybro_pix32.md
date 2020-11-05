@@ -15,7 +15,7 @@ As a CC-BY-SA 3.0 licensed Open Hardware design, schematics and design files sho
   It is not connector compatible, but is otherwise physically very similar to the 3DR Pixhawk or mRo Pixhawk.
 
 <span></span>
-> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 
 ## Key Features
