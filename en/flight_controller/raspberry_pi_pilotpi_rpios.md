@@ -135,7 +135,7 @@ sudo raspi-config
 To get the *very latest* version onto your computer, enter the following command into a terminal:
 
 ```sh
-git clone https://github.com/PX4/Firmware.git --recursive
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
 ```
 
 > **Note** This is all you need to do just to build the latest code. 
@@ -157,7 +157,7 @@ export AUTOPILOT_HOST=pi_hostname.local
 Build the executable file:
 
 ```sh
-cd Firmware
+cd PX4-Autopilot
 make scumaker_pilotpi_default
 ```
 
@@ -183,7 +183,7 @@ The following method can provide the same tool-sets deployed in CI.
 
 If you are compiling for the first time with docker, please refer to the [offical docs](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites).
 
-Execute the command in firmware folder:
+Execute the command in PX4-Autopilot folder:
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export NO_NINJA_BUILD=1; make scumaker_pilotpi_default upload"
@@ -192,9 +192,8 @@ Execute the command in firmware folder:
 
 <span></span>
 
-> If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
-> 
-> You can compile without uploading too. Just remove `upload` target.
+> **Note** If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help.
+  You can compile without uploading too. Just remove `upload` target.
 
 It is also possible to just compile the code with command:
 
@@ -217,6 +216,7 @@ mixer load /dev/pwm_output0 etc/mixers/quad_x.main.mix
 All available mixers are stored in `etc/mixers`. You can create one by yourself as well.
 
 #### External compass
+
 In the startup script(`*.config`), you will find
 
 ```sh
