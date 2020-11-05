@@ -10,7 +10,7 @@ CUAV *Pixhack v3* 飞行控制器是一款灵活轻便的自动驾驶仪，主�
 
 ![Pixhack v3](../../assets/flight_controller/pixhack_v3/pixhack_v3_157_large_default.jpg)
 
-> **Tip** This autopilot is [supported](../flight_controller/autopilot_pixhawk_standard.md) by the PX4 maintenance and test teams.
+> **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
 ## 快速预览
 
