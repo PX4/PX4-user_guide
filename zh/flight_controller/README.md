@@ -19,6 +19,8 @@ This section lists the autopilot hardware documented in this library (that can b
 - [Manufacturer-Supported Autopilots](../flight_controller/autopilot_manufacturer_supported.md) 
   - [AirMind MindPX](../flight_controller/mindpx.md)
   - [AirMind MindRacer](../flight_controller/mindracer.md)
+  - [CUAV X7](../flight_controller/cuav_x7.md)
+  - [CUAV Nora](../flight_controller/cuav_nora.md)
   - [CUAV V5+ (FMUv5)](../flight_controller/cuav_v5_plus.md)
   - [CUAV V5 nano (FMUv5)](../flight_controller/cuav_v5_nano.md)
   - [Cube Orange](../flight_controller/cubepilot_cube_orange.md) (CubePilot)
