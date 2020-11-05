@@ -12,8 +12,9 @@ Currently it is feeding the `manual_control_setpoint` topic directly to the actu
 ### Implementation
 To reduce control latency, the module directly polls on the gyro topic published by the IMU driver.
 
+<a id="airship_att_control_usage"></a>
 
-### Usage {#airship_att_control_usage}
+### Usage
 ```
 airship_att_control <command> [arguments...]
  Commands:
@@ -30,8 +31,9 @@ Source: [modules/fw_att_control](https://github.com/PX4/Firmware/tree/master/src
 ### Description
 fw_att_control is the fixed wing attitude controller.
 
+<a id="fw_att_control_usage"></a>
 
-### Usage {#fw_att_control_usage}
+### Usage
 ```
 fw_att_control <command> [arguments...]
  Commands:
@@ -49,8 +51,9 @@ Source: [modules/fw_pos_control_l1](https://github.com/PX4/Firmware/tree/master/
 ### Description
 fw_pos_control_l1 is the fixed wing position controller.
 
+<a id="fw_pos_control_l1_usage"></a>
 
-### Usage {#fw_pos_control_l1_usage}
+### Usage
 ```
 fw_pos_control_l1 <command> [arguments...]
  Commands:
@@ -74,8 +77,9 @@ Publication documenting the implemented Quaternion Attitude Control: Nonlinear Q
 
 https://www.research-collection.ethz.ch/bitstream/handle/20.500.11850/154099/eth-7387-01.pdf
 
+<a id="mc_att_control_usage"></a>
 
-### Usage {#mc_att_control_usage}
+### Usage
 ```
 mc_att_control <command> [arguments...]
  Commands:
@@ -95,7 +99,9 @@ The controller has two loops: a P loop for position error and a PID loop for vel
 
 The controller doesn't use Euler angles for its work, they are generated only for more human-friendly control and logging.
 
-### Usage {#mc_pos_control_usage}
+<a id="mc_pos_control_usage"></a>
+
+### Usage
 ```
 mc_pos_control <command> [arguments...]
  Commands:
@@ -115,8 +121,9 @@ This implements the multicopter rate controller. It takes rate setpoints (in acr
 
 The controller has a PID loop for angular rate error.
 
+<a id="mc_rate_control_usage"></a>
 
-### Usage {#mc_rate_control_usage}
+### Usage
 ```
 mc_rate_control <command> [arguments...]
  Commands:
@@ -139,8 +146,9 @@ The different internal modes are implemented as separate classes that inherit fr
 
 Navigator publishes position setpoint triplets (`position_setpoint_triplet_s`), which are then used by the position controller.
 
+<a id="navigator_usage"></a>
 
-### Usage {#navigator_usage}
+### Usage
 ```
 navigator <command> [arguments...]
  Commands:
@@ -178,8 +186,9 @@ rover_pos_control status
 rover_pos_control stop
 ```
 
+<a id="rover_pos_control_usage"></a>
 
-### Usage {#rover_pos_control_usage}
+### Usage
 ```
 rover_pos_control <command> [arguments...]
  Commands:
@@ -212,8 +221,9 @@ uuv_att_control status
 uuv_att_control stop
 ```
 
+<a id="uuv_att_control_usage"></a>
 
-### Usage {#uuv_att_control_usage}
+### Usage
 ```
 uuv_att_control <command> [arguments...]
  Commands:
@@ -230,7 +240,9 @@ Source: [modules/vtol_att_control](https://github.com/PX4/Firmware/tree/master/s
 ### Description
 fw_att_control is the fixed wing attitude controller.
 
-### Usage {#vtol_att_control_usage}
+<a id="vtol_att_control_usage"></a>
+
+### Usage
 ```
 vtol_att_control <command> [arguments...]
  Commands:
