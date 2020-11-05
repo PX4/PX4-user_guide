@@ -4,12 +4,14 @@
   Contact the [manufacturer](https://www.cuav.net) for hardware support or compliance issues.
 
 The [X7](http://doc.cuav.net/flight-controller/x7/en/x7.html)<sup>&reg;</sup> flight controller is a high-performance autopilot.
-It is an ideal choice for industrial drones and large-scale heavy-duty drones. It is mainly supplied to commercial manufacturers.
+It is an ideal choice for industrial drones and large-scale heavy-duty drones.
+It is mainly supplied to commercial manufacturers.
 
 ![CUAV x7](../../assets/flight_controller/cuav_x7/x7.jpg)
 
 The flight controller adopts a modular design and can be matched with different base plates.
-You can design a dedicated carrier board for your UAV to improve the integration of commercial systems, reduce wiring, improve system reliability, and enhance your UAV competitiveness, such as integrating airspeed sensors and telemetry in the carrier board , Even companion computers; and CUAV has provided a variety of carrier board for you to choose from.
+You can design a dedicated carrier board for your UAV to improve the integration of commercial systems, reduce wiring, improve system reliability, and enhance your UAV competitiveness (for example, integrating airspeed sensors, telemetry or even a companion computer, in the carrier board).
+CUAV has also provided a variety of carrier boards for you to choose from.
 
 ## Features
 
@@ -23,7 +25,8 @@ You can design a dedicated carrier board for your UAV to improve the integration
 * Car-grade RM3100 compass
 * High performance processor
 
-> **Tip** The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) contain detailed information,If this document conflicts with the [CUAV Docs](https://doc.cuav.net/x7/en/x7.html), please follow the description in the [CUAV Docs](https://doc.cuav.net/x7/en/x7.html).
+> **Tip** The manufacturer [CUAV Docs](https://doc.cuav.net/x7/en/x7.html) are the canonical reference for the X7.
+  They should be used by preference as they contain the most complete and up to date information.
 
 <span></span>
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
@@ -77,13 +80,15 @@ You can design a dedicated carrier board for your UAV to improve the integration
 
 ![X7 pinouts](../../assets/flight_controller/cuav_x7/x7-pinouts.jpg)
 
-> **Warning**The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
+> **Warning** The RCIN port is limited to powering the rc receiver and cannot be connected to any power/load.
 
 ## Voltage Ratings
 
-* Nora AutoPilot* can be triple-redundant on the power supply if three power sources are supplied. The two power rails are: **POWERA**, **POWERC** and **USB**.
+The *X7 AutoPilot* can be triple-redundant on the power supply if three power sources are supplied.
+The power rails are: **POWERA**, **POWERC** and **USB**.
 
-> **Note** The output power rails ** PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it). You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered. 
+> **Note** The output power rails **PWM OUT** (0V to 36V) do not power the flight controller board (and are not powered by it).
+  You must supply power to one of **POWERA**, **POWERC** or **USB** or the board will be unpowered. 
 
 **Normal Operation Maximum Ratings**
 
@@ -103,14 +108,15 @@ make cuav_x7pro_default
 
 ## Over Current Protection
 
-The *X7* has over current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
+The *X7* has over-current protection on the 5 Volt Peripheral and 5 Volt high power, which limits the current to 2.5A.
 The *X7* has short circuit protection.
 
 > **Warning** Up to 2.5 A can be delivered to the connectors listed as pin 1 (although these are only rated at 1 A).
 
 ## Debug Port
 
-The system's serial console and SWD interface operate on the **DSU7** port. Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
+The system's serial console and SWD interface operate on the **DSU7** port.
+Simply connect the FTDI cable to the DSU7 connector (the product list contains the CUAV FTDI cable).
 
 ![Debug port (DSU7)](../../assets/flight_controller/cuav_v5_plus/debug_port_dsu7.jpg)
 
@@ -139,7 +145,7 @@ The provided debug cable does not connect to the SWD port `Vref` pin (1).
 > Some JTAG adapters (SEGGER J-Link) will use the Vref voltage to set the voltage on the SWD lines.
 > For direct connection to *Segger Jlink* we recommended you use the 3.3 Volts from pin 4 of the connector marked `DSM`/`SBUS`/`RSSI` to provide `Vtref` to the JTAG (i.e. providing 3.3V and *NOT* 5V).
 >
->For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
+>  For more information see [Using JTAG for hardware debugging](#compatibility_jtag).
 
 ## Supported Platforms / Airframes
 
