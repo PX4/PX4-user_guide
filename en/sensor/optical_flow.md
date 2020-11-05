@@ -25,6 +25,9 @@ An popular setup is the [PX4Flow](../sensor/px4flow.md) and [Lidar-Lite](../sens
 
 ![Optical flow lidar attached](../../assets/hardware/sensors/optical_flow/flow_lidar_attached.jpg)
 
+Sensor data from the optical flow device is fused with other velocity data sources.
+The approach used for fusing sensor data and any offsets from the center of the vehicle must be configured in the [estimator](#estimators). 
+
 
 ## Flow Sensors/Cameras
 
@@ -52,6 +55,14 @@ However we recommend using LIDAR rather than sonar sensors, because of their rob
 
 ## Estimators
 
+Estimators fuse data from the optical flow sensor and other sources.
+The settings for how fusing is done, and relative offsets to vehicle center must be specified for the estimator used.
+
+The offsets are calculated relative to the vehicle orientation and center as shown below:
+ 
+![Optical Flow offsets](../../assets/hardware/sensors/optical_flow/px4flow_offset.png)
+
+
 <span id="ekf2"></span>
 ### Extended Kalman Filter (EKF2)
 
@@ -66,4 +77,6 @@ Parameter | Description
 <span id="EKF2_OF_POS_X"></span>[EKF2_OF_POS_X](../advanced_config/parameter_reference.md#EKF2_OF_POS_X) | X position of optical flow focal point in body frame (default is 0.0m).
 <span id="EKF2_OF_POS_Y"></span>[EKF2_OF_POS_Y](../advanced_config/parameter_reference.md#EKF2_OF_POS_Y) | Y position of optical flow focal point in body frame (default is 0.0m).
 <span id="EKF2_OF_POS_Z"></span>[EKF2_OF_POS_Z](../advanced_config/parameter_reference.md#EKF2_OF_POS_Z) | Z position of optical flow focal point in body frame (default is 0.0m).
+
+
 
