@@ -56,15 +56,15 @@ For more information see: [Distance Sensors](../sensor/rangefinders.md).
 
 ## Optical Flow
 
-[PX4Flow](../sensor/px4flow.md) is an optical flow smart camera that can track motion, and has as integrated sonar sensor.
+[Optical Flow](../sensor/optical_flow.md) sensors use a downward facing camera and a downward facing distance sensor for velocity estimation.
 PX4 blends the sensor output with information from other position sources (e.g. GPS) to provide a more accurate position lock. 
 This sensor can be used indoors, when no GPS signal is available.
 
 ![px4flow-bottom](../../assets/hardware/sensors/px4flow/px4flow_bottom.jpg) 
 
 Some options include:
-* [3DR PX4Flow Smart Camera (Optical Flow Sensor)](https://www.unmannedtechshop.co.uk/px4flow-smart-camera-optical-flow-sensor/) (unmannedtechshop)
-* [HK Pilot32 Optical Flow Kit With Sonar](https://hobbyking.com/en_us/hk-pilot32-optical-flow-kit-with-sonar.html) (Hobbyking) - Software-compatible, but not connector-compatible.
+- [PX4Flow](../sensor/px4flow.md) based flow sensors, which have an integrated sonar sensor.
+- [PMW3901](../sensor/pmw3901.md)  based flow sensors, which have a sensor much like in an optical mouse trackpad.
 
 
 <span id="wiring"></span>
