@@ -370,6 +370,8 @@ gps <command> [arguments...]
      [-s]        Enable publication of satellite info
      [-i <val>]  GPS interface
                  values: spi|uart, default: uart
+     [-j <val>]  secondary GPS interface
+                 values: spi|uart, default: uart
      [-p <val>]  GPS Protocol (default=auto select)
                  values: ubx|mtk|ash|eml
 
