@@ -19,9 +19,10 @@ PX4 can run on many flight controller boards (see [Autopilot Hardware](../flight
 
 这些飞行控制器（和开发平台）提供机载“协同计算”，以实现计算机视觉和其他计算密集型任务。
 
-| 控制器                                                                    | 描述                                                                       |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md) | RasPi can be connected to an autopilot and used as a companion computer. |
+| 控制器                                                                        | 描述                                                                       |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md)     | RasPi can be connected to an autopilot and used as a companion computer. |
+| [Raspberry Pi 2/3/4 PilotPi](../flight_controller/raspberry_pi_pilotpi.md) | Fly your Pi :)                                                           |
 
 ## 可运行 PX4 的商业无人机
 
