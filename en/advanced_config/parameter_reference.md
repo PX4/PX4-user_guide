@@ -12684,6 +12684,14 @@ How often the sensor is readout</p>   <p><b>Reboot required:</b> true</p>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
+ <td style="vertical-align: top;"><strong id="SENS_EN_SR05">SENS_EN_SR05</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>HY-SRF05 / HC-SR05</p>   <p><b>Reboot required:</b> true</p>
+</td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">Disabled (0)</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
  <td style="vertical-align: top;"><strong id="SENS_EN_THERMAL">SENS_EN_THERMAL</strong> (INT32)</td>
  <td style="vertical-align: top;"><p>Thermal control of sensor temperature</p> <strong>Values:</strong><ul>
 <li><strong>-1:</strong> Thermal control unavailable</li> 
