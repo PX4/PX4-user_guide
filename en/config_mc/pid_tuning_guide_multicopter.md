@@ -215,17 +215,19 @@ To counteract that, adjust the **thrust curve** with the [THR_MDL_FAC](../advanc
 The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic.
 Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
 
-If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust and PWM commands simultaneously),
-you can determine the relationship between the PWM control signal and the motor's actual thrust, and fit a function to the data.
-[This Notebook][THR_MDL_FAC_Calculation] shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data. The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s). However, note that in order to calculate `THR_MDL_FAC`, you will need to normalize the data betweeon 0 and 1. 
+If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust and PWM commands simultaneously), you can determine the relationship between the PWM control signal and the motor's actual thrust, and fit a function to the data.
+[This Notebook][THR_MDL_FAC_Calculation] shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data.
+The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s).
+However, note that in order to calculate `THR_MDL_FAC`, you will need to normalize the data betweeon 0 and 1. 
 
 [![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
 
 > **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
 
-An alternative way of performing this experiment is to make a scatter plot of the normalized PWM and thrust values, and iteratively tune the thrust curve by experimenting with the `THR_MDL_FAC` parameter. An example of that graph is shown here:
+An alternative way of performing this experiment is to make a scatter plot of the normalized PWM and thrust values, and iteratively tune the thrust curve by experimenting with the `THR_MDL_FAC` parameter.
+An example of that graph is shown here:
 
-![Thrust Curve Compensation](../../assets/mc_pid_tuning/relative_thrust_and_pwm_scatter.svg)
+![Graph showing relative thrust and PWM scatter](../../assets/mc_pid_tuning/relative_thrust_and_pwm_scatter.svg)
 
 If raw PWM and thrust data is collected throughout the full-scale range in the experiment, you can normalize the data using the equation:
 
@@ -235,7 +237,9 @@ After you have a scatter plot of the normalized values, you can try and make the
 
 *rel_thrust = ( `THR_MDL_FAC` ) * rel_signal^2 + ( 1 - `THR_MDL_FAC` ) * rel_signal*
 
-over a linear range of normalized PWM values between 0 and 1. Note that this is the equation that is used in the firmware to map thrust and PWM, as shown in the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter reference. Here, *rel_thrust* is the normalized thrust value between 0 and 1, and *rel_signal* is the normalized PWM signal value between 0 and 1.
+over a linear range of normalized PWM values between 0 and 1.
+Note that this is the equation that is used in the firmware to map thrust and PWM, as shown in the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter reference.
+Here, *rel_thrust* is the normalized thrust value between 0 and 1, and *rel_signal* is the normalized PWM signal value between 0 and 1.
 
 In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set to 0.7. 
 
