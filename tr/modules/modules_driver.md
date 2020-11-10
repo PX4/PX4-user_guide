@@ -1,11 +1,11 @@
 # Modules Reference: Driver
 Subcategories:
 - [Imu](modules_driver_imu.md)
-- [Distance Sensor](modules_driver_distance_sensor.md)
 - [Airspeed Sensor](modules_driver_airspeed_sensor.md)
 - [Baro](modules_driver_baro.md)
-- [Optical Flow](modules_driver_optical_flow.md)
 - [Magnetometer](modules_driver_magnetometer.md)
+- [Distance Sensor](modules_driver_distance_sensor.md)
+- [Optical Flow](modules_driver_optical_flow.md)
 
 ## adc
 Source: [drivers/adc/board_adc](https://github.com/PX4/Firmware/tree/master/src/drivers/adc/board_adc)
@@ -768,7 +768,7 @@ rc_input <command> [arguments...]
    status        print status info
 ```
 ## rgbled
-Source: [drivers/lights/rgbled_ncp5623c](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/rgbled_ncp5623c)
+Source: [drivers/lights/rgbled](https://github.com/PX4/Firmware/tree/master/src/drivers/lights/rgbled)
 
 <a id="rgbled_usage"></a>
 
@@ -784,7 +784,7 @@ rgbled <command> [arguments...]
      [-f <val>]  bus frequency in kHz
      [-q]        quiet startup (no message if no device found)
      [-a <val>]  I2C address
-                 default: 57
+                 default: 85
 
    stop
 
