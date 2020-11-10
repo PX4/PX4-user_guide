@@ -129,7 +129,7 @@ module.exports = {
             items: [
               { text: 'master', link: '/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
-              { text: 'v1.10', link: 'https://dev.qgroundcontrol.com/en/' },
+              { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
               { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
               { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
               
@@ -187,7 +187,7 @@ module.exports = {
             items: [
               { text: 'master', link: '/' },
               { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
-              { text: 'v1.10', link: 'https://dev.qgroundcontrol.com/en/' },
+              { text: 'v1.10', link: 'https://docs.px4.io/v1.10/en/' },
               { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
               { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
               
@@ -235,8 +235,8 @@ module.exports = {
             ariaLabel: 'Versions Menu',
             items: [
               { text: 'master', link: '/' },
-              { text: 'v1.11', link: 'https://docs.px4.io/v1.11/en/' },
-              { text: 'v1.10', link: 'https://dev.qgroundcontrol.com/en/' },
+              { text: 'v1.11', link: 'https://docs.px4.io/v1.11/zh/' },
+              { text: 'v1.10', link: 'https://docs.px4.io/v1.10/zh/' },
               { text: 'v1.9', link: 'https://docs.px4.io/v1.9.0/en/' },
               { text: 'v1.8', link: 'https://docs.px4.io/v1.8.2/en/' },
               
@@ -252,6 +252,4 @@ module.exports = {
     
   }
 }
-
-
 
