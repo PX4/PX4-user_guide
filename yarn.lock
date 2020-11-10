@@ -7609,9 +7609,9 @@ vuepress-plugin-redirect@^1.2.5:
     vuepress-plugin-dehydrate "1.1.5"
 
 vuepress-plugin-right-anchor@^0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/vuepress-plugin-right-anchor/-/vuepress-plugin-right-anchor-0.4.4.tgz#81d14ce1f21b037529fc9098d3cb091c668e605f"
-  integrity sha512-NjxAtPfAbkCNDhSlEGHEoSFjPcH5xlXvtoBZXp0u7LzgdlgTwvDVPnw10RvIPajNNwxfC2g6zLrOzXP8LIauRg==
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-right-anchor/-/vuepress-plugin-right-anchor-0.4.5.tgz#395031c4da1f9f60a747a43dedcdbe9194392e0f"
+  integrity sha512-cDa+gguUBmNXA829JmK61z6p08zTVWeiEN+30TJ/6T3aWYCLNYhGM7hCVEYYpUmYnpXQC0vzm6v6q4XjDDzkDA==
   dependencies:
     lodash.debounce "^4.0.8"
 
