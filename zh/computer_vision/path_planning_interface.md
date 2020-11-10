@@ -1,4 +1,4 @@
-# Path Planning Interface
+# 路径规划接口
 
 PX4 uses a number of MAVLink interfaces for integrating path planning services from a companion computer (including obstacle avoidance in missions, [safe landing](../computer_vision/safe_landing.md), and future services):
 
