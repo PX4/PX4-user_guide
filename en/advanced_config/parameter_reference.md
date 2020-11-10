@@ -1141,16 +1141,22 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  </thead>
 <tbody>
 <tr>
- <td style="vertical-align: top;"><strong id="COM_ARM_AUTH">COM_ARM_AUTH</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Arm authorization parameters, this uint32_t will be split between starting from the LSB:
-- 8bits to authorizer system id
-- 16bits to authentication method parameter, this will be used to store a timeout for the first 2 methods but can be used to another parameter for other new authentication methods.
-- 7bits to authentication method
-- one arm = 0
-- two step arm = 1
-* the MSB bit is not used to avoid problems in the conversion between int and uint</p><p><strong>Comment:</strong> Default value: (10 << 0 | 1000 << 8 | 0 << 24) = 256010 - authorizer system id = 10 - authentication method parameter = 1000 msec of timeout - authentication method = during arm</p>   </td>
+ <td style="vertical-align: top;"><strong id="COM_ARM_AUTH_ID">COM_ARM_AUTH_ID</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Arm authorizer system id</p><p><strong>Comment:</strong> Used if arm authorization is requested by COM_ARM_AUTH_REQ.</p>   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">256010</td>
+ <td style="vertical-align: top;">10</td>
+ <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_ARM_AUTH_MET">COM_ARM_AUTH_MET</strong> (INT32)</td>
+ <td style="vertical-align: top;"><p>Arm authorization method</p><p><strong>Comment:</strong> Methods: - one arm: request authorization and arm when authorization is received - two step arm: 1st arm command request an authorization and 2nd arm command arm the drone if authorized Used if arm authorization is requested by COM_ARM_AUTH_REQ.</p> <strong>Values:</strong><ul>
+<li><strong>0:</strong> one arm</li> 
+
+<li><strong>1:</strong> two step arm</li> 
+</ul>
+  </td>
+ <td style="vertical-align: top;"></td>
+ <td style="vertical-align: top;">0</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
@@ -1159,6 +1165,13 @@ Set to 2 to use heading from motion capture</p> <strong>Values:</strong><ul>
  <td style="vertical-align: top;"></td>
  <td style="vertical-align: top;">Disabled (0)</td>
  <td style="vertical-align: top;"></td>
+</tr>
+<tr>
+ <td style="vertical-align: top;"><strong id="COM_ARM_AUTH_TO">COM_ARM_AUTH_TO</strong> (FLOAT)</td>
+ <td style="vertical-align: top;"><p>Arm authorization timeout</p><p><strong>Comment:</strong> Timeout for authorizer answer. Used if arm authorization is requested by COM_ARM_AUTH_REQ.</p>   </td>
+ <td style="vertical-align: top;">(0.1)</td>
+ <td style="vertical-align: top;">1</td>
+ <td style="vertical-align: top;">s</td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="COM_ARM_CHK_ESCS">COM_ARM_CHK_ESCS</strong> (INT32)</td>
