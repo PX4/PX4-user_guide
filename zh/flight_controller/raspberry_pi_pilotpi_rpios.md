@@ -1,16 +1,16 @@
-# 在Raspberry Pi OS上使用PilotPi
+# 在 Raspberry Pi OS 上使用 PilotPi
 
 ## 开发者快速指南
 
 ### 操作系统镜像
 
-总是推荐最新官方的 [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) 镜像。
+总是推荐使用最新官方的 [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) 镜像。
 
 默认你已经通过ssh连接到了树莓派。
 
 ### 设置快速访问(可选)
 
-#### 主机名和多播DNS
+#### 主机名和 mDNS
 
 mDNS 帮助您使用主机名替代IP地址连接到您的树莓派。
 
@@ -63,7 +63,7 @@ sudo nano /boot/cmdline.txt
 console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait isolcpus=2
 ```
 
-这告诉Linux内核不要在 CPU 核心2 上调度任何进程。 我们将在稍后手动在该核心运行PX4。
+这告诉 Linux 内核不要在 CPU 核心2 上调度任何进程。 我们将在稍后手动在该核心运行 PX4。
 
 重启并SSH登陆到您的树莓派。
 
@@ -200,7 +200,7 @@ rm -rf build/scumaker_pilotpi_default
 
 <span></span>
 
-> **Note** 如果你的 IDE 不支持 ninja 构建，可以设置`NO_NINJA_BUILD=1`变量。 您也可以编译而不上传。 只需要删除 `upload` 字段。
+> **Note** 如果你的 IDE 不支持 ninja 构建，可以设置`NO_NINJA_BUILD=1`变量。 您也可以编译而不上传。 只需要删除 `upload` 参数。
 
 只是为了编译代码，则可以执行：
 

@@ -109,7 +109,7 @@ PX4 "accepts" the following MAVLink mission commands in Mission mode (note: cave
 Note:
 
 * PX4 parses the above messages, but they are not necessary *acted* on. For example, some messages are vehicle-type specific.
-* PX4 generally does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
+* PX4 generally does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)&nbsp;).
 * Not all messages/commands are exposed via *QGroundControl*.
 * The list may become out of date as messages are added. You can check the current set by inspecting the code. Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp) (list generated in [this git changelist](https://github.com/PX4/PX4-Autopilot/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)).
   

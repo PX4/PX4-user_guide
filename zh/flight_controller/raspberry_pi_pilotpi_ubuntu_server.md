@@ -1,12 +1,12 @@
-# PilotPi with Ubuntu Server
+# PilotPi 使用 Ubuntu Server 操作系统
 
-> **Warning** 在树莓派4B运行 Ubuntu Server 需要较大电流并产生大量热量。 在使用此硬件时考虑高功耗并设计更好的散热。
+> **Warning** 在树莓派4B运行 Ubuntu Server 需要较大电流并会产生不小的热量。 在使用此硬件时考虑高功耗并设计更好的散热。
 
 ## 开发者快速指南
 
 ### 操作系统镜像
 
-armhf 与 arm64 都具有支持。
+armhf 与 arm64 都已支持。
 
 #### armhf
 
@@ -23,7 +23,7 @@ armhf 与 arm64 都具有支持。
 
 #### 最新操作系统
 
-请从官方 [cdimage](https://cdimage.ubuntu.com/releases/) 页面获取最新的操作系统更新。
+请从官方 [cdimage](https://cdimage.ubuntu.com/releases/) 页面获取最新更新的操作系统。
 
 ### 首次启动
 
@@ -35,7 +35,7 @@ armhf 与 arm64 都具有支持。
 
 现在将 SD 卡插入您的 Pi 并首次开机。 请确认您可以获得树莓派的 shell —— 通过有线以太网连接 SSH ，或直接通过键盘和显示器。
 
-#### WiFi区域
+#### WiFi 区域
 
 首先安装必需的软件包：
 
@@ -235,7 +235,7 @@ export AUTOPILOT_HOST=pi_hostname.local
 export AUTOPILOT_USER=ubuntu
 ```
 
-#### 为armhf交叉编译
+#### 为 armhf 目标交叉编译
 
 构建可执行程序：
 
@@ -262,7 +262,7 @@ make scumaker_pilotpi_default upload
 > **Note** Docker 暂不支持 mDNS。 每次上传时，您必须指定正确的IP地址。
 
 <span></span>
-> **Note** 如果你的 IDE 不支持 ninja 构建，可以设置`NO_NINJA_BUILD=1`变量。 您也可以编译而不上传。 只需要删除 `upload` 字段。
+> **Note** 如果你的 IDE 不支持 ninja 构建，可以设置`NO_NINJA_BUILD=1`变量。 您也可以编译而不上传。 只需要删除 `upload` 参数。
 
 只是为了编译代码，则可以执行：
 
@@ -287,7 +287,7 @@ make scumaker_pilotpi_arm64
 make scumaker_pilotpi_arm64 upload
 ```
 
-#### 备选arm64构建方法 (使用 docker)
+#### 备选 arm64 构建方法 (使用 docker)
 
 如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
 
