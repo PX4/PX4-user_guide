@@ -1,12 +1,12 @@
 # PilotPi with Ubuntu Server
 
-> **Warning** Ubuntu Server on RPi 4B consumes a lot of current and generates a lot of heat. Design for better heat dissipation and high power consumption when using this hardware.
+> **Warning** 在树莓派4B运行 Ubuntu Server 需要较大电流并产生大量热量。 在使用此硬件时考虑高功耗并设计更好的散热。
 
-## Developer Quick Start
+## 开发者快速指南
 
-### OS Image
+### 操作系统镜像
 
-Both armhf and arm64 arch are supported.
+armhf 与 arm64 都具有支持。
 
 #### armhf
 
@@ -21,52 +21,52 @@ Both armhf and arm64 arch are supported.
 - [Ubuntu Server 18.04.5 for RPi4](https://cdimage.ubuntu.com/releases/18.04.5/release/ubuntu-18.04.5-preinstalled-server-arm64+raspi4.img.xz)
 - [Ubuntu Server 20.04.1 for RPi 3/4](https://cdimage.ubuntu.com/releases/20.04.1/release/ubuntu-20.04.1-preinstalled-server-arm64+raspi.img.xz)
 
-#### Latest OS
+#### 最新操作系统
 
-Please refer to official [cdimage](https://cdimage.ubuntu.com/releases/) page for any new updates.
+请从官方 [cdimage](https://cdimage.ubuntu.com/releases/) 页面获取最新的操作系统更新。
 
-### First boot
+### 首次启动
 
-When setting up RaPi's WiFi for the first time we recommended using a wired Ethernet connection between your home router and RPi, and a monitor and keyboard.
+当首次设置树莓派的 WiFi 时，我们建议先使用有线网络连接你的路由器与树莓派，并使用显示器和键盘。
 
-#### Before booting
+#### 启动前
 
-Mount the SD card onto your computer and modify the network settings. Please follow the official instruction [here](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet).
+把SD卡挂载到您的电脑上并修改网络设置。 请遵循官方 [指南](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#3-wifi-or-ethernet)。
 
-Now plug the SD card onto your Pi and boot for the first time. Make sure you have shell access to the RPi - either SSH connection over wired Ethernet, or direct accessing with keyboard and monitor.
+现在将 SD 卡插入您的 Pi 并首次开机。 请确认您可以获得树莓派的 shell —— 通过有线以太网连接 SSH ，或直接通过键盘和显示器。
 
-#### WiFi region
+#### WiFi区域
 
-First install required package:
+首先安装必需的软件包：
 
 ```sh
 sudo apt-get install crda
 ```
 
-Edit the file `/etc/default/crda` to change the correct WiFi region. [Reference List](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
+编辑文件 `/etc/default/crda` 以设置正确的 WiFi 区域。 [参考列表](https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Country_Codes_List.htm)
 
 ```sh
 sudo nano /etc/default/crda
 ```
 
-Then your Pi will able to join your WiFi network after reboot.
+之后您的 Pi 将能够在重启后加入您的 WiFi 网络。
 
-#### Hostname and mDNS
+#### 主机名和 mDNS
 
-Let's set up hostname at first.
+让我们先设置主机名。
 
 ```sh
 sudo nano /etc/hostname
 ```
 
-Change the hostname to whatever you like. Then install the package required by mDNS:
+按需更改主机名。 然后安装 mDNS 所需的软件包：
 
 ```sh
 sudo apt-get update
 sudo apt-get install avahi-daemon
 ```
 
-Perform a reboot.
+执行重启。
 
 ```sh
 sudo reboot
