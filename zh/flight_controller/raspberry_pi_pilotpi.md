@@ -108,52 +108,52 @@
 | 2  | VCC | +5V      |
 | 3  | GND | GND      |
 
-- ADC1 is internally connected to voltage divider for battery voltage monitoring.
-- ADC2 is left unused.
-- ADC3 can be connected to an analog airspeed sensor.
-- ADC4 has a jumper cap between ADC and VCC, to monitor system voltage level.
+- ADC1 内部连接到分压电路以监测电池电压。
+- ADC2 空闲。
+- ADC3 可以连接模拟量空速计。
+- ADC4 在ADC和VCC之间有一个跳线帽，监测系统电压。
 
-| Pin | Signal | Volt   |
-| --- | ------ | ------ |
-| 1   | ADCx   | 0V~+5V |
-| 2   | VCC    | +5V    |
-| 3   | GND    | GND    |
+| 针脚 | 信号   | 电压     |
+| -- | ---- | ------ |
+| 1  | ADCx | 0V~+5V |
+| 2  | VCC  | +5V    |
+| 3  | GND  | GND    |
 
-> **Note** ADC3 & 4 have an alternative VCC source When 'Vref' switch is on, 'VCC' pin is driven by REF5050.
+> **Note** ADC3 和 ADC4 有一个替代的 VCC 源。 当开启“Vref” 开关时，'VCC' 将由REF5050 驱动.
 
-#### Unused GPIO available on top of the board
+#### 拓展板顶部引出的未使用的GPIO
 
-| Shield Pin | BCM | WiringPi | RPi Pin |
-| ---------- | --- | -------- | ------- |
-| 1          | 3V3 | 3v3      | 3V3     |
-| 2          | 5V  | 5V       | 5V      |
-| 3          | 4   | 7        | 7       |
-| 4          | 14  | 15       | 8       |
-| 5          | 17  | 0        | 11      |
-| 6          | 27  | 2        | 13      |
-| 7          | 22  | 3        | 15      |
-| 8          | 23  | 4        | 16      |
-| 9          | 7   | 11       | 26      |
-| 10         | 5   | 21       | 29      |
-| 11         | 6   | 22       | 31      |
-| 12         | 12  | 26       | 32      |
-| 13         | 13  | 23       | 33      |
-| 14         | 16  | 27       | 36      |
-| 15         | 26  | 25       | 37      |
-| 16         | GND | GND      | GND     |
+| 拓展板Pin | BCM号 | WiringPi号 | 树莓派Pin |
+| ------ | ---- | --------- | ------ |
+| 1      | 3V3  | 3v3       | 3V3    |
+| 2      | 5V   | 5V        | 5V     |
+| 3      | 4    | 7         | 7      |
+| 4      | 14   | 15        | 8      |
+| 5      | 17   | 0         | 11     |
+| 6      | 27   | 2         | 13     |
+| 7      | 22   | 3         | 15     |
+| 8      | 23   | 4         | 16     |
+| 9      | 7    | 11        | 26     |
+| 10     | 5    | 21        | 29     |
+| 11     | 6    | 22        | 31     |
+| 12     | 12   | 26        | 32     |
+| 13     | 13   | 23        | 33     |
+| 14     | 16   | 27        | 36     |
+| 15     | 26   | 25        | 37     |
+| 16     | GND  | GND       | GND    |
 
-### Switches
+### 开关
 
-#### RC Inverter
+#### 遥控信号反相器
 
-This switch will decide the signal polarity of RX line: `UART_RX = SW xor RC_INPUT`
+此开关将决定 RX 线的信号反相： `UART_RX = SW xor RC_INPUT`
 
-* On: suitable with SBUS (signal inverted)
-* Off: preserved
+* 开启：适合SBUS(反转信号)
+* 关闭：保留
 
-#### Vref
+#### 参考压
 
-ADC 3 & 4 will have VCC driven by:
+ADC3 和 ADC4 的VCC被以下设备驱动：
 * Vref output from REF5050 if on
 * 5V pin directly from RPi if off
 
