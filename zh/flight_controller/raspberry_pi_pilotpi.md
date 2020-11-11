@@ -7,7 +7,7 @@
 
 *PilotPi* 是一套支持树莓派直接运行PX4各项功能的拓展板。 它是一个低成本但高度可扩展的平台，从Linux和PX4两侧不断获得更新。 也不需要专有驱动，因为所有组件都有来自树莓派和 PX4 社区的上游支持。 PCB和原理图开源。
 
-![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
+![安装在树莓派4B的PilotPi拓展板](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
 ## 概览
 
@@ -51,9 +51,9 @@
 
 ## 推荐接线
 
-![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
+![电源部分接线](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
 
-![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
+![传感器部分接线](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
 ## 针脚定义
 
@@ -154,18 +154,18 @@
 #### 参考压
 
 ADC3 和 ADC4 的VCC被以下设备驱动：
-* Vref output from REF5050 if on
-* 5V pin directly from RPi if off
+* 开启开关：由REF5050驱动
+* 关闭开关：从树莓派5V取电
 
-#### Boot Mode
+#### 启动模式
 
-This switch is connected to Pin22(BCM25). System rc script will check its value and decide whether PX4 should start alongside with system booting or not.
+此开关连接到树莓派Pin22(BCM25)。 系统 rc 脚本将检查其电平并决定是否在与系统开机时自动启动PX4。
 
-* On: start PX4 automatically
-* Off: don' t start PX4
+* 开启：开机自启 PX4
+* 关闭：不启动 PX4
 
-## Developer Quick Start
+## 开发者快速指南
 
-Refer to specific instructions for the OS running on your RPi:
+根据具体操作系统选择以下指南：
 - [Raspberry Pi OS Lite (armhf)](raspberry_pi_pilotpi_rpios.md)
-- [Ubuntu Server (arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
+- [Ubuntu 服务器(arm64 & armhf)](raspberry_pi_pilotpi_ubuntu_server.md)
