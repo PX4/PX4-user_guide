@@ -1,6 +1,6 @@
-# RPi PilotPi Shield
+# 树莓派 PilotPi 拓展板
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](mailto:lhf2613@gmail.com) for hardware support or compliance issues.
+> **Warning** PX4不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](mailto:lhf2613@gmail.com)。
 
 <span></span>
 > **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
