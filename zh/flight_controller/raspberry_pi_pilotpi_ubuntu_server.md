@@ -1,6 +1,6 @@
-# PilotPi with Ubuntu Server
+# PilotPi 使用 Ubuntu Server 操作系统
 
-> **Warning** 在树莓派4B运行 Ubuntu Server 需要较大电流并产生大量热量。 在使用此硬件时考虑高功耗并设计更好的散热。
+> **Warning** 在树莓派4B运行 Ubuntu Server 需要较大电流并会产生不小的热量。 在使用此硬件时考虑高功耗并设计更好的散热。
 
 ## 开发者快速指南
 
