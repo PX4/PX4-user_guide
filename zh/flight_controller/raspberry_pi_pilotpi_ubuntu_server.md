@@ -23,7 +23,7 @@ armhf 与 arm64 都已支持。
 
 #### 最新操作系统
 
-请从官方 [cdimage](https://cdimage.ubuntu.com/releases/) 页面获取最新的操作系统更新。
+请从官方 [cdimage](https://cdimage.ubuntu.com/releases/) 页面获取最新更新的操作系统。
 
 ### 首次启动
 
@@ -35,7 +35,7 @@ armhf 与 arm64 都已支持。
 
 现在将 SD 卡插入您的 Pi 并首次开机。 请确认您可以获得树莓派的 shell —— 通过有线以太网连接 SSH ，或直接通过键盘和显示器。
 
-#### WiFi区域
+#### WiFi 区域
 
 首先安装必需的软件包：
 
