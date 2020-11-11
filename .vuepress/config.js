@@ -69,8 +69,8 @@ module.exports = {
   themeConfig: {
     px4_version: 'master',
     sidebarDepth:0,  //change to 1 if decide to use vuepress-plugin-right-anchor
-    logo: '/logo_pro_small.png',
-    
+    //logo: '/logo_pro_small.png',
+    logo: '/px4-logo.svg',
     // Assumes GitHub. Can also be a full GitLab url.
     //repo: 'PX4/Firmware',
     // Customising the header label
