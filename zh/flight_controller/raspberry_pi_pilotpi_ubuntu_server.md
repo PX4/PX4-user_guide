@@ -6,7 +6,7 @@
 
 ### 操作系统镜像
 
-armhf 与 arm64 都具有支持。
+armhf 与 arm64 都已支持。
 
 #### armhf
 
