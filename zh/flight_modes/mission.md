@@ -114,7 +114,7 @@
   
   * PX4解析上述消息，但它们不是必须*操作</ 0>。 例如，某些消息是特定于飞机类型的。</li> 
     
-    * 对于任务命令，PX4通常不支持本地坐标系（例如，[MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)）。
+    * PX4 generally does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)&nbsp;).
     * 并非所有消息/命令都通过*QGroundControl*公开。
     * The list may become out of date as messages are added. 您可以通过检查代码来检查当前设置。 Support is `MavlinkMissionManager::parse_mavlink_mission_item` in [/src/modules/mavlink/mavlink_mission.cpp](https://github.com/PX4/PX4-Autopilot/blob/master/src/modules/mavlink/mavlink_mission.cpp) (list generated in [this git changelist](https://github.com/PX4/PX4-Autopilot/commit/ca1f7a4a194c23303c23ca79b5905ff8bfb94c22)).
       
