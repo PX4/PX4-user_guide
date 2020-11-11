@@ -1,26 +1,26 @@
-# PilotPi with Raspberry Pi OS
+# 在Raspberry Pi OS上使用PilotPi
 
-## Developer Quick Start
+## 开发者快速指南
 
-### OS Image
+### 操作系统镜像
 
-The latest official [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) image is always recommended.
+总是推荐最新官方的 [Raspberry Pi OS Lite](https://downloads.raspberrypi.org/raspios_lite_armhf_latest) 镜像。
 
-To install you must already have a working SSH connection to RPi.
+默认你已经通过ssh连接到了树莓派。
 
-### Setting up Access (Optional)
+### 设置快速访问(可选)
 
-#### Hostname and mDNS
+#### 主机名和多播DNS
 
-mDNS helps you connect to your RasPi with hostname instead of IP address.
+mDNS 帮助您使用主机名替代IP地址连接到您的树莓派。
 
 ```sh
 sudo raspi-config
 ```
 
-Navigate to **Network Options > Hostname**. Set and exit. You may want to setup [passwordless auth](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md) as well.
+导航到 **网络选项 > 主机名**。 设置并退出。 您也可能想要设置 [无密码认证](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)。
 
-### Setting up OS
+### 配置操作系统
 
 #### config.txt
 
@@ -28,7 +28,7 @@ Navigate to **Network Options > Hostname**. Set and exit. You may want to setup 
 sudo nano /boot/config.txt
 ```
 
-Replace the file with:
+将文件内容替换为：
 
 ```sh
 # enable sc16is752 overlay
