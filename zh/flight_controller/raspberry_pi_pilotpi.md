@@ -41,72 +41,72 @@
 * 外部I2C总线连接器（**Note:** 与CSI摄像头冲突）
 * 遥控输入口（SBUS协议）
 * 3 x 0~5V ADC通道
-* 2\*8 2.54mm unused GPIO connector
+* 2\*8 2.54mm排插 引出未使用的GPIO
 
-Direct accessible from RPi:
+连接到树莓派：
 
-* 4x USB connector
-* CSI connector(**Note:** conflict with external I2C bus)
-* etc.
+* 4x USB 连接器
+* CSI 连接器(**Note:** 与外部I2C总线冲突
+* 其它
 
-## Recommended Wiring
+## 推荐接线
 
 ![PilotPi PowerPart wiring](../../assets/flight_controller/pilotpi/pilotpi_pwr_wiring.png)
 
 ![PilotPi SensorPart wiring](../../assets/flight_controller/pilotpi/pilotpi_sens_wiring.png)
 
-## Pinout
+## 针脚定义
 
-> **Warning** It still uses old GH1.25 connectors. Wiring is compatible with Pixhawk 2.4.8
+> **Warning** 它仍然使用旧的 1.25 连接器。 接线兼容Pixhawk 2.4.8
 
-### Connectors
+### 连接器
 
-#### GPS connector
+#### GPS 连接器
 
-Mapped to `/dev/ttySC0`
+映射到 `/dev/ttySC0`
 
-| Pin | Signal | Volt |
-| --- | ------ | ---- |
-| 1   | VCC    | +5V  |
-| 2   | TX     | +3v3 |
-| 3   | RX     | +3v3 |
-| 4   | NC     | +3v3 |
-| 5   | NC     | +3v3 |
-| 6   | GND    | GND  |
+| 针脚 | 信号  | 电压   |
+| -- | --- | ---- |
+| 1  | VCC | +5V  |
+| 2  | TX  | +3v3 |
+| 3  | RX  | +3v3 |
+| 4  | NC  | +3v3 |
+| 5  | NC  | +3v3 |
+| 6  | GND | GND  |
 
-#### Telemetry connector
+#### 数传连接器
 
-Mapped to `/dev/ttySC1`
+映射到 `/dev/ttySC0`
 
-| Pin | Signal | Volt |
-| --- | ------ | ---- |
-| 1   | VCC    | +5V  |
-| 2   | TX     | +3v3 |
-| 3   | RX     | +3v3 |
-| 4   | CTS    | +3v3 |
-| 5   | RTS    | +3v3 |
-| 6   | GND    | GND  |
+| 针脚 | 信号  | 电压   |
+| -- | --- | ---- |
+| 1  | VCC | +5V  |
+| 2  | TX  | +3v3 |
+| 3  | RX  | +3v3 |
+| 4  | CTS | +3v3 |
+| 5  | RTS | +3v3 |
+| 6  | GND | GND  |
 
-#### External I2C connector
+#### 外部 I2C 总线连接器
 
-Mapped to `/dev/i2c-0`
+映射到 `/dev/i2c-0`
 
-| Pin | Signal | Volt          |
-| --- | ------ | ------------- |
-| 1   | VCC    | +5V           |
-| 2   | SCL    | +3v3(pullups) |
-| 3   | SDA    | +3v3(pullups) |
-| 4   | GND    | GND           |
+| 针脚 | 信号  | 电压            |
+| -- | --- | ------------- |
+| 1  | VCC | +5V           |
+| 2  | SCL | +3v3(pullups) |
+| 3  | SDA | +3v3(pullups) |
+| 4  | GND | GND           |
 
-#### RC & ADC2/3/4
+#### 遥控 & ADC 2/3/4
 
-RC is mapped to `/dev/ttyAMA0` with signal inverter switch on RX line.
+遥控输入映射到 `/dev/ttyAMA0` ，且在RX 线上有硬件反向开关。
 
-| Pin | Signal | Volt     |
-| --- | ------ | -------- |
-| 1   | RC     | +3V3~+5V |
-| 2   | VCC    | +5V      |
-| 3   | GND    | GND      |
+| 针脚 | 信号  | 电压       |
+| -- | --- | -------- |
+| 1  | RC  | +3V3~+5V |
+| 2  | VCC | +5V      |
+| 3  | GND | GND      |
 
 - ADC1 is internally connected to voltage divider for battery voltage monitoring.
 - ADC2 is left unused.
