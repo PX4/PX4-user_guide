@@ -5,10 +5,10 @@
 node_modules
 
 # Book build output
-_book
+docs/_book
 
 # Vuepress build output
-.vuepress/dist
+docs/.vuepress/dist
 
 # eBook build output
 *.epub

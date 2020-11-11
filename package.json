@@ -13,10 +13,10 @@
     "vuepress-plugin-redirect": "^1.2.5"
   },
   "scripts": {
-    "docs:devmem": "NODE_OPTIONS='--max-old-space-size=8192' vuepress dev . ",
-    "docs:dev": "vuepress dev . ",
-    "docs:buildnorm": "vuepress build .",
-    "docs:build": "NODE_OPTIONS='--max-old-space-size=8192' vuepress build ."
+    "docs:devmem": "NODE_OPTIONS='--max-old-space-size=8192' vuepress dev docs",
+    "docs:dev": "vuepress dev docs ",
+    "docs:buildnorm": "vuepress build docs",
+    "docs:build": "NODE_OPTIONS='--max-old-space-size=8192' vuepress build docs"
   },
   "dependencies": {
     "vuepress-plugin-right-anchor": "^0.4.4"

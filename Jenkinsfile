@@ -18,14 +18,14 @@ pipeline {
         sh('printenv | sort')
         sh('yarn install --ignore-engines')
         sh('yarn docs:build')
-        stash(includes: '.vuepress/dist/', name: 'vuepress')
+        stash(includes: 'docs/.vuepress/dist/', name: 'vuepress')
         // publish html
         publishHTML(target: [
           reportTitles: 'PX4 User Guide',
           allowMissing: false,
           alwaysLinkToLastBuild: true,
           keepAll: true,
-          reportDir: '.vuepress/dist/',
+          reportDir: 'docs/.vuepress/dist/',
           reportFiles: '*',
           reportName: 'PX4 User Guide'
         ])
@@ -48,7 +48,7 @@ pipeline {
           sh('git clone https://${GIT_USER}:${GIT_PASS}@github.com/PX4/docs.px4.io.git')
           sh('rm -rf docs.px4.io/${BRANCH_NAME}')
           sh('mkdir -p docs.px4.io/${BRANCH_NAME}')
-          sh('cp -r .vuepress/dist/* docs.px4.io/${BRANCH_NAME}/')
+          sh('cp -r docs/.vuepress/dist/* docs.px4.io/${BRANCH_NAME}/')
           sh('cd docs.px4.io; git add ${BRANCH_NAME}; git commit -a -m "docs build update `date`"')
           sh('cd docs.px4.io; git push origin master')
           
