@@ -291,49 +291,49 @@ make scumaker_pilotpi_arm64 upload
 
 如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
 
-Execute the command in `PX4-Autopilot` folder:
+在 PX4-Autopilot 文件夹下执行：
 
 ```sh
 ./Tools/docker_run.sh "export AUTOPILOT_HOST=192.168.X.X; export AUTOPILOT_USER=ubuntu; export NO_NINJA_BUILD=1; make scumaker_pilotpi_arm64 upload"
 ```
-> **Note** mDNS is not supported within docker. You must specify the correct IP address everytime when uploading.
+> **Note** Docker 暂不支持 mDNS。 每次上传时，您必须指定正确的IP地址。
 
 <span></span>
-> **Note** If your IDE doesn't support ninja build, `NO_NINJA_BUILD=1` option will help. You can compile without uploading too - just remove the `upload` target.
+> **Note** 如果你的 IDE 不支持 ninja 构建，可以设置`NO_NINJA_BUILD=1`变量。 您可以只编译而无需上传 - 只需删除 `upload` 字段。
 
-It is also possible to just compile the code with command:
+只是为了编译代码，则可以执行：
 
 ```sh
 ./Tools/docker_run.sh "make scumaker_pilotpi_arm64"
 ```
 
-#### Manually run PX4
+#### 手动运行 PX4
 
-Connect over SSH and run it with:
+通过 ssh 连接并运行它：
 
 ```sh
 cd px4
 sudo taskset -c 2 ./bin/px4 -s pilotpi_mc.config
 ```
 
-Now PX4 is started with multi-rotor configuration.
+PX4 已配置使用多旋翼模型启动。
 
-If you encountered the similar problem executing `bin/px4` on your Pi as following:
+如果在树莓派上运行PX4时遇到了以下问题：
 
 ```
 bin/px4: /lib/xxxx/xxxx: version `GLIBC_2.29' not found (required by bin/px4)
 ```
 
-Then you should compile with docker instead.
+这时应当使用基于 Docker 的编译。
 
-Before proceeding to next step, clear the existing building at first:
+在执行下一步之前，先清除现有构建目录：
 
 ```sh
 rm -rf build/scumaker_pilotpi_*
 ```
 
-Then go back to the corresponding chapter above.
+然后回到上面相应的章节。
 
-### Post-configuration
+### 后期配置
 
-Please refer to the instructions [here](raspberry_pi_pilotpi_rpios.md)
+请参阅 [这里的说明](raspberry_pi_pilotpi_rpios.md)
