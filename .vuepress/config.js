@@ -16,12 +16,21 @@ module.exports = {
       ], 
 
   plugins: ['@vuepress/medium-zoom',
+      ['vuepress-plugin-mathjax',
+        {
+          target: 'svg',
+          macros: {
+            '*': '\\times',
+          },
+        },
+      ],
       ['vuepress-plugin-redirect', 
-      {
+        {
         // provide i18n redirection
         // it will automatically redirect `/foo/bar/` to `/:locale/foo/bar/` if exists
         locales: true,
-      }],
+        }
+	  ],
       '@vuepress/back-to-top',
       [
       'vuepress-plugin-right-anchor',

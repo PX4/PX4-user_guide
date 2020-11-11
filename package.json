@@ -19,6 +19,7 @@
     "docs:build": "NODE_OPTIONS='--max-old-space-size=8192' vuepress build ."
   },
   "dependencies": {
+    "vuepress-plugin-mathjax": "^1.2.8",
     "vuepress-plugin-right-anchor": "^0.4.4"
   }
 }

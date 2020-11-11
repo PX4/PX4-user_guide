@@ -119,7 +119,7 @@ Unless otherwise noted, the implementation is as defined in the MAVLink specific
 
 Note:
 - PX4 parses the above messages, but they are not necessary *acted* on. For example, some messages are vehicle-type specific.
-- PX4 generally does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)).
+- PX4 generally does not support local frames for mission commands (e.g. [MAV_FRAME_LOCAL_NED](https://mavlink.io/en/messages/common.html#MAV_FRAME_LOCAL_NED)&nbsp;).
 - Not all messages/commands are exposed via *QGroundControl*.
 - The list may become out of date as messages are added. 
   You can check the current set by inspecting the code.
@@ -140,5 +140,7 @@ Vehicles switch to the next waypoint as soon as they enter the acceptance radius
 - For FW the radius is defined by the "L1 distance".
   - The L1 distance is computed from two parameters: [FW_L1_DAMPING](../advanced_config/parameter_reference.md#FW_L1_DAMPING) and [FW_L1_PERIOD](../advanced_config/parameter_reference.md#FW_L1_PERIOD), and the current ground speed.
   - By default, it's about 70 meters.
-  - The equation is:
+  - The equation is: 
     $$L_{1_{distance}}=\frac{1}{\pi}L_{1_{damping}}L_{1_{period}}\left \| \vec{v}_{ {xy}_{ground} } \right \|$$
+
+
