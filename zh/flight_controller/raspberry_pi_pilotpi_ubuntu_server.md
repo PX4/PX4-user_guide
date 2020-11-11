@@ -235,7 +235,7 @@ export AUTOPILOT_HOST=pi_hostname.local
 export AUTOPILOT_USER=ubuntu
 ```
 
-#### 为armhf交叉编译
+#### 为 armhf 目标交叉编译
 
 构建可执行程序：
 
@@ -287,7 +287,7 @@ make scumaker_pilotpi_arm64
 make scumaker_pilotpi_arm64 upload
 ```
 
-#### 备选arm64构建方法 (使用 docker)
+#### 备选 arm64 构建方法 (使用 docker)
 
 如果您是首次使用 Docker 进行编译，请参考[官方说明](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites)。
 
