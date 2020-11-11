@@ -215,7 +215,7 @@ To counteract that, adjust the **thrust curve** with the [THR_MDL_FAC](../advanc
 The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic.
 Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
 
-If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust and PWM commands simultaneously), you can determine the relationship between the PWM control signal and the motor's actual thrust, and fit a function to the data.
+If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust and PWM commands simultaneously), you can determine the relationship between the motor control signal and the motor's actual thrust, and fit a function to the data. The motor command in PX4 called `actuator_output` can be PWM, Dshot, UAVCAN commands for the respective ESCs in  use. 
 [This Notebook][THR_MDL_FAC_Calculation] shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data.
 The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s).
 However, note that in order to calculate `THR_MDL_FAC`, you will need to normalize the data betweeon 0 and 1. 
@@ -299,4 +299,3 @@ If mixing becomes saturated towards the upper bound the commanded thrust is redu
 This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
 
 Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
-
