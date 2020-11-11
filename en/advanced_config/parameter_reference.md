@@ -5580,7 +5580,7 @@ Setting this parameter to 0 disables the filter</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_ACC_HOR_MAX">MPC_ACC_HOR_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and for manual mode</p><p><strong>Comment:</strong> Maximum deceleration for MPC_POS_MODE 1. Maximum acceleration and deceleration for MPC_POS_MODE 3.</p>   </td>
+ <td style="vertical-align: top;"><p>Maximum horizontal acceleration for auto mode and for manual mode</p><p><strong>Comment:</strong> MPC_POS_MODE 1 just deceleration 3 acceleration and deceleration 4 just acceleration</p>   </td>
  <td style="vertical-align: top;">2.0 > 15.0 (1)</td>
  <td style="vertical-align: top;">5.0</td>
  <td style="vertical-align: top;">m/s^2</td>
@@ -5643,7 +5643,7 @@ Setting this parameter to 0 disables the filter</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_JERK_MAX">MPC_JERK_MAX</strong> (FLOAT)</td>
- <td style="vertical-align: top;"><p>Maximum jerk limit</p><p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 1 or 3.</p>   </td>
+ <td style="vertical-align: top;"><p>Maximum jerk limit</p><p><strong>Comment:</strong> Limit the maximum jerk of the vehicle (how fast the acceleration can change). A lower value leads to smoother vehicle motions, but it also limits its agility (how fast it can change directions or break). Setting this to the maximum value essentially disables the limit. Note: This is only used when MPC_POS_MODE is set to a smoothing mode 1, 3 or 4.</p>   </td>
  <td style="vertical-align: top;">0.5 > 500.0 (1)</td>
  <td style="vertical-align: top;">8.0</td>
  <td style="vertical-align: top;">m/s^3</td>
@@ -5715,16 +5715,18 @@ Setting this parameter to 0 disables the filter</p>   </td>
 </tr>
 <tr>
  <td style="vertical-align: top;"><strong id="MPC_POS_MODE">MPC_POS_MODE</strong> (INT32)</td>
- <td style="vertical-align: top;"><p>Manual-Position control sub-mode</p><p><strong>Comment:</strong> The supported sub-modes are: 0 Simple position control where sticks map directly to velocity setpoints without smoothing. Useful for velocity control tuning. 1 Smooth position control with maximum acceleration and jerk limits based on slew-rates. 3 Smooth position control with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1).</p> <strong>Values:</strong><ul>
+ <td style="vertical-align: top;"><p>Manual-Position control sub-mode</p><p><strong>Comment:</strong> The supported sub-modes are: 0 Simple position control where sticks map directly to velocity setpoints without smoothing. Useful for velocity control tuning. 1 Smooth position control with maximum acceleration and jerk limits based on slew-rates. 3 Smooth position control with maximum acceleration and jerk limits based on jerk optimized trajectory generator (different algorithm than 1). 4 Smooth position control where sticks map to acceleration and there's a virtual brake drag</p> <strong>Values:</strong><ul>
 <li><strong>0:</strong> Simple position control</li> 
 
 <li><strong>1:</strong> Smooth position control</li> 
 
 <li><strong>3:</strong> Smooth position control (Jerk optimized)</li> 
+
+<li><strong>4:</strong> Acceleration based input</li> 
 </ul>
   </td>
  <td style="vertical-align: top;"></td>
- <td style="vertical-align: top;">3</td>
+ <td style="vertical-align: top;">4</td>
  <td style="vertical-align: top;"></td>
 </tr>
 <tr>
