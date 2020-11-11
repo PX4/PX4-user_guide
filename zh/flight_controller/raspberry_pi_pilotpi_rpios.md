@@ -18,7 +18,7 @@ mDNS 帮助您使用主机名替代IP地址连接到您的树莓派。
 sudo raspi-config
 ```
 
-导航到 **网络选项 > 主机名**。 设置并退出。 您也可能想要设置 [无密码认证](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)。
+导航到 **Network Options > Hostname**。 设置并退出。 您也可能想要设置 [无密码认证](https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md)。
 
 ### 配置操作系统
 
@@ -51,55 +51,55 @@ dtoverlay=miniuart-bt
 sudo raspi-config
 ```
 
-**Interfacing Options > Serial > login shell = No > hardware = Yes**. Enable UART but without a login shell on it.
+**Interfacing Options > Serial > login shell = No > hardware = Yes**. 启用 UART 但禁用登陆shell。
 
 ```sh
 sudo nano /boot/cmdline.txt
 ```
 
-Append `isolcpus=2` after the last word. The whole file would be:
+在最后添加 `isolcpus=2` 整个文件将是：
 
 ```sh
 console=tty1 root=PARTUUID=xxxxxxxx-xx rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait isolcpus=2
 ```
 
-This tells the Linux kernel not to schedule any process on CPU core 2. We will manually run PX4 onto that core later.
+这告诉Linux内核不要在 CPU 核心2 上调度任何进程。 我们将在稍后手动在该核心运行PX4。
 
-Reboot and SSH onto your RasPi.
+重启并SSH登陆到您的树莓派。
 
-Check UART interface:
+检查串口：
 
 ```sh
 ls /dev/tty*
 ```
 
-There should be `/dev/ttyAMA0`, `/dev/ttySC0` and `/dev/ttySC1`.
+应该有 `/dev/ttyAMA0`, `/dev/ttySC0` 和 `/dev/ttySC1`。
 
-Check I2C interface:
+检查 I2C：
 
 ```sh
 ls /dev/i2c*
 ```
 
-There should be `/dev/i2c-0` and `/dev/i2c-1`
+应该有 `/dev/i2c-0` 和 `/dev/i2c-1`
 
-Check SPI interface
+检查SPI：
 
 ```sh
 ls /dev/spidev*
 ```
 
-There should be `/dev/spidev0.0`.
+应该有 `/dev/spidev0.0`。
 
 #### rc.local
 
-In this section we will configure the auto-start script in **rc.local**.
+在本节中，我们将在 **rc.local** 中配置自动启动脚本。
 
 ```sh
 sudo nano /etc/rc.local
 ```
 
-Append below content to the file above `exit 0`:
+把下面内容添加到文件中，且放在 `exit 0` 之上：
 
 ```sh
 echo "25" > /sys/class/gpio/export
@@ -111,13 +111,13 @@ fi
 echo "25" > /sys/class/gpio/unexport
 ```
 
-Save and exit.
+保存并退出。
 
-> **Note** Don't forget to turn off the switch when it is not needed.
+> **Note** 在不需要自启动的时候关闭开关。
 
-#### CSI camera
+#### CSI 相机
 
-> **Warning** Enable CSI camera will stop anything works on I2C-0.
+> **Warning** 启用 CSI 摄像头将停止在 I2C-0 上工作的任何设备。
 
 ```sh
 sudo raspi-config
@@ -125,7 +125,7 @@ sudo raspi-config
 
 **Interfacing Options > Camera**
 
-### Building the code
+### 构建代码
 
 To get the *very latest* version onto your computer, enter the following command into a terminal:
 
