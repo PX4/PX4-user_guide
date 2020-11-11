@@ -218,7 +218,7 @@ Values in between use a linear interpolation of the two. Typical values are betw
 If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust and PWM commands simultaneously), you can determine the relationship between the motor control signal and the motor's actual thrust, and fit a function to the data. The motor command in PX4 called `actuator_output` can be PWM, Dshot, UAVCAN commands for the respective ESCs in  use. 
 [This Notebook][THR_MDL_FAC_Calculation] shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data.
 The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s).
-However, note that in order to calculate `THR_MDL_FAC`, you will need to normalize the data betweeon 0 and 1. 
+In order to simplify the curve fit problem, you can normalize the data between 0 and 1 to find `k` without having to estimate &alpha (&alpha = 1 when the data is normalized).
 
 [![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
 
