@@ -262,7 +262,7 @@ make scumaker_pilotpi_default upload
 > **Note** Docker 暂不支持 mDNS。 每次上传时，您必须指定正确的IP地址。
 
 <span></span>
-> **Note** 如果你的 IDE 不支持 ninja 构建，可以设置`NO_NINJA_BUILD=1`变量。 您也可以编译而不上传。 只需要删除 `upload` 字段。
+> **Note** 如果你的 IDE 不支持 ninja 构建，可以设置`NO_NINJA_BUILD=1`变量。 您也可以编译而不上传。 只需要删除 `upload` 参数。
 
 只是为了编译代码，则可以执行：
 
