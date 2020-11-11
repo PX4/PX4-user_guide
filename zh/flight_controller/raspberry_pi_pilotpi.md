@@ -3,44 +3,44 @@
 > **Warning** PX4不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](mailto:lhf2613@gmail.com)。
 
 <span></span>
-> **Warning** PX4 support for this flight controller is [experimental](../flight_controller/autopilot_experimental.md).
+> **Warning** PX4 [实验性的](../flight_controller/autopilot_experimental.md) 支持此飞行控制器。
 
-The *PilotPi* shield is a fully functional solution to run PX4 autopilot directly on Raspberry Pi. It is designed to be a low-cost but highly scalability platform with continuous updates from both Linux and PX4 sides. No proprietary driver is required, as all components have upstream support from RPi and PX4 community. PCB and schematic are open source as well.
+*PilotPi* 是一套支持树莓派直接运行PX4各项功能的拓展板。 它是一个低成本但高度可扩展的平台，从Linux和PX4两侧不断获得更新。 也不需要专有驱动，因为所有组件都有来自树莓派和 PX4 社区的上游支持。 PCB和原理图开源。
 
 ![PilotPi with RPi 4B](../../assets/flight_controller/pilotpi/hardware-pilotpi4b.png)
 
-## Quick Summary
+## 概览
 
-* Supported RPi boards:
-  * Raspberry Pi 2B/3B/3B+/4B
-* Supported OS:
+* 支持的树莓派：
+  * 树莓派2B/3B/3B+/4B
+* 支持的操作系统：
   * Raspberry Pi OS
   * Ubuntu Server (armhf/arm64)
-* Accelerometer / Gyro:
+* 加速度计/角速度计：
   * ICM42688P
-* Magnetometer:
+* 磁力计：
   * IST8310
-* Barometer:
+* 气压计：
   * MS5611
-* PWM:
+* PWM：
   * PCA9685
-* ADC:
+* ADC：
   * ADS1115
-* Power:
-  * 3~6S battery with built-in voltage sensing.
-  * Power the Pi through USB cable
-* Availability: *preparing for shipping*
+* 电源：
+  * 3~6S电池 具有内置电压监测
+  * 通过USB线启动树莓派
+* 市场状态： *准备生产*
 
-## Connectivity
+## 连接性
 
-Shield provides:
+扩展板提供：
 
-* 16x PWM outputting channels
-* GPS connector
-* Telemetry connector
-* External I2C bus connector (**Note:** conflicts with CSI camera)
-* RC input port (SBUS)
-* 3x ADC channels range 0~5V
+* 16 x PWM 输出通道
+* GPS 连接器
+* 数传连接器
+* 外部I2C总线连接器（**Note:** 与CSI摄像头冲突）
+* 遥控输入口（SBUS协议）
+* 3 x 0~5V ADC通道
 * 2\*8 2.54mm unused GPIO connector
 
 Direct accessible from RPi:
