@@ -1,9 +1,9 @@
-# Getting Started
+# 入门指南
 
-This section contains topics about getting started with PX4 development:
+本节包含有关开始 PX4 开发的主题：
 
-* [Initial Setup](../setup/config_initial.md)
-* [Toolchain Installation](../setup/dev_env.md)
-* [Building the Code](../setup/building_px4.md)
-* [Writing an Application](../apps/hello_sky.md)
-* [Application/Module Template](../apps/module_template.md)
+* [初始设置](../setup/config_initial.md)
+* [工具链安装](../setup/dev_env.md)
+* [构建代码](../setup/building_px4.md)
+* [编写应用程序](../apps/hello_sky.md)
+* [应用/模块模板](../apps/module_template.md)
