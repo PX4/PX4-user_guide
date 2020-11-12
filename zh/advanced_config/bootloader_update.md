@@ -60,26 +60,26 @@
         Type "apropos word" to search for commands related to "word"...
         Reading symbols from px4fmuv5_bl.elf...done.
 
-5. Find your `<dronecode-probe-id>` by running an ls command in the **/dev/serial/by-id** directory.
-6. Now connect to the Dronecode probe with the following command: ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
-7. Power on the Pixhawk with another USB cable and connect the Dronecode probe to the FMU-DEBUG port.
+5. 通过在 **/dev/serial/by-id** 文件夹下中运行 ls 命令来找到 `<dronecode-probe-id>` dronecode-probe-id</0> 。
+6. 现在，使用以下命令连接到 Dronecode probe： ```tar ext /dev/serial/by-id/<dronecode-probe-id>```
+7. 使用另一条 USB 线为 Pixhawk 供电，然后将 Dronecode probe 连接到 FMU-DEBUG 端口。
     
-    > **Note** To be able to connect the Dronecode probe to the FMU-DEBUG port, you may need to remove the case (e.g. on Pixhawk 4 you would do this using a T6 Torx screwdriver).
+    > **注意** 为了能够将 Dronecode probe 连接到 FMU-DEBUG 端口，您可能需要卸下外壳（例如，在Pixhawk 4 上，可以使用 T6 Torx 螺丝刀进行操作）。
 
-8. Use the following command to scan for the Pixhawk’s swd and connect to it:
+8. 使用以下命令扫描 Pixhawk 的 swd 调试端口并连接到它 ：
     
         (gdb) mon swdp_scan
         (gdb) attach 1
         
 
-9. Load the binary into the Pixhawk: ```(gdb) load```
+9. 将二进制文件加载到 Pixhawk 中 ： ```(gdb) load```
 
-After the bootloader has updated you can [Load PX4 Firmware](../config/firmware.md) using *QGroundControl*.
+Bootloader 更新后，您可以使用* QGroundControl * 来 [加载 PX4 固件](../config/firmware.md)。
 
 <span id="non-pixhawk"></span>
 
-## Other Boards (Non-Pixhawk)
+## 其他飞控板（非 Pixhawk）
 
-Boards that are not part of the [Pixhawk Series](../flight_controller/pixhawk_series.md) will have their own mechanisms for bootloader update.
+不属于 [ Pixhawk 系列](../flight_controller/pixhawk_series.md)的板卡将具有自己的 Bootloader 更新机制。
 
 For boards that are preflashed with Betaflight, see [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md).
