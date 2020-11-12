@@ -13,9 +13,9 @@ The ROS/Gazebo integration with PX4 follows the pattern in the diagram below (th
 
 > **Note** *ROS* is only supported on Linux (not macOS or Windows).
 
-The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../setup/dev_env_linux_ubuntu.md#rosgazebo). The script installs everything you need: PX4, ROS "Melodic", the Gazebo 9 simulator, and [MAVROS](../ros/mavros_installation.md).
+The easiest way to setup PX4 simulation with ROS on Ubuntu Linux is to use the standard installation script that can be found at [Development Environment on Linux > Gazebo with ROS](../setup/dev_env_linux.md#gazebo-with-ros). The script installs everything you need: PX4, ROS "Kinetic", the Gazebo 7 simulator, and [MAVROS](../ros/mavros_installation.md).
 
-> **Note** The script follows the [standard ROS "Melodic" installation instructions](http://wiki.ros.org/melodic/Installation/Ubuntu), which includes Gazebo 9.
+> **Note** The script follows the [standard ROS "Kinetic" installation instructions](http://wiki.ros.org/kinetic/Installation/Ubuntu), which include Gazebo 7.
 
 
 ## Launching ROS/Simulation
@@ -45,17 +45,17 @@ The Gazebo simulation can be modified to integrate sensors publishing directly t
 
 There are ROS launch scripts available to run the simulation wrapped in ROS:
 
-* [posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/master/launch/posix_sitl.launch): plain SITL launch
-* [mavros_posix_sitl.launch](https://github.com/PX4/PX4-Autopilot/blob/master/launch/mavros_posix_sitl.launch): SITL and MAVROS
+* [posix_sitl.launch](https://github.com/PX4/Firmware/blob/master/launch/posix_sitl.launch): plain SITL launch
+* [mavros_posix_sitl.launch](https://github.com/PX4/Firmware/blob/master/launch/mavros_posix_sitl.launch): SITL and MAVROS
 
 To run SITL wrapped in ROS the ROS environment needs to be updated, then launch as usual:
 
 (optional): only source the catkin workspace if you compiled MAVROS or other ROS packages from source:
 
 ```sh
-cd <PX4-Autopilot_clone>
-DONT_RUN=1 make px4_sitl_default gazebo
-source ~/catkin_ws/devel/setup.bash    # (optional)
+cd <Firmware_clone>
+make px4_sitl_default gazebo
+source ~/catkin_ws/devel/setup.bash    // (optional)
 source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
@@ -101,7 +101,7 @@ INFO  Waiting for initial data on UDP. Please start the flight simulator to proc
 Now in a new terminal make sure you will be able to insert the Iris model through the Gazebo menus, to do this set your environment variables to include the appropriate `sitl_gazebo` folders.
 
 ```sh
-cd <PX4-Autopilot_clone>
+cd <Firmware_clone>
 source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
 ```
 
