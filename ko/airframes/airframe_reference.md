@@ -1,10 +1,10 @@
 # 에어프레임 참조
 
-> **Note** **This list is [auto-generated](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py) from the source code**.
+> **Note** **This list is auto-generated from the source code**.
 > 
-> 일부 비행 컨트롤러에는 **AUX** 채널이 없을 수 있습니다. 존재하는 경우 PWM AUX 채널은 일반적으로 AUX OUT으로 표시됩니다.
+> 일부 비행 컨트롤러에는 **AUX** 채널이 없을 수 있습니다. The **AUX** channels are only available on Pixhawk Boards (labeled with **AUX OUT**).
 
-이 페이지에는 모터 할당과 번호 지정을 포함한 지원되는 모든 기체 프레임이 나열되어 있습니다. **녹색 모터**는 시계 방향으로 회전합니다. **파란색 모터**는 반시계 방향으로 회전합니다.
+This page lists all supported airframes and types including the motor assignment and numbering. The motors in **green** rotate clockwise, the ones in **blue** counterclockwise.
 
 ## Airship
 
@@ -20,7 +20,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: starboard thruster</li><li><b>MAIN2</b>: port thruster</li><li><b>MAIN3</b>: thrust tilt</li><li><b>MAIN4</b>: tail thruster</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: Mount pitch</li><li><b>AUX2</b>: Mount roll</li><li><b>AUX3</b>: Mount yaw</li><li><b>AUX4</b>: Mount retract</li></ul></td>
 </tr>
   </table>
 </div>
@@ -37,7 +37,7 @@
 <tbody>
 <tr id="airship_airship_cloudship">
  <td style="vertical-align: top;">Cloudship</td>
- <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 2507</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 4002</p></td>
 
 </tr>
 </tbody></table>
@@ -73,7 +73,7 @@
 <tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o., Roman Dvorak <dvorakroman@thunderfly.cz></p><p><code>SYS_AUTOSTART</code> = 17002</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o., Roman Dvorak <dvorakroman@thunderfly.cz></p><p><code>SYS_AUTOSTART</code> = 4013</p></td>
 
 </tr>
 </tbody></table>
@@ -314,7 +314,7 @@
 </tr>
 <tr id="copter_hexarotor_x_uvify_draco-r">
  <td style="vertical-align: top;">UVify Draco-R</td>
- <td style="vertical-align: top;"><p>Maintainer: Hyon Lim <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 6002</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4004</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li></ul></p></td>
 
 </tr>
 </table>
@@ -625,7 +625,7 @@
     </th>
   </tr>
 <tr id="copter_quadrotor_x_generic_quadcopter">
- <td style="vertical-align: top;">Generic Quadcopter</td>
+ <td style="vertical-align: top;">Generic Quadrotor x</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
 
 </tr>
@@ -651,23 +651,23 @@
 
 </tr>
 <tr id="copter_quadrotor_x_dji_f330_w/_dji_escs">
- <td style="vertical-align: top;">DJI F330 w/ DJI ESCs</td>
+ <td style="vertical-align: top;">DJI Flame Wheel F330</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4010</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_dji_f450_w/_dji_escs">
- <td style="vertical-align: top;">DJI F450 w/ DJI ESCs</td>
+ <td style="vertical-align: top;">DJI Flame Wheel F450</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4011</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_s500_generic">
- <td style="vertical-align: top;">S500 Generic</td>
+ <td style="vertical-align: top;">S500</td>
  <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4014</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_holybro_s500">
  <td style="vertical-align: top;">Holybro S500</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4015</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4012</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_px4_vision_devkit_platform">
@@ -784,7 +784,7 @@
 </tr>
 <tr id="copter_simulation_(copter)_sih_quadcopter_x">
  <td style="vertical-align: top;">SIH Quadcopter X</td>
- <td style="vertical-align: top;"><p>Maintainer: Romain Chiappinelli <romain.chiap@gmail.com></p><p><code>SYS_AUTOSTART</code> = 1100</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Pavel Kirienko <romain.chiap@gmail.com></p><p><code>SYS_AUTOSTART</code> = 1100</p></td>
 
 </tr>
 </table>
@@ -1150,7 +1150,7 @@
 </tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx">
  <td style="vertical-align: top;">NXP Cup car: DF Robot GPX</td>
- <td style="vertical-align: top;"><p>Maintainer: Katrin Moritz</p><p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: Steering servo</li><li><b>MAIN3</b>: Speed of left wheels</li><li><b>MAIN4</b>: Speed of right wheels</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Leon Mueller </p><p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: Steering servo</li><li><b>MAIN3</b>: Speed of left wheels</li><li><b>MAIN4</b>: Speed of right wheels</li></ul></p></td>
 
 </tr>
 </table>
@@ -1179,7 +1179,7 @@
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
  <td style="vertical-align: top;">HippoCampus UUV (Unmanned Underwater Vehicle)</td>
- <td style="vertical-align: top;"><p>Maintainer: Daniel Duecker <daniel.duecker@tuhh.de></p><p><code>SYS_AUTOSTART</code> = 60001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Jacob Dahl <daniel.duecker@tuhh.de></p><p><code>SYS_AUTOSTART</code> = 60001</p></td>
 
 </tr>
 </table>
@@ -1277,7 +1277,7 @@
 </tr>
 <tr id="vtol_standard_vtol_babyshark_vtol">
  <td style="vertical-align: top;">BabyShark VTOL</td>
- <td style="vertical-align: top;"><p>Maintainer: Silvan Fuhrer <silvan@auterion.com></p><p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Ailerons</li><li><b>MAIN2</b>: A-tail left</li><li><b>MAIN3</b>: Pusher motor</li><li><b>MAIN4</b>: A-tail right</li><li><b>MAIN5</b>: motor 1</li><li><b>MAIN6</b>: motor 2</li><li><b>MAIN7</b>: motor 3</li><li><b>MAIN8</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Michael Schaeuble<silvan@auterion.com></p><p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Ailerons</li><li><b>MAIN2</b>: A-tail left</li><li><b>MAIN3</b>: Pusher motor</li><li><b>MAIN4</b>: A-tail right</li><li><b>MAIN5</b>: motor 1</li><li><b>MAIN6</b>: motor 2</li><li><b>MAIN7</b>: motor 3</li><li><b>MAIN8</b>: motor 4</li></ul></p></td>
 
 </tr>
 </table>

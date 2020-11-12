@@ -1,14 +1,14 @@
 # 机架参考
 
-> **Note** **This list is [auto-generated](https://github.com/PX4/Firmware/edit/master/Tools/px4airframes/markdownout.py) from the source code**.
+> **Note** **该列表是从源码自动生成的**。
 > 
-> 某些飞行控制器可能会缺少**AUX** 通道。 如果有，PWM AUX通道一般标注为**AUX OUT**。
+> **AUX** 通道仅在Pixhawk飞控板上可用 (标签为 **AUX OUT**)。 如果有，PWM AUX通道一般标注为**AUX OUT**。
 
 该页列出所有PX4支持的机架型号，包括电机分配和序号。 **绿色**为顺时针转动的电机，**蓝色**为逆时针转动的电机。
 
-## Airship
+## 旋翼机
 
-### Airship
+### 共轴双桨直升机
 
 <div>
   <img src="../../assets/airframes/types/Airship.svg" width="29%" style="max-height: 180px;" /> 
@@ -20,7 +20,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: starboard thruster</li><li><b>MAIN2</b>: port thruster</li><li><b>MAIN3</b>: thrust tilt</li><li><b>MAIN4</b>: tail thruster</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机2</li><li><b>MAIN3</b>：上旋翼（逆时针）</li><li><b>MAIN4</b>: 电机4</li></ul></td>
 </tr>
   </table>
 </div>
@@ -28,7 +28,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -37,14 +37,14 @@
 <tbody>
 <tr id="airship_airship_cloudship">
  <td style="vertical-align: top;">Cloudship</td>
- <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 2507</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 4002</p></td>
 
 </tr>
 </tbody></table>
 
-## Autogyro
+## 飞机
 
-### Autogyro
+### 十二旋翼
 
 <div>
   <img src="../../assets/airframes/types/Autogyro.svg" width="29%" style="max-height: 180px;" /> 
@@ -56,7 +56,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: rotor_head_L</li><li><b>MAIN2</b>: rotor_head_R</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: rudder (second, optional)</li><li><b>MAIN6</b>: throttle</li><li><b>MAIN7</b>: wheel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel for prerotator (optional)</li><li><b>AUX2</b>: feed-through of RC AUX2 channel for release device (optional)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: elevator</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: 尾旋翼伺服</li><li><b>MAIN6</b>: 电机6</li><li><b>MAIN7</b>：电机 7</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -64,7 +64,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -73,14 +73,14 @@
 <tbody>
 <tr id="autogyro_autogyro_thunderfly_auto-g2">
  <td style="vertical-align: top;"><a href="https://github.com/ThunderFly-aerospace/Auto-G2/">ThunderFly Auto-G2</a></td>
- <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o., Roman Dvorak <dvorakroman@thunderfly.cz></p><p><code>SYS_AUTOSTART</code> = 17002</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: ThunderFly s.r.o., Roman Dvorak <dvorakroman@thunderfly.cz></p><p><code>SYS_AUTOSTART</code> = 4013</p></td>
 
 </tr>
 </tbody></table>
 
-## Copter
+## 固定翼
 
-### Coaxial Helicopter
+### 直升机
 
 <div>
   <img src="../../assets/airframes/types/HelicopterCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -92,7 +92,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: Left swashplate servomotor, pitch axis</li><li><b>MAIN2</b>: Right swashplate servomotor, roll axis</li><li><b>MAIN3</b>: Upper rotor (CCW)</li><li><b>MAIN4</b>: Lower rotor (CW)</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b> MAIN1 </b>: 左旋转斜盘伺服电机, 俯仰轴</li><li><b>MAIN2</b>: 右旋转斜盘伺服电机，滚转轴</li><li><b>MAIN4</b>：下旋翼（顺时针）</li><li><b>MAIN4</b>: 电机 4</li></ul></td>
 </tr>
   </table>
 </div>
@@ -100,7 +100,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -109,7 +109,7 @@
 <tbody>
 <tr id="copter_coaxial_helicopter_esky_(big)_lama_v4">
  <td style="vertical-align: top;">Esky (Big) Lama v4</td>
- <td style="vertical-align: top;"><p>Maintainer: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Emmanuel Roussel</p><p><code>SYS_AUTOSTART</code> = 15001</p></td>
 
 </tr>
 </tbody></table>
@@ -126,7 +126,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>AUX1</b>: motor 7</li><li><b>AUX2</b>: motor 8</li><li><b>AUX3</b>: motor 9</li><li><b>AUX4</b>: motor 10</li><li><b>AUX5</b>: motor 11</li><li><b>AUX6</b>: motor 12</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>AUX1</b>: 电机 7</li><li><b>AUX2</b>: 电机 8</li><li><b>AUX3</b>: 电机 9</li><li><b>AUX4</b>: 电机 10</li><li><b>AUX5</b>: 电机 11</li><li><b>AUX6</b>: 电机 12</li></ul></td>
 </tr>
   </table>
 </div>
@@ -134,7 +134,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -142,13 +142,13 @@
   </tr>
 <tbody>
 <tr id="copter_dodecarotor_cox_generic_dodecarotor_cox_geometry">
- <td style="vertical-align: top;">Generic Dodecarotor cox geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: William Peale <develop707@gmail.com></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
+ <td style="vertical-align: top;">通用 X 型四旋翼（Generic Quadrotor x）</td>
+ <td style="vertical-align: top;"><p>维护者: William Peale <develop707@gmail.com></p><p><code>SYS_AUTOSTART</code> = 24001</p></td>
 
 </tr>
 </tbody></table>
 
-### Helicopter
+### 共轴双浆六旋翼
 
 <div>
   <img src="../../assets/airframes/types/Helicopter.svg" width="29%" style="max-height: 180px;" /> 
@@ -160,7 +160,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: main motor</li><li><b>MAIN2</b>: front swashplate servo</li><li><b>MAIN3</b>: right swashplate servo</li><li><b>MAIN4</b>: left swashplate servo</li><li><b>MAIN5</b>: tail-rotor servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 主电机</li><li><b>MAIN2</b>: 前盘伺服</li><li><b>MAIN3</b>: 右盘伺服</li><li><b>MAIN4</b>: 左盘伺服</li><li><b>MAIN5</b>: 电机5</li></ul></td>
 </tr>
   </table>
 </div>
@@ -168,7 +168,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -177,7 +177,7 @@
 <tbody>
 <tr id="copter_helicopter_blade_130x">
  <td style="vertical-align: top;">Blade 130X</td>
- <td style="vertical-align: top;"><p>Maintainer: Bart Slinger <bartslinger@gmail.com></p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Bart Slinger <bartslinger@gmail.com></p><p><code>SYS_AUTOSTART</code> = 16001</p></td>
 
 </tr>
 </tbody></table>
@@ -194,7 +194,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor1</li><li><b>MAIN2</b>: motor2</li><li><b>MAIN3</b>: motor3</li><li><b>MAIN4</b>: motor4</li><li><b>MAIN5</b>: motor5</li><li><b>MAIN6</b>: motor6</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -202,7 +202,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -210,13 +210,13 @@
   </tr>
 <tbody>
 <tr id="copter_hexarotor_+_generic_hexarotor_+_geometry">
- <td style="vertical-align: top;">Generic Hexarotor + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
+ <td style="vertical-align: top;">通用+型六旋翼机型分布</td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 7001</p></td>
 
 </tr>
 </tbody></table>
 
-### Hexarotor Coaxial
+### 共轴双桨八旋翼（Octorotor Coaxial）
 
 <div>
   <img src="../../assets/airframes/types/Y6B.svg" width="29%" style="max-height: 180px;" /> 
@@ -228,7 +228,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: front right top, CW; angle:60; direction:CW</li><li><b>MAIN2</b>: front right bottom, CCW; angle:60; direction:CCW</li><li><b>MAIN3</b>: back top, CW; angle:180; direction:CW</li><li><b>MAIN4</b>: back bottom, CCW; angle:180; direction:CCW</li><li><b>MAIN5</b>: front left top, CW; angle:-60; direction:CW</li><li><b>MAIN6</b>: front left bottom, CCW;angle:-60; direction:CCW</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: front right top, CW; angle:60; direction:CW</li><li><b>MAIN2</b>: front right bottom, CCW; angle:60; direction:CCW</li><li><b>MAIN3</b>: back top, CW; angle:180; direction:CW</li><li><b>MAIN4</b>: back bottom, CCW; angle:180; direction:CCW</li><li><b>MAIN5</b>: front left top, CW; angle:-60; direction:CW</li><li><b>MAIN6</b>: front left bottom, CCW;angle:-60; direction:CCW</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -236,7 +236,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -245,12 +245,12 @@
 <tbody>
 <tr id="copter_hexarotor_coaxial_generic_hexarotor_coaxial_geometry">
  <td style="vertical-align: top;">Generic Hexarotor coaxial geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 11001</p></td>
 
 </tr>
 </tbody></table>
 
-### Hexarotor x
+### X型六旋翼（Hexarotor x）
 
 <div>
   <img src="../../assets/airframes/types/HexaRotorX.svg" width="29%" style="max-height: 180px;" /> 
@@ -262,7 +262,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机 1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li></ul></td>
 </tr>
   </table>
 </div>
@@ -270,7 +270,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -278,12 +278,12 @@
   </tr>
 <tr id="copter_hexarotor_x_generic_hexarotor_x_geometry">
  <td style="vertical-align: top;">Generic Hexarotor x geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 6001</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></p></td>
 
 </tr>
 <tr id="copter_hexarotor_x_uvify_draco-r">
  <td style="vertical-align: top;">UVify Draco-R</td>
- <td style="vertical-align: top;"><p>Maintainer: Hyon Lim <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 6002</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Leon Mueller <lim@uvify.com></p><p><code>SYS_AUTOSTART</code> = 4004</p><p><b>Specific Outputs:</b><ul><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li></ul></p></td>
 
 </tr>
 </table>
@@ -308,7 +308,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -317,7 +317,7 @@
 <tbody>
 <tr id="copter_octo_coax_wide_steadidrone_mavrik">
  <td style="vertical-align: top;">Steadidrone MAVRIK</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 12002</p></td>
+ <td style="vertical-align: top;"><p>维护者：Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 12002</p></td>
 
 </tr>
 </tbody></table>
@@ -334,7 +334,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -342,7 +342,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -351,12 +351,12 @@
 <tbody>
 <tr id="copter_octorotor_+_generic_octocopter_+_geometry">
  <td style="vertical-align: top;">Generic Octocopter + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 9001</p></td>
 
 </tr>
 </tbody></table>
 
-### Octorotor Coaxial
+### 四旋翼 +
 
 <div>
   <img src="../../assets/airframes/types/OctoRotorXCoaxial.svg" width="29%" style="max-height: 180px;" /> 
@@ -368,7 +368,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: 电机 5</li><li><b>MAIN6</b>: 电机 6</li><li><b>MAIN7</b>：电机 7</li><li><b>MAIN8</b>：电机 8</li></ul></td>
 </tr>
   </table>
 </div>
@@ -376,7 +376,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -385,7 +385,7 @@
 <tbody>
 <tr id="copter_octorotor_coaxial_generic_10">
  <td style="vertical-align: top;">Generic 10" Octo coaxial geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 12001</p></td>
 
 </tr>
 </tbody></table>
@@ -398,11 +398,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN4</b>: 电机 5</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN8</b>：电机 8</li><li><b>MAIN4</b>: 电机 4</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -410,7 +410,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -419,7 +419,7 @@
 <tbody>
 <tr id="copter_octorotor_x_generic_octocopter_x_geometry">
  <td style="vertical-align: top;">Generic Octocopter X geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 8001</p></td>
 
 </tr>
 </tbody></table>
@@ -432,11 +432,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -444,7 +444,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -453,7 +453,7 @@
 <tbody>
 <tr id="copter_quadrotor_+_generic_10">
  <td style="vertical-align: top;">Generic 10" Quad + geometry</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 5001</p></td>
 
 </tr>
 </tbody></table>
@@ -467,7 +467,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -475,12 +475,12 @@
   </tr>
 <tr id="copter_quadrotor_h_reaper_500_quad">
  <td style="vertical-align: top;">Reaper 500 Quad</td>
- <td style="vertical-align: top;"><p>Maintainer: Blankered</p><p><code>SYS_AUTOSTART</code> = 4040</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Blankered</p><p><code>SYS_AUTOSTART</code> = 4040</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_h_betafpv_beta75x_2s_brushless_whoop">
  <td style="vertical-align: top;">BetaFPV Beta75X 2S Brushless Whoop</td>
- <td style="vertical-align: top;"><p>Maintainer: Beat Kueng <beat-kueng@gmx.net></p><p><code>SYS_AUTOSTART</code> = 4041</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Beat Kueng <beat-kueng@gmx.net></p><p><code>SYS_AUTOSTART</code> = 4041</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li></ul></p></td>
 
 </tr>
 </table>
@@ -493,11 +493,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -505,7 +505,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -513,22 +513,22 @@
   </tr>
 <tr id="copter_quadrotor_wide_team_blacksheep_discovery">
  <td style="vertical-align: top;">Team Blacksheep Discovery</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 10015</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 10015</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_wide_3dr_iris_quadrotor">
- <td style="vertical-align: top;">3DR Iris Quadrotor</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 10016</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;">3DR Iris 四旋翼</td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 10016</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_wide_steadidrone_qu4d">
  <td style="vertical-align: top;">Steadidrone QU4D</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 10017</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 10017</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_wide_team_blacksheep_discovery_endurance">
  <td style="vertical-align: top;">Team Blacksheep Discovery Endurance</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 10018</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者：Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 10018</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
 
 </tr>
 </table>
@@ -541,7 +541,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
@@ -553,7 +553,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -562,12 +562,12 @@
 <tbody>
 <tr id="copter_quadrotor_asymmetric_spedix_s250aq">
  <td style="vertical-align: top;"><a href="https://docs.px4.io/master/en/framebuild_multicopter/spedix_s250_pixracer.html">Spedix S250AQ</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4051</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4051</p></td>
 
 </tr>
 </tbody></table>
 
-### Quadrotor x
+### X 型四旋翼（Quadrotor x）
 
 <div>
   <img src="../../assets/airframes/types/QuadRotorX.svg" width="29%" style="max-height: 180px;" /> 
@@ -579,7 +579,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>：遥控直通 AUX1 通道</li><li><b>AUX2</b>：遥控直通 AUX2 通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li><li><b>AUX4</b>: feed-through of RC FLAPS channel</li></ul></td>
 </tr>
   </table>
 </div>
@@ -587,15 +587,15 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
     </th>
   </tr>
 <tr id="copter_quadrotor_x_generic_quadcopter">
- <td style="vertical-align: top;">Generic Quadcopter</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
+ <td style="vertical-align: top;">标准构型的固定翼飞机</td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4001</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN5</b>: feed-through of RC AUX1 channel</li><li><b>MAIN6</b>: feed-through of RC AUX2 channel</li></ul></p></td>
 
 </tr>
   
@@ -616,32 +616,32 @@
   </tr>
 <tr id="copter_quadrotor_x_lumenier_qav250">
  <td style="vertical-align: top;">Lumenier QAV250</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4009</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4009</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_dji_f330_w/_dji_escs">
- <td style="vertical-align: top;">DJI F330 w/ DJI ESCs</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4010</p></td>
+ <td style="vertical-align: top;">DJI Flame Wheel F330</td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4010</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_dji_f450_w/_dji_escs">
- <td style="vertical-align: top;">DJI F450 w/ DJI ESCs</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4011</p></td>
+ <td style="vertical-align: top;">DJI Flame Wheel F450</td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4011</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_s500_generic">
- <td style="vertical-align: top;">S500 Generic</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4014</p></td>
+ <td style="vertical-align: top;">S500</td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4014</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_holybro_s500">
  <td style="vertical-align: top;">Holybro S500</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4015</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4012</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_px4_vision_devkit_platform">
  <td style="vertical-align: top;">PX4 Vision DevKit Platform</td>
- <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 4016</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 4016</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li></ul></p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_nxp_hovergames">
@@ -661,7 +661,7 @@
 </tr>
 <tr id="copter_quadrotor_x_3dr_diy_quad">
  <td style="vertical-align: top;">3DR DIY Quad</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 4031</p></td>
 
 </tr>
 <tr id="copter_quadrotor_x_generic_250_racer">
@@ -731,7 +731,7 @@
 </tr>
 </table>
 
-### Simulation (Copter)
+### 仿真（旋翼机）
 
 <div>
 <img src="../../assets/airframes/types/AirframeUnknown.svg" width="29%" style="max-height: 180px;"/>
@@ -740,7 +740,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -748,12 +748,12 @@
   </tr>
 <tr id="copter_simulation_(copter)_hil_quadcopter_x">
  <td style="vertical-align: top;">HIL Quadcopter X</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1001</p></td>
 
 </tr>
 <tr id="copter_simulation_(copter)_sih_quadcopter_x">
  <td style="vertical-align: top;">SIH Quadcopter X</td>
- <td style="vertical-align: top;"><p>Maintainer: Romain Chiappinelli <romain.chiap@gmail.com></p><p><code>SYS_AUTOSTART</code> = 1100</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Pavel Kirienko <romain.chiap@gmail.com></p><p><code>SYS_AUTOSTART</code> = 1100</p></td>
 
 </tr>
 </table>
@@ -770,7 +770,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Outer servo motor for rotor 2 arm</li><li><b>AUX2</b>: Outer servo motor for rotor 4 arm</li><li><b>AUX3</b>: Inner servo motor for rotor 2 arm</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: 电机 4</li><li><b>AUX1</b>: Outer servo motor for rotor 2 arm</li><li><b>AUX2</b>: Outer servo motor for rotor 4 arm</li><li><b>AUX3</b>: Inner servo motor for rotor 2 arm</li><li><b>AUX4</b>: Inner servo motor for rotor 4 arm</li></ul></td>
 </tr>
   </table>
 </div>
@@ -778,7 +778,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -787,7 +787,7 @@
 <tbody>
 <tr id="copter_tilt-quad_tilt-quadrotor">
  <td style="vertical-align: top;"><a href="http://www.alivaero.com/the-project.html">Tilt-Quadrotor</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Ricardo Marques <marques.ricardo17@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4100</p></td>
+ <td style="vertical-align: top;"><p>维护者：Ricardo Marques <marques.ricardo17@gmail.com></p><p><code>SYS_AUTOSTART</code> = 4100</p></td>
 
 </tr>
 </tbody></table>
@@ -804,7 +804,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
 </tr>
   </table>
 </div>
@@ -812,7 +812,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -838,7 +838,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: yaw servo</li></ul></td>
 </tr>
   </table>
 </div>
@@ -846,7 +846,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -860,9 +860,9 @@
 </tr>
 </tbody></table>
 
-## Plane
+## 垂直起降（VTOL）
 
-### Flying Wing
+### 标准构型的固定翼飞机
 
 <div>
   <img src="../../assets/airframes/types/FlyingWing.svg" width="29%" style="max-height: 180px;" /> 
@@ -874,7 +874,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>：遥控直通 AUX1 通道</li><li><b>AUX2</b>：遥控直通 AUX2 通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -882,7 +882,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -895,12 +895,12 @@
 </tr>
 <tr id="plane_flying_wing_io_camflyer">
  <td style="vertical-align: top;">IO Camflyer</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3030</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者：Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3030</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
 
 </tr>
 <tr id="plane_flying_wing_phantom_fpv_flying_wing">
  <td style="vertical-align: top;"><a href="https://docs.px4.io/master/en/frames_plane/wing_wing_z84.html">Phantom FPV Flying Wing</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3031</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者：Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3031</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
 
 </tr>
 <tr id="plane_flying_wing_skywalker_x5_flying_wing">
@@ -910,22 +910,22 @@
 </tr>
 <tr id="plane_flying_wing_wing_wing_(aka_z-84)_flying_wing">
  <td style="vertical-align: top;"><a href="https://docs.px4.io/master/en/framebuild_plane/wing_wing_z84.html">Wing Wing (aka Z-84) Flying Wing</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 3033</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 3033</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
 
 </tr>
 <tr id="plane_flying_wing_fx-79_buffalo_flying_wing">
  <td style="vertical-align: top;">FX-79 Buffalo Flying Wing</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3034</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: right aileron</li><li><b>MAIN2</b>: left aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者：Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3034</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
 
 </tr>
 <tr id="plane_flying_wing_viper">
  <td style="vertical-align: top;">Viper</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3035</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者：Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3035</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
 
 </tr>
 <tr id="plane_flying_wing_sparkle_tech_pigeon">
  <td style="vertical-align: top;"><a href="http://www.sparkletech.hk/">Sparkle Tech Pigeon</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3036</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者：Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 3036</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
 
 </tr>
 <tr id="plane_flying_wing_modified_parrot_disco">
@@ -935,7 +935,7 @@
 </tr>
 <tr id="plane_flying_wing_tbs_caipirinha">
  <td style="vertical-align: top;">TBS Caipirinha</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 3100</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 3100</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: left aileron</li><li><b>MAIN2</b>: right aileron</li><li><b>MAIN4</b>: throttle</li></ul></p></td>
 
 </tr>
 </table>
@@ -952,7 +952,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: RC遥控器的AUX1反馈通道</li><li><b>AUX2</b>: RC遥控器的AUX2反馈通道</li><li><b>AUX3</b>: RC遥控器的AUX3反馈通道</li></ul></td>
 </tr>
   </table>
 </div>
@@ -960,7 +960,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -986,7 +986,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: aileron right</li><li><b>MAIN2</b>: aileron left</li><li><b>MAIN3</b>: v-tail right</li><li><b>MAIN4</b>: v-tail left</li><li><b>MAIN5</b>: throttle</li><li><b>MAIN6</b>: wheel</li><li><b>MAIN7</b>: flaps right</li><li><b>MAIN8</b>: flaps left</li><li><b>AUX3</b>：遥控直通 AUX3 通道</li><li><b>AUX3</b>：遥控直通 AUX3 通道</li><li><b>AUX3</b>: Mount yaw</li></ul></td>
 </tr>
   </table>
 </div>
@@ -994,7 +994,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -1016,7 +1016,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
@@ -1028,7 +1028,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -1037,12 +1037,12 @@
 <tbody>
 <tr id="plane_simulation_(plane)_hilstar_(xplane)">
  <td style="vertical-align: top;">HILStar (XPlane)</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1000</p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 1000</p></td>
 
 </tr>
 </tbody></table>
 
-### Standard Plane
+### 标准构型的 VTOL
 
 <div>
   <img src="../../assets/airframes/types/Plane.svg" width="29%" style="max-height: 180px;" /> 
@@ -1054,7 +1054,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>AUX1</b>: feed-through of RC AUX1 channel</li><li><b>AUX2</b>: feed-through of RC AUX2 channel</li><li><b>AUX3</b>: feed-through of RC AUX3 channel</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>AUX1</b>: Mount pitch</li><li><b>AUX2</b>: Mount roll</li><li><b>AUX4</b>: Mount retract</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1062,7 +1062,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -1070,7 +1070,7 @@
   </tr>
 <tr id="plane_standard_plane_standard_plane">
  <td style="vertical-align: top;">Standard Plane</td>
- <td style="vertical-align: top;"><p>Maintainer: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 2100</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: throttle</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者: Lorenz Meier <lorenz@px4.io></p><p><code>SYS_AUTOSTART</code> = 2100</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: aileron</li><li><b>MAIN2</b>: elevator</li><li><b>MAIN3</b>: throttle</li><li><b>MAIN4</b>: rudder</li><li><b>MAIN5</b>: flaps</li><li><b>MAIN6</b>: gear</li></ul></p></td>
 
 </tr>
 <tr id="plane_standard_plane_bormatec_maja">
@@ -1091,7 +1091,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -1114,12 +1114,12 @@
 </tr>
 <tr id="rover_rover_aion_robotics_r1_ugv">
  <td style="vertical-align: top;"><a href="http://docs.aionrobotics.com/en/latest/r1-ugv.html">Aion Robotics R1 UGV</a></td>
- <td style="vertical-align: top;"><p>Maintainer: Timothy Scott</p><p><code>SYS_AUTOSTART</code> = 50003</p><p><b>Specific Outputs:</b><ul><li><b>MAIN0</b>: Speed of left wheels</li><li><b>MAIN1</b>: Speed of right wheels</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Timothy Scott</p><p><code>SYS_AUTOSTART</code> = 50003</p><p><b>Specific Outputs:</b><ul><li><b>MAIN4</b>: 电机 4</li><li><b>MAIN1</b>: 电机1</li></ul></p></td>
 
 </tr>
 <tr id="rover_rover_nxp_cup_car:_df_robot_gpx">
  <td style="vertical-align: top;">NXP Cup car: DF Robot GPX</td>
- <td style="vertical-align: top;"><p>Maintainer: Katrin Moritz</p><p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: Steering servo</li><li><b>MAIN3</b>: Speed of left wheels</li><li><b>MAIN4</b>: Speed of right wheels</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Leon Mueller </p><p><code>SYS_AUTOSTART</code> = 50004</p><p><b>Specific Outputs:</b><ul><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN3</b>: 电机 4</li></ul></p></td>
 
 </tr>
 </table>
@@ -1135,7 +1135,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -1148,7 +1148,7 @@
 </tr>
 <tr id="underwater_robot_underwater_robot_hippocampus_uuv_(unmanned_underwater_vehicle)">
  <td style="vertical-align: top;">HippoCampus UUV (Unmanned Underwater Vehicle)</td>
- <td style="vertical-align: top;"><p>Maintainer: Daniel Duecker <daniel.duecker@tuhh.de></p><p><code>SYS_AUTOSTART</code> = 60001</p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Jacob Dahl <daniel.duecker@tuhh.de></p><p><code>SYS_AUTOSTART</code> = 60001</p></td>
 
 </tr>
 </table>
@@ -1165,7 +1165,7 @@
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1 CCW, bow starboard horizontal, , propeller CCW</li><li><b>MAIN2</b>: motor 2 CCW, bow port horizontal, propeller CCW</li><li><b>MAIN3</b>: motor 3 CCW, stern starboard horizontal, propeller CW</li><li><b>MAIN4</b>: motor 4 CCW, stern port horizontal, propeller CW</li><li><b>MAIN5</b>: motor 5 CCW, bow starboard vertical, propeller CCW</li><li><b>MAIN6</b>: motor 6 CCW, bow port vertical, propeller CW</li><li><b>MAIN7</b>: motor 7 CCW, stern starboard vertical, propeller CW</li><li><b>MAIN8</b>: motor 8 CCW, stern port vertical, propeller CCW</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: motor 4 CCW, stern port horizontal, propeller CW</li><li><b>MAIN5</b>: motor 5 CCW, bow starboard vertical, propeller CCW</li><li><b>MAIN6</b>: motor 6 CCW, bow port vertical, propeller CW</li><li><b>MAIN7</b>: motor 7 CCW, stern starboard vertical, propeller CW</li><li><b>MAIN8</b>: motor 8 CCW, stern port vertical, propeller CCW</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1173,7 +1173,7 @@
 <table style="width: 100%; table-layout:fixed; font-size:1.5rem;">
   <colgroup><col style="width: 30%"><col style="width: 70%"></colgroup> <tr>
     <th>
-      参数名
+      名称
     </th>
     
     <th>
@@ -1211,17 +1211,17 @@
 </tr>
 <tr id="vtol_standard_vtol_generic_quadplane_vtol">
  <td style="vertical-align: top;">Generic Quadplane VTOL</td>
- <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p><code>SYS_AUTOSTART</code> = 13000</p><p><b>Specific Outputs:</b><ul><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN3</b>: 电机 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></p></td>
 
 </tr>
 <tr id="vtol_standard_vtol_fun_cub_quad_vtol">
  <td style="vertical-align: top;">Fun Cub Quad VTOL</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13005</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者：Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13005</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></p></td>
 
 </tr>
 <tr id="vtol_standard_vtol_generic_quad_delta_vtol">
  <td style="vertical-align: top;">Generic quad delta VTOL</td>
- <td style="vertical-align: top;"><p>Maintainer: Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13006</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Right elevon</li><li><b>AUX2</b>: Left elevon</li><li><b>AUX3</b>: Motor</li></ul></p></td>
+ <td style="vertical-align: top;"><p>维护者：Simon Wilks <simon@uaventure.com></p><p><code>SYS_AUTOSTART</code> = 13006</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>AUX1</b>: Right elevon</li><li><b>AUX2</b>: Left elevon</li><li><b>AUX3</b>: Motor</li></ul></p></td>
 
 </tr>
 <tr id="vtol_standard_vtol_generic_aavvt_v-tail_plane_airframe_with_quad_vtol.">
@@ -1246,7 +1246,7 @@
 </tr>
 <tr id="vtol_standard_vtol_babyshark_vtol">
  <td style="vertical-align: top;">BabyShark VTOL</td>
- <td style="vertical-align: top;"><p>Maintainer: Silvan Fuhrer <silvan@auterion.com></p><p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Ailerons</li><li><b>MAIN2</b>: A-tail left</li><li><b>MAIN3</b>: Pusher motor</li><li><b>MAIN4</b>: A-tail right</li><li><b>MAIN5</b>: motor 1</li><li><b>MAIN6</b>: motor 2</li><li><b>MAIN7</b>: motor 3</li><li><b>MAIN8</b>: motor 4</li></ul></p></td>
+ <td style="vertical-align: top;"><p>Maintainer: Michael Schaeuble<silvan@auterion.com></p><p><code>SYS_AUTOSTART</code> = 13014</p><p><b>Specific Outputs:</b><ul><li><b>MAIN1</b>: Ailerons</li><li><b>MAIN2</b>: A-tail left</li><li><b>MAIN3</b>: Pusher motor</li><li><b>MAIN4</b>: A-tail right</li><li><b>MAIN5</b>: motor 1</li><li><b>MAIN6</b>: motor 2</li><li><b>MAIN7</b>: motor 3</li><li><b>MAIN8</b>: motor 4</li></ul></p></td>
 
 </tr>
 </table>
@@ -1259,7 +1259,7 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
@@ -1297,11 +1297,11 @@
   <table style="float: right; width: 70%; font-size:1.5rem;">
     <colgroup><col></colgroup> <tr>
       <th>
-        Common Outputs
+        常规输出接法
       </th>
     </tr>
 <tr>
- <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: motor 1</li><li><b>MAIN2</b>: motor 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></td>
+ <td style="vertical-align: top;"><ul><li><b>MAIN1</b>: 电机1</li><li><b>MAIN2</b>: 电机 2</li><li><b>MAIN3</b>: motor 3</li><li><b>MAIN4</b>: motor 4</li><li><b>MAIN5</b>: motor 5</li><li><b>MAIN6</b>: motor 6</li><li><b>MAIN7</b>: motor 7</li><li><b>MAIN8</b>: motor 8</li><li><b>AUX1</b>: Aileron 1</li><li><b>AUX2</b>: Aileron 2</li><li><b>AUX3</b>: Elevator</li><li><b>AUX4</b>: Rudder</li><li><b>AUX5</b>: Throttle</li></ul></td>
 </tr>
   </table>
 </div>
@@ -1317,7 +1317,7 @@
   </tr>
 <tbody>
 <tr id="vtol_vtol_octoplane_generic_octoplane_vtol">
- <td style="vertical-align: top;">Generic Octoplane VTOL</td>
+ <td style="vertical-align: top;">通用十二旋翼机架分布</td>
  <td style="vertical-align: top;"><p>Maintainer: John Doe <john@example.com></p><p><code>SYS_AUTOSTART</code> = 13050</p></td>
 
 </tr>

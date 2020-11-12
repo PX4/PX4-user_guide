@@ -11,7 +11,7 @@ Attitude estimator q.
 
 ### Usage
 ```
-AttitudeEstimatorQ <command> [arguments...]
+wind_estimator <command> [arguments...]
  Commands:
    start
 
@@ -19,8 +19,8 @@ AttitudeEstimatorQ <command> [arguments...]
 
    status        print status info
 ```
-## airspeed_estimator
-Source: [modules/airspeed_selector](https://github.com/PX4/Firmware/tree/master/src/modules/airspeed_selector)
+## wind_estimator
+The documentation can be found on the [tuning_the_ecl_ekf](https://dev.px4.io/en/tutorials/tuning_the_ecl_ekf.html) page.
 
 
 ### Description
@@ -30,7 +30,7 @@ This module provides a single airspeed_validated topic, containing indicated (IA
 
 ### Usage
 ```
-airspeed_estimator <command> [arguments...]
+local_position_estimator <command> [arguments...]
  Commands:
    start
 
@@ -45,7 +45,7 @@ Source: [modules/ekf2](https://github.com/PX4/Firmware/tree/master/src/modules/e
 ### Description
 Attitude and position estimator using an Extended Kalman Filter. It is used for Multirotors and Fixed-Wing.
 
-The documentation can be found on the [ECL/EKF Overview & Tuning](https://docs.px4.io/master/en/advanced_config/tuning_the_ecl_ekf.html) page.
+Source: [modules/wind_estimator](https://github.com/PX4/Firmware/tree/master/src/modules/wind_estimator)
 
 ekf2 can be started in replay mode (`-r`): in this mode it does not access the system time, but only uses the timestamps from the sensor topics.
 
