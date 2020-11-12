@@ -1,40 +1,40 @@
-# Test MC_02 - Full Autonomous
+# 测试 MC_02-完全自主
 
-## Create and upload mission
+## 创建和上传任务
 
-❏ Mission Criteria
+❏ 任务标准
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Auto take-off
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 自动起飞
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Changes in Altitude throughout the mission
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 整个任务期间高度的变化
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ First waypoint set to Takeoff
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 第一个航点设置为起飞
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Enable Mission End RTL
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 启用 Mission End RTL
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Duration of 5 to 6 minutes
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 持续时间为 5 到 6 分钟
 
-❏ Upload mission to vehicle using *QGroundControl*
-
-
-## Arm and Take-off
-
-❏ Arm in any manual mode
-
-❏ Engage Auto to trigger take-off
-
-❏ Observe tracking, cornering and proper RTL performance
-
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced/parameter_reference.md#COM_DISARM_LAND))
+❏ 使用 *QGroundControl* 将任务上传到无人机
 
 
+## 解锁并起飞
 
-## Expected Results
+❏ 手臂处于任何手动模式
 
-* Take-off should be smooth as throttle is raised
-* Mission should upload on first attempt
-* Vehicle should automatically take-off upon engaging Auto
-* Upon landing, copter should not bounce on the ground
+❏ 接合自动触发起飞
+
+❏ 观察跟踪，转弯和正确的 RTL 性能
+
+❏ 接地后，旋翼机应在 2 秒内自动撤防（撤防时间由参数设置：[COM_DISARM_LAND](../advanced/parameter_reference.md#COM_DISARM_LAND)）
+
+
+
+## 预期成果
+
+* 当油门升高时，起飞应该是平稳的
+* 任务应该在第一次尝试时上传
+* 使用 Auto 时飞机应自动起飞
+* 着陆时，直升机不应在地面上反弹
 
 
 
