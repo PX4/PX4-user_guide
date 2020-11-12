@@ -1,42 +1,42 @@
-# Test MC_05 - Indoor Flight (Manual Modes)
+# 测试 MC_05-室内飞行（手动模式）
 
-## When to Use This Test Card
+## 何时使用此测试卡
 
-* New build maiden flight
-* When required to replicate an issue in a confined area
-* Experimental builds that might have stability issues
-* Testing hardware that has been replaced and/or modified
+* 新建初次飞行
+* 当需要在受限区域复制问题时
+* 可能存在稳定性问题的实验性构建
+* 测试已更换和/或修改的硬件
 
-## Arm and Take-off
+## 解锁并起飞
 
-❏ Set flight mode to stabilize and Arm
+❏ 设置飞行模式以稳定和布防
 
-❏ Take-off by raising the throttle
+❏ 升高油门起飞
 
-## Flight
+## 飞行
 
-❏ Stabilized
+❏ 自稳
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 俯仰/滚转/偏航响应 1：1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 节气门响应 1：1
 
-❏ Altitude
+❏ 高度
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Vertical position should hold current value with stick centered
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 垂直位置应以棒为中心保持当前值
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Pitch/Roll/Yaw response 1:1
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 俯仰/滚转/偏航响应 1：1
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Throttle response set to Climbs/Descend rate
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 将节气门响应设置为爬升/下降速率
 
-## Landing
+## 着陆
 
-❏ Land in either Stabilized or Altitude mode with the throttle below 40%
+❏ 以稳定或高度模式着陆，油门低于 40％
 
-❏ Upon touching ground, copter should disarm automatically within 2 seconds (disarm time set by parameter: [COM_DISARM_LAND](../advanced/parameter_reference.md#COM_DISARM_LAND))
+❏ 接地后，直升机应在 2 秒内自动撤防（撤防时间由参数设置：[COM_DISARM_LAND](../advanced/parameter_reference.md#COM_DISARM_LAND)）
 
-## Expected Results
+## 期待的结果
 
-* Take-off should be smooth as throttle is raised
-* No oscillations should present in any of the above flight modes
-* Upon landing, copter should not bounce on the ground
+* 当油门升高时，起飞应该是平稳的
+* 在上述任何飞行模式中都不应出现振荡
+* 着陆时，直升机不应在地面上反弹
