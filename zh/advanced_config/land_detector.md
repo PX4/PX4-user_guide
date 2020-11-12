@@ -1,6 +1,6 @@
 # 着陆探测器配置
 
-The land detector is a dynamic vehicle model representing key vehicle states from ground contact through to landed. 这个话题介绍一些主要的参数，您通过调整这些参数来改善着陆。
+着陆探测器是一个动态飞行器模型，代表了从接触地面到着陆的关键飞行器状态。 本节主题说明您可能希望调整的主要参数，以改善飞行器着陆行为。
 
 ## 自动加锁
 
