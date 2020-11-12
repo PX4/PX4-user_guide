@@ -1,24 +1,23 @@
-# Development Environment on Arch Linux
+# ArchLinux 上的开发环境
 
-The PX4-Autopilot repository provides a convenient script to set your Arch installation up for PX4 development: [Tools/setup/arch.sh](https://github.com/PX4/PX4-Autopilot/blob/{{ book.px4_version }}/Tools/setup/arch.sh).
+将当前用户加入用户组 “uucp” ：
 
 The script installs (by default) all tools to build PX4 (without RTPS) for NuttX targets and run simulation with *jMAVsim*. You can additionally install the *Gazebo* simulator by specifying the command line argument: `--gazebo`.
 
 ![Gazebo on Arch](../../assets/simulation/gazebo/arch-gazebo.png)
 
-> **Note** The instructions have been tested on [Manjaro](https://manjaro.org/) (Arch based distribution) as it is much easier to set up than Arch Linux.
+> **Note** *genromfs* is also available in the [Archlinux User Repository](https://aur.archlinux.org/packages/genromfs/) (AUR). To use this package, install [yaourt](https://archlinux.fr/yaourt-en) (Yet AnOther User Repository Tool) and then use it to download, compile and install *genromfs* as shown:
 
-To get and run the scripts, do either of:
+To install using this script, enter the following in a terminal:
 * [Download PX4 Source Code](../setup/building_px4.md) and run the scripts in place:
   ```
-  git clone https://github.com/PX4/PX4-Autopilot.git
-  bash PX4-Autopilot/Tools/setup/arch.sh
+  wget https://raw.githubusercontent.com/PX4/containers/master/docker/px4-dev/scripts/archlinux_install_script.sh
+sudo -s
+source ./archlinux_install_script.sh
   ```
 * Download just the needed scripts and then run them:
   ```sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/arch.sh
-  wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/master/Tools/setup/requirements.txt
-  bash arch.sh
+  Once ArchLinux is installed you can use the docker script <a href="https://github.com/PX4/containers/blob/master/docker/px4-dev/scripts/archlinux_install_script.sh">archlinux_install_script.sh</a> to install all dependencies required for building PX4 firmware.
   ```
 
 The script takes the following optional parameters:
