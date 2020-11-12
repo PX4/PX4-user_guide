@@ -25,7 +25,7 @@ After this step a range of elf files for all supported boards are present in the
 
 ## Flashing the Bootloader
 
-> **Warning** The right power sequence is critical for some boards to allow JTAG / SWD access. Follow these steps exactly as described.
+> **Important** The right power sequence is critical for some boards to allow JTAG / SWD access. Follow these steps exactly as described.
 
 The instructions below are valid for a Blackmagic / Dronecode probe. Other JTAG probes will need different but similar steps. Developers attempting to flash the bootloader should have the required knowledge. If you do not know how to do this you probably should reconsider if you really need to change anything about the bootloader.
 
@@ -90,7 +90,7 @@ arm-none-eabi-gdb
 
 If any of the commands above are not found, you are either not using a Blackmagic probe or its software is outdated. Upgrade the on-probe software first.
 
-If this error message occurs:
+If this error message occurs: `Error erasing flash with vFlashErase packet`
 ```
 Error erasing flash with vFlashErase packet
 ```
