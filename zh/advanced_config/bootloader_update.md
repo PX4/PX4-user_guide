@@ -8,9 +8,9 @@
 
 <span id="qgc_bootloader_update"></span>
 
-## QGroundControl Bootloader Update
+## QGroundControl Bootloader 更新
 
-The easiest approach is to first use *QGroundControl* to install firmware with the desired/latest bootloader. You can then initiate bootloader update on next restart by setting the parameter: [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE).
+最简单的方法是首先使用* QGroundControl *安装具有所需/最新 bootloader 的固件。 然后，可以通过设置参数[ SYS_BL_UPDATE ](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)来在下次重启时启动 bootloader 更新。
 
 > **Note** This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
 
