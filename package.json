@@ -20,7 +20,7 @@
     "docs:buildfast_ubuntu": "yarn ununtu_copyworker && yarn docs:build_ubuntu",
     "docs:dev": "vuepress dev . ",
     "docs:buildnorm": "vuepress build .",
-    "docs:build": "yarn docs:buildfast_ubuntu"
+    "docs:build": "yarn docs:build_ubuntu"
   },
   "dependencies": {
     "vuepress-plugin-mathjax": "^1.2.8",
