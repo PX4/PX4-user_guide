@@ -1,8 +1,11 @@
 # Contributing
 
-{% if book.px4_version != 'master' %}
-**Current** information about contributing to PX4, working with the community and codelines, and the dev call, [can be found in the "master" docs here](https://dev.px4.io/master/en/contribute/)!
-{% else %} <!-- START: dev call details: displayed only in master -->
+<div v-if="$themeConfig.px4_version != 'master'">
+  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="https://dev.px4.io/master/en/contribute/">can be found here</a>.</p>
+  </div>
+</div>
+
+
 > **Tip** We pledge to adhere to the [PX4 code of conduct](https://github.com/PX4/PX4-Autopilot/blob/master/CODE_OF_CONDUCT.md). 
   This code aims to foster an open and welcoming environment.
 
@@ -17,4 +20,4 @@ This section contains information about contributing to PX4, including the sourc
 Contributors will also find these sections/topics useful:
 * [Support](../contribute/support.md) - Get help and raise issues
 * [Test Flights](../test_and_ci/test_flights.md) - Get your pull requests flight-tested.
-{% endif %} <!-- END: dev call details: displayed only in master -->
+

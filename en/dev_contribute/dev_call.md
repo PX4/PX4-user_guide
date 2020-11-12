@@ -1,12 +1,14 @@
 <a id="dev_call"></a>
 # Weekly Dev Call
 
+<div v-if="$themeConfig.px4_version != 'master'">
+  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="https://dev.px4.io/master/en/contribute/dev_call.html">can be found here</a>.</p>
+  </div>
+</div>
+
 The PX4 dev team syncs up on platform technical details and in-depth analysis. 
 There is also space in the agenda to discuss pull requests, major impacting issues and Q&A.
 
-{% if book.px4_version != 'master' %}
-> **Tip** Dev Call schedule, agenda, and call in details, [can be found here](https://dev.px4.io/master/en/contribute/dev_call.html)!
-{% else %} <!-- START: dev call details: displayed only in master -->
 
 ## Who should attend:
 
@@ -40,5 +42,3 @@ The core team/subsystem maintainers will be available for up to 45 additional mi
 
 * Agenda is published before the call on [PX4 Discuss - weekly-dev-call](http://discuss.px4.io/c/weekly-dev-call)
 * To nominate Issues and PRs for the call you can use the [devcall](https://github.com/PX4/PX4-Autopilot/labels/devcall) label to flag them for discussion.
-
-{% endif %} <!-- END: dev call details: displayed only in master -->

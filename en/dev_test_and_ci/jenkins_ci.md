@@ -1,11 +1,12 @@
 # Jenkins CI
 
+<div v-if="$themeConfig.px4_version != 'master'">
+  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="https://dev.px4.io/master/en/test_and_ci/">can be found here</a>.</p>
+  </div>
+</div>
+
 Jenkins continuous integration server on [ci.px4.io](http://ci.px4.io/) is used to automatically run integration tests against PX4 SITL.
 
-{% if book.px4_version != 'master' %}
-> **Tip** Test processes/tools change over time. 
-  Current information [can be found in the head revision/master docs](https://dev.px4.io/master/en/test_and_ci/)!
-{% else %} <!-- START: details below displayed only in master -->
 
 ## Overview
 
@@ -42,4 +43,3 @@ See setup [script/log](https://github.com/PX4/containers/tree/master/scripts/jen
     * collapsing console sections
     * postbuildscript
 
-{% endif %} <!-- END: details above displayed only in master -->

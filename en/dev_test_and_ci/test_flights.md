@@ -1,12 +1,13 @@
 # Tests Flights
 
+<div v-if="$themeConfig.px4_version != 'master'">
+  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="https://dev.px4.io/master/en/test_and_ci/test_flights.html">can be found here</a>.</p>
+  </div>
+</div>
+
 Test flights are important for quality assurance. 
 The Dronecode test team can help review (test flight) your pull requests and provide feedback and logs.
 
-{% if book.px4_version != 'master' %}
-> **Tip** Test flight process and fleet information may change over time. 
-  Current information [can be found in the head revision/master docs](https://dev.px4.io/master/en/test_and_ci/test_flights.html)!
-{% else %} <!-- START: details below displayed only in master -->
 
 ## How to Request Test Flights
 
@@ -64,4 +65,3 @@ Frame | Flight Controller | UUID
 [Convergence VTOL](https://www.horizonhobby.com/convergence-vtol-bnf-basic-efl11050) | [Pixhawk 4 Mini](https://docs.px4.io/master/en/flight_controller/pixhawk4_mini.html) | 000200000000343233383038511500350039 (vtol-v5-m)
 [Delta Quad Pro](https://px4.io/portfolio/deltaquad-vtol/) | [Dropix](https://docs.px4.io/master/en/flight_controller/dropix.html) | 0001000000003437393931375114004c0042 (delta-v2)
 
-{% endif %} <!-- END: details above displayed only in master -->
