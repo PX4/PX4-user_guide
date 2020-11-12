@@ -38,29 +38,29 @@
 
 为了探测着陆，多旋翼首先必须经历三个不同的状态，其中每个状态都包含来自先前状态的条件以及更严格的约束。 如果由于缺少传感器而无法达到条件，则默认情况下认为该条件为真。 例如，在[ Acro模式](../flight_modes/acro_mc.md)中，除了陀螺仪传感器外没有其他传感器处于有效状态，则探测仅取决于推力输出和时间。
 
-In order to proceed to the next state, each condition has to be true for some predefined time. If one condition fails, the land detector drops out of the current state immediately.
+为了进入下一个状态，每个条件必须在某个预定义的时间内为真。 如果一种情况失败，则着陆探测器立即退出当前状态。
 
 #### 地面接触
 
-This state is reached if following conditions are true for 0.35 seconds:
+如果满足以下条件达到 0.35 秒，则进入此状态：
 
 - 没有垂直运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_Z_VEL_MAX))
 - 没有水平运动 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
-- lower thrust than [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN) + ([MPC_THR_HOVER](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [MPC_THR_MIN](../advanced_config/parameter_reference.md#MPC_THR_MIN)) * [LNDMC_LOW_T_THR](../advanced_config/parameter_reference.md#LNDMC_LOW_T_THR), or velocity setpoint is 0.9 of land speed but vehicle has no vertical movement.
+- 油门低于[ MPC_THR_MIN ](../advanced_config/parameter_reference.md#MPC_THR_MIN) +（[ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [ MPC_THR_MIN ](../advanced_config/parameter_reference.md#MPC_THR_MIN)）* [ LNDMC_LOW_T_THR ](../advanced_config/parameter_reference.md#LNDMC_LOW_T_THR)，或者速度设定值是地面速度的 0.9 倍，同时飞行器没有垂直运动。
 
-If the vehicle is in position- or velocity-control and ground contact was detected, the position controller will set the thrust vector along the body x-y-axis to zero.
+如果飞行器处于位置 控制或速度 控制并且检测到 地面接触，位置控制器会将沿飞行器 x-y 轴的推力矢量设置为零。
 
-#### 可能性着陆
+#### 可能着陆
 
-This state is reached if following conditions are true for 0.25 seconds:
+如果满足以下条件达到 0.25 秒，则进入此状态：
 
-- 地面接触的所有条件都是真
-- 没有滚动运动 ([LNDMC_Z_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX))
-- 具有低推力 `MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
+- 所有的地面接触条件都是真
+- 没有旋转（[ LNDMC_ROT_MAX ](../advanced_config/parameter_reference.md#LNDMC_ROT_MAX)），即 俯仰、滚转、偏航为零的状态。
+- 具有低油门 ，即油门低于`MPC_THR_MIN + (MPC_THR_HOVER - MPC_THR_MIN) * 0.1`
 
-If the vehicle only has knowledge of thrust and angular rate, in order to proceed to the next state the vehicle has to have low thrust and no rotation for 8.0 seconds.
+如果飞行器只知道推力和角速度，为了进入下一个状态，飞行器必须具有较低的推力（油门）和非旋转状态达到 8.0 秒。
 
-If the vehicle is in position or velocity control and maybe landed was detected, the position controller will set the thrust vector to zero.
+如果飞行器处于位置控制或速度控制并且可能已检测到着陆，位置控制器会将推力（油门）矢量设置为零。
 
 #### 降落完成
 
