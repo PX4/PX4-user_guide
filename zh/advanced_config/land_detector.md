@@ -48,7 +48,7 @@
 - 没有水平运动 ([LNDMC_XY_VEL_MAX](../advanced_config/parameter_reference.md#LNDMC_XY_VEL_MAX))
 - 油门低于[ MPC_THR_MIN ](../advanced_config/parameter_reference.md#MPC_THR_MIN) +（[ MPC_THR_HOVER ](../advanced_config/parameter_reference.md#MPC_THR_HOVER) - [ MPC_THR_MIN ](../advanced_config/parameter_reference.md#MPC_THR_MIN)）* [ LNDMC_LOW_T_THR ](../advanced_config/parameter_reference.md#LNDMC_LOW_T_THR)，或者速度设定值是地面速度的 0.9 倍，同时飞行器没有垂直运动。
 
-如果飞行器处于位置 控制或速度 控制并且检测到 地面接触，位置控制器会将沿飞行器 x-y 轴的推力矢量设置为零。
+如果飞行器处于位置 控制或速度 控制并且检测到 地面接触，位置控制器会将沿飞行器 x-y 轴的推力（油门）矢量设置为零。
 
 #### 可能着陆
 
@@ -64,6 +64,6 @@
 
 #### 降落完成
 
-This state is reached if following conditions are true for 0.3 seconds:
+如果满足以下条件达到 0.3 秒，则进入此状态：
 
-- 可能降落的所有条件都是真
+- 所有的可能着陆条件均为真
