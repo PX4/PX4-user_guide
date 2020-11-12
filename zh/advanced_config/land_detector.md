@@ -2,17 +2,17 @@
 
 着陆探测器是一个动态飞行器模型，代表了从接触地面到着陆的关键飞行器状态。 本节主题说明您可能希望调整的主要参数，以改善飞行器着陆行为。
 
-## 自动加锁
+## 自动上锁
 
-当飞行器着陆时着陆检测器会自动加锁飞行器
+当飞行器着陆时着陆探测器会为飞行器自动加锁。
 
-You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISARM_LAND) to specify the number of seconds after landing that the system should disarm (or turn off auto-disarming by setting the parameter to -1).
+您可以设置[ COM_DISARM_LAND ](../advanced_config/parameter_reference.md#COM_DISARM_LAND)来指定着陆后系统上锁前的秒数（或通过将参数设置为 -1 关闭自动上锁）。
 
 ## 多旋翼配置
 
-完整的相关着陆检测器参数集在参数参考中列出，带有前缀 [LNDMC](../advanced_config/parameter_reference.md#land-detector) （可以通过参数[编辑器](../advanced_config/parameters.md)在QGroundControl中编辑这些参数）。
+所有的关于着陆探测器的参数集在参数索引中列出，带有前缀 [LNDMC](../advanced_config/parameter_reference.md#land-detector) （可以通过[参数编辑器](../advanced_config/parameters.md)在 QGroundControl 中编辑这些参数）。
 
-> **Tip**有关参数如何影响着陆的信息, 请参阅下面的 [Land 检测器状态](#states)。
+> **Tip**有关参数如何影响着陆的信息, 请参阅下面的 [着陆探测器状态](#states)。
 
 为了改善特定机架上的着陆, 您可能需要调整的其他关键参数包括:
 
@@ -26,7 +26,7 @@ You can set [COM_DISARM_LAND](../advanced_config/parameter_reference.md#COM_DISA
 
 完整的相关参数集可在 [LNDFW](../advanced_config/parameter_reference.md#land-detector) 前缀下查阅。 这两个参数有时需要调整:
 
-- [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX)\----飞机降落时允许的最大空速。 默认值 8 m 时一个可靠的在空速传感器精度和足够快的触发速度之间的权衡。 越好的空速传感器允许此参数的值越低。
+- [LNDFW_AIRSPD_MAX](../advanced_config/parameter_reference.md#LNDFW_AIRSPD_MAX)\----飞机降落时允许的最大空速。 默认值 8 m 是，在空速传感器精度和足够快的触发速度之间权衡后，一个合适的设定值。 越好的空速传感器允许此参数的值越低。
 - [LNDFW_VEL_XY_MAX ](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum horizontal velocity for the system to be still be considered landed. 
 - [LNDFW_VEL_Z_MAX](../advanced_config/parameter_reference.md#LNDFW_VEL_XY_MAX) - the maximum vertical velocity for the system to be still be considered landed. This parameter can be adjusted to ensure land detection triggers earlier or later on throwing the airframe for hand-launches.
 
