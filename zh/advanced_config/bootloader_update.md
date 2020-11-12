@@ -82,4 +82,4 @@ Bootloader 更新后，您可以使用* QGroundControl * 来 [加载 PX4 固件]
 
 不属于 [ Pixhawk 系列](../flight_controller/pixhawk_series.md)的板卡将具有自己的 Bootloader 更新机制。
 
-For boards that are preflashed with Betaflight, see [Bootloader Flashing onto Betaflight Systems](bootloader_update_from_betaflight.md).
+对于已预烧写 Betaflight 的板卡，请参见[ Betaflight System 烧写 Bootloader ](bootloader_update_from_betaflight.md)。
