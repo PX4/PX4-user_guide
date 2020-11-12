@@ -34,15 +34,15 @@
 
 ### 使用 Dronecode Probe 更新 Bootloader (Dronecode Probe 是官方 JTAG/SWD+UART 调试器 )
 
-The following steps explain how you can "manually" update the bootloader using the dronecode probe:
+以下步骤说明了如何使用 dronecode probe “手动” 更新 bootloader ：
 
-1. Get a binary containing the bootloader (either from dev team or build it yourself).
-2. Connect the Dronecode probe to your PC via USB. 
-3. Go into the directory containing the binary and run the following command in the terminal: 
+1. 获取包含 bootloader 的二进制文件（从开发团队 或 自行编译获得）。
+2. 通过 USB 将 Dronecode Probe 连接到PC。 
+3. 进入包含二进制文件的目录，然后在终端中运行以下命令 ： 
         bash
         arm-none-eabi-gdb px4fmuv5_bl.elf
 
-4. The *gdb terminal* appears and it should display the following output: 
+4. 出现* gdb 终端界面 *，它应该显示以下输出： 
         bash
         GNU gdb (GNU Tools for Arm Embedded Processors 7-2017-q4-major) 8.0.50.20171128-git
         Copyright (C) 2017 Free Software Foundation, Inc.
