@@ -16,7 +16,8 @@
     "docs:devmem": "NODE_OPTIONS='--max-old-space-size=8192' vuepress dev . ",
     "docs:dev": "vuepress dev . ",
     "docs:buildnorm": "vuepress build .",
-    "docs:build": "NODE_OPTIONS='--max-old-space-size=8192' vuepress build ."
+    "docs:build": "NODE_OPTIONS='--max-old-space-size=8192' vuepress build .",
+	"docs:buildwin": "set NODE_OPTIONS=--max_old_space_size=8192 && vuepress build ."
   },
   "dependencies": {
     "vuepress-plugin-mathjax": "^1.2.8",
