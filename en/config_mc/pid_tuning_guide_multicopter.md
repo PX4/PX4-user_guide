@@ -46,7 +46,8 @@ The PID tuning needs to be done in the same order, starting with the rate contro
 Here are some general points to follow when tuning:
 - All gains should be increased very slowly as large gains may cause dangerous oscillations!
   Typically increase gains by 20-30% per iteration, reducing to 5-10% for final fine tuning.
-- Land before changing a parameter. Slowly increase the throttle and check for oscillations.
+- Land before changing a parameter.
+  Slowly increase the throttle and check for oscillations.
 - Tune the vehicle around the hovering thrust point, and use the [thrust curve parameter](#thrust_curve) to account for thrust non-linearities or high-thrust oscillations.
 
 ### Rate Controller
@@ -206,22 +207,43 @@ The following parameters can also be adjusted. These determine the maximum rotat
 ### Thrust Curve
 
 The tuning above optimises performance around the hover throttle.
-But it can be that you start to see oscillations when going towards full throttle.
+But you may start to see oscillations when going towards full throttle.
 
-To counteract that adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
+To counteract that, adjust the **thrust curve** with the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter.
 
 > **Note** The rate controller might need to be re-tuned if you change this parameter.
 
 The mapping from motor control signals (e.g. PWM) to expected thrust is linear by default — setting `THR_MDL_FAC` to 1 makes it quadratic.
 Values in between use a linear interpolation of the two. Typical values are between 0.3 and 0.5.
 
-If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust),
-you can determine the relationship between the PWM control signal and the motor's actual thrust, and fit a function to the data.
-[This Notebook][THR_MDL_FAC_Calculation] shows how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust data.
+If you have a [thrust stand](https://www.rcbenchmark.com/pages/series-1580-thrust-stand-dynamometer) (or can otherwise _measure_ thrust and motor commands simultaneously), you can determine the relationship between the motor control signal and the motor's actual thrust, and fit a function to the data.
+The motor command in PX4 called `actuator_output` can be PWM, Dshot, UAVCAN commands for the respective ESCs in use. 
+[This Notebook][THR_MDL_FAC_Calculation] shows one way for how the thrust model factor `THR_MDL_FAC` may be calculated from previously measured thrust and PWM data.
+The curves shown in this plot are parametrized by both &alpha; and k, and also show thrust and PWM in real units (kgf and &mu;s).
+In order to simplify the curve fit problem, you can normalize the data between 0 and 1 to find `k` without having to estimate &alpha; (&alpha; = 1, when the data is normalized).
 
 [![Thrust Curve Compensation](../../assets/mc_pid_tuning/thrust-curve-compensation.svg)][THR_MDL_FAC_Calculation]
 
 > **Note** The mapping between PWM and static thrust depends highly on the battery voltage.
+
+An alternative way of performing this experiment is to make a scatter plot of the normalized motor command and thrust values, and iteratively tune the thrust curve by experimenting with the `THR_MDL_FAC` parameter.
+An example of that graph is shown here:
+
+![Graph showing relative thrust and PWM scatter](../../assets/mc_pid_tuning/relative_thrust_and_pwm_scatter.svg)
+
+If raw motor command and thrust data is collected throughout the full-scale range in the experiment, you can normalize the data using the equation:
+
+*normalized_value = ( raw_value - min (raw_value) ) / ( max ( raw_value ) - min ( raw_value ) )*
+
+After you have a scatter plot of the normalized values, you can try and make the curve match by plotting the equation 
+
+*rel_thrust = ( `THR_MDL_FAC` ) * rel_signal^2 + ( 1 - `THR_MDL_FAC` ) * rel_signal*
+
+over a linear range of normalized motor command values between 0 and 1.
+Note that this is the equation that is used in the firmware to map thrust and motor command, as shown in the [THR_MDL_FAC](../advanced_config/parameter_reference.md#THR_MDL_FAC) parameter reference.
+Here, *rel_thrust* is the normalized thrust value between 0 and 1, and *rel_signal* is the normalized motor command signal value between 0 and 1.
+
+In this example above, the curve seemed to fit best when `THR_MDL_FAC` was set to 0.7. 
 
 [THR_MDL_FAC_Calculation]: https://github.com/PX4/px4_user_guide/blob/master/assets/config/mc/ThrustCurve.ipynb
 
@@ -279,4 +301,3 @@ If mixing becomes saturated towards the upper bound the commanded thrust is redu
 This behaviour is similar to the Airmode logic, and is applied whether Airmode is enabled or disabled.
 
 Once your vehicle flies well you can enable Airmode via the [MC_AIRMODE](../advanced_config/parameter_reference.md#MC_AIRMODE) parameter.
-
