@@ -19,7 +19,7 @@
 1. 插入 SD 卡（使能引导日志记录，便于调试任何可能的问题）。
 2. 使用包含 最新的/所需的 bootloader 的映像 (原单词 Image ) 来[更新固件](../config/firmware.md#custom)。
     
-    > **Tip** The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
+    > **提示** 已经更新的 bootloader 可能以自定义固件形式提供（例如，来自开发团队），或者可能包含在最新的 master 分支中。
     
     ![FMUv2 更新](../../assets/qgc/setup/firmware/bootloader_update.jpg)
 
@@ -28,11 +28,11 @@
 4. [找到并启用](../advanced_config/parameters.md) 参数 [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)。
 5. 重新启动（断开/重新连接飞控板）。 Bootloader 更新只需要几秒钟即可完成。
 
-Generally at this point you may then want to [update the firmware](../config/firmware.md) again using the correct/newly installed bootloader.
+通常，此时您可能想要使用 正确/新安装 的 bootloader 再次[更新固件](../config/firmware.md)。
 
 <span id="dronecode_probe"></span>
 
-### Dronecode Probe Bootloader Update
+### 使用 Dronecode Probe 更新 Bootloader (Dronecode Probe 是官方 JTAG/SWD+UART 调试器 )
 
 The following steps explain how you can "manually" update the bootloader using the dronecode probe:
 
