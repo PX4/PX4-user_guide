@@ -12,12 +12,12 @@
 
 最简单的方法是首先使用* QGroundControl *安装具有所需/最新 bootloader 的固件。 然后，可以通过设置参数[ SYS_BL_UPDATE ](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)来在下次重启时启动 bootloader 更新。
 
-> **Note** This approach can only be used if [SYS_BL_UPDATE](../advanced_config/parameter_reference.md#SYS_BL_UPDATE) is present in firmware (currently just FMUv2 and some custom firmware).
+> **注意** 仅当固件（当前只有 FMUv2 和某些自定义固件）中存在参数[ SYS_BL_UPDATE ](../advanced_config/parameter_reference.md#SYS_BL_UPDATE)时，才可以使用此方法。
 
-The steps are:
+步骤如下：
 
-1. 插入 SD 卡（启用引导日志记录，便于调试任何可能的问题。）
-2. [Update the Firmware](../config/firmware.md#custom) with an image containing the new/desired bootloader.
+1. 插入 SD 卡（使能引导日志记录，便于调试任何可能的问题）。
+2. 使用包含 最新的/所需的 bootloader 的映像 (原单词 Image ) 来[更新固件](../config/firmware.md#custom)。
     
     > **Tip** The updated bootloader might be supplied in custom firmware (i.e. from the dev team), or it or may be included in the latest master.
     
