@@ -1,12 +1,12 @@
-# SiK Radio
+# SiK 电台
 
 [SiK radio](https://github.com/LorenzMeier/SiK) is a collection of firmware and tools for telemetry radios.
 
-Information about *using* SiK Radio can be found it the *PX4 User Guide*: [Telemetry > SiK Radio](https://docs.px4.io/master/en/telemetry/sik_radio.html)
+Information about *using* SiK Radio can be found it the *PX4 User Guide*: [Telemetry > SiK Radio](http://docs.px4.io/en/telemetry/sik_radio.html)
 
 The ("developer") information below explains how to build SiK firmware from source and configure it using AT commands.
 
-## Supported Radio Hardware
+## 构建说明
 
 The SiK repository includes bootloaders and firmware for the following telemetry radios (2020-02-25):
 - HopeRF HM-TRP
@@ -25,7 +25,7 @@ The SiK repository includes bootloaders and firmware for the following telemetry
 > 3. Use the RFD Modem Tools GUI to upload the firmware to your RFD900x or RFD900ux telemetry radio.
 
 
-## Build Instructions
+## 配置说明
 
 You will need to install the required 8051 compiler, as this is not included in the default PX4 Build toolchain.
 
