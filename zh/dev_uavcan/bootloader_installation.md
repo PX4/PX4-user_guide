@@ -1,32 +1,32 @@
-# UAVCAN Bootloader Installation
+# UAVCAN Bootloader 安装
 
-> **Warning** UAVCAN devices typically ship with a bootloader pre-installed. Do not follow the instructions in this section unless you are developing UAVCAN devices.
+> ** 警告 **UAVCAN 设备通常使用预安装的引导程序装运。 除非您正在开发 UAVCAN 设备, 否则请不要按照本节中的说明操作。
 
-## Overview
+## 概述
 
-The PX4 project includes a standard UAVCAN bootloader for STM32 devices.
+PX4 项目包含一个用于 STM32 设备的标准 UAVCAN 引导程序。
 
-The bootloader occupies the first 8–16 KB of flash, and is the first code executed on power-up. Typically, the bootloader performs low-level device initialization, automatically determines the CAN bus baud rate, acts as a UAVCAN dynamic node ID client to obtain a unique node ID, and waits for confirmation from the flight controller before proceeding with application boot.
+引导程序占用第一个 8–16 KB 的闪存, 并且是第一个在开机时执行的代码。 通常, 引导程序执行低级设备初始化, 自动确定 can 总线波特率, 充当 UAVCAN 动态节点 id 客户端以获取唯一的节点 id, 并等待飞行控制器的确认, 然后再继续应用程序启动。
 
-This process ensures that a UAVCAN device can recover from invalid or corrupted application firmware without user intervention, and also permits automatic firmware updates.
+此过程确保 UAVCAN 设备可以从无效或损坏的应用程序固件中恢复, 而无需用户干预, 并且还允许自动固件更新。
 
-## Prerequisites
+## 系统必备组件
 
 Installing or updating the UAVCAN bootloader requires:
 
-* An SWD or JTAG interface (depending on device), for example the [BlackMagic Probe](https://github.com/blacksphere/blackmagic/wiki) or the [ST-Link v2](http://www.st.com/internet/evalboard/product/251168.jsp);
-* An adapter cable to connect your SWD or JTAG interface to the UAVCAN device's debugging port;
-* A [supported ARM toolchain](../setup/dev_env.md).
+* SWD或 JTAG 接口 (视设备而定), 例如 [ BlackMagic Probe ](http://www.blacksphere.co.nz/main/blackmagic) 或 [ ST Link v2 ](http://www.st.com/internet/evalboard/product/251168.jsp);
+* 用于将您的SWD或 JTAG 接口连接到 UAVCAN 设备的调试端口的适配器电缆;
+* [ 支持的 ARM 工具链 ](../setup/dev_env.md)。
 
-## Device Preparation
+## 设备准备
 
-If you are unable to connect to your device using the instructions below, it's possible that firmware already on the device has disabled the MCU's debug pins. To recover from this, you will need to connect your interface's NRST or nSRST pin (pin 15 on the standard ARM 20-pin connector) to your MCU's NRST pin. Obtain your device schematics and PCB layout or contact the manufacturer for details.
+如果无法使用下面的说明连接到设备, 则该设备上已存在的固件可能已禁用 MCU 的调试针脚。 要从中恢复, 您需要将接口的 NRST 或 nSRST pin (标准20针连接器上的 15引脚) 连接到 MCU 的 NRST 引脚。 获取设备示意图和 PCB 布局, 或与制造商联系以了解详细信息。
 
-## Installation
+## 安装
 
-After compiling or obtaining a bootloader image for your device (refer to device documentation for details), the bootloader must be copied to the beginning of the device's flash memory.
+在编译或获取设备的引导程序映像后 (有关详细信息, 请参阅设备文档), 引导加载程序必须复制到设备闪存的开头。
 
-The process for doing this depends on the SWD or JTAG interface used.
+这样做的过程取决于SWD或 JTAG 的使用接口。
 
 ## BlackMagic Probe
 
@@ -34,7 +34,7 @@ Ensure your BlackMagic Probe [firmware is up to date](https://github.com/blacksp
 
 Connect the probe to your UAVCAN device, and connect the probe to your computer.
 
-Identify the probe's device name. This will typically be `/dev/ttyACM<x>` or `/dev/ttyUSB<x>`.
+Identify the probe's device name. Identify the probe's device name. This will typically be `/dev/ttyACM<x>` or `/dev/ttyUSB<x>`.
 
 Power up your UAVCAN device, and run:
 
@@ -102,9 +102,9 @@ tar ext :2331
 load
 ```
 
-## Erasing Flash with SEGGER JLink Debugger
+## 使用SEGGER Jink 调试器擦除Flash
 
-As a recovery method it may be useful to erase flash to factory defaults such that the firmware is using the default parameters. Go to the directory of your SEGGER installation and launch JLinkExe, then run:
+As a recovery method it may be useful to erase flash to factory defaults such that the firmware is using the default parameters. Go to the directory of your SEGGER installation and launch JLinkExe, then run: Go to the directory of your SEGGER installation and launch JLinkExe, then run:
 
 ```
 device <name-of-device>
