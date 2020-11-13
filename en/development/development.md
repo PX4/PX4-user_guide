@@ -1,6 +1,29 @@
 # PX4 Development
 
-This user guide has everything you need to fly, assemble and configure a vehicle that uses one of the *many supported* airframes, flight controllers and peripherals.
+This section explains how to support new vehicle types and variants, modify flight algorithms, add new modes, integrate new hardware, and communicate with PX4 from outside the flight controller.
 
-Developers who want to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, or contribute to PX4 will need to read 
-the [PX4 Development Guide](http://dev.px4.io/).
+::: tip
+This section is for software developers and (new) hardware integrators.
+It is not needed if you're building an existing airframe or flying using a PX4 vehicle.
+:::
+
+It explains how to:
+
+* Get a [minimum developer setup](setup/config_initial.md), [build PX4 from source](setup/building_px4.md) and deploy on [numerous supported autopilots](https://docs.px4.io/master/en/flight_controller/).
+* Understand the [PX4 System Architecture](concept/architecture.md) and other core concepts.
+* Learn how to modify the flight stack and middleware:
+  - Modify flight algorithms and add new [flight modes](concept/flight_modes.md).
+  - Support new [airframes](airframes/README.md).
+* Learn how to integrate PX4 with new hardware:
+  - Support new sensors and actuators, including cameras, rangefinders, etc.
+  - Modify PX4 to run on new autopilot hardware.
+* [Simulate](simulation/README.md), [test](test_and_ci/README.md) and [debug/log](debug/README.md) PX4.
+* Communicate/integrate with external robotics APIs.
+
+
+## Key Developer Links
+
+- [Support](contribute/support.md): Get help using the [discussion boards](http://discuss.px4.io/) and other support channels.
+- [Weekly Dev Call](../contribute/dev_call.md): A great opportunity to meet the PX4 dev team and discuss platform technical details (including pull requests, major issues, general Q&A).
+- [Licences](../contribute/licenses.md): What you can do with the code (free to use and modify under terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)!)
+- [Contributing](../contribute/README.md): How to work with our [source code](../contribute/code.md).
