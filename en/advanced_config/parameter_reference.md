@@ -12254,7 +12254,7 @@ is less than 50% of this value</p>   </td>
  <td style="vertical-align: top;"><p>Cutoff frequency for angular acceleration (D-Term filter)</p><p><strong>Comment:</strong> The cutoff frequency for the 2nd order butterworth filter used on the time derivative of the measured angular velocity, also known as the D-term filter in the rate controller. The D-term uses the derivative of the rate and thus is the most susceptible to noise. Therefore, using a D-term filter allows to increase IMU_GYRO_CUTOFF, which leads to reduced control latency and permits to increase the P gains. A value of 0 disables the filter.</p>   <p><b>Reboot required:</b> true</p>
 </td>
  <td style="vertical-align: top;">0 > 1000 </td>
- <td style="vertical-align: top;">0.0</td>
+ <td style="vertical-align: top;">30.0</td>
  <td style="vertical-align: top;">Hz</td>
 </tr>
 <tr>
