@@ -10,9 +10,9 @@ PX4使用多个MAVLink接口来整合机载计算机的路径规划服务（包�
 
 如果 [COM_OBS_AVOID=1](../advanced_config/parameter_reference.md#COM_OBS_AVOID) ，那么 PX4 的路径规划功能会在自动模式 （着陆、起飞、持有、飞行任务、返回）下启用 。 在这些模式中，路径规划软件将为 PX4 提供预设航点；如果软件无法支持特定的飞行模式，则必须将设定值从机体上向下一个位置镜像。
 
-> **Tip** The message flows from PX4 UORB topics, through MAVLink, to ROS and back again are all documented in: [PX4/avoidance > Message Flows](https://github.com/PX4/avoidance#message-flows).
+> **提示** 所有通过 MAVLink 在 PX4 UORB 话题和 ROS 话题间双向传送的消息流都记录在 [PX4/evidence > Message Flows](https://github.com/PX4/avoidance#message-flows)文件中：
 
-All services that use this interface send and receive messages of the same type/format. Developers can therefore use this interface to create their own new companion-side path planning services, or tweak the existing planner software.
+所有使用此接口的服务均发送并且接收相同类型/格式的消息。 因此，开发者可以使用这个接口来创建自己新的机载计算机端路径规划服务，或调整现有的规划者软件。
 
 > **Tip** The [PX4 Vision Autonomy Development Kit](../complete_vehicles/px4_vision_kit.md) is recommended for developing path planning software. It comes with [PX4 avoidance](https://github.com/PX4/avoidance#obstacle-detection-and-avoidance) software pre-installed, and can be used as the base for your own algorithms.
 
