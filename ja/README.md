@@ -22,8 +22,8 @@ PX4 は *本格的なオートパイロットシステムです*. 世界中の�
 
 PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 
-- [基本設定](config/README.md) では，ファームウェアを最新版に更新する方法・メインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについて説明しています．
-- [フライト](flying/README.md) では安全に飛行させる方法や，起動・フライト中に発生した問題への対処方法など，飛行に欠かせない事項について説明しています． また，フライトモードに関する詳細についても解説しています．
+* [基本設定](config/README.md) では，ファームウェアを最新版に更新する方法・メインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについて説明しています．
+* [フライト](flying/README.md) では安全に飛行させる方法や，起動・フライト中に発生した問題への対処方法など，飛行に欠かせない事項について説明しています． また，フライトモードに関する詳細についても解説しています．
 
 **PX4準拠のドローンを手作りしたい方:**
 
@@ -31,10 +31,10 @@ PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 
 機体を手作りしたい方:
 
-- フレームの選択 - [機体の組み立て](airframes/README.md) では，すべてのサポートされているフレームが列挙されており，機体を構築するための詳細な情報が提供されています．
-- フライトコントローラの選択 - [さあ、はじめよう > フライトコントローラ](getting_started/flight_controller_selection.md) と [オートパイロット用ハードウェア](flight_controller/README.md)を参照のこと．
-- [基本構成](assembly/README.md) では，重要な周辺機器を，オートパイロット用機器にどのように接続するか，説明しています．
-- [基本設定](config/README.md) では，ファームフェアのアップデート方法と，機体構造に応じた設定方法について説明しています． また，本章ではメインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについても説明しています．
+* フレームの選択 - [機体の組み立て](airframes/README.md) では，すべてのサポートされているフレームが列挙されており，機体を構築するための詳細な情報が提供されています．
+* フライトコントローラの選択 - [さあ、はじめよう > フライトコントローラ](getting_started/flight_controller_selection.md) と [オートパイロット用ハードウェア](flight_controller/README.md)を参照のこと．
+* [基本構成](assembly/README.md) では，重要な周辺機器を，オートパイロット用機器にどのように接続するか，説明しています．
+* [基本設定](config/README.md) では，ファームフェアのアップデート方法と，機体構造に応じた設定方法について説明しています． また，本章ではメインセンサー (コンパス, ジャイロ/IMU, 機速計etc.) のキャリブレーション・RC装置や安全機能のセットアップについても説明しています．
 
 飛行させる準備が完了したら， [フライト](flying/README.md) 章を参照してください．
 
@@ -42,40 +42,58 @@ PX4をサポートした，Ready To Fly (RTF) の機体を持っている:
 
 フライトコントローラや，基本的なセンサの改造については上記の通りです． 新しいセンサを使用したり，飛行の特性に影響を与える改造をした場合，以下を参照してください:
 
-- [周辺機器](peripherals/README.md) では，外部センサを使用するための追加情報を記載しています．
-- [基本設定](config/README.md) ではメインセンサのキャリブレーションについて説明しています．
-- [応用設定](advanced_config/README.md) はより良いチューニング・再チューニングに役立ちます．
+* [周辺機器](peripherals/README.md) では，外部センサを使用するための追加情報を記載しています．
+* [基本設定](config/README.md) ではメインセンサのキャリブレーションについて説明しています．
+* [応用設定](advanced_config/README.md) はより良いチューニング・再チューニングに役立ちます．
 
 **PX4を新しいハードウェアで動かしたり，プラットフォームを拡張したい方:**
 
-- [PX4 Developer Guide](http://dev.px4.io/) ではフライトアルゴリズムの改造や，新しいモードの追加，新しいハードウェアの追加，PX4の外部からの通信，さらにPX4の開発への貢献などについて記述しています．
+* [Development](../development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
-<span id="support"></span>
+## Getting Help
 
-## Forums and Chat
+The[Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
 
-The core development team and community are active on the following forums and chat channels:
+Among other things it covers:
 
-- [PX4 Discuss](http://discuss.px4.io/) (*推奨*)
-- [Slack](http://slack.px4.io) (sign up)
+* [Forums where you can get help](contribute/support.md#forums-and-chat)
+* [Diagnosing issues](contribute/support.md#diagnosing-problems)
+* [How to report bugs](contribute/support.md#issue-bug-reporting)
+* [Weekly dev call](contribute/support.md#weekly-dev-call)
 
 ## バグ & 問題提起
 
-If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
+If you have any problems using PX4 first post them on the [support channels above](#forums-and-chat) (as they may be caused by vehicle configuration).
 
 If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
 ## 貢献
 
-Information on how to contribute to code and documentation can be found in the Developer Guide:
+Information on how to contribute to code and documentation can be found in the [Contributing](../contribute/README.md) section:
 
-- [コード](https://dev.px4.io/master/en/contribute/)
-- [ドキュメント](https://dev.px4.io/master/en/contribute/docs.html)
-- [翻訳](https://dev.px4.io/master/en/contribute/docs.html)
+* [コード](../contribute/README.md)
+* [ドキュメント](../contribute/docs.md)
+* [翻訳](../contribute/translation.md)
 
-## ライセンス
+## Translations
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/master/en/contribute/licenses.html).
+There are Chinese and Korean [translations](contribute/docs.md#translation) of this guide. You can access these by clicking the language-switcher icon:
+
+![Gitbook Language Selector](../assets/gitbook/gitbook_language_selector.png)
+
+## License
+
+PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](../contribute/licenses.md).
+
+## Calendar & Events
+
+The *Dronecode Calendar* shows important community events for platform users and developers. Select the links below to display the calendar in your timezone (and to add it to your own calendar):
+
+* [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
+* [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+* [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
+
+> **Note:** calendar defaults to CET. <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
 
 ### アイコン
 
@@ -85,7 +103,7 @@ The following icons used in this library are licensed separately (as shown below
 
 <img src="../assets/site/automatic_mode.svg" title="Automatic mode" width="30px" /> *camera-automatic-mode* icon made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
 
-## 管理
+## Governance
 
 The PX4 flight stack is hosted under the governance of the [Dronecode Project](https://www.dronecode.org/).
 
