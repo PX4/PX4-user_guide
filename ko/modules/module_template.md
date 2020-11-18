@@ -2,7 +2,7 @@
 
 An application can be written to run as either a *task* (a module with its own stack and process priority) or as a *work queue task* (a module that runs on a work queue thread, sharing the stack and thread priorit with other tasks on the work queue). In most cases a work queue task can be used, as this minimizes resource usage.
 
-> **Note** [Architectural Overview > Runtime Environment](../concept/architecture.md#runtime-environment) provides more information about tasks and work queue tasks.
+> **Note** All the things learned in the [First Application Tutorial](../apps/hello_sky.md) are relevant for writing a full application.
 
 <span></span>
 > **Note** All the things learned in the [First Application Tutorial](../modules/hello_sky.md) are relevant for writing a full application.
@@ -10,7 +10,7 @@ An application can be written to run as either a *task* (a module with its own s
 
 ## Work Queue Task
 
-PX4-Autopilot contains a template for writing a new application (module) that runs as a *work queue task*: [src/examples/work_item](https://github.com/PX4/PX4-Autopilot/tree/master/src/examples/work_item).
+The PX4 Firmware contains a template for writing a new application (module) that runs as a [task](../concept/architecture.md#runtime-environment) on its own stack: [src/templates/module](https://github.com/PX4/Firmware/tree/master/src/templates/module).
 
 A work queue task application is just the same as an ordinary (task) application, except that it needs to specify that it is a work queue task, and schedule itself to run during initialisation.
 
@@ -49,7 +49,7 @@ The template demonstrates the following additional features/aspects that are req
 - uORB subscriptions and waiting for topic updates.
 - Controlling the task that runs in the background via `start`/`stop`/`status`. The `module start [<arguments>]` command can then be directly added to the [startup script](../concept/system_startup.md).
 - Command-line argument parsing.
-- Documentation: the `PRINT_MODULE_*` methods serve two purposes (the API is documented [in the source code](https://github.com/PX4/PX4-Autopilot/blob/v1.8.0/src/platforms/px4_module.h#L381)):
+- Documentation: the `PRINT_MODULE_*` methods serve two purposes (the API is documented [in the source code](https://github.com/PX4/Firmware/blob/v1.8.0/src/platforms/px4_module.h#L381)):
   - They are used to print the command-line usage when entering `module help` on the console.
   - They are automatically extracted via script to generate the [Modules & Commands Reference](../middleware/modules_main.md) page.
 
