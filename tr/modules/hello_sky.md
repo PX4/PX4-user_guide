@@ -8,7 +8,7 @@ This topic explains how to create and run your first onboard application. It cov
 ## Prerequisites
 
 You will require the following:
-* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](https://docs.px4.io/master/en/flight_controller/#documented-boards).
+* [PX4 SITL Simulator](../simulation/README.md) *or* a [PX4-compatible flight controller](../flight_controller/README.md#documented-boards).
 * [PX4 Development Toolchain](../dev_setup/dev_env.md) for the desired target.
 * [Download the PX4 Source Code](../dev_setup/building_px4.md#get_px4_code) from Github
 
