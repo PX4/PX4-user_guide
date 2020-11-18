@@ -46,14 +46,14 @@ Optional hardware:
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make px4_fmu-v2_default
     
 
 ## Debug Port
 
-This board does not have a debug port (i.e it does not have a port for accessing the [System Console](http://dev.px4.io/master/en/debug/system_console.html) or the [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG).
+This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or the [SWD interface](../debug/swd_debug.md) (JTAG).
 
 Developers will need to solder wires to the board test pads for SWD, and to the STM32F4 (IC) TX and RX to get a console.
 
