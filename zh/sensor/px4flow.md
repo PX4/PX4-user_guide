@@ -252,7 +252,7 @@ PX4FLOW is not designed as a camera, but does all processing on-chip. You can co
 
 ## Build
 
-Install the [PX4 toolchain](https://dev.px4.io/master/en/setup/dev_env.html) (PX4 Developer Guide). Then and clone the sources from https://github.com/PX4/Flow using *git*.
+Install the [PX4 toolchain](../dev_setup/dev_env.md) (PX4 Developer Guide). Then and clone the sources from https://github.com/PX4/Flow using *git*.
 
 ```bash
 cd flow
