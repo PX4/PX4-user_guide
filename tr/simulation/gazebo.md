@@ -307,19 +307,19 @@ make px4_sitl_default gazebo_plane_cam
 
 ## Simulated Parachute/Flight Termination
 
-*Gazebo* can be used to simulate deploying a [parachute](https://docs.px4.io/master/en/peripherals/parachute.html) during [Flight Termination](https://docs.px4.io/master/en/advanced_config/flight_termination.html) (flight termination is triggered by the PWM command that is simulated in *Gazebo*).
+*Gazebo* can be used to simulate deploying a [parachute](../peripherals/parachute.md) during [Flight Termination](../advanced_config/flight_termination.md) (flight termination is triggered by the PWM command that is simulated in *Gazebo*).
 
 The `if750a` target has a parachute attached to the vehicle. To simulate the vehicle, run the following command:
 ```
 make px4_sitl gazebo_if750a
 ```
 
-To put the vehicle into flight termination state, you can force it to fail a [safety check](https://docs.px4.io/master/en/config/safety.html) that has flight termination set as the failsafe action. For example, you could do this by forcing a [Geofence violation](https://docs.px4.io/master/en/config/safety.html#geofence-failsafe).
+To put the vehicle into flight termination state, you can force it to fail a [safety check](../config/safety.md) that has flight termination set as the failsafe action. For example, you could do this by forcing a [Geofence violation](../config/safety.md#geofence-failsafe).
 
 For more information see:
-- [Flight Termination](https://docs.px4.io/master/en/advanced_config/flight_termination.html)
-- [Parachute](https://docs.px4.io/master/en/peripherals/parachute.html)
-- [Safety Configuration (Failsafes)](https://docs.px4.io/master/en/config/safety.html)
+- [Flight Termination](../advanced_config/flight_termination.md)
+- [Parachute](../peripherals/parachute.md)
+- [Safety Configuration (Failsafes)](../config/safety.md)
 
 <a id="video"></a>
 
