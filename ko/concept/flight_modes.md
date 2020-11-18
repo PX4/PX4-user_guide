@@ -6,7 +6,7 @@ Not all flight modes are available on all vehicle types, and some modes behave d
 
 The sections below provide an overview of the modes, followed by a [flight mode evaluation diagram](#flight-mode-evaluation-diagram) that shows the conditions under which PX4 will transition into a new mode.
 
-> **Note** More detailed user-facing flight mode documentation can be found in the [PX4 User Guide](https://docs.px4.io/master/en/flight_modes/).
+> **Note** More detailed user-facing flight mode documentation can be found in the [PX4 User Guide](../flight_modes/README.md).
 
 
 ## Flight Mode Summary
