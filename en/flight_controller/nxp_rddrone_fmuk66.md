@@ -79,7 +79,7 @@ https://nxp.gitbook.io/hovergames
 > **Tip** Most users will not need to build this firmware!
   It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make nxp_fmuk66-v3_default
 ```
@@ -87,7 +87,7 @@ make nxp_fmuk66-v3_default
 
 ## Debug Port
 
-The [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html) and the [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) run on the [DCD-LZ FMU Debug](https://nxp.gitbook.io/hovergames/rddrone-fmuk66/connectors/debug-interface-dcd-lz) port.
+The [PX4 System Console](../debug/system_console.md) and the [SWD interface](../debug/swd_debug.md) run on the [DCD-LZ FMU Debug](https://nxp.gitbook.io/hovergames/rddrone-fmuk66/connectors/debug-interface-dcd-lz) port.
 
 NXP's DCD-LZ is a 7 pin JST-GH connector and adds the nRST/MCU_RESET pin to the [Pixhawk 6-Pin standard debug port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug).
 

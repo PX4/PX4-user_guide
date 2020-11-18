@@ -1,6 +1,6 @@
 # Simulate Failsafes
 
-[Failsafes](https://docs.px4.io/master/en/config/safety.html) define the safe limits/conditions under which you can safely use PX4, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
+[Failsafes](../config/safety.md) define the safe limits/conditions under which you can safely use PX4, and the action that will be performed if a failsafe is triggered (for example, landing, holding position, or returning to a specified point).
 
 In SITL some failsafes are disabled by default to enable easier simulation usage.
 This topic explains how you can test safety-critical behavior in SITL simulation before attempting it in the real world.

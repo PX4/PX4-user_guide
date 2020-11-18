@@ -84,26 +84,26 @@ A successful run will end with similar output to:
 ```
 
 The following list shows the build commands for common boards:
-* [Pixhawk 4](http://docs.px4.io/master/en/flight_controller/pixhawk4.html): `make px4_fmu-v5_default`
-* [Pixhawk 4 Mini](http://docs.px4.io/master/en/flight_controller/pixhawk4_mini.html): `make px4_fmu-v5_default`
-* [CUAV V5+](http://docs.px4.io/master/en/flight_controller/cuav_v5_plus.html): `make px4_fmu-v5_default`
-* [CUAV V5 nano](http://docs.px4.io/master/en/flight_controller/cuav_v5_nano.html): `make px4_fmu-v5_default`
-* [Holybro Kakute F7](http://docs.px4.io/master/en/flight_controller/kakutef7.html): `make holybro_kakutef7_default`
-* [Pixracer](https://docs.px4.io/master/en/flight_controller/pixracer.html): `make px4_fmu-v4_default`
-* [Pixhawk 3 Pro](https://docs.px4.io/master/en/flight_controller/pixhawk3_pro.html): `make px4_fmu-v4pro_default`
-* [Pixhawk Mini](https://docs.px4.io/master/en/flight_controller/pixhawk_mini.html): `make px4_fmu-v3_default`
-* [Cube Black](https://docs.px4.io/master/en/flight_controller/pixhawk-2.html): `make px4_fmu-v3_default`
+* [Pixhawk 4](../flight_controller/pixhawk4.md): `make px4_fmu-v5_default`
+* [Pixhawk 4 Mini](../flight_controller/pixhawk4_mini.md): `make px4_fmu-v5_default`
+* [CUAV V5+](../flight_controller/cuav_v5_plus.md): `make px4_fmu-v5_default`
+* [CUAV V5 nano](../flight_controller/cuav_v5_nano.md): `make px4_fmu-v5_default`
+* [Holybro Kakute F7](../flight_controller/kakutef7.md): `make holybro_kakutef7_default`
+* [Pixracer](../flight_controller/pixracer.md): `make px4_fmu-v4_default`
+* [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md): `make px4_fmu-v4pro_default`
+* [Pixhawk Mini](../flight_controller/pixhawk_mini.md): `make px4_fmu-v3_default`
+* [Cube Black](../flight_controller/pixhawk-2.md): `make px4_fmu-v3_default`
 * Cube Yellow: `make hex_cube-yellow`
 * Cube Orange: `make hex_cube-orange`
-* [mRo Pixhawk](https://docs.px4.io/master/en/flight_controller/mro_pixhawk.html): `make px4_fmu-v3_default` (supports 2MB Flash)
-* [HKPilot32](https://docs.px4.io/master/en/flight_controller/HKPilot32.html): `make px4_fmu-v2_default`
-* [Pixfalcon](https://docs.px4.io/master/en/flight_controller/pixfalcon.html): `make px4_fmu-v2_default`
-* [Dropix](https://docs.px4.io/master/en/flight_controller/dropix.html): `make px4_fmu-v2_default`
-* [MindPX](https://docs.px4.io/master/en/flight_controller/mindpx.html)/[MindRacer](https://docs.px4.io/master/en/flight_controller/mindracer.html): `make airmind_mindpx-v2_default`
-* [mRo X-2.1](https://docs.px4.io/master/en/flight_controller/mro_x2.1.html): `make mro_x21_default` 
-* [Crazyflie 2.0](https://docs.px4.io/master/en/flight_controller/crazyflie2.html): `make bitcraze_crazyflie_default`
-* [Intel® Aero Ready to Fly Drone](https://docs.px4.io/master/en/flight_controller/intel_aero.html): `make intel_aerofc-v1_default`
-* [Pixhawk 1](https://docs.px4.io/master/en/flight_controller/pixhawk.html): `make px4_fmu-v2_default`
+* [mRo Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (supports 2MB Flash)
+* [HKPilot32](../flight_controller/HKPilot32.md): `make px4_fmu-v2_default`
+* [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
+* [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
+* [MindPX](../flight_controller/mindpx.md)/[MindRacer](../flight_controller/mindracer.md): `make airmind_mindpx-v2_default`
+* [mRo X-2.1](../flight_controller/mro_x2.1.md): `make mro_x21_default` 
+* [Crazyflie 2.0](../flight_controller/crazyflie2.md): `make bitcraze_crazyflie_default`
+* [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md): `make intel_aerofc-v1_default`
+* [Pixhawk 1](../flight_controller/pixhawk.md): `make px4_fmu-v2_default`
   > **Warning** You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
@@ -136,7 +136,7 @@ The following boards have more complicated build and/or deployment instructions.
 
 ### Raspberry Pi 2/3 Boards
 
-The command below builds the target for [Raspberry Pi 2/3 Navio2](https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html).
+The command below builds the target for [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md).
 
 #### Cross-compiler Build
 
@@ -160,7 +160,7 @@ make emlid_navio2 # for cross-compiler build
 ```
 
 The "px4" executable file is in the directory **build/emlid_navio2_default/**.
-Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start).
+Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](../flight_controller/raspberry_pi_navio2.md#developer-quick-start).
 
 Then upload it with:
 
@@ -220,14 +220,14 @@ cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
 
 ### OcPoC-Zynq Mini
 
-Build instructions for the [OcPoC-Zynq Mini](https://docs.px4.io/master/en/flight_controller/ocpoc_zynq.html) are covered in:
-* [Aerotenna OcPoC-Zynq Mini Flight Controller > Building PX4 for OcPoC-Zynq](https://docs.px4.io/master/en/flight_controller/ocpoc_zynq.html#building-px4-for-ocpoc-zynq) (PX4 User Guide)
+Build instructions for the [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md) are covered in:
+* [Aerotenna OcPoC-Zynq Mini Flight Controller > Building PX4 for OcPoC-Zynq](../flight_controller/ocpoc_zynq.md#building-px4-for-ocpoc-zynq) (PX4 User Guide)
 * [OcPoC PX4 Setup Page](https://aerotenna.readme.io/docs/px4-setup)
 
 
 ### QuRT / Snapdragon Based Boards
 
-This section shows how to build for the [Qualcomm Snapdragon Flight](https://docs.px4.io/master/en/flight_controller/snapdragon_flight.html).
+This section shows how to build for the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md).
 
 #### Build
 

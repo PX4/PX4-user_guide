@@ -250,7 +250,7 @@ UART8 | SERIAL4
 
 ### Console Port
 
-The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) runs on the port labeled [SERIAL4/5](#serial-45-port).
+The [PX4 System Console](../debug/system_console.md) runs on the port labeled [SERIAL4/5](#serial-45-port).
 
 > **Tip** A convenient way to connect to the console is to use a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation), as it comes with connectors that can be used with several different Pixhawk devices. 
 >  Simply connect the 6-pos DF13 1:1 cable on the [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation) to the Pixhawk `SERIAL4/5` port .
@@ -277,12 +277,12 @@ The complete wiring is shown below.
 ![Console Debug](../../assets/flight_controller/pixhawk1/console_debug.jpg)
 
 
->> **Note** For information on how to *use* the console see: [System Console](https://dev.px4.io/master/en/debug/system_console.html) (PX4 Developer Guide)
+>> **Note** For information on how to *use* the console see: [System Console](../debug/system_console.md) (PX4 Developer Guide)
 
 
 ### SWD Port
 
-The [SWD](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) ports are hidden under the cover (which must be removed for hardware debugging).
+The [SWD](../debug/swd_debug.md) (JTAG) ports are hidden under the cover (which must be removed for hardware debugging).
 There are separate ports for FMU and IO, as highlighted below.
 
 ![Pixhawk SWD](../../assets/flight_controller/pixhawk1/pixhawk_swd.jpg)
@@ -302,7 +302,7 @@ The pinout for the ports is shown below (the square markers in the corners above
 > **Tip** Most users will not need to build this firmware!
   It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make px4_fmu-v2_default
 ```

@@ -194,7 +194,7 @@ rm -rf build/scumaker_pilotpi_default
 
 The following method can provide the same tool-sets deployed in CI.
 
-If you are compiling for the first time with docker, please refer to the [offical docs](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites).
+If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
 
 Execute the command in PX4-Autopilot folder:
 

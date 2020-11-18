@@ -15,7 +15,7 @@ https://youtu.be/gWtrka2mK7U
 
 <span></span>
 > **Note** This (supported) solution uses ROS for routing VIO information to PX4.
-  PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](https://dev.px4.io/master/en/ros/external_position_estimation.html#px4-mavlink-integration).
+  PX4 itself does not care about the source of messages, provided they are provided via the appropriate [MAVLink Interface](../ros/external_position_estimation.md#px4-mavlink-integration).
 
 
 <span id="supported_setup"></span>
@@ -38,7 +38,7 @@ Attach the camera to the companion computer and mount it to the frame:
 ### ROS/VIO Setup
 
 To setup the Bridge, ROS and PX4:
-- On the companion computer, install and configure [MAVROS](https://dev.px4.io/master/en/ros/mavros_installation.html).
+- On the companion computer, install and configure [MAVROS](../ros/mavros_installation.md).
 - Get the Auterion [VIO bridge ROS node](https://github.com/Auterion/VIO_bridge):
   - Clone this repository in your catkin workspace.
     ```
@@ -170,7 +170,7 @@ If it is connecting properly common problems/solutions are:
 
 ## Developer Information
 
-Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](https://dev.px4.io/master/en/ros/external_position_estimation.html) (PX4 Developer Guide).
+Developers who are interested in extending this implementation (or writing a different one, which might not depend on ROS) should see [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md) (PX4 Developer Guide).
 
 This topic also explains how to configure VIO for use with the LPE Estimator (deprecated).
 

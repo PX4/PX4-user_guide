@@ -28,7 +28,7 @@ Flight Core is identical to the PX4 Flight Controller portion of [VOXL Flight](h
 |                  | [BMI088](https://www.bosch-sensortec.com/bst/products/all_products/bmi088_1) (SPI6) |
 | Barometer        | [BMP388](https://www.bosch-sensortec.com/bst/products/all_products/bmp388) (I2C4) |
 | Secure Element   | [A71CH](https://www.nxp.com/products/security-and-authentication/authentication/plug-and-trust-the-fast-easy-way-to-deploy-secure-iot-connections:A71CH) (I2C4) |
-| microSD Card     | [Information on supported cards](https://dev.px4.io/v1.9.0/en/log/logging.html#sd-cards) |
+| microSD Card     | [Information on supported cards](../dev_log/logging.md#sd-cards) |
 | Inputs           | GPS/Mag |
 |                  | Spektrum |
 |                  | Telemetry |
@@ -108,7 +108,7 @@ The full user guide is available [here](https://docs.modalai.com/flight-core-man
 
 ### How to Build
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
 ```
 make modalai_fc-v1

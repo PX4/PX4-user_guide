@@ -38,7 +38,7 @@ Some popular GPS/compass options include:
 Instructions for connecting the GPS and compass are usually provided by the manufacturer (at least for more common [Autopilot Hardware](../flight_controller/README.md)).
 
 > **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). 
-  The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
+  The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
 
 <span></span>
 > **Tip** Pay attention to pinout when connecting the GPS module.
@@ -102,7 +102,7 @@ You may however wish to read them, as they will let you know which magnetometers
 ## Developer Information
 
 - GPS/RTK-GPS
-  - [RTK-GPS](https://dev.px4.io/master/en/advanced/rtk_gps.html)
-  - [GPS driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)
-  - [UAVCAN Example](https://dev.px4.io/master/en/uavcan/)
+  - [RTK-GPS](../advanced/rtk_gps.md)
+  - [GPS driver](../modules/modules_driver.md#gps)
+  - [UAVCAN Example](../uavcan/README.md)
 - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) (Compasses)

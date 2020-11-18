@@ -1,6 +1,6 @@
 # Offboard Control
 
-> **Warning** [Offboard control](https://docs.px4.io/master/en/flight_modes/offboard.html) is dangerous.
+> **Warning** [Offboard control](../flight_modes/offboard.md) is dangerous.
   It is the responsibility of the developer to ensure adequate preparation, testing and safety precautions are taken before offboard flights.
 
 The idea behind off-board control is to be able to control the PX4 flight stack using software running outside of the autopilot.

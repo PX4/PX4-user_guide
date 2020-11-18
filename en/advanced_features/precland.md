@@ -28,7 +28,7 @@ modules/landing_target_estimator
 ```
 
 The two modules should also be started on system boot.
-For instructions see: [customizing the system startup](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup).
+For instructions see: [customizing the system startup](../concept/system_startup.md#customizing-the-system-startup).
 
 
 ## Software Configuration (Parameters)
@@ -44,7 +44,7 @@ The parameters [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_S
 Measurement scaling may be necessary due to lens distortions of the IR-LOCK sensor.
 Note that `LTEST_SCALE_X` and `LTEST_SCALE_Y` are considered in the sensor frame, not the vehicle frame.
 
-To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](https://dev.px4.io/master/en/log/logging.html#configuration) `landing_target_pose` and `vehicle_local_position`.
+To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](../dev_log/logging.md#configuration) `landing_target_pose` and `vehicle_local_position`.
 Then, compare `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel` to `vehicle_local_position.vx` and `vehicle_local_position.vy`, respectively (both measurements are in NED frame).
 If the estimated beacon velocities are consistently smaller or larger than the vehicle velocities, adjust the scale parameters to compensate.
 
@@ -52,7 +52,8 @@ If you observe slow sideways oscillations of the vehicle while doing a precision
 
 ## Precision Land Modes
 
-A precision landing can be configured to either be "required" or "opportunistic". The choice of mode affects how a precision landing is performed.
+A precision landing can be configured to either be "required" or "opportunistic".
+The choice of mode affects how a precision landing is performed.
 
 ### Required Mode
 
@@ -90,7 +91,7 @@ Precision landing can be initiated as part of a [mission](../flying/missions.md)
 
 ## Simulation
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/master/en/simulation/gazebo.html).
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](../simulation/gazebo.md).
 
 To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
 ```

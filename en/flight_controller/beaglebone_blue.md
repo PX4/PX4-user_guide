@@ -111,7 +111,7 @@ echo "PermitRootLogin yes" >>  /etc/ssh/sshd_config && systemctl restart sshd
          ```
          > **Note** Logout and Login to apply the change, or execute the same line on your current shell.
          
-         Follow the [Development Environment Setup](https://dev.px4.io/master/en/setup/dev_env_linux_ubuntu.html) instructions.
+         Follow the [Development Environment Setup](../dev)setup/dev_env_linux_ubuntu.md) instructions.
          
          You may have to edit the upload target to match with your setup:
          ```
@@ -156,7 +156,7 @@ Run the following commands on the BeagleBone Blue (i.e. via SSH):
    sudo apt-get install cmake python-empy
    ```
 2. Clone the PX4 Firmware directly onto the BeagleBone Blue.
-3. Continue with the [standard build system installation](https://dev.px4.io/master/en/setup/dev_env_linux.html).
+3. Continue with the [standard build system installation](../dev_setup/dev_env_linux.md).
 
 ## Chnages in config
 
@@ -229,7 +229,7 @@ Refer to comments in **/home/debian/px4/px4.config** for usage of these features
 
 SBUS signal from receiver (e.g., FrSky X8R) is an inverted signal.
 UARTs on BeagleBone Blue can only work with non-inverted 3.3V level signal.
-[This tutorial](https://dev.px4.io/master/en/tutorials/linux_sbus.html) contains a SBUS signal inverter circuit.
+[This tutorial](../tutorials/linux_sbus.md) contains a SBUS signal inverter circuit.
 
 #### Typical Connections
 

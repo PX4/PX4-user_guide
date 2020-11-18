@@ -5,7 +5,7 @@ This section contains topics about advanced use of supported radios and integrat
 
 ## Supported Radio Systems 
 
-[PX4 User Guide > Telemetry](https://docs.px4.io/master/en/telemetry/) contains information about telemetry radio systems already supported by PX4. 
+[PX4 User Guide > Telemetry](../telemetry/README.md) contains information about telemetry radio systems already supported by PX4.
 This includes radios that use the *SiK Radio* firmware and *3DR WiFi Telemetry Radios*.
 
 ## Integrating Telemetry Systems
@@ -15,4 +15,5 @@ Provided that a telemetry radio supports MAVLink and provides a UART interface w
 
 Telemetry systems that communicate using some other protocol will need more extensive integration, potentially covering both software (e.g. device drivers) and hardware (connectors etc.).
 While this has been done for
-specific cases (e.g. [FrSky Telemetry](https://docs.px4.io/master/en/peripherals/frsky_telemetry.html) enables sending vehicle status to an RC controller via an FrSky receiver) providing general advice is difficult. We recommend you start by [discussing with the development team](../README.md#support).
+specific cases (e.g. [FrSky Telemetry](../peripherals/frsky_telemetry.md) enables sending vehicle status to an RC controller via an FrSky receiver) providing general advice is difficult.
+We recommend you start by [discussing with the development team](../README.md#support).

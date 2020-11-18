@@ -16,7 +16,7 @@ This topic explains how to configure a PX4-based system to get data from MoCap/V
 
 ## PX4 MAVLink Integration
 
-PX4 uses the following MAVLink messages for getting external position information, and maps them to [uORB topics](http://dev.px4.io/en/middleware/uorb.html):
+PX4 uses the following MAVLink messages for getting external position information, and maps them to [uORB topics](../middleware/uorb.md):
 
 MAVLink | uORB
 --- | ---
@@ -67,7 +67,7 @@ You can apply this trick with every system - if you need to obtain a NED frame, 
 ## EKF2 Tuning/Configuration
 
 Note: this is a quick overview.
-For more detailed information, check the [EKF2 tuning guide](https://docs.px4.io/master/en/advanced_config/tuning_the_ecl_ekf.html)
+For more detailed information, check the [EKF2 tuning guide](../advanced_config/tuning_the_ecl_ekf.md)
 
 The following parameters must be set to use external position information with EKF2 (these can be set in *QGroundControl* > **Vehicle Setup > Parameters > EKF2**).
 
@@ -96,7 +96,7 @@ A rough estimate of the delay can be obtained from logs by checking the offset b
 
 ![ekf2_ev_delay log](../../assets/ekf2/ekf2_ev_delay_tuning.png)
 
-> **Note** A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](https://docs.px4.io/master/en/log/flight_log_analysis.html#flightplot) or similar flight analysis tools.
+> **Note** A plot of external data vs. onboard estimate (as above) can be generated using [FlightPlot](../log/flight_log_analysis.md#flightplot) or similar flight analysis tools.
 
 The value can further be tuned by varying the parameter to find the value that yields the lowest EKF innovations during dynamic maneuvers.
 

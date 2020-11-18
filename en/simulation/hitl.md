@@ -73,7 +73,7 @@ In summary, HITL runs PX4 on the actual hardware using standard firmware, but SI
 
       ![QGC Auto-connect settings for HITL](../../assets/gcs/qgc_hitl_autoconnect.png)
 1. (Optional) Configure Joystick and Failsafe.
-   Set the following [parameters](https://docs.px4.io/master/en/advanced_config/parameters.html) in order to use a joystick instead of an RC remote control transmitter:
+   Set the following [parameters](../advanced_config/parameters.md) in order to use a joystick instead of an RC remote control transmitter:
    * [COM_RC_IN_MODE](../advanced_config/parameter_reference.md#COM_RC_IN_MODE) to "Joystick/No RC Checks". This allows joystick input and disables RC input checks.
    * [NAV_RCL_ACT](../advanced_config/parameter_reference.md#NAV_RCL_ACT) to "Disabled". This ensures that no RC failsafe actions interfere when not running HITL with a radio control.
 

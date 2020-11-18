@@ -63,7 +63,7 @@ Flash the **<target>.bin** file.
 ## Reinstall Betaflight
 
 In order to switch back to *Betaflight*:
-- Backup the PX4 parameters, e.g. by [exporting](https://dev.px4.io/master/en/advanced/parameters_and_configurations.html#exporting-and-loading-parameters) them to an SD card
+- Backup the PX4 parameters, e.g. by [exporting](../advanced/parameters_and_configurations.md#exporting-and-loading-parameters) them to an SD card
 - Keep the **bootloader** button pressed while attaching the USB cable
 - Then flash *Betaflight* as usual with the *Betaflight-configurator*
 

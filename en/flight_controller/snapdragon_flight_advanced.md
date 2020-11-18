@@ -80,7 +80,7 @@ The APIs to set up and use the UART are described in [dspal](https://github.com/
 
 > **Todo** These are notes for advanced developers.
 
-Connect to the Linux shell (see [console instructions](https://dev.px4.io/master/en/debug/system_console.html#snapdragon-flight-wiring-the-console)).
+Connect to the Linux shell (see [console instructions](../debug/system_console.md#snapdragon-flight-wiring-the-console)).
 
 ### Access point mode
 
@@ -368,8 +368,8 @@ If you get errors like the above when starting px4, try
 - and [updating the ADSP firmware](../flight_controller/snapdragon_flight_software_installation.md#update-dsp-processor-firmware).
   Also try to do this from a native Linux installation instead of a virtual machine.
   There have been [reports](https://github.com/PX4/PX4-Autopilot/issues/5303) where it didn't seem to work when done in a virtual machine.
-- then [rebuild the px4 software](https://dev.px4.io/master/en/setup/building_px4.html), by first completely deleting your existing PX4-Autopilot repo and then re-cloning it [as described here](https://dev.px4.io/master/en/setup/building_px4.html#get_px4_code)
-- and finally [rebuild and re-run it](https://dev.px4.io/master/en/setup/building_px4.html#qurt--snapdragon-based-boards)
+- then [rebuild the px4 software](../dev_setup/building_px4.md), by first completely deleting your existing PX4-Autopilot repo and then re-cloning it [as described here](../dev_setup/building_px4.md#get_px4_code)
+- and finally [rebuild and re-run it](../dev_setup/building_px4.md#qurt--snapdragon-based-boards)
 - make sure the executable bit of `/usr/local/qr-linux/q6-admin.sh` is set:
   ```
   adb shell chmod +x /usr/local/qr-linux/q6-admin.sh

@@ -13,8 +13,8 @@ It is commonly used to navigate a vehicle in situations where GPS is absent (e.g
 ## MoCap Resources
 
 For information about MoCap see:
-- [Using Vision or Motion Capture Systems for Position Estimation](https://dev.px4.io/master/en/ros/external_position_estimation.html) (PX4 Developer Guide) <!-- bring across info into user guide? -->
-- [Flying with Motion Capture (VICON, Optitrack)](https://dev.px4.io/master/en/tutorials/motion-capture-vicon-optitrack.html) (PX4 Developer Guide)  <!-- bring across info into user guide? -->
+- [Using Vision or Motion Capture Systems for Position Estimation](../ros/external_position_estimation.md) (PX4 Developer Guide) <!-- bring across info into user guide? -->
+- [Flying with Motion Capture (VICON, Optitrack)](../tutorials/motion-capture-vicon-optitrack.md) (PX4 Developer Guide)  <!-- bring across info into user guide? -->
 - [EKF > External Vision System](../advanced_config/tuning_the_ecl_ekf.md#external-vision-system)
 
 

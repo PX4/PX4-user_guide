@@ -319,5 +319,5 @@ For a full example see the MAVLink parameter definitions: [/src/modules/mavlink/
 
 ## Further Information
 
-- [Finding/Updating Parameters](https://docs.px4.io/master/en/advanced_config/parameters.html) (PX4 User Guide)
+- [Finding/Updating Parameters](../advanced_config/parameters.md)
 - [Parameter Reference](../advanced_config/parameter_reference.md)
