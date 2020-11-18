@@ -11,13 +11,13 @@ cd vectorcontrol
 
 ### Flashing the UAVCAN Bootloader
 
-Before updating firmware via UAVCAN, the Pixhawk ESC 1.6 requires the UAVCAN bootloader be flashed. To build the bootloader, run:
+Before updating firmware via UAVCAN, the Pixhawk ESC 1.6 requires the UAVCAN bootloader be flashed. To build the bootloader, run: To build the bootloader, run:
 
 ```sh
 make clean && BOARD=px4esc_1_6 make -j8
 ```
 
-After building, the bootloader image is located at `firmware/px4esc_1_6-bootloader.bin`, and the OpenOCD configuration is located at `openocd_px4esc_1_6.cfg`. Follow [these instructions](../uavcan/bootloader_installation.md) to install the bootloader on the ESC.
+After building, the bootloader image is located at `firmware/px4esc_1_6-bootloader.bin`, and the OpenOCD configuration is located at `openocd_px4esc_1_6.cfg`. Follow [these instructions](../uavcan/bootloader_installation.md) to install the bootloader on the ESC. Follow [these instructions](../uavcan/bootloader_installation.md) to install the bootloader on the ESC.
 
 ### Compiling the Main Binary
 
@@ -25,7 +25,7 @@ After building, the bootloader image is located at `firmware/px4esc_1_6-bootload
 BOARD=s2740vc_1_0 make && BOARD=px4esc_1_6 make
 ```
 
-This will build the UAVCAN node firmware for both supported ESCs. The firmware images will be located at `com.thiemar.s2740vc-v1-1.0-1.0.<git hash>.bin` and `org.pixhawk.px4esc-v1-1.6-1.0.<git hash>.binn`.
+This will build the UAVCAN node firmware for both supported ESCs. The firmware images will be located at `com.thiemar.s2740vc-v1-1.0-1.0.<git hash>.bin` and `org.pixhawk.px4esc-v1-1.6-1.0.<git hash>.binn`. The firmware images will be located at `com.thiemar.s2740vc-v1-1.0-1.0.<git hash>.bin` and `org.pixhawk.px4esc-v1-1.6-1.0.<git hash>.binn`.
 
 ## Sapog Codebase (Pixhawk ESC 1.4 and Zubax Orel 20)
 
@@ -39,7 +39,7 @@ git submodule update --init --recursive
 
 ### Flashing the UAVCAN Bootloader
 
-Before updating firmware via UAVCAN, the ESC requires the UAVCAN bootloader to be flashed. The bootloader can be built as follows:
+Before updating firmware via UAVCAN, the ESC requires the UAVCAN bootloader to be flashed. The bootloader can be built as follows: The bootloader can be built as follows:
 
 ```sh
 cd bootloader
@@ -47,7 +47,7 @@ make clean && make -j8
 cd ..
 ```
 
-The bootloader image is located at `bootloader/firmware/bootloader.bin`, and the OpenOCD configuration is located at `openocd.cfg`. Follow [these instructions](../uavcan/bootloader_installation.md) to install the bootloader on the ESC.
+The bootloader image is located at `bootloader/firmware/bootloader.bin`, and the OpenOCD configuration is located at `openocd.cfg`. Follow [these instructions](../uavcan/bootloader_installation.md) to install the bootloader on the ESC. Follow [these instructions](../uavcan/bootloader_installation.md) to install the bootloader on the ESC.
 
 ### Compiling the Main Binary
 
@@ -60,11 +60,11 @@ Beware, some newer version of GCC lead to segfaults during linking. Version 4.9 
 
 ## Zubax GNSS
 
-Please refer to the [project page](https://github.com/Zubax/zubax_gnss) to learn how to build and flash the firmware. Zubax GNSS comes with a UAVCAN-capable bootloader, so its firmware can be updated in a uniform fashion via UAVCAN as described below.
+Please refer to the [project page](https://github.com/Zubax/zubax_gnss) to learn how to build and flash the firmware. Please refer to the [project page](https://github.com/Zubax/zubax_gnss) to learn how to build and flash the firmware. Zubax GNSS comes with a UAVCAN-capable bootloader, so its firmware can be updated in a uniform fashion via UAVCAN as described below.
 
 ## Firmware Installation on the Autopilot
 
-The UAVCAN node file names follow a naming convention which allows the Pixhawk to update all UAVCAN devices on the network, regardless of manufacturer. The firmware files generated in the steps above must therefore be copied to the correct locations on an SD card or the PX4 ROMFS in order for the devices to be updated.
+The UAVCAN node file names follow a naming convention which allows the Pixhawk to update all UAVCAN devices on the network, regardless of manufacturer. The firmware files generated in the steps above must therefore be copied to the correct locations on an SD card or the PX4 ROMFS in order for the devices to be updated. The firmware files generated in the steps above must therefore be copied to the correct locations on an SD card or the PX4 ROMFS in order for the devices to be updated.
 
 The convention for firmware image names is:
 
