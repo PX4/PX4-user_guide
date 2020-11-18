@@ -1,12 +1,12 @@
 # Driver Development
 
-PX4 device drivers are based on the [Device](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/drivers/device) framework.
+NuttX device drivers are based on the [Device](https://github.com/PX4/Firmware/tree/master/src/lib/drivers/device) framework.
 
 ## Creating a Driver
 
 PX4 almost exclusively consumes data from [uORB](../middleware/uorb.md). Drivers for common peripheral types must publish the correct uORB messages (for example: gyro, accelerometer, pressure sensors, etc.).
 
-The best approach for creating a new driver is to start with a similar driver as a template (see [src/drivers](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers)).
+PX4 almost exclusively consumes data from [uORB](../middleware/uorb.md). Drivers for common peripheral types must publish the correct uORB messages (for example: gyro, accelerometer, pressure sensors, etc.).
 
 > **Tip** More detailed information about working with specific I/O busses and sensors may be available in [Sensor and Actuator Buses](../sensor_bus/README.md) section.
 
@@ -16,20 +16,20 @@ The best approach for creating a new driver is to start with a similar driver as
 
 ## Core Architecture
 
-PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used:
+PX4 is a [reactive system](../concept/architecture.md) and uses [uORB](../middleware/uorb.md) publish/subscribe to transport messages. File handles are not required or used for the core operation of the system. Two main APIs are used: File handles are not required or used for the core operation of the system. Two main APIs are used:
 
 * The publish / subscribe system which has a file, network or shared memory backend depending on the system PX4 runs on.
-* The global device registry, which can be used to enumerate devices and get/set their configuration. This can be as simple as a linked list or map to the file system.
+* The global device registry, which can be used to enumerate devices and get/set their configuration. This can be as simple as a linked list or map to the file system. This can be as simple as a linked list or map to the file system.
 
 ## Device IDs
 
-PX4 uses device IDs to identify individual sensors consistently across the system. These IDs are stored in the configuration parameters and used to match sensor calibration values, as well as to determine which sensor is logged to which logfile entry.
+PX4 uses device IDs to identify individual sensors consistently across the system. PX4 uses device IDs to identify individual sensors consistently across the system. These IDs are stored in the configuration parameters and used to match sensor calibration values, as well as to determine which sensor is logged to which logfile entry.
 
 The order of sensors (e.g. if there is a `/dev/mag0` and an alternate `/dev/mag1`) does not determine priority - the priority is instead stored as part of the published uORB topic.
 
 ### Decoding example
 
-For the example of three magnetometers on a system, use the flight log (.px4log) to dump the parameters. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding.
+For the example of three magnetometers on a system, use the flight log (.px4log) to dump the parameters. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding. The three parameters encode the sensor IDs and `MAG_PRIME` identifies which magnetometer is selected as the primary sensor. Each MAGx_ID is a 24bit number and should be padded left with zeros for manual decoding.
 
 
 ```
@@ -49,7 +49,7 @@ This is the external HMC5983 connected via I2C, bus 1 at address `0x1E`: It will
 HMC5883   0x1E    bus 1 I2C
 ```
 
-This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It will show up in the log file as `IMU1.MagX`.
+This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It will show up in the log file as `IMU1.MagX`. It will show up in the log file as `IMU1.MagX`.
 
 ```
 # device ID 66826 in 24-bit binary:
@@ -59,7 +59,7 @@ This is the internal HMC5983 connected via SPI, bus 1, slave select slot 5. It w
 HMC5883   dev 5   bus 1 SPI
 ```
 
-And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave select slot 4. It will show up in the log file as `IMU2.MagX`.
+And this is the internal MPU9250 magnetometer connected via SPI, bus 1, slave select slot 4. It will show up in the log file as `IMU2.MagX`. It will show up in the log file as `IMU2.MagX`.
 
 ```
 # device ID 263178 in 24-bit binary:
@@ -71,7 +71,7 @@ MPU9250   dev 4   bus 1 SPI
 
 ### Device ID Encoding
 
-The device ID is a 24bit number according to this format. Note that the first fields are the least significant bits in the decoding example above.
+The device ID is a 24bit number according to this format. The device ID is a 24bit number according to this format. Note that the first fields are the least significant bits in the decoding example above.
 
 ```C
 struct DeviceStructure {
