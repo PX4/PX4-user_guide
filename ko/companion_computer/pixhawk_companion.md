@@ -4,16 +4,16 @@ Interfacing a companion computer (Raspberry Pi, Odroid, Tegra K1) to Pixhawk-fam
 
 ## Pixhawk Setup
 
-Enable MAVLink on any [configurable serial port](https://docs.px4.io/master/en/peripherals/serial_configuration.html).
+Enable MAVLink on any [configurable serial port](https://docs.px4.io/en/peripherals/serial_configuration.html).
 
 > **Tip** Typically the `TELEM 2` port is used for a companion computer.
 
 To set up the default companion computer message stream on `TELEM 2`, set the following parameters:
-* [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) = `TELEM 2` (`MAV_1_CONFIG` is often used to map the `TELEM 2` port)
-* [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = `Onboard`
-* [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) = `921600` (921600 or higher recommended for applications like log streaming or FastRTPS)
+* [MAV_1_CONFIG](../advanced/parameter_reference.md#MAV_1_CONFIG) = `TELEM 2` (`MAV_1_CONFIG` is often used to map the `TELEM 2` port)
+* [MAV_1_MODE](../advanced/parameter_reference.md#MAV_1_MODE) = `Onboard`
+* [SER_TEL2_BAUD](../advanced/parameter_reference.md#SER_TEL2_BAUD) = `921600` (921600 or higher recommended for applications like log streaming or FastRTPS)
 
-For more information see [MAVLink Peripherals (GCS/OSD/Companion)](https://docs.px4.io/master/en/peripherals/mavlink_peripherals.html).
+For more information see [MAVLink Peripherals (GCS/OSD/Companion)](https://docs.px4.io/en/peripherals/mavlink_peripherals.html).
 
 
 ## Companion Computer Setup
@@ -22,7 +22,7 @@ In order to receive MAVLink, the companion computer needs to run some software t
 
   * [MAVROS](../ros/mavros_installation.md) to communicate to ROS nodes
   * [C/C++ example code](https://github.com/mavlink/c_uart_interface_example) to connect custom code
-  * [MAVLink Router](https://github.com/intel/mavlink-router) (recommended) or [MAVProxy](https://ardupilot.org/mavproxy/) to route MAVLink between serial and UDP
+  * [MAVLink Router](https://github.com/intel/mavlink-router) (recommended) or [MAVProxy](http://mavproxy.org) to route MAVLink between serial and UDP
 
 ## Hardware setup
 
@@ -50,11 +50,9 @@ Using `lsusb` we can get the vendor and product IDs.
 ```sh
 $ lsusb
 
-Bus 006 Device 002: ID 0bda:8153 Realtek Semiconductor Corp.
-Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 006 Device 002: ID 0bda:8153 Realtek Semiconductor Corp. Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 005 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-Bus 004 Device 002: ID 05e3:0616 Genesys Logic, Inc.
-Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 004 Device 002: ID 05e3:0616 Genesys Logic, Inc. Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 Bus 003 Device 004: ID 2341:0042 Arduino SA Mega 2560 R3 (CDC ACM)
 Bus 003 Device 005: ID 26ac:0011
 Bus 003 Device 002: ID 05e3:0610 Genesys Logic, Inc. 4-port hub
