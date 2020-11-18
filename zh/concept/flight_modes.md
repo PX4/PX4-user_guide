@@ -6,7 +6,7 @@
 
 下面的各小节对所以的飞行模式进行了一个概述，随后给出了一张 [飞行模式评估图](#flight-mode-evaluation-diagram) ，改图展示了 PX4 在何种条件下会切换至一个新的飞行模式。
 
-> **Note** More detailed user-facing flight mode documentation can be found in the [PX4 User Guide](https://docs.px4.io/master/en/flight_modes/).
+> **Note** More detailed user-facing flight mode documentation can be found in the [PX4 User Guide](../flight_modes/README.md).
 
 
 ## 飞行模式概要
