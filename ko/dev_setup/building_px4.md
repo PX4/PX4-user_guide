@@ -1,31 +1,32 @@
-# Building PX4 Software
+# PX4 소프트웨어 제작
 
-PX4 can be built on the console or in an IDE, for both simulated and hardware targets.
+PX4는 시뮬레이션된 대상과 하드웨어 대상 모두에 대해 콘솔이나 IDE에서 개발될 수 있습니다.
 
-> **Note** Before following these instructions you must first install the [Developer Toolchain](../dev_setup/dev_env.md) for your host operating system and target hardware.
+> **Note** Before following these instructions you must first install the [Developer Toolchain](../setup/dev_env.md) for your host operating system and target hardware.
 
 <span></span>
-> **Tip** For solutions to common build problems see [Troubleshooting](#troubleshooting) below.
+> **Tip** You can get a list of *all* available `VIEWER_MODEL_DEBUGGER` options using the command below:
 
 <a id="get_px4_code"></a>
 
-## Download the PX4 Source Code
+## PX4 소스 코드 다운로드하기
 
-The PX4 source code is stored on Github in the [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot) repository. To get the *very latest* version onto your computer, enter the following command into a terminal:
+PX4 소스 코드는 [PX4 / Firmware](https://github.com/PX4/Firmware) 저장소의 Github에 저장됩니다. 이 저장소를 Github 계정과 연결된 복사본을 [만들어](https://help.github.com/articles/fork-a-repo/), 이 원본을 로컬 컴퓨터에 [복제](https://help.github.com/articles/cloning-a-repository/)하는 것이 좋습니다.
 
 ```sh
-git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+sh
+ git clone https://github.com/PX4/Firmware.git
 ```
 
-> **Note** This is all you need to do just to build the latest code. [GIT Examples > Contributing code to PX4](../contribute/git_examples.md#contributing_code) provides a lot more information about using git to contribute to PX4. 
+> **Note** Generally the `_default` suffix is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.). 
 
 <a id="jmavsim_build"></a>
 
 ## First Build (Using the jMAVSim Simulator)
 
-First we'll build a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.
+For the first build we'll build for a simulated target using a console environment. This allows us to validate the system setup before moving on to real hardware and an IDE.
 
-Navigate into the **PX4-Autopilot** directory and start [jMAVSim](../simulation/jmavsim.md) using the following command:
+This will copy *most* of the *very latest* version of PX4 source code onto your computer (the rest of the code is automatically fetched from other [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) when you build PX4).
 ```sh
 make px4_sitl jmavsim
 ```
@@ -50,7 +51,8 @@ Flying the simulation with the ground control station is closer to the real oper
 > **Tip** PX4 can be used with a number of other [Simulators](../simulation/README.md), including [Gazebo Simulation](../simulation/gazebo.md) and [AirSim Simulation](../simulation/airsim.md). These are also started with *make* - e.g. 
 > 
 > ```
-  make px4_sitl gazebo
+  sh
+  make px4_sitl list_vmd_make_targets
 ```
 
 <a id="nuttx" mark="crwd-mark"></a>
@@ -61,49 +63,49 @@ Flying the simulation with the ground control station is closer to the real oper
 
 ### Building
 
-To build for NuttX- or Pixhawk- based boards, navigate into the **PX4-Autopilot** directory and then call `make` with the build target for your board.
+To build for NuttX- or Pixhawk- based boards, navigate into the **Firmware** directory and then call `make` with the build target for your board.
 
 For example, to build for *Pixracer* you would use the following command:
 ```sh
-cd PX4-Autopilot
-make px4_fmu-v4_default
+-- Build files have been written to: /home/youruser/src/Firmware/build/px4_fmu-v4_default
+[954/954] Creating /home/youruser/src/Firmware/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
 ```
 
-> **Note** In the example above the first part of the build target `px4_fmu-v4` is the firmware for a particular flight controller hardware and `default` is the configuration name (in this case the "default" configuration). The `default` is optional so you could instead do: 
+> **Note** In the example above the first part of the build target `px4_fmu-v4` is the firmware for a particular flight controller hardware and `default` is the configuration name (in this case the "default" configuration). The `default` is optional so you could instead do: `make px4_fmu-v4` 
 > 
 > ```
-  make px4_fmu-v4
+  cd Firmware
+make px4_fmu-v4_default
 ```
 
 A successful run will end with similar output to:
 ```sh
--- Build files have been written to: /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default
-[954/954] Creating /home/youruser/src/PX4-Autopilot/build/px4_fmu-v4_default/px4_fmu-v4_default.px4
+/data/ftp/internal_000/px4 -s /home/root/px4.config
 ```
 
 The following list shows the build commands for common boards:
-* [Pixhawk 4](http://docs.px4.io/master/en/flight_controller/pixhawk4.html): `make px4_fmu-v5_default`
-* [Pixhawk 4 Mini](http://docs.px4.io/master/en/flight_controller/pixhawk4_mini.html): `make px4_fmu-v5_default`
-* [CUAV V5+](http://docs.px4.io/master/en/flight_controller/cuav_v5_plus.html): `make px4_fmu-v5_default`
-* [CUAV V5 nano](http://docs.px4.io/master/en/flight_controller/cuav_v5_nano.html): `make px4_fmu-v5_default`
-* [Holybro Kakute F7](http://docs.px4.io/master/en/flight_controller/kakutef7.html): `make holybro_kakutef7_default`
-* [Pixracer](https://docs.px4.io/master/en/flight_controller/pixracer.html): `make px4_fmu-v4_default`
-* [Pixhawk 3 Pro](https://docs.px4.io/master/en/flight_controller/pixhawk3_pro.html): `make px4_fmu-v4pro_default`
-* [Pixhawk Mini](https://docs.px4.io/master/en/flight_controller/pixhawk_mini.html): `make px4_fmu-v3_default`
-* [Cube Black](https://docs.px4.io/master/en/flight_controller/pixhawk-2.html): `make px4_fmu-v3_default`
+* On OS X, hit ⌘-space and search for 'terminal'.
+* On Ubuntu, click the launch bar and search for 'terminal'.
+* On Windows, find the PX4 folder in the start menu and click on 'PX4 Console'.
+* [HKPilot32](https://docs.px4.io/en/flight_controller/HKPilot32.html): `make px4_fmu-v2_default`
+* [Crazyflie 2.0](https://docs.px4.io/en/flight_controller/crazyflie2.html): `make bitcraze_crazyflie_default`
+* [Pixracer](https://docs.px4.io/en/flight_controller/pixracer.html): `make px4_fmu-v4_default`
+* [Pixhawk 3 Pro](https://docs.px4.io/en/flight_controller/pixhawk3_pro.html): `make px4_fmu-v4pro_default`
+* [Pixhawk Mini](https://docs.px4.io/en/flight_controller/pixhawk_mini.html): `make px4_fmu-v3_default`
+* [Pixhawk 2](https://docs.px4.io/en/flight_controller/pixhawk-2.html): `make px4_fmu-v3_default`
 * Cube Yellow: `make hex_cube-yellow`
 * Cube Orange: `make hex_cube-orange`
-* [mRo Pixhawk](https://docs.px4.io/master/en/flight_controller/mro_pixhawk.html): `make px4_fmu-v3_default` (supports 2MB Flash)
-* [HKPilot32](https://docs.px4.io/master/en/flight_controller/HKPilot32.html): `make px4_fmu-v2_default`
-* [Pixfalcon](https://docs.px4.io/master/en/flight_controller/pixfalcon.html): `make px4_fmu-v2_default`
-* [Dropix](https://docs.px4.io/master/en/flight_controller/dropix.html): `make px4_fmu-v2_default`
-* [MindPX](https://docs.px4.io/master/en/flight_controller/mindpx.html)/[MindRacer](https://docs.px4.io/master/en/flight_controller/mindracer.html): `make airmind_mindpx-v2_default`
-* [mRo X-2.1](https://docs.px4.io/master/en/flight_controller/mro_x2.1.html): `make mro_x21_default`
+* [mRo Pixhawk](https://docs.px4.io/en/flight_controller/mro_pixhawk.html): `make px4_fmu-v3_default` (supports 2MB Flash)
+* [Pixfalcon](https://docs.px4.io/en/flight_controller/pixfalcon.html): `make px4_fmu-v2_default`
+* [Dropix](https://docs.px4.io/en/flight_controller/dropix.html): `make px4_fmu-v2_default`
+* [MindPX](https://docs.px4.io/en/flight_controller/mindpx.html)/[MindRacer](https://docs.px4.io/en/flight_controller/mindracer.html): `make airmind_mindpx-v2_default`
+* [mRo X-2.1](https://docs.px4.io/en/flight_controller/mro_x2.1.html): `make auav_x21_default`
+* [Intel® Aero Ready to Fly Drone](https://docs.px4.io/en/flight_controller/intel_aero.html): `make intel_aerofc-v1_default`
 * [Crazyflie 2.0](https://docs.px4.io/master/en/flight_controller/crazyflie2.html): `make bitcraze_crazyflie_default`
-* [Intel® Aero Ready to Fly Drone](https://docs.px4.io/master/en/flight_controller/intel_aero.html): `make intel_aerofc-v1_default`
-* [Pixhawk 1](https://docs.px4.io/master/en/flight_controller/pixhawk.html): `make px4_fmu-v2_default`
+* This section shows how to build for the [Qualcomm Snapdragon Flight](https://docs.px4.io/en/flight_controller/snapdragon_flight.html).
+* Build instructions for the [OcPoC-Zynq Mini](https://docs.px4.io/en/flight_controller/ocpoc_zynq.html) are covered in:
 
-  > **Warning** You **must** use a supported version of GCC to build this board (e.g. the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
+  > the same as used by [CI/docker](../test_and_ci/docker.md)) or remove modules from the build. Building with an unsupported GCC may fail, as PX4 is close to the board's 1MB flash limit.
 * Pixhawk 1 with 2 MB flash: `make px4_fmu-v3_default`
 
 > **Note** Generally the `_default` suffix is optional (i.e. you can also build using `make px4_fmu-v4`, `make bitcraze_crazyflie`, etc.).
@@ -143,34 +145,33 @@ Set the IP (or hostname) of your RPi using:
 ```sh
 export AUTOPILOT_HOST=192.168.X.X
 ```
-or
+kk
 ```sh
-export AUTOPILOT_HOST=pi_hostname.domain
+cd Firmware
+make emlid_navio2_cross upload # for cross-compiler build
 ```
 
 > **Note** The value of the environment variable should be set before the build, or `make upload` will fail to find your RPi.
 
-Build the executable file:
+The command below builds the target for [Raspberry Pi 2/3 Navio2](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html).
 
 ```sh
-cd PX4-Autopilot
-make emlid_navio2 # for cross-compiler build
+sudo ./bin/px4 -s px4.config
 ```
 
-The "px4" executable file is in the directory **build/emlid_navio2_default/**. Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start).
+The "px4" executable file is in the directory **build/emlid_navio2_cross/**. Make sure you can connect to your RPi over ssh, see [instructions how to access your RPi](https://docs.px4.io/en/flight_controller/raspberry_pi_navio2.html#developer-quick-start).
 
-Then upload it with:
+Then set the IP (or hostname) of your RPi using:
 
 ```sh
-cd PX4-Autopilot
-make emlid_navio2 upload # for cross-compiler build
+cd Firmware
+make emlid_navio2_native # for native build
 ```
 
 Then, connect over ssh and run it with (as root):
 
 ```sh
-cd ~/px4
-sudo ./bin/px4 -s px4.config
+sudo ./build/emlid_navio2_native/px4 ./posix-configs/rpi/px4.config
 ```
 
 #### Native Build
@@ -178,21 +179,22 @@ sudo ./bin/px4 -s px4.config
 If you're building *directly* on the Pi, you will want the native build target (emlid_navio2_native).
 
 ```sh
-cd PX4-Autopilot
-make emlid_navio2_native # for native build
+cd Firmware
+make emlid_navio2_cross # for cross-compiler build
 ```
 
 The "px4" executable file is in the directory **build/emlid_navio2_native/**. Run it directly with:
 
 ```sh
-sudo ./build/emlid_navio2_native/px4 build/emlid_navio2_native/etc -s ./posix-configs/rpi/px4.config
+cd /home/linaro
+./px4 mainapp.config
 ```
 
 A successful build followed by executing px4 will give you something like this:
 
 ```sh
 
-______  __   __    ___
+<br />______  __   __    ___
 | ___ \ \ \ / /   /   |
 | |_/ /  \ V /   / /| |
 |  __/   /   \  / /_| |
@@ -202,12 +204,12 @@ ______  __   __    ___
 px4 starting.
 
 
-pxh>
+pxh&gt;
 ```
 
 #### Autostart
 
-To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
+To auto-start PX4 on the Bebop at boot, modify the init script `/etc/init.d/rcS_mode_default`. Comment the following line:
 ```sh
 cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
 ```
@@ -215,14 +217,14 @@ cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
 
 ### OcPoC-Zynq Mini
 
-Build instructions for the [OcPoC-Zynq Mini](https://docs.px4.io/master/en/flight_controller/ocpoc_zynq.html) are covered in:
-* [Aerotenna OcPoC-Zynq Mini Flight Controller > Building PX4 for OcPoC-Zynq](https://docs.px4.io/master/en/flight_controller/ocpoc_zynq.html#building-px4-for-ocpoc-zynq) (PX4 User Guide)
+To autostart px4, add the following to the file **/etc/rc.local** (adjust it accordingly if you use native build), right before the `exit 0` line:
+* Pixhawk 4: `make px4_fmu-v5_default`
 * [OcPoC PX4 Setup Page](https://aerotenna.readme.io/docs/px4-setup)
 
 
 ### QuRT / Snapdragon Based Boards
 
-This section shows how to build for the [Qualcomm Snapdragon Flight](https://docs.px4.io/master/en/flight_controller/snapdragon_flight.html).
+Support for the [Parrot Bebop](https://docs.px4.io/en/flight_controller/bebop.html) is at an early stage and should be used very carefully.
 
 #### Build
 
@@ -231,8 +233,7 @@ This section shows how to build for the [Qualcomm Snapdragon Flight](https://doc
 The commands below build the targets for the Linux and the DSP side. Both executables communicate via [muORB](../middleware/uorb.md).
 
 ```sh
-cd PX4-Autopilot
-make atlflight_eagle_default
+telnet 192.168.42.1
 ```
 
 To load the SW on the device, connect via USB cable and make sure the device is booted. Run this in a new terminal window:
@@ -247,7 +248,7 @@ Go back to previous terminal and upload:
 make atlflight_eagle_default upload
 ```
 
-Note that this will also copy (and overwrite) the two config files [mainapp.config](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/eagle/flight/mainapp.config) and [px4.config](https://github.com/PX4/PX4-Autopilot/blob/master/posix-configs/eagle/flight/px4.config) to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.
+Note that this will also copy (and overwrite) the two config files [mainapp.config](https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/mainapp.config) and [px4.config](https://github.com/PX4/Firmware/blob/master/posix-configs/eagle/flight/px4.config) to the device. Those files are stored under /usr/share/data/adsp/px4.config and /home/linaro/mainapp.config respectively if you want to edit the startup scripts directly on your vehicle.
 
 The mixer currently needs to be copied manually:
 
@@ -268,8 +269,7 @@ Note: alternatively, especially on Mac, you can also use [nano-dm](https://githu
 Go back to ADB shell and run px4:
 
 ```sh
-cd /home/linaro
-./px4 -s mainapp.config
+adb connect 192.168.42.1:9050
 ```
 
 Note that the px4 will stop as soon as you disconnect the USB cable (or if you ssh session is disconnected). To fly, you should make the px4 auto-start after boot.
@@ -296,9 +296,8 @@ adb push rc.local /etc/rc.local
 For the auto-start, add the following line before `exit 0`:
 
 ```sh
-(cd /home/linaro && ./px4 -s mainapp.config > mainapp.log)
-
-exit 0
+adb shell sync
+adb shell reboot
 ```
 
 Make sure that the `rc.local` is executable:
@@ -316,7 +315,7 @@ adb reboot
 
 ## Compiling in a Graphical IDE
 
-The PX4 system supports Qt Creator, Eclipse and Sublime Text. Qt Creator is the most user-friendly variant and hence the only officially supported IDE. Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an [Eclipse project](https://github.com/PX4/PX4-Autopilot/blob/master/eclipse.project) and a [Sublime project](https://github.com/PX4/PX4-Autopilot/blob/master/Firmware.sublime-project) in the source tree.
+The PX4 system supports Qt Creator, Eclipse and Sublime Text. Qt Creator is the most user-friendly variant and hence the only officially supported IDE. Unless an expert in Eclipse or Sublime, their use is discouraged. Hardcore users can find an [Eclipse project](https://github.com/PX4/Firmware/blob/master/eclipse.project) and a [Sublime project](https://github.com/PX4/Firmware/blob/master/Firmware.sublime-project) in the source tree.
 
 {% youtube %}https://www.youtube.com/watch?v=Bkk8zttWxEI&rel=0&vq=hd720{% endyoutube %}
 
@@ -328,16 +327,16 @@ Qt creator offers clickable symbols, auto-completion of the complete codebase an
 
 ### Qt Creator on Linux
 
-Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
+Before starting Qt Creator, the [project file](https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator) needs to be created:
 
 ```sh
-cd ~/src/PX4-Autopilot
-mkdir ../Firmware-build
-cd ../Firmware-build
-cmake ../PX4-Autopilot -G "CodeBlocks - Unix Makefiles"
+Clone the Firmware repo and navigate into Firmware directory: 
+     sh
+     git clone https://github.com/PX4/Firmware.git
+     cd Firmware
 ```
 
-Then load the CMakeLists.txt in the root PX4-Autopilot folder via **File > Open File or Project** (Select the CMakeLists.txt file).
+Then load the CMakeLists.txt in the root firmware folder via **File > Open File or Project** (Select the CMakeLists.txt file).
 
 After loading, the **play** button can be configured to run the project by selecting 'custom executable' in the run target configuration and entering 'make' as executable and 'upload' as argument.
 
@@ -351,7 +350,7 @@ After loading, the **play** button can be configured to run the project by selec
 Before starting Qt Creator, the [project file](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Generator-Specific-Information#codeblocks-generator) needs to be created:
 
 ```sh
-cd ~/src/PX4-Autopilot
+cd ~/src/Firmware
 mkdir -p build/creator
 cd build/creator
 cmake ../.. -G "CodeBlocks - Unix Makefiles"
@@ -369,25 +368,26 @@ The previous sections showed how you can call *make* to build a number of differ
 
 The full syntax to call *make* with a particular configuration and initialization file is:
 ```sh
-make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER_WORLD]
+make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER]
 ```
 
 **VENDOR_MODEL_VARIANT**: (also known as `CONFIGURATION_TARGET`)
 
-- **VENDOR:** The manufacturer of the board: `px4`, `aerotenna`, `airmind`, `atlflight`, `auav`, `beaglebone`, `intel`, `nxp`, etc. The vendor name for Pixhawk series boards is `px4`.
+- [Aerotenna OcPoC-Zynq Mini Flight Controller > Building PX4 for OcPoC-Zynq](https://docs.px4.io/en/flight_controller/ocpoc_zynq.html#building-px4-for-ocpoc-zynq) (PX4 User Guide)
 - **MODEL:** The *board model* "model": `sitl`, `fmu-v2`, `fmu-v3`, `fmu-v4`, `fmu-v5`, `navio2`, etc.
 - **VARIANT:** Indicates particular configurations: e.g. `rtps`, `lpe`, which contain components that are not present in the `default` configuration. Most commonly this is `default`, and may be omitted.
 
 > **Tip** You can get a list of *all* available `CONFIGURATION_TARGET` options using the command below: 
 > 
 > ```sh
+  sh
   make list_config_targets
 ```
 
-**VIEWER_MODEL_DEBUGGER_WORLD:**
+**VIEWER_MODEL_DEBUGGER:**
 
 - **VIEWER:** This is the simulator ("viewer") to launch and connect: `gazebo`, `jmavsim` <!-- , ?airsim -->
-- **MODEL:** The *vehicle* model to use (e.g. `iris` (*default*), `rover`, `tailsitter`, etc), which will be loaded by the simulator. The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](..\simulation\README.md#scripts) to select appropriate parameters.
+- **MODEL:** The *vehicle* model to use (e.g. `iris` (*default*), `rover`, `tailsitter`, etc), which will be loaded by the simulator. The environment variable `PX4_SIM_MODEL` will be set to the selected model, which is then used in the [startup script](#scripts) to select appropriate parameters.
 - **DEBUGGER:** Debugger to use: `none` (*default*), `ide`, `gdb`, `lldb`, `ddd`, `valgrind`, `callgrind`. For more information see [Simulation Debugging](../debug/simulation_debugging.md).
 - **WORLD:** (Gazebo only). Set a the world ([PX4/sitl_gazebo/worlds](https://github.com/PX4/sitl_gazebo/tree/master/worlds)) that is loaded. Default is [empty.world](https://github.com/PX4/sitl_gazebo/blob/master/worlds/empty.world). For more information see [Gazebo > Loading a Specific World](../simulation/gazebo.md#set_world).
 
@@ -400,10 +400,10 @@ make [VENDOR_][MODEL][_VARIANT] [VIEWER_MODEL_DEBUGGER_WORLD]
 Notes:
 - Most of the values in the `CONFIGURATION_TARGET` and `VIEWER_MODEL_DEBUGGER` have defaults, and are hence optional. For example, `gazebo` is equivalent to `gazebo_iris` or `gazebo_iris_none`.
 - You can use three underscores if you want to specify a default value between two other settings. For example, `gazebo___gdb` is equivalent to `gazebo_iris_gdb`.
-- You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/jmavsim_run.sh -l`.
+- You can use a `none` value for `VIEWER_MODEL_DEBUGGER` to start PX4 and wait for a simulator. For example start PX4 using `make px4_sitl_default none` and jMAVSim using `./Tools/jmavsim_run.sh`.
 
 
-The `VENDOR_MODEL_VARIANT` options map to particular *cmake* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/PX4-Autopilot/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.cmake** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/PX4-Autopilot/blob/master/boards/px4/fmu-v5/default.cmake)).
+The `VENDOR_MODEL_VARIANT` options map to particular *cmake* configuration files in the PX4 source tree under the [/boards](https://github.com/PX4/Firmware/tree/master/boards) directory. Specifically `VENDOR_MODEL_VARIANT` maps to a configuration file **boards/VENDOR/MODEL/VARIANT.cmake** (e.g. `px4_fmu-v5_default` corresponds to [boards/px4/fmu-v5/default.cmake](https://github.com/PX4/Firmware/blob/master/boards/px4/fmu-v5/default.cmake)).
 
 Additional make targets are discussed in the following sections (list is not exhaustive):
 
@@ -411,11 +411,11 @@ Additional make targets are discussed in the following sections (list is not exh
 
 ### Binary Size Profiling
 
-The `bloaty_compare_master` build target allows you to get a better understanding of the impact of changes on code size. When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the [bloaty](https://github.com/google/bloaty) size profiler for binaries).
+The `bloaty_compare_master` build target allows you to get a better understanding of the impact of changes on code size. The `bloaty_compare_master` build target allows you to get a better understanding of the impact of changes on code size When it is used, the toolchain downloads the latest successful master build of a particular firmware and compares it to the local build (using the [bloaty](https://github.com/google/bloaty) size profiler for binaries).
 
 > **Tip** This can help analyse changes that (may) cause `px4_fmu-v2_default` to hit the 1MB flash limit.
 
-*Bloaty* must be in your path and found at *cmake* configure time. The PX4 [docker files](https://github.com/PX4/containers/blob/master/docker/Dockerfile_nuttx-bionic) install *bloaty* as shown:
+*Bloaty* must be in your path and found at *cmake* configure time. The PX4 [docker files](https://github.com/PX4/containers/blob/master/docker/px4-dev/Dockerfile_nuttx) install *bloaty* as shown:
 ```
 git clone --recursive https://github.com/google/bloaty.git /tmp/bloaty \
     && cd /tmp/bloaty && cmake -GNinja . && ninja bloaty && cp bloaty /usr/local/bin/ \
@@ -433,6 +433,7 @@ index 40d7778..2ce7972 100644
                 imu/l3gd20
                 imu/lsm303d
                 imu/mpu6000
+
 -               imu/mpu9250
 +               #imu/mpu9250
                 #iridiumsbd
@@ -452,7 +453,7 @@ Then use the make target, specifying the target build to compare (`px4_fmu-v2_de
   [DEL]     -52 MPU9250_gyro::MPU9250_gyro(MPU9250*, char const*)                                    -52  [DEL]
   [DEL]     -56 mpu9250::info(MPU9250_BUS)                                                           -56  [DEL]
   [DEL]     -56 mpu9250::regdump(MPU9250_BUS)                                                        -56  [DEL]
-...                                        -336  [DEL]
+... -336  [DEL]
   [DEL]    -344 MPU9250_mag::_measure(ak8963_regs)                                                  -344  [DEL]
   [DEL]    -684 MPU9250::MPU9250(device::Device*, device::Device*, char const*, char const*, cha    -684  [DEL]
   [DEL]    -684 MPU9250::init()                                                                     -684  [DEL]
@@ -465,9 +466,9 @@ This shows that removing *mpu9250* from `px4_fmu-v2_default` would save 10.3 kB 
 
 <a id="firmware_version"></a>
 
-## Firmware Version & Git Tags
+## List all releases (tags) sh git tag -l
 
-The *PX4 Firmware Version* and *Custom Firmware Version* are published using the MAVLink [AUTOPILOT_VERSION](https://mavlink.io/en/messages/common.html#AUTOPILOT_VERSION) message, and displayed in the *QGroundControl* **Setup > Summary** airframe panel:
+Before starting Qt Creator, the [project file](https://cmake.org/Wiki/CMake_Generator_Specific_Information#Code::Blocks_Generator) needs to be created:
 
 ![Firmware info](../../assets/gcs/qgc_setup_summary_airframe_firmware.jpg)
 
@@ -483,8 +484,9 @@ These are extracted at build time from the active *git tag* for your repo tree. 
 
 Many build problems are caused by either mismatching submodules or an incompletely cleaned-up build environment. Updating the submodules and doing a `distclean` can fix these kinds of errors:
 ```
-git submodule update --recursive
-make distclean
+(cd /home/linaro && ./px4 mainapp.config > mainapp.log)
+
+exit 0
 ```
 
 ### Flash overflowed by XXX bytes
@@ -525,9 +527,10 @@ sudo ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /us
 
 "Failed to import" errors when running the `make px4_sitl jmavsim` command indicates that some Python packages are not installed (where expected).
 ```
-Failed to import jinja2: No module named 'jinja2'
-You may need to install it using:
-    pip3 install --user jinja2
+cd ~/src/Firmware
+mkdir ../Firmware-build
+cd ../Firmware-build
+cmake ../Firmware -G "CodeBlocks - Unix Makefiles"
 ```
 If you have already installed these dependencies this may be because there is more than one Python version on the computer (e.g. Python 2.7.16 Python 3.8.3), and the module is not present in the version used by the build toolchain.
 
