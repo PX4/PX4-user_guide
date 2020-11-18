@@ -22,7 +22,7 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
     modules/landing_target_estimator
     
 
-这两个模块也应该在系统启动时启动。 有关说明，请参阅：[自定义系统启动](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup)。
+这两个模块也应该在系统启动时启动。 For instructions see: [customizing the system startup](../concept/system_startup.md#customizing-the-system-startup).
 
 ## 软件配置（参数）
 
@@ -32,7 +32,7 @@ PX4 支持多旋翼精准着陆（从 PX4 1.7.4版本），这一功能使用 [I
 
 参数[ LTEST_SCALE_X ](../advanced_config/parameter_reference.md#LTEST_SCALE_X) 和 [ LTEST_SCALE_Y ](../advanced_config/parameter_reference.md#LTEST_SCALE_Y) 可用于在估计信标相对于飞行器的位置和速度之前对信标测量结果进行缩放。 由于 IR-LOCK 传感器的镜头失真，可能需要进行测量缩放。 注意，在传感器坐标系中考虑` LTEST_SCALE_X `和` LTEST_SCALE_Y `，而不是飞行器坐标系。
 
-要校准这些缩放参数，请将` LTEST_MODE `设置为移动模式（moving），操作多旋翼飞行器在信标上方飞行，并使飞行器前后和左右运动，同时[记录](https://dev.px4.io/master/en/log/logging.html#configuration) ` landing_target_pose `和` vehicle_local_position `的日志。 然后，将 ` landing_target_pose.vx_rel ` 和 ` landing_target_pose.vy_rel ` 分别与` vehicle_local_position.vx ` 和 ` vehicle_local_position.vy ` 进行比较（均在NED坐标系中测量）。 如果估计的信标速度始终小于或大于飞行器速度，则调整缩放参数以进行补偿。
+To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](../dev_log/logging.md#configuration) `landing_target_pose` and `vehicle_local_position`. 然后，将 ` landing_target_pose.vx_rel ` 和 ` landing_target_pose.vy_rel ` 分别与` vehicle_local_position.vx ` 和 ` vehicle_local_position.vy ` 进行比较（均在NED坐标系中测量）。 如果估计的信标速度始终小于或大于飞行器速度，则调整缩放参数以进行补偿。
 
 如果在 <LT> LTEST_MODE </code> 设置为静止的情况下进行精准着陆时观察到飞行器缓慢侧向振荡，则信标测量可能会缩放得太高，您应该减小相关方向上的缩放参数。
 
@@ -75,7 +75,7 @@ Precision landing can be initiated as part of a [mission](../flying/missions.md)
 
 ## 仿真
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/master/en/simulation/gazebo.html).
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](../simulation/gazebo.md).
 
 To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
 
