@@ -119,7 +119,7 @@ SD cards are most commonly used to [log and analyse flight details](../getting_s
 
 ![Pix32 v5 With SD Card](../../assets/flight_controller/holybro_pix32_v5/pix32_v5_sd_card.jpg)
 
-> **Tip** The SanDisk Extreme U3 32GB is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
+> **Tip** The SanDisk Extreme U3 32GB is [highly recommended](../dev_log/logging.md#sd-cards).
 
 ## Motors
 
