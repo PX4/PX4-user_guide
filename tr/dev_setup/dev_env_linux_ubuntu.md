@@ -65,7 +65,7 @@ sudo add-apt-repository --remove ppa:team-gcc-arm-embedded/ppa
 The following instructions explain how to set up a build toolchain for RasPi on *Ubuntu 18.04*.
 
 > **Warning** To build for Ubuntu 20.04 (focal) you must use docker (the GCC toolchain on Ubuntu 20.04 can build PX4, but the generated binary files are too new to run on actual Pi). For more information see [PilotPi with Raspberry Pi OS
-# Developer Quick Start > Alternative build method using docker](https://docs.px4.io/master/en/flight_controller/raspberry_pi_pilotpi_rpios.html#alternative-build-method-using-docker).
+# Developer Quick Start > Alternative build method using docker](../raspberry_pi_pilotpi_rpios.md#alternative-build-method-using-docker).
 
 To get the common dependencies for Raspberry Pi:
 
@@ -131,8 +131,8 @@ make
 
 Additional developer information for using PX4 on Raspberry Pi (including building PX4 natively) can be found here:
 
-- [Raspberry Pi 2/3 Navio2 Autopilot](https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html).
-- [Raspberry Pi 2/3/4 PilotPi Shield](https://docs.px4.io/master/en/flight_controller/raspberry_pi_pilotpi.html).
+- [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
+- [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md).
 
 <a id="rosgazebo"></a>
 
@@ -159,9 +159,9 @@ Note:
 ## Snapdragon Flight
 
 Setup instructions for Snapdragon Flight are provided in the *PX4 User Guide*:
-* [Development Environment](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_dev_environment_installation.html)
-* [Software Installation](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_software_installation.html)
-* [Configuration](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_configuration.html)
+* [Development Environment](../flight_controller/snapdragon_flight_dev_environment_installation.md)
+* [Software Installation](../flight_controller/snapdragon_flight_software_installation.md)
+* [Configuration](../flight_controller/snapdragon_flight_configuration.md)
 
 <a id="fast_rtps"></a>
 
