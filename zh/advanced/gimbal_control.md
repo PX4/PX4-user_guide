@@ -18,7 +18,7 @@ The most important ones are the input ([MNT_MODE_IN](../advanced_config/paramete
 
 输出分配如下所示:
 
-The gimbal can be connected to *any free serial port* using the instructions in [MAVLink Peripherals (GCS/OSD/Companion)(https://docs.px4.io/master/en/peripherals/mavlink_peripherals.html#mavlink-peripherals-gcsosdcompanion) (also see [Serial Port Configuration](https://docs.px4.io/master/en/peripherals/serial_configuration.html#serial-port-configuration)).
+The gimbal can be connected to *any free serial port* using the instructions in [MAVLink Peripherals (GCS/OSD/Companion)(../peripherals/mavlink_peripherals.md#mavlink-peripherals-gcsosdcompanion) (also see [Serial Port Configuration](../peripherals/serial_configuration.md#serial-port-configuration)).
 
 A common configuration is to have a serial connection to the gimbal from the Flight Controller TELEM2 port (assuming TELEM2 is free). For this configuration you would set:
 - [MAV_1_CONFIG](../advanced_config/parameter_reference.md#MAV_1_CONFIG) to **TELEM2** (if `MAV_1_CONFIG` is already used for a companion computer (say), use `MAV_2_CONFIG`).

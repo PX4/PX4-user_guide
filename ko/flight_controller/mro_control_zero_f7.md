@@ -60,7 +60,7 @@ It is a no-compromise triple IMU commercial grade flight controller. It includes
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make mro_ctrl-zero-f7
 ```
@@ -70,7 +70,7 @@ make mro_ctrl-zero-f7
 
 ### Console Port
 
-The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) runs on `USART7` using the pins listed below. This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
+The [PX4 System Console](../debug/system_console.md) runs on `USART7` using the pins listed below. This is a standard serial pinout, designed to connect to a [3.3V FTDI](https://www.digikey.com/product-detail/en/TTL-232R-3V3/768-1015-ND/1836393) cable (5V tolerant).
 
 | mRo control zero f7 |             | FTDI                 |
 | ------------------- | ----------- | -------------------- |
@@ -81,7 +81,7 @@ The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html)
 
 ### SWD Port
 
-The [SWD port](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) for FMU debugging is a TC2030 debug connector, as shown below.
+The [SWD port](../debug/swd_debug.md) (JTAG) for FMU debugging is a TC2030 debug connector, as shown below.
 
 ![mro swd port](../../assets/flight_controller/mro_control_zero_f7/mro_control_zero_f7_swd.jpg)
 

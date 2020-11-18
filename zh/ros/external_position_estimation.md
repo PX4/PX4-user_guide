@@ -55,7 +55,7 @@ z_{mav} = - y_{mocap}
 
 ## EKF2 调参/配置
 
-Note: this is a quick overview. For more detailed information, check the [EKF2 tuning guide](https://docs.px4.io/master/en/advanced_config/tuning_the_ecl_ekf.html)
+Note: this is a quick overview. For more detailed information, check the [EKF2 tuning guide](../advanced_config/tuning_the_ecl_ekf.md)
 
 [EKF2_EV_DELAY](../advanced/parameter_reference.md#EKF2_EV_DELAY) 是相对于 IMU 测量的 *Vision 位置估计延迟 *。
 

@@ -19,13 +19,13 @@ There can be several shells, either running on a dedicated UART, or via MAVLink.
 ### Connecting via Dronecode Probe
 
 The developer kit comes with a breakout board with three pins to access the console. Connect the bundled FTDI cable to the header and the breakout board to the expansion connector.
-- [3DR Pixhawk v1 Flight Controller](https://docs.px4.io/master/en/flight_controller/pixhawk.html#console-port) (also applies to [mRo Pixhawk](https://docs.px4.io/master/en/flight_controller/mro_pixhawk.html#debug-ports), [HobbyKing HKPilot32](https://docs.px4.io/master/en/flight_controller/HKPilot32.html#debug-port))
-- [Pixhawk 1/2](https://docs.px4.io/master/en/flight_controller/pixhawk3_pro.html#debug-port)
-- [Pixracer](https://docs.px4.io/master/en/flight_controller/pixracer.html#debug-port)
+- [3DR Pixhawk v1 Flight Controller](../flight_controller/pixhawk.md#console-port) (also applies to [mRo Pixhawk](../flight_controller/mro_pixhawk.md#debug-ports), [HobbyKing HKPilot32](../flight_controller/HKPilot32.md#debug-port))
+- [Pixhawk 1/2](../flight_controller/pixhawk3_pro.md#debug-port)
+- [Pixracer](../flight_controller/pixracer.md#debug-port)
 
-- [Snapdragon Flight](https://docs.px4.io/master/en/flight_controller/snapdragon_flight.html):
-  - [FTDI](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_advanced.html#over-ftdi)
-  - [Console Debug](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_advanced.html#dsp-debug-monitorconsole)
+- [Snapdragon Flight](../flight_controller/snapdragon_flight.md):
+  - [FTDI](../flight_controller/snapdragon_flight_advanced.md#over-ftdi)
+  - [Console Debug](../flight_controller/snapdragon_flight_advanced.md#dsp-debug-monitorconsole)
 
 <a id="pixhawk_debug_port"></a>
 

@@ -31,7 +31,7 @@ PX4可用于以下指南针部件（磁强计）：博世BMM 150 MEMS（通过I2
 
 GPS与罗盘的连接说明通常由厂家（至少支持更通用的 [自驾仪](../flight_controller/README.md)）提供
 
-> **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](https://dev.px4.io/master/en/uavcan/).
+> **Note** [Pixhawk Series](../flight_controller/pixhawk_series.md) controllers usually have a clearly labeled port for connecting the GPS, and the compass is connected to either the I2C or SPI port/bus (depending on the device). The [Zubax GNSS 2](https://zubax.com/products/gnss_2) and [Avionics Anonymous GNSS/Mag](https://www.tindie.com/products/avionicsanonymous/uavcan-gps-magnetometer/) can also be connected via [UAVCAN](../uavcan/README.md).
 
 <span></span>
 
@@ -84,7 +84,7 @@ Additional configuration can be [performed](../advanced_config/parameters.md) us
 ## Developer Information
 
 - GPS/RTK-GPS 
-  - [RTK-GPS](https://dev.px4.io/master/en/advanced/rtk_gps.html)
-  - [GPS driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)
-  - [UAVCAN Example](https://dev.px4.io/master/en/uavcan/)
+  - [RTK-GPS](../advanced/rtk_gps.md)
+  - [GPS driver](../modules/modules_driver.md#gps)
+  - [UAVCAN Example](../uavcan/README.md)
 - [Driver source code](https://github.com/PX4/PX4-Autopilot/tree/master/src/drivers/magnetometer) (Compasses)

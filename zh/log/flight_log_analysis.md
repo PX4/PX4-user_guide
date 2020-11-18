@@ -25,7 +25,7 @@
 
 ### Flight Review（在线工具）
 
-[Flight Review](http://logs.px4.io) 是 *Log Muncher* 的继承者。 他能与新的 [ULog](http://dev.px4.io/en/log/ulog_file_format.html) 日志格式结合使用。
+[Flight Review](http://logs.px4.io) 是 *Log Muncher* 的继承者。 It is used in combination with the new [ULog](../dev_log/ulog_file_format.md) logging format.
 
 主要特性：
 

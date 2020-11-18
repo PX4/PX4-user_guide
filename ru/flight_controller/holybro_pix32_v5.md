@@ -105,21 +105,21 @@ Under these conditions the system will not draw any power (will not be operation
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make holybro_pix32v5_default
 ```
 
 ## Debug Port
 
-The system's [serial console](https://dev.px4.io/master/en/debug/system_console.html) and SWD interface runs on the **FMU Debug** port
+The system's [serial console](../debug/system_console.md) and SWD interface runs on the **FMU Debug** port
 
 <!--while the I/O console and SWD interface can be accessed via **I/O Debug** port.-->
 
 ![FMU debug port diagram](../../assets/flight_controller/holybro_pix32_v5/FMU_Debug_Port_Horizontal.jpg)
 
 The pinout uses the standard [Pixhawk debug connector pinout](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug). For wiring information see:
-- [System Console > Pixhawk Debug Port](https://dev.px4.io/master/en/debug/system_console.html#pixhawk_debug_port) (PX4 Developer Guide)
+- [System Console > Pixhawk Debug Port](../debug/system_console.md#pixhawk_debug_port) (PX4 Developer Guide)
 
 
 ## Peripherals

@@ -71,7 +71,7 @@ make px4_sitl gazebo_plane
 make px4_sitl gazebo_plane_catapult
 ```
 
-This model simulates hand/catapult launch, which can be used for [fixed wing takeoff](http://docs.px4.io/master/en/flying/fixed_wing_takeoff.html#fixed-wing-takeoff) in position mode, takeoff mode, or missions.
+This model simulates hand/catapult launch, which can be used for [fixed wing takeoff](../flying/fixed_wing_takeoff.md#fixed-wing-takeoff) in position mode, takeoff mode, or missions.
 
 The plane will automatically be launched as soon as the vehicle is armed.
 

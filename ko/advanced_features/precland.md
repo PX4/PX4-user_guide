@@ -22,7 +22,7 @@ PX4는 [IR-LOCK 센서](https://irlock.com/products/ir-lock-sensor-precision-lan
     modules/landing_target_estimator
     
 
-시스템 부팅 시에도 두 모듈은 반드시 시작되어야 합니다. 지침은 [사용자 정의 시스템 시작](https://dev.px4.io/master/en/concept/system_startup.html#customizing-the-system-startup)을 참조하십시오.
+시스템 부팅 시에도 두 모듈은 반드시 시작되어야 합니다. For instructions see: [customizing the system startup](../concept/system_startup.md#customizing-the-system-startup).
 
 ## 소프트웨어 구성(파라미터)
 
@@ -32,7 +32,7 @@ Precision landing is configured with the `landing_target_estimator` and `navigat
 
 기체에 대한 비컨의 상대 위치와 속도를 추정하기 전에, 매개 변수 [LTEST_SCALE_X](../advanced_config/parameter_reference.md#LTEST_SCALE_X) 및 [LTEST_SCALE_Y](../advanced_config/parameter_reference.md#LTEST_SCALE_Y)로 비컨 측정의 스케일을 조정할 수 있습니다. IR-LOCK 센서의 렌즈 왜곡으로 인해 측정 스케일링이 필수적일 수 있습니다. `LTEST_SCALE_X`및 ` LTEST_SCALE_Y`은 기체 프레임이 아니라 센서 프레임을 기준으로 생각해야 합니다.
 
-이러한 스케일 매개변수를 캘리브레이션하려면, `LTEST_MODE`를 moving으로 설정하고, `landing_target_pose`와 `vehicle_local_position` 을 [로깅](https://dev.px4.io/master/en/log/logging.html#configuration)하는 동안 비컨 위로 멀티콥터를 날려 전후좌우로 기체를 움직이십시오. 그런 다음, `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel`를 각각 `vehicle_local_position.vx` and `vehicle_local_position.vy`와 비교하십시오 (각각의 측정은 NED 프레임에서 이루어집니다). 추정된 비컨 속도가 기체 속도보다 일관되게 작거나 크면 스케일 파라미터를 조정하여 캘리브레이션합니다.
+To calibrate these scale parameters, set `LTEST_MODE` to moving, fly your multicopter above the beacon and perform forward-backward and left-right motions with the vehicle, while [logging](../dev_log/logging.md#configuration) `landing_target_pose` and `vehicle_local_position`. 그런 다음, `landing_target_pose.vx_rel` and `landing_target_pose.vy_rel`를 각각 `vehicle_local_position.vx` and `vehicle_local_position.vy`와 비교하십시오 (각각의 측정은 NED 프레임에서 이루어집니다). 추정된 비컨 속도가 기체 속도보다 일관되게 작거나 크면 스케일 파라미터를 조정하여 캘리브레이션합니다.
 
 `LTEST_MODE`를 정지로 설정하고 정밀 착륙을 하는 도중 기체의 측면에 진동이 나타난다면, 비콘 측정 값이 너무 높게 조정되었을 가능성이 있으므로 관련 방향에서 스케일 매개변수를 줄여야합니다.
 
@@ -75,7 +75,7 @@ Precision landing can be initiated as part of a [mission](../flying/missions.md)
 
 ## 시뮬레이션
 
-Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](https://dev.px4.io/master/en/simulation/gazebo.html).
+Precision landing with the IR-LOCK sensor and beacon can be simulated in [SITL Gazebo](../simulation/gazebo.md).
 
 To start the simulation with the world that contains a IR-LOCK beacon and a vehicle with a range sensor and IR-LOCK camera, run:
 

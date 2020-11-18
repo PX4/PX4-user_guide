@@ -298,7 +298,7 @@ MindPX는 Pixhawk <sup> & reg; </ 0>에서 분기 된 차세대 자동 조종 �
               </blockquote>
               
               <p>
-                To <a href="https://dev.px4.io/master/en/setup/building_px4.html">build PX4</a> for this target:
+                To <a href="../dev_setup/building_px4.md">build PX4</a> for this target:
               </p>
               
               <pre><code>make airmind_mindpx-v2_default

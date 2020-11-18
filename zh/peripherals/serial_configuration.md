@@ -18,7 +18,7 @@ Many serial (UART) ports on a Pixhawk board can be fully configured via paramete
 The following functions are typically mapped to the same specific serial ports on all boards, and are hence mapped by default:
 
 * MAVLink 被映射到 `Telem 1` 端口，端口的波特率为 57600 (对于[遥测模块](../telemetry/README.md))。
-* GPS 1 ([gps driver](https://dev.px4.io/master/en/middleware/modules_driver.html#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
+* GPS 1 ([gps driver](../modules/modules_driver.md#gps)) is mapped to the `GPS 1` port with a baudrate *Auto* (with this setting a GPS will automatically detect the baudrate - except for the Trimble MB-Two, which requires 115200 baudrate).
 
 All other ports have no assigned functions by default (are disabled).
 
@@ -56,7 +56,7 @@ You can include the missing driver in firmware by uncommenting (or adding) the d
     #distance_sensor/sf0x
     
 
-You will then need to build the firmware for your platform, as described in [Building PX4 Software](https://dev.px4.io/master/en/setup/building_px4.html) (PX4 Development Guide).
+You will then need to build the firmware for your platform, as described in [Building PX4 Software](../dev_setup/building_px4.md) (PX4 Development Guide).
 
 ## 更多信息
 

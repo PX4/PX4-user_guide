@@ -22,8 +22,8 @@ Depending on what you want to achieve, the following tips will help you navigate
 
 If you have a Ready To Fly (RTF) vehicle that supports PX4:
 
-- [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
-- [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
+* [Basic Configuration](config/README.md) explains how to update your firmware to the latest version, calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+* [Flying](flying/README.md) teaches flight essentials, including where and how to fly safely, and how to debug arming and flight issues. It also provides detailed information about flight modes.
 
 **I want to build a drone with PX4 from scratch:**
 
@@ -31,10 +31,10 @@ If you have a Ready To Fly (RTF) vehicle that supports PX4:
 
 If you want to build a vehicle from scratch:
 
-- Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
-- Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
-- [Assembly](assembly/README.md) explains how to wire up the important peripherals to your autopilot.
-- [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe. This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
+* Choose a frame - [Airframe Builds](airframes/README.md) lists the supported frames and provides detailed instructions for how to construct a subset of vehicles.
+* Choose a flight controller - see [Getting Started > Flight Controllers](getting_started/flight_controller_selection.md) and [Autopilot Hardware](flight_controller/README.md).
+* [Assembly](assembly/README.md) explains how to wire up the important peripherals to your autopilot.
+* [Basic Configuration](config/README.md) shows how to update your firmware and configure it with settings appropriate for your airframe. This section also explains how to calibrate the main sensors (compass, gyro/IMU, airspeed etc.), and setup your remote control and safety features.
 
 Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) section.
 
@@ -42,40 +42,58 @@ Once you are ready to fly your vehicle, visit the [Flying](flying/README.md) sec
 
 Modifications of the flight controller and basic sensors are covered above. In order to use new sensors, or if you have made changes that significantly affect flight characteristics:
 
-- [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
-- [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
-- [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
+* [Peripheral Hardware](peripherals/README.md) provides additional information about using external sensors.
+* [Basic Configuration](config/README.md) explains how to calibrate the main sensors.
+* [Advanced Configuration](advanced_config/README.md) should be used to re/fine-tune the airframe.
 
 **I want to run PX4 on new hardware and extend the platform:**
 
-- [PX4 Developer Guide](http://dev.px4.io/) explains how to modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
+* [Development](../development/development.md) explains how to support new airframes and types of vehicles, modify flight algorithms, add new modes, integrate new hardware, communicate with PX4 from outside the flight controller, and contribute to PX4.
 
-<span id="support"></span>
+## Getting Help
 
-## Forums and Chat
+The[Support](contribute/support.md) page explains how to get help from the core dev team and the wider community.
 
-The core development team and community are active on the following forums and chat channels:
+Among other things it covers:
 
-- [PX4 Discuss](http://discuss.px4.io/) (*recommended*)
-- [Slack](http://slack.px4.io) (sign up)
+* [Forums where you can get help](contribute/support.md#forums-and-chat)
+* [Diagnosing issues](contribute/support.md#diagnosing-problems)
+* [How to report bugs](contribute/support.md#issue-bug-reporting)
+* [Weekly dev call](contribute/support.md#weekly-dev-call)
 
 ## Reporting Bugs & Issues
 
-If you have any problems using PX4 first post them on the [support channels above](#support) (as they may be caused by vehicle configuration).
+If you have any problems using PX4 first post them on the [support channels above](#forums-and-chat) (as they may be caused by vehicle configuration).
 
 If directed by the development team, code issues may be raised on [Github here](https://github.com/PX4/PX4-Autopilot/issues). Where possible provide [flight logs](getting_started/flight_reporting.md) and other information requested in the issue template.
 
 ## Contributing
 
-Information on how to contribute to code and documentation can be found in the Developer Guide:
+Information on how to contribute to code and documentation can be found in the [Contributing](../contribute/README.md) section:
 
-- [Code](https://dev.px4.io/master/en/contribute/)
-- [Documentation](https://dev.px4.io/master/en/contribute/docs.html)
-- [Translation](https://dev.px4.io/master/en/contribute/docs.html)
+* [Code](../contribute/README.md)
+* [Documentation](../contribute/docs.md)
+* [Translation](../contribute/translation.md)
+
+## Translations
+
+There are Chinese and Korean [translations](contribute/docs.md#translation) of this guide. You can access these by clicking the language-switcher icon:
+
+![Gitbook Language Selector](../assets/gitbook/gitbook_language_selector.png)
 
 ## License
 
-PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](https://dev.px4.io/master/en/contribute/licenses.html).
+PX4 code is free to use and modify under the terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause). This documentation is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). For more information see: [PX4 Development Guide > Licences](../contribute/licenses.md).
+
+## Calendar & Events
+
+The *Dronecode Calendar* shows important community events for platform users and developers. Select the links below to display the calendar in your timezone (and to add it to your own calendar):
+
+* [Switzerland – Zurich](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Europe%2FZurich)
+* [Pacific Time – Tijuana](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=America%2FTijuana)
+* [Australia – Melbourne/Sydney/Hobart](https://calendar.google.com/calendar/embed?src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&ctz=Australia%2FSydney)
+
+> **Note:** calendar defaults to CET. <iframe src="https://calendar.google.com/calendar/embed?title=Dronecode%20Calendar&amp;mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=linuxfoundation.org_g21tvam24m7pm7jhev01bvlqh8%40group.calendar.google.com&amp;color=%23691426&amp;ctz=Europe%2FZurich" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no" mark="crwd-mark"></iframe> 
 
 ### Icons
 

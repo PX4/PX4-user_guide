@@ -249,9 +249,9 @@ If the airframe is for a **new group** you additionally need to:
 
 The following *PX4 User Guide* topics explain how to tune the parameters that will be specified in the config file:
 
-* [Multicopter PID Tuning Guide](https://docs.px4.io/master/en/advanced_config/pid_tuning_guide_multicopter.html)
-* [Fixed Wing PID Tuning Guide](https://docs.px4.io/master/en/advanced_config/pid_tuning_guide_fixedwing.html)
-* [VTOL Configuration](https://docs.px4.io/master/en/config_vtol/)
+* [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
+* [Fixed Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
+* [VTOL Configuration](../config_vtol/README.md)
 
 
 ## Add New Airframe to QGroundControl
