@@ -15,7 +15,7 @@ Prerequisites:
 To run the complete MAVROS test suite:
 
 ```sh
-cd <PX4-Autopilot_clone>
+cd <Firmware_clone>
 source integrationtests/setup_gazebo_ros.bash $(pwd)
 rostest px4 mavros_posix_tests_iris.launch
 ```
@@ -92,12 +92,12 @@ if __name__ == '__main__':
 
 ```sh
 # Start simulation
-cd <PX4-Autopilot_clone>
+cd <Firmware_clone>
 source integrationtests/setup_gazebo_ros.bash $(pwd)
 roslaunch px4 mavros_posix_sitl.launch
 
 # Run test (in a new shell):
-cd <PX4-Autopilot_clone>
+cd <Firmware_clone>
 source integrationtests/setup_gazebo_ros.bash $(pwd)
 rosrun px4 mavros_new_test.py
 ```
