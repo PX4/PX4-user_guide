@@ -146,7 +146,7 @@ PX4 can be controlled from a separate on-vehicle companion computer via a serial
 > **Note** Using a Robotics API requires software development skills, and is outside the scope of this guide.
 
 - [Off-board Mode](../flight_modes/offboard.md) - Flight mode for offboard control of PX4 from a GCS or companion computer. 
-- [Robotics APIs](https://dev.px4.io/master/en/robotics/) (PX4 Developer Guide)
+- [Robotics APIs](../robotics/README.md) (PX4 Developer Guide)
 
 <span id="sd_cards"></span>
 
@@ -156,12 +156,12 @@ PX4 uses SD memory cards for storing [flight logs](../getting_started/flight_rep
 
 By default, if no SD card is present PX4 will play the [format failed (2-beep)](../getting_started/tunes.md#format-failed) tune twice during boot (and none of the above features will be available).
 
-> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](https://dev.px4.io/master/en/log/logging.html#sd-cards) (Developer Guide).
+> **Tip** The maximum supported SD card size on Pixhawk boards is 32GB. The *SanDisk Extreme U3 32GB* is [highly recommended](../dev_log/logging.md#sd-cards) (Developer Guide).
 
 SD cards are never-the-less optional. Flight controllers that do not include an SD Card slot may:
 
 - Disable notification beeps are disabled using the parameter [CBRK_BUZZER](../advanced_config/parameter_reference.md#CBRK_BUZZER).
-- [Stream logs](https://dev.px4.io/master/en/log/logging.html#log-streaming) to another component (companion).
+- [Stream logs](../dev_log/logging.md#log-streaming) to another component (companion).
 - Store missions in RAM/FLASH. <!-- Too low-level for this. But see FLASH_BASED_DATAMAN in  Intel Aero: https://github.com/PX4/PX4-Autopilot/blob/master/boards/intel/aerofc-v1/src/board_config.h#L115 -->
 
 <span id="arming"></span>
