@@ -16,14 +16,14 @@ The diagrams use the standard [PX4 notation](../contribute/notation.md) (and eac
 
 * This is a standard cascaded control architecture.
 * The controllers are a mix of P and PID controllers.
-* Estimates come from [EKF2](https://docs.px4.io/master/en/advanced_config/tuning_the_ecl_ekf.html).
+* Estimates come from [EKF2](../advanced_config/tuning_the_ecl_ekf.md).
 * Depending on the mode, the outer (position) loop is bypassed (shown as a multiplexer after the outer loop). The position loop is only used when holding position or when the requested velocity in an axis is null.
 
 ### Multicopter Angular Rate Controller
 
 ![MC Rate Control Diagram](../../assets/diagrams/mc_angular_rate_diagram.jpg)
 
-* K-PID controller. See [Rate Controller](https://docs.px4.io/master/en/config_mc/pid_tuning_guide_multicopter.html#rate-controller) for more information.
+* K-PID controller. See [Rate Controller](../config_mc/pid_tuning_guide_multicopter.md#rate-controller) for more information.
 * The integral authority is limited to prevent wind up.
 * A Low Pass Filter (LPF) is used on the derivative path to reduce noise.
 * The outputs are limited, usually at -1 and 1.
@@ -148,7 +148,7 @@ For a standard and tilt-rotor VTOL, during transition the fixed-wing attitude co
 
 The outputs of the VTOL attitude block are separate torque and force commands for the multicopter (typically `actuator_controls_0`) and fixed-wing (typically `actuator_controls_1`) actuators. These are handled in an airframe-specific mixer file (see [Mixing](../concept/mixing.md)).
 
-For more information on the tuning of the transition logic inside the VTOL block, see [VTOL Configuration](https://docs.px4.io/master/en/config_vtol/).
+For more information on the tuning of the transition logic inside the VTOL block, see [VTOL Configuration](../config_vtol/README.md).
 
 
 ### Airspeed Scaling
