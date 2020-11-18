@@ -1,49 +1,49 @@
-# Test MC_04 - Failsafe Testing
+# 测试 MC_04 -故障安全测试
 
-❏ Verify RC Loss action is Return to Land
+❏ 验证 RC Loss 动作是否返回陆地
 
-❏ Verify Data Link Loss action is Return to Land and the timeout is 10 seconds
+❏ 验证数据链路丢失操作返回陆地，超时是10秒
 
-❏ Verify Battery failsafe
+❏ 验证电池是否安全
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Action is Return to Land
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 行动是返回土地
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Warn Level is 25%
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 电池警告等级为 25％
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Failsafe Level is 20%
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 电池故障安全等级为 20％
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏ Battery Emergency Level is 15%
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 电池紧急等级为 15％
 
-❏ Take off in Altitude mode
+❏ 在高度模式下起飞
 
-❏ Move at least 20 meters away home position
+❏ 离开原位至少 20 米
 
-❏ RC loss
+❏ RC 损失
 
-&nbsp;&nbsp;&nbsp;&nbsp;❏Turn off RC and check the vehicle returns to home position, wait for the descent and turn on the RC and take over.
+&nbsp;&nbsp;&nbsp;&nbsp;❏ 关闭 RC 并检查设备返回原位，等待下降并打开 RC 并接管。
 
-## Datalink Loss
+## 数据链路丢失
 
-❏ Disconnect telemetry, vehicle should return to home position after 10 seconds, wait for the descent and reconnect the telemetry radio
+❏ 断开遥测，车辆应在 10 秒后返回原位，等待下降并重新连接遥测无线电
 
-## Switch to Altitude Mode
+## 切换到高度模式
 
-❏ Make sure roll, pitch and yaw sticks respond like in Stabilize mode
+❏ 确保横滚，俯仰和偏航杆像稳定模式一样响应
 
-❏ Throttle should control altitude, and when the stick is centered it must maintain altitude
+❏ 节流阀应控制高度，当操纵杆居中时，必须保持高度
 
-## Switch to Position Mode
+## 切换到位置模式
 
-❏ When the sticks are centered, it must maintain position
+❏ 当棒居中时，它必须保持位置
 
-❏ Move roll, pitch and yaw and check the vehicle is moving according to the inputs
+❏移动横滚，俯仰和偏航，并根据输入检查无人机是否在移动
 
-❏ Center the sticks again and check the vehicle maintains position
+❏ 再次将木棒对中并检查无人机是否保持位置
 
-## Wait for Battery Failsafe to Trigger
+## 电量故障保护触发器
 
-❏ Confirm the warning message is received in QGC
+❏ 确认 QGC 收到警告信息
 
-❏ Confirm the vehicle returns to land
+❏ 确认无人机返回降落状态
 
-❏ Confirm the vehicle lands.
+❏ 确认车辆着陆。
