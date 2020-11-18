@@ -126,7 +126,7 @@ make
 
 为 [jMAVSim Simulation](../simulation/gazebo.md) 安装依赖。
 
-- [Raspberry Pi 2/3 Navio2 Autopilot](https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html).
+- [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
 - 在安装[高通骁龙飞控](#snapdragon-flight) 或 [树莓派/Parrot Bebop](#raspberry-pi-hardware) 之前， 你可以先运行它。
 
 <a id="rosgazebo"></a>
@@ -154,9 +154,9 @@ To install the development toolchain:
 ## 通用依赖
 
 sudo apt-get install protobuf-compiler libeigen3-dev libopencv-dev -y
-* [开发环境](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_dev_environment_installation.html)
-* [软件安装](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_software_installation.html)
-* [配置](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_configuration.html)
+* [开发环境](../flight_controller/snapdragon_flight_dev_environment_installation.md)
+* [软件安装](../flight_controller/snapdragon_flight_software_installation.md)
+* [配置](../flight_controller/snapdragon_flight_configuration.md)
 
 <a id="fast_rtps"></a>
 
