@@ -1,13 +1,13 @@
-# Simulation Debugging
+# 仿真调试
 
 As the simulation is running on the host machine, all the desktop development tools are available.
 
 ## CLANG Address Sanitizer (Mac OS, Linux)
 
-The Clang address sanitizer can help to find alignment (bus) errors and other memory faults like segmentation faults. The command below sets the right compile options.
+The Clang address sanitizer can help to find alignment (bus) errors and other memory faults like segmentation faults. The command below sets the right compile options. The command below sets the right compile options.
 
 ```sh
-make clean # only required on first address sanitizer run after a normal build
+make clean # 仅需在常规编译后，第一次运行 address sanitizer 时使用
 PX4_ASAN=1 make px4_sitl jmavsim
 ```
 
@@ -17,16 +17,17 @@ PX4_ASAN=1 make px4_sitl jmavsim
 brew install valgrind
 ```
 
-or
+或
 
 ```sh
 sudo apt-get install valgrind
 ```
 
-To use valgrind during the SITL simulation:
+SITL can be launched with and without debugger attached and with either jMAVSim or Gazebo as simulation backend. This results in the start options below:
 
 ```sh
-make px4_sitl_default jmavsim___valgrind
+make px4_sitl_default   # 通过 cmake 配置
+make -C build/px4_sitl_default jmavsim___gdb
 ```
 
 ## Start combinations
@@ -43,7 +44,7 @@ make px4_sitl_default gazebo___gdb
 make px4_sitl_default gazebo___lldb
 ```
 
-where the last parameter is the &lt;viewer\_model\_debugger&gt; triplet (using three underscores implies the default 'iris' model). This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
+where the last parameter is the &lt;viewer\_model\_debugger&gt; triplet (using three underscores implies the default 'iris' model). This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit `CTRL-C`: This will start the debugger and launch the SITL application. In order to break into the debugger shell and halt the execution, hit `CTRL-C`:
 
 ```sh
 Process 16529 stopped
@@ -84,13 +85,13 @@ make px4_sitl_default   # Configure with cmake
 make -C build/px4_sitl_default jmavsim___gdb
 ```
 
-A full list of the available make targets in the build directory can be obtained with:
+but for your convenience, a list with just the &lt;viewer\_model\_debugger&gt; triplets is printed with the command
 
 ```sh
 make help
 ```
 
-but for your convenience, a list with just the &lt;viewer\_model\_debugger&gt; triplets is printed with the command
+It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with `add_executable` or `add_library`) when configuring for `posix_sitl_*`. This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
 
 ```sh
 make list_vmd_make_targets
@@ -100,15 +101,15 @@ make list_vmd_make_targets
 
 It is possible to suppress compiler optimization for given executables and/or modules (as added by cmake with `add_executable` or `add_library`) when configuring for `posix_sitl_*`. This can be handy when it is necessary to step through code with a debugger or print variables that would otherwise be optimized out.
 
-To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization. This environment variable is ignored when the configuration isn't `posix_sitl_*`.
+To do so, set the environment variable `PX4_NO_OPTIMIZATION` to be a semi-colon separated list of regular expressions that match the targets that need to be compiled without optimization. This environment variable is ignored when the configuration isn't `posix_sitl_*`. This environment variable is ignored when the configuration isn't `posix_sitl_*`.
 
-For example,
+would suppress optimization of the targets: platforms*\_posix**px4\_layer, modules**systemlib, modules**uORB, examples**px4\_simple\_app, modules**uORB*\_uORB\_tests and px4.
 
 ```sh
 export PX4_NO_OPTIMIZATION='px4;^modules__uORB;^modules__systemlib$'
 ```
 
-would suppress optimization of the targets: platforms\_\_posix\_\_px4\_layer, modules\_\_systemlib, modules\_\_uORB, examples\_\_px4\_simple\_app, modules\_\_uORB\_\_uORB\_tests and px4.
+The targets that can be matched with these regular expressions can be printed with the command:
 
 The targets that can be matched with these regular expressions can be printed with the command:
 
