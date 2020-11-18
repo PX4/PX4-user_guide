@@ -69,7 +69,7 @@ module.exports = {
   themeConfig: {
     px4_version: 'master',
     sidebarDepth:0,  //change to 1 if decide to use vuepress-plugin-right-anchor
-    logo: '/logo_pro_small.png',
+    logo: '/px4-logo.svg',
     
     // Assumes GitHub. Can also be a full GitLab url.
     //repo: 'PX4/Firmware',
@@ -118,8 +118,7 @@ module.exports = {
             ariaLabel: 'PX4 Menu',
             items: [
               { text: 'Website', link: 'http://px4.io/', ariaLabel: 'PX4 website link'  },
-              { text: 'Support', link: 'http://discuss.px4.io/' , ariaLabel: 'Support/Discussion link' },
-              { text: 'Developer Guide', link: 'https://dev.px4.io/master/en/', ariaLabel: 'PX4 Developer Guide' },
+              { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
               { text: 'Autopilot Source Code', link: 'https://github.com/PX4/PX4-Autopilot', ariaLabel: 'Source code for PX4 autopilot' },
               { text: 'Docs Source Code', link: 'https://github.com/PX4/PX4-user_guide', ariaLabel: 'Source code for PX4 user guide documentation' },
             ]
@@ -131,7 +130,6 @@ module.exports = {
             text: 'Docs',
             ariaLabel: 'Documentation Menu',
             items: [
-              { text: 'PX4 Developer Guide', link: 'https://dev.px4.io/master/en/' },
               { text: 'QGroundControl User Guide', link: 'https://docs.qgroundcontrol.com/en/' },
               { text: 'QGroundControl Developer Guide', link: 'https://dev.qgroundcontrol.com/en/' },
               { text: 'MAVLink Guide', link: 'https://mavlink.io/en/' },
@@ -141,7 +139,7 @@ module.exports = {
             ]
           },
       
-          { text: 'Support', link: 'http://discuss.px4.io/' , ariaLabel: 'Support' },
+          { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
           {
             text: 'Version',
             ariaLabel: 'Versions Menu',
@@ -186,8 +184,7 @@ module.exports = {
             ariaLabel: 'PX4 Menu',
             items: [
               { text: 'Website', link: 'http://px4.io/', ariaLabel: 'PX4 website link'  },
-              { text: 'Support', link: 'http://discuss.px4.io/' , ariaLabel: 'Support/Discussion link' },
-              { text: 'Developer Guide', link: 'https://dev.px4.io/master/en/', ariaLabel: 'PX4 Developer Guide' },
+              { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
               { text: 'Autopilot Source Code', link: 'https://github.com/PX4/PX4-Autopilot', ariaLabel: 'Source code for PX4 autopilot' },
               { text: 'Docs Source Code', link: 'https://github.com/PX4/PX4-user_guide', ariaLabel: 'Source code for PX4 user guide documentation' },
             ]
@@ -199,7 +196,6 @@ module.exports = {
             text: 'Docs',
             ariaLabel: 'Documentation Menu',
             items: [
-              { text: 'PX4 Developer Guide', link: 'https://dev.px4.io/master/en/' },
               { text: 'QGroundControl User Guide', link: 'https://docs.qgroundcontrol.com/en/' },
               { text: 'QGroundControl Developer Guide', link: 'https://dev.qgroundcontrol.com/en/' },
               { text: 'MAVLink Guide', link: 'https://mavlink.io/en/' },
@@ -209,7 +205,7 @@ module.exports = {
             ]
           },
       
-          { text: 'Support', link: 'http://discuss.px4.io/' , ariaLabel: 'Support' },
+          { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
           {
             text: 'Version',
             ariaLabel: 'Versions Menu',
@@ -246,8 +242,7 @@ module.exports = {
             ariaLabel: 'PX4 Menu',
             items: [
               { text: 'Website', link: 'http://px4.io/', ariaLabel: 'PX4 website link'  },
-              { text: 'Support', link: 'http://discuss.px4.io/' , ariaLabel: 'Support/Discussion link' },
-              { text: 'Developer Guide', link: 'https://dev.px4.io/master/en/', ariaLabel: 'PX4 Developer Guide' },
+              { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
               { text: 'Autopilot Source Code', link: 'https://github.com/PX4/PX4-Autopilot', ariaLabel: 'Source code for PX4 autopilot' },
               { text: 'Docs Source Code', link: 'https://github.com/PX4/PX4-user_guide', ariaLabel: 'Source code for PX4 user guide documentation' },
             ]
@@ -259,7 +254,6 @@ module.exports = {
             text: 'Docs',
             ariaLabel: 'Documentation Menu',
             items: [
-              { text: 'PX4 Developer Guide', link: 'https://dev.px4.io/master/en/' },
               { text: 'QGroundControl User Guide', link: 'https://docs.qgroundcontrol.com/en/' },
               { text: 'QGroundControl Developer Guide', link: 'https://dev.qgroundcontrol.com/en/' },
               { text: 'MAVLink Guide', link: 'https://mavlink.io/en/' },
@@ -268,7 +262,7 @@ module.exports = {
               
             ]
           },
-          { text: 'Support', link: 'http://discuss.px4.io/' , ariaLabel: 'Support' },
+          { text: 'Support', link: '/contribute/support.md' , ariaLabel: 'Support information' },
           {
             text: 'Version',
             ariaLabel: 'Versions Menu',
