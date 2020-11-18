@@ -165,7 +165,7 @@ To use it, some parameters need to be changed:
 
 - Use a good SD card, as the IMU data requires a high logging bandwidth (Flight Review will show dropouts if the logging rate gets too high).
     
-    > **Tip** See [Logging > SD Cards](https://dev.px4.io/master/en/log/logging.html#sd-cards) for a comparison of popular SD card.
+    > **Tip** See [Logging > SD Cards](../dev_log/logging.md#sd-cards) for a comparison of popular SD card.
 
 - Enable either the gyro or accel high-rate FIFO profile in [SDLOG_PROFILE](../advanced_config/parameter_reference.md#SDLOG_PROFILE) and disable the rest of the entries. If you are using a really good SD card (seeing few/no dropouts), you can: 
     - either enable both accel and gyro profiles
@@ -267,7 +267,7 @@ The **estimator timeslip** shows the difference between the current time and the
 
 This is a good example: ![Sampling regularity good](../../assets/flight_log_analysis/flight_review/sampling_regularity_good.png)
 
-The following example contains too many dropouts, the quality of the used SD card was too low in that case (see [here](http://dev.px4.io/en/log/logging.html#sd-cards) for good SD cards):
+The following example contains too many dropouts, the quality of the used SD card was too low in that case (see [here](../dev_log/logging.md#sd-cards) for good SD cards):
 
 ![Many Dropouts](../../assets/flight_log_analysis/flight_review/sampling_regularity_many_drops.png)
 
