@@ -74,7 +74,7 @@ Download the [kakutef7_bl.hex](https://github.com/PX4/px4_user_guide/raw/master/
 
 ## Building Firmware
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make holybro_kakutef7_default
 ```
@@ -116,11 +116,11 @@ UART7 | /dev/ttyS5 | ESC telemetry (DShot)
 
 ### System Console
 
-UART3 RX and TX are configured for use as the [System Console](https://dev.px4.io/master/en/debug/system_console.html).
+UART3 RX and TX are configured for use as the [System Console](../debug/system_console.md).
 
 ### SWD
 
-The  [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) (JTAG) pins are:
+The  [SWD interface](../debug/swd_debug.md) (JTAG) pins are:
 - `SWCLK`: Test Point 2 (Pin 72 on the CPU)
 - `SWDIO`: Test Point 3 (Pin 76 on CPU)
 - `GND`: As marked on board

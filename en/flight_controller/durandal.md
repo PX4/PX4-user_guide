@@ -146,7 +146,7 @@ The [Durandal Wiring Quick Start](../assembly/quick_start_durandal.md) provides 
 > **Tip** Most users will not need to build this firmware!
   It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make holybro_durandal-v1_default
 ```
@@ -167,11 +167,11 @@ UART8 | /dev/ttyS6 | PX4IO
 <span id="debug_port"></span>
 ## Debug Port
 
-The [PX4 System Console](https://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) run on the *Debug Port*.
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) run on the *Debug Port*.
 
 The port has a standard serial pinout and can be connected to a standard FTDI cable (3.3V, but it's 5V tolerant) or a [Dronecode probe](https://kb.zubax.com/display/MAINKB/Dronecode+Probe+documentation).
 The pinout uses the standard Dronecode debug connector pinout.
-Please refer to the [wiring](https://dev.px4.io/master/en/debug/system_console.html) page for details of how to wire up this port.
+Please refer to the [wiring](../debug/system_console.md) page for details of how to wire up this port.
 
 > **Note** No Debug port is exposed for the I/O board.
 

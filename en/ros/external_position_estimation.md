@@ -16,7 +16,7 @@ This topic explains how to configure a PX4-based system to get data from MoCap/V
 
 ## PX4 MAVLink Integration
 
-PX4 uses the following MAVLink messages for getting external position information, and maps them to [uORB topics](http://dev.px4.io/en/middleware/uorb.html):
+PX4 uses the following MAVLink messages for getting external position information, and maps them to [uORB topics](../middleware/uorb.md):
 
 MAVLink | uORB
 --- | ---

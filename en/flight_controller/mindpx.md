@@ -78,7 +78,7 @@ For detailed Pin diagram, please refer to the [User Guide](http://mindpx.net/ass
 > **Tip** Most users will not need to build this firmware!
   It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 ```
 make airmind_mindpx-v2_default
 ```

@@ -27,7 +27,7 @@ These are located on the top level of the SD card and named _fault\_date.log_, e
 ### Flight Review (Online Tool)
 
 [Flight Review](http://logs.px4.io) is the successor of *Log Muncher*. 
-It is used in combination with the new [ULog](http://dev.px4.io/en/log/ulog_file_format.html) logging format.
+It is used in combination with the new [ULog](../dev_log/ulog_file_format.md) logging format.
 
 Key features:
 * Web based, great for end-users.

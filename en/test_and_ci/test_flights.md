@@ -1,7 +1,7 @@
 # Tests Flights
 
 <div v-if="$themeConfig.px4_version != 'master'">
-  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="https://dev.px4.io/master/en/test_and_ci/test_flights.html">can be found here</a>.</p>
+  <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>This page may be out of date. The latest version <a href="../test_and_ci/test_flights.md">can be found here</a>.</p>
   </div>
 </div>
 

@@ -38,4 +38,4 @@ In order to use the correct max/min values the appropriate model of the Evo sens
 
 ## Further Information
 
-* [Modules Reference: Distance Sensor (Driver) : teraranger](https://dev.px4.io/master/en/middleware/modules_driver_distance_sensor.html#teraranger) (PX4 Dev Guide)
+* [Modules Reference: Distance Sensor (Driver) : teraranger](../modules/modules_driver_distance_sensor.md#teraranger) (PX4 Dev Guide)

@@ -423,10 +423,10 @@ the log file to be replayed. The second is the mode, specified via `replay_mode`
   log was recorded.
 
 The module is typically used together with uORB publisher rules, to specify which messages should be replayed.
-The replay module will just publish all messages that are found in the log. It also applies the parameters from
-the log.
+The replay module will just publish all messages that are found in the log.
+It also applies the parameters from the log.
 
-The replay procedure is documented on the [System-wide Replay](https://dev.px4.io/master/en/debug/system_wide_replay.html)
+The replay procedure is documented on the [System-wide Replay](../debug/system_wide_replay.md)
 page.
 
 <a id="replay_usage"></a>

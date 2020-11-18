@@ -296,7 +296,7 @@ You can configure the image quality and output (the image output is only intende
 
 ## Build
 
-Install the [PX4 toolchain](https://dev.px4.io/master/en/setup/dev_env.html) (PX4 Developer Guide). 
+Install the [PX4 toolchain](../dev_setup/dev_env.md) (PX4 Developer Guide). 
 Then and clone the sources from https://github.com/PX4/Flow using *git*.
 
 ```bash

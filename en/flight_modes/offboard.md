@@ -140,6 +140,6 @@ Typically developers do not directly work at the MAVLink layer, but instead use 
 
 The following resources may be useful for a developer audience:
 
-* [Offboard Control from Linux](https://dev.px4.io/master/en/ros/offboard_control.html) (PX4 Devguide)
-* [MAVROS Offboard control example](https://dev.px4.io/master/en/ros/mavros_offboard.html) (PX4 Devguide)
+* [Offboard Control from Linux](../ros/offboard_control.md) (PX4 Devguide)
+* [MAVROS Offboard control example](../ros/mavros_offboard.md) (PX4 Devguide)
 
