@@ -28,7 +28,7 @@ import time, sys, argparse, math
 Connect to a MAVLink port of your drone or simulation (e.g. [JMavSim](../simulation/jmavsim.md)).
 
 ```C
-# Connect to the Vehicle
+# 连接飞机
 print "Connecting"
 connection_string = '127.0.0.1:14540'
 vehicle = connect(connection_string, wait_ready=True)
@@ -38,7 +38,7 @@ vehicle = connect(connection_string, wait_ready=True)
 Display some basic status information
 
 ```C
-# Display basic vehicle state
+# 显示基本飞机状态
 print " Type: %s" % vehicle._vehicle_type
 print " Armed: %s" % vehicle.armed
 print " System status: %s" % vehicle.system_status.state
