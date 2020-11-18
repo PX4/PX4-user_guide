@@ -252,7 +252,7 @@ make scumaker_pilotpi_default upload
 
 #### Alternative build method for armhf (using docker)
 
-If you are compiling for the first time with docker, please refer to the [offical docs](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites).
+If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
 
 Execute the command in firmware folder:
 
@@ -289,7 +289,7 @@ make scumaker_pilotpi_arm64 upload
 
 #### Alternative build method for arm64 (using docker)
 
-If you are compiling for the first time with docker, please refer to the [offical docs](https://dev.px4.io/master/en/test_and_ci/docker.html#prerequisites).
+If you are compiling for the first time with docker, please refer to the [offical docs](../test_and_ci/docker.md#prerequisites).
 
 Execute the command in `PX4-Autopilot` folder:
 
