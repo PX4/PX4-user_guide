@@ -160,7 +160,7 @@
                 </blockquote>
                 
                 <p>
-                  To <a href="https://dev.px4.io/master/en/setup/building_px4.html">build PX4</a> for this target:
+                  To <a href="../dev_setup/building_px4.md">build PX4</a> for this target:
                 </p>
                 
                 <pre><code>make px4_fmu-v3_default
