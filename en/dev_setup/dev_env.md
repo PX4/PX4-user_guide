@@ -8,9 +8,9 @@ The table below show what PX targets you can build on each OS.
 
 Target | Linux (Ubuntu) | Mac | Windows
 --|:--:|:--:|:--:
-**NuttX based hardware:** [Pixhawk Series](https://docs.px4.io/master/en/flight_controller/pixhawk_series.html), [Crazyflie](https://docs.px4.io/master/en/flight_controller/crazyflie2.html), [Intel® Aero Ready to Fly Drone](https://docs.px4.io/master/en/flight_controller/intel_aero.html) | X | X | X
-[Qualcomm Snapdragon Flight hardware](https://docs.px4.io/master/en/flight_controller/snapdragon_flight.html) | X | | 
-**Linux-based hardware:** [Raspberry Pi 2/3](https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html) | X | | 
+**NuttX based hardware:** [Pixhawk Series](../flight_controller/pixhawk_series.md), [Crazyflie](../flight_controller/crazyflie2.md), [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md) | X | X | X
+[Qualcomm Snapdragon Flight hardware](../flight_controller/snapdragon_flight.md) | X | | 
+**Linux-based hardware:** [Raspberry Pi 2/3](../flight_controller/raspberry_pi_navio2.md) | X | | 
 **Simulation:** [jMAVSim SITL](../simulation/jmavsim.md) | X | X | X
 **Simulation:** [Gazebo SITL](../simulation/gazebo.md) | X | X | 
 **Simulation:** [ROS with Gazebo](../simulation/ros_interface.md) | X | | 

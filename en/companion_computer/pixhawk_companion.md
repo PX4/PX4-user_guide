@@ -4,7 +4,7 @@ Interfacing a companion computer (Raspberry Pi, Odroid, Tegra K1) to Pixhawk-fam
 
 ## Pixhawk Setup
 
-Enable MAVLink on any [configurable serial port](https://docs.px4.io/master/en/peripherals/serial_configuration.html).
+Enable MAVLink on any [configurable serial port](../peripherals/serial_configuration.md).
 
 > **Tip** Typically the `TELEM 2` port is used for a companion computer.
 
@@ -13,7 +13,7 @@ To set up the default companion computer message stream on `TELEM 2`, set the fo
 * [MAV_1_MODE](../advanced_config/parameter_reference.md#MAV_1_MODE) = `Onboard`
 * [SER_TEL2_BAUD](../advanced_config/parameter_reference.md#SER_TEL2_BAUD) = `921600` (921600 or higher recommended for applications like log streaming or FastRTPS)
 
-For more information see [MAVLink Peripherals (GCS/OSD/Companion)](https://docs.px4.io/master/en/peripherals/mavlink_peripherals.html).
+For more information see [MAVLink Peripherals (GCS/OSD/Companion)](../peripherals/mavlink_peripherals.md).
 
 
 ## Companion Computer Setup

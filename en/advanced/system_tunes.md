@@ -1,6 +1,6 @@
 # System Notification Tunes
 
-PX4 defines a number of [standard tones/tunes](https://docs.px4.io/master/en/getting_started/tunes.html) that are used to provide audio notification for important system states and problems (e.g. system startup, arming success, battery warnings, etc.)
+PX4 defines a number of [standard tones/tunes](../getting_started/tunes.md) that are used to provide audio notification for important system states and problems (e.g. system startup, arming success, battery warnings, etc.)
 
 Tunes are specified using strings (in [ANSI Music notation](http://artscene.textfiles.com/ansimusic/information/ansimtech.txt)) and played by code using the [tunes](https://github.com/PX4/PX4-Autopilot/tree/master/src/lib/tunes) library.
 The tunes library also contains the list of default system tunes - see [lib/tunes/tune_definition.desc](https://github.com/PX4/PX4-Autopilot/blob/master/src/lib/tunes/tune_definition.desc).

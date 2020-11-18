@@ -9,7 +9,7 @@ It is not needed if you're building an existing airframe or flying using a PX4 v
 
 It explains how to:
 
-* Get a [minimum developer setup](setup/config_initial.md), [build PX4 from source](setup/building_px4.md) and deploy on [numerous supported autopilots](https://docs.px4.io/master/en/flight_controller/).
+* Get a [minimum developer setup](setup/config_initial.md), [build PX4 from source](setup/building_px4.md) and deploy on [numerous supported autopilots](../flight_controller/README.md).
 * Understand the [PX4 System Architecture](concept/architecture.md) and other core concepts.
 * Learn how to modify the flight stack and middleware:
   - Modify flight algorithms and add new [flight modes](concept/flight_modes.md).
