@@ -103,7 +103,7 @@ A successful run will end with similar output to:
 * [mRo X-2.1](https://docs.px4.io/en/flight_controller/mro_x2.1.html): `make auav_x21_default`
 * [Intel® Aero Ready to Fly Drone](https://docs.px4.io/en/flight_controller/intel_aero.html): `make intel_aerofc-v1_default`
 * **Note** 通常，`_default` 后缀是可选的（即，您也可以使用 `make px4_fmu-v4`、`make bitcraze_crazyflie` 等）生成。
-* [Intel® Aero Ready to Fly Drone](https://docs.px4.io/master/en/flight_controller/intel_aero.html): `make intel_aerofc-v1_default`
+* [Intel® Aero Ready to Fly Drone](../flight_controller/intel_aero.md): `make intel_aerofc-v1_default`
 * Pixhawk 1 的 2 MB 闪存版: `make px4_fmu-v3_default`
 
   > [Pixhawk 1](https://docs.px4.io/en/flight_controller/pixhawk.html): `make px4_fmu-v2_default` > **Warning** 您 **必须** 使用 [版本支持的GCC](../setup/dev_env_linux_ubuntu.md#nuttx-based-hardware)编译（比如，和用于[CI/docker](../test_and_ci/docker.md)一样）或者从构建中删除模块。 使用不受支持的 GCC 构建可能会失败，因为 PX4 对飞控板有 1MB 的闪存限制。
@@ -139,7 +139,7 @@ Rebooting.
 
 ### 将固件烧录到飞控板
 
-The command below builds the target for [Raspberry Pi 2/3 Navio2](https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html).
+The command below builds the target for [Raspberry Pi 2/3 Navio2](../flight_controller/raspberry_pi_navio2.md).
 
 #### 跨编译器生成
 
