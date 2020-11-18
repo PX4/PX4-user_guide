@@ -128,8 +128,8 @@ make
 
 Install the dependencies for [Gazebo Simulation](../simulation/gazebo.md).
 
-- [Raspberry Pi 2/3 Navio2 Autopilot](https://docs.px4.io/master/en/flight_controller/raspberry_pi_navio2.html).
-- [Raspberry Pi 2/3/4 PilotPi Shield](https://docs.px4.io/master/en/flight_controller/raspberry_pi_pilotpi.html).
+- [Raspberry Pi 2/3 Navio2 Autopilot](../flight_controller/raspberry_pi_navio2.md).
+- [Raspberry Pi 2/3/4 PilotPi Shield](../flight_controller/raspberry_pi_pilotpi.md).
 
 <a id="rosgazebo"></a>
 
@@ -155,9 +155,9 @@ Note:
 ## Snapdragon Flight
 
 Setup instructions for Snapdragon Flight are provided in the *PX4 User Guide*:
-* [Development Environment](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_dev_environment_installation.html)
-* [Software Installation](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_software_installation.html)
-* [Configuration](https://docs.px4.io/master/en/flight_controller/snapdragon_flight_configuration.html)
+* [Development Environment](../flight_controller/snapdragon_flight_dev_environment_installation.md)
+* [Software Installation](../flight_controller/snapdragon_flight_software_installation.md)
+* [Configuration](../flight_controller/snapdragon_flight_configuration.md)
 
 <a id="fast_rtps"></a>
 
