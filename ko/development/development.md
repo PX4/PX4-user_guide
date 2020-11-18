@@ -1,5 +1,26 @@
-# PX4 개발
+# PX4 Development
 
-이 사용자 설명서에는 *다양한 지원중인* 기체, 비행 컨트롤러 및 주변 장치를 사용하는 기체를 비행, 조립 및 구성하는데 필요한 모든 사항에 대해 설명합니다.
+This section explains how to support new vehicle types and variants, modify flight algorithms, add new modes, integrate new hardware, and communicate with PX4 from outside the flight controller.
 
-비행 알고리즘을 수정하고, 새로운 모드를 추가하거나, 새로운 하드웨어를 통합하고 비행 컨트롤러 외부에서 PX4와 통신하거나 PX4에 기여하고 싶은 개발자들은 [PX4 개발자 가이드](http://dev.px4.io/)를 읽어야 합니다.
+::: tip This section is for software developers and (new) hardware integrators. It is not needed if you're building an existing airframe or flying using a PX4 vehicle. :::
+
+It explains how to:
+
+* Get a [minimum developer setup](setup/config_initial.md), [build PX4 from source](setup/building_px4.md) and deploy on [numerous supported autopilots](https://docs.px4.io/master/en/flight_controller/).
+* Understand the [PX4 System Architecture](concept/architecture.md) and other core concepts.
+* Learn how to modify the flight stack and middleware:
+  - Modify flight algorithms and add new [flight modes](concept/flight_modes.md).
+  - Support new [airframes](airframes/README.md).
+* Learn how to integrate PX4 with new hardware:
+  - Support new sensors and actuators, including cameras, rangefinders, etc.
+  - Modify PX4 to run on new autopilot hardware.
+* [Simulate](simulation/README.md), [test](test_and_ci/README.md) and [debug/log](debug/README.md) PX4.
+* Communicate/integrate with external robotics APIs.
+
+
+## Key Developer Links
+
+- [Support](contribute/support.md): Get help using the [discussion boards](http://discuss.px4.io/) and other support channels.
+- [Weekly Dev Call](../contribute/dev_call.md): A great opportunity to meet the PX4 dev team and discuss platform technical details (including pull requests, major issues, general Q&A).
+- [Licences](../contribute/licenses.md): What you can do with the code (free to use and modify under terms of the permissive [BSD 3-clause license](https://opensource.org/licenses/BSD-3-Clause)!)
+- [Contributing](../contribute/README.md): How to work with our [source code](../contribute/code.md).
