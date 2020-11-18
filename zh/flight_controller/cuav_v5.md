@@ -76,14 +76,14 @@ Under these conditions all power sources will be used in this order to power the
 
 > **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
 
-To [build PX4](https://dev.px4.io/master/en/setup/building_px4.html) for this target:
+To [build PX4](../dev_setup/building_px4.md) for this target:
 
     make px4_fmu-v5_default
     
 
 ## Debug调试端口
 
-The [PX4 System Console](http://dev.px4.io/master/en/debug/system_console.html) and [SWD interface](http://dev.px4.io/master/en/debug/swd_debug.html) operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector. To access the I/O Debug port, the user must remove the CUAV v5 shell. Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
+The [PX4 System Console](../debug/system_console.md) and [SWD interface](../debug/swd_debug.md) operate on the **FMU Debug** port. Simply connect the FTDI cable to the Debug & F7 SWD connector. To access the I/O Debug port, the user must remove the CUAV v5 shell. Both ports have standard serial pins and can be connected to a standard FTDI cable (3.3V, but 5V tolerant).
 
 The pinout is as shown.
 
