@@ -8,7 +8,7 @@ Typical companion computer work with Pixhawk requires a companion link to transm
 
 There are a few devices that allow this communication bridge such as FTDI USB breakouts and level shifters (see below).
 
-> **Note** PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Relevant topics/sections in the developer guide include: [Companion Computer for Pixhawk Series](http://dev.px4.io/en/companion_computer/pixhawk_companion.html), [Robotics](http://dev.px4.io/en/robotics/) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](http://dev.px4.io/en/middleware/micrortps.html).
+> **Note** PX4 configuration for communicating with a companion computer over MAVLink configuration is covered in [MAVLink \(OSD / Telemetry\)](../peripherals/mavlink_peripherals.md#example). Relevant topics/sections in the developer guide include: [Companion Computer for Pixhawk Series](../companion_computer/pixhawk_companion.md), [Robotics](../robotics/README.md) and [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
 
 ### FTDI Devices
 
