@@ -8,7 +8,7 @@ PX4 provides several mechanisms for choosing a safe return path, destination and
 
 The following sections explain how to configure the [return type](#return_types), [return altitude](#return_altitude) and [landing/arrival behaviour](#arrival). At the end there are sections explaining the *default* (preconfigured) behaviour for each [vehicle type](#default_configuration).
 
-> **Note** * This mode requires GPS. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
+> **注** 该模式需要GPS。 * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 
 <span id="return_types"></span>
 
@@ -124,7 +124,7 @@ If the vehicle is:
   - Above [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (4) it will return at its current altitude.
   - Below [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) (5) it will first ascend to `RTL_DESCEND_ALT`.
 
-Note:
+注：
 
 - If [RTL_CONE_ANG](#RTL_CONE_ANG) is 0 degrees there is no "cone": 
   - the vehicle returns at `RTL_RETURN_ALT` (or above).
@@ -147,7 +147,7 @@ The mode is *implemented* in almost exactly the same way in all vehicle types (t
 
 However the *default configuration* is tailored to suit the vehicle type, as described below.
 
-### Multi-Copter (MC)
+### 多旋翼（MC）
 
 Multicopters use a [home location return](#home_return) by default (and the following configuration):
 
@@ -156,7 +156,7 @@ Multicopters use a [home location return](#home_return) by default (and the foll
 - Rapidly descend to the [RTL_DESCEND_ALT](#RTL_DESCEND_ALT) altitude.
 - Land more or less immediately (small [RTL_LAND_DELAY](#RTL_LAND_DELAY)).
 
-### Fixed Wing (FW)
+### 固定翼（FW）
 
 Fixed-wing aircraft use a [mission landing return type](#mission_landing_return) by default:
 
@@ -169,14 +169,14 @@ The fixed wing [safe return altitude](#return_altitude) depends only on [RTL_RET
 
 RC stick movement is ignored.
 
-### VTOL
+### 垂直起降
 
 VTOL aircraft use a [mission landing return type](#mission_landing_return) by default:
 
 - If a mission landing is defined, fly direct to the mission landing start point and then land.
 - Otherwise fly directly to the home position, transition to multicopter mode, and land as a multicopter. > **Note** If not in a mission landing, a VTOL in FW mode will *always* transition back to MC just before landing (ignoring [NAV_FORCE_VT](../advanced_config/parameter_reference.md#NAV_FORCE_VT)).
 
-## Parameters
+## 参数
 
 The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced_config/parameter_reference.md#return-mode) (and summarised below).
 
@@ -187,9 +187,9 @@ The RTL parameters are listed in [Parameter Reference > Return Mode](../advanced
 `1`: Return to a rally point or the mission landing pattern start point (whichever is closest), via direct path. If neither mission landing or rally points are defined return home via a direct path. If the destination is a mission landing pattern, follow the pattern to land.  
 `2`: Use mission path fast-forward to landing if a landing pattern is defined, otherwise fast-reverse to home. Ignore rally points. Fly direct to home if no mission plan is defined.  
 `3`: Return via direct path to closest destination: home, start of mission landing pattern or safe point. If the destination is a mission landing pattern, follow the pattern to land. |
-| <span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | Return altitude in meters (default: 60m) when [RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG) is 0. If already above this value the vehicle will return at its current altitude.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| <span id="RTL_RETURN_ALT"></span>[RTL_RETURN_ALT](../advanced_config/parameter_reference.md#RTL_RETURN_ALT)   | Return altitude in meters (default: 60m) when [RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG) is 0. 如果已经超过这个值, 飞机将返回当前的高度。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | <span id="RTL_DESCEND_ALT"></span>[RTL_DESCEND_ALT](../advanced_config/parameter_reference.md#RTL_DESCEND_ALT) | Minimum return altitude and altitude at which the vehicle will slow or stop its initial descent from a higher return altitude (default: 30m)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| <span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | Time to hover at `RTL_DESCEND_ALT` before landing (default: 0.5s) -by default this period is short so that the vehicle will simply slow and then land immediately. If set to -1 the system will loiter at `RTL_DESCEND_ALT` rather than landing. The delay is provided to allow you to configure time for landing gear to be deployed (triggered automatically).                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| <span id="RTL_LAND_DELAY"></span>[RTL_LAND_DELAY](../advanced_config/parameter_reference.md#RTL_LAND_DELAY)   | Time to hover at `RTL_DESCEND_ALT` before landing (default: 0.5s) -by default this period is short so that the vehicle will simply slow and then land immediately. 如果设置为-1, 系统将在 `RTL_DESCEND_ALT` 徘徊, 而不是降落。 The delay is provided to allow you to configure time for landing gear to be deployed (triggered automatically).                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | <span id="RTL_MIN_DIST"></span>[RTL_MIN_DIST](../advanced_config/parameter_reference.md#RTL_MIN_DIST)       | Minimum horizontal distance from home position to trigger ascent to the return altitude specified by the "cone". If the vehicle is horizontally closer than this distance to home, it will return at its current altitude or `RTL_DESCEND_ALT` (whichever is higher) instead of first ascending to RTL_RETURN_ALT).                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | <span id="RTL_CONE_ANG"></span>[RTL_CONE_ANG](../advanced_config/parameter_reference.md#RTL_CONE_ANG)       | Half-angle of the cone that defines the vehicle RTL return altitude. Values (in degrees): 0, 25, 45, 65, 80, 90. Note that 0 is "no cone" (always return at `RTL_RETURN_ALT` or higher), while 90 indicates that the vehicle must return at the current altitude or `RTL_DESCEND_ALT` (whichever is higher).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | <span id="COM_RC_OVERRIDE"></span>[COM_RC_OVERRIDE](../advanced_config/parameter_reference.md#COM_RC_OVERRIDE) | If enabled, stick movement on a multicopter (or VTOL in multicopter mode) gives control back to the pilot in [Position mode](../flight_modes/position_mc.md) (except when vehicle is handling a critical battery failsafe). This can be separately enabled for auto modes and for offboard mode, and is enabled in auto modes by default.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
