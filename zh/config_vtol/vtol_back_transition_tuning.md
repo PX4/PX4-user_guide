@@ -36,7 +36,7 @@ When flying missions that make use of a [VTOL_LAND](https://mavlink.io/en/messag
 
 ### 用一个通道来控制
 
-ESCs that use a separate control channel to control the motor direction (e.g. [Hobbywing Platinum series](http://a.hobbywing.com/category.php?id=44&filter_attr=6345.6346)) can use the airbrakes channel to apply reverse thrust during back-transition.
+用一个单独的控制频道来控制电机转向的电调(例如 [Hobbywing Platinum series](http://a.hobbywing.com/category.php?id=44&filter_attr=6345.6346))可以用在后转换期间用空气刹车频道来进行后转换。
 
 已经配置好支持这种方法的机型(比如DeltaQuad 机型) 可以通过把[VT_B_REV_OUT](../advanced_config/parameter_reference.md#VT_B_REV_OUT) 设置为1，并把[VT_B_TRANS_THR](../advanced_config/parameter_reference.md#VT_B_TRANS_THR)设置到你想要的油门上来激活反向推力功能。 这是一个从0到1的值，0.7代表70%油门
 
