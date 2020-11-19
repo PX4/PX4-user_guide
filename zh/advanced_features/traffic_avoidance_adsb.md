@@ -1,4 +1,4 @@
-# Air Traffic Avoidance: ADS-B/FLARM
+# 空中交通避障：ADSB/FLARM
 
 PX4 can use [ADS-B](https://en.wikipedia.org/wiki/Automatic_dependent_surveillance_%E2%80%93_broadcast) or [FLARM](https://en.wikipedia.org/wiki/FLARM) transponders to support simple air traffic avoidance in [missions](../flight_modes/mission.md). If a potential collision is detected, PX4 can *warn*, immediately [land](../flight_modes/land.md), or [return](../flight_modes/return.md) (depending on the value of [NAV_TRAFF_AVOID](#NAV_TRAFF_AVOID)).
 
@@ -12,7 +12,7 @@ It has been tested with the following devices:
 - [FLARM](https://flarm.com/products/powerflarm/uav/)
 
 
-## Hardware Setup
+## 硬件安装
 
 Either device can can be connected to any free/unused serial port on the flight controller. Most commonly it they are connected to TELEM2 (if this is not being use for some other purpose).
 
@@ -20,12 +20,12 @@ Either device can can be connected to any free/unused serial port on the flight 
 
 The PingRX MAVLink port uses a JST ZHR-4 mating connector with pinout as shown below.
 
-| Pin     | Signal   | Volt         |
-| ------- | -------- | ------------ |
-| 1 (red) | RX (IN)  | +5V tolerant |
-| 2 (blk) | TX (OUT) |              |
-| 3 (blk) | Power    | +4 to 6V     |
-| 4 (blk) | GND      | GND          |
+| 针脚   | 信号       | 电压           |
+| ---- | -------- | ------------ |
+| 2    | RX (IN)  | +5V tolerant |
+| 2    | TX (OUT) |              |
+| 3    | 电源       | +4 to 6V     |
+| 4（黑） | GND      | GND          |
 
 The PingRX comes with connector cable that can be attached directly to the TELEM2 port (DF13-6P) on an [mRo Pixhawk](../flight_controller/mro_pixhawk.md). For other ports or boards, you will need to obtain your own cable.
 
@@ -34,19 +34,19 @@ The PingRX comes with connector cable that can be attached directly to the TELEM
 
 FLARM has an on-board DF-13 6 Pin connector that has an identical pinout to the [mRo Pixhawk](../flight_controller/mro_pixhawk.md).
 
-| Pin     | Signal   | Volt        |
-| ------- | -------- | ----------- |
-| 1 (red) | VCC      | +4V to +36V |
-| 2 (blk) | TX (OUT) | +3.3V       |
-| 3 (blk) | RX (IN)  | +3.3V       |
-| 4 (blk) | -        | +3.3V       |
-| 5 (blk) | -        | +3.3V       |
-| 6 (blk) | GND      | GND         |
+| 针脚   | 信号       | 电压          |
+| ---- | -------- | ----------- |
+| 1（红） | VCC      | +4V to +36V |
+| 2（黑） | TX (OUT) | +3.3V       |
+| 3    | RX (IN)  | +3.3V       |
+| 4（黑） | -        | +3.3V       |
+| 6    | -        | +3.3V       |
+| 6    | GND      | GND         |
 
 > **Note** The TX and RX on the flight controller must be connected to the RX and TX on the FLARM, respectively.
 
 
-## Software Configuration
+## 软件配置
 
 ### Port Configuration
 
@@ -69,14 +69,14 @@ You will now find a new parameter called [SER_TEL2_BAUD](../advanced_config/para
 
 Configure the action when there is a potential collision using the parameter below:
 
-| Parameter                                                                                                         | Description                                                                                                       |
+| 参数                                                                                                                | 描述                                                                                                                |
 | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | !!crwdBlockTags_5_sgaTkcolBdwrc!![NAV_TRAFF_AVOID](../advanced_config/parameter_reference.md#NAV_TRAFF_AVOID)   | Enable traffic avoidance mode specify avoidance response. 0: Disable, 1: Warn only, 2: Return mode, 3: Land mode. |
 | !!crwdBlockTags_6_sgaTkcolBdwrc!![NAV_TRAFF_A_RADM](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADM) | Set traffic avoidance distance for *manned* aviation                                                              |
 | !!crwdBlockTags_7_sgaTkcolBdwrc!![NAV_TRAFF_A_RADU](../advanced_config/parameter_reference.md#NAV_TRAFF_A_RADU) | Set traffic avoidance distance for *unmanned* aviation                                                            |
 
 
-## Implementation
+## 实现
 
 PX4 listens for valid transponder reports during missions.
 
@@ -87,7 +87,7 @@ The code can be found in `Navigator::check_traffic` ([/src/modules/navigator/nav
 
 PX4 will also forward the transponder data to a GCS if this has been configured for the MAVLink instance (this is recommended). The last 10 Digits of the GUID is displayed as Drone identification.
 
-## Further Information
+## 更多信息
 
 * [MAVLink Peripherals](../peripherals/mavlink_peripherals.md)
-* [Serial Port Configuration](../peripherals/serial_configuration.md)
+* [串口配置](../peripherals/serial_configuration.md)
