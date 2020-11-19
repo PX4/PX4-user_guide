@@ -5,7 +5,7 @@ This topic explains how to simulate multiple vehicles using FlightGear in SITL. 
 > **Note** This is the most environmentally realistic way to simulate multiple vehicles running PX, and allows easy testing of multiple different types of vehicles. It is suitable for testing multi-vehicle support in *QGroundControl*, [MAVSDK](https://mavsdk.mavlink.io/), etc. [Multi-Vehicle Simulation with Gazebo](../simulation/multi-vehicle-simulation.md) should be used instead for: swarm simulations with many vehicles, and testing features like computer vision that are only supported by Gazebo.
 
 
-## How to Start Multiple Instances
+## 如何启动多机实例
 
 To start multiple instances (on separate ports and IDs):
 
@@ -30,10 +30,10 @@ Each instance should have its own startup script, which can represent a complete
 
 ![Multi-vehicle simulation using PX4 SITL and FlightGear](../../assets/simulation/flightgear/flightgear-multi-vehicle-sitl.jpg)
 
-Ground stations such as *QGroundControl* connect to all instances using the normal UDP port 14550 (all traffic goes to the same port).
+*QGroundControl* 和开发者 APIs (比如 Dronecode SDK) 可以通过代码默认端口连接到所有实例（分别为14550 和 14540）。
 
 The number of simultaneously running instances is limited mainly by computer resources. FlightGear is a single-thread application, but aerodynamics solvers consume a lot of memory. Therefore splitting to multiple computers and using a [multiplayer server](http://wiki.flightgear.org/index.php?title=Howto:Multiplayer) is probably required to run *many* vehicle instances.
 
-## Additional Resources
+## 额外资源
 
-* See [Simulation](../simulation/README.md) for more information about the port configuration.
+* 看 [仿真](../simulation/README.md) 接口配置的更多信息。
