@@ -32,19 +32,20 @@ This module provides a single airspeed_validated topic, containing indicated (IA
 ### 用法
 ```
 airspeed_estimator <command> [arguments...]
+ wind_estimator &lt;command&gt; [arguments...]
  Commands:
    start
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
 ## ekf2
-Source: [modules/ekf2](https://github.com/PX4/Firmware/tree/master/src/modules/ekf2)
+源码：[modules/ekf2](https://github.com/PX4/Firmware/tree/master/src/modules/ekf2)
 
 
 ### 描述
-Attitude and position estimator using an Extended Kalman Filter. It is used for Multirotors and Fixed-Wing.
+基于扩展卡尔曼滤波器的姿态和位置估计器。 该模块同时应用于多旋翼和固定翼飞机。
 
 Source: [modules/wind_estimator](https://github.com/PX4/Firmware/tree/master/src/modules/wind_estimator)
 
@@ -65,15 +66,15 @@ ekf2 <command> [arguments...]
    status        打印状态信息
 ```
 ## local_position_estimator
-Source: [modules/local_position_estimator](https://github.com/PX4/Firmware/tree/master/src/modules/local_position_estimator)
+源码：[modules/local_position_estimator](https://github.com/PX4/Firmware/tree/master/src/modules/local_position_estimator)
 
 
-### Description
-Attitude and position estimator using an Extended Kalman Filter.
+### 参数描述
+基于扩展卡尔曼滤波器的姿态和位置估计器。
 
 <a id="local_position_estimator_usage"></a>
 
-### Usage
+### 用法
 ```
 local_position_estimator &lt;command&gt; [arguments...]
  Commands:
@@ -82,28 +83,30 @@ local_position_estimator &lt;command&gt; [arguments...]
    stop
 
    status        打印状态信息
+ wind_estimator &lt;command&gt; [arguments...]
  Commands:
    start
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
 ## mc_hover_thrust_estimator
 Source: [modules/mc_hover_thrust_estimator](https://github.com/PX4/Firmware/tree/master/src/modules/mc_hover_thrust_estimator)
 
 
-### Description
+### 参数描述
 
 <a id="mc_hover_thrust_estimator_usage"></a>
 
-### Usage
+### 用法
 ```
 mc_hover_thrust_estimator <command> [arguments...]
+ wind_estimator &lt;command&gt; [arguments...]
  Commands:
    start
 
    stop
 
-   status        print status info
+   status        打印状态信息
 ```
