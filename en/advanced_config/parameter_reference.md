@@ -2,7 +2,7 @@
 > **Note** **This documentation was auto-generated from the source code for this PX4 version** (using `make parameters_metadata`).
 
 <span></span>
-> **Note** If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](../advanced_config/parameters.md#missing).
+> **Note** If a listed parameter is missing from the Firmware see: [Finding/Updating Parameters](http://docs.px4.io/master/en/advanced_config/parameters.html#missing).
 
 ## UAVCAN Motor Parameters
 
