@@ -17,17 +17,17 @@ PX4使用存储的配置作为机型的起始点>。 机体的配置在[ROMFS/px
 * 应该启动的应用，例如多旋翼或者固定翼的控制器，着陆检测等等。
 * 系统（固定翼，飞翼或者多旋翼）的物理配置。 这叫[混控器](../concept/mixing.md)。
 
-These aspects are mostly independent, which means that many configurations share the same physical layout of the airframe, start the same applications and differ most in their tuning gains.
+上述几个模块在很大程度上都是相互独立的，这就意味着很多配置共用同一套机架的物理结构、启动同样的应用，仅在参数整定增益上有较大区别。
 
-> **Note** New airframe files are only automatically added to the build system after a clean build (run `make clean`).
+> **Note** 新的机型配置文件仅在执行干净的构建后（运行命令 `make clean`）才会被自动添加到构建系统中。
 
 <a id="config-file"></a>
 
-### Config File
+### 配置文件
 
 A typical configuration file is shown below ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/init.d/airframes/3033_wingwing)) .
 
-第一部分是关于机身框架的文档说明。 This is used in the [Airframes Reference](../airframes/airframe_reference.md) and *QGroundControl*.
+第一部分是关于机身框架的文档说明。 [Airframes Reference](../airframes/airframe_reference.md) 和 *QGroundControl* 会用到该部分内容。
 ```bash
 #!nsh
 #
@@ -90,28 +90,28 @@ set MIXER wingwing
 
 配置PWM输出(指定驱动/激活的输出和级别)。
 ```bash
-# Provide ESC a constant 1000 us pulse
+# 向 ESC 提供一个常值 1000 us 脉冲
 set PWM_OUT 4
 set PWM_DISARMED 1000
 ```
 
-> **Warning** If you want to reverse a channel, never do this on your RC transmitter or with e.g `RC1_REV`. The channels are only reversed when flying in manual mode, when you switch in an autopilot flight mode, the channels output will still be wrong (it only inverts your RC signal). Thus for a correct channel assignment change either your PWM signals with `PWM_MAIN_REV1` (e.g. for channel one) or change the signs of the output scaling in the corresponding mixer (see below).
+> **Warning**：如果你想将某一个通道反相, 千万不要在你的遥控器上这样做或者改变例如 `RC1_REV` 这样的参数. 这些参数只会在你使用手动模式飞行的时候才会反相, 当你切换到飞控控制的飞行模式时, 这些通道输出依然是错误的(它只会改变你的遥控器的信号) 因此，对于一个正确的通道分配，要么改变PWM信号与`PWM_MAIN_REV1`（例如，对于通道1），要么改变相应混控器的输出缩放系数（见下文）。
 
 <a id="mixer-file"></a>
 
 ### 混控器文件
 
-> **Note** First read [Concepts > Mixing](../concept/mixing.md). This provides background information required to interpret this mixer file. This provides background information required to interpret this mixer file.
+> **Note** First read [Concepts > Mixing](../concept/mixing.md). This provides background information required to interpret this mixer file. 该页面中的内容提供了理解如下混控器文件所需的背景知识。
 
-A typical mixer file is shown below ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/wingwing.main.mix)). A mixer filename, in this case `wingwing.main.mix`, gives important information about the type of airframe (`wingwing`), the type of output (`.main` or `.aux`) and lastly that it is a mixer file (`.mix`). A mixer filename, in this case `wingwing.main.mix`, gives important information about the type of airframe (`wingwing`), the type of output (`.main` or `.aux`) and lastly that it is a mixer file (`.mix`).
+A typical mixer file is shown below ([original file here](https://github.com/PX4/Firmware/blob/master/ROMFS/px4fmu_common/mixers/wingwing.main.mix)). A mixer filename, in this case `wingwing.main.mix`, gives important information about the type of airframe (`wingwing`), the type of output (`.main` or `.aux`) and lastly that it is a mixer file (`.mix`). 混控器文件的文件名，在这里的案例中也就是 `wingwing.main.mix`，向我们提供了包括机型类型（`wingwing`），输出类型（`.main` 或者 `.aux`）和它是一个混控器定义文件（`.mix`）这三个重要信息。
 
-The mixer file contains several blocks of code, each of which refers to one actuator or ESC. The mixer file contains several blocks of code, each of which refers to one actuator or ESC. So if you have e.g. two servos and one ESC, the mixer file will contain three blocks of code.
+混频器文件包含多个代码块，每个代码块都针对一个执行器或电调。 The mixer file contains several blocks of code, each of which refers to one actuator or ESC. So if you have e.g. two servos and one ESC, the mixer file will contain three blocks of code.
 
-> **Note** The plugs of the servos / motors go in the order of the mixers in this file.
+> **Note** 舵机 / 电机应按照混控器文件中的定义顺序对应地接入飞控。
 
-So MAIN1 would be the left aileron, MAIN2 the right aileron, MAIN3 is empty (note the Z: zero mixer) and MAIN4 is throttle (to keep throttle on output 4 for common fixed wing configurations).
+所以 MAIN1 应为左副翼，MAIN2 应为为右副翼 ，MAIN3 为空 （这里需要注意的是 Z: 表示混控器为空），MAIN4 为油门（在常规固定翼机型配置中应保持油门在 4 号输出位置上）。
 
-A mixer is encoded in normalized units from -10000 to 10000, corresponding to -1..+1.
+混控器以 -10000 到 10000 这一范围进行单位化编码，其分别对应于 -1.. + 1。
 
 ```
 M: 2
@@ -120,9 +120,9 @@ S: 0 0  -6000  -6000      0 -10000  10000
 S: 0 1   6500   6500      0 -10000  10000
 ```
 
-Where each number from left to right means:
+上述定义中从左到右每一个数字所代表的意思是：
 
-* M: Indicates two scalers for two control inputs. It indicates the number of control inputs the mixer will receive. It indicates the number of control inputs the mixer will receive.
+* M: Indicates two scalers for two control inputs. It indicates the number of control inputs the mixer will receive. 该参数表示混控器将接受到的控制输入的数量。
 * O: Indicates the output scaling (*1 in negative, *1 in positive), offset (zero here), and output range (-1..+1 here).
   * If you want to invert your PWM signal, the signs of the output scalings have to be changed. (`O:      -10000  -10000      0 -10000  10000`)
     ```
@@ -132,14 +132,14 @@ Where each number from left to right means:
     ```
     O:      10000  10000   0 -10000  10000
     ```
-* S: Indicates the first input scaler: It takes input from control group #0 (Flight Control) and the first input (roll). It scales the roll control input * 0.6 and reverts the sign (-0.6 becomes -6000 in scaled units). It applies no offset (0) and outputs to the full range (-1..+1) It scales the roll control input * 0.6 and reverts the sign (-0.6 becomes -6000 in scaled units). It applies no offset (0) and outputs to the full range (-1..+1)
-* S: Indicates the second input scaler: It takes input from control group #0 (Flight Control) and the second input (pitch). It scales the pitch control input * 0.65. It applies no offset (0) and outputs to the full range (-1..+1) \ It scales the pitch control input * 0.65. It applies no offset (0) and outputs to the full range (-1..+1)
+* S: Indicates the first input scaler: It takes input from control group #0 (Flight Control) and the first input (roll). It scales the roll control input * 0.6 and reverts the sign (-0.6 becomes -6000 in scaled units). It applies no offset (0) and outputs to the full range (-1..+1) 它将滚转控制输入 * 0.6 进行缩放并反转输入量的正负号（-0.6 在缩放后的单位中变成了 -6000）。 该混控器不施加任何偏移量（0）且输出量幅值在 （-1.. +1）这个范围内。
+* S: Indicates the second input scaler: It takes input from control group #0 (Flight Control) and the second input (pitch). It scales the pitch control input * 0.65. It applies no offset (0) and outputs to the full range (-1..+1) \ It scales the pitch control input * 0.65. 该混控器不施加任何偏移量（0）且输出量幅值在 （-1.. +1）这个范围内。
 
 > **Note** In short, the output of this mixer would be SERVO = ( (roll input * -0.6 + 0) + (pitch input * 0.65 + 0) ) * 1 + 0
 
-Behind the scenes, both scalers are added, which for a flying wing means the control surface takes maximum 60% deflection from roll and 65% deflection from pitch.
+程序后台会对两个缩放器的值进行求和，这就意味着对于这个飞翼来说该控制舵面最大从滚转信号中取 60% 的舵面偏转、从俯仰信号中最大取 65% 的舵面偏转。
 
-The complete mixer looks like this:
+完整的混控器如下所示:
 
 
 ```bash
@@ -248,15 +248,15 @@ S: 0 3      0  20000 -10000 -10000  10000
 
 ```
 
-## Adding a New Airframe Group
+## 增加一个新的机型组（Airframe Group）
 
-Airframe "groups" are used to group similar airframes for selection in [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html) and in the *Airframe Reference* documentation ([PX4 DevGuide](../airframes/airframe_reference.md) and [PX4 UserGuide](https://docs.px4.io/en/airframes/airframe_reference.html)). Every group has a name, and an associated svg image which shows the common geometry, number of motors, and direction of motor rotation for the grouped airframes. Every group has a name, and an associated svg image which shows the common geometry, number of motors, and direction of motor rotation for the grouped airframes.
+Airframe "groups" are used to group similar airframes for selection in [QGroundControl](https://docs.qgroundcontrol.com/en/SetupView/Airframe.html) and in the *Airframe Reference* documentation ([PX4 DevGuide](../airframes/airframe_reference.md) and [PX4 UserGuide](https://docs.px4.io/en/airframes/airframe_reference.html)). Every group has a name, and an associated svg image which shows the common geometry, number of motors, and direction of motor rotation for the grouped airframes. 每个组都有一个名称和与之相关联的 svg 图像，该图像展示了该分组内的机型的通用几何形状、电机数量和电机旋转方向。
 
-The airframe metadata files used by *QGroundControl* and the documentation source code are generated from the airframe description, via a script, using the build command: `make airframe_metadata`
+使用编译指令 `make airframe_metadata` 可以运行脚本自动根据机型描述语句生成需要在 *QGroundControl* 中使用的机型元数据文件和文档源代码。
 
 For a new airframe belonging to an existing group, you don't need to do anything more than provide documentation in the airframe description located at [ROMFS/px4fmu_common/init.d](https://github.com/PX4/Firmware/tree/master/ROMFS/px4fmu_common/init.d).
 
-If the airframe is for a **new group** you additionally need to:
+如果机型属于一个 **新的组** 那么你还需要进行如下操作：
 1. Add the svg image for the group into user guide documentation (if no image is provided a placeholder image is displayed): [assets/airframes/types](https://github.com/PX4/px4_user_guide/tree/master/assets/airframes/types)
 1. Add a mapping between the new group name and image filename in the [srcparser.py](https://github.com/PX4/Firmware/blob/master/Tools/px4airframes/srcparser.py) method `GetImageName()` (follow the pattern below): def GetImageName(self): """ Get parameter group image base name (w/o extension) """ if (self.name == "Standard Plane"): return "Plane" elif (self.name == "Flying Wing"): return "FlyingWing" ... ... return "AirframeUnknown"
    ```
@@ -272,9 +272,9 @@ If the airframe is for a **new group** you additionally need to:
     ...
        return "AirframeUnknown"
    ```
-1. Update *QGroundControl*:
-   * Add the svg image for the group into: [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)
-   * Add reference to the svg image into [qgcimages.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcimages.qrc), following the pattern below:
+1. 更新 *QGroundControl*：
+   * 将该机型组的 svg 图像文件添加至： [src/AutopilotPlugins/Common/images](https://github.com/mavlink/qgroundcontrol/tree/master/src/AutoPilotPlugins/Common/Images)
+   * Add reference to the svg image into [qgcresources.qrc](https://github.com/mavlink/qgroundcontrol/blob/master/qgcresources.qrc), following the pattern below:
      ```
      <qresource prefix="/qmlimages">
         ...
@@ -288,27 +288,27 @@ If the airframe is for a **new group** you additionally need to:
    > **Note** The remaining airframe metadata should be automatically included in the firmware (once **srcparser.py** is updated).
 
 
-## Tuning Gains
+## 调参
 
 The following topics explain how to tune the parameters that will be specified in the config file:
 
-* [Multicopter PID Tuning Guide](../config_mc/pid_tuning_guide_multicopter.md)
-* [Fixed Wing PID Tuning Guide](../config_fw/pid_tuning_guide_fixedwing.md)
+* [多轴飞行器 PID 调参指南](../config_mc/pid_tuning_guide_multicopter.md)
+* [固定翼 PID 调参指南](../config_fw/pid_tuning_guide_fixedwing.md)
 * [垂直起降（VTOL）配置](../config_vtol/README.md)
 
 
-## Add New Airframe to QGroundControl
+## 将新的机型加入到 QGroundControl
 
 To make a new airframe available for section in the *QGroundControl* [airframe configuration](https://docs.px4.io/en/config/airframe.html):
 
-1. Make a clean build (e.g. by running `make clean` and then `make px4_fmu-v5_default`)
-1. Open QGC and select **Custom firmware file...** as shown below:
+1. 创建一个干净的生成（例如，先运行 `make clean` 指令，然后再运行 `make px4_fmu-v5_default`）
+1. 打开 QGC 然后如下图所示单击 **Custom firmware file...**：
 
-  ![QGC flash custom firmware](../../assets/gcs/qgc_flash_custom_firmware.png)
+  ![QGC 载入自定义固件](../../assets/gcs/qgc_flash_custom_firmware.png)
 
-  You will be asked to choose the **.px4** firmware file to flash (this file is a zipped JSON file and contains the airframe metadata).
+  随后你将会被要求选择需要被载入的 **.px4** 固件文件（该文件是一个被压缩的 JSON 文件，文件内包含了机型的元数据）。
 1. Navigate to the build folder and select the firmware file (e.g. **Firmware/build/px4_fmu-v5_default/px4_fmu-v5_default.px4**).
-1. Press **OK** to start flashing the firmware.
-1. Restart *QGroundControl*.
+1. 单击 **OK** 开始载入固件。
+1. 重启 *QGroundControl*。
 
-The new airframe will then be available for selection in *QGroundControl*.
+新的机型现在应可以在 *QGroundControl* 中进行选择了。
