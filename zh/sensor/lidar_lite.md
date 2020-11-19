@@ -4,7 +4,7 @@ LIDAR-Lite is a compact, high-performance optical distant measurement sensor sol
 
 ![LidarLite v3](../../assets/hardware/sensors/lidar_lite/lidar_lite_v3.jpg)
 
-## Where to Buy
+## 购买渠道
 
 * [LIDAR-Lite v3](https://buy.garmin.com/en-AU/AU/p/557294) (5cm - 40m)
 
@@ -58,7 +58,7 @@ The wiring for LidarLite v2 is shown below. Lidar-Lite v3 is wired similarly, ex
 
 The I2C wiring is the same for any other distance sensor. Simply connect the SLA, SLC, GND and VCC to the corresponding (same) pins on the flight controller and the sensor.
 
-## Software Configuration
+## 软件配置
 
 The rangefinder/port is enabled using [SENS_EN_LL40LS](../advanced_config/parameter_reference.md#SENS_EN_LL40LS) - set to `1` for PWM, or `2` for I2C.
 
