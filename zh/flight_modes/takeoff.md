@@ -4,7 +4,7 @@
 
 *起飞*飞行模式使飞机起飞到指定高度并等待进一步指令。
 
-> **Note** * This mode requires GPS. * The vehicle must be armed before this mode can be engaged. * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe. * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
+> **Note** * This mode requires GPS. * 使用此模式前飞机必须先被激活。 * This mode is automatic - no user intervention is *required* to control the vehicle. * RC control switches can be used to change flight modes on any vehicle. * RC stick movement in a multicopter (or VTOL in multicopter mode) will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe. * The [Failure Detector](../config/safety.md#failure_detector) will automatically stop the engines if there is a problem on takeoff.
 
 下面描述每种类型飞机的具体行为。
 
@@ -14,7 +14,7 @@
 
 RC stick movement will [by default](#COM_RC_OVERRIDE) change the vehicle to [Position mode](../flight_modes/position_mc.md) unless handling a critical battery failsafe.
 
-Takeoff is affected by the following parameters:
+起飞受以下参数影响：
 
 | 参数                                                                                                      | 描述                                                                                                                                                                                                                                                                                                                                        |
 | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -24,9 +24,9 @@ Takeoff is affected by the following parameters:
 
 <span id="fixed_wing"></span>
 
-## Fixed Wing (FW)
+## 固定翼（FW）
 
-The aircraft takes off in the current direction using either *catapult/hand-launch mode* or *runway takeoff mode*. The mode defaults to catapult/hand launch, but can be set to runway takeoff using [RWTO_TKOFF](#RWTO_TKOFF). RC stick movement is ignored in both cases.
+飞机使用*弹射器/手动启动模式*或*跑道起飞模式*在当前方向上起飞。 模式默认为弹射/手动发射，但可以使用[ RWTO_TKOFF ](#RWTO_TKOFF)设置为跑道起飞。 RC stick movement is ignored in both cases.
 
 <span id="hand_launch"></span>
 
@@ -40,7 +40,7 @@ In *catapult/hand launch mode* the vehicle waits to detect launch (based on acce
 
 ### Runway Takeoff
 
-The *runway takeoff mode* has the following phases:
+*跑道起飞模式*具有以下阶段：
 
 1. **Throttle ramp**: Clamped to the runway (pitch fixed, no roll, and heading hold) until reach the minimum airspeed for takeoff ([FW_AIRSPD_MIN](#FW_AIRSPD_MIN) x [RWTO_AIRSPD_SCL](#RWTO_AIRSPD_SCL)).
 2. **起飞**：增加俯仰直到飞机高度>导航高度（[ RWTO_NAV_ALT ](#RWTO_NAV_ALT)）。
@@ -48,7 +48,7 @@ The *runway takeoff mode* has the following phases:
 
 ### Fixed Wing Takeoff Parameters
 
-Takeoff is affected by the following parameters:高于地平面（AGL）的高度，留有足够的离地间隙以允许一些滚转。 在达到` RWTO_NAV_ALT `之前，飞机保持水平，并且仅使用方向舵来保持航向（参见<span id="RWTO_HDG"> </ 1> <a href="../advanced_config/parameter_reference.md#RWTO_HDG"> RWTO_HDG </a>）。 如果<code> FW_CLMBOUT_DIFF </code>> 0，则应低于<code> FW_CLMBOUT_DIFF </code>。</td> </tr> </tbody> </table> 
+起飞受以下参数影响：高于地平面（AGL）的高度，留有足够的离地间隙以允许一些滚转。 在达到` RWTO_NAV_ALT `之前，飞机保持水平，并且仅使用方向舵来保持航向（参见<span id="RWTO_HDG"> </ 1> <a href="../advanced_config/parameter_reference.md#RWTO_HDG"> RWTO_HDG </a>）。 如果<code> FW_CLMBOUT_DIFF </code>> 0，则应低于<code> FW_CLMBOUT_DIFF </code>。</td> </tr> </tbody> </table> 
 
 <blockquote>
   <p>
