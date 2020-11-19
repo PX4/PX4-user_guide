@@ -31,7 +31,7 @@
 1. 运行**run-console.bat**(双击)启动Cygwin bash控制台
 1. 在控制台中运行克隆PX4 Firmware仓库命令
 
-   > **Note** Cloning only needs to be done once! Skip this step if you ticked the installer option to *clone the PX4 repository, build and run simulation with jMAVSim*. 
+   > **注意**只需要克隆一次 如果你在安装程序最后选择了*clone the PX4 repository, build and run simulation with jMAVSim*，则可以跳过这一步。 
    > 
    > ```bash
    >    # 克隆 PX4 Firmware 仓库到 home 目录 & 同时并行加载子模块
@@ -69,7 +69,7 @@
 
 You may wish to halt them temporarily during builds (at your own risk).
 
-### Windows & Git Special Cases
+### Windows & Git 特殊情况
 
 #### Windows CR+LF 对比 Unix LF 行结尾
 
@@ -83,7 +83,7 @@ git config core.eol lf
 ```
 git config --global ...
 ```
-This is not recommended because it may affect any other (unrelated) git use on your Windows machine.
+建议不要这样做, 因为它可能会影响 Windows 计算机上的任何其他 (无关) git 使用。
 
 #### Unix 执行权限
 
@@ -132,7 +132,7 @@ git submodule foreach --recursive git config --unset core.filemode # 移除所�
 
 ### Shell 脚本安装
 
-You can also install the environment using shell scripts in the Github project.
+你还可以使用 Github 项目中的 shell 脚本进行开发环境的安装。
 
 1. 请确保安装了 [ Windows Git ](https://git-scm.com/download/win)。
 1. 将代码仓库 https://github.com/PX4/windows-toolchain 克隆到要安装工具链的位置。 打开 `Git Bash` 并执行以下操作，打开后会自动进入默认的安装目录:
@@ -165,7 +165,7 @@ You can also install the environment using shell scripts in the Github project.
    * Devel:ninja
    * Devel:patch
    * Editors:xxd
-   * Editors:nano (unless you're the vim pro)
+   * Editors:nano (除非你精通vim)
    * Python:python2
    * Python:python2-pip
    * Python:python2-numpy
@@ -216,7 +216,7 @@ You can also install the environment using shell scripts in the Github project.
 
 <span></span>
 
-   > **Note** This is what the toolchain does in: [apache-ant/install-apache-ant.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat).
+   > ** 注意 **这就是工具链在 [ gcc-arm/install-apache-ant.bat ](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/apache-ant/install-apache-ant.bat) 脚本中所做的工作。
 
 1. 下载、编译并将 * genromfs *添加到环境变量:
    * 将源代码克隆到文件夹 ** C:\PX4\toolchain\genromfs\genromfs-src ** 中, cd /c/toolchain/genromfs git clone https://github.com/chexum/genromfs.git genromfs-src
@@ -233,6 +233,6 @@ You can also install the environment using shell scripts in the Github project.
 
     * 将包含有生成的二进制 ** genromfs.exe ** 的文件夹复制到: ** C:\PX4\toolchain\genromfs **
 
-    > **Note** This is what the toolchain does in: [genromfs/install-genromfs.bat](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat).
+    > ** 注意 **这就是工具链在 [ gcc-arm/install-genromfs.bat ](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/genromfs/install-genromfs.bat) 脚本中所做的工作。
 
 1. 确保所有已安装组件的二进制文件夹都正确配置在 [** setup-environment-variables.bat **](https://github.com/MaEtUgR/PX4Toolchain/blob/master/toolchain/setup-environment-variables.bat) 配置的 `环境变量` 中。
