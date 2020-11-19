@@ -48,7 +48,7 @@ $ mkdir Fast-RTPS/build && cd Fast-RTPS/build
 
 > **Note** 您可能需要 [install Gradle](https://gradle.org/install/) 来构建源代码（例如，在vanilla Fedora Linux 上确实如此）。 如果是这种情况，将显示生成警告。
 
-If you are on Linux, execute:
+如果您在 Linux 上，请执行：
 
 ```sh
 $ cmake -DTHIRDPARTY=ON -DSECURITY=ON ..
@@ -94,11 +94,11 @@ git clone --recursive https://github.com/eProsima/Fast-RTPS-Gen.git -b v1.0.4 ~/
 操作文档请参见： [二进制安装](http://eprosima-fast-rtps.readthedocs.io/en/latest/binaries.html#installation-from-binaries)（*eProsima Fast RTPS* 官方文档）
 
 
-### Windows 7 32-bit and 64-bit
+### Windows 7 32位和64位
 
 执行说明的 installer，收到提示后选择 *Visual Studio*版本。
 
-#### Environmental Variables
+#### 环境变量
 
 *eProsima Fast RTPS* 功能配置完善，需要如下的环境变量配置生效。
 
@@ -131,6 +131,6 @@ $ ./configure CXXFLAGS="-g -D__DEBUG"  --libdir=/usr/lib
 $ sudo make install
 ```
 
-#### Environmental Variables
+#### 环境变量
 
 * `FASTRTPSGEN_DIR`: Root folder where *eProsima FastRTPSGen* is installed, usually set to `/usr/local`, which is the default installation directory. If the user sets a different install directory in the `gradle install` step, it must set it here as well.
