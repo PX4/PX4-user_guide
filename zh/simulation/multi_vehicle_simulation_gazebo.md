@@ -1,6 +1,6 @@
-# Multi-Vehicle Simulation with Gazebo
+# Gazebo 多机仿真
 
-This topic explains how to simulate multiple UAV vehicles using Gazebo and SITL (Linux only). A different approach is used for simulation with and without ROS.
+本文介绍如何使用 Gazebo 仿真器配合软件在环仿真进行多机仿真（仅适用于 Linux ）。 A different approach is used for simulation with and without ROS.
 
 <a id="no_ros"></a>
 
@@ -14,7 +14,7 @@ Tools/gazebo_sitl_multiple_run.sh [-m <model>] [-n <number_of_vehicles>] [-w <wo
 - `<model>`: The [vehicle type/model](../simulation/gazebo_vehicles.md) to spawn, e.g.: `iris` (default), `plane`, `standard_vtol`.
 - `<number_of_vehicles>`: The number of vehicles to spawn. Default is 3. Maximum is 255.
 - `<world>`: The [world](../simulation/gazebo_worlds.md) that the vehicle should be spawned into, e.g.: `empty` (default)
-- `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`). For example:
+- `<script>`: Spawn multiple vehicles of different types (overriding the values in `-m` and `-n`). 例如：
 
    ```
    -s "iris:3,plane:2,standard_vtol:3"
@@ -59,11 +59,11 @@ https://youtu.be/lAjjTFFZebI
 
 To simulate multiple vehicles based on RTPS in Gazebo, use the `gazebo_sitl_multiple_run.sh` command in the terminal with the `-t px4_sitl_rtps` option from the root of the *PX4-Autopilot* tree (as described above). Here we will use the `-t px4_sitl_rtps` option, which sets that we will use RTPS for communicating with  PX4 rather than the MAVLink Simulation API. This will build and run the `iris_rtps` model (the only model that is currently implemented for use with RTPS).
 
-> **Note** You will need to have installed RTPS and the `micrortps_agent` should be run in the different terminal for each vehicle. For more information see: [RTPS/ROS2 Interface: PX4-FastRTPS Bridge](../middleware/micrortps.md).
+> **Note** You will need to have installed RTPS and the `micrortps_agent` should be run in the different terminal for each vehicle. 有关详细信息，请参阅：[RTPS/ROS2 接口：PX4-FastRTPS Bridge](../middleware/micrortps.md)。
 
 To build an example setup, follow the steps below:
 
-1. Clone the PX4/Firmware code, then build the SITL code:
+1. 克隆 PX4 固件源码, 然后编译 SITL 代码:
    ```bash
    cd Firmware_clone
    git submodule update --init --recursive
@@ -95,17 +95,17 @@ To build an example setup, follow the steps below:
 
 ## Multiple Vehicles with ROS and Gazebo
 
-This example demonstrates a setup that opens the Gazebo client GUI showing two Iris vehicles in an empty world. You can then control the vehicles with *QGroundControl* and MAVROS in a similar way to how you would manage a single vehicle.
+This example demonstrates a setup that opens the Gazebo client GUI showing two Iris vehicles in an empty world. 然后, 你可以使用 *QGroundControl* 配合 MAVROS 控制多机, 其使用方式与单机控制类似。
 
-### Required
+### 仿真前准备
 
-* Current [PX4 ROS/Gazebo development environment](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo) > **Note** At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. See also [Gazebo Simulation](../simulation/gazebo.md).
-* [MAVROS package](http://wiki.ros.org/mavros)
+* Current [PX4 ROS/Gazebo development environment](../dev_setup/dev_env_linux_ubuntu.md#rosgazebo) > **Note** At time of writing this is Ubuntu 18.04 with ROS Melodic/Gazebo 9. 也可以看 [Gazebo 仿真](../simulation/gazebo.md)
+* [MAVROS](http://wiki.ros.org/mavros)
 * a clone of latest [PX4/PX4-Autopilot](https://github.com/PX4/PX4-Autopilot)
 
-### Build and Test
+### 开始仿真
 
-To build an example setup, follow the step below:
+构建一个示例设置, 请按照以下步骤操作:
 
 1. Clone the PX4/PX4-Autopilot code, then build the SITL code
    ```
@@ -119,36 +119,36 @@ To build an example setup, follow the step below:
    export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/sitl_gazebo
    ```
 
-1. Run launch file:
+1. 运行启动文件:
    ```
    roslaunch px4 multi_uav_mavros_sitl.launch
    ```
 
-   > **Tip** You can specify `gui:=false` in the above *roslaunch* to launch Gazebo without its UI.
+   > **Tip** 你可以在上述 *roslaunch* 中指定 `gui:=false` ，以便不启动界面的情况下启动 gazebo。
 
-The tutorial example opens the Gazebo client GUI showing two Iris vehicles in an empty world.
+本指南设置打开了 Gazebo 仿真器界面, 在空世界中显示了两个 Iris 无人机。
 
-You can control the vehicles with *QGroundControl* or MAVROS in a similar way to how you would manage a single vehicle:
-* *QGroundControl* will have a drop-down to select the vehicle that is "in focus"
-* MAVROS requires that you include the proper namespace before the topic/service path (e.g. for `<group ns="uav1">` you'll use */uav1/mavros/mission/push*).
+然后, 你可以使用 *QGroundControl* 和 MAVROS 控制多机，控制方式与单机类似。
+* *QGroundControl* 中有一个下拉选项，你可以选择指定的飞行器。
+* MAVROS 要求你在 topic/service 路径之前包含合适的命名空间，（例如，你会用到 */uav1/mavros/mission/push* ）。
 
 
 
-### What's Happening?
+### 发生了什么？
 
-For each simulated vehicle, the following is required:
+对每一个仿真的飞行器，有如下要求：
 
-* **Gazebo model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/sitl_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). Currently, the model `xacro` file is assumed to end with **base.xacro**. This model should have an argument called  `mavlink_udp_port` which defines the UDP port on which gazebo will communicate with PX4 node. The model's `xacro` file will be used to generate an `urdf` model that contains UDP port that you select. To define the UDP port, set the `mavlink_udp_port` in the launch file for each vehicle, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37) as an example.
+* **Gazebo model**: This is defined as `xacro` file in `PX4-Autopilot/Tools/sitl_gazebo/models/rotors_description/urdf/<model>_base.xacro` see [here](https://github.com/PX4/sitl_gazebo/tree/02060a86652b736ca7dd945a524a8bf84eaf5a05/models/rotors_description/urdf). Currently, the model `xacro` file is assumed to end with **base.xacro**. 此模型应该有一个名为 `mavlink_udp_port` 的参数, 该参数定义了与 px4 节点通信的 udp 端口。 模型的 `xacro` 文件将用于生成包含您选择的 udp 端口的 `urdf` 模型。 若要定义 udp 端口，请在每个飞行器的启动文件中设置 `mavlink_udp_port`，请参阅例子[here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L37)。
 
-  > **Note** If you are using the same vehicle model, you don't need a separate **`xacro`** file for each vehicle. The same **`xacro`** file is adequate.
+  > **注意** 如果你在使用同一个飞行器模型，你不需要为每一个飞行器设置一个单独的**`xacro`**文件。 相同的 **`xacro`** 文件就可以了。
 
-* **PX4 node**: This is the SITL PX4 app. It communicates with the simulator, Gazebo, through the same UDP port defined in the Gazebo vehicle model, i.e. `mavlink_udp_port`. To set the UDP port on the PX4 SITL app side, you need to set the `SITL_UDP_PRT` parameter in the startup file to match the `mavlink_udp_port` discussed previously, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46). The path of the startup file in the launch file is generated based on the `vehicle` and `ID` arguments, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36). The `MAV_SYS_ID` for each vehicle in the startup file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L4), should match the `ID` for that vehicle in the launch file [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25). This will help make sure you keep the configurations consistent between the launch file and the startup file.
+* **PX4 node**: This is the SITL PX4 app. It communicates with the simulator, Gazebo, through the same UDP port defined in the Gazebo vehicle model, i.e. `mavlink_udp_port`. 要在 px4 sitl 应用程序端设置 udp 端口, 您需要在启动文件中设置 `SITL_UDP_PRT` 参数, 以匹配前面讨论的 `mavlink_udp_port`, 请参阅 [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L46)。 启动文件中的开始文件路径由参数 `vehicle`和`ID`产生，参考[这里](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L36)。 The `MAV_SYS_ID` for each vehicle in the startup file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_2#L4), should match the `ID` for that vehicle in the launch file [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L25). 这样能够帮助你确保启动文件和开始文件中的设置相同。
 
-* **MAVROS node** \(optional\): A seperate MAVROS node can be run in the launch file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41), in order to connect to PX4 SITL app, if you want to control your vehicle through ROS. You need to start a MAVLink stream on a unique set of ports in the startup file, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68). Those unique set of ports need to match those in the launch file for the MAVROS node, see [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26).
+* **MAVROS node**（可选）: 如果要通过 ros 控制车辆, 可以在启动文件中运行一个单独的 mavros 节点， 请参阅 [here](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L41), 以便连接到 px4 sitl 应用程序。 您需要在启动文件中一些特殊的端口上启动 mavlink 流, 请参阅 [这里](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/posix-configs/SITL/init/ekf2/iris_1#L68)。 这些特殊端口需要与launch文件中为MAVROS节点设置的相符合。参考[这里](https://github.com/PX4/PX4-Autopilot/blob/4d0964385b84dc91189f377aafb039d10850e5d6/launch/multi_uav_mavros_sitl.launch#L26)。
 
-The launch file `multi_uav_mavros_sitl.launch`does the following,
+启动文件 `multi_uav_mavros_sitl.launch`做了以下内容,
 
-* loads a world in gazebo,
+* 在gazebo中加载一个世界
   ```
     <!-- Gazebo sim -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -159,9 +159,9 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
         <arg name="paused" value="$(arg paused)"/>
     </include>
   ```
-* for each vehicle,
+* 对于每个飞行器来说
 
-  * creates urdf model from xacro, loads gazebo model and runs PX4 SITL app instance
+  * 从 xacro 创建 urdf 模型, 加载gazebo模型并运行 px4 sitl 应用程序实例
     ```
       <!-- PX4 SITL and vehicle spawn -->
       <include file="$(find px4)/launch/single_vehicle_spawn.launch">
@@ -178,7 +178,7 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
       </include>
     ```
 
-  * runs a mavros node
+  * 运行mavros节点
     ```
       <!-- MAVROS -->
       <include file="$(find mavros)/launch/px4.launch">
@@ -191,27 +191,27 @@ The launch file `multi_uav_mavros_sitl.launch`does the following,
 
   > **Note** The complete block for each vehicle is enclosed in a set of `<group>` tags to separate the ROS namespaces of the vehicles.
 
-To add a third iris to this simulation there are two main components to consider:
-* add `UAV3` to **multi_uav_mavros_sitl.launch**
-  * duplicate the group of either existing vehicle (`UAV1` or `UAV2`)
-  * increment the `ID` arg to `3`
-  * select a different port for `mavlink_udp_port` arg for communication with Gazebo
-  * selects ports for MAVROS communication by modifying both port numbers in the `fcu_url` arg
-* create a startup file, and change the file as follows:
-  * make a copy of an existing iris rcS startup file (`iris_1` or `iris_2`) and rename it `iris_3`
-  * `MAV_SYS_ID` value to `3`
-  * `SITL_UDP_PRT` value to match that of the `mavlink_udp_port` launch file arg
-  * the first `mavlink start` port and the `mavlink stream` port values to the same values, which is to be used for QGC communication
-  * the second `mavlink start` ports need to match those used in the launch file `fcu_url` arg
+要在此模拟中添加第三个iris四旋翼, 需要考虑两个主要部分：
+* 把`UAV3` 添加到**multi_uav_mavros_sitl.launch**
+  * 复制已经存在的四旋翼(`UAV1` 或者 `UAV2`)
+  * 把 `ID` 改为 `3`
+  * 与gazebo的通信，选择一个不同的 `mavlink_udp_port`端口
+  * MAVROS通信端口选择是通过在`fcu_url` 中修改两个端口号。
+* 创建一个开始文件，并按照如下方式修改：
+  * 复制已存在的iris rcs启动文件，(`iris_1` 或 `iris_2`) ，重命名为`iris_3`
+  * `MAV_SYS_ID` 值改为`3`
+  * `SITL_UDP_PRT` 的值与 `mavlink_udp_port`相一致。
+  * 第一个`mavlink start` 端口和`mavlink stream`端口值设置为相同值，用于和QGC通信。
+  * 第二个`mavlink start` 端口值应与启动文件 `fcu_url` 中的值一致。
 
-    > **Note** Be aware of which port is `src` and `dst` for the different endpoints.
+    > **Note**注意端口 `src` 和`dst`是不同的
 
 
 ## Multiple Vehicles using SDF Models
 
 This section shows how developers can simulate multiple vehicles using vehicle models defined in Gazebo SDF files (instead of using models defined in the ROS Xacro file, as discussed in the rest of this topic).
 
-The steps are:
+步骤如下：
 
 1. Install *xmlstarlet* from your Linux terminal:
    ```
@@ -240,8 +240,8 @@ To add a new vehicle, you need to make sure the model can be found (in order to 
 1. The `vehicle` argument is used to set the `PX4_SIM_MODEL` environment variable, which is used by the default rcS (startup script) to find the corresponding startup settings file for the model. Within PX4 these startup files can be found in the **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/** directory. For example, here is the plane model's [startup script](https://github.com/PX4/PX4-Autopilot/blob/master/ROMFS/px4fmu_common/init.d-posix/1030_plane). For this to work, the PX4 node in the launch file is passed arguments that specify the *rcS* file (**etc/init.d/rcS**) and the location of the rootfs etc directory (`$(find px4)/build_px4_sitl_default/etc`). For simplicity, it is suggested that the startup file for the model be placed alongside PX4's in **PX4-Autopilot/ROMFS/px4fmu_common/init.d-posix/**.
 
 
-## Additional Resources
+## 其他资源
 
-* See [Simulation](../simulation/README.md) for a description of the UDP port configuration.
-* See [URDF in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf) for more information about spawning the model with xacro.
-* See [RotorS](https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf) for more xacro models.
+* 更多UDP端口配置请参考 [Simulation](../simulation/README.md)。
+* 更多关于xacro多模型的信息请参考 [URDF in Gazebo](http://gazebosim.org/tutorials/?tut=ros_urdf)
+* 更过xacro模型请参考[RotorS](https://github.com/ethz-asl/rotors_simulator/tree/master/rotors_description/urdf)。
