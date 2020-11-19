@@ -30,11 +30,11 @@ Additionally you will need a battery and receiver ([compatible radio system](../
 * Receiver: FR SKY Taranis
 * Battery: [4S 1300 mAh](http://www.getfpv.com/lumenier-1300mah-4s-60c-lipo-battery-xt60.html)
 
-## Hardware
+## 硬件
 
 This section lists all hardware for the frame and the autopilot installation.
 
-| Item                         | Description                                       | Quantity |
+| Item                         | 描述                                                | Quantity |
 | ---------------------------- | ------------------------------------------------- | -------- |
 | Socket cap scre              | Used for motor fixing, stainless steel screw M3*5 | 16       |
 | Carbon fiber tube - Arm      | Diameter: 16mm length: 200mm                      | 4        |
@@ -119,7 +119,7 @@ The following tools are used in this assembly:
 ![X500 Full Package Contents](../../assets/airframes/multicopter/x500_holybro_pixhawk4/x500_tools.png)
 
 
-## Assembly
+## 组装
 
 Estimate time to assemble is 120 minutes, about 75 minutes for frame assembly and 45 minutes installing and configuring the autopilot in QGroundControl.
 
@@ -263,27 +263,27 @@ Plugin Telemetry and GPS module to the flight controller as seen in Figure 20; p
 > **Tip** Full instructions for installing and configuring PX4 can be found in [Basic Configuration](../config/README.md).
 
 First update the firmware and airframe:
-* [Firmware](../config/firmware.md)
-* [Airframe](../config/airframe.md)
+* [固件](../config/firmware.md)
+* [机架](../config/airframe.md)
 
 > **Note** You will need to select the *Holybro S500* airframe (**Quadrotor x > Holybro S500**).
 
 ![QGroundControl - Select HolyBro S500 airframe](../../assets/airframes/multicopter/x500_holybro_pixhawk4/S500_airframe_use_for_X500.jpg)
 
 Then perform the mandatory setup/calibration:
-* [Sensor Orientation](../config/flight_controller_orientation.md)
-* [Compass](../config/compass.md)
-* [Accelerometer](../config/accelerometer.md)
-* [Level Horizon Calibration](../config/level_horizon_calibration.md)
-* [Radio Setup](../config/radio.md)
-* [Flight Modes](../config/flight_mode.md)
+* [传感器方向](../config/flight_controller_orientation.md)
+* [罗盘](../config/compass.md)
+* [加速度计 Accelerometer](../config/accelerometer.md)
+* [水平平面校准](../config/level_horizon_calibration.md)
+* [无线电系统设置](../config/radio.md)
+* [飞行模式](../config/flight_mode.md)
 
 Ideally you should also do:
-* [ESC Calibration](../advanced_config/esc_calibration.md)
-* [Battery](../config/battery.md)
-* [Safety](../config/safety.md)
+* [电调（ESC）校准](../advanced_config/esc_calibration.md)
+* [电池](../config/battery.md)
+* [安全](../config/safety.md)
 
-## Tuning
+## 调试
 
 Airframe selection sets *default* autopilot parameters for the frame. These are good enough to fly with, but it is a good idea to tune the parameters for a specific frame build.
 
