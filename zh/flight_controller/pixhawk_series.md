@@ -21,7 +21,7 @@ Key benefits of using a *Pixhawk series* controller include:
 
 <span id="recommended"></span>
 
-## Supported Boards
+## 支持的飞控板
 
 The PX4 Project uses [Pixhawk Standard Autopilots](../flight_controller/autopilot_pixhawk_standard.md) as reference hardware. These are the controllers that are fully compatible with the Pixhawk standard (including use of trademarks) and that are still being manufactured.
 
