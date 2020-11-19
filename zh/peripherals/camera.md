@@ -20,13 +20,13 @@ The different [trigger modes](#trigger_mode), [backend interfaces](#trigger_back
 
 Four different modes are supported, controlled by the [TRIG_MODE](../advanced_config/parameter_reference.md#TRIG_MODE) parameter:
 
-| Mode | 描述                                                                                                                                                                                             |
-| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0    | Camera triggering is disabled.                                                                                                                                                                 |
-| 1    | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#command_interface) for more details.    |
-| 2    | Switches the intervalometer constantly on.                                                                                                                                                     |
-| 3    | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval. |
-| 4    | triggers automatically when flying a survey in Mission mode.                                                                                                                                   |
+| 模式 | 描述                                                                                                                                                                                             |
+| -- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0  | Camera triggering is disabled.                                                                                                                                                                 |
+| 1  | Works like a basic intervalometer that can be enabled and disabled by using the MAVLink command `MAV_CMD_DO_TRIGGER_CONTROL`. See [command interface](#command_interface) for more details.    |
+| 2  | Switches the intervalometer constantly on.                                                                                                                                                     |
+| 3  | Triggers based on distance. A shot is taken every time the set horizontal distance is exceeded. The minimum time interval between two shots is however limited by the set triggering interval. |
+| 4  | triggers automatically when flying a survey in Mission mode.                                                                                                                                   |
 
 > **Info** If it is your first time enabling the camera trigger app, remember to reboot after changing the `TRIG_MODE` parameter.
 
@@ -51,7 +51,7 @@ The camera trigger driver supports several backends - each for a specific applic
 | 3      | Enables the MAVLink interface. In this mode, no actual hardware output is used. Only the `CAMERA_TRIGGER` MAVLink message is sent by the autopilot (by default, if the MAVLink application is in `onboard` mode. Otherwise, a custom stream will need to be enabled).                                                                                                                                                                                                                                                                                            |
 | 4      | Enables the generic PWM interface. This allows the use of [infrared triggers](https://hobbyking.com/en_us/universal-remote-control-infrared-shutter-ir-rc-1g.html) or servos to trigger your camera. The trigger signal is duplicated on both pins specified using `TRIG_PINS`.                                                                                                                                                                                                                                                                                  |
 
-## Other Parameters
+## 其他参数
 
 | 参数                                                                         | 参数描述                                                                                                                                                                                                                             |
 | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -139,7 +139,7 @@ To avoid autofocus and metering lag when the camera is triggered, the following 
 * ISO should be set as low as possible
 * Manual white balance suitable for scene
 
-### Mission Planning
+### 任务规划
 
 ![QGC Survey Polygon](../../assets/camera/qgc_survey_polygon.jpeg)
 
