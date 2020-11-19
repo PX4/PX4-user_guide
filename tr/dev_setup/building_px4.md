@@ -94,7 +94,7 @@ The following list shows the build commands for common boards:
 * Cube Yellow: `make hex_cube-yellow`
 * Cube Orange: `make hex_cube-orange`
 * [mRo Pixhawk](../flight_controller/mro_pixhawk.md): `make px4_fmu-v3_default` (supports 2MB Flash)
-* [HKPilot32](../flight_controller/HKPilot32.md): `make px4_fmu-v2_default`
+* [Holybro pix32](../flight_controller/holybro_pix32.md): `make px4_fmu-v2_default`
 * [Pixfalcon](../flight_controller/pixfalcon.md): `make px4_fmu-v2_default`
 * [Dropix](../flight_controller/dropix.md): `make px4_fmu-v2_default`
 * [MindPX](../flight_controller/mindpx.md)/[MindRacer](../flight_controller/mindracer.md): `make airmind_mindpx-v2_default`
