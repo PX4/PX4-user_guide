@@ -216,8 +216,8 @@ cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
 ### OcPoC-Zynq Mini
 
 Build instructions for the [OcPoC-Zynq Mini](../flight_controller/ocpoc_zynq.md) are covered in:
-* [Aerotenna OcPoC-Zynq Mini Flight Controller > Building PX4 for OcPoC-Zynq](../flight_controller/ocpoc_zynq.md#building-px4-for-ocpoc-zynq) (PX4 User Guide)
-* [OcPoC PX4 Setup Page](https://aerotenna.readme.io/docs/px4-setup)
+* [Aerotenna OcPoC-Zynq Mini Flight Controller > Building PX4 for OcPoC-Zynq](../flight_controller/ocpoc_zynq.md#building-px4-for-ocpoc-zynq)
+* [OcPoC PX4 Setup Page](https://aerotenna.readme.io/docs/px4-setup)  (aerotenna.readme.io)
 
 
 ### QuRT / Snapdragon Based Boards
