@@ -14,24 +14,24 @@ The [Here+ RTK GPS receiver](http://www.proficnc.com/content/12-here) is a small
 
 RTK setup and use on PX4 via *QGroundControl* is largely plug and play (see [RTK GPS](../advanced_features/rtk-gps.md) for more information).
 
-## Pinout
+## 针脚定义
 
 The Here+ GPS comes with an 8 pin connector with the following pinout
 
 ![Here+ Pinout (viewed from base)](../../assets/hardware/gps/rtk_here_plus_connectors.jpg)
 
-| Pin        | Here+ GPS     |
+| 针脚         | Here+ GPS     |
 | ---------- | ------------- |
 | 1 (purple) | VCC_5V        |
 | 2 (blue)   | GPS_RX        |
 | 3 (green)  | GPS_TX        |
 | 4 (yellow) | I2C SCL       |
 | 5 (orange) | I2C SDA       |
-| 6 (red)    | SAFETY BUTTON |
+| 6（红）       | SAFETY BUTTON |
 | 7 (brown)  | BUTTON_LED    |
 | 8 (black)  | GND           |
 
-## Wiring and Connections
+## 接线和连接
 
 Connection examples are shown below for a number of boards (these can be used to modify the cable as needed for other boards).
 
@@ -47,16 +47,16 @@ The [Pixhawk 3 Pro](../flight_controller/pixhawk3_pro.md) and [Pixracer](../flig
 
 Pin 6 and 7 are for the safety button - these can be attached as well if needed.
 
-| Pin | Here+ GPS  | Pin | Pixhawk 3 Pro GPS |
-| --- | ---------- | --- | ----------------- |
-| 1   | VCC_5V     | 1   | VCC               |
-| 2   | GPS_RX     | 2   | GPS_TX            |
-| 3   | GPS_TX     | 3   | GPS_RX            |
-| 4   | I2C SCL    | 4   | SCL               |
-| 5   | I2C SDA    | 5   | SDA               |
-| 6   | BUTTON     | -   | -                 |
-| 7   | BUTTON_LED | -   | -                 |
-| 8   | GND        | 6   | GND               |
+| 针脚 | Here+ GPS  | 针脚 | Pixhawk 3 Pro GPS |
+| -- | ---------- | -- | ----------------- |
+| 1  | VCC_5V     | 1  | VCC               |
+| 2  | GPS_RX     | 2  | GPS_TX            |
+| 3  | GPS_TX     | 3  | GPS_RX            |
+| 4  | I2C SCL    | 4  | SCL               |
+| 5  | I2C SDA    | 5  | SDA               |
+| 6  | BUTTON     | -  | -                 |
+| 7  | BUTTON_LED | -  | -                 |
+| 8  | GND        | 6  | GND               |
 
 #### Pixhawk 4
 
@@ -64,15 +64,15 @@ The Here+ to [Pixhawk 4](../flight_controller/pixhawk4.md) GPS port pin mapping 
 
 > **Note** The Pixhawk 4 GPS port has pin 1 on the left hand side.
 
-| Pin | Here+ GPS  | pin | Pixhawk 4 GPS Port  |
-| --- | ---------- | --- | ------------------- |
-| 1   | VCC_5V     | 1   | VCC (+5V)           |
-| 2   | GPS_RX     | 2   | GPS_TX              |
-| 3   | GPS_TX     | 3   | GPS_RX              |
-| 4   | I2C SCL    | 4   | SCL1                |
-| 5   | I2C SDA    | 5   | SDA1                |
-| 6   | BUTTON     | 6   | SAFETY_SWITCH       |
-| 7   | BUTTON_LED | 7   | SAFETY_SWITCH_LED |
-| /   | -          | 8   | VDD_3V3             |
-| /   | -          | 9   | BUZZER              |
-| 8   | GND        | 10  | GND                 |
+| 针脚 | Here+ GPS  | 引脚 | Pixhawk 4 GPS Port  |
+| -- | ---------- | -- | ------------------- |
+| 1  | VCC_5V     | 1  | VCC (+5V)           |
+| 2  | GPS_RX     | 2  | GPS_TX              |
+| 3  | GPS_TX     | 3  | GPS_RX              |
+| 4  | I2C SCL    | 4  | SCL1                |
+| 5  | I2C SDA    | 5  | SDA1                |
+| 6  | BUTTON     | 6  | SAFETY_SWITCH       |
+| 7  | BUTTON_LED | 7  | SAFETY_SWITCH_LED |
+| /  | -          | 8  | VDD_3V3             |
+| /  | -          | 9  | BUZZER              |
+| 8  | GND        | 10 | GND                 |
