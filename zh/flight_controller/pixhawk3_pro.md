@@ -1,6 +1,6 @@
 # Pixhawk 3 Pro
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://store-drotek.com/) for hardware support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://store-drotek.com/)。
 
 The Pixhawk<sup>&reg;</sup> 3 Pro is based on the FMUv4 hardware design (Pixracer) with some upgrades and additional features. The board was designed by [Drotek<sup>&reg;</sup>](https://drotek.com) and PX4.
 
@@ -39,16 +39,16 @@ From [readymaderc](https://www.readymaderc.com) (USA) :
 
 - [Pixhawk 3 Pro](https://www.readymaderc.com/products/details/pixhawk-3-pro-flight-controller)
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** 多数用户不需要自己构建固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
     make px4_fmu-v4pro_default
     
 
-## Debug Port
+## Debug调试端口
 
 The board has FMU and IO debug ports as shown below.
 
@@ -56,14 +56,14 @@ The board has FMU and IO debug ports as shown below.
 
 The pinouts and connector comply with the [Pixhawk Standard Debug Port](https://pixhawk.org/pixhawk-connector-standard/#dronecode_debug) (JST SM06B connector).
 
-| Pin     | Signal           | Volt  |
-| ------- | ---------------- | ----- |
-| 1 (red) | VCC TARGET SHIFT | +3.3V |
-| 2 (blk) | CONSOLE TX (OUT) | +3.3V |
-| 3 (blk) | CONSOLE RX (IN)  | +3.3V |
-| 4 (blk) | SWDIO            | +3.3V |
-| 5 (blk) | SWCLK            | +3.3V |
-| 6 (blk) | GND              | GND   |
+| 针脚   | 信号               | 电压    |
+| ---- | ---------------- | ----- |
+| 2    | VCC TARGET SHIFT | +3.3V |
+| 2    | UART7 Tx         | +3.3V |
+| 3    | UART7 Rx         | +3.3V |
+| 4（黑） | SWDIO            | +3.3V |
+| 6    | SWCLK            | +3.3V |
+| 6    | GND              | GND   |
 
 For information about wiring and using this port see:
 
@@ -72,7 +72,7 @@ For information about wiring and using this port see:
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                  |
+| UART   | 设备         | Port                  |
 | ------ | ---------- | --------------------- |
 | UART1  | /dev/ttyS0 | WiFi                  |
 | USART2 | /dev/ttyS1 | TELEM1 (flow control) |
