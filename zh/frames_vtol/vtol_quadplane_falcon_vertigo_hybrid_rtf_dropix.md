@@ -132,7 +132,7 @@ The outputs of Dropix should be wired using the standard QuadPlane configuration
 | AUX 2  | Right aileron          |
 | AUX 3  | Elevator               |
 | AUX 4  | Rudder                 |
-| AUX 5  | Throttle               |
+| AUX 5  | 油门                     |
 
 <span id="dropix_back"></span>
 
@@ -210,7 +210,7 @@ The pitot tube is installed on the front of the plane and connected to the airsp
 
 The GPS/Compass module is already mounted on the wing, in the default orientation. You don't need to have to do anything extra for this!
 
-<img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_gps_compass.jpg" width="500px" title="GPS/Compass" />
+<img src="../../assets/airframes/vtol/falcon_vertigo/falcon_vertigo_gps_compass.jpg" width="500px" title="GPS/指南针" />
 
 <span id="flight_controller_orientation"></span>
 
@@ -260,7 +260,7 @@ Perform the normal [Basic Configuration](../config/README.md).
 
 After you finish calibration the VTOL is ready to fly.
 
-## Video
+## 视频
 
 {% youtube %} http://www.youtube.com/watch?v=h7OHTigtU0s {% endyoutube %}
 
