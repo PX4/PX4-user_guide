@@ -230,8 +230,8 @@ cd /home/pi && ./bin/px4 -d -s px4.config > px4.log
 ### OcPoC-Zynq Mini
 
 要自动启动 PX4，请将以下内容添加到文件 **/etc/rc.local**（如果使用本机生成，请相应地调整），在 `exit 0` 之前：
-* Pixhawk 4: `make px4_fmu-v5_default`
-* [OcPoC PX4 构建页](https://aerotenna.readme.io/docs/px4-setup)
+* [Aerotenna OcPoC-Zynq Mini Flight Controller > Building PX4 for OcPoC-Zynq](../flight_controller/ocpoc_zynq.md#building-px4-for-ocpoc-zynq)
+* [OcPoC PX4 Setup Page](https://aerotenna.readme.io/docs/px4-setup)  (aerotenna.readme.io)
 
 
 ### Parrot Bebop
