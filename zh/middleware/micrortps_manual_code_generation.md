@@ -1,21 +1,21 @@
-# Manually Generate Client and Agent Code
+# 手动生成客户端和代理端代码
 
-This topic shows how to manually generate the code for the client and the agent (instead of [automatically generating](../middleware/micrortps.md) it when the PX4 Firmware is compiled).
+本主题演示如何手动生成客户端和代理的代码（而不是编译 PX4 时[自动生成](../middleware/micrortps.md)的）。
 
-The code is generated using the python script: **/Tools/generate_microRTPS_bridge.py**.
+代码是使用 python 脚本生成的：**/Tools/generate_microRTPS_bridge.py**。
 
 
-## Disable automatic bridge code generation
+## 禁用自动桥接代码生成
 
-First disable automatic generation of bridge code. First disable automatic generation of bridge code. Set the variable `GENERATE_RTPS_BRIDGE` to *off* in the **.cmake** file for the target platform:
+首先禁用桥接代码的自动生成。 First disable automatic generation of bridge code. Set the variable `GENERATE_RTPS_BRIDGE` to *off* in the **.cmake** file for the target platform:
 
 ```sh
 set(GENERATE_RTPS_BRIDGE off)
 ```
 
-## Using generate_microRTPS_bridge.py
+## 使用 generate_microRTPS_bridge. py
 
-The *generate_microRTPS_bridge* tool's command syntax is shown below:
+*generate_microRTPS_bridge* 工具的命令语法如下所示:
 
 ```sh
 $ cd /path/to/PX4/Firmware/msg/tools
@@ -43,33 +43,32 @@ optional arguments:
   -r *.msg [*.msg ...], --receive *.msg [*.msg ...]
                         Topics to be received
   -a, --agent           Flag to generate the agent. 默认值为 true。
-  -c, --client          Flag to generate the client. 默认值为 true。 Default is true.
+  -c, --client          Flag to generate the client. 默认值为 true。 默认值为 true。
   -t MSGDIR, --topic-msg-dir MSGDIR
-                        Topics message dir. -t MSGDIR, --topic-msg-dir MSGDIR
+                        主题消息目录。 -t MSGDIR, --topic-msg-dir MSGDIR
                         Topics message dir. 默认为： msg/
   -o AGENTDIR, --agent-outdir AGENTDIR
-                        Agent 输出目录。 Default is:
-                        src/modules/micrortps_bridge/micrortps_agent
+                        Agent 输出目录。 Src/modules/micrortps_bridge/micrortps_agent
   -u CLIENTDIR, --client-outdir CLIENTDIR
-                        Client output dir. Default is:
+                        客户端输出目录。 Default is:
                         src/modules/micrortps_bridge/micrortps_agent
   -u CLIENTDIR, --client-outdir CLIENTDIR
                         Client output dir. Default is:
                         src/modules/micrortps_bridge/micrortps_client
   -f FASTRTPSGEN, --fastrtpsgen-dir FASTRTPSGEN
                         fastrtpsgen installation dir. Default is: /bin
-  --delete-tree         Delete dir tree output dir(s) Default is: /bin
-  --delete-tree         Delete dir tree output dir(s)
+  --delete-tree         Delete dir tree output dir(s) 默认是： /bin
+  --delete-tree         删除目录树
 ```
 
-> **Caution** Using with `--delete-tree` option erases the content of the `CLIENTDIR` and the `AGENTDIR` before creating new files and folders.
+> **Caution** 在创建新文件和文件夹之前，使用 `--delete-tree` 选项会删除 `CLIENTDIR` 和 `AGENTDIR` 的内容。
 
-- The arguments `--send/-s` and `--receive/-r` specify the uORB topics that can be sent/received from PX4. Code will only be generated for specified messages. Code will only be generated for specified messages.
-- The output appears in `CLIENTDIR` (`-o src/modules/micrortps_bridge/micrortps_client`, by default) and in the `AGENTDIR` (`-u src/modules/micrortps_bridge/micrortps_agent`, by default).
-- If no flag `-a` or `-c` is specified, both the client and the agent will be generated and installed.
-- The `-f` option may be needed if *Fast RTPS* was not installed in the default location (`-f /path/to/fastrtps/installation/bin`).
+- The arguments `--send/-s` and `--receive/-r` specify the uORB topics that can be sent/received from PX4. Code will only be generated for specified messages. 将仅为指定的消息生成代码。
+- 输出显示在 `CLIENTDIR` (默认情况下 ` src/modules/micrortps_bridge/micrortps_client</0 >) 和 <code>AGENTDIR` (默认情况下 `-u src/modules/micrortps_bridge/micrortps_agent</0 >) 中。</li>
+<li>如果未指定标志 <code>-a` 或 `-c`，则将生成并安装客户端和代理。
+- 如果未在默认位置（`-f /path/to/fastrtps/installation/bin`）安装 *Fast rtps*，则可能需要 `-f` 选项。
 
-The example below shows how you can generate bridge code to publish/subscribe just the `sensor_baro` single uORB topic.
+下面的示例演示如何生成桥接代码以发布/订阅 `sensor_baro` 单个 uORB 主题。
 
 ```sh
 $ cd /path/to/PX4/Firmware
@@ -78,37 +77,37 @@ $ python Tools/generate_microRTPS_bridge.py -s msg/sensor_baro.msg -r msg/sensor
 
 ## 生成代码
 
-Code is generated for the *Client*, *Agent*, *CDR serialization/deserialization* of uORB messages, and the definition of the associated RTPS messages (IDL files).
+为 *Client*、*Agent*、*CDR serialization/deserialization* 的 uORB 消息以及关联的 RTPS 报文 (IDL 文件) 的定义生成代码。
 
-Manually generated code for the bridge can be found here (by default):
+可以在此处找到网桥的手动生成的代码（默认情况下）：
 
-- *Client*: **src/modules/micrortps_bridge/micrortps_client/**
-- *Agent*: **src/modules/micrortps_bridge/micrortps_agent/**
+- *客户端*: **src/modules/micrortps_bridge/micrortps_client/**
+- *代理端*: **src/modules/micrortps_bridge/micrortps_agent/**
 
 
-### uORB serialization code
+### uORB 序列化代码
 
-Serialization functions are generated for all the uORB topics as part of the normal PX4 compilation process (and also for manual generation). For example, the following functions would be generated for the *sensor_combined.msg*: For example, the following functions would be generated for the *sensor_combined.msg*:
+Serialization functions are generated for all the uORB topics as part of the normal PX4 compilation process (and also for manual generation). For example, the following functions would be generated for the *sensor_combined.msg*: 例如，将为 *sensor_combined.msg* 生成以下函数：
 
 ```sh
 void serialize_sensor_combined(const struct sensor_combined_s *input, char *output, uint32_t *length, struct microCDR *microCDRWriter);
 void deserialize_sensor_combined(struct sensor_combined_s *output, char *input, struct microCDR *microCDRReader);
 ```
 
-### RTPS message IDL files
+### RTPS 报文 IDL 文件
 
-IDL files are generated from the uORB **.msg** files ([for selected uORB topics](../middleware/micrortps.md#supported-uorb-messages)) in the generation of the bridge. These can be found in: **src/modules/micrortps_bridge/micrortps_agent/idl/** These can be found in: **src/modules/micrortps_bridge/micrortps_agent/idl/**
+IDL files are generated from the uORB **.msg** files ([for selected uORB topics](../middleware/micrortps.md#supported-uorb-messages)) in the generation of the bridge. These can be found in: **src/modules/micrortps_bridge/micrortps_agent/idl/** 这些可以在 **src/modules/micrortps_bridge/micrortps_agent/idl/** 中找到。
 
-*FastRTSP* uses IDL files to define the structure of RTPS messages (in this case, RTPS messages that map to uORB topics). *FastRTSP* uses IDL files to define the structure of RTPS messages (in this case, RTPS messages that map to uORB topics). They are used to generate code for the *Agent*, and *FastRTSP* applications that need to publish/subscribe to uORB topics.
+*FastRTSP* 使用 IDL 文件来定义 RTPS 消息的结构（在本例中，映射到 uORB 主题的 RTPS 消息）。 *FastRTSP* uses IDL files to define the structure of RTPS messages (in this case, RTPS messages that map to uORB topics). They are used to generate code for the *Agent*, and *FastRTSP* applications that need to publish/subscribe to uORB topics.
 
-> **Note** IDL files are compiled to C++ by the *fastrtpsgen* tool.
+> **Note** IDL 文件由 *fastrtpsgen* 工具编译到 c++。
 
 
 ## 代码生成验证
 
-You can verify successful code generation by checking that the output directories match the listing shown below (On Linux, the `tree` command can be used for listing the file structure).
+可以通过检查输出目录是否与下面显示的列表匹配来验证成功的代码生成（在 Linux 上，`tree` 命令可用于列出文件结构）。
 
-Agent directory:
+代理目录:
 ```sh
 $ tree src/modules/micrortps_bridge/micrortps_agent
 src/modules/micrortps_bridge/micrortps_agent
@@ -154,7 +153,7 @@ src/modules/micrortps_bridge/micrortps_client
 
 The manually generated *Client* code is built and used in *exactly* the same way as [automatically generated Client code](../middleware/micrortps.md#client-px4-firmware).
 
-Specifically, once manually generated, the *Client* source code is compiled and built into the PX4 firmware as part of the normal build process. For example, to compile the code and include it in firmware for NuttX/Pixhawk targets: For example, to compile the code and include it in firmware for NuttX/Pixhawk targets:
+Specifically, once manually generated, the *Client* source code is compiled and built into the PX4 firmware as part of the normal build process. For example, to compile the code and include it in firmware for NuttX/Pixhawk targets: 例如，编译代码，将其加入 NuttX/Pixhawk 固件：
 
 ```sh
 make px4_fmu-v4_default upload
