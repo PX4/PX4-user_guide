@@ -10,19 +10,19 @@ PX4 supports:
 
 > **Info** The *Terranger One* is used in the [Qualcomm Snapdragon Flight](../flight_controller/snapdragon_flight.md).
 
-## Where to Buy
+## 购买渠道
 
 * TBD
 
-## Pinouts
+## 针脚定义
 
-## Wiring
+## 布线
 
 All TeraRanger sensors must be connected via the I2C bus.
 
 While TeraRanger One requires an [I2C adapter](https://www.terabee.com/shop/accessories/i2c-adapter-for-teraranger-one/) any sensor from TeraRanger Evo series can be connected directly to the autopilot.
 
-## Software Configuration
+## 软件配置
 
 The sensors are enabled using the parameter [SENS_EN_TRANGER](../advanced_config/parameter_reference.md#SENS_EN_TRANGER) (you can set the type of sensor or that PX4 should auto-detect the type).
 
@@ -30,6 +30,6 @@ The sensors are enabled using the parameter [SENS_EN_TRANGER](../advanced_config
 > 
 > **Tip** The driver for this rangefinder is usually present in firmware. If missing, you would also need to add the driver (`drivers/ll40ls`) to the board configuration.
 
-## Further Information
+## 更多信息
 
 * [Modules Reference: Distance Sensor (Driver) : teraranger](../modules/modules_driver_distance_sensor.md#teraranger) (PX4 Dev Guide)
