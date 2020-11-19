@@ -1,6 +1,6 @@
 # Cube Yellow Flight Controller
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://cubepilot.org/#/home) for hardware support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://cubepilot.org/#/home)。
 
 The [Cube Yellow](http://www.proficnc.com/61-system-kits2) flight controller is a flexible autopilot intended primarily for manufacturers of commercial systems.
 
@@ -15,7 +15,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 <span></span>
 > **Note** This flight controller is [manufacturer supported](../flight_controller/autopilot_manufacturer_supported.md).
 
-## Key Features
+## 主要特性
 
 * 32bit STM32F777VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7), 400 MHz, Flash 2MB, RAM 512 KB).
 * 32 bit STM32F103 failsafe co-processor <!-- check -->
@@ -30,17 +30,17 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
 * microSD card for high-rate logging over extended periods of time
 
 <span id="stores"></span>
-## Where to Buy
+## 在哪里买
 
 * [The Cube](http://www.proficnc.com/61-system-kits) (ProfiCNC)
 
-## Assembly
+## 组装
 
-[Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+[Cube 快速接线指南](../assembly/quick_start_cube.md)
 
-## Specifications
+## 产品规格
 
-* **Processor:**
+* **处理器:**
   * STM32F777VI (32bit [ARM Cortex M7](https://en.wikipedia.org/wiki/ARM_Cortex-M#Cortex-M7))
   * 400 MHz
   * 512 KB MB RAM
@@ -65,10 +65,10 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
     * Input voltage: 4.1V - 5.7V
     * Rated input current: 2.5A
     * Rated input/output power: 14W
-* **Dimensions:**
+* **尺寸:**
   - **Cube:** 38.25mm x 38.25mm x 22.3mm
   - **Carrier:** 94.5mm x 44.3mm x 17.3mm
-* **Interfaces**
+* **接口**
   * IO Ports: 14 PWM servo outputs (8 from IO, 6 from FMU)
   * 5x UART (serial ports), one high-power capable, 2x with HW flow control
   * 2x CAN (one with internal 3.3V transceiver, one on expansion connector)
@@ -82,7 +82,7 @@ Cube includes vibration isolation on two of the IMU's, with a third fixed IMU as
   * 3.3v ADC input
   * Internal microUSB port and external microUSB port extension
 
-## Pinouts and Schematics
+## 引脚和原理图
 
 Board schematics and other documentation can be found here: [The Cube Project](https://github.com/proficnc/The-Cube).
 
@@ -96,7 +96,7 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                                     |
+| UART   | 设备         | Port                                     |
 | ------ | ---------- | ---------------------------------------- |
 | USART1 | /dev/ttyS0 | <!-- # IO DEBUG:/dev/ttyS0 -->
 |
@@ -121,11 +121,11 @@ Board schematics and other documentation can be found here: [The Cube Project](h
 ![Cube USB/SDCard Ports](../../assets/flight_controller/cube/cube_ports_usb_sdcard.jpg)
 
 
-## Building Firmware
+## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 ```
 make cubepilot_cubeyellow
 ```
@@ -136,7 +136,7 @@ CAN1 and CAN2 silk screen on the Cube are flipped (CAN1 is CAN2 and vice versa).
 
 ## Further Information/Documentation
 
-- [Cube Wiring Quickstart](../assembly/quick_start_cube.md)
+- [Cube 快速接线指南](../assembly/quick_start_cube.md)
 - Cube Docs (Manufacturer):
   - [Cube Module Overview](https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview)
   - [Cube User Manual](https://docs.cubepilot.org/user-guides/autopilot/the-cube-user-manual)
