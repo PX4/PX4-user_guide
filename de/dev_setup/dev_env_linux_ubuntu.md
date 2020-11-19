@@ -158,7 +158,7 @@ Note:
 
 ## Snapdragon Flight
 
-Setup instructions for Snapdragon Flight are provided in the *PX4 User Guide*:
+Setup instructions for *Snapdragon Flight* are provided in the flight controller pages:
 * [Development Environment](../flight_controller/snapdragon_flight_dev_environment_installation.md)
 * [Software Installation](../flight_controller/snapdragon_flight_software_installation.md)
 * [Configuration](../flight_controller/snapdragon_flight_configuration.md)
