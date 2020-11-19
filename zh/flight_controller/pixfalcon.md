@@ -1,6 +1,6 @@
 # Pixfalcon Flight Controller (Discontinued)
 
-> **Warning** PX4 does not manufacture this (or any) autopilot. Contact the [manufacturer](https://shop.holybro.com/) for hardware support or compliance issues.
+> **Warning** PX4 不生产这款且也不生产任何自动驾驶仪。 若需要硬件支持或咨询合规问题，请联系 [制造商](https://shop.holybro.com/)。
 
 <span></span>
 
@@ -12,7 +12,7 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybr
 
 ## 总览
 
-* Main System-on-Chip: [STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
+* 主片上系统：[STM32F427](http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577/LN1789) 
   * CPU: 180 MHz ARM<sup>&reg;</sup> Cortex<sup>&reg;</sup> M4 with single-precision FPU
   * RAM: 256 KB SRAM (L1)
 * Failsafe System-on-Chip: STM32F100 
@@ -20,7 +20,7 @@ The Pixfalcon autopilot (designed by [Holybro<sup>&reg;</sup>](http://www.holybr
   * RAM: 8 KB SRAM
 * GPS: U-Blox<sup>&reg;</sup> M8 (bundled)
 
-### Connectivity
+### 连接性
 
 * 1x I2C
 * 2x UART (one for Telemetry / OSD, no flow control)
@@ -44,14 +44,14 @@ Optional hardware:
 
 ## 编译固件
 
-> **Tip** Most users will not need to build this firmware! It is pre-built and automatically installed by *QGroundControl* when appropriate hardware is connected.
+> **Tip** 大多数用户不需要构建此固件！ 它是预构建的，并在连接适当的硬件时由 *QGroundControl* 自动安装。
 
-To [build PX4](../dev_setup/building_px4.md) for this target:
+为此目标 [编译 PX4](../dev_setup/building_px4.md)：
 
     make px4_fmu-v2_default
     
 
-## Debug Port
+## Debug调试端口
 
 This board does not have a debug port (i.e it does not have a port for accessing the [System Console](../debug/system_console.md) or the [SWD interface](../debug/swd_debug.md) (JTAG).
 
@@ -59,12 +59,12 @@ Developers will need to solder wires to the board test pads for SWD, and to the 
 
 ## Serial Port Mapping
 
-| UART   | Device     | Port                     |
+| UART   | 设备         | Port                     |
 | ------ | ---------- | ------------------------ |
 | UART1  | /dev/ttyS0 | IO Debug                 |
 | USART2 | /dev/ttyS1 | TELEM1 (No flow control) |
 | UART4  | /dev/ttyS2 | GPS                      |
 
-## Key Links
+## 主链接
 
-* [User Manual](http://www.holybro.com/manual/pixfalcon11.pdf)
+* [用户手册](http://www.holybro.com/manual/pixfalcon11.pdf)
