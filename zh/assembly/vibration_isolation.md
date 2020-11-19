@@ -1,10 +1,10 @@
-# Vibration Isolation
+# 震动隔离
 
 This topic shows how to determine whether vibration levels are too high, and lists some simple steps to improve vibration characteristics.
 
-## Overview
+## 综述
 
-Flight Control boards with in-built accelerometers or gyros are sensitive to vibrations. High vibration levels can cause a range of problems, including reduced flight efficiency/performance, shorter flight times and increased vehicle wear-and-tear. In extreme cases vibration may lead to sensor clipping/failures, possibly resulting in estimation failures and fly-aways.
+飞控板载的加速度计和陀螺仪对振动很敏感。 High vibration levels can cause a range of problems, including reduced flight efficiency/performance, shorter flight times and increased vehicle wear-and-tear. In extreme cases vibration may lead to sensor clipping/failures, possibly resulting in estimation failures and fly-aways.
 
 Well-designed airframes damp/reduce the amplitude of specific structural resonances at the autopilot mounting location. Further isolation may be needed in order to reduce vibration to the level that sensitive components can handle (e.g. some flight controllers must be attached to the airframe using some form of anti-vibration foam/mount - while others are internally isolated).
 
@@ -17,10 +17,10 @@ Well-designed airframes damp/reduce the amplitude of specific structural resonan
 A few of simple steps that may reduce vibrations are:
 
 - Make sure everything is firmly attached on the vehicle (landing gear, GPS mast, etc.).
-- Use balanced propellers.
-- Make sure to use high-quality components for the propellers, motors, ESC and airframe. Each of these components can make a big difference.
-- Use a vibration-isolation method to mount the autopilot. Many flight controllers come with *mounting foam* that you can use for this purpose, while others have inbuilt vibration-isolation mechanisms.
-- As a *last* measure, adjust the software filters (see [here](../config_mc/racer_setup.md#filters)). It is better to reduce the source of vibrations, rather than filtering them out in software.
+- 使用平衡螺旋桨。
+- 确保使用高质量的螺旋桨、发动机、ESC 和机身。 这些组成部分中的每一个都有很大的不同。
+- 使用隔振方法安装自动驾驶仪。 Many flight controllers come with *mounting foam* that you can use for this purpose, while others have inbuilt vibration-isolation mechanisms.
+- *最后* 一个措施，调整软件过滤器 (见[ 这里](../config_mc/racer_setup.md#filters))。 最好是减少振动源，而不是在软件中过滤。
 
 ## References
 
