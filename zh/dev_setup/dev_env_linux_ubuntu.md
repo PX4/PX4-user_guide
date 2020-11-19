@@ -3,12 +3,12 @@
 [Ubuntu linux lts](https://wiki.ubuntu.com/LTS)（16.04）是标准的/首选的 Linux 开发操作系统。 Linux允许您构建[所有PX4目标](../setup/dev_env.md#supported-targets)（基于NuttX的硬件、高通骁龙飞控硬件、基于Linux的硬件、仿真、ROS）。
 
 以下说明说明了如何 *手动* 设置每个受支持的目标的开发环境。
-- **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)**: Installs [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx) tools. Does not include dependencies for [FastRTPS](#fast_rtps). <!-- NEED px4_version -->
+- **[ubuntu.sh](https://github.com/PX4/PX4-Autopilot/blob/master/Tools/setup/ubuntu.sh)**: Installs [Gazebo 9](../simulation/gazebo.md) and [jMAVSim](../simulation/jmavsim.md) simulators and/or [NuttX/Pixhawk](../dev_setup/building_px4.md#nuttx) tools. 不包含[FastRTPS](#fast_rtps)所依赖的工具。 <!-- NEED px4_version -->
 - **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim.sh" target="_blank" download>ubuntu_sim.sh</a>**: **ubuntu_sim_common_deps.sh** + [Gazebo8](#gazebo) 模拟器。 <!-- NEED px4_version -->
 
 > **Tip** 该脚本已经在全新Ubuntu 16.04安装测试通过。 如果安装在除上述提到的系统或其他Ubuntu版本上，则它们*可能*无法正常工作。
 
-The instructions below explain how to download and use the scripts.
+本说明将在下面解释如何下载并使用这些脚本。
 
 <a id="sim_nuttx"></a>
 
@@ -26,16 +26,16 @@ The instructions below explain how to download and use the scripts.
    ```bash
    bash ./Tools/setup/ubuntu.sh
    ```
-   - Acknowledge any prompts as the script progress.
-   - You can use the `--no-nuttx` and `--no-sim-tools` to omit the nuttx and/or simulation tools.
-1. Restart the computer on completion.
+   - 在安装过程中确认并通过所有的提示。
+   - 你可以通过传输参数`--no-nuttx` 和 `--no-sim-tools` 来跳过 nuttx 和/或 仿真器工具的安装。
+1. 完成后重新启动计算机。
 
 > **Tip** 在设置构建/模拟工具链之后，有关其他有用工具的信息，请参阅 [附加工具](../setup/generic_dev_tools.md)。
 
 用户应先加入组 ”dialout“：
 - ** Note** PX4兼容Gazebo7、8和9。 上面的 [安装说明](http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install) 是关于安装 Gazebo 9 的。
 - **Note** 如果您要使用 ros，请按照以下部分中的 [ROS/Gazebo](#rosgazebo) 说明操作（这些操作将自动安装 gazebo，作为 ros 安装的一部分）。
-- You can verify the the NuttX installation by confirming the gcc version as shown:
+- 你可以通过确认gcc的版本来验证Nuttx的安装：
   ```bash
    $arm-none-eabi-gcc --version
 
@@ -133,16 +133,16 @@ make
 
 ## ROS/Gazebo
 
-This section explains how to install [ROS/Gazebo](../ros/README.md) ("Melodic") for use with PX4.
+本节解释如何安装 [ROS/Gazebo](../ros/README.md) ("Melodic") 以便与PX4一起使用。
 
-To install the development toolchain:
+安装开发工具链:
 
 1. **<a href="https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_gazebo.sh" target="_blank" download>ubuntu_sim_ros_gazebo.sh</a>**: **ubuntu_sim_common_deps.sh** + [ROS/Gazebo and MAVROS](#rosgazebo). <!-- NEED px4_version -->
    1. 下载脚本
    ```bash
    ROS Gazebo: http://wiki.ros.org/kinetic/Installation/Ubuntu
    ```
-   You may need to acknowledge some prompts as the script progresses.
+   随着脚本的运行，可能需要确认一些提示。
 
 ```sh
 * ROS Kinetic 默认与 Gazebo 7 一起安装（为了简化 ROS 的开发，我们使用的默认而不是 Gazebo 8）。
