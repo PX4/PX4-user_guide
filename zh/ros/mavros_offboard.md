@@ -198,6 +198,6 @@ while(ros::ok()){
         rate.sleep();
 }
 ```
-剩下的代码都比较容易自学。 We attempt to switch to *Offboard* mode, after which we arm the quad to allow it to fly. We space out the service calls by 5 seconds so to not flood the autopilot with the requests. In the same loop, we continue sending the requested pose at the appropriate rate.
+剩下的代码都比较容易自学。 We attempt to switch to *Offboard* mode, after which we arm the quad to allow it to fly. 我们每隔五秒去检查一下与飞控的连接等是否一切正常。 在同一个循环中，我们按照指定的频率持续发送期望点信息给飞控。
 
 > **提示** 为了说明使用方法，我们提供这段十分间断的示例代码。 在一个复杂的系统中，通常需要创建新的进程来负责周期性的发送位置期望点给飞控。
