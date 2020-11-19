@@ -1,15 +1,15 @@
-# Complete Vehicles
+# 整机
 
 This section contains information about complete vehicles that run PX4.
 
 > **Note** This is a small subset of vehicles that can run PX4. You can find others on [px4.io](https://px4.io/ecosystem/commercial-systems/) and in the [Airframes Reference](../airframes/airframe_reference.md).
 
 - Consumer drones run PX4 natively/"out of the box": 
-  - Multicopter 
+  - 多旋翼 
     - [Teal One](https://tealdrones.com/teal-one/)
     - [NXP HoverGames KIT-HGDRONEK66](https://www.nxp.com/KIT-HGDRONEK66) ([hovergames.com](https://www.hovergames.com/))
     - [ModalAI m500](https://modalai.com/products/voxl-m500)
-  - VTOL 
+  - 垂直起降 
     - [Vertical Technologies DeltaQuad](https://px4.io/portfolio/deltaquad-vtol/)
 
 - Consumer drones that can be updated to run PX4 (from other flight stacks):
@@ -19,16 +19,16 @@ This section contains information about complete vehicles that run PX4.
 
 - Consumer drones run a custom version of PX4 (supported by their vendors):
   
-  - Multicopter 
+  - 多旋翼 
     - [Yuneec Typhoon H Plus](https://us.yuneec.com/typhoon-h-plus)
     - [Yuneec Mantis Q](https://px4.io/portfolio/yuneec-mantis-q/)
     - [Yuneec H520](https://px4.io/portfolio/yuneec-h520-hexacopter/)
     - [Airlango Mystic](http://airlango.com/products/)
     - [Airdog II](https://px4.io/portfolio/airdog-ii/)
     - [AeroSense Aerobo (AS-MC02-P)](https://px4.io/portfolio/aerosense-aerobo/)
-  - Fixed Wing: 
+  - 固定翼: 
     - [Sentera PXH](https://px4.io/portfolio/sentera-phx/)
-  - VTOL 
+  - 垂直起降 
     - [WingtraOne Tailsitter VTOL](https://px4.io/portfolio/wingtraone-tailsitter-vtol/)
     - [Flightwave Edge](https://px4.io/portfolio/flywave-edge/)
 - Drone Development Kits 
